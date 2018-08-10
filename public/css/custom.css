@@ -1,0 +1,11 @@
+.title_home_tablet{
+    white-space: nowrap;
+    max-width: 230px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.btn-upload{
+    margin-left: 20px;
+    margin-top: 20px!important;
+    margin-bottom: 20px!important;
+}
