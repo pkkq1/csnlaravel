@@ -84,7 +84,6 @@
             <div class="col-md-9">
                 <div class="box_playlist border-0">
                     <h3 class="title">UPLOAD ARTIST</h3>
-                    <img src="{{ Storage::files('AAA13_org.jpg')}}"></img>
                 </div>
                 <div class="card card_playlist">
                     <div class="card-body">
