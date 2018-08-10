@@ -246,8 +246,8 @@ class Helpers
         $data = str_replace('data:image/png;base64,', '', $data);
         $data = str_replace(' ', '+', $data);
         $data = base64_decode($data);
-        $pathSave = $path . ($fileName ?? rand() . '_' . time(). '.png');
-        dd(storage_path());
+        $pathSave = storage_path() . '\public' . $path . ($fileName ?? rand() . '_' . time(). '.png');
+        dd($pathSave);
         file_put_contents($pathSave, $data);
         return $pathSave;
     }

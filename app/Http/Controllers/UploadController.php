@@ -27,12 +27,6 @@ class UploadController extends Controller
     }
     public function storeArtist(Request $request) {
         $artist = new ArtistUploadModel();
-
-
-        $imagePath = $request->file('choose_artist_avatar')->store('public');
-
-        dd($imagePath);
-
         Helpers::saveBase64Image($request->input('artist_avatar'), AVATAR_ARTIST_CROP_PATH);
 
         dd(1);
