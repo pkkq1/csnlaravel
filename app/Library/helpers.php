@@ -242,16 +242,21 @@ class Helpers
             return $url . MUSIC_THUMBNAIL_PATH . ceil($music_id / 1000) . '/' . $music_id . '.jpg';
         }
     }
-    public static function saveBase64Image($data, $path, $fileName = null) {
+    public static function saveBase64Image($data, $path, $fileName = null, $type = 'png')
+    {
         $data = str_replace('data:image/png;base64,', '', $data);
         $data = str_replace(' ', '+', $data);
         $data = base64_decode($data);
-        $pathSave = storage_path() . '\public' . $path . ($fileName ?? rand() . '_' . time(). '.png');
-        dd($pathSave);
-        file_put_contents($pathSave, $data);
-        return $pathSave;
+        $fileName = ($fileName ?? rand() . '_' . time()) . '.' .$type;
+        Storage::put('public' . $path . $fileName, $data);
+        return $fileName;
     }
-    public static function copySourceImage($source, $path, $fileName) {
 
+    public static function copySourceImage($data, $path, $fileName = null, $type = 'png')
+    {
+        $data->storeAs(
+            'public' . $path, $fileName . '.' .$type
+        );
+        return $fileName;
     }
 }

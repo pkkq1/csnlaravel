@@ -97,7 +97,8 @@
                 <address class="m-0">
                     <div>Công ty Cổ phần giải trí Yêu Ca Hát</div>
                     <div>Giấy phép MXH số 337/GP-BTTTT do Bộ TT&TT cấp ngày 22/06/2016</div>
-                    <div>Page generation time: 0,113s - GZIP enabled - Debug on</div>
+                    <?php global $startTime; ?>
+                    <div>Page generation time: {{ number_format(microtime(true) - $startTime, 3) }} seconds</div>
                 </address>
             </div>
             <div class="col-3">

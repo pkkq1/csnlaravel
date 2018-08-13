@@ -85,33 +85,48 @@
                 <div class="box_playlist border-0">
                     <h3 class="title">UPLOAD ARTIST</h3>
                 </div>
+                @if(isset($result))
+                <div class="alert alert-success">
+                    <strong>Success!</strong> Tạo Thành công artist {{ $result->artist_nickname }}
+                </div>
+                @endif
                 <div class="card card_playlist">
                     <div class="card-body">
-                        <form action="/upload/store_artist" method="post" accept-charset="utf-8">
+                        <form action="/upload/store_artist" method="post" accept-charset="utf-8" enctype="multipart/form-data">
                             <div class="row">
                                 <div class="col-md-9">
-                                    <div class="form-group row">
+                                    <div class="form-group row{{ $errors->has('artist_nickname') ? ' has-error' : '' }}">
                                         <label for="artist_nickname" class="col-sm-4 col-form-label">Nghệ Danh</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="artist_nickname" name="artist_nickname" placeholder="Blooming Days - The 2nd Mini Album">
+                                            <input type="text" class="form-control" value="{{ old('artist_nickname') }}" id="artist_nickname" name="artist_nickname" placeholder="Blooming Days - The 2nd Mini Album">
+                                            @if ($errors->has('artist_nickname'))
+                                                <span class="help-block">
+                                                    <strong>{{ $errors->first('artist_nickname') }}</strong>
+                                                </span>
+                                            @endif
                                         </div>
                                     </div>
-                                    <div class="form-group row">
+                                    <div class="form-group row {{ $errors->has('artist_birthday') ? ' has-error' : '' }}">
                                         <label for="artist_birthday" class="col-sm-4 col-form-label">Ngày Sinh</label>
                                         <div class="col-sm-8">
-                                            <input type="date" name="artist_birthday" class="form-control" id="artist_birthday">
+                                            <input type="date" name="artist_birthday" class="form-control" value="{{ old('artist_birthday') }}" id="artist_birthday">
+                                            @if ($errors->has('artist_birthday'))
+                                                <span class="help-block">
+                                                    <strong>{{ $errors->first('artist_birthday') }}</strong>
+                                                </span>
+                                            @endif
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="artist_gender" class="col-sm-4 col-form-label">Giới Tính</label>
                                         <div class="col-sm-8">
                                             <select name="artist_gender" id="artist_gender" class="form-control">
-                                                <option>Nam</option>
-                                                <option>Nữ</option>
+                                                <option {{ (old('artist_gender') == 0 ? 'selected' : '') }} value="0">Nam</option>
+                                                <option {{ (old('artist_gender') == 1 ? 'selected' : '') }} value="1">Nữ</option>
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="form-group row">
+                                    <div class="form-group row {{ $errors->has('artist_avatar') ? ' has-error' : '' }}">
                                         <div class="col-sm-4 col-form-label">
                                             <label for="artist_avatar">Avatar</label> <br>
                                             <small>(Hình tối thiểu 500 x 500 pixels. Nếu nhỏ hơn sẽ bị mất hình và lấy hình mặc định của Chiasenhac)</small>
@@ -124,13 +139,18 @@
                                                         <label for="choose_artist_avatar">Chọn file ảnh</label>
                                                         <input type="file" class="form-control-file" name="choose_artist_avatar" id="choose_artist_avatar">
                                                         <input type="text" hidden name="artist_avatar" class="form-control-file" id="artist_avatar">
+                                                        @if ($errors->has('artist_avatar'))
+                                                            <span class="help-block">
+                                                                <strong>{{ $errors->first('artist_avatar') }}</strong>
+                                                            </span>
+                                                        @endif
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group row">
-                                        <div class="col-sm-4 col-form-label">
+                                    <div class="form-group row {{ $errors->has('artist_cover') ? ' has-error' : '' }}">
+                                        <div class="col-sm-4 col-form-label {{ $errors->has('artist_nickname') ? ' has-error' : '' }}">
                                             <label for="inputPassword">Cover</label> <br>
                                             <small>(Hình tối thiểu 1170 x 300 pixels. Nếu nhỏ hơn sẽ bị mất hình và lấy hình mặc định của Chiasenhac)</small>
                                         </div>
@@ -139,8 +159,14 @@
                                                 <img class="mr-3" id="artist_cover_uploaded" src="https://avatar-nct.nixcdn.com/playlist/2018/04/10/6/e/4/6/1523352297919.jpg" alt="">
                                                 <div class="media-body">
                                                     <div class="form-group">
-                                                        <label for="artist_cover">Chọn file ảnh</label>
-                                                        <input type="file" class="form-control-file" id="artist_cover">
+                                                        <label for="choose_artist_cover">Chọn file ảnh</label>
+                                                        <input type="file" class="form-control-file" name="choose_artist_cover" id="choose_artist_cover">
+                                                        <input type="text" hidden name="artist_cover" class="form-control-file" id="artist_cover">
+                                                        @if ($errors->has('artist_cover'))
+                                                            <span class="help-block">
+                                                                <strong>{{ $errors->first('artist_cover') }}</strong>
+                                                            </span>
+                                                        @endif
                                                     </div>
                                                 </div>
                                             </div>
@@ -156,7 +182,7 @@
                                         <label for="inputPassword" class="col-sm-4 col-form-label"></label>
                                         <div class="col-sm-8">
                                             <button type="submit" class="btn btn-primary btn-lg">Lưu</button>
-                                            <button type="button" class="btn btn-primary btn-lg">Xóa</button>
+                                            <button type="button" class="btn btn-primary btn-lg" onclick="return remove_artist();" >Xóa</button>
                                         </div>
                                     </div>
                                 </div>
@@ -206,25 +232,61 @@
         </div>
     </div>
     <script type="text/javascript" src="/js/croppie.js"></script>
-    <script>artist_avatar
+    <script>
         $(document).ready(function(){
+            var selectImage;
 
-            $image_crop = $('#image_demo').croppie({
-                enableExif: true,
-                viewport: {
-                    width:300,
-                    height:300,
-                    type:'square' //circle
-                },
-                boundary:{
-                    width:300,
-                    height:300
-                },
-                showZoomer: false,
-                enableOrientation: true,
-                mouseWheelZoom: '',
-            });
             $('#choose_artist_avatar').on('change', function(){
+                selectImage = 'avatar';
+                $('#image_demo').html('');
+                $('.modal-dialog').css("max-width", "500px")
+                $image_crop = $('#image_demo').croppie({
+                    enableExif: true,
+                    viewport: {
+                        width:300,
+                        height:300,
+                        type:'square' //circle
+                    },
+                    boundary:{
+                        width:300,
+                        height:300
+                    },
+                    showZoomer: false,
+                    enableOrientation: true,
+                    mouseWheelZoom: '',
+                });
+                var reader = new FileReader();
+                reader.onload = function (event) {
+                    $image_crop.croppie('bind', {
+                        url: event.target.result
+                    }).then(function(){
+                        console.log('jQuery bind complete');
+                    });
+                }
+                reader.readAsDataURL(this.files[0]);
+                $('#uploadimageModal').modal('show');
+            });
+
+            $('#choose_artist_cover').on('change', function(){
+                selectImage = 'cover';
+                $('#image_demo').html('');
+                $('.modal-dialog').css("max-width", "1200px")
+                $('#image_demo').html('');
+                $image_crop = $('#image_demo').croppie({
+                    enableExif: true,
+                    viewport: {
+                        width:1170,
+                        height:300,
+                        type:'square' //circle
+                    },
+                    boundary:{
+                        width:1170,
+                        height:300
+                    },
+                    showZoomer: false,
+                    enableOrientation: true,
+                    mouseWheelZoom: '',
+                });
                 var reader = new FileReader();
                 reader.onload = function (event) {
                     $image_crop.croppie('bind', {
@@ -242,11 +304,25 @@
                     size: 'viewport'
                 }).then(function (response) {
                     $('#uploadimageModal').modal('hide');
-                    $('#artist_avatar').val(response);
-                    $('#artist_avatar_uploaded').attr("src", response);
-                    // $("#uploadimageModal" ).val("");
+                    if(selectImage == 'avatar'){
+                        $('#artist_avatar').val(response);
+                        $('#artist_avatar_uploaded').attr("src", response);
+                    }else{
+                        $('#artist_cover').val(response);
+                        $('#artist_cover_uploaded').attr("src", response);
+                    }
                 })
             });
+
         });
+        function remove_artist() {
+            // inputs = document.getElementsByTagName('input');
+            inputs = $('form').find('input');
+            $.each( inputs, function( key, value ) {
+                value.value = "";
+            });
+            $('#artist_avatar_uploaded').attr("src", 'https://avatar-nct.nixcdn.com/playlist/2018/04/10/6/e/4/6/1523352297919.jpg');
+            $('#artist_cover_uploaded').attr("src", 'https://avatar-nct.nixcdn.com/playlist/2018/04/10/6/e/4/6/1523352297919.jpg');
+        }
     </script>
 @endsection

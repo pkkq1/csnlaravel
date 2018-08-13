@@ -1484,12 +1484,12 @@
     }
 
     function Croppie(element, opts) {
-        if (element.className.indexOf('croppie-container') > -1) {
-            throw new Error("Croppie: Can't initialize croppie more than once");
-        }
+        // if (element.className.indexOf('croppie-container') > -1) {
+        //     throw new Error("Croppie: Can't initialize croppie more than once");
+        // }
         this.element = element;
         this.options = deepExtend(clone(Croppie.defaults), opts);
-
+        console.log(this.options);
         if (this.element.tagName.toLowerCase() === 'img') {
             var origImage = this.element;
             addClass(origImage, 'cr-original-image');

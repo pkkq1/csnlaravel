@@ -13,7 +13,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        global $startTime;
+        $startTime = microtime(true);
     }
 
     /**
