@@ -8,7 +8,7 @@
         <div class="container">
             <div class="media user11">
                 <div class="media-left mr-4 align-self-center">
-                    <img src="https://scontent.fhan2-2.fna.fbcdn.net/v/t1.0-9/30656592_875212052650180_4881000052937457664_n.jpg?_nc_cat=0&oh=aabcaaa4646781829967f7a9fc069ad4&oe=5B579C42" alt="">
+                    <img src="https://scontent.fhan2-4.fna.fbcdn.net/v/t1.0-9/36063652_497737147312215_4042785808724262912_n.jpg?_nc_cat=0&oh=17c6d0fa7aa364c65001e00841474c29&oe=5BFCAFD9" alt="">
                 </div>
                 <div class="media-body align-self-center">
                     <h4 class="media-title">AnhTu220791</h4>
@@ -29,7 +29,7 @@
                     <div class="row">
                         <div class="col-md-3">
                             <div class="change_avatar">
-                                <img src="https://scontent.fhan2-2.fna.fbcdn.net/v/t1.0-9/30656592_875212052650180_4881000052937457664_n.jpg?_nc_cat=0&oh=aabcaaa4646781829967f7a9fc069ad4&oe=5B579C42" alt="">
+                                <img src="https://scontent.fhan2-4.fna.fbcdn.net/v/t1.0-9/36756842_506596209759642_5276681860770955264_n.jpg?_nc_cat=0&oh=09ecc0176189a5ab0bb568f9babe11bf&oe=5C114DBD" alt="">
                                 <div class="form-group">
                                     <label for="file_avarta"><i class="material-icons">photo_camera</i> Thay đổi ảnh đại diện</label>
                                     <input type="file" class="form-control-file" id="file_avarta">
@@ -321,6 +321,7 @@
             $.each( inputs, function( key, value ) {
                 value.value = "";
             });
+            $('.help-block').remove();
             $('#artist_avatar_uploaded').attr("src", 'https://avatar-nct.nixcdn.com/playlist/2018/04/10/6/e/4/6/1523352297919.jpg');
             $('#artist_cover_uploaded').attr("src", 'https://avatar-nct.nixcdn.com/playlist/2018/04/10/6/e/4/6/1523352297919.jpg');
         }

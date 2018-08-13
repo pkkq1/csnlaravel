@@ -207,17 +207,6 @@
                 <div id="bsmasthead-wrapper"></div><!-- Ad Tag-728x90 for Publisher chiasenhac - LAVA DIGITAL--><script src='https://pub.lavanetwork.net/sites/chiasenhac/chiasenhac_inpage_728x90.js'></script></div></div>
 
         <div class="m-left">
-
-            <div id="fb-root"></div>
-            <script>(function(d, s, id) {
-                    var js, fjs = d.getElementsByTagName(s)[0];
-                    if (d.getElementById(id)) return;
-                    js = d.createElement(s); js.id = id;
-                    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=419934814770318";
-                    fjs.parentNode.insertBefore(js, fjs);
-                }(document, 'script', 'facebook-jssdk'));</script>
-            <script language="JavaScript1.2" type="text/javascript" src="http://chiasenhac.vn/js/m91.js"></script>
-
             <div class="left-cm">
                 <div class="hotman">
                     <div class="b1"></div>

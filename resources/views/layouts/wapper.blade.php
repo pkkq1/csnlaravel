@@ -4,7 +4,7 @@
             <div class="container">
                 <div class="d-flex align-items-center justify-content-between">
                     <figure class="m-0">
-                        <a href="#" title="" class="logo">Chiasenhac.com</a>
+                        <a href="/" title="" class="logo">Chiasenhac.com</a>
                         <figcaption class="d-none">explanatory caption</figcaption>
                     </figure>
                     <form>
