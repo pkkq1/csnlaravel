@@ -321,6 +321,7 @@
             $.each( inputs, function( key, value ) {
                 value.value = "";
             });
+            $('form').find('.has-error').removeClass("has-error");
             $('.help-block').remove();
             $('#artist_avatar_uploaded').attr("src", 'https://avatar-nct.nixcdn.com/playlist/2018/04/10/6/e/4/6/1523352297919.jpg');
             $('#artist_cover_uploaded').attr("src", 'https://avatar-nct.nixcdn.com/playlist/2018/04/10/6/e/4/6/1523352297919.jpg');
