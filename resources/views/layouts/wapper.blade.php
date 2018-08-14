@@ -208,9 +208,9 @@
                         </div>
                     </form>
                     <ul class="list-inline m-0">
-                        <li class="list-inline-item"><a href="#" title="">Đăng nhập</a></li>
+                        <li class="list-inline-item"><a href="/login" title="Đăng nhập">Đăng nhập</a></li>
                         <li class="list-inline-item">/</li>
-                        <li class="list-inline-item"><a href="#" title="">Đăng ký</a></li>
+                        <li class="list-inline-item"><a href="/register" title="Đăng ký">Đăng ký</a></li>
                     </ul>
                 </div>
             </div>

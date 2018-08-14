@@ -85,14 +85,14 @@
                 <div class="box_playlist border-0">
                     <h3 class="title">UPLOAD ARTIST</h3>
                 </div>
-                @if(isset($result))
-                <div class="alert alert-success">
-                    <strong>Success!</strong> Tạo Thành công artist {{ $result->artist_nickname }}
-                </div>
+                @if ($message = Session::get('success'))
+                    <div class="alert alert-success">
+                        <strong>Success!</strong> {{ $message }}
+                    </div>
                 @endif
                 <div class="card card_playlist">
                     <div class="card-body">
-                        <form action="/upload/store_artist" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+                        <form action="/upload/artist" method="post" accept-charset="utf-8" enctype="multipart/form-data">
                             <div class="row">
                                 <div class="col-md-9">
                                     <div class="form-group row{{ $errors->has('artist_nickname') ? ' has-error' : '' }}">
@@ -176,6 +176,10 @@
                             </div>
                             <hr>
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <input type="hidden" name="artist_avatar_crop_x" id="artist_avatar_crop_x" value="">
+                            <input type="hidden" name="artist_avatar_crop_y" id="artist_avatar_crop_y" value="">
+                            <input type="hidden" name="artist_cover_crop_x" id="artist_cover_crop_x" value="">
+                            <input type="hidden" name="artist_cover_crop_y" id="artist_cover_crop_y" value="">
                             <div class="row">
                                 <div class="col-md-9">
                                     <div class="form-group row">
@@ -303,11 +307,20 @@
                     type: 'canvas',
                     size: 'viewport'
                 }).then(function (response) {
+                    const info = $image_crop.croppie('get');
+                    var top_left_x = info.points[0];
+                    var top_left_y = info.points[1];
+                    var bottom_right_x = info.points[2];
+                    var bottom_right_y = info.points[3];
                     $('#uploadimageModal').modal('hide');
                     if(selectImage == 'avatar'){
+                        $('#artist_avatar_crop_x').val('top_left:' + top_left_x + ';' + 'bottom_right:' + bottom_right_x);
+                        $('#artist_avatar_crop_y').val('top_left:' + top_left_y + ';' + 'bottom_right:' + bottom_right_y);
                         $('#artist_avatar').val(response);
                         $('#artist_avatar_uploaded').attr("src", response);
                     }else{
+                        $('#artist_cover_crop_x').val('top_left:' + top_left_x + ';' + 'bottom_right:' + bottom_right_x);
+                        $('#artist_cover_crop_y').val('top_left:' + top_left_y + ';' + 'bottom_right:' + top_left_y);
                         $('#artist_cover').val(response);
                         $('#artist_cover_uploaded').attr("src", response);
                     }
@@ -316,7 +329,6 @@
 
         });
         function remove_artist() {
-            // inputs = document.getElementsByTagName('input');
             inputs = $('form').find('input');
             $.each( inputs, function( key, value ) {
                 value.value = "";

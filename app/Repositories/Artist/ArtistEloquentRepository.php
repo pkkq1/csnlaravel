@@ -46,7 +46,9 @@ class ArtistEloquentRepository extends EloquentRepository implements ArtistRepos
      */
     public function createArtist(array $attributes)
     {
-        $result = $this->_model::create($attributes);
+        $attributes['last_update_time'] = strtotime(date('Y/m/d H:i:s'));
+        $attributes['last_edit_time'] = strtotime(date('Y/m/d H:i:s'));
+        $result = $this->_model::firstOrCreate($attributes);
         return $result;
     }
 
