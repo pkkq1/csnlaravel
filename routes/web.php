@@ -29,12 +29,12 @@ Auth::routes();
 Route::group(['middleware' => ['auth']], function() {
 
     // upload selector
-    Route::get('/upload/artist', ['as' => 'upload.createArtist', 'uses' => 'UploadController@createArtist']);
-    Route::post('/upload/artist', ['as' => 'upload.storeArtist', 'uses' => 'UploadController@storeArtist']);
-
-
-
-
+    Route::get('upload/artist', ['as' => 'upload.createArtist', 'uses' => 'UploadController@createArtist']);
+    Route::post('upload/artist', ['as' => 'upload.storeArtist', 'uses' => 'UploadController@storeArtist']);
+    Route::get('upload/music', ['as' => 'upload.createMusic', 'uses' => 'UploadController@createMusic']);
+    Route::post('upload/music', ['as' => 'upload.storeMusic', 'uses' => 'UploadController@storeMusic']);
+    Route::post('upload/file_music', ['as' => 'upload.fileMusic', 'uses' => 'UploadController@uploadFileMusic']);
+    Route::get('artist/search', ['as' => 'artist.gettermartist', 'uses' => 'ArtistController@getTermArtist']);
 
     Route::get('roles',['as'=>'roles.index','uses'=>'RoleController@index']);
     Route::get('roles/create',['as'=>'roles.create','uses'=>'RoleController@create']);

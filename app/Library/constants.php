@@ -12,6 +12,7 @@ define('LIMIT_HOME_MUSIC_NEW', 10);
 define('LIMIT_HOME_CAT_MUSIC', 10);
 define('LIMIT_HOME_UPLOADER_MUSIC', 10);
 define('LIMIT_HOME_ARTIST', 15);
+define('DEFAULT_ROOT_CACHE_MUSIC_PATH', $_SERVER['DOCUMENT_ROOT'].'/storage/data/cache_music');
 // ARTIST
 define('AVATAR_ARTIST_SOURCE_PATH', '/data/source_artist_avatar/');
 define('AVATAR_ARTIST_CROP_PATH', '/data/artist_avatar/');

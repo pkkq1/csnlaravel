@@ -259,4 +259,13 @@ class Helpers
         );
         return $fileName;
     }
+    public static function moveFile($source, $path, $fileName, $overWrite = false){
+        if (file_exists($path . '/' . $fileName) && !$overWrite) {
+            $fileName = '(' . time() . ')' . $fileName;
+            $source->move($path, $fileName);
+        } else {
+            $source->move($path, $fileName);
+        }
+        return $fileName;
+    }
 }

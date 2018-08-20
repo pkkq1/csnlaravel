@@ -1,4 +1,7 @@
 @section('hidden_wapper', true)
+<?php
+    $titleMeta = 'Đăng tải chia sẽ nhạc - ' . Config::get('constants.app.title');
+?>
 @extends('layouts.app')
 @section('content')
     <div class="container" style="margin-top: 20px;">
@@ -10,7 +13,7 @@
                 <div class="card card_playlist">
                     <div class="row">
                         <div class="col-md-12">
-                            <a href="upload.html" style="text-decoration: none;" title="">
+                            <a href="upload/music" style="text-decoration: none;" title="">
                                 <button id="btn_cloud_up"
                                         class="btn btn-outline-success my-2 my-sm-0 waves-effect waves-light btn-upload"
                                         type="button"><i class="material-icons">cloud_upload</i> Upload Music

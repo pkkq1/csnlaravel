@@ -35,18 +35,22 @@ class AuthFacebookController extends Controller
         // Get github's user infomation
         $user = Socialite::driver('facebook')->user();
         // Create user
-        $createdUser = User::firstOrNew([
-            'name' => $user->getName(),
-            'email' => $user->getEmail(),
-            'avatar' => $user->avatar_original,
-            'phone' => ''
-        ]);
-        UserSocialModel::firstOrNew([
-            'user_id' => $createdUser->id,
-            'app' => 'facebook',
-            'data' => json_encode($user)
-        ]);
-        Auth::login($createdUser);
+        $email = ($user->getEmail() ? $user->getEmail() : $user->getId() . '@chiasenhac.com');
+        $existUser = User::where('app_id', '=', $user->getId())->get();
+        if(!empty($existUser)) {
+            $existUser = User::firstOrCreate([
+                'name' => $user->getName(),
+                'email' => $email,
+                'user_avatar' => $user->avatar_original,
+                'app' => 'facebook',
+                'username' => $user->getId(),
+                'app_id' => $user->getId(),
+                'user_phone_number' => ''
+            ]);
+        }else{
+            $existUser = $existUser[0];
+        }
+        Auth::login($existUser);
         return redirect('/');
     }
 }

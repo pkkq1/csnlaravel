@@ -20,9 +20,12 @@ class UserModel extends Authenticatable
      *
      * @var array
      */
-    protected $table = 'users';
+    protected $table = 'csn_users';
+    protected $primaryKey = 'id';
     protected $fillable = [
-        'name', 'email', 'avatar', 'phone', 'password',
+        'user_active', 'username', 'password', 'user_identity', 'name', 'user_level', 'user_session_time', 'user_session_page', 'user_lastvisit',
+        'user_regdate', 'user_music', 'user_comments', 'user_money', 'user_money_upload', 'user_money_download', 'user_login_tries', 'user_last_login_try', 'user_allow_viewonline', 'user_avatar',
+        'email', 'user_phone_number', 'user_interests', 'user_actkey', 'user_birthday', 'user_gender', 'user_favourite', 'remember_token', 'app', 'app_id'
     ];
 
     /**

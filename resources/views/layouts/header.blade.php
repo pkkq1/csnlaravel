@@ -7,7 +7,7 @@
     {{--<link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">--}}
     <link rel="stylesheet" type="text/css" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/node_modules/owl.carousel/dist/assets/owl.carousel.min.css">
-    {{--<link rel="stylesheet" type="text/css" href="/node_modules/owl.carousel/dist/assets/owl.theme.default.min.css">--}}
+    <link rel="stylesheet" type="text/css" href="/node_modules/owl.carousel/dist/assets/owl.theme.default.min.css">
     {{--<link rel="stylesheet" type="text/css" href="/node_modules/slick-carousel/slick/slick.css">--}}
     {{--<link rel="stylesheet" type="text/css" href="/node_modules/slick-carousel/slick/slick-theme.css">--}}
     {{--<link rel="stylesheet" type="text/css" href="/node_modules/swiper/dist/css/swiper.css">--}}

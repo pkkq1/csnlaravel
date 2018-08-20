@@ -1,9 +1,9 @@
 <?php
-namespace App\Repositories\Artist;
+namespace App\Repositories\ArtistUpload;
 
 use App\Repositories\EloquentRepository;
 use DB;
-class ArtistEloquentRepository extends EloquentRepository implements ArtistRepositoryInterface
+class ArtistUploadEloquentRepository extends EloquentRepository implements ArtistUploadRepositoryInterface
 {
     /**
      * get model
@@ -11,7 +11,7 @@ class ArtistEloquentRepository extends EloquentRepository implements ArtistRepos
      */
     public function getModel()
     {
-        return \App\Models\ArtistModel::class;
+        return \App\Models\ArtistUploadModel::class;
     }
     /**
      * Get all posts only published
@@ -44,8 +44,11 @@ class ArtistEloquentRepository extends EloquentRepository implements ArtistRepos
      * Create
      * @return mixed
      */
-    public function searchArtist($term) {
-        $result = $this->_model->where('artist_nickname', 'like', '%' . $term . '%')->select('artist_id', 'artist_nickname')->get();
+    public function create(array $attributes)
+    {
+        $attributes['last_update_time'] = strtotime(date('Y/m/d H:i:s'));
+        $attributes['last_edit_time'] = strtotime(date('Y/m/d H:i:s'));
+        $result = $this->_model::firstOrCreate($attributes);
         return $result;
     }
 

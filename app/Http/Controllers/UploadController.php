@@ -9,21 +9,27 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request as Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\ArtistUploadModel;
 use App\Library\Helpers;
-use App\Repositories\Artist\ArtistEloquentRepository;
+use App\Repositories\ArtistUpload\ArtistUploadEloquentRepository;
+use App\Repositories\Music\MusicEloquentRepository;
 
 class UploadController extends Controller
 {
-    protected $artist_repository;
-    public function __construct(ArtistEloquentRepository $artist_repository) {
-        $this->artist_repository = $artist_repository;
+    protected $artistUploadRepository;
+    protected $musicRepository;
+    
+    public function __construct(ArtistUploadEloquentRepository $artistUploadRepository, MusicEloquentRepository $musicRepository) {
+        $this->artistUploadRepository = $artistUploadRepository;
+        $this->musicRepository = $musicRepository;
     }
     public function index() {
         return view('upload.index');
     }
     public function createArtist(Request $request) {
-        return view('upload.upload_artist', compact('result'));
+        return view('upload.upload_artist');
+    }
+    public function createMusic(Request $request) {
+        return view('upload.upload_music');
     }
     function storeArtist(Request $request) {
         $this->validate($request, [
@@ -49,7 +55,7 @@ class UploadController extends Controller
             'artist_cover_crop_x' => $request->input('artist_cover_crop_x'),
             'artist_cover_crop_y' => $request->input('artist_cover_crop_y')
         ];
-        $result = $this->artist_repository->createArtist($artist);
+        $result = $this->artistUploadRepository->create($artist);
         //save image
         $typeImageAvatar = array_last(explode('.', $_FILES['choose_artist_avatar']['name']));
         $typeImageCover = array_last(explode('.', $_FILES['choose_artist_cover']['name']));
@@ -61,5 +67,32 @@ class UploadController extends Controller
         $result->artist_cover = $fileNameCover;
         $result->save();
         return redirect()->route('upload.createArtist')->with('success', 'Tạo Thành công artist ' . $result->artist_nickname);
+    }
+    function uploadFileMusic(Request $request) {
+        $fileName = Helpers::moveFile($request->file('file'), DEFAULT_ROOT_CACHE_MUSIC_PATH, $_FILES['file']['name']);
+//        echo $fileName;
+        return response()->json([
+            'status' => true,
+            'message' => 'Upload Success',
+            'file_name' => $fileName,
+        ]);
+    }
+    public function storeMusic(Request $request) {
+//        dd($request->input('drop_files'));
+        $this->validate($request, [
+            'music_title' => 'required',
+            'artist_birthday' => 'required',
+            'artist_gender' => 'required',
+            'artist_avatar' => 'required',
+            'choose_artist_avatar' => 'required',
+            'artist_cover' => 'required',
+            'choose_artist_cover' => 'required',
+            'artist_avatar_crop_x' => 'required',
+            'artist_avatar_crop_y' => 'required',
+            'artist_cover_crop_x' => 'required',
+            'artist_cover_crop_y' => 'required'
+        ]);
+
+//        $this->musicRepository
     }
 }

@@ -33,7 +33,7 @@ global $top_artist_rows;
 @include('cache.def_home_cat_7_0')
 
 <div class="slide_home"
-     style="background: url('https://photo2.tinhte.vn/data/attachment-files/2018/04/4285400_cover_home_Intel_core_i9_laptop.jpg');">
+     style="background: url('/imgs/Slice-1.jpg');">
     <div class="container">
         <div class="owl-carousel owl-theme">
             <?php

@@ -1,26 +1,13 @@
 @section('hidden_wapper', true)
+<?php
+    $titleMeta = 'cập nhật nghệ sĩ mới - ' . Config::get('constants.app.title');
+?>
 @extends('layouts.app')
 @section('contentCSS')
     <link rel="stylesheet" type="text/css" href="/css/croppie.css">
 @endsection
 @section('content')
-    <div class="box_profile">
-        <div class="container">
-            <div class="media user11">
-                <div class="media-left mr-4 align-self-center">
-                    <img src="https://scontent.fhan2-4.fna.fbcdn.net/v/t1.0-9/36063652_497737147312215_4042785808724262912_n.jpg?_nc_cat=0&oh=17c6d0fa7aa364c65001e00841474c29&oe=5BFCAFD9" alt="">
-                </div>
-                <div class="media-body align-self-center">
-                    <h4 class="media-title">AnhTu220791</h4>
-                    <ul class="list-inline">
-                        <li class="list-inline-item"><b>193.085</b> <small>upload(17Gb)</small></li>
-                        <li class="list-inline-item"><b>193.085</b> <small>download</small></li>
-                    </ul>
-                    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target=".edit_profile">Chỉnh sửa <i class="material-icons">mode_edit</i></button>
-                </div>
-            </div>
-        </div>
-    </div>
+    @include('upload.box_profile', ['user' => 'data'])
     <div class="modal fade edit_profile" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
