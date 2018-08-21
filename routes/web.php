@@ -22,6 +22,11 @@ Route::get('/upload', ['as' => 'upload.index', 'uses' => 'UploadController@index
 Route::get('auth/facebook', 'Auth\AuthFacebookController@redirectToProvider');
 Route::get('auth/facebook/callback', 'Auth\AuthFacebookController@handleProviderCallback');
 
+// listen music
+Route::get('mp3/{cat}/{sub}/{musicUrl}.html', 'MusicController@listenMusic');
+Route::get('mp3/{cat}/{sub}/{musicUrl}', 'MusicController@listenMusic');
+
+
 
 Auth::routes();
 

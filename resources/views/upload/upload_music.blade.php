@@ -6,6 +6,9 @@ $titleMeta = 'Cập nhật nhạc mới - ' . Config::get('constants.app.title')
     <link rel="stylesheet" type="text/css" href="/css/dropzone.css">
     <link rel="stylesheet" type="text/css" href="/css/bootstrap-tagsinput.css">
     <link rel="stylesheet" type="text/css" href="/css/typeaheadjs.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/token-input.css">
+    <link rel="stylesheet" type="text/css" href="/css/token-input-facebook.css">
 @endsection
 @extends('layouts.app')
 @section('content')
@@ -21,15 +24,29 @@ $titleMeta = 'Cập nhật nhạc mới - ' . Config::get('constants.app.title')
                         <a class="nav-link" id="upload_album-tab" data-toggle="tab" href="#upload_album" role="tab" aria-controls="upload_album" aria-selected="false">upload album</a>
                     </li>
                 </ul>
+                @if ($message = Session::get('success'))
+                    <div class="alert alert-success">
+                        <strong>Success!</strong> {{ $message }}
+                    </div>
+                @endif
                 <div class="tab-content upload-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="upload_lyric" role="tabpanel" aria-labelledby="upload_lyric-tab">
-
-                        <div class="box_upload_file d-flex align-items-center justify-content-center">
-                            <form action="/upload/file_music" class="dropzone box_process" enctype="multipart/form-data">
-                                <h5 class="count_file_music" style="text-align: left;"></h5>
-                                <div class="form-group m-0 fallback"><label for="upload_lyric_file" class="text-center"><img src="/imgs/ copy.png" alt=""><h3 class="title">Chọn file để upload</h3><small>Bạn có thể kéo và thả file vào đây</small><input name="file" type="file" multiple /></label><input type="file" class="form-control-file" id="upload_lyric_file"></div>
+                        <div class="box_upload_file d-flex align-items-center justify-content-center{{ $errors->has('drop_files') ? ' has-error-drop-file' : '' }}" >
+                            <form action="/upload/file_music" class="box_process{{ $errors->has('drop_html') ? '' : ' dropzone' }}" enctype="multipart/form-data">
+                                @if(old('drop_html'))
+                                    <?php echo old('drop_html'); ?>
+                                @else
+                                    <h5 class="count_file_music" style="text-align: left;"></h5>
+                                    <div class="form-group m-0 fallback"><label for="upload_lyric_file" class="text-center"><img src="/imgs/ copy.png" alt=""><h3 class="title">Chọn file để upload</h3><small>Bạn có thể kéo và thả file vào đây</small><input name="file" type="file" multiple /></label><input type="file" class="form-control-file" id="upload_lyric_file"></div>
+                                @endif
                             </form>
+
                         </div>
+                        @if ($errors->has('drop_files'))
+                            <span class="help-block" style="color: #ff4e55;">
+                                    <strong>{{ $errors->first('drop_files') }}</strong>
+                                </span>
+                        @endif
                         <hr>
                         <form action="/upload/music" method="post" class="form_music has_drop_file" accept-charset="utf-8" enctype="multipart/form-data">
                             <div class="row row10px">
@@ -49,7 +66,8 @@ $titleMeta = 'Cập nhật nhạc mới - ' . Config::get('constants.app.title')
                                         </div>
                                         <div class="form-group music_artist col-12{{ $errors->has('music_artist') ? ' has-error' : '' }}">
                                             <label for="music_artist">Ca sĩ</label>
-                                            <input type="text" class="form-control" name="music_artist" value="{{ old('music_artist') }}" id="music_artist" placeholder="">
+                                            <input type="text" class="form-control" name="music_artist_id" value="{{ old('music_artist_id') }}" id="music_artist_id">
+                                            <input type="hidden" class="form-control" name="music_artist" value="{{ old('music_artist') }}" id="music_artist" placeholder="Nhập tên ca sĩ">
                                             @if ($errors->has('music_artist'))
                                                 <span class="help-block">
                                                     <strong>{{ $errors->first('music_artist') }}</strong>
@@ -58,7 +76,7 @@ $titleMeta = 'Cập nhật nhạc mới - ' . Config::get('constants.app.title')
                                         </div>
                                         <div class="form-group col-12{{ $errors->has('music_composer') ? ' has-error' : '' }}">
                                             <label for="music_composer">Sáng tác</label>
-                                            <input type="email" class="form-control" name="music_composer" id="music_composer" placeholder="">
+                                            <input type="text" class="form-control" name="music_composer" id="music_composer" placeholder="">
                                             @if ($errors->has('music_composer'))
                                                 <span class="help-block">
                                                     <strong>{{ $errors->first('music_composer') }}</strong>
@@ -67,69 +85,91 @@ $titleMeta = 'Cập nhật nhạc mới - ' . Config::get('constants.app.title')
                                         </div>
                                         <div class="form-group col-4{{ $errors->has('music_production') ? ' has-error' : '' }}">
                                             <label for="music_production">Hãng sản xuất</label>
-                                            <input type="email" class="form-control" name="music_production" id="music_composer" placeholder="">
+                                            <input type="text" class="form-control" name="music_production" id="music_composer" placeholder="">
                                             @if ($errors->has('music_production'))
                                                 <span class="help-block">
                                                     <strong>{{ $errors->first('music_production') }}</strong>
                                                 </span>
                                             @endif
                                         </div>
-                                        <div class="form-group col-4{{ $errors->has('album_id') ? ' has-error' : '' }}">
-                                            <label for="album_id">Hãng đĩa</label>
-                                            <input type="email" class="form-control" name="album_id" id="album_id" placeholder="">
-                                            @if ($errors->has('album_id'))
+                                        <div class="form-group col-4{{ $errors->has('music_album_id') ? ' has-error' : '' }}">
+                                            <label for="music_album_id">Hãng đĩa</label>
+                                            <input type="text" class="form-control" name="music_album_id" id="music_album_id" placeholder="">
+                                            @if ($errors->has('music_album_id'))
                                                 <span class="help-block">
-                                                    <strong>{{ $errors->first('album_id') }}</strong>
+                                                    <strong>{{ $errors->first('music_album_id') }}</strong>
                                                 </span>
                                             @endif
                                         </div>
                                         <div class="form-group col-4{{ $errors->has('music_year') ? ' has-error' : '' }}">
                                             <label for="music_year">Năm phát hành</label>
-                                            <input type="email" class="form-control" name="music_year" id="music_year" placeholder="">
+                                            <input type="text" class="form-control" name="music_year" id="music_year" placeholder="">
                                             @if ($errors->has('music_year'))
                                                 <span class="help-block">
                                                     <strong>{{ $errors->first('music_year') }}</strong>
                                                 </span>
                                             @endif
                                         </div>
-                                        <div class="form-group col-3">
+                                        <div class="form-group col-3{{ $errors->has('cat_id') ? ' has-error' : '' }}">
                                             <label for="cat_id">Chuyên mục</label>
-                                            <select class="form-control" name="cat_id" id="cat_id">
-                                                <option>Nhạc Việt Nam</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
+                                            <select class="form-control" name="cat_id" id="cat_id" onchange="cat_level_reload(this.value);">
+                                                <option value="2">Beat, Playback</option>
+                                                <option value="3">Nhạc Việt Nam</option>
+                                                <option value="4">Nhạc US-UK</option>
+                                                <option value="5">Nhạc Hoa</option>
+                                                <option value="6">Nhạc Hàn</option>
+                                                <option value="7">Nhạc Nhật</option>
+                                                <option value="8">Nhạc Pháp</option>
+                                                <option value="9">Nhạc nước khác</option>
                                             </select>
+                                            @if ($errors->has('cat_id'))
+                                                <span class="help-block">
+                                                    <strong>{{ $errors->first('cat_id') }}</strong>
+                                                </span>
+                                            @endif
                                         </div>
-                                        <div class="form-group col-3">
+                                        <div class="form-group col-3{{ $errors->has('cat_level') ? ' has-error' : '' }}">
                                             <label for="cat_level" style="opacity: 0;">csn</label>
-                                            <select class="form-control" name="cat_level" id="cat_level">
-                                                <option>Nhạc pop, rock…</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
+                                            <select class="form-control" name="cat_level" id="cat_level" onchange="cat_sublevel_reload(this.value);">
+                                                <option value="1">Nhạc pop, rock...</option>
+                                                <option value="2">Nhạc rap, hiphop</option>
+                                                <option value="3">Nhạc dance, remix</option>
+                                                <option value="4">Nhạc truyền thống</option>
                                             </select>
+                                            @if ($errors->has('cat_level'))
+                                                <span class="help-block">
+                                                    <strong>{{ $errors->first('cat_id') }}</strong>
+                                                </span>
+                                            @endif
                                         </div>
-                                        <div class="form-group col-3">
+                                        <div class="form-group col-3{{ $errors->has('cat_sublevel') ? ' has-error' : '' }}">
                                             <label for="cat_sublevel" style="opacity: 0;">csn</label>
                                             <select class="form-control" name="cat_sublevel" id="cat_sublevel">
-                                                <option>Nhạc trẻ</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
+                                                <option value="1">Nhạc trẻ</option>
+                                                <option value="2">Nhạc rock</option>
+                                                <option value="3">Thiếu nhi</option>
+                                                <option value="4">Trữ tình</option>
+                                                <option value="7">Nhạc chế</option>
                                             </select>
+                                            @if ($errors->has('cat_sublevel'))
+                                                <span class="help-block">
+                                                    <strong>{{ $errors->first('cat_id') }}</strong>
+                                                </span>
+                                            @endif
                                         </div>
                                         <div class="form-group col-3">
                                             <label for="cat_custom" style="opacity: 0;">csn</label>
                                             <select class="form-control" name="cat_custom" id="cat_custom">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
+                                                <option value="0">---</option>
+                                                <option value="1">Giáng sinh</option>
+                                                <option value="2">Năm mới</option>
+                                                <option value="3">Nhà giáo VN</option>
+                                                <option value="6">Hát Live</option>
+                                                <option value="4">Phụ nữ</option>
+                                                <option value="5">Bóng đá</option>
+                                                <option value="7">Nhạc chế</option>
+                                                <option value="8">Ca sĩ mới</option>
+                                                <option value="9">Bonus track</option>
                                             </select>
                                         </div>
                                         <div class="form-group col-12{{ $errors->has('music_lyric') ? ' has-error' : '' }}">
@@ -150,7 +190,7 @@ $titleMeta = 'Cập nhật nhạc mới - ' . Config::get('constants.app.title')
                                                 <label for="music_source_url" class="m-0">Full link nguồn dowload</label>
                                                 <small>Yêu cầu bắt buộc khi upload nhạc lossless</small>
                                             </div>
-                                            <input type="email" class="form-control" name="music_source_url" id="music_source_url" placeholder="">
+                                            <input type="text" class="form-control" name="music_source_url" id="music_source_url" placeholder="">
                                             @if ($errors->has('music_source_url'))
                                                 <span class="help-block">
                                                     <strong>{{ $errors->first('music_source_url') }}</strong>
@@ -158,7 +198,8 @@ $titleMeta = 'Cập nhật nhạc mới - ' . Config::get('constants.app.title')
                                             @endif
                                         </div>
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                        <input type="hidden" name="drop_files" class="drop_files" value="">
+                                        <input type="hidden" name="drop_files" class="drop_files" value="{{old('drop_files')}}">
+                                        <input type="hidden" name="drop_html" class="drop_html" value="{{old('drop_html')}}">
                                         <div class="text-center col-12">
                                             <button type="submit" class="btn btn-danger btn-upload">Tải lên</button>
                                         </div>
@@ -296,10 +337,12 @@ $titleMeta = 'Cập nhật nhạc mới - ' . Config::get('constants.app.title')
     </div>
     <div class="box_space"></div>
 @endsection
+
 @section('contentJS')
     <script type="text/javascript" src="/js/dropzone.js"></script>
     <script type="text/javascript" src="/js/bootstrap-tagsinput.js"></script>
     <script type="text/javascript" src="/js/typeahead.bundle.js"></script>
+    <script type="text/javascript" src="/js/jquery.tokeninput.js"></script>
     <script>
         $(".form_music").keypress(function(e) {
             //Enter key
@@ -307,7 +350,7 @@ $titleMeta = 'Cập nhật nhạc mới - ' . Config::get('constants.app.title')
                 return false;
             }
         });
-        Dropzone.prototype.defaultOptions.maxFiles = 100;
+        Dropzone.prototype.defaultOptions.maxFiles = 1;
         // Dropzone.prototype.defaultOptions.acceptedFiles = '';
         Dropzone.prototype.defaultOptions.headers = {
             'X-CSRF-TOKEN': '{{ csrf_token() }}'
@@ -316,60 +359,182 @@ $titleMeta = 'Cập nhật nhạc mới - ' . Config::get('constants.app.title')
             if(result.status === true) {
                 var oldFileDrops = $('.drop_files').val();
                 $('.drop_files').val(oldFileDrops ? oldFileDrops + ';' + result.file_name : result.file_name);
+                $('.dz-message').remove();
+                $('.drop_html').val($('.dropzone').html());
             }
         };
+        <?php
+          if(old('drop_html'))
+            echo 'Dropzone.prototype.defaultOptions.disableDropZone = true;
+                  Dropzone.prototype.defaultOptions.maxFiles = 0;';
+        ?>
+
+        $(document).ready(function() {
+            $("#music_artist_id").tokenInput("/artist/search", {
+                theme: "facebook",
+                preventDuplicates: true,
+                setInputName: "#music_artist",
+                noResultsText: 'Không có tên ca sĩ',
+                tokenDelimiter: ';',
+                hintText: 'Nhập tên ca sĩ',
+                searchingText: 'Đang tìm ca sĩ',
+                prePopulate: [
+                        <?php
+                        if(old('music_artist') && old('music_artist_id')) {
+                            $oldArtistName = explode(';', old('music_artist'));
+                            $oldArtistId = explode(';', old('music_artist_id'));
+                            foreach ($oldArtistName as $key => $val) {
+                                $oldArtist[] = [
+                                    'id' => $oldArtistId[$key],
+                                    'name' => $val
+                                ];
+                                echo '{id: ' . $oldArtistId[$key] . ', name: "' . $val . '"},';
+                            }
+                        }
+                        ?>
+                ],
+                addFunction: function (){
+                }
+            });
+        });
 
 
-
-
-        var substringMatcher = function(strs) {
-            return function findMatches(q, cb) {
-                var matches, substringRegex;
-
-                // an array that will be populated with substring matches
-                matches = [];
-
-                // regex used to determine if a string contains the substring `q`
-                substrRegex = new RegExp(q, 'i');
-
-                // iterate through the pool of strings and for any string that
-                // contains the substring `q`, add it to the `matches` array
-                $.each(strs, function(i, str) {
-                    if (substrRegex.test(str)) {
-                        matches.push(str);
-                    }
-                });
-
-                cb(matches);
-            };
-        };
-
-        var artistTag = new Bloodhound({
-            datumTokenizer: Bloodhound.tokenizers.whitespace,
-            queryTokenizer: Bloodhound.tokenizers.whitespace,
-            prefetch: {
-                url: "/artist/search",
-                cache: false
+        var cat_id_selected = 3;
+        function cat_level_reload(cat_id)
+        {
+            cat_id_selected = cat_id;
+            document.getElementById('cat_level').options.length = 0;
+            if (cat_id == 1) {
+                document.getElementById('cat_level').options[0]=new Option("Video Việt Nam", "1", false, false);
+                document.getElementById('cat_level').options[1]=new Option("Video US-UK", "2", false, false);
+                document.getElementById('cat_level').options[2]=new Option("Video Hoa", "3", false, false);
+                document.getElementById('cat_level').options[3]=new Option("Video Hàn", "4", false, false);
+                document.getElementById('cat_level').options[4]=new Option("Video Nhật", "5", false, false);
+                document.getElementById('cat_level').options[5]=new Option("Video Pháp", "6", false, false);
+                document.getElementById('cat_level').options[6]=new Option("Video nước khác", "7", false, false);
+                document.getElementById('cat_level').options[7]=new Option("Video Live", "8", false, false);
+                document.getElementById('cat_level').options[8]=new Option("Video Hài", "9", false, false);
             }
-        });
-        var states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
-            'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii',
-            'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana',
-            'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota',
-            'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire',
-            'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota',
-            'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island',
-            'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont',
-            'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
-        ];
-        artistTag.initialize();
-        // console.log(substringMatcher(states));
-        $('#music_artist').typeahead(null, {
-            name: 'artistTag',
-            source: artistTag
-            // source: substringMatcher(states)
-        });
+            if (cat_id == 2) {
+                document.getElementById('cat_level').options[0]=new Option("Playback Việt Nam", "1", false, false);
+                document.getElementById('cat_level').options[1]=new Option("Playback US-UK", "2", false, false);
+                document.getElementById('cat_level').options[2]=new Option("Playback Hoa", "3", false, false);
+                document.getElementById('cat_level').options[3]=new Option("Playback Hàn", "4", false, false);
+                document.getElementById('cat_level').options[4]=new Option("Playback Nhật", "5", false, false);
+                document.getElementById('cat_level').options[5]=new Option("Playback Pháp", "6", false, false);
+                document.getElementById('cat_level').options[6]=new Option("Playback nước khác", "7", false, false);
+            }
+            if (cat_id == 3) {
+                document.getElementById('cat_level').options[0]=new Option("Nhạc pop, rock...", "1", false, false);
+                document.getElementById('cat_level').options[1]=new Option("Nhạc rap, hiphop", "2", false, false);
+                document.getElementById('cat_level').options[2]=new Option("Nhạc dance, remix", "3", false, false);
+                document.getElementById('cat_level').options[3]=new Option("Nhạc truyền thống", "4", false, false);
+            }
+            if (cat_id == 4) {
+                document.getElementById('cat_level').options[0]=new Option("Nhạc pop, rock...", "1", false, false);
+                document.getElementById('cat_level').options[1]=new Option("Nhạc rap, hiphop", "2", false, false);
+                document.getElementById('cat_level').options[2]=new Option("Nhạc dance, remix", "3", false, false);
+            }
+            if (cat_id == 5) {
+                document.getElementById('cat_level').options[0]=new Option("Nhạc pop, rock...", "1", false, false);
+                document.getElementById('cat_level').options[1]=new Option("Nhạc rap, hiphop", "2", false, false);
+                document.getElementById('cat_level').options[2]=new Option("Nhạc dance, remix", "3", false, false);
+            }
+            if (cat_id == 6) {
+                document.getElementById('cat_level').options[0]=new Option("Nhạc pop, rock...", "1", false, false);
+                document.getElementById('cat_level').options[1]=new Option("Nhạc rap, hiphop", "2", false, false);
+                document.getElementById('cat_level').options[2]=new Option("Nhạc dance, remix", "3", false, false);
+            }
+            if (cat_id == 7) {
+                document.getElementById('cat_level').options[0]=new Option("Nhạc pop, rock...", "1", false, false);
+                document.getElementById('cat_level').options[1]=new Option("Nhạc rap, hiphop", "2", false, false);
+                document.getElementById('cat_level').options[2]=new Option("Nhạc dance, remix", "3", false, false);
+            }
+            if (cat_id == 8) {
+                document.getElementById('cat_level').options[0]=new Option("Nhạc pop, rock...", "1", false, false);
+                document.getElementById('cat_level').options[1]=new Option("Nhạc rap, hiphop", "2", false, false);
+                document.getElementById('cat_level').options[2]=new Option("Nhạc dance, remix", "3", false, false);
+            }
+            if (cat_id == 9) {
+                document.getElementById('cat_level').options[0]=new Option("Nhạc pop, rock...", "1", false, false);
+                document.getElementById('cat_level').options[1]=new Option("Nhạc rap, hiphop", "2", false, false);
+                document.getElementById('cat_level').options[2]=new Option("Nhạc dance, remix", "3", false, false);
+            }
+            cat_sublevel_reload(1);
+        }
 
+        function cat_sublevel_reload(cat_level)
+        {
+            document.getElementById('cat_sublevel').options.length = 0;
+
+            if ( cat_id_selected == 2 )
+            {
+                document.getElementById('cat_sublevel').options[0]=new Option("Beat, Playback", "1", false, false);
+                document.getElementById('cat_sublevel').options[1]=new Option("Instrumental", "2", false, false);
+                document.getElementById('cat_sublevel').options[2]=new Option("Audiophile", "3", false, false);
+                document.getElementById('cat_sublevel').options[3]=new Option("Classical", "4", false, false);
+                document.getElementById('cat_sublevel').options[4]=new Option("New Age", "5", false, false);
+                document.getElementById('cat_sublevel').options[5]=new Option("Remix, Dance, Trance...", "6", false, false);
+                document.getElementById('cat_sublevel').options[6]=new Option("Electronic", "7", false, false);
+                document.getElementById('cat_sublevel').options[7]=new Option("Soundtrack", "8", false, false);
+
+            }
+            else if ( cat_id_selected == 3 )
+            {
+                if ( cat_level == 1 )
+                {
+                    document.getElementById('cat_sublevel').options[0]=new Option("Nhạc trẻ", "1", false, false);
+                    document.getElementById('cat_sublevel').options[1]=new Option("Nhạc rock", "2", false, false);
+                    document.getElementById('cat_sublevel').options[2]=new Option("Thiếu nhi", "3", false, false);
+                    document.getElementById('cat_sublevel').options[3]=new Option("Trữ tình", "4", false, false);
+                    document.getElementById('cat_sublevel').options[4]=new Option("Nhạc chế", "7", false, false);
+
+                }
+
+                if ( cat_level == 3 )
+                {
+                    document.getElementById('cat_sublevel').options[0]=new Option("Remix", "1", false, false);
+                    document.getElementById('cat_sublevel').options[1]=new Option("Dance", "2", false, false);
+                    document.getElementById('cat_sublevel').options[2]=new Option("Electronic", "3", false, false);
+                    document.getElementById('cat_sublevel').options[3]=new Option("DJ, Nonstop", "4", false, false);
+
+                }
+
+                if ( cat_level == 4 )
+                {
+                    document.getElementById('cat_sublevel').options[0]=new Option("Quê hương", "5", false, false);
+                    document.getElementById('cat_sublevel').options[1]=new Option("Tiền chiến", "6", false, false);
+                    document.getElementById('cat_sublevel').options[2]=new Option("Tân cổ", "8", false, false);
+                    document.getElementById('cat_sublevel').options[3]=new Option("Cải lương", "9", false, false);
+
+                }
+            }
+            else if ( cat_id_selected > 3 )
+            {
+                if ( cat_level == 1 )
+                {
+                    document.getElementById('cat_sublevel').options[0]=new Option("Pop", "1", false, false);
+                    document.getElementById('cat_sublevel').options[1]=new Option("Rock", "2", false, false);
+                    document.getElementById('cat_sublevel').options[2]=new Option("Children's music", "3", false, false);
+                    document.getElementById('cat_sublevel').options[3]=new Option("R&B/Soul", "7", false, false);
+                    document.getElementById('cat_sublevel').options[4]=new Option("Jazz", "8", false, false);
+                    document.getElementById('cat_sublevel').options[5]=new Option("Country", "9", false, false);
+                    document.getElementById('cat_sublevel').options[6]=new Option("Classical", "10", false, false);
+                    document.getElementById('cat_sublevel').options[7]=new Option("Soundtrack", "11", false, false);
+
+                }
+
+                if ( cat_level == 3 )
+                {
+                    document.getElementById('cat_sublevel').options[0]=new Option("Remix", "1", false, false);
+                    document.getElementById('cat_sublevel').options[1]=new Option("Dance", "2", false, false);
+                    document.getElementById('cat_sublevel').options[2]=new Option("Electronic", "3", false, false);
+                    document.getElementById('cat_sublevel').options[3]=new Option("DJ, Nonstop", "4", false, false);
+                }
+            }
+        }
+        document.getElementById('cat_id').value = 3;
+        cat_level_reload(3);
 
     </script>
 @endsection

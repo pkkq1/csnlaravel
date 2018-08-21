@@ -65,7 +65,7 @@
     color: #ff4e55;
 }
 .has-error .form-control {
-    border-color: #ff4e55;
+    border-color: #ff4e55!important;
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
 }
@@ -81,6 +81,9 @@
 }
 .has-error .form-control-feedback {
     color: #ff4e55;
+}
+.has-error .token-input-list-facebook {
+    border-color: #ff4e55;
 }
 .bootstrap-tagsinput {
     background-color: #fff;
@@ -102,4 +105,7 @@
     background: #ff3456;
     border-radius: 5px;
     padding: 3px 8px;
+}
+.has-error-drop-file {
+    border-color: #ff4e55;
 }

@@ -479,6 +479,9 @@ var Dropzone = function (_Emitter) {
          */
         dictRemoveFileConfirmation: null,
 
+
+        disableDropZone: false,
+
         /**
          * Displayed if `maxFiles` is st and exceeded.
          * The string `{{maxFiles}}` will be replaced by the configuration value.
@@ -1214,8 +1217,9 @@ var Dropzone = function (_Emitter) {
       }
 
       if (this.element.classList.contains("dropzone") && !this.element.querySelector(".dz-message")) {
-        this.element.appendChild(Dropzone.createElement('<div class="form-group m-0 fallback dz-default dz-message"><label for="upload_lyric_file" class="text-center"><img src="/imgs/ copy.png" alt=""><h3 class="title">Chọn file để upload</h3><small>Bạn có thể kéo và thả file vào đây</small></label></div>'));
-
+        if(!this.options.disableDropZone){
+            this.element.appendChild(Dropzone.createElement('<div class="form-group m-0 fallback dz-default dz-message"><label for="upload_lyric_file" class="text-center"><img src="/imgs/ copy.png" alt=""><h3 class="title">Chọn file để upload</h3><small>Bạn có thể kéo và thả file vào đây</small></label></div>'));
+        }
       }
       if (this.clickableElements.length) {
         var setupHiddenFileInput = function setupHiddenFileInput() {

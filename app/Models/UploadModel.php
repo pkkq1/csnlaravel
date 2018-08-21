@@ -9,7 +9,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class CSNUploadModel extends Model
+class UploadModel extends Model
 {
     public $timestamps = false;
     protected $table = 'csn_upload';

@@ -1,9 +1,9 @@
 <?php
-namespace App\Repositories\Artist;
+namespace App\Repositories\Upload;
 
 use App\Repositories\EloquentRepository;
 use DB;
-class ArtistEloquentRepository extends EloquentRepository implements ArtistRepositoryInterface
+class UploadEloquentRepository extends EloquentRepository implements UploadRepositoryInterface
 {
     /**
      * get model
@@ -11,7 +11,7 @@ class ArtistEloquentRepository extends EloquentRepository implements ArtistRepos
      */
     public function getModel()
     {
-        return \App\Models\ArtistModel::class;
+        return \App\Models\UploadModel::class;
     }
     /**
      * Get all posts only published
@@ -44,6 +44,11 @@ class ArtistEloquentRepository extends EloquentRepository implements ArtistRepos
      * Create
      * @return mixed
      */
-
+    public function create(array $attributes)
+    {
+        $attributes['music_last_update_time'] = strtotime(date('Y/m/d H:i:s'));
+        $result = $this->_model::firstOrCreate($attributes);
+        return $result;
+    }
 }
 

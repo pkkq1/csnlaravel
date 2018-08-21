@@ -11,7 +11,7 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
      */
     public function getModel()
     {
-        return \App\Models\ArtistUploadModel::class;
+        return \App\Models\MusicModel::class;
     }
     /**
      * Get all posts only published
@@ -40,18 +40,20 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
         return $result;
     }
 
+    public function findOnlyMusicUrl($url)
+    {
+        $result = $this
+            ->_model
+            ->where('music_title_url', $url)
+            ->first();
+
+        return $result;
+    }
+
     /**
      * Create
      * @return mixed
      */
-    public function createArtist(array $attributes)
-    {
-        $attributes['last_update_time'] = strtotime(date('Y/m/d H:i:s'));
-        $attributes['last_edit_time'] = strtotime(date('Y/m/d H:i:s'));
-        $result = $this->_model::firstOrCreate($attributes);
-        return $result;
-    }
-
 
 }
 

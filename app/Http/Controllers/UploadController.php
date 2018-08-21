@@ -12,15 +12,20 @@ use Illuminate\Support\Facades\Auth;
 use App\Library\Helpers;
 use App\Repositories\ArtistUpload\ArtistUploadEloquentRepository;
 use App\Repositories\Music\MusicEloquentRepository;
+use App\Repositories\Upload\UploadEloquentRepository;
+
 
 class UploadController extends Controller
 {
     protected $artistUploadRepository;
     protected $musicRepository;
+    protected $uploadRepository;
     
-    public function __construct(ArtistUploadEloquentRepository $artistUploadRepository, MusicEloquentRepository $musicRepository) {
+    public function __construct(ArtistUploadEloquentRepository $artistUploadRepository, MusicEloquentRepository $musicRepository,
+                                UploadEloquentRepository $uploadRepository) {
         $this->artistUploadRepository = $artistUploadRepository;
         $this->musicRepository = $musicRepository;
+        $this->uploadRepository = $uploadRepository;
     }
     public function index() {
         return view('upload.index');
@@ -78,21 +83,31 @@ class UploadController extends Controller
         ]);
     }
     public function storeMusic(Request $request) {
-//        dd($request->input('drop_files'));
         $this->validate($request, [
             'music_title' => 'required',
-            'artist_birthday' => 'required',
-            'artist_gender' => 'required',
-            'artist_avatar' => 'required',
-            'choose_artist_avatar' => 'required',
-            'artist_cover' => 'required',
-            'choose_artist_cover' => 'required',
-            'artist_avatar_crop_x' => 'required',
-            'artist_avatar_crop_y' => 'required',
-            'artist_cover_crop_x' => 'required',
-            'artist_cover_crop_y' => 'required'
+            'music_artist' => 'required',
+            'drop_files' => 'required',
         ]);
-
-//        $this->musicRepository
+        $csnMusic = [
+            'music_title' => $request->input('music_title'),
+            'music_artist' => $request->input('music_artist'),
+            'music_artist_id' => $request->input('music_artist_id'),
+            'music_user_id' => Auth::user()->id,
+            'music_username' => Auth::user()->name,
+            'music_production' => $request->input('music_production') ?? '',
+            'music_composer' => $request->input('music_composer') ?? '',
+            'music_album_id' => $request->input('music_album_id') ?? ' ',
+            'music_year' => $request->input('music_year') ?? 0,
+            'cat_id' => $request->input('cat_id') ?? 0,
+            'cat_level' => $request->input('cat_level') ?? 0,
+            'cat_sublevel' => $request->input('cat_sublevel') ?? 0,
+            'cat_custom' => $request->input('cat_custom') ?? 0,
+            'music_lyric' => $request->input('music_lyric') ?? '',
+            'music_note' => $request->input('music_note') ?? '',
+            'music_source_url' => $request->input('music_source_url') ?? '',
+            'music_filename_upload' => $request->input('drop_files'),
+        ];
+        $result = $this->uploadRepository->create($csnMusic);
+        return redirect()->route('upload.createMusic')->with('success', 'Tạo Thành công bài hát ' . $csnMusic['music_title']);
     }
 }
