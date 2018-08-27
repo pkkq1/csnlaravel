@@ -109,3 +109,48 @@
 .has-error-drop-file {
     border-color: #ff4e55;
 }
+.bxh .media .media-body .author{
+    float: left;
+}
+.bxh .media .media-body .counter_view{
+    float: right;
+}
+.jw-icon-playback:hover {
+    color: #ff3456!important;
+}
+.jw-icon-nextsong:hover {
+    color: #ff3456!important;
+}
+.stringQ:hover {
+    color: #ff3456!important;
+}
+.jw-icon-volume:hover {
+    color: #ff3456!important;
+}
+.jw-progress{
+    background-image: linear-gradient(-243deg, #FB6B60 0%, #FF2E55 100%)!important;
+}
+.messenger-share-link{
+    background-image: url('../imgs/icon_messenger.png');
+    background-size: 27px;
+    background-repeat: no-repeat;
+}
+.d-table{
+    width: 100%;
+}
+.music_recommendation {
+    overflow-y: auto;
+    max-height: 210px;
+}
+.music_recommendation .listen .name a{
+    color:#FF2D55
+}
+.music_recommendation .listen .author a{
+    color:#FF2D55
+}
+.music_recommendation .listen .tool span{
+    color:#FF2D55!important
+}
+.music_recommendation .listen .tool i{
+    color:#FF2D55!important
+}

@@ -9,6 +9,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Library\Helpers;
 use App\Repositories\Music\MusicEloquentRepository;
 
 class MusicController extends Controller
@@ -35,7 +36,16 @@ class MusicController extends Controller
         return view('home');
     }
     public function listenMusic(Request $request, $cat, $sub, $musicUrl) {
-        $music = $this->musicRepository->findOnlyMusicUrl($musicUrl);
+        $arrUrl = Helpers::splitUrl($musicUrl);
+        $music = $this->musicRepository->findOnlyMusicId($arrUrl['id']);
+        if(!$music)
+            return view('errors.404');
         return view('jwplayer.music', compact('music'));
+    }
+    public function embed(Request $request, $music) {
+        $music = $this->musicRepository->findOnlyMusicId($music);
+        if(!$music)
+            return view('errors.404');
+        return view('jwplayer.embed_mp3', compact('music'));
     }
 }

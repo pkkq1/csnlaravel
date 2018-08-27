@@ -49,6 +49,15 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
 
         return $result;
     }
+    public function findOnlyMusicId($id)
+    {
+        $result = $this
+            ->_model
+            ->where('music_id', $id)
+            ->first();
+
+        return $result;
+    }
 
     /**
      * Create

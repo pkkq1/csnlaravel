@@ -268,4 +268,14 @@ class Helpers
         }
         return $fileName;
     }
+    public  static function splitUrl($url) {
+        $arrSplit = explode('~', $url);
+        return [
+            'id' => last($arrSplit),
+            'url' => str_replace(last($arrSplit),"",$arrSplit)
+        ];
+    }
+    public  static  function fbShareLink($url) {
+        return 'https://www.facebook.com/dialog/share? app_id=' . env('FACEBOOK_APP_ID') . '&display=popup&href=' . $url . '&redirect_uri=' . $url;
+    }
 }

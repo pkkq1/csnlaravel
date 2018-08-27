@@ -25,6 +25,7 @@ Route::get('auth/facebook/callback', 'Auth\AuthFacebookController@handleProvider
 // listen music
 Route::get('mp3/{cat}/{sub}/{musicUrl}.html', 'MusicController@listenMusic');
 Route::get('mp3/{cat}/{sub}/{musicUrl}', 'MusicController@listenMusic');
+Route::get('embed/mp3/{music}', 'MusicController@embed');
 
 
 

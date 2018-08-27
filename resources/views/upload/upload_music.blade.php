@@ -350,7 +350,7 @@ $titleMeta = 'Cập nhật nhạc mới - ' . Config::get('constants.app.title')
                 return false;
             }
         });
-        Dropzone.prototype.defaultOptions.maxFiles = 1;
+        Dropzone.prototype.defaultOptions.maxFiles = 10;
         // Dropzone.prototype.defaultOptions.acceptedFiles = '';
         Dropzone.prototype.defaultOptions.headers = {
             'X-CSRF-TOKEN': '{{ csrf_token() }}'

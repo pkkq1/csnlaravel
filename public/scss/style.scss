@@ -2602,6 +2602,7 @@ body{
 				font-size: 12px;
 				letter-spacing: 0;
 				font-family:'SFProDisplay-Regular';
+				float: left;
 				a{
 					color: #878787;
 					transition: all 0.2s linear;
@@ -2616,6 +2617,7 @@ body{
 				font-size: 10px;
 				color: #747474;
 				letter-spacing: 0;
+				float: right;
 			}
 		}
 	}
