@@ -48,19 +48,17 @@ $titleMeta = 'Củ Lạc - Osad; Turn Hirn ~ Download Lossless, 500kbps, 320kbps
                             ?>
                             <div id="music-listen-{{$item['music_id']}}" class="card-footer{{($music->music_id == $item['music_id'] ? ' listen' : '')}}" style="display: table-row;">
                                 <div class="name d-table-cell">
-                                    <a href="{{$url}}" title="">{{$i . '. ' . $item['music_title']}}</a>
+                                    <a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{++$i . '. ' . $item['music_title']}}</a>
                                 </div>
                                 <div class="author d-table-cell">
                                     <?php echo '<a href="#">'.implode(',</a><a href="#">', explode(';', $item['music_artist'])).'</a>' ?>
                                 </div>
                                 <div class="tool d-table-cell text-right">
                                     <ul class="list-inline d-flex align-items-center justify-content-end">
-                                        <li class="list-inline-item d-inline-flex align-items-center"><span class="d-inline-flex align-items-center"><i class="material-icons mr-2">headset</i> {{number_format($item['music_listen'])}} lượt nghe</span></li>
-                                        <li class="list-inline-item pl-4 pr-4">|</li>
-                                        <li class="list-inline-item"><a href="{{$url}}" title="nghe nhạc"><i class="material-icons">headset</i></a></li>
+                                        <li class="list-inline-item"><a href="{{$url}}" title="nghe riêng nhạc {{$item['music_title']}}"><i class="material-icons">headset</i></a></li>
                                         <li class="list-inline-item"><a href="#" title=""><i class="material-icons">playlist_add</i></a></li>
-                                        <li class="list-inline-item"><a href="{{MUSIC_PATH.$item['music_filename']}}" title="download"><i class="material-icons">file_download</i></a></li>
-                                        <li class="list-inline-item"><a href="{{Helpers::fbShareLink($url)}}" title="chia sẽ"><i class="material-icons">share</i></a></li>
+                                        <li class="list-inline-item"><a href="{{MUSIC_PATH.$item['music_filename']}}" title="download {{$item['music_title']}}"><i class="material-icons">file_download</i></a></li>
+                                        <li class="list-inline-item"><a href="{{Helpers::fbShareLink($url)}}" title="chia sẽ {{$item['music_title']}}"><i class="material-icons">share</i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -554,7 +552,7 @@ $titleMeta = 'Củ Lạc - Osad; Turn Hirn ~ Download Lossless, 500kbps, 320kbps
                         </div>
                         <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
                             <div>
-                                <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_title']}}">{{$item['music_title']}}</a></h5>
+                                <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
                                 <div class="author"><?php echo '<a href="#">'.implode(',</a><a href="#">', explode(';', $item['music_artist'])).'</a>' ?></div>
                             </div>
                             <div class="d-flex align-items-center justify-content-between">
@@ -562,9 +560,9 @@ $titleMeta = 'Củ Lạc - Osad; Turn Hirn ~ Download Lossless, 500kbps, 320kbps
                                 <div class="media-right">
                                     <small class="time_stt">{{number_format($item['music_listen'])}}</small>
                                     <ul class="list-inline">
-                                        <li class="list-inline-item"><a download href="{{MUSIC_PATH.$item['music_filename']}}" title="download"><i class="material-icons">file_download</i></a></li>
-                                        <li class="list-inline-item"><a href="{{$url}}" title="nghe nhac"><i class="material-icons">headset</i></a></li>
-                                        <li class="list-inline-item"><a target="_blank" href="{{Helpers::fbShareLink($url)}}" title="share"><i class="material-icons">share</i></a></li>
+                                        <li class="list-inline-item"><a download href="{{MUSIC_PATH.$item['music_filename']}}" title="download {{$item['music_title']}}"><i class="material-icons">file_download</i></a></li>
+                                        <li class="list-inline-item"><a href="{{$url}}" title="nghe riêng {{$item['music_title']}}"><i class="material-icons">headset</i></a></li>
+                                        <li class="list-inline-item"><a target="_blank" href="{{Helpers::fbShareLink($url)}}" title="share {{$item['music_title']}}"><i class="material-icons">share</i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -612,10 +610,7 @@ $titleMeta = 'Củ Lạc - Osad; Turn Hirn ~ Download Lossless, 500kbps, 320kbps
             autostart: true,
             repeat: true,
             plugins: {
-                '/js/nhac-audio.js': {
-                    resounded: true,
-                    performance: true,
-                    perform_debug: true,
+                '/js/nhac-csn.js': {
                     duration: 20,
                     msisdn: '',
                     package_id: 0,
@@ -653,26 +648,31 @@ $titleMeta = 'Củ Lạc - Osad; Turn Hirn ~ Download Lossless, 500kbps, 320kbps
         });
         jwplayer().onQualityLevels(function(callback){
             updateQuality(callback);
+            if(sessionStorage.getItem("auto_next") == 'true') {
+                $('.check_auto_play').prop('checked', false).change();
+            }
         });
         jwplayer().onQualityChange(function(callback){
             updateQuality(callback);
         })
         function onPlayerAutoNextOn()
         {
-            logPlayAudioFlag = false;
+            sessionStorage.setItem("auto_next", false);
             $('.check_auto_play').prop('checked', true).change();
         }
         function onPlayerAutoNextOff()
         {
-            logPlayAudioFlag = true;
+            sessionStorage.setItem("auto_next", true);
             $('.check_auto_play').prop('checked', false).change();
         }
         $('.check_auto_play').on('change', function(){
             if($(this).is(':checked')){
                 logPlayAudioFlag = false;
+                sessionStorage.setItem("auto_next", false);
                 setAutoNext(true);
             }else{
                 logPlayAudioFlag = true;
+                sessionStorage.setItem("auto_next", true);
                 setAutoNext(false);
             }
         })
@@ -683,6 +683,7 @@ $titleMeta = 'Củ Lạc - Osad; Turn Hirn ~ Download Lossless, 500kbps, 320kbps
         function AutoPlay(){
             console.log('next');
         }
+
         jwplayer().onBeforeComplete(function() {
             if(logPlayAudioFlag == false && typeof AutoPlay=='function'){
                 AutoPlay();
