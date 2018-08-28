@@ -598,7 +598,7 @@ $titleMeta = 'Củ Lạc - Osad; Turn Hirn ~ Download Lossless, 500kbps, 320kbps
             height: '110',
             stretching: 'fill',
             sources: [
-                {"file":"<?php echo MUSIC_PATH.$music->music_filename ?>","label":"M4A 32kbps"},
+                {"file":"<?php echo MUSIC_PATH.$music->music_filename ?>","label":"M4A &nbsp; 32kbps"},
                 {"file":"<?php echo MUSIC_PATH.$music->music_filename ?>","label":"MP3 128kbps"},
                 {"file":"<?php echo MUSIC_PATH.$music->music_filename ?>","label":"MP3 320kbps"},
                 {"file":"<?php echo MUSIC_PATH.$music->music_filename ?>","label":"M4A 500kbps"},
