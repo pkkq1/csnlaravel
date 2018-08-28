@@ -608,7 +608,6 @@ $titleMeta = 'Củ Lạc - Osad; Turn Hirn ~ Download Lossless, 500kbps, 320kbps
             },
             timeSliderAbove: true,
             autostart: true,
-            repeat: true,
             plugins: {
                 '/js/nhac-csn.js': {
                     duration: 20,
@@ -680,8 +679,33 @@ $titleMeta = 'Củ Lạc - Osad; Turn Hirn ~ Download Lossless, 500kbps, 320kbps
         {
             AutoPlay();
         }
+        function onPlayerAutoBack()
+        {
+            console.log('back');
+        }
         function AutoPlay(){
             console.log('next');
+        }
+        function autoRepeat(T){
+            if(T) {
+                jwplayer().setConfig({
+                    repeat: true
+                });
+                sessionStorage.setItem("auto_repeat", true);
+            }else{
+                jwplayer().setConfig({
+                    repeat: false
+                });
+                sessionStorage.setItem("auto_repeat", false);
+            }
+        }
+        function autoRandom(F){
+            if(F) {
+                console.log('next random');
+                sessionStorage.setItem("auto_random", true);
+            }else{
+                sessionStorage.setItem("auto_random", false);
+            }
         }
 
         jwplayer().onBeforeComplete(function() {
@@ -756,7 +780,7 @@ $titleMeta = 'Củ Lạc - Osad; Turn Hirn ~ Download Lossless, 500kbps, 320kbps
         .jw-icon-rewind{
             display: none!important;
         }
-        .jw-icon-fullscreen{
+        .jw-icon-fullscreen, .jw-title-primary{
             display: none!important;
         }
     </style>

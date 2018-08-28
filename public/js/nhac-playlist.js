@@ -1,5 +1,4 @@
 
-console.log(1);
 (function(W) {
     W().registerPlugin("nhac", "6.0", function(e, F, G) {
         function W() {
@@ -21,7 +20,7 @@ console.log(1);
                     0 > B.indexOf(z) && B.push(z);
                     e.playlistItem(z)
                 }, a.parentNode.insertBefore(Q, a.nextSibling)));
-            a = H.getElementsByClassName("jw-icon-hd")[0];
+            a = H.getElementsByClassName("stringQ")[0];
             void 0 != a && (void 0 == I && (I = document.createElement("div"), I.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-repeat-all", I.onclick = function() {
                 "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-repeat-all" ==
                 I.className ? (I.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-repeat-one", T = !0) : (I.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-repeat-all", T = !1)
@@ -31,9 +30,25 @@ console.log(1);
             }, a.parentNode.insertBefore(J, a)))
         }
 
+        function J() {
+            if (void 0 == w.showAutoNext || w.showAutoNext) {
+                if (void 0 == D) {
+                    var a = E.getElementsByClassName("jw-icon-hd")[0];
+                    void 0 != a && (D = document.createElement("div"), D.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-auto-next jw-icon-auto-next-on", D.onclick = function() {
+                        "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-auto-next jw-icon-auto-next-on" == D.className ? (D.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-auto-next jw-icon-auto-next-off",
+                        "function" === typeof onPlayerAutoNextOff && onPlayerAutoNextOff()) : (D.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-auto-next jw-icon-auto-next-on", "function" === typeof onPlayerAutoNextOn && onPlayerAutoNextOn())
+                    }, a.parentNode.insertBefore(D, a))
+                }
+                void 0 == K && (a = E.getElementsByClassName("jw-icon-playback")[0], void 0 != a && (K = document.createElement("div"), K.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-nextsong", K.onclick = function() {
+                    "function" === typeof onPlayerAutoNext &&
+                    onPlayerAutoNext()
+                }, a.parentNode.insertBefore(K, a.nextSibling)))
+            }
+        }
+
         function ia() {
             if (void 0 == x) {
-                var a = H.getElementsByClassName("jw-icon-hd")[0];
+                var a = H.getElementsByClassName("stringQ")[0];
                 void 0 != a && (x = document.createElement("div"), x.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-lyric", x.onclick = function() {
                     "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-lyric" == x.className ? (x.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-lyric jw-toggle jw-off",
                         r.style.visibility = "hidden") : (x.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-lyric", r.style.visibility = "visible")
