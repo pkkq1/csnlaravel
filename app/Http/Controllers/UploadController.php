@@ -71,7 +71,7 @@ class UploadController extends Controller
         $result->artist_avatar = $fileNameAvt;
         $result->artist_cover = $fileNameCover;
         $result->save();
-        return redirect()->route('upload.createArtist')->with('success', 'Tạo Thành công artist ' . $result->artist_nickname);
+        return redirect()->route('upload.createArtist')->with('success', 'Đã tạo ca sĩ ' . $result->artist_nickname);
     }
     function uploadFileMusic(Request $request) {
         $fileName = Helpers::moveFile($request->file('file'), DEFAULT_ROOT_CACHE_MUSIC_PATH, $_FILES['file']['name']);
@@ -108,6 +108,6 @@ class UploadController extends Controller
             'music_filename_upload' => $request->input('drop_files'),
         ];
         $result = $this->uploadRepository->create($csnMusic);
-        return redirect()->route('upload.createMusic')->with('success', 'Tạo Thành công bài hát ' . $csnMusic['music_title']);
+        return redirect()->route('upload.createMusic')->with('success', 'Đã tạo bài hát ' . $csnMusic['music_title']);
     }
 }
