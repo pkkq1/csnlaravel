@@ -1,7 +1,7 @@
 <?php
 return [
     'app' => [
-        'name' => 'Chia sẽ nhạc',
+        'name' => 'Chia sẻ nhạc',
         'title' => 'Cộng đồng chia sẻ nhạc chất lượng cao và xếp hạng âm nhạc trực tuyến',
         'image' => '/'
     ],

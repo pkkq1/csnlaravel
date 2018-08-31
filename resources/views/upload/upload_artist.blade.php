@@ -74,7 +74,7 @@
                 </div>
                 @if ($message = Session::get('success'))
                     <div class="alert alert-success">
-                        <strong>Success!</strong> {{ $message }}
+                        <strong>Thành công!</strong> {{ $message }}
                     </div>
                 @endif
                 <div class="card card_playlist">

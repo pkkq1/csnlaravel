@@ -9,7 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     <title>
-      {{ isset($title) ? $title.' :: '.config('backpack.base.project_name').' Admin' : config('backpack.base.project_name').' Admin' }}
+      {{ isset($title) ? $title : 'Admin' }}
     </title>
 
     @yield('before_styles')
@@ -44,7 +44,7 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body class="hold-transition {{ config('backpack.base.skin') }} sidebar-mini">
+<body class="hold-transition skin-purple sidebar-mini">
 	<script type="text/javascript">
 		/* Recover sidebar state */
 		(function () {
@@ -61,27 +61,28 @@
         <!-- Logo -->
         <a href="{{ url('') }}" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini">{!! config('backpack.base.logo_mini') !!}</span>
-          <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg">{!! config('backpack.base.logo_lg') !!}</span>
+        <span class="logo-mini"><b>B</b>p</span>
+        <!-- logo for regular state and mobile devices -->
+        <span class="logo-lg"><b>Back</b>pack</span>
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">
           <!-- Sidebar toggle button-->
           <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-            <span class="sr-only">{{ trans('backpack::base.toggle_navigation') }}</span>
+            <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
 
-          @include('backpack::inc.menu')
+
+          @include('admin.inc.menu')
         </nav>
       </header>
 
       <!-- =============================================== -->
 
-      @include('backpack::inc.sidebar')
+      @include('admin.inc.sidebar')
 
       <!-- =============================================== -->
 
@@ -99,15 +100,6 @@
         <!-- /.content -->
       </div>
       <!-- /.content-wrapper -->
-
-      <footer class="main-footer">
-        @if (config('backpack.base.show_powered_by'))
-            <div class="pull-right hidden-xs">
-              {{ trans('backpack::base.powered_by') }} <a target="_blank" href="http://backpackforlaravel.com?ref=panel_footer_link">Backpack for Laravel</a>
-            </div>
-        @endif
-        {{ trans('backpack::base.handcrafted_by') }} <a target="_blank" href="{{ config('backpack.base.developer_link') }}">{{ config('backpack.base.developer_name') }}</a>.
-      </footer>
     </div>
     <!-- ./wrapper -->
 
@@ -171,7 +163,7 @@
         });
     </script>
 
-    @include('backpack::inc.alerts')
+    @include('admin.inc.alerts')
 
     @yield('after_scripts')
     @stack('after_scripts')

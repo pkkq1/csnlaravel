@@ -108,7 +108,7 @@ class UserController extends Controller
 
         $user = User::find($id);
         $user->update($input);
-        DB::table('role_user')->where('user_id',$id)->delete();
+        DB::table('csn_role_user')->where('user_id',$id)->delete();
 
 
         foreach ($request->input('roles') as $key => $value) {

@@ -182,8 +182,6 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
 
-        AltThree\Locker\LockerServiceProvider::class,
-
     ],
 
     /*

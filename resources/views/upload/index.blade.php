@@ -1,6 +1,6 @@
 @section('hidden_wapper', true)
 <?php
-    $titleMeta = 'Đăng tải chia sẽ nhạc - ' . Config::get('constants.app.title');
+    $titleMeta = 'Đăng tải chia sẻ nhạc - ' . Config::get('constants.app.title');
 ?>
 @extends('layouts.app')
 @section('content')
