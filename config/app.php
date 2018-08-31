@@ -182,6 +182,8 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
 
+        AltThree\Locker\LockerServiceProvider::class,
+
     ],
 
     /*
@@ -233,9 +235,15 @@ return [
 
         // custom app
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
-        'Form' => 'Collective\Html\FormFacade',
-        'Html' => 'Collective\Html\HtmlFacade',
+        'Form'  => Collective\Html\FormFacade::class,
+        'Html'  => Collective\Html\HtmlFacade::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+
+        /*
+        * Backpack Aliases...
+        */
+        'Alert' => Prologue\Alerts\Facades\Alert::class,
+        'CRUD'  => Backpack\CRUD\CrudServiceProvider::class,
 
     ],
 

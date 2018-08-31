@@ -1,9 +1,9 @@
 <?php
-namespace App\Repositories\Music;
+namespace App\Repositories\CommentReply;
 
 use App\Repositories\EloquentRepository;
 use DB;
-class MusicEloquentRepository extends EloquentRepository implements MusicRepositoryInterface
+class CommentReplyEloquentRepository extends EloquentRepository implements CommentReplyRepositoryInterface
 {
     /**
      * get model
@@ -11,7 +11,7 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
      */
     public function getModel()
     {
-        return \App\Models\MusicModel::class;
+        return \App\Models\CommentReplyModel::class;
     }
     /**
      * Get all posts only published
@@ -40,36 +40,22 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
         return $result;
     }
 
-    public function findOnlyMusicUrl($url)
-    {
-        $result = $this
-            ->_model
-            ->where('music_title_url', $url)
-            ->first();
-
-        return $result;
-    }
-    public function findOnlyMusicId($id)
-    {
-        $result = $this
-            ->_model
-            ->where('music_id', $id)
-            ->first();
-
-        return $result;
-    }
-    public function incrementCol($id, $field)
-    {
-        $result = $this
-            ->_model
-            ->where('music_id', $id)
-            ->Increment($field);
-    }
-
     /**
      * Create
      * @return mixed
      */
+    public function create(array $attributes)
+    {
+        $attributes['comment_time'] = strtotime(date('Y/m/d H:i:s'));
+        $result = $this->_model::firstOrCreate($attributes);
+        return $result;
+    }
+
+    public function getCommentByCommentId(array $arrId, $fillOrder, $typeOrder)
+    {
+        $result = $this->_model::whereIn('comment_id', $arrId)->orderBy($fillOrder, $typeOrder)->with('user')->get();
+        return $result;
+    }
 
 }
 

@@ -80,8 +80,12 @@ class Helpers
         );
         foreach ($string as $k => &$v) {
             if ($diff->$k) {
-                if ($v == 'giờ') {
-                    $v = 'Bây giờ' . ', ' . $diff->$k . ' ' . $v;
+                if ($v == 'giây') {
+                    $v = $diff->$k . ' ' . $v . ' trước';
+                }elseif ($v == 'phút') {
+                    $v = $diff->$k . ' ' . $v . ' trước';
+                }elseif ($v == 'giờ') {
+                    $v = $diff->$k . ' ' . $v . ' trước';
                 } elseif ($diff->$k <= 1) {
                     $v = 'Hôm qua, ' . date('H:i', $datetime);
                 } else {

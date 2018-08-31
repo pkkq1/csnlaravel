@@ -16,6 +16,8 @@ define('LIMIT_SEARCH_RESULT', 20);
 define('DEFAULT_ROOT_CACHE_MUSIC_PATH', $_SERVER['DOCUMENT_ROOT'].'/storage/data/cache_upload');
 define('LYRIC_DETAIL_NEW_MUSIC', 4);
 define('LYRIC_DETAIL_NEW_ALBUM', 5);
+define('LITMIT_COMMENT', 10);
+
 // ARTIST
 define('AVATAR_ARTIST_SOURCE_PATH', '/data/source_artist_avatar/');
 define('AVATAR_ARTIST_CROP_PATH', '/data/artist_avatar/');
