@@ -26,7 +26,7 @@
                 var sequence = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path class="zp-svg-fill" fill="#BEBEBE" fill-rule="nonzero" d="M4.065 3.492H1v1.491h3.692l1.323 2.034.905-1.424-.418-.61-.975-1.491H4.065zm4.11 6.915l.417.61.975 1.491h3.065V14l2.298-2.237-2.298-2.238v1.492h-2.229L9.08 8.983l-.906 1.424zM12.631 2v1.492H9.567l-.975 1.491-1.045 1.56-.905 1.423-1.95 3.05H1v1.492H5.597l.975-1.491L7.617 9.39l.905-1.424 1.95-2.983h2.23v1.492L15 4.237 12.632 2z"></path></svg>';
                 var shuffle = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path class="zp-svg-fill" fill="#ff3456" fill-rule="nonzero" d="M4.065 3.492H1v1.491h3.692l1.323 2.034.905-1.424-.418-.61-.975-1.491H4.065zm4.11 6.915l.417.61.975 1.491h3.065V14l2.298-2.237-2.298-2.238v1.492h-2.229L9.08 8.983l-.906 1.424zM12.631 2v1.492H9.567l-.975 1.491-1.045 1.56-.905 1.423-1.95 3.05H1v1.492H5.597l.975-1.491L7.617 9.39l.905-1.424 1.95-2.983h2.23v1.492L15 4.237 12.632 2z"></path></svg>';
 
-                void 0 != a && (void 0 == PP && (PP = document.createElement("div"), PP.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-repeat-all", PP.innerHTML = notRepeat, PP.title = "Không Lặp", PP.onclick = function () {
+                void 0 != a && (void 0 == PP && (PP = document.createElement("div"), PP.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-repeat-all", PP.innerHTML = notRepeat, PP.title = "Lặp bài", PP.onclick = function () {
                     "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-repeat-all" ==
                     PP.className ? (PP.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-repeat-one", TT = !0, PP.innerHTML = repeatOne, PP.title = "Lặp Một Bài", autoRepeat(true)) : (PP.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-repeat-all", TT = !1, PP.innerHTML = notRepeat, PP.title = "Không Lặp", autoRepeat(false))
                 }, a.parentNode.insertBefore(PP, a)), void 0 == PPP && (PPP = document.createElement("div"), PPP.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-sequence", PPP.innerHTML = sequence, PPP.title = "Ngẫu Nhiên", PPP.onclick = function () {
@@ -40,7 +40,6 @@
                     PP.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-repeat-one";
                     PP.innerHTML = repeatOne;
                 }
-                console.log(sessionStorage.getItem("auto_random"));
                 if(sessionStorage.getItem("auto_random") == 'true') {
                     PPP.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-shuffle";
                     PPP.innerHTML = shuffle;

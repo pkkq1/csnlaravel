@@ -58,7 +58,7 @@ $titleMeta = 'Củ Lạc - Osad; Turn Hirn ~ Download Lossless, 500kbps, 320kbps
                                         <li class="list-inline-item"><a href="{{$url}}" title="nghe riêng nhạc {{$item['music_title']}}"><i class="material-icons">headset</i></a></li>
                                         <li class="list-inline-item"><a href="#" title=""><i class="material-icons">playlist_add</i></a></li>
                                         <li class="list-inline-item"><a href="{{MUSIC_PATH.$item['music_filename']}}" title="download {{$item['music_title']}}"><i class="material-icons">file_download</i></a></li>
-                                        <li class="list-inline-item"><a href="{{Helpers::fbShareLink($url)}}" title="chia sẽ {{$item['music_title']}}"><i class="material-icons">share</i></a></li>
+                                        <li class="list-inline-item"><a href="{{Helpers::fbShareLink($url)}}" title="chia sẻ {{$item['music_title']}}"><i class="material-icons">share</i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -103,7 +103,7 @@ $titleMeta = 'Củ Lạc - Osad; Turn Hirn ~ Download Lossless, 500kbps, 320kbps
                                 <a class="nav-link" id="pills-share-tab" data-toggle="pill" href="#pills-share" role="tab" aria-controls="pills-share" aria-selected="false"><i class="material-icons">share</i> Chia sẻ</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="pills-plus-tab" data-toggle="pill" href="#pills-plus" role="tab" aria-controls="pills-plus" aria-selected="false"><i class="material-icons">control_point</i> Thêm vào</a>
+                                <a class="nav-link add_playlist" id="pills-plus-tab" data-toggle="pill" href="#pills-plus" role="tab" aria-controls="pills-plus" aria-selected="false"><i class="material-icons">control_point</i> Thêm vào</a>
                             </li>
                         </ul>
                         <div class="tab-content" id="pills-tabContent">
@@ -343,161 +343,32 @@ $titleMeta = 'Củ Lạc - Osad; Turn Hirn ~ Download Lossless, 500kbps, 320kbps
                     }, $albumNew);
                     ?>
                 </div>
-                <div class="box_header d-flex justify-content-between align-items-end">
+                <div class="box_header d-flex justify-content-between align-items-end" id="post_comment">
                     <h5 class="title m-0">Bình luận của bạn</h5>
                 </div>
-                <form class="box_form_comment" action="lyric_detail_submit" method="get" accept-charset="utf-8">
+                @if ($message = Session::get('success'))
+                    <div class="alert alert-success">
+                        <strong>Thành công!</strong> {{ $message }}
+                    </div>
+                @endif
+                @if ($message = Session::get('error'))
+                    <div class="alert alert-danger">
+                        <strong>Lỗi!</strong> {{ $message }}
+                    </div>
+                @endif
+                <form class="box_form_comment form-comment-0">
                     <div class="form-group emoji-picker-container">
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Viết bình luận của bạn tại đây." data-emojiable="true"></textarea>
+                        <textarea class="form-control comment" name="comment" rows="3" placeholder="Viết bình luận của bạn tại đây." data-emojiable="true"></textarea>
+                        <input type="hidden" class="music_id" name="music_id" value="{{ $music->music_id }}">
+                        <button id="btn_cloud_up" onclick="postComment(0)"  class="btn btn-outline-success my-2 my-sm-0 waves-effect waves-light btn-upload" style="float: right; min-width: 75px;">Đăng Bình Luận</button>
                     </div>
                 </form>
                 <div class="list_comment">
-                    <div class="list_header d-flex align-items-center">
-                        <i class="material-icons">chat_bubble</i> 100 comment
+                    <div class="list_header d-flex align-items-center music_comment">
+                        <i class="material-icons">chat_bubble</i> <span>{{number_format($music->music_comment)}}</span> &nbsp;comment
                     </div>
                     <div class="list_body">
-                        <ul class="list-unstyled list_comments">
-                            <li class="media">
-                                <img class="mr-3" src="https://scontent.fhan2-1.fna.fbcdn.net/v/t1.0-1/27332304_970074423141864_4761407782621098029_n.jpg?_nc_cat=0&oh=e755f9647c591f0af38099c0acf34ddf&oe=5B667750" alt="Generic placeholder image">
-                                <div class="media-body">
-                                    <div class="d-flex align-items-center justify-content-between">
-                                        <h5 class="media-title mt-0 mb-1"><a href="#" title="">Dũng Đào</a> at <span>0:02</span></h5>
-                                        <time datetime="2011-01-12">3 ngày trước</time>
-                                    </div>
-                                    <p class="media-text">Fuck love :))) right</p>
-                                </div>
-                            </li>
-                            <li class="media">
-                                <img class="mr-3" src="https://scontent.fhan2-1.fna.fbcdn.net/v/t1.0-1/c168.361.837.837/s320x320/30652503_2289640347981676_3727735582307123200_o.jpg?_nc_cat=0&oh=64310c1967b3f23bdae442f8a4ca3d2c&oe=5B29CF27" alt="Generic placeholder image">
-                                <div class="media-body">
-                                    <div class="d-flex align-items-center justify-content-between">
-                                        <h5 class="media-title mt-0 mb-1"><a href="#" title="">Dũng Đào</a> at <span>0:02</span></h5>
-                                        <time datetime="2011-01-12">3 ngày trước</time>
-                                    </div>
-                                    <p class="media-text">love the beat</p>
-                                </div>
-                            </li>
-                            <li class="media">
-                                <img class="mr-3" src="https://scontent.fhan2-1.fna.fbcdn.net/v/t1.0-1/c0.0.320.320/p320x320/29791439_1262163767249493_4742152191278579712_n.jpg?_nc_cat=0&oh=ad55d81ca650475807967267f6e1de6f&oe=5B622789" alt="Generic placeholder image">
-                                <div class="media-body">
-                                    <div class="d-flex align-items-center justify-content-between">
-                                        <h5 class="media-title mt-0 mb-1"><a href="#" title="">Dũng Đào</a> at <span>0:02</span></h5>
-                                        <time datetime="2011-01-12">3 ngày trước</time>
-                                    </div>
-                                    <p class="media-text">ngay những nốt nhạc đầu tiên vang lên tau đã biết đây sẽ là nhạc chuông của tau</p>
-                                </div>
-                            </li>
-                            <li class="media">
-                                <img class="mr-3" src="https://scontent.fhan2-1.fna.fbcdn.net/v/t1.0-1/p320x320/12705268_768430996621751_7745070367143664628_n.jpg?_nc_cat=0&oh=9ac68cedba7a32b604ddf4a2643ff4a8&oe=5B60A247" alt="Generic placeholder image">
-                                <div class="media-body">
-                                    <div class="d-flex align-items-center justify-content-between">
-                                        <h5 class="media-title mt-0 mb-1"><a href="#" title="">Dũng Đào</a> at <span>0:02</span></h5>
-                                        <time datetime="2011-01-12">3 ngày trước</time>
-                                    </div>
-                                    <p class="media-text">ngay những nốt nhạc đầu tiên vang lên tau đã biết đây sẽ là nhạc chuông của tau</p>
-                                    <div class="media">
-                                        <img class="mr-3" src="https://scontent.fhan2-1.fna.fbcdn.net/v/t1.0-1/p320x320/12705268_768430996621751_7745070367143664628_n.jpg?_nc_cat=0&oh=9ac68cedba7a32b604ddf4a2643ff4a8&oe=5B60A247" alt="Generic placeholder image">
-                                        <div class="media-body">
-                                            <div class="d-flex align-items-center justify-content-between">
-                                                <h5 class="media-title mt-0 mb-1"><a href="#" title="">Dũng Đào</a> at <span>0:02</span></h5>
-                                                <time datetime="2011-01-12">3 ngày trước</time>
-                                            </div>
-                                            <p class="media-text">ngay những nốt nhạc đầu tiên vang lên tau đã biết đây sẽ là nhạc chuông của tau</p>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <img class="mr-3" src="https://scontent.fhan2-1.fna.fbcdn.net/v/t1.0-1/p320x320/12705268_768430996621751_7745070367143664628_n.jpg?_nc_cat=0&oh=9ac68cedba7a32b604ddf4a2643ff4a8&oe=5B60A247" alt="Generic placeholder image">
-                                        <div class="media-body">
-                                            <div class="d-flex align-items-center justify-content-between">
-                                                <h5 class="media-title mt-0 mb-1"><a href="#" title="">Dũng Đào</a> at <span>0:02</span></h5>
-                                                <time datetime="2011-01-12">3 ngày trước</time>
-                                            </div>
-                                            <p class="media-text">"Vài phút trước tôi yêu cầu quân đội Mỹ tấn công những địa điểm liên quan đến vụ tấn công hóa học tại Syria ngày 8/4", Tổng thống Trump nói trong bài phát biểu lúc 9h tối giờ Washington DC (8h sáng nay giờ HN).</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="media">
-                                <img class="mr-3" src="https://scontent.fhan2-1.fna.fbcdn.net/v/t1.0-1/c0.0.320.320/p320x320/29791439_1262163767249493_4742152191278579712_n.jpg?_nc_cat=0&oh=ad55d81ca650475807967267f6e1de6f&oe=5B622789" alt="Generic placeholder image">
-                                <div class="media-body">
-                                    <div class="d-flex align-items-center justify-content-between">
-                                        <h5 class="media-title mt-0 mb-1"><a href="#" title="">Dũng Đào</a> at <span>0:02</span></h5>
-                                        <time datetime="2011-01-12">3 ngày trước</time>
-                                    </div>
-                                    <p class="media-text">ngay những nốt nhạc đầu tiên vang lên tau đã biết đây sẽ là nhạc chuông của tau</p>
-                                </div>
-                            </li>
-                            <li class="media">
-                                <img class="mr-3" src="https://scontent.fhan2-1.fna.fbcdn.net/v/t1.0-1/27332304_970074423141864_4761407782621098029_n.jpg?_nc_cat=0&oh=e755f9647c591f0af38099c0acf34ddf&oe=5B667750" alt="Generic placeholder image">
-                                <div class="media-body">
-                                    <div class="d-flex align-items-center justify-content-between">
-                                        <h5 class="media-title mt-0 mb-1"><a href="#" title="">Dũng Đào</a> at <span>0:02</span></h5>
-                                        <time datetime="2011-01-12">3 ngày trước</time>
-                                    </div>
-                                    <p class="media-text">Fuck love :))) right</p>
-                                </div>
-                            </li>
-                            <li class="media">
-                                <img class="mr-3" src="https://scontent.fhan2-1.fna.fbcdn.net/v/t1.0-1/c168.361.837.837/s320x320/30652503_2289640347981676_3727735582307123200_o.jpg?_nc_cat=0&oh=64310c1967b3f23bdae442f8a4ca3d2c&oe=5B29CF27" alt="Generic placeholder image">
-                                <div class="media-body">
-                                    <div class="d-flex align-items-center justify-content-between">
-                                        <h5 class="media-title mt-0 mb-1"><a href="#" title="">Dũng Đào</a> at <span>0:02</span></h5>
-                                        <time datetime="2011-01-12">3 ngày trước</time>
-                                    </div>
-                                    <p class="media-text">love the beat</p>
-                                </div>
-                            </li>
-                            <li class="media">
-                                <img class="mr-3" src="https://scontent.fhan2-1.fna.fbcdn.net/v/t1.0-1/c0.0.320.320/p320x320/29791439_1262163767249493_4742152191278579712_n.jpg?_nc_cat=0&oh=ad55d81ca650475807967267f6e1de6f&oe=5B622789" alt="Generic placeholder image">
-                                <div class="media-body">
-                                    <div class="d-flex align-items-center justify-content-between">
-                                        <h5 class="media-title mt-0 mb-1"><a href="#" title="">Dũng Đào</a> at <span>0:02</span></h5>
-                                        <time datetime="2011-01-12">3 ngày trước</time>
-                                    </div>
-                                    <p class="media-text">ngay những nốt nhạc đầu tiên vang lên tau đã biết đây sẽ là nhạc chuông của tau</p>
-                                </div>
-                            </li>
-                            <li class="media">
-                                <img class="mr-3" src="https://scontent.fhan2-1.fna.fbcdn.net/v/t1.0-1/p320x320/12705268_768430996621751_7745070367143664628_n.jpg?_nc_cat=0&oh=9ac68cedba7a32b604ddf4a2643ff4a8&oe=5B60A247" alt="Generic placeholder image">
-                                <div class="media-body">
-                                    <div class="d-flex align-items-center justify-content-between">
-                                        <h5 class="media-title mt-0 mb-1"><a href="#" title="">Dũng Đào</a> at <span>0:02</span></h5>
-                                        <time datetime="2011-01-12">3 ngày trước</time>
-                                    </div>
-                                    <p class="media-text">ngay những nốt nhạc đầu tiên vang lên tau đã biết đây sẽ là nhạc chuông của tau</p>
-                                    <div class="media">
-                                        <img class="mr-3" src="https://scontent.fhan2-1.fna.fbcdn.net/v/t1.0-1/p320x320/12705268_768430996621751_7745070367143664628_n.jpg?_nc_cat=0&oh=9ac68cedba7a32b604ddf4a2643ff4a8&oe=5B60A247" alt="Generic placeholder image">
-                                        <div class="media-body">
-                                            <div class="d-flex align-items-center justify-content-between">
-                                                <h5 class="media-title mt-0 mb-1"><a href="#" title="">Dũng Đào</a> at <span>0:02</span></h5>
-                                                <time datetime="2011-01-12">3 ngày trước</time>
-                                            </div>
-                                            <p class="media-text">ngay những nốt nhạc đầu tiên vang lên tau đã biết đây sẽ là nhạc chuông của tau</p>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <img class="mr-3" src="https://scontent.fhan2-1.fna.fbcdn.net/v/t1.0-1/p320x320/12705268_768430996621751_7745070367143664628_n.jpg?_nc_cat=0&oh=9ac68cedba7a32b604ddf4a2643ff4a8&oe=5B60A247" alt="Generic placeholder image">
-                                        <div class="media-body">
-                                            <div class="d-flex align-items-center justify-content-between">
-                                                <h5 class="media-title mt-0 mb-1"><a href="#" title="">Dũng Đào</a> at <span>0:02</span></h5>
-                                                <time datetime="2011-01-12">3 ngày trước</time>
-                                            </div>
-                                            <p class="media-text">"Vài phút trước tôi yêu cầu quân đội Mỹ tấn công những địa điểm liên quan đến vụ tấn công hóa học tại Syria ngày 8/4", Tổng thống Trump nói trong bài phát biểu lúc 9h tối giờ Washington DC (8h sáng nay giờ HN).</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="media">
-                                <img class="mr-3" src="https://scontent.fhan2-1.fna.fbcdn.net/v/t1.0-1/c0.0.320.320/p320x320/29791439_1262163767249493_4742152191278579712_n.jpg?_nc_cat=0&oh=ad55d81ca650475807967267f6e1de6f&oe=5B622789" alt="Generic placeholder image">
-                                <div class="media-body">
-                                    <div class="d-flex align-items-center justify-content-between">
-                                        <h5 class="media-title mt-0 mb-1"><a href="#" title="">Dũng Đào</a> at <span>0:02</span></h5>
-                                        <time datetime="2011-01-12">3 ngày trước</time>
-                                    </div>
-                                    <p class="media-text">ngay những nốt nhạc đầu tiên vang lên tau đã biết đây sẽ là nhạc chuông của tau</p>
-                                </div>
-                            </li>
-                        </ul>
+
                     </div>
                 </div>
             </div>
@@ -582,13 +453,34 @@ $titleMeta = 'Củ Lạc - Osad; Turn Hirn ~ Download Lossless, 500kbps, 320kbps
     </div>
 @endsection
 @section('contentJS')
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-sm">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>Some text in the modal.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
     <script src="/assets/jwplayer-7.12.0/jwplayer.js"></script>
     <script>
 
+        //////////////////////////
+        ////JW Player//////////
+        ////////////////////////
+
         var vtop = document.getElementById("music-listen-1870418").offsetTop;
         $('.music_recommendation').animate({scrollTop: vtop - 50}, 'slow');
-
-
         jwplayer.key="dWwDdbLI0ul1clbtlw+4/UHPxlYmLoE9Ii9QEw==";
         var player = jwplayer('csnplayer');
         var firstPlayer = true;
@@ -756,14 +648,16 @@ $titleMeta = 'Củ Lạc - Osad; Turn Hirn ~ Download Lossless, 500kbps, 320kbps
                 $('#embed_textarea').text('<iframe src="<?php echo env('APP_URL').'/embed/mp3/'.$music->music_id; ?>' + auto + '"  scrolling="no" ' + width_height + ' frameborder="0" allowfullscreen="true" allow="encrypted-media" allowfullscreen></iframe>');
             }
         }
-
+        //////////////////////////
+        ////Add Button//////////
+        ////////////////////////
 
         $('.fb-share-link').click(function(e) {
             e.preventDefault();
             FB.ui({
                 method: 'share',
                 href: $(this).attr('href'),
-                caption: 'Chia Sẽ Nhạc',
+                caption: 'Chia Sẻ Nhạc',
             }, function(response){});
             return false;
         });
@@ -772,10 +666,119 @@ $titleMeta = 'Củ Lạc - Osad; Turn Hirn ~ Download Lossless, 500kbps, 320kbps
             FB.ui({
                 method: 'send',
                 link: $(this).attr('href'),
-                caption: 'Chia Sẽ Nhạc',
+                caption: 'Chia Sẻ Nhạc',
             });
             return false;
         });
+        //////////////////////////
+        //////Comment///////////////
+        ////////////////////////////
+        var loadComment = true;
+        var pageComment = true;
+        $('.box_form_comment').submit(false);
+        function postComment(formId) {
+            var textArea = $('.form-comment-' + formId).find('textarea');
+            if(!textArea.val()) {
+                $('.modal-dialog').find('.modal-body').html('Nhập nội dung bình luận.');
+                $('#myModal').modal('show');
+                return false;
+            }
+            $.ajax({
+                url: "/comment/post",
+                headers: {
+                    'X-CSRF-TOKEN': csrfToken,
+                },
+                type: "POST",
+                dataType: "html",
+                data: {'comment': $('.form-comment-' + formId).find('textarea').val(),
+                    'music_id' : '<?php echo $music->music_id ?>',
+                    'reply_cmt_id': $('.form-comment-' + formId).find('.reply_cmt_id').val()},
+                beforeSend: function () {
+                },
+                statusCode: {
+                    401: function(){
+                        window.location.replace('/login');
+                        return false;
+                    }
+                },
+                success: function(response) {
+                    $('.form-comment-' + formId).find('textarea').val('');
+                    if(formId == 0) {
+                        if(pageComment == 1) {
+                            $('.ul_comments').prepend(response);
+                            $('.ul_comments .reply_comment').first().on('click', function () {
+                                var reply = $('.post_comment_reply_' + $(this).data('comment_id'));
+                                if (!reply.hasClass('reply_show')) {
+                                    $('.post_comment_reply').removeClass('reply_show');
+                                    reply.addClass('reply_show');
+                                } else {
+                                    reply.removeClass('reply_show');
+                                }
+                                reply.find('textarea').trigger('focus');
+                            });
+                            $('.box_form_comment').submit(false);
+                        }else{
+                            loadPageComment('/comment/get_ajax?page=1');
+                        }
+                    }else{
+                        $('.comment-reply-' + formId).prepend(response);
+                    }
+                    $('.music_comment span').html(parseInt($('.music_comment span').html()) + 1);
+                    $('.box_form_comment').submit(false);
+                }
+            });
+            return false;
+        }
+
+
+        function loadPageComment(url) {
+            $.ajax({
+                url: url,
+                headers: {
+                    'X-CSRF-TOKEN': csrfToken,
+                },
+                type: "POST",
+                dataType: "html",
+                data: {'music_id': '<?php echo $music->music_id ?>'},
+                beforeSend: function () {
+                    $('.list_comment .list_body').html('<div class="modal-body" style="text-align: center;"><img src="/imgs/comet-spinner.gif" width="100px" /></div>');
+                },
+                success: function(response) {
+                    $('.list_comment .list_body').html(response);
+                    $('.box_form_comment').submit(false);
+                    $('.reply_comment').on('click', function () {
+                        var reply = $('.post_comment_reply_' + $(this).data('comment_id'));
+                        if (!reply.hasClass('reply_show')) {
+                            $('.post_comment_reply').removeClass('reply_show');
+                            reply.addClass('reply_show');
+                        } else {
+                            reply.removeClass('reply_show');
+                        }
+                        reply.find('textarea').trigger('focus');
+                    });
+                    $('.pagination li a').on('click', function (e) {
+                        e.preventDefault();
+                        loadPageComment($(this).attr('href'));
+                        pageComment = $(this).html();
+                    });
+                }
+            });
+        }
+        $(window).scroll(function(event){
+            var st = $(this).scrollTop();
+            if(loadComment) {
+                if (st > $('#post_comment').offset().top - 600){
+                    loadPageComment('/comment/get_ajax?page=<?php echo $_GET['comment_page'] ?? 1 ?>');
+                    pageComment = <?php echo $_GET['comment_page'] ?? 1 ?>;
+                    loadComment = false;
+                }
+            }
+        });
+
+        //////////////////////////
+        ////Add Playlist////////
+        ////////////////////////
+
     </script>
     <style>
         .jw-icon-rewind{

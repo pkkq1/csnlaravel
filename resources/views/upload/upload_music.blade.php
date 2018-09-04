@@ -26,7 +26,7 @@ $titleMeta = 'Cập nhật nhạc mới - ' . Config::get('constants.app.title')
                 </ul>
                 @if ($message = Session::get('success'))
                     <div class="alert alert-success">
-                        <strong>Success!</strong> {{ $message }}
+                        <strong>Thành công!</strong> {{ $message }}
                     </div>
                 @endif
                 <div class="tab-content upload-content" id="myTabContent">

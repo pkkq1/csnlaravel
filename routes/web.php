@@ -23,10 +23,13 @@ Route::get('auth/facebook', 'Auth\AuthFacebookController@redirectToProvider');
 Route::get('auth/facebook/callback', 'Auth\AuthFacebookController@handleProviderCallback');
 
 // listen music
-Route::get('mp3/{cat}/{sub}/{musicUrl}.html', 'MusicController@listenMusic');
-Route::get('mp3/{cat}/{sub}/{musicUrl}', 'MusicController@listenMusic');
+Route::get('mp3/{cat}/{sub}/{musicUrl}.html', ['as' => 'music.listen', 'uses' => 'MusicController@listenMusic']);
+Route::get('mp3/{cat}/{sub}/{musicUrl}', ['as' => 'music.listen', 'uses' => 'MusicController@listenMusic']);
 Route::get('embed/mp3/{music}', 'MusicController@embed');
 
+
+// ajax comment
+Route::post('comment/get_ajax', ['as' => 'comment.get_ajax', 'uses' => 'CommentController@getAjaxCommentByMusicId']);
 
 
 Auth::routes();
@@ -41,6 +44,11 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('upload/music', ['as' => 'upload.storeMusic', 'uses' => 'UploadController@storeMusic']);
     Route::post('upload/file_music', ['as' => 'upload.fileMusic', 'uses' => 'UploadController@uploadFileMusic']);
     Route::get('artist/search', ['as' => 'artist.gettermartist', 'uses' => 'ArtistController@getTermArtist']);
+
+    // Comment
+    Route::post('comment/post', ['as' => 'comment.create', 'uses' => 'CommentController@postComment']);
+
+
 
     Route::get('roles',['as'=>'roles.index','uses'=>'RoleController@index']);
     Route::get('roles/create',['as'=>'roles.create','uses'=>'RoleController@create']);
@@ -60,4 +68,6 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('itemCRUD2/{id}/edit',['as'=>'itemCRUD2.edit','uses'=>'ItemCRUD2Controller@edit','middleware' => ['permission:item-edit']]);
     Route::patch('itemCRUD2/{id}',['as'=>'itemCRUD2.update','uses'=>'ItemCRUD2Controller@update','middleware' => ['permission:item-edit']]);
     Route::delete('itemCRUD2/{id}',['as'=>'itemCRUD2.destroy','uses'=>'ItemCRUD2Controller@destroy','middleware' => ['permission:item-delete']]);
+
+
 });
