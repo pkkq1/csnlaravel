@@ -282,4 +282,18 @@ class Helpers
     public  static  function fbShareLink($url) {
         return 'https://www.facebook.com/dialog/share? app_id=' . env('FACEBOOK_APP_ID') . '&display=popup&href=' . $url . '&redirect_uri=' . $url;
     }
+    public static function ajaxResult($is_success = true,
+                         $message = '',
+                         $data = array(),
+                         $terminer = true)
+    {
+        echo json_encode(array(
+                'success' => $is_success,
+                'message' => $message,
+                'data' => $data)
+        );
+        if ($terminer) {
+            exit();
+        }
+    }
 }

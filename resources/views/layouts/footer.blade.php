@@ -1,3 +1,5 @@
+<script src="/js/functions.js"></script>
+{{--<script src="/js/lobibox.min.js"></script>--}}
 <footer id="footer">
     <div class="container">
         <div class="row">

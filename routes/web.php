@@ -48,6 +48,10 @@ Route::group(['middleware' => ['auth']], function() {
     // Comment
     Route::post('comment/post', ['as' => 'comment.create', 'uses' => 'CommentController@postComment']);
 
+    // Playlist
+    Route::get('playlist/get_playlist', ['as' => 'music.play_list', 'uses' => 'PlaylistController@getPlayList']);
+    Route::post('playlist/create_playlist', ['as' => 'music.play_list', 'uses' => 'PlaylistController@createPlayList']);
+    Route::post('playlist/add_music_playlist', ['as' => 'music.play_list', 'uses' => 'PlaylistController@addMusicPlayList']);
 
 
     Route::get('roles',['as'=>'roles.index','uses'=>'RoleController@index']);

@@ -1,9 +1,9 @@
 <?php
-namespace App\Repositories\Music;
+namespace App\Repositories\Playlist;
 
 use App\Repositories\EloquentRepository;
 use DB;
-class MusicEloquentRepository extends EloquentRepository implements MusicRepositoryInterface
+class PlaylistEloquentRepository extends EloquentRepository implements PlaylistRepositoryInterface
 {
     /**
      * get model
@@ -11,7 +11,7 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
      */
     public function getModel()
     {
-        return \App\Models\MusicModel::class;
+        return \App\Models\PlaylistModel::class;
     }
     /**
      * Get all posts only published
@@ -40,37 +40,33 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
         return $result;
     }
 
-    public function findOnlyMusicUrl($url)
+    public function getByUserId($id)
     {
-        $result = $this
-            ->_model
-            ->where('music_title_url', $url)
-            ->first();
-
+        $result = $this->_model::where('playlist_user_id', $id)->orderBy('playlist_title', 'desc')->get();
         return $result;
     }
-    public function findOnlyMusicId($id)
+    public function getByPlaylist($arr)
     {
-        $result = $this
-            ->_model
-            ->where('music_id', $id)
-            ->first();
-
+        $result = $this->_model::where($arr)->orderBy('playlist_title', 'desc')->first();
         return $result;
     }
     public function incrementCol($id, $field)
     {
         $result = $this
             ->_model
-            ->where('music_id', $id)
+            ->where('playlist_id', $id)
             ->Increment($field);
         return $result;
     }
-
-    /**
-     * Create
-     * @return mixed
-     */
+    public function create(array $attributes)
+    {
+        $attributes['playlist_time'] = time();
+        $attributes['playlist_status'] = 1;
+        $attributes['playlist_music_total'] = 0;
+        $attributes['playlist_desc'] = 'desc';
+        $result = $this->_model::firstOrCreate($attributes);
+        return $result;
+    }
 
 }
 

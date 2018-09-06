@@ -103,7 +103,7 @@ $titleMeta = 'Củ Lạc - Osad; Turn Hirn ~ Download Lossless, 500kbps, 320kbps
                                 <a class="nav-link" id="pills-share-tab" data-toggle="pill" href="#pills-share" role="tab" aria-controls="pills-share" aria-selected="false"><i class="material-icons">share</i> Chia sẻ</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link add_playlist" id="pills-plus-tab" data-toggle="pill" href="#pills-plus" role="tab" aria-controls="pills-plus" aria-selected="false"><i class="material-icons">control_point</i> Thêm vào</a>
+                                <a class="nav-link add_playlist" onclick="loadPlayList()" id="pills-plus-tab" data-toggle="pill" href="#pills-plus" role="tab" aria-controls="pills-plus" aria-selected="false"><i class="material-icons">control_point</i> Thêm vào</a>
                             </li>
                         </ul>
                         <div class="tab-content" id="pills-tabContent">
@@ -267,23 +267,15 @@ $titleMeta = 'Củ Lạc - Osad; Turn Hirn ~ Download Lossless, 500kbps, 320kbps
                                     </div>
                                 </div>
                                 <div class="card mb-2 playlist_1 border-0">
-                                    <div class="card-body">
+                                    <div class="card-body playlist-csn">
                                         <ul class="list-unstyled mb-0">
-                                            <li class="d-flex align-items-center justify-content-between"><a href="#" title="">Bài hát yêu thích (1)</a><time datetime="2011-01-12">26/06/2015</time></li>
-                                            <li class="d-flex align-items-center justify-content-between"><a href="#" title="">Cũng Bởi Vì Phê (2)</a><time datetime="2011-01-12">10 giây trước</time></li>
-                                            <li class="d-flex align-items-center justify-content-between"><a href="#" title="">8x & 9x (1)</a><time datetime="2011-01-12">chiều hôm qua</time></li>
-                                            <li class="d-flex align-items-center justify-content-between"><a href="#" title="">hiproduction (7)</a><time datetime="2011-01-12">24/02/2008</time></li>
-                                            <li class="d-flex align-items-center justify-content-between"><a href="#" title="">Bài hát yêu thích (1)</a><time datetime="2011-01-12">26/06/2015</time></li>
-                                            <li class="d-flex align-items-center justify-content-between"><a href="#" title="">Cũng Bởi Vì Phê (2)</a><time datetime="2011-01-12">10 giây trước</time></li>
-                                            <li class="d-flex align-items-center justify-content-between"><a href="#" title="">8x & 9x (1)</a><time datetime="2011-01-12">chiều hôm qua</time></li>
-                                            <li class="d-flex align-items-center justify-content-between"><a href="#" title="">hiproduction (7)</a><time datetime="2011-01-12">24/02/2008</time></li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="input-group mb-3 create_playlist">
-                                    <input type="text" class="form-control" placeholder="Nhập tên playlist mới cần tạo" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                    <input type="text" class="form-control text-create-playlist" placeholder="Nhập tên playlist mới cần tạo" aria-label="Recipient's username" aria-describedby="basic-addon2">
                                     <div class="input-group-append">
-                                        <button class="btn btn-primary" type="button">Tạo Playlist mới</button>
+                                        <button class="btn btn-primary " onclick="btnCreatePlaylist()" type="button">Tạo Playlist mới</button>
                                     </div>
                                 </div>
                             </div>
@@ -360,7 +352,7 @@ $titleMeta = 'Củ Lạc - Osad; Turn Hirn ~ Download Lossless, 500kbps, 320kbps
                     <div class="form-group emoji-picker-container">
                         <textarea class="form-control comment" name="comment" rows="3" placeholder="Viết bình luận của bạn tại đây." data-emojiable="true"></textarea>
                         <input type="hidden" class="music_id" name="music_id" value="{{ $music->music_id }}">
-                        <button id="btn_cloud_up" onclick="postComment(0)"  class="btn btn-outline-success my-2 my-sm-0 waves-effect waves-light btn-upload" style="float: right; min-width: 75px;">Đăng Bình Luận</button>
+                        <button id="btn_cloud_up" onclick="postComment(0)"  class="btn my-2 my-sm-0 waves-effect waves-light btn-upload" style="float: right; min-width: 75px;">Đăng Bình Luận</button>
                     </div>
                 </form>
                 <div class="list_comment">
@@ -458,14 +450,11 @@ $titleMeta = 'Củ Lạc - Osad; Turn Hirn ~ Download Lossless, 500kbps, 320kbps
         <div class="modal-dialog modal-sm">
             <!-- Modal content-->
             <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
                 <div class="modal-body">
                     <p>Some text in the modal.</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="close" data-dismiss="modal">×</button>
                 </div>
             </div>
 
@@ -474,7 +463,7 @@ $titleMeta = 'Củ Lạc - Osad; Turn Hirn ~ Download Lossless, 500kbps, 320kbps
 
     <script src="/assets/jwplayer-7.12.0/jwplayer.js"></script>
     <script>
-
+        var musicId = '<?php echo $music->music_id ?>';
         //////////////////////////
         ////JW Player//////////
         ////////////////////////
@@ -677,20 +666,25 @@ $titleMeta = 'Củ Lạc - Osad; Turn Hirn ~ Download Lossless, 500kbps, 320kbps
         $('.box_form_comment').submit(false);
         function postComment(formId) {
             var textArea = $('.form-comment-' + formId).find('textarea');
+            <?php
+                if(!Auth::check()) {
+                ?>
+                    alertModal('Bạn chưa đăng nhập.');
+                    return false;
+                <?php
+                }
+            ?>
             if(!textArea.val()) {
-                $('.modal-dialog').find('.modal-body').html('Nhập nội dung bình luận.');
-                $('#myModal').modal('show');
+                alertModal('Chưa nhập nội dung bình luận.');
                 return false;
             }
+
             $.ajax({
                 url: "/comment/post",
-                headers: {
-                    'X-CSRF-TOKEN': csrfToken,
-                },
                 type: "POST",
                 dataType: "html",
                 data: {'comment': $('.form-comment-' + formId).find('textarea').val(),
-                    'music_id' : '<?php echo $music->music_id ?>',
+                    'music_id' : musicId,
                     'reply_cmt_id': $('.form-comment-' + formId).find('.reply_cmt_id').val()},
                 beforeSend: function () {
                 },
@@ -724,21 +718,24 @@ $titleMeta = 'Củ Lạc - Osad; Turn Hirn ~ Download Lossless, 500kbps, 320kbps
                     }
                     $('.music_comment span').html(parseInt($('.music_comment span').html()) + 1);
                     $('.box_form_comment').submit(false);
+                    Lobibox.notify('success', {
+                        size: 'mini',
+                        sound: false,
+                        delay: 1500,
+                        delayIndicator: false,
+                        msg: 'Bình luận đã được đăng.'
+                    });
                 }
             });
             return false;
         }
 
-
         function loadPageComment(url) {
             $.ajax({
                 url: url,
-                headers: {
-                    'X-CSRF-TOKEN': csrfToken,
-                },
                 type: "POST",
                 dataType: "html",
-                data: {'music_id': '<?php echo $music->music_id ?>'},
+                data: {'music_id': musicId},
                 beforeSend: function () {
                     $('.list_comment .list_body').html('<div class="modal-body" style="text-align: center;"><img src="/imgs/comet-spinner.gif" width="100px" /></div>');
                 },
@@ -778,6 +775,104 @@ $titleMeta = 'Củ Lạc - Osad; Turn Hirn ~ Download Lossless, 500kbps, 320kbps
         ////Add Playlist////////
         ////////////////////////
 
+        var loadPlaylist = true;
+        function loadPlayList() {
+            <?php
+                if(!Auth::check()) {
+                    ?>
+                    alertModal('Bạn chưa đăng nhập.')
+                    return false;
+                    <?php
+                }
+            ?>
+            if(loadPlaylist) {
+                $.ajax({
+                    url: "/playlist/get_playlist",
+                    type: "GET",
+                    dataType: "json",
+                    data: {'music_id': musicId},
+                    beforeSend: function () {
+                    },
+                    success: function(data) {
+                        loadPlaylist = false;
+                        var stringHtml = '';
+                        if(data) {
+                            $.each(data, function (index, val) {
+                                stringHtml += stringItemPlaylist(val.playlist_title, val.playlist_music_total, val.playlist_id, val.music_exist, val.playlist_time);
+                            });
+                        }
+                        $('.playlist-csn ul').html(stringHtml);
+                    }
+                });
+            }
+
+        }
+        function stringItemPlaylist(playlist_title, playlist_music_total, playlist_id, music_exist, playlist_time){
+            return '<li onclick="addMusicPlaylist(' + playlist_id + ')" class="' + (music_exist ? "playlist_music_exist " : "") + 'd-flex justify-content-between playlist_id_' + playlist_id + '"><a class="title_playlist" href="javascript:void(0)" title="' + playlist_title + '">' + playlist_title + ' (<span>' + playlist_music_total + '</span>)</a><time>' + convertDateTime(playlist_time) + '</time></li>';
+        }
+        function convertDateTime(timestamp) {
+            date = new Date(timestamp * 1000),
+            datevalues = [
+                date.getFullYear(),
+                date.getMonth()+1,
+                date.getDate(),
+                date.getHours(),
+                date.getMinutes(),
+                date.getSeconds(),
+            ];
+            return date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
+        }
+        function btnCreatePlaylist() {
+            var titlePlaylist = $('.text-create-playlist');
+            if(!titlePlaylist.val()) {
+                alertModal('Bạn chưa nhập tên playlist mới.');
+                return false;
+            }
+            $.ajax({
+                url: "/playlist/create_playlist",
+                type: "POST",
+                dataType: "json",
+                data: {'music_id': musicId, 'playlist_title': titlePlaylist.val()},
+                beforeSend: function () {
+                },
+                success: function(data) {
+                    if(data.success) {
+                        const playlist = $('.playlist-csn .list-unstyled');
+                        playlist.append(stringItemPlaylist(data.data.playlist_title, data.data.playlist_music_total, data.data.playlist_id, false, data.data.playlist_time));
+                        titlePlaylist.val("");
+                        $('.playlist-csn').animate({scrollTop: playlist.height()}, 'slow');
+                    }else{
+                        alertModal(data.message);
+                    }
+                }
+            });
+        }
+        function addMusicPlaylist(playlistId) {
+            const playlistIdSelect = $('.playlist_id_' + playlistId);
+            if(playlistIdSelect.hasClass('playlist_music_exist')){
+                alertModal('Bài Hát đã tồn tại trong playlist.');
+                return false;
+            }
+            $.ajax({
+                url: "/playlist/add_music_playlist",
+                type: "POST",
+                dataType: "json",
+                data: {'music_id': musicId, 'playlist_id': playlistId},
+                beforeSend: function () {
+                },
+                success: function(data) {
+                    if(data.success) {
+                        playlistIdSelect.addClass('playlist_music_exist');
+                        var countPlaylist = playlistIdSelect.find('.title_playlist span');
+                        countPlaylist.html(parseInt(countPlaylist.html()) + 1);
+                        successModal(data.message);
+                        playlistIdSelect.find('time').html(convertDateTime(Date.now() / 1000));
+                    }else{
+                        alertModal(data.message);
+                    }
+                }
+            });
+        }
     </script>
     <style>
         .jw-icon-rewind{

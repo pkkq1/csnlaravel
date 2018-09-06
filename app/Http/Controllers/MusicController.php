@@ -11,6 +11,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Library\Helpers;
 use App\Repositories\Music\MusicEloquentRepository;
+use App\Repositories\Playlist\PlaylistEloquentRepository;
+use Illuminate\Support\Facades\Auth;
+use App\Models\PlaylistMusicModel;
 
 class MusicController extends Controller
 {
@@ -20,10 +23,12 @@ class MusicController extends Controller
      * @return void
      */
     protected $musicRepository;
+    protected $playlistRepository;
 
-    public function __construct(MusicEloquentRepository $musicRepository)
+    public function __construct(MusicEloquentRepository $musicRepository, PlaylistEloquentRepository $playlistRepository)
     {
         $this->musicRepository = $musicRepository;
+        $this->playlistRepository = $playlistRepository;
     }
 
     /**

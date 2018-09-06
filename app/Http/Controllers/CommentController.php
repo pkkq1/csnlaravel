@@ -71,6 +71,7 @@ class CommentController extends Controller
             // add comment parent
             $result = $this->commentRepository->create([
                 'music_id' => $request->input('music_id'),
+                'music_id' => $request->input('music_id'),
                 'user_id' => Auth::user()->id,
                 'username' => Auth::user()->username,
                 'comment_text' => $request->input('comment')
