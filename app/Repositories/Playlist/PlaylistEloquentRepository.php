@@ -50,21 +50,10 @@ class PlaylistEloquentRepository extends EloquentRepository implements PlaylistR
         $result = $this->_model::where($arr)->orderBy('playlist_title', 'desc')->first();
         return $result;
     }
-    public function incrementCol($id, $field)
+    public function updatePlaylist($where, array $attributes)
     {
-        $result = $this
-            ->_model
-            ->where('playlist_id', $id)
-            ->Increment($field);
-        return $result;
-    }
-    public function create(array $attributes)
-    {
-        $attributes['playlist_time'] = time();
-        $attributes['playlist_status'] = 1;
-        $attributes['playlist_music_total'] = 0;
-        $attributes['playlist_desc'] = 'desc';
-        $result = $this->_model::firstOrCreate($attributes);
+        $result = $this->_model::where($where)
+            ->update($attributes);
         return $result;
     }
 

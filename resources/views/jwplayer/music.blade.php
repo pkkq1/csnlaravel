@@ -9,7 +9,7 @@ global $music_new_uploads;
 global $album_rows_3_0;
 
 
-$titleMeta = 'Củ Lạc - Osad; Turn Hirn ~ Download Lossless, 500kbps, 320kbps ~ Cu Lac - Osad; Turn Hirn';
+$titleMeta = $music->music_title . ' - '. $music->music_artist;
 ?>
 @include('cache.def_home_cat_3_0')
 @include('cache.def_home_album')
@@ -712,7 +712,7 @@ $titleMeta = 'Củ Lạc - Osad; Turn Hirn ~ Download Lossless, 500kbps, 320kbps
                             });
                             $('.box_form_comment').submit(false);
                         }else{
-                            loadPageComment('/comment/get_ajax?page=1');
+                            loadPageComment('/binh_luan/get_ajax?page=1');
                         }
                     }else{
                         $('.comment-reply-' + formId).prepend(response);
@@ -765,7 +765,7 @@ $titleMeta = 'Củ Lạc - Osad; Turn Hirn ~ Download Lossless, 500kbps, 320kbps
             var st = $(this).scrollTop();
             if(loadComment) {
                 if (st > $('#post_comment').offset().top - 600){
-                    loadPageComment('/comment/get_ajax?page=<?php echo $_GET['comment_page'] ?? 1 ?>');
+                    loadPageComment('/binh_luan/get_ajax?page=<?php echo $_GET['comment_page'] ?? 1 ?>');
                     pageComment = <?php echo $_GET['comment_page'] ?? 1 ?>;
                     loadComment = false;
                 }
@@ -851,7 +851,7 @@ $titleMeta = 'Củ Lạc - Osad; Turn Hirn ~ Download Lossless, 500kbps, 320kbps
         function addMusicPlaylist(playlistId) {
             const playlistIdSelect = $('.playlist_id_' + playlistId);
             if(playlistIdSelect.hasClass('playlist_music_exist')){
-                alertModal('Bài Hát đã tồn tại trong playlist.');
+                alertModal('Bài hát đã tồn tại trong playlist.');
                 return false;
             }
             $.ajax({

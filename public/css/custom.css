@@ -256,6 +256,9 @@
 .jw-icon-nextsong:hover {
     color: #ff3456!important;
 }
+.stringQ {
+    max-width: 150px!important;
+}
 .stringQ:hover {
     color: #ff3456!important;
     max-width: 150px!important;

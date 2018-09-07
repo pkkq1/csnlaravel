@@ -1,10 +1,12 @@
 @section('hidden_wapper', true)
 <?php
-    $titleMeta = 'cập nhật nghệ sĩ mới - ' . Config::get('constants.app.title');
+$titleMeta = 'Cập nhật playlist - ' . $playlistUser->playlist_title;
+$i = 1;
 ?>
 @extends('layouts.app')
 @section('contentCSS')
     <link rel="stylesheet" type="text/css" href="/css/croppie.css">
+    <script type="text/javascript" src="/node_modules/sortablejs/Sortable.min.js"></script>
 @endsection
 @section('content')
     @include('user.box_profile', ['user' => 'data'])
@@ -12,7 +14,7 @@
         <div class="row row_wrapper">
             <div class="col-md-9">
                 <div class="box_playlist border-0">
-                    <h3 class="title">UPLOAD ARTIST</h3>
+                    <h3 class="title">CẬP NHẬT PLAYLIST</h3>
                 </div>
                 @if ($message = Session::get('success'))
                     <div class="alert alert-success">
@@ -24,53 +26,60 @@
                         <form action="" method="post" accept-charset="utf-8" enctype="multipart/form-data">
                             <div class="row">
                                 <div class="col-md-9">
-                                    <div class="form-group row{{ $errors->has('artist_nickname') ? ' has-error' : '' }}">
-                                        <label for="artist_nickname" class="col-sm-4 col-form-label">Nghệ Danh</label>
+                                    <div class="form-group row{{ $errors->has('playlist_title') ? ' has-error' : '' }}">
+                                        <label for="artist_nickname" class="col-sm-4 col-form-label">Tên Playlist</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" value="{{ old('artist_nickname') }}" id="artist_nickname" name="artist_nickname" placeholder="Blooming Days - The 2nd Mini Album">
-                                            @if ($errors->has('artist_nickname'))
+                                            <input type="text" class="form-control" value="{{ old('playlist_title') ?? $playlistUser->playlist_title }}" id="playlist_title" name="playlist_title" placeholder="Blooming Days - The 2nd Mini Album">
+                                            @if ($errors->has('playlist_title'))
                                                 <span class="help-block">
-                                                    <strong>{{ $errors->first('artist_nickname') }}</strong>
+                                                    <strong>{{ $errors->first('playlist_title') }}</strong>
                                                 </span>
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="form-group row {{ $errors->has('artist_birthday') ? ' has-error' : '' }}">
-                                        <label for="artist_birthday" class="col-sm-4 col-form-label">Ngày Sinh</label>
+                                    <div class="form-group row{{ $errors->has('playlist_cat_id') ? ' has-error' : '' }}">
+                                        <label for="playlist_cat_id" class="col-sm-4 col-form-label">Thể Loại</label>
                                         <div class="col-sm-8">
-                                            <input type="date" name="artist_birthday" class="form-control" value="{{ old('artist_birthday') }}" id="artist_birthday">
-                                            @if ($errors->has('artist_birthday'))
+                                            <select name="playlist_cat_id" id="playlist_cat_id" class="form-control" onchange="cat_level_reload(this.value);">
+                                                @foreach($playlistCategory as $item)
+                                                <option {{$playlistUser->playlist_cat_id == $item->cat_id ? 'selected' : ''}} value="{{$item->cat_id}}">{{$item->cat_title}}</option>
+                                                @endforeach
+                                            </select>
+                                            @if ($errors->has('playlist_cat_id'))
                                                 <span class="help-block">
-                                                    <strong>{{ $errors->first('artist_birthday') }}</strong>
+                                                    <strong>{{ $errors->first('playlist_cat_id') }}</strong>
                                                 </span>
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="form-group row">
-                                        <label for="artist_gender" class="col-sm-4 col-form-label">Giới Tính</label>
+                                    <div class="form-group row{{ $errors->has('playlist_cat_level') ? ' has-error' : '' }}">
+                                        <label for="playlist_cat_level" class="col-sm-4 col-form-label">Danh Mục</label>
                                         <div class="col-sm-8">
-                                            <select name="artist_gender" id="artist_gender" class="form-control">
-                                                <option {{ (old('artist_gender') == 0 ? 'selected' : '') }} value="0">Nam</option>
-                                                <option {{ (old('artist_gender') == 1 ? 'selected' : '') }} value="1">Nữ</option>
+                                            <select name="playlist_cat_level" id="playlist_cat_level" class="form-control">
                                             </select>
                                         </div>
+                                        @if ($errors->has('playlist_cat_level'))
+                                            <span class="help-block">
+                                                    <strong>{{ $errors->first('playlist_cat_level') }}</strong>
+                                                </span>
+                                        @endif
                                     </div>
-                                    <div class="form-group row {{ $errors->has('artist_avatar') ? ' has-error' : '' }}">
+                                    <div class="form-group row {{ $errors->has('playlist_cover') ? ' has-error' : '' }}">
                                         <div class="col-sm-4 col-form-label">
-                                            <label for="artist_avatar">Avatar</label> <br>
+                                            <label for="artist_avatar">Cover</label> <br>
                                             <small>(Hình tối thiểu 500 x 500 pixels. Nếu nhỏ hơn sẽ bị mất hình và lấy hình mặc định của Chiasenhac)</small>
                                         </div>
                                         <div class="col-sm-8">
                                             <div class="media">
-                                                <img class="mr-3" id="artist_avatar_uploaded" src="/imgs/avatar_default.png" alt="">
+                                                <img class="mr-3" id="playlist_cover_uploaded" src="{{$playlistUser->playlist_cover ? PUBLIC_MUSIC_PLAYLIST_PATH.$playlistUser->playlist_id . '.png?v=' . time() : '/imgs/avatar_default.png' }}" alt="">
                                                 <div class="media-body">
                                                     <div class="form-group">
-                                                        <label for="choose_artist_avatar">Chọn file ảnh</label>
-                                                        <input type="file" class="form-control-file" name="choose_artist_avatar" id="choose_artist_avatar">
-                                                        <input type="text" hidden name="artist_avatar" class="form-control-file" id="artist_avatar">
-                                                        @if ($errors->has('artist_avatar'))
+                                                        <label for="choose_playlist_cover">Chọn file ảnh</label>
+                                                        <input type="file" class="form-control-file" name="choose_playlist_cover" id="choose_playlist_cover">
+                                                        <input type="text" hidden name="playlist_cover" value="{{$playlistUser->playlist_cover}}" class="form-control-file" id="playlist_cover">
+                                                        @if ($errors->has('playlist_cover'))
                                                             <span class="help-block">
-                                                                <strong>{{ $errors->first('artist_avatar') }}</strong>
+                                                                <strong>{{ $errors->first('playlist_cover') }}</strong>
                                                             </span>
                                                         @endif
                                                     </div>
@@ -78,26 +87,28 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group row {{ $errors->has('artist_cover') ? ' has-error' : '' }}">
-                                        <div class="col-sm-4 col-form-label">
-                                            <label for="choose_artist_cover">Cover</label> <br>
-                                            <small>(Hình tối thiểu 1170 x 300 pixels. Nếu nhỏ hơn sẽ bị mất hình và lấy hình mặc định của Chiasenhac)</small>
-                                        </div>
+                                    <div class="form-group row">
+                                        <label for="playlist_music" class="col-sm-4 col-form-label">Danh sách bài hát</label>
                                         <div class="col-sm-8">
-                                            <div class="media">
-                                                <img class="mr-3" id="artist_cover_uploaded" src="/imgs/avatar_default.png" alt="">
-                                                <div class="media-body">
-                                                    <div class="form-group">
-                                                        <label for="choose_artist_cover">Chọn file ảnh</label>
-                                                        <input type="file" class="form-control-file" name="choose_artist_cover" id="choose_artist_cover">
-                                                        <input type="text" hidden name="artist_cover" class="form-control-file" id="artist_cover">
-                                                        @if ($errors->has('artist_cover'))
-                                                            <span class="help-block">
-                                                                <strong>{{ $errors->first('artist_cover') }}</strong>
-                                                            </span>
-                                                        @endif
-                                                    </div>
-                                                </div>
+                                            <div class="card border-0" id="playlist_music">
+                                                <ul class="list-group list-group-sortable" id="editable">
+                                                    @foreach($playlistmusic as $item)
+                                                        <li class="list-group-item d-flex align-items-center justify-content-between" id="{{$item['music']['music_id']}}"><span>{{$i++}}. <a class="name" href="#" title="">{{$item['music']['music_title']}}</a> - <?php echo '<a class="author" href="#">'.implode(',</a><a class="author" href="#">', explode(';', $item['music']['music_artist'])).'</a>' ?>
+                                                            </span> <a class="delete js-remove" href="javascript:void(0)" title="xoá nhạc"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                                        </li>
+                                                    @endforeach
+                                                </ul>
+                                                <input type="hidden" name="remove_music" class="playlist_remove_music" />
+                                                <script type="text/javascript">
+                                                    var el = document.getElementById('editable');
+                                                    var sortable = Sortable.create(el,{
+                                                        filter: '.js-remove',
+                                                        onFilter: function (evt) {
+                                                            $('.playlist_remove_music').val($('.playlist_remove_music').val() + ',' + evt.item.id)
+                                                            evt.item.parentNode.removeChild(evt.item);
+                                                        }
+                                                    });
+                                                </script>
                                             </div>
                                         </div>
                                     </div>
@@ -105,15 +116,11 @@
                             </div>
                             <hr>
                             <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
-                            <input type="hidden" name="artist_avatar_crop_x" id="artist_avatar_crop_x" value="">
-                            <input type="hidden" name="artist_avatar_crop_y" id="artist_avatar_crop_y" value="">
-                            <input type="hidden" name="artist_cover_crop_x" id="artist_cover_crop_x" value="">
-                            <input type="hidden" name="artist_cover_crop_y" id="artist_cover_crop_y" value="">
                             <div class="row">
                                 <div class="col-md-9">
                                     <div class="form-group row">
-                                        <label for="inputPassword" class="col-sm-4 col-form-label"></label>
                                         <div class="col-sm-8">
+                                            <label for="inputPassword" class="col-sm-4 col-form-label"></label>
                                             <button type="submit" class="btn btn-primary btn-lg">Lưu</button>
                                             <button type="button" class="btn btn-primary btn-lg" onclick="return remove_artist();" >Xóa</button>
                                         </div>
@@ -169,8 +176,7 @@
         $(document).ready(function(){
             var selectImage;
 
-            $('#choose_artist_avatar').on('change', function(){
-                selectImage = 'avatar';
+            $('#choose_playlist_cover').on('change', function(){
                 $('#image_demo').html('');
                 $('.modal-dialog').css("max-width", "500px")
                 $image_crop = $('#image_demo').croppie({
@@ -199,60 +205,15 @@
                 reader.readAsDataURL(this.files[0]);
                 $('#uploadimageModal').modal('show');
             });
-
-            $('#choose_artist_cover').on('change', function(){
-                selectImage = 'cover';
-                $('#image_demo').html('');
-                $('.modal-dialog').css("max-width", "1200px")
-                $('#image_demo').html('');
-                $image_crop = $('#image_demo').croppie({
-                    enableExif: true,
-                    viewport: {
-                        width:1170,
-                        height:300,
-                        type:'square' //circle
-                    },
-                    boundary:{
-                        width:1170,
-                        height:300
-                    },
-                    showZoomer: false,
-                    enableOrientation: true,
-                    mouseWheelZoom: '',
-                });
-                var reader = new FileReader();
-                reader.onload = function (event) {
-                    $image_crop.croppie('bind', {
-                        url: event.target.result
-                    }).then(function(){
-                        console.log('jQuery bind complete');
-                    });
-                }
-                reader.readAsDataURL(this.files[0]);
-                $('#uploadimageModal').modal('show');
-            });
             $('.crop_image').click(function(event){
                 $image_crop.croppie('result', {
                     type: 'canvas',
                     size: 'viewport'
                 }).then(function (response) {
                     const info = $image_crop.croppie('get');
-                    var top_left_x = info.points[0];
-                    var top_left_y = info.points[1];
-                    var bottom_right_x = info.points[2];
-                    var bottom_right_y = info.points[3];
                     $('#uploadimageModal').modal('hide');
-                    if(selectImage == 'avatar'){
-                        $('#artist_avatar_crop_x').val('top_left:' + top_left_x + ';' + 'bottom_right:' + bottom_right_x);
-                        $('#artist_avatar_crop_y').val('top_left:' + top_left_y + ';' + 'bottom_right:' + bottom_right_y);
-                        $('#artist_avatar').val(response);
-                        $('#artist_avatar_uploaded').attr("src", response);
-                    }else{
-                        $('#artist_cover_crop_x').val('top_left:' + top_left_x + ';' + 'bottom_right:' + bottom_right_x);
-                        $('#artist_cover_crop_y').val('top_left:' + top_left_y + ';' + 'bottom_right:' + top_left_y);
-                        $('#artist_cover').val(response);
-                        $('#artist_cover_uploaded').attr("src", response);
-                    }
+                    $('#playlist_cover').val(response);
+                    $('#playlist_cover_uploaded').attr("src", response);
                 })
             });
 
@@ -265,8 +226,38 @@
             });
             $('form').find('.has-error').removeClass("has-error");
             $('.help-block').remove();
-            $('#artist_avatar_uploaded').attr("src", '/imgs/avatar_default.png');
-            $('#artist_cover_uploaded').attr("src", '/imgs/avatar_default.png');
+            $('#playlist_cover_uploaded').attr("src", '/imgs/avatar_default.png');
         }
+
+
+        var cat_id_selected = <?php echo old('playlist_cat_id') ?? $playlistUser->playlist_cat_id ?>;
+        cat_level_reload(cat_id_selected);
+        function cat_level_reload(cat_id)
+        {
+            cat_id_selected = cat_id;
+            document.getElementById('playlist_cat_level').options.length = 0;
+            <?php
+                foreach ($playlistCategory as $item) {
+                    ?>
+                    if (cat_id == <?php echo $item->cat_id ?>) {
+                        <?php
+                        $i = 0;
+                        foreach ($playlistLevel as $itemLevel){
+                            if($itemLevel->cat_id == $item->cat_id){
+                                ?>
+                                document.getElementById('playlist_cat_level').options[<?php echo $i++ ?>]=new Option("<?php echo $itemLevel->cat_title ?>", "<?php echo $itemLevel->cat_level ?>", false, false);
+                                <?php
+                            }
+                        }
+                        ?>
+                    }
+                    <?php
+                }
+            ?>
+
+        }
+        document.getElementById('playlist_cat_level').value = <?php echo old('playlist_cat_level') ?? $playlistUser->playlist_cat_level ?>;
+
+
     </script>
 @endsection

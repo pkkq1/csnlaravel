@@ -12,7 +12,7 @@ $titleMeta = 'Cập nhật nhạc mới - ' . Config::get('constants.app.title')
 @endsection
 @extends('layouts.app')
 @section('content')
-    @include('upload.box_profile', ['user' => 'data'])
+    @include('user.box_profile', ['user' => 'data'])
     <div class="container">
         <div class="row row_wrapper">
             <div class="col-md-9">
@@ -32,7 +32,7 @@ $titleMeta = 'Cập nhật nhạc mới - ' . Config::get('constants.app.title')
                 <div class="tab-content upload-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="upload_lyric" role="tabpanel" aria-labelledby="upload_lyric-tab">
                         <div class="box_upload_file d-flex align-items-center justify-content-center{{ $errors->has('drop_files') ? ' has-error-drop-file' : '' }}" >
-                            <form action="/upload/file_music" class="box_process{{ $errors->has('drop_html') ? '' : ' dropzone' }}" enctype="multipart/form-data">
+                            <form action="/dang_tai/file_nhac" class="box_process{{ $errors->has('drop_html') ? '' : ' dropzone' }}" enctype="multipart/form-data">
                                 @if(old('drop_html'))
                                     <?php echo old('drop_html'); ?>
                                 @else
@@ -48,7 +48,7 @@ $titleMeta = 'Cập nhật nhạc mới - ' . Config::get('constants.app.title')
                                 </span>
                         @endif
                         <hr>
-                        <form action="/upload/music" method="post" class="form_music has_drop_file" accept-charset="utf-8" enctype="multipart/form-data">
+                        <form action="" method="post" class="form_music has_drop_file" accept-charset="utf-8" enctype="multipart/form-data">
                             <div class="row row10px">
                                 <div class="col-12">
                                     <div class="box_right_upload form-row">
@@ -370,7 +370,7 @@ $titleMeta = 'Cập nhật nhạc mới - ' . Config::get('constants.app.title')
         ?>
 
         $(document).ready(function() {
-            $("#music_artist_id").tokenInput("/artist/search", {
+            $("#music_artist_id").tokenInput("/ca_si/tim_kiem", {
                 theme: "facebook",
                 preventDuplicates: true,
                 setInputName: "#music_artist",

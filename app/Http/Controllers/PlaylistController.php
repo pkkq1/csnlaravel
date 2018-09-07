@@ -12,8 +12,11 @@ use Illuminate\Http\Request;
 use App\Library\Helpers;
 use App\Repositories\Music\MusicEloquentRepository;
 use App\Repositories\Playlist\PlaylistEloquentRepository;
+use App\Repositories\PlaylistCategory\PlaylistCategoryEloquentRepository;
+use App\Repositories\PlaylistMusic\PlaylistMusicEloquentRepository;
 use Illuminate\Support\Facades\Auth;
 use App\Models\PlaylistMusicModel;
+use App\Models\PlaylistModel;
 
 class PlaylistController extends Controller
 {
@@ -23,10 +26,15 @@ class PlaylistController extends Controller
      * @return void
      */
     protected $playlistRepository;
+    protected $playlistCategoryRepository;
+    protected $playlistMusicRepository;
 
-    public function __construct(PlaylistEloquentRepository $playlistRepository)
+    public function __construct(PlaylistEloquentRepository $playlistRepository, PlaylistCategoryEloquentRepository $playlistCategoryRepository,
+                                PlaylistMusicEloquentRepository $playlistMusicRepository)
     {
         $this->playlistRepository = $playlistRepository;
+        $this->playlistCategoryRepository = $playlistCategoryRepository;
+        $this->playlistMusicRepository = $playlistMusicRepository;
     }
 
     /**
@@ -50,10 +58,6 @@ class PlaylistController extends Controller
         if(strlen($request->input('playlist_title')) <= 1){
             Helpers::ajaxResult(false, 'Tên playlist mới ít nhất 2 ký tự.', null);
         }
-        $playlistUser = $this->playlistRepository->getByPlaylist([['playlist_title', $request->input('playlist_name')], ['playlist_user_id', Auth::user()->id]]);
-        if($playlistUser) {
-            Helpers::ajaxResult(false, 'Tên playlist mới của bạn đã tồn tại', null);
-        }
         $result = $this->playlistRepository->create([
             'playlist_user_id' => Auth::user()->id,
             'playlist_title' => trim($request->input('playlist_title'))
@@ -67,7 +71,7 @@ class PlaylistController extends Controller
         }
         $exist = PlaylistMusicModel::where([['playlist_id', $request->input('playlist_id')], ['music_id', $request->input('music_id')]])->exists();
         if($exist) {
-            Helpers::ajaxResult(false, 'Bài Hát đã tồn tại trong playlist.', null);
+            Helpers::ajaxResult(false, 'Bài hát đã tồn tại trong playlist.', null);
         }
         $result = PlaylistMusicModel::firstOrCreate([
             'playlist_id' => $request->input('playlist_id'),
@@ -77,5 +81,45 @@ class PlaylistController extends Controller
         $playlistUser->playlist_music_total = $playlistUser->playlist_music_total + 1;
         $playlistUser->save();
         Helpers::ajaxResult(true, 'Đã thêm vào playlist.', null);
+    }
+    public function editPlaylist(Request $request, $id) {
+        $playlistUser = $this->playlistRepository->getByPlaylist([['playlist_id', $id], ['playlist_user_id', Auth::user()->id]]);
+        $playlistmusic = PlaylistMusicModel::where('playlist_id', $id)->with('music')->get();
+        $playlistLevel = $this->playlistCategoryRepository->getList();
+        $playlistCategory = $this->playlistCategoryRepository->getCategory();
+        if(!$playlistUser) {
+            return view('errors.404');
+        }
+        return view('playlist.update_playlist', compact('playlistUser', 'playlistmusic', 'playlistLevel', 'playlistCategory'));
+    }
+    public function storePlaylist(Request $request, $id) {
+        $this->validate($request, [
+            'playlist_title' => 'required|max:255',
+        ]);
+        $playlist = PlaylistModel::where([['playlist_id', $id], ['playlist_user_id', Auth::user()->id]]);
+        if(!$playlist->exists()) {
+            return view('errors.404');
+        }
+        $update = [
+            'playlist_title' => $request->input('playlist_title'),
+            'playlist_cat_id' => $request->input('playlist_cat_id') ?? 0,
+            'playlist_cat_level' => $request->input('playlist_cat_level') ?? 0,
+        ];
+        // remove music, update count
+        if($request->input('remove_music')) {
+            $arrMusic = explode(',', substr($request->input('remove_music'), 1));
+            $countRemove = PlaylistMusicModel::where('playlist_id', $id)->whereIn('music_id', $arrMusic)->delete();
+            $update['playlist_music_total'] = $playlist->first()->playlist_music_total - $countRemove;
+        }
+        // update cover
+        if($request->input('playlist_cover')) {
+            $fileNameCover = Helpers::saveBase64Image($request->input('playlist_cover'), MUSIC_PLAYLIST_PATH, $playlist->first()->playlist_id, 'png');
+            $update['playlist_cover'] = 1;
+        }
+        $playlist->update($update);
+        return redirect()->route('playlist.update_playlist', $id)->with('success', 'Đã Cập nhập playlist.');
+    }
+    public function deletePlaylist(Request $request) {
+
     }
 }

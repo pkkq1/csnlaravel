@@ -42,7 +42,6 @@
     {{--<script type="text/javascript" src="/assets/jQuery-File-Upload-9.21.0/js/jquery.fileupload-audio.js"></script>--}}
     {{--<script type="text/javascript" src="/assets/jQuery-File-Upload-9.21.0/js/jquery.fileupload-video.js"></script>--}}
     {{--<script type="text/javascript" src="/assets/jQuery-File-Upload-9.21.0/js/jquery.fileupload-validate.js"></script>--}}
-    {{--<script type="text/javascript" src="/node_modules/sortablejs/Sortable.min.js"></script>--}}
     {{--<script type="text/javascript" src="/js/functions.js"></script>--}}
     <script>
         var csrfToken = "{{csrf_token()}}";
