@@ -57,6 +57,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('playlist/cap_nhat/{id}', ['as' => 'playlist.update_playlist', 'uses' => 'PlaylistController@editPlaylist']);
     Route::post('playlist/cap_nhat/{id}', ['as' => 'playlist.store_playlist', 'uses' => 'PlaylistController@storePlaylist']);
 
+    // User
+    Route::post('user/update', ['as' => 'user.index', 'uses' => 'User\UserController@store']);
 
     Route::get('roles',['as'=>'roles.index','uses'=>'RoleController@index']);
     Route::get('roles/create',['as'=>'roles.create','uses'=>'RoleController@create']);

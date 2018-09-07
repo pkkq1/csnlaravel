@@ -13,6 +13,7 @@ use App\Http\Controllers\Controller;
 use App\Library\Helpers;
 use App\Repositories\User\UserEloquentRepository;
 use Illuminate\Support\Facades\Auth;
+use App\Models\UserModel;
 
 class UserController extends Controller
 {
@@ -43,9 +44,20 @@ class UserController extends Controller
         return view('user.index', compact('user'));
     }
     public function store(Request $request) {
-        if(Auth::user()->id ==1){
-
+        $update = [
+            'name' => $request->input('name'),
+            'user_gender' => $request->input('user_gender'),
+            'user_birthday' => $request->input('user_birthday'),
+            'user_phone_number' => $request->input('user_phone_number'),
+            'user_interests' => $request->input('user_interests')
+        ];
+        if($request->input('user_avatar')){
+            $fileNameAvatar = Helpers::saveBase64Image($request->input('user_avatar'), AVATAR_PATH, Auth::user()->id, 'png');
+            $update['user_avatar'] = $fileNameAvatar;
         }
+        $user = UserModel::where('id', Auth::user()->id)->update($update);
+
+        Helpers::ajaxResult(true, 'Cập nhật tài khoản thành công', $update);
     }
 
 }

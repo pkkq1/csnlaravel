@@ -17,7 +17,7 @@
     {{--<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css">--}}
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/fonts/fonts.css">
-    {{--<link rel="stylesheet" href="/css/Lobibox.min.css"/>--}}
+    <link rel="stylesheet" href="/css/Lobibox.min.css"/>
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="stylesheet" type="text/css" href="/css/custom.css">
     @yield('contentCSS')
@@ -42,7 +42,6 @@
     {{--<script type="text/javascript" src="/assets/jQuery-File-Upload-9.21.0/js/jquery.fileupload-audio.js"></script>--}}
     {{--<script type="text/javascript" src="/assets/jQuery-File-Upload-9.21.0/js/jquery.fileupload-video.js"></script>--}}
     {{--<script type="text/javascript" src="/assets/jQuery-File-Upload-9.21.0/js/jquery.fileupload-validate.js"></script>--}}
-    {{--<script type="text/javascript" src="/js/functions.js"></script>--}}
     <script>
         var csrfToken = "{{csrf_token()}}";
         $.ajaxSetup({

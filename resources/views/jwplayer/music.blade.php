@@ -719,13 +719,6 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
                     }
                     $('.music_comment span').html(parseInt($('.music_comment span').html()) + 1);
                     $('.box_form_comment').submit(false);
-                    Lobibox.notify('success', {
-                        size: 'mini',
-                        sound: false,
-                        delay: 1500,
-                        delayIndicator: false,
-                        msg: 'Bình luận đã được đăng.'
-                    });
                 }
             });
             return false;

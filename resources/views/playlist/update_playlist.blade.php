@@ -76,7 +76,7 @@ $i = 1;
                                                     <div class="form-group">
                                                         <label for="choose_playlist_cover">Chọn file ảnh</label>
                                                         <input type="file" class="form-control-file" name="choose_playlist_cover" id="choose_playlist_cover">
-                                                        <input type="text" hidden name="playlist_cover" value="{{$playlistUser->playlist_cover}}" class="form-control-file" id="playlist_cover">
+                                                        <input type="text" hidden name="playlist_cover" value="" class="form-control-file" id="playlist_cover">
                                                         @if ($errors->has('playlist_cover'))
                                                             <span class="help-block">
                                                                 <strong>{{ $errors->first('playlist_cover') }}</strong>
@@ -154,7 +154,7 @@ $i = 1;
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Crop Image</h4>
+                    <h4 class="modal-title">Cắt sửa ảnh</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
@@ -165,8 +165,8 @@ $i = 1;
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-success crop_image">Crop Image</button>
-                    <button class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success crop_image">Cắt ảnh</button>
+                    <button class="btn btn-default" data-dismiss="modal">Đóng</button>
                 </div>
             </div>
         </div>
@@ -174,7 +174,6 @@ $i = 1;
     <script type="text/javascript" src="/js/croppie.js"></script>
     <script>
         $(document).ready(function(){
-            var selectImage;
 
             $('#choose_playlist_cover').on('change', function(){
                 $('#image_demo').html('');

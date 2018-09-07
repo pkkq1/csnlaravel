@@ -4,7 +4,7 @@ $titleMeta = $user->name . ' - '. Config::get('constants.app.title');
 ?>
 @extends('layouts.app')
 @section('contentCSS')
-
+    <link rel="stylesheet" type="text/css" href="/css/croppie.css">
 @endsection
 @section('content')
 @include('user.box_profile', ['user' => $user])
@@ -182,5 +182,19 @@ $titleMeta = $user->name . ' - '. Config::get('constants.app.title');
 </div>
 @endsection
 @section('contentJS')
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-sm">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-body">
+                    <p>Some text in the modal.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                </div>
+            </div>
 
+        </div>
+    </div>
 @endsection

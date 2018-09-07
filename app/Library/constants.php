@@ -52,5 +52,6 @@ define('MUSIC_PLAYLIST_PATH', '/data/playlist/');
 define('PUBLIC_MUSIC_PLAYLIST_PATH', '/storage/data/playlist/');
 // User
 define('USER_ACTIVE', 1);
+define('AVATAR_PATH', '/data/user_avatar/');
 define('PUBLIC_AVATAR_PATH', '/storage/data/user_avatar/');
 
