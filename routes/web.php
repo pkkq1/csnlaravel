@@ -12,43 +12,53 @@
 */
 
 Auth::routes();
-Route::get('/logout', 'UserController@logout');
 
-Route::get('/', ['as' => 'HomeController.index', 'uses' => 'HomeController@index']);
-Route::get('/home', ['as' => 'HomeController.index', 'uses' => 'HomeController@index']);
-Route::get('/upload', ['as' => 'upload.index', 'uses' => 'UploadController@index']);
+Route::group(['middlewareGroups' => ['web']], function () {
+    Route::get('/logout', 'UserController@logout');
 
-// Socialite
-Route::get('auth/facebook', 'Auth\AuthFacebookController@redirectToProvider');
-Route::get('auth/facebook/callback', 'Auth\AuthFacebookController@handleProviderCallback');
+    Route::get('/', ['as' => 'HomeController.index', 'uses' => 'HomeController@index']);
+    Route::get('/home', ['as' => 'HomeController.index', 'uses' => 'HomeController@index']);
+    Route::get('/dang_tai', ['as' => 'upload.index', 'uses' => 'UploadController@index']);
 
-// listen music
-Route::get('mp3/{cat}/{sub}/{musicUrl}.html', ['as' => 'music.listen', 'uses' => 'MusicController@listenMusic']);
-Route::get('mp3/{cat}/{sub}/{musicUrl}', ['as' => 'music.listen', 'uses' => 'MusicController@listenMusic']);
-Route::get('embed/mp3/{music}', 'MusicController@embed');
+    // Socialite
+    Route::get('auth/facebook', 'Auth\AuthFacebookController@redirectToProvider');
+    Route::get('auth/facebook/callback', 'Auth\AuthFacebookController@handleProviderCallback');
 
+    // listen music
+    Route::get('mp3/{cat}/{sub}/{musicUrl}.html', ['as' => 'music.listen', 'uses' => 'MusicController@listenMusic']);
+    Route::get('mp3/{cat}/{sub}/{musicUrl}', ['as' => 'music.listen', 'uses' => 'MusicController@listenMusic']);
+    Route::get('embed/mp3/{music}', 'MusicController@embed');
+    // ajax comment
+    Route::post('binh_luan/get_ajax', ['as' => 'comment.get_ajax', 'uses' => 'CommentController@getAjaxCommentByMusicId']);
 
-// ajax comment
-Route::post('comment/get_ajax', ['as' => 'comment.get_ajax', 'uses' => 'CommentController@getAjaxCommentByMusicId']);
+    // User
+    Route::get('user/{id}', ['as' => 'user.index', 'uses' => 'User\UserController@index']);
 
-
-Auth::routes();
+});
 
 
 Route::group(['middleware' => ['auth']], function() {
 
     // upload selector
-    Route::get('upload/artist', ['as' => 'upload.createArtist', 'uses' => 'UploadController@createArtist']);
-    Route::post('upload/artist', ['as' => 'upload.storeArtist', 'uses' => 'UploadController@storeArtist']);
-    Route::get('upload/music', ['as' => 'upload.createMusic', 'uses' => 'UploadController@createMusic']);
-    Route::post('upload/music', ['as' => 'upload.storeMusic', 'uses' => 'UploadController@storeMusic']);
-    Route::post('upload/file_music', ['as' => 'upload.fileMusic', 'uses' => 'UploadController@uploadFileMusic']);
-    Route::get('artist/search', ['as' => 'artist.gettermartist', 'uses' => 'ArtistController@getTermArtist']);
+    Route::get('dang_tai/ca_si', ['as' => 'upload.createArtist', 'uses' => 'UploadController@createArtist']);
+    Route::post('dang_tai/ca_si', ['as' => 'upload.storeArtist', 'uses' => 'UploadController@storeArtist']);
+    Route::get('dang_tai/nhac', ['as' => 'upload.createMusic', 'uses' => 'UploadController@createMusic']);
+    Route::post('dang_tai/nhac', ['as' => 'upload.storeMusic', 'uses' => 'UploadController@storeMusic']);
+    Route::post('dang_tai/file_nhac', ['as' => 'upload.fileMusic', 'uses' => 'UploadController@uploadFileMusic']);
+    Route::get('ca_si/tim_kiem', ['as' => 'artist.gettermartist', 'uses' => 'ArtistController@getTermArtist']);
 
     // Comment
     Route::post('comment/post', ['as' => 'comment.create', 'uses' => 'CommentController@postComment']);
 
+    // Playlist
+    Route::get('playlist/get_playlist', ['as' => 'playlist.play_list', 'uses' => 'PlaylistController@getPlayList']);
+    Route::post('playlist/create_playlist', ['as' => 'playlist.play_list', 'uses' => 'PlaylistController@createPlayList']);
+    Route::post('playlist/add_music_playlist', ['as' => 'playlist.play_list', 'uses' => 'PlaylistController@addMusicPlayList']);
+    Route::get('playlist/cap_nhat/{id}', ['as' => 'playlist.update_playlist', 'uses' => 'PlaylistController@editPlaylist']);
+    Route::post('playlist/cap_nhat/{id}', ['as' => 'playlist.store_playlist', 'uses' => 'PlaylistController@storePlaylist']);
 
+    // User
+    Route::post('user/update', ['as' => 'user.index', 'uses' => 'User\UserController@store']);
 
     Route::get('roles',['as'=>'roles.index','uses'=>'RoleController@index']);
     Route::get('roles/create',['as'=>'roles.create','uses'=>'RoleController@create']);

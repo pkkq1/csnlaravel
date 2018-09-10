@@ -256,6 +256,9 @@
 .jw-icon-nextsong:hover {
     color: #ff3456!important;
 }
+.stringQ {
+    max-width: 150px!important;
+}
 .stringQ:hover {
     color: #ff3456!important;
     max-width: 150px!important;
@@ -333,4 +336,53 @@
 .modal-body{
     font-size: 14px;
 }
-
+.playlist-csn i {
+    font-size: 14px!important;
+    margin-bottom: 0px!important;
+}
+.playlist-csn .list-inline-item {
+    margin-bottom: 0px!important;
+    padding-top: 3.5px;
+}
+.playlist_1 .card-body .list-unstyled li {
+    margin-bottom: 0px!important;
+}
+.playlist-csn .list-inline{
+    opacity: 0;
+}
+.playlist-csn .title_playlist{
+    width: 330px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.playlist-csn .list-unstyled:hover .list-inline{
+    opacity: 1;
+}
+.modal_content_csn {
+    padding-left: 30px;
+    padding-top: 1px;
+}
+.modal_icon_csn {
+    float: left;
+}
+.modal-footer {
+    padding-top: 5px;
+    padding-bottom: 10px;
+}
+.playlist-csn {
+    padding: 10px!important;
+}
+.playlist-csn .d-flex{
+    padding: 8px 8px;
+    padding-top: 5px;
+    padding-bottom: 4px;
+}
+.playlist-csn li:hover {
+    background-color: #FF2D55;
+    color: white!important;
+}
+.playlist-csn li:hover a{
+    color: white!important;
+    text-decoration: none !important;
+}

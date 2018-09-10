@@ -3,11 +3,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>{{ $titleMeta or Config::get('constants.app.title') }}</title>
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="/node_modules/font-awesome/css/font-awesome.min.css">
     {{--<link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">--}}
     <link rel="stylesheet" type="text/css" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/node_modules/owl.carousel/dist/assets/owl.carousel.min.css">
     <link rel="stylesheet" type="text/css" href="/node_modules/owl.carousel/dist/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css"/>
     {{--<link rel="stylesheet" type="text/css" href="/node_modules/slick-carousel/slick/slick.css">--}}
     {{--<link rel="stylesheet" type="text/css" href="/node_modules/slick-carousel/slick/slick-theme.css">--}}
     {{--<link rel="stylesheet" type="text/css" href="/node_modules/swiper/dist/css/swiper.css">--}}
@@ -17,6 +17,7 @@
     {{--<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css">--}}
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/fonts/fonts.css">
+    <link rel="stylesheet" href="/css/Lobibox.min.css"/>
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="stylesheet" type="text/css" href="/css/custom.css">
     @yield('contentCSS')
@@ -41,10 +42,13 @@
     {{--<script type="text/javascript" src="/assets/jQuery-File-Upload-9.21.0/js/jquery.fileupload-audio.js"></script>--}}
     {{--<script type="text/javascript" src="/assets/jQuery-File-Upload-9.21.0/js/jquery.fileupload-video.js"></script>--}}
     {{--<script type="text/javascript" src="/assets/jQuery-File-Upload-9.21.0/js/jquery.fileupload-validate.js"></script>--}}
-    {{--<script type="text/javascript" src="/node_modules/sortablejs/Sortable.min.js"></script>--}}
-    {{--<script type="text/javascript" src="/js/functions.js"></script>--}}
     <script>
-        var csrfToken = "{{csrf_token()}}"
+        var csrfToken = "{{csrf_token()}}";
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': csrfToken
+            }
+        });
         window.fbAsyncInit = function() {
             FB.init({
                 appId            : '<?php echo env('FACEBOOK_APP_ID') ?>',

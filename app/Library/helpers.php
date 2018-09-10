@@ -282,4 +282,46 @@ class Helpers
     public  static  function fbShareLink($url) {
         return 'https://www.facebook.com/dialog/share? app_id=' . env('FACEBOOK_APP_ID') . '&display=popup&href=' . $url . '&redirect_uri=' . $url;
     }
+    public static function ajaxResult($is_success = true,
+                         $message = '',
+                         $data = array(),
+                         $terminer = true)
+    {
+        echo json_encode(array(
+                'success' => $is_success,
+                'message' => $message,
+                'data' => $data)
+        );
+        if ($terminer) {
+            exit();
+        }
+    }
+    public static function sessionListenMusic($idMusic) {
+        session_start();
+        if(!isset($_SESSION["listen"])) {
+            $newSession[$idMusic] = [
+                'time_expiry' => strtotime('+1 hour')
+            ];
+            $_SESSION["listen"] = $newSession;
+            return true;
+        }else{
+            $listen = $_SESSION["listen"];
+            if(isset($listen[$idMusic])) {
+                if($listen[$idMusic]['time_expiry'] <= time()) {
+                    $listen[$idMusic] = [
+                        'time_expiry' => strtotime(TIME_EXPIRY_ADD_LISTEN_MUSIC)
+                    ];
+                    $_SESSION["listen"] = $listen;
+                    return true;
+                }
+                return false;
+            }else{
+                $listen[$idMusic] = [
+                    'time_expiry' => strtotime('+1 hour')
+                ];
+                $_SESSION["listen"] = $listen;
+                return true;
+            }
+        }
+    }
 }

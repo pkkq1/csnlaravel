@@ -11,6 +11,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Library\Helpers;
 use App\Repositories\Music\MusicEloquentRepository;
+use App\Repositories\Playlist\PlaylistEloquentRepository;
+use App\Repositories\MusicListen\MusicListenEloquentRepository;
+use Illuminate\Support\Facades\Auth;
+use App\Models\PlaylistMusicModel;
 
 class MusicController extends Controller
 {
@@ -20,10 +24,14 @@ class MusicController extends Controller
      * @return void
      */
     protected $musicRepository;
+    protected $playlistRepository;
+    protected $musicListenRepository;
 
-    public function __construct(MusicEloquentRepository $musicRepository)
+    public function __construct(MusicEloquentRepository $musicRepository, PlaylistEloquentRepository $playlistRepository, MusicListenEloquentRepository $musicListenRepository)
     {
         $this->musicRepository = $musicRepository;
+        $this->playlistRepository = $playlistRepository;
+        $this->musicListenRepository = $musicListenRepository;
     }
 
     /**
@@ -40,6 +48,10 @@ class MusicController extends Controller
         $music = $this->musicRepository->findOnlyMusicId($arrUrl['id']);
         if(!$music)
             return view('errors.404');
+        // +1 view
+        if(Helpers::sessionListenMusic($arrUrl['id'])){
+            $this->musicListenRepository->incrementListen($arrUrl['id']);
+        }
         return view('jwplayer.music', compact('music'));
     }
     public function embed(Request $request, $music) {

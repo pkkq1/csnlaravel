@@ -17,6 +17,8 @@ define('DEFAULT_ROOT_CACHE_MUSIC_PATH', $_SERVER['DOCUMENT_ROOT'].'/storage/data
 define('LYRIC_DETAIL_NEW_MUSIC', 4);
 define('LYRIC_DETAIL_NEW_ALBUM', 5);
 define('LITMIT_COMMENT', 10);
+define('LITMIT_TITLE_PLAYLIST', 2);
+define('TIME_EXPIRY_ADD_LISTEN_MUSIC', '+1 hour');
 
 // ARTIST
 define('AVATAR_ARTIST_SOURCE_PATH', '/data/source_artist_avatar/');
@@ -46,5 +48,10 @@ define('MUSIC_FACE_SOURCE_PATH', 'data/source_face/');
 // Spectrum
 define('MUSIC_SPECTRUM_PATH', 'data/spectrum/');
 // Playlist
-define('MUSIC_PLAYLIST_PATH', 'data/playlist/');
+define('MUSIC_PLAYLIST_PATH', '/data/playlist/');
+define('PUBLIC_MUSIC_PLAYLIST_PATH', '/storage/data/playlist/');
+// User
+define('USER_ACTIVE', 1);
+define('AVATAR_PATH', '/data/user_avatar/');
+define('PUBLIC_AVATAR_PATH', '/storage/data/user_avatar/');
 

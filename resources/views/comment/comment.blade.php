@@ -14,7 +14,7 @@ use App\Library\Helpers;
                         <time><?php echo Helpers::timeElapsedString($item['comment_time']); ?></time>
                     </div>
                     <p class="media-text">{{$item['comment_text']}}</p>
-                    <div class="reply_comment" data-comment_id="{{$item['comment_id']}}">Reply</div>
+                    <div class="reply_comment" data-comment_id="{{$item['comment_id']}}">Trả lời</div>
                 </div>
                 <div class="post_comment_reply post_comment_reply_{{$item['comment_id']}}">
                     <form class="box_form_comment form-comment-{{$item['comment_id']}}">

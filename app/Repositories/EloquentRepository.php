@@ -53,6 +53,12 @@ abstract class EloquentRepository implements RepositoryInterface
     }
 
     /**
+     * Get one
+     * @param $id
+     * @return mixed
+     */
+
+    /**
      * Create
      * @param array $attributes
      * @return mixed

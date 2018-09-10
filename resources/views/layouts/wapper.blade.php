@@ -208,9 +208,15 @@
                         </div>
                     </form>
                     <ul class="list-inline m-0">
-                        <li class="list-inline-item"><a href="/login" title="Đăng nhập">Đăng nhập</a></li>
-                        <li class="list-inline-item">/</li>
-                        <li class="list-inline-item"><a href="/register" title="Đăng ký">Đăng ký</a></li>
+                        @if(Auth::check())
+                            <li class="list-inline-item"><a href="/user/{{Auth::user()->id}}" title="{{Auth::user()->name}}">{{Auth::user()->name}}</a></li>
+                            <li class="list-inline-item">/</li>
+                            <li class="list-inline-item"><a href="/logout" title="Đăng ký">Thoát</a></li>
+                        @else
+                            <li class="list-inline-item"><a href="/login" title="Đăng nhập">Đăng nhập</a></li>
+                            <li class="list-inline-item">/</li>
+                            <li class="list-inline-item"><a href="/register" title="Đăng ký">Đăng ký</a></li>
+                        @endif
                     </ul>
                 </div>
             </div>
@@ -256,7 +262,7 @@
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
-                    <a href="/upload" style="text-decoration: none;" title=""><button id="btn_cloud_up" class="btn btn-outline-success my-2 my-sm-0 waves-effect waves-light" type="button"><i class="material-icons">cloud_upload</i> Upload</button></a>
+                    <a href="/dang_tai" style="text-decoration: none;" title=""><button id="btn_cloud_up" class="btn btn-outline-success my-2 my-sm-0 waves-effect waves-light" type="button"><i class="material-icons">cloud_upload</i> Upload</button></a>
                 </form>
             </div>
             <div id="menu-expand" class="menu-expand-wrapper">
