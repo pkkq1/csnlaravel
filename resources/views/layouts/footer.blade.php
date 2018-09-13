@@ -1,5 +1,20 @@
 <script src="/js/functions.js"></script>
 <script src="/js/lobibox.min.js"></script>
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-body">
+                <p>Some text in the modal.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+        </div>
+
+    </div>
+</div>
 <footer id="footer">
     <div class="container">
         <div class="row">

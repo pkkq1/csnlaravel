@@ -1,9 +1,9 @@
 <?php
-namespace App\Repositories\User;
+namespace App\Repositories\Category;
 
 use App\Repositories\EloquentRepository;
 use DB;
-class UserEloquentRepository extends EloquentRepository implements UserRepositoryInterface
+class CategoryEloquentRepository extends EloquentRepository implements CategoryRepositoryInterface
 {
     /**
      * get model
@@ -11,7 +11,7 @@ class UserEloquentRepository extends EloquentRepository implements UserRepositor
      */
     public function getModel()
     {
-        return \App\Models\UserModel::class;
+        return \App\Models\CategoryCsnModel::class;
     }
     /**
      * Get all posts only published
@@ -24,6 +24,11 @@ class UserEloquentRepository extends EloquentRepository implements UserRepositor
         return $result;
     }
 
+    /**
+     * Get post only published
+     * @param $id int Post ID
+     * @return mixed
+     */
     public function findOnlyPublished($id)
     {
         $result = $this
@@ -34,18 +39,25 @@ class UserEloquentRepository extends EloquentRepository implements UserRepositor
 
         return $result;
     }
-
-    public function getUserById($id) {
-        $result = $this->_model::where([['id', $id], ['user_active', USER_ACTIVE]]);
-        return $result;
-    }
-    public function incrementCol($id, $field)
+    public function getCategoryParentByUrl($url)
     {
         $result = $this
             ->_model
-            ->where('id', $id)
-            ->Increment($field);
+            ->where('cat_url', $url)
+            ->where('cat_level', 0)
+            ->first();
         return $result;
     }
+    public function getCategorySub($idParent, $url)
+    {
+        $result = $this
+            ->_model
+            ->where('cat_id', $idParent)
+            ->where('cat_url', $url)
+            ->first();
+        return $result;
+    }
+
+
 }
 

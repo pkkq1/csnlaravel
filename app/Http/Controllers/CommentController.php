@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Redirect;
 use App\Repositories\Comment\CommentEloquentRepository;
 use App\Repositories\CommentReply\CommentReplyEloquentRepository;
 use App\Repositories\Music\MusicEloquentRepository;
+use App\Repositories\User\UserEloquentRepository;
 
 class CommentController extends Controller
 {
@@ -26,12 +27,16 @@ class CommentController extends Controller
     protected $commentRepository;
     protected $commentReplayRepository;
     protected $musicRepository;
+    protected $userRepository;
 
-    public function __construct(CommentEloquentRepository $commentRepository, CommentReplyEloquentRepository $commentReplayRepository, MusicEloquentRepository $musicRepository)
+
+    public function __construct(CommentEloquentRepository $commentRepository, CommentReplyEloquentRepository $commentReplayRepository, MusicEloquentRepository $musicRepository,
+                                UserEloquentRepository $userRepository)
     {
         $this->commentRepository = $commentRepository;
         $this->commentReplayRepository = $commentReplayRepository;
         $this->musicRepository = $musicRepository;
+        $this->userRepository = $userRepository;
     }
 
     /**
@@ -77,6 +82,7 @@ class CommentController extends Controller
                 'comment_text' => $request->input('comment')
             ]);
             $this->musicRepository->incrementCol($request->input('music_id'), 'music_comment');
+            $this->userRepository->incrementCol(Auth::user()->id, 'user_comments');
             $result = $result->toArray();
             $result['user'] = Auth::user()->toArray();
             $comment['data'][] = $result;

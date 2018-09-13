@@ -10,10 +10,10 @@ class PlaylistModel extends Model
     public $timestamps = false;
     protected $table = 'csn_playlist';
     protected $primaryKey = 'playlist_id';
-    protected $fillable = ['playlist_cat_id', 'playlist_cat_level', 'playlist_cover', 'playlist_music_total', 'playlist_user_id', 'playlist_status', 'playlist_title', 'playlist_desc', 'playlist_time'];
+    protected $fillable = ['playlist_cat_id', 'playlist_cat_level', 'playlist_cover', 'playlist_music_total', 'playlist_user_id', 'playlist_status', 'playlist_title', 'playlist_desc', 'playlist_time', 'playlist_listen'];
 
     public function playlist_music() {
-
+        return $this->belongsTo('App\Models\PlaylistMusicModel', 'playlist_id', 'playlist_id')->with('music');
     }
     public function playlist_category_cat_id() {
         return $this->belongsTo('App\Models\CategoryPlaylistModel', 'playlist_cat_id', 'cat_id');

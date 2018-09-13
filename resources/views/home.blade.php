@@ -38,17 +38,18 @@ global $top_artist_rows;
         <div class="owl-carousel owl-theme">
             <?php
                 array_map(function($item) {
+                $url = SUB_ALLBUM.'/'.Helpers::music_url($item);
                     ?>
                     <div class="item">
                         <div class="card card1 slide">
                             <div class="card-header"
                                  style="background-image: url({{Helpers::coverImg($item['cover_id'])}});">
-                                <a href="{{SUB_ALLBUM.'/'.$item['music_title_url'].'.html'}}" title="{{$item['music_album']}}">
+                                <a href="{{$url}}" title="{{$item['music_album']}}">
                                     <span class="icon-play"></span>
                                 </a>
                             </div>
                             <div class="card-body">
-                                <h3 class="card-title"><a href="{{SUB_ALLBUM.'/'.$item['music_title_url'].'.html'}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h3>
+                                <h3 class="card-title"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h3>
                                 <p class="card-text author"><?php echo '<a href="#">'.implode(',</a><a href="#">', explode(';', $item['music_artist'])).'</a>' ?></p>
                                 <div class="card-text"><?php echo Helpers::bitrate2str($item['music_bitrate']); ?></div>
                             </div>
@@ -94,6 +95,7 @@ global $top_artist_rows;
                 <?php
                 $newMusic = Helpers::getRandLimitArr($music_new_uploads, LIMIT_HOME_MUSIC_NEW);
                 array_map(function ($i, $item) {
+                $url = Helpers::listen_url($item);
                     ?>
                     @if (($i % 5) == 0)
                     </div>
@@ -102,12 +104,12 @@ global $top_artist_rows;
                         <div class="col">
                             <div class="card card1">
                                 <div class="card-header" style="background-image: url({{Helpers::coverImg($item['cover_id'])}});">
-                                    <a href="{{Helpers::listen_url($item)}}" title="{{$item['music_title']}}">
+                                    <a href="{{$url}}" title="{{$item['music_title']}}">
                                         <span class="icon-play"></span>
                                     </a>
                                 </div>
                                 <div class="card-body">
-                                    <h3 class="card-title"><a href="{{SUB_ALLBUM.'/'.$item['music_title_url'].'.html'}}" title="{{$item['music_shortlyric'] ?? ''}}">{{$item['music_title']}}</a></h3>
+                                    <h3 class="card-title"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? ''}}">{{$item['music_title']}}</a></h3>
                                     <p class="card-text"><?php echo '<a href="#">'.implode(',</a><a href="#">', explode(';', $item['music_artist'])).'</a>' ?></p>
                                 </div>
                             </div>
@@ -147,17 +149,18 @@ global $top_artist_rows;
                     <ul class="list-unstyled list_music">
                         <?php
                             array_map(function($item) {
+                                $url = SUB_ALLBUM.'/'.Helpers::music_url($item);
                             ?>
                             <li class="media align-items-stretch">
                                 <div class="media-left align-items-stretch mr-2">
-                                    <a href="{{SUB_ALLBUM.'/'.$item['music_title_url'].'.html'}}" title="{{$item['music_album']}}">
+                                    <a href="{{$url}}" title="{{$item['music_album']}}">
                                         <img src="{{Helpers::coverImg($item['cover_id'])}}" alt="{{$item['music_album']}}">
                                         <i class="material-icons">play_circle_outline</i>
                                     </a>
                                 </div>
                                 <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
                                     <div>
-                                        <h5 class="media-title mt-0 mb-0 title_home_tablet"><a href="{{SUB_ALLBUM.'/'.$item['music_title_url'].'.html'}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
+                                        <h5 class="media-title mt-0 mb-0 title_home_tablet"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
                                         <div class="author title_home_tablet"><?php echo '<a href="#">'.implode(',</a><a href="#">', explode(';', $item['music_artist'])).'</a>' ?></div>
                                     </div>
                                     <small class="type_music"><?php echo Helpers::bitrate2str($item['music_bitrate']); ?></small>
@@ -247,6 +250,7 @@ global $top_artist_rows;
                 <?php
                 $albumNew = Helpers::getRandLimitArr($album_new, LIMIT_HOME_ALBUM_NEW);
                 array_map(function ($i, $item) {
+                    $url = SUB_ALLBUM.'/'.Helpers::music_url($item);
                 ?>
                     @if (($i % 5) == 0)
                     </div>
@@ -255,12 +259,12 @@ global $top_artist_rows;
                         <div class="col">
                             <div class="card card1">
                                 <div class="card-header" style="background-image: url({{Helpers::coverImg($item['cover_id'])}});">
-                                    <a href="{{SUB_ALLBUM.'/'.$item['music_title_url'].'.html'}}" title="{{$item['music_title']}}">
+                                    <a href="{{$url}}" title="{{$item['music_title']}}">
                                         <span class="icon-play"></span>
                                     </a>
                                 </div>
                                 <div class="card-body">
-                                    <h3 class="card-title"><a href="{{SUB_ALLBUM.'/'.$item['music_title_url'].'.html'}}" title="{{$item['music_title']}}">{{$item['music_title']}}</a></h3>
+                                    <h3 class="card-title"><a href="{{$url}}" title="{{$item['music_title']}}">{{$item['music_title']}}</a></h3>
                                     <p class="card-text"><?php echo '<a href="#">'.implode(',</a><a href="#">', explode(';', $item['music_artist'])).'</a>' ?></p>
                                 </div>
                             </div>
@@ -278,6 +282,7 @@ global $top_artist_rows;
                 <?php
                 $videoMusic = Helpers::getRandLimitArr($video_new_uploads, LIMIT_HOME_MUSIC_NEW);
                 array_map(function ($i, $item) {
+                $url = SUB_VIDEO.'/'.Helpers::music_url($item);
                 ?>
                     @if (($i % 5) == 0)
                     </div>
@@ -286,12 +291,12 @@ global $top_artist_rows;
                         <div class="col">
                             <div class="card card1 video">
                                 <div class="card-header" style="background-image: url({{Helpers::thumbnail_url($item)}});">
-                                    <a href="{{SUB_VIDEO.'/'.$item['music_title_url'].'.html'}}" title="{{$item['music_title']}}">
+                                    <a href="{{$url}}" title="{{$item['music_title']}}">
                                         <span class="icon-play"></span>
                                     </a>
                                 </div>
                                 <div class="card-body">
-                                    <h3 class="card-title"><a href="{{SUB_ALLBUM.'/'.$item['music_title_url'].'.html'}}" title="{{$item['music_title']}}">{{$item['music_title']}}</a></h3>
+                                    <h3 class="card-title"><a href="{{$url}}" title="{{$item['music_title']}}">{{$item['music_title']}}</a></h3>
                                     <p class="card-text"><?php echo '<a href="#">'.implode(',</a><a href="#">', explode(';', $item['music_artist'])).'</a>' ?></p>
                                 </div>
                             </div>
@@ -326,14 +331,15 @@ global $top_artist_rows;
                         <?php
                         $catMusic = Helpers::getRandLimitArr($album_rows_3_0, LIMIT_HOME_CAT_MUSIC);
                         array_map(function ($i, $item) {
+                        $url = SUB_BXH_MUSIC.'/'.Helpers::music_url($item);
                         ?>
                         <li class="media {{($i == 0 ? 'first stand' : ($i == 1 ? 'now up' : ($i == 2 ? 'now down' : 'now')))}} align-items-stretch">
                             <div class="media-left mr-3">
                                 <span></span>
-                                <a href="{{SUB_BXH_MUSIC.'/'.$item['music_title_url'].'.html'}}" title="{{$item['music_title']}}"><img src="{{Helpers::coverImg($item['cover_id'])}}" alt="{{$item['music_title']}}"></a>
+                                <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{Helpers::coverImg($item['cover_id'])}}" alt="{{$item['music_title']}}"></a>
                             </div>
                             <div class="media-body d-flex flex-column {{$i == 0 ? '' : 'justify-content-between'}}">
-                                <h5 class="media-title mt-0 mb-0"><a href="{{SUB_BXH_MUSIC.'/'.$item['music_title_url'].'.html'}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
+                                <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
                                 <div class="{{$i == 0 ? '' : 'd-flex'}} align-items-center justify-content-between">
                                     <div class="author"><?php echo '<a href="#">'.implode(',</a><a href="#">', explode(';', $item['music_artist'])).'</a>' ?></div>
                                     <small class="counter_view">{{number_format($item['music_listen'])}}</small>
@@ -350,14 +356,15 @@ global $top_artist_rows;
                     <?php
                     $catMusic = Helpers::getRandLimitArr($album_rows_4_0, LIMIT_HOME_CAT_MUSIC);
                     array_map(function ($i, $item) {
+                    $url = SUB_BXH_MUSIC.'/'.Helpers::music_url($item);
                     ?>
                     <li class="media {{($i == 0 ? 'first stand' : ($i == 1 ? 'now up' : ($i == 2 ? 'now down' : 'now')))}} align-items-stretch">
                         <div class="media-left mr-3">
                             <span></span>
-                            <a href="{{SUB_BXH_MUSIC.'/'.$item['music_title_url'].'.html'}}" title="{{$item['music_title']}}"><img src="{{Helpers::coverImg($item['cover_id'])}}" alt="{{$item['music_title']}}"></a>
+                            <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{Helpers::coverImg($item['cover_id'])}}" alt="{{$item['music_title']}}"></a>
                         </div>
                         <div class="media-body d-flex flex-column {{$i == 0 ? '' : 'justify-content-between'}}">
-                            <h5 class="media-title mt-0 mb-0"><a href="{{SUB_BXH_MUSIC.'/'.$item['music_title_url'].'.html'}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
+                            <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
                             <div class="{{$i == 0 ? '' : 'd-flex'}} align-items-center justify-content-between">
                                 <div class="author"><?php echo '<a href="#">'.implode(',</a><a href="#">', explode(';', $item['music_artist'])).'</a>' ?></div>
                                 <small class="counter_view">{{number_format($item['music_listen'])}}</small>
@@ -374,14 +381,15 @@ global $top_artist_rows;
                     <?php
                     $catMusic = Helpers::getRandLimitArr($album_rows_5_0, LIMIT_HOME_CAT_MUSIC);
                     array_map(function ($i, $item) {
+                    $url = SUB_BXH_MUSIC.'/'.Helpers::music_url($item);
                     ?>
                     <li class="media {{($i == 0 ? 'first stand' : ($i == 1 ? 'now up' : ($i == 2 ? 'now down' : 'now')))}} align-items-stretch">
                         <div class="media-left mr-3">
                             <span></span>
-                            <a href="{{SUB_BXH_MUSIC.'/'.$item['music_title_url'].'.html'}}" title="{{$item['music_title']}}"><img src="{{Helpers::coverImg($item['cover_id'])}}" alt="{{$item['music_title']}}"></a>
+                            <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{Helpers::coverImg($item['cover_id'])}}" alt="{{$item['music_title']}}"></a>
                         </div>
                         <div class="media-body d-flex flex-column {{$i == 0 ? '' : 'justify-content-between'}}">
-                            <h5 class="media-title mt-0 mb-0"><a href="{{SUB_BXH_MUSIC.'/'.$item['music_title_url'].'.html'}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
+                            <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
                             <div class="{{$i == 0 ? '' : 'd-flex'}} align-items-center justify-content-between">
                                 <div class="author"><?php echo '<a href="#">'.implode(',</a><a href="#">', explode(';', $item['music_artist'])).'</a>' ?></div>
                                 <small class="counter_view">{{number_format($item['music_listen'])}}</small>
@@ -398,14 +406,15 @@ global $top_artist_rows;
                     <?php
                     $catMusic = Helpers::getRandLimitArr($album_rows_7_0, LIMIT_HOME_CAT_MUSIC);
                     array_map(function ($i, $item) {
+                    $url = SUB_BXH_MUSIC.'/'.Helpers::music_url($item);
                     ?>
                     <li class="media {{($i == 0 ? 'first stand' : ($i == 1 ? 'now up' : ($i == 2 ? 'now down' : 'now')))}} align-items-stretch">
                         <div class="media-left mr-3">
                             <span></span>
-                            <a href="{{SUB_BXH_MUSIC.'/'.$item['music_title_url'].'.html'}}" title="{{$item['music_title']}}"><img src="{{Helpers::coverImg($item['cover_id'])}}" alt="{{$item['music_title']}}"></a>
+                            <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{Helpers::coverImg($item['cover_id'])}}" alt="{{$item['music_title']}}"></a>
                         </div>
                         <div class="media-body d-flex flex-column {{$i == 0 ? '' : 'justify-content-between'}}">
-                            <h5 class="media-title mt-0 mb-0"><a href="{{SUB_BXH_MUSIC.'/'.$item['music_title_url'].'.html'}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
+                            <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
                             <div class="{{$i == 0 ? '' : 'd-flex'}} align-items-center justify-content-between">
                                 <div class="author"><?php echo '<a href="#">'.implode(',</a><a href="#">', explode(';', $item['music_artist'])).'</a>' ?></div>
                                 <small class="counter_view">{{number_format($item['music_listen'])}}</small>

@@ -134,11 +134,21 @@ class Helpers
 
     public static function music_url($music_info, $mode = '')
     {
-        global $htmlEx;
-
         $id = self::encodeID($music_info['music_id']);
 
-        return ($music_info['music_title_url']) ? $music_info['music_title_url'] . "~" . $id . $mode . ".$htmlEx" : $id . $mode . ".$htmlEx";
+        return ($music_info['music_title_url']) ? $music_info['music_title_url'] . "~" . $id . $mode . ".".HTMLEX : $id . $mode . "." . HTMLEX;
+    }
+    public static function artistUrl($artistId, $artistNickName, $mode = '')
+    {
+        return self::rawTiengVietUrl($artistNickName) . "~" . base64_encode(KEY_ID_ENCODE_URL . $artistId) . $mode . ".".HTMLEX;
+    }
+    public static function decodeArtistUrl($url)
+    {
+        $arrUrl = self::splitUrl($url);
+        return [
+            'id' => str_replace(KEY_ID_ENCODE_URL, '', base64_decode($arrUrl['id'])),
+            'name' => $arrUrl['url'][0]
+        ];
     }
 
     public static function category_url($c_info = array(), $c_id = 0, $c_level = 0)
@@ -222,7 +232,7 @@ class Helpers
     {
         global $cat_id2info;
         include_once($_SERVER['DOCUMENT_ROOT'] . '/../resources/views/cache/def_main_cat.blade.php');
-        return ($domain ? ENV('LISTEN_URL') : '') . self::category_url($cat_id2info[$music_info['cat_id']][$music_info['cat_level']]) . self::music_url($music_info) . 'html';
+        return ($domain ? ENV('LISTEN_URL') : '') . self::category_url($cat_id2info[$music_info['cat_id']][$music_info['cat_level']]) . self::music_url($music_info);
     }
 
     public static function download_url($music_info)
@@ -275,7 +285,7 @@ class Helpers
     public  static function splitUrl($url) {
         $arrSplit = explode('~', $url);
         return [
-            'id' => last($arrSplit),
+            'id' => last(str_replace('.html', '', $arrSplit)),
             'url' => str_replace(last($arrSplit),"",$arrSplit)
         ];
     }
@@ -323,5 +333,28 @@ class Helpers
                 return true;
             }
         }
+    }
+    public static function rawTiengVietUrl ($str){
+        $unicode = array(
+            'a'=>'á|à|ả|ã|ạ|ă|ắ|ặ|ằ|ẳ|ẵ|â|ấ|ầ|ẩ|ẫ|ậ',
+            'd'=>'đ',
+            'e'=>'é|è|ẻ|ẽ|ẹ|ê|ế|ề|ể|ễ|ệ',
+            'i'=>'í|ì|ỉ|ĩ|ị',
+            'o'=>'ó|ò|ỏ|õ|ọ|ô|ố|ồ|ổ|ỗ|ộ|ơ|ớ|ờ|ở|ỡ|ợ',
+            'u'=>'ú|ù|ủ|ũ|ụ|ư|ứ|ừ|ử|ữ|ự',
+            'y'=>'ý|ỳ|ỷ|ỹ|ỵ',
+            'A'=>'Á|À|Ả|Ã|Ạ|Ă|Ắ|Ặ|Ằ|Ẳ|Ẵ|Â|Ấ|Ầ|Ẩ|Ẫ|Ậ',
+            'D'=>'Đ',
+            'E'=>'É|È|Ẻ|Ẽ|Ẹ|Ê|Ế|Ề|Ể|Ễ|Ệ',
+            'I'=>'Í|Ì|Ỉ|Ĩ|Ị',
+            'O'=>'Ó|Ò|Ỏ|Õ|Ọ|Ô|Ố|Ồ|Ổ|Ỗ|Ộ|Ơ|Ớ|Ờ|Ở|Ỡ|Ợ',
+            'U'=>'Ú|Ù|Ủ|Ũ|Ụ|Ư|Ứ|Ừ|Ử|Ữ|Ự',
+            'Y'=>'Ý|Ỳ|Ỷ|Ỹ|Ỵ',
+        );
+        foreach($unicode as $nonUnicode=>$uni){
+            $str = preg_replace("/($uni)/i", $nonUnicode, $str);
+        }
+        $str = str_replace(' ','-',$str);
+        return $str;
     }
 }

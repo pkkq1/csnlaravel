@@ -1,11 +1,8 @@
-.jw-icon-sequence, .jw-icon-shuffle, .jw-icon-repeat-not, .jw-icon-repeat-one, .jw-icon-nextsong, .jw-icon-backsong{
+.jw-icon-sequence, .jw-icon-shuffle, .jw-icon-repeat-not, .jw-icon-repeat-all, .jw-icon-repeat-one, .jw-icon-nextsong, .jw-icon-backsong{
     font-size: 22px!important;
 }
 .jw-icon:hover .zp-svg-fill{
     fill: #ff3456!important;
-}
-.jw-icon-sequence, .jw-icon-shuffle {
-    margin-right: 15px!important;
 }
 .jw-icon-playback{
     line-height: 41px!important;
@@ -18,7 +15,9 @@
 }
 .jw-menu, .jw-slider-volume{
     top: 32px;
-    background: none!important;
+    background: rgba(49, 46, 46, 0.8)!important;
+    border-radius: 5px;
+    padding-bottom: 3px!important;
 }
 .jw-skin-nhac.jw-flag-time-slider-above:not(.jw-flag-ads-googleima).jwplayer .jw-group>.jw-icon.jw-icon-auto-next-on {
     /*background: url('/imgs/auto_on.png') no-repeat 12px 10px;*/
@@ -87,4 +86,7 @@
 }
 .jw-background-color{
     font-size: 15px!important;
+}
+.jw-background-color .jw-option:hover {
+    color: #FF2E55!important;
 }

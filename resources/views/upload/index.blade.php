@@ -13,7 +13,7 @@
                 <div class="card card_playlist">
                     <div class="row">
                         <div class="col-md-12">
-                            <a href="dang_tai/nhac" style="text-decoration: none;" title="">
+                            <a href="dang-tai/nhac" style="text-decoration: none;" title="">
                                 <button id="btn_cloud_up"
                                         class="btn btn-outline-success my-2 my-sm-0 waves-effect waves-light btn-upload"
                                         type="button"><i class="material-icons">cloud_upload</i> Upload Music
@@ -37,7 +37,7 @@
                                         type="button"><i class="material-icons">cloud_upload</i> Upload Cover
                                 </button>
                             </a>
-                            <a href="/dang_tai/ca_si" style="text-decoration: none;" title="">
+                            <a href="/dang-tai/ca-si" style="text-decoration: none;" title="">
                                 <button id="btn_cloud_up"
                                         class="btn btn-outline-success my-2 my-sm-0 waves-effect waves-light btn-upload"
                                         type="button"><i class="material-icons">cloud_upload</i> Upload Artist

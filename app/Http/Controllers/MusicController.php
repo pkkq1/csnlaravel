@@ -43,7 +43,24 @@ class MusicController extends Controller
     {
         return view('home');
     }
-    public function listenMusic(Request $request, $cat, $sub, $musicUrl) {
+    public function listenSingleMusic(Request $request, $cat, $sub, $musicUrl) {
+        try {
+            $arrUrl = Helpers::splitUrl($musicUrl);
+        } catch (Exception $e) {
+            return view('errors.errors')->with('e');
+        }
+        $music = $this->musicRepository->findOnlyMusicId($arrUrl['id']);
+        if(!$music)
+            return view('errors.404');
+        // +1 view
+        if(Helpers::sessionListenMusic($arrUrl['id'])){
+            $this->musicListenRepository->incrementListen($arrUrl['id']);
+        }
+        $typeListen = 'playlist'; // single | playlist
+        $typeJw = 'music'; // music | video
+        return view('jwplayer.music', compact('music', 'typeListen', 'typeJw'));
+    }
+    public function listenPlaylistMusic(Request $request, $musicUrl) {
         $arrUrl = Helpers::splitUrl($musicUrl);
         $music = $this->musicRepository->findOnlyMusicId($arrUrl['id']);
         if(!$music)
@@ -52,7 +69,9 @@ class MusicController extends Controller
         if(Helpers::sessionListenMusic($arrUrl['id'])){
             $this->musicListenRepository->incrementListen($arrUrl['id']);
         }
-        return view('jwplayer.music', compact('music'));
+        $typeListen = 'playlist';
+        $typeJw = 'music';
+        return view('jwplayer.music', compact('music', 'typeListen', 'typeJw'));
     }
     public function embed(Request $request, $music) {
         $music = $this->musicRepository->findOnlyMusicId($music);

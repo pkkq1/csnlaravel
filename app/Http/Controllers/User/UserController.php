@@ -14,6 +14,7 @@ use App\Library\Helpers;
 use App\Repositories\User\UserEloquentRepository;
 use Illuminate\Support\Facades\Auth;
 use App\Models\UserModel;
+use App\Repositories\Playlist\PlaylistEloquentRepository;
 
 class UserController extends Controller
 {
@@ -23,11 +24,12 @@ class UserController extends Controller
      * @return void
      */
     protected $userRepository;
+    protected $playlistRepository;
 
-    public function __construct(UserEloquentRepository $userRepository)
+    public function __construct(UserEloquentRepository $userRepository, PlaylistEloquentRepository $playlistRepository)
     {
         $this->userRepository = $userRepository;
-
+        $this->playlistRepository = $playlistRepository;
     }
 
     /**
@@ -40,8 +42,8 @@ class UserController extends Controller
         $user = $this->userRepository->getUserById($id)->first();
         if(!$user)
             return view('errors.404');
-
-        return view('user.index', compact('user'));
+        $playlist = $this->playlistRepository->getByUserId($user->id);
+        return view('user.index', compact('user', 'playlist'));
     }
     public function store(Request $request) {
         $update = [

@@ -6,7 +6,7 @@ use App\Library\Helpers;
     array_map(function ($item) use ($commentReply) {
     ?>
         <li class="media" id="comment-{{$item['comment_id']}}" style="width: 100%">
-            <img class="mr-3" src="{{$item['user']['user_avatar']}}" alt="{{$item['user']['name']}}">
+            <img class="mr-3" src="{{(strpos($item['user']['user_avatar'], 'http') !== false) ? $item['user']['user_avatar'] : PUBLIC_AVATAR_PATH . $item['user']['user_avatar']}}" alt="{{$item['user']['name']}}">
             <div class="media-body">
                 <div class="body_commnet">
                     <div class="d-flex align-items-center justify-content-between">
@@ -32,7 +32,7 @@ use App\Library\Helpers;
                             if($reply['comment_id'] == $item['comment_id']){
                             ?>
                             <div class="media">
-                                <img class="mr-3" src="{{$reply['user']['user_avatar']}}" alt="Generic placeholder image">
+                                <img class="mr-3" src="{{(strpos($reply['user']['user_avatar'], 'http') !== false) ? $reply['user']['user_avatar'] : PUBLIC_AVATAR_PATH . $reply['user']['user_avatar']}}" alt="Generic placeholder image">
                                 <div class="media-body">
                                     <div class="d-flex align-items-center justify-content-between">
                                         <h5 class="media-title mt-0 mb-1"><a href="#" title="{{$reply['user']['name']}}">{{$reply['user']['name']}}</a> at <span>{{date('H:i', $reply['comment_time'])}}</span></h5>

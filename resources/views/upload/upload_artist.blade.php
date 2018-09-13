@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="/css/croppie.css">
 @endsection
 @section('content')
-    @include('user.box_profile', ['user' => 'data'])
+    @include('user.box_profile', ['user' =>  Auth::user()])
     <div class="container">
         <div class="row row_wrapper">
             <div class="col-md-9">

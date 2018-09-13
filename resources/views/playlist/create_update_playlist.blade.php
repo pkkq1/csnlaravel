@@ -1,6 +1,6 @@
 @section('hidden_wapper', true)
 <?php
-$titleMeta = 'Cập nhật playlist - ' . $playlistUser->playlist_title;
+$titleMeta = $playlistUser ? 'Cập nhật playlist - ' . $playlistUser->playlist_title : 'Thêm playlist mới';
 $i = 1;
 ?>
 @extends('layouts.app')
@@ -9,12 +9,12 @@ $i = 1;
     <script type="text/javascript" src="/node_modules/sortablejs/Sortable.min.js"></script>
 @endsection
 @section('content')
-    @include('user.box_profile', ['user' => 'data'])
+    @include('user.box_profile', ['user' => Auth::user()])
     <div class="container">
         <div class="row row_wrapper">
             <div class="col-md-9">
                 <div class="box_playlist border-0">
-                    <h3 class="title">CẬP NHẬT PLAYLIST</h3>
+                    <h3 class="title">{{$playlistUser ? 'CẬP NHẬT PLAYLIST' : 'THÊM PLAYLIST'}}</h3>
                 </div>
                 @if ($message = Session::get('success'))
                     <div class="alert alert-success">
@@ -29,7 +29,7 @@ $i = 1;
                                     <div class="form-group row{{ $errors->has('playlist_title') ? ' has-error' : '' }}">
                                         <label for="artist_nickname" class="col-sm-4 col-form-label">Tên Playlist</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" value="{{ old('playlist_title') ?? $playlistUser->playlist_title }}" id="playlist_title" name="playlist_title" placeholder="Blooming Days - The 2nd Mini Album">
+                                            <input type="text" class="form-control" value="{{ old('playlist_title') ?? (isset($playlistUser->playlist_title) ? $playlistUser->playlist_title : '') }}" id="playlist_title" name="playlist_title" placeholder="Nhập tên playlist của bạn">
                                             @if ($errors->has('playlist_title'))
                                                 <span class="help-block">
                                                     <strong>{{ $errors->first('playlist_title') }}</strong>
@@ -42,7 +42,7 @@ $i = 1;
                                         <div class="col-sm-8">
                                             <select name="playlist_cat_id" id="playlist_cat_id" class="form-control" onchange="cat_level_reload(this.value);">
                                                 @foreach($playlistCategory as $item)
-                                                <option {{$playlistUser->playlist_cat_id == $item->cat_id ? 'selected' : ''}} value="{{$item->cat_id}}">{{$item->cat_title}}</option>
+                                                <option {{$playlistUser ? ($playlistUser->playlist_cat_id == $item->cat_id ? 'selected' : '') : ''}} value="{{$item->cat_id}}">{{$item->cat_title}}</option>
                                                 @endforeach
                                             </select>
                                             @if ($errors->has('playlist_cat_id'))
@@ -71,7 +71,7 @@ $i = 1;
                                         </div>
                                         <div class="col-sm-8">
                                             <div class="media">
-                                                <img class="mr-3" id="playlist_cover_uploaded" src="{{$playlistUser->playlist_cover ? PUBLIC_MUSIC_PLAYLIST_PATH.$playlistUser->playlist_id . '.png?v=' . time() : '/imgs/avatar_default.png' }}" alt="">
+                                                <img class="mr-3" id="playlist_cover_uploaded" src="{{$playlistUser ? ($playlistUser->playlist_cover ? PUBLIC_MUSIC_PLAYLIST_PATH.$playlistUser->playlist_id . '.png?v=' . time() : '/imgs/avatar_default.png') : '/imgs/avatar_default.png' }}" alt="">
                                                 <div class="media-body">
                                                     <div class="form-group">
                                                         <label for="choose_playlist_cover">Chọn file ảnh</label>
@@ -115,14 +115,16 @@ $i = 1;
                                 </div>
                             </div>
                             <hr>
+                            <input type="hidden" name="sumbit_action" id="sumbit_action" value="{{$playlistUser ? 'edit' : 'create'}}">
+                            <input type="hidden" name="playlist_id" id="playlist_id" value="{{$playlistUser ? $playlistUser->playlist_id : ''}}">
                             <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
                             <div class="row">
                                 <div class="col-md-9">
                                     <div class="form-group row">
                                         <div class="col-sm-8">
                                             <label for="inputPassword" class="col-sm-4 col-form-label"></label>
-                                            <button type="submit" class="btn btn-primary btn-lg">Lưu</button>
-                                            <button type="button" class="btn btn-primary btn-lg" onclick="return remove_artist();" >Xóa</button>
+                                            <button type="submit" class="btn btn-primary btn-lg">{{$playlistUser ? 'Lưu' : 'Thêm'}}</button>
+                                            <button type="button" class="btn btn-primary btn-lg" onclick="return remove_artist();" >Trở lại</button>
                                         </div>
                                     </div>
                                 </div>
@@ -218,18 +220,9 @@ $i = 1;
 
         });
         function remove_artist() {
-            inputs = $('form').find('input');
-            $.each( inputs, function( key, value ) {
-                if(value.id != "_token")
-                    value.value = "";
-            });
-            $('form').find('.has-error').removeClass("has-error");
-            $('.help-block').remove();
-            $('#playlist_cover_uploaded').attr("src", '/imgs/avatar_default.png');
+            window.location.replace('/playlist/user/chinh-sua');
         }
-
-
-        var cat_id_selected = <?php echo old('playlist_cat_id') ?? $playlistUser->playlist_cat_id ?>;
+        var cat_id_selected = <?php echo old('playlist_cat_id') ?? ($playlistUser ? $playlistUser->playlist_cat_id : 1) ?>;
         cat_level_reload(cat_id_selected);
         function cat_level_reload(cat_id)
         {
@@ -255,8 +248,6 @@ $i = 1;
             ?>
 
         }
-        document.getElementById('playlist_cat_level').value = <?php echo old('playlist_cat_level') ?? $playlistUser->playlist_cat_level ?>;
-
-
+        document.getElementById('playlist_cat_level').value = <?php echo old('playlist_cat_level') ?? ($playlistUser ? $playlistUser->playlist_cat_level : 0) ?>;
     </script>
 @endsection

@@ -42,28 +42,51 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
                     <div class="music_recommendation">
                         <div class="d-table">
                             <?php
-                            $catMusic = Helpers::getRandLimitArr($album_rows_3_0, 100);
-                            array_map(function ($i, $item) use($music) {
-                            $url = SUB_BXH_MUSIC.'/'.$item['music_title_url'].'.html';
-                            ?>
-                            <div id="music-listen-{{$item['music_id']}}" class="card-footer{{($music->music_id == $item['music_id'] ? ' listen' : '')}}" style="display: table-row;">
-                                <div class="name d-table-cell">
-                                    <a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{++$i . '. ' . $item['music_title']}}</a>
+                            if($typeListen == 'playlist'){
+                                $catMusic = Helpers::getRandLimitArr($album_rows_3_0, 100);
+                                array_map(function ($i, $item) use($music) {
+                                $url = SUB_BXH_MUSIC.'/'.$item['music_title_url'].'.html';
+                                ?>
+                                    <div id="music-listen-{{$item['music_id']}}" class="card-footer{{($music->music_id == $item['music_id'] ? ' listen' : '')}}" style="display: table-row;">
+                                        <div class="name d-table-cell">
+                                            <a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{++$i . '. ' . $item['music_title']}}</a>
+                                        </div>
+                                        <div class="author d-table-cell">
+                                            <?php echo '<a href="#">'.implode(',</a><a href="#">', explode(';', $item['music_artist'])).'</a>' ?>
+                                        </div>
+                                        <div class="tool d-table-cell text-right">
+                                            <ul class="list-inline d-flex align-items-center justify-content-end">
+                                                <li class="list-inline-item"><a href="{{$url}}" title="nghe riêng nhạc {{$item['music_title']}}"><i class="material-icons">headset</i></a></li>
+                                                <li class="list-inline-item"><a onclick="addPlaylistTable('{{$item['music_title']}}', {{$item['music_id']}}, {{isset($item['music_artist']) ? "'".$item['music_artist']."'" : "'false'"}}, {{isset($item['music_artist_id']) ? "'".$item['music_artist_id']."'" : "'false'"}})" href="javascript:void(0)" title=""><i class="material-icons">playlist_add</i></a></li>
+                                                <li class="list-inline-item"><a href="{{MUSIC_PATH.$item['music_filename']}}" title="download {{$item['music_title']}}"><i class="material-icons">file_download</i></a></li>
+                                                <li class="list-inline-item"><a href="{{Helpers::fbShareLink($url)}}" title="chia sẻ {{$item['music_title']}}"><i class="material-icons">share</i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <?php
+                                    },array_keys($catMusic), $catMusic);
+                                ?>
+                                <div class="box_show_add_playlist card" style="display: none" id="answer-12878316">
+                                    <div class="card-body d-flex flex-column">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <i class="material-icons">close</i>
+                                        </button>
+                                        <h5 class="card-title box_add_playlist"></h5>
+                                        <div class="box_show_playlist_popup mb-2">
+                                            <div class="list-group">
+
+                                            </div>
+                                        </div>
+                                        <div class="input-group create_playlist">
+                                            <input type="text" class="form-control box_text_create_playlist" placeholder="Nhập tên playlist mới cần tạo" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-primary" onclick="btnCreatePlaylist('box_text_create_playlist')" type="button">Tạo Playlist mới</button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="author d-table-cell">
-                                    <?php echo '<a href="#">'.implode(',</a><a href="#">', explode(';', $item['music_artist'])).'</a>' ?>
-                                </div>
-                                <div class="tool d-table-cell text-right">
-                                    <ul class="list-inline d-flex align-items-center justify-content-end">
-                                        <li class="list-inline-item"><a href="{{$url}}" title="nghe riêng nhạc {{$item['music_title']}}"><i class="material-icons">headset</i></a></li>
-                                        <li class="list-inline-item"><a href="#" title=""><i class="material-icons">playlist_add</i></a></li>
-                                        <li class="list-inline-item"><a href="{{MUSIC_PATH.$item['music_filename']}}" title="download {{$item['music_title']}}"><i class="material-icons">file_download</i></a></li>
-                                        <li class="list-inline-item"><a href="{{Helpers::fbShareLink($url)}}" title="chia sẻ {{$item['music_title']}}"><i class="material-icons">share</i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <?php
-                            },array_keys($catMusic), $catMusic);
+                                <?php
+                            }
                             ?>
                         </div>
                     </div>
@@ -263,7 +286,7 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
                             <div class="tab-pane" id="pills-plus" role="tabpanel" aria-labelledby="pills-plus-tab">
                                 <div class="card mb-0 card3">
                                     <div class="card-header mb-0">
-                                        <h4 class="card-title">Thêm bài hát này vào danh sách Playlist</h4>
+                                        <h4 class="card-title">Thêm bài hát {{$music->music_title}} vào danh sách Playlist</h4>
                                     </div>
                                 </div>
                                 <div class="card mb-2 playlist_1 border-0">
@@ -275,7 +298,7 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
                                 <div class="input-group mb-3 create_playlist">
                                     <input type="text" class="form-control text-create-playlist" placeholder="Nhập tên playlist mới cần tạo" aria-label="Recipient's username" aria-describedby="basic-addon2">
                                     <div class="input-group-append">
-                                        <button class="btn btn-primary " onclick="btnCreatePlaylist()" type="button">Tạo Playlist mới</button>
+                                        <button class="btn btn-primary " onclick="btnCreatePlaylist('text-create-playlist')" type="button">Tạo Playlist mới</button>
                                     </div>
                                 </div>
                             </div>
@@ -443,33 +466,30 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
             </div>
         </div>
     </div>
+
+    {{--{"file":"<?php echo VIDEO_PATH.'1905460-852687a9.mp4' ?>","label":"M4A 500kbps"},--}}
 @endsection
 @section('contentJS')
-    <!-- Modal -->
-    <div id="myModal" class="modal fade" role="dialog">
-        <div class="modal-dialog modal-sm">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-body">
-                    <p>Some text in the modal.</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="close" data-dismiss="modal">×</button>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
     <script src="/assets/jwplayer-7.12.0/jwplayer.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
         var musicId = '<?php echo $music->music_id ?>';
+        var artists = '<?php echo $music->music_artist  ?>';
+        var artistIds = '<?php echo $music->music_artist_id  ?>';
+        var musicAddId = '';
         //////////////////////////
         ////JW Player//////////
         ////////////////////////
 
-        var vtop = document.getElementById("music-listen-1870418").offsetTop;
-        $('.music_recommendation').animate({scrollTop: vtop - 50}, 'slow');
+        <?php
+        if($typeListen == 'playlist'){
+            ?>
+            $("#music-listen-1904314").addClass('listen');
+            var vtop = document.getElementById("music-listen-1904314").offsetTop;
+            $('.music_recommendation').animate({scrollTop: vtop - 50}, 'slow');
+            <?php
+        }
+        ?>
         jwplayer.key="dWwDdbLI0ul1clbtlw+4/UHPxlYmLoE9Ii9QEw==";
         var player = jwplayer('csnplayer');
         var firstPlayer = true;
@@ -477,6 +497,7 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
         player.setup({
             width: '100%',
             height: '110',
+            aspectratio: "<?php echo $typeJw == 'video' ? '16:9' : 'false' ?>",
             stretching: 'fill',
             sources: [
                 {"file":"<?php echo MUSIC_PATH.$music->music_filename ?>","label":"M4A &nbsp; 32kbps"},
@@ -491,7 +512,7 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
             timeSliderAbove: true,
             autostart: true,
             plugins: {
-                '/js/nhac-csn.js': {
+                '<?php echo $typeListen == 'playlist' ? '/js/nhac-playlist.js' : '/js/nhac-csn.js' ?>': {
                     duration: 20,
                     msisdn: '',
                     package_id: 0,
@@ -569,16 +590,23 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
             console.log('next');
         }
         function autoRepeat(T){
-            if(T) {
-                jwplayer().setConfig({
-                    repeat: true
-                });
-                sessionStorage.setItem("auto_repeat", true);
-            }else{
+            if(T == 'none') {
                 jwplayer().setConfig({
                     repeat: false
                 });
-                sessionStorage.setItem("auto_repeat", false);
+                sessionStorage.setItem("auto_repeat", 'none');
+            }
+            if(T == 'one') {
+                jwplayer().setConfig({
+                    repeat: true
+                });
+                sessionStorage.setItem("auto_repeat", 'one');
+            }
+            if(T == 'all') {
+                jwplayer().setConfig({
+                    repeat: false
+                });
+                sessionStorage.setItem("auto_repeat", 'all');
             }
         }
         function autoRandom(F){
@@ -712,7 +740,7 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
                             });
                             $('.box_form_comment').submit(false);
                         }else{
-                            loadPageComment('/binh_luan/get_ajax?page=1');
+                            loadPageComment('/binh-luan/get_ajax?page=1');
                         }
                     }else{
                         $('.comment-reply-' + formId).prepend(response);
@@ -758,7 +786,7 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
             var st = $(this).scrollTop();
             if(loadComment) {
                 if (st > $('#post_comment').offset().top - 600){
-                    loadPageComment('/binh_luan/get_ajax?page=<?php echo $_GET['comment_page'] ?? 1 ?>');
+                    loadPageComment('/binh-luan/get_ajax?page=<?php echo $_GET['comment_page'] ?? 1 ?>');
                     pageComment = <?php echo $_GET['comment_page'] ?? 1 ?>;
                     loadComment = false;
                 }
@@ -768,20 +796,19 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
         //////////////////////////
         ////Add Playlist////////
         ////////////////////////
-
         var loadPlaylist = true;
         function loadPlayList() {
             <?php
                 if(!Auth::check()) {
                     ?>
-                    alertModal('Bạn chưa đăng nhập.')
+                    alertModal('Bạn chưa đăng nhập.');
                     return false;
                     <?php
                 }
             ?>
             if(loadPlaylist) {
                 $.ajax({
-                    url: "/playlist/get_playlist",
+                    url: "/playlist/user/danh-sach-playlist",
                     type: "GET",
                     dataType: "json",
                     data: {'music_id': musicId},
@@ -790,19 +817,25 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
                     success: function(data) {
                         loadPlaylist = false;
                         var stringHtml = '';
+                        var stringBoxHtml = '';
                         if(data) {
                             $.each(data, function (index, val) {
                                 stringHtml += stringItemPlaylist(val.playlist_title, val.playlist_music_total, val.playlist_id, val.music_exist, val.playlist_time);
+                                stringBoxHtml += stringItemBoxPlaylist(val.playlist_title, val.playlist_music_total, val.playlist_id, val.music_exist, val.playlist_time);
                             });
                         }
                         $('.playlist-csn ul').html(stringHtml);
+                        $('.box_show_playlist_popup .list-group').html(stringBoxHtml);
                     }
                 });
             }
 
         }
         function stringItemPlaylist(playlist_title, playlist_music_total, playlist_id, music_exist, playlist_time){
-            return '<li onclick="addMusicPlaylist(' + playlist_id + ')" class="' + (music_exist ? "playlist_music_exist " : "") + 'd-flex justify-content-between playlist_id_' + playlist_id + '"><a class="title_playlist" href="javascript:void(0)" title="' + playlist_title + '">' + playlist_title + ' (<span>' + playlist_music_total + '</span>)</a><time>' + convertDateTime(playlist_time) + '</time></li>';
+            return '<li onclick="addMusicPlaylist(' + playlist_id + ', false, false, false)" class="d-flex justify-content-between playlist_id_' + playlist_id + '"><a class="title_playlist" href="javascript:void(0)" title="' + playlist_title + '">' + playlist_title + ' (<span>' + playlist_music_total + '</span>)</a><time>' + convertDateTime(playlist_time) + '</time></li>';
+        }
+        function stringItemBoxPlaylist(playlist_title, playlist_music_total, playlist_id, music_exist, playlist_time){
+            return '<div onclick="addBoxMusicPlaylist(' + playlist_id + ')" class="playlist_id_' + playlist_id + '"><a href="javascript:void(0)" class="list-group-item list-group-item-action d-flex title_playlist">' + playlist_title + ' (<span>' + playlist_music_total + '</span>)</a></div>';
         }
         function convertDateTime(timestamp) {
             date = new Date(timestamp * 1000),
@@ -816,14 +849,22 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
             ];
             return date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
         }
-        function btnCreatePlaylist() {
-            var titlePlaylist = $('.text-create-playlist');
+        function btnCreatePlaylist(box_text_create_playlist) {
+            var titlePlaylist = $('.' + box_text_create_playlist);
+            <?php
+                if(!Auth::check()) {
+                ?>
+                    alertModal('Bạn chưa đăng nhập.')
+                    return false;
+                <?php
+                }
+            ?>
             if(!titlePlaylist.val()) {
                 alertModal('Bạn chưa nhập tên playlist mới.');
                 return false;
             }
             $.ajax({
-                url: "/playlist/create_playlist",
+                url: "/playlist/user/create-playlist",
                 type: "POST",
                 dataType: "json",
                 data: {'music_id': musicId, 'playlist_title': titlePlaylist.val()},
@@ -831,32 +872,28 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
                 },
                 success: function(data) {
                     if(data.success) {
-                        const playlist = $('.playlist-csn .list-unstyled');
-                        playlist.append(stringItemPlaylist(data.data.playlist_title, data.data.playlist_music_total, data.data.playlist_id, false, data.data.playlist_time));
+                        $('.playlist-csn .list-unstyled').append(stringItemPlaylist(data.data.playlist_title, data.data.playlist_music_total, data.data.playlist_id, false, data.data.playlist_time));
+                        $('.box_show_playlist_popup .list-group').append(stringItemBoxPlaylist(data.data.playlist_title, data.data.playlist_music_total, data.data.playlist_id, false, data.data.playlist_time));
                         titlePlaylist.val("");
-                        $('.playlist-csn').animate({scrollTop: playlist.height()}, 'slow');
+                        $('.playlist-csn').animate({scrollTop: $('.playlist-csn .list-unstyled').height()}, 'slow');
+                        $('.box_show_playlist_popup').animate({scrollTop: $('.box_show_playlist_popup .list-group').height()}, 'slow');
                     }else{
                         alertModal(data.message);
                     }
                 }
             });
         }
-        function addMusicPlaylist(playlistId) {
+        function addMusicPlaylist(playlistId, musicAddId, artistAdd, artistIdAdd) {
             const playlistIdSelect = $('.playlist_id_' + playlistId);
-            if(playlistIdSelect.hasClass('playlist_music_exist')){
-                alertModal('Bài hát đã tồn tại trong playlist.');
-                return false;
-            }
             $.ajax({
-                url: "/playlist/add_music_playlist",
+                url: "/playlist/user/add-music-playlist",
                 type: "POST",
                 dataType: "json",
-                data: {'music_id': musicId, 'playlist_id': playlistId},
+                data: {'playlist_id': playlistId, 'music_id': (musicAddId == false ? musicId : musicAddId), 'artist': (artistAdd == false ? artists : artistAdd), 'artist_id': (artistIdAdd == false ? artistIds : artistIdAdd)},
                 beforeSend: function () {
                 },
                 success: function(data) {
                     if(data.success) {
-                        playlistIdSelect.addClass('playlist_music_exist');
                         var countPlaylist = playlistIdSelect.find('.title_playlist span');
                         countPlaylist.html(parseInt(countPlaylist.html()) + 1);
                         successModal(data.message);
@@ -867,6 +904,24 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
                 }
             });
         }
+        var boxMusicId = '';
+        var boxArtists = '';
+        var boxArtistIds = '';
+        function addPlaylistTable(musicName, setId, setArtist, setArtistId) {
+            boxMusicId = setId;
+            boxArtists = setArtist;
+            boxArtistIds = setArtistId;
+            $('.box_add_playlist').html('Thêm bài hát ' + musicName + ' vào danh sách Playlist');
+            $('.box_show_add_playlist').css('display', 'inherit');
+            loadPlayList();
+        }
+        function addBoxMusicPlaylist(playlist_id) {
+            addMusicPlaylist(playlist_id, boxMusicId, boxArtists, boxArtistIds);
+        }
+        $('.box_show_add_playlist').find('.close').on('click', function () {
+            $('.box_show_add_playlist').css('display', 'none');
+        })
+        $(".box_show_add_playlist").draggable();
     </script>
     <style>
         .jw-icon-rewind{

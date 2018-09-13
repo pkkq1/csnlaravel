@@ -12,7 +12,7 @@ $titleMeta = 'Cập nhật nhạc mới - ' . Config::get('constants.app.title')
 @endsection
 @extends('layouts.app')
 @section('content')
-    @include('user.box_profile', ['user' => 'data'])
+    @include('user.box_profile', ['user' =>  Auth::user()])
     <div class="container">
         <div class="row row_wrapper">
             <div class="col-md-9">
@@ -32,7 +32,7 @@ $titleMeta = 'Cập nhật nhạc mới - ' . Config::get('constants.app.title')
                 <div class="tab-content upload-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="upload_lyric" role="tabpanel" aria-labelledby="upload_lyric-tab">
                         <div class="box_upload_file d-flex align-items-center justify-content-center{{ $errors->has('drop_files') ? ' has-error-drop-file' : '' }}" >
-                            <form action="/dang_tai/file_nhac" class="box_process{{ $errors->has('drop_html') ? '' : ' dropzone' }}" enctype="multipart/form-data">
+                            <form action="/dang-tai/file-nhac" class="box_process{{ $errors->has('drop_html') ? '' : ' dropzone' }}" enctype="multipart/form-data">
                                 @if(old('drop_html'))
                                     <?php echo old('drop_html'); ?>
                                 @else
@@ -350,7 +350,7 @@ $titleMeta = 'Cập nhật nhạc mới - ' . Config::get('constants.app.title')
                 return false;
             }
         });
-        Dropzone.prototype.defaultOptions.maxFiles = 10;
+        Dropzone.prototype.defaultOptions.maxFiles = 1;
         // Dropzone.prototype.defaultOptions.acceptedFiles = '';
         Dropzone.prototype.defaultOptions.headers = {
             'X-CSRF-TOKEN': '{{ csrf_token() }}'
@@ -370,7 +370,7 @@ $titleMeta = 'Cập nhật nhạc mới - ' . Config::get('constants.app.title')
         ?>
 
         $(document).ready(function() {
-            $("#music_artist_id").tokenInput("/ca_si/tim_kiem", {
+            $("#music_artist_id").tokenInput("/ca-si/tim-kiem", {
                 theme: "facebook",
                 preventDuplicates: true,
                 setInputName: "#music_artist",
