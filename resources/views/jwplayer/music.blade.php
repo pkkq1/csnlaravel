@@ -45,7 +45,7 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
                             if($typeListen == 'playlist'){
                                 $catMusic = Helpers::getRandLimitArr($album_rows_3_0, 100);
                                 array_map(function ($i, $item) use($music) {
-                                $url = SUB_BXH_MUSIC.'/'.$item['music_title_url'].'.html';
+                                $url = SUB_BXH_MUSIC.'/'.Helpers::music_url($item);
                                 ?>
                                     <div id="music-listen-{{$item['music_id']}}" class="card-footer{{($music->music_id == $item['music_id'] ? ' listen' : '')}}" style="display: table-row;">
                                         <div class="name d-table-cell">
@@ -57,7 +57,7 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
                                         <div class="tool d-table-cell text-right">
                                             <ul class="list-inline d-flex align-items-center justify-content-end">
                                                 <li class="list-inline-item"><a href="{{$url}}" title="nghe riêng nhạc {{$item['music_title']}}"><i class="material-icons">headset</i></a></li>
-                                                <li class="list-inline-item"><a onclick="addPlaylistTable('{{$item['music_title']}}', {{$item['music_id']}}, {{isset($item['music_artist']) ? "'".$item['music_artist']."'" : "'false'"}}, {{isset($item['music_artist_id']) ? "'".$item['music_artist_id']."'" : "'false'"}})" href="javascript:void(0)" title=""><i class="material-icons">playlist_add</i></a></li>
+                                                <li class="list-inline-item"><a onclick="addPlaylistTable('{{$item['music_title']}}', {{$item['music_id']}}, {{isset($item['music_artist']) ? "'".$item['music_artist']."'" : "'false'"}}, {{isset($item['music_artist_id']) ? "'".$item['music_artist_id']."'" : "'false'"}})" href="javascript:void(0)" title="thêm vào playlist"><i class="material-icons">playlist_add</i></a></li>
                                                 <li class="list-inline-item"><a href="{{MUSIC_PATH.$item['music_filename']}}" title="download {{$item['music_title']}}"><i class="material-icons">file_download</i></a></li>
                                                 <li class="list-inline-item"><a href="{{Helpers::fbShareLink($url)}}" title="chia sẻ {{$item['music_title']}}"><i class="material-icons">share</i></a></li>
                                             </ul>
@@ -471,7 +471,6 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
 @endsection
 @section('contentJS')
     <script src="/assets/jwplayer-7.12.0/jwplayer.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
         var musicId = '<?php echo $music->music_id ?>';
         var artists = '<?php echo $music->music_artist  ?>';
@@ -811,21 +810,26 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
                     url: "/playlist/user/danh-sach-playlist",
                     type: "GET",
                     dataType: "json",
-                    data: {'music_id': musicId},
+                    data: {},
                     beforeSend: function () {
                     },
                     success: function(data) {
-                        loadPlaylist = false;
-                        var stringHtml = '';
-                        var stringBoxHtml = '';
-                        if(data) {
-                            $.each(data, function (index, val) {
-                                stringHtml += stringItemPlaylist(val.playlist_title, val.playlist_music_total, val.playlist_id, val.music_exist, val.playlist_time);
-                                stringBoxHtml += stringItemBoxPlaylist(val.playlist_title, val.playlist_music_total, val.playlist_id, val.music_exist, val.playlist_time);
-                            });
+                        if(data.success) {
+                            loadPlaylist = false;
+                            var stringHtml = '';
+                            var stringBoxHtml = '';
+                            if(data.data) {
+                                $.each(data.data, function (index, val) {
+                                    stringHtml += stringItemPlaylist(val.playlist_title, val.playlist_music_total, val.playlist_id, val.music_exist, val.playlist_time);
+                                    stringBoxHtml += stringItemBoxPlaylist(val.playlist_title, val.playlist_music_total, val.playlist_id, val.music_exist, val.playlist_time);
+                                });
+                            }
+                            $('.playlist-csn ul').html(stringHtml);
+                            $('.box_show_playlist_popup .list-group').html(stringBoxHtml);
+                        }else{
+                            alertModal(data.message);
                         }
-                        $('.playlist-csn ul').html(stringHtml);
-                        $('.box_show_playlist_popup .list-group').html(stringBoxHtml);
+
                     }
                 });
             }

@@ -449,10 +449,25 @@
     border-radius: 0;
     -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-    top: 110px!important;
+    top: 110px;
     left: 537.5px;
 }
 .box_show_playlist_popup {
     height: 180px;
     overflow-y: scroll;
+}
+.bxh1 .card1{
+    margin-bottom: 0px;
+}
+.jw-text{
+    font-size:13px!important;
+}
+.tab_video_bxh .list_music .media .media-body .author {
+    margin-top: 2px;
+}
+.tab_video_bxh .align-items-stretch {
+    align-self: center;
+}
+.view_all {
+    text-decoration: none!important;;
 }

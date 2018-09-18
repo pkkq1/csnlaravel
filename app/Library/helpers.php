@@ -138,6 +138,10 @@ class Helpers
 
         return ($music_info['music_title_url']) ? $music_info['music_title_url'] . "~" . $id . $mode . ".".HTMLEX : $id . $mode . "." . HTMLEX;
     }
+    public static function music_id($music_info, $mode = '')
+    {
+        return self::encodeID($music_info['music_id']);
+    }
     public static function artistUrl($artistId, $artistNickName, $mode = '')
     {
         return self::rawTiengVietUrl($artistNickName) . "~" . base64_encode(KEY_ID_ENCODE_URL . $artistId) . $mode . ".".HTMLEX;
@@ -289,8 +293,10 @@ class Helpers
             'url' => str_replace(last($arrSplit),"",$arrSplit)
         ];
     }
-    public  static  function fbShareLink($url) {
-        return 'https://www.facebook.com/dialog/share? app_id=' . env('FACEBOOK_APP_ID') . '&display=popup&href=' . $url . '&redirect_uri=' . $url;
+
+    public static function fbShareLink($url, $domain = false)
+    {
+        return 'https://www.facebook.com/dialog/share?app_id=' . env('FACEBOOK_APP_ID') . '&display=popup&href=' . ($domain ? ENV('LISTEN_URL') : '') . $url . '&redirect_uri=' . ($domain ? ENV('LISTEN_URL') : '') . $url;
     }
     public static function ajaxResult($is_success = true,
                          $message = '',

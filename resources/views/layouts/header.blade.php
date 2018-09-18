@@ -34,6 +34,7 @@
     {{--<script type="text/javascript" src="/assets/emoji-picker-master/lib/js/config.js"></script>--}}
     <script type="text/javascript" src="/assets/emoji-picker-master/lib/js/util.js"></script>
     <script type="text/javascript" src="/assets/emoji-picker-master/lib/js/jquery.emojiarea.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     {{--<script type="text/javascript" src="/assets/emoji-picker-master/lib/js/emoji-picker.js"></script>--}}
     {{--<script type="text/javascript" src="/assets/jQuery-File-Upload-9.21.0/js/jquery.iframe-transport.js"></script>--}}
     {{--<script type="text/javascript" src="/assets/jQuery-File-Upload-9.21.0/js/jquery.fileupload.js"></script>--}}

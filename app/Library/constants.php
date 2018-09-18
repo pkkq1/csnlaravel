@@ -3,6 +3,7 @@
 define('MUSIC_DATA_PATH', 'data/128/');
 define('SUB_ALLBUM', 'nghe-album');
 define('SUB_BXH_MUSIC', 'nhac-hot');
+define('SUB_BXH_NOW_MUSIC', 'nhac-hot');
 define('SUB_VIDEO', 'v-video');
 define('KBPS', 'kbps');
 define('LOSSLESS', 'Lossless');
@@ -20,6 +21,7 @@ define('LITMIT_COMMENT', 10);
 define('LITMIT_TITLE_PLAYLIST', 2);
 define('TIME_EXPIRY_ADD_LISTEN_MUSIC', '+1 hour');
 define('KEY_ID_ENCODE_URL', 'csn_artist~');
+define('DEFAULT_CAT_ID_ACTIVE_BXH', 3);
 
 // ARTIST
 define('AVATAR_ARTIST_SOURCE_PATH', '/data/source_artist_avatar/');

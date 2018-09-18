@@ -151,7 +151,7 @@ global $top_artist_rows;
                             array_map(function($item) {
                                 $url = SUB_ALLBUM.'/'.Helpers::music_url($item);
                             ?>
-                            <li class="media align-items-stretch">
+                            <li class="media align-items-stretch items-stretch-{{$item['music_id']}}">
                                 <div class="media-left align-items-stretch mr-2">
                                     <a href="{{$url}}" title="{{$item['music_album']}}">
                                         <img src="{{Helpers::coverImg($item['cover_id'])}}" alt="{{$item['music_album']}}">
@@ -168,10 +168,10 @@ global $top_artist_rows;
                                 <div class="media-right align-self-center">
                                     <small class="time_stt"><?php echo Helpers::timeElapsedString($item['music_last_update_time']); ?></small>
                                     <ul class="list-inline">
-                                        <li class="list-inline-item"><a href="#" title=""><i class="material-icons">headset</i></a></li>
-                                        <li class="list-inline-item"><a href="#" title=""><i class="material-icons">playlist_add</i></a></li>
-                                        <li class="list-inline-item"><a href="#" title=""><i class="material-icons">file_download</i></a></li>
-                                        <li class="list-inline-item"><a href="#" title=""><i class="material-icons">share</i></a></li>
+                                        <li class="list-inline-item"><a href="{{$url}}" target="_blank" title="nghe riêng nhạc {{$item['music_title']}}"><i class="material-icons">headset</i></a></li>
+                                        <li class="list-inline-item"><a onclick="addPlaylistTable('{{$item['music_title']}}', {{$item['music_id']}}, {{isset($item['music_artist']) ? "'".$item['music_artist']."'" : "'false'"}}, {{isset($item['music_artist_id']) ? "'".$item['music_artist_id']."'" : "'false'"}})" href="javascript:void(0)" title="thêm vào playlist"><i class="material-icons">playlist_add</i></a></li>
+                                        <li class="list-inline-item"><a href="{{MUSIC_PATH.$item['music_filename']}}" target="_blank" title="download {{$item['music_title']}}"><i class="material-icons">file_download</i></a></li>
+                                        <li class="list-inline-item"><a href="{{Helpers::fbShareLink($url)}}" target="_blank" title="chia sẻ {{$item['music_title']}}"><i class="material-icons">share</i></a></li>
                                     </ul>
                                 </div>
                             </li>
@@ -188,18 +188,18 @@ global $top_artist_rows;
                     <ul class="list-unstyled list_music">
                         <?php
                             array_map(function($item) {
-                                $urlMusic = Helpers::listen_url($item);
+                                $url= Helpers::listen_url($item);
                             ?>
                             <li class="media align-items-stretch">
-                                <div class="media-left align-items-stretch mr-2">
-                                    <a href="{{$urlMusic}}" title="">
+                                <div class="media-left align-items-stretch mr-2 items-stretch-{{$item['music_id']}}">
+                                    <a href="{{$url}}" title="">
                                         <img src="{{Helpers::coverImg($item['cover_id'])}}" alt="{{$item['music_title']}}">
                                         <i class="material-icons">play_circle_outline</i>
                                     </a>
                                 </div>
                                 <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
                                     <div>
-                                        <h5 class="media-title mt-0 mb-0 title_home_tablet"><a href="{{$urlMusic}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
+                                        <h5 class="media-title mt-0 mb-0 title_home_tablet"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
                                         <div class="author title_home_tablet"><?php echo '<a href="#">'.implode(',</a><a href="#">', explode(';', $item['music_artist'])).'</a>' ?></div>
                                     </div>
                                     <small class="type_music c1"><?php echo Helpers::bitrate2str($item['music_bitrate']); ?></small>
@@ -207,10 +207,10 @@ global $top_artist_rows;
                                 <div class="media-right align-self-center">
                                     <small class="time_stt"><?php echo Helpers::timeElapsedString($item['music_download_time']); ?></small>
                                     <ul class="list-inline">
-                                        <li class="list-inline-item"><a href="#" title=""><i class="material-icons">headset</i></a></li>
-                                        <li class="list-inline-item"><a href="#" title=""><i class="material-icons">playlist_add</i></a></li>
-                                        <li class="list-inline-item"><a href="#" title=""><i class="material-icons">file_download</i></a></li>
-                                        <li class="list-inline-item"><a href="#" title=""><i class="material-icons">share</i></a></li>
+                                        <li class="list-inline-item"><a href="{{$url}}" title="nghe riêng nhạc {{$item['music_title']}}"target="_blank" ><i class="material-icons">headset</i></a></li>
+                                        <li class="list-inline-item"><a onclick="addPlaylistTable('{{$item['music_title']}}', {{$item['music_id']}}, {{isset($item['music_artist']) ? "'".$item['music_artist']."'" : "'false'"}}, {{isset($item['music_artist_id']) ? "'".$item['music_artist_id']."'" : "'false'"}})" href="javascript:void(0)" title="thêm vào playlist"><i class="material-icons">playlist_add</i></a></li>
+                                        <li class="list-inline-item"><a href="" title="download {{$item['music_title']}}" target="_blank" ><i class="material-icons">file_download</i></a></li>
+                                        <li class="list-inline-item"><a href="{{Helpers::fbShareLink($url)}}" target="_blank" title="chia sẻ {{$item['music_title']}}"><i class="material-icons">share</i></a></li>
                                     </ul>
                                 </div>
                             </li>
@@ -218,6 +218,25 @@ global $top_artist_rows;
                             }, Helpers::getRandLimitArr($download_rows, LIMIT_HOME_ALBUM_OLD))
                         ?>
                     </ul>
+                </div>
+                <div class="box_show_add_playlist card" style="display: none" id="answer-12878316">
+                    <div class="card-body d-flex flex-column">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <i class="material-icons">close</i>
+                        </button>
+                        <h5 class="card-title box_add_playlist"></h5>
+                        <div class="box_show_playlist_popup mb-2">
+                            <div class="list-group">
+
+                            </div>
+                        </div>
+                        <div class="input-group create_playlist">
+                            <input type="text" class="form-control box_text_create_playlist" placeholder="Nhập tên playlist mới cần tạo" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" onclick="btnCreatePlaylist('box_text_create_playlist')" type="button">Tạo Playlist mới</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="box_catalog owl-carousel owl-theme">
@@ -331,7 +350,8 @@ global $top_artist_rows;
                         <?php
                         $catMusic = Helpers::getRandLimitArr($album_rows_3_0, LIMIT_HOME_CAT_MUSIC);
                         array_map(function ($i, $item) {
-                        $url = SUB_BXH_MUSIC.'/'.Helpers::music_url($item);
+                        $musicId = Helpers::music_id($item);
+                        $url = SUB_BXH_NOW_MUSIC.'/vietnam.html?id='.$musicId;
                         ?>
                         <li class="media {{($i == 0 ? 'first stand' : ($i == 1 ? 'now up' : ($i == 2 ? 'now down' : 'now')))}} align-items-stretch">
                             <div class="media-left mr-3">
@@ -356,7 +376,8 @@ global $top_artist_rows;
                     <?php
                     $catMusic = Helpers::getRandLimitArr($album_rows_4_0, LIMIT_HOME_CAT_MUSIC);
                     array_map(function ($i, $item) {
-                    $url = SUB_BXH_MUSIC.'/'.Helpers::music_url($item);
+                    $musicId = Helpers::music_id($item);
+                    $url = SUB_BXH_NOW_MUSIC.'/vietnam.html?id='.$musicId;
                     ?>
                     <li class="media {{($i == 0 ? 'first stand' : ($i == 1 ? 'now up' : ($i == 2 ? 'now down' : 'now')))}} align-items-stretch">
                         <div class="media-left mr-3">
@@ -381,7 +402,8 @@ global $top_artist_rows;
                     <?php
                     $catMusic = Helpers::getRandLimitArr($album_rows_5_0, LIMIT_HOME_CAT_MUSIC);
                     array_map(function ($i, $item) {
-                    $url = SUB_BXH_MUSIC.'/'.Helpers::music_url($item);
+                    $musicId = Helpers::music_id($item);
+                    $url = SUB_BXH_NOW_MUSIC.'/vietnam.html?id='.$musicId;
                     ?>
                     <li class="media {{($i == 0 ? 'first stand' : ($i == 1 ? 'now up' : ($i == 2 ? 'now down' : 'now')))}} align-items-stretch">
                         <div class="media-left mr-3">
@@ -406,7 +428,8 @@ global $top_artist_rows;
                     <?php
                     $catMusic = Helpers::getRandLimitArr($album_rows_7_0, LIMIT_HOME_CAT_MUSIC);
                     array_map(function ($i, $item) {
-                    $url = SUB_BXH_MUSIC.'/'.Helpers::music_url($item);
+                    $musicId = Helpers::music_id($item);
+                    $url = SUB_BXH_NOW_MUSIC.'/vietnam.html?id='.$musicId;
                     ?>
                     <li class="media {{($i == 0 ? 'first stand' : ($i == 1 ? 'now up' : ($i == 2 ? 'now down' : 'now')))}} align-items-stretch">
                         <div class="media-left mr-3">
@@ -478,4 +501,133 @@ global $top_artist_rows;
         </div>
     </div>
 </div>
+@endsection
+@section('contentJS')
+<script>
+    //////////////////////////
+    ////Add Playlist////////
+    ////////////////////////
+    var loadPlaylist = true;
+    function loadPlayList() {
+        <?php
+        if(!Auth::check()) {
+        ?>
+        alertModal('Bạn chưa đăng nhập.');
+        return false;
+        <?php
+            }
+            ?>
+        if(loadPlaylist) {
+            $.ajax({
+                url: "/playlist/user/danh-sach-playlist",
+                type: "GET",
+                dataType: "json",
+                data: {},
+                beforeSend: function () {
+                },
+                success: function(data) {
+                    if(data.success) {
+                        loadPlaylist = false;
+                        var stringHtml = '';
+                        var stringBoxHtml = '';
+                        if(data.data) {
+                            $.each(data.data, function (index, val) {
+                                stringBoxHtml += stringItemBoxPlaylist(val.playlist_title, val.playlist_music_total, val.playlist_id, val.music_exist, val.playlist_time);
+                            });
+                        }
+                        $('.box_show_playlist_popup .list-group').html(stringBoxHtml);
+                    }else{
+                        alertModal(data.message);
+                    }
+
+                }
+            });
+        }
+    }
+    function stringItemBoxPlaylist(playlist_title, playlist_music_total, playlist_id, music_exist, playlist_time){
+        return '<div onclick="addBoxMusicPlaylist(' + playlist_id + ')" class="playlist_id_' + playlist_id + '"><a href="javascript:void(0)" class="list-group-item list-group-item-action d-flex title_playlist">' + playlist_title + ' (<span>' + playlist_music_total + '</span>)</a></div>';
+    }
+    function btnCreatePlaylist(box_text_create_playlist) {
+        var titlePlaylist = $('.' + box_text_create_playlist);
+        <?php
+        if(!Auth::check()) {
+        ?>
+        alertModal('Bạn chưa đăng nhập.')
+        return false;
+        <?php
+            }
+            ?>
+        if(!titlePlaylist.val()) {
+            alertModal('Bạn chưa nhập tên playlist mới.');
+            return false;
+        }
+        $.ajax({
+            url: "/playlist/user/create-playlist",
+            type: "POST",
+            dataType: "json",
+            data: {'music_id': musicId, 'playlist_title': titlePlaylist.val()},
+            beforeSend: function () {
+            },
+            success: function(data) {
+                if(data.success) {
+                    $('.playlist-csn .list-unstyled').append(stringItemPlaylist(data.data.playlist_title, data.data.playlist_music_total, data.data.playlist_id, false, data.data.playlist_time));
+                    $('.box_show_playlist_popup .list-group').append(stringItemBoxPlaylist(data.data.playlist_title, data.data.playlist_music_total, data.data.playlist_id, false, data.data.playlist_time));
+                    titlePlaylist.val("");
+                    $('.playlist-csn').animate({scrollTop: $('.playlist-csn .list-unstyled').height()}, 'slow');
+                    $('.box_show_playlist_popup').animate({scrollTop: $('.box_show_playlist_popup .list-group').height()}, 'slow');
+                }else{
+                    alertModal(data.message);
+                }
+            }
+        });
+    }
+    function addMusicPlaylist(playlistId, musicAddId, artistAdd, artistIdAdd) {
+        const playlistIdSelect = $('.playlist_id_' + playlistId);
+        $.ajax({
+            url: "/playlist/user/add-music-playlist",
+            type: "POST",
+            dataType: "json",
+            data: {'playlist_id': playlistId, 'music_id': (musicAddId == false ? musicId : musicAddId), 'artist': (artistAdd == false ? artists : artistAdd), 'artist_id': (artistIdAdd == false ? artistIds : artistIdAdd)},
+            beforeSend: function () {
+            },
+            success: function(data) {
+                if(data.success) {
+                    var countPlaylist = playlistIdSelect.find('.title_playlist span');
+                    countPlaylist.html(parseInt(countPlaylist.html()) + 1);
+                    successModal(data.message);
+                    playlistIdSelect.find('time').html(convertDateTime(Date.now() / 1000));
+                }else{
+                    alertModal(data.message);
+                }
+            }
+        });
+    }
+    var boxMusicId = '';
+    var boxArtists = '';
+    var boxArtistIds = '';
+    function addPlaylistTable(musicName, setId, setArtist, setArtistId) {
+        boxMusicId = setId;
+        boxArtists = setArtist;
+        boxArtistIds = setArtistId;
+        $('.box_add_playlist').html('Thêm bài hát ' + musicName + ' vào danh sách Playlist');
+        $('.box_show_add_playlist').css('display', 'inherit');
+        loadPlayList();
+    }
+    function addBoxMusicPlaylist(playlist_id) {
+        addMusicPlaylist(playlist_id, boxMusicId, boxArtists, boxArtistIds);
+    }
+    $('.box_show_add_playlist').find('.close').on('click', function () {
+        $('.box_show_add_playlist').css('display', 'none');
+    })
+    $(".box_show_add_playlist").draggable();
+</script>
+<style>
+    .box_show_add_playlist{
+        left: 275.5px;
+        top: 980px;
+    }
+    .box_show_add_playlist .card-body{
+        padding: 10px!important;
+    }
+</style>
 @endsection

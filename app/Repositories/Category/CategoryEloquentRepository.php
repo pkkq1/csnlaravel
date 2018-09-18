@@ -39,6 +39,30 @@ class CategoryEloquentRepository extends EloquentRepository implements CategoryR
 
         return $result;
     }
+    public function getAllParentCategory($level, $whereExt = array())
+    {
+        $result = $this
+            ->_model
+            ->where('cat_level', $level);
+        if($whereExt) {
+            $result->where($whereExt);
+        }
+        return $result->orderBy('cat_order', 'asc')
+            ->select('cat_id', 'cat_level', 'cat_title', 'cat_short_title', 'cat_url')
+            ->get();
+    }
+    public function getAllCatId($id, $whereExt = array())
+    {
+        $result = $this
+            ->_model
+            ->where('cat_id', $id);
+        if($whereExt) {
+            $result->where($whereExt);
+        }
+        return $result->orderBy('cat_order', 'asc')
+            ->select('cat_id', 'cat_level', 'cat_title', 'cat_short_title', 'cat_url')
+            ->get();
+    }
     public function getCategoryParentByUrl($url)
     {
         $result = $this
@@ -57,7 +81,14 @@ class CategoryEloquentRepository extends EloquentRepository implements CategoryR
             ->first();
         return $result;
     }
-
+    public function getCategoryUrl($url)
+    {
+        $result = $this
+            ->_model
+            ->where('cat_url', $url)
+            ->first();
+        return $result;
+    }
 
 }
 

@@ -27,9 +27,16 @@ Route::group(['middlewareGroups' => ['web']], function () {
     Route::get('mp3/{cat}', ['as' => 'category.get1', 'uses' => 'CategoryController@index1']);
     Route::get('mp3/{cat}/{sub}', ['as' => 'category.get2', 'uses' => 'CategoryController@index2']);
     // BXH
-    Route::get('bang-xep-hang', ['as' => 'bxh.now', 'uses' => 'BxhController@now']);
-    Route::get('bang-xep-hang/bang-xep-hang-thang-{month}/{cat}', ['as' => 'bxh.month', 'uses' => 'BxhController@month']);
-    Route::get('bang-xep-hang/bang-xep-hang-nam-{year}/{cat}', ['as' => 'bxh.year', 'uses' => 'BxhController@year']);
+    Route::get('nhac-hot.html', ['as' => 'bxh.now', 'uses' => 'BxhController@now']);
+    Route::get('nhac-hot', ['as' => 'bxh.now', 'uses' => 'BxhController@now']);
+
+    Route::get('bang-xep-hang/bang-xep-hang-thang-{month}.html', ['as' => 'bxh.month', 'uses' => 'BxhController@month']);
+    Route::get('bang-xep-hang/bang-xep-hang-thang-{month}', ['as' => 'bxh.month', 'uses' => 'BxhController@month']);
+
+    Route::get('bang-xep-hang/bang-xep-hang-nam-{year}.html', ['as' => 'bxh.month', 'uses' => 'BxhController@year']);
+    Route::get('bang-xep-hang/bang-xep-hang-nam-{year}', ['as' => 'bxh.month', 'uses' => 'BxhController@year']);
+
+
     Route::get('bang-xep-hang/{cat}', ['as' => 'bxh.cat', 'uses' => 'BxhController@cat']);
 
 
@@ -37,9 +44,6 @@ Route::group(['middlewareGroups' => ['web']], function () {
     // single
     Route::get('mp3/{cat}/{sub}/{musicUrl}.html', ['as' => 'music.listen', 'uses' => 'MusicController@listenSingleMusic']);
     Route::get('mp3/{cat}/{sub}/{musicUrl}', ['as' => 'music.listen', 'uses' => 'MusicController@listenSingleMusic']);
-    // bang xep hang
-    Route::get('nhac-hot/{cat}.html', ['as' => 'music.nhac.hot.listen', 'uses' => 'MusicController@listenPlaylistMusic']);
-    Route::get('nhac-hot/{cat}', ['as' => 'music.nhac.hot.listen', 'uses' => 'MusicController@listenPlaylistMusic']);
     // album
     Route::get('nghe-album/{musicUrl}.html', ['as' => 'music.album.listen', 'uses' => 'MusicController@listenPlaylistMusic']);
     Route::get('nghe-album/{musicUrl}', ['as' => 'music.album.listen', 'uses' => 'MusicController@listenPlaylistMusic']);
@@ -51,8 +55,15 @@ Route::group(['middlewareGroups' => ['web']], function () {
     Route::get('hd/video/{musicUrl}', ['as' => 'music.video', 'uses' => 'MusicController@listenPlaylistMusic']);
     // artist
     Route::get('ca-si/{artistUrl}', ['as' => 'artist.home', 'uses' => 'ArtistController@index']);
+    // nhac hot, bang xep hang
+    Route::get('nhac-hot/{catUrl}.html', ['as' => 'music.nhac-hot.listen', 'uses' => 'MusicController@listenBxhNow']);
+    Route::get('nhac-hot/{catUrl}', ['as' => 'music.nhac-hot.listen', 'uses' => 'MusicController@listenBxhNow']);
 
+    Route::get('bang-xep-hang/bang-xep-hang-thang-{month}/{catUrl}.html', ['as' => 'bxh.month', 'uses' => 'MusicController@listenBxhMonth']);
+    Route::get('bang-xep-hang/bang-xep-hang-thang-{month}/{catUrl}', ['as' => 'bxh.month', 'uses' => 'MusicController@listenBxhMonth']);
 
+    Route::get('bang-xep-hang/bang-xep-hang-nam-{year}/{catUrl}.html', ['as' => 'bxh.month', 'uses' => 'MusicController@listenBxhYear']);
+    Route::get('bang-xep-hang/bang-xep-hang-nam-{year}/{catUrl}', ['as' => 'bxh.month', 'uses' => 'MusicController@listenBxhYear']);
 
     Route::get('embed/mp3/{music}', 'MusicController@embed');
     // ajax comment
@@ -60,6 +71,11 @@ Route::group(['middlewareGroups' => ['web']], function () {
 
     // User
     Route::get('user/{id}', ['as' => 'user.index', 'uses' => 'User\UserController@index']);
+
+
+    // Search
+    Route::get('tim-kiem', ['as' => 'search.index', 'uses' => 'SearchController@index']);
+
 
 });
 
@@ -91,6 +107,8 @@ Route::group(['middleware' => ['auth']], function() {
 
     // User
     Route::post('user/update', ['as' => 'user.index', 'uses' => 'User\UserController@store']);
+
+    //
 
     Route::get('roles',['as'=>'roles.index','uses'=>'RoleController@index']);
     Route::get('roles/create',['as'=>'roles.create','uses'=>'RoleController@create']);

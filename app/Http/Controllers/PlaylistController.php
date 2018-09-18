@@ -43,11 +43,16 @@ class PlaylistController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function getPlayList(Request $request) {
-        $musicId = $request->input('music_id');
+        if(!Auth::check()){
+            Helpers::ajaxResult(false, 'Bạn chưa đang nhập.', null);
+        }
         $result = $this->playlistRepository->getByUserId(Auth::user()->id)->toArray();
-        return response($result);
+        return Helpers::ajaxResult(true, '', $result);
     }
     public function createPlayList(Request $request) {
+        if(!Auth::check()){
+            Helpers::ajaxResult(false, 'Bạn chưa đang nhập.', null);
+        }
         if(!$request->input('playlist_title')){
             Helpers::ajaxResult(false, 'Bạn chưa nhập tên playlist mới.', null);
         }
@@ -63,6 +68,9 @@ class PlaylistController extends Controller
         Helpers::ajaxResult(true, 'Đã thêm vào playlist.', $result);
     }
     public function addMusicPlayList(Request $request) {
+        if(!Auth::check()){
+            Helpers::ajaxResult(false, 'Bạn chưa đang nhập.', null);
+        }
         $playlistUser = $this->playlistRepository->getByPlaylist([['playlist_id', $request->input('playlist_id')], ['playlist_user_id', Auth::user()->id]]);
         if(!$playlistUser) {
             Helpers::ajaxResult(false, 'Không tìm thấy playlist của bạn', null);
@@ -169,6 +177,12 @@ class PlaylistController extends Controller
         }
     }
     public function deletePlaylist(Request $request) {
+        if(!Auth::check()){
+            return response()->json([
+                'status' => false,
+                'message' => 'Bạn chưa đăng nhập',
+            ]);
+        }
         $playlist = PlaylistModel::whereIn('playlist_id', $request->input('playlis_ids'))->where('playlist_user_id', Auth::user()->id);
         if(!$playlist->exists()) {
             return response()->json([
