@@ -301,8 +301,8 @@ class Helpers
     public  static function splitUrl($url) {
         $arrSplit = explode('~', $url);
         return [
-            'id' => last(str_replace('.html', '', $arrSplit)),
-            'url' => str_replace(last($arrSplit),"",$arrSplit)
+            'id' => self::decodeId(last(str_replace('.html', '', $arrSplit))),
+            'url' => str_replace(last($arrSplit), "", $arrSplit)
         ];
     }
 
