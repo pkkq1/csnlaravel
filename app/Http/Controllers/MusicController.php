@@ -94,13 +94,13 @@ class MusicController extends Controller
             if($offset) {
                 if($type = 'month') {
                     // month BXH
-                    include(app_path() . '\..\resources\views\cache\def_hot_today.blade.php');
+                    include(app_path() . '/../resources/views/cache/def_hot_today.blade.php');
                 }else{
                     // year BXH
-                    include(app_path() . '\..\resources\views\cache\def_hot_today.blade.php');
+                    include(app_path() . '/../resources/views/cache/def_hot_today.blade.php');
                 }
             }else{
-                include(app_path() . '\..\resources\views\cache\def_hot_today.blade.php');
+                include(app_path() . '/../resources/views/cache/def_hot_today.blade.php');
             }
             $category = $this->categoryListenRepository->getCategoryUrl($catUrl);
             if(!$category)
