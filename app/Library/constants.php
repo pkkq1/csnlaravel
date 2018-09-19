@@ -23,6 +23,9 @@ define('TIME_EXPIRY_ADD_LISTEN_MUSIC', '+1 hour');
 define('KEY_ID_ENCODE_URL', 'csn_artist~');
 define('DEFAULT_CAT_ID_ACTIVE_BXH', 3);
 
+// MUSIC ID ENCRIPT
+define('MAX_ID_CONST', 71902891);
+
 // ARTIST
 define('AVATAR_ARTIST_SOURCE_PATH', '/data/source_artist_avatar/');
 define('PUBLIC_AVATAR_ARTIST_SOURCE_PATH', '/storage/data/source_artist_avatar/');

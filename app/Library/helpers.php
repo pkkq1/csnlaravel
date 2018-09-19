@@ -124,12 +124,24 @@ class Helpers
 
     public static function encodeID($id)
     {
-        return intval($id);
+        $id_encode = dechex(MAX_ID_CONST - $id);
+        $id_encode2 = str_replace(array(1,2,4,8,9,'a','e','f'), array('z','v','s','m','w','r','q','t'), $id_encode);
+        $id_encode3 = str_replace(array(0,3,5,6,7,'b','c','d'), array('n','w','h','k','t','q','v','m'), $id_encode);
+        return 't' . $id_encode2 . 'q' . substr($id_encode3, 2, 5);
     }
 
     public static function decodeID($hexID)
     {
-        return intval($hexID);
+        $id_decode2 = str_replace(array('z','v','s','m','w','r','q','t'), array(1,2,4,8,9,'a','e','f'), substr($hexID, 1, -6));
+        $id_decode = hexdec($id_decode2);
+        $id_encode3 = str_replace(array(0,3,5,6,7,'b','c','d'), array('n','w','h','k','t','q','v','m'), $id_decode2);
+
+        // check ID fake
+        if ( substr($hexID, 0, 1) !== 't' ) return intval($hexID);
+        if ( substr($hexID, -6, 1) !== 'q' ) return intval($hexID);
+        if ( substr($hexID, -5) != substr($id_encode3, 2, 5) ) return intval($hexID);
+
+        return (MAX_ID_CONST - $id_decode);
     }
 
     public static function music_url($music_info, $mode = '')
