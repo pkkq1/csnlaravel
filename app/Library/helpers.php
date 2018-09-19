@@ -122,12 +122,12 @@ class Helpers
     }
 
 
-    public static function encodeID($id)
+    public static function encodeID($id, $type = 'music')
     {
         $id_encode = dechex(MAX_ID_CONST - $id);
         $id_encode2 = str_replace(array(1,2,4,8,9,'a','e','f'), array('z','v','s','m','w','r','q','t'), $id_encode);
         $id_encode3 = str_replace(array(0,3,5,6,7,'b','c','d'), array('n','w','h','k','t','q','v','m'), $id_encode);
-        return 't' . $id_encode2 . 'q' . substr($id_encode3, 2, 5);
+        return (($type=='video') ? 'v' : 't') . $id_encode2 . 'q' . substr($id_encode3, 2, 5);
     }
 
     public static function decodeID($hexID)
@@ -137,7 +137,8 @@ class Helpers
         $id_encode3 = str_replace(array(0,3,5,6,7,'b','c','d'), array('n','w','h','k','t','q','v','m'), $id_decode2);
 
         // check ID fake
-        if ( substr($hexID, 0, 1) !== 't' ) return intval($hexID);
+        $type = substr($hexID, 0, 1);
+        if ( $type !== 't' && $type !== 'v' ) return intval($hexID);
         if ( substr($hexID, -6, 1) !== 'q' ) return intval($hexID);
         if ( substr($hexID, -5) != substr($id_encode3, 2, 5) ) return intval($hexID);
 
@@ -146,7 +147,7 @@ class Helpers
 
     public static function music_url($music_info, $mode = '')
     {
-        $id = self::encodeID($music_info['music_id']);
+        $id = ($music_info['cat_id'] == CAT_VIDEO) ? self::encodeID($music_info['music_id'], 'video') : self::encodeID($music_info['music_id']);
 
         return ($music_info['music_title_url']) ? $music_info['music_title_url'] . "~" . $id . $mode . ".".HTMLEX : $id . $mode . "." . HTMLEX;
     }
@@ -300,8 +301,10 @@ class Helpers
     }
     public  static function splitUrl($url) {
         $arrSplit = explode('~', $url);
+        $id_encode = last(str_replace('.html', '', $arrSplit));
         return [
-            'id' => self::decodeId(last(str_replace('.html', '', $arrSplit))),
+            'id' => self::decodeID($id_encode),
+            'type' => substr($id_encode, 0, 1) == 'v' ? 'video' : 'music',
             'url' => str_replace(last($arrSplit), "", $arrSplit)
         ];
     }
