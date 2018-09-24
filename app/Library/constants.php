@@ -23,6 +23,9 @@ define('TIME_EXPIRY_ADD_LISTEN_MUSIC', '+1 hour');
 define('KEY_ID_ENCODE_URL', 'csn_artist~');
 define('DEFAULT_CAT_ID_ACTIVE_BXH', 3);
 
+// MUSIC ID ENCRIPT
+define('MAX_ID_CONST', 71902891);
+
 // ARTIST
 define('AVATAR_ARTIST_SOURCE_PATH', '/data/source_artist_avatar/');
 define('PUBLIC_AVATAR_ARTIST_SOURCE_PATH', '/storage/data/source_artist_avatar/');
@@ -62,4 +65,7 @@ define('AVATAR_PATH', '/data/user_avatar/');
 define('PUBLIC_AVATAR_PATH', '/storage/data/user_avatar/');
 define('HTMLEX', 'html');
 // search
-define('ROWS_SEARCH_PAGING', 20);
+define('ROWS_MUSIC_SEARCH_PAGING', 10);
+define('ROWS_ARTIST_SEARCH_PAGING', 10);
+define('ROWS_ALBUM_SEARCH_PAGING', 10);
+define('ROWS_VIDEO_SEARCH_PAGING', 8);

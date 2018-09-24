@@ -302,11 +302,12 @@ global $top_artist_rows;
                 $videoMusic = Helpers::getRandLimitArr($video_new_uploads, LIMIT_HOME_MUSIC_NEW);
                 array_map(function ($i, $item) {
                 $url = SUB_VIDEO.'/'.Helpers::music_url($item);
-                ?>
-                    @if (($i % 5) == 0)
+                if($i <= 7){
+                    ?>
+                    @if ($i == 4)
                     </div>
                     <div class="row row10px">
-                    @endif
+                        @endif
                         <div class="col">
                             <div class="card card1 video">
                                 <div class="card-header" style="background-image: url({{Helpers::thumbnail_url($item)}});">
@@ -320,7 +321,8 @@ global $top_artist_rows;
                                 </div>
                             </div>
                         </div>
-                <?php
+                    <?php
+                }
                 },array_keys($videoMusic), $videoMusic)
                 ?>
             </div>

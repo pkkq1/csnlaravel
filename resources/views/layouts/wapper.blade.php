@@ -6,10 +6,10 @@
                     <a href="/" title="" class="logo">Chiasenhac.com</a>
                     <figcaption class="d-none">explanatory caption</figcaption>
                 </figure>
-                <form>
+                <form action="/tim-kiem">
                     <div class="form-group m-0">
                         <i class="material-icons">search</i>
-                        <input type="text" class="form-control" value="{{(isset($search) ? $search : '')}}"  class="biginput" id="search_autocomplete" placeholder="nhập bài hát, video, tên nghệ sỹ bạn cần tìm...">
+                        <input type="text" name="q" class="form-control" value="{{(isset($search) ? $search : '')}}"  class="biginput" id="search_autocomplete" placeholder="nhập bài hát, video, tên nghệ sỹ bạn cần tìm...">
                         <div class="search_layout card suggest">
                         </div>
                     </div>

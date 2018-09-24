@@ -9,7 +9,9 @@
                 dataType: "json",
                 data: {
                     q: request.term,
-                    rows: 3
+                    type: 'json',
+                    rows: 3,
+                    view_all: true
                 },
                 success: function( data ) {
                     dataSearch = response( data );
@@ -36,7 +38,6 @@
         var song = '';
         if(musics.length > 0) {
             $.each( musics, function( key, value ) {
-                console.log(searchHighlight(q, value.music_title));
                 song = song +
                     '  <li class="media align-items-stretch">' +
                     '      <div class="media-left align-items-stretch mr-2">' +
@@ -47,7 +48,7 @@
                     '      </div>' +
                     '      <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">' +
                     '          <div>' +
-                    '              <h5 class="media-title mt-0 mb-0"><a href="' + value.music_link + '" title="' + value.music_title + '">' + value.music_title + '</a></h5>' +
+                    '              <h5 class="media-title mt-0 mb-0"><a href="' + value.music_link + '" title="' + value.music_title + '">' + searchHighlight(q, value.music_title) + '</a></h5>' +
                     '              <div class="author">' + value.music_artist + '</div>' +
                     '          </div>' +
                     '          <small class="type_music c1">' + value.music_bitrate + '</small>' +
@@ -75,7 +76,7 @@
                     '      </div>' +
                     '      <div class="media-body align-self-center d-flex flex-column justify-content-between p-0">' +
                     '          <div>' +
-                    '              <h5 class="media-title mt-0 mb-0">' + value.artist_nickname + '</h5>' +
+                    '              <h5 class="media-title mt-0 mb-0">' + searchHighlight(q, value.artist_nickname) + '</h5>' +
                     '          </div>' +
                     '      </div>' +
                     '  </li>';
@@ -95,7 +96,7 @@
                     '  <li class="media align-items-stretch">' +
                     '      <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">' +
                     '          <div>' +
-                    '              <h5 class="media-title mt-0 mb-0"><a href="' + value.music_link + '" title="' + value.music_title + '">' + value.music_title + '</a></h5>' +
+                    '              <h5 class="media-title mt-0 mb-0"><a href="' + value.music_link + '" title="' + value.music_title + '">' + searchHighlight(q, value.music_title) + '</a></h5>' +
                     '              <div class="author">' + value.music_artist + '</div>' +
                     '          </div>' +
                     '          <small class="type_music c1">' + value.music_bitrate + '</small>' +
@@ -123,7 +124,7 @@
                     '      </div>' +
                     '      <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">' +
                     '          <div>' +
-                    '              <h5 class="media-title mt-0 mb-0"><a href="' + value.album_link + '" title="' + value.music_album + '">' + value.music_album + '</a></h5>' +
+                    '              <h5 class="media-title mt-0 mb-0"><a href="' + value.album_link + '" title="' + value.music_album + '">' + searchHighlight(q, value.music_album) + '</a></h5>' +
                     '              <div class="author">' + value.album_artist + '</div>' +
                     '          </div>' +
                     '          <small class="type_music c1">' + value.album_bitrate + '</small>' +
@@ -151,7 +152,7 @@
                     '      </div>' +
                     '      <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">' +
                     '          <div>' +
-                    '              <h5 class="media-title mt-0 mb-0"><a href="' + value.video_link + '" title="">' + value.video_title + '</a></h5>' +
+                    '              <h5 class="media-title mt-0 mb-0"><a href="' + value.video_link + '" title="">' + searchHighlight(q, value.video_title) + '</a></h5>' +
                     '              <div class="author">' + value.video_artist + '</div>' +
                     '          </div>' +
                     '          <small class="type_music c1">' + value.video_bitrate + '</small>' +

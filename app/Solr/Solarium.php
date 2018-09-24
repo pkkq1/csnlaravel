@@ -53,7 +53,7 @@ class Solarium
                 'status' => true,
                 'message' => '',
                 'data' => $data,
-                'rows' => $perPage,
+                'rows' => $rows,
                 'page' => $page,
                 'row_total' => $resultset->getNumFound(),
             ];

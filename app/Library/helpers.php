@@ -122,19 +122,32 @@ class Helpers
     }
 
 
-    public static function encodeID($id)
+    public static function encodeID($id, $type = 'music')
     {
-        return intval($id);
+        $id_encode = dechex(MAX_ID_CONST - $id);
+        $id_encode2 = str_replace(array(1,2,4,8,9,'a','e','f'), array('z','v','s','m','w','r','q','t'), $id_encode);
+        $id_encode3 = str_replace(array(0,3,5,6,7,'b','c','d'), array('n','w','h','k','t','q','v','m'), $id_encode);
+        return (($type=='video') ? 'v' : 't') . $id_encode2 . 'q' . substr($id_encode3, 2, 5);
     }
 
     public static function decodeID($hexID)
     {
-        return intval($hexID);
+        $id_decode2 = str_replace(array('z','v','s','m','w','r','q','t'), array(1,2,4,8,9,'a','e','f'), substr($hexID, 1, -6));
+        $id_decode = hexdec($id_decode2);
+        $id_encode3 = str_replace(array(0,3,5,6,7,'b','c','d'), array('n','w','h','k','t','q','v','m'), $id_decode2);
+
+        // check ID fake
+        $type = substr($hexID, 0, 1);
+        if ( $type !== 't' && $type !== 'v' ) return intval($hexID);
+        if ( substr($hexID, -6, 1) !== 'q' ) return intval($hexID);
+        if ( substr($hexID, -5) != substr($id_encode3, 2, 5) ) return intval($hexID);
+
+        return (MAX_ID_CONST - $id_decode);
     }
 
     public static function music_url($music_info, $mode = '')
     {
-        $id = self::encodeID($music_info['music_id']);
+        $id = ($music_info['cat_id'] == CAT_VIDEO) ? self::encodeID($music_info['music_id'], 'video') : self::encodeID($music_info['music_id']);
 
         return ($music_info['music_title_url']) ? $music_info['music_title_url'] . "~" . $id . $mode . ".".HTMLEX : $id . $mode . "." . HTMLEX;
     }
@@ -288,9 +301,11 @@ class Helpers
     }
     public  static function splitUrl($url) {
         $arrSplit = explode('~', $url);
+        $id_encode = last(str_replace('.html', '', $arrSplit));
         return [
-            'id' => last(str_replace('.html', '', $arrSplit)),
-            'url' => str_replace(last($arrSplit),"",$arrSplit)
+            'id' => self::decodeID($id_encode),
+            'type' => substr($id_encode, 0, 1) == 'v' ? 'video' : 'music',
+            'url' => str_replace(last($arrSplit), "", $arrSplit)
         ];
     }
 
@@ -340,27 +355,80 @@ class Helpers
             }
         }
     }
-    public static function rawTiengVietUrl ($str, $spaceReplace = '-'){
-        $unicode = array(
-            'a'=>'á|à|ả|ã|ạ|ă|ắ|ặ|ằ|ẳ|ẵ|â|ấ|ầ|ẩ|ẫ|ậ',
-            'd'=>'đ',
-            'e'=>'é|è|ẻ|ẽ|ẹ|ê|ế|ề|ể|ễ|ệ',
-            'i'=>'í|ì|ỉ|ĩ|ị',
-            'o'=>'ó|ò|ỏ|õ|ọ|ô|ố|ồ|ổ|ỗ|ộ|ơ|ớ|ờ|ở|ỡ|ợ',
-            'u'=>'ú|ù|ủ|ũ|ụ|ư|ứ|ừ|ử|ữ|ự',
-            'y'=>'ý|ỳ|ỷ|ỹ|ỵ',
-            'A'=>'Á|À|Ả|Ã|Ạ|Ă|Ắ|Ặ|Ằ|Ẳ|Ẵ|Â|Ấ|Ầ|Ẩ|Ẫ|Ậ',
-            'D'=>'Đ',
-            'E'=>'É|È|Ẻ|Ẽ|Ẹ|Ê|Ế|Ề|Ể|Ễ|Ệ',
-            'I'=>'Í|Ì|Ỉ|Ĩ|Ị',
-            'O'=>'Ó|Ò|Ỏ|Õ|Ọ|Ô|Ố|Ồ|Ổ|Ỗ|Ộ|Ơ|Ớ|Ờ|Ở|Ỡ|Ợ',
-            'U'=>'Ú|Ù|Ủ|Ũ|Ụ|Ư|Ứ|Ừ|Ử|Ữ|Ự',
-            'Y'=>'Ý|Ỳ|Ỷ|Ỹ|Ỵ',
+
+    public static function khongdau($str)
+    {
+        static $unicode_trans = array(
+            "á" => "a", "à" => "a", "ả" => "a", "ã" => "a", "ạ" => "a", "ă" => "a", "ắ" => "a", "ằ" => "a", "ẳ" => "a", "ẵ" => "a", "ặ" => "a", "â" => "a", "ấ" => "a", "ầ" => "a", "ẩ" => "a", "ẫ" => "a", "ậ" => "a",
+            "Á" => "A", "À" => "A", "Ả" => "A", "Ã" => "A", "Ạ" => "A", "Ă" => "A", "Ắ" => "A", "Ằ" => "A", "Ẳ" => "A", "Ẵ" => "A", "Ặ" => "A", "Â" => "A", "Ấ" => "A", "Ầ" => "A", "Ẩ" => "A", "Ẫ" => "A", "Ậ" => "A",
+            "é" => "e", "è" => "e", "ẻ" => "e", "ẽ" => "e", "ẹ" => "e", "ê" => "e", "ế" => "e", "ề" => "e", "ể" => "e", "ễ" => "e", "ệ" => "e",
+            "É" => "E", "È" => "E", "Ẻ" => "E", "Ẽ" => "E", "Ẹ" => "E", "Ê" => "E", "Ế" => "E", "Ề" => "E", "Ể" => "E", "Ễ" => "E", "Ệ" => "E",
+            "í" => "i", "ì" => "i", "ỉ" => "i", "ĩ" => "i", "ị" => "i",
+            "Í" => "I", "Ì" => "I", "Ỉ" => "I", "Ĩ" => "I", "Ị" => "I",
+            "ó" => "o", "ò" => "o", "ỏ" => "o", "õ" => "o", "ọ" => "o", "ô" => "o", "ố" => "o", "ồ" => "o", "ổ" => "o", "ỗ" => "o", "ộ" => "o", "ơ" => "o", "ớ" => "o", "ờ" => "o", "ở" => "o", "ỡ" => "o", "ợ" => "o",
+            "Ó" => "O", "Ò" => "O", "Ỏ" => "O", "Õ" => "O", "Ọ" => "O", "Ô" => "O", "Ố" => "O", "Ồ" => "O", "Ổ" => "O", "Ỗ" => "O", "Ộ" => "O", "Ơ" => "O", "Ớ" => "O", "Ờ" => "O", "Ở" => "O", "Ỡ" => "O", "Ợ" => "O",
+            "ú" => "u", "ù" => "u", "ủ" => "u", "ũ" => "u", "ụ" => "u", "ư" => "u", "ứ" => "u", "ừ" => "u", "ử" => "u", "ữ" => "u", "ự" => "u",
+            "Ú" => "U", "Ù" => "U", "Ủ" => "U", "Ũ" => "U", "Ụ" => "U", "Ư" => "U", "Ứ" => "U", "Ừ" => "U", "Ử" => "U", "Ữ" => "U", "Ự" => "U",
+            "ý" => "y", "ỳ" => "y", "ỷ" => "y", "ỹ" => "y", "ỵ" => "y",
+            "Ý" => "Y", "Ỳ" => "Y", "Ỷ" => "Y", "Ỹ" => "Y", "Ỵ" => "Y",
+            "đ" => "d",
+            "Đ" => "D",
         );
-        foreach($unicode as $nonUnicode=>$uni){
+
+        return strtr($str, $unicode_trans);
+    }
+
+    public static function rawTiengVietUrl($str)
+    {
+        return preg_replace(array('/[^a-zA-Z0-9 -]/', '/[ -]+/', '/^-|-$/'), array('', '-', ''), self::khongdau($str));
+    }
+
+    /*
+     * // slower 2x
+     * public static function rawTiengVietUrl($str)
+    {
+        $unicode = array(
+            'a' => 'á|à|ả|ã|ạ|ă|ắ|ặ|ằ|ẳ|ẵ|â|ấ|ầ|ẩ|ẫ|ậ',
+            'd' => 'đ',
+            'e' => 'é|è|ẻ|ẽ|ẹ|ê|ế|ề|ể|ễ|ệ',
+            'i' => 'í|ì|ỉ|ĩ|ị',
+            'o' => 'ó|ò|ỏ|õ|ọ|ô|ố|ồ|ổ|ỗ|ộ|ơ|ớ|ờ|ở|ỡ|ợ',
+            'u' => 'ú|ù|ủ|ũ|ụ|ư|ứ|ừ|ử|ữ|ự',
+            'y' => 'ý|ỳ|ỷ|ỹ|ỵ',
+            'A' => 'Á|À|Ả|Ã|Ạ|Ă|Ắ|Ặ|Ằ|Ẳ|Ẵ|Â|Ấ|Ầ|Ẩ|Ẫ|Ậ',
+            'D' => 'Đ',
+            'E' => 'É|È|Ẻ|Ẽ|Ẹ|Ê|Ế|Ề|Ể|Ễ|Ệ',
+            'I' => 'Í|Ì|Ỉ|Ĩ|Ị',
+            'O' => 'Ó|Ò|Ỏ|Õ|Ọ|Ô|Ố|Ồ|Ổ|Ỗ|Ộ|Ơ|Ớ|Ờ|Ở|Ỡ|Ợ',
+            'U' => 'Ú|Ù|Ủ|Ũ|Ụ|Ư|Ứ|Ừ|Ử|Ữ|Ự',
+            'Y' => 'Ý|Ỳ|Ỷ|Ỹ|Ỵ',
+        );
+        foreach ($unicode as $nonUnicode => $uni) {
             $str = preg_replace("/($uni)/i", $nonUnicode, $str);
         }
-        $str = str_replace(' ', $spaceReplace, $str);
+        $str = str_replace(' ', '-', $str);
         return $str;
+    }*/
+    public static function pagingCustom($page, $rows, $total, $url, $pageVar) {
+        if(intval($total / $rows) > 1) {
+            ?>
+            <ul class="pagination">
+                <li class="<?php echo ($page == 1) ? ' disabled' : '' ?>">
+                    <a href="<?php echo $url . $pageVar ?>">&laquo; Trước</a>
+                </li>
+                <?php for ($i = 1; $i <= intval($total / $rows); $i++) {
+                    ?>
+                    <li class="<?php echo ($page == $i) ? ' active' : '' ?>">
+                        <a href="<?php echo $url . $pageVar . $i ?>"><?php echo $i ?></a>
+                    </li>
+                    <?php
+                }
+                ?>
+                <li class="<?php echo ($page == intval($total / $rows)) ? ' disabled' : '' ?>">
+                    <a href="<?php echo $url . $pageVar . ($i + 1) ?>" >Sau &raquo</a>
+                </li>
+            </ul>
+            <?php
+        }
     }
 }

@@ -560,8 +560,13 @@
     color: #888;
     font-size: 12px;
 }
-.fn-list{
+.fn-list {
     font-weight: 400;
     font-size: 14px;
-    color: #000;
+}
+#header .top .form-group .suggest {
+    z-index: 999999999;
+}
+.search_highlight {
+ color: #ff3657
 }
