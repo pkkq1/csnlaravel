@@ -181,6 +181,7 @@ return [
         Zizaco\Entrust\EntrustServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
+        App\Providers\SolariumServiceProvider::class,
 
     ],
 

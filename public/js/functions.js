@@ -1,49 +1,49 @@
-// $( document ).ready(function() {
-//     $(".this_more").click(function (a) {
-//         a.stopPropagation();
-//         if ($(".iconmenu").hasClass("active")) {
-//             $(".iconmenu").removeClass("active");
-//             $(".iconmenu .material-icons").text("more_horiz");
-//             $(".menu-expand-wrapper").fadeOut("fast")
-//         } else {
-//             $(".iconmenu").addClass("active");
-//             $(".iconmenu .material-icons").text("close");
-//             $(".menu-expand-wrapper").fadeIn("fast")
-//         }
-//     });
-//     var b;
-//     $(".this_more").on("mouseenter", function (a) {
-//         b = setTimeout(function () {
-//             a.stopPropagation();
-//             $(".iconmenu").addClass("active");
-//             $(".iconmenu .material-icons").text("close");
-//             $(".menu-expand-wrapper").fadeIn("fast")
-//         }, 300)
-//     }).on("mouseleave", function (a) {
-//         clearTimeout(b);
-//         a.stopPropagation();
-//         $(".iconmenu").removeClass("hidden")
-//     });
-//     $(".ghw-bottom-header").hover(function () {
-//     }, function (a) {
-//         a.stopPropagation();
-//         $(".iconmenu").removeClass("active");
-//         $(".iconmenu .material-icons").text("more_horiz");
-//         $(".menu-expand-wrapper").fadeOut("fast")
-//     });
-//
-//     $('#header .top .form-group .form-control').click(function(a){
-// 		a.stopPropagation();
-// 		$(".suggest").fadeIn("fast")
-//     });
-//     $('body').click(function(){
-//         $(".suggest").fadeOut("fast")
-//     });
-// });
-//
-// $(function () {
-//     $('[data-toggle="tooltip"]').tooltip()
-// })
+$( document ).ready(function() {
+    $(".this_more").click(function (a) {
+        a.stopPropagation();
+        if ($(".iconmenu").hasClass("active")) {
+            $(".iconmenu").removeClass("active");
+            $(".iconmenu .material-icons").text("more_horiz");
+            $(".menu-expand-wrapper").fadeOut("fast")
+        } else {
+            $(".iconmenu").addClass("active");
+            $(".iconmenu .material-icons").text("close");
+            $(".menu-expand-wrapper").fadeIn("fast")
+        }
+    });
+    var b;
+    $(".this_more").on("mouseenter", function (a) {
+        b = setTimeout(function () {
+            a.stopPropagation();
+            $(".iconmenu").addClass("active");
+            $(".iconmenu .material-icons").text("close");
+            $(".menu-expand-wrapper").fadeIn("fast")
+        }, 300)
+    }).on("mouseleave", function (a) {
+        clearTimeout(b);
+        a.stopPropagation();
+        $(".iconmenu").removeClass("hidden")
+    });
+    $(".ghw-bottom-header").hover(function () {
+    }, function (a) {
+        a.stopPropagation();
+        $(".iconmenu").removeClass("active");
+        $(".iconmenu .material-icons").text("more_horiz");
+        $(".menu-expand-wrapper").fadeOut("fast")
+    });
+
+    $('#header .top .form-group .form-control').click(function(a){
+		a.stopPropagation();
+		$(".suggest").fadeIn("fast")
+    });
+    $('body').click(function(){
+        $(".suggest").fadeOut("fast")
+    });
+});
+
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
 //
 // $(function() {
 //     // Initializes and creates emoji set from sprite sheet
@@ -57,15 +57,15 @@
 //     // It can be called as many times as necessary; previously converted input fields will not be converted again
 //     window.emojiPicker.discover();
 // });
-//
-// var upvote_position = $('#answer-12878316').position();
-// $('body').mousemove(function (event) {
-//     $(this).css({
-//         position: 'relative',
-//         left: (event.pageX - upvote_position.left - 22) + 'px',
-//         top: (event.pageY - upvote_position.top - 35) + 'px'
-//     });
-// });
+
+var upvote_position = $('#answer-12878316').position();
+$('body').mousemove(function (event) {
+    $(this).css({
+        position: 'relative',
+        left: (event.pageX - upvote_position.left - 22) + 'px',
+        top: (event.pageY - upvote_position.top - 35) + 'px'
+    });
+});
 function alertModal(content) {
     $("#myModal .modal-body").html('<i class="material-icons modal_icon_csn">error_outline</i><div class="modal_content_csn">' + content + '</div>');
     $("#myModal").modal();
@@ -73,4 +73,9 @@ function alertModal(content) {
 function successModal(content) {
     $("#myModal .modal-body").html('<i class="material-icons modal_icon_csn">check_circle_outline</i><div class="modal_content_csn">' + content + '</div>');
     $("#myModal").modal();
+}
+function searchHighlight(key, string) {
+    var keyReplace = key.replace(/[^\x00-\x7F]/g, "");
+    var stringReplace = string.replace(/[^\x00-\x7F]/g, "");
+    return stringReplace;
 }

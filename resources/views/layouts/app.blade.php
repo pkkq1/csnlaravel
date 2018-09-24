@@ -3,6 +3,7 @@
 @include('layouts.header')
 <body>
 <div id="fb-root"></div>
+<section class="wrapper_content">
 @include('layouts.wapper')
 @hasSection('hidden_wapper')
 
@@ -21,6 +22,7 @@
 @yield('content')
 
 @include('layouts.footer')
+</section>
 @yield('contentJS')
 </body>
 </html>

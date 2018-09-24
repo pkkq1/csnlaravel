@@ -370,7 +370,7 @@ $titleMeta = 'Cập nhật nhạc mới - ' . Config::get('constants.app.title')
         ?>
 
         $(document).ready(function() {
-            $("#music_artist_id").tokenInput("/ca-si/tim-kiem", {
+            $("#music_artist_id").tokenInput("/dang-tai/ca-si/tim-kiem", {
                 theme: "facebook",
                 preventDuplicates: true,
                 setInputName: "#music_artist",

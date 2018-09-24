@@ -912,11 +912,26 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
         var boxArtists = '';
         var boxArtistIds = '';
         function addPlaylistTable(musicName, setId, setArtist, setArtistId) {
+            <?php
+            if(!Auth::check()) {
+                ?>
+                    alertModal('Bạn chưa đăng nhập.');
+                    return false;
+                <?php
+            }
+            ?>
             boxMusicId = setId;
             boxArtists = setArtist;
             boxArtistIds = setArtistId;
             $('.box_add_playlist').html('Thêm bài hát ' + musicName + ' vào danh sách Playlist');
             $('.box_show_add_playlist').css('display', 'inherit');
+            $('body').append('<div id="boxOutPlaylist" style="display: block; z-index: 99999;" role="dialog" class="modal"> </div>')
+            window.onclick = function(event) {
+                if(event.target == document.getElementById('boxOutPlaylist')) {
+                    $('.box_show_add_playlist').css('display', 'none');
+                    $('#boxOutPlaylist').remove();
+                }
+            }
             loadPlayList();
         }
         function addBoxMusicPlaylist(playlist_id) {

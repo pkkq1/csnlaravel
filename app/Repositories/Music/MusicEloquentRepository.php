@@ -58,6 +58,15 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
 
         return $result;
     }
+    public function findMusicIds($ids)
+    {
+        $result = $this
+            ->_model
+            ->whereIn('music_id', $ids)
+            ->get();
+
+        return $result;
+    }
     public function incrementCol($id, $field)
     {
         $result = $this

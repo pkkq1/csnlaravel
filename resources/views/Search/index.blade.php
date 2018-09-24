@@ -129,7 +129,7 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
             <div class="card card-note-search">
                 <div class="card-body">
                     <div class="d-flex align-items-center justify-content-between">
-                        <span class="txt-note">Từ khoá <b>anh</b> có 201,026 kết quả</span>
+                        <span class="txt-note">Từ khoá <b>{{$search}}</b> có {{number_format($result['row_total'])}} kết quả</span>
                         <div class="tag">
                             <button type="button" class="btn btn-secondary">Tên Album <i class="material-icons">close</i></button>
                             <button type="button" class="btn btn-secondary">Ca sĩ <i class="material-icons">close</i></button>
@@ -143,227 +143,42 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                 <div class="tab-pane fade" id="nav-album" role="tabpanel" aria-labelledby="nav-album-tab">...</div>
                 <div class="tab-pane fade" id="nav-video" role="tabpanel" aria-labelledby="nav-video-tab">...</div>
             </div>
-            <div class="box_header d-flex justify-content-between align-items-end">
-                <h5 class="title m-0">Bài hát</h5>
-            </div>
-            <ul class="list-unstyled list_music music_kq">
-                <li class="media align-items-stretch">
-                    <div class="media-left align-items-stretch mr-2">
-                        <a href="#" title="">
-                            <img src="https://zmp3-photo.zadn.vn/thumb/240_240/cover/5/3/0/7/5307b38e7a651a805b56674e70d124ef.jpg" alt="">
-                            <i class="material-icons">play_circle_outline</i>
-                        </a>
-                    </div>
-                    <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
-                        <div>
-                            <h5 class="media-title mt-0 mb-0"><a href="#" title="">sống xa anh chẳng dễ dàng</a></h5>
-                            <div class="author"><a href="#" title="">Phương Ly</a> , <a href="#" title="">JustaTee</a></div>
-                        </div>
-                        <small class="type_music c1">Lossless</small>
-                    </div>
-                    <div class="media-right align-self-center">
-                        <small class="time_stt">92.176.986</small>
-                        <ul class="list-inline">
-                            <li class="list-inline-item"><a href="#" title=""><i class="material-icons">file_download</i></a></li>
-                            <li class="list-inline-item"><a href="#" title=""><i class="material-icons">file_download</i></a></li>
-                            <li class="list-inline-item"><a href="#" title=""><i class="material-icons">headset</i></a></li>
-                            <li class="list-inline-item"><a href="#" title=""><i class="material-icons">share</i></a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="media align-items-stretch">
-                    <div class="media-left align-items-stretch mr-2">
-                        <a href="#" title="">
-                            <img src="https://zmp3-photo.zadn.vn/thumb/240_240/cover/6/3/3/3/6333e47cefee8f7cf9317e0fc21c52b1.jpg" alt="">
-                            <i class="material-icons">play_circle_outline</i>
-                        </a>
-                    </div>
-                    <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
-                        <div>
-                            <h5 class="media-title mt-0 mb-0"><a href="#" title="">đã lỡ yêu em rồi</a></h5>
-                            <div class="author"><a href="#" title="">Phương Ly</a> , <a href="#" title="">JustaTee</a></div>
-                        </div>
-                        <small class="type_music c1">Lossless</small>
-                    </div>
-                    <div class="media-right align-self-center">
-                        <small class="time_stt">92.176.986</small>
-                        <ul class="list-inline">
-                            <li class="list-inline-item"><a href="#" title=""><i class="material-icons">file_download</i></a></li>
-                            <li class="list-inline-item"><a href="#" title=""><i class="material-icons">file_download</i></a></li>
-                            <li class="list-inline-item"><a href="#" title=""><i class="material-icons">headset</i></a></li>
-                            <li class="list-inline-item"><a href="#" title=""><i class="material-icons">share</i></a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="media align-items-stretch">
-                    <div class="media-left align-items-stretch mr-2">
-                        <a href="#" title="">
-                            <img src="https://zmp3-photo.zadn.vn/thumb/240_240/cover/7/4/5/3/7453b69f58b535ce566b6012fd34f9db.jpg" alt="">
-                            <i class="material-icons">play_circle_outline</i>
-                        </a>
-                    </div>
-                    <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
-                        <div>
-                            <h5 class="media-title mt-0 mb-0"><a href="#" title="">kém duyên</a></h5>
-                            <div class="author"><a href="#" title="">Phương Ly</a> , <a href="#" title="">JustaTee</a></div>
-                        </div>
-                        <small class="type_music c2">320kbps</small>
-                    </div>
-                    <div class="media-right align-self-center">
-                        <small class="time_stt">92.176.986</small>
-                        <ul class="list-inline">
-                            <li class="list-inline-item"><a href="#" title=""><i class="material-icons">file_download</i></a></li>
-                            <li class="list-inline-item"><a href="#" title=""><i class="material-icons">file_download</i></a></li>
-                            <li class="list-inline-item"><a href="#" title=""><i class="material-icons">headset</i></a></li>
-                            <li class="list-inline-item"><a href="#" title=""><i class="material-icons">share</i></a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="media align-items-stretch">
-                    <div class="media-left align-items-stretch mr-2">
-                        <a href="#" title="">
-                            <img src="https://zmp3-photo.zadn.vn/thumb/240_240/cover/0/4/4/8/04485736d56ad4c5db97b88ef0d54eea.jpg" alt="">
-                            <i class="material-icons">play_circle_outline</i>
-                        </a>
-                    </div>
-                    <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
-                        <div>
-                            <h5 class="media-title mt-0 mb-0"><a href="#" title="">bao giờ cưới?</a></h5>
-                            <div class="author"><a href="#" title="">Phương Ly</a> , <a href="#" title="">JustaTee</a></div>
-                        </div>
-                        <small class="type_music c2">320kbps</small>
-                    </div>
-                    <div class="media-right align-self-center">
-                        <small class="time_stt">92.176.986</small>
-                        <ul class="list-inline">
-                            <li class="list-inline-item"><a href="#" title=""><i class="material-icons">file_download</i></a></li>
-                            <li class="list-inline-item"><a href="#" title=""><i class="material-icons">file_download</i></a></li>
-                            <li class="list-inline-item"><a href="#" title=""><i class="material-icons">headset</i></a></li>
-                            <li class="list-inline-item"><a href="#" title=""><i class="material-icons">share</i></a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="media align-items-stretch">
-                    <div class="media-left align-items-stretch mr-2">
-                        <a href="#" title="">
-                            <img src="https://zmp3-photo.zadn.vn/thumb/240_240/cover/1/d/d/d/1ddd2aa2c5f5ddcee812c460f8583a5b.jpg" alt="">
-                            <i class="material-icons">play_circle_outline</i>
-                        </a>
-                    </div>
-                    <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
-                        <div>
-                            <h5 class="media-title mt-0 mb-0"><a href="#" title="">cảm xúc tình yêu</a></h5>
-                            <div class="author"><a href="#" title="">Phương Ly</a> , <a href="#" title="">JustaTee</a></div>
-                        </div>
-                        <small class="type_music c1">Lossless</small>
-                    </div>
-                    <div class="media-right align-self-center">
-                        <small class="time_stt">92.176.986</small>
-                        <ul class="list-inline">
-                            <li class="list-inline-item"><a href="#" title=""><i class="material-icons">file_download</i></a></li>
-                            <li class="list-inline-item"><a href="#" title=""><i class="material-icons">file_download</i></a></li>
-                            <li class="list-inline-item"><a href="#" title=""><i class="material-icons">headset</i></a></li>
-                            <li class="list-inline-item"><a href="#" title=""><i class="material-icons">share</i></a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="media align-items-stretch">
-                    <div class="media-left align-items-stretch mr-2">
-                        <a href="#" title="">
-                            <img src="https://zmp3-photo.zadn.vn/thumb/240_240/covers/d/8/d8827a766da920e202809c6a006155b1_1519784231.png" alt="">
-                            <i class="material-icons">play_circle_outline</i>
-                        </a>
-                    </div>
-                    <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
-                        <div>
-                            <h5 class="media-title mt-0 mb-0"><a href="#" title="">nhạc việt hay nhất cho ngày cưới</a></h5>
-                            <div class="author"><a href="#" title="">Phương Ly</a> , <a href="#" title="">JustaTee</a></div>
-                        </div>
-                        <small class="type_music c1">Lossless</small>
-                    </div>
-                    <div class="media-right align-self-center">
-                        <small class="time_stt">92.176.986</small>
-                        <ul class="list-inline">
-                            <li class="list-inline-item"><a href="#" title=""><i class="material-icons">file_download</i></a></li>
-                            <li class="list-inline-item"><a href="#" title=""><i class="material-icons">file_download</i></a></li>
-                            <li class="list-inline-item"><a href="#" title=""><i class="material-icons">headset</i></a></li>
-                            <li class="list-inline-item"><a href="#" title=""><i class="material-icons">share</i></a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="media align-items-stretch">
-                    <div class="media-left align-items-stretch mr-2">
-                        <a href="#" title="">
-                            <img src="https://zmp3-photo.zadn.vn/thumb/240_240/cover/b/c/e/6/bce66d6f8fd1efe4e44bcfc4756b0fae.jpg" alt="">
-                            <i class="material-icons">play_circle_outline</i>
-                        </a>
-                    </div>
-                    <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
-                        <div>
-                            <h5 class="media-title mt-0 mb-0"><a href="#" title="">vì yêu mà đến</a></h5>
-                            <div class="author"><a href="#" title="">Trịnh Thăng Bình</a></div>
-                        </div>
-                        <small class="type_music c1">Lossless</small>
-                    </div>
-                    <div class="media-right align-self-center">
-                        <small class="time_stt">92.176.986</small>
-                        <ul class="list-inline">
-                            <li class="list-inline-item"><a href="#" title=""><i class="material-icons">file_download</i></a></li>
-                            <li class="list-inline-item"><a href="#" title=""><i class="material-icons">file_download</i></a></li>
-                            <li class="list-inline-item"><a href="#" title=""><i class="material-icons">headset</i></a></li>
-                            <li class="list-inline-item"><a href="#" title=""><i class="material-icons">share</i></a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="media align-items-stretch">
-                    <div class="media-left align-items-stretch mr-2">
-                        <a href="#" title="">
-                            <img src="https://zmp3-photo.zadn.vn/thumb/240_240/cover/8/e/2/0/8e2060b1774f824b0f3940442c8900c8.jpg" alt="">
-                            <i class="material-icons">play_circle_outline</i>
-                        </a>
-                    </div>
-                    <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
-                        <div>
-                            <h5 class="media-title mt-0 mb-0"><a href="#" title="">webbing songs</a></h5>
-                            <div class="author"><a href="#" title="">Lou Hoàng</a></div>
-                        </div>
-                        <small class="type_music c1">Lossless</small>
-                    </div>
-                    <div class="media-right align-self-center">
-                        <small class="time_stt">92.176.986</small>
-                        <ul class="list-inline">
-                            <li class="list-inline-item"><a href="#" title=""><i class="material-icons">file_download</i></a></li>
-                            <li class="list-inline-item"><a href="#" title=""><i class="material-icons">file_download</i></a></li>
-                            <li class="list-inline-item"><a href="#" title=""><i class="material-icons">headset</i></a></li>
-                            <li class="list-inline-item"><a href="#" title=""><i class="material-icons">share</i></a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="media align-items-stretch">
-                    <div class="media-left align-items-stretch mr-2">
-                        <a href="#" title="">
-                            <img src="https://zmp3-photo.zadn.vn/thumb/240_240/cover/5/a/4/9/5a49f355f5ca957ad0cbd1a749159b9f.jpg" alt="">
-                            <i class="material-icons">play_circle_outline</i>
-                        </a>
-                    </div>
-                    <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
-                        <div>
-                            <h5 class="media-title mt-0 mb-0"><a href="#" title="">ngày hạnh phúc</a></h5>
-                            <div class="author"><a href="#" title="">Various Artists</a></div>
-                        </div>
-                        <small class="type_music c1">Lossless</small>
-                    </div>
-                    <div class="media-right align-self-center">
-                        <small class="time_stt">92.176.986</small>
-                        <ul class="list-inline">
-                            <li class="list-inline-item"><a href="#" title=""><i class="material-icons">file_download</i></a></li>
-                            <li class="list-inline-item"><a href="#" title=""><i class="material-icons">file_download</i></a></li>
-                            <li class="list-inline-item"><a href="#" title=""><i class="material-icons">headset</i></a></li>
-                            <li class="list-inline-item"><a href="#" title=""><i class="material-icons">share</i></a></li>
-                        </ul>
-                    </div>
-                </li>
-            </ul>
+            @if($musicResult)
+                <div class="box_header d-flex justify-content-between align-items-end">
+                    <h5 class="title m-0">Bài hát</h5>
+                </div>
+                <ul class="list-unstyled list_music music_kq">
+                    <?php
+                     array_map(function ($item) {
+                        $url = Helpers::listen_url($item);
+                        ?>
+                        <li class="media align-items-stretch">
+                            <div class="media-left align-items-stretch mr-2">
+                                <a href="{{$url}}" title="{{$item['music_title']}}">
+                                    <img src="{{Helpers::coverImg($item['cover_id'])}}" alt="{{$item['music_title']}}">
+                                    <i class="material-icons">play_circle_outline</i>
+                                </a>
+                            </div>
+                            <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
+                                <div>
+                                    <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_title']}}">{{$item['music_title']}}</a></h5>
+                                    <div class="author"><?php echo '<a href="#">'.implode(',</a><a href="#">', explode(';', $item['music_artist'])).'</a>' ?></div>
+                                </div>
+                                <small class="type_music c1"><?php echo Helpers::bitrate2str($item['music_bitrate']); ?></small>
+                            </div>
+                            <div class="media-right align-self-center">
+                                <small class="time_stt">{{number_format($item['music_listen'])}}</small>
+                                <ul class="list-inline">
+                                    <li class="list-inline-item"><a href="{{MUSIC_PATH.$item['music_filename']}}" title="download {{$item['music_title']}}"><i class="material-icons">file_download</i></a></li>
+                                    <li class="list-inline-item"><a href="{{Helpers::fbShareLink($url, true)}}" target="_blank" title="chia sẻ {{$item['music_title']}}"><i class="material-icons">share</i></a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <?php
+                     }, $musicResult)
+                    ?>
+                </ul>
+            @endif
             <div class="box_header d-flex justify-content-between align-items-end">
                 <h5 class="title m-0">Album</h5>
                 <a class="link_more" href="#" title="">Xem tất cả</a>

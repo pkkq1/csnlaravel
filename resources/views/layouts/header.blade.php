@@ -19,6 +19,7 @@
     <link rel="stylesheet" type="text/css" href="/fonts/fonts.css">
     <link rel="stylesheet" href="/css/Lobibox.min.css"/>
     <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/jquery-ui.css">
     <link rel="stylesheet" type="text/css" href="/css/custom.css">
     @yield('contentCSS')
     <!-- JS -->
@@ -35,6 +36,8 @@
     <script type="text/javascript" src="/assets/emoji-picker-master/lib/js/util.js"></script>
     <script type="text/javascript" src="/assets/emoji-picker-master/lib/js/jquery.emojiarea.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="/js/functions.js"></script>
+    {{--<script type="text/javascript" src="/js/jquery.autocomplete.min.js"></script>--}}
     {{--<script type="text/javascript" src="/assets/emoji-picker-master/lib/js/emoji-picker.js"></script>--}}
     {{--<script type="text/javascript" src="/assets/jQuery-File-Upload-9.21.0/js/jquery.iframe-transport.js"></script>--}}
     {{--<script type="text/javascript" src="/assets/jQuery-File-Upload-9.21.0/js/jquery.fileupload.js"></script>--}}

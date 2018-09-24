@@ -61,3 +61,5 @@ define('USER_ACTIVE', 1);
 define('AVATAR_PATH', '/data/user_avatar/');
 define('PUBLIC_AVATAR_PATH', '/storage/data/user_avatar/');
 define('HTMLEX', 'html');
+// search
+define('ROWS_SEARCH_PAGING', 20);

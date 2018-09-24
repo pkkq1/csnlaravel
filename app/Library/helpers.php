@@ -340,7 +340,7 @@ class Helpers
             }
         }
     }
-    public static function rawTiengVietUrl ($str){
+    public static function rawTiengVietUrl ($str, $spaceReplace = '-'){
         $unicode = array(
             'a'=>'á|à|ả|ã|ạ|ă|ắ|ặ|ằ|ẳ|ẵ|â|ấ|ầ|ẩ|ẫ|ậ',
             'd'=>'đ',
@@ -360,7 +360,7 @@ class Helpers
         foreach($unicode as $nonUnicode=>$uni){
             $str = preg_replace("/($uni)/i", $nonUnicode, $str);
         }
-        $str = str_replace(' ','-',$str);
+        $str = str_replace(' ', $spaceReplace, $str);
         return $str;
     }
 }
