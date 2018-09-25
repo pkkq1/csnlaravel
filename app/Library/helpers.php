@@ -356,6 +356,18 @@ class Helpers
         }
     }
 
+    public static function file_path($id, $dir, $url = '')
+    {
+        $url = ($url == '') ?? env('DATA_URL');
+
+        return $url . $dir . ceil($id/1000) . '/';
+    }
+
+    public static function cover_path($cover_id = 0)
+    {
+        return ($cover_id > 0) ? self::file_path($cover_id, 'MUSIC_COVER_PATH') . $cover_id . '.jpg' : 'no_cover.jpg';
+    }
+
     public static function khongdau($str)
     {
         static $unicode_trans = array(
