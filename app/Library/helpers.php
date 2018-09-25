@@ -365,7 +365,12 @@ class Helpers
 
     public static function cover_path($cover_id = 0)
     {
-        return ($cover_id > 0) ? self::file_path($cover_id, 'MUSIC_COVER_PATH') . $cover_id . '.jpg' : 'no_cover.jpg';
+        return self::file_path($cover_id, 'MUSIC_COVER_PATH');
+    }
+
+    public static function cover_url($cover_id = 0)
+    {
+        return ($cover_id > 0) ? self::cover_path($cover_id) . $cover_id . '.jpg' : 'no_cover.jpg';
     }
 
     public static function khongdau($str)
