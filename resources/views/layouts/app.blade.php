@@ -8,7 +8,7 @@
 @hasSection('hidden_wapper')
 
 @else
-    <div class="ads_box" id="pc_masthead" onchange="pc_masthead_change();">
+    <div class="ads_box" id="pc_masthead" onchange="pc_masthead_change();" style="padding: 10px">
         <div class="container text-center">
                <div id="bsmasthead-wrapper"></div>
         </div>

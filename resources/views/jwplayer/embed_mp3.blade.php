@@ -32,7 +32,7 @@ $autoPlay = isset($_GET['auto']) ? $_GET['auto'] : 'false';
         sources: [
             {"file":"<?php echo MUSIC_PATH.$music->music_filename ?>","label":"128K"},
         ],
-        image: '<?php echo Helpers::coverImg($music->cover_id) ?>',
+        image: '<?php echo Helpers::cover_url($music->cover_id) ?>',
         title:'<?php echo $music->music_title ?>',
         skin: {
             name: 'nhac'

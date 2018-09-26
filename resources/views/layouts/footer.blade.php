@@ -21,6 +21,9 @@
     }).autocomplete( "instance" )._renderItem = function( ul, item ) {
         var theHtml = rawBodySearch(rawTopMusic(item.music['data'], item.q), rawArtist(item.artist['data'], item.q), rawMusic(item.music['data'], item.q),
             rawAlbum(item.album['data'], item.q), rawVideo(item.video['data'], item.q));
+        if(theHtml.length != 29) {
+            theHtml = '<span style="float: right;margin-right: 7px;margin-top: 1px;"><a onclick="redirectSearch()" href="javascript:void(0)">Xem tất cả</a></span>' + theHtml;
+        }
         $('.search_layout').html(theHtml);
         return $( "<li>" )
             .appendTo( ul );
@@ -166,6 +169,9 @@
         }
         return '';
     }
+    function redirectSearch() {
+        window.location.href = "/tim-kiem?q=" + $('#search_autocomplete').val();
+    }
 </script>
 <!-- Modal -->
 <div id="myModal" class="modal fade" role="dialog">
@@ -182,6 +188,164 @@
 
     </div>
 </div>
+<!-- Login -->
+<div id="myModal_login" class="modal fade" role="dialog" style="z-index: 999999999999999">
+    <div class="modal-dialog modal-lg">
+        <!-- Modal content-->
+        <div class="modal-content modal-login">
+            <div class="modal-header">
+                <h5 class="modal-title" style="float: left;">Đăng nhập</h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="panel-body">
+                    <form class="col-md-12" action="#">
+                        <div class="col-md-6 col-md-offset-2" style="display: table;float: left;">
+                            <div class="input-field">
+                                <input type="email" name="email" placeholder="Tên đăng nhập hoặc email" required />
+                                <input type="password" placeholder="Mật khẩu" name="password" required/>
+                                <div class="login_action">
+                                    <input type="checkbox" checked id="remember" name="remember" {{ old('remember') ? 'checked' : '' }}>
+                                    <label style="cursor: pointer; display: inline;" for="remember"> Nhớ mật khẩu</label>
+                                    <input type="submit" value="Đăng nhập" />
+                                </div>
+                                <p class="text-p"><a href="javascript:void(0)" onclick="switchAuth('myModal_register')" style="margin-right: 15px;color: #FF2D55;">Đăng ký</a>
+                                    <span style=" color: #d0d0d0; ">|</span>
+                                    <a href="javascript:void(0)" onclick="switchAuth('myModal_forgot')"  style=" margin-left: 15px; ">Quên mật khẩu?</a></p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-md-offset-2 social_button">
+                            <div class="social">
+                                <ul>
+                                    <li>
+                                        <a href="" class="facebook">
+                                            <span class="fa fa-facebook icon_soccial"></span>
+                                            <p class="text_social">Đăng nhập bằng Facebook</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="google-plus">
+                                            <span class="fa fa-google-plus icon_soccial"></span>
+                                            <p class="text_social">Đăng nhập bằng Google</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- register -->
+<div id="myModal_register" class="modal fade" role="dialog" style="z-index: 999999999999999">
+    <div class="modal-dialog modal-lg">
+        <!-- Modal content-->
+        <div class="modal-content modal-login">
+            <div class="modal-header">
+                <h5 class="modal-title" style="float: left;">Đăng ký tài khoản</h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="panel-body">
+                    <form class="col-md-12" action="#">
+                        <div class="col-md-6 col-md-offset-2" style="display: table;float: left;">
+                            <div class="input-field">
+                                <input type="email" name="email" placeholder="Tên đăng nhập" required />
+                                <input type="email" name="email" placeholder="Địa chỉ email" required="email" />
+                                <input type="password" placeholder="Mật khẩu" name="password" required/>
+                                <input type="password" placeholder="Xác nhận lại mật khẩu" name="password" required/>
+                                <div class="login_action">
+                                    <input type="checkbox" checked id="contact_csn" name="contact_csn">
+                                    <label style="cursor: pointer; font-size: 13px; display: inline;" for="contact_csn">Tôi đã đọc và đồng ý các điều kiện<a href="#" > Thỏa thuận sử dụng</a></label>
+                                </div>
+                                   <input style="margin-left: 0px;width: 100%; padding: 10px" type="submit" value="Đăng ký" />
+                                <p class="text-p"><a href="javascript:void(0)" onclick="switchAuth('myModal_login')" style=" margin-right: 15px; ">Đăng nhập</a>
+                                    <span style=" color: #d0d0d0; ">|</span>
+                                    <a href="javascript:void(0)" onclick="switchAuth('myModal_forgot')" style=" margin-left: 15px; ">Quên mật khẩu?</a></p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-md-offset-2 social_button" style="padding-top: 50px; padding-bottom: 50px;">
+                            <div class="social">
+                                <ul>
+                                    <li>
+                                        <a href="" class="facebook">
+                                            <span class="fa fa-facebook icon_soccial"></span>
+                                            <p class="text_social">Đăng nhập bằng Facebook</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="google-plus">
+                                            <span class="fa fa-google-plus icon_soccial"></span>
+                                            <p class="text_social">Đăng nhập bằng Google</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- forgot -->
+<div id="myModal_forgot" class="modal fade" role="dialog" style="z-index: 999999999999999">
+    <div class="modal-dialog modal-lg">
+        <!-- Modal content-->
+        <div class="modal-content modal-login">
+            <div class="modal-header">
+                <h5 class="modal-title" style="float: left;">Lấy lại mật khẩu</h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="panel-body">
+                    <form class="col-md-12" action="#">
+                        <div class="col-md-6 col-md-offset-2" style="display: table;float: left;">
+                            <div class="input-field">
+                                <input type="email" name="email" placeholder="Địa chỉ email" required="email" />
+                                <div class="login_action">
+                                    <input type="submit" value="Lấy lại mật khẩu" />
+                                </div>
+                                <p class="text-p"><a href="javascript:void(0)" onclick="switchAuth('myModal_login')" style=" margin-right: 15px; ">Đăng nhập</a>
+                                    <span style=" color: #d0d0d0; ">|</span>
+                                    <a href="javascript:void(0)" onclick="switchAuth('myModal_register')" style=" margin-left: 15px; ">Đăng ký</a></p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-md-offset-2 social_button" style="padding: 0px;">
+                            <div class="social">
+                                <ul>
+                                    <li>
+                                        <a href="" class="facebook">
+                                            <span class="fa fa-facebook icon_soccial"></span>
+                                            <p class="text_social">Đăng nhập bằng Facebook</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="google-plus">
+                                            <span class="fa fa-google-plus icon_soccial"></span>
+                                            <p class="text_social">Đăng nhập bằng Google</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function switchAuth(idForm) {
+        $('.modal').modal('hide');
+        setTimeout(function(){
+            $("#" + idForm).modal();
+        }, 200);
+    }
+</script>
+
 <footer id="footer">
     <div class="container">
         <div class="row">

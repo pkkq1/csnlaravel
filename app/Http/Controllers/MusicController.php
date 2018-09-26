@@ -80,8 +80,8 @@ class MusicController extends Controller
     public function listenBxhNow(Request $request, $catUrl) {
         return $this->listenBxhMusic($request, $catUrl);
     }
-    public function listenBxhMonth(Request $request, $month, $catUrl) {
-        return $this->listenBxhMusic($request, $catUrl, $month);
+    public function listenBxhMonth(Request $request, $month, $year, $catUrl) {
+        return $this->listenBxhMusic($request, $catUrl, $month, $year);
     }
     public function listenBxhYear(Request $request, $year, $catUrl) {
         return $this->listenBxhMusic($request, $catUrl, $year);

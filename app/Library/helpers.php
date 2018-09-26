@@ -358,14 +358,14 @@ class Helpers
 
     public static function file_path($id, $dir, $url = '')
     {
-        $url = ($url == '') ?? env('DATA_URL');
+        $url = ($url == '') ? env('DATA_URL') : '';
 
         return $url . $dir . ceil($id/1000) . '/';
     }
 
     public static function cover_path($cover_id = 0)
     {
-        return self::file_path($cover_id, 'MUSIC_COVER_PATH');
+        return self::file_path($cover_id, MUSIC_COVER_PATH);
     }
 
     public static function cover_url($cover_id = 0)

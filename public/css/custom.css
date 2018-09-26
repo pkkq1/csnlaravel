@@ -279,7 +279,7 @@
 }
 .music_recommendation {
     overflow-y: auto;
-    max-height: 210px;
+    max-height: 246px;
 }
 .music_recommendation .listen .name a{
     color:#FF2D55
@@ -565,8 +565,210 @@
     font-size: 14px;
 }
 #header .top .form-group .suggest {
-    z-index: 999999999;
+    z-index: 9999999999999;
 }
 .search_highlight {
  color: #ff3657
 }
+.menu-expand-wrapper{
+    z-index: 99999999999;
+}
+#navbarSupportedContent .dropdown-menu{
+    z-index: 999999999;
+}
+.stringQ span {
+    background: #504f4f;
+    padding: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 7px;
+    color: white;
+    font-weight: 400;
+}
+.stringQ span:hover {
+    color: #fd4b5a;
+}
+.stringQ .jw-background-color{
+    padding: 12px;
+}
+.jw-active-option {
+    background-color: #272525!important;
+}
+
+.jw-active-option::before {
+    content: "\2713";
+    position: absolute;
+    left: -7px;
+}
+.listen-material-icons {
+    font-size: 13px;
+    display: inline-flex;
+    vertical-align: text-top;
+    margin-right: 0.7px;
+}
+
+form#login-form {
+    background: #fff;
+    border-radius: 6px;
+    /*margin: 30px auto;*/
+    /*max-width: 500px;*/
+    overflow: hidden;
+    position: relative;
+}
+.head {
+    color: #666;
+    font-size: 34px;
+    font-weight: bold;
+    padding: 15px;
+    text-align: center;
+    text-transform: uppercase;
+}
+.social {
+    display: block;
+    margin: 0 auto;
+    overflow: hidden;
+    width: 82%;
+}
+.social h4 {
+    color: #666;
+    font-weight: normal;
+    margin: 30px 0 20px;
+    text-align: center;
+}
+.social ul{
+    display: block;
+}
+.social ul li{
+    list-style: none;
+    float: left;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.social ul li a{
+    display: inline-block;
+    font-size: 24px;
+    text-decoration: none;
+    color: #fff;
+    padding: 6px;
+    display: block;
+    text-align: center;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 6px;
+    -moz-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+.social ul li a:hover{opacity: .8;}
+.social ul li a.facebook{
+    background: #3a589a;
+}
+.social ul li a.twitter {
+    background: #4099ff;
+}
+.social ul li a.google-plus {
+    background: #e9544f;
+}
+.divider{
+    background: #ddd;
+    height: 2px;
+    display: block;
+    position: relative;
+    width: 80%;
+    margin: 30px auto;
+}
+.divider span{
+    width: 30px;
+    height: 20px;
+    background: #fff;
+    position: absolute;
+    left: 50%;
+    margin-left: -10px;
+    top: -12px;
+    text-align: center;
+    color: #999;
+}
+
+.input-field {
+    width: 80%;
+    margin: 0 auto;
+    padding-bottom: 30px;
+}
+
+.input-field label {
+    color: #888;
+    display: block;
+    font-size: 14px;
+    margin-top: 5px;
+}
+.input-field input[type="email"], .input-field input[type="password"] {
+    border: none;
+    border-radius: 8px;
+    margin: 6px 0;
+    padding: 12px;
+    transition: all 0.15s ease-in-out 0s;
+    width: 100%;
+    background-color: #d0d0d0;
+    height: 42px;
+    font-weight: bold;
+}
+
+.input-field input[type="email"]:focus, .input-field input[type="password"]:focus {
+    outline: none;
+}
+.input-field input[type="submit"] {
+    background: #f85f64;
+    border: medium none;
+    border-radius: 8px;
+    color: #fff;
+    cursor: pointer;
+    margin: 5px 0;
+    margin-left: 60px;
+    outline: medium none;
+    overflow: hidden;
+    padding: 14px;
+    text-transform: uppercase;
+    transition: all 0.15s ease-in-out 0s;
+}
+.input-field input[type="submit"]:hover {
+    /*background: #fe7175;*/
+    background-image: linear-gradient(-243deg, #FB6B60 0%, #FF2E55 100%);
+}
+.text-p{
+    font-size: 14px;
+    text-align: center;
+    margin: 10px 0;
+}
+.text-p a{
+    color: #a09c9c;
+}
+@media (max-width: 480px){
+    form#login-form {
+        width: 90%;
+        margin: 30px auto;
+    }
+}
+.text_social {
+    font-size: 14px;
+    line-height: 34px;
+    margin-bottom: 0px;
+    font-weight: 400;
+}
+.icon_soccial {
+    float: left;
+    margin: 6px;
+}
+.social_button {
+    display: table;
+    border-left: 1px solid #d0d0d0;
+    padding-top: 15px;
+    padding-bottom: 20px;
+    padding-left: 0px;
+}
+.modal-content {
+    font-family: 'SFProDisplay-Medium';
+}
+
+

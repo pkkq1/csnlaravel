@@ -51,7 +51,7 @@ global $top_artist_rows;
                     @endif
                     <div class="col">
                         <div class="card card1">
-                            <div class="card-header" style="background-image: url({{Helpers::coverImg($item['cover_id'])}});">
+                            <div class="card-header" style="background-image: url({{Helpers::cover_url($item['cover_id'])}});">
                                 <a href="{{$url}}" title="{{$item['music_title']}}">
                                     <span class="icon-play"></span>
                                 </a>
@@ -102,7 +102,7 @@ global $top_artist_rows;
                             <li class="media align-items-stretch">
                                 <div class="media-left align-items-stretch mr-2">
                                     <a href="{{$url}}" title="{{$item['music_album']}}">
-                                        <img src="{{Helpers::coverImg($item['cover_id'])}}" alt="{{$item['music_album']}}">
+                                        <img src="{{Helpers::cover_url($item['cover_id'])}}" alt="{{$item['music_album']}}">
                                         <i class="material-icons">play_circle_outline</i>
                                     </a>
                                 </div>
@@ -141,7 +141,7 @@ global $top_artist_rows;
                             <li class="media align-items-stretch">
                                 <div class="media-left align-items-stretch mr-2">
                                     <a href="{{$urlMusic}}" title="">
-                                        <img src="{{Helpers::coverImg($item['cover_id'])}}" alt="{{$item['music_title']}}">
+                                        <img src="{{Helpers::cover_url($item['cover_id'])}}" alt="{{$item['music_title']}}">
                                         <i class="material-icons">play_circle_outline</i>
                                     </a>
                                 </div>
@@ -206,7 +206,7 @@ global $top_artist_rows;
                     @endif
                     <div class="col">
                         <div class="card card1">
-                            <div class="card-header" style="background-image: url({{Helpers::coverImg($item['cover_id'])}});">
+                            <div class="card-header" style="background-image: url({{Helpers::cover_url($item['cover_id'])}});">
                                 <a href="{{$url}}" title="{{$item['music_title']}}">
                                     <span class="icon-play"></span>
                                 </a>
@@ -284,7 +284,7 @@ global $top_artist_rows;
                             <li class="media {{($i == 0 ? 'first stand' : ($i == 1 ? 'now up' : ($i == 2 ? 'now down' : 'now')))}} align-items-stretch">
                                 <div class="media-left mr-3">
                                     <span></span>
-                                    <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{Helpers::coverImg($item['cover_id'])}}" alt="{{$item['music_title']}}"></a>
+                                    <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{Helpers::cover_url($item['cover_id'])}}" alt="{{$item['music_title']}}"></a>
                                 </div>
                                 <div class="media-body d-flex flex-column {{$i == 0 ? '' : 'justify-content-between'}}">
                                     <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
@@ -309,7 +309,7 @@ global $top_artist_rows;
                             <li class="media {{($i == 0 ? 'first stand' : ($i == 1 ? 'now up' : ($i == 2 ? 'now down' : 'now')))}} align-items-stretch">
                                 <div class="media-left mr-3">
                                     <span></span>
-                                    <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{Helpers::coverImg($item['cover_id'])}}" alt="{{$item['music_title']}}"></a>
+                                    <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{Helpers::cover_url($item['cover_id'])}}" alt="{{$item['music_title']}}"></a>
                                 </div>
                                 <div class="media-body d-flex flex-column {{$i == 0 ? '' : 'justify-content-between'}}">
                                     <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
@@ -334,7 +334,7 @@ global $top_artist_rows;
                             <li class="media {{($i == 0 ? 'first stand' : ($i == 1 ? 'now up' : ($i == 2 ? 'now down' : 'now')))}} align-items-stretch">
                                 <div class="media-left mr-3">
                                     <span></span>
-                                    <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{Helpers::coverImg($item['cover_id'])}}" alt="{{$item['music_title']}}"></a>
+                                    <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{Helpers::cover_url($item['cover_id'])}}" alt="{{$item['music_title']}}"></a>
                                 </div>
                                 <div class="media-body d-flex flex-column {{$i == 0 ? '' : 'justify-content-between'}}">
                                     <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
@@ -359,7 +359,7 @@ global $top_artist_rows;
                             <li class="media {{($i == 0 ? 'first stand' : ($i == 1 ? 'now up' : ($i == 2 ? 'now down' : 'now')))}} align-items-stretch">
                                 <div class="media-left mr-3">
                                     <span></span>
-                                    <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{Helpers::coverImg($item['cover_id'])}}" alt="{{$item['music_title']}}"></a>
+                                    <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{Helpers::cover_url($item['cover_id'])}}" alt="{{$item['music_title']}}"></a>
                                 </div>
                                 <div class="media-body d-flex flex-column {{$i == 0 ? '' : 'justify-content-between'}}">
                                     <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
@@ -412,7 +412,7 @@ global $top_artist_rows;
                     $artistRows = Helpers::getRandLimitArr($top_artist_rows[3], LIMIT_HOME_ARTIST);
                     array_map(function ($i, $item) {
                     ?>
-                    <a href="#" title="{{$item['music_artist']}}" class="img-thumbnail singer {{$i == 0 ? 'c1' : ''}}" style="background-image: url({{Helpers::coverImg($item['artist_face_id'])}});">
+                    <a href="#" title="{{$item['music_artist']}}" class="img-thumbnail singer {{$i == 0 ? 'c1' : ''}}" style="background-image: url({{Helpers::cover_url($item['artist_face_id'])}});">
                         <span>{{$item['music_artist']}}</span>
                     </a>
                     <?php

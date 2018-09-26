@@ -132,10 +132,6 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                         <div class="card-body">
                             <div class="d-flex align-items-center justify-content-between">
                                 <span class="txt-note">Từ khoá <b>{{$search}}</b> có {{number_format($result['music']['row_total'] + $result['album']['row_total'] + $result['video']['row_total'])}} kết quả</span>
-                                <div class="tag">
-                                    <button type="button" class="btn btn-secondary">Tên Album <i class="material-icons">close</i></button>
-                                    <button type="button" class="btn btn-secondary">Ca sĩ <i class="material-icons">close</i></button>
-                                </div>
                             </div>
                         </div>
                     </div>

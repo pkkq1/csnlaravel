@@ -69,7 +69,7 @@ class SorlSyncController extends Controller
                 'video_cover' => Helpers::coverImg($item->cover_id),
                 'video_link' => Helpers::listen_url($item->toArray()),
                 'type' => 'video',
-                'video_artist' => '<a href="#">'.implode(',</a><a href="#">', explode(';', $item->music_artist)).'</a>',
+                'video_artist' => '<a href="#">'.implode(';</a><a href="#">', explode(';', $item->music_artist)).'</a>',
                 'video_listen_today' => (isset($item->music_listen->music_listen_today) ? $item->music_listen->music_listen_today : 0),
                 'video_listen_ago' => (isset($item->music_listen->music_listen_today) ? $item->music_listen->music_listen_ago : 0),
                 'video_listen_3day' => (isset($item->music_listen->music_listen_today) ? $item->music_listen->music_listen_3day : 0),

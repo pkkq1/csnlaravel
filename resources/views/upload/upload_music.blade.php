@@ -3,12 +3,12 @@
 $titleMeta = 'Cập nhật nhạc mới - ' . Config::get('constants.app.title');
 ?>
 @section('contentCSS')
-    <link rel="stylesheet" type="text/css" href="/css/dropzone.css">
-    <link rel="stylesheet" type="text/css" href="/css/bootstrap-tagsinput.css">
-    <link rel="stylesheet" type="text/css" href="/css/typeaheadjs.css">
+    <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/dropzone.css">
+    <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/bootstrap-tagsinput.css">
+    <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/typeaheadjs.css">
 
-    <link rel="stylesheet" type="text/css" href="/css/token-input.css">
-    <link rel="stylesheet" type="text/css" href="/css/token-input-facebook.css">
+    <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/token-input.css">
+    <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/token-input-facebook.css">
 @endsection
 @extends('layouts.app')
 @section('content')
@@ -214,7 +214,19 @@ $titleMeta = 'Cập nhật nhạc mới - ' . Config::get('constants.app.title')
                                 <h5 class="title">Đang tải lên 6 mục</h5>
                                 <div class="scroll_album">
                                     <div class="media">
-                                        <img class="mr-3 align-self-center" src="/imgs/document.png" alt="">
+                                        <img class="mr-3 align-self-center" src="{{env('APP_URL')}}/imgs/document.png" alt="">
+                                        <div class="media-body align-self-center">
+                                            <div class="d-flex align-items-center justify-content-between mb-1">
+                                                <h4 class="media-title"><a href="#" title="">Da-Lo-Yeu-Em-Nhieu-JustaTee.mp3</a> <small class="text-danger">1m 23s</small></h4>
+                                                <a href="#" title="" class="close"><i class="material-icons">close</i></a>
+                                            </div>
+                                            <div class="progress">
+                                                <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="media">
+                                        <img class="mr-3 align-self-center" src="{{env('APP_URL')}}/imgs/document.png" alt="">
                                         <div class="media-body align-self-center">
                                             <div class="d-flex align-items-center justify-content-between mb-1">
                                                 <h4 class="media-title"><a href="#" title="">Da-Lo-Yeu-Em-Nhieu-JustaTee.mp3</a> <small class="text-danger">1m 23s</small></h4>
@@ -262,19 +274,7 @@ $titleMeta = 'Cập nhật nhạc mới - ' . Config::get('constants.app.title')
                                         </div>
                                     </div>
                                     <div class="media">
-                                        <img class="mr-3 align-self-center" src="/imgs/document.png" alt="">
-                                        <div class="media-body align-self-center">
-                                            <div class="d-flex align-items-center justify-content-between mb-1">
-                                                <h4 class="media-title"><a href="#" title="">Da-Lo-Yeu-Em-Nhieu-JustaTee.mp3</a> <small class="text-danger">1m 23s</small></h4>
-                                                <a href="#" title="" class="close"><i class="material-icons">close</i></a>
-                                            </div>
-                                            <div class="progress">
-                                                <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <img class="mr-3 align-self-center" src="/imgs/document.png" alt="">
+                                        <img class="mr-3 align-self-center" src="{{env('APP_URL')}}/imgs/document.png" alt="">
                                         <div class="media-body align-self-center">
                                             <div class="d-flex align-items-center justify-content-between mb-1">
                                                 <h4 class="media-title"><a href="#" title="">Da-Lo-Yeu-Em-Nhieu-JustaTee.mp3</a> <small class="text-danger">1m 23s</small></h4>

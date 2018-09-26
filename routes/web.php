@@ -18,7 +18,7 @@ Route::get('/sync/sorl_music', 'Sync\SorlSyncController@syncMusic');
 Route::get('/sync/sorl_video', 'Sync\SorlSyncController@syncVideo');
 Route::get('/sync/sorl_artist', 'Sync\SorlSyncController@syncArtist');
 Route::get('/sync/sorl_cover', 'Sync\SorlSyncController@syncCover');
-Route::get('/sync/demo', 'Sync\SorlSyncController@demo');
+Route::get('/sync/demo', 'Sync\AlbumController@syncAlbumHot');
 
 
 Route::group(['middlewareGroups' => ['web']], function () {
@@ -32,17 +32,23 @@ Route::group(['middlewareGroups' => ['web']], function () {
     Route::get('auth/facebook', 'Auth\AuthFacebookController@redirectToProvider');
     Route::get('auth/facebook/callback', 'Auth\AuthFacebookController@handleProviderCallback');
     // Category
+    Route::get('mp3/{cat}.html', ['as' => 'category.get1', 'uses' => 'CategoryController@index1']);
     Route::get('mp3/{cat}', ['as' => 'category.get1', 'uses' => 'CategoryController@index1']);
+    Route::get('mp3/{cat}/{sub}.html', ['as' => 'category.get2', 'uses' => 'CategoryController@index2']);
     Route::get('mp3/{cat}/{sub}', ['as' => 'category.get2', 'uses' => 'CategoryController@index2']);
+    Route::get('hd/{cat}.html', ['as' => 'category.get1', 'uses' => 'CategoryController@index1']);
+    Route::get('hd/{cat}', ['as' => 'category.get1', 'uses' => 'CategoryController@index1']);
+    Route::get('hd/{cat}/{sub}.html', ['as' => 'category.get2', 'uses' => 'CategoryController@index2']);
+    Route::get('hd/{cat}/{sub}', ['as' => 'category.get2', 'uses' => 'CategoryController@index2']);
     // BXH
     Route::get('nhac-hot.html', ['as' => 'bxh.now', 'uses' => 'BxhController@now']);
     Route::get('nhac-hot', ['as' => 'bxh.now', 'uses' => 'BxhController@now']);
 
-    Route::get('bang-xep-hang/bang-xep-hang-thang-{month}.html', ['as' => 'bxh.month', 'uses' => 'BxhController@month']);
-    Route::get('bang-xep-hang/bang-xep-hang-thang-{month}', ['as' => 'bxh.month', 'uses' => 'BxhController@month']);
+    Route::get('bang-xep-hang/bang-xep-thang-{month}-{year}.html', ['as' => 'bxh.month', 'uses' => 'BxhController@month']);
+    Route::get('bang-xep-hang/bang-xep-thang-{month}-{year}', ['as' => 'bxh.month', 'uses' => 'BxhController@month']);
 
-    Route::get('bang-xep-hang/bang-xep-hang-nam-{year}.html', ['as' => 'bxh.month', 'uses' => 'BxhController@year']);
-    Route::get('bang-xep-hang/bang-xep-hang-nam-{year}', ['as' => 'bxh.month', 'uses' => 'BxhController@year']);
+    Route::get('bang-xep-hang/bang-xep-nam-{year}.html', ['as' => 'bxh.month', 'uses' => 'BxhController@year']);
+    Route::get('bang-xep-hang/bang-xep-nam-{year}', ['as' => 'bxh.month', 'uses' => 'BxhController@year']);
 
 
     Route::get('bang-xep-hang/{cat}', ['as' => 'bxh.cat', 'uses' => 'BxhController@cat']);
@@ -59,16 +65,16 @@ Route::group(['middlewareGroups' => ['web']], function () {
     Route::get('playlist/{playlistUrl}.html', ['as' => 'music.playlist.listen', 'uses' => 'MusicController@listenPlaylistMusic']);
     Route::get('playlist/{playlistUrl}', ['as' => 'music.playlist.listen', 'uses' => 'MusicController@listenPlaylistMusic']);
     // video-clip
-    Route::get('hd/video/{musicUrl}.html', ['as' => 'music.video', 'uses' => 'MusicController@listenPlaylistMusic']);
-    Route::get('hd/video/{musicUrl}', ['as' => 'music.video', 'uses' => 'MusicController@listenPlaylistMusic']);
+    Route::get('hd/video/{sub}/{musicUrl}.html', ['as' => 'music.video', 'uses' => 'MusicController@listenPlaylistMusic']);
+    Route::get('hd/video/{sub}/{musicUrl}', ['as' => 'music.video', 'uses' => 'MusicController@listenPlaylistMusic']);
     // artist
     Route::get('ca-si/{artistUrl}', ['as' => 'artist.home', 'uses' => 'ArtistController@index']);
     // nhac hot, bang xep hang
     Route::get('nhac-hot/{catUrl}.html', ['as' => 'music.nhac-hot.listen', 'uses' => 'MusicController@listenBxhNow']);
     Route::get('nhac-hot/{catUrl}', ['as' => 'music.nhac-hot.listen', 'uses' => 'MusicController@listenBxhNow']);
 
-    Route::get('bang-xep-hang/bang-xep-hang-thang-{month}/{catUrl}.html', ['as' => 'bxh.month', 'uses' => 'MusicController@listenBxhMonth']);
-    Route::get('bang-xep-hang/bang-xep-hang-thang-{month}/{catUrl}', ['as' => 'bxh.month', 'uses' => 'MusicController@listenBxhMonth']);
+    Route::get('bang-xep-hang/bang-xep-thang-{month}-{year}/{catUrl}.html', ['as' => 'bxh.month', 'uses' => 'MusicController@listenBxhMonth']);
+    Route::get('bang-xep-hang/bang-xep-thang-{month}-{year}/{catUrl}', ['as' => 'bxh.month', 'uses' => 'MusicController@listenBxhMonth']);
 
     Route::get('bang-xep-hang/bang-xep-hang-nam-{year}/{catUrl}.html', ['as' => 'bxh.month', 'uses' => 'MusicController@listenBxhYear']);
     Route::get('bang-xep-hang/bang-xep-hang-nam-{year}/{catUrl}', ['as' => 'bxh.month', 'uses' => 'MusicController@listenBxhYear']);

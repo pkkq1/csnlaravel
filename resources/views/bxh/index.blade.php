@@ -57,7 +57,7 @@ global $hot_video_rows;
                         <div class="tab-pane fade show active tab_bxh tab_music_bxh" data-cat_url="{{$itemCategory['cat_url']}}" id="cat-{{$itemCategory['cat_id']}}-music" role="tabpanel" aria-labelledby="nav-home-tab">
                             <ul class="list-unstyled list_music bxh1">
                                 <?php
-                                array_map(function ($i, $item) use($itemCategory) {
+                                array_map(function ($i, $item) use($itemCategory, $urlBxh) {
                                 $i = ++$i;
                                 $musicId = Helpers::music_id($item);
                                 ?>
@@ -68,24 +68,24 @@ global $hot_video_rows;
                                         <span class="rate">+1</span>
                                     </div>
                                     <div class="media-left align-items-stretch mr-2">
-                                        <a href="{{SUB_BXH_NOW_MUSIC.'/'.$itemCategory['cat_url'].'.html?id='.$musicId}}" title="{{$item['music_title']}}">
-                                            <img src="{{Helpers::coverImg($item['cover_id'])}}" alt="{{$item['music_title']}}">
+                                        <a href="{{$urlBxh.'/'.$itemCategory['cat_url'].'.html?id='.$musicId}}" title="{{$item['music_title']}}">
+                                            <img src="{{Helpers::cover_url($item['cover_id'])}}" alt="{{$item['music_title']}}">
                                             <i class="material-icons">play_circle_outline</i>
                                         </a>
                                     </div>
                                     <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
                                         <div>
-                                            <h5 class="media-title mt-0 mb-0"><a href="{{SUB_BXH_NOW_MUSIC.'/'.$itemCategory['cat_url'].'.html?id='.$musicId}}" title="{{$item['music_title']}}">{{$item['music_title']}}</a></h5>
+                                            <h5 class="media-title mt-0 mb-0"><a href="{{$urlBxh.'/'.$itemCategory['cat_url'].'.html?id='.$musicId}}" title="{{$item['music_title']}}">{{$item['music_title']}}</a></h5>
                                             <div class="author"><?php echo '<a href="#">'.implode(',</a><a href="#">', explode(';', $item['music_artist'])).'</a>' ?></div>
                                         </div>
                                         <small class="type_music c1"><?php echo Helpers::bitrate2str($item['music_bitrate']); ?></small>
                                     </div>
                                     <div class="media-right align-self-center">
-                                        <small class="time_stt">{{number_format($item['music_listen'])}}</small>
+                                        <small class="time_stt"><i class="material-icons listen-material-icons"> play_arrow </i>{{number_format($item['music_listen'])}}</small>
                                         <ul class="list-inline">
                                             <li class="list-inline-item"><a href="{{MUSIC_PATH.$item['music_filename']}}" title="download {{$item['music_title']}}"><i class="material-icons">file_download</i></a></li>
                                             <li class="list-inline-item"><a href="{{Helpers::listen_url($item)}}" title="nghe riêng nhạc {{$item['music_title']}}"><i class="material-icons">headset</i></a></li>
-                                            <li class="list-inline-item"><a href="{{Helpers::fbShareLink(SUB_BXH_NOW_MUSIC.'/vietnam.html?id='.$musicId, true)}}" target="_blank" title="chia sẻ {{$item['music_title']}}"><i class="material-icons">share</i></a></li>
+                                            <li class="list-inline-item"><a href="{{Helpers::fbShareLink($urlBxh.'/vietnam.html?id='.$musicId, true)}}" target="_blank" title="chia sẻ {{$item['music_title']}}"><i class="material-icons">share</i></a></li>
                                         </ul>
                                     </div>
                                 </li>
@@ -101,7 +101,7 @@ global $hot_video_rows;
                         <div class="tab-pane fade tab_bxh tab_video_bxh" data-cat_url="{{$videoItem['cat_url']}}" id="cat-{{$itemCategory['cat_id']}}-video" role="tabpanel" aria-labelledby="nav-profile-tab">
                             <ul class="list-unstyled list_music bxh1">
                                 <?php
-                                array_map(function ($i, $item) use ($catVideo, $videoItem) {
+                                array_map(function ($i, $item) use ($catVideo, $videoItem, $urlBxh) {
                                 $i = ++$i;
                                 $musicId = Helpers::music_id($item);
                                 ?>
@@ -114,7 +114,7 @@ global $hot_video_rows;
                                     <div class="col-2">
                                         <div class="card card1 video">
                                             <div class="card-header" style="background-image: url({{Helpers::thumbnail_url($item)}});">
-                                                <a href="{{SUB_BXH_NOW_MUSIC.'/'.$videoItem['cat_url'].'.html?id='.$musicId}}" title="{{$item['music_title']}}">
+                                                <a href="{{$urlBxh.'/'.$videoItem['cat_url'].'.html?id='.$musicId}}" title="{{$item['music_title']}}">
                                                     <span class="icon-play"></span>
                                                 </a>
                                             </div>
@@ -122,16 +122,16 @@ global $hot_video_rows;
                                     </div>
                                     <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
                                         <div>
-                                            <h5 class="media-title mt-0 mb-0"><a href="{{SUB_BXH_NOW_MUSIC.'/'.$videoItem['cat_url'].'.html?id='.$musicId}}" title="{{$item['music_title']}}">{{$item['music_title']}}</a></h5>
+                                            <h5 class="media-title mt-0 mb-0"><a href="{{$urlBxh.'/'.$videoItem['cat_url'].'.html?id='.$musicId}}" title="{{$item['music_title']}}">{{$item['music_title']}}</a></h5>
                                             <div class="author"><?php echo '<a href="#">'.implode(',</a><a href="#">', explode(';', $item['music_artist'])).'</a>' ?></div>
                                         </div>
                                     </div>
                                     <div class="media-right align-self-center">
-                                        <small class="time_stt">{{number_format($item['music_listen'])}}</small>
+                                        <small class="time_stt"><i class="material-icons listen-material-icons"> play_arrow </i>{{number_format($item['music_listen'])}}</small>
                                         <ul class="list-inline">
                                             <li class="list-inline-item"><a href="{{MUSIC_PATH.$item['music_filename']}}" title="download {{$item['music_title']}}"><i class="material-icons">file_download</i></a></li>
                                             <li class="list-inline-item"><a href="{{Helpers::listen_url($item)}}" title="nghe riêng nhạc {{$item['music_title']}}"><i class="material-icons">headset</i></a></li>
-                                            <li class="list-inline-item"><a href="{{SUB_BXH_NOW_MUSIC.'/.html?id='.$musicId}}" title="chia sẻ {{$item['music_title']}}"><i class="material-icons">share</i></a></li>
+                                            <li class="list-inline-item"><a href="{{$urlBxh.'/.html?id='.$musicId}}" title="chia sẻ {{$item['music_title']}}"><i class="material-icons">share</i></a></li>
                                         </ul>
                                     </div>
                                 </li>

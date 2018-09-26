@@ -1,4 +1,4 @@
-<?php 
+<?php
 if ( !ENV('IN_PHPBB') )
 {
     die('Hacking attempt');
@@ -9,149 +9,603 @@ global $album_new;
 global $album_old;
 global $music_new_uploads;
 global $video_new_uploads;
-    
-$album_hot = array (
-  0 => 
-  array (
-    'cover_id' => 90643,
-    'music_album' => 'Barcelona (Special Edition)',
-    'music_artist' => 'Freddie Mercury; Montserrat Caballe',
-    'music_bitrate' => 1000,
-  ),
-  1 => 
-  array (
-    'cover_id' => 90642,
-    'music_album' => 'L\'equilibrista',
-    'music_artist' => 'Pupo',
-    'music_bitrate' => 1000,
-  ),
-  2 => 
-  array (
-    'cover_id' => 90641,
-    'music_album' => 'Tornerò',
-    'music_artist' => 'Pupo',
-    'music_bitrate' => 1000,
-  ),
-  3 => 
-  array (
-    'cover_id' => 90640,
-    'music_album' => '1996',
-    'music_artist' => 'Pupo',
-    'music_bitrate' => 1000,
-  ),
-  4 => 
-  array (
-    'cover_id' => 90639,
-    'music_album' => 'La Mia Preghiera',
-    'music_artist' => 'Pupo',
-    'music_bitrate' => 1000,
-  ),
-  5 => 
-  array (
-    'cover_id' => 90638,
-    'music_album' => 'Quello Che Sono',
-    'music_artist' => 'Pupo',
-    'music_bitrate' => 1000,
-  ),
-  6 => 
-  array (
-    'cover_id' => 90637,
-    'music_album' => 'La Vita È Molto Di Più',
-    'music_artist' => 'Pupo',
-    'music_bitrate' => 1000,
-  ),
-  7 => 
-  array (
-    'cover_id' => 90636,
-    'music_album' => 'Malattia D\'Amore',
-    'music_artist' => 'Pupo',
-    'music_bitrate' => 1000,
-  ),
-  8 => 
-  array (
-    'cover_id' => 90635,
-    'music_album' => 'Lo Devo Solo A Te',
-    'music_artist' => 'Pupo',
-    'music_bitrate' => 1000,
-  ),
-  9 => 
-  array (
-    'cover_id' => 90634,
-    'music_album' => 'Più Di Prima',
-    'music_artist' => 'Pupo',
-    'music_bitrate' => 1000,
-  ),
-  10 => 
-  array (
-    'cover_id' => 90633,
-    'music_album' => 'Just For A While (Single)',
-    'music_artist' => 'K-ICM; T-ICM',
-    'music_bitrate' => 1000,
-  ),
-  11 => 
-  array (
-    'cover_id' => 90632,
-    'music_album' => 'Journey (Single)',
-    'music_artist' => 'SaberZ',
-    'music_bitrate' => 1000,
-  ),
-  12 => 
-  array (
-    'cover_id' => 90631,
-    'music_album' => 'Ultimate 2000s (CD4)',
-    'music_artist' => 'Bomfunk MC\'s',
-    'music_bitrate' => 1000,
-  ),
-  13 => 
-  array (
-    'cover_id' => 90630,
-    'music_album' => 'Ultimate 2000s (CD3)',
-    'music_artist' => 'Kasabian',
-    'music_bitrate' => 1000,
-  ),
-  14 => 
-  array (
-    'cover_id' => 90629,
-    'music_album' => 'Ultimate 2000s (CD2)',
-    'music_artist' => 'Justin Timberlake',
-    'music_bitrate' => 1000,
-  ),
-  15 => 
-  array (
-    'cover_id' => 90628,
-    'music_album' => 'Ultimate 2000s (CD1)',
-    'music_artist' => 'Destiny\'s Child',
-    'music_bitrate' => 1000,
-  ),
-  16 => 
-  array (
-    'cover_id' => 90627,
-    'music_album' => 'Omni Sight Seeing',
-    'music_artist' => 'Haruomi Hosono',
-    'music_bitrate' => 1000,
-  ),
-  17 => 
-  array (
-    'cover_id' => 90626,
-    'music_album' => 'The Tale of Genji OST',
-    'music_artist' => 'Haruomi Hosono',
-    'music_bitrate' => 1000,
-  ),
-  18 => 
-  array (
-    'cover_id' => 90625,
-    'music_album' => 'Back Again',
-    'music_artist' => 'Pink Turtle',
-    'music_bitrate' => 1000,
-  ),
-  19 => 
-  array (
-    'cover_id' => 90624,
-    'music_album' => 'Two',
-    'music_artist' => 'Bob James',
-    'music_bitrate' => 1000,
-  ),
+
+// Top Album Hot
+$album_hot = array(
+    0 => array('music_id' => '1940287',
+        'cat_id' => '4',
+        'cat_level' => '1',
+        'cat_sublevel' => '1',
+        'cat_custom' => '0',
+        'cover_id' => '92802',
+        'music_download_time' => '1533581785',
+        'music_last_update_time' => '1533578016',
+        'music_title_url' => 'call-me-viva-mix~spagna',
+        'music_title_search' => 'cal me; viva mix',
+        'music_artist_search' => '; xpagna;',
+        'music_composer_search' => '; ;',
+        'music_album_search' => 'twelve inch eightix; when the going getx tough',
+        'music_title' => 'Call Me (Viva Mix)',
+        'music_artist' => 'Spagna',
+        'music_composer' => '',
+        'music_album' => 'Twelve Inch Eighties (When The Going Gets Tough)',
+        'music_production' => 'Crimson',
+        'music_album_id' => 'TWIN80007',
+        'music_track_id' => '28',
+        'music_year' => '2017',
+        'music_code_1' => '0',
+        'music_code_2' => '0',
+        'music_shortlyric' => '[Verse 1]
+Hey how long I\'ve been waitin\' for a love so tender
+Hey hey hey how long can I stay without your touch I wonder
+You you you you tell me you can ever know oh loneliness
+Hey my love no no d...',
+        'music_listen' => '43',
+        'music_downloads' => '3',
+        'music_downloads_today' => '1',
+        'music_downloads_today_0' => '0',
+        'music_downloads_this_week' => '1',
+        'music_downloads_max_week' => '1',
+        'music_time' => '1533577481',
+        'music_bitrate' => '1000',
+        'music_length' => '339',
+        'music_filename' => '1940287-c0635741.mp3',
+        'music_32_filesize' => '1670037',
+        'music_filesize' => '5497867',
+        'music_320_filesize' => '13658729',
+        'music_m4a_filesize' => '16769103',
+        'music_lossless_filesize' => '42268219',
+        'music_width' => '0',
+        'music_height' => '0',
+        'music_thumbs_time' => '0',
+        'music_user_id' => '784928',
+        'music_username' => 'lethuananh9b',
+        'music_spectrum' => '1',
+        'music_bitrate_fixed_by' => '0',
+        'music_lyric' => '[Verse 1]
+Hey how long I\'ve been waitin\' for a love so tender
+Hey hey hey how long can I stay without your touch I wonder
+You you you you tell me you can ever know oh loneliness
+Hey my love no no don\'t leave me on my own please
+
+[Chorus]
+Call me call me
+Baby baby call me now
+Call me call me
+D-d-do it baby please
+
+[Verse 2]
+Hey I can wait but I beg you babe don\'t lose my number
+I tell you babe call me now coz I\'m losin\' slumber
+I\'ll u u u use all my fantasy to dream about you
+Hey my love I can\'t resist here all alone please
+
+[Chorus]
+Call me call me
+Baby baby call me now
+Call me call me
+D-d-do it baby please
+
+[Chorus]
+Call me call me
+Baby baby call me now
+Call me call me
+D-d-do it baby please
+
+[Bridge]
+Baby call me now I\'m all alone
+Talk to me darlin\' all night long
+Call me call me baby when you want
+Uh when you want baby please
+
+[Chorus]
+Call me call me
+Baby baby call me now
+Call me call me
+D-d-do it baby please
+
+[Chorus]
+Call me call me
+Baby baby call me now
+Call me call me
+D-d-do it baby please',
+        'music_note' => '',
+        'music_deleted' => '-1',
+        'music_dmca' => '0',
+        'music_download_ip' => '9a7904ae',
+        'total' => '30',
+        'update_time' => '1533586892',
+        'album_artist' => ''),
+    1 => array('music_id' => '1940310',
+        'cat_id' => '4',
+        'cat_level' => '3',
+        'cat_sublevel' => '3',
+        'cat_custom' => '0',
+        'cover_id' => '92805',
+        'music_download_time' => '1533585328',
+        'music_last_update_time' => '1533579850',
+        'music_title_url' => 'chicken-soup~skrillex-habstrakt',
+        'music_title_search' => 'chicken xoup',
+        'music_artist_search' => '; xkrilex; habxchakt;',
+        'music_composer_search' => '; ;',
+        'music_album_search' => 'howxla',
+        'music_title' => 'Chicken Soup',
+        'music_artist' => 'Skrillex; Habstrakt',
+        'music_composer' => '',
+        'music_album' => 'HOWSLA',
+        'music_production' => 'OWSLA',
+        'music_album_id' => '075679896100',
+        'music_track_id' => '3',
+        'music_year' => '2017',
+        'music_code_1' => '0',
+        'music_code_2' => '0',
+        'music_shortlyric' => '[Instrumental]
+
+Spice girl in the coop
+So sick, chicken soup
+Walk in, kill the room
+So sick, chicken soup
+Spice girl in the coop
+So sick, chicken soup
+Walk in, kill the room
+So sick, chicken soup
+C...',
+        'music_listen' => '90',
+        'music_downloads' => '2',
+        'music_downloads_today' => '1',
+        'music_downloads_today_0' => '0',
+        'music_downloads_this_week' => '2',
+        'music_downloads_max_week' => '2',
+        'music_time' => '1533579629',
+        'music_bitrate' => '1000',
+        'music_length' => '207',
+        'music_filename' => '1940310-51b5cc37.mp3',
+        'music_32_filesize' => '1063890',
+        'music_filesize' => '3368533',
+        'music_320_filesize' => '8344546',
+        'music_m4a_filesize' => '10179427',
+        'music_lossless_filesize' => '26516991',
+        'music_width' => '0',
+        'music_height' => '0',
+        'music_thumbs_time' => '0',
+        'music_user_id' => '316518',
+        'music_username' => 'mdluffy1505',
+        'music_spectrum' => '1',
+        'music_bitrate_fixed_by' => '0',
+        'music_lyric' => '[Instrumental]
+
+Spice girl in the coop
+So sick, chicken soup
+Walk in, kill the room
+So sick, chicken soup
+Spice girl in the coop
+So sick, chicken soup
+Walk in, kill the room
+So sick, chicken soup
+Chicken soup, chicken soup
+Chicken soup, chicken soup
+Chicken soup, chicken soup
+Chicken soup, chicken soup
+Chi-chi-chi-chi-chi-chi...
+
+Spice girl in the coop
+[Instrumental]
+
+Spice girl in the coop
+So sick, chicken soup
+Walk in, kill the room
+So sick, chicken soup
+Spice girl in the coop
+So sick, chicken soup
+Walk in, kill the room
+So sick, chicken soup
+Spice girl in the coop
+So sick, chicken soup
+Walk in, kill the room
+So sick, chicken soup
+Spice girl in the coop
+So sick, chicken soup
+Walk in, kill the room
+So sick, chicken soup
+Chicken soup, chicken soup
+Chicken soup, chicken soup
+Chicken soup, chicken soup
+Chicken soup, chicken soup
+Chi-chi-chi-chi-chi-chi...
+
+Spice girl in the coop
+[Instrumental]
+
+Spice girl in the coop
+So sick, chicken soup
+Walk in, kill the room
+So sick, chicken soup
+Spice girl in the coop
+So sick, chicken soup
+Walk in, kill the room
+So sick, chicken soup
+
+Chicken soup
+Chicken soup
+Chicken soup
+Chicken soup',
+        'music_note' => '',
+        'music_deleted' => '-1',
+        'music_dmca' => '0',
+        'music_download_ip' => '2a761dcf',
+        'total' => '12',
+        'update_time' => '1533580231',
+        'album_artist' => ''),
+    2 => array('music_id' => '1939948',
+        'cat_id' => '4',
+        'cat_level' => '1',
+        'cat_sublevel' => '2',
+        'cat_custom' => '6',
+        'cover_id' => '92749',
+        'music_title' => 'Creatures Of The Night (Live)',
+        'music_artist' => 'Kiss',
+        'music_composer' => '',
+        'music_album' => 'Alive III',
+        'music_production' => 'Mercury',
+        'music_album_id' => '514 827-2',
+        'music_track_id' => '1',
+        'music_year' => '1993',
+        'music_code_1' => '0',
+        'music_code_2' => '0',
+        'music_time' => '1533525560',
+        'music_bitrate' => '0',
+        'music_length' => '279',
+        'music_filename' => '1939948-fdb63803.mp3',
+        'music_filename_upload' => '01 - Creatures Of The Night.flac',
+        'music_32_filesize' => '1457340',
+        'music_filesize' => '4539718',
+        'music_320_filesize' => '11257994',
+        'music_m4a_filesize' => '14442091',
+        'music_lossless_filesize' => '36691609',
+        'music_width' => '0',
+        'music_height' => '0',
+        'music_thumbs_time' => '0',
+        'music_user_id' => '784928',
+        'music_username' => 'lethuananh9b',
+        'music_original_id' => '1939719',
+        'music_note' => '',
+        'music_security_code' => '26f516e9',
+        'music_last_update_time' => '1533564731',
+        'music_last_update_by' => '226970',
+        'music_bitrate_fixed_time' => '0',
+        'music_bitrate_fixed_by' => '0',
+        'music_metadata' => '1',
+        'music_spectrum' => '1',
+        'music_bitrate_fixed' => '0',
+        'music_state' => '3',
+        'music_dmca' => '0',
+        'music_deleted' => '0',
+        'music_updated' => '1',
+        'music_title_url' => 'creatures-of-the-night-live~kiss',
+        'music_tracklist' => '1. Creatures Of The Night (Live) ~ Kiss
+2. Deuce (Live) ~ Kiss
+3. I Just Wanna (Live) ~ Kiss
+4. Unholy (Live) ~ Kiss
+5. Heaven\'s On Fire (Live) ~ Kiss
+6. Watchin\' You (Live) ~ Kiss
+7. Domino (Live) ~ Kiss
+8. I Was Made For Lovin\' You (Live) ~ Kiss
+9. I Still Love You (Live) ~ Kiss
+10. Rock And Roll All Nite (Live) ~ Kiss
+11. Lick It Up (Live) ~ Kiss
+12. Forever (Live) ~ Kiss
+13. Take It Off (Live) ~ Kiss
+14. I Love It Loud (Live) ~ Kiss
+15. Detroit Rock City (Live) ~ Kiss
+16. God Gave Rock \'N\' Roll To You II (Live) ~ Kiss
+17. Star Spangled Banner (Live) ~ Kiss',
+        'album_artist' => 'Kiss'),
+    3 => array('music_id' => '1939915',
+        'cat_id' => '4',
+        'cat_level' => '1',
+        'cat_sublevel' => '2',
+        'cat_custom' => '6',
+        'cover_id' => '92745',
+        'music_title' => 'Detroit Rock City (Live)',
+        'music_artist' => 'Kiss',
+        'music_composer' => '',
+        'music_album' => 'Alive II',
+        'music_production' => 'Casablanca',
+        'music_album_id' => 'NBLP-7076-2',
+        'music_track_id' => '1',
+        'music_year' => '1977',
+        'music_code_1' => '0',
+        'music_code_2' => '0',
+        'music_time' => '1533521755',
+        'music_bitrate' => '0',
+        'music_length' => '236',
+        'music_filename' => '1939915-7027ece9.mp3',
+        'music_filename_upload' => '01 - Detroit Rock City.flac',
+        'music_32_filesize' => '1220168',
+        'music_filesize' => '3844359',
+        'music_320_filesize' => '9526932',
+        'music_m4a_filesize' => '12182886',
+        'music_lossless_filesize' => '29664102',
+        'music_width' => '0',
+        'music_height' => '0',
+        'music_thumbs_time' => '0',
+        'music_user_id' => '784928',
+        'music_username' => 'lethuananh9b',
+        'music_original_id' => '1939718',
+        'music_note' => '',
+        'music_security_code' => 'd0007f63',
+        'music_last_update_time' => '1533564329',
+        'music_last_update_by' => '226970',
+        'music_bitrate_fixed_time' => '0',
+        'music_bitrate_fixed_by' => '0',
+        'music_metadata' => '1',
+        'music_spectrum' => '1',
+        'music_bitrate_fixed' => '0',
+        'music_state' => '3',
+        'music_dmca' => '0',
+        'music_deleted' => '0',
+        'music_updated' => '1',
+        'music_title_url' => 'detroit-rock-city-live~kiss',
+        'music_tracklist' => '1. Detroit Rock City (Live) ~ Kiss
+2. King Of The Night Time World (Live) ~ Kiss
+3. Ladies\' Room (Live) ~ Kiss
+4. Makin\' Love (Live) ~ Kiss
+5. Love Gun (Live) ~ Kiss
+6. Calling Dr. Love (Live) ~ Kiss
+7. Christine Sixteen (Live) ~ Kiss
+8. Shock Me (Live) ~ Kiss
+9. Hard Luck Woman (Live) ~ Kiss
+10. Tomorrow And Tonight ~ Kiss
+11. I Stole Your Love (Live) ~ Kiss
+12. Beth (Live) ~ Kiss
+13. God Of Thunder (Live) ~ Kiss
+14. I Want You (Live) ~ Kiss
+15. Shout It Out Loud ~ Kiss
+16. All American Man (Live) ~ Kiss
+17. Rockin\' In The USA (Live) ~ Kiss
+18. Larger Than Life (Live) ~ Kiss
+19. Rocket Ride (Live) ~ Kiss
+20. Any Way You Want It (Live) ~ Kiss',
+        'album_artist' => 'Kiss'),
+    4 => array('music_id' => '1940088',
+        'cat_id' => '4',
+        'cat_level' => '1',
+        'cat_sublevel' => '2',
+        'cat_custom' => '6',
+        'cover_id' => '92778',
+        'music_title' => 'Deuce (Live)',
+        'music_artist' => 'Kiss',
+        'music_composer' => '',
+        'music_album' => 'Kiss Symphony: Alive IV',
+        'music_production' => 'Sanctuary Records ‎',
+        'music_album_id' => '06076-84658-2',
+        'music_track_id' => '1',
+        'music_year' => '2003',
+        'music_code_1' => '0',
+        'music_code_2' => '0',
+        'music_time' => '1533557389',
+        'music_bitrate' => '0',
+        'music_length' => '254',
+        'music_filename' => '1940088-5b90b3a1.mp3',
+        'music_filename_upload' => '01 - Deuce (live).flac',
+        'music_32_filesize' => '1297161',
+        'music_filesize' => '4112542',
+        'music_320_filesize' => '10218299',
+        'music_m4a_filesize' => '12737956',
+        'music_lossless_filesize' => '30895204',
+        'music_width' => '0',
+        'music_height' => '0',
+        'music_thumbs_time' => '0',
+        'music_user_id' => '784928',
+        'music_username' => 'lethuananh9b',
+        'music_original_id' => '1939724',
+        'music_note' => '',
+        'music_security_code' => 'c31a07ec',
+        'music_last_update_time' => '1533560739',
+        'music_last_update_by' => '226970',
+        'music_bitrate_fixed_time' => '0',
+        'music_bitrate_fixed_by' => '0',
+        'music_metadata' => '1',
+        'music_spectrum' => '1',
+        'music_bitrate_fixed' => '0',
+        'music_state' => '3',
+        'music_dmca' => '0',
+        'music_deleted' => '0',
+        'music_updated' => '1',
+        'music_title_url' => 'deuce-live~kiss',
+        'music_tracklist' => '1. Deuce (Live) ~ Kiss
+2. Strutter (Live) ~ Kiss
+3. Let Me Go, Rock \'n\' Roll (Live) ~ Kiss
+4. Lick It Up (Live) ~ Kiss
+5. Calling Dr. Love (Live) ~ Kiss
+6. Psycho Circus (Live) ~ Kiss
+7. Beth (Live) ~ Kiss
+8. Forever (Live) ~ Kiss
+9. Goin\' Blind (Live) ~ Kiss
+10. Sure Know Something (Live) ~ Kiss
+11. Shandi (Live) ~ Kiss
+12. Detroit Rock City (Live) ~ Kiss
+13. King Of The Night Time World (Live) ~ Kiss
+14. Do You Love Me (Live) ~ Kiss
+15. Shout It Out Loud (Live) ~ Kiss
+16. God Of Thunder (Live) ~ Kiss
+17. Love Gun (Live) ~ Kiss
+18. Black Diamond (Live) ~ Kiss
+19. Great Expectations (Live) ~ Kiss
+20. I Was Made For Lovin\' You (Live) ~ Kiss',
+        'album_artist' => 'Kiss'),
+    5 => array('music_id' => '1939882',
+        'cat_id' => '4',
+        'cat_level' => '1',
+        'cat_sublevel' => '2',
+        'cat_custom' => '0',
+        'cover_id' => '92738',
+        'music_download_time' => '0',
+        'music_last_update_time' => '1533516323',
+        'music_title_url' => 'aint-quite-right~paul-stanley-kiss',
+        'music_title_search' => 'ain t quite right',
+        'music_artist_search' => '; paul xtanlei; kix;',
+        'music_composer_search' => '; paul xtanlei mikel jap;',
+        'music_album_search' => 'paul xtanlei',
+        'music_title' => 'Ain\'t Quite Right',
+        'music_artist' => 'Paul Stanley (Kiss)',
+        'music_composer' => 'Paul Stanley, Mikel Japp',
+        'music_album' => 'Paul Stanley',
+        'music_production' => 'Casablanca',
+        'music_album_id' => 'NBLP 7123',
+        'music_track_id' => '3',
+        'music_year' => '1978',
+        'music_code_1' => '0',
+        'music_code_2' => '0',
+        'music_shortlyric' => '',
+        'music_listen' => '4',
+        'music_downloads' => '0',
+        'music_downloads_today' => '0',
+        'music_downloads_today_0' => '0',
+        'music_downloads_this_week' => '0',
+        'music_downloads_max_week' => '0',
+        'music_time' => '1533516236',
+        'music_bitrate' => '1000',
+        'music_length' => '217',
+        'music_filename' => '1939882-45f860e9.mp3',
+        'music_32_filesize' => '993661',
+        'music_filesize' => '3520806',
+        'music_320_filesize' => '8742579',
+        'music_m4a_filesize' => '10985499',
+        'music_lossless_filesize' => '23609353',
+        'music_width' => '0',
+        'music_height' => '0',
+        'music_thumbs_time' => '0',
+        'music_user_id' => '784928',
+        'music_username' => 'lethuananh9b',
+        'music_spectrum' => '1',
+        'music_bitrate_fixed_by' => '0',
+        'music_lyric' => '',
+        'music_note' => '',
+        'music_deleted' => '-1',
+        'music_dmca' => '0',
+        'music_download_ip' => '',
+        'total' => '9',
+        'update_time' => '1533560326',
+        'album_artist' => ''),
+    6 => array('music_id' => '1934557',
+        'cat_id' => '4',
+        'cat_level' => '1',
+        'cat_sublevel' => '2',
+        'cat_custom' => '0',
+        'cover_id' => '91994',
+        'music_title' => 'Toys In The Attic',
+        'music_artist' => 'Aerosmith',
+        'music_composer' => 'Aerosmith',
+        'music_album' => 'Toys in the Attic',
+        'music_production' => 'Columbia',
+        'music_album_id' => '',
+        'music_track_id' => '1',
+        'music_year' => '1975',
+        'music_code_1' => '0',
+        'music_code_2' => '0',
+        'music_time' => '1532598980',
+        'music_bitrate' => '0',
+        'music_length' => '186',
+        'music_filename' => '1934557-ec833939.mp3',
+        'music_filename_upload' => '01 - Toys In The Attic.flac',
+        'music_32_filesize' => '985619',
+        'music_filesize' => '3081482',
+        'music_320_filesize' => '7569110',
+        'music_m4a_filesize' => '9666826',
+        'music_lossless_filesize' => '21396999',
+        'music_width' => '0',
+        'music_height' => '0',
+        'music_thumbs_time' => '0',
+        'music_user_id' => '838342',
+        'music_username' => 'ducducduc4594',
+        'music_original_id' => '0',
+        'music_note' => '',
+        'music_security_code' => 'bd3d3916',
+        'music_last_update_time' => '1533560138',
+        'music_last_update_by' => '226970',
+        'music_bitrate_fixed_time' => '0',
+        'music_bitrate_fixed_by' => '0',
+        'music_metadata' => '1',
+        'music_spectrum' => '192',
+        'music_bitrate_fixed' => '0',
+        'music_state' => '3',
+        'music_dmca' => '0',
+        'music_deleted' => '0',
+        'music_updated' => '1',
+        'music_title_url' => 'toys-in-the-attic~aerosmith',
+        'music_tracklist' => '1. Toys In The Attic ~ Aerosmith
+2. Uncle Salty ~ Aerosmith
+3. Adams Apple ~ Aerosmith
+4. Walk This Way ~ Aerosmith
+5. Big Ten Inch Record ~ Aerosmith
+6. Sweet Emotion ~ Aerosmith
+7. No More No More ~ Aerosmith
+8. Round And Round ~ Aerosmith
+9. You See Me Crying ~ Aerosmith',
+        'album_artist' => 'Aerosmith'),
+    7 => array('music_id' => '1940074',
+        'cat_id' => '6',
+        'cat_level' => '1',
+        'cat_sublevel' => '1',
+        'cat_custom' => '0',
+        'cover_id' => '92776',
+        'music_title' => 'Taller Than You',
+        'music_artist' => 'Mamamoo',
+        'music_composer' => '',
+        'music_album' => 'Melting (Regular)',
+        'music_production' => 'CJ E&amp;M',
+        'music_album_id' => 'CMAC-10749',
+        'music_track_id' => '1',
+        'music_year' => '2016',
+        'music_code_1' => '0',
+        'music_code_2' => '0',
+        'music_time' => '1533556674',
+        'music_bitrate' => '0',
+        'music_length' => '187',
+        'music_filename' => '1940074-c3f4b335.mp3',
+        'music_filename_upload' => '01 - 1cm의 자존심.flac',
+        'music_32_filesize' => '874383',
+        'music_filesize' => '3026625',
+        'music_320_filesize' => '7524284',
+        'music_m4a_filesize' => '8438696',
+        'music_lossless_filesize' => '21511952',
+        'music_width' => '0',
+        'music_height' => '0',
+        'music_thumbs_time' => '0',
+        'music_user_id' => '170283',
+        'music_username' => 'maximus',
+        'music_original_id' => '0',
+        'music_note' => '',
+        'music_security_code' => '41de85b8',
+        'music_last_update_time' => '1533556757',
+        'music_last_update_by' => '170283',
+        'music_bitrate_fixed_time' => '0',
+        'music_bitrate_fixed_by' => '0',
+        'music_metadata' => '1',
+        'music_spectrum' => '1',
+        'music_bitrate_fixed' => '0',
+        'music_state' => '3',
+        'music_dmca' => '0',
+        'music_deleted' => '0',
+        'music_updated' => '1',
+        'music_title_url' => 'taller-than-you~mamamoo',
+        'music_tracklist' => '1. Taller Than You ~ Mamamoo
+2. Words Don\'t Come Easy ~ Mamamoo
+3. You\'re The Best ~ Mamamoo
+4. Friday Night ~ Junggigo; Mamamoo
+5. My Hometown ~ Mamamoo
+6. Emotion ~ Mamamoo
+7. I Miss You ~ Mamamoo
+8. Funky Boy ~ Mamamoo
+9. Recipe ~ Mamamoo
+10. Cat Fight ~ Mamamoo
+11. Just ~ Mamamoo
+12. Girl Crush ~ Mamamoo
+13. You\'re The Best ~ Mamamoo',
+        'album_artist' => 'Mamamoo'),
 );
+
 
 // Recent lastest album this year upload
 $album_new = array(

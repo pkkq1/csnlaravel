@@ -18,7 +18,7 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
 @include('cache.def_main_cat')
 
 @section('contentCSS')
-    <link rel="stylesheet" type="text/css" href="/css/csn-jwplayer.css">
+    <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/csn-jwplayer.css">
 @endsection
 @extends('layouts.app')
 @section('content')
@@ -28,8 +28,8 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
             <div class="col-md-9">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">{{$cat_id2info[$music->cat_id][0]['cat_title']}}</a></li>
-                        <li class="breadcrumb-item"><a href="#">{{$cat_id2info[$music->cat_id][$music->cat_level]['cat_title']}}</a></li>
+                        <li class="breadcrumb-item"><a href="{{env('APP_URL')}}">{{$cat_id2info[$music->cat_id][0]['cat_title']}}</a></li>
+                        <li class="breadcrumb-item"><a href="{{env('APP_URL')}}">{{$cat_id2info[$music->cat_id][$music->cat_level]['cat_title']}}</a></li>
                         <li class="breadcrumb-item active" aria-current="page"><?php echo '<a href="#">'.implode(',</a><a href="#">', explode(';', $music->music_artist)).'</a>' ?></li>
                     </ol>
                 </nav>
@@ -45,14 +45,14 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
                             if($typeListen == 'playlist'){
                                 $catMusic = Helpers::getRandLimitArr($album_rows_3_0, 100);
                                 array_map(function ($i, $item) use($music) {
-                                $url = SUB_BXH_MUSIC.'/'.Helpers::music_url($item);
+                                $url = env('APP_URL').SUB_BXH_MUSIC.Helpers::music_url($item);
                                 ?>
                                     <div id="music-listen-{{$item['music_id']}}" class="card-footer{{($music->music_id == $item['music_id'] ? ' listen' : '')}}" style="display: table-row;">
                                         <div class="name d-table-cell">
                                             <a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{++$i . '. ' . $item['music_title']}}</a>
                                         </div>
                                         <div class="author d-table-cell">
-                                            <?php echo '<a href="#">'.implode(',</a><a href="#">', explode(';', $item['music_artist'])).'</a>' ?>
+                                            <?php echo '<a href="#">'.implode(';</a><a href="#">', explode(';', $item['music_artist'])).'</a>' ?>
                                         </div>
                                         <div class="tool d-table-cell text-right">
                                             <ul class="list-inline d-flex align-items-center justify-content-end">
@@ -94,11 +94,11 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
                 <div class="row">
                     <div class="col-md-4">
                         <div class="card card-details">
-                            <img src="{{Helpers::coverImg($music->cover_id)}}" alt="" class="card-img-top">
+                            <img src="{{Helpers::cover_url($music->cover_id)}}" alt="" class="card-img-top">
                             <div class="card-body">
                                 <h4 class="card-title">{{$music->music_title}}</h4>
                                 <ul class="list-unstyled">
-                                    <?php echo $music->music_artist ? '<li><span>Ca sĩ: </span><a href="#" style=" color: #212552; ">'.implode(',</a><a href="#" style=" color: #212552; ">', explode(';', $music->music_artist)).'</a></li>' : '' ?>
+                                    <?php echo $music->music_artist ? '<li><span>Ca sĩ: </span><a href="#" style=" color: #212552; ">'.implode(';</a><a href="#" style=" color: #212552; ">', explode(';', $music->music_artist)).'</a></li>' : '' ?>
                                     <?php echo $music->music_composer ? '<li><span>Sáng tác: </span><a href="#" style=" color: #212552; ">'.$music->music_composer.'</a></li>' : '' ?>
                                     <?php echo $music->music_album ? '<li><span>Album: </span><a href="#" style=" color: #212552; ">'.$music->music_album.'</a></li>' : '' ?>
                                     <?php echo $music->music_year ? '<li><span>Năm phát hành: </span>'.$music->music_year.'</li>' : '' ?>
@@ -109,7 +109,7 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
                     <div class="col-md-8">
                         <div class="d-flex justify-content-between mb-3">
                             <div class="title2">
-                                Đóng góp: <span class="author"><a href="">{{$music->music_username}}</a></span>
+                                Đóng góp: <span class="author"><a href="{{env('APP_URL')}}">{{$music->music_username}}</a></span>
                             </div>
                             <div>
                                 <div class="fb-like" data-href="{{url()->current()}}" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
@@ -308,7 +308,7 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
                 <div class="box_space"></div>
                 <div class="box_header d-flex justify-content-between align-items-end">
                     <h5 class="title m-0">Bài hát liên quan</h5>
-                    <a class="link_more" href="/album.html" title="Xem tất cả">Xem tất cả</a>
+                    <a class="link_more" href="{{env('APP_URL')}}/album.html" title="Xem tất cả">Xem tất cả</a>
                 </div>
                 <div class="row row10px">
                     <?php
@@ -317,14 +317,14 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
                     ?>
                         <div class="col">
                             <div class="card card1">
-                                <div class="card-header" style="background-image: url({{Helpers::coverImg($item['cover_id'])}});">
+                                <div class="card-header" style="background-image: url({{Helpers::cover_url($item['cover_id'])}});">
                                     <a href="{{Helpers::listen_url($item)}}" title="{{$item['music_title']}}">
                                         <span class="icon-play"></span>
                                     </a>
                                 </div>
                                 <div class="card-body">
-                                    <h3 class="card-title"><a href="{{SUB_ALLBUM.'/'.$item['music_title_url'].'.html'}}" title="{{$item['music_title']}}">{{$item['music_title']}}</a></h3>
-                                    <p class="card-text"><?php echo '<a href="#">'.implode(',</a><a href="#">', explode(';', $item['music_artist'])).'</a>' ?></p>
+                                    <h3 class="card-title"><a href="{{env('APP_URL').SUB_ALLBUM.$item['music_title_url'].'.html'}}" title="{{$item['music_title']}}">{{$item['music_title']}}</a></h3>
+                                    <p class="card-text"><?php echo '<a href="#">'.implode(';</a><a href="#">', explode(';', $item['music_artist'])).'</a>' ?></p>
                                 </div>
                             </div>
                         </div>
@@ -334,7 +334,7 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
                 </div>
                 <div class="box_header d-flex justify-content-between align-items-end">
                     <h5 class="title m-0">Album liên quan</h5>
-                    <a class="link_more" href="/album.html" title="Xem tất cả">Xem tất cả</a>
+                    <a class="link_more" href="{{env('APP_URL')}}/album.html" title="Xem tất cả">Xem tất cả</a>
                 </div>
                 <div class="row row10px">
                     <?php
@@ -343,14 +343,14 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
                     ?>
                     <div class="col">
                         <div class="card card1">
-                            <div class="card-header" style="background-image: url({{Helpers::coverImg($item['cover_id'])}});">
-                                <a href="{{SUB_ALLBUM.'/'.$item['music_title_url'].'.html'}}" title="{{$item['music_title']}}">
+                            <div class="card-header" style="background-image: url({{Helpers::cover_url($item['cover_id'])}});">
+                                <a href="{{env('APP_URL').SUB_ALLBUM.$item['music_title_url'].'.html'}}" title="{{$item['music_title']}}">
                                     <span class="icon-play"></span>
                                 </a>
                             </div>
                             <div class="card-body">
-                                <h3 class="card-title"><a href="{{SUB_ALLBUM.'/'.$item['music_title_url'].'.html'}}" title="{{$item['music_title']}}">{{$item['music_title']}}</a></h3>
-                                <p class="card-text"><?php echo '<a href="#">'.implode(',</a><a href="#">', explode(';', $item['music_artist'])).'</a>' ?></p>
+                                <h3 class="card-title"><a href="{{env('APP_URL').SUB_ALLBUM.$item['music_title_url'].'.html'}}" title="{{$item['music_title']}}">{{$item['music_title']}}</a></h3>
+                                <p class="card-text"><?php echo '<a href="#">'.implode(';</a><a href="#">', explode(';', $item['music_artist'])).'</a>' ?></p>
                             </div>
                         </div>
                     </div>
@@ -415,7 +415,7 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
                     <div class="form-group form-check mb-0 autoplay">
                         <input type="checkbox" class="form-check-input check_auto_play" id="exampleCheck1" checked>
                         <label class="form-check-label d-flex align-items-center" for="exampleCheck1">
-                            <span class="txt">Autoplay</span>
+                            <span class="txt">Tự động chuyển tiếp</span>
                             <span class="switch">
 							<span class="switch-inner"></span>
 						</span>
@@ -431,7 +431,7 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
                     <li class="media align-items-stretch">
                         <div class="media-left align-items-stretch mr-2">
                             <a href="{{$url}}" title="{{$item['music_title']}}">
-                                <img src="{{Helpers::coverImg($item['cover_id'])}}" alt="">
+                                <img src="{{Helpers::cover_url($item['cover_id'])}}" alt="">
                                 <i class="material-icons">play_circle_outline</i>
                                 <span class="cover"></span>
                             </a>
@@ -444,7 +444,7 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
                             <div class="d-flex align-items-center justify-content-between">
                                 <small class="type_music c1"><?php echo Helpers::bitrate2str($item['music_bitrate']); ?></small>
                                 <div class="media-right">
-                                    <small class="time_stt">{{number_format($item['music_listen'])}}</small>
+                                    <small class="time_stt"><i class="material-icons listen-material-icons"> play_arrow </i>{{number_format($item['music_listen'])}}</small>
                                     <ul class="list-inline">
                                         <li class="list-inline-item"><a download href="{{MUSIC_PATH.$item['music_filename']}}" title="download {{$item['music_title']}}"><i class="material-icons">file_download</i></a></li>
                                         <li class="list-inline-item"><a href="{{$url}}" title="nghe riêng {{$item['music_title']}}"><i class="material-icons">headset</i></a></li>
@@ -499,10 +499,10 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
             aspectratio: "<?php echo $typeJw == 'video' ? '16:9' : 'false' ?>",
             stretching: 'fill',
             sources: [
-                {"file":"<?php echo MUSIC_PATH.$music->music_filename ?>","label":"M4A &nbsp; 32kbps"},
-                {"file":"<?php echo MUSIC_PATH.$music->music_filename ?>","label":"MP3 128kbps"},
-                {"file":"<?php echo MUSIC_PATH.$music->music_filename ?>","label":"MP3 320kbps"},
-                {"file":"<?php echo MUSIC_PATH.$music->music_filename ?>","label":"M4A 500kbps"},
+                {"file":"<?php echo MUSIC_PATH.$music->music_filename ?>","label":"320kbps"},
+                {"file":"<?php echo MUSIC_PATH.$music->music_filename ?>","label":"128kbps"},
+                {"file":"<?php echo MUSIC_PATH.$music->music_filename ?>","label":"320kbps"},
+                {"file":"<?php echo MUSIC_PATH.$music->music_filename ?>","label":"500kbps"},
                 ],
             title:'<?php echo $music->music_title ?>',
             skin: {
