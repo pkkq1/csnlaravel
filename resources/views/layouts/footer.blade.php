@@ -1,4 +1,4 @@
-<script src="/js/lobibox.min.js"></script>
+
 <script>
     var dataSearch = [];
     $( "#search_autocomplete" ).autocomplete({
@@ -207,11 +207,10 @@
                                 <div class="login_action">
                                     <input type="checkbox" checked id="remember" name="remember" {{ old('remember') ? 'checked' : '' }}>
                                     <label style="cursor: pointer; display: inline;" for="remember"> Nhớ mật khẩu</label>
-                                    <input type="submit" value="Đăng nhập" />
+                                    <a href="javascript:void(0)" onclick="switchAuth('myModal_forgot')"  style=" margin-left: 15px; float:right; color: #888;">Quên mật khẩu?</a>
+                                    <button id="btn_cloud_up" class="btn btn-outline-success my-2 my-sm-0 waves-effect waves-light" type="submit">Đăng nhập</button>
                                 </div>
-                                <p class="text-p"><a href="javascript:void(0)" onclick="switchAuth('myModal_register')" style="margin-right: 15px;color: #FF2D55;">Đăng ký</a>
-                                    <span style=" color: #d0d0d0; ">|</span>
-                                    <a href="javascript:void(0)" onclick="switchAuth('myModal_forgot')"  style=" margin-left: 15px; ">Quên mật khẩu?</a></p>
+                                <p class="text-p">Bạn chưa có tài khoản? <a href="javascript:void(0)" onclick="switchAuth('myModal_register')" style="margin-right: 15px;color: #FF2D55;">Đăng ký</a>
                             </div>
                         </div>
                         <div class="col-md-6 col-md-offset-2 social_button">
@@ -260,7 +259,7 @@
                                     <input type="checkbox" checked id="contact_csn" name="contact_csn">
                                     <label style="cursor: pointer; font-size: 13px; display: inline;" for="contact_csn">Tôi đã đọc và đồng ý các điều kiện<a href="#" > Thỏa thuận sử dụng</a></label>
                                 </div>
-                                   <input style="margin-left: 0px;width: 100%; padding: 10px" type="submit" value="Đăng ký" />
+                                   <button id="btn_cloud_up" class="btn btn-outline-success my-2 my-sm-0 waves-effect waves-light" style="margin-left: 0px;width: 100%; padding: 10px" type="submit">Đăng ký</button>
                                 <p class="text-p"><a href="javascript:void(0)" onclick="switchAuth('myModal_login')" style=" margin-right: 15px; ">Đăng nhập</a>
                                     <span style=" color: #d0d0d0; ">|</span>
                                     <a href="javascript:void(0)" onclick="switchAuth('myModal_forgot')" style=" margin-left: 15px; ">Quên mật khẩu?</a></p>
@@ -272,13 +271,13 @@
                                     <li>
                                         <a href="" class="facebook">
                                             <span class="fa fa-facebook icon_soccial"></span>
-                                            <p class="text_social">Đăng nhập bằng Facebook</p>
+                                            <p class="text_social">Đăng ký bằng Facebook</p>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="" class="google-plus">
                                             <span class="fa fa-google-plus icon_soccial"></span>
-                                            <p class="text_social">Đăng nhập bằng Google</p>
+                                            <p class="text_social">Đăng ký bằng Google</p>
                                         </a>
                                     </li>
                                 </ul>
@@ -306,7 +305,7 @@
                             <div class="input-field">
                                 <input type="email" name="email" placeholder="Địa chỉ email" required="email" />
                                 <div class="login_action">
-                                    <input type="submit" value="Lấy lại mật khẩu" />
+                                    <button id="btn_cloud_up" class="btn btn-outline-success my-2 my-sm-0 waves-effect waves-light" type="submit">Lấy lại mật khẩu</button>
                                 </div>
                                 <p class="text-p"><a href="javascript:void(0)" onclick="switchAuth('myModal_login')" style=" margin-right: 15px; ">Đăng nhập</a>
                                     <span style=" color: #d0d0d0; ">|</span>
@@ -462,4 +461,6 @@
         </div>
     </div>
 </footer>
+<script src="/js/lobibox.min.js"></script>
+<script src="/js/waves.js"></script>
 </section>
