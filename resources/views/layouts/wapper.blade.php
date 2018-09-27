@@ -3,7 +3,9 @@
         <div class="container">
             <div class="d-flex align-items-center justify-content-between">
                 <figure class="m-0">
-                    <a href="{{env('APP_URL')}}/" title="" class="logo">Chiasenhac.com</a>
+                    <a href="{{env('APP_URL')}}/" title="" class="logo">
+                        <img src="/imgs/logo-web-official.png" style="padding-left: 15px;" />
+                    </a>
                     <figcaption class="d-none">explanatory caption</figcaption>
                 </figure>
                 <form action="{{env('APP_URL')}}/tim-kiem">

@@ -442,7 +442,7 @@
 .box_show_add_playlist{
     background: #fff;
     position: absolute;
-    z-index: 1000;
+    z-index: 999999;
     width: 400px;
     min-height: 185px;
     border: #dbdbdb solid 1px;
@@ -451,6 +451,9 @@
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
     top: 110px;
     left: 537.5px;
+}
+.modal {
+    z-index: 9999999;
 }
 .box_show_playlist_popup {
     height: 180px;
@@ -600,6 +603,9 @@
     position: absolute;
     left: -7px;
 }
+.btn-outline-success.focus, .btn-outline-success:focus {
+    box-shadow: none!important;
+}
 .listen-material-icons {
     font-size: 13px;
     display: inline-flex;
@@ -644,6 +650,11 @@ form#login-form {
     width: 100%;
     margin-top: 10px;
     margin-bottom: 10px;
+}
+.btn-outline-success {
+    color: #f85f64!important;
+    background-color: #f85f64!important;
+    border-color: #f85f64!important;
 }
 .social ul li a{
     display: inline-block;
@@ -731,6 +742,39 @@ form#login-form {
     padding: 10px;
     text-transform: uppercase;
     transition: all 0.15s ease-in-out 0s;
+    margin-top:7px!important;
+
+    background-image: linear-gradient(-243deg, #FB6B60 0%, #FF2E55 100%);
+    border-radius: 69px;
+    color: #fff !important;
+    border: none;
+    min-width: 125px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    font-family:'SFProDisplay-Bold';
+    min-height: 38px;
+    transition: all 0.2s linear;
+
+}
+.btn_cloud_up {
+    background-image: linear-gradient(-243deg, #FB6B60 0%, #FF2E55 100%);
+    border-radius: 69px;
+    color: #fff !important;
+    border: none;
+    min-width: 125px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    font-family:'SFProDisplay-Bold';
+    min-height: 38px;
+    transition: all 0.2s linear;
 }
 .input-field button[type="submit"]:hover {
     /*background: #fe7175;*/

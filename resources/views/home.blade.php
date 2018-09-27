@@ -38,7 +38,7 @@ global $top_artist_rows;
         <div class="owl-carousel owl-theme">
             <?php
                 array_map(function($item) {
-                $url = SUB_ALLBUM.Helpers::cover_url($item['cover_id']);
+                $url = Helpers::album_url($item);
                     ?>
                     <div class="item">
                         <div class="card card1 slide">

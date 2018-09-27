@@ -39,17 +39,18 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
                 </div>
                 <div class="card mb-4 detail_lyric_1">
                     <div id="csnplayer" style="position:relative; z-index: 99999; width:100%;"> </div>
-                    <div class="music_recommendation">
+                    <div class="music_recommendation" style="border-bottom: 1px solid rgba(0,0,0,.125);">
                         <div class="d-table">
                             <?php
-                            if($typeListen == 'playlist'){
+                            if(($typeListen == 'playlist' || $typeListen == 'album') && isset($playlistMusic)){
                                 $catMusic = Helpers::getRandLimitArr($album_rows_3_0, 100);
                                 array_map(function ($i, $item) use($music) {
                                 $url = env('APP_URL').SUB_BXH_MUSIC.Helpers::music_url($item);
+                                $urlAlbum = url()->current() . '?id=' . Helpers::encodeID($item['music_id']);
                                 ?>
                                     <div id="music-listen-{{$item['music_id']}}" class="card-footer{{($music->music_id == $item['music_id'] ? ' listen' : '')}}" style="display: table-row;">
                                         <div class="name d-table-cell">
-                                            <a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{++$i . '. ' . $item['music_title']}}</a>
+                                            <a href="{{$urlAlbum}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{++$i . '. ' . $item['music_title']}}</a>
                                         </div>
                                         <div class="author d-table-cell">
                                             <?php echo '<a href="#">'.implode(';</a><a href="#">', explode(';', $item['music_artist'])).'</a>' ?>
@@ -64,7 +65,7 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
                                         </div>
                                     </div>
                                     <?php
-                                    },array_keys($catMusic), $catMusic);
+                                    },array_keys($playlistMusic), $playlistMusic);
                                 ?>
                                 <div class="box_show_add_playlist card" style="display: none" id="answer-12878316">
                                     <div class="card-body d-flex flex-column">
@@ -180,67 +181,67 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
 
                                             </div>
                                         </div>
-                                        <div class="accordion" id="accordion">
-                                            <div class="card flex-column-reverse">
-                                                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-                                                    <div class="card-body p-0">
-                                                        <img class="card-img-top" src="http://data5.chiasenhac.com/data/spectrum/1898/1897826.jpg" alt="">
-                                                    </div>
-                                                </div>
-                                                <div class="card-header border-0" id="headingOne">
-                                                    <h5 class="mb-0">
-                                                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                            Xem quang phổ (Spectrum) tại đây:
-                                                            <i class="material-icons">keyboard_arrow_down</i>
-                                                        </button>
-                                                    </h5>
+                                    </div>
+                                    <div class="accordion" id="accordion">
+                                        <div class="card flex-column-reverse">
+                                            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                                                <div class="card-body p-0">
+                                                    <img class="card-img-top" src="http://data5.chiasenhac.com/data/spectrum/1898/1897826.jpg" alt="">
                                                 </div>
                                             </div>
-                                            <div class="card flex-column-reverse">
-                                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                                                    <div class="card-body p-0">
-                                                        <div class="list-group">
-                                                            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                                                                <div class="d-flex w-100 justify-content-between">
-                                                                    <h5 class="mb-1">Đối với nhu cầu bình thường:</h5>
-                                                                </div>
-                                                                <p class="mb-1">bạn nên chọn Link Download 1, là định dạng âm thanh MP3 với chất lượng 128kbps được nhiều thiết bị nghe nhạc hỗ trợ.</p>
-                                                            </a>
-                                                            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                                                                <div class="d-flex w-100 justify-content-between">
-                                                                    <h5 class="mb-1">Đối với nhu cầu thưởng thức nhạc cao hơn:</h5>
-                                                                </div>
-                                                                <p class="mb-1">bạn nên chọn Link Download 2, là định dạng âm thanh MP3 với chất lượng 320kbps có dung lượng lớn hơn nhưng nghe hay và chi tiết hơn định dạng MP3 128kbps.</p>
-                                                            </a>
-                                                            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                                                                <div class="d-flex w-100 justify-content-between">
-                                                                    <h5 class="mb-1">Đối với nhu cầu thưởng thức nhạc cao cấp:</h5>
-                                                                </div>
-                                                                <p class="mb-1">bạn nên chọn Link Download 3, là định dạng âm thanh M4A với chất lượng gần 500kbps có dung lượng lớn hơn nhưng nghe hay và chi tiết hơn định dạng MP3 320kbps.</p>
-                                                            </a>
-                                                            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                                                                <div class="d-flex w-100 justify-content-between">
-                                                                    <h5 class="mb-1">Đối với nhu cầu thưởng thức nhạc chuyên nghiệp:</h5>
-                                                                </div>
-                                                                <p class="mb-1">bạn nên chọn Link Download 4, là định dạng âm thanh Lossless với chất lượng gốc giống như chất lượng âm thanh bạn nghe từ đĩa CD. Tuy nhiên, để nghe được định dạng này có thể thiết bị nghe nhạc của bạn cần phải cài đặt thêm plugin/codec hỗ trợ decode tập tin âm thanh FLAC.</p>
-                                                            </a>
-                                                            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                                                                <div class="d-flex w-100 justify-content-between">
-                                                                    <h5 class="mb-1">Đối với nhu cầu lưu trữ trên các thiết bị có dung lượng khiêm tốn:</h5>
-                                                                </div>
-                                                                <p class="mb-1">(ví dụ điện thoại di động...), bạn nên chọn Link Mobile Download, là định dạng âm thanh M4A với chất lượng 32kbps có dung lượng cực nhỏ nhưng vẫn nghe hay và rõ gần bằng MP3 128kbps.</p>
-                                                            </a>
-                                                        </div>
+                                            <div class="card-header border-0" id="headingOne">
+                                                <h5 class="mb-0">
+                                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                        Xem quang phổ (Spectrum) tại đây:
+                                                        <i class="material-icons">keyboard_arrow_down</i>
+                                                    </button>
+                                                </h5>
+                                            </div>
+                                        </div>
+                                        <div class="card flex-column-reverse">
+                                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                                                <div class="card-body p-0">
+                                                    <div class="list-group">
+                                                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                                                            <div class="d-flex w-100 justify-content-between">
+                                                                <h5 class="mb-1">Đối với nhu cầu bình thường:</h5>
+                                                            </div>
+                                                            <p class="mb-1">bạn nên chọn Link Download 1, là định dạng âm thanh MP3 với chất lượng 128kbps được nhiều thiết bị nghe nhạc hỗ trợ.</p>
+                                                        </a>
+                                                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                                                            <div class="d-flex w-100 justify-content-between">
+                                                                <h5 class="mb-1">Đối với nhu cầu thưởng thức nhạc cao hơn:</h5>
+                                                            </div>
+                                                            <p class="mb-1">bạn nên chọn Link Download 2, là định dạng âm thanh MP3 với chất lượng 320kbps có dung lượng lớn hơn nhưng nghe hay và chi tiết hơn định dạng MP3 128kbps.</p>
+                                                        </a>
+                                                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                                                            <div class="d-flex w-100 justify-content-between">
+                                                                <h5 class="mb-1">Đối với nhu cầu thưởng thức nhạc cao cấp:</h5>
+                                                            </div>
+                                                            <p class="mb-1">bạn nên chọn Link Download 3, là định dạng âm thanh M4A với chất lượng gần 500kbps có dung lượng lớn hơn nhưng nghe hay và chi tiết hơn định dạng MP3 320kbps.</p>
+                                                        </a>
+                                                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                                                            <div class="d-flex w-100 justify-content-between">
+                                                                <h5 class="mb-1">Đối với nhu cầu thưởng thức nhạc chuyên nghiệp:</h5>
+                                                            </div>
+                                                            <p class="mb-1">bạn nên chọn Link Download 4, là định dạng âm thanh Lossless với chất lượng gốc giống như chất lượng âm thanh bạn nghe từ đĩa CD. Tuy nhiên, để nghe được định dạng này có thể thiết bị nghe nhạc của bạn cần phải cài đặt thêm plugin/codec hỗ trợ decode tập tin âm thanh FLAC.</p>
+                                                        </a>
+                                                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                                                            <div class="d-flex w-100 justify-content-between">
+                                                                <h5 class="mb-1">Đối với nhu cầu lưu trữ trên các thiết bị có dung lượng khiêm tốn:</h5>
+                                                            </div>
+                                                            <p class="mb-1">(ví dụ điện thoại di động...), bạn nên chọn Link Mobile Download, là định dạng âm thanh M4A với chất lượng 32kbps có dung lượng cực nhỏ nhưng vẫn nghe hay và rõ gần bằng MP3 128kbps.</p>
+                                                        </a>
                                                     </div>
                                                 </div>
-                                                <div class="card-header border-0" id="headingTwo">
-                                                    <h5 class="mb-0">
-                                                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                                            Hướng dẫn download nhạc:
-                                                            <i class="material-icons">keyboard_arrow_down</i>
-                                                        </button>
-                                                    </h5>
-                                                </div>
+                                            </div>
+                                            <div class="card-header border-0" id="headingTwo">
+                                                <h5 class="mb-0">
+                                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                        Hướng dẫn download nhạc:
+                                                        <i class="material-icons">keyboard_arrow_down</i>
+                                                    </button>
+                                                </h5>
                                             </div>
                                         </div>
                                     </div>
@@ -375,7 +376,7 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
                     <div class="form-group emoji-picker-container">
                         <textarea class="form-control comment" name="comment" rows="3" placeholder="Viết bình luận của bạn tại đây." data-emojiable="true"></textarea>
                         <input type="hidden" class="music_id" name="music_id" value="{{ $music->music_id }}">
-                        <button id="btn_cloud_up" onclick="postComment(0)"  class="btn my-2 my-sm-0 waves-effect waves-light btn-upload" style="float: right; min-width: 75px;">Đăng Bình Luận</button>
+                        <button onclick="postComment(0)"  class="btn my-2 my-sm-0 waves-effect waves-light btn-upload btn_cloud_up" style="float: right; min-width: 75px;">Đăng Bình Luận</button>
                     </div>
                 </form>
                 <div class="list_comment">
@@ -468,6 +469,11 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
     </div>
 
     {{--{"file":"<?php echo VIDEO_PATH.'1905460-852687a9.mp4' ?>","label":"M4A 500kbps"},--}}
+    {{--{"file":"<?php echo MUSIC_PATH.$music->music_filename ?>","label":"320kbps"},--}}
+    {{--{"file":"<?php echo MUSIC_PATH.$music->music_filename ?>","label":"128kbps"},--}}
+    {{--{"file":"<?php echo MUSIC_PATH.$music->music_filename ?>","label":"320kbps"},--}}
+    {{--{"file":"<?php echo MUSIC_PATH.$music->music_filename ?>","label":"500kbps"},--}}
+
 @endsection
 @section('contentJS')
     <script src="/assets/jwplayer-7.12.0/jwplayer.js"></script>
@@ -484,7 +490,7 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
         if($typeListen == 'playlist'){
             ?>
             $("#music-listen-1904314").addClass('listen');
-            var vtop = document.getElementById("music-listen-1904314").offsetTop;
+            var vtop = document.getElementById("music-listen-<?php echo $music->music_id ?>").offsetTop;
             $('.music_recommendation').animate({scrollTop: vtop - 50}, 'slow');
             <?php
         }
@@ -499,10 +505,10 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
             aspectratio: "<?php echo $typeJw == 'video' ? '16:9' : 'false' ?>",
             stretching: 'fill',
             sources: [
-                {"file":"<?php echo MUSIC_PATH.$music->music_filename ?>","label":"320kbps"},
-                {"file":"<?php echo MUSIC_PATH.$music->music_filename ?>","label":"128kbps"},
-                {"file":"<?php echo MUSIC_PATH.$music->music_filename ?>","label":"320kbps"},
-                {"file":"<?php echo MUSIC_PATH.$music->music_filename ?>","label":"500kbps"},
+                {"file":"<?php echo MUSIC_PATH ?>1905460-852687a9.mp3","label":"320kbps"},
+                {"file":"<?php echo MUSIC_PATH ?>1905460-852687a9.mp3","label":"128kbps"},
+                {"file":"<?php echo MUSIC_PATH ?>1905460-852687a9.mp3","label":"320kbps"},
+                {"file":"<?php echo MUSIC_PATH ?>1905460-852687a9.mp3","label":"500kbps"},
                 ],
             title:'<?php echo $music->music_title ?>',
             skin: {

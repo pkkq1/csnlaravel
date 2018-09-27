@@ -14,6 +14,7 @@ use App\Repositories\Music\MusicEloquentRepository;
 use App\Repositories\Playlist\PlaylistEloquentRepository;
 use App\Repositories\MusicListen\MusicListenEloquentRepository;
 use App\Repositories\Category\CategoryEloquentRepository;
+use App\Repositories\Cover\CoverEloquentRepository;
 use Illuminate\Support\Facades\Auth;
 use App\Models\PlaylistMusicModel;
 
@@ -28,14 +29,16 @@ class MusicController extends Controller
     protected $playlistRepository;
     protected $musicListenRepository;
     protected $categoryListenRepository;
+    protected $coverRepository;
 
     public function __construct(MusicEloquentRepository $musicRepository, PlaylistEloquentRepository $playlistRepository, MusicListenEloquentRepository $musicListenRepository,
-                                CategoryEloquentRepository $categoryListenRepository)
+                                CategoryEloquentRepository $categoryListenRepository, CoverEloquentRepository $coverRepository)
     {
         $this->musicRepository = $musicRepository;
         $this->playlistRepository = $playlistRepository;
         $this->musicListenRepository = $musicListenRepository;
         $this->categoryListenRepository = $categoryListenRepository;
+        $this->coverRepository = $coverRepository;
     }
 
     /**
@@ -49,7 +52,7 @@ class MusicController extends Controller
     }
     public function listenSingleMusic(Request $request, $cat, $sub, $musicUrl) {
         try {
-            $arrUrl = Helpers::splitUrl($musicUrl);
+            $arrUrl = Helpers::splitMusicUrl($musicUrl);
         } catch (Exception $e) {
             return view('errors.errors')->with('e');
         }
@@ -60,22 +63,47 @@ class MusicController extends Controller
         if(Helpers::sessionListenMusic($arrUrl['id'])){
             $this->musicListenRepository->incrementListen($arrUrl['id']);
         }
-        $typeListen = 'playlist'; // single | playlist
+        $typeListen = 'single'; // single | playlist | album
         $typeJw = 'music'; // music | video
         return view('jwplayer.music', compact('music', 'typeListen', 'typeJw'));
     }
     public function listenPlaylistMusic(Request $request, $musicUrl) {
-        $arrUrl = Helpers::splitUrl($musicUrl);
-        $music = $this->musicRepository->findOnlyMusicId($arrUrl['id']);
+        $arrUrl = Helpers::splitPlaylistUrl($musicUrl);
+        $playlistMusic = [];
+        $music = [];
+        $typeListen = 'single';
+        if($request->id) {
+            $music = $this->musicRepository->findOnlyMusicId(Helpers::decodeID($request->id));
+        }
+        if($arrUrl['type'] == 'nghe-album') {
+            $album = $this->coverRepository->getCoverMusicById($arrUrl['id']);
+            if(!$album)
+                return view('errors.404');
+            $typeListen = 'album';
+            if(($album->music || $album->music)) {
+                $playlistMusic = array_merge($album->music->toArray(), $album->video->toArray());
+            }
+        }elseif($arrUrl['type'] == 'playlist'){
+            $playlist = $this->playlistRepository->getMusicByPlaylistId($arrUrl['id']);
+            if(!$playlist)
+                return view('errors.404');
+            $typeListen = 'playlist';
+            if(($playlist->music || $playlist->music)) {
+                $playlistMusic = array_merge($playlist->music->toArray(), $playlist->video->toArray());
+            }
+        }
+        if($playlistMusic && !$music) {
+            $music = $this->musicRepository->findOnlyMusicId($playlistMusic[0]['music_id']);
+        }
         if(!$music)
             return view('errors.404');
         // +1 view
         if(Helpers::sessionListenMusic($arrUrl['id'])){
-            $this->musicListenRepository->incrementListen($arrUrl['id']);
+            $this->musicListenRepository->incrementListen($music->music_id);
         }
         $typeListen = 'playlist';
         $typeJw = 'music';
-        return view('jwplayer.music', compact('music', 'typeListen', 'typeJw'));
+        return view('jwplayer.music', compact('music', 'typeListen', 'typeJw', 'playlistMusic'));
     }
     public function listenBxhNow(Request $request, $catUrl) {
         return $this->listenBxhMusic($request, $catUrl);

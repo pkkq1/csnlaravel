@@ -199,7 +199,7 @@
             </div>
             <div class="modal-body">
                 <div class="panel-body">
-                    <form class="col-md-12" action="#">
+                    <form class="col-md-12" id="form-login" action="#">
                         <div class="col-md-6 col-md-offset-2" style="display: table;float: left;">
                             <div class="input-field">
                                 <input type="email" name="email" placeholder="Tên đăng nhập hoặc email" required />
@@ -208,7 +208,7 @@
                                     <input type="checkbox" checked id="remember" name="remember" {{ old('remember') ? 'checked' : '' }}>
                                     <label style="cursor: pointer; display: inline;" for="remember"> Nhớ mật khẩu</label>
                                     <a href="javascript:void(0)" onclick="switchAuth('myModal_forgot')"  style=" margin-left: 15px; float:right; color: #888;">Quên mật khẩu?</a>
-                                    <button id="btn_cloud_up" class="btn btn-outline-success my-2 my-sm-0 waves-effect waves-light" type="submit">Đăng nhập</button>
+                                    <button class="btn btn-outline-success my-2 my-sm-0 waves-effect waves-light" type="submit">Đăng nhập</button>
                                 </div>
                                 <p class="text-p">Bạn chưa có tài khoản? <a href="javascript:void(0)" onclick="switchAuth('myModal_register')" style="margin-right: 15px;color: #FF2D55;">Đăng ký</a>
                             </div>
@@ -217,13 +217,13 @@
                             <div class="social">
                                 <ul>
                                     <li>
-                                        <a href="" class="facebook">
+                                        <a href="{{env('APP_URL')}}/auth/facebook" class="facebook">
                                             <span class="fa fa-facebook icon_soccial"></span>
                                             <p class="text_social">Đăng nhập bằng Facebook</p>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="" class="google-plus">
+                                        <a href="{{env('APP_URL')}}/auth/google" class="google-plus">
                                             <span class="fa fa-google-plus icon_soccial"></span>
                                             <p class="text_social">Đăng nhập bằng Google</p>
                                         </a>
@@ -259,7 +259,7 @@
                                     <input type="checkbox" checked id="contact_csn" name="contact_csn">
                                     <label style="cursor: pointer; font-size: 13px; display: inline;" for="contact_csn">Tôi đã đọc và đồng ý các điều kiện<a href="#" > Thỏa thuận sử dụng</a></label>
                                 </div>
-                                   <button id="btn_cloud_up" class="btn btn-outline-success my-2 my-sm-0 waves-effect waves-light" style="margin-left: 0px;width: 100%; padding: 10px" type="submit">Đăng ký</button>
+                                   <button class="btn my-2 my-sm-0 waves-effect waves-light" style="margin-left: 0px;width: 100%; padding: 10px" type="submit">Đăng ký</button>
                                 <p class="text-p"><a href="javascript:void(0)" onclick="switchAuth('myModal_login')" style=" margin-right: 15px; ">Đăng nhập</a>
                                     <span style=" color: #d0d0d0; ">|</span>
                                     <a href="javascript:void(0)" onclick="switchAuth('myModal_forgot')" style=" margin-left: 15px; ">Quên mật khẩu?</a></p>
@@ -269,13 +269,13 @@
                             <div class="social">
                                 <ul>
                                     <li>
-                                        <a href="" class="facebook">
+                                        <a href="{{env('APP_URL')}}/auth/facebook" class="facebook">
                                             <span class="fa fa-facebook icon_soccial"></span>
                                             <p class="text_social">Đăng ký bằng Facebook</p>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="" class="google-plus">
+                                        <a href="{{env('APP_URL')}}/auth/google" class="google-plus">
                                             <span class="fa fa-google-plus icon_soccial"></span>
                                             <p class="text_social">Đăng ký bằng Google</p>
                                         </a>
@@ -305,7 +305,7 @@
                             <div class="input-field">
                                 <input type="email" name="email" placeholder="Địa chỉ email" required="email" />
                                 <div class="login_action">
-                                    <button id="btn_cloud_up" class="btn btn-outline-success my-2 my-sm-0 waves-effect waves-light" type="submit">Lấy lại mật khẩu</button>
+                                    <button class="btn my-2 my-sm-0 waves-effect waves-light" type="submit">Lấy lại mật khẩu</button>
                                 </div>
                                 <p class="text-p"><a href="javascript:void(0)" onclick="switchAuth('myModal_login')" style=" margin-right: 15px; ">Đăng nhập</a>
                                     <span style=" color: #d0d0d0; ">|</span>
@@ -316,13 +316,13 @@
                             <div class="social">
                                 <ul>
                                     <li>
-                                        <a href="" class="facebook">
+                                        <a href="{{env('APP_URL')}}/auth/facebook" class="facebook">
                                             <span class="fa fa-facebook icon_soccial"></span>
                                             <p class="text_social">Đăng nhập bằng Facebook</p>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="" class="google-plus">
+                                        <a href="{{env('APP_URL')}}/auth/google" class="google-plus">
                                             <span class="fa fa-google-plus icon_soccial"></span>
                                             <p class="text_social">Đăng nhập bằng Google</p>
                                         </a>
@@ -343,6 +343,8 @@
             $("#" + idForm).modal();
         }, 200);
     }
+    $('.modal-login form').submit(false);
+
 </script>
 
 <footer id="footer">
@@ -462,5 +464,4 @@
     </div>
 </footer>
 <script src="/js/lobibox.min.js"></script>
-<script src="/js/waves.js"></script>
 </section>

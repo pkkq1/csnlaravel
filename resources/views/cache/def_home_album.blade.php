@@ -15,7 +15,7 @@ $album_hot = array (
   array (
     'cover_id' => 90643,
     'music_album' => 'Barcelona (Special Edition)',
-    'music_artist' => 'Freddie Mercury; Montserrat Caballe',
+    'music_artist' => 'Freddie Mercury;Montserrat Caballe',
     'music_bitrate' => 1000,
   ),
   1 => 
@@ -85,7 +85,7 @@ $album_hot = array (
   array (
     'cover_id' => 90633,
     'music_album' => 'Just For A While (Single)',
-    'music_artist' => 'K-ICM; T-ICM',
+    'music_artist' => 'K-ICM;T-ICM',
     'music_bitrate' => 1000,
   ),
   11 => 

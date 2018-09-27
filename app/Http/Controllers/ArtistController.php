@@ -27,9 +27,9 @@ class ArtistController extends Controller
         }
         return response($result);
     }
-    public function index(Request $request) {
+    public function index(Request $request, $artistUrl) {
         try {
-            $arrUrl = Helpers::decodeArtistUrl('Le_Hieu~Y3NuX2FydGlzdH4zMw==.html');
+            $arrUrl = Helpers::splitArtistUrl($artistUrl);
         } catch (Exception $e) {
             return view('errors.errors')->with('e');
         }

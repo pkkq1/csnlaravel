@@ -58,15 +58,15 @@ Route::group(['middlewareGroups' => ['web']], function () {
     // single
     Route::get('mp3/{cat}/{sub}/{musicUrl}.html', ['as' => 'music.listen', 'uses' => 'MusicController@listenSingleMusic']);
     Route::get('mp3/{cat}/{sub}/{musicUrl}', ['as' => 'music.listen', 'uses' => 'MusicController@listenSingleMusic']);
+    // video-clip
+    Route::get('hd/video/{sub}/{musicUrl}.html', ['as' => 'music.video', 'uses' => 'MusicController@listenSingleMusic']);
+    Route::get('hd/video/{sub}/{musicUrl}', ['as' => 'music.video', 'uses' => 'MusicController@listenSingleMusic']);
     // album
     Route::get('nghe-album/{musicUrl}.html', ['as' => 'music.album.listen', 'uses' => 'MusicController@listenPlaylistMusic']);
     Route::get('nghe-album/{musicUrl}', ['as' => 'music.album.listen', 'uses' => 'MusicController@listenPlaylistMusic']);
-    // playlist
+    // playlist`
     Route::get('playlist/{playlistUrl}.html', ['as' => 'music.playlist.listen', 'uses' => 'MusicController@listenPlaylistMusic']);
     Route::get('playlist/{playlistUrl}', ['as' => 'music.playlist.listen', 'uses' => 'MusicController@listenPlaylistMusic']);
-    // video-clip
-    Route::get('hd/video/{sub}/{musicUrl}.html', ['as' => 'music.video', 'uses' => 'MusicController@listenPlaylistMusic']);
-    Route::get('hd/video/{sub}/{musicUrl}', ['as' => 'music.video', 'uses' => 'MusicController@listenPlaylistMusic']);
     // artist
     Route::get('ca-si/{artistUrl}', ['as' => 'artist.home', 'uses' => 'ArtistController@index']);
     // nhac hot, bang xep hang

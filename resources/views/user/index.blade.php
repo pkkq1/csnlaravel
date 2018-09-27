@@ -1,5 +1,6 @@
 @section('hidden_wapper', true)
 <?php
+use App\Library\Helpers;
 $titleMeta = $user->name . ' - '. Config::get('constants.app.title');
 ?>
 @extends('layouts.app')
@@ -41,7 +42,7 @@ $titleMeta = $user->name . ' - '. Config::get('constants.app.title');
                             <div class="col">
                                 <div class="card card1">
                                     <div class="card-header" style="background-image: url({{$item->playlist_cover ? PUBLIC_MUSIC_PLAYLIST_PATH.$item->playlist_id . '.png?v=' . time() : '/imgs/avatar_default.png'}});">
-                                        <a href="/playlist/{{$item->playlist_id}}" title="{{$item->playlist_title}}">
+                                        <a href="<?php echo  Helpers::playlist_url($item->toArray()) ?>" title="{{$item->playlist_title}}">
                                             <span class="icon-play"></span>
                                         </a>
                                     </div>

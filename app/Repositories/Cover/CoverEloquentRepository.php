@@ -49,6 +49,10 @@ class CoverEloquentRepository extends EloquentRepository implements CoverReposit
         $result = $this->_model::with('music')->orderBy('cover_id', 'desc')->limit(20)->get();
         return $result;
     }
+    public function getCoverMusicById($id) {
+        $result = $this->_model::where('cover_id', $id)->with('music', 'video')->first();
+        return $result;
+    }
 
 }
 

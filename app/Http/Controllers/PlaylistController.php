@@ -79,6 +79,7 @@ class PlaylistController extends Controller
         if($exist) {
             Helpers::ajaxResult(false, 'Bài hát đã tồn tại trong playlist.', null);
         }
+
         $result = PlaylistMusicModel::firstOrCreate([
             'playlist_id' => $request->input('playlist_id'),
             'music_id' => $request->input('music_id')

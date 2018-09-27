@@ -157,15 +157,7 @@ class Helpers
     }
     public static function artistUrl($artistId, $artistNickName, $mode = '')
     {
-        return self::rawTiengVietUrl($artistNickName) . "~" . base64_encode(KEY_ID_ENCODE_URL . $artistId) . $mode . ".".HTMLEX;
-    }
-    public static function decodeArtistUrl($url)
-    {
-        $arrUrl = self::splitUrl($url);
-        return [
-            'id' => str_replace(KEY_ID_ENCODE_URL, '', base64_decode($arrUrl['id'])),
-            'name' => $arrUrl['url'][0]
-        ];
+        return self::rawTiengVietUrl($artistNickName) . "~" . base64_encode(KEY_ID_ARTIST_ENCODE_URL . $artistId) . $mode . ".".HTMLEX;
     }
 
     public static function category_url($c_info = array(), $c_id = 0, $c_level = 0)
@@ -299,12 +291,32 @@ class Helpers
         }
         return $fileName;
     }
-    public  static function splitUrl($url) {
+    public  static function splitMusicUrl($url) {
         $arrSplit = explode('~', $url);
         $id_encode = last(str_replace('.html', '', $arrSplit));
         return [
             'id' => self::decodeID($id_encode),
             'type' => substr($id_encode, 0, 1) == 'v' ? 'video' : 'music',
+            'url' => str_replace(last($arrSplit), "", $arrSplit)
+        ];
+    }
+
+    public  static function splitPlaylistUrl($url) {
+        $arrSplit = explode('~', $url);
+        $id_encode = last(str_replace('.html', '', $arrSplit));
+        $type = explode('/', url()->current())[3];
+        return [
+            'id' => str_replace($type == 'playlist' ? KEY_ID_PLAYLIST_ENCODE_URL : KEY_ID_ALBUM_ENCODE_URL, "", base64_decode($id_encode)),
+            'type' => $type,
+            'url' => str_replace(last($arrSplit), "", $arrSplit)
+        ];
+    }
+    public  static function splitArtistUrl($url) {
+        $arrSplit = explode('~', $url);
+        $id_encode = last(str_replace('.html', '', $arrSplit));
+        return [
+            'id' => str_replace(KEY_ID_ARTIST_ENCODE_URL, "", base64_decode($id_encode)),
+            'type' => explode('/', url()->current())[3],
             'url' => str_replace(last($arrSplit), "", $arrSplit)
         ];
     }
@@ -402,10 +414,17 @@ class Helpers
 
     public static function album_url($album_info, $id = 0)
     {
-        $album_title_url = rawTiengVietUrl(htmlspecialchars_decode($album_info['music_album']));
-        $album_url = $album_title_url . '~' . base64_encode(KEY_ID_ENCODE_URL . $album_info['cover_id']) . "." . HTMLEX;;
+        $album_title_url = self::rawTiengVietUrl(htmlspecialchars_decode($album_info['music_album']));
+        $album_url = $album_title_url . '~' . base64_encode(KEY_ID_ALBUM_ENCODE_URL . $album_info['cover_id']) . "." . HTMLEX;;
 
-        return ($id == 0) ? '/nghe-album/' . $album_url : '/nghe-album/' . $album_url . '?id='. $id;
+        return ($id == 0) ? SUB_ALLBUM . $album_url : SUB_ALLBUM . $album_url . '?id='. $id;
+    }
+    public static function playlist_url($playlist_info, $id = 0)
+    {
+        $playlist_title_url = self::rawTiengVietUrl(htmlspecialchars_decode($playlist_info['playlist_title']));
+        $playlist_url = $playlist_title_url . '~' . base64_encode(KEY_ID_PLAYLIST_ENCODE_URL . $playlist_info['playlist_id']) . "." . HTMLEX;;
+
+        return ($id == 0) ? SUB_PLAYLIST . $playlist_url : SUB_PLAYLIST . $playlist_url . '?id='. $id;
     }
 
     public static function pagingCustom($page, $rows, $total, $url, $pageVar) {
