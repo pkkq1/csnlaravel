@@ -403,7 +403,7 @@ class Helpers
     public static function album_url($album_info, $id = 0)
     {
         $album_title_url = rawTiengVietUrl(htmlspecialchars_decode($album_info['music_album']));
-        $album_url = $album_title_url . '~' . base64_encode(KEY_ID_ENCODE_URL . $album_info['cover_id']);
+        $album_url = $album_title_url . '~' . base64_encode(KEY_ID_ENCODE_URL . $album_info['cover_id']) . "." . HTMLEX;;
 
         return ($id == 0) ? '/nghe-album/' . $album_url : '/nghe-album/' . $album_url . '?id='. $id;
     }
