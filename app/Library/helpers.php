@@ -400,32 +400,14 @@ class Helpers
         return preg_replace(array('/[^a-zA-Z0-9 -]/', '/[ -]+/', '/^-|-$/'), array('', '-', ''), self::khongdau($str));
     }
 
-    /*
-     * // slower 2x
-     * public static function rawTiengVietUrl($str)
+    public static function album_url($album_info, $id = 0)
     {
-        $unicode = array(
-            'a' => 'á|à|ả|ã|ạ|ă|ắ|ặ|ằ|ẳ|ẵ|â|ấ|ầ|ẩ|ẫ|ậ',
-            'd' => 'đ',
-            'e' => 'é|è|ẻ|ẽ|ẹ|ê|ế|ề|ể|ễ|ệ',
-            'i' => 'í|ì|ỉ|ĩ|ị',
-            'o' => 'ó|ò|ỏ|õ|ọ|ô|ố|ồ|ổ|ỗ|ộ|ơ|ớ|ờ|ở|ỡ|ợ',
-            'u' => 'ú|ù|ủ|ũ|ụ|ư|ứ|ừ|ử|ữ|ự',
-            'y' => 'ý|ỳ|ỷ|ỹ|ỵ',
-            'A' => 'Á|À|Ả|Ã|Ạ|Ă|Ắ|Ặ|Ằ|Ẳ|Ẵ|Â|Ấ|Ầ|Ẩ|Ẫ|Ậ',
-            'D' => 'Đ',
-            'E' => 'É|È|Ẻ|Ẽ|Ẹ|Ê|Ế|Ề|Ể|Ễ|Ệ',
-            'I' => 'Í|Ì|Ỉ|Ĩ|Ị',
-            'O' => 'Ó|Ò|Ỏ|Õ|Ọ|Ô|Ố|Ồ|Ổ|Ỗ|Ộ|Ơ|Ớ|Ờ|Ở|Ỡ|Ợ',
-            'U' => 'Ú|Ù|Ủ|Ũ|Ụ|Ư|Ứ|Ừ|Ử|Ữ|Ự',
-            'Y' => 'Ý|Ỳ|Ỷ|Ỹ|Ỵ',
-        );
-        foreach ($unicode as $nonUnicode => $uni) {
-            $str = preg_replace("/($uni)/i", $nonUnicode, $str);
-        }
-        $str = str_replace(' ', '-', $str);
-        return $str;
-    }*/
+        $album_title_url = rawTiengVietUrl(htmlspecialchars_decode($album_info['music_album']));
+        $album_url = $album_title_url . '~' . base64_encode(KEY_ID_ENCODE_URL . $album_info['cover_id']);
+
+        return ($id == 0) ? '/nghe-album/' . $album_url : '/nghe-album/' . $album_url . '?id='. $id;
+    }
+
     public static function pagingCustom($page, $rows, $total, $url, $pageVar) {
         if(intval($total / $rows) > 1) {
             ?>
