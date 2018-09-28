@@ -470,6 +470,21 @@ class Helpers
         return trim(substr($temp, 0, 40));
     }
 
+    public static function filesize2str($bytes, $precision = 2)
+    {
+        $units = array('Bytes', 'KB', 'MB', 'GB', 'TB');
+
+        $bytes = max($bytes, 0);
+        $pow = floor(($bytes ? log($bytes) : 0) / log(1024));
+        $pow = min($pow, count($units) - 1);
+
+        // Uncomment one of the following alternatives
+        $bytes /= pow(1024, $pow);
+        // $bytes /= (1 << (10 * $pow));
+
+        return round($bytes, $precision) . ' ' . $units[$pow];
+    }
+
     public static function domain_hosted($music_info)
     {
         $music_id = $music_info['music_id'];
@@ -571,6 +586,7 @@ class Helpers
                 $file_url[] = array(
                     'url' => $url . 'downloads/' . ceil($music_id / 1000) . '/' . date('w') . '/' . rawurlencode($music_info['music_filename_noext']) . "/32/" . rawurlencode($music_info['music_file_cache']) . "." . $music_info['music_extension'],
                     'label' => '180p',
+                    'size' => self::filesize2str($music_info['music_32_filesize']),
                     'type' => 'mp4'
                 );
             }
@@ -578,6 +594,7 @@ class Helpers
                 $file_url[] = array(
                     'url' => $url . 'downloads/' . ceil($music_id / 1000) . '/' . date('w') . '/' . rawurlencode($music_info['music_filename_noext']) . "/128/" . rawurlencode($music_info['music_file_cache']) . "." . $music_info['music_extension'],
                     'label' => '360p',
+                    'size' => self::filesize2str($music_info['music_filesize']),
                     'type' => 'mp4'
                 );
             }
@@ -585,6 +602,7 @@ class Helpers
                 $file_url[] = array(
                     'url' => $url . 'downloads/' . ceil($music_id / 1000) . '/' . date('w') . '/' . rawurlencode($music_info['music_filename_noext']) . "/320/" . rawurlencode($music_info['music_file_cache']) . "." . $music_info['music_extension'],
                     'label' => '480p',
+                    'size' => self::filesize2str($music_info['music_320_filesize']),
                     'type' => 'mp4'
                 );
             }
@@ -592,6 +610,7 @@ class Helpers
                 $file_url[] = array(
                     'url' => $url . 'downloads/' . ceil($music_id / 1000) . '/' . date('w') . '/' . rawurlencode($music_info['music_filename_noext']) . "/m4a/" . rawurlencode($music_info['music_file_cache']) . "." . $music_info['music_extension'],
                     'label' => '720p',
+                    'size' => self::filesize2str($music_info['music_m4a_filesize']),
                     'type' => 'mp4'
                 );
             }
@@ -599,6 +618,7 @@ class Helpers
                 $file_url[] = array(
                     'url' => $url . 'downloads/' . ceil($music_id / 1000) . '/' . date('w') . '/' . rawurlencode($music_info['music_filename_noext']) . "/flac/" . rawurlencode($music_info['music_file_cache']) . "." . $music_info['music_extension'],
                     'label' => '1080p',
+                    'size' => self::filesize2str($music_info['music_flac_filesize']),
                     'type' => 'mp4'
                 );
             }
@@ -608,13 +628,15 @@ class Helpers
                 $file_url[] = array(
                     'url' => $url . 'downloads/' . ceil($music_id / 1000) . '/' . date('w') . '/' . rawurlencode($music_info['music_filename_noext']) . "/32/" . rawurlencode($music_info['music_file_cache']) . ".m4a",
                     'label' => '32kbps',
-                    'type' => 'mp3'
+                    'size' => self::filesize2str($music_info['music_32_filesize']),
+                    'type' => 'm4a'
                 );
             }
             if ($music_info['music_filesize'] > 0) {
                 $file_url[] = array(
                     'url' => $url . 'downloads/' . ceil($music_id / 1000) . '/' . date('w') . '/' . rawurlencode($music_info['music_filename_noext']) . "/128/" . rawurlencode($music_info['music_file_cache']) . "." . $music_info['music_extension'],
                     'label' => '128kbps',
+                    'size' => self::filesize2str($music_info['music_filesize']),
                     'type' => 'mp3'
                 );
             }
@@ -622,6 +644,7 @@ class Helpers
                 $file_url[] = array(
                     'url' => $url . 'downloads/' . ceil($music_id / 1000) . '/' . date('w') . '/' . rawurlencode($music_info['music_filename_noext']) . "/320/" . rawurlencode($music_info['music_file_cache']) . "." . $music_info['music_extension'],
                     'label' => '320kbps',
+                    'size' => self::filesize2str($music_info['music_320_filesize']),
                     'type' => 'mp3'
                 );
             }
@@ -629,14 +652,16 @@ class Helpers
                 $file_url[] = array(
                     'url' => $url . 'downloads/' . ceil($music_id / 1000) . '/' . date('w') . '/' . rawurlencode($music_info['music_filename_noext']) . "/m4a/" . rawurlencode($music_info['music_file_cache']) . ".m4a",
                     'label' => '500kbps',
-                    'type' => 'mp3'
+                    'size' => self::filesize2str($music_info['music_m4a_filesize']),
+                    'type' => 'm4a'
                 );
             }
             if ($music_info['music_lossless_filesize'] > 0) {
                 $file_url[] = array(
                     'url' => $url . 'downloads/' . ceil($music_id / 1000) . '/' . date('w') . '/' . rawurlencode($music_info['music_filename_noext']) . "/flac/" . rawurlencode($music_info['music_file_cache']) . ".flac",
                     'label' => 'Lossless',
-                    'type' => 'mp3'
+                    'size' => self::filesize2str($music_info['music_lossless_filesize']),
+                    'type' => 'flac'
                 );
             }
         }

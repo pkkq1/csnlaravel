@@ -10,6 +10,7 @@ global $album_rows_3_0;
 
 
 $titleMeta = $music->music_title . ' - '. $music->music_artist;
+$file_url = Helpers::file_url($music);
 ?>
 @include('cache.def_home_cat_3_0')
 @include('cache.def_home_album')
@@ -173,17 +174,29 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
                             <div class="tab-pane" id="pills-download" role="tabpanel" aria-labelledby="pills-download-tab">
                                 <div class="card card2">
                                     <div class="card-header">
-                                        <h4 class="card-title">Vui lòng click chọn một trong các liên kết ở bên dưới để download bài hát về máy:</h4>
+                                        <h4 class="card-title">Vui lòng click chọn một trong các liên kết ở bên dưới để tải bài bài hát {{$music->music_title}} về máy:</h4>
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
-                                            <div class="col-8">
+                                            <div class="col-12">
                                                 <ul class="list-unstyled">
-                                                    <li><a href="#" title=""><i class="material-icons">file_download</i> Download 1: <span class="c1">MP3 128kbps</span> 4.01 MB</a></li>
-                                                    <li><a href="#" title=""><i class="material-icons">file_download</i> Download 2: <span class="c2">MP3 320kbps</span> 9.99 MB</a></li>
-                                                    <li><a href="#" title=""><i class="material-icons">file_download</i> Download 3: <span class="c3">MP3 320kbps</span> 12.28 MB</a></li>
-                                                    <li><a href="#" title=""><i class="material-icons">file_download</i> Download 4: <span class="c4">FLAC Lossless</span> 27.12 MB</a></li>
-                                                    <li><a href="#" title=""><i class="material-icons">file_download</i> Mobile Download: M4A 32kbps 1.18 MB</a></li>
+                                                    <?php
+                                                    if ( $file_url[1]['url'] != '' ){
+                                                        echo '<li><a href="'. $file_url[1]['url'] .'" title="Click vào đây để tải bài hát '. $music->music_title .'"><i class="material-icons">file_download</i> Link tải nhạc <span class="c1">'. strtoupper($file_url[1]['type']) .' '. $file_url[1]['label'] .'</span> '. $file_url[1]['size'] .'</a></li>' . "\n";
+                                                    }
+                                                    if ( $file_url[2]['url'] != '' ){
+                                                        echo '<li><a href="'. $file_url[2]['url'] .'" title="Click vào đây để tải bài hát '. $music->music_title .'"><i class="material-icons">file_download</i> Link tải nhạc <span class="c2">'. strtoupper($file_url[2]['type']) .' '. $file_url[2]['label'] .'</span> '. $file_url[2]['size'] .'</a></li>' . "\n";
+                                                    }
+                                                    if ( $file_url[3]['url'] != '' ){
+                                                        echo '<li><a href="'. $file_url[3]['url'] .'" title="Click vào đây để tải bài hát '. $music->music_title .'"><i class="material-icons">file_download</i> Link tải nhạc <span class="c3">'. strtoupper($file_url[3]['type']) .' '. $file_url[3]['label'] .'</span> '. $file_url[3]['size'] .'</a></li>' . "\n";
+                                                    }
+                                                    if ( $file_url[4]['url'] != '' ){
+                                                        echo '<li><a href="'. $file_url[4]['url'] .'" title="Click vào đây để tải bài hát '. $music->music_title .'"><i class="material-icons">file_download</i> Link tải nhạc <span class="c4">'. strtoupper($file_url[4]['type']) .' '. $file_url[4]['label'] .'</span> '. $file_url[4]['size'] .'</a></li>' . "\n";
+                                                    }
+                                                    if ( $file_url[0]['url'] != '' ){
+                                                        echo '<li><a href="'. $file_url[0]['url'] .'" title="Click vào đây để tải bài hát '. $music->music_title .'"><i class="material-icons">file_download</i> Link tải nhạc chất lượng thấp: '. strtoupper($file_url[0]['type']) .' '. $file_url[0]['label'] .' '. $file_url[0]['size'] .'</a></li>' . "\n";
+                                                    }
+                                                    ?>
                                                 </ul>
                                             </div>
                                             <div class="col">
@@ -515,9 +528,8 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
             stretching: 'fill',
             sources: [
                     <?php
-                    $file_url = Helpers::file_url($music);
                     for ($i=0; $i<sizeof($file_url); $i++){
-                        echo '{"file": "'. $file_url[$i]['url'] .'", "label": "'. $file_url[$i]['label'] .'", "type": "'. $file_url[$i]['type'] .'"},';
+                        echo '{"file": "'. $file_url[$i]['url'] .'", "label": "'. $file_url[$i]['label'] .'"},';
                     }
                     ?>
             ],
