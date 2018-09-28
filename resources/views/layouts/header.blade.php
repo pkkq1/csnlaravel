@@ -2,6 +2,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>{{ $titleMeta or Config::get('constants.app.title') }}</title>
+    <link rel="icon" href="/imgs/favicon.ico" type="image/x-icon" />
     <!-- CSS -->
     {{--<link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">--}}
     <link rel="stylesheet" type="text/css" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
