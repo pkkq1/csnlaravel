@@ -490,11 +490,6 @@ $file_url = Helpers::file_url($music);
         </div>
     </div>
 
-    {{--{"file":"<?php echo VIDEO_PATH.'1905460-852687a9.mp4' ?>","label":"M4A 500kbps"},--}}
-    {{--{"file":"<?php echo MUSIC_PATH.$music->music_filename ?>","label":"320kbps"},--}}
-    {{--{"file":"<?php echo MUSIC_PATH.$music->music_filename ?>","label":"128kbps"},--}}
-    {{--{"file":"<?php echo MUSIC_PATH.$music->music_filename ?>","label":"320kbps"},--}}
-    {{--{"file":"<?php echo MUSIC_PATH.$music->music_filename ?>","label":"500kbps"},--}}
 
 @endsection
 @section('contentJS')
