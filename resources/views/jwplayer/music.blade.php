@@ -146,6 +146,7 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
                                 <div class="tab-content tab-lyric" id="myTabContent">
                                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                         <article>
+                                            <!--
                                             {{$music->music_lyric}}
                                         </article>
                                     </div>
@@ -157,6 +158,14 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
                                     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
                                         <article>
                                             {{$music->music_lyric}}
+                                                -->
+                                            <?php echo nl2br($music->music_lyric); ?>
+                                            <div class="vietsub1"> test sub 1 </div>
+                                            <div class="vietsub2"> test sub 2 </div>
+                                            <div class="vietsub1"> test sub 1 </div>
+                                            <div class="vietsub2"> test sub 2 </div>
+                                            <div class="vietsub1"> test sub 1 </div>
+                                            <div class="vietsub2"> test sub 2 </div>
                                         </article>
                                     </div>
                                 </div>
@@ -505,11 +514,13 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
             aspectratio: "<?php echo $typeJw == 'video' ? '16:9' : 'false' ?>",
             stretching: 'fill',
             sources: [
-                {"file":"<?php echo MUSIC_PATH ?>1905460-852687a9.mp3","label":"320kbps"},
-                {"file":"<?php echo MUSIC_PATH ?>1905460-852687a9.mp3","label":"128kbps"},
-                {"file":"<?php echo MUSIC_PATH ?>1905460-852687a9.mp3","label":"320kbps"},
-                {"file":"<?php echo MUSIC_PATH ?>1905460-852687a9.mp3","label":"500kbps"},
-                ],
+                    <?php
+                    $file_url = Helpers::file_url($music);
+                    for ($i=0; $i<sizeof($file_url); $i++){
+                        echo '{"file": "'. $file_url[$i]['url'] .'", "label": "'. $file_url[$i]['label'] .'", "type": "'. $file_url[$i]['type'] .'"},';
+                    }
+                    ?>
+            ],
             title:'<?php echo $music->music_title ?>',
             skin: {
                 name: 'nhac'
