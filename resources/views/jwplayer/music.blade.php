@@ -10,6 +10,7 @@ global $album_rows_3_0;
 
 
 $titleMeta = $music->music_title . ' - '. $music->music_artist;
+$file_url = Helpers::file_url($music);
 ?>
 @include('cache.def_home_cat_3_0')
 @include('cache.def_home_album')
@@ -38,18 +39,20 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
                     <span class="d-flex align-items-center listen"><i class="material-icons">headset</i> {{number_format($music->music_listen)}} lượt nghe</span>
                 </div>
                 <div class="card mb-4 detail_lyric_1">
+                    <div id="csnplayerads" style="position:relative; z-index: 99999; width:100%;"> </div>
                     <div id="csnplayer" style="position:relative; z-index: 99999; width:100%;"> </div>
                     <div class="music_recommendation" style="border-bottom: 1px solid rgba(0,0,0,.125);">
                         <div class="d-table">
                             <?php
                             if(($typeListen == 'playlist' || $typeListen == 'album') && isset($playlistMusic)){
+                                $catMusic = Helpers::getRandLimitArr($album_rows_3_0, 100);
                                 array_map(function ($i, $item) use($music) {
                                 $url = env('APP_URL').SUB_BXH_MUSIC.Helpers::music_url($item);
-                                $urlAlbum = url()->current() . '?id=' . ++$i;
+                                $urlAlbum = url()->current() . '?id=' . Helpers::encodeID($item['music_id']);
                                 ?>
                                     <div id="music-listen-{{$item['music_id']}}" class="card-footer{{($music->music_id == $item['music_id'] ? ' listen' : '')}}" style="display: table-row;">
                                         <div class="name d-table-cell">
-                                            <a href="{{$urlAlbum}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$i . '. ' . $item['music_title']}}</a>
+                                            <a href="{{$urlAlbum}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{++$i . '. ' . $item['music_title']}}</a>
                                         </div>
                                         <div class="author d-table-cell">
                                             <?php echo '<a href="#">'.implode(';</a><a href="#">', explode(';', $item['music_artist'])).'</a>' ?>
@@ -117,16 +120,16 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
                         </div>
                         <ul class="nav nav-pills nav-justified mb-3" id="pills-tab" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link waves-effect waves-light active" id="pills-liric-tab" data-toggle="pill" href="#pills-liric" role="tab" aria-controls="pills-liric" aria-selected="true"><i class="material-icons">queue_music</i> Lyric</a>
+                                <a class="nav-link active" id="pills-liric-tab" data-toggle="pill" href="#pills-liric" role="tab" aria-controls="pills-liric" aria-selected="true"><i class="material-icons">queue_music</i> Lyric</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link waves-effect waves-light" id="pills-download-tab" data-toggle="pill" href="#pills-download" role="tab" aria-controls="pills-download" aria-selected="false"><i class="material-icons">file_download</i> Download</a>
+                                <a class="nav-link" id="pills-download-tab" data-toggle="pill" href="#pills-download" role="tab" aria-controls="pills-download" aria-selected="false"><i class="material-icons">file_download</i> Download</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link waves-effect waves-light" id="pills-share-tab" data-toggle="pill" href="#pills-share" role="tab" aria-controls="pills-share" aria-selected="false"><i class="material-icons">share</i> Chia sẻ</a>
+                                <a class="nav-link" id="pills-share-tab" data-toggle="pill" href="#pills-share" role="tab" aria-controls="pills-share" aria-selected="false"><i class="material-icons">share</i> Chia sẻ</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link add_playlist waves-effect waves-light" onclick="loadPlayList()" id="pills-plus-tab" data-toggle="pill" href="#pills-plus" role="tab" aria-controls="pills-plus" aria-selected="false"><i class="material-icons">control_point</i> Thêm vào</a>
+                                <a class="nav-link add_playlist" onclick="loadPlayList()" id="pills-plus-tab" data-toggle="pill" href="#pills-plus" role="tab" aria-controls="pills-plus" aria-selected="false"><i class="material-icons">control_point</i> Thêm vào</a>
                             </li>
                         </ul>
                         <div class="tab-content" id="pills-tabContent">
@@ -145,6 +148,7 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
                                 <div class="tab-content tab-lyric" id="myTabContent">
                                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                         <article>
+                                            <!--
                                             {{$music->music_lyric}}
                                         </article>
                                     </div>
@@ -156,6 +160,14 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
                                     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
                                         <article>
                                             {{$music->music_lyric}}
+                                                -->
+                                            <?php echo nl2br($music->music_lyric); ?>
+                                            <div class="vietsub1"> test sub 1 </div>
+                                            <div class="vietsub2"> test sub 2 </div>
+                                            <div class="vietsub1"> test sub 1 </div>
+                                            <div class="vietsub2"> test sub 2 </div>
+                                            <div class="vietsub1"> test sub 1 </div>
+                                            <div class="vietsub2"> test sub 2 </div>
                                         </article>
                                     </div>
                                 </div>
@@ -163,17 +175,29 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
                             <div class="tab-pane" id="pills-download" role="tabpanel" aria-labelledby="pills-download-tab">
                                 <div class="card card2">
                                     <div class="card-header">
-                                        <h4 class="card-title">Vui lòng click chọn một trong các liên kết ở bên dưới để download bài hát về máy:</h4>
+                                        <h4 class="card-title">Vui lòng click chọn một trong các liên kết ở bên dưới để tải bài bài hát {{$music->music_title}} về máy:</h4>
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
-                                            <div class="col-8">
+                                            <div class="col-12">
                                                 <ul class="list-unstyled">
-                                                    <li><a href="#" title=""><i class="material-icons">file_download</i> Download 1: <span class="c1">MP3 128kbps</span> 4.01 MB</a></li>
-                                                    <li><a href="#" title=""><i class="material-icons">file_download</i> Download 2: <span class="c2">MP3 320kbps</span> 9.99 MB</a></li>
-                                                    <li><a href="#" title=""><i class="material-icons">file_download</i> Download 3: <span class="c3">MP3 320kbps</span> 12.28 MB</a></li>
-                                                    <li><a href="#" title=""><i class="material-icons">file_download</i> Download 4: <span class="c4">FLAC Lossless</span> 27.12 MB</a></li>
-                                                    <li><a href="#" title=""><i class="material-icons">file_download</i> Mobile Download: M4A 32kbps 1.18 MB</a></li>
+                                                    <?php
+                                                    if ( isset($file_url[1]['url']) ){
+                                                        echo '<li><a href="'. $file_url[1]['url'] .'" title="Click vào đây để tải bài hát '. $music->music_title .'"><i class="material-icons">file_download</i> Link tải nhạc <span class="c1">'. strtoupper($file_url[1]['type']) .' '. $file_url[1]['label'] .'</span> '. $file_url[1]['size'] .'</a></li>' . "\n";
+                                                    }
+                                                    if ( isset($file_url[2]['url']) ){
+                                                        echo '<li><a href="'. $file_url[2]['url'] .'" title="Click vào đây để tải bài hát '. $music->music_title .'"><i class="material-icons">file_download</i> Link tải nhạc <span class="c2">'. strtoupper($file_url[2]['type']) .' '. $file_url[2]['label'] .'</span> '. $file_url[2]['size'] .'</a></li>' . "\n";
+                                                    }
+                                                    if ( isset($file_url[3]['url']) ){
+                                                        echo '<li><a href="'. $file_url[3]['url'] .'" title="Click vào đây để tải bài hát '. $music->music_title .'"><i class="material-icons">file_download</i> Link tải nhạc <span class="c3">'. strtoupper($file_url[3]['type']) .' '. $file_url[3]['label'] .'</span> '. $file_url[3]['size'] .'</a></li>' . "\n";
+                                                    }
+                                                    if ( isset($file_url[4]['url']) ){
+                                                        echo '<li><a href="'. $file_url[4]['url'] .'" title="Click vào đây để tải bài hát '. $music->music_title .'"><i class="material-icons">file_download</i> Link tải nhạc <span class="c4">'. strtoupper($file_url[4]['type']) .' '. $file_url[4]['label'] .'</span> '. $file_url[4]['size'] .'</a></li>' . "\n";
+                                                    }
+                                                    if ( isset($file_url[0]['url']) ){
+                                                        echo '<li><a href="'. $file_url[0]['url'] .'" title="Click vào đây để tải bài hát '. $music->music_title .'"><i class="material-icons">file_download</i> Link tải nhạc chất lượng thấp: '. strtoupper($file_url[0]['type']) .' '. $file_url[0]['label'] .' '. $file_url[0]['size'] .'</a></li>' . "\n";
+                                                    }
+                                                    ?>
                                                 </ul>
                                             </div>
                                             <div class="col">
@@ -467,11 +491,6 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
         </div>
     </div>
 
-    {{--{"file":"<?php echo VIDEO_PATH.'1905460-852687a9.mp4' ?>","label":"M4A 500kbps"},--}}
-    {{--{"file":"<?php echo MUSIC_PATH.$music->music_filename ?>","label":"320kbps"},--}}
-    {{--{"file":"<?php echo MUSIC_PATH.$music->music_filename ?>","label":"128kbps"},--}}
-    {{--{"file":"<?php echo MUSIC_PATH.$music->music_filename ?>","label":"320kbps"},--}}
-    {{--{"file":"<?php echo MUSIC_PATH.$music->music_filename ?>","label":"500kbps"},--}}
 
 @endsection
 @section('contentJS')
@@ -498,19 +517,53 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
         var player = jwplayer('csnplayer');
         var firstPlayer = true;
 
+        jwplayer("csnplayerads").setup({
+            advertising: {
+                client: "vast",
+                skipoffset: 5,
+                "adschedule": {
+                    "myPreroll": {
+                        "offset": "pre",
+                        "tag": ["https://d2.hadarone.com/vast3?plm=1179&t=1538133576","https://d2.hadarone.com/vast3?plm=1641&t=1538133576","http://delivery.yomedia.vn/vast?pid=945a082befd44edfba7e7d0b702fa674&ec=0","https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/192930568/chiasenhac.vn-Preroll&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&url=[referrer_url]&description_url=[description_url]&correlator=1538133576","http://tag.gammaplatform.com/adx/request/?wid=1508317885&zid=1508318418&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"]
+                    },
+                    "myPreroll2": {
+                        "offset": 1,
+                        "tag": ["https://d2.hadarone.com/vast3?plm=1179&t=1538133576","https://d2.hadarone.com/vast3?plm=1641&t=1538133576","http://delivery.yomedia.vn/vast?pid=945a082befd44edfba7e7d0b702fa674&ec=0","https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/192930568/chiasenhac.vn-Preroll&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&url=[referrer_url]&description_url=[description_url]&correlator=1538133576","http://tag.gammaplatform.com/adx/request/?wid=1508317885&zid=1508318418&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"]
+                    },
+                    "myPreroll3": {
+                        "offset": 2,
+                        "tag": ["http://tag.gammaplatform.com/adx/request/?wid=1508317885&zid=1508318418&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"]
+                    },
+                    "myMidroll": {
+                        "offset": 3,
+                        "tag": "http://tag.gammaplatform.com/adx/request/?wid=1508317885&zid=1508318800&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"
+                    },
+                    "myMidroll2": {
+                        "offset": 4,
+                        "tag": "http://tag.gammaplatform.com/adx/request/?wid=1508317885&zid=1508318800&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"
+                    }
+                }
+            },
+            mute: true,
+            width: "100%",
+            aspectratio: "16:9",
+            autostart: true,
+            file: "http://chiasenhac.vn/images/logo/logo_csn.mp4"
+        });
+
+
         player.setup({
             width: '100%',
-            height: '75',
+            height: '110',
             aspectratio: "<?php echo $typeJw == 'video' ? '16:9' : 'false' ?>",
             stretching: 'fill',
             sources: [
-                {
-                    "file": "http://data35.chiasenhac.com/downloads/1925/1/1924174-cf6e6b03/128/How%20Can%20I%20Go%20On%20-%20Freddie%20Mercury_Montse.mp3",
-                    "label": "128kbps"
-                }, {
-                    "file": "http://data35.chiasenhac.com/downloads/1925/1/1924174-cf6e6b03/320/How%20Can%20I%20Go%20On%20-%20Freddie%20Mercury_Montse.mp3",
-                    "label": "320kbps"
-                },  ],
+                    <?php
+                    for ($i=0; $i<sizeof($file_url); $i++){
+                        echo '{"file": "'. $file_url[$i]['url'] .'", "label": "'. $file_url[$i]['label'] .'"},';
+                    }
+                    ?>
+            ],
             title:'<?php echo $music->music_title ?>',
             skin: {
                 name: 'nhac'
@@ -704,7 +757,7 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
             <?php
                 if(!Auth::check()) {
                 ?>
-                    switchAuth('myModal_login');
+                    alertModal('Bạn chưa đăng nhập.');
                     return false;
                 <?php
                 }
@@ -807,7 +860,7 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
             <?php
                 if(!Auth::check()) {
                     ?>
-                    switchAuth('myModal_login');
+                    alertModal('Bạn chưa đăng nhập.');
                     return false;
                     <?php
                 }
@@ -865,7 +918,7 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
             <?php
                 if(!Auth::check()) {
                 ?>
-                    switchAuth('myModal_login');
+                    alertModal('Bạn chưa đăng nhập.')
                     return false;
                 <?php
                 }
@@ -922,7 +975,7 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
             <?php
             if(!Auth::check()) {
                 ?>
-                    switchAuth('myModal_login');
+                    alertModal('Bạn chưa đăng nhập.');
                     return false;
                 <?php
             }

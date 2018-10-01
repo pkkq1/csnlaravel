@@ -143,13 +143,13 @@ global $top_artist_rows;
             <div class="row row10px">
                 <div class="col">
                     <div class="box_header d-flex justify-content-between align-items-end">
-                        <h5 class="title m-0">Mới chia sẻ</h5>
+                        <h5 class="title m-0">Bài hát mới chia sẻ</h5>
                         <a class="link_more" href="/album.html" title="Bài hát mới nhất 2018">Xem tất cả</a>
                     </div>
                     <ul class="list-unstyled list_music">
                         <?php
                             array_map(function($item) {
-                                $url = SUB_ALLBUM.Helpers::music_url($item);
+                                $url = Helpers::listen_url($item);
                             ?>
                             <li class="media align-items-stretch items-stretch-{{$item['music_id']}}">
                                 <div class="media-left align-items-stretch mr-2">
@@ -269,7 +269,7 @@ global $top_artist_rows;
                 <?php
                 $albumNew = Helpers::getRandLimitArr($album_new, LIMIT_HOME_ALBUM_NEW);
                 array_map(function ($i, $item) {
-                    $url = SUB_ALLBUM.Helpers::music_url($item);
+                    $url = Helpers::listen_url($item);
                 ?>
                     @if (($i % 5) == 0)
                     </div>
@@ -301,7 +301,7 @@ global $top_artist_rows;
                 <?php
                 $videoMusic = Helpers::getRandLimitArr($video_new_uploads, LIMIT_HOME_MUSIC_NEW);
                 array_map(function ($i, $item) {
-                $url = SUB_VIDEO.Helpers::music_url($item);
+                $url = Helpers::listen_url($item);
                 if($i <= 7){
                     ?>
                     @if ($i == 4)

@@ -449,4 +449,223 @@ class Helpers
             <?php
         }
     }
+
+
+    public static function music_filename($music_info)
+    {
+        $name = htmlspecialchars_decode(self::khongdau($music_info['music_title'] . ' - ' . $music_info['music_artist']));
+        $temp = '';
+        $last_char = ' ';
+        for ($i = 0; $i < strlen($name); $i++) {
+            $char = $name[$i];
+            if (('a' <= $char && $char <= 'z') || ('A' <= $char && $char <= 'Z') || ('0' <= $char && $char <= '9') || $char == '-') {
+                $last_char = $char;
+                $temp .= $last_char;
+            } else if ($last_char != ' ') {
+                $last_char = ($char == ' ') ? ' ' : '_';
+                $temp .= $last_char;
+            }
+        }
+
+        return trim(substr($temp, 0, 40));
+    }
+
+    public static function filesize2str($bytes, $precision = 2)
+    {
+        $units = array('Bytes', 'KB', 'MB', 'GB', 'TB');
+
+        $bytes = max($bytes, 0);
+        $pow = floor(($bytes ? log($bytes) : 0) / log(1024));
+        $pow = min($pow, count($units) - 1);
+
+        // Uncomment one of the following alternatives
+        $bytes /= pow(1024, $pow);
+        // $bytes /= (1 << (10 * $pow));
+
+        return round($bytes, $precision) . ' ' . $units[$pow];
+    }
+
+    public static function domain_hosted($music_info)
+    {
+        $music_id = $music_info['music_id'];
+
+        if ($music_id <= 200000)
+            $url = 'http://data02.chiasenhac.com/';
+        else if ($music_id < 1000000)
+            $url = 'http://data3.chiasenhac.com/';
+        else if ($music_id <= 1005000)
+            $url = 'http://data5.chiasenhac.com/';
+        else if ($music_id <= 1029000)
+            $url = 'http://data16.chiasenhac.com/';
+        else if ($music_id <= 1059000)
+            $url = 'http://data17.chiasenhac.com/';
+        else if ($music_id <= 1089000)
+            $url = 'http://data18.chiasenhac.com/';
+        else if ($music_id <= 1119000)
+            $url = 'http://data19.chiasenhac.com/';
+        else if ($music_id <= 1149000)
+            $url = 'http://data20.chiasenhac.com/';
+        else if ($music_id <= 1179000)
+            $url = 'http://data21.chiasenhac.com/';
+        else if ($music_id <= 1209000)
+            $url = 'http://data22.chiasenhac.com/';
+        else if ($music_id <= 1239000)
+            $url = 'http://data23.chiasenhac.com/';
+        else if ($music_id <= 1269000)
+            $url = 'http://data24.chiasenhac.com/';
+        else if ($music_id <= 1299000)
+            $url = 'http://data00.chiasenhac.com/';
+        else if ($music_id <= 1319000)
+            $url = 'http://data.chiasenhac.com/';
+        else if ($music_id <= 1349000)
+            $url = 'http://data02.chiasenhac.com/';
+        else if ($music_id <= 1379000)
+            $url = 'http://data01.chiasenhac.com/';
+        else if ($music_id <= 1419000)
+            $url = 'http://data25.chiasenhac.com/';
+        else if ($music_id <= 1449000)
+            $url = 'http://data26.chiasenhac.com/';
+        else if ($music_id <= 1489000)
+            $url = 'http://data27.chiasenhac.com/';
+        else if ($music_id <= 1529000)
+            $url = 'http://data04.chiasenhac.com/';
+        else if ($music_id <= 1569000)
+            $url = 'http://data03.chiasenhac.com/';
+        else if ($music_id <= 1649000)
+            $url = 'http://data2.chiasenhac.com/';
+        else if ($music_id <= 1689000)
+            $url = 'http://data05.chiasenhac.com/';
+        else if ($music_id <= 1729000)
+            $url = 'http://data2.chiasenhac.com/';
+        else if ($music_id <= 1739000)
+            $url = 'http://data01.chiasenhac.com/';
+        else if ($music_id <= 1809000)
+            $url = 'http://data3.chiasenhac.com/';
+        else if ($music_id <= 1859000)
+            $url = 'http://data00.chiasenhac.com/';
+        else if ($music_id <= 1919000)
+            $url = (rand(1, 2) == 1) ? 'http://data38.chiasenhac.com/' : 'http://data37.chiasenhac.com/';
+        else if ($music_id <= 1929000)
+            $url = 'http://data35.chiasenhac.com/';
+        else if ($music_id <= 1944000)
+            $url = 'http://data36.chiasenhac.com/';
+        else if ($music_id <= 1949000)
+            $url = 'http://data35.chiasenhac.com/';
+        else if ($music_id <= 1957000)
+            $url = 'http://data31.chiasenhac.com/';
+        else
+            $url = 'http://data.chiasenhac.com/';
+
+        return $url;
+    }
+
+    public static function file_url(&$music_info)
+    {
+        if (!isset($music_info['music_id'])) {
+            return '';
+        }
+
+        $music_id = $music_info['music_id'];
+        if (!$music_info['music_file_cache']) {
+            $music_info['music_file_cache'] = self::music_filename($music_info);
+        }
+        $url = self::domain_hosted($music_info);
+
+        $pathinfo = pathinfo($music_info['music_filename']);
+        $music_info['music_extension'] = $pathinfo['extension'];
+        $music_info['music_filename_noext'] = $pathinfo['filename'];
+
+        $music_info['url1'] = $url . 'downloads/' . ceil($music_id / 1000) . '/' . date('w') . '/';
+        $music_info['url2'] = rawurlencode($music_info['music_filename_noext']);
+        $music_info['url3'] = "/128/" . rawurlencode($music_info['music_file_cache']) . "." . $music_info['music_extension'];
+
+        if ($music_info['music_extension'] == 'mp4') {
+            $file_url = array();
+
+            if ($music_info['music_32_filesize'] > 0) {
+                $file_url[] = array(
+                    'url' => $url . 'downloads/' . ceil($music_id / 1000) . '/' . date('w') . '/' . rawurlencode($music_info['music_filename_noext']) . "/32/" . rawurlencode($music_info['music_file_cache']) . "." . $music_info['music_extension'],
+                    'label' => '180p',
+                    'size' => self::filesize2str($music_info['music_32_filesize']),
+                    'type' => 'mp4'
+                );
+            }
+            if ($music_info['music_filesize'] > 0) {
+                $file_url[] = array(
+                    'url' => $url . 'downloads/' . ceil($music_id / 1000) . '/' . date('w') . '/' . rawurlencode($music_info['music_filename_noext']) . "/128/" . rawurlencode($music_info['music_file_cache']) . "." . $music_info['music_extension'],
+                    'label' => '360p',
+                    'size' => self::filesize2str($music_info['music_filesize']),
+                    'type' => 'mp4'
+                );
+            }
+            if ($music_info['music_320_filesize'] > 0) {
+                $file_url[] = array(
+                    'url' => $url . 'downloads/' . ceil($music_id / 1000) . '/' . date('w') . '/' . rawurlencode($music_info['music_filename_noext']) . "/320/" . rawurlencode($music_info['music_file_cache']) . "." . $music_info['music_extension'],
+                    'label' => '480p',
+                    'size' => self::filesize2str($music_info['music_320_filesize']),
+                    'type' => 'mp4'
+                );
+            }
+            if ($music_info['music_m4a_filesize'] > 0) {
+                $file_url[] = array(
+                    'url' => $url . 'downloads/' . ceil($music_id / 1000) . '/' . date('w') . '/' . rawurlencode($music_info['music_filename_noext']) . "/m4a/" . rawurlencode($music_info['music_file_cache']) . "." . $music_info['music_extension'],
+                    'label' => '720p',
+                    'size' => self::filesize2str($music_info['music_m4a_filesize']),
+                    'type' => 'mp4'
+                );
+            }
+            if ($music_info['music_lossless_filesize'] > 0) {
+                $file_url[] = array(
+                    'url' => $url . 'downloads/' . ceil($music_id / 1000) . '/' . date('w') . '/' . rawurlencode($music_info['music_filename_noext']) . "/flac/" . rawurlencode($music_info['music_file_cache']) . "." . $music_info['music_extension'],
+                    'label' => '1080p',
+                    'size' => self::filesize2str($music_info['music_flac_filesize']),
+                    'type' => 'mp4'
+                );
+            }
+        } else {
+            $file_url = array();
+            if ($music_info['music_32_filesize'] > 0) {
+                $file_url[] = array(
+                    'url' => $url . 'downloads/' . ceil($music_id / 1000) . '/' . date('w') . '/' . rawurlencode($music_info['music_filename_noext']) . "/32/" . rawurlencode($music_info['music_file_cache']) . ".m4a",
+                    'label' => '32kbps',
+                    'size' => self::filesize2str($music_info['music_32_filesize']),
+                    'type' => 'm4a'
+                );
+            }
+            if ($music_info['music_filesize'] > 0) {
+                $file_url[] = array(
+                    'url' => $url . 'downloads/' . ceil($music_id / 1000) . '/' . date('w') . '/' . rawurlencode($music_info['music_filename_noext']) . "/128/" . rawurlencode($music_info['music_file_cache']) . "." . $music_info['music_extension'],
+                    'label' => '128kbps',
+                    'size' => self::filesize2str($music_info['music_filesize']),
+                    'type' => 'mp3'
+                );
+            }
+            if ($music_info['music_320_filesize'] > 0) {
+                $file_url[] = array(
+                    'url' => $url . 'downloads/' . ceil($music_id / 1000) . '/' . date('w') . '/' . rawurlencode($music_info['music_filename_noext']) . "/320/" . rawurlencode($music_info['music_file_cache']) . "." . $music_info['music_extension'],
+                    'label' => '320kbps',
+                    'size' => self::filesize2str($music_info['music_320_filesize']),
+                    'type' => 'mp3'
+                );
+            }
+            if ($music_info['music_m4a_filesize'] > 0) {
+                $file_url[] = array(
+                    'url' => $url . 'downloads/' . ceil($music_id / 1000) . '/' . date('w') . '/' . rawurlencode($music_info['music_filename_noext']) . "/m4a/" . rawurlencode($music_info['music_file_cache']) . ".m4a",
+                    'label' => '500kbps',
+                    'size' => self::filesize2str($music_info['music_m4a_filesize']),
+                    'type' => 'm4a'
+                );
+            }
+            if ($music_info['music_lossless_filesize'] > 0) {
+                $file_url[] = array(
+                    'url' => $url . 'downloads/' . ceil($music_id / 1000) . '/' . date('w') . '/' . rawurlencode($music_info['music_filename_noext']) . "/flac/" . rawurlencode($music_info['music_file_cache']) . ".flac",
+                    'label' => 'Lossless',
+                    'size' => self::filesize2str($music_info['music_lossless_filesize']),
+                    'type' => 'flac'
+                );
+            }
+        }
+
+        return $file_url;
+    }
 }
