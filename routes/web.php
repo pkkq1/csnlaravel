@@ -13,7 +13,7 @@
 
 Auth::routes();
 
-Route::get('/ping', 'SolariumController@ping');
+Route::get('/ping', 'Sync\SorlSyncController@ping');
 Route::get('/sync/sorl_music', 'Sync\SorlSyncController@syncMusic');
 Route::get('/sync/sorl_video', 'Sync\SorlSyncController@syncVideo');
 Route::get('/sync/sorl_artist', 'Sync\SorlSyncController@syncArtist');

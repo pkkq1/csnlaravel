@@ -26,6 +26,9 @@ class SorlSyncController extends Controller
         $this->Solr = $Solr;
         $this->musicRepository = $musicRepository;
     }
+    public function ping() {
+        return $this->Solr->ping();
+    }
     public function syncMusic(Request $request) {
         $searchMusic = MusicModel::with('musicListen')->select('music_id', 'music_title_search', 'music_artist_search', 'music_composer_search', 'music_album_search', 'music_title', 'music_artist',
         'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_title_url', 'music_artist_id', 'music_album', 'music_listen', 'music_filename', 'music_bitrate')
