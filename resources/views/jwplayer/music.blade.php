@@ -43,14 +43,13 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
                         <div class="d-table">
                             <?php
                             if(($typeListen == 'playlist' || $typeListen == 'album') && isset($playlistMusic)){
-                                $catMusic = Helpers::getRandLimitArr($album_rows_3_0, 100);
                                 array_map(function ($i, $item) use($music) {
                                 $url = env('APP_URL').SUB_BXH_MUSIC.Helpers::music_url($item);
-                                $urlAlbum = url()->current() . '?id=' . Helpers::encodeID($item['music_id']);
+                                $urlAlbum = url()->current() . '?id=' . ++$i;
                                 ?>
                                     <div id="music-listen-{{$item['music_id']}}" class="card-footer{{($music->music_id == $item['music_id'] ? ' listen' : '')}}" style="display: table-row;">
                                         <div class="name d-table-cell">
-                                            <a href="{{$urlAlbum}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{++$i . '. ' . $item['music_title']}}</a>
+                                            <a href="{{$urlAlbum}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$i . '. ' . $item['music_title']}}</a>
                                         </div>
                                         <div class="author d-table-cell">
                                             <?php echo '<a href="#">'.implode(';</a><a href="#">', explode(';', $item['music_artist'])).'</a>' ?>
@@ -118,16 +117,16 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
                         </div>
                         <ul class="nav nav-pills nav-justified mb-3" id="pills-tab" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" id="pills-liric-tab" data-toggle="pill" href="#pills-liric" role="tab" aria-controls="pills-liric" aria-selected="true"><i class="material-icons">queue_music</i> Lyric</a>
+                                <a class="nav-link waves-effect waves-light active" id="pills-liric-tab" data-toggle="pill" href="#pills-liric" role="tab" aria-controls="pills-liric" aria-selected="true"><i class="material-icons">queue_music</i> Lyric</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="pills-download-tab" data-toggle="pill" href="#pills-download" role="tab" aria-controls="pills-download" aria-selected="false"><i class="material-icons">file_download</i> Download</a>
+                                <a class="nav-link waves-effect waves-light" id="pills-download-tab" data-toggle="pill" href="#pills-download" role="tab" aria-controls="pills-download" aria-selected="false"><i class="material-icons">file_download</i> Download</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="pills-share-tab" data-toggle="pill" href="#pills-share" role="tab" aria-controls="pills-share" aria-selected="false"><i class="material-icons">share</i> Chia sẻ</a>
+                                <a class="nav-link waves-effect waves-light" id="pills-share-tab" data-toggle="pill" href="#pills-share" role="tab" aria-controls="pills-share" aria-selected="false"><i class="material-icons">share</i> Chia sẻ</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link add_playlist" onclick="loadPlayList()" id="pills-plus-tab" data-toggle="pill" href="#pills-plus" role="tab" aria-controls="pills-plus" aria-selected="false"><i class="material-icons">control_point</i> Thêm vào</a>
+                                <a class="nav-link add_playlist waves-effect waves-light" onclick="loadPlayList()" id="pills-plus-tab" data-toggle="pill" href="#pills-plus" role="tab" aria-controls="pills-plus" aria-selected="false"><i class="material-icons">control_point</i> Thêm vào</a>
                             </li>
                         </ul>
                         <div class="tab-content" id="pills-tabContent">
@@ -501,15 +500,17 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
 
         player.setup({
             width: '100%',
-            height: '110',
+            height: '75',
             aspectratio: "<?php echo $typeJw == 'video' ? '16:9' : 'false' ?>",
             stretching: 'fill',
             sources: [
-                {"file":"<?php echo MUSIC_PATH ?>1905460-852687a9.mp3","label":"320kbps"},
-                {"file":"<?php echo MUSIC_PATH ?>1905460-852687a9.mp3","label":"128kbps"},
-                {"file":"<?php echo MUSIC_PATH ?>1905460-852687a9.mp3","label":"320kbps"},
-                {"file":"<?php echo MUSIC_PATH ?>1905460-852687a9.mp3","label":"500kbps"},
-                ],
+                {
+                    "file": "http://data35.chiasenhac.com/downloads/1925/1/1924174-cf6e6b03/128/How%20Can%20I%20Go%20On%20-%20Freddie%20Mercury_Montse.mp3",
+                    "label": "128kbps"
+                }, {
+                    "file": "http://data35.chiasenhac.com/downloads/1925/1/1924174-cf6e6b03/320/How%20Can%20I%20Go%20On%20-%20Freddie%20Mercury_Montse.mp3",
+                    "label": "320kbps"
+                },  ],
             title:'<?php echo $music->music_title ?>',
             skin: {
                 name: 'nhac'
@@ -703,7 +704,7 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
             <?php
                 if(!Auth::check()) {
                 ?>
-                    alertModal('Bạn chưa đăng nhập.');
+                    switchAuth('myModal_login');
                     return false;
                 <?php
                 }
@@ -806,7 +807,7 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
             <?php
                 if(!Auth::check()) {
                     ?>
-                    alertModal('Bạn chưa đăng nhập.');
+                    switchAuth('myModal_login');
                     return false;
                     <?php
                 }
@@ -864,7 +865,7 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
             <?php
                 if(!Auth::check()) {
                 ?>
-                    alertModal('Bạn chưa đăng nhập.')
+                    switchAuth('myModal_login');
                     return false;
                 <?php
                 }
@@ -921,7 +922,7 @@ $titleMeta = $music->music_title . ' - '. $music->music_artist;
             <?php
             if(!Auth::check()) {
                 ?>
-                    alertModal('Bạn chưa đăng nhập.');
+                    switchAuth('myModal_login');
                     return false;
                 <?php
             }

@@ -22,7 +22,7 @@ Route::get('/sync/demo', 'Sync\AlbumController@syncAlbumHot');
 
 
 Route::group(['middlewareGroups' => ['web']], function () {
-    Route::get('/logout', 'UserController@logout');
+    Route::get('/logout', 'User\UserController@logout');
 
     Route::get('/', ['as' => 'HomeController.index', 'uses' => 'HomeController@index']);
     Route::get('/home', ['as' => 'HomeController.index', 'uses' => 'HomeController@index']);
@@ -31,6 +31,7 @@ Route::group(['middlewareGroups' => ['web']], function () {
     // Socialite
     Route::get('auth/facebook', 'Auth\AuthFacebookController@redirectToProvider');
     Route::get('auth/facebook/callback', 'Auth\AuthFacebookController@handleProviderCallback');
+    Route::get('/xac-nhan-email/{token}', 'User\UserController@verifyEmail');
     // Category
     Route::get('mp3/{cat}.html', ['as' => 'category.get1', 'uses' => 'CategoryController@index1']);
     Route::get('mp3/{cat}', ['as' => 'category.get1', 'uses' => 'CategoryController@index1']);
@@ -64,7 +65,7 @@ Route::group(['middlewareGroups' => ['web']], function () {
     // album
     Route::get('nghe-album/{musicUrl}.html', ['as' => 'music.album.listen', 'uses' => 'MusicController@listenPlaylistMusic']);
     Route::get('nghe-album/{musicUrl}', ['as' => 'music.album.listen', 'uses' => 'MusicController@listenPlaylistMusic']);
-    // playlist`
+    // playlist
     Route::get('playlist/{playlistUrl}.html', ['as' => 'music.playlist.listen', 'uses' => 'MusicController@listenPlaylistMusic']);
     Route::get('playlist/{playlistUrl}', ['as' => 'music.playlist.listen', 'uses' => 'MusicController@listenPlaylistMusic']);
     // artist

@@ -178,11 +178,11 @@
     <div class="modal-dialog modal-sm">
         <!-- Modal content-->
         <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
             <div class="modal-body">
                 <p>Some text in the modal.</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="close" data-dismiss="modal">×</button>
             </div>
         </div>
 
@@ -192,7 +192,7 @@
 <div id="myModal_login" class="modal fade" role="dialog" style="z-index: 999999999999999">
     <div class="modal-dialog modal-lg">
         <!-- Modal content-->
-        <div class="modal-content modal-login">
+        <div class="modal-content modal-login modal-form">
             <div class="modal-header">
                 <h5 class="modal-title" style="float: left;">Đăng nhập</h5>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -202,13 +202,13 @@
                     <form class="col-md-12" id="form-login" action="#">
                         <div class="col-md-6 col-md-offset-2" style="display: table;float: left;">
                             <div class="input-field">
-                                <input type="email" name="email" placeholder="Tên đăng nhập hoặc email" required />
-                                <input type="password" placeholder="Mật khẩu" name="password" required/>
+                                <input type="text" class="email" name="email" placeholder="Tên đăng nhập hoặc email" />
+                                <input type="password" class="password" name="password" placeholder="Mật khẩu" name="password"/>
                                 <div class="login_action">
                                     <input type="checkbox" checked id="remember" name="remember" {{ old('remember') ? 'checked' : '' }}>
                                     <label style="cursor: pointer; display: inline;" for="remember"> Nhớ mật khẩu</label>
                                     <a href="javascript:void(0)" onclick="switchAuth('myModal_forgot')"  style=" margin-left: 15px; float:right; color: #888;">Quên mật khẩu?</a>
-                                    <button class="btn btn-outline-success my-2 my-sm-0 waves-effect waves-light" type="submit">Đăng nhập</button>
+                                    <button onclick="authLogin()" class="btn btn-outline-success my-2 my-sm-0 waves-effect waves-light" type="submit">Đăng nhập</button>
                                 </div>
                                 <p class="text-p">Bạn chưa có tài khoản? <a href="javascript:void(0)" onclick="switchAuth('myModal_register')" style="margin-right: 15px;color: #FF2D55;">Đăng ký</a>
                             </div>
@@ -241,7 +241,7 @@
 <div id="myModal_register" class="modal fade" role="dialog" style="z-index: 999999999999999">
     <div class="modal-dialog modal-lg">
         <!-- Modal content-->
-        <div class="modal-content modal-login">
+        <div class="modal-content modal-register modal-form">
             <div class="modal-header">
                 <h5 class="modal-title" style="float: left;">Đăng ký tài khoản</h5>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -251,15 +251,15 @@
                     <form class="col-md-12" action="#">
                         <div class="col-md-6 col-md-offset-2" style="display: table;float: left;">
                             <div class="input-field">
-                                <input type="email" name="email" placeholder="Tên đăng nhập" required />
-                                <input type="email" name="email" placeholder="Địa chỉ email" required="email" />
-                                <input type="password" placeholder="Mật khẩu" name="password" required/>
-                                <input type="password" placeholder="Xác nhận lại mật khẩu" name="password" required/>
+                                <input class="username" name="username" type="text" placeholder="Tên đăng nhập" />
+                                <input class="email" name="email" type="email" placeholder="Địa chỉ email" required="email" />
+                                <input class="password" name="password" type="password" placeholder="Mật khẩu" name="password" />
+                                <input class="confirm_password" name="confirm_password" type="password" placeholder="Xác nhận lại mật khẩu" name="password" />
                                 <div class="login_action">
-                                    <input type="checkbox" checked id="contact_csn" name="contact_csn">
+                                    <input class="contact_csn" type="checkbox" id="contact_csn" checked name="contact_csn">
                                     <label style="cursor: pointer; font-size: 13px; display: inline;" for="contact_csn">Tôi đã đọc và đồng ý các điều kiện<a href="#" > Thỏa thuận sử dụng</a></label>
                                 </div>
-                                   <button class="btn my-2 my-sm-0 waves-effect waves-light" style="margin-left: 0px;width: 100%; padding: 10px" type="submit">Đăng ký</button>
+                                   <button onclick="authRegister()" class="btn my-2 my-sm-0 waves-effect waves-light" style="margin-left: 0px;width: 100%; padding: 10px" type="submit">Đăng ký</button>
                                 <p class="text-p"><a href="javascript:void(0)" onclick="switchAuth('myModal_login')" style=" margin-right: 15px; ">Đăng nhập</a>
                                     <span style=" color: #d0d0d0; ">|</span>
                                     <a href="javascript:void(0)" onclick="switchAuth('myModal_forgot')" style=" margin-left: 15px; ">Quên mật khẩu?</a></p>
@@ -293,7 +293,7 @@
 <div id="myModal_forgot" class="modal fade" role="dialog" style="z-index: 999999999999999">
     <div class="modal-dialog modal-lg">
         <!-- Modal content-->
-        <div class="modal-content modal-login">
+        <div class="modal-content modal-forgot modal-form">
             <div class="modal-header">
                 <h5 class="modal-title" style="float: left;">Lấy lại mật khẩu</h5>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -303,9 +303,9 @@
                     <form class="col-md-12" action="#">
                         <div class="col-md-6 col-md-offset-2" style="display: table;float: left;">
                             <div class="input-field">
-                                <input type="email" name="email" placeholder="Địa chỉ email" required="email" />
+                                <input type="email" name="email" class="email" placeholder="Địa chỉ email" required="email" />
                                 <div class="login_action">
-                                    <button class="btn my-2 my-sm-0 waves-effect waves-light" type="submit">Lấy lại mật khẩu</button>
+                                    <button onclick="authForgot()" class="btn my-2 my-sm-0 waves-effect waves-light" type="submit">Lấy lại mật khẩu</button>
                                 </div>
                                 <p class="text-p"><a href="javascript:void(0)" onclick="switchAuth('myModal_login')" style=" margin-right: 15px; ">Đăng nhập</a>
                                     <span style=" color: #d0d0d0; ">|</span>
@@ -344,6 +344,133 @@
         }, 200);
     }
     $('.modal-login form').submit(false);
+    function authLogin() {
+        resetInputLogin();
+        const email = $('.modal-login').find('.email');
+        const password = $('.modal-login').find('.password');
+        if(!email.val()) {
+            return addErrorInput(email, 'Nội dung này không được để trống.');
+        }
+        if(!password.val()) {
+            return addErrorInput(password, 'Nội dung này không được để trống.');
+        }
+        if(email.val().length < 4) {
+            return addErrorInput(email, 'Tài khoản trên 4 ký tự.');
+        }
+        if(password.val().length < 6) {
+            return addErrorInput(password, 'Mật khẩu phải trên 6 ký tự.');
+        }
+        $.ajax({
+            url: '/login',
+            type: "POST",
+            dataType: "json",
+            data: {
+                email: email.val(),
+                password: password.val(),
+                remember: ($('#remember').is( ":checked" ) ? true : '')
+            },
+            beforeSend: function () {
+            },
+            error: function (data) {
+                var errors = data.responseJSON;
+                $.each( errors.errors, function( key, value ) {
+                    addErrorInput($('.modal-login').find('.' + key), value);
+                });
+            },
+            success: function(response) {
+                location.reload();
+            }
+        });
+    }
+    $('.modal-register form').submit(false);
+    function authRegister() {
+        resetInputLogin();
+        const username = $('.modal-register').find('.username');
+        const email = $('.modal-register').find('.email');
+        const password = $('.modal-register').find('.password');
+        const confirm_password = $('.modal-register').find('.confirm_password');
+        const contact = $('.modal-register').find('.contact_csn');
+
+        if(!username.val()) {
+            return addErrorInput(username, 'Tên đăng nhập không được để trống');
+        }
+        if(!email.val()) {
+            return addErrorInput(email, 'Email không được để trống');
+        }
+        if(!password.val()) {
+            return addErrorInput(password, 'Nội dung này không được để trống.');
+        }
+        if(confirm_password.val() != password.val()) {
+            return addErrorInput(confirm_password, 'Xác nhận mật khẩu không khớp.');
+        }
+        if(username.val().length < 4) {
+            return addErrorInput(username, 'Tài khoản trên 4 ký tự.');
+        }
+        if(password.val().length < 6) {
+            return addErrorInput(password, 'Mật khẩu phải trên 6 ký tự.');
+        }
+        if(!contact.is( ":checked" )) {
+            return addErrorInput(contact, 'xác nhận thỏa thuận để đăng ý tài khoản');
+        }
+        $.ajax({
+            url: '/register',
+            type: "POST",
+            dataType: "json",
+            data: {
+                username: username.val(),
+                email: email.val(),
+                password: password.val(),
+            },
+            beforeSend: function () {
+            },
+            error: function (data) {
+                var errors = data.responseJSON;
+                $.each( errors.errors, function( key, value ) {
+                    addErrorInput($('.modal-register').find('.' + key), value);
+                });
+            },
+            success: function(response) {
+                location.reload();
+            }
+        });
+    }
+    $('.modal-forgot form').submit(false);
+    function authForgot() {
+        resetInputLogin();
+        const email = $('.modal-forgot').find('.email');
+        if(!email.val()) {
+            return addErrorInput(email, 'Email không được để trống');
+        }
+        $.ajax({
+            url: '/password/email',
+            type: "POST",
+            dataType: "json",
+            data: {
+                email: email.val(),
+            },
+            beforeSend: function () {
+            },
+            error: function (data) {
+                var errors = data.responseJSON;
+                $.each(errors.errors, function( key, value ) {
+                    addErrorInput($('.modal-forgot').find('.' + key), value);
+                });
+            },
+            success: function(response) {
+                var status = response.status.email;
+                email.before('<div class="alert alert-success">' + status + ' </div>');
+            }
+        });
+    }
+    function resetInputLogin() {
+        $('.modal-form').find('.input-help-block').remove();
+        $('.modal-form').find('.alert').remove();
+        $('.modal-form').find('input').removeClass('input-has-error');
+    }
+    function addErrorInput(tag, content) {
+        tag.addClass('input-has-error');
+        tag.before('<span class="input-help-block"><strong>' + content + '</strong></span>');
+    }
 
 </script>
 
@@ -463,5 +590,5 @@
         </div>
     </div>
 </footer>
-<script src="/js/lobibox.min.js"></script>
+<script src="/js/lobiboxcsn.min.js"></script>
 </section>

@@ -26,6 +26,11 @@ define('KEY_ID_ALBUM_ENCODE_URL', 'csn_album~');
 define('KEY_ID_ARTIST_ENCODE_URL', 'csn_artist~');
 define('DEFAULT_CAT_ID_ACTIVE_BXH', 3);
 
+// USER
+define('DEACTIVE_USER', 0);
+define('ACTIVE_USER', 1);
+define('BANNED_USER', 2);
+
 // MUSIC ID ENCRIPT
 define('MAX_ID_CONST', 71902891);
 

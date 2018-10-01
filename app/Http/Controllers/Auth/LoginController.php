@@ -44,10 +44,17 @@ class LoginController extends Controller
     }
     protected function attemptLogin(Request $request)
     {
+
         $credentials = $request->only('email', 'password');
+        if(!filter_var($request->get($this->username()), FILTER_VALIDATE_EMAIL)) {
+            $credentials = [
+                'username' => $request->email,
+                'password' => $request->password
+            ];
+        }
         if(Auth::once($credentials)) {
             $user = Auth::getUser();
-            if($user->user_active == 1) {
+            if($user->user_active == 0 || $user->user_active == 1) {
                 return $this->guard()->attempt(
                     $this->credentials($request), $request->has('remember')
                 );
@@ -56,18 +63,49 @@ class LoginController extends Controller
             }
         }
     }
+    protected function credentials(Request $request)
+    {
+        $field = filter_var($request->get($this->username()), FILTER_VALIDATE_EMAIL)
+            ? 'email'
+            : 'username';
+        return [
+            $field => $request->get($this->username()),
+            'password' => $request->password,
+        ];
+    }
+    protected function sendLoginResponse(Request $request)
+    {
+        $request->session()->regenerate();
+
+        $this->clearLoginAttempts($request);
+
+        return response()->json(['success' => true], 200);
+    }
+    protected function validateLogin(Request $request)
+    {
+        $this->validate($request, [
+            'email' => 'required|string|min:4',
+            'password' => 'required|string|min:6',
+        ]);
+        if(strpos($request->email, '@')) {
+            $this->validate($request, [
+                'email' => 'email',
+            ]);
+        }
+    }
     protected function sendFailedLoginResponse(Request $request)
     {
         $user = Auth::getUser();
+        $errors = [];
         if($user) {
-            if($user->user_active == 0) {
-                $errors = ['email' => 'Tài Khoản chưa được kích hoạt'];
+            if($user->user_active == BANNED_USER) {
+                $errors = ['email' => 'Tài Khoản của bạn đang bị khóa'];
             }
         }else{
-            $errors = ['password' => trans('auth.failed')];
+            $errors = ['password' => 'Thông tin đăng nhập không chính xác.'];
         }
         if ($request->expectsJson()) {
-            return response()->json($errors, 422);
+            return response()->json(['errors' => $errors], 422);
         }
         return redirect()->back()
             ->withInput($request->only($this->username(), 'remember'))

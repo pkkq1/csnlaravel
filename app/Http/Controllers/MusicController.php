@@ -72,9 +72,6 @@ class MusicController extends Controller
         $playlistMusic = [];
         $music = [];
         $typeListen = 'single';
-        if($request->id) {
-            $music = $this->musicRepository->findOnlyMusicId(Helpers::decodeID($request->id));
-        }
         if($arrUrl['type'] == 'nghe-album') {
             $album = $this->coverRepository->getCoverMusicById($arrUrl['id']);
             if(!$album)
@@ -92,8 +89,8 @@ class MusicController extends Controller
                 $playlistMusic = array_merge($playlist->music->toArray(), $playlist->video->toArray());
             }
         }
-        if($playlistMusic && !$music) {
-            $music = $this->musicRepository->findOnlyMusicId($playlistMusic[0]['music_id']);
+        if($playlistMusic) {
+            $music = $this->musicRepository->findOnlyMusicId($playlistMusic[($request->id ? ($request->id - 1) : 0)]['music_id']);
         }
         if(!$music)
             return view('errors.404');

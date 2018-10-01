@@ -7,8 +7,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
+use App\Models\MailTokenModel;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Auth\Events\Registered;
+use Illuminate\Support\Str;
+use Mail;
 
 class RegisterController extends Controller
 {
@@ -50,9 +53,9 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
+            'username' => 'required|string|max:255|unique:csn_users|min:4',
             'email' => 'required|string|email|max:255|unique:csn_users',
-            'password' => 'required|string|min:6|confirmed',
+            'password' => 'required|string|min:6',
         ]);
     }
 
@@ -64,21 +67,36 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'user_name' => $data['name'],
+        $user = User::create([
+            'username' => $data['username'],
+            'name' => $data['username'],
             'email' => $data['email'],
+            'user_active' => DEACTIVE_USER,
             'password' => bcrypt($data['password']),
         ]);
+        $token = MailTokenModel::create([
+            'email' => $data['email'],
+            'token' => Str::random(60),
+            'created_at' => date('Y-m-d H:m', time())
+        ]);
+        $data = [
+            'user' => $user,
+            'token' => $token,
+        ];
+        Mail::send('emails.register', $data, function($message) use ($user)
+        {
+            $message->from(env('MAIL_USERNAME'), env('APP_NAME'));
+            $message->to($user->email, $user->name)->subject('Xác nhận thông tin đăng ký tài khoản Chia Sẻ Nhạc');
+        });
+        return $user;
     }
     public function register(Request $request)
     {
-
         $this->validator($request->all())->validate();
         event(new Registered($user = $this->create($request->all())));
 
         $this->guard()->login($user);
-
+        return response()->json(['success' => true], 200);
         return $this->registered($request, $user)
             ?: redirect($this->redirectPath());
     }

@@ -15,6 +15,7 @@ use App\Repositories\User\UserEloquentRepository;
 use Illuminate\Support\Facades\Auth;
 use App\Models\UserModel;
 use App\Repositories\Playlist\PlaylistEloquentRepository;
+use App\Models\MailTokenModel;
 
 class UserController extends Controller
 {
@@ -61,5 +62,24 @@ class UserController extends Controller
 
         Helpers::ajaxResult(true, 'Cập nhật tài khoản thành công', $update);
     }
-
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->back();
+    }
+    public function verifyEmail(Request $request, $token)
+    {
+        $tokenVerify = MailTokenModel::where('token', $token)->first();
+        if(!$tokenVerify)
+            return view('errors.text_error')->with('message', 'Mã xác nhận email của bạn không tồn tại.');
+        $user = UserModel::where('email', $tokenVerify->email)->where('user_active', DEACTIVE_USER)->first();
+        if(!$user)
+            return view('errors.text_error')->with('message', 'Lỗi xác thực email, kiểm tra tình trạng tài khoản của bạn.');
+        UserModel::find($user->id)->update([
+            'user_active' => ACTIVE_USER
+        ]);
+        MailTokenModel::deleteToken($tokenVerify->email);
+        Auth::login($user);
+        return redirect('/');
+    }
 }
