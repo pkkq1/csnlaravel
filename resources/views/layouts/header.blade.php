@@ -18,7 +18,7 @@
     {{--<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css">--}}
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/fonts/fonts.css">
-    <link rel="stylesheet" href="/css/Lobibox.min.css"/>
+    <link rel="stylesheet" href="/css/lobibox.min.css"/>
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="stylesheet" type="text/css" href="/css/jquery-ui.css">
     <link rel="stylesheet" type="text/css" href="/css/custom.css">
