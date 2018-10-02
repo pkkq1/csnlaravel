@@ -65,6 +65,7 @@ class MusicController extends Controller
         }
         $typeListen = 'single'; // single | playlist | album
         $typeJw = 'music'; // music | video
+//        dd($music->toArray());
         return view('jwplayer.music', compact('music', 'typeListen', 'typeJw'));
     }
     public function listenPlaylistMusic(Request $request, $musicUrl) {

@@ -54,6 +54,7 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
         $result = $this
             ->_model
             ->where('music_id', $id)
+            ->with('karaMusic')
             ->first();
 
         return $result;
