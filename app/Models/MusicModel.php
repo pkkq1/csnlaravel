@@ -25,4 +25,7 @@ class MusicModel extends Model
     public function musicListen() {
         return $this->belongsTo('App\Models\MusicListenModel', 'music_id', 'music_id');
     }
+    public function karaMusic() {
+        return $this->hasOne('App\Models\MusicListenModel', 'music_id', 'music_id');
+    }
 }

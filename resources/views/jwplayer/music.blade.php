@@ -19,6 +19,8 @@ $file_url = Helpers::file_url($music);
 @include('cache.def_main_cat')
 
 @section('contentCSS')
+    <link href="{{env('APP_URL')}}/node_modules/rabbit-lyrics/dist/rabbit-lyrics.css" rel="stylesheet" type="text/css"/>
+    <script src="{{env('APP_URL')}}/node_modules/rabbit-lyrics/dist/rabbit-lyrics.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/csn-jwplayer.css">
 @endsection
 @extends('layouts.app')
@@ -41,6 +43,101 @@ $file_url = Helpers::file_url($music);
                 <div class="card mb-4 detail_lyric_1">
                     <div id="csnplayerads" style="position:relative; z-index: 99999; width:100%;"> </div>
                     <div id="csnplayer" style="position:relative; z-index: 99999; width:100%;"> </div>
+                    <div id="hidden_lyrics" class="hidden">
+                        <div id="lyrics" class="rabbit-lyrics">
+                            [00:00.06]Bài hát: Thương Mấy Cũng Là Người Dưng
+                            [00:02.66]Ca sĩ: Noo Phước Thịnh
+                            [00:04.66]
+                            [00:18.84]Thì thôi anh nghĩ
+                            [00:19.80]ta nên dừng lại
+                            [00:21.36]
+                            [00:22.81]khi lòng em đã
+                            [00:23.90]
+                            [00:24.40]chia hai
+                            [00:25.19]
+                            [00:25.87]Vì anh đã biết
+                            [00:26.88]anh không còn là
+                            [00:28.30]
+                            [00:29.58]người duy nhất em nhớ
+                            [00:30.87]
+                            [00:31.69]đêm qua
+                            [00:32.71]
+                            [00:33.39]Hãy nói anh nghe
+                            [00:34.51]
+                            [00:35.35]thật lòng
+                            [00:36.10]
+                            [00:36.83]em hết yêu anh đúng không
+                            [00:39.05]
+                            [00:40.35]Cố nắm tay anh làm chi nếu
+                            [00:42.98]
+                            [00:43.80]em phải đi
+                            [00:44.89]
+                            [01:59.45][00:47.07]Người thương đến mấy
+                            [02:00.45][00:48.03]cũng sẽ đến ngày
+                            [02:01.81][00:49.47]
+                            [02:03.38][00:51.02]ngày chúng ta
+                            [02:04.17][00:51.85]
+                            [02:04.70][00:52.37]thành người dưng
+                            [02:05.71][00:53.39]
+                            [02:06.44][00:54.12]Vì đâu ai chỉ yêu mãi một người
+                            [02:08.95][00:56.59]
+                            [02:10.12][00:57.81]điều vĩnh viễn chẳng có
+                            [02:11.61][00:59.21]
+                            [02:12.14][00:59.91]em ơi
+                            [02:13.13][01:00.77]
+                            [02:13.90][01:01.56]Ký ức không giữ
+                            [02:15.14][01:02.76]
+                            [02:15.94][01:03.62]được người
+                            [02:16.82][01:04.46]
+                            [02:17.43][01:05.10]Đâu ai nhớ
+                            [02:18.37][01:05.99]
+                            [02:18.82][01:06.46]ai suốt đời
+                            [02:20.17][01:07.92]
+                            [02:20.96][01:08.65]Nước mắt hôm nay có rơi
+                            [02:23.12][01:10.63]
+                            [02:24.50][01:12.22]cũng không vì nhau nữa rồi
+                            [02:26.55][01:14.26]
+                            [02:27.31][01:14.99]Cuộc đời là thế quen nhau rồi quên
+                            [02:30.01][01:17.62]
+                            [02:30.40][01:18.15]Phút vui ngày xưa sao nay buồn tênh
+                            [02:33.54][01:21.05]
+                            [02:34.67][01:22.36]Vì người chẳng muốn kiên tâm gần bên
+                            [02:37.01][01:24.67]
+                            [02:37.48][01:25.19]Chúng ta đã không vì nhau cố gắng
+                            [02:40.59][01:28.19]
+                            [02:41.64][01:29.38]Lòng người giờ giá băng hơn mùa đông
+                            [02:44.10][01:31.65]
+                            [02:44.36][01:32.07]Những ân tình xưa xem như bằng không
+                            [02:47.78][01:35.30]
+                            [02:48.73][01:36.40]Lạnh lùng mình bước qua như người dưng
+                            [02:51.25][01:38.83]
+                            [02:51.62][01:39.23]Chúng ta giờ đây chỉ là một chuyện
+                            [02:55.05][01:42.50]
+                            [02:55.88][01:43.50]đã từng
+                            [02:57.78][01:45.28]
+                            [02:59.48]Mùa cây thay lá
+                            [03:00.54]em cũng thay lòng
+                            [03:02.04]
+                            [03:03.35]cùng với ai hạnh phúc không
+                            [03:05.89]
+                            [03:06.44]Còn riêng anh vẫn đứng sau cuộc tình
+                            [03:08.73]
+                            [03:10.10]và thấy thương dĩ vãng sau lưng
+                            [03:12.82]
+                            [03:27.94][03:13.91]Năm tháng trôi qua thật nhiều
+                            [03:30.71][03:15.90]
+                            [03:31.65][03:17.37]đã khiến anh hiểu một điều
+                            [03:34.28][03:19.83]
+                            [03:35.11][03:20.99]Em vẫn mãi là người dưng
+                            [03:37.59][03:23.08]
+                            [03:24.43]anh thương đến hết đời mình
+                            [03:26.66]
+                            [03:38.73]anh thương đến hết
+                            [03:40.42]
+                            [03:43.34]đời mình
+                            [03:46.91]
+                        </div>
+                    </div>
                     <div class="music_recommendation" style="border-bottom: 1px solid rgba(0,0,0,.125);">
                         <div class="d-table">
                             <?php
@@ -60,7 +157,7 @@ $file_url = Helpers::file_url($music);
                                         <div class="tool d-table-cell text-right">
                                             <ul class="list-inline d-flex align-items-center justify-content-end">
                                                 <li class="list-inline-item"><a href="{{$url}}" title="nghe riêng nhạc {{$item['music_title']}}"><i class="material-icons">headset</i></a></li>
-                                                <li class="list-inline-item"><a onclick="addPlaylistTable('{{$item['music_title']}}', {{$item['music_id']}}, {{isset($item['music_artist']) ? "'".$item['music_artist']."'" : "'false'"}}, {{isset($item['music_artist_id']) ? "'".$item['music_artist_id']."'" : "'false'"}})" href="javascript:void(0)" title="thêm vào playlist"><i class="material-icons">playlist_add</i></a></li>
+                                                <li class="list-inline-item"><a onclick="addPlaylistTable('{{str_replace("'", "\'", $item['music_title'])}}', {{$item['music_id']}}, {{isset($item['music_artist']) ? "'".str_replace("'", "\'", $item['music_artist'])."'" : "'false'"}}, {{isset($item['music_artist_id']) ? "'".$item['music_artist_id']."'" : "'false'"}})" href="javascript:void(0)" title="thêm vào playlist"><i class="material-icons">playlist_add</i></a></li>
                                                 <li class="list-inline-item"><a href="{{MUSIC_PATH.$item['music_filename']}}" title="download {{$item['music_title']}}"><i class="material-icons">file_download</i></a></li>
                                                 <li class="list-inline-item"><a href="{{Helpers::fbShareLink($url)}}" title="chia sẻ {{$item['music_title']}}"><i class="material-icons">share</i></a></li>
                                             </ul>
@@ -517,48 +614,49 @@ $file_url = Helpers::file_url($music);
         var player = jwplayer('csnplayer');
         var firstPlayer = true;
 
-        jwplayer("csnplayerads").setup({
-            advertising: {
-                client: "vast",
-                skipoffset: 5,
-                "adschedule": {
-                    "myPreroll": {
-                        "offset": "pre",
-                        "tag": ["https://d2.hadarone.com/vast3?plm=1179&t=1538133576","https://d2.hadarone.com/vast3?plm=1641&t=1538133576","http://delivery.yomedia.vn/vast?pid=945a082befd44edfba7e7d0b702fa674&ec=0","https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/192930568/chiasenhac.vn-Preroll&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&url=[referrer_url]&description_url=[description_url]&correlator=1538133576","http://tag.gammaplatform.com/adx/request/?wid=1508317885&zid=1508318418&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"]
-                    },
-                    "myPreroll2": {
-                        "offset": 1,
-                        "tag": ["https://d2.hadarone.com/vast3?plm=1179&t=1538133576","https://d2.hadarone.com/vast3?plm=1641&t=1538133576","http://delivery.yomedia.vn/vast?pid=945a082befd44edfba7e7d0b702fa674&ec=0","https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/192930568/chiasenhac.vn-Preroll&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&url=[referrer_url]&description_url=[description_url]&correlator=1538133576","http://tag.gammaplatform.com/adx/request/?wid=1508317885&zid=1508318418&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"]
-                    },
-                    "myPreroll3": {
-                        "offset": 2,
-                        "tag": ["http://tag.gammaplatform.com/adx/request/?wid=1508317885&zid=1508318418&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"]
-                    },
-                    "myMidroll": {
-                        "offset": 3,
-                        "tag": "http://tag.gammaplatform.com/adx/request/?wid=1508317885&zid=1508318800&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"
-                    },
-                    "myMidroll2": {
-                        "offset": 4,
-                        "tag": "http://tag.gammaplatform.com/adx/request/?wid=1508317885&zid=1508318800&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"
-                    }
-                }
-            },
-            mute: true,
-            width: "100%",
-            aspectratio: "16:9",
-            autostart: true,
-            file: "http://chiasenhac.vn/images/logo/logo_csn.mp4"
-        });
-
-
+        // jwplayer("csnplayerads").setup({
+        //     advertising: {
+        //         client: "vast",
+        //         skipoffset: 5,
+        //         "adschedule": {
+        //             "myPreroll": {
+        //                 "offset": "pre",
+        //                 "tag": ["https://d2.hadarone.com/vast3?plm=1179&t=1538133576","https://d2.hadarone.com/vast3?plm=1641&t=1538133576","http://delivery.yomedia.vn/vast?pid=945a082befd44edfba7e7d0b702fa674&ec=0","https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/192930568/chiasenhac.vn-Preroll&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&url=[referrer_url]&description_url=[description_url]&correlator=1538133576","http://tag.gammaplatform.com/adx/request/?wid=1508317885&zid=1508318418&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"]
+        //             },
+        //             "myPreroll2": {
+        //                 "offset": 1,
+        //                 "tag": ["https://d2.hadarone.com/vast3?plm=1179&t=1538133576","https://d2.hadarone.com/vast3?plm=1641&t=1538133576","http://delivery.yomedia.vn/vast?pid=945a082befd44edfba7e7d0b702fa674&ec=0","https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/192930568/chiasenhac.vn-Preroll&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&url=[referrer_url]&description_url=[description_url]&correlator=1538133576","http://tag.gammaplatform.com/adx/request/?wid=1508317885&zid=1508318418&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"]
+        //             },
+        //             "myPreroll3": {
+        //                 "offset": 2,
+        //                 "tag": ["http://tag.gammaplatform.com/adx/request/?wid=1508317885&zid=1508318418&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"]
+        //             },
+        //             "myMidroll": {
+        //                 "offset": 3,
+        //                 "tag": "http://tag.gammaplatform.com/adx/request/?wid=1508317885&zid=1508318800&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"
+        //             },
+        //             "myMidroll2": {
+        //                 "offset": 4,
+        //                 "tag": "http://tag.gammaplatform.com/adx/request/?wid=1508317885&zid=1508318800&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"
+        //             }
+        //         }
+        //     },
+        //     mute: true,
+        //     width: "100%",
+        //     aspectratio: "16:9",
+        //     autostart: true,
+        //     file: "http://chiasenhac.vn/images/logo/logo_csn.mp4"
+        // });
         player.setup({
             width: '100%',
-            height: '110',
+            height: '310',
             aspectratio: "<?php echo $typeJw == 'video' ? '16:9' : 'false' ?>",
             stretching: 'fill',
             sources: [
                     <?php
+                    for ($i=0; $i<sizeof($file_url); $i++){
+                        echo '{"file": "'. $file_url[$i]['url'] .'", "label": "'. $file_url[$i]['label'] .'"},';
+                    }
                     for ($i=0; $i<sizeof($file_url); $i++){
                         echo '{"file": "'. $file_url[$i]['url'] .'", "label": "'. $file_url[$i]['label'] .'"},';
                     }
@@ -568,6 +666,16 @@ $file_url = Helpers::file_url($music);
             skin: {
                 name: 'nhac'
             },
+            tracks: [{
+                file: "/storage/data/captions/captions-fr.vtt",
+                label: "Tiếng Việt",
+                kind: "captions",
+                "default": true
+            },{
+                file: "/storage/data/captions/captions-fr.vtt",
+                kind: "captions",
+                label: "English"
+            }],
             timeSliderAbove: true,
             autostart: true,
             plugins: {
@@ -603,10 +711,26 @@ $file_url = Helpers::file_url($music);
 
         var embed = 'false';
         var userStatus = 1;
+        var firstLoadLyric = false;
+        var listLyrics = [];
         jwplayer().onBeforePlay(function() {
             //logPlayAudioFlag = true;
             //console.log('set flag again|'+logPlayAudioFlag);
+            $('.jw-captions').html($('#hidden_lyrics').html());
+            $('#hidden_lyrics').remove();
+            new RabbitLyrics({
+                element: document.getElementById("lyrics"),
+                viewMode: 'mini',
+                onUpdateTimeJw: false
+            });
         });
+        jwplayer().onTime(function () {
+            new RabbitLyrics({
+                element: document.getElementById("lyrics"),
+                viewMode: 'mini',
+                onUpdateTimeJw: true
+            });
+        })
         jwplayer().onQualityLevels(function(callback){
             updateQuality(callback);
             if(sessionStorage.getItem("auto_next") == 'true') {
@@ -984,7 +1108,7 @@ $file_url = Helpers::file_url($music);
             boxArtists = setArtist;
             boxArtistIds = setArtistId;
             $('.box_add_playlist').html('Thêm bài hát ' + musicName + ' vào danh sách Playlist');
-            $('.box_show_add_playlist').css('display', 'inherit');
+            $('.box_show_add_playlist').css({'display': 'inherit', 'top': ($('.music_recommendation').offset().top - 200) + 'px'});
             $('body').append('<div id="boxOutPlaylist" style="display: block; z-index: 99999;" role="dialog" class="modal"> </div>')
             window.onclick = function(event) {
                 if(event.target == document.getElementById('boxOutPlaylist')) {

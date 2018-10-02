@@ -25,8 +25,6 @@ class SorlSyncController extends Controller
     public function __construct(Solarium $Solr, MusicEloquentRepository $musicRepository) {
         $this->Solr = $Solr;
         $this->musicRepository = $musicRepository;
-        ini_set("memory_limit", "20480M");
-        set_time_limit(5500);
     }
     public function ping() {
         return $this->Solr->ping();
