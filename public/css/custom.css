@@ -946,6 +946,8 @@ form#login-form {
     font-weight: 400!important;
     height: 23px!important;
     line-height: 23px!important;
+    top: 0px;
+    margin-bottom: 5px!important;
 }
 .rabbit-lyrics {
     position: absolute!important;

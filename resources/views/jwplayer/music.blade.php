@@ -559,7 +559,7 @@ $file_url = Helpers::file_url($music);
         // });
         player.setup({
             width: '100%',
-            height: '310',
+            height: '110',
             aspectratio: "<?php echo $typeJw == 'video' ? '16:9' : 'false' ?>",
             stretching: 'fill',
             sources: [
