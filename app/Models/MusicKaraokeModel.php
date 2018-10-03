@@ -10,6 +10,6 @@ class MusicKaraokeModel extends Model
     protected $primaryKey = 'music_id';
     protected $fillable =
         [
-            'music_title', 'music_artist', 'music_downloads_this_week', 'music_time', 'music_lyric_karaoke'
+            'music_id' ,'music_title', 'music_artist', 'music_downloads_this_week', 'music_time', 'music_lyric_karaoke'
         ];
 }

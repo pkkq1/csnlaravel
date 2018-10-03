@@ -953,4 +953,8 @@ form#login-form {
     width: 100%!important;
     text-align: center!important;
 }
+.rabbit-lyrics-mini {
+    height: 30px;
+    line-height: 30px;
+}
 

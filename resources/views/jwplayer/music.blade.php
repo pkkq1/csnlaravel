@@ -45,10 +45,7 @@ $file_url = Helpers::file_url($music);
                     <div id="csnplayer" style="position:relative; z-index: 99999; width:100%;"> </div>
                     <div id="hidden_lyrics" class="hidden">
                         <div id="lyrics" class="rabbit-lyrics">
-                            <?php
-                                $music2 = $music->toArray();
-                                echo isset($music2['kara_music']['music_lyric_karaoke']) ? $music2['kara_music']['music_lyric_karaoke'] : '';
-                            ?>
+                            <?php echo isset($music->musicKara->music_lyric_karaoke) ? str_replace("]\r\n", ']', $music->musicKara->music_lyric_karaoke) : ''; ?>
                         </div>
                     </div>
                     <div class="music_recommendation" style="border-bottom: 1px solid rgba(0,0,0,.125);">
