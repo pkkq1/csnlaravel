@@ -959,4 +959,11 @@ form#login-form {
     height: 30px;
     line-height: 30px;
 }
-
+.rabbit-lyrics {
+    margin: auto;
+    display: flex;
+}
+.rabbit-lyrics .line {
+    margin: auto;
+    line-height: 22px;
+}

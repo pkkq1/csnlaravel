@@ -668,4 +668,16 @@ class Helpers
 
         return $file_url;
     }
+    public static function rawLyrics($lyrics) {
+        $lyrics = str_replace("]\r\n", ']', $lyrics);
+//
+//        $lyrics = explode("\r\n", $lyrics);
+//        foreach ($lyrics as &$item) {
+//            preg_match_all("[(.*)]", $item, $matches);
+//            dd($matches);
+//        }
+//
+//        dd($lyrics);
+        return $lyrics;
+    }
 }
