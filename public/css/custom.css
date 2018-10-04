@@ -969,10 +969,15 @@ form#login-form {
 }
 .kara-csn {
     text-align: left;
-    -webkit-transition: width 0.2s;
     margin-top: -22px;
     overflow: hidden;
     color: #FF2D55;
     white-space: nowrap;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+
+    -webkit-animation: mymove infinite;
+    -webkit-animation-duration: 0.1s;
+    animation: mymove infinite;
+    animation-duration: 0.1s;
+
 }
