@@ -967,3 +967,12 @@ form#login-form {
     margin: auto;
     line-height: 22px;
 }
+.kara-csn {
+    text-align: left;
+    -webkit-transition: width 0.2s;
+    margin-top: -22px;
+    overflow: hidden;
+    color: #FF2D55;
+    white-space: nowrap;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
