@@ -169,7 +169,10 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
                                     <div class="tab-pane fade show active" id="home" role="tabpanel"
                                          aria-labelledby="home-tab">
                                         <article>
-                                            <?php echo $lyric_array['lyric']; ?>
+                                            <div id="fulllyric">
+                                                <?php echo $lyric_array['lyric']; ?>
+                                            </div>
+                                            <div id="morelyric" style="cursor:pointer" onclick="show_fulllyric();" align="right"></div>
                                         </article>
                                     </div>
                                 </div>
@@ -1036,6 +1039,23 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
             $('.box_show_add_playlist').css('display', 'none');
         })
         $(".box_show_add_playlist").draggable();
+
+        var lyric_expand = '<p>Xem thêm lời bài hát <img src="/imgs/xt3.gif"></p>';
+        var lyric_collapse = '<p>Thu gọn <img src="/imgs/xt4.gif"></p>';
+        function show_fulllyric()
+        {
+            if ( $('#morelyric').html() == lyric_expand )
+            {
+                $('#fulllyric').attr('style', "font-size: 13px; overflow: auto;");
+                $('#morelyric').html(lyric_collapse);
+            }
+            else if ($('#fulllyric').outerHeight() > 300)
+            {
+                $('#fulllyric').attr('style', "font-size: 13px; max-height: 270px; overflow: hidden;");
+                $('#morelyric').html(lyric_expand);
+            }
+        }
+        show_fulllyric();
     </script>
     <style>
         .jw-icon-rewind{
