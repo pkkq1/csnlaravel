@@ -979,5 +979,7 @@ form#login-form {
     -webkit-animation-duration: 0.1s;
     animation: mymove infinite;
     animation-duration: 0.1s;
-
+}
+.sub_line {
+    display: none;
 }

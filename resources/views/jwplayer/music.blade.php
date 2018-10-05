@@ -151,6 +151,19 @@ $file_url = Helpers::file_url($music);
                                     <li class="nav-item">
                                         <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Vietsub</a>
                                     </li>
+                                    <li class="nav-item">
+                                        <div class="nav-link form-group form-check mb-0 autoplay" style="padding: 10px 20px;">
+                                            <input type="checkbox" class="form-check-input display-sub"
+                                                   id="display-sub" onclick="display_sub()">
+                                            <label class="form-check-label d-flex align-items-center"
+                                                   for="display-sub">
+                                                <span style="font-size: 13px; color: #4b4b4b; font-family: 'SFProDisplay-Medium';" class="txt">Hiển Thị Sub</span>
+                                                <span class="switch">
+                                                    <span class="switch-inner"></span>
+                                                </span>
+                                            </label>
+                                        </div>
+                                    </li>
                                 </ul>
                                 <div class="tab-content tab-lyric" id="myTabContent">
                                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
@@ -169,12 +182,12 @@ $file_url = Helpers::file_url($music);
                                             {{$music->music_lyric}}
                                                 -->
                                             <?php echo nl2br($music->music_lyric); ?>
-                                            <div class="vietsub1"> test sub 1 </div>
-                                            <div class="vietsub2"> test sub 2 </div>
-                                            <div class="vietsub1"> test sub 1 </div>
-                                            <div class="vietsub2"> test sub 2 </div>
-                                            <div class="vietsub1"> test sub 1 </div>
-                                            <div class="vietsub2"> test sub 2 </div>
+                                            <div class="vietsub1 sub_line"> test sub 1 </div>
+                                            <div class="vietsub2 sub_line"> test sub 2 </div>
+                                            <div class="vietsub1 sub_line"> test sub 1 </div>
+                                            <div class="vietsub2 sub_line"> test sub 2 </div>
+                                            <div class="vietsub1 sub_line"> test sub 1 </div>
+                                            <div class="vietsub2 sub_line"> test sub 2 </div>
                                         </article>
                                     </div>
                                 </div>
@@ -524,39 +537,39 @@ $file_url = Helpers::file_url($music);
         var player = jwplayer('csnplayer');
         var firstPlayer = true;
 
-        // jwplayer("csnplayerads").setup({
-        //     advertising: {
-        //         client: "vast",
-        //         skipoffset: 5,
-        //         "adschedule": {
-        //             "myPreroll": {
-        //                 "offset": "pre",
-        //                 "tag": ["https://d2.hadarone.com/vast3?plm=1179&t=1538133576","https://d2.hadarone.com/vast3?plm=1641&t=1538133576","http://delivery.yomedia.vn/vast?pid=945a082befd44edfba7e7d0b702fa674&ec=0","https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/192930568/chiasenhac.vn-Preroll&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&url=[referrer_url]&description_url=[description_url]&correlator=1538133576","http://tag.gammaplatform.com/adx/request/?wid=1508317885&zid=1508318418&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"]
-        //             },
-        //             "myPreroll2": {
-        //                 "offset": 1,
-        //                 "tag": ["https://d2.hadarone.com/vast3?plm=1179&t=1538133576","https://d2.hadarone.com/vast3?plm=1641&t=1538133576","http://delivery.yomedia.vn/vast?pid=945a082befd44edfba7e7d0b702fa674&ec=0","https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/192930568/chiasenhac.vn-Preroll&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&url=[referrer_url]&description_url=[description_url]&correlator=1538133576","http://tag.gammaplatform.com/adx/request/?wid=1508317885&zid=1508318418&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"]
-        //             },
-        //             "myPreroll3": {
-        //                 "offset": 2,
-        //                 "tag": ["http://tag.gammaplatform.com/adx/request/?wid=1508317885&zid=1508318418&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"]
-        //             },
-        //             "myMidroll": {
-        //                 "offset": 3,
-        //                 "tag": "http://tag.gammaplatform.com/adx/request/?wid=1508317885&zid=1508318800&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"
-        //             },
-        //             "myMidroll2": {
-        //                 "offset": 4,
-        //                 "tag": "http://tag.gammaplatform.com/adx/request/?wid=1508317885&zid=1508318800&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"
-        //             }
-        //         }
-        //     },
-        //     mute: true,
-        //     width: "100%",
-        //     aspectratio: "16:9",
-        //     autostart: true,
-        //     file: "http://chiasenhac.vn/images/logo/logo_csn.mp4"
-        // });
+        jwplayer("csnplayerads").setup({
+            advertising: {
+                client: "vast",
+                skipoffset: 5,
+                "adschedule": {
+                    "myPreroll": {
+                        "offset": "pre",
+                        "tag": ["https://d2.hadarone.com/vast3?plm=1179&t=1538133576","https://d2.hadarone.com/vast3?plm=1641&t=1538133576","http://delivery.yomedia.vn/vast?pid=945a082befd44edfba7e7d0b702fa674&ec=0","https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/192930568/chiasenhac.vn-Preroll&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&url=[referrer_url]&description_url=[description_url]&correlator=1538133576","http://tag.gammaplatform.com/adx/request/?wid=1508317885&zid=1508318418&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"]
+                    },
+                    "myPreroll2": {
+                        "offset": 1,
+                        "tag": ["https://d2.hadarone.com/vast3?plm=1179&t=1538133576","https://d2.hadarone.com/vast3?plm=1641&t=1538133576","http://delivery.yomedia.vn/vast?pid=945a082befd44edfba7e7d0b702fa674&ec=0","https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/192930568/chiasenhac.vn-Preroll&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&url=[referrer_url]&description_url=[description_url]&correlator=1538133576","http://tag.gammaplatform.com/adx/request/?wid=1508317885&zid=1508318418&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"]
+                    },
+                    "myPreroll3": {
+                        "offset": 2,
+                        "tag": ["http://tag.gammaplatform.com/adx/request/?wid=1508317885&zid=1508318418&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"]
+                    },
+                    "myMidroll": {
+                        "offset": 3,
+                        "tag": "http://tag.gammaplatform.com/adx/request/?wid=1508317885&zid=1508318800&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"
+                    },
+                    "myMidroll2": {
+                        "offset": 4,
+                        "tag": "http://tag.gammaplatform.com/adx/request/?wid=1508317885&zid=1508318800&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"
+                    }
+                }
+            },
+            mute: true,
+            width: "100%",
+            aspectratio: "16:9",
+            autostart: true,
+            file: "http://chiasenhac.vn/images/logo/logo_csn.mp4"
+        });
         player.setup({
             width: '100%',
             height: '110',
@@ -565,7 +578,7 @@ $file_url = Helpers::file_url($music);
             sources: [
                     <?php
                     for ($i=0; $i<sizeof($file_url); $i++){
-                        echo '{"file": "'. $file_url[$i]['url'] .'", "label": "'. $file_url[$i]['label'] .'"},';
+                        echo '{"file": "'. $file_url[$i]['url'] .'", "label": "'. $file_url[$i]['label'] .'", "type": "mp3"},';
                     }
                     ?>
             ],
@@ -613,7 +626,7 @@ $file_url = Helpers::file_url($music);
         jwplayer().onBeforePlay(function() {
             //logPlayAudioFlag = true;
             //console.log('set flag again|'+logPlayAudioFlag);
-            $('.jw-captions').html($('#hidden_lyrics').html());
+            $('#csnplayer').find('.jw-captions').html($('#hidden_lyrics').html());
             $('#hidden_lyrics').remove();
             new RabbitLyrics({
                 element: document.getElementById("lyrics"),
@@ -767,6 +780,22 @@ $file_url = Helpers::file_url($music);
             });
             return false;
         });
+        //// display Sub
+        var displaySub = $('.sub_line');
+        if(sessionStorage.getItem("display_sub") == 'true') {
+            displaySub.css('display', 'block');
+            $('#display-sub').attr("checked", "checked");
+        }
+        function display_sub() {
+            if(sessionStorage.getItem("display_sub") == 'true') {
+                sessionStorage.setItem("display_sub", false);
+                displaySub.css('display', 'none');
+            }else{
+                sessionStorage.setItem("display_sub", true);
+                displaySub.css('display', 'block');
+            }
+        }
+        
         //////////////////////////
         //////Comment///////////////
         ////////////////////////////
