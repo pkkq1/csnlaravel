@@ -583,7 +583,7 @@
     padding: 12px;
 }
 .jw-active-option {
-    background-color: #272525!important;
+    background-color: transparent!important;
 }
 
 .jw-active-option::before {
