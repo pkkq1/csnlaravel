@@ -143,15 +143,6 @@ $file_url = Helpers::file_url($music);
                             <div class="tab-pane show active" id="pills-liric" role="tabpanel" aria-labelledby="pills-liric-tab">
                                 <ul class="nav nav-tabs sub_Tab" id="myTab" role="tablist">
                                     <li class="nav-item">
-                                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Tiếng Anh</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Tiếng Việt</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Vietsub</a>
-                                    </li>
-                                    <li class="nav-item">
                                         <div class="nav-link form-group form-check mb-0 autoplay" style="padding: 10px 20px;">
                                             <input type="checkbox" class="form-check-input display-sub"
                                                    id="display-sub" onclick="display_sub()">
@@ -168,26 +159,7 @@ $file_url = Helpers::file_url($music);
                                 <div class="tab-content tab-lyric" id="myTabContent">
                                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                         <article>
-                                            <!--
-                                            {{$music->music_lyric}}
-                                        </article>
-                                    </div>
-                                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                        <article>
-                                            {{$music->music_lyric}}
-                                        </article>
-                                    </div>
-                                    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                                        <article>
-                                            {{$music->music_lyric}}
-                                                -->
-                                            <?php echo nl2br($music->music_lyric); ?>
-                                            <div class="vietsub1 sub_line"> test sub 1 </div>
-                                            <div class="vietsub2 sub_line"> test sub 2 </div>
-                                            <div class="vietsub1 sub_line"> test sub 1 </div>
-                                            <div class="vietsub2 sub_line"> test sub 2 </div>
-                                            <div class="vietsub1 sub_line"> test sub 1 </div>
-                                            <div class="vietsub2 sub_line"> test sub 2 </div>
+                                            <?php echo Helpers::lyric_to_web($music->music_lyric); ?>
                                         </article>
                                     </div>
                                 </div>
