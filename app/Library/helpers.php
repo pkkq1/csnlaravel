@@ -719,13 +719,15 @@ class Helpers
 
         $web_lyric = implode("\n", $lyrics);
 
-        if ( !$nosub ) {
+        if (!$nosub) {
             $web_lyric = str_replace("[t1]", '<div class="vietsub1 sub_line">', $web_lyric);
             $web_lyric = str_replace("[t2]", '<div class="vietsub2 sub_line">', $web_lyric);
             $web_lyric = str_replace(array("[/t1]\n", "[/t2]\n", "[/t1]", "[/t2]"), '</div>', $web_lyric);
         }
 
-        return nl2br($web_lyric);
+        return array(
+            'lyric' => nl2br($web_lyric),
+            'sub' => $nosub ? false : true
+        );
     }
-
 }

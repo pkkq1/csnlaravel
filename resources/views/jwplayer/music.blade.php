@@ -11,6 +11,7 @@ global $album_rows_3_0;
 
 $titleMeta = $music->music_title . ' - '. $music->music_artist;
 $file_url = Helpers::file_url($music);
+$lyric_array = Helpers::lyric_to_web($music->music_lyric);
 ?>
 @include('cache.def_home_cat_3_0')
 @include('cache.def_home_album')
@@ -140,26 +141,35 @@ $file_url = Helpers::file_url($music);
                             </li>
                         </ul>
                         <div class="tab-content" id="pills-tabContent">
-                            <div class="tab-pane show active" id="pills-liric" role="tabpanel" aria-labelledby="pills-liric-tab">
+                            <div class="tab-pane show active" id="pills-liric" role="tabpanel"
+                                 aria-labelledby="pills-liric-tab">
                                 <ul class="nav nav-tabs sub_Tab" id="myTab" role="tablist">
                                     <li class="nav-item">
-                                        <div class="nav-link form-group form-check mb-0 autoplay" style="padding: 10px 20px;">
+                                        <div class="nav-link form-group form-check mb-0 autoplay"
+                                             style="padding: 10px 20px;">
+                                            <?php if ($lyric_array['sub']) {
+                                            ?>
                                             <input type="checkbox" class="form-check-input display-sub"
                                                    id="display-sub" onclick="display_sub()">
                                             <label class="form-check-label d-flex align-items-center"
                                                    for="display-sub">
-                                                <span style="font-size: 13px; color: #4b4b4b; font-family: 'SFProDisplay-Medium';" class="txt">Hiển Thị Sub</span>
+                                                <span style="font-size: 13px; color: #4b4b4b; font-family: 'SFProDisplay-Medium';"
+                                                      class="txt">Hiển Thị Sub</span>
                                                 <span class="switch">
                                                     <span class="switch-inner"></span>
                                                 </span>
                                             </label>
+                                            <?php
+                                            }
+                                            ?>
                                         </div>
                                     </li>
                                 </ul>
                                 <div class="tab-content tab-lyric" id="myTabContent">
-                                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                    <div class="tab-pane fade show active" id="home" role="tabpanel"
+                                         aria-labelledby="home-tab">
                                         <article>
-                                            <?php echo Helpers::lyric_to_web($music->music_lyric); ?>
+                                            <?php echo $lyric_array['lyric']; ?>
                                         </article>
                                     </div>
                                 </div>
