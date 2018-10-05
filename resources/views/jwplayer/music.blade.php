@@ -537,7 +537,7 @@ $file_url = Helpers::file_url($music);
         var player = jwplayer('csnplayer');
         var firstPlayer = true;
 
-        jwplayer("csnplayerads").setup({
+        /*jwplayer("csnplayerads").setup({
             advertising: {
                 client: "vast",
                 skipoffset: 5,
@@ -568,8 +568,10 @@ $file_url = Helpers::file_url($music);
             width: "100%",
             aspectratio: "16:9",
             autostart: true,
-            file: "http://chiasenhac.vn/images/logo/logo_csn.mp4"
-        });
+            file: "http://chiasenhac.vn/images/logo/logo_csn.mp4",
+            events: { "onComplete": function() { $('#csnplayerads').remove(); } }
+        });*/
+
         player.setup({
             width: '100%',
             height: '110',
@@ -578,7 +580,7 @@ $file_url = Helpers::file_url($music);
             sources: [
                     <?php
                     for ($i=0; $i<sizeof($file_url); $i++){
-                        echo '{"file": "'. $file_url[$i]['url'] .'", "label": "'. $file_url[$i]['label'] .'", "type": "mp3"},';
+                        echo '{"file": "'. $file_url[$i]['url'] .'", "label": "'. $file_url[$i]['label'] .'", "type": "mp4"},';
                     }
                     ?>
             ],
@@ -588,6 +590,7 @@ $file_url = Helpers::file_url($music);
             },
             timeSliderAbove: true,
             autostart: true,
+            controlbar: "bottom",
             plugins: {
                 '<?php echo $typeListen == 'playlist' ? '/js/nhac-playlist.js' : '/js/nhac-csn.js' ?>': {
                     duration: 20,
