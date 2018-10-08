@@ -11,6 +11,7 @@ global $album_rows_3_0;
 
 $titleMeta = $music->music_title . ' - '. $music->music_artist;
 $file_url = Helpers::file_url($music);
+$lyric_array = Helpers::lyric_to_web($music->music_lyric);
 ?>
 @include('cache.def_home_cat_3_0')
 @include('cache.def_home_album')
@@ -140,54 +141,38 @@ $file_url = Helpers::file_url($music);
                             </li>
                         </ul>
                         <div class="tab-content" id="pills-tabContent">
-                            <div class="tab-pane show active" id="pills-liric" role="tabpanel" aria-labelledby="pills-liric-tab">
+                            <div class="tab-pane show active" id="pills-liric" role="tabpanel"
+                                 aria-labelledby="pills-liric-tab">
                                 <ul class="nav nav-tabs sub_Tab" id="myTab" role="tablist">
                                     <li class="nav-item">
-                                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Tiếng Anh</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Tiếng Việt</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Vietsub</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <div class="nav-link form-group form-check mb-0 autoplay" style="padding: 10px 20px;">
+                                        <div class="nav-link form-group form-check mb-0 autoplay"
+                                             style="padding: 10px 20px;">
+                                            <?php if ($lyric_array['sub']) {
+                                            ?>
                                             <input type="checkbox" class="form-check-input display-sub"
                                                    id="display-sub" onclick="display_sub()">
                                             <label class="form-check-label d-flex align-items-center"
                                                    for="display-sub">
-                                                <span style="font-size: 13px; color: #4b4b4b; font-family: 'SFProDisplay-Medium';" class="txt">Hiển Thị Sub</span>
+                                                <span style="font-size: 13px; color: #4b4b4b; font-family: 'SFProDisplay-Medium';"
+                                                      class="txt">Hiển Thị Sub</span>
                                                 <span class="switch">
                                                     <span class="switch-inner"></span>
                                                 </span>
                                             </label>
+                                            <?php
+                                            }
+                                            ?>
                                         </div>
                                     </li>
                                 </ul>
                                 <div class="tab-content tab-lyric" id="myTabContent">
-                                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                    <div class="tab-pane fade show active" id="home" role="tabpanel"
+                                         aria-labelledby="home-tab">
                                         <article>
-                                            <!--
-                                            {{$music->music_lyric}}
-                                        </article>
-                                    </div>
-                                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                        <article>
-                                            {{$music->music_lyric}}
-                                        </article>
-                                    </div>
-                                    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                                        <article>
-                                            {{$music->music_lyric}}
-                                                -->
-                                            <?php echo nl2br($music->music_lyric); ?>
-                                            <div class="vietsub1 sub_line"> test sub 1 </div>
-                                            <div class="vietsub2 sub_line"> test sub 2 </div>
-                                            <div class="vietsub1 sub_line"> test sub 1 </div>
-                                            <div class="vietsub2 sub_line"> test sub 2 </div>
-                                            <div class="vietsub1 sub_line"> test sub 1 </div>
-                                            <div class="vietsub2 sub_line"> test sub 2 </div>
+                                            <div id="fulllyric">
+                                                <?php echo $lyric_array['lyric']; ?>
+                                            </div>
+                                            <div id="morelyric" style="cursor:pointer" onclick="show_fulllyric();" align="right"></div>
                                         </article>
                                     </div>
                                 </div>
@@ -568,8 +553,10 @@ $file_url = Helpers::file_url($music);
             width: "100%",
             aspectratio: "16:9",
             autostart: true,
-            file: "http://chiasenhac.vn/images/logo/logo_csn.mp4"
+            file: "http://chiasenhac.vn/images/logo/logo_csn.mp4",
+            events: { "onComplete": function() { $('#csnplayerads').remove(); } }
         });
+
         player.setup({
             width: '100%',
             height: '110',
@@ -578,7 +565,7 @@ $file_url = Helpers::file_url($music);
             sources: [
                     <?php
                     for ($i=0; $i<sizeof($file_url); $i++){
-                        echo '{"file": "'. $file_url[$i]['url'] .'", "label": "'. $file_url[$i]['label'] .'", "type": "mp3"},';
+                        echo '{"file": "'. $file_url[$i]['url'] .'", "label": "'. $file_url[$i]['label'] .'", "type": "mp4"},';
                     }
                     ?>
             ],
@@ -588,6 +575,7 @@ $file_url = Helpers::file_url($music);
             },
             timeSliderAbove: true,
             autostart: true,
+            controlbar: "bottom",
             plugins: {
                 '<?php echo $typeListen == 'playlist' ? '/js/nhac-playlist.js' : '/js/nhac-csn.js' ?>': {
                     duration: 20,
@@ -1051,6 +1039,23 @@ $file_url = Helpers::file_url($music);
             $('.box_show_add_playlist').css('display', 'none');
         })
         $(".box_show_add_playlist").draggable();
+
+        var lyric_expand = '<p>Xem thêm lời bài hát <img src="/imgs/xt3.gif"></p>';
+        var lyric_collapse = '<p>Thu gọn <img src="/imgs/xt4.gif"></p>';
+        function show_fulllyric()
+        {
+            if ( $('#morelyric').html() == lyric_expand )
+            {
+                $('#fulllyric').attr('style', "font-size: 13px; overflow: auto;");
+                $('#morelyric').html(lyric_collapse);
+            }
+            else if ($('#fulllyric').outerHeight() > 300)
+            {
+                $('#fulllyric').attr('style', "font-size: 13px; max-height: 270px; overflow: hidden;");
+                $('#morelyric').html(lyric_expand);
+            }
+        }
+        show_fulllyric();
     </script>
     <style>
         .jw-icon-rewind{

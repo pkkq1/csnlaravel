@@ -681,4 +681,54 @@ class Helpers
 //        dd($lyrics);
         return $lyrics;
     }
+
+    public static function lyric_to_web($lyric)
+    {
+        if (strlen($lyric) < 100)
+        {
+            return $lyric;
+        }
+
+        $lyrics = array();
+        $lyric_line = explode("\n", $lyric);
+        $nosub = true;
+
+        foreach($lyric_line as $line) {
+            $preline = substr($line, 0, 4);
+            if ($preline == '[t1]')
+            {
+                // SUB
+                $line .= '[/t1]';
+                $nosub = false;
+            }
+            else if ($preline == '[t2]')
+            {
+                // SUB
+                $line .= '[/t2]';
+                $nosub = false;
+            }
+            else if (!$nosub && $preline == 'Ngư')
+            {
+                if (substr($line, 0, 16) == 'Người dịch:') {
+                    // SUB
+                    $line = '[t2]' . $line . '[/t2]';
+                    $nosub = false;
+                }
+            }
+            $lyrics[] = $line;
+        }
+
+        $web_lyric = implode("\n", $lyrics);
+
+        if (!$nosub) {
+            $web_lyric = str_replace("[t1]", '<div class="vietsub1 sub_line">', $web_lyric);
+            $web_lyric = str_replace("[t2]", '<div class="vietsub2 sub_line">', $web_lyric);
+            $web_lyric = str_replace(array("[/t1]\n", "[/t2]\n", "[/t1]", "[/t2]"), '</div>', $web_lyric);
+        }
+
+        return array(
+            'lyric' => nl2br($web_lyric),
+            'sub' => $nosub ? false : true
+        );
+    }
 }

@@ -583,7 +583,7 @@
     padding: 12px;
 }
 .jw-active-option {
-    background-color: #272525!important;
+    background-color: transparent!important;
 }
 
 .jw-active-option::before {
@@ -982,4 +982,10 @@ form#login-form {
 }
 .sub_line {
     display: none;
+}
+.vietsub1 {
+    color: #65abbc;
+}
+.vietsub2 {
+    color: #c0a478;
 }

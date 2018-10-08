@@ -14,10 +14,13 @@
     position: relative;
 }
 .jw-menu, .jw-slider-volume{
-    top: 32px;
+    top: 36px;
     background: rgba(49, 46, 46, 0.8)!important;
     border-radius: 5px;
     padding-bottom: 3px!important;
+}
+.jw-slider-volume{
+    top: 22px;
 }
 .jw-skin-nhac.jw-flag-time-slider-above:not(.jw-flag-ads-googleima).jwplayer .jw-group>.jw-icon.jw-icon-auto-next-on {
     /*background: url('/imgs/auto_on.png') no-repeat 12px 10px;*/
@@ -87,6 +90,9 @@
 .jw-background-color{
     font-size: 15px!important;
 }
-.jw-background-color .jw-option:hover {
+.jw-option:hover {
     color: #FF2E55!important;
+}
+.jwplayer, .jw-controls {
+    overflow: visible!important;
 }
