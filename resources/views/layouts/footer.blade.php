@@ -252,6 +252,7 @@
                         <div class="col-md-6 col-md-offset-2" style="display: table;float: left;">
                             <div class="input-field">
                                 <input class="username" name="username" type="text" placeholder="Tên đăng nhập" />
+                                <input class="name" name="name" type="text" placeholder="Tên hiển thị" />
                                 <input class="email" name="email" type="email" placeholder="Địa chỉ email" required="email" />
                                 <input class="password" name="password" type="password" placeholder="Mật khẩu" name="password" />
                                 <input class="confirm_password" name="confirm_password" type="password" placeholder="Xác nhận lại mật khẩu" name="password" />
@@ -386,6 +387,7 @@
     function authRegister() {
         resetInputLogin();
         const username = $('.modal-register').find('.username');
+        const name = $('.modal-register').find('.name');
         const email = $('.modal-register').find('.email');
         const password = $('.modal-register').find('.password');
         const confirm_password = $('.modal-register').find('.confirm_password');
@@ -417,6 +419,7 @@
             type: "POST",
             dataType: "json",
             data: {
+                name: name.val(),
                 username: username.val(),
                 email: email.val(),
                 password: password.val(),
