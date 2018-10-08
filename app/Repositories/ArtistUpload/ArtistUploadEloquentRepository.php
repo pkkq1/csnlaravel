@@ -33,8 +33,7 @@ class ArtistUploadEloquentRepository extends EloquentRepository implements Artis
     {
         $result = $this
             ->_model
-            ->where('id', $id)
-            ->where('is_published', 1)
+            ->where('artist_id', $id)
             ->first();
 
         return $result;

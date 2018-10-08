@@ -23,7 +23,7 @@ class CategoryPlaylistController extends CrudController
         parent::__construct();
 
         $this->crud->setModel("App\Models\CategoryPlaylistModel");
-//        $this->crud->setModel("Backpack\MenuCRUD\app\Models\MenuItem");
+        $this->crud->setEntityNameStrings('Category Playlist', 'Category Playlist');
         $this->crud->setRoute(config('backpack.base.route_prefix').'/category_playlist');
 //        $this->crud->setEntityNameStrings('menu item', 'menu items');
 

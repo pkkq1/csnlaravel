@@ -268,6 +268,7 @@ class Helpers
     public static function saveBase64Image($data, $path, $fileName = null, $type = 'png')
     {
         $data = str_replace('data:image/png;base64,', '', $data);
+        $data = str_replace('data:image/jpeg;base64,', '', $data);
         $data = str_replace(' ', '+', $data);
         $data = base64_decode($data);
         $fileName = ($fileName ?? rand() . '_' . time()) . '.' .$type;

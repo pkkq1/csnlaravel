@@ -76,13 +76,13 @@
           </a>
 
 
-          @include('admin.inc.menu')
+          @include('admin22222.inc.menu')
         </nav>
       </header>
 
       <!-- =============================================== -->
 
-      @include('admin.inc.sidebar')
+      @include('admin22222.inc.sidebar')
 
       <!-- =============================================== -->
 
@@ -163,7 +163,7 @@
         });
     </script>
 
-    @include('admin.inc.alerts')
+    @include('admin22222.inc.alerts')
 
     @yield('after_scripts')
     @stack('after_scripts')

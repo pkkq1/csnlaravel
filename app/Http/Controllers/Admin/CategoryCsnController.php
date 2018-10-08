@@ -24,7 +24,7 @@ class CategoryCsnController extends CrudController
         parent::__construct();
 
         $this->crud->setModel("App\Models\CategoryCsnModel");
-//        $this->crud->setModel("Backpack\MenuCRUD\app\Models\MenuItem");
+        $this->crud->setEntityNameStrings('Category CSN', 'Category CSN');
         $this->crud->setRoute(config('backpack.base.route_prefix').'/category_csn');
 //        $this->crud->setEntityNameStrings('menu item', 'menu items');
 

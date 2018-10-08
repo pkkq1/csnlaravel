@@ -40,6 +40,22 @@ class ArtistEloquentRepository extends EloquentRepository implements ArtistRepos
         return $result;
     }
 
+    public function createArtist($attributes)
+    {
+        $result = $this->_model::firstOrCreate([
+            'artist_nickname' => $attributes->artist_nickname,
+            'artist_realname' => $attributes->artist_realname ?? '',
+            'artist_url' => $attributes->artist_url,
+            'artist_birthday' => $attributes->artist_birthday,
+            'artist_gender' => $attributes->artist_gender,
+            'artist_country' => $attributes->artist_country,
+            'artist_avatar' => $attributes->artist_avatar,
+            'artist_cover' => $attributes->artist_cover,
+            'artist_desc' => $attributes->artist_desc
+        ]);
+        return $result;
+    }
+
     /**
      * Create
      * @return mixed

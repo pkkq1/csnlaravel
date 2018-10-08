@@ -1,5 +1,5 @@
 <li><a href="{{ backpack_url('dashboard') }}"><i class="fa fa-dashboard"></i> <span>{{ trans('backpack::base.dashboard') }}</span></a></li>
-
+<li><a href="/admin/artist_upload"><i class="fa fa-address-card"></i> <span>Artist Upload</span></a></li>
 <li class="treeview">
     <a href="#"><i class="fa fa-list"></i> <span>Category</span> <i class="fa fa-angle-left pull-right"></i></a>
     <ul class="treeview-menu">

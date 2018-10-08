@@ -36,10 +36,14 @@ define('MAX_ID_CONST', 71902891);
 
 // ARTIST
 define('AVATAR_ARTIST_SOURCE_PATH', '/data/source_artist_avatar/');
-define('PUBLIC_AVATAR_ARTIST_SOURCE_PATH', '/storage/data/source_artist_avatar/');
 define('AVATAR_ARTIST_CROP_PATH', '/data/artist_avatar/');
 define('COVER_ARTIST_SOURCE_PATH', '/data/source_artist_cover/');
 define('COVER_ARTIST_CROP_PATH', '/data/artist_cover/');
+
+define('PUBLIC_AVATAR_ARTIST_SOURCE_PATH', '/storage/data/source_artist_avatar/');
+define('PUBLIC_COVER_ARTIST_SOURCE_PATH', '/storage/data/source_artist_cover/');
+define('PUBLIC_AVATAR_ARTIST_PATH', '/storage/data/artist_avatar/');
+define('PUBLIC_COVER_ARTIST_PATH', '/storage/data/artist_cover/');
 
 // MUSIC
 define('MUSIC_PATH', '/storage/data/source_music/');

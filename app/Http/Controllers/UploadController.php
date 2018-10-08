@@ -64,6 +64,7 @@ class UploadController extends Controller
         //save image
         $typeImageAvatar = array_last(explode('.', $_FILES['choose_artist_avatar']['name']));
         $typeImageCover = array_last(explode('.', $_FILES['choose_artist_cover']['name']));
+//        dd($request->input('artist_avatar'));
         $fileNameAvt = Helpers::saveBase64Image($request->input('artist_avatar'), AVATAR_ARTIST_CROP_PATH, $result->artist_id, $typeImageAvatar);
         Helpers::copySourceImage($request->file('choose_artist_avatar'), AVATAR_ARTIST_SOURCE_PATH, $result->artist_id, $typeImageAvatar);
         $fileNameCover = Helpers::saveBase64Image($request->input('artist_cover'), COVER_ARTIST_CROP_PATH, $result->artist_id, $typeImageCover);
