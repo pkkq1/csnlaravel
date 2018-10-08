@@ -93,9 +93,6 @@
 .jw-option:hover {
     color: #FF2E55!important;
 }
-.jwplayer {
-    position: static!important;
-}
-.jw-controls {
-    position: initial!important;
+.jwplayer, .jw-controls {
+    overflow: visible!important;
 }
