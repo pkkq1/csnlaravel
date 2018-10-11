@@ -26,11 +26,11 @@ global $top_artist_rows;
 
     @include('cache.def_home_artist')
 
-    @include('cache.def_home_cat_3_0')
-    @include('cache.def_home_cat_4_0')
+    @include('cache.zzz.def_home_cat_3_0')
+    @include('cache.zzz.def_home_cat_4_0')
 
-    @include('cache.def_home_cat_5_0')
-    @include('cache.def_home_cat_7_0')
+    @include('cache.zzz.def_home_cat_5_0')
+    @include('cache.zzz.def_home_cat_7_0')
 
     <div class="container">
         <div class="row row_wrapper">

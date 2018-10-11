@@ -32,17 +32,9 @@ class BxhCategoryController extends Controller
         $catregory =$this->categoryRepository->getCategoryParent();
         foreach ($catregory as $item) {
             $music = $this->musicListenRepository->bxhCategory($item->cat_id);
-            dd($music->toArray());
+            $ressult[$item->cat_id] = $music->toArray();
         }
-
-
-        $cache = $this->musicRepository->getModel()::orderBy('music_last_update_time', 'desc')
-            ->select('music_id', 'music_title_url', 'music_title', 'music_artist', 'cat_id', 'cat_level', 'cat_sublevel', 'cat_custom', 'cover_id', 'music_download_time', 'music_last_update_time', 'music_title_url',
-                'music_title_search', 'music_artist_search', 'music_album_search', 'music_composer', 'music_album', 'music_listen', 'music_track_id', 'music_track_id', 'music_filename', 'music_bitrate', 'music_shortlyric', 'music_last_update_time')
-            ->limit(20)->get();
-        $download_rows = $cache->toArray();
-
-        file_put_contents(resource_path().'/views/cache/def_home_download.blade.blade.php',
+        file_put_contents(resource_path().'/views/cache/def_home_bxh.blade.php',
             '<?php 
 if ( !ENV(\'IN_PHPBB\') )
 {
@@ -51,7 +43,7 @@ if ( !ENV(\'IN_PHPBB\') )
 }
 global $bxh_category;
     
-$download_rows = ' . var_export($ressult, true) . ';
+$bxh_category = ' . var_export($ressult, true) . ';
 ?>');
         return response(['Ok']);
     }

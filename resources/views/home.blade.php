@@ -8,10 +8,8 @@ global $download_rows;
 global $top_uploader_rows;
 global $music_new_uploads;
 global $video_new_uploads;
-global $album_rows_3_0;
-global $album_rows_4_0;
-global $album_rows_5_0;
-global $album_rows_7_0;
+global $bxh_category;
+
 global $top_artist_rows;
 
 ?>
@@ -21,16 +19,12 @@ global $top_artist_rows;
 @section('content')
     
 @include('cache.def_home_album')
-
 @include('cache.def_home_download')
+@include('cache.def_home_bxh')
 
 @include('cache.def_home_artist')
 
-@include('cache.def_home_cat_3_0')
-@include('cache.def_home_cat_4_0')
 
-@include('cache.def_home_cat_5_0')
-@include('cache.def_home_cat_7_0')
 <div class="slide_home"
      style="background: url('/imgs/Slice-1.jpg');">
     <div class="container">
@@ -349,7 +343,7 @@ global $top_artist_rows;
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                     <ul class="list-unstyled bxh mb-0">
                         <?php
-                        $catMusic = Helpers::getRandLimitArr($album_rows_3_0, LIMIT_HOME_CAT_MUSIC);
+                        $catMusic = Helpers::getRandLimitArr($bxh_category[3], LIMIT_HOME_CAT_MUSIC);
                         array_map(function ($i, $item) {
                         $musicId = Helpers::music_id($item);
                         $url = SUB_BXH_NOW_MUSIC.'vietnam.html?id='.$musicId;
@@ -375,7 +369,7 @@ global $top_artist_rows;
                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                     <ul class="list-unstyled bxh mb-0">
                     <?php
-                    $catMusic = Helpers::getRandLimitArr($album_rows_4_0, LIMIT_HOME_CAT_MUSIC);
+                    $catMusic = Helpers::getRandLimitArr($bxh_category[4], LIMIT_HOME_CAT_MUSIC);
                     array_map(function ($i, $item) {
                     $musicId = Helpers::music_id($item);
                     $url = SUB_BXH_NOW_MUSIC.'vietnam.html?id='.$musicId;
@@ -401,7 +395,7 @@ global $top_artist_rows;
                 <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
                     <ul class="list-unstyled bxh mb-0">
                     <?php
-                    $catMusic = Helpers::getRandLimitArr($album_rows_5_0, LIMIT_HOME_CAT_MUSIC);
+                    $catMusic = Helpers::getRandLimitArr($bxh_category[5], LIMIT_HOME_CAT_MUSIC);
                     array_map(function ($i, $item) {
                     $musicId = Helpers::music_id($item);
                     $url = SUB_BXH_NOW_MUSIC.'vietnam.html?id='.$musicId;
@@ -427,7 +421,7 @@ global $top_artist_rows;
                 <div class="tab-pane fade" id="jpop" role="tabpanel" aria-labelledby="jpop-tab">
                     <ul class="list-unstyled bxh mb-0">
                     <?php
-                    $catMusic = Helpers::getRandLimitArr($album_rows_7_0, LIMIT_HOME_CAT_MUSIC);
+                    $catMusic = Helpers::getRandLimitArr($bxh_category[7], LIMIT_HOME_CAT_MUSIC);
                     array_map(function ($i, $item) {
                     $musicId = Helpers::music_id($item);
                     $url = SUB_BXH_NOW_MUSIC.'vietnam.html?id='.$musicId;
