@@ -6,14 +6,13 @@ global $cat_url2info;
 
 global $album_new;
 global $music_new_uploads;
-global $album_rows_3_0;
-
-
+global $sug;
+global $video;
 $titleMeta = $music->music_title . ' - '. $music->music_artist;
 $file_url = Helpers::file_url($music);
 $lyric_array = Helpers::lyric_to_web($music->music_lyric);
 ?>
-@include('cache.def_home_cat_3_0')
+@include('cache.suggestion.'.ceil($music->music_id / 1000).'.'.$music->music_id)
 @include('cache.def_home_album')
 
 @section('hidden_wapper', true)
@@ -52,18 +51,17 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
                     <div class="music_recommendation" style="border-bottom: 1px solid rgba(0,0,0,.125);">
                         <div class="d-table">
                             <?php
-                            if(($typeListen == 'playlist' || $typeListen == 'album') && isset($playlistMusic)){
-                                $catMusic = Helpers::getRandLimitArr($album_rows_3_0, 100);
+                            if(($musicSet['type_listen'] == 'playlist' || $musicSet['type_listen'] == 'album') && !empty($musicSet['playlist_music'])){
                                 array_map(function ($i, $item) use($music) {
                                 $url = env('APP_URL').SUB_BXH_MUSIC.Helpers::music_url($item);
-                                $urlAlbum = url()->current() . '?id=' . Helpers::encodeID($item['music_id']);
+                                $urlAlbum = url()->current() . '?playlist='.++$i;
                                 ?>
                                     <div id="music-listen-{{$item['music_id']}}" class="card-footer{{($music->music_id == $item['music_id'] ? ' listen' : '')}}" style="display: table-row;">
                                         <div class="name d-table-cell">
-                                            <a href="{{$urlAlbum}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{++$i . '. ' . $item['music_title']}}</a>
+                                            <a href="{{$urlAlbum}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$i . '. ' . $item['music_title']}}</a>
                                         </div>
                                         <div class="author d-table-cell">
-                                            <?php echo '<a href="#">'.implode(';</a><a href="#">', explode(';', $item['music_artist'])).'</a>' ?>
+                                            <?php echo '<a href="'.$urlAlbum.'">'.implode(';</a><a href="'.$urlAlbum.'">', explode(';', $item['music_artist'])).'</a>' ?>
                                         </div>
                                         <div class="tool d-table-cell text-right">
                                             <ul class="list-inline d-flex align-items-center justify-content-end">
@@ -75,7 +73,7 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
                                         </div>
                                     </div>
                                     <?php
-                                    },array_keys($playlistMusic), $playlistMusic);
+                                    },array_keys($musicSet['playlist_music']), $musicSet['playlist_music']);
                                 ?>
                                 <div class="box_show_add_playlist card" style="display: none" id="answer-12878316">
                                     <div class="card-body d-flex flex-column">
@@ -147,8 +145,7 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
                                     <li class="nav-item">
                                         <div class="nav-link form-group form-check mb-0 autoplay"
                                              style="padding: 10px 20px;">
-                                            <?php if ($lyric_array['sub']) {
-                                            ?>
+                                            @if(isset($lyric_array['sub']))
                                             <input type="checkbox" class="form-check-input display-sub"
                                                    id="display-sub" onclick="display_sub()">
                                             <label class="form-check-label d-flex align-items-center"
@@ -159,9 +156,7 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
                                                     <span class="switch-inner"></span>
                                                 </span>
                                             </label>
-                                            <?php
-                                            }
-                                            ?>
+                                            @endif
                                         </div>
                                     </li>
                                 </ul>
@@ -170,7 +165,9 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
                                          aria-labelledby="home-tab">
                                         <article>
                                             <div id="fulllyric">
-                                                <?php echo $lyric_array['lyric']; ?>
+                                                @if(isset($lyric_array['sub']))
+                                                    <?php echo $lyric_array['lyric'] ?>
+                                                @endif
                                             </div>
                                             <div id="morelyric" style="cursor:pointer" onclick="show_fulllyric();" align="right"></div>
                                         </article>
@@ -343,16 +340,17 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
                     <?php
                     $newMusic = Helpers::getRandLimitArr($music_new_uploads, LYRIC_DETAIL_NEW_MUSIC);
                     array_map(function ($item) {
+                    $url = Helpers::listen_url($item);
                     ?>
                         <div class="col">
                             <div class="card card1">
                                 <div class="card-header" style="background-image: url({{Helpers::cover_url($item['cover_id'])}});">
-                                    <a href="{{Helpers::listen_url($item)}}" title="{{$item['music_title']}}">
+                                    <a href="{{$url}}" title="{{$item['music_title']}}">
                                         <span class="icon-play"></span>
                                     </a>
                                 </div>
                                 <div class="card-body">
-                                    <h3 class="card-title"><a href="{{env('APP_URL').SUB_ALLBUM.$item['music_title_url'].'.html'}}" title="{{$item['music_title']}}">{{$item['music_title']}}</a></h3>
+                                    <h3 class="card-title"><a href="{{$url}}" title="{{$item['music_title']}}">{{$item['music_title']}}</a></h3>
                                     <p class="card-text"><?php echo '<a href="#">'.implode(';</a><a href="#">', explode(';', $item['music_artist'])).'</a>' ?></p>
                                 </div>
                             </div>
@@ -369,16 +367,17 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
                     <?php
                     $albumNew = Helpers::getRandLimitArr($album_new, LYRIC_DETAIL_NEW_ALBUM);
                     array_map(function ($item) {
+                    $url = Helpers::album_url($item);
                     ?>
                     <div class="col">
                         <div class="card card1">
                             <div class="card-header" style="background-image: url({{Helpers::cover_url($item['cover_id'])}});">
-                                <a href="{{env('APP_URL').SUB_ALLBUM.$item['music_title_url'].'.html'}}" title="{{$item['music_title']}}">
+                                <a href="{{$url}}" title="{{$item['music_album']}}">
                                     <span class="icon-play"></span>
                                 </a>
                             </div>
                             <div class="card-body">
-                                <h3 class="card-title"><a href="{{env('APP_URL').SUB_ALLBUM.$item['music_title_url'].'.html'}}" title="{{$item['music_title']}}">{{$item['music_title']}}</a></h3>
+                                <h3 class="card-title"><a href="{{$url}}" title="{{$item['music_album']}}">{{$item['music_album']}}</a></h3>
                                 <p class="card-text"><?php echo '<a href="#">'.implode(';</a><a href="#">', explode(';', $item['music_artist'])).'</a>' ?></p>
                             </div>
                         </div>
@@ -420,24 +419,30 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
                 <div class="card mb-3 cardads">
                     <a class="card-img-top" href="#" title=""><img class="" src="http://adi.admicro.vn/adt/adn/2018/03/7a-ad-adx5aa737ceba8f7.jpg" alt=""></a>
                 </div>
-                <div class="box_space"></div>
-                <div class="box_header d-flex justify-content-between align-items-end">
-                    <h5 class="title m-0">MV của bài hát</h5>
-                </div>
-                <ul class="list-unstyled mv_sing">
-                    <li class="media">
-                        <div class="media-left align-self-center mr-2">
-                            <a href="#" title="">
-                                <img src="https://zmp3-photo.zadn.vn/thumb/240_240/covers/9/2/9232c4c99c30f665e9326c8bbbcebc0e_1519987981.jpg" alt="">
-                                <i class="material-icons">play_circle_outline</i>
-                            </a>
-                        </div>
-                        <div class="media-body align-self-center">
-                            <h5 class="mt-0 media-title"><a href="#" title="">chạm khẽ anh một chút thôi</a></h5>
-                            <div class="author"><a href="#" title="">Noo Phước Thịnh</a></div>
-                        </div>
-                    </li>
-                </ul>
+                @if(!empty($video))
+                    <?php
+                        $urlVideo = Helpers::listen_url($video);
+                    ?>
+                    <div class="box_space"></div>
+                    <div class="box_header d-flex justify-content-between align-items-end">
+                        <h5 class="title m-0">MV của bài hát</h5>
+                    </div>
+                    <ul class="list-unstyled mv_sing">
+                        <li class="media">
+                            <div class="media-left align-self-center mr-2">
+                                <a href="{{$urlVideo}}" title="{{$video['music_title']}}">
+                                    <img src="{{Helpers::thumbnail_url($video)}}" alt="{{$video['music_title']}}">
+                                    <i class="material-icons">play_circle_outline</i>
+                                </a>
+                            </div>
+                            <div class="media-body align-self-center">
+                                <h5 class="mt-0 media-title"><a href="{{$urlVideo}}" title="">{{$video['music_title']}}</a></h5>
+                                <div class="author"><?php echo '<a href="#">'.implode(',</a><a href="#">', explode(';', $video['music_artist'])).'</a>' ?></div>
+                            </div>
+                        </li>
+                    </ul>
+                @endif
+                @if(!empty($sug))
                 <div class="box_space"></div>
                 <div class="box_header d-flex justify-content-between align-items-end">
                     <h5 class="title m-0">Gợi ý</h5>
@@ -451,43 +456,48 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
                         </label>
                     </div>
                 </div>
-                <ul class="list-unstyled list_music">
+                <ul class="list-unstyled list_music sug_music">
                     <?php
-                    $catMusic = Helpers::getRandLimitArr($album_rows_3_0, LIMIT_HOME_CAT_MUSIC);
-                    array_map(function ($item) {
+                    $sug = Helpers::getRandLimitArr($sug, LIMIT_HOME_CAT_MUSIC);
+                    $music_history = $musicSet['music_history'];
+                    $typeJw = $musicSet['type_jw'];
+                    array_map(function ($item) use ($music_history, $typeJw) {
                         $url = Helpers::listen_url($item);
-                    ?>
-                    <li class="media align-items-stretch">
-                        <div class="media-left align-items-stretch mr-2">
-                            <a href="{{$url}}" title="{{$item['music_title']}}">
-                                <img src="{{Helpers::cover_url($item['cover_id'])}}" alt="">
-                                <i class="material-icons">play_circle_outline</i>
-                                <span class="cover"></span>
-                            </a>
-                        </div>
-                        <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
-                            <div>
-                                <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
-                                <div class="author"><?php echo '<a href="#">'.implode(',</a><a href="#">', explode(';', $item['music_artist'])).'</a>' ?></div>
-                            </div>
-                            <div class="d-flex align-items-center justify-content-between">
-                                <small class="type_music c1"><?php echo Helpers::bitrate2str($item['music_bitrate']); ?></small>
-                                <div class="media-right">
-                                    <small class="time_stt"><i class="material-icons listen-material-icons"> play_arrow </i>{{number_format($item['music_listen'])}}</small>
-                                    <ul class="list-inline">
-                                        <li class="list-inline-item"><a download href="{{MUSIC_PATH.$item['music_filename']}}" title="download {{$item['music_title']}}"><i class="material-icons">file_download</i></a></li>
-                                        <li class="list-inline-item"><a href="{{$url}}" title="nghe riêng {{$item['music_title']}}"><i class="material-icons">headset</i></a></li>
-                                        <li class="list-inline-item"><a target="_blank" href="{{Helpers::fbShareLink($url)}}" title="share {{$item['music_title']}}"><i class="material-icons">share</i></a></li>
-                                    </ul>
+                        if(!in_array($item['music_id'], $music_history)) {
+                            ?>
+                            <li class="media align-items-stretch">
+                                <div class="media-left align-items-stretch mr-2">
+                                    <a href="{{$url}}" title="{{$item['music_title']}}">
+                                        <img src="{{$typeJw == 'video' ? Helpers::thumbnail_url($item) : Helpers::cover_url($item['cover_id'])}}" alt="">
+                                        <i class="material-icons">play_circle_outline</i>
+                                        <span class="cover"></span>
+                                    </a>
                                 </div>
-                            </div>
-                        </div>
-                    </li>
-                    <?php
-                    }, $catMusic)
+                                <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
+                                    <div>
+                                        <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
+                                        <div class="author"><?php echo '<a href="#">'.implode(',</a><a href="#">', explode(';', $item['music_artist'])).'</a>' ?></div>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <small class="type_music c1"><?php echo Helpers::bitrate2str($item['music_bitrate']); ?></small>
+                                        <div class="media-right">
+                                            <small class="time_stt"><i class="material-icons listen-material-icons"> play_arrow </i>{{number_format($item['music_listen'])}}</small>
+                                            <ul class="list-inline">
+                                                <li class="list-inline-item"><a download href="{{MUSIC_PATH.$item['music_filename']}}" title="download {{$item['music_title']}}"><i class="material-icons">file_download</i></a></li>
+                                                <li class="list-inline-item"><a href="{{$url}}" title="nghe riêng {{$item['music_title']}}"><i class="material-icons">headset</i></a></li>
+                                                <li class="list-inline-item"><a target="_blank" href="{{Helpers::fbShareLink($url)}}" title="share {{$item['music_title']}}"><i class="material-icons">share</i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <?php
+                        }
+                    }, $sug)
                     ?>
 
                 </ul>
+                @endif
                 <div class="box_space"></div>
                 <div class="card mb-3 cardads">
                     <a class="card-img-top" href="#" title=""><img class="" src="https://magiamgia.com/wp-content/uploads/2015/08/lazada-banner-con-mua-deals_336x280.jpg" alt=""></a>
@@ -510,7 +520,7 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
         ////////////////////////
 
         <?php
-        if($typeListen == 'playlist'){
+        if($musicSet['type_listen'] == 'playlist' && !empty($musicSet['playlist_music'])){
             ?>
             $("#music-listen-1904314").addClass('listen');
             var vtop = document.getElementById("music-listen-<?php echo $music->music_id ?>").offsetTop;
@@ -560,7 +570,7 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
         player.setup({
             width: '100%',
             height: '110',
-            aspectratio: "<?php echo $typeJw == 'video' ? '16:9' : 'false' ?>",
+            aspectratio: "<?php echo $musicSet['type_jw'] == 'video' ? '16:9' : 'false' ?>",
             stretching: 'fill',
             sources: [
                     <?php
@@ -577,7 +587,7 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
             autostart: true,
             controlbar: "bottom",
             plugins: {
-                '<?php echo $typeListen == 'playlist' ? '/js/nhac-playlist.js' : '/js/nhac-csn.js' ?>': {
+                '<?php echo $musicSet['type_listen'] == 'playlist' ? '/js/nhac-playlist.js' : '/js/nhac-csn.js' ?>': {
                     duration: 20,
                     msisdn: '',
                     package_id: 0,
@@ -621,6 +631,13 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
                 viewMode: 'mini',
                 onUpdateTimeJw: false
             });
+            <?php
+            if($musicSet['type_jw'] != 'video') {
+                ?>
+                    $('#csnplayer').find('.jw-controlbar').addClass('jw-controlbar-music');
+                <?php
+            }
+            ?>
         });
         jwplayer().onTime(function () {
             new RabbitLyrics({
@@ -668,8 +685,21 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
             console.log('back');
         }
         function AutoPlay(){
+            <?php
+                if($musicSet['type_listen'] == 'single') {
+                    ?>
+                    let sug_first = $('.sug_music').find('.media');
+                    window.location.href = sug_first.first().find('.media-left a').attr('href');
+                    <?php
+                }else{
+                    ?>
+
+                    <?php
+                }
+            ?>
             console.log('next');
         }
+        console.log(window.location.href);
         function autoRepeat(T){
             if(T == 'none') {
                 jwplayer().setConfig({
@@ -698,12 +728,12 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
                 sessionStorage.setItem("auto_random", false);
             }
         }
-
         jwplayer().onBeforeComplete(function() {
             if(logPlayAudioFlag == false && typeof AutoPlay=='function'){
                 AutoPlay();
             }
         });
+
         $('#old_embed').click(function(){
             embedString()
         });
@@ -783,7 +813,7 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
                 displaySub.css('display', 'block');
             }
         }
-        
+
         //////////////////////////
         //////Comment///////////////
         ////////////////////////////

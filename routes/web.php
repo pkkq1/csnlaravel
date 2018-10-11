@@ -18,12 +18,20 @@ Route::get('/sync/sorl_music', 'Sync\SorlSyncController@syncMusic');
 Route::get('/sync/sorl_video', 'Sync\SorlSyncController@syncVideo');
 Route::get('/sync/sorl_artist', 'Sync\SorlSyncController@syncArtist');
 Route::get('/sync/sorl_cover', 'Sync\SorlSyncController@syncCover');
-Route::get('/sync/demo', 'Sync\AlbumController@syncAlbumHot');
+
 
 
 Route::group(['middlewareGroups' => ['web']], function () {
-    Route::get('/logout', 'User\UserController@logout');
 
+    // sync data
+    Route::prefix('sync')->group(function () {
+        Route::get('album', 'Sync\AlbumController@syncAlbum');
+        Route::get('download', 'Sync\MusicDownloadController@syncMusicDownload');
+        Route::get('bxh_category', 'Sync\BxhCategoryController@syncBxhCategoryDownload');
+    });
+
+
+    Route::get('/logout', 'User\UserController@logout');
     Route::get('/', ['as' => 'HomeController.index', 'uses' => 'HomeController@index']);
     Route::get('/home', ['as' => 'HomeController.index', 'uses' => 'HomeController@index']);
     Route::get('/dang-tai', ['as' => 'upload.index', 'uses' => 'UploadController@index']);
@@ -60,8 +68,8 @@ Route::group(['middlewareGroups' => ['web']], function () {
     Route::get('mp3/{cat}/{sub}/{musicUrl}.html', ['as' => 'music.listen', 'uses' => 'MusicController@listenSingleMusic']);
     Route::get('mp3/{cat}/{sub}/{musicUrl}', ['as' => 'music.listen', 'uses' => 'MusicController@listenSingleMusic']);
     // video-clip
-    Route::get('hd/video/{sub}/{musicUrl}.html', ['as' => 'music.video', 'uses' => 'MusicController@listenSingleMusic']);
-    Route::get('hd/video/{sub}/{musicUrl}', ['as' => 'music.video', 'uses' => 'MusicController@listenSingleMusic']);
+    Route::get('hd/{cat}/{sub}/{musicUrl}.html', ['as' => 'music.video', 'uses' => 'MusicController@listenSingleMusic']);
+    Route::get('hd/{cat}/{sub}/{musicUrl}', ['as' => 'music.video', 'uses' => 'MusicController@listenSingleMusic']);
     // album
     Route::get('nghe-album/{musicUrl}.html', ['as' => 'music.album.listen', 'uses' => 'MusicController@listenPlaylistMusic']);
     Route::get('nghe-album/{musicUrl}', ['as' => 'music.album.listen', 'uses' => 'MusicController@listenPlaylistMusic']);

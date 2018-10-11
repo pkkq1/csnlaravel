@@ -3,10 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Backpack\CRUD\CrudTrait;
 use DB;
 
 class ArtistModel extends Model
 {
+    use CrudTrait;
     public $timestamps = false;
     protected $table = 'csn_artist';
     protected $primaryKey = 'artist_id';

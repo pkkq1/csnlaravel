@@ -72,6 +72,14 @@ class CategoryEloquentRepository extends EloquentRepository implements CategoryR
             ->first();
         return $result;
     }
+    public function getCategoryParent()
+    {
+        $result = $this
+            ->_model
+            ->where('cat_level', 0)
+            ->get();
+        return $result;
+    }
     public function getCategorySub($idParent, $url)
     {
         $result = $this

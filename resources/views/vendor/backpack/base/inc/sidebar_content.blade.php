@@ -1,10 +1,16 @@
 <li><a href="{{ backpack_url('dashboard') }}"><i class="fa fa-dashboard"></i> <span>{{ trans('backpack::base.dashboard') }}</span></a></li>
-<li><a href="/admin/artist_upload"><i class="fa fa-address-card"></i> <span>Artist Upload</span></a></li>
+<li class="treeview">
+    <a href="#"><i class="fa fa-address-card"></i> <span>Ca Sĩ</span> <i class="fa fa-angle-left pull-right"></i></a>
+    <ul class="treeview-menu">
+        <li><a href="{{env('APP_URL').'/'.config('backpack.base.route_prefix', 'admin')}}/artist_upload"><i class="fa fa-font-awesome"></i> <span>Xét Duyệt Ca Sĩ</span></a></li>
+        <li><a href="{{env('APP_URL').'/'.config('backpack.base.route_prefix', 'admin')}}/artist"><i class="fa fa-arrow-circle-right"></i> <span>Danh Sách Ca Sĩ</span></a></li>
+    </ul>
+</li>
 <li class="treeview">
     <a href="#"><i class="fa fa-list"></i> <span>Category</span> <i class="fa fa-angle-left pull-right"></i></a>
     <ul class="treeview-menu">
-        <li><a href="/admin/category_csn"><i class="fa fa-font-awesome"></i> <span>Category CSN</span></a></li>
-        <li><a href="/admin/category_playlist"><i class="fa fa-tag"></i> <span>Category Playlist</span></a></li>
+        <li><a href="{{env('APP_URL').'/'.config('backpack.base.route_prefix', 'admin')}}/category_csn"><i class="fa fa-font-awesome"></i> <span>Category CSN</span></a></li>
+        <li><a href="{{env('APP_URL').'/'.config('backpack.base.route_prefix', 'admin')}}/category_playlist"><i class="fa fa-tag"></i> <span>Category Playlist</span></a></li>
     </ul>
 </li>
 <!-- Users, Roles Permissions -->

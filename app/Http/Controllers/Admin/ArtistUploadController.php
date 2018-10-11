@@ -31,6 +31,7 @@ class ArtistUploadController extends CrudController
         $this->crud->setEntityNameStrings('Upload Artist', 'Artist Upload');
         $this->crud->setRoute(config('backpack.base.route_prefix').'/artist_upload');
         $this->crud->denyAccess(['create']);
+        $this->crud->orderBy('artist_id', 'desc');
 //        $this->crud->addClause('where', 'active', 1);
         $this->crud->setColumns([
             [
@@ -116,7 +117,6 @@ class ArtistUploadController extends CrudController
         // load the view from /resources/views/vendor/backpack/crud/ if it exists, otherwise load the one in the package
         return view('vendor.backpack.upload_artist.edit', $this->data);
 
-        return parent::edit($id);
     }
 
     public function store(StoreRequest $request)

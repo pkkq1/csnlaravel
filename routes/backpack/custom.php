@@ -17,5 +17,6 @@ Route::group([
 
     Route::get('artist_upload/{id}/approval', 'ArtistUploadController@approvalArtistUpload');
     CRUD::resource('artist_upload', 'ArtistUploadController');
+    CRUD::resource('artist', 'ArtistController');
 });
 

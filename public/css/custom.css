@@ -989,3 +989,7 @@ form#login-form {
 .vietsub2 {
     color: #c0a478;
 }
+.jw-controlbar-music {
+    visibility: inherit!important;
+    opacity: 1!important;
+}

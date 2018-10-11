@@ -63,10 +63,21 @@ class MusicController extends Controller
         if(Helpers::sessionListenMusic($arrUrl['id'])){
             $this->musicListenRepository->incrementListen($arrUrl['id']);
         }
-        $typeListen = 'single'; // single | playlist | album
-        $typeJw = 'music'; // music | video
-//        dd($music->toArray());
-        return view('jwplayer.music', compact('music', 'typeListen', 'typeJw'));
+        $type = 'music';
+        if($music->cat_id == CAT_VIDEO)
+            $type = 'video';
+        // update cookie music history
+        $cookie = Helpers::MusicCookie($request, $music);
+        //update cache file suggestion
+        $this->musicRepository->suggestion($music, $type);
+        $musicSet = [
+            'type_listen' => 'single', // single | playlist | album
+            'type_jw' =>  $type,  // music | video
+            'playlist_music' => [],
+            'music_history' => $cookie['value']
+        ];
+        return response()
+            ->view('jwplayer.music', compact('music', 'musicSet'))->cookie($cookie['cookie']);
     }
     public function listenPlaylistMusic(Request $request, $musicUrl) {
         $arrUrl = Helpers::splitPlaylistUrl($musicUrl);
@@ -91,7 +102,7 @@ class MusicController extends Controller
             }
         }
         if($playlistMusic) {
-            $music = $this->musicRepository->findOnlyMusicId($playlistMusic[($request->id ? ($request->id - 1) : 0)]['music_id']);
+            $music = $this->musicRepository->findOnlyMusicId($playlistMusic[$request->playlist ? $request->playlist - 1 : 0]['music_id']);
         }
         if(!$music)
             return view('errors.404');
@@ -99,9 +110,21 @@ class MusicController extends Controller
         if(Helpers::sessionListenMusic($arrUrl['id'])){
             $this->musicListenRepository->incrementListen($music->music_id);
         }
-        $typeListen = 'playlist';
-        $typeJw = 'music';
-        return view('jwplayer.music', compact('music', 'typeListen', 'typeJw', 'playlistMusic'));
+        $type = 'music';
+        if($music->cat_id == CAT_VIDEO)
+            $type = 'video';
+        // update cookie music history
+        $cookie = Helpers::MusicCookie($request, $music);
+        //update cache file suggestion
+        $this->musicRepository->suggestion($music, $type);
+        $musicSet = [
+            'type_listen' => 'playlist', // single | playlist | album
+            'type_jw' =>  $typeListen,  // playlist | music | video
+            'playlist_music' => $playlistMusic,
+            'music_history' => $cookie['value']
+        ];
+        return response()
+            ->view('jwplayer.music', compact('music', 'musicSet'))->cookie($cookie['cookie']);
     }
     public function listenBxhNow(Request $request, $catUrl) {
         return $this->listenBxhMusic($request, $catUrl);
@@ -114,42 +137,56 @@ class MusicController extends Controller
     }
     public function listenBxhMusic($request, $catUrl, $offset = false, $type = 'now') {
         $id = $request->id;
-        if(!$id) {
-            global $hot_music_rows;
-            global $hot_video_rows;
-            if($offset) {
-                if($type = 'month') {
-                    // month BXH
-                    include(app_path() . '/../resources/views/cache/def_hot_today.blade.php');
-                }else{
-                    // year BXH
-                    include(app_path() . '/../resources/views/cache/def_hot_today.blade.php');
-                }
+        $type = 'music';
+        $playlistMusic = [];
+        // cache array
+        global $hot_music_rows;
+        global $hot_video_rows;
+        if($offset) {
+            if($type = 'month') {
+                // month BXH
+                include(app_path() . '/../resources/views/cache/def_hot_today.blade.php');
             }else{
+                // year BXH
                 include(app_path() . '/../resources/views/cache/def_hot_today.blade.php');
             }
-            $category = $this->categoryListenRepository->getCategoryUrl($catUrl);
-            if(!$category)
-                return view('errors.404');
-            if($category->cat_level == 1) {
-                // video (sub category videoclip)
-                $firstMusic = $hot_video_rows[$category->cat_id][0];
-            }else{
-                // music (category music level 0)
-                $firstMusic = $hot_music_rows[$category->cat_id][0];
-            }
+        }else{
+            include(app_path() . '/../resources/views/cache/def_hot_today.blade.php');
+        }
+        $category = $this->categoryListenRepository->getCategoryUrl($catUrl);
+        if(!$category)
+            return view('errors.404');
+        if($category->cat_id == CAT_VIDEO) {
+            // video (sub category videoclip)
+            $type = 'video';
+            $playlistMusic = $hot_video_rows[$category->cat_id];
+        }else{
+            // music (category music level 0)
+            $playlistMusic = $hot_music_rows[$category->cat_id];
+        }
+        if(!$id) {
+            $firstMusic = $playlistMusic[$request->playlist ? $request->playlist - 1 : 0];
             $id = $firstMusic['music_id'];
         }
-        $music = $this->musicRepository->findOnlyMusicId($id);
+        $music = $this->musicRepository->findOnlyMusicId(Helpers::decodeID($id));
         if(!$music)
             return view('errors.404');
         // +1 view
         if(Helpers::sessionListenMusic($id)){
             $this->musicListenRepository->incrementListen($id);
         }
-        $typeListen = 'playlist';
-        $typeJw = 'music';
-        return view('jwplayer.music', compact('music', 'typeListen', 'typeJw'));
+        // update cookie music history
+        $cookie = Helpers::MusicCookie($request, $music);
+        //update cache file suggestion
+        $this->musicRepository->suggestion($music, $type);
+        $musicSet = [
+            'type_listen' => 'playlist', // single | playlist | album
+            'type_jw' =>  $type,  // music | video
+            'playlist_music' => $playlistMusic,
+            'music_history' => $cookie['value']
+        ];
+        return response()
+            ->view('jwplayer.music', compact('music', 'musicSet'))->cookie($cookie['cookie']);
     }
     public function embed(Request $request, $music) {
         $music = $this->musicRepository->findOnlyMusicId($music);

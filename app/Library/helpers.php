@@ -731,4 +731,17 @@ class Helpers
             'sub' => $nosub ? false : true
         );
     }
+    public static function MusicCookie($request, $music) {
+        $musicHistory = unserialize($request->cookie('music_history'));
+        $musicHistory = array_slice(array_reverse($musicHistory),0, LIMIT_HISTORY_MUSIC);
+        $musicHistory = array_diff(array_reverse($musicHistory), [$music->music_id]);
+        array_push($musicHistory, $music->music_id);
+        $musicHistorySer = serialize($musicHistory);
+        $cookie = cookie('music_history', $musicHistorySer,  36000);
+        return [
+            'cookie' => $cookie,
+            'value' => $musicHistory
+        ];
+
+    }
 }

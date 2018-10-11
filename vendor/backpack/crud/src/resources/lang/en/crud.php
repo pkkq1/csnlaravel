@@ -14,20 +14,20 @@ return [
     */
 
     // Forms
-    'save_action_save_and_new' => 'Save and new item',
-    'save_action_save_and_edit' => 'Save and edit this item',
-    'save_action_save_and_back' => 'Save and back',
+    'save_action_save_and_new' => 'Lưu và tạo mới',
+    'save_action_save_and_edit' => 'Lưu và chỉnh sửa nội dung',
+    'save_action_save_and_back' => 'Lưu và quay lại',
     'save_action_changed_notification' => 'Default behaviour after saving has been changed.',
 
     // Create form
-    'add'                 => 'Add',
+    'add'                 => 'Thêm',
     'back_to_all'         => 'Back to all ',
-    'cancel'              => 'Cancel',
+    'cancel'              => 'Hủy',
     'add_a_new'           => 'Add a new ',
 
     // Edit form
-    'edit'                 => 'Edit',
-    'save'                 => 'Save',
+    'edit'                 => 'Chỉnh sửa',
+    'save'                 => 'Lưu',
 
     // Revisions
     'revisions'            => 'Revisions',

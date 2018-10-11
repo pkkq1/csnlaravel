@@ -31,7 +31,6 @@ global $top_artist_rows;
 
 @include('cache.def_home_cat_5_0')
 @include('cache.def_home_cat_7_0')
-
 <div class="slide_home"
      style="background: url('/imgs/Slice-1.jpg');">
     <div class="container">
@@ -56,7 +55,7 @@ global $top_artist_rows;
                         </div>
                     </div>
                     <?php
-                }, $album_hot);
+                }, Helpers::getRandLimitArr($album_new, LIMIT_HOME_ALBUM_NEW));
             ?>
         </div>
         <script type="text/javascript">
@@ -88,15 +87,15 @@ global $top_artist_rows;
     <div class="row row_wrapper">
         <div class="col-md-9">
             <div class="box_header d-flex justify-content-between align-items-end">
-                <h5 class="title m-0">Album mới nhất</h5>
-                <a class="link_more" href="/album.html" title="">Xem tất cả</a>
+                <h5 class="title m-0">Album mới nhất {{date('Y', time())}}</h5>
+                <a class="link_more" href="/album.html" title="Album mới nhất {{date('Y', time())}}">Xem tất cả</a>
             </div>
             <div class="row row10px">
                 <?php
-                $newMusic = Helpers::getRandLimitArr($music_new_uploads, LIMIT_HOME_MUSIC_NEW);
+                $newMusic = Helpers::getRandLimitArr($album_new, LIMIT_HOME_MUSIC_NEW);
                 array_map(function ($i, $item) {
-                $url = Helpers::listen_url($item);
-                    ?>
+                $url = Helpers::album_url($item);
+                ?>
                     @if (($i % 5) == 0)
                     </div>
                     <div class="row row10px">
@@ -104,12 +103,12 @@ global $top_artist_rows;
                         <div class="col">
                             <div class="card card1">
                                 <div class="card-header" style="background-image: url({{Helpers::cover_url($item['cover_id'])}});">
-                                    <a href="{{$url}}" title="{{$item['music_title']}}">
+                                    <a href="{{$url}}" title="{{$item['music_album']}}">
                                         <span class="icon-play"></span>
                                     </a>
                                 </div>
                                 <div class="card-body">
-                                    <h3 class="card-title"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? ''}}">{{$item['music_title']}}</a></h3>
+                                    <h3 class="card-title"><a href="{{$url}}" title="{{$item['music_album']}}">{{$item['music_album']}}</a></h3>
                                     <p class="card-text"><?php echo '<a href="#">'.implode(',</a><a href="#">', explode(';', $item['music_artist'])).'</a>' ?></p>
                                 </div>
                             </div>
@@ -176,7 +175,7 @@ global $top_artist_rows;
                                 </div>
                             </li>
                             <?php
-                            }, Helpers::getRandLimitArr($album_old, LIMIT_HOME_ALBUM_OLD));
+                            }, Helpers::getRandLimitArr($music_new_uploads, LIMIT_HOME_ALBUM_OLD));
                         ?>
                     </ul>
                 </div>
@@ -263,13 +262,13 @@ global $top_artist_rows;
             </script>
             <div class="box_header d-flex justify-content-between align-items-end">
                 <h5 class="title m-0">Album mới</h5>
-                <a class="link_more" href="/album" title="Album mới nhất 2018">Xem tất cả</a>
+                <a class="link_more" href="/album" title="Album mới">Xem tất cả</a>
             </div>
             <div class="row row10px">
                 <?php
-                $albumNew = Helpers::getRandLimitArr($album_new, LIMIT_HOME_ALBUM_NEW);
+                $albumNew = Helpers::getRandLimitArr($album_old, LIMIT_HOME_ALBUM_NEW_BOTTOM);
                 array_map(function ($i, $item) {
-                    $url = Helpers::listen_url($item);
+                    $url = Helpers::album_url($item);
                 ?>
                     @if (($i % 5) == 0)
                     </div>
@@ -278,12 +277,12 @@ global $top_artist_rows;
                         <div class="col">
                             <div class="card card1">
                                 <div class="card-header" style="background-image: url({{Helpers::cover_url($item['cover_id'])}});">
-                                    <a href="{{$url}}" title="{{$item['music_title']}}">
+                                    <a href="{{$url}}" title="{{$item['music_album']}}">
                                         <span class="icon-play"></span>
                                     </a>
                                 </div>
                                 <div class="card-body">
-                                    <h3 class="card-title"><a href="{{$url}}" title="{{$item['music_title']}}">{{$item['music_title']}}</a></h3>
+                                    <h3 class="card-title"><a href="{{$url}}" title="{{$item['music_album']}}">{{$item['music_album']}}</a></h3>
                                     <p class="card-text"><?php echo '<a href="#">'.implode(',</a><a href="#">', explode(';', $item['music_artist'])).'</a>' ?></p>
                                 </div>
                             </div>
