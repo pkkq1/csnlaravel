@@ -631,13 +631,7 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
                 viewMode: 'mini',
                 onUpdateTimeJw: false
             });
-            <?php
-            if($musicSet['type_jw'] != 'video') {
-                ?>
-                    $('#csnplayer').find('.jw-controlbar').addClass('jw-controlbar-music');
-                <?php
-            }
-            ?>
+
         });
         jwplayer().onTime(function () {
             new RabbitLyrics({
@@ -648,12 +642,23 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
         })
         jwplayer().onQualityLevels(function(callback){
             updateQuality(callback);
+            console.log(1);
             if(sessionStorage.getItem("auto_next") == 'true') {
                 $('.check_auto_play').prop('checked', false).change();
             }
         });
         jwplayer().onQualityChange(function(callback){
             updateQuality(callback);
+        })
+        jwplayer().on('userInactive', function () {
+            <?php
+            if($musicSet['type_jw'] != 'video') {
+                ?>
+                ('#csnplayer').removeClass('jw-flag-user-inactive');
+                <?php
+            }
+            ?>
+            $
         })
         function onPlayerAutoNextOn()
         {

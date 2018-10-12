@@ -11,8 +11,6 @@
 |
 */
 
-Auth::routes();
-
 Route::get('/ping', 'Sync\SorlSyncController@ping');
 Route::get('/sync/sorl_music', 'Sync\SorlSyncController@syncMusic');
 Route::get('/sync/sorl_video', 'Sync\SorlSyncController@syncVideo');
@@ -22,6 +20,8 @@ Route::get('/sync/sorl_cover', 'Sync\SorlSyncController@syncCover');
 
 
 Route::group(['middlewareGroups' => ['web']], function () {
+
+    Auth::routes();
 
     // sync data
     Route::prefix('sync')->group(function () {
