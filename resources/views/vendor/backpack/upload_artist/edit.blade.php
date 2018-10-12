@@ -67,7 +67,7 @@
                             <input type="hidden" name="save_action" value="{{ $saveAction['active']['value'] }}">
 
                             <a href="{{ $crud->hasAccess('list') ? url($crud->route).'/'.$fields['id']['value'].'/approval' : url()->previous() }}" class="btn btn-info"><span class="fa fa-arrow-circle-right"></span> &nbsp;Xác Nhận Ca Sĩ</a>
-
+                            <a href="{{ $crud->hasAccess('list') ? url($crud->route).'/preview/'.$fields['id']['value'].'' : url()->previous() }}" target="_blank" class="btn btn-warning"><span class="fa fa-align-center"></span> &nbsp;Xem Trước</a>
                             <div class="btn-group">
 
                                 <button type="submit" class="btn btn-success">

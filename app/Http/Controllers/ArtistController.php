@@ -36,6 +36,7 @@ class ArtistController extends Controller
         $artist = $this->artistRepository->find($arrUrl['id']);
         if(!$artist)
             return view('errors.404');
+        dd($artist->toArray());
         return view('artist.index', compact('artist'));
     }
 }

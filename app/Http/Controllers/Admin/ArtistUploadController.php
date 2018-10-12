@@ -176,4 +176,10 @@ class ArtistUploadController extends CrudController
         \Alert::success('Xác nhận ca sĩ thành công.')->flash();
         return \Redirect::to($this->crud->route);
     }
+    public function preview(StoreRequest $request, $id) {
+        $artist = $this->artistUploadRepository->find($id);
+        if(!$artist)
+            return view('errors.404');
+        return view('artist.index', compact('artist'));
+    }
 }
