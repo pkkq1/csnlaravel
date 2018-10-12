@@ -1001,3 +1001,8 @@ form#login-form {
     bottom: 0;
     width: 100%;
 }
+.box_profile {
+    background-image: none;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
