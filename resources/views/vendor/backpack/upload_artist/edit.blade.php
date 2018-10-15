@@ -12,6 +12,11 @@
             <li class="active">{{ trans('backpack::crud.edit') }}</li>
         </ol>
     </section>
+    <script type="text/javascript" src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/jQuery-File-Upload-9.21.0/js/vendor/jquery.ui.widget.js"></script>
+    <script type="text/javascript" src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/croppie.css">
 @endsection
 
 @section('content')
@@ -26,10 +31,7 @@
 
             <form method="post"
                   action="{{ url($crud->route.'/'.$entry->getKey()) }}"
-                  @if ($crud->hasUploadFields('update', $entry->getKey()))
-                  enctype="multipart/form-data"
-                    @endif
-            >
+                  enctype="multipart/form-data" >
                 {!! csrf_field() !!}
                 {!! method_field('PUT') !!}
                 <div class="box">
@@ -58,6 +60,25 @@
                         @else
                             @include('crud::form_content', ['fields' => $fields, 'action' => 'edit'])
                         @endif
+                        <div class="form-group col-xs-12">
+                            <label style="display: -webkit-box;">Avatar</label>
+                            <img class="mr-3" id="artist_avatar_uploaded" src="{{$fields['artist_avatar']['value'] ? PUBLIC_AVATAR_ARTIST_PATH.$fields['artist_avatar']['value'].'?time='.time() : '/imgs/avatar_default.png'}}" alt="">
+                            <div class="media-body">
+                                <div class="form-group" style="margin-top: 10px;">
+                                    <input type="file" class="form-control-file" name="choose_artist_avatar" id="choose_artist_avatar">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-xs-12">
+                            <label style="display: -webkit-box;">Cover</label>
+                            <img class="mr-3" width="800px" id="artist_cover_uploaded" src="{{$fields['artist_cover']['value'] ? PUBLIC_COVER_ARTIST_PATH.$fields['artist_cover']['value'].'?time='.time() : '/imgs/avatar_default.png'}}" alt="">
+                            <div class="media-body">
+                                <div class="form-group" style="margin-top: 10px;">
+                                    <input type="file" class="form-control-file" name="choose_artist_cover" id="choose_artist_cover">
+                                </div>
+                            </div>
+                        </div>
                     </div><!-- /.box-body -->
 
                     <div class="box-footer">
@@ -98,3 +119,122 @@
         </div>
     </div>
 @endsection
+@push('after_scripts')
+    <div id="uploadimageModal" class="modal" role="dialog">
+        <div class="modal-dialog" style="width: auto;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Cắt sửa ảnh</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-10 text-center">
+                            <div id="image_demo" style="width:470px; margin-top:30px"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success crop_image">Cắt ảnh</button>
+                    <button class="btn btn-default" data-dismiss="modal">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="/js/croppie.js"></script>
+    <script>
+        $('input[name=artist_avatar]').parent().addClass('hidden');
+        $('input[name=artist_cover]').parent().addClass('hidden');
+
+        $(document).ready(function(){
+            var selectImage;
+
+            $('#choose_artist_avatar').on('change', function(){
+                selectImage = 'avatar';
+                $('#image_demo').html('');
+                $('.modal-dialog').css("max-width", "500px")
+                $image_crop = $('#image_demo').croppie({
+                    enableExif: true,
+                    viewport: {
+                        width:300,
+                        height:300,
+                        type:'square' //circle
+                    },
+                    boundary:{
+                        width:300,
+                        height:300
+                    },
+                    showZoomer: false,
+                    enableOrientation: true,
+                    mouseWheelZoom: '',
+                });
+                var reader = new FileReader();
+                reader.onload = function (event) {
+                    $image_crop.croppie('bind', {
+                        url: event.target.result
+                    }).then(function(){
+                        console.log('jQuery bind complete');
+                    });
+                }
+                reader.readAsDataURL(this.files[0]);
+                $('#uploadimageModal').modal('show');
+            });
+
+            $('#choose_artist_cover').on('change', function(){
+                selectImage = 'cover';
+                $('#image_demo').html('');
+                $('.modal-dialog').css("max-width", "1200px")
+                $('#image_demo').html('');
+                $image_crop = $('#image_demo').croppie({
+                    enableExif: true,
+                    viewport: {
+                        width:1170,
+                        height:300,
+                        type:'square' //circle
+                    },
+                    boundary:{
+                        width:1170,
+                        height:300
+                    },
+                    showZoomer: false,
+                    enableOrientation: true,
+                    mouseWheelZoom: '',
+                });
+                var reader = new FileReader();
+                reader.onload = function (event) {
+                    $image_crop.croppie('bind', {
+                        url: event.target.result
+                    }).then(function(){
+                        console.log('jQuery bind complete');
+                    });
+                }
+                reader.readAsDataURL(this.files[0]);
+                $('#uploadimageModal').modal('show');
+            });
+            $('.crop_image').click(function(event){
+                $image_crop.croppie('result', {
+                    type: 'canvas',
+                    size: 'viewport'
+                }).then(function (response) {
+                    const info = $image_crop.croppie('get');
+                    var top_left_x = info.points[0];
+                    var top_left_y = info.points[1];
+                    var bottom_right_x = info.points[2];
+                    var bottom_right_y = info.points[3];
+                    $('#uploadimageModal').modal('hide');
+                    if(selectImage == 'avatar'){
+                        $('#artist_avatar_crop_x').val('top_left:' + top_left_x + ';' + 'bottom_right:' + bottom_right_x);
+                        $('#artist_avatar_crop_y').val('top_left:' + top_left_y + ';' + 'bottom_right:' + bottom_right_y);
+                        $('input[name=artist_avatar]').val(response);
+                        $('#artist_avatar_uploaded').attr("src", response);
+                    }else{
+                        $('#artist_cover_crop_x').val('top_left:' + top_left_x + ';' + 'bottom_right:' + bottom_right_x);
+                        $('#artist_cover_crop_y').val('top_left:' + top_left_y + ';' + 'bottom_right:' + top_left_y);
+                        $('input[name=artist_cover]').val(response);
+                        $('#artist_cover_uploaded').attr("src", response);
+                    }
+                })
+            });
+        });
+    </script>
+@endpush

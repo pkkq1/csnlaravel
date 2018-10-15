@@ -654,7 +654,7 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
             <?php
             if($musicSet['type_jw'] != 'video') {
                 ?>
-                ('#csnplayer').removeClass('jw-flag-user-inactive');
+                $('#csnplayer').removeClass('jw-flag-user-inactive');
                 <?php
             }
             ?>

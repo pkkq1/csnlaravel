@@ -76,27 +76,35 @@ class ArtistUploadController extends CrudController
         ], 'update');
 
         $this->crud->addField([
-            'label' => "Avatar",
-            'name' => "artist_avatar",
-            'type' => 'image',
-            'aspect_ratio' => 1,
-            'crop' => true,
-            'aspect_ratio' => 1,
-            'upload' => true,
-            'prefix' => PUBLIC_AVATAR_ARTIST_PATH,
+            'name'  => 'artist_avatar',
+            'label' => 'Avatar',
         ]);
+
         $this->crud->addField([
-            'label' => "Cover",
-            'name' => "artist_cover",
-            'type' => 'image',
-            'aspect_ratio' => 1,
-            'crop' => true,
-            'aspect_ratio' => 1,
-            'upload' => true,
-            'prefix' => PUBLIC_COVER_ARTIST_PATH,
+            'name'  => 'artist_cover',
+            'label' => 'Cover',
         ]);
 
-
+//        $this->crud->addField([
+//            'label' => "Avatar",
+//            'name' => "artist_avatar",
+//            'type' => 'image',
+//            'aspect_ratio' => 1,
+//            'crop' => true,
+//            'aspect_ratio' => 1,
+//            'upload' => true,
+//            'prefix' => PUBLIC_AVATAR_ARTIST_PATH,
+//        ]);
+//        $this->crud->addField([
+//            'label' => "Cover",
+//            'name' => "artist_cover",
+//            'type' => 'image',
+//            'aspect_ratio' => 1,
+//            'crop' => true,
+//            'aspect_ratio' => 1,
+//            'upload' => true,
+//            'prefix' => PUBLIC_COVER_ARTIST_PATH,
+//        ]);
 
     }
     public function edit($id, $template = false)
@@ -138,16 +146,16 @@ class ArtistUploadController extends CrudController
                 $request->request->set($key, null);
             }
         }
-        if(strlen($request->input('artist_avatar')) < 100) {
-            $request->request->set('artist_avatar', str_replace(env('APP_URL') . PUBLIC_AVATAR_ARTIST_PATH, '', $request->input('artist_avatar')));
-        }else{
-            $fileNameAvt = Helpers::saveBase64Image($request->input('artist_avatar'), AVATAR_ARTIST_CROP_PATH, $request->input('artist_id'));
+        if(strlen($request->input('artist_avatar')) > 100) {
+            $typeImageAvatar = array_last(explode('.', $_FILES['choose_artist_avatar']['name']));
+            $fileNameAvt = Helpers::saveBase64Image($request->input('artist_avatar'), AVATAR_ARTIST_CROP_PATH, $request->artist_id, $typeImageAvatar);
+            Helpers::copySourceImage($request->file('choose_artist_avatar'), AVATAR_ARTIST_SOURCE_PATH, $request->artist_id, $typeImageAvatar);
             $request->request->set('artist_avatar', $fileNameAvt);
         }
-        if(strlen($request->input('artist_cover')) < 100) {
-            $request->request->set('artist_cover', str_replace(env('APP_URL') . PUBLIC_COVER_ARTIST_PATH, '', $request->input('artist_avatar')));
-        }else{
-            $fileNameCover = Helpers::saveBase64Image($request->input('artist_cover'), COVER_ARTIST_CROP_PATH, $request->input('artist_id'));
+        if(strlen($request->input('artist_cover')) > 100) {
+            $typeImageCover = array_last(explode('.', $_FILES['choose_artist_cover']['name']));
+            $fileNameCover = Helpers::saveBase64Image($request->input('artist_cover'), COVER_ARTIST_CROP_PATH, $request->artist_id, $typeImageCover);
+            Helpers::copySourceImage($request->file('choose_artist_cover'), COVER_ARTIST_SOURCE_PATH, $request->artist_id, $typeImageCover);
             $request->request->set('artist_cover', $fileNameCover);
         }
 
