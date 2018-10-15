@@ -670,7 +670,8 @@ class Helpers
         return $file_url;
     }
     public static function rawLyrics($lyrics) {
-        $lyrics = str_replace("]\r\n", ']', $lyrics);
+//        $lyrics = str_replace("]\r\n", ']', $lyrics);
+//        $lyrics = str_replace("][", "]\r\n[", $lyrics);
 //
 //        $lyrics = explode("\r\n", $lyrics);
 //        foreach ($lyrics as &$item) {
