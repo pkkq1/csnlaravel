@@ -579,7 +579,7 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
                     }
                     ?>
             ],
-            title:'<?php echo $music->music_title ?>',
+            title: "<?php echo $music->music_title ?>",
             skin: {
                 name: 'nhac'
             },
