@@ -512,7 +512,7 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
     <script src="/assets/jwplayer-7.12.0/jwplayer.js"></script>
     <script>
         var musicId = '<?php echo $music->music_id ?>';
-        var artists = '<?php echo $music->music_artist  ?>';
+        var artists = "<?php echo $music->music_artist  ?>";
         var artistIds = '<?php echo $music->music_artist_id  ?>';
         var musicAddId = '';
         //////////////////////////
@@ -579,7 +579,7 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
                     }
                     ?>
             ],
-            title:'<?php echo $music->music_title ?>',
+            title: "<?php echo $music->music_title ?>",
             skin: {
                 name: 'nhac'
             },
