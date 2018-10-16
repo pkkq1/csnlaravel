@@ -1,7 +1,6 @@
 @section('hidden_wapper', true)
 <?php
 $titleMeta = $playlistUser ? 'Cập nhật playlist - ' . $playlistUser->playlist_title : 'Thêm playlist mới';
-$i = 1;
 ?>
 @extends('layouts.app')
 @section('contentCSS')
@@ -92,13 +91,14 @@ $i = 1;
                                         <div class="col-sm-8">
                                             <div class="card border-0" id="playlist_music">
                                                 <ul class="list-group list-group-sortable" id="editable">
-                                                    @foreach($playlistmusic as $item)
-                                                        <li class="list-group-item d-flex align-items-center justify-content-between" id="{{$item['music']['music_id']}}"><span>{{$i++}}. <a class="name" href="#" title="">{{$item['music']['music_title']}}</a> - <?php echo '<a class="author" href="#">'.implode(',</a><a class="author" href="#">', explode(';', $item['music']['music_artist'])).'</a>' ?>
+                                                    @foreach($playlistUser->music as $key => $item)
+                                                        <li class="list-group-item d-flex align-items-center justify-content-between" data-id="{{$item->music_id}}"><span>{{++$key}}. <a class="name" href="#" title="">{{$item->music_title}}</a> - <?php echo '<a class="author" href="#">'.implode(',</a><a class="author" href="#">', explode(';', $item->music_artist)).'</a>' ?>
                                                             </span> <a class="delete js-remove" href="javascript:void(0)" title="xoá nhạc"><i class="fa fa-trash" aria-hidden="true"></i></a>
                                                         </li>
                                                     @endforeach
                                                 </ul>
                                                 <input type="hidden" name="remove_music" class="playlist_remove_music" />
+                                                <input type="hidden" name="order_music" class="playlist_order_music" />
                                                 <script type="text/javascript">
                                                     var el = document.getElementById('editable');
                                                     var sortable = Sortable.create(el,{
@@ -106,6 +106,14 @@ $i = 1;
                                                         onFilter: function (evt) {
                                                             $('.playlist_remove_music').val($('.playlist_remove_music').val() + ',' + evt.item.id)
                                                             evt.item.parentNode.removeChild(evt.item);
+                                                        },
+                                                        onEnd: function (evt) {
+                                                            let sortIds = '';
+                                                            $('.list-group-item').each(function(index, val) {
+                                                                console.log($(val).data('id'));
+                                                                sortIds = sortIds + ',' + $(val).data('id');
+                                                            })
+                                                            $('.playlist_order_music').val(sortIds);
                                                         }
                                                     });
                                                 </script>

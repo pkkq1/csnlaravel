@@ -80,16 +80,21 @@ class PlaylistController extends Controller
             Helpers::ajaxResult(false, 'Bài hát đã tồn tại trong playlist.', null);
         }
 
-        $result = PlaylistMusicModel::firstOrCreate([
-            'playlist_id' => $request->input('playlist_id'),
-            'music_id' => $request->input('music_id')
-        ]);
+//        $result = PlaylistMusicModel::firstOrCreate([
+//            'playlist_id' => $request->input('playlist_id'),
+//            'music_id' => $request->input('music_id')
+//        ]);
         $playlistUser->playlist_time = time();
         $playlistUser->playlist_music_total = $playlistUser->playlist_music_total + 1;
         // add and sort artist
         if($request->input('artist')) {
             $artistNew = explode(';', $request->input('artist'));
-            $artistIdNew = explode(';', $request->input('artist_id'));
+            if(!$request->input('artist_id')) {
+                $artistIdNew = urlencode($request->input('artist'));
+                $artistIdNew = explode('%3B+', $artistIdNew);
+            }else{
+                $artistIdNew = explode(';', $request->input('artist_id'));
+            }
             $artistOld = [];
             $arrNew = [];
             if($playlistUser->playlist_artist) {
@@ -121,14 +126,13 @@ class PlaylistController extends Controller
         Helpers::ajaxResult(true, 'Đã thêm vào playlist.', null);
     }
     public function editPlaylist(Request $request, $id) {
-        $playlistUser = $this->playlistRepository->getByPlayByUser(Auth::user()->id, $id)->first();
+        $playlistUser = $this->playlistRepository->getByPlayByUser(Auth::user()->id, $id)->with('music')->first();
         if(!$playlistUser) {
             return view('errors.404');
         }
-        $playlistmusic = PlaylistMusicModel::where('playlist_id', $id)->with('music')->get();
         $playlistLevel = $this->playlistCategoryRepository->getList();
         $playlistCategory = $this->playlistCategoryRepository->getCategory();
-        return view('playlist.create_update_playlist', compact('playlistUser', 'playlistmusic', 'playlistLevel', 'playlistCategory'));
+        return view('playlist.create_update_playlist', compact('playlistUser', 'playlistLevel', 'playlistCategory'));
     }
     public function editPagePlaylist(Request $request) {
         $playlistUser = $this->playlistRepository->getByPlayByUser(Auth::user()->id)->get();
@@ -161,6 +165,12 @@ class PlaylistController extends Controller
             $arrMusic = explode(',', substr($request->input('remove_music'), 1));
             $countRemove = PlaylistMusicModel::where('playlist_id', $id)->whereIn('music_id', $arrMusic)->delete();
             $update['playlist_music_total'] = $playlist->first()->playlist_music_total - $countRemove;
+        }
+        if($request->input('order_music')) {
+            $arrMusic = explode(',', substr($request->input('order_music'), 1));
+            foreach ($arrMusic as $key => $item) {
+                $this->playlistMusicRepository->getModel()::where('music_id', $item)->update(['playlist_order' => $key]);
+            }
         }
         // update cover
         if($request->input('playlist_cover')) {
