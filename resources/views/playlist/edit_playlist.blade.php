@@ -2,6 +2,7 @@
 <?php
 $titleMeta = 'Chỉnh sửa playlist';
 $i = 1;
+use App\Library\Helpers;
 ?>
 @extends('layouts.app')
 @section('contentCSS')
@@ -18,7 +19,7 @@ $i = 1;
                         <div class="form-group form-check">
                             <input type="checkbox" value="all" class="form-check-input check-all" id="">
                             <a href="javascript:void(0)" onclick="deleteSelectPlaylist()" title="xoá playlist đã chọn" class="btn btn-secondary"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</a>
-                            <a href="/playlist/user/them" title="" class="btn btn-danger"><i class="fa fa-pencil" aria-hidden="true"></i> Tạo playlist</a>
+                            <a href="/user/playlist/them" title="" class="btn btn-danger"><i class="fa fa-pencil" aria-hidden="true"></i> Tạo playlist</a>
                         </div>
                     </div>
                 </div>
@@ -26,6 +27,9 @@ $i = 1;
                     <table class="table">
                         <tbody>
                         @foreach($playlistUser as $item)
+                            <?php
+                            $user = Helpers::playlist_url($item->toArray());
+                            ?>
                             <tr id="playlist_{{$item->playlist_id}}">
                                 <td class="pl-0">
                                     <div class="form-group form-check">
@@ -34,9 +38,9 @@ $i = 1;
                                 </td>
                                 <td>
                                     <div class="media">
-                                        <a class="mr-3" href="/playlist/{{$item->playlist_id}}" title=""><img src="{{$item->playlist_cover ? PUBLIC_MUSIC_PLAYLIST_PATH.$item->playlist_id . '.png?v=' . time() : '/imgs/avatar_default.png'}}" alt="{{$item->playlist_title}}"></a>
+                                        <a class="mr-3" href="{{$user}}" title=""><img src="{{$item->playlist_cover ? PUBLIC_MUSIC_PLAYLIST_PATH.$item->playlist_id . '.png?v=' . time() : '/imgs/avatar_default.png'}}" alt="{{$item->playlist_title}}"></a>
                                         <div class="media-body">
-                                            <h4 class="media-title"><a href="/playlist/{{$item->playlist_id}}" title="{{$item->playlist_title}}">{{$item->playlist_title}}</a></h4>
+                                            <h4 class="media-title"><a href="{{$user}}" title="{{$item->playlist_title}}">{{$item->playlist_title}}</a></h4>
                                             <ul class="list-unstyled">
                                                 <li><i class="material-icons">mic</i> Đang cập nhật</li>
                                                 <li><i class="material-icons">headset</i> {{$item->playlist_listen}}</li>
@@ -45,7 +49,7 @@ $i = 1;
                                     </div>
                                 </td>
                                 <td>
-                                    <a href="/playlist/user/cap-nhat/{{$item->playlist_id}}" title="" class="btn btn-danger"><i class="fa fa-pencil" aria-hidden="true"></i> Chỉnh sửa</a>
+                                    <a href="/user/playlist/cap-nhat/{{$item->playlist_id}}" title="" class="btn btn-danger"><i class="fa fa-pencil" aria-hidden="true"></i> Chỉnh sửa</a>
                                     <a href="javascript:void(0)" onclick="deletePlaylist([{{$item->playlist_id}}], 'Bạn có muốn xóa playlist {{$item->playlist_title}} này không?')" class="btn btn-secondary"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</a>
                                 </td>
                             </tr>
@@ -86,7 +90,7 @@ $i = 1;
                 callback: function ($this, type, ev) {
                     if (type === 'yes') {
                         $.ajax({
-                            url: "/playlist/user/delete",
+                            url: "/user/playlist/delete",
                             type: "POST",
                             dataType: "json",
                             data: {playlis_ids: ids},

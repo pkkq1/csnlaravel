@@ -71,7 +71,7 @@ class PlaylistController extends Controller
         if(!Auth::check()){
             Helpers::ajaxResult(false, 'Bạn chưa đang nhập.', null);
         }
-        $playlistUser = $this->playlistRepository->getByPlaylist([['playlist_id', $request->input('playlist_id')], ['playlist_user_id', Auth::user()->id]]);
+        $playlistUser = $this->playlistRepository->getByPlayByUser(Auth::user()->id, $request->input('playlist_id'));
         if(!$playlistUser) {
             Helpers::ajaxResult(false, 'Không tìm thấy playlist của bạn', null);
         }
@@ -123,7 +123,7 @@ class PlaylistController extends Controller
         Helpers::ajaxResult(true, 'Đã thêm vào playlist.', null);
     }
     public function editPlaylist(Request $request, $id) {
-        $playlistUser = $this->playlistRepository->getByPlaylist([['playlist_id', $id], ['playlist_user_id', Auth::user()->id]]);
+        $playlistUser = $this->playlistRepository->getByPlayByUser(Auth::user()->id, $id)->first();
         if(!$playlistUser) {
             return view('errors.404');
         }
@@ -133,7 +133,7 @@ class PlaylistController extends Controller
         return view('playlist.create_update_playlist', compact('playlistUser', 'playlistmusic', 'playlistLevel', 'playlistCategory'));
     }
     public function editPagePlaylist(Request $request) {
-        $playlistUser = $this->playlistRepository->getByPlaylist([['playlist_user_id', Auth::user()->id]])->get();
+        $playlistUser = $this->playlistRepository->getByPlayByUser(Auth::user()->id)->get();
         return view('playlist.edit_playlist', compact('playlistUser'));
     }
     public function storePlaylist(Request $request) {

@@ -220,7 +220,7 @@ $i = 1;
 
         });
         function remove_artist() {
-            window.location.replace('/playlist/user/chinh-sua');
+            window.location.replace('/user/playlist/chinh-sua');
         }
         var cat_id_selected = <?php echo old('playlist_cat_id') ?? ($playlistUser ? $playlistUser->playlist_cat_id : 1) ?>;
         cat_level_reload(cat_id_selected);

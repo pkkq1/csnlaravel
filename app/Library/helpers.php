@@ -383,7 +383,7 @@ class Helpers
 
     public static function cover_url($cover_id = 0)
     {
-        return ($cover_id > 0) ? self::cover_path($cover_id) . $cover_id . '.jpg' : 'no_cover.jpg';
+        return ($cover_id > 0) ? self::cover_path($cover_id) . $cover_id . '.jpg' : '/imgs/no_cover.jpg';
     }
 
     public static function khongdau($str)

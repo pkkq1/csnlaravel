@@ -34,7 +34,7 @@ $titleMeta = $user->name . ' - '. Config::get('constants.app.title');
                     <div class="d-flex align-items-center justify-content-between" id="header_playlist">
                         <h3 class="title">playlist | album</h3>
                         @if(Auth::check() && Auth::user()->id == $user->id)
-                        <span><a class="btn btn-danger" href="/playlist/user/them" title="Tạo playlist"><i class="fa fa-pencil" aria-hidden="true"></i> Tạo playlist</a><a class="btn btn-secondary" href="/playlist/user/chinh-sua" title=""><i class="fa fa-pencil" aria-hidden="true"></i> Chỉnh sửa</a></span>
+                        <span><a class="btn btn-danger" href="/user/playlist/them" title="Tạo playlist"><i class="fa fa-pencil" aria-hidden="true"></i> Tạo playlist</a><a class="btn btn-secondary" href="/user/playlist/chinh-sua" title=""><i class="fa fa-pencil" aria-hidden="true"></i> Chỉnh sửa</a></span>
                         @endif
                     </div>
                     <div class="row row10px" id="playlist">
@@ -42,7 +42,7 @@ $titleMeta = $user->name . ' - '. Config::get('constants.app.title');
                             <div class="col">
                                 <div class="card card1">
                                     <div class="card-header" style="background-image: url({{$item->playlist_cover ? PUBLIC_MUSIC_PLAYLIST_PATH.$item->playlist_id . '.png?v=' . time() : '/imgs/avatar_default.png'}});">
-                                        <a href="<?php echo  Helpers::playlist_url($item->toArray()) ?>" title="{{$item->playlist_title}}">
+                                        <a href="<?php echo Helpers::playlist_url($item->toArray()) ?>" title="{{$item->playlist_title}}">
                                             <span class="icon-play"></span>
                                         </a>
                                     </div>

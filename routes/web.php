@@ -92,8 +92,7 @@ Route::group(['middlewareGroups' => ['web']], function () {
     // ajax comment
     Route::post('binh-luan/get_ajax', ['as' => 'comment.get_ajax', 'uses' => 'CommentController@getAjaxCommentByMusicId']);
 
-    // User
-    Route::get('user/{id}', ['as' => 'user.index', 'uses' => 'User\UserController@index']);
+
 
 
     // Search
@@ -114,22 +113,24 @@ Route::group(['middlewareGroups' => ['web']], function () {
         // Comment
         Route::post('comment/post', ['as' => 'comment.create', 'uses' => 'CommentController@postComment']);
 
-        // Playlist
+        // User
+        Route::get('user/{id}', ['as' => 'user.index', 'uses' => 'User\UserController@index']);
 
-        Route::get('playlist/user/danh-sach-playlist', ['as' => 'playlist.play_list', 'uses' => 'PlaylistController@getPlayList']);
-        Route::post('playlist/user/create-playlist', ['as' => 'playlist.play_list', 'uses' => 'PlaylistController@createPlayList']);
-        Route::post('playlist/user/add-music-playlist', ['as' => 'playlist.play_list', 'uses' => 'PlaylistController@addMusicPlayList']);
-        Route::get('playlist/user/cap-nhat/{id}', ['as' => 'playlist.update_playlist', 'uses' => 'PlaylistController@editPlaylist']);
-        Route::post('playlist/user/cap-nhat/{id}', ['as' => 'playlist.store_playlist', 'uses' => 'PlaylistController@storePlaylist']);
-        Route::get('playlist/user/chinh-sua', ['as' => 'playlist.edit_playlist', 'uses' => 'PlaylistController@editPagePlaylist']);
-        Route::get('playlist/user/them', ['as' => 'playlist.create_playlist', 'uses' => 'PlaylistController@createPagePlaylist']);
-        Route::post('playlist/user/them', ['as' => 'playlist.create_playlist', 'uses' => 'PlaylistController@storePlaylist']);
-        Route::post('playlist/user/delete', ['as' => 'playlist.delete_playlist', 'uses' => 'PlaylistController@deletePlaylist']);
+        // Playlist
+        Route::prefix('user/playlist/')->group(function () {
+            Route::get('danh-sach-playlist', ['as' => 'playlist.play_list', 'uses' => 'PlaylistController@getPlayList']);
+            Route::post('create-playlist', ['as' => 'playlist.play_list', 'uses' => 'PlaylistController@createPlayList']);
+            Route::post('add-music-playlist', ['as' => 'playlist.play_list', 'uses' => 'PlaylistController@addMusicPlayList']);
+            Route::get('cap-nhat/{id}', ['as' => 'playlist.update_playlist', 'uses' => 'PlaylistController@editPlaylist']);
+            Route::post('cap-nhat/{id}', ['as' => 'playlist.store_playlist', 'uses' => 'PlaylistController@storePlaylist']);
+            Route::get('chinh-sua', ['as' => 'playlist.edit_playlist', 'uses' => 'PlaylistController@editPagePlaylist']);
+            Route::get('them', ['as' => 'playlist.create_playlist', 'uses' => 'PlaylistController@createPagePlaylist']);
+            Route::post('them', ['as' => 'playlist.create_playlist', 'uses' => 'PlaylistController@storePlaylist']);
+            Route::post('delete', ['as' => 'playlist.delete_playlist', 'uses' => 'PlaylistController@deletePlaylist']);
+        });
 
         // User
         Route::post('user/update', ['as' => 'user.index', 'uses' => 'User\UserController@store']);
-
-        //
 
         Route::get('roles',['as'=>'roles.index','uses'=>'RoleController@index']);
         Route::get('roles/create',['as'=>'roles.create','uses'=>'RoleController@create']);
