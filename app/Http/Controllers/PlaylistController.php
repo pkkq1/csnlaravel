@@ -71,7 +71,7 @@ class PlaylistController extends Controller
         if(!Auth::check()){
             Helpers::ajaxResult(false, 'Bạn chưa đang nhập.', null);
         }
-        $playlistUser = $this->playlistRepository->getByPlayByUser(Auth::user()->id, $request->input('playlist_id'));
+        $playlistUser = $this->playlistRepository->getByPlayByUser(Auth::user()->id, $request->input('playlist_id'))->first();
         if(!$playlistUser) {
             Helpers::ajaxResult(false, 'Không tìm thấy playlist của bạn', null);
         }
@@ -84,10 +84,8 @@ class PlaylistController extends Controller
             'playlist_id' => $request->input('playlist_id'),
             'music_id' => $request->input('music_id')
         ]);
-
         $playlistUser->playlist_time = time();
         $playlistUser->playlist_music_total = $playlistUser->playlist_music_total + 1;
-
         // add and sort artist
         if($request->input('artist')) {
             $artistNew = explode(';', $request->input('artist'));
