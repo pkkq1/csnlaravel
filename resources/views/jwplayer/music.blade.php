@@ -940,7 +940,7 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
             ?>
             if(loadPlaylist) {
                 $.ajax({
-                    url: "/playlist/user/danh-sach-playlist",
+                    url: "/user/playlist/danh-sach-playlist",
                     type: "GET",
                     dataType: "json",
                     data: {},
@@ -1001,7 +1001,7 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
                 return false;
             }
             $.ajax({
-                url: "/playlist/user/create-playlist",
+                url: "/user/playlist/create-playlist",
                 type: "POST",
                 dataType: "json",
                 data: {'music_id': musicId, 'playlist_title': titlePlaylist.val()},
@@ -1023,7 +1023,7 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
         function addMusicPlaylist(playlistId, musicAddId, artistAdd, artistIdAdd) {
             const playlistIdSelect = $('.playlist_id_' + playlistId);
             $.ajax({
-                url: "/playlist/user/add-music-playlist",
+                url: "/user/playlist/add-music-playlist",
                 type: "POST",
                 dataType: "json",
                 data: {'playlist_id': playlistId, 'music_id': (musicAddId == false ? musicId : musicAddId), 'artist': (artistAdd == false ? artists : artistAdd), 'artist_id': (artistIdAdd == false ? artistIds : artistIdAdd)},
