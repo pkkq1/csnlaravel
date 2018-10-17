@@ -243,7 +243,7 @@ class Helpers
     public static function listen_url($music_info, $domain = true)
     {
         global $cat_id2info;
-        include_once($_SERVER['DOCUMENT_ROOT'] . '/../resources/views/cache/def_main_cat.blade.php');
+        include_once(__DIR__.'/../../resources/views/cache/def_main_cat.blade.php');
         return ($domain ? ENV('LISTEN_URL') : '') . self::category_url($cat_id2info[$music_info['cat_id']][$music_info['cat_level']]) . self::music_url($music_info);
     }
 

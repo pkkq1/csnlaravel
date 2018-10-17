@@ -33,9 +33,9 @@ class SolrSyncController extends Controller
         $searchMusic = MusicModel::with('musicListen')->select('music_id', 'music_title_search', 'music_artist_search', 'music_composer_search', 'music_album_search', 'music_title', 'music_artist',
         'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_title_url', 'music_artist_id', 'music_album', 'music_listen', 'music_filename', 'music_bitrate')
             ->offset(0)
-            ->limit(100000)
+            ->limit(50000)
             ->get();
-        foreach (array_chunk($searchMusic,1000) as $item) {
+        foreach ($searchMusic as $item) {
             $data = [
                 'id' => $item->music_id,
                 'music_title' => strtolower($item->music_title),
