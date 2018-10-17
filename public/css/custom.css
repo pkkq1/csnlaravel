@@ -969,8 +969,7 @@ form#login-form {
 }
 .kara-csn {
     text-align: left;
-    position: absolute;
-    top: 9px;
+    margin-top: -22px;
     overflow: hidden;
     color: #FF2D55;
     white-space: nowrap;
@@ -1008,8 +1007,11 @@ form#login-form {
     margin-top: 15px;
 }
 .rabbit-lyrics.rabbit-lyrics-mini {
-    height: 42px!important;
+    height: 44px!important;
 }
 .rabbit-lyrics .sub1 {
     display: inline-block;
+}
+.rabbit-lyrics .sub2 {
+    line-height: 12px;
 }
