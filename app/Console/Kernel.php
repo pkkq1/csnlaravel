@@ -26,7 +26,7 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
-        $schedule->call('\App\Http\Controllers\Sync\SolrSyncController@syncCover');
+        $schedule->call('\App\Http\Controllers\Sync\SolrSyncController@syncMusic');
     }
 
     /**

@@ -74,13 +74,22 @@ function successModal(content) {
     $("#myModal .modal-body").html('<i class="material-icons modal_icon_csn">check_circle_outline</i><div class="modal_content_csn">' + content + '</div>');
     $("#myModal").modal();
 }
-String.prototype.replaceArray = function(str, replace) {
+String.prototype.replaceArray = function(find, replace) {
     var replaceString = this;
+    var regex;
     for (var i = 0; i < find.length; i++) {
-        replaceString = replaceString.replace(find[i], replace[i]);
+        regex = new RegExp(find[i], "g");
+        replaceString = replaceString.replace(regex, replace);
     }
     return replaceString;
 };
+// String.prototype.replaceArray = function(str, replace) {
+//     var replaceString = this;
+//     for (var i = 0; i < find.length; i++) {
+//         replaceString = replaceString.replace(find[i], replace[i]);
+//     }
+//     return replaceString;
+// };
 function xoa_dau(str) {
     str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
     str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e");
