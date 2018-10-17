@@ -79,11 +79,10 @@ class PlaylistController extends Controller
         if($exist) {
             Helpers::ajaxResult(false, 'Bài hát đã tồn tại trong playlist.', null);
         }
-
-//        $result = PlaylistMusicModel::firstOrCreate([
-//            'playlist_id' => $request->input('playlist_id'),
-//            'music_id' => $request->input('music_id')
-//        ]);
+        $result = PlaylistMusicModel::firstOrCreate([
+            'playlist_id' => $request->input('playlist_id'),
+            'music_id' => $request->input('music_id')
+        ]);
         $playlistUser->playlist_time = time();
         $playlistUser->playlist_music_total = $playlistUser->playlist_music_total + 1;
         // add and sort artist
@@ -167,16 +166,15 @@ class PlaylistController extends Controller
             $arrMusic = explode(',', substr($request->input('remove_music'), 1));
             $countRemove = PlaylistMusicModel::where('playlist_id', $id)->whereIn('music_id', $arrMusic)->delete();
             $update['playlist_music_total'] = $playlist->first()->playlist_music_total - $countRemove;
-            $removeArtist = explode(',', substr($request->input('remove_artist'), 1));
-            $removeArtistId = explode(',', substr($request->input('remove_artist_id'), 1));
-            $artistRemove = explode(';', implode(';', $removeArtist));
-            $artistIdRemove = explode(';', implode(';', $removeArtistId));;
+            $removeArtist = str_replace(';', ',', substr($request->input('remove_artist'), 1));
+            $removeArtistId = str_replace(';', ',', substr($request->input('remove_artist_id'), 1));
+            $artistRemove = explode(',', $removeArtist);
+            $artistIdRemove = explode(',', $removeArtistId);
             $artistOld = unserialize($playlistData->playlist_artist);
             foreach ($artistIdRemove as $key => $val) {
                 $keyExits = $val == -1 ? urlencode($artistRemove[$key]): $val;
                 if(isset($artistOld[$keyExits])) {
-                    $setArtist = $artistOld[$keyExits];
-                    if($setArtist['order'] == 0){
+                    if($artistOld[$keyExits]['order'] == 0){
                         unset($artistOld[$keyExits]);
                     }else{
                         $artistOld[$keyExits]['order'] = $artistOld[$keyExits]['order'] - 1;

@@ -92,11 +92,13 @@ $titleMeta = $playlistUser ? 'Cập nhật playlist - ' . $playlistUser->playlis
                                         <div class="col-sm-8">
                                             <div class="card border-0" id="playlist_music">
                                                 <ul class="list-group list-group-sortable" id="editable">
-                                                    @foreach($playlistUser->music as $key => $item)
-                                                        <li class="list-group-item d-flex align-items-center justify-content-between" artist="{{$item->music_artist}}" artist_id="{{$item->music_artist_id}}" id="{{$item->music_id}}"><span>{{++$key}}. <a class="name" href="{{Helpers::listen_url($item)}}" title="">{{$item->music_title}}</a> - <?php echo '<a class="author" href="#">'.implode(',</a><a class="author" href="#">', explode(';', $item->music_artist)).'</a>' ?>
+                                                    @if(isset($playlistUser->music ))
+                                                        @foreach($playlistUser->music as $key => $item)
+                                                            <li class="list-group-item d-flex align-items-center justify-content-between" artist="{{$item->music_artist}}" artist_id="{{$item->music_artist_id}}" id="{{$item->music_id}}"><span>{{++$key}}. <a class="name" href="{{Helpers::listen_url($item)}}" title="">{{$item->music_title}}</a> - <?php echo '<a class="author" href="#">'.implode(',</a><a class="author" href="#">', explode(';', $item->music_artist)).'</a>' ?>
                                                             </span> <a class="delete js-remove" href="javascript:void(0)" title="xoá nhạc"><i class="fa fa-trash" aria-hidden="true"></i></a>
-                                                        </li>
-                                                    @endforeach
+                                                            </li>
+                                                        @endforeach
+                                                    @endif
                                                 </ul>
                                                 <input type="hidden" name="remove_music" class="playlist_remove_music" />
                                                 <input type="hidden" name="remove_artist" class="playlist_remove_artist" />
@@ -138,7 +140,7 @@ $titleMeta = $playlistUser ? 'Cập nhật playlist - ' . $playlistUser->playlis
                                         <div class="col-sm-8">
                                             <label for="inputPassword" class="col-sm-4 col-form-label"></label>
                                             <button type="submit" class="btn btn-primary btn-lg">{{$playlistUser ? 'Lưu' : 'Thêm'}}</button>
-                                            <button type="button" class="btn btn-primary btn-lg" onclick="return remove_artist();" >Trở lại</button>
+                                            <button type="button" class="btn btn-primary btn-lg" onclick="return back();" >Trở lại</button>
                                         </div>
                                     </div>
                                 </div>
@@ -189,8 +191,10 @@ $titleMeta = $playlistUser ? 'Cập nhật playlist - ' . $playlistUser->playlis
     </div>
     <script type="text/javascript" src="/js/croppie.js"></script>
     <script>
+        function back() {
+            window.location.replace('/user/playlist/chinh-sua');
+        }
         $(document).ready(function(){
-
             $('#choose_playlist_cover').on('change', function(){
                 $('#image_demo').html('');
                 $('.modal-dialog').css("max-width", "500px")
@@ -231,11 +235,7 @@ $titleMeta = $playlistUser ? 'Cập nhật playlist - ' . $playlistUser->playlis
                     $('#playlist_cover_uploaded').attr("src", response);
                 })
             });
-
         });
-        function remove_artist() {
-            window.location.replace('/user/playlist/chinh-sua');
-        }
         var cat_id_selected = <?php echo old('playlist_cat_id') ?? ($playlistUser ? $playlistUser->playlist_cat_id : 1) ?>;
         cat_level_reload(cat_id_selected);
         function cat_level_reload(cat_id)

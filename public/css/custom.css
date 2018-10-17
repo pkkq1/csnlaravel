@@ -969,6 +969,7 @@ form#login-form {
 }
 .kara-csn {
     text-align: left;
+    text-align: center;
     margin-top: -22px;
     overflow: hidden;
     color: #FF2D55;
