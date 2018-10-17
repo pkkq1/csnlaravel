@@ -17,7 +17,7 @@ use App\Solr\Solarium;
 use App\Models\ArtistModel;
 use App\Repositories\Music\MusicEloquentRepository;
 
-class SorlSyncController extends Controller
+class SolrSyncController extends Controller
 {
     protected $Solr;
     protected $musicRepository;
@@ -98,7 +98,7 @@ class SorlSyncController extends Controller
         return response(['Ok']);
     }
     public function syncCover(Request $request) {
-        $cover = CoverModel::get();
+        $cover = CoverModel::orderBy('cover_id', 'asc')->offset(0)->limit(100000)->get();
         foreach ($cover as $item) {
             $data = [
                 'id' => $item->cover_id,

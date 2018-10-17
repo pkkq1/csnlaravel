@@ -157,6 +157,9 @@ class Helpers
     }
     public static function artistUrl($artistId, $artistNickName, $mode = '')
     {
+        if(!$artistId){
+            return '/tim-kiem?q='.$artistNickName;
+        }
         return self::rawTiengVietUrl($artistNickName) . "~" . base64_encode(KEY_ID_ARTIST_ENCODE_URL . $artistId) . $mode . ".".HTMLEX;
     }
 

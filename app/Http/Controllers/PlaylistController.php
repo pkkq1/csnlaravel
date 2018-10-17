@@ -98,14 +98,15 @@ class PlaylistController extends Controller
             $artistOld = [];
             $arrNew = [];
             if($playlistUser->playlist_artist) {
-                $artistOld = json_decode($playlistUser->playlist_artist, true);
+                $artistOld = unserialize($playlistUser->playlist_artist);
                 foreach($artistNew as $key => $val) {
-                    if(isset($artistOld[$artistIdNew[$key]])) {
+                    $keyExits = $artistIdNew[$key] == -1 ? urlencode($val): $artistIdNew[$key];
+                    if(isset($artistOld[$keyExits])) {
                         // +1 duplicate
-                        $artistOld[$artistIdNew[$key]]['order'] = $artistOld[$artistIdNew[$key]]['order'] + 1;
+                        $artistOld[$keyExits]['order'] = $artistOld[$keyExits]['order'] + 1;
                     }else{
                         // add new artist
-                        $artistOld[$artistIdNew[$key]] = [
+                        $artistOld[$keyExits] = [
                             'order' => 0,
                             'name' => $val
                         ];
@@ -114,13 +115,13 @@ class PlaylistController extends Controller
                 arsort($artistOld);
             }else {
                 foreach ($artistNew as $key => $val) {
-                    $artistOld[$artistIdNew[$key]] = [
+                    $artistOld[$artistIdNew[$key] == -1 ? urlencode($val): $artistIdNew[$key]] = [
                         'order' => 0,
                         'name' => $val
                     ];
                 }
             }
-            $playlistUser->playlist_artist = json_encode($artistOld);
+            $playlistUser->playlist_artist = serialize($artistOld);
         }
         $playlistUser->save();
         Helpers::ajaxResult(true, 'Đã thêm vào playlist.', null);
@@ -147,6 +148,7 @@ class PlaylistController extends Controller
         $action = $request->input('sumbit_action');
         if($action == 'edit') {
             $playlist = PlaylistModel::where([['playlist_id', $id], ['playlist_user_id', Auth::user()->id]]);
+            $playlistData = $playlist->first();
             if(!$playlist->exists()) {
                 return view('errors.404');
             }
@@ -165,6 +167,25 @@ class PlaylistController extends Controller
             $arrMusic = explode(',', substr($request->input('remove_music'), 1));
             $countRemove = PlaylistMusicModel::where('playlist_id', $id)->whereIn('music_id', $arrMusic)->delete();
             $update['playlist_music_total'] = $playlist->first()->playlist_music_total - $countRemove;
+            $removeArtist = explode(',', substr($request->input('remove_artist'), 1));
+            $removeArtistId = explode(',', substr($request->input('remove_artist_id'), 1));
+            $artistRemove = explode(';', implode(';', $removeArtist));
+            $artistIdRemove = explode(';', implode(';', $removeArtistId));;
+            $artistOld = unserialize($playlistData->playlist_artist);
+            foreach ($artistIdRemove as $key => $val) {
+                $keyExits = $val == -1 ? urlencode($artistRemove[$key]): $val;
+                if(isset($artistOld[$keyExits])) {
+                    $setArtist = $artistOld[$keyExits];
+                    if($setArtist['order'] == 0){
+                        unset($artistOld[$keyExits]);
+                    }else{
+                        $artistOld[$keyExits]['order'] = $artistOld[$keyExits]['order'] - 1;
+                    }
+                }
+            }
+            arsort($artistOld);
+            $update['playlist_artist'] = serialize($artistOld);
+
         }
         if($request->input('order_music')) {
             $arrMusic = explode(',', substr($request->input('order_music'), 1));
@@ -174,7 +195,7 @@ class PlaylistController extends Controller
         }
         // update cover
         if($request->input('playlist_cover')) {
-            $fileNameCover = Helpers::saveBase64Image($request->input('playlist_cover'), MUSIC_PLAYLIST_PATH, $playlist->first()->playlist_id, 'png');
+            $fileNameCover = Helpers::saveBase64Image($request->input('playlist_cover'), MUSIC_PLAYLIST_PATH, $playlistData->playlist_id, 'png');
             $update['playlist_cover'] = 1;
         }
         if($action == 'edit') {

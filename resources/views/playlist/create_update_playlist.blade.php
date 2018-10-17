@@ -1,5 +1,6 @@
 @section('hidden_wapper', true)
 <?php
+use App\Library\Helpers;
 $titleMeta = $playlistUser ? 'Cập nhật playlist - ' . $playlistUser->playlist_title : 'Thêm playlist mới';
 ?>
 @extends('layouts.app')
@@ -92,26 +93,31 @@ $titleMeta = $playlistUser ? 'Cập nhật playlist - ' . $playlistUser->playlis
                                             <div class="card border-0" id="playlist_music">
                                                 <ul class="list-group list-group-sortable" id="editable">
                                                     @foreach($playlistUser->music as $key => $item)
-                                                        <li class="list-group-item d-flex align-items-center justify-content-between" data-id="{{$item->music_id}}"><span>{{++$key}}. <a class="name" href="#" title="">{{$item->music_title}}</a> - <?php echo '<a class="author" href="#">'.implode(',</a><a class="author" href="#">', explode(';', $item->music_artist)).'</a>' ?>
+                                                        <li class="list-group-item d-flex align-items-center justify-content-between" artist="{{$item->music_artist}}" artist_id="{{$item->music_artist_id}}" id="{{$item->music_id}}"><span>{{++$key}}. <a class="name" href="{{Helpers::listen_url($item)}}" title="">{{$item->music_title}}</a> - <?php echo '<a class="author" href="#">'.implode(',</a><a class="author" href="#">', explode(';', $item->music_artist)).'</a>' ?>
                                                             </span> <a class="delete js-remove" href="javascript:void(0)" title="xoá nhạc"><i class="fa fa-trash" aria-hidden="true"></i></a>
                                                         </li>
                                                     @endforeach
                                                 </ul>
                                                 <input type="hidden" name="remove_music" class="playlist_remove_music" />
+                                                <input type="hidden" name="remove_artist" class="playlist_remove_artist" />
+                                                <input type="hidden" name="remove_artist_id" class="playlist_remove_artist_id" />
                                                 <input type="hidden" name="order_music" class="playlist_order_music" />
                                                 <script type="text/javascript">
                                                     var el = document.getElementById('editable');
                                                     var sortable = Sortable.create(el,{
                                                         filter: '.js-remove',
                                                         onFilter: function (evt) {
+                                                            console.log(evt.item);
                                                             $('.playlist_remove_music').val($('.playlist_remove_music').val() + ',' + evt.item.id)
+                                                            $('.playlist_remove_artist').val($('.playlist_remove_artist').val() + ',' + $(evt.item).attr('artist'))
+                                                            $('.playlist_remove_artist_id').val($('.playlist_remove_artist_id').val() + ',' + $(evt.item).attr('artist_id'))
                                                             evt.item.parentNode.removeChild(evt.item);
                                                         },
                                                         onEnd: function (evt) {
                                                             let sortIds = '';
                                                             $('.list-group-item').each(function(index, val) {
                                                                 console.log($(val).data('id'));
-                                                                sortIds = sortIds + ',' + $(val).data('id');
+                                                                sortIds = sortIds + ',' + $(val).attr('id');
                                                             })
                                                             $('.playlist_order_music').val(sortIds);
                                                         }

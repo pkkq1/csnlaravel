@@ -50,7 +50,7 @@ $titleMeta = $user->name . ' - '. Config::get('constants.app.title');
                                         <h3 class="card-title"><a href="#" title="{{$item->playlist_title}}">{{$item->playlist_title}}</a></h3>
                                         @if($item->playlist_artist)
                                         <p class="card-text">
-                                            @foreach(array_slice(json_decode($item->playlist_artist, true), 0, 2) as $key => $artistItem)
+                                            @foreach(array_slice(unserialize($item->playlist_artist), 0, 2) as $key => $artistItem)
                                                 <a href="$artistItem['id']">{{$artistItem['name']}}</a>{{$key != 1 ? ', ': ''}}
                                             @endforeach
                                         </p>

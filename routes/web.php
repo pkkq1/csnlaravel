@@ -12,10 +12,10 @@
 */
 
 Route::get('/ping', 'Sync\SorlSyncController@ping');
-Route::get('/sync/sorl_music', 'Sync\SorlSyncController@syncMusic');
-Route::get('/sync/sorl_video', 'Sync\SorlSyncController@syncVideo');
-Route::get('/sync/sorl_artist', 'Sync\SorlSyncController@syncArtist');
-Route::get('/sync/sorl_cover', 'Sync\SorlSyncController@syncCover');
+Route::get('/sync/solr_music', 'Sync\SolrSyncController@syncMusic');
+Route::get('/sync/solr_video', 'Sync\SolrSyncController@syncVideo');
+Route::get('/sync/solr_artist', 'Sync\SolrSyncController@syncArtist');
+Route::get('/sync/solr_cover', 'Sync\SolrSyncController@syncCover');
 
 
 
