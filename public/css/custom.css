@@ -965,11 +965,11 @@ form#login-form {
 }
 .rabbit-lyrics .line {
     margin: auto;
-    line-height: 22px;
+    line-height: 19px;
 }
 .kara-csn {
     text-align: left;
-    margin-top: -22px;
+    margin-top: -19px;
     overflow: hidden;
     color: #FF2D55;
     white-space: nowrap;
@@ -1007,11 +1007,24 @@ form#login-form {
     margin-top: 15px;
 }
 .rabbit-lyrics.rabbit-lyrics-mini {
-    height: 44px!important;
+    height: 54px!important;
+    top: 0px!important;
 }
 .rabbit-lyrics .sub1 {
     display: inline-block;
 }
-.rabbit-lyrics .sub2 {
-    line-height: 12px;
+.jw-captions {
+    max-height: 64px!important;
+}
+.jw-controlbar {
+    padding: 12px 0 0!important;
+}
+.jw-controlbar {
+    height: 54px!important;
+}
+.jw-text{
+    height: 32px!important;
+}
+.rabbit-lyrics .line {
+    min-height: auto!important;
 }
