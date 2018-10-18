@@ -33,11 +33,13 @@ class AlbumController extends Controller
             $bitrates = [];
             if($item->music) {
                 foreach ($item->music as $music) {
-                    dd($music->toArray());
                     $artists[] = trim($music->music_artist);
+                    $artist_ids[] = $music->music_artist_id;
                     $bitrates[] = $music->music_bitrate;
                 }
                 $artistDup = array_count_values($artists);
+                $artist_ids = array_count_values($artists);
+                dd($artistDup);
                 $bitrateDup = array_count_values($bitrates);
                 arsort($artistDup);
                 arsort($bitrateDup);
