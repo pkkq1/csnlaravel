@@ -961,7 +961,7 @@ form#login-form {
     top: 1px!important;
 }
 .jw-icon-auto-next {
-    top: 0px!important;
+    top: 2px!important;
     margin-right: 8px!important;
 }
 .rabbit-lyrics {
@@ -1039,4 +1039,15 @@ form#login-form {
 }
 .rabbit-lyrics .line {
     min-height: auto!important;
+}
+.jw-slider-time .jw-knob {
+    visibility: hidden!important;;
+    opacity: 0!important;;
+    transition: opacity 0.3s, visibility 0.3s!important;;
+    /*background-color: #FF2E55!important;*/
+}
+.jw-slider-time:hover .jw-knob{
+    visibility: visible!important;;
+    opacity: 1!important;;
+    transition: opacity 0.3s, visibility 0.3s!important;;
 }
