@@ -253,11 +253,17 @@
 .jw-icon-playback:hover {
     color: #ff3456!important;
 }
+.jw-icon-playback, .jw-text-elapsed, .jw-text-duration, .jw-text-countdown {
+    top: 1px!important;
+}
 .jw-icon-nextsong:hover {
     color: #ff3456!important;
 }
-.stringQ {
-    max-width: 150px!important;
+.jw-controlbar .jw-option {
+    height: 25px!important;
+}
+.csn-random-btn {
+    margin-right: 8px!important;
 }
 .stringQ:hover {
     color: #ff3456!important;
@@ -463,6 +469,7 @@
 }
 .jw-text{
     font-size:13px!important;
+    height: 38px!important;
 }
 .tab_video_bxh .list_music .media .media-body .author {
     margin-top: 2px;
@@ -946,8 +953,16 @@ form#login-form {
     font-weight: 400!important;
     height: 23px!important;
     line-height: 23px!important;
-    top: 0px;
-    margin-bottom: 5px!important;
+    max-width: 150px!important;
+    margin-right: 8px!important;
+    top: 1px!important;
+}
+.jw-icon-volume {
+    top: 1px!important;
+}
+.jw-icon-auto-next {
+    top: 0px!important;
+    margin-right: 8px!important;
 }
 .rabbit-lyrics {
     position: absolute!important;
@@ -1021,9 +1036,6 @@ form#login-form {
 }
 .jw-controlbar {
     height: 54px!important;
-}
-.jw-text{
-    height: 32px!important;
 }
 .rabbit-lyrics .line {
     min-height: auto!important;

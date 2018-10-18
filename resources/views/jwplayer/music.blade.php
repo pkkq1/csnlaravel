@@ -1100,5 +1100,9 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
             display: none!important;
         }
     </style>
-
+    <style>
+        .jw-flag-time-slider-above:not(.jw-flag-ads-googleima).jwplayer .jw-group>.jw-icon, .jw-flag-time-slider-above:not(.jw-flag-ads-googleima).jwplayer .jw-group>.jw-text {
+            height: 40px;
+        }
+    </style>
 @endsection
