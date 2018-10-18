@@ -1022,8 +1022,11 @@ form#login-form {
     margin-top: 15px;
 }
 .rabbit-lyrics.rabbit-lyrics-mini {
-    height: 54px!important;
-    top: 0px!important;
+    height: auto!important;
+    top: -19px;
+}
+.two_sub {
+    top:0px!important;
 }
 .rabbit-lyrics .sub1 {
     display: inline-block;
@@ -1041,13 +1044,17 @@ form#login-form {
     min-height: auto!important;
 }
 .jw-slider-time .jw-knob {
-    visibility: hidden!important;;
+    visibility: hidden!important;
     opacity: 0!important;;
-    transition: opacity 0.3s, visibility 0.3s!important;;
+    transition: opacity 0.3s, visibility 0.3s!important;
     /*background-color: #FF2E55!important;*/
 }
 .jw-slider-time:hover .jw-knob{
     visibility: visible!important;;
     opacity: 1!important;;
-    transition: opacity 0.3s, visibility 0.3s!important;;
+    transition: opacity 0.3s, visibility 0.3s!important;
+}
+.jw-progress {
+    background-color: #FF2E55!important;
+    /*transition: width 0.05s!important;*/
 }

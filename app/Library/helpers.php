@@ -33,6 +33,8 @@ class Helpers
                 $bitrate2str = '<span class="card-text" style="color: darkblue">' . $bitrate . KBPS . '</span>';
             else if ($bitrate >= 128)
                 $bitrate2str = '<span class="card-text" style="color: darkgreen">' . $bitrate . KBPS . '</span>';
+            else if ($bitrate >= 64)
+                $bitrate2str = '<span class="card-text" style="color: darkgreen">' . $bitrate . KBPS . '</span>';
             else
                 $bitrate2str = $bitrate . KBPS;
         } else {

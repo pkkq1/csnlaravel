@@ -4,7 +4,7 @@
             if (void 0 == w.showAutoNext || w.showAutoNext) {
                 if (void 0 == D) {
                     var a = E.getElementsByClassName("jw-icon-hd")[0];
-                    void 0 != a && (D = document.createElement("div"), D.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-auto-next jw-icon-auto-next-on", D.title = "Tự Động Chuyển Bài", D.innerHTML = '<span class="csn-title-auto">Tự Động Chuyển Bài</span>', D.onclick = function() {
+                    void 0 != a && (D = document.createElement("div"), D.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-auto-next jw-icon-auto-next-on", D.title = "Tự động chuyển bài gợi ý", D.innerHTML = '<span class="csn-title-auto">Tự động chuyển bài gợi ý</span>', D.onclick = function() {
                         "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-auto-next jw-icon-auto-next-on" == D.className ? (D.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-auto-next jw-icon-auto-next-off",
                         "function" === typeof onPlayerAutoNextOff && onPlayerAutoNextOff()) : (D.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-auto-next jw-icon-auto-next-on", "function" === typeof onPlayerAutoNextOn && onPlayerAutoNextOn())
                     }, a.parentNode.insertBefore(D, a));

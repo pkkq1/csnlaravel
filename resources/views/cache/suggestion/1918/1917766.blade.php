@@ -391,7 +391,7 @@ Thế giới...',
     'cover_id' => 0,
     'music_title_url' => 'dung-quen-ten-anh~hoa-vinh-dat-g',
     'music_title' => 'Đừng Quên Tên Anh',
-    'music_artist' => 'Hoa Vinh; Đạt G',
+    'music_artist' => 'Hoa Vinh;Đạt G',
     'music_album_id' => '',
     'music_listen' => 5791,
     'music_shortlyric' => 'Có mấy lúc ta được ngồi lại bên nhau 
@@ -413,7 +413,7 @@ $video = array (
   'music_title' => 'Đừng Quên Tên Anh',
   'music_artist' => 'Hoa Vinh',
   'music_album_id' => '',
-  'music_listen' => 46224,
+  'music_listen' => 48300,
   'music_shortlyric' => 'Có mấy lúc ta được ngồi lại bên nhau 
 Để nói cho em nghe những câu chuyện mà em từng làm cho anh đau
 Cố cắn đôi môi để kể lý do tại sao như thế này

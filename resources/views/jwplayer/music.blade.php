@@ -42,7 +42,7 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
                 </div>
                 <div class="card mb-4 detail_lyric_1">
                     <div id="csnplayerads" style="position:relative; z-index: 99999; width:100%;"> </div>
-                    <div id="csnplayer" style="position:relative; z-index: 99999; width:100%;"> </div>
+                    <div id="csnplayer" class="<?php echo $musicSet['type_jw'] == 'video' ? 'csn_video' : 'csn_music' ?>" style="position:relative; z-index: 99999; width:100%;"> </div>
                     <div id="hidden_lyrics" class="hidden">
                         <div id="lyrics" class="rabbit-lyrics">
                             <?php echo isset($music->musicKara->music_lyric_karaoke) ? Helpers::rawLyrics($music->musicKara->music_lyric_karaoke) : ''; ?>
@@ -569,7 +569,7 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
 
         player.setup({
             width: '100%',
-            height: '110',
+            height: '88',
             aspectratio: "<?php echo $musicSet['type_jw'] == 'video' ? '16:9' : 'false' ?>",
             stretching: 'fill',
             sources: [
