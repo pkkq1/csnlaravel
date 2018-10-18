@@ -15,7 +15,8 @@ $album_hot = array (
   array (
     'cover_id' => 90633,
     'music_album' => 'Just For A While (Single)',
-    'music_artist' => 'K-ICM; T-ICM',
+    'music_artist' => 'K-ICM;T-ICM',
+    'music_artist_id' => '14491;18842',
     'music_bitrate' => 1000,
   ),
   1 => 
@@ -23,6 +24,7 @@ $album_hot = array (
     'cover_id' => 90632,
     'music_album' => 'Journey (Single)',
     'music_artist' => 'SaberZ',
+    'music_artist_id' => 18841,
     'music_bitrate' => 1000,
   ),
   2 => 
@@ -30,6 +32,7 @@ $album_hot = array (
     'cover_id' => 90622,
     'music_album' => 'Spiritual Jazz 8: Japan pt. 1',
     'music_artist' => 'Takeo Moriyama',
+    'music_artist_id' => 18811,
     'music_bitrate' => 1000,
   ),
   3 => 
@@ -37,13 +40,15 @@ $album_hot = array (
     'cover_id' => 90621,
     'music_album' => 'Amistad',
     'music_artist' => 'Michael Hoppé',
+    'music_artist_id' => 18807,
     'music_bitrate' => 1000,
   ),
   4 => 
   array (
     'cover_id' => 90620,
     'music_album' => 'Hero (Fight for You) - Single',
-    'music_artist' => 'Max Lean; Reevo; Michael Zhonga',
+    'music_artist' => 'Max Lean;Reevo;Michael Zhonga',
+    'music_artist_id' => '18804;18805;18806',
     'music_bitrate' => 1000,
   ),
   5 => 
@@ -51,6 +56,7 @@ $album_hot = array (
     'cover_id' => 90619,
     'music_album' => 'Hit The Club (Single)',
     'music_artist' => '',
+    'music_artist_id' => '',
     'music_bitrate' => '',
   ),
   6 => 
@@ -58,13 +64,15 @@ $album_hot = array (
     'cover_id' => 90618,
     'music_album' => 'Yêu Em Từ Tuổi Thanh Xuân (Single)',
     'music_artist' => 'Cao Nam Thành',
+    'music_artist_id' => 15554,
     'music_bitrate' => 1000,
   ),
   7 => 
   array (
     'cover_id' => 90617,
     'music_album' => 'Độc Thân (Single)',
-    'music_artist' => 'Châu Đăng Khoa; Ricky Star',
+    'music_artist' => 'Châu Đăng Khoa;Ricky Star',
+    'music_artist_id' => '18801;18802',
     'music_bitrate' => 1000,
   ),
   8 => 
@@ -72,6 +80,7 @@ $album_hot = array (
     'cover_id' => 90616,
     'music_album' => 'Quá Khứ, Anh Xin Lỗi (Single)',
     'music_artist' => 'Khánh Phương',
+    'music_artist_id' => 904,
     'music_bitrate' => 1000,
   ),
   9 => 
@@ -79,6 +88,7 @@ $album_hot = array (
     'cover_id' => 90615,
     'music_album' => 'More And More (Single)',
     'music_artist' => 'Sanchez',
+    'music_artist_id' => 18800,
     'music_bitrate' => 1000,
   ),
   10 => 
@@ -86,6 +96,7 @@ $album_hot = array (
     'cover_id' => 90614,
     'music_album' => 'Are You Human? OST - Part.4 (Single)',
     'music_artist' => '2BIC',
+    'music_artist_id' => 18799,
     'music_bitrate' => 1000,
   ),
   11 => 
@@ -93,6 +104,7 @@ $album_hot = array (
     'cover_id' => 90613,
     'music_album' => 'Teen Top Story: 8PISODE (Regular)',
     'music_artist' => 'Teen Top',
+    'music_artist_id' => 2558,
     'music_bitrate' => 1000,
   ),
   12 => 
@@ -100,6 +112,7 @@ $album_hot = array (
     'cover_id' => 90612,
     'music_album' => 'POP  CULTURE 6',
     'music_artist' => 'Syrufit',
+    'music_artist_id' => 69171,
     'music_bitrate' => 1000,
   ),
   13 => 
@@ -107,6 +120,7 @@ $album_hot = array (
     'cover_id' => 90611,
     'music_album' => 'Good Girl (Single)',
     'music_artist' => 'Shin Ji',
+    'music_artist_id' => 18798,
     'music_bitrate' => 1000,
   ),
   14 => 
@@ -114,6 +128,7 @@ $album_hot = array (
     'cover_id' => 90610,
     'music_album' => 'Love Me Please (Single)',
     'music_artist' => 'Haebi',
+    'music_artist_id' => 18797,
     'music_bitrate' => 1000,
   ),
   15 => 
@@ -121,6 +136,7 @@ $album_hot = array (
     'cover_id' => 90609,
     'music_album' => 'Father (Single)',
     'music_artist' => 'Dino.T',
+    'music_artist_id' => 18796,
     'music_bitrate' => 1000,
   ),
   16 => 
@@ -128,6 +144,7 @@ $album_hot = array (
     'cover_id' => 90608,
     'music_album' => 'Peppemood (EP)',
     'music_artist' => 'Peppe',
+    'music_artist_id' => 18795,
     'music_bitrate' => 1000,
   ),
   17 => 
@@ -135,6 +152,7 @@ $album_hot = array (
     'cover_id' => 90607,
     'music_album' => 'Everything Changes (Single)',
     'music_artist' => 'Miyao',
+    'music_artist_id' => 18793,
     'music_bitrate' => 1000,
   ),
   18 => 
@@ -142,6 +160,7 @@ $album_hot = array (
     'cover_id' => 90606,
     'music_album' => 'Zeus (Single)',
     'music_artist' => 'Ted Park',
+    'music_artist_id' => 13964,
     'music_bitrate' => 1000,
   ),
   19 => 
@@ -149,6 +168,7 @@ $album_hot = array (
     'cover_id' => 90605,
     'music_album' => 'Everytime, Everyday (Single)',
     'music_artist' => 'Dinner Coat',
+    'music_artist_id' => 13971,
     'music_bitrate' => 1000,
   ),
 );
@@ -157,7 +177,8 @@ $album_new = array (
   array (
     'cover_id' => 90633,
     'music_album' => 'Just For A While (Single)',
-    'music_artist' => 'K-ICM; T-ICM',
+    'music_artist' => 'K-ICM;T-ICM',
+    'music_artist_id' => '14491;18842',
     'music_bitrate' => 1000,
   ),
   1 => 
@@ -165,6 +186,7 @@ $album_new = array (
     'cover_id' => 90632,
     'music_album' => 'Journey (Single)',
     'music_artist' => 'SaberZ',
+    'music_artist_id' => 18841,
     'music_bitrate' => 1000,
   ),
   2 => 
@@ -172,6 +194,7 @@ $album_new = array (
     'cover_id' => 90622,
     'music_album' => 'Spiritual Jazz 8: Japan pt. 1',
     'music_artist' => 'Takeo Moriyama',
+    'music_artist_id' => 18811,
     'music_bitrate' => 1000,
   ),
   3 => 
@@ -179,13 +202,15 @@ $album_new = array (
     'cover_id' => 90621,
     'music_album' => 'Amistad',
     'music_artist' => 'Michael Hoppé',
+    'music_artist_id' => 18807,
     'music_bitrate' => 1000,
   ),
   4 => 
   array (
     'cover_id' => 90620,
     'music_album' => 'Hero (Fight for You) - Single',
-    'music_artist' => 'Max Lean; Reevo; Michael Zhonga',
+    'music_artist' => 'Max Lean;Reevo;Michael Zhonga',
+    'music_artist_id' => '18804;18805;18806',
     'music_bitrate' => 1000,
   ),
   5 => 
@@ -193,6 +218,7 @@ $album_new = array (
     'cover_id' => 90619,
     'music_album' => 'Hit The Club (Single)',
     'music_artist' => '',
+    'music_artist_id' => '',
     'music_bitrate' => '',
   ),
   6 => 
@@ -200,13 +226,15 @@ $album_new = array (
     'cover_id' => 90618,
     'music_album' => 'Yêu Em Từ Tuổi Thanh Xuân (Single)',
     'music_artist' => 'Cao Nam Thành',
+    'music_artist_id' => 15554,
     'music_bitrate' => 1000,
   ),
   7 => 
   array (
     'cover_id' => 90617,
     'music_album' => 'Độc Thân (Single)',
-    'music_artist' => 'Châu Đăng Khoa; Ricky Star',
+    'music_artist' => 'Châu Đăng Khoa;Ricky Star',
+    'music_artist_id' => '18801;18802',
     'music_bitrate' => 1000,
   ),
   8 => 
@@ -214,6 +242,7 @@ $album_new = array (
     'cover_id' => 90616,
     'music_album' => 'Quá Khứ, Anh Xin Lỗi (Single)',
     'music_artist' => 'Khánh Phương',
+    'music_artist_id' => 904,
     'music_bitrate' => 1000,
   ),
   9 => 
@@ -221,6 +250,7 @@ $album_new = array (
     'cover_id' => 90615,
     'music_album' => 'More And More (Single)',
     'music_artist' => 'Sanchez',
+    'music_artist_id' => 18800,
     'music_bitrate' => 1000,
   ),
   10 => 
@@ -228,6 +258,7 @@ $album_new = array (
     'cover_id' => 90614,
     'music_album' => 'Are You Human? OST - Part.4 (Single)',
     'music_artist' => '2BIC',
+    'music_artist_id' => 18799,
     'music_bitrate' => 1000,
   ),
   11 => 
@@ -235,6 +266,7 @@ $album_new = array (
     'cover_id' => 90613,
     'music_album' => 'Teen Top Story: 8PISODE (Regular)',
     'music_artist' => 'Teen Top',
+    'music_artist_id' => 2558,
     'music_bitrate' => 1000,
   ),
   12 => 
@@ -242,6 +274,7 @@ $album_new = array (
     'cover_id' => 90612,
     'music_album' => 'POP  CULTURE 6',
     'music_artist' => 'Syrufit',
+    'music_artist_id' => 69171,
     'music_bitrate' => 1000,
   ),
   13 => 
@@ -249,6 +282,7 @@ $album_new = array (
     'cover_id' => 90611,
     'music_album' => 'Good Girl (Single)',
     'music_artist' => 'Shin Ji',
+    'music_artist_id' => 18798,
     'music_bitrate' => 1000,
   ),
   14 => 
@@ -256,6 +290,7 @@ $album_new = array (
     'cover_id' => 90610,
     'music_album' => 'Love Me Please (Single)',
     'music_artist' => 'Haebi',
+    'music_artist_id' => 18797,
     'music_bitrate' => 1000,
   ),
   15 => 
@@ -263,6 +298,7 @@ $album_new = array (
     'cover_id' => 90609,
     'music_album' => 'Father (Single)',
     'music_artist' => 'Dino.T',
+    'music_artist_id' => 18796,
     'music_bitrate' => 1000,
   ),
   16 => 
@@ -270,6 +306,7 @@ $album_new = array (
     'cover_id' => 90608,
     'music_album' => 'Peppemood (EP)',
     'music_artist' => 'Peppe',
+    'music_artist_id' => 18795,
     'music_bitrate' => 1000,
   ),
   17 => 
@@ -277,6 +314,7 @@ $album_new = array (
     'cover_id' => 90607,
     'music_album' => 'Everything Changes (Single)',
     'music_artist' => 'Miyao',
+    'music_artist_id' => 18793,
     'music_bitrate' => 1000,
   ),
   18 => 
@@ -284,6 +322,7 @@ $album_new = array (
     'cover_id' => 90606,
     'music_album' => 'Zeus (Single)',
     'music_artist' => 'Ted Park',
+    'music_artist_id' => 13964,
     'music_bitrate' => 1000,
   ),
   19 => 
@@ -291,6 +330,7 @@ $album_new = array (
     'cover_id' => 90605,
     'music_album' => 'Everytime, Everyday (Single)',
     'music_artist' => 'Dinner Coat',
+    'music_artist_id' => 13971,
     'music_bitrate' => 1000,
   ),
 );
@@ -299,7 +339,8 @@ $album_old = array (
   array (
     'cover_id' => 90643,
     'music_album' => 'Barcelona (Special Edition)',
-    'music_artist' => 'Freddie Mercury; Montserrat Caballe',
+    'music_artist' => 'Freddie Mercury;Montserrat Caballe',
+    'music_artist_id' => '10041;18743',
     'music_bitrate' => 1000,
   ),
   1 => 
@@ -307,6 +348,7 @@ $album_old = array (
     'cover_id' => 90642,
     'music_album' => 'L\'equilibrista',
     'music_artist' => 'Pupo',
+    'music_artist_id' => 18843,
     'music_bitrate' => 1000,
   ),
   2 => 
@@ -314,6 +356,7 @@ $album_old = array (
     'cover_id' => 90641,
     'music_album' => 'Tornerò',
     'music_artist' => 'Pupo',
+    'music_artist_id' => 18843,
     'music_bitrate' => 1000,
   ),
   3 => 
@@ -321,6 +364,7 @@ $album_old = array (
     'cover_id' => 90640,
     'music_album' => '1996',
     'music_artist' => 'Pupo',
+    'music_artist_id' => 18843,
     'music_bitrate' => 1000,
   ),
   4 => 
@@ -328,6 +372,7 @@ $album_old = array (
     'cover_id' => 90639,
     'music_album' => 'La Mia Preghiera',
     'music_artist' => 'Pupo',
+    'music_artist_id' => 18843,
     'music_bitrate' => 1000,
   ),
   5 => 
@@ -335,6 +380,7 @@ $album_old = array (
     'cover_id' => 90638,
     'music_album' => 'Quello Che Sono',
     'music_artist' => 'Pupo',
+    'music_artist_id' => 18843,
     'music_bitrate' => 1000,
   ),
   6 => 
@@ -342,6 +388,7 @@ $album_old = array (
     'cover_id' => 90637,
     'music_album' => 'La Vita È Molto Di Più',
     'music_artist' => 'Pupo',
+    'music_artist_id' => 18843,
     'music_bitrate' => 1000,
   ),
   7 => 
@@ -349,6 +396,7 @@ $album_old = array (
     'cover_id' => 90636,
     'music_album' => 'Malattia D\'Amore',
     'music_artist' => 'Pupo',
+    'music_artist_id' => 18843,
     'music_bitrate' => 1000,
   ),
   8 => 
@@ -356,6 +404,7 @@ $album_old = array (
     'cover_id' => 90635,
     'music_album' => 'Lo Devo Solo A Te',
     'music_artist' => 'Pupo',
+    'music_artist_id' => 18843,
     'music_bitrate' => 1000,
   ),
   9 => 
@@ -363,6 +412,7 @@ $album_old = array (
     'cover_id' => 90634,
     'music_album' => 'Più Di Prima',
     'music_artist' => 'Pupo',
+    'music_artist_id' => 18843,
     'music_bitrate' => 1000,
   ),
   10 => 
@@ -370,6 +420,7 @@ $album_old = array (
     'cover_id' => 90631,
     'music_album' => 'Ultimate 2000s (CD4)',
     'music_artist' => 'John Mayer',
+    'music_artist_id' => 7220,
     'music_bitrate' => 1000,
   ),
   11 => 
@@ -377,6 +428,7 @@ $album_old = array (
     'cover_id' => 90630,
     'music_album' => 'Ultimate 2000s (CD3)',
     'music_artist' => 'Toploader',
+    'music_artist_id' => 18833,
     'music_bitrate' => 1000,
   ),
   12 => 
@@ -384,6 +436,7 @@ $album_old = array (
     'cover_id' => 90629,
     'music_album' => 'Ultimate 2000s (CD2)',
     'music_artist' => 'Wu-Tang Clan',
+    'music_artist_id' => 10899,
     'music_bitrate' => 1000,
   ),
   13 => 
@@ -391,6 +444,7 @@ $album_old = array (
     'cover_id' => 90628,
     'music_album' => 'Ultimate 2000s (CD1)',
     'music_artist' => 'Train',
+    'music_artist_id' => 12027,
     'music_bitrate' => 1000,
   ),
   14 => 
@@ -398,6 +452,7 @@ $album_old = array (
     'cover_id' => 90627,
     'music_album' => 'Omni Sight Seeing',
     'music_artist' => 'Haruomi Hosono',
+    'music_artist_id' => 18829,
     'music_bitrate' => 1000,
   ),
   15 => 
@@ -405,6 +460,7 @@ $album_old = array (
     'cover_id' => 90626,
     'music_album' => 'The Tale of Genji OST',
     'music_artist' => 'Haruomi Hosono',
+    'music_artist_id' => 18829,
     'music_bitrate' => 1000,
   ),
   16 => 
@@ -412,6 +468,7 @@ $album_old = array (
     'cover_id' => 90625,
     'music_album' => 'Back Again',
     'music_artist' => 'Pink Turtle',
+    'music_artist_id' => 18828,
     'music_bitrate' => 1000,
   ),
   17 => 
@@ -419,6 +476,7 @@ $album_old = array (
     'cover_id' => 90624,
     'music_album' => 'Two',
     'music_artist' => 'Bob James',
+    'music_artist_id' => 18826,
     'music_bitrate' => 1000,
   ),
   18 => 
@@ -426,6 +484,7 @@ $album_old = array (
     'cover_id' => 90623,
     'music_album' => 'Urban Folktales',
     'music_artist' => 'Matt Marshak',
+    'music_artist_id' => 18824,
     'music_bitrate' => 1000,
   ),
   19 => 
@@ -433,6 +492,7 @@ $album_old = array (
     'cover_id' => 90596,
     'music_album' => 'Chúc Tụng Mẹ La Vang',
     'music_artist' => 'Phượng Vũ',
+    'music_artist_id' => 18773,
     'music_bitrate' => 320,
   ),
 );
@@ -443,6 +503,7 @@ $music_new_uploads = array (
     'music_title_url' => 'tuoi-tho-con-mai~luong-chan-nam',
     'music_title' => 'Tuổi Thơ Còn Mãi',
     'music_artist' => 'Lương Chấn Nam',
+    'music_artist_id' => '63599',
     'cat_id' => 3,
     'cat_level' => 1,
     'cat_sublevel' => 1,
@@ -474,6 +535,7 @@ Về...',
     'music_title_url' => 'tuoi-tho-con-mai~luong-chan-nam',
     'music_title' => 'Tuổi Thơ Còn Mãi',
     'music_artist' => 'Lương Chấn Nam',
+    'music_artist_id' => '63599',
     'cat_id' => 2,
     'cat_level' => 1,
     'cat_sublevel' => 1,
@@ -504,7 +566,8 @@ Về...',
     'music_id' => 1961315,
     'music_title_url' => 'praying-for-a-hundred-days~lee-ji-hye-jang-suk-hyun-dindin-sungyeon',
     'music_title' => 'Praying For A Hundred Days',
-    'music_artist' => 'Lee Ji Hye; Jang Suk Hyun; DinDin; Sungyeon',
+    'music_artist' => 'Lee Ji Hye;Jang Suk Hyun;DinDin;Sungyeon',
+    'music_artist_id' => '8813;122612;13673;98167',
     'cat_id' => 6,
     'cat_level' => 1,
     'cat_sublevel' => 1,
@@ -536,7 +599,8 @@ Barae b...',
     'music_id' => 1961314,
     'music_title_url' => 'maybe-i-love-you-lover~chae-rina-seunghee',
     'music_title' => 'Maybe I Love You; Lover',
-    'music_artist' => 'Chae Rina; Seunghee',
+    'music_artist' => 'Chae Rina;Seunghee',
+    'music_artist_id' => '122614;16146',
     'cat_id' => 6,
     'cat_level' => 1,
     'cat_sublevel' => 1,
@@ -569,7 +633,8 @@ Bichi...',
     'music_id' => 1961313,
     'music_title_url' => 'kiss~spapa-kei',
     'music_title' => 'Kiss',
-    'music_artist' => 'Spapa; Kei',
+    'music_artist' => 'Spapa;Kei',
+    'music_artist_id' => '122616;2868',
     'cat_id' => 6,
     'cat_level' => 1,
     'cat_sublevel' => 1,
@@ -599,6 +664,7 @@ N...',
     'music_title_url' => 'qua-khu-hom-qua~luong-chan-nam',
     'music_title' => 'Quá Khứ Hôm Qua',
     'music_artist' => 'Lương Chấn Nam',
+    'music_artist_id' => '63599',
     'cat_id' => 3,
     'cat_level' => 1,
     'cat_sublevel' => 1,
@@ -628,6 +694,7 @@ Vì sao không đến bên dỗ dành để cho em...',
     'music_title_url' => 'du-anh-khong-muon~luong-chan-nam',
     'music_title' => 'Dù Anh Không Muốn',
     'music_artist' => 'Lương Chấn Nam',
+    'music_artist_id' => '63599',
     'cat_id' => 3,
     'cat_level' => 1,
     'cat_sublevel' => 1,
@@ -658,7 +725,8 @@ Khóc hay buồn gì cũng...',
     'music_id' => 1961310,
     'music_title_url' => 'mom~oh-seung-hee-kim-bo-hyung',
     'music_title' => 'Mom',
-    'music_artist' => 'Oh Seung Hee; Kim Bo Hyung',
+    'music_artist' => 'Oh Seung Hee;Kim Bo Hyung',
+    'music_artist_id' => '122618;90015',
     'cat_id' => 6,
     'cat_level' => 1,
     'cat_sublevel' => 1,
@@ -690,7 +758,8 @@ Gomaumeul...',
     'music_id' => 1961309,
     'music_title_url' => 'twinkle-something~uji-kei',
     'music_title' => 'Twinkle; Something',
-    'music_artist' => 'UJi; Kei',
+    'music_artist' => 'UJi;Kei',
+    'music_artist_id' => '122620;2868',
     'cat_id' => 6,
     'cat_level' => 1,
     'cat_sublevel' => 1,
@@ -724,7 +793,8 @@ Ttan sara...',
     'music_id' => 1961308,
     'music_title_url' => '24-hours-nonono~seunghee-sojeung',
     'music_title' => '24 Hours; NoNoNo',
-    'music_artist' => 'Seunghee; Sojeung',
+    'music_artist' => 'Seunghee;Sojeung',
+    'music_artist_id' => '16146;122622',
     'cat_id' => 6,
     'cat_level' => 1,
     'cat_sublevel' => 1,
@@ -758,6 +828,7 @@ Modeun geol da...',
     'music_title_url' => 'woo-ah~jinsol',
     'music_title' => 'Woo Ah',
     'music_artist' => 'Jinsol',
+    'music_artist_id' => '13679',
     'cat_id' => 6,
     'cat_level' => 1,
     'cat_sublevel' => 1,
@@ -789,7 +860,8 @@ Malgeun haetsal gatayo nal...',
     'music_id' => 1961306,
     'music_title_url' => 'across-the-universe~flowsik-kim-bo-hyung',
     'music_title' => 'Across The Universe',
-    'music_artist' => 'Flowsik; Kim Bo Hyung',
+    'music_artist' => 'Flowsik;Kim Bo Hyung',
+    'music_artist_id' => '25543;90015',
     'cat_id' => 6,
     'cat_level' => 1,
     'cat_sublevel' => 1,
@@ -822,6 +894,7 @@ Would y...',
     'music_title_url' => 'i-dont-love-you~sojeong',
     'music_title' => 'I Don\'t Love You',
     'music_artist' => 'Sojeong',
+    'music_artist_id' => '121020',
     'cat_id' => 6,
     'cat_level' => 1,
     'cat_sublevel' => 1,
@@ -853,6 +926,7 @@ Nunmul heullineun neoui moseubedo...',
     'music_title_url' => 'yeu-em-tung-phut-giay~luong-chan-nam',
     'music_title' => 'Yêu Em Từng Phút Giây',
     'music_artist' => 'Lương Chấn Nam',
+    'music_artist_id' => '63599',
     'cat_id' => 2,
     'cat_level' => 1,
     'cat_sublevel' => 1,
@@ -882,6 +956,7 @@ Anh muốn cùng em đi trên con đường d...',
     'music_title_url' => 'khuc-hat-cho-em~luong-chan-nam',
     'music_title' => 'Khúc Hát Cho Em',
     'music_artist' => 'Lương Chấn Nam',
+    'music_artist_id' => '63599',
     'cat_id' => 2,
     'cat_level' => 1,
     'cat_sublevel' => 1,
@@ -909,6 +984,7 @@ Và anh hứa sẽ mãi l...',
     'music_title_url' => 'camellia-lady~soyeon',
     'music_title' => 'Camellia Lady',
     'music_artist' => 'Soyeon',
+    'music_artist_id' => '14760',
     'cat_id' => 6,
     'cat_level' => 1,
     'cat_sublevel' => 1,
@@ -940,6 +1016,7 @@ Dongbaekkkoc...',
     'music_title_url' => 'the-unwritten-legend~kim-bo-hyung',
     'music_title' => 'The Unwritten Legend',
     'music_artist' => 'Kim Bo Hyung',
+    'music_artist_id' => '90015',
     'cat_id' => 6,
     'cat_level' => 1,
     'cat_sublevel' => 1,
@@ -970,6 +1047,7 @@ Eoril jeok geudaeui kkumd...',
     'music_title_url' => 'i-have-nothing~uji',
     'music_title' => 'I Have Nothing',
     'music_artist' => 'UJi',
+    'music_artist_id' => '122620',
     'cat_id' => 6,
     'cat_level' => 1,
     'cat_sublevel' => 1,
@@ -1002,6 +1080,7 @@ I don\'t really need to...',
     'music_title_url' => 'a-friend-like-you~andy-grammer',
     'music_title' => 'A Friend Like You',
     'music_artist' => 'Andy Grammer',
+    'music_artist_id' => '13789',
     'cat_id' => 4,
     'cat_level' => 1,
     'cat_sublevel' => 1,
@@ -1031,6 +1110,7 @@ Some...',
     'music_title_url' => 'secret-time~spica',
     'music_title' => 'Secret Time',
     'music_artist' => 'Spica',
+    'music_artist_id' => '3923',
     'cat_id' => 2,
     'cat_level' => 4,
     'cat_sublevel' => 2,
@@ -1062,517 +1142,596 @@ Nar...',
 $video_new_uploads = array (
   0 => 
   array (
-    'music_id' => 1954312,
-    'music_title_url' => 'hot-stuff~luu-bich',
-    'music_title' => 'Hot Stuff',
-    'music_artist' => 'Lưu Bích',
+    'music_id' => 1961073,
+    'music_title_url' => 'doi-cho~phuong-trang',
+    'music_title' => 'Đợi Chờ',
+    'music_artist' => 'Phương Trăng',
+    'music_artist_id' => '122634',
+    'cat_id' => 1,
+    'cat_level' => 1,
+    'cat_sublevel' => 0,
+    'cat_custom' => 0,
+    'cover_id' => 0,
+    'music_download_time' => 1539078321,
+    'music_last_update_time' => 1539069935,
+    'music_title_search' => 'doi cho',
+    'music_artist_search' => '; phung chang;',
+    'music_album_search' => '',
+    'music_composer' => 'Phạm Đình Chương - Nhật Bằng',
+    'music_album' => '',
+    'music_listen' => 0,
+    'music_track_id' => 0,
+    'music_filename' => '1961073-db5d44fe.mp4',
+    'music_bitrate' => 192,
+    'music_shortlyric' => 'Trăng lắng sâu vào đêm đợi chờ. 
+Đêm thế gian quạnh khô mịt mờ. 
+Như ném ai vào cõi bơ vơ. 
+Nhưng vẫn chưa tìm thấy người mơ. 
+
+Ta đi ngóng trông em, 
+trong tiếng đêm dài ... tan. 
+Ngàn tơ vàng chì...',
+  ),
+  1 => 
+  array (
+    'music_id' => 1961026,
+    'music_title_url' => 'you-in-my-eyes-special-edition~snuper',
+    'music_title' => 'You In My Eyes (Special Edition)',
+    'music_artist' => 'Snuper',
+    'music_artist_id' => '13927',
+    'cat_id' => 1,
+    'cat_level' => 4,
+    'cat_sublevel' => 0,
+    'cat_custom' => 0,
+    'cover_id' => 0,
+    'music_download_time' => 0,
+    'music_last_update_time' => 1539062189,
+    'music_title_search' => 'iou in mi eix; xpecial edition',
+    'music_artist_search' => '; xnuper;',
+    'music_album_search' => '',
+    'music_composer' => '',
+    'music_album' => '',
+    'music_listen' => 0,
+    'music_track_id' => 6,
+    'music_filename' => '1961026-a414c5d5.mp4',
+    'music_bitrate' => 192,
+    'music_shortlyric' => 'Nae nuneneun niga
+Eonjebuteonga niga
+Naege deureowa hansungan
+Hollyeo beorin gibune hwangholhae
+Ne saenggage meomchul suga eopseo
+Geuraegeurae gachi isseum eoreum
+Ttan namja gyeonggyehae nan tto bu...',
+  ),
+  2 => 
+  array (
+    'music_id' => 1961019,
+    'music_title_url' => 'truong-ca-hoi-trung-duong~le-uyen-hue-thy-bich-dao',
+    'music_title' => 'Trường Ca Hội Trùng Dương',
+    'music_artist' => 'Lê Uyên;Huệ Thy;Bích Đào',
+    'music_artist_id' => '836;14608;14605',
+    'cat_id' => 1,
+    'cat_level' => 1,
+    'cat_sublevel' => 0,
+    'cat_custom' => 0,
+    'cover_id' => 0,
+    'music_download_time' => 0,
+    'music_last_update_time' => 1539056225,
+    'music_title_search' => 'chung ca hoi chung dung',
+    'music_artist_search' => '; le in; hue thi; bich dao;',
+    'music_album_search' => '',
+    'music_composer' => 'Phạm Đình Chương',
+    'music_album' => '',
+    'music_listen' => 0,
+    'music_track_id' => 0,
+    'music_filename' => '1961019-d8f66834.mp4',
+    'music_bitrate' => 96,
+    'music_shortlyric' => '1. Tiếng Sông Hồng 
+2. Tiếng Sông Hương 
+3. Tiếng Cửu Long',
+  ),
+  3 => 
+  array (
+    'music_id' => 1960828,
+    'music_title_url' => 'renai-circulation~kana-hanazawa',
+    'music_title' => 'Renai Circulation',
+    'music_artist' => 'Kana Hanazawa',
+    'music_artist_id' => '14738',
+    'cat_id' => 1,
+    'cat_level' => 5,
+    'cat_sublevel' => 0,
+    'cat_custom' => 6,
+    'cover_id' => 0,
+    'music_download_time' => 1539067796,
+    'music_last_update_time' => 1538995373,
+    'music_title_search' => 'renai circulation',
+    'music_artist_search' => '; kana hanazawa;',
+    'music_album_search' => '',
+    'music_composer' => '',
+    'music_album' => '',
+    'music_listen' => 108,
+    'music_track_id' => 0,
+    'music_filename' => '1960828-243e6e3f.mp4',
+    'music_bitrate' => 192,
+    'music_shortlyric' => '(se~ no!)
+
+Demo sonnan ja dame
+Mou sonnan ja hora
+Kokoro wa shinka suru yo
+Motto motto
+
+Kotoba ni sureba kiechau kankei nara
+Kotoba wo keseba ii ya tte
+Omotteta? Osoreteta?
+Dakedo are? Nanka chigau...',
+  ),
+  4 => 
+  array (
+    'music_id' => 1960817,
+    'music_title_url' => 'dung-dien-gia~loren-kid-ho-gia-hung',
+    'music_title' => 'Đừng Diễn Giả',
+    'music_artist' => 'Loren Kid;Hồ Gia Hùng',
+    'music_artist_id' => '2278;16665',
+    'cat_id' => 1,
+    'cat_level' => 1,
+    'cat_sublevel' => 0,
+    'cat_custom' => 0,
+    'cover_id' => 0,
+    'music_download_time' => 0,
+    'music_last_update_time' => 1538992442,
+    'music_title_search' => 'dung din da',
+    'music_artist_search' => '; loren kid; ho da hung;',
+    'music_album_search' => '',
+    'music_composer' => '',
+    'music_album' => '',
+    'music_listen' => 7,
+    'music_track_id' => 0,
+    'music_filename' => '1960817-8dea063d.mp4',
+    'music_bitrate' => 96,
+    'music_shortlyric' => 'Em à, cái điều mà khó nhất trên đời này là mình phải đi vá 1 trái tim mà mình ko phải là người làm ...',
+  ),
+  5 => 
+  array (
+    'music_id' => 1960802,
+    'music_title_url' => 'one-more-time-otra-vez~reik-super-junior',
+    'music_title' => 'One More Time (Otra Vez)',
+    'music_artist' => 'Reik;Super Junior',
+    'music_artist_id' => '23423;213',
+    'cat_id' => 1,
+    'cat_level' => 4,
+    'cat_sublevel' => 0,
+    'cat_custom' => 0,
+    'cover_id' => 0,
+    'music_download_time' => 1539077910,
+    'music_last_update_time' => 1538995948,
+    'music_title_search' => '1 more time; ocha vez',
+    'music_artist_search' => '; reik; xuper junior;',
+    'music_album_search' => '',
+    'music_composer' => 'Znee; Pablo Preciado; Andreas Stone Johansson; Denniz Jamm; Rudi \'Rudy\' Daouk; Jakob \'Jay\' Mihoubi; Button Pushers',
+    'music_album' => '',
+    'music_listen' => 464,
+    'music_track_id' => 6,
+    'music_filename' => '1960802-f5164ad2.mp4',
+    'music_bitrate' => 192,
+    'music_shortlyric' => 'Baby nareul tteonajima nega eopsin
+Amugeotdo anin i bameun an doegesseo nan
+Neukkyeojineun geol sechage ttwigo inneun
+Sarangui heunjeok nal ttokbaro bwa
+Jeo bulkkotcheoreom taneun nae nunbit
+Tteuge...',
+  ),
+  6 => 
+  array (
+    'music_id' => 1960781,
+    'music_title_url' => 'anh-di-chien-dich~the-son',
+    'music_title' => 'Anh Đi Chiến Dịch',
+    'music_artist' => 'Thế Sơn',
+    'music_artist_id' => '5254',
+    'cat_id' => 1,
+    'cat_level' => 1,
+    'cat_sublevel' => 0,
+    'cat_custom' => 0,
+    'cover_id' => 0,
+    'music_download_time' => 1539049694,
+    'music_last_update_time' => 1538982421,
+    'music_title_search' => 'em di chin dich',
+    'music_artist_search' => '; the xon;',
+    'music_album_search' => '',
+    'music_composer' => 'Phạm Đình Chương',
+    'music_album' => '',
+    'music_listen' => 14,
+    'music_track_id' => 0,
+    'music_filename' => '1960781-3bef35f0.mp4',
+    'music_bitrate' => 128,
+    'music_shortlyric' => 'Anh đi chiến dịch xa vời, lòng súng nhân đạo cứu người lầm than 
+Thương dân nghèo ruộng hoang cỏ cháy 
+Thấy nỗi xót xa của kiếp đoạ đầy anh đi. 
+
+Không quên lời xưa đã ước thề, dâng cả đời trai với...',
+  ),
+  7 => 
+  array (
+    'music_id' => 1960752,
+    'music_title_url' => 'i-cant-find-you~hoaprox-ftbel-red',
+    'music_title' => 'I CAN\'T FIND YOU',
+    'music_artist' => 'HOAPROX ft.Bel Red',
+    'music_artist_id' => '122638',
     'cat_id' => 1,
     'cat_level' => 2,
     'cat_sublevel' => 0,
     'cat_custom' => 0,
     'cover_id' => 0,
-    'music_download_time' => 0,
-    'music_last_update_time' => 1537284999,
-    'music_title_search' => 'hot xtuf',
-    'music_artist_search' => '; lu bich;',
+    'music_download_time' => 1539013313,
+    'music_last_update_time' => 1538976527,
+    'music_title_search' => 'i can t find iou',
+    'music_artist_search' => '; hoaprox ft bel red;',
     'music_album_search' => '',
-    'music_composer' => '',
+    'music_composer' => 'HOAPROX',
     'music_album' => '',
-    'music_listen' => 0,
+    'music_listen' => 211,
     'music_track_id' => 0,
-    'music_filename' => '1954312-c687341b.mp4',
-    'music_bitrate' => 320,
-    'music_shortlyric' => 'Sittin\' here eatin\' my heart out waitin\'
-Waitin\' for some lover to call
-Dialed about a thousand numbers lately
-Almost rang the phone off the wall.
-
-Lookin\' for some hot stuff baby this evenin\'
-I ne...',
-  ),
-  1 => 
-  array (
-    'music_id' => 1954279,
-    'music_title_url' => 'zou-zhe-zou-zhe-jiu-san-le-cang-di-cang-lac-loi~tran-ngoc-bao',
-    'music_title' => 'Zou zhe zou zhe jiu san le/ Càng đi càng lạc lối',
-    'music_artist' => 'Trần Ngọc Bảo',
-    'cat_id' => 1,
-    'cat_level' => 3,
-    'cat_sublevel' => 0,
-    'cat_custom' => 8,
-    'cover_id' => 0,
-    'music_download_time' => 0,
-    'music_last_update_time' => 1537279800,
-    'music_title_search' => 'zou zhe zou zhe jiu xan le; cang di cang lac loi',
-    'music_artist_search' => '; chan ngoc bao;',
-    'music_album_search' => '',
-    'music_composer' => '',
-    'music_album' => '',
-    'music_listen' => 0,
-    'music_track_id' => 0,
-    'music_filename' => '1954279-7192ce20.mp4',
-    'music_bitrate' => 320,
-    'music_shortlyric' => '',
-  ),
-  2 => 
-  array (
-    'music_id' => 1954278,
-    'music_title_url' => 'addiction-korean-chinese-verson~tran-ngoc-bao-anh-toan-nguyen',
-    'music_title' => 'Addiction (Korean Chinese verson)',
-    'music_artist' => 'Trần Ngọc Bảo, Anh Toàn Nguyễn',
-    'cat_id' => 1,
-    'cat_level' => 4,
-    'cat_sublevel' => 0,
-    'cat_custom' => 0,
-    'cover_id' => 0,
-    'music_download_time' => 0,
-    'music_last_update_time' => 1537278078,
-    'music_title_search' => 'adiction; korean chinexe verxon',
-    'music_artist_search' => '; chan ngoc bao em toan ngin;',
-    'music_album_search' => '',
-    'music_composer' => '',
-    'music_album' => '',
-    'music_listen' => 0,
-    'music_track_id' => 0,
-    'music_filename' => '1954278-69ff4064.mp4',
-    'music_bitrate' => 320,
-    'music_shortlyric' => '',
-  ),
-  3 => 
-  array (
-    'music_id' => 1954277,
-    'music_title_url' => 'noi-di-la-di~tran-ngoc-bao',
-    'music_title' => 'Nói đi là đi /说散就散',
-    'music_artist' => 'Trần Ngọc Bảo',
-    'cat_id' => 1,
-    'cat_level' => 3,
-    'cat_sublevel' => 0,
-    'cat_custom' => 0,
-    'cover_id' => 0,
-    'music_download_time' => 0,
-    'music_last_update_time' => 1537277972,
-    'music_title_search' => 'noi di la di ;说散就散',
-    'music_artist_search' => '; chan ngoc bao;',
-    'music_album_search' => '',
-    'music_composer' => '',
-    'music_album' => '',
-    'music_listen' => 0,
-    'music_track_id' => 0,
-    'music_filename' => '1954277-e4ac7b1e.mp4',
-    'music_bitrate' => 320,
-    'music_shortlyric' => '',
-  ),
-  4 => 
-  array (
-    'music_id' => 1954276,
-    'music_title_url' => 'dung-nhu-thoi-quen-cover-tran-ngoc-bao~tran-ngoc-bao-anh-toan-nguyen',
-    'music_title' => 'Đừng như thói quen cover Trần Ngọc Bảo',
-    'music_artist' => 'Trần Ngọc Bảo, Anh Toàn Nguyễn',
-    'cat_id' => 1,
-    'cat_level' => 1,
-    'cat_sublevel' => 0,
-    'cat_custom' => 0,
-    'cover_id' => 0,
-    'music_download_time' => 1537323547,
-    'music_last_update_time' => 1537277722,
-    'music_title_search' => 'dung nhu thoi quen cover chan ngoc bao',
-    'music_artist_search' => '; chan ngoc bao em toan ngin;',
-    'music_album_search' => '',
-    'music_composer' => 'Dương Khắc Linh',
-    'music_album' => '',
-    'music_listen' => 0,
-    'music_track_id' => 0,
-    'music_filename' => '1954276-a39f62f4.mp4',
-    'music_bitrate' => 320,
-    'music_shortlyric' => '',
-  ),
-  5 => 
-  array (
-    'music_id' => 1954275,
-    'music_title_url' => 'hong-nhan-xua-lang-nha-bang-ost~tran-ngoc-bao',
-    'music_title' => '红颜旧 / Hồng Nhan Xưa (Lang Nha Bảng OST)',
-    'music_artist' => 'Trần Ngọc Bảo',
-    'cat_id' => 1,
-    'cat_level' => 3,
-    'cat_sublevel' => 0,
-    'cat_custom' => 0,
-    'cover_id' => 0,
-    'music_download_time' => 0,
-    'music_last_update_time' => 1537277422,
-    'music_title_search' => '红颜旧 ; hong nhan xua; lang nha bang oxt',
-    'music_artist_search' => '; chan ngoc bao;',
-    'music_album_search' => '',
-    'music_composer' => '',
-    'music_album' => '',
-    'music_listen' => 0,
-    'music_track_id' => 0,
-    'music_filename' => '1954275-9e07622f.mp4',
-    'music_bitrate' => 320,
-    'music_shortlyric' => '',
-  ),
-  6 => 
-  array (
-    'music_id' => 1954274,
-    'music_title_url' => 'dung-vi-em-la-bien-cover~tran-ngoc-bao',
-    'music_title' => 'Đừng ví em là biển cover',
-    'music_artist' => 'Trần Ngọc Bảo',
-    'cat_id' => 1,
-    'cat_level' => 1,
-    'cat_sublevel' => 0,
-    'cat_custom' => 0,
-    'cover_id' => 0,
-    'music_download_time' => 0,
-    'music_last_update_time' => 1537277386,
-    'music_title_search' => 'dung vi em la bin cover',
-    'music_artist_search' => '; chan ngoc bao;',
-    'music_album_search' => '',
-    'music_composer' => '',
-    'music_album' => '',
-    'music_listen' => 0,
-    'music_track_id' => 0,
-    'music_filename' => '1954274-ba38098b.mp4',
-    'music_bitrate' => 320,
-    'music_shortlyric' => '',
-  ),
-  7 => 
-  array (
-    'music_id' => 1954273,
-    'music_title_url' => 'dung-nhu-thoi-quenchinese-verson-beatchi-co-giong-nam-va-be~anh-toan-nguyen',
-    'music_title' => 'Đừng như thói quen(Chinese verson beat)/不要只是个习惯_Chỉ có giọng nam và bè',
-    'music_artist' => 'Anh Toàn Nguyễn',
-    'cat_id' => 1,
-    'cat_level' => 1,
-    'cat_sublevel' => 0,
-    'cat_custom' => 0,
-    'cover_id' => 0,
-    'music_download_time' => 0,
-    'music_last_update_time' => 1537277319,
-    'music_title_search' => 'dung nhu thoi quen chinexe verxon beat ;不要只是个习惯 chi co dong 5 va be',
-    'music_artist_search' => '; em toan ngin;',
-    'music_album_search' => '',
-    'music_composer' => 'Dương khắc linh',
-    'music_album' => '',
-    'music_listen' => 0,
-    'music_track_id' => 0,
-    'music_filename' => '1954273-6e7e4fc8.mp4',
+    'music_filename' => '1960752-15803f8d.mp4',
     'music_bitrate' => 96,
-    'music_shortlyric' => '',
+    'music_shortlyric' => 'Oh ye!… Oh ye!… Oh ye!…eh.eh.eh.eh.eh!
+I can\'t find you!!!!!!!!!
+
+Sailing Sailing on the sea deep in my brain
+I can\'t find where I gotta go
+Do you know from that day I\'ve got insane
+The pain remind...',
   ),
   8 => 
   array (
-    'music_id' => 1954262,
-    'music_title_url' => 'cho-em-gan-anh-them-chut-nuamv~tran-ngoc-bao',
-    'music_title' => 'Cho em gần anh thêm chút nữa(MV)',
-    'music_artist' => 'Trần Ngọc Bảo',
+    'music_id' => 1960670,
+    'music_title_url' => 'dung-hoai-nghi-anh-nhe~bao-han',
+    'music_title' => 'Đừng Hoài Nghi Anh Nhé',
+    'music_artist' => 'Bảo Hân',
+    'music_artist_id' => '967',
     'cat_id' => 1,
     'cat_level' => 1,
     'cat_sublevel' => 0,
     'cat_custom' => 0,
     'cover_id' => 0,
     'music_download_time' => 0,
-    'music_last_update_time' => 1537277074,
-    'music_title_search' => 'cho em gan em them chut nua mv',
-    'music_artist_search' => '; chan ngoc bao;',
+    'music_last_update_time' => 1538913428,
+    'music_title_search' => 'dung hoai nghi em nhe',
+    'music_artist_search' => '; bao han;',
     'music_album_search' => '',
-    'music_composer' => 'Tăng NHât',
+    'music_composer' => 'Lời: Nguyễn Ngọc Thiện',
     'music_album' => '',
-    'music_listen' => 0,
+    'music_listen' => 24,
     'music_track_id' => 0,
-    'music_filename' => '1954262-5a9ae10c.mp4',
-    'music_bitrate' => 96,
-    'music_shortlyric' => '',
+    'music_filename' => '1960670-cb3ec338.mp4',
+    'music_bitrate' => 320,
+    'music_shortlyric' => '1. Nhớ, đừng hoài nghi, em như thế 
+Dẫu quanh em, nhiêu kẻ si tình 
+Em lơ đãng, trước bao lời bướm hoa 
+Vì, em luôn có bóng anh, soi sáng, đêm dài. 
+
+[ĐK:]
+Mong anh đừng nghĩ sai, cho tình ta chóng...',
   ),
   9 => 
   array (
-    'music_id' => 1954261,
-    'music_title_url' => 'lanh-leo-ost-tam-sinh-tam-the-thap-ly-dao-hoa-cove~tran-ngoc-bao-anh-toan-nguyen',
-    'music_title' => 'Lạnh Lẽo (涼涼) (OST Tam Sinh Tam Thế Thập Lý Đào Hoa) (Cover)',
-    'music_artist' => 'Trần Ngọc Bảo, Anh Toàn Nguyễn',
+    'music_id' => 1960663,
+    'music_title_url' => 'dangerous-american-music-awards-1993~michael-jackson',
+    'music_title' => 'Dangerous (American Music Awards 1993)',
+    'music_artist' => 'Michael Jackson',
+    'music_artist_id' => '1510',
     'cat_id' => 1,
-    'cat_level' => 3,
+    'cat_level' => 2,
     'cat_sublevel' => 0,
-    'cat_custom' => 0,
+    'cat_custom' => 6,
     'cover_id' => 0,
-    'music_download_time' => 0,
-    'music_last_update_time' => 1537276955,
-    'music_title_search' => 'lanh leo; 涼 ; oxt tam xinh tam the thap li dao hoa ; cover',
-    'music_artist_search' => '; chan ngoc bao em toan ngin;',
+    'music_download_time' => 1538994849,
+    'music_last_update_time' => 1538909152,
+    'music_title_search' => 'dangeroux; american muxic awardx 193',
+    'music_artist_search' => '; michael jackxon;',
     'music_album_search' => '',
-    'music_composer' => '',
+    'music_composer' => 'Michael Jackson',
     'music_album' => '',
-    'music_listen' => 0,
+    'music_listen' => 556,
     'music_track_id' => 0,
-    'music_filename' => '1954261-0687f2f8.mp4',
+    'music_filename' => '1960663-c1a58e00.mp4',
     'music_bitrate' => 320,
-    'music_shortlyric' => '',
+    'music_shortlyric' => '[Spoken Intro]
+The way she came into the place
+I knew right then and there
+There was something different
+About this girl
+
+The way she moved
+Her hair, her face, her lines
+Divinity in motion
+
+As she...',
   ),
   10 => 
   array (
-    'music_id' => 1954233,
-    'music_title_url' => 'dung-nhu-thoi-quen-chinese-verson-karaoke~tran-ngoc-bao-anh-toan-nguyen',
-    'music_title' => 'Đừng như thói quen (Chinese verson Karaoke)',
-    'music_artist' => 'Trần Ngọc Bảo, Anh Toàn Nguyễn',
+    'music_id' => 1960628,
+    'music_title_url' => 'shes-in-the-rain-sbs-inkigayo-07102018~the-rose',
+    'music_title' => 'She\'s In The Rain (SBS Inkigayo 07.10.2018)',
+    'music_artist' => 'The Rose',
+    'music_artist_id' => '21913',
     'cat_id' => 1,
-    'cat_level' => 1,
+    'cat_level' => 4,
     'cat_sublevel' => 0,
-    'cat_custom' => 0,
+    'cat_custom' => 6,
     'cover_id' => 0,
     'music_download_time' => 0,
-    'music_last_update_time' => 1537275871,
-    'music_title_search' => 'dung nhu thoi quen; chinexe verxon karaoke',
-    'music_artist_search' => '; chan ngoc bao em toan ngin;',
+    'music_last_update_time' => 1538904410,
+    'music_title_search' => 'the x in the rain; xbx inkigaio 07 10 2018',
+    'music_artist_search' => '; the roxe;',
     'music_album_search' => '',
-    'music_composer' => 'Dương Khắc Linh',
+    'music_composer' => '',
     'music_album' => '',
-    'music_listen' => 0,
+    'music_listen' => 4,
     'music_track_id' => 0,
-    'music_filename' => '1954233-06b8831c.mp4',
-    'music_bitrate' => 96,
-    'music_shortlyric' => '',
+    'music_filename' => '1960628-8be406fc.mp4',
+    'music_bitrate' => 320,
+    'music_shortlyric' => 'Do you hear me
+[t2]Do you hear me
+[t1]Người có nghe thấy lời tôi nói không?
+
+회색빛 안개 덮인
+[t2]Hoesaekbit angae deopin
+[t1]Không gian bị bao trùm bởi màn khói sương màu xám
+
+Gloomy day
+[t2]Gloomy day
+[...',
   ),
   11 => 
   array (
-    'music_id' => 1954232,
-    'music_title_url' => 'dung-nhu-thoi-quen-chinese-versonchi-co-giong-nu-va-be~tran-ngoc-bao',
-    'music_title' => 'Đừng như thói quen Chinese Verson_Chỉ có giọng nữ và bè',
-    'music_artist' => 'Trần Ngọc Bảo',
+    'music_id' => 1960627,
+    'music_title_url' => 'your-difference-sbs-inkigayo-07102018~lucente',
+    'music_title' => 'Your Difference (SBS Inkigayo 07.10.2018)',
+    'music_artist' => 'Lucente',
+    'music_artist_id' => '122726',
     'cat_id' => 1,
-    'cat_level' => 3,
+    'cat_level' => 4,
     'cat_sublevel' => 0,
-    'cat_custom' => 8,
+    'cat_custom' => 6,
     'cover_id' => 0,
     'music_download_time' => 0,
-    'music_last_update_time' => 1537275824,
-    'music_title_search' => 'dung nhu thoi quen chinexe verxon chi co dong nu va be',
-    'music_artist_search' => '; chan ngoc bao;',
+    'music_last_update_time' => 1538904277,
+    'music_title_search' => 'iour diference; xbx inkigaio 07 10 2018',
+    'music_artist_search' => '; lucente;',
     'music_album_search' => '',
-    'music_composer' => 'Dương Khắc Linh',
+    'music_composer' => '',
     'music_album' => '',
-    'music_listen' => 0,
+    'music_listen' => 5,
     'music_track_id' => 0,
-    'music_filename' => '1954232-378f8b2a.mp4',
-    'music_bitrate' => 96,
-    'music_shortlyric' => '',
+    'music_filename' => '1960627-4cc4c455.mp4',
+    'music_bitrate' => 320,
+    'music_shortlyric' => 'Nalssiga byeolloyeonneunji 
+Gibuni an joeun geonji
+Oneulttara eomneun useumgie 
+Naega mwol jalmothan geonji
+Keopineun jeokdanghi masyeonneunde 
+Dodaeche museun il itdeongeonde
+Neo ttaemune jami an...',
   ),
   12 => 
   array (
-    'music_id' => 1954231,
-    'music_title_url' => 'dung-nhu-thoi-quen-chinese-verson~tran-ngoc-bao-anh-toan-nguyen',
-    'music_title' => 'Đừng như thói quen Chinese Verson',
-    'music_artist' => 'Trần Ngọc Bảo;Anh Toàn Nguyễn',
+    'music_id' => 1960626,
+    'music_title_url' => 'all-my-days-sbs-inkigayo-07102018~seo-ji-an',
+    'music_title' => 'All My Days (SBS Inkigayo 07.10.2018)',
+    'music_artist' => 'Seo Ji An',
+    'music_artist_id' => '122727',
     'cat_id' => 1,
-    'cat_level' => 1,
+    'cat_level' => 4,
     'cat_sublevel' => 0,
-    'cat_custom' => 0,
+    'cat_custom' => 6,
     'cover_id' => 0,
     'music_download_time' => 0,
-    'music_last_update_time' => 1537327046,
-    'music_title_search' => 'dung nhu thoi quen chinexe verxon',
-    'music_artist_search' => '; chan ngoc bao; em toan ngin;',
+    'music_last_update_time' => 1538904160,
+    'music_title_search' => 'al mi daix; xbx inkigaio 07 10 2018',
+    'music_artist_search' => '; xeo ji an;',
     'music_album_search' => '',
-    'music_composer' => 'Dương Khắc Linh',
+    'music_composer' => '',
     'music_album' => '',
-    'music_listen' => 0,
+    'music_listen' => 3,
     'music_track_id' => 0,
-    'music_filename' => '1954231-3626946b.mp4',
-    'music_bitrate' => 96,
-    'music_shortlyric' => '',
+    'music_filename' => '1960626-4d943b8a.mp4',
+    'music_bitrate' => 320,
+    'music_shortlyric' => 'Achimimyeon ttasaroun haetsare
+Hamkke nun tteo misoreul jitgo
+Jichin jeonyeogen sugohan haru
+Pume ana swige hal saram
+Himdeun naren seoroege gidaeeo
+Gwaenchantago dodangnyeojumyeo
+Nae saengui modeu...',
   ),
   13 => 
   array (
-    'music_id' => 1954229,
-    'music_title_url' => 'xuetuyetdo-van-thi~tran-ngoc-bao',
-    'music_title' => 'Xue_Tuyet_Đỗ Vân Thị',
-    'music_artist' => 'Trần Ngọc Bảo',
+    'music_id' => 1960625,
+    'music_title_url' => 'lullaby-sbs-inkigayo-07102018~got7',
+    'music_title' => 'Lullaby (SBS Inkigayo 07.10.2018)',
+    'music_artist' => 'GOT7',
+    'music_artist_id' => '4464',
     'cat_id' => 1,
-    'cat_level' => 3,
+    'cat_level' => 4,
     'cat_sublevel' => 0,
-    'cat_custom' => 0,
+    'cat_custom' => 6,
     'cover_id' => 0,
     'music_download_time' => 0,
-    'music_last_update_time' => 1537275600,
-    'music_title_search' => 'xue tit do van thi',
-    'music_artist_search' => '; chan ngoc bao;',
+    'music_last_update_time' => 1538904062,
+    'music_title_search' => 'lulabi; xbx inkigaio 07 10 2018',
+    'music_artist_search' => '; got7;',
     'music_album_search' => '',
-    'music_composer' => 'Dương Khắc Linh',
+    'music_composer' => '',
     'music_album' => '',
-    'music_listen' => 0,
+    'music_listen' => 7,
     'music_track_id' => 0,
-    'music_filename' => '1954229-fe62c82e.mp4',
-    'music_bitrate' => 96,
-    'music_shortlyric' => '',
+    'music_filename' => '1960625-3ba66a32.mp4',
+    'music_bitrate' => 320,
+    'music_shortlyric' => '한낮에 꾸는 꿈
+[t2]Hannaje kkuneun kkum
+[t1]Một giấc mộng giữa ban ngày
+
+믿기지 않을 뿐
+[t2]Mitgiji aneul ppun
+[t1]Mà đến chính tôi cũng không thể tin được
+
+여전히 난 거짓말 같아
+[t2]Yeojeonhi nan geojinmal gata
+[t1]Dư...',
   ),
   14 => 
   array (
-    'music_id' => 1954220,
-    'music_title_url' => 'i-mean-18092018-the-show~unit',
-    'music_title' => 'I Mean (18.09.2018 The Show)',
-    'music_artist' => 'UNI.T',
+    'music_id' => 1960624,
+    'music_title_url' => 'into-you-sbs-inkigayo-07102018~yuri',
+    'music_title' => 'Into You (SBS Inkigayo 07.10.2018)',
+    'music_artist' => 'Yuri',
+    'music_artist_id' => '4627',
     'cat_id' => 1,
     'cat_level' => 4,
     'cat_sublevel' => 0,
     'cat_custom' => 6,
     'cover_id' => 0,
-    'music_download_time' => 0,
-    'music_last_update_time' => 1537274596,
-    'music_title_search' => 'i mean; 18 09 2018 the thow',
-    'music_artist_search' => '; uni t;',
+    'music_download_time' => 1538974259,
+    'music_last_update_time' => 1538904059,
+    'music_title_search' => 'into iou; xbx inkigaio 07 10 2018',
+    'music_artist_search' => '; iuri;',
     'music_album_search' => '',
     'music_composer' => '',
     'music_album' => '',
-    'music_listen' => 0,
+    'music_listen' => 59,
     'music_track_id' => 0,
-    'music_filename' => '1954220-8e4867fa.mp4',
+    'music_filename' => '1960624-11d8cdba.mp4',
     'music_bitrate' => 320,
-    'music_shortlyric' => 'Yeah Brave Sound You ready
-Let\'s get ready to Rumble
-Uh Yeah UNI.T We raise you up
-Uh Yeah Red Cookie baby
-Nega daeche mworago
-Nae mam mamdaero heundeureo
-Twieonaol deusi ttwieo
-Jakku meotdaero meo...',
+    'music_shortlyric' => '더 빠져가 깊이 너와 나 같이
+[t2]Deo ppajyeoga gipi neowa na gachi
+[t1]Đắm chìm sâu hơn vào thứ tình cảm này, anh cùng với em
+
+빠져가 깊이 너와 나 같이
+[t2]Ppajyeoga gipi neowa na gachi
+[t1]Ta say mê nhau đậm sâu hơn, a...',
   ),
   15 => 
   array (
-    'music_id' => 1954218,
-    'music_title_url' => 'begin-with-the-end-18092018-the-show~unit',
-    'music_title' => 'Begin With The End (18.09.2018 The Show)',
-    'music_artist' => 'UNI.T',
+    'music_id' => 1960623,
+    'music_title_url' => 'illusion-sbs-inkigayo-07102018~yuri',
+    'music_title' => 'Illusion (SBS Inkigayo 07.10.2018)',
+    'music_artist' => 'Yuri',
+    'music_artist_id' => '4627',
     'cat_id' => 1,
     'cat_level' => 4,
     'cat_sublevel' => 0,
     'cat_custom' => 6,
     'cover_id' => 0,
     'music_download_time' => 0,
-    'music_last_update_time' => 1537274563,
-    'music_title_search' => 'bedn with the end; 18 09 2018 the thow',
-    'music_artist_search' => '; uni t;',
+    'music_last_update_time' => 1538904056,
+    'music_title_search' => 'iluxion; xbx inkigaio 07 10 2018',
+    'music_artist_search' => '; iuri;',
     'music_album_search' => '',
     'music_composer' => '',
     'music_album' => '',
-    'music_listen' => 0,
+    'music_listen' => 6,
     'music_track_id' => 0,
-    'music_filename' => '1954218-4fd8c1f6.mp4',
+    'music_filename' => '1960623-f4160921.mp4',
     'music_bitrate' => 320,
-    'music_shortlyric' => 'Yalmiun siganeun cham nunchi eopji
-Andwae seodureujima
-Motdahan aswium tase yunanhi aeteuthae
-Sujubeotdeon uri mannami
-Eotgeuje gateunde
-Aju jamsiman deo cheoncheonhi
-Naeireun bochaeji aneul teni
-S...',
+    'music_shortlyric' => 'Jinjjain cheokaji ma 
+Neol garyeonaegi beokcha nan nan 
+Ontong yesang bakkiya 
+Ansimhal su eopjana ah 
+Simjangi ppalli ttwineun geon mwoni 
+Haneureul mak naldagado 
+Kkeutdo eopsi tteoreojyeo tto 
+E...',
   ),
   16 => 
   array (
-    'music_id' => 1954198,
-    'music_title_url' => 'what-the-heck-18092018-the-show~shasha',
-    'music_title' => 'What The Heck (18.09.2018 The Show)',
-    'music_artist' => 'Shasha',
+    'music_id' => 1960622,
+    'music_title_url' => 'save-me-save-you-sbs-inkigayo-07102018~cosmic-girls',
+    'music_title' => 'Save Me, Save You (SBS Inkigayo 07.10.2018)',
+    'music_artist' => 'Cosmic Girls',
+    'music_artist_id' => '15071',
     'cat_id' => 1,
     'cat_level' => 4,
     'cat_sublevel' => 0,
     'cat_custom' => 6,
     'cover_id' => 0,
-    'music_download_time' => 0,
-    'music_last_update_time' => 1537274560,
-    'music_title_search' => 'what the heck; 18 09 2018 the thow',
-    'music_artist_search' => '; thatha;',
+    'music_download_time' => 1539062039,
+    'music_last_update_time' => 1538904052,
+    'music_title_search' => 'xave me xave iou; xbx inkigaio 07 10 2018',
+    'music_artist_search' => '; coxmic drlx;',
     'music_album_search' => '',
     'music_composer' => '',
     'music_album' => '',
-    'music_listen' => 0,
+    'music_listen' => 91,
     'music_track_id' => 0,
-    'music_filename' => '1954198-f6c70517.mp4',
+    'music_filename' => '1960622-4dbe1d59.mp4',
     'music_bitrate' => 320,
-    'music_shortlyric' => 'What the heck is going on
-You know what
-Hang on
-Ne mameul jeonbu da
-Boyeojumyeon an doelkka
-Seolma naboda meonjeo
-Silcheung naegiman haebwa
-Ooooh eotteokae
-Ooooh oh my god
-Neildo badatgo
-Ije ne son...',
+    'music_shortlyric' => '부탁해 너의 얘길 들려줄래
+[t2]Butakhae neoui yaegil deullyeojullae
+[t1]Có thể hay không, kể cho em nghe về chuyện đời anh
+
+알고 싶어 그래
+[t2]Algo sipeo geurae
+[t1]Vì em muốn biết về những câu chuyện đó
+
+네가 내게 그랬듯...',
   ),
   17 => 
   array (
-    'music_id' => 1954181,
-    'music_title_url' => 'on-air-18092018-the-show~we-girls',
-    'music_title' => 'On Air (18.09.2018 The Show)',
-    'music_artist' => 'We Girls',
+    'music_id' => 1960620,
+    'music_title_url' => 'what-sbs-inkigayo-07102018~dreamcatcher',
+    'music_title' => 'What (SBS Inkigayo 07.10.2018)',
+    'music_artist' => 'Dreamcatcher',
+    'music_artist_id' => '15016',
     'cat_id' => 1,
     'cat_level' => 4,
     'cat_sublevel' => 0,
     'cat_custom' => 6,
     'cover_id' => 0,
-    'music_download_time' => 0,
-    'music_last_update_time' => 1537274557,
-    'music_title_search' => 'on air; 18 09 2018 the thow',
-    'music_artist_search' => '; we drlx;',
+    'music_download_time' => 1538975284,
+    'music_last_update_time' => 1538903531,
+    'music_title_search' => 'what; xbx inkigaio 07 10 2018',
+    'music_artist_search' => '; dreamcatcher;',
     'music_album_search' => '',
     'music_composer' => '',
     'music_album' => '',
-    'music_listen' => 0,
+    'music_listen' => 49,
     'music_track_id' => 0,
-    'music_filename' => '1954181-1a9d1058.mp4',
+    'music_filename' => '1960620-674aa8e8.mp4',
     'music_bitrate' => 320,
-    'music_shortlyric' => '',
+    'music_shortlyric' => 'What What What
+[t2]What What What
+[t1]What What What
+
+What What 
+[t2]What What 
+[t1]What What
+
+깨어나지 못한 깊어진 Lucid Dream
+[t2]Kkaeeonaji mothan gipeojin Lucid Dream
+[t1]Thật khó để có thể tỉnh dậy và...',
   ),
   18 => 
   array (
-    'music_id' => 1954180,
-    'music_title_url' => 'puzzle-moon-18092018-the-show~gwsn',
-    'music_title' => 'Puzzle Moon (18.09.2018 The Show)',
-    'music_artist' => 'GWSN',
-    'cat_id' => 1,
-    'cat_level' => 4,
-    'cat_sublevel' => 0,
-    'cat_custom' => 6,
-    'cover_id' => 0,
-    'music_download_time' => 0,
-    'music_last_update_time' => 1537274554,
-    'music_title_search' => 'puzle mon; 18 09 2018 the thow',
-    'music_artist_search' => '; gwxn;',
-    'music_album_search' => '',
-    'music_composer' => '',
-    'music_album' => '',
-    'music_listen' => 0,
-    'music_track_id' => 0,
-    'music_filename' => '1954180-dd071ab5.mp4',
-    'music_bitrate' => 320,
-    'music_shortlyric' => 'Jogeupae haji aneulge
-Cheoncheonhi neol deureonaejwo
-Sucheon gaeui neoegeseo
-Nuneul mot tte nuneul mot tte Woo Woo Woo
-Myeot beonigo gyesok doeneun Simulation Oh
-Nae saenggakgwa matjil ana hansumeu...',
-  ),
-  19 => 
-  array (
-    'music_id' => 1954179,
-    'music_title_url' => 'right-here-18092018-the-show~the-boyz',
-    'music_title' => 'Right Here (18.09.2018 The Show)',
+    'music_id' => 1960619,
+    'music_title_url' => 'right-here-sbs-inkigayo-07102018~the-boyz',
+    'music_title' => 'Right Here (SBS Inkigayo 07.10.2018)',
     'music_artist' => 'The Boyz',
+    'music_artist_id' => '19380',
     'cat_id' => 1,
     'cat_level' => 4,
     'cat_sublevel' => 0,
     'cat_custom' => 6,
     'cover_id' => 0,
     'music_download_time' => 0,
-    'music_last_update_time' => 1537274550,
-    'music_title_search' => 'right here; 18 09 2018 the thow',
+    'music_last_update_time' => 1538903528,
+    'music_title_search' => 'right here; xbx inkigaio 07 10 2018',
     'music_artist_search' => '; the boiz;',
     'music_album_search' => '',
     'music_composer' => '',
     'music_album' => '',
-    'music_listen' => 0,
+    'music_listen' => 4,
     'music_track_id' => 0,
-    'music_filename' => '1954179-0d8dbc83.mp4',
-    'music_bitrate' => 256,
+    'music_filename' => '1960619-6a20adae.mp4',
+    'music_bitrate' => 320,
     'music_shortlyric' => 'THE BOYZ you got it right
 Jigeum my time
 Right here appear
@@ -1581,6 +1740,999 @@ Alright get it got it
 Come and find me jigeum i jarin
 My zone THE BOYZ is right here
 Pihal su eopseo N...',
+  ),
+  19 => 
+  array (
+    'music_id' => 1960618,
+    'music_title_url' => 'decrescendo-sbs-inkigayo-07102018~soyou',
+    'music_title' => 'Decrescendo (SBS Inkigayo 07.10.2018)',
+    'music_artist' => 'Soyou',
+    'music_artist_id' => '15704',
+    'cat_id' => 1,
+    'cat_level' => 4,
+    'cat_sublevel' => 0,
+    'cat_custom' => 6,
+    'cover_id' => 0,
+    'music_download_time' => 1538926496,
+    'music_last_update_time' => 1538903282,
+    'music_title_search' => 'decrexcendo; xbx inkigaio 07 10 2018',
+    'music_artist_search' => '; xoiou;',
+    'music_album_search' => '',
+    'music_composer' => '',
+    'music_album' => '',
+    'music_listen' => 53,
+    'music_track_id' => 0,
+    'music_filename' => '1960618-f038e9fc.mp4',
+    'music_bitrate' => 320,
+    'music_shortlyric' => 'Modeun ge da mugiryeokaejyeo
+Deo byeonhaeganeun neoreul bomyeon
+Nae gyeote niga itdaneun ge deo oerowo
+Nal geokjeonghadeon neoui jansoriga
+Naui harureul gunggeumhae hadeon
+Neoui gwansimi
+Nan yeojeo...',
+  ),
+  20 => 
+  array (
+    'music_id' => 1960617,
+    'music_title_url' => 'all-night-sbs-inkigayo-07102018~sik-k-soyou',
+    'music_title' => 'All Night (SBS Inkigayo 07.10.2018)',
+    'music_artist' => 'Sik-K;Soyou',
+    'music_artist_id' => '16384;15704',
+    'cat_id' => 1,
+    'cat_level' => 4,
+    'cat_sublevel' => 0,
+    'cat_custom' => 6,
+    'cover_id' => 0,
+    'music_download_time' => 0,
+    'music_last_update_time' => 1538903135,
+    'music_title_search' => 'al night; xbx inkigaio 07 10 2018',
+    'music_artist_search' => '; xik k; xoiou;',
+    'music_album_search' => '',
+    'music_composer' => '',
+    'music_album' => '',
+    'music_listen' => 2,
+    'music_track_id' => 0,
+    'music_filename' => '1960617-55f9144b.mp4',
+    'music_bitrate' => 320,
+    'music_shortlyric' => '다가온 어둠 사이 사이로
+[t2]Dagaon eodum sai sairo
+[t1]Giữa bóng đêm đang dần đến gần
+
+숨죽여 조심 조심 내게로 와
+[t2]Sumjungnyeo josim josim naegero wa
+[t1]Nín thở và thận trọng tiến đến gần bên em
+
+적당히 달아오른 분위기
+[t2]J...',
+  ),
+  21 => 
+  array (
+    'music_id' => 1960615,
+    'music_title_url' => 'puzzle-moon-sbs-inkigayo-07102018~gwsn',
+    'music_title' => 'Puzzle Moon (SBS Inkigayo 07.10.2018)',
+    'music_artist' => 'GWSN',
+    'music_artist_id' => '23324',
+    'cat_id' => 1,
+    'cat_level' => 4,
+    'cat_sublevel' => 0,
+    'cat_custom' => 6,
+    'cover_id' => 0,
+    'music_download_time' => 0,
+    'music_last_update_time' => 1538903046,
+    'music_title_search' => 'puzle mon; xbx inkigaio 07 10 2018',
+    'music_artist_search' => '; gwxn;',
+    'music_album_search' => '',
+    'music_composer' => '',
+    'music_album' => '',
+    'music_listen' => 4,
+    'music_track_id' => 0,
+    'music_filename' => '1960615-6163bcf2.mp4',
+    'music_bitrate' => 320,
+    'music_shortlyric' => '조급해 하지 않을게
+[t2]Jogeuphae haji aneulge
+[t1]Em sẽ không quá vội vã đâu
+
+천천히 널 드러내줘
+[t2]Cheoncheonhi neol deureonaejwo
+[t1]Hãy chầm chậm bộc lộ về bản thân anh đi
+
+수천 개의 너에게서
+[t2]Sucheon gaeui neoeges...',
+  ),
+  22 => 
+  array (
+    'music_id' => 1960614,
+    'music_title_url' => 'maemmaeya-sbs-inkigayo-07102018~purple',
+    'music_title' => 'Maemmaeya (SBS Inkigayo 07.10.2018)',
+    'music_artist' => 'Purple',
+    'music_artist_id' => '36881',
+    'cat_id' => 1,
+    'cat_level' => 4,
+    'cat_sublevel' => 0,
+    'cat_custom' => 6,
+    'cover_id' => 0,
+    'music_download_time' => 0,
+    'music_last_update_time' => 1538903043,
+    'music_title_search' => 'maemaeia; xbx inkigaio 07 10 2018',
+    'music_artist_search' => '; purple;',
+    'music_album_search' => '',
+    'music_composer' => '',
+    'music_album' => '',
+    'music_listen' => 5,
+    'music_track_id' => 0,
+    'music_filename' => '1960614-44e86335.mp4',
+    'music_bitrate' => 320,
+    'music_shortlyric' => 'Ah Ah ai ssuinna
+Mae mae mae maem maemmaeya
+Ah Ah ai ssuinna
+Jeoldaero kaldapjangeun NOPE
+Neul yakgan bappeuncheok
+Milgodanggigineun pilsurae
+Oh eonniui kkultip
+Seonggeupan deiteuneun NOPE
+Neul seu...',
+  ),
+  23 => 
+  array (
+    'music_id' => 1960613,
+    'music_title_url' => 'naughty-boy-sbs-inkigayo-07102018~pentagon',
+    'music_title' => 'Naughty Boy (SBS Inkigayo 07.10.2018)',
+    'music_artist' => 'Pentagon',
+    'music_artist_id' => '14095',
+    'cat_id' => 1,
+    'cat_level' => 4,
+    'cat_sublevel' => 0,
+    'cat_custom' => 6,
+    'cover_id' => 0,
+    'music_download_time' => 0,
+    'music_last_update_time' => 1538902760,
+    'music_title_search' => 'naughti boi; xbx inkigaio 07 10 2018',
+    'music_artist_search' => '; pentagon;',
+    'music_album_search' => '',
+    'music_composer' => '',
+    'music_album' => '',
+    'music_listen' => 18,
+    'music_track_id' => 0,
+    'music_filename' => '1960613-9f1b5ec1.mp4',
+    'music_bitrate' => 320,
+    'music_shortlyric' => '오 더하기 오는 구구
+[t2]O deohagi oneun gugu
+[t1]Năm cộng năm là &quot;cục tác&quot;
+
+개 짖는 소리는 꿀꿀
+[t2]Gae jinneun sorineun kkulkkul
+[t1]Chó sủa &quot;ụt ịt&quot;
+
+시끄럽다 하면 눈누난나
+[t2]Sikkeureopda hamyeon nunn...',
+  ),
+  24 => 
+  array (
+    'music_id' => 1960612,
+    'music_title_url' => 'remember-me-sbs-inkigayo-07102018~oh-my-girl',
+    'music_title' => 'Remember Me (SBS Inkigayo 07.10.2018)',
+    'music_artist' => 'Oh My Girl',
+    'music_artist_id' => '17169',
+    'cat_id' => 1,
+    'cat_level' => 4,
+    'cat_sublevel' => 0,
+    'cat_custom' => 6,
+    'cover_id' => 0,
+    'music_download_time' => 0,
+    'music_last_update_time' => 1538902654,
+    'music_title_search' => 'remember me; xbx inkigaio 07 10 2018',
+    'music_artist_search' => '; oh mi drl;',
+    'music_album_search' => '',
+    'music_composer' => '',
+    'music_album' => '',
+    'music_listen' => 7,
+    'music_track_id' => 0,
+    'music_filename' => '1960612-3d0da414.mp4',
+    'music_bitrate' => 320,
+    'music_shortlyric' => 'Remember me do you remember me
+[t2]Remember me do you remember me
+[t1]Nhớ đến em, anh có còn nhớ đến em không?
+
+날 바라보던 너의 눈에 비친
+[t2]Nal barabodeon neoui nune bichin
+[t1]Hình ảnh phản chiếu của em t...',
+  ),
+  25 => 
+  array (
+    'music_id' => 1960611,
+    'music_title_url' => 'goodbye-road-sbs-inkigayo-07102018~ikon',
+    'music_title' => 'Goodbye Road (SBS Inkigayo 07.10.2018)',
+    'music_artist' => 'iKON',
+    'music_artist_id' => '14359',
+    'cat_id' => 1,
+    'cat_level' => 4,
+    'cat_sublevel' => 0,
+    'cat_custom' => 6,
+    'cover_id' => 0,
+    'music_download_time' => 0,
+    'music_last_update_time' => 1538902522,
+    'music_title_search' => 'godbi road; xbx inkigaio 07 10 2018',
+    'music_artist_search' => '; ikon;',
+    'music_album_search' => '',
+    'music_composer' => 'B.I; Bobby; Future Bounce; Bekuh Boom',
+    'music_album' => '',
+    'music_listen' => 12,
+    'music_track_id' => 0,
+    'music_filename' => '1960611-fb85c2c5.mp4',
+    'music_bitrate' => 320,
+    'music_shortlyric' => 'Goodbye goodbye
+[t2]Goodbye goodbye
+[t1]Tạm biệt, tạm biệt nhé
+
+이별을 알았다면
+[t2]Ibyeoreul aratdamyeon
+[t1]Nếu tôi đoán được trước sự chia ly này
+
+그토록 사랑하지 말 걸 그랬나 봐요
+[t2]Geutorok saranghaji mal geol g...',
+  ),
+  26 => 
+  array (
+    'music_id' => 1960609,
+    'music_title_url' => 'adore-you-sbs-inkigayo-07102018~ikon',
+    'music_title' => 'Adore You (SBS Inkigayo 07.10.2018)',
+    'music_artist' => 'iKON',
+    'music_artist_id' => '14359',
+    'cat_id' => 1,
+    'cat_level' => 4,
+    'cat_sublevel' => 0,
+    'cat_custom' => 6,
+    'cover_id' => 0,
+    'music_download_time' => 1538904421,
+    'music_last_update_time' => 1538902141,
+    'music_title_search' => 'adore iou; xbx inkigaio 07 10 2018',
+    'music_artist_search' => '; ikon;',
+    'music_album_search' => '',
+    'music_composer' => 'B.I; Bobby; Seo Won Jin; R.Tee',
+    'music_album' => '',
+    'music_listen' => 64,
+    'music_track_id' => 0,
+    'music_filename' => '1960609-03e1f606.mp4',
+    'music_bitrate' => 320,
+    'music_shortlyric' => '살아가며 내가 널 만나 많은 기억을 남기고
+[t2]Saragamyeo naega neol manna maneun gieogeul namgigo
+[t1]Anh cố sống tiếp và để lại những kí ức về ngày anh gặp em
+
+가까워질수록 새어 나오는 내 진심을 삼키고
+[t2]Gakkawojilsurok saeeo naon...',
+  ),
+  27 => 
+  array (
+    'music_id' => 1960561,
+    'music_title_url' => 'la-thu-nguoi-chien-si~dang-the-luan',
+    'music_title' => 'Lá Thư Người Chiến Sĩ',
+    'music_artist' => 'Đặng Thế Luân',
+    'music_artist_id' => '6737',
+    'cat_id' => 1,
+    'cat_level' => 1,
+    'cat_sublevel' => 0,
+    'cat_custom' => 0,
+    'cover_id' => 0,
+    'music_download_time' => 1538958851,
+    'music_last_update_time' => 1538970758,
+    'music_title_search' => 'la thu ngui chin xi',
+    'music_artist_search' => '; dang the luan;',
+    'music_album_search' => '',
+    'music_composer' => 'Phạm Đình Chương',
+    'music_album' => '',
+    'music_listen' => 67,
+    'music_track_id' => 0,
+    'music_filename' => '1960561-19855cf9.mp4',
+    'music_bitrate' => 128,
+    'music_shortlyric' => 'Thư rằng: thư từ biên ải xa xa 
+gửi người em nho nhỏ quê nhà. 
+Đã cách xa bao năm 
+sống cuộc đời quân nhân 
+súng bên mình nay mai rày đây đó. 
+Chiến đấu ngăn quân thù 
+vì anh xót thương khi quê hươ...',
+  ),
+  28 => 
+  array (
+    'music_id' => 1960502,
+    'music_title_url' => 'memoria-buzz-rhythm-02-06102018~gfriend',
+    'music_title' => 'Memoria (Buzz Rhythm 02 06.10.2018)',
+    'music_artist' => 'GFRIEND',
+    'music_artist_id' => '14564',
+    'cat_id' => 1,
+    'cat_level' => 5,
+    'cat_sublevel' => 0,
+    'cat_custom' => 0,
+    'cover_id' => 0,
+    'music_download_time' => 1538936308,
+    'music_last_update_time' => 1538887658,
+    'music_title_search' => 'memoria; buz rhithm 02 06 10 2018',
+    'music_artist_search' => '; gfrind;',
+    'music_album_search' => '',
+    'music_composer' => '',
+    'music_album' => '',
+    'music_listen' => 112,
+    'music_track_id' => 0,
+    'music_filename' => '1960502-c8f50c2b.mp4',
+    'music_bitrate' => 128,
+    'music_shortlyric' => 'Memoria memoria
+Memoria memoria
+Hitori taiyou no shimo hitomi o tojitemita
+Sou always kanjita nukumori Come back to me
+Donnani kanashikute namida o nagashite mo
+Kimi to no daiarii kokoro ni kizamar...',
+  ),
+  29 => 
+  array (
+    'music_id' => 1960408,
+    'music_title_url' => 'right-here-music-core-06102018-live~the-boyz',
+    'music_title' => 'Right Here (Music Core 06.10.2018 Live)',
+    'music_artist' => 'The Boyz',
+    'music_artist_id' => '19380',
+    'cat_id' => 1,
+    'cat_level' => 4,
+    'cat_sublevel' => 0,
+    'cat_custom' => 6,
+    'cover_id' => 0,
+    'music_download_time' => 0,
+    'music_last_update_time' => 1538841074,
+    'music_title_search' => 'right here; muxic core 06 10 2018 live',
+    'music_artist_search' => '; the boiz;',
+    'music_album_search' => '',
+    'music_composer' => '',
+    'music_album' => '',
+    'music_listen' => 7,
+    'music_track_id' => 0,
+    'music_filename' => '1960408-91c03e5f.mp4',
+    'music_bitrate' => 320,
+    'music_shortlyric' => 'THE BOYZ you got it right
+Jigeum my time
+Right here appear
+Aye bigyodo andwae boyeojul tenikka
+Alright get it got it
+Come and find me jigeum i jarin
+My zone THE BOYZ is right here
+Pihal su eopseo N...',
+  ),
+  30 => 
+  array (
+    'music_id' => 1960407,
+    'music_title_url' => 'lullaby-music-core-06102018-live~got7',
+    'music_title' => 'Lullaby (Music Core 06.10.2018 Live)',
+    'music_artist' => 'GOT7',
+    'music_artist_id' => '4464',
+    'cat_id' => 1,
+    'cat_level' => 4,
+    'cat_sublevel' => 0,
+    'cat_custom' => 6,
+    'cover_id' => 0,
+    'music_download_time' => 1539015884,
+    'music_last_update_time' => 1538841070,
+    'music_title_search' => 'lulabi; muxic core 06 10 2018 live',
+    'music_artist_search' => '; got7;',
+    'music_album_search' => '',
+    'music_composer' => '',
+    'music_album' => '',
+    'music_listen' => 102,
+    'music_track_id' => 0,
+    'music_filename' => '1960407-7b1d5e0a.mp4',
+    'music_bitrate' => 320,
+    'music_shortlyric' => '한낮에 꾸는 꿈
+[t2]Hannaje kkuneun kkum
+[t1]Một giấc mộng giữa ban ngày
+
+믿기지 않을 뿐
+[t2]Mitgiji aneul ppun
+[t1]Mà đến chính tôi cũng không thể tin được
+
+여전히 난 거짓말 같아
+[t2]Yeojeonhi nan geojinmal gata
+[t1]Dư...',
+  ),
+  31 => 
+  array (
+    'music_id' => 1960406,
+    'music_title_url' => 'shes-in-the-rain-music-core-06102018-live~the-rose',
+    'music_title' => 'She\'s In The Rain (Music Core 06.10.2018 Live)',
+    'music_artist' => 'The Rose',
+    'music_artist_id' => '21913',
+    'cat_id' => 1,
+    'cat_level' => 4,
+    'cat_sublevel' => 0,
+    'cat_custom' => 6,
+    'cover_id' => 0,
+    'music_download_time' => 0,
+    'music_last_update_time' => 1538840813,
+    'music_title_search' => 'the x in the rain; muxic core 06 10 2018 live',
+    'music_artist_search' => '; the roxe;',
+    'music_album_search' => '',
+    'music_composer' => '',
+    'music_album' => '',
+    'music_listen' => 4,
+    'music_track_id' => 0,
+    'music_filename' => '1960406-fffbf6a6.mp4',
+    'music_bitrate' => 320,
+    'music_shortlyric' => 'Do you hear me
+Hoesaekbit angae deopin
+Gloomy day
+Nunapi garyeojin ge duryeowo
+Ijen amugeotdo heungmiga an na
+Nouwoeo
+Do you hear me
+Georireul geotda boni
+Different way
+Dwidoraboni amudo eomne
+Naeg...',
+  ),
+  32 => 
+  array (
+    'music_id' => 1960404,
+    'music_title_url' => 'drama-music-core-06102018-live~blanc7',
+    'music_title' => 'Drama (Music Core 06.10.2018 Live)',
+    'music_artist' => 'Blanc7',
+    'music_artist_id' => '23323',
+    'cat_id' => 1,
+    'cat_level' => 4,
+    'cat_sublevel' => 0,
+    'cat_custom' => 6,
+    'cover_id' => 0,
+    'music_download_time' => 0,
+    'music_last_update_time' => 1538840810,
+    'music_title_search' => 'drama; muxic core 06 10 2018 live',
+    'music_artist_search' => '; blanc7;',
+    'music_album_search' => '',
+    'music_composer' => '',
+    'music_album' => '',
+    'music_listen' => 5,
+    'music_track_id' => 0,
+    'music_filename' => '1960404-05784d75.mp4',
+    'music_bitrate' => 320,
+    'music_shortlyric' => '',
+  ),
+  33 => 
+  array (
+    'music_id' => 1960378,
+    'music_title_url' => 'yellow-pink-music-core-06102018-live~lipbubble',
+    'music_title' => 'Yellow Pink (Music Core 06.10.2018 Live)',
+    'music_artist' => 'LipBubble',
+    'music_artist_id' => '122758',
+    'cat_id' => 1,
+    'cat_level' => 4,
+    'cat_sublevel' => 0,
+    'cat_custom' => 6,
+    'cover_id' => 0,
+    'music_download_time' => 0,
+    'music_last_update_time' => 1538826109,
+    'music_title_search' => 'ilow pink; muxic core 06 10 2018 live',
+    'music_artist_search' => '; lipbuble;',
+    'music_album_search' => '',
+    'music_composer' => '',
+    'music_album' => '',
+    'music_listen' => 6,
+    'music_track_id' => 0,
+    'music_filename' => '1960378-cb25ac94.mp4',
+    'music_bitrate' => 320,
+    'music_shortlyric' => '',
+  ),
+  34 => 
+  array (
+    'music_id' => 1960377,
+    'music_title_url' => 'save-me-save-you-music-core-06102018-live~cosmic-girls',
+    'music_title' => 'Save Me, Save You (Music Core 06.10.2018 Live)',
+    'music_artist' => 'Cosmic Girls',
+    'music_artist_id' => '15071',
+    'cat_id' => 1,
+    'cat_level' => 4,
+    'cat_sublevel' => 0,
+    'cat_custom' => 6,
+    'cover_id' => 0,
+    'music_download_time' => 1538885588,
+    'music_last_update_time' => 1538826053,
+    'music_title_search' => 'xave me xave iou; muxic core 06 10 2018 live',
+    'music_artist_search' => '; coxmic drlx;',
+    'music_album_search' => '',
+    'music_composer' => '',
+    'music_album' => '',
+    'music_listen' => 59,
+    'music_track_id' => 0,
+    'music_filename' => '1960377-5fc6779d.mp4',
+    'music_bitrate' => 320,
+    'music_shortlyric' => '부탁해 너의 얘길 들려줄래
+[t2]Butakhae neoui yaegil deullyeojullae
+[t1]Có thể hay không, kể cho em nghe về chuyện đời anh
+
+알고 싶어 그래
+[t2]Algo sipeo geurae
+[t1]Vì em muốn biết về những câu chuyện đó
+
+네가 내게 그랬듯...',
+  ),
+  35 => 
+  array (
+    'music_id' => 1960376,
+    'music_title_url' => 'what-music-core-06102018-live~dreamcatcher',
+    'music_title' => 'What (Music Core 06.10.2018 Live)',
+    'music_artist' => 'Dreamcatcher',
+    'music_artist_id' => '15016',
+    'cat_id' => 1,
+    'cat_level' => 4,
+    'cat_sublevel' => 0,
+    'cat_custom' => 6,
+    'cover_id' => 0,
+    'music_download_time' => 1538885661,
+    'music_last_update_time' => 1538826037,
+    'music_title_search' => 'what; muxic core 06 10 2018 live',
+    'music_artist_search' => '; dreamcatcher;',
+    'music_album_search' => '',
+    'music_composer' => '',
+    'music_album' => '',
+    'music_listen' => 99,
+    'music_track_id' => 0,
+    'music_filename' => '1960376-ea15deac.mp4',
+    'music_bitrate' => 320,
+    'music_shortlyric' => 'What What What
+[t2]What What What
+[t1]What What What
+
+What What 
+[t2]What What 
+[t1]What What
+
+깨어나지 못한 깊어진 Lucid Dream
+[t2]Kkaeeonaji mothan gipeojin Lucid Dream
+[t1]Thật khó để có thể tỉnh dậy và...',
+  ),
+  36 => 
+  array (
+    'music_id' => 1960375,
+    'music_title_url' => 'i-mean-music-core-06102018-live~unit',
+    'music_title' => 'I Mean (Music Core 06.10.2018 Live)',
+    'music_artist' => 'UNI.T',
+    'music_artist_id' => '15655',
+    'cat_id' => 1,
+    'cat_level' => 4,
+    'cat_sublevel' => 0,
+    'cat_custom' => 6,
+    'cover_id' => 0,
+    'music_download_time' => 1538840826,
+    'music_last_update_time' => 1538825940,
+    'music_title_search' => 'i mean; muxic core 06 10 2018 live',
+    'music_artist_search' => '; uni t;',
+    'music_album_search' => '',
+    'music_composer' => '',
+    'music_album' => '',
+    'music_listen' => 108,
+    'music_track_id' => 0,
+    'music_filename' => '1960375-0e9f434e.mp4',
+    'music_bitrate' => 320,
+    'music_shortlyric' => 'Yeah Brave Sound You ready
+[t2]Yeah Brave Sound You ready
+[t1]Yeah Brave Sound cưng đã sẵn sàng chưa nào
+
+Let\'s get ready to Rumble
+[t2]Let\'s get ready to Rumble
+[t1]Chuẩn bị quẩy tung trời thôi nà...',
+  ),
+  37 => 
+  array (
+    'music_id' => 1960366,
+    'music_title_url' => 'puzzle-moon-music-core-06102018-live~gwsn',
+    'music_title' => 'Puzzle Moon (Music Core 06.10.2018 Live)',
+    'music_artist' => 'GWSN',
+    'music_artist_id' => '23324',
+    'cat_id' => 1,
+    'cat_level' => 4,
+    'cat_sublevel' => 0,
+    'cat_custom' => 6,
+    'cover_id' => 0,
+    'music_download_time' => 0,
+    'music_last_update_time' => 1538820746,
+    'music_title_search' => 'puzle mon; muxic core 06 10 2018 live',
+    'music_artist_search' => '; gwxn;',
+    'music_album_search' => '',
+    'music_composer' => '',
+    'music_album' => '',
+    'music_listen' => 3,
+    'music_track_id' => 0,
+    'music_filename' => '1960366-b0572acf.mp4',
+    'music_bitrate' => 320,
+    'music_shortlyric' => '조급해 하지 않을게
+[t2]Jogeuphae haji aneulge
+[t1]Em sẽ không quá vội vã đâu
+
+천천히 널 드러내줘
+[t2]Cheoncheonhi neol deureonaejwo
+[t1]Hãy chầm chậm bộc lộ về bản thân anh đi
+
+수천 개의 너에게서
+[t2]Sucheon gaeui neoeges...',
+  ),
+  38 => 
+  array (
+    'music_id' => 1960364,
+    'music_title_url' => 'naughty-boy-music-core-06102018-live~pentagon',
+    'music_title' => 'Naughty Boy (Music Core 06.10.2018 Live)',
+    'music_artist' => 'Pentagon',
+    'music_artist_id' => '14095',
+    'cat_id' => 1,
+    'cat_level' => 4,
+    'cat_sublevel' => 0,
+    'cat_custom' => 6,
+    'cover_id' => 0,
+    'music_download_time' => 0,
+    'music_last_update_time' => 1538820742,
+    'music_title_search' => 'naughti boi; muxic core 06 10 2018 live',
+    'music_artist_search' => '; pentagon;',
+    'music_album_search' => '',
+    'music_composer' => '',
+    'music_album' => '',
+    'music_listen' => 4,
+    'music_track_id' => 0,
+    'music_filename' => '1960364-6bbae179.mp4',
+    'music_bitrate' => 320,
+    'music_shortlyric' => '오 더하기 오는 구구
+[t2]O deohagi oneun gugu
+[t1]Năm cộng năm là &quot;cục tác&quot;
+
+개 짖는 소리는 꿀꿀
+[t2]Gae jinneun sorineun kkulkkul
+[t1]Chó sủa &quot;ụt ịt&quot;
+
+시끄럽다 하면 눈누난나
+[t2]Sikkeureopda hamyeon nunn...',
+  ),
+  39 => 
+  array (
+    'music_id' => 1960360,
+    'music_title_url' => 'remember-me-music-core-06102018-live~oh-my-girl',
+    'music_title' => 'Remember Me (Music Core 06.10.2018 Live)',
+    'music_artist' => 'Oh My Girl',
+    'music_artist_id' => '17169',
+    'cat_id' => 1,
+    'cat_level' => 4,
+    'cat_sublevel' => 0,
+    'cat_custom' => 6,
+    'cover_id' => 0,
+    'music_download_time' => 0,
+    'music_last_update_time' => 1538820357,
+    'music_title_search' => 'remember me; muxic core 06 10 2018 live',
+    'music_artist_search' => '; oh mi drl;',
+    'music_album_search' => '',
+    'music_composer' => '',
+    'music_album' => '',
+    'music_listen' => 9,
+    'music_track_id' => 0,
+    'music_filename' => '1960360-d4c7b2e4.mp4',
+    'music_bitrate' => 320,
+    'music_shortlyric' => 'Remember me do you remember me
+[t2]Remember me do you remember me
+[t1]Nhớ đến em, anh có còn nhớ đến em không?
+
+날 바라보던 너의 눈에 비친
+[t2]Nal barabodeon neoui nune bichin
+[t1]Hình ảnh phản chiếu của em t...',
+  ),
+  40 => 
+  array (
+    'music_id' => 1960356,
+    'music_title_url' => 'little-moments-music-core-06102018-live~soyou',
+    'music_title' => 'Little Moments (Music Core 06.10.2018 Live)',
+    'music_artist' => 'Soyou',
+    'music_artist_id' => '15704',
+    'cat_id' => 1,
+    'cat_level' => 4,
+    'cat_sublevel' => 0,
+    'cat_custom' => 6,
+    'cover_id' => 0,
+    'music_download_time' => 0,
+    'music_last_update_time' => 1538820329,
+    'music_title_search' => 'litle momentx; muxic core 06 10 2018 live',
+    'music_artist_search' => '; xoiou;',
+    'music_album_search' => '',
+    'music_composer' => '',
+    'music_album' => '',
+    'music_listen' => 6,
+    'music_track_id' => 0,
+    'music_filename' => '1960356-1216e196.mp4',
+    'music_bitrate' => 320,
+    'music_shortlyric' => 'Achime ireona 
+Seupgwanjeogeuro gogael dollimyeon 
+Niga isseul geot gata
+Changmuneul yeolgoseo 
+Sideopji aneun kkumeseo kkaen dwi 
+Nagal junbireul haji
+Jipbakke nawaseo 
+Kyeojyeo inneun haendeupone...',
+  ),
+  41 => 
+  array (
+    'music_id' => 1960355,
+    'music_title_url' => 'all-night-music-core-06102018-live~sik-k-soyou',
+    'music_title' => 'All Night (Music Core 06.10.2018 Live)',
+    'music_artist' => 'Sik-K;Soyou',
+    'music_artist_id' => '16384;15704',
+    'cat_id' => 1,
+    'cat_level' => 4,
+    'cat_sublevel' => 0,
+    'cat_custom' => 6,
+    'cover_id' => 0,
+    'music_download_time' => 0,
+    'music_last_update_time' => 1538820326,
+    'music_title_search' => 'al night; muxic core 06 10 2018 live',
+    'music_artist_search' => '; xik k; xoiou;',
+    'music_album_search' => '',
+    'music_composer' => '',
+    'music_album' => '',
+    'music_listen' => 8,
+    'music_track_id' => 0,
+    'music_filename' => '1960355-c1387f14.mp4',
+    'music_bitrate' => 320,
+    'music_shortlyric' => '다가온 어둠 사이 사이로
+[t2]Dagaon eodum sai sairo
+[t1]Giữa bóng đêm đang dần đến gần
+
+숨죽여 조심 조심 내게로 와
+[t2]Sumjungnyeo josim josim naegero wa
+[t1]Nín thở và thận trọng tiến đến gần bên em
+
+적당히 달아오른 분위기
+[t2]J...',
+  ),
+  42 => 
+  array (
+    'music_id' => 1960352,
+    'music_title_url' => 'into-you-music-core-06102018-live~yuri',
+    'music_title' => 'Into You (Music Core 06.10.2018 Live)',
+    'music_artist' => 'Yuri',
+    'music_artist_id' => '4627',
+    'cat_id' => 1,
+    'cat_level' => 4,
+    'cat_sublevel' => 0,
+    'cat_custom' => 6,
+    'cover_id' => 0,
+    'music_download_time' => 0,
+    'music_last_update_time' => 1538820324,
+    'music_title_search' => 'into iou; muxic core 06 10 2018 live',
+    'music_artist_search' => '; iuri;',
+    'music_album_search' => '',
+    'music_composer' => '',
+    'music_album' => '',
+    'music_listen' => 16,
+    'music_track_id' => 0,
+    'music_filename' => '1960352-a3acdd23.mp4',
+    'music_bitrate' => 320,
+    'music_shortlyric' => '더 빠져가 깊이 너와 나 같이
+[t2]Deo ppajyeoga gipi neowa na gachi
+[t1]Đắm chìm sâu hơn vào thứ tình cảm này, anh cùng với em
+
+빠져가 깊이 너와 나 같이
+[t2]Ppajyeoga gipi neowa na gachi
+[t1]Ta say mê nhau đậm sâu hơn, a...',
+  ),
+  43 => 
+  array (
+    'music_id' => 1960346,
+    'music_title_url' => 'illusion-music-core-06102018-live~yuri',
+    'music_title' => 'Illusion (Music Core 06.10.2018 Live)',
+    'music_artist' => 'Yuri',
+    'music_artist_id' => '4627',
+    'cat_id' => 1,
+    'cat_level' => 4,
+    'cat_sublevel' => 0,
+    'cat_custom' => 6,
+    'cover_id' => 0,
+    'music_download_time' => 1538840279,
+    'music_last_update_time' => 1538820321,
+    'music_title_search' => 'iluxion; muxic core 06 10 2018 live',
+    'music_artist_search' => '; iuri;',
+    'music_album_search' => '',
+    'music_composer' => '',
+    'music_album' => '',
+    'music_listen' => 57,
+    'music_track_id' => 0,
+    'music_filename' => '1960346-44846b86.mp4',
+    'music_bitrate' => 320,
+    'music_shortlyric' => 'Jinjjain cheokaji ma 
+Neol garyeonaegi beokcha nan nan 
+Ontong yesang bakkiya 
+Ansimhal su eopjana ah 
+Simjangi ppalli ttwineun geon mwoni 
+Haneureul mak naldagado 
+Kkeutdo eopsi tteoreojyeo tto 
+E...',
+  ),
+  44 => 
+  array (
+    'music_id' => 1960344,
+    'music_title_url' => 'goodbye-road-music-core-06102018-live~ikon',
+    'music_title' => 'Goodbye Road (Music Core 06.10.2018 Live)',
+    'music_artist' => 'iKON',
+    'music_artist_id' => '14359',
+    'cat_id' => 1,
+    'cat_level' => 4,
+    'cat_sublevel' => 0,
+    'cat_custom' => 6,
+    'cover_id' => 0,
+    'music_download_time' => 1538885677,
+    'music_last_update_time' => 1538820317,
+    'music_title_search' => 'godbi road; muxic core 06 10 2018 live',
+    'music_artist_search' => '; ikon;',
+    'music_album_search' => '',
+    'music_composer' => 'B.I; Bobby; Future Bounce; Bekuh Boom',
+    'music_album' => '',
+    'music_listen' => 218,
+    'music_track_id' => 0,
+    'music_filename' => '1960344-7e03d35a.mp4',
+    'music_bitrate' => 320,
+    'music_shortlyric' => 'Goodbye goodbye
+[t2]Goodbye goodbye
+[t1]Tạm biệt, tạm biệt nhé
+
+이별을 알았다면
+[t2]Ibyeoreul aratdamyeon
+[t1]Nếu tôi đoán được trước sự chia ly này
+
+그토록 사랑하지 말 걸 그랬나 봐요
+[t2]Geutorok saranghaji mal geol g...',
+  ),
+  45 => 
+  array (
+    'music_id' => 1960343,
+    'music_title_url' => 'adore-you-music-core-06102018-live~ikon',
+    'music_title' => 'Adore You (Music Core 06.10.2018 Live)',
+    'music_artist' => 'iKON',
+    'music_artist_id' => '14359',
+    'cat_id' => 1,
+    'cat_level' => 4,
+    'cat_sublevel' => 0,
+    'cat_custom' => 6,
+    'cover_id' => 0,
+    'music_download_time' => 0,
+    'music_last_update_time' => 1538820313,
+    'music_title_search' => 'adore iou; muxic core 06 10 2018 live',
+    'music_artist_search' => '; ikon;',
+    'music_album_search' => '',
+    'music_composer' => 'B.I; Bobby; Seo Won Jin; R.Tee',
+    'music_album' => '',
+    'music_listen' => 11,
+    'music_track_id' => 0,
+    'music_filename' => '1960343-2fc60ed9.mp4',
+    'music_bitrate' => 320,
+    'music_shortlyric' => '살아가며 내가 널 만나 많은 기억을 남기고
+[t2]Saragamyeo naega neol manna maneun gieogeul namgigo
+[t1]Anh cố sống tiếp và để lại những kí ức về ngày anh gặp em
+
+가까워질수록 새어 나오는 내 진심을 삼키고
+[t2]Gakkawojilsurok saeeo naon...',
+  ),
+  46 => 
+  array (
+    'music_id' => 1960323,
+    'music_title_url' => 'memoria-06102018-ntv-buzz-rhythm-02~gfriend',
+    'music_title' => 'Memoria (06.10.2018 NTV Buzz Rhythm 02)',
+    'music_artist' => 'GFriend',
+    'music_artist_id' => '13390',
+    'cat_id' => 1,
+    'cat_level' => 5,
+    'cat_sublevel' => 0,
+    'cat_custom' => 6,
+    'cover_id' => 0,
+    'music_download_time' => 1538826451,
+    'music_last_update_time' => 1538813135,
+    'music_title_search' => 'memoria; 06 10 2018 ntv buz rhithm 02',
+    'music_artist_search' => '; gfrind;',
+    'music_album_search' => '',
+    'music_composer' => '',
+    'music_album' => '',
+    'music_listen' => 109,
+    'music_track_id' => 0,
+    'music_filename' => '1960323-e024370a.mp4',
+    'music_bitrate' => 320,
+    'music_shortlyric' => 'Memoria memoria
+Memoria memoria
+Hitori taiyou no shimo hitomi o tojitemita
+Sou always kanjita nukumori Come back to me
+Donnani kanashikute namida o nagashite mo
+Kimi to no daiarii kokoro ni kizamar...',
+  ),
+  47 => 
+  array (
+    'music_id' => 1960265,
+    'music_title_url' => 'decalcomanie-japanese-version~mamamoo',
+    'music_title' => 'Décalcomanie (Japanese Version)',
+    'music_artist' => 'Mamamoo',
+    'music_artist_id' => '14892',
+    'cat_id' => 1,
+    'cat_level' => 5,
+    'cat_sublevel' => 0,
+    'cat_custom' => 0,
+    'cover_id' => 0,
+    'music_download_time' => 1538826391,
+    'music_last_update_time' => 1538806929,
+    'music_title_search' => 'decalcomani; japanexe verxion',
+    'music_artist_search' => '; mamamo;',
+    'music_album_search' => '',
+    'music_composer' => '',
+    'music_album' => '',
+    'music_listen' => 102,
+    'music_track_id' => 0,
+    'music_filename' => '1960265-6fb130db.mp4',
+    'music_bitrate' => 320,
+    'music_shortlyric' => 'Knock knock minarenu hitomi
+You\'re so chigau manazashi
+Mon amour Gimme your tenderness
+Nagai yoru wa kore kara.
+ 
+Tokimeki kanjita no
+Shisen terashi aeba
+Chinmoku sae It\'s OK!
+Sakerarenai unmei....',
+  ),
+  48 => 
+  array (
+    'music_id' => 1960178,
+    'music_title_url' => 'nhe-anh~my-tam',
+    'music_title' => 'Nhé Anh',
+    'music_artist' => 'Mỹ Tâm',
+    'music_artist_id' => '4812',
+    'cat_id' => 1,
+    'cat_level' => 1,
+    'cat_sublevel' => 0,
+    'cat_custom' => 0,
+    'cover_id' => 0,
+    'music_download_time' => 0,
+    'music_last_update_time' => 1538777668,
+    'music_title_search' => 'nhe em',
+    'music_artist_search' => '; mi tam;',
+    'music_album_search' => '',
+    'music_composer' => 'Nguyễn Hà',
+    'music_album' => '',
+    'music_listen' => 38,
+    'music_track_id' => 0,
+    'music_filename' => '1960178-08738e4e.mp4',
+    'music_bitrate' => 64,
+    'music_shortlyric' => '1. Tình yêu như mật ngọt trên cao
+Làm lòng ta luôn khát khao
+Tình yêu như mộng đẹp nên thơ
+Làm lòng ta luôn ước mơ.
+
+Trái tim em nguyện thề yêu anh
+Gửi trọn tình yêu đến anh
+Dấu yêu ơi, gửi đến mai...',
+  ),
+  49 => 
+  array (
+    'music_id' => 1960177,
+    'music_title_url' => 'hat-cho-nguoi-o-lai~my-tam',
+    'music_title' => 'Hát Cho Người Ở Lại',
+    'music_artist' => 'Mỹ Tâm',
+    'music_artist_id' => '4812',
+    'cat_id' => 1,
+    'cat_level' => 1,
+    'cat_sublevel' => 0,
+    'cat_custom' => 0,
+    'cover_id' => 0,
+    'music_download_time' => 0,
+    'music_last_update_time' => 1538776391,
+    'music_title_search' => 'hat cho ngui o lai',
+    'music_artist_search' => '; mi tam;',
+    'music_album_search' => '',
+    'music_composer' => 'Quốc An; Lời: Lê Quang; Thanh Tâm',
+    'music_album' => '',
+    'music_listen' => 15,
+    'music_track_id' => 0,
+    'music_filename' => '1960177-0e629cbb.mp4',
+    'music_bitrate' => 64,
+    'music_shortlyric' => 'Ngày nào em đến bên anh
+Tim anh ngẩn ngơ chợt buồn vu vơ
+Em rất vô tư, em quá ngây thơ
+Làm anh thẫn thờ.
+
+Rồi em cất bước ra đi
+Tim anh giá băng, hồn anh chết lặng
+Em đã ra đi, không nói năng chi
+A...',
   ),
 );     
 ?>

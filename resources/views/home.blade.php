@@ -43,7 +43,7 @@ global $top_artist_rows;
                             </div>
                             <div class="card-body">
                                 <h3 class="card-title"><a href="{{$url}}" title="{{$item['music_album']}}">{{$item['music_album']}}</a></h3>
-                                <p class="card-text author"><?php echo '<a href="#">'.implode(',</a><a href="#">', explode(';', $item['music_artist'])).'</a>' ?></p>
+                                <p class="card-text author"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></p>
                                 <div class="card-text"><?php echo Helpers::bitrate2str($item['music_bitrate']); ?></div>
                             </div>
                         </div>
@@ -154,7 +154,7 @@ global $top_artist_rows;
                                 <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
                                     <div>
                                         <h5 class="media-title mt-0 mb-0 title_home_tablet"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
-                                        <div class="author title_home_tablet"><?php echo '<a href="#">'.implode(',</a><a href="#">', explode(';', $item['music_artist'])).'</a>' ?></div>
+                                        <div class="author title_home_tablet"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></div>
                                     </div>
                                     <small class="type_music"><?php echo Helpers::bitrate2str($item['music_bitrate']); ?></small>
                                 </div>
@@ -181,7 +181,7 @@ global $top_artist_rows;
                     <ul class="list-unstyled list_music">
                         <?php
                             array_map(function($item) {
-                                $url= Helpers::listen_url($item);
+                            $url= Helpers::listen_url($item);
                             ?>
                             <li class="media align-items-stretch">
                                 <div class="media-left align-items-stretch mr-2 items-stretch-{{$item['music_id']}}">
@@ -193,7 +193,7 @@ global $top_artist_rows;
                                 <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
                                     <div>
                                         <h5 class="media-title mt-0 mb-0 title_home_tablet"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
-                                        <div class="author title_home_tablet"><?php echo '<a href="#">'.implode(',</a><a href="#">', explode(';', $item['music_artist'])).'</a>' ?></div>
+                                        <div class="author title_home_tablet"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></div>
                                     </div>
                                     <small class="type_music c1"><?php echo Helpers::bitrate2str($item['music_bitrate']); ?></small>
                                 </div>
@@ -310,7 +310,7 @@ global $top_artist_rows;
                                 </div>
                                 <div class="card-body">
                                     <h3 class="card-title"><a href="{{$url}}" title="{{$item['music_title']}}">{{$item['music_title']}}</a></h3>
-                                    <p class="card-text"><?php echo '<a href="#">'.implode(',</a><a href="#">', explode(';', $item['music_artist'])).'</a>' ?></p>
+                                    <p class="card-text"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></p>
                                 </div>
                             </div>
                         </div>
@@ -356,7 +356,7 @@ global $top_artist_rows;
                             <div class="media-body d-flex flex-column {{$i == 0 ? '' : 'justify-content-between'}}">
                                 <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
                                 <div class="{{$i == 0 ? '' : 'd-flex'}} align-items-center justify-content-between">
-                                    <div class="author"><?php echo '<a href="#">'.implode(',</a><a href="#">', explode(';', $item['music_artist'])).'</a>' ?></div>
+                                    <div class="author"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></div>
                                     <small class="counter_view">{{number_format($item['music_listen'])}}</small>
                                 </div>
                             </div>
@@ -382,7 +382,7 @@ global $top_artist_rows;
                         <div class="media-body d-flex flex-column {{$i == 0 ? '' : 'justify-content-between'}}">
                             <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
                             <div class="{{$i == 0 ? '' : 'd-flex'}} align-items-center justify-content-between">
-                                <div class="author"><?php echo '<a href="#">'.implode(',</a><a href="#">', explode(';', $item['music_artist'])).'</a>' ?></div>
+                                <div class="author"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></div>
                                 <small class="counter_view">{{number_format($item['music_listen'])}}</small>
                             </div>
                         </div>
@@ -408,7 +408,7 @@ global $top_artist_rows;
                         <div class="media-body d-flex flex-column {{$i == 0 ? '' : 'justify-content-between'}}">
                             <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
                             <div class="{{$i == 0 ? '' : 'd-flex'}} align-items-center justify-content-between">
-                                <div class="author"><?php echo '<a href="#">'.implode(',</a><a href="#">', explode(';', $item['music_artist'])).'</a>' ?></div>
+                                <div class="author"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></div>
                                 <small class="counter_view">{{number_format($item['music_listen'])}}</small>
                             </div>
                         </div>
@@ -434,7 +434,7 @@ global $top_artist_rows;
                         <div class="media-body d-flex flex-column {{$i == 0 ? '' : 'justify-content-between'}}">
                             <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
                             <div class="{{$i == 0 ? '' : 'd-flex'}} align-items-center justify-content-between">
-                                <div class="author"><?php echo '<a href="#">'.implode(',</a><a href="#">', explode(';', $item['music_artist'])).'</a>' ?></div>
+                                <div class="author"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></div>
                                 <small class="counter_view">{{number_format($item['music_listen'])}}</small>
                             </div>
                         </div>

@@ -28,8 +28,9 @@ class AlbumController extends Controller
     public function syncAlbum(Request $request) {
         $cache = $this->coverRepository->getCoverNew();
         $album_new = [];
-        foreach($cache as $item) {
+        foreach($cache as $key => $item) {
             $artists = [];
+            $artist_ids = [];
             $bitrates = [];
             if($item->music) {
                 foreach ($item->music as $music) {
@@ -38,15 +39,16 @@ class AlbumController extends Controller
                     $bitrates[] = $music->music_bitrate;
                 }
                 $artistDup = array_count_values($artists);
-                $artist_ids = array_count_values($artists);
-                dd($artistDup);
+                $artistIdDup = array_count_values($artist_ids);
                 $bitrateDup = array_count_values($bitrates);
                 arsort($artistDup);
+                arsort($artistIdDup);
                 arsort($bitrateDup);
                 $album_new[] = [
                     'cover_id' => $item->cover_id,
                     'music_album' => $item->music_album,
                     'music_artist' => !empty($artistDup) ? array_keys($artistDup)[0] : '',
+                    'music_artist_id' => !empty($artistIdDup) ? array_keys($artistIdDup)[0] : '',
                     'music_bitrate' => !empty($bitrateDup) ? array_keys($bitrateDup)[0] : '',
                 ];
             }
@@ -55,32 +57,37 @@ class AlbumController extends Controller
         $album_old = [];
         foreach($cache as $item) {
             $artists = [];
+            $artist_ids = [];
             $bitrates = [];
             if($item->music) {
                 foreach ($item->music as $music) {
                     $artists[] = trim($music->music_artist);
+                    $artist_ids[] = $music->music_artist_id;
                     $bitrates[] = $music->music_bitrate;
                 }
                 $artistDup = array_count_values($artists);
+                $artistIdDup = array_count_values($artist_ids);
                 $bitrateDup = array_count_values($bitrates);
 
                 arsort($artistDup);
+                arsort($artistIdDup);
                 arsort($bitrateDup);
                 $album_old[] = [
                     'cover_id' => $item->cover_id,
                     'music_album' => $item->music_album,
                     'music_artist' => !empty($artistDup) ? array_keys($artistDup)[0] : '',
+                    'music_artist_id' => !empty($artistIdDup) ? array_keys($artistIdDup)[0] : '',
                     'music_bitrate' => !empty($bitrateDup) ? array_keys($bitrateDup)[0] : '',
                 ];
             }
         }
         $music_new_uploads = $this->musicRepository->getModel()::orderBy('music_id', 'desc')
-            ->select('music_id', 'music_title_url', 'music_title', 'music_artist', 'cat_id', 'cat_level', 'cat_sublevel', 'cat_custom', 'cover_id', 'music_download_time', 'music_last_update_time', 'music_title_url',
+            ->select('music_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'cat_id', 'cat_level', 'cat_sublevel', 'cat_custom', 'cover_id', 'music_download_time', 'music_last_update_time', 'music_title_url',
                 'music_title_search', 'music_artist_search', 'music_album_search', 'music_composer', 'music_album', 'music_listen', 'music_track_id', 'music_track_id', 'music_filename', 'music_bitrate', 'music_shortlyric', 'music_last_update_time')
             ->limit(20)->get()->toArray();
 
         $video_new_uploads = $this->videoRepository->getModel()::orderBy('music_id', 'desc')
-            ->select('music_id', 'music_title_url', 'music_title', 'music_artist', 'cat_id', 'cat_level', 'cat_sublevel', 'cat_custom', 'cover_id', 'music_download_time', 'music_last_update_time', 'music_title_url',
+            ->select('music_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'cat_id', 'cat_level', 'cat_sublevel', 'cat_custom', 'cover_id', 'music_download_time', 'music_last_update_time', 'music_title_url',
                 'music_title_search', 'music_artist_search', 'music_album_search', 'music_composer', 'music_album', 'music_listen', 'music_track_id', 'music_track_id', 'music_filename', 'music_bitrate', 'music_shortlyric', 'music_last_update_time')
             ->limit(50)->get()->toArray();
 

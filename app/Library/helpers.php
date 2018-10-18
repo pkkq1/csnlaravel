@@ -159,10 +159,19 @@ class Helpers
     }
     public static function artistUrl($artistId, $artistNickName, $mode = '')
     {
-        if(!$artistId){
+        if(!$artistId || $artistId == -1){
             return '/tim-kiem?q='.$artistNickName;
         }
         return self::rawTiengVietUrl($artistNickName) . "~" . base64_encode(KEY_ID_ARTIST_ENCODE_URL . $artistId) . $mode . ".".HTMLEX;
+    }
+    public static function rawHtmlArtists($artistId, $artistNickName) {
+        $artistId = explode(';', $artistId);
+        $artistNickName = explode(';', $artistNickName);
+        $html = '';
+        foreach ($artistNickName as $key => $val) {
+            $html = $html.', <a href="/ca-si/'.self::artistUrl($artistId[$key], $val).'">'.$val.'</a>';
+        }
+        return substr($html, 2);
     }
 
     public static function category_url($c_info = array(), $c_id = 0, $c_level = 0)
