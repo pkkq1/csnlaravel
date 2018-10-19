@@ -351,7 +351,7 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
                                 </div>
                                 <div class="card-body">
                                     <h3 class="card-title"><a href="{{$url}}" title="{{$item['music_title']}}">{{$item['music_title']}}</a></h3>
-                                    <p class="card-text"><?php echo '<a href="#">'.implode(';</a><a href="#">', explode(';', $item['music_artist'])).'</a>' ?></p>
+                                    <p class="card-text"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></p>
                                 </div>
                             </div>
                         </div>
@@ -378,7 +378,7 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
                             </div>
                             <div class="card-body">
                                 <h3 class="card-title"><a href="{{$url}}" title="{{$item['music_album']}}">{{$item['music_album']}}</a></h3>
-                                <p class="card-text"><?php echo '<a href="#">'.implode(';</a><a href="#">', explode(';', $item['music_artist'])).'</a>' ?></p>
+                                <p class="card-text"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></p>
                             </div>
                         </div>
                     </div>
