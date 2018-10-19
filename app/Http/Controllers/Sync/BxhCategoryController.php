@@ -26,25 +26,98 @@ class BxhCategoryController extends Controller
         $this->categoryRepository = $categoryRepository;
         $this->musicListenRepository = $musicListenRepository;
     }
-    public function syncBxhCategoryDownload(Request $request) {
+    public function syncBxhCategory(Request $request) {
 
-        $ressult = [];
+        $ressultMusic = [];
+        $ressultVideo = [];
         $catregory =$this->categoryRepository->getCategoryParent();
         foreach ($catregory as $item) {
-            $music = $this->musicListenRepository->bxhCategory($item->cat_id);
-            $ressult[$item->cat_id] = $music->toArray();
+            $ressultMusic[$item->cat_id] = $this->musicListenRepository->bxhHotTodayCategoryMusic($item->cat_id)->toArray();
+            $ressultVideo[$item->cat_id] = $this->musicListenRepository->bxhHotTodayCategoryVideo($item->cat_id)->toArray();
         }
-        file_put_contents(resource_path().'/views/cache/def_home_bxh.blade.php',
+        file_put_contents(resource_path().'/views/cache/bxh_today.blade.php',
             '<?php 
 if ( !ENV(\'IN_PHPBB\') )
 {
     die(\'Hacking attempt\');
     exit;
 }
-global $bxh_category;
+global $hot_music_rows;
+global $hot_video_rows;
     
-$bxh_category = ' . var_export($ressult, true) . ';
+$hot_music_rows = ' . var_export($ressultMusic, true) . ';
+$hot_video_rows = ' . var_export($ressultVideo, true) . ';
 ?>');
+
+
+        $ressultMusic = [];
+        $ressultVideo = [];
+        foreach ($catregory as $item) {
+            $ressultMusic[$item->cat_id] = $this->musicListenRepository->bxhWeekCategoryMusic($item->cat_id)->toArray();
+            $ressultVideo[$item->cat_id] = $this->musicListenRepository->bxhWeekCategoryVideo($item->cat_id)->toArray();
+        }
+        file_put_contents(resource_path().'/views/cache/bxh/bxh_week.blade.php',
+            '<?php 
+if ( !ENV(\'IN_PHPBB\') )
+{
+    die(\'Hacking attempt\');
+    exit;
+}
+global $hot_music_rows;
+global $hot_video_rows;
+    
+$hot_music_rows = ' . var_export($ressultMusic, true) . ';
+$hot_video_rows = ' . var_export($ressultVideo, true) . ';
+?>');
+
+        return response(['Ok']);
+    }
+    public function syncBxhCategoryMonthYear(Request $request, $month = 'all', $year) {
+        $ressultMusic = [];
+        $ressultVideo = [];
+        $catregory =$this->categoryRepository->getCategoryParent();
+        if($month == 'all') {
+            foreach ($catregory as $item) {
+                $ressultMusic[$item->cat_id] = $this->musicListenRepository->bxhYearCategoryMusic($item->cat_id, $year)->toArray();
+                $ressultVideo[$item->cat_id] = $this->musicListenRepository->bxhYearCategoryVideo($item->cat_id, $year)->toArray();
+            }
+            file_put_contents(resource_path().'/views/cache/bxh/bxh_'.$month.'_'.$year.'.blade.php',
+                '<?php 
+if ( !ENV(\'IN_PHPBB\') )
+{
+    die(\'Hacking attempt\');
+    exit;
+}
+global $hot_music_rows;
+global $hot_video_rows;
+    
+$hot_music_rows = ' . var_export($ressultMusic, true) . ';
+$hot_video_rows = ' . var_export($ressultVideo, true) . ';
+?>');
+        }else{
+            for($i = 1; $i <= 12; $i++) {
+                $month = sprintf('%02d', $i);
+                $firstDate = strtotime('01-'.$month.'-'.$year);
+                $lastDate = strtotime(date('t-m-Y', $firstDate));
+                foreach ($catregory as $item) {
+                    $ressultMusic[$item->cat_id] = $this->musicListenRepository->bxhMonthCategoryMusic($item->cat_id, $firstDate, $lastDate, $year)->toArray();
+                    $ressultVideo[$item->cat_id] = $this->musicListenRepository->bxhMonthCategoryVideo($item->cat_id, $firstDate, $lastDate, $year)->toArray();
+                }
+                file_put_contents(resource_path().'/views/cache/bxh/bxh_'.$month.'_'.$year.'.blade.php',
+                    '<?php 
+if ( !ENV(\'IN_PHPBB\') )
+{
+    die(\'Hacking attempt\');
+    exit;
+}
+global $hot_music_rows;
+global $hot_video_rows;
+    
+$hot_music_rows = ' . var_export($ressultMusic, true) . ';
+$hot_video_rows = ' . var_export($ressultVideo, true) . ';
+?>');
+            }
+        }
         return response(['Ok']);
     }
 }

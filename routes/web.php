@@ -27,7 +27,8 @@ Route::group(['middlewareGroups' => ['web']], function () {
     Route::prefix('sync')->group(function () {
         Route::get('album', 'Sync\AlbumController@syncAlbum');
         Route::get('download', 'Sync\MusicDownloadController@syncMusicDownload');
-        Route::get('bxh_category', 'Sync\BxhCategoryController@syncBxhCategoryDownload');
+        Route::get('bxh_category', 'Sync\BxhCategoryController@syncBxhCategory');
+        Route::get('bxh_category/{month}/{year}', 'Sync\BxhCategoryController@syncBxhCategoryMonthYear');
     });
 
 
@@ -53,11 +54,14 @@ Route::group(['middlewareGroups' => ['web']], function () {
     Route::get('nhac-hot.html', ['as' => 'bxh.now', 'uses' => 'BxhController@now']);
     Route::get('nhac-hot', ['as' => 'bxh.now', 'uses' => 'BxhController@now']);
 
-    Route::get('bang-xep-hang/bang-xep-thang-{month}-{year}.html', ['as' => 'bxh.month', 'uses' => 'BxhController@month']);
-    Route::get('bang-xep-hang/bang-xep-thang-{month}-{year}', ['as' => 'bxh.month', 'uses' => 'BxhController@month']);
+    Route::get('bang-xep-hang/tuan.html', ['as' => 'bxh.month', 'uses' => 'BxhController@week']);
+    Route::get('bang-xep-hang/tuan', ['as' => 'bxh.month', 'uses' => 'BxhController@week']);
 
-    Route::get('bang-xep-hang/bang-xep-nam-{year}.html', ['as' => 'bxh.month', 'uses' => 'BxhController@year']);
-    Route::get('bang-xep-hang/bang-xep-nam-{year}', ['as' => 'bxh.month', 'uses' => 'BxhController@year']);
+    Route::get('bang-xep-hang/thang-{month}-{year}.html', ['as' => 'bxh.month', 'uses' => 'BxhController@month']);
+    Route::get('bang-xep-hang/thang-{month}-{year}', ['as' => 'bxh.month', 'uses' => 'BxhController@month']);
+
+    Route::get('bang-xep-hang/nam-{year}.html', ['as' => 'bxh.month', 'uses' => 'BxhController@year']);
+    Route::get('bang-xep-hang/nam-{year}', ['as' => 'bxh.month', 'uses' => 'BxhController@year']);
 
 
     Route::get('bang-xep-hang/{cat}', ['as' => 'bxh.cat', 'uses' => 'BxhController@cat']);
@@ -79,14 +83,17 @@ Route::group(['middlewareGroups' => ['web']], function () {
     // artist
     Route::get('ca-si/{artistUrl}', ['as' => 'artist.home', 'uses' => 'ArtistController@index']);
     // nhac hot, bang xep hang
-    Route::get('nhac-hot/{catUrl}.html', ['as' => 'music.nhac-hot.listen', 'uses' => 'MusicController@listenBxhNow']);
-    Route::get('nhac-hot/{catUrl}', ['as' => 'music.nhac-hot.listen', 'uses' => 'MusicController@listenBxhNow']);
+    Route::get('nhac-hot/{catUrl}/{catLevel?}.html', ['as' => 'music.nhac-hot.listen', 'uses' => 'MusicController@listenBxhNow']);
+    Route::get('nhac-hot/{catUrl}/{catLevel?}', ['as' => 'music.nhac-hot.listen', 'uses' => 'MusicController@listenBxhNow']);
 
-    Route::get('bang-xep-hang/bang-xep-thang-{month}-{year}/{catUrl}.html', ['as' => 'bxh.month', 'uses' => 'MusicController@listenBxhMonth']);
-    Route::get('bang-xep-hang/bang-xep-thang-{month}-{year}/{catUrl}', ['as' => 'bxh.month', 'uses' => 'MusicController@listenBxhMonth']);
+    Route::get('bang-xep-hang/tuan/{catUrl}/{catLevel?}.html', ['as' => 'bxh.month', 'uses' => 'MusicController@listenBxhWeek']);
+    Route::get('bang-xep-hang/tuan/{catUrl}/{catLevel?}', ['as' => 'bxh.month', 'uses' => 'MusicController@listenBxhWeek']);
 
-    Route::get('bang-xep-hang/bang-xep-hang-nam-{year}/{catUrl}.html', ['as' => 'bxh.month', 'uses' => 'MusicController@listenBxhYear']);
-    Route::get('bang-xep-hang/bang-xep-hang-nam-{year}/{catUrl}', ['as' => 'bxh.month', 'uses' => 'MusicController@listenBxhYear']);
+    Route::get('bang-xep-hang/thang-{month}-{year}/{catUrl}/{catLevel?}.html', ['as' => 'bxh.month', 'uses' => 'MusicController@listenBxhMonth']);
+    Route::get('bang-xep-hang/thang-{month}-{year}/{catUrl}/{catLevel?}', ['as' => 'bxh.month', 'uses' => 'MusicController@listenBxhMonth']);
+
+    Route::get('bang-xep-hang/nam-{year}/{catUrl}/{catLevel?}.html', ['as' => 'bxh.month', 'uses' => 'MusicController@listenBxhYear']);
+    Route::get('bang-xep-hang/nam-{year}/{catUrl}/{catLevel?}', ['as' => 'bxh.month', 'uses' => 'MusicController@listenBxhYear']);
 
     Route::get('embed/mp3/{music}', 'MusicController@embed');
     // ajax comment

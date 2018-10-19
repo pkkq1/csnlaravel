@@ -126,40 +126,39 @@ class MusicController extends Controller
         return response()
             ->view('jwplayer.music', compact('music', 'musicSet'))->cookie($cookie['cookie']);
     }
-    public function listenBxhNow(Request $request, $catUrl) {
-        return $this->listenBxhMusic($request, $catUrl);
+    public function listenBxhNow(Request $request, $catUrl, $catLevel = '') {
+        return $this->listenBxhMusic($request, str_replace('.html', '', $catUrl), 'now', $catLevel);
     }
-    public function listenBxhMonth(Request $request, $month, $year, $catUrl) {
-        return $this->listenBxhMusic($request, $catUrl, $month, $year);
+    public function listenBxhWeek(Request $request, $catUrl, $catLevel = '') {
+        return $this->listenBxhMusic($request, str_replace('.html', '', $catUrl), 'week', $catLevel);
     }
-    public function listenBxhYear(Request $request, $year, $catUrl) {
-        return $this->listenBxhMusic($request, $catUrl, $year);
+    public function listenBxhMonth(Request $request, $month, $year, $catUrl, $catLevel = '') {
+        return $this->listenBxhMusic($request, str_replace('.html', '', $catUrl), 'month', $catLevel, $month, $year);
     }
-    public function listenBxhMusic($request, $catUrl, $offset = false, $type = 'now') {
+    public function listenBxhYear(Request $request, $year, $catUrl, $catLevel = '') {
+        return $this->listenBxhMusic($request, str_replace('.html', '', $catUrl), 'year', $catLevel, 'all', $year);
+    }
+    public function listenBxhMusic($request, $catUrl, $typeBxh = 'now', $catLevel = '', $month, $year) {
         $id = $request->id;
         $type = 'music';
         $playlistMusic = [];
         // cache array
         global $hot_music_rows;
         global $hot_video_rows;
-        if($offset) {
-            if($type = 'month') {
-                // month BXH
-                include(app_path() . '/../resources/views/cache/def_hot_today.blade.php');
-            }else{
-                // year BXH
-                include(app_path() . '/../resources/views/cache/def_hot_today.blade.php');
-            }
-        }else{
-            include(app_path() . '/../resources/views/cache/def_hot_today.blade.php');
+        if($typeBxh == 'now') {
+            include(app_path() . '/../resources/views/cache/bxh/bxh_today.blade.php');
+        }elseif($typeBxh == 'week') {
+            include(app_path() . '/../resources/views/cache/bxh/bxh_week.blade.php');
+        }elseif($typeBxh == 'month') {
+            include(app_path() . '/../resources/views/cache/bxh/bxh_'.$month.'_'.$year.'.blade.php');
+        }elseif($typeBxh == 'year') {
+            include(app_path() . '/../resources/views/cache/bxh/bxh_'.$month.'_'.$year.'.blade.php');
         }
-        $category = $this->categoryListenRepository->getCategoryUrl($catUrl);
-        if(!$category)
-            return view('errors.404');
-        if($category->cat_id == CAT_VIDEO) {
+        $category = $this->categoryListenRepository->getCategoryUrl($catUrl == CAT_VIDEO_URL ? $catLevel : $catUrl);
+        if($catUrl == CAT_VIDEO_URL) {
             // video (sub category videoclip)
             $type = 'video';
-            $playlistMusic = $hot_video_rows[$category->cat_id];
+            $playlistMusic = $hot_video_rows[$category->cat_level];
         }else{
             // music (category music level 0)
             $playlistMusic = $hot_music_rows[$category->cat_id];

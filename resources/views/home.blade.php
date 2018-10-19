@@ -8,7 +8,7 @@ global $download_rows;
 global $top_uploader_rows;
 global $music_new_uploads;
 global $video_new_uploads;
-global $bxh_category;
+global $hot_music_rows;
 
 global $top_artist_rows;
 
@@ -20,10 +20,9 @@ global $top_artist_rows;
     
 @include('cache.def_home_album')
 @include('cache.def_home_download')
-@include('cache.def_home_bxh')
+@include('cache.bxh.bxh_today')
 
 @include('cache.def_home_artist')
-
 
 <div class="slide_home"
      style="background: url('/imgs/Slice-1.jpg');">
@@ -103,7 +102,7 @@ global $top_artist_rows;
                                 </div>
                                 <div class="card-body">
                                     <h3 class="card-title"><a href="{{$url}}" title="{{$item['music_album']}}">{{$item['music_album']}}</a></h3>
-                                    <p class="card-text"><?php echo '<a href="#">'.implode(',</a><a href="#">', explode(';', $item['music_artist'])).'</a>' ?></p>
+                                    <p class="card-text"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></p>
                                 </div>
                             </div>
                         </div>
@@ -277,7 +276,7 @@ global $top_artist_rows;
                                 </div>
                                 <div class="card-body">
                                     <h3 class="card-title"><a href="{{$url}}" title="{{$item['music_album']}}">{{$item['music_album']}}</a></h3>
-                                    <p class="card-text"><?php echo '<a href="#">'.implode(',</a><a href="#">', explode(';', $item['music_artist'])).'</a>' ?></p>
+                                    <p class="card-text"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></p>
                                 </div>
                             </div>
                         </div>
@@ -343,19 +342,19 @@ global $top_artist_rows;
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                     <ul class="list-unstyled bxh mb-0">
                         <?php
-                        $catMusic = Helpers::getRandLimitArr($bxh_category[3], LIMIT_HOME_CAT_MUSIC);
+                        $catMusic = array_slice($hot_music_rows[3], 0, LIMIT_HOME_CAT_MUSIC);
                         array_map(function ($i, $item) {
                         $musicId = Helpers::music_id($item);
-                        $url = SUB_BXH_NOW_MUSIC.'vietnam.html?id='.$musicId;
+                        $url = SUB_BXH_NOW_MUSIC.'vietnam.html?playlist='.++$i;
                         ?>
-                        <li class="media {{($i == 0 ? 'first stand' : ($i == 1 ? 'now up' : ($i == 2 ? 'now down' : 'now')))}} align-items-stretch">
+                        <li class="media {{($i == 1 ? 'first stand' : ($i == 2 ? 'now up' : ($i == 3 ? 'now down' : 'now')))}} align-items-stretch">
                             <div class="media-left mr-3">
                                 <span></span>
                                 <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{Helpers::cover_url($item['cover_id'])}}" alt="{{$item['music_title']}}"></a>
                             </div>
-                            <div class="media-body d-flex flex-column {{$i == 0 ? '' : 'justify-content-between'}}">
+                            <div class="media-body d-flex flex-column {{$i == 1 ? '' : 'justify-content-between'}}">
                                 <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
-                                <div class="{{$i == 0 ? '' : 'd-flex'}} align-items-center justify-content-between">
+                                <div class="{{$i == 1 ? '' : 'd-flex'}} align-items-center justify-content-between">
                                     <div class="author"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></div>
                                     <small class="counter_view">{{number_format($item['music_listen'])}}</small>
                                 </div>
@@ -369,19 +368,19 @@ global $top_artist_rows;
                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                     <ul class="list-unstyled bxh mb-0">
                     <?php
-                    $catMusic = Helpers::getRandLimitArr($bxh_category[4], LIMIT_HOME_CAT_MUSIC);
+                    $catMusic = array_slice($hot_music_rows[4], 0, LIMIT_HOME_CAT_MUSIC);
                     array_map(function ($i, $item) {
                     $musicId = Helpers::music_id($item);
-                    $url = SUB_BXH_NOW_MUSIC.'vietnam.html?id='.$musicId;
+                    $url = SUB_BXH_NOW_MUSIC.'us-uk.html?playlist='.++$i;
                     ?>
-                    <li class="media {{($i == 0 ? 'first stand' : ($i == 1 ? 'now up' : ($i == 2 ? 'now down' : 'now')))}} align-items-stretch">
+                    <li class="media {{($i == 1 ? 'first stand' : ($i == 2 ? 'now up' : ($i == 3 ? 'now down' : 'now')))}} align-items-stretch">
                         <div class="media-left mr-3">
                             <span></span>
                             <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{Helpers::cover_url($item['cover_id'])}}" alt="{{$item['music_title']}}"></a>
                         </div>
-                        <div class="media-body d-flex flex-column {{$i == 0 ? '' : 'justify-content-between'}}">
+                        <div class="media-body d-flex flex-column {{$i == 1 ? '' : 'justify-content-between'}}">
                             <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
-                            <div class="{{$i == 0 ? '' : 'd-flex'}} align-items-center justify-content-between">
+                            <div class="{{$i == 1 ? '' : 'd-flex'}} align-items-center justify-content-between">
                                 <div class="author"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></div>
                                 <small class="counter_view">{{number_format($item['music_listen'])}}</small>
                             </div>
@@ -395,19 +394,19 @@ global $top_artist_rows;
                 <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
                     <ul class="list-unstyled bxh mb-0">
                     <?php
-                    $catMusic = Helpers::getRandLimitArr($bxh_category[5], LIMIT_HOME_CAT_MUSIC);
+                    $catMusic = array_slice($hot_music_rows[5], 0, LIMIT_HOME_CAT_MUSIC);
                     array_map(function ($i, $item) {
                     $musicId = Helpers::music_id($item);
-                    $url = SUB_BXH_NOW_MUSIC.'vietnam.html?id='.$musicId;
+                    $url = SUB_BXH_NOW_MUSIC.'chinese.html?playlist='.++$i;
                     ?>
-                    <li class="media {{($i == 0 ? 'first stand' : ($i == 1 ? 'now up' : ($i == 2 ? 'now down' : 'now')))}} align-items-stretch">
+                    <li class="media {{($i == 1 ? 'first stand' : ($i == 2 ? 'now up' : ($i == 3 ? 'now down' : 'now')))}} align-items-stretch">
                         <div class="media-left mr-3">
                             <span></span>
                             <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{Helpers::cover_url($item['cover_id'])}}" alt="{{$item['music_title']}}"></a>
                         </div>
-                        <div class="media-body d-flex flex-column {{$i == 0 ? '' : 'justify-content-between'}}">
+                        <div class="media-body d-flex flex-column {{$i == 1 ? '' : 'justify-content-between'}}">
                             <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
-                            <div class="{{$i == 0 ? '' : 'd-flex'}} align-items-center justify-content-between">
+                            <div class="{{$i == 1 ? '' : 'd-flex'}} align-items-center justify-content-between">
                                 <div class="author"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></div>
                                 <small class="counter_view">{{number_format($item['music_listen'])}}</small>
                             </div>
@@ -421,19 +420,19 @@ global $top_artist_rows;
                 <div class="tab-pane fade" id="jpop" role="tabpanel" aria-labelledby="jpop-tab">
                     <ul class="list-unstyled bxh mb-0">
                     <?php
-                    $catMusic = Helpers::getRandLimitArr($bxh_category[7], LIMIT_HOME_CAT_MUSIC);
+                    $catMusic = array_slice($hot_music_rows[7], 0, LIMIT_HOME_CAT_MUSIC);
                     array_map(function ($i, $item) {
                     $musicId = Helpers::music_id($item);
-                    $url = SUB_BXH_NOW_MUSIC.'vietnam.html?id='.$musicId;
+                    $url = SUB_BXH_NOW_MUSIC.'japan.html?playlist='.++$i;
                     ?>
-                    <li class="media {{($i == 0 ? 'first stand' : ($i == 1 ? 'now up' : ($i == 2 ? 'now down' : 'now')))}} align-items-stretch">
+                    <li class="media {{($i == 1 ? 'first stand' : ($i == 2 ? 'now up' : ($i == 3 ? 'now down' : 'now')))}} align-items-stretch">
                         <div class="media-left mr-3">
                             <span></span>
                             <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{Helpers::cover_url($item['cover_id'])}}" alt="{{$item['music_title']}}"></a>
                         </div>
-                        <div class="media-body d-flex flex-column {{$i == 0 ? '' : 'justify-content-between'}}">
+                        <div class="media-body d-flex flex-column {{$i == 1 ? '' : 'justify-content-between'}}">
                             <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
-                            <div class="{{$i == 0 ? '' : 'd-flex'}} align-items-center justify-content-between">
+                            <div class="{{$i == 1 ? '' : 'd-flex'}} align-items-center justify-content-between">
                                 <div class="author"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></div>
                                 <small class="counter_view">{{number_format($item['music_listen'])}}</small>
                             </div>
