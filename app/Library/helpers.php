@@ -169,7 +169,7 @@ class Helpers
         $artistNickName = explode(';', $artistNickName);
         $html = '';
         foreach ($artistNickName as $key => $val) {
-            $html = $html.', <a href="/ca-si/'.self::artistUrl($artistId[$key], $val).'">'.$val.'</a>';
+            $html = $html.', <a href="/ca-si/'.self::artistUrl(isset($artistId[$key]) ? $artistId[$key] : -1, $val).'">'.$val.'</a>';
         }
         return substr($html, 2);
     }

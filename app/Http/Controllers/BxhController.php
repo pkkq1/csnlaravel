@@ -50,7 +50,4 @@ class BxhController extends Controller
         $catVideo = $this->categoryListenRepository->getAllCatId(1, [['cat_level', '!=', 0]])->toArray();
         return view('bxh.index', compact('bxh', 'urlBxh', 'category', 'catVideo', 'titleBxh', 'cacheBxh'));
     }
-    public function cat(Request $request, $cat, $sub) {
-        return view('bxh.cat', compact('bxh'));
-    }
 }

@@ -28,7 +28,7 @@ Route::group(['middlewareGroups' => ['web']], function () {
         Route::get('album', 'Sync\AlbumController@syncAlbum');
         Route::get('download', 'Sync\MusicDownloadController@syncMusicDownload');
         Route::get('bxh_category', 'Sync\BxhCategoryController@syncBxhCategory');
-        Route::get('bxh_category/{month}/{year}', 'Sync\BxhCategoryController@syncBxhCategoryMonthYear');
+        Route::get('bxh_category/{month}/{year}', 'Sync\BxhCategoryController@syncBxhCategoryMonthYear'); // month = all || 1->12
     });
 
 

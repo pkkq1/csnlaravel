@@ -61,7 +61,7 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
                                             <a href="{{$urlAlbum}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$i . '. ' . $item['music_title']}}</a>
                                         </div>
                                         <div class="author d-table-cell">
-                                            <?php echo '<a href="'.$urlAlbum.'">'.implode(';</a><a href="'.$urlAlbum.'">', explode(';', $item['music_artist'])).'</a>' ?>
+                                            <?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?>
                                         </div>
                                         <div class="tool d-table-cell text-right">
                                             <ul class="list-inline d-flex align-items-center justify-content-end">
@@ -437,7 +437,7 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
                             </div>
                             <div class="media-body align-self-center">
                                 <h5 class="mt-0 media-title"><a href="{{$urlVideo}}" title="">{{$video['music_title']}}</a></h5>
-                                <div class="author"><?php echo '<a href="#">'.implode(',</a><a href="#">', explode(';', $video['music_artist'])).'</a>' ?></div>
+                                <div class="author"><?php echo Helpers::rawHtmlArtists($video['music_artist_id'], $video['music_artist']) ?></div>
                             </div>
                         </li>
                     </ul>
@@ -476,7 +476,7 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
                                 <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
                                     <div>
                                         <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
-                                        <div class="author"><?php echo '<a href="#">'.implode(',</a><a href="#">', explode(';', $item['music_artist'])).'</a>' ?></div>
+                                        <div class="author"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></div>
                                     </div>
                                     <div class="d-flex align-items-center justify-content-between">
                                         <small class="type_music c1"><?php echo Helpers::bitrate2str($item['music_bitrate']); ?></small>

@@ -77,7 +77,7 @@ global $hot_video_rows;
                                     <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
                                         <div>
                                             <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_title']}}">{{$item['music_title']}}</a></h5>
-                                            <div class="author"><?php echo '<a href="#">'.implode(',</a><a href="#">', explode(';', $item['music_artist'])).'</a>' ?></div>
+                                            <div class="author"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></div>
                                         </div>
                                         <small class="type_music c1"><?php echo Helpers::bitrate2str($item['music_bitrate']); ?></small>
                                     </div>
@@ -125,7 +125,7 @@ global $hot_video_rows;
                                     <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
                                         <div>
                                             <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_title']}}">{{$item['music_title']}}</a></h5>
-                                            <div class="author"><?php echo '<a href="#">'.implode(',</a><a href="#">', explode(';', $item['music_artist'])).'</a>' ?></div>
+                                            <div class="author"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></div>
                                         </div>
                                     </div>
                                     <div class="media-right align-self-center">

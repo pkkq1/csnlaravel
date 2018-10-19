@@ -99,20 +99,20 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
         }
         $cache = $model->where('music_title', 'like', '%' . $music->music_title . '%')
             ->where('music_id', '!=', $music->music_id)
-            ->select('music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title_url', 'music_title', 'music_artist', 'music_album_id', 'music_listen', 'music_shortlyric', 'music_bitrate', 'music_filename')
+            ->select('music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'music_album_id', 'music_listen', 'music_shortlyric', 'music_bitrate', 'music_filename')
             ->limit(5)
             ->orderBy('music_listen', 'desc')->get()->toArray();
         $artists = explode(';', $music->music_artist);
         $cache2 = $model->whereIn('music_artist', $artists)
             ->where('music_id', '!=', $music->music_id)
-            ->select('music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title_url', 'music_title', 'music_artist', 'music_album_id', 'music_listen', 'music_shortlyric', 'music_bitrate', 'music_filename')
+            ->select('music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'music_album_id', 'music_listen', 'music_shortlyric', 'music_bitrate', 'music_filename')
             ->limit((count($cache) >= 3 ? 15 : 20))
             ->orderBy('music_listen', 'desc')->get()->toArray();
         $video = [];
         if($type != 'video') {
             $video = \App\Models\VideoModel::where('music_title', $music->music_title)
                 ->where('music_artist', $music->music_artist)
-                ->select('music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title_url', 'music_title', 'music_artist', 'music_album_id', 'music_listen', 'music_shortlyric', 'music_bitrate', 'music_filename')
+                ->select('music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'music_album_id', 'music_listen', 'music_shortlyric', 'music_bitrate', 'music_filename')
                 ->orderBy('music_listen', 'desc')->first();
         }
 

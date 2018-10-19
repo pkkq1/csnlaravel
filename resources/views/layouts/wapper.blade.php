@@ -86,10 +86,10 @@
                             <h3 class="title">xếp hạng</h3>
                             <ul class="list-unstyled">
                                 <li><a href="{{env('APP_URL')}}/nhac-hot.html" title="">BXH hôm nay</a></li>
-                                <li><a href="{{env('APP_URL')}}/bang-xep-hang/bang-xep-tuan-" title="BXH tuần này">BXH tuần này</a></li>
-                                <li><a href="{{env('APP_URL')}}/bang-xep-hang/bang-xep-thang-09-2018.html" title="BXH tháng 9">BXH tháng 9</a></li>
-                                <li><a href="{{env('APP_URL')}}/bang-xep-hang/bang-xep-nam-2017.html" title="BXH năm 2017">BXH năm 2017</a></li>
-                                <li><a href="{{env('APP_URL')}}/bang-xep-hang/bang-xep-nam-2018.html" title="BXH năm 2018">BXH năm 2018</a></li>
+                                <li><a href="{{env('APP_URL')}}/bang-xep-hang/tuan.html" title="BXH tuần này">BXH tuần này</a></li>
+                                <li><a href="{{env('APP_URL')}}/bang-xep-hang/thang-09-2018.html" title="BXH tháng 9">BXH tháng 9</a></li>
+                                <li><a href="{{env('APP_URL')}}/bang-xep-hang/nam-2017.html" title="BXH năm 2017">BXH năm 2017</a></li>
+                                <li><a href="{{env('APP_URL')}}/bang-xep-hang/nam-2018.html" title="BXH năm 2018">BXH năm 2018</a></li>
                             </ul>
                         </div>
                     </div>

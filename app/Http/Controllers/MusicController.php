@@ -138,7 +138,7 @@ class MusicController extends Controller
     public function listenBxhYear(Request $request, $year, $catUrl, $catLevel = '') {
         return $this->listenBxhMusic($request, str_replace('.html', '', $catUrl), 'year', $catLevel, 'all', $year);
     }
-    public function listenBxhMusic($request, $catUrl, $typeBxh = 'now', $catLevel = '', $month, $year) {
+    public function listenBxhMusic($request, $catUrl, $typeBxh = 'now', $catLevel = '', $month = 0, $year = 0) {
         $id = $request->id;
         $type = 'music';
         $playlistMusic = [];
