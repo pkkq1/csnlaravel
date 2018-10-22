@@ -32,7 +32,7 @@ class SolrSyncController extends Controller
     public function syncMusic(Request $request) {
         $searchMusic = MusicModel::select('music_id', 'music_title_search', 'music_artist_search', 'music_composer_search', 'music_album_search', 'music_title', 'music_artist',
         'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_title_url', 'music_artist_id', 'music_album', 'music_listen', 'music_filename', 'music_bitrate')
-            ->offset(684601)
+            ->offset(784601)
             ->limit(100000)
             ->get();
         foreach ($searchMusic as $item) {

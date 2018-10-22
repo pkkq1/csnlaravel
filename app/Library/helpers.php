@@ -4,6 +4,7 @@ namespace App\Library;
 use DateTime;
 use Config;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class Helpers
 {
@@ -442,27 +443,10 @@ class Helpers
         return ($id == 0) ? SUB_PLAYLIST . $playlist_url : SUB_PLAYLIST . $playlist_url . '?id='. $id;
     }
 
-    public static function pagingCustom($page, $rows, $total, $url, $pageVar) {
-        if(intval($total / $rows) > 1) {
-            ?>
-            <ul class="pagination">
-                <li class="<?php echo ($page == 1) ? ' disabled' : '' ?>">
-                    <a href="<?php echo $url . $pageVar ?>">&laquo; Trước</a>
-                </li>
-                <?php for ($i = 1; $i <= intval($total / $rows); $i++) {
-                    ?>
-                    <li class="<?php echo ($page == $i) ? ' active' : '' ?>">
-                        <a href="<?php echo $url . $pageVar . $i ?>"><?php echo $i ?></a>
-                    </li>
-                    <?php
-                }
-                ?>
-                <li class="<?php echo ($page == intval($total / $rows)) ? ' disabled' : '' ?>">
-                    <a href="<?php echo $url . $pageVar . ($i + 1) ?>" >Sau &raquo</a>
-                </li>
-            </ul>
-            <?php
-        }
+    public static function pagingCustom($page, $rows, $total, $url) {
+        echo '<ul class="pagination">';
+        echo PaginationLinksCustom::create($page, intval($total / $rows), 1, '<li>'.$url.'</li>', '<li class="active"><a>%d</a></li>', '<li><a>&hellip;</a></li>');
+        echo '</ul>';
     }
 
 

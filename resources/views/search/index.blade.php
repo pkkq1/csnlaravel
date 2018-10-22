@@ -275,7 +275,7 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                             }, $result['music']['data'])
                             ?>
                         </ul>
-                        <?php Helpers::pagingCustom($result['music']['page'], $result['music']['rows'], $result['music']['row_total'], url()->current().'?q='.$search, '&page_music=') ?>
+                        <?php Helpers::pagingCustom($result['music']['page'], $result['music']['rows'], $result['music']['row_total'], '<a href="?q='.$search.'&page_music=%d">%d</a>') ?>
                     @endif
                 </div>
                 <div class="tab-pane fade {{isset($_GET['page_album']) ? 'show active' : ''}}" id="nav-album" role="tabpanel" aria-labelledby="nav-album-tab">
@@ -313,7 +313,7 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                         },array_keys($result['album']['data']), $result['album']['data'])
                         ?>
                     </div>
-                    <?php Helpers::pagingCustom($result['album']['page'], $result['album']['rows'], $result['album']['row_total'], url()->current().'?q='.$search, '&page_album=') ?>
+                    <?php Helpers::pagingCustom($result['album']['page'], $result['album']['rows'], $result['album']['row_total'], '<a href="?q='.$search.'&page_album=%d">%d</a>') ?>
                     @endif
                 </div>
                 <div class="tab-pane fade {{isset($_GET['page_video']) ? ' show active' : ''}}" id="nav-video" role="tabpanel" aria-labelledby="nav-video-tab">
@@ -352,7 +352,7 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                             },array_keys($result['video']['data']), $result['video']['data'])
                             ?>
                         </div>
-                        <?php Helpers::pagingCustom($result['video']['page'], $result['video']['rows'], $result['video']['row_total'], url()->current().'?q='.$search, '&page_video=') ?>
+                        <?php Helpers::pagingCustom($result['video']['page'], $result['video']['rows'], $result['video']['row_total'], '<a href="?q='.$search.'&page_video=%d">%d</a>') ?>
                     @endif
                 </div>
             </div>
