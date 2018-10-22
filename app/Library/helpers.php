@@ -422,9 +422,9 @@ class Helpers
         return strtr($str, $unicode_trans);
     }
 
-    public static function rawTiengVietUrl($str)
+    public static function rawTiengVietUrl($str, $spaceReplace = '-')
     {
-        return preg_replace(array('/[^a-zA-Z0-9 -]/', '/[ -]+/', '/^-|-$/'), array('', '-', ''), self::khongdau($str));
+        return preg_replace(array('/[^a-zA-Z0-9 -]/', '/[ -]+/', '/^-|-$/'), array('', $spaceReplace, ''), self::khongdau($str));
     }
 
     public static function album_url($album_info, $id = 0)

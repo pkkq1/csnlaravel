@@ -28,10 +28,12 @@ class Solarium
     {
         $query = $this->client->createSelect();
         try{
+            $temp = '';
             foreach ($search as $key => $item) {
-                $query->addFilterQuery(array('key' => $key, 'query' => $key . ':*' . $item . '*'));
+                $temp = $temp . $key . ':*' . $item . '* | ';
             }
-//            $query->addFilterQuery(array('key' => $key, 'query' => '*'));
+            $query->setQuery($temp);
+
             $rows = $perPage;
             $query->setRows($rows); // rows
             $query->setStart(($page == 1 ? 0 : $page - 1) * $rows); // perpage

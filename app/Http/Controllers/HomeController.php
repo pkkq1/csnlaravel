@@ -25,7 +25,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-//        dd(Helpers::artistUrl(33, 'Lê Hiếu'));
         return view('home');
     }
 }

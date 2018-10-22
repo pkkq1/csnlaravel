@@ -30,27 +30,32 @@ class SolrSyncController extends Controller
         return $this->Solr->ping();
     }
     public function syncMusic(Request $request) {
-        $searchMusic = MusicModel::with('musicListen')->select('music_id', 'music_title_search', 'music_artist_search', 'music_composer_search', 'music_album_search', 'music_title', 'music_artist',
+        $searchMusic = MusicModel::select('music_id', 'music_title_search', 'music_artist_search', 'music_composer_search', 'music_album_search', 'music_title', 'music_artist',
         'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_title_url', 'music_artist_id', 'music_album', 'music_listen', 'music_filename', 'music_bitrate')
-            ->offset(0)
-            ->limit(50000)
+            ->offset(684601)
+            ->limit(100000)
             ->get();
         foreach ($searchMusic as $item) {
             $data = [
-                'id' => $item->music_id,
-                'music_title' => strtolower($item->music_title),
-                'music_title_no_space' => str_replace(' ','%20', strtolower($item->music_title)),
-                'music_title_charset' => Helpers::rawTiengVietUrl(strtolower($item->music_title), '%20'),
+                'music_id' => $item->music_id,
+                'music_title' => $item->music_title,
+                'music_title_no_space' => str_replace(' ','', mb_strtolower($item->music_title, 'UTF-8')),
+                'music_title_charset' => Helpers::rawTiengVietUrl(mb_strtolower($item->music_title, 'UTF-8'), ''),
                 'music_bitrate' => Helpers::bitrate2str($item->music_bitrate),
-                'music_cover' => Helpers::coverImg($item->cover_id),
+                'music_cover' => Helpers::cover_url($item->cover_id),
                 'music_link' => Helpers::listen_url($item->toArray()),
                 'type' => 'music',
                 'music_artist' => Helpers::rawHtmlArtists($item->music_artist_id, $item->music_artist),
-                'music_listen_today' => (isset($item->music_listen->music_listen_today) ? $item->music_listen->music_listen_today : 0),
-                'music_listen_ago' => (isset($item->music_listen->music_listen_today) ? $item->music_listen->music_listen_ago : 0),
-                'music_listen_3day' => (isset($item->music_listen->music_listen_today) ? $item->music_listen->music_listen_3day : 0),
-                'music_listen_7day' => (isset($item->music_listen->music_listen_today) ? $item->music_listen->music_listen_7day : 0),
-                'music_listen_total' => (isset($item->music_listen->music_listen_today) ? $item->music_listen->music_listen_total : 0),
+                'music_listen_today' => 0,
+                'music_listen_ago' => 0,
+                'music_listen_3day' => 0,
+                'music_listen_7day' => 0,
+                'music_listen_total' => 0,
+//                'music_listen_today' => (isset($item->music_listen->music_listen_today) ? $item->music_listen->music_listen_today : 0),
+//                'music_listen_ago' => (isset($item->music_listen->music_listen_today) ? $item->music_listen->music_listen_ago : 0),
+//                'music_listen_3day' => (isset($item->music_listen->music_listen_today) ? $item->music_listen->music_listen_3day : 0),
+//                'music_listen_7day' => (isset($item->music_listen->music_listen_today) ? $item->music_listen->music_listen_7day : 0),
+//                'music_listen_total' => (isset($item->music_listen->music_listen_today) ? $item->music_listen->music_listen_total : 0),
             ];
             $this->Solr->addDocuments($data);
         }
@@ -59,38 +64,45 @@ class SolrSyncController extends Controller
     public function syncVideo(Request $request) {
         $searchVideo = VideoModel::with('musicListen')->select('music_id', 'music_title_search', 'music_artist_search', 'music_composer_search', 'music_album_search', 'music_title', 'music_artist',
             'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_title_url', 'music_artist_id', 'music_album', 'music_listen', 'music_filename', 'music_bitrate')
-            ->offset(4000)
-            ->limit(4000)
+            ->offset(0)
+            ->limit(50000)
             ->get();
         foreach ($searchVideo as $item) {
             $data = [
-                'id' => $item->music_id,
-                'video_title' => strtolower($item->music_title),
-                'video_title_no_space' => str_replace(' ','%20', strtolower($item->music_title)),
-                'video_title_charset' => Helpers::rawTiengVietUrl(strtolower($item->music_title), '%20'),
+                'video_id' => $item->music_id,
+                'video_title' => $item->music_title,
+                'video_title_no_space' => str_replace(' ','', mb_strtolower($item->music_title, 'UTF-8')),
+                'video_title_charset' => Helpers::rawTiengVietUrl(mb_strtolower($item->music_title, 'UTF-8'), ''),
                 'video_bitrate' => Helpers::bitrate2str($item->music_bitrate),
-                'video_cover' => Helpers::coverImg($item->cover_id),
+                'video_cover' => Helpers::thumbnail_url($item->cover_id),
                 'video_link' => Helpers::listen_url($item->toArray()),
                 'type' => 'video',
                 'video_artist' => Helpers::rawHtmlArtists($item->music_artist_id, $item->music_artist),
-                'video_listen_today' => (isset($item->music_listen->music_listen_today) ? $item->music_listen->music_listen_today : 0),
-                'video_listen_ago' => (isset($item->music_listen->music_listen_today) ? $item->music_listen->music_listen_ago : 0),
-                'video_listen_3day' => (isset($item->music_listen->music_listen_today) ? $item->music_listen->music_listen_3day : 0),
-                'video_listen_7day' => (isset($item->music_listen->music_listen_today) ? $item->music_listen->music_listen_7day : 0),
-                'video_listen_total' => (isset($item->music_listen->music_listen_today) ? $item->music_listen->music_listen_total : 0),
+                'video_listen_today' => 0,
+                'video_listen_ago' => 0,
+                'video_listen_3day' => 0,
+                'video_listen_7day' => 0,
+                'video_listen_total' => 0,
+//                'video_listen_today' => (isset($item->music_listen->music_listen_today) ? $item->music_listen->music_listen_today : 0),
+//                'video_listen_ago' => (isset($item->music_listen->music_listen_today) ? $item->music_listen->music_listen_ago : 0),
+//                'video_listen_3day' => (isset($item->music_listen->music_listen_today) ? $item->music_listen->music_listen_3day : 0),
+//                'video_listen_7day' => (isset($item->music_listen->music_listen_today) ? $item->music_listen->music_listen_7day : 0),
+//                'video_listen_total' => (isset($item->music_listen->music_listen_today) ? $item->music_listen->music_listen_total : 0),
             ];
             $this->Solr->addDocuments($data);
         }
         return response(['Ok']);
     }
     public function syncArtist(Request $request) {
-        $artist = ArtistModel::get();
+        $artist = ArtistModel::offset(0)->limit(1)->get();
         foreach ($artist as $item) {
             $data = [
-                'id' => $item->artist_id,
+                'artist_id' => $item->artist_id,
                 'artist_nickname' => $item->artist_nickname,
-                'artist_nickname_no_space' => str_replace(' ','%20', strtolower($item->artist_nickname)),
-                'artist_nickname_charset' => Helpers::rawTiengVietUrl(strtolower($item->artist_nickname), '%20'),
+                'artist_nickname_no_space' => str_replace(' ','', mb_strtolower($item->artist_nickname, 'UTF-8')),
+                'artist_nickname_charset' => Helpers::rawTiengVietUrl(mb_strtolower($item->artist_nickname, 'UTF-8'), ''),
+                'artist_link' => Helpers::artistUrl($item->artist_id, $item->artist_nickname),
+                'artist_cover' => '',
                 'type' => 'artist',
             ];
             $this->Solr->addDocuments($data);
@@ -98,15 +110,29 @@ class SolrSyncController extends Controller
         return response(['Ok']);
     }
     public function syncCover(Request $request) {
-        $cover = CoverModel::orderBy('cover_id', 'asc')->offset(0)->limit(100000)->get();
+        $cover = CoverModel::with('music')->orderBy('cover_id', 'asc')->offset(0)->limit(1)->get();
         foreach ($cover as $item) {
+            foreach ($item->music as $music) {
+                $artists[] = trim($music->music_artist);
+                $artist_ids[] = $music->music_artist_id;
+                $bitrates[] = $music->music_bitrate;
+            }
+            $artistDup = array_count_values($artists);
+            $artistIdDup = array_count_values($artist_ids);
+            $bitrateDup = array_count_values($bitrates);
+            arsort($artistDup);
+            arsort($artistIdDup);
+            arsort($bitrateDup);
             $data = [
-                'id' => $item->cover_id,
+                'cover_id' => $item->cover_id,
+                'cover' => Helpers::album_url($item->toArray()),
                 'music_album' => $item->music_album,
-                'music_album_no_space' => str_replace(' ','%20', strtolower($item->music_album)),
-                'music_album_charset' => Helpers::rawTiengVietUrl(strtolower($item->music_album), '%20'),
+                'music_album_no_space' => str_replace(' ','', mb_strtolower($item->music_album, 'UTF-8')),
+                'music_album_charset' => Helpers::rawTiengVietUrl(mb_strtolower($item->music_album, 'UTF-8'), ''),
                 'cover_filename' => $item->cover_filename,
                 'type' => 'album',
+                'music_artist' => !empty($artistDup) ? Helpers::rawHtmlArtists(array_keys($artistIdDup)[0], array_keys($artistDup)[0]) : '',
+                'music_bitrate' => !empty($bitrateDup) ? Helpers::bitrate2str(array_keys($bitrateDup)[0]) : '',
             ];
             $this->Solr->addDocuments($data);
         }
