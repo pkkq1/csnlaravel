@@ -31,13 +31,13 @@ class SolrSyncController extends Controller
     }
     public function syncMusic(Request $request) {
         $searchMusic = MusicModel::select('music_id', 'music_title_search', 'music_artist_search', 'music_composer_search', 'music_album_search', 'music_title', 'music_artist',
-        'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_title_url', 'music_artist_id', 'music_album', 'music_listen', 'music_filename', 'music_bitrate')
-            ->offset(784601)
+        'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_title_url', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate')
+            ->offset(1084484)
             ->limit(100000)
             ->get();
         foreach ($searchMusic as $item) {
             $data = [
-                'music_id' => $item->music_id,
+                'id' => 'music_'.$item->music_id,
                 'music_title' => $item->music_title,
                 'music_title_no_space' => str_replace(' ','', mb_strtolower($item->music_title, 'UTF-8')),
                 'music_title_charset' => Helpers::rawTiengVietUrl(mb_strtolower($item->music_title, 'UTF-8'), ''),
@@ -51,6 +51,8 @@ class SolrSyncController extends Controller
                 'music_listen_3day' => 0,
                 'music_listen_7day' => 0,
                 'music_listen_total' => 0,
+                'music_listen' => $item->music_listen,
+                'music_listen_download' => $item->music_downloads,
 //                'music_listen_today' => (isset($item->music_listen->music_listen_today) ? $item->music_listen->music_listen_today : 0),
 //                'music_listen_ago' => (isset($item->music_listen->music_listen_today) ? $item->music_listen->music_listen_ago : 0),
 //                'music_listen_3day' => (isset($item->music_listen->music_listen_today) ? $item->music_listen->music_listen_3day : 0),
@@ -63,13 +65,13 @@ class SolrSyncController extends Controller
     }
     public function syncVideo(Request $request) {
         $searchVideo = VideoModel::with('musicListen')->select('music_id', 'music_title_search', 'music_artist_search', 'music_composer_search', 'music_album_search', 'music_title', 'music_artist',
-            'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_title_url', 'music_artist_id', 'music_album', 'music_listen', 'music_filename', 'music_bitrate')
+            'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_title_url', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate')
             ->offset(0)
-            ->limit(50000)
+            ->limit(100000)
             ->get();
         foreach ($searchVideo as $item) {
             $data = [
-                'video_id' => $item->music_id,
+                'id' => 'video_'.$item->music_id,
                 'video_title' => $item->music_title,
                 'video_title_no_space' => str_replace(' ','', mb_strtolower($item->music_title, 'UTF-8')),
                 'video_title_charset' => Helpers::rawTiengVietUrl(mb_strtolower($item->music_title, 'UTF-8'), ''),
@@ -83,6 +85,8 @@ class SolrSyncController extends Controller
                 'video_listen_3day' => 0,
                 'video_listen_7day' => 0,
                 'video_listen_total' => 0,
+                'video_listen' => $item->music_listen,
+                'video_listen_download' => $item->music_downloads,
 //                'video_listen_today' => (isset($item->music_listen->music_listen_today) ? $item->music_listen->music_listen_today : 0),
 //                'video_listen_ago' => (isset($item->music_listen->music_listen_today) ? $item->music_listen->music_listen_ago : 0),
 //                'video_listen_3day' => (isset($item->music_listen->music_listen_today) ? $item->music_listen->music_listen_3day : 0),
