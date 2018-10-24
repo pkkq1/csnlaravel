@@ -15,9 +15,6 @@
                     onPlayerAutoNext()
                 }, a.parentNode.insertBefore(Q, a.nextSibling)));
                 var a = E.getElementsByClassName("jw-icon-auto-next-on")[0];
-                jwplayer().setConfig({
-                    repeat: true
-                });
             }
         }
 

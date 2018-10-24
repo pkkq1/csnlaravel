@@ -41,6 +41,7 @@
                     jwplayer().setConfig({
                         repeat: true
                     });
+                    logPlayAudioFlag = true;
                     PP.className = repeatClassOne;
                     PP.innerHTML = repeatOne;
                 }
@@ -48,8 +49,15 @@
                     jwplayer().setConfig({
                         repeat: false
                     });
+                    logPlayAudioFlag = false;
                     PP.className = repeatClassAll;
                     PP.innerHTML = repeatAll;
+                }
+                if(sessionStorage.getItem("auto_repeat") == 'none') {
+                    jwplayer().setConfig({
+                        repeat: false
+                    });
+                    logPlayAudioFlag = false;
                 }
                 if(sessionStorage.getItem("auto_random") == 'true') {
                     PPP.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-shuffle";

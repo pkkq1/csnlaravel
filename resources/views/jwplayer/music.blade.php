@@ -53,7 +53,7 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
                             <?php
                             if(($musicSet['type_listen'] == 'playlist' || $musicSet['type_listen'] == 'album') && !empty($musicSet['playlist_music'])){
                                 array_map(function ($i, $item) use($music) {
-                                $url = env('APP_URL').SUB_BXH_MUSIC.Helpers::music_url($item);
+                                $url = Helpers::listen_url($item);
                                 $urlAlbum = url()->current() . '?playlist='.++$i;
                                 ?>
                                     <div id="music-listen-{{$item['music_id']}}" class="card-footer{{($music->music_id == $item['music_id'] ? ' listen' : '')}}" style="display: table-row;">
@@ -446,15 +446,17 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
                 <div class="box_space"></div>
                 <div class="box_header d-flex justify-content-between align-items-end">
                     <h5 class="title m-0">Gợi ý</h5>
-                    <div class="form-group form-check mb-0 autoplay">
-                        <input type="checkbox" class="form-check-input check_auto_play" id="exampleCheck1" checked>
-                        <label class="form-check-label d-flex align-items-center" for="exampleCheck1">
-                            <span class="txt">Tự động chuyển tiếp</span>
-                            <span class="switch">
+                    @if($musicSet['type_listen'] == 'single')
+                        <div class="form-group form-check mb-0 autoplay">
+                            <input type="checkbox" class="form-check-input check_auto_play" id="exampleCheck1" checked>
+                            <label class="form-check-label d-flex align-items-center" for="exampleCheck1">
+                                <span class="txt">Tự động chuyển tiếp</span>
+                                <span class="switch">
 							<span class="switch-inner"></span>
 						</span>
-                        </label>
-                    </div>
+                            </label>
+                        </div>
+                    @endif
                 </div>
                 <ul class="list-unstyled list_music sug_music">
                     <?php
@@ -570,6 +572,7 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
         player.setup({
             width: '100%',
             height: '88',
+            repeat: false,
             aspectratio: "<?php echo $musicSet['type_jw'] == 'video' ? '16:9' : 'false' ?>",
             stretching: 'fill',
             sources: [
@@ -631,7 +634,13 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
                 viewMode: 'mini',
                 onUpdateTimeJw: false
             });
-
+            <?php
+            if($musicSet['type_jw'] != 'video') {
+            ?>
+                $('.jw-display-icon-display').css('display', 'none')
+            <?php
+            }
+            ?>
         });
         jwplayer().onTime(function () {
             new RabbitLyrics({
@@ -642,7 +651,6 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
         })
         jwplayer().onQualityLevels(function(callback){
             updateQuality(callback);
-            console.log(1);
             if(sessionStorage.getItem("auto_next") == 'true') {
                 $('.check_auto_play').prop('checked', false).change();
             }
@@ -679,17 +687,25 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
                 logPlayAudioFlag = true;
                 sessionStorage.setItem("auto_next", true);
                 setAutoNext(false);
+                jwplayer().setConfig({
+                    repeat: true
+                });
             }
         })
         function onPlayerAutoNext()
         {
-            AutoPlay();
+            AutoPlay(true);
         }
         function onPlayerAutoBack()
         {
-            console.log('back');
+            window.location.href = '<?php echo url()->previous() ?>';
         }
-        function AutoPlay(){
+        function generateRandom(min, max, except = array()) {
+            var num = Math.floor(Math.random() * (max - min + 1)) + min;
+            var valRad = (num === 8 || num === 15) ? generateRandom(min, max, except) : num;
+            return (except.indexOf(valRad) !== -1 ? generateRandom(min, max, except) : valRad);
+        }
+        function AutoPlay(float = false){
             <?php
                 if($musicSet['type_listen'] == 'single') {
                     ?>
@@ -698,36 +714,70 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
                     <?php
                 }else{
                     ?>
+                    let recommendation = $('.music_recommendation');
+                    let nextListen = 1;
+                    let maxPlaylist = <?php echo count($musicSet['playlist_music']); ?>;
+                    let activeBool = 0;
+                    recommendation.find('.card-footer').each(function(index, value) {
+                        if(activeBool) {
+                            nextListen = index + 1;
+                            return false;
+                        }
+                        if($(value).hasClass('listen')) {
+                            activeBool = index + 1;
+                        }
+                    })
+                    if(sessionStorage.getItem("auto_random") == 'true') {
+                        let keyPlaylist = (((window.location.pathname).split('.')[0]).split('/'))[2];
+                        let playlistStore = sessionStorage.getItem(keyPlaylist);
+                        if(playlistStore) {
+                            playlistStore = JSON.parse(playlistStore);
+                            if(playlistStore.length == maxPlaylist) {
+                                if(sessionStorage.getItem("auto_repeat") == 'none') {
+                                    sessionStorage.removeItem(keyPlaylist);
+                                    if(!float)
+                                        return false;
+                                }
+                                playlistStore = new Array();
+                            }
+                        }else{
+                            playlistStore = new Array();
+                            playlistStore.push(activeBool);
 
+                        }
+                        nextListen = generateRandom(1, maxPlaylist, playlistStore);
+                        playlistStore.push(nextListen);
+                        sessionStorage.setItem(keyPlaylist, JSON.stringify(playlistStore))
+                    }else{
+                        if(sessionStorage.getItem("auto_repeat") == 'none') {
+                            if(nextListen == 1 && float == false)
+                                return false;
+                        }
+                    }
+                    window.location.href = '?playlist=' + nextListen;
                     <?php
                 }
             ?>
             console.log('next');
         }
-        console.log(window.location.href);
         function autoRepeat(T){
-            if(T == 'none') {
-                jwplayer().setConfig({
-                    repeat: false
-                });
-                sessionStorage.setItem("auto_repeat", 'none');
-            }
             if(T == 'one') {
                 jwplayer().setConfig({
                     repeat: true
                 });
+                logPlayAudioFlag = true;
                 sessionStorage.setItem("auto_repeat", 'one');
             }
-            if(T == 'all') {
+            if(T == 'all' || T == 'none') {
                 jwplayer().setConfig({
                     repeat: false
                 });
-                sessionStorage.setItem("auto_repeat", 'all');
+                logPlayAudioFlag = false;
+                sessionStorage.setItem("auto_repeat", T);
             }
         }
         function autoRandom(F){
             if(F) {
-                console.log('next random');
                 sessionStorage.setItem("auto_random", true);
             }else{
                 sessionStorage.setItem("auto_random", false);

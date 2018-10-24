@@ -13,6 +13,7 @@ use App\Library\Helpers;
 use App\Repositories\Music\MusicEloquentRepository;
 use App\Repositories\Playlist\PlaylistEloquentRepository;
 use App\Repositories\MusicListen\MusicListenEloquentRepository;
+use App\Repositories\Video\VideoEloquentRepository;
 use App\Repositories\Category\CategoryEloquentRepository;
 use App\Repositories\Cover\CoverEloquentRepository;
 use Illuminate\Support\Facades\Auth;
@@ -26,15 +27,17 @@ class MusicController extends Controller
      * @return void
      */
     protected $musicRepository;
+    protected $videoRepository;
     protected $playlistRepository;
     protected $musicListenRepository;
     protected $categoryListenRepository;
     protected $coverRepository;
 
     public function __construct(MusicEloquentRepository $musicRepository, PlaylistEloquentRepository $playlistRepository, MusicListenEloquentRepository $musicListenRepository,
-                                CategoryEloquentRepository $categoryListenRepository, CoverEloquentRepository $coverRepository)
+                                CategoryEloquentRepository $categoryListenRepository, CoverEloquentRepository $coverRepository, VideoEloquentRepository $videoRepository)
     {
         $this->musicRepository = $musicRepository;
+        $this->videoRepository = $videoRepository;
         $this->playlistRepository = $playlistRepository;
         $this->musicListenRepository = $musicListenRepository;
         $this->categoryListenRepository = $categoryListenRepository;
@@ -56,7 +59,11 @@ class MusicController extends Controller
         } catch (Exception $e) {
             return view('errors.errors')->with('e');
         }
-        $music = $this->musicRepository->findOnlyMusicId($arrUrl['id']);
+        if($cat == CAT_VIDEO_URL) {
+            $music = $this->videoRepository->findOnlyMusicId($arrUrl['id']);
+        }else{
+            $music = $this->musicRepository->findOnlyMusicId($arrUrl['id']);
+        }
         if(!$music)
             return view('errors.404');
         // +1 view
@@ -97,12 +104,14 @@ class MusicController extends Controller
             if(!$playlist)
                 return view('errors.404');
             $typeListen = 'playlist';
-            if(($playlist->music || $playlist->music)) {
+            if(($playlist->music || $playlist->video)) {
                 $playlistMusic = array_merge($playlist->music->toArray(), $playlist->video->toArray());
             }
         }
         if($playlistMusic) {
             $music = $this->musicRepository->findOnlyMusicId($playlistMusic[$request->playlist ? $request->playlist - 1 : 0]['music_id']);
+        }else{
+            return view('errors.text_error')->with('message', 'Nội dung playlist không có.');
         }
         if(!$music)
             return view('errors.404');

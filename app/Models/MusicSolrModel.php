@@ -9,10 +9,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class VideoModel extends Model
+class MusicSolrModel extends Model
 {
     public $timestamps = false;
-    protected $table = 'csn_video';
+    protected $table = 'csn_music_solr';
     protected $primaryKey = 'music_id';
     protected $fillable =
         [

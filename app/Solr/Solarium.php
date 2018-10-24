@@ -30,23 +30,17 @@ class Solarium
         try{
             $temp = '';
             foreach ($search as $key => $item) {
-//                $temp = $temp . $key . ':*' . $item . '* | ';
-            }
-            $query->setQuery("music_title_no_space:*chạmđa* | music_title_charset:*chamda*");
-
-
-            $query->addFilterQuery(array('key'=>'music_title_no_space', 'query'=>'music_title_no_space:*chạmđá*'));
-//            $query->addFilterQuery(array('key'=>'music_title_charset', 'query'=>'music_title_charset:*chamda*'));
-
-            foreach ($search as $key => $item) {
+                $temp = $temp . $key . ':' . $item . ' | ';
 //                $query->addFilterQuery(array('key' => $key, 'query' => $key . ':*' . $item . '*'));
+//                $query->addFilterQuery(array('key' => $key, 'query' => $key . ':' . $item ));
             }
+            $query->setQuery($temp);
             $rows = $perPage;
 
             $query->setStart(($page == 1 ? 0 : $page - 1) * $rows)->setRows($rows); // perpage, rows
             if($sort) {
                 foreach ($sort as $key => $val) {
-//                    $query->addSort($key, $val);
+                    $query->addSort($key, $val);
                 }
             }
             $data = [];
@@ -55,7 +49,6 @@ class Solarium
 //          $facetSet->createFacetField('stock')->setField('inStock');
             $resultset = $this->client->select($query);
             // show documents using the resultset iterator
-            dd($resultset);
             foreach ($resultset as $document) {
                 $data[] = $document;
             }
@@ -75,12 +68,15 @@ class Solarium
             ];
         }
     }
-    public function searchCurl($search = array(), $page = 1, $perPage = 10, $sort = array(), $select = array()) {
+    public function searchCurl($search = array(), $page = 1, $perPage = 10, $sort = '', $select = array()) {
         $ch = curl_init();
         $url = env("SOLR_HOST").':'.env("SOLR_PORT").env("SOLR_PATH").env("SOLR_CORE").'/select?q=';
         foreach ($search as $key => $item) {
-//            $url = $url . $key . ':' . urlencode($item) . '*%20|%20';
+            $url = $url . $key . ':' . urlencode($item) . '*%20|%20';
             $url = $url . $key . ':*' . urlencode($item) . '*%20|%20';
+        }
+        if($sort) {
+            $url = $url . $sort;
         }
         $url = $url.'&rows='.$perPage.'&start='.(($page == 1 ? 0 : $page - 1) * $perPage);
 //        var_dump($url);exit;

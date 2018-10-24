@@ -400,6 +400,10 @@ class Helpers
     {
         return ($cover_id > 0) ? self::cover_path($cover_id) . $cover_id . '.jpg' : '/imgs/no_cover.jpg';
     }
+    public static function artist_cover($artist_id)
+    {
+        return self::cover_path($artist_id) . $artist_id . '.jpg';
+    }
 
     public static function khongdau($str)
     {

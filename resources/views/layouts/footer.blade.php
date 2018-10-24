@@ -47,7 +47,7 @@
                     '  <li class="media align-items-stretch">' +
                     '      <div class="media-left align-items-stretch mr-2">' +
                     '          <a href="' + value.music_link + '" title="' + value.music_title + '">' +
-                    '              <img src="' + value.music_cover + '" alt="' + value.music_title + '">' +
+                    // '              <img src="' + value.music_cover + '" alt="' + value.music_title + '">' +
                     '              <i class="material-icons">play_circle_outline</i>' +
                     '          </a>' +
                     '      </div>' +
@@ -74,14 +74,14 @@
                 artist = artist +
                     '  <li class="media align-items-stretch">' +
                     '      <div class="media-left align-items-stretch mr-2">' +
-                    '          <a href="' + value.artist_link + '" title="' + value.artist_nickname + '">' +
+                    '          <a href="/ca-si/' + value.artist_link + '" title="' + value.artist_nickname + '">' +
                     '              <img src="' + value.artist_cover + '" alt="' + value.artist_nickname + '">' +
                     '              <i class="material-icons">play_circle_outline</i>' +
                     '          </a>' +
                     '      </div>' +
                     '      <div class="media-body align-self-center d-flex flex-column justify-content-between p-0">' +
                     '          <div>' +
-                    '              <h5 class="media-title mt-0 mb-0">' + searchHighlight(q, value.artist_nickname) + '</h5>' +
+                    '              <h5 class="media-title mt-0 mb-0"><a href="/ca-si/' + value.artist_link + '" title="' + value.artist_nickname + '">' + searchHighlight(q, value.artist_nickname) + '</a></h5>' +
                     '          </div>' +
                     '      </div>' +
                     '  </li>';
