@@ -98,6 +98,7 @@ Route::group(['middlewareGroups' => ['web']], function () {
     Route::get('embed/mp3/{music}', 'MusicController@embed');
     // ajax comment
     Route::post('binh-luan/get_ajax', ['as' => 'comment.get_ajax', 'uses' => 'CommentController@getAjaxCommentByMusicId']);
+    Route::get('music/history_listen', ['as' => 'music.history_listen', 'uses' => 'MusicController@historyListen']);
 
 
 
@@ -120,9 +121,6 @@ Route::group(['middlewareGroups' => ['web']], function () {
         // Comment
         Route::post('comment/post', ['as' => 'comment.create', 'uses' => 'CommentController@postComment']);
 
-        // User
-        Route::get('user/{id}', ['as' => 'user.index', 'uses' => 'User\UserController@index']);
-
         // Playlist
         Route::prefix('user/playlist/')->group(function () {
             Route::get('danh-sach-playlist', ['as' => 'playlist.play_list', 'uses' => 'PlaylistController@getPlayList']);
@@ -137,7 +135,10 @@ Route::group(['middlewareGroups' => ['web']], function () {
         });
 
         // User
-        Route::post('user/update', ['as' => 'user.index', 'uses' => 'User\UserController@store']);
+        Route::prefix('user/')->group(function () {
+            Route::get('{id}', ['as' => 'user.index', 'uses' => 'User\UserController@index']);
+            Route::post('update', ['as' => 'user.index', 'uses' => 'User\UserController@store']);
+        });
 
         Route::get('roles',['as'=>'roles.index','uses'=>'RoleController@index']);
         Route::get('roles/create',['as'=>'roles.create','uses'=>'RoleController@create']);
@@ -157,8 +158,6 @@ Route::group(['middlewareGroups' => ['web']], function () {
         Route::get('itemCRUD2/{id}/edit',['as'=>'itemCRUD2.edit','uses'=>'ItemCRUD2Controller@edit','middleware' => ['permission:item-edit']]);
         Route::patch('itemCRUD2/{id}',['as'=>'itemCRUD2.update','uses'=>'ItemCRUD2Controller@update','middleware' => ['permission:item-edit']]);
         Route::delete('itemCRUD2/{id}',['as'=>'itemCRUD2.destroy','uses'=>'ItemCRUD2Controller@destroy','middleware' => ['permission:item-delete']]);
-
-
     });
 
 });

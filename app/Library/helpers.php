@@ -735,8 +735,8 @@ class Helpers
         );
     }
     public static function MusicCookie($request, $music) {
-        $musicHistory = unserialize($request->cookie('music_history'));
-        if($musicHistory) {
+        if(isset($_COOKIE['music_history'])) {
+            $musicHistory = unserialize($_COOKIE['music_history']);
             $musicHistory = array_slice(array_reverse($musicHistory),0, LIMIT_HISTORY_MUSIC);
             $musicHistory = array_diff(array_reverse($musicHistory), [$music->music_id]);
             array_push($musicHistory, $music->music_id);
@@ -744,9 +744,9 @@ class Helpers
             $musicHistory[] = $music->music_id;
         }
         $musicHistorySer = serialize($musicHistory);
-        $cookie = cookie('music_history', $musicHistorySer,  36000);
+        setcookie('music_history', $musicHistorySer, time()+31536000,'/');
         return [
-            'cookie' => $cookie,
+            'cookie' => $musicHistorySer,
             'value' => $musicHistory
         ];
 

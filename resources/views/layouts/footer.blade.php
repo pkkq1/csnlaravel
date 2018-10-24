@@ -476,7 +476,41 @@
         tag.addClass('input-has-error');
         tag.before('<span class="input-help-block"><strong>' + content + '</strong></span>');
     }
-
+    var loadHistory = true;
+    function showHistoryMusic() {
+        if(loadHistory) {
+            $.ajax({
+                url: "/music/history_listen",
+                type: "GET",
+                dataType: "json",
+                data: {},
+                beforeSend: function () {
+                },
+                success: function(data) {
+                    loadPlaylist = false;
+                    var stringBoxHtml = '';
+                    if(data) {
+                        $.each(data, function (index, val) {
+                            stringBoxHtml += '<a href="' + val.link + '" class="list-group-item list-group-item-action d-flex title_playlist">' + val.title + '</a>';
+                        });
+                    }
+                    $('.box_show_history_music .list-group').html(stringBoxHtml);
+                }
+            });
+        }
+        $('.box_history_music').css('display', 'inherit');
+        $('body').append('<div id="boxOutPlaylist" style="display: block; z-index: 99999;" role="dialog" class="modal"> </div>');
+        window.onclick = function(event) {
+            if(event.target == document.getElementById('boxOutPlaylist')) {
+                $('.box_history_music').css('display', 'none');
+                $('#boxOutPlaylist').remove();
+            }
+        }
+    }
+    $('.box_history_music').find('.close').on('click', function () {
+        $('.box_history_music').css('display', 'none');
+        $('#boxOutPlaylist').remove();
+    })
 </script>
 
 <footer id="footer">

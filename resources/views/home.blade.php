@@ -11,7 +11,6 @@ global $video_new_uploads;
 global $hot_music_rows;
 
 global $top_artist_rows;
-
 ?>
 
 @extends('layouts.app')
@@ -161,7 +160,7 @@ global $top_artist_rows;
                                     <small class="time_stt"><?php echo Helpers::timeElapsedString($item['music_last_update_time']); ?></small>
                                     <ul class="list-inline">
                                         <li class="list-inline-item"><a href="{{$url}}" target="_blank" title="nghe riêng nhạc {{$item['music_title']}}"><i class="material-icons">headset</i></a></li>
-                                        <li class="list-inline-item"><a onclick="addPlaylistTable('{{$item['music_title']}}', {{$item['music_id']}}, {{isset($item['music_artist']) ? "'".$item['music_artist']."'" : "'false'"}}, {{isset($item['music_artist_id']) ? "'".$item['music_artist_id']."'" : "'false'"}})" href="javascript:void(0)" title="thêm vào playlist"><i class="material-icons">playlist_add</i></a></li>
+                                        <li class="list-inline-item"><a onclick="addPlaylistTable('{{$item['music_title']}}', '{{$item['music_id']}}', '{{isset($item['music_artist']) ? $item['music_artist'] : "false"}}', '{{isset($item['music_artist_id']) ? $item['music_artist_id'] : "false"}}')" href="javascript:void(0)" title="thêm vào playlist"><i class="material-icons">playlist_add</i></a></li>
                                         <li class="list-inline-item"><a href="{{MUSIC_PATH.$item['music_filename']}}" target="_blank" title="download {{$item['music_title']}}"><i class="material-icons">file_download</i></a></li>
                                         <li class="list-inline-item"><a href="{{Helpers::fbShareLink($url)}}" target="_blank" title="chia sẻ {{$item['music_title']}}"><i class="material-icons">share</i></a></li>
                                     </ul>
@@ -211,13 +210,13 @@ global $top_artist_rows;
                         ?>
                     </ul>
                 </div>
-                <div class="box_show_add_playlist card" style="display: none" id="answer-12878316">
+                <div class="box_show_add_playlist show_add_playlist card" style="display: none" id="answer-12878316">
                     <div class="card-body d-flex flex-column">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <i class="material-icons">close</i>
                         </button>
                         <h5 class="card-title box_add_playlist"></h5>
-                        <div class="box_show_playlist_popup mb-2">
+                        <div class="box_show_playlist_popup box_show_playlist mb-2">
                             <div class="list-group">
 
                             </div>
@@ -513,7 +512,7 @@ global $top_artist_rows;
             ?>
         if(loadPlaylist) {
             $.ajax({
-                url: "/playlist/user/danh-sach-playlist",
+                url: "/user/playlist/danh-sach-playlist",
                 type: "GET",
                 dataType: "json",
                 data: {},
@@ -522,14 +521,13 @@ global $top_artist_rows;
                 success: function(data) {
                     if(data.success) {
                         loadPlaylist = false;
-                        var stringHtml = '';
                         var stringBoxHtml = '';
                         if(data.data) {
                             $.each(data.data, function (index, val) {
                                 stringBoxHtml += stringItemBoxPlaylist(val.playlist_title, val.playlist_music_total, val.playlist_id, val.music_exist, val.playlist_time);
                             });
                         }
-                        $('.box_show_playlist_popup .list-group').html(stringBoxHtml);
+                        $('.box_show_playlist .list-group').html(stringBoxHtml);
                     }else{
                         alertModal(data.message);
                     }
@@ -612,11 +610,11 @@ global $top_artist_rows;
         boxArtists = setArtist;
         boxArtistIds = setArtistId;
         $('.box_add_playlist').html('Thêm bài hát ' + musicName + ' vào danh sách Playlist');
-        $('.box_show_add_playlist').css('display', 'inherit');
-        $('body').append('<div id="boxOutPlaylist" style="display: block; z-index: 99999;" role="dialog" class="modal"> </div>')
+        $('.show_add_playlist').css('display', 'inherit');
+        $('body').append('<div id="boxOutPlaylist" style="display: block; z-index: 99999;" role="dialog" class="modal"> </div>');
         window.onclick = function(event) {
             if(event.target == document.getElementById('boxOutPlaylist')) {
-                $('.box_show_add_playlist').css('display', 'none');
+                $('.show_add_playlist').css('display', 'none');
                 $('#boxOutPlaylist').remove();
             }
         }
@@ -625,17 +623,18 @@ global $top_artist_rows;
     function addBoxMusicPlaylist(playlist_id) {
         addMusicPlaylist(playlist_id, boxMusicId, boxArtists, boxArtistIds);
     }
-    $('.box_show_add_playlist').find('.close').on('click', function () {
-        $('.box_show_add_playlist').css('display', 'none');
+    $('.show_add_playlist').find('.close').on('click', function () {
+        $('.show_add_playlist').css('display', 'none');
+        $('#boxOutPlaylist').remove();
     })
-    $(".box_show_add_playlist").draggable();
+    $(".show_add_playlist").draggable();
 </script>
 <style>
-    .box_show_add_playlist{
+    .show_add_playlist {
         left: 275.5px;
         top: 980px;
     }
-    .box_show_add_playlist .card-body{
+    .show_add_playlist .card-body{
         padding: 10px!important;
     }
 </style>

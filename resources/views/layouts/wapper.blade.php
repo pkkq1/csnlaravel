@@ -1,6 +1,6 @@
 <header id="header" class="">
     <div class="top">
-        <div class="container">
+        <div class="container" style="position: relative;">
             <div class="d-flex align-items-center justify-content-between">
                 <figure class="m-0">
                     <a href="{{env('APP_URL')}}/" title="" class="logo">
@@ -26,10 +26,24 @@
                         <li class="list-inline-item">/</li>
                         <li class="list-inline-item"><a href="javascript:void(0)" onclick="switchAuth('myModal_register')" title="Đăng ký">Đăng ký</a></li>
                     @endif
+                        <li class="list-inline-item" style="position: relative;"><i onclick="showHistoryMusic()" class="material-icons history-music" style="position: inherit;top: 8px; cursor: pointer;">queue_music</i></li>
                 </ul>
+            </div>
+            <div class="box_history_music box_show_add_playlist card" style="display: none" id="answer-12878316">
+                <div class="card-body d-flex flex-column">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <i class="material-icons">close</i>
+                    </button>
+                    <h5 class="card-title title_history_music">Danh sách nhạc đã nghe</h5>
+                    <div class="box_show_playlist_popup box_show_history_music mb-2" style="height: 140px;">
+                        <div class="list-group">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
     <nav class="bottom navbar navbar-expand-lg navbar-light bg-light ghw-bottom-header">
         <div class="collapse navbar-collapse container" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">

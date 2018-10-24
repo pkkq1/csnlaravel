@@ -66,7 +66,7 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
                                         <div class="tool d-table-cell text-right">
                                             <ul class="list-inline d-flex align-items-center justify-content-end">
                                                 <li class="list-inline-item"><a href="{{$url}}" title="nghe riêng nhạc {{$item['music_title']}}"><i class="material-icons">headset</i></a></li>
-                                                <li class="list-inline-item"><a onclick="addPlaylistTable('{{str_replace("'", "\'", $item['music_title'])}}', {{$item['music_id']}}, {{isset($item['music_artist']) ? "'".str_replace("'", "\'", $item['music_artist'])."'" : "'false'"}}, {{isset($item['music_artist_id']) ? "'".$item['music_artist_id']."'" : "'false'"}})" href="javascript:void(0)" title="thêm vào playlist"><i class="material-icons">playlist_add</i></a></li>
+                                                <li class="list-inline-item"><a onclick="addPlaylistTable('{{$item['music_title']}}', '{{$item['music_id']}}', '{{isset($item['music_artist']) ? $item['music_artist'] : "false"}}', '{{isset($item['music_artist_id']) ? $item['music_artist_id'] : "false"}}')" href="javascript:void(0)" title="thêm vào playlist"><i class="material-icons">playlist_add</i></a></li>
                                                 <li class="list-inline-item"><a href="{{MUSIC_PATH.$item['music_filename']}}" title="download {{$item['music_title']}}"><i class="material-icons">file_download</i></a></li>
                                                 <li class="list-inline-item"><a href="{{Helpers::fbShareLink($url)}}" title="chia sẻ {{$item['music_title']}}"><i class="material-icons">share</i></a></li>
                                             </ul>
@@ -75,13 +75,13 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
                                     <?php
                                     },array_keys($musicSet['playlist_music']), $musicSet['playlist_music']);
                                 ?>
-                                <div class="box_show_add_playlist card" style="display: none" id="answer-12878316">
+                                <div class="box_show_add_playlist card show_add_playlist" style="display: none" id="answer-12878316">
                                     <div class="card-body d-flex flex-column">
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <i class="material-icons">close</i>
                                         </button>
                                         <h5 class="card-title box_add_playlist"></h5>
-                                        <div class="box_show_playlist_popup mb-2">
+                                        <div class="box_show_playlist box_show_playlist_popup mb-2">
                                             <div class="list-group">
 
                                             </div>
@@ -1007,7 +1007,7 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
                                 });
                             }
                             $('.playlist-csn ul').html(stringHtml);
-                            $('.box_show_playlist_popup .list-group').html(stringBoxHtml);
+                            $('.box_show_playlist .list-group').html(stringBoxHtml);
                         }else{
                             alertModal(data.message);
                         }
@@ -1062,7 +1062,7 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
                         $('.box_show_playlist_popup .list-group').append(stringItemBoxPlaylist(data.data.playlist_title, data.data.playlist_music_total, data.data.playlist_id, false, data.data.playlist_time));
                         titlePlaylist.val("");
                         $('.playlist-csn').animate({scrollTop: $('.playlist-csn .list-unstyled').height()}, 'slow');
-                        $('.box_show_playlist_popup').animate({scrollTop: $('.box_show_playlist_popup .list-group').height()}, 'slow');
+                        $('.box_show_playlist').animate({scrollTop: $('.box_show_playlist_popup .list-group').height()}, 'slow');
                     }else{
                         alertModal(data.message);
                     }
@@ -1106,11 +1106,11 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
             boxArtists = setArtist;
             boxArtistIds = setArtistId;
             $('.box_add_playlist').html('Thêm bài hát ' + musicName + ' vào danh sách Playlist');
-            $('.box_show_add_playlist').css({'display': 'inherit', 'top': ($('.music_recommendation').offset().top - 200) + 'px'});
+            $('.show_add_playlist').css({'display': 'inherit', 'top': ($('.music_recommendation').offset().top - 200) + 'px'});
             $('body').append('<div id="boxOutPlaylist" style="display: block; z-index: 99999;" role="dialog" class="modal"> </div>')
             window.onclick = function(event) {
                 if(event.target == document.getElementById('boxOutPlaylist')) {
-                    $('.box_show_add_playlist').css('display', 'none');
+                    $('.show_add_playlist').css('display', 'none');
                     $('#boxOutPlaylist').remove();
                 }
             }
@@ -1119,10 +1119,10 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
         function addBoxMusicPlaylist(playlist_id) {
             addMusicPlaylist(playlist_id, boxMusicId, boxArtists, boxArtistIds);
         }
-        $('.box_show_add_playlist').find('.close').on('click', function () {
-            $('.box_show_add_playlist').css('display', 'none');
+        $('.show_add_playlist').find('.close').on('click', function () {
+            $('.show_add_playlist').css('display', 'none');
         })
-        $(".box_show_add_playlist").draggable();
+        $(".show_add_playlist").draggable();
 
         var lyric_expand = '<p>Xem thêm lời bài hát <img src="/imgs/xt3.gif"></p>';
         var lyric_collapse = '<p>Thu gọn <img src="/imgs/xt4.gif"></p>';
