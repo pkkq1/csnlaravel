@@ -701,8 +701,7 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
             window.location.href = '<?php echo url()->previous() ?>';
         }
         function generateRandom(min, max, except = array()) {
-            var num = Math.floor(Math.random() * (max - min + 1)) + min;
-            var valRad = (num === 8 || num === 15) ? generateRandom(min, max, except) : num;
+            var valRad = Math.floor(Math.random() * (max - min + 1)) + min;
             return (except.indexOf(valRad) !== -1 ? generateRandom(min, max, except) : valRad);
         }
         function AutoPlay(float = false){
