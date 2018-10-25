@@ -476,7 +476,8 @@
 }
 .title_history_music {
     color: #2c2c2c;
-    font-size: 15px!important;
+    font-size: 14px!important;
+    margin-bottom: 9px!important;
 }
 .box_show_history_music {
     padding: 3px!important;
@@ -1083,8 +1084,8 @@ form#login-form {
     background-color: #FF2E55!important;
     /*transition: width 0.05s!important;*/
 }
-.box_history_music::before {
-    left: 122px;
+.box_history_music::after {
+    left: 120px;
     border: solid transparent;
     content: " ";
     position: absolute;
