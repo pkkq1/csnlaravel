@@ -458,7 +458,7 @@
     left: 537.5px;
 }
 .box_history_music {
-    width: 330px;
+    width: 370px;
     top: 46px;
     right: 15px;
     left: auto;
@@ -476,6 +476,11 @@
 }
 .title_history_music {
     color: #2c2c2c;
+    font-size: 15px!important;
+}
+.box_show_history_music {
+    padding: 3px!important;
+    margin-bottom: 0px!important;
 }
 .modal {
     z-index: 9999999;
@@ -1079,7 +1084,7 @@ form#login-form {
     /*transition: width 0.05s!important;*/
 }
 .box_history_music::before {
-    left: 82px;
+    left: 122px;
     border: solid transparent;
     content: " ";
     position: absolute;

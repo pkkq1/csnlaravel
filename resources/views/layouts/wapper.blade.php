@@ -35,7 +35,7 @@
                         <i class="material-icons">close</i>
                     </button>
                     <h5 class="card-title title_history_music">Bài hát vừa nghe</h5>
-                    <div class="box_show_playlist_popup box_show_history_music mb-2" style="height: 200px;">
+                    <div class="box_show_playlist_popup box_show_history_music mb-2" style="height: 230px;">
                         <div class="list-group">
                         </div>
                     </div>
