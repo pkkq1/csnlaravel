@@ -70,6 +70,11 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
 
         return $result;
     }
+    public function musicByUser($musicId, $fillOrder, $typeOrder, $page)
+    {
+        $result = $this->_model::where('music_user_id', $musicId)->orderBy($fillOrder, $typeOrder)->with('user')->paginate($page);
+        return $result;
+    }
     public function incrementCol($id, $field)
     {
         $result = $this
@@ -131,6 +136,22 @@ global $video;
 $sug = ' . var_export($cacheTotal, true) . ';
 $video = ' . var_export($video ? $video->toArray(): [], true) . ';
 ?>');
+    }
+    public static function getHistoryRecents($tempStr) {
+        $query  = "SELECT *
+            FROM
+            (
+            (SELECT music_id, cat_id, cat_level, cover_id, music_title, music_title_url, music_artist
+            FROM csn_music
+            WHERE music_id in (".$tempStr."))
+            UNION All
+            (SELECT music_id, cat_id, cat_level, cover_id, music_title, music_title_url, music_artist
+            FROM csn_video
+            WHERE music_id in (".$tempStr."))
+            ) tbl
+            ORDER BY FIELD(music_id, ".$tempStr.")";
+        $result = DB::connection( 'mysql' )->select( $query );
+        return $result;
     }
 }
 

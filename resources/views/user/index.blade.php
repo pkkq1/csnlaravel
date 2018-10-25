@@ -2,38 +2,39 @@
 <?php
 use App\Library\Helpers;
 $titleMeta = $user->name . ' - '. Config::get('constants.app.title');
+$mySelf = (Auth::check() && Auth::user()->id == $user->id);
 ?>
 @extends('layouts.app')
 @section('contentCSS')
     <link rel="stylesheet" type="text/css" href="/css/croppie.css">
 @endsection
 @section('content')
-@include('user.box_profile', ['user' => $user])
+@include('user.box_profile', ['user' => $user, 'mySelf' => $mySelf])
 <div class="container">
     <div class="row row_wrapper">
         <div class="col-md-9">
             <ul class="nav nav-tabs nav-justified nav_bxh" id="myTab" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link active" id="playlist-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Playlist</a>
+                    <a class="nav-link active" id="playlist-tab" data-toggle="tab" href="#playlist" role="tab" aria-controls="home" aria-selected="true">Playlist</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="music-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false"><i class="material-icons" style="font-size: 11px;">favorite_border</i> Bài Hát</a>
+                    <a class="nav-link" id="music-tab" data-toggle="tab" href="#music" role="tab" aria-controls="profile" aria-selected="false"><i class="material-icons" style="font-size: 11px;">favorite_border</i> Bài Hát</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="video-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false"><i class="material-icons" style="font-size: 11px;">favorite_border</i> Video</a>
+                    <a class="nav-link" id="video-tab" data-toggle="tab" href="#video" role="tab" aria-controls="contact" aria-selected="false"><i class="material-icons" style="font-size: 11px;">favorite_border</i> Video</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="recent-music-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Vừa nghe</a>
+                    <a class="nav-link" id="recent-music-tab" data-toggle="tab" href="#recent" role="tab" aria-controls="home" aria-selected="true">Vừa nghe</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="your-upload-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Tủ nhạc</a>
+                    <a class="nav-link" onclick="musicUser('/user/music_uploaded')" id="your-upload-tab" data-toggle="tab" href="#uploaded" role="tab" aria-controls="profile" aria-selected="false">Tủ nhạc</a>
                 </li>
             </ul>
             <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="playlist-tab">
+                <div class="tab-pane fade show active" id="playlist" role="tabpanel" aria-labelledby="playlist-tab">
                     <div class="d-flex align-items-center justify-content-between" id="header_playlist">
                         <h3 class="title">playlist | album</h3>
-                        @if(Auth::check() && Auth::user()->id == $user->id)
+                        @if($mySelf)
                         <span><a class="btn btn-danger" href="/user/playlist/them" title="Tạo playlist"><i class="fa fa-pencil" aria-hidden="true"></i> Tạo playlist</a><a class="btn btn-secondary" href="/user/playlist/chinh-sua" title=""><i class="fa fa-pencil" aria-hidden="true"></i> Chỉnh sửa</a></span>
                         @endif
                     </div>
@@ -61,10 +62,10 @@ $titleMeta = $user->name . ' - '. Config::get('constants.app.title');
                         @endforeach
                     </div>
                 </div>
-                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="music-tab">...</div>
-                <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="video-tab">...</div>
-                <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="recent-music-tab">...</div>
-                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="your-upload-tab">...</div>
+                <div class="tab-pane fade" id="music" role="tabpanel" aria-labelledby="music-tab">...</div>
+                <div class="tab-pane fade" id="video" role="tabpanel" aria-labelledby="video-tab">...</div>
+                <div class="tab-pane fade" id="recent" role="tabpanel" aria-labelledby="recent-music-tab">...</div>
+                <div class="tab-pane fade" id="uploaded" role="tabpanel" aria-labelledby="your-upload-tab">...</div>
             </div>
         </div>
         <div class="col-md-3">
@@ -101,4 +102,26 @@ $titleMeta = $user->name . ' - '. Config::get('constants.app.title');
 
         </div>
     </div>
+    <script>
+        function musicUser(url) {
+            $.ajax({
+                url: url,
+                type: "POST",
+                dataType: "json",
+                data: {
+                    'user_id': <?php echo $user->id; ?>
+                },
+                beforeSend: function () {
+                },
+                success: function(response) {
+                    $('#uploaded').html(response);
+                    $('#uploaded').find('.pagination li a').on('click', function (e) {
+                        e.preventDefault();
+                        musicUser($(this).attr('href'));
+                        pageComment = $(this).html();
+                    });
+                }
+            });
+        }
+    </script>
 @endsection

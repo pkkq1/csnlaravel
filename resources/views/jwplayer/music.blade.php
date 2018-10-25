@@ -533,7 +533,9 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
         jwplayer.key="dWwDdbLI0ul1clbtlw+4/UHPxlYmLoE9Ii9QEw==";
         var player = jwplayer('csnplayer');
         var firstPlayer = true;
-
+        <?php
+        if($musicSet['type_jw'] != 'video') {
+            ?>
         jwplayer("csnplayerads").setup({
             advertising: {
                 client: "vast",
@@ -568,6 +570,10 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
             file: "http://chiasenhac.vn/images/logo/logo_csn.mp4",
             events: { "onComplete": function() { $('#csnplayerads').remove(); } }
         });
+            <?php
+        }
+        ?>
+
 
         player.setup({
             width: '100%',

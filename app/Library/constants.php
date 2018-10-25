@@ -11,7 +11,7 @@ define('LOSSLESS', 'Lossless');
 define('UPDATE_CASE_SUGGESTION_MUSIC', 604800); // 1 will week
 define('UPDATE_CASE_SUGGESTION_MUSIC_ONCE', false);
 define('CATEGORY_ID_VIDEO', 1);
-define('LIMIT_HISTORY_MUSIC', 10);
+define('LIMIT_HISTORY_MUSIC', 20);
 define('LIMIT_HOME_ALBUM_OLD', 10);
 define('LIMIT_HOME_ALBUM_NEW', 20);
 define('LIMIT_HOME_ALBUM_NEW_BOTTOM', 10);
@@ -23,7 +23,8 @@ define('LIMIT_SEARCH_RESULT', 20);
 define('DEFAULT_ROOT_CACHE_MUSIC_PATH', $_SERVER['DOCUMENT_ROOT'].'/storage/data/cache_upload');
 define('LYRIC_DETAIL_NEW_MUSIC', 5);
 define('LYRIC_DETAIL_NEW_ALBUM', 5);
-define('LITMIT_COMMENT', 10);
+define('LIMIT_COMMENT', 10);
+define('LIMIT_PAGE_MUSIC_UPLOADED', 20);
 define('LITMIT_TITLE_PLAYLIST', 2);
 define('TIME_EXPIRY_ADD_LISTEN_MUSIC', '+1 hour');
 define('KEY_ID_PLAYLIST_ENCODE_URL', 'csn_playlist~');

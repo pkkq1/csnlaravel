@@ -1078,3 +1078,14 @@ form#login-form {
     background-color: #FF2E55!important;
     /*transition: width 0.05s!important;*/
 }
+.box_history_music::before {
+    left: 82px;
+    border: solid transparent;
+    content: " ";
+    position: absolute;
+    border-top-color: #fff;
+    border-width: 7px;
+    margin-left: -15px;
+    transform: rotateX(180deg);
+    top: -14px;
+}

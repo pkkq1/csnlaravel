@@ -92,7 +92,7 @@ class CommentController extends Controller
     }
     function getAjaxCommentByMusicId(Request $request){
         if($request->input('music_id')) {
-            $comment = $this->commentRepository->findByMusicId($request->input('music_id'), 'comment_time', 'desc', LITMIT_COMMENT);
+            $comment = $this->commentRepository->findByMusicId($request->input('music_id'), 'comment_time', 'desc', LIMIT_COMMENT);
             $pagingHtml = $comment->links();
             $comment = $comment->toArray();
             $arrId = array();

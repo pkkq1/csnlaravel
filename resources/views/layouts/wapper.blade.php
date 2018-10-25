@@ -9,12 +9,13 @@
                     <figcaption class="d-none">explanatory caption</figcaption>
                 </figure>
                 <form action="{{env('APP_URL')}}/tim-kiem">
-                    <div class="form-group m-0">
+                    <div class="form-group m-0" style="float:left">
                         <i class="material-icons">search</i>
                         <input type="text" name="q" class="form-control" value="{{(isset($search) ? $search : '')}}"  class="biginput" id="search_autocomplete" placeholder="nhập bài hát, video, tên nghệ sỹ bạn cần tìm...">
                         <div class="search_layout card suggest">
                         </div>
                     </div>
+                    <a class="list-inline-item" style="position: relative; float:left; margin-left: 25px; margin-right: -49px;"><i onclick="showHistoryMusic()" class="material-icons history-music" style="position: inherit;top: 5px; cursor: pointer;">history</i></a>
                 </form>
                 <ul class="list-inline m-0">
                     @if(Auth::check())
@@ -26,7 +27,6 @@
                         <li class="list-inline-item">/</li>
                         <li class="list-inline-item"><a href="javascript:void(0)" onclick="switchAuth('myModal_register')" title="Đăng ký">Đăng ký</a></li>
                     @endif
-                        <li class="list-inline-item" style="position: relative;"><i onclick="showHistoryMusic()" class="material-icons history-music" style="position: inherit;top: 8px; cursor: pointer;">queue_music</i></li>
                 </ul>
             </div>
             <div class="box_history_music box_show_add_playlist card" style="display: none" id="answer-12878316">
@@ -34,8 +34,8 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <i class="material-icons">close</i>
                     </button>
-                    <h5 class="card-title title_history_music">Danh sách nhạc đã nghe</h5>
-                    <div class="box_show_playlist_popup box_show_history_music mb-2" style="height: 140px;">
+                    <h5 class="card-title title_history_music">Bài hát vừa nghe</h5>
+                    <div class="box_show_playlist_popup box_show_history_music mb-2" style="height: 200px;">
                         <div class="list-group">
                         </div>
                     </div>

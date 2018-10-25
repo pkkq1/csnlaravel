@@ -205,15 +205,16 @@ class MusicController extends Controller
         if(isset($_COOKIE['music_history'])) {
             $musicHistory = array_reverse(unserialize($_COOKIE['music_history']));
             $tempStr = implode(',', $musicHistory);
-            $musics = $this->musicRepository->getModel()::select('music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title', 'music_title_url')
-                ->whereIn('music_id', $musicHistory)
-                ->orderByRaw(DB::raw("FIELD(music_id, $tempStr)"))
-                ->get()
-                ->toArray();
-            foreach ($musics as $item) {
+            $musics = $this->musicRepository->getHistoryRecents($tempStr);
+            foreach ($musics as $key => $item) {
                 $result[] = [
-                    'title' => $item['music_title'],
-                    'link' => Helpers::listen_url($item)
+                    'title' => ++$key . '. ' . $item->music_title . ' - '. str_replace(';', ', ', $item->music_artist),
+                    'link' => Helpers::listen_url([
+                        'music_id'=> $item->music_id,
+                        'cat_id' => $item->cat_id,
+                        'cat_level' => $item->cat_level,
+                        'music_title_url' => $item->music_title_url,
+                    ])
                 ];
             }
         }

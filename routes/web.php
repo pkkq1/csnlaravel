@@ -108,6 +108,12 @@ Route::group(['middlewareGroups' => ['web']], function () {
     Route::get('/search/real', 'SearchController@ajaxSearch');
 
 
+    // User
+    Route::prefix('user/')->group(function () {
+        Route::get('{id}', ['as' => 'user.index', 'uses' => 'User\UserController@index']);
+        Route::post('music_uploaded', ['as' => 'user.index', 'uses' => 'User\MusicController@musicUploaded']);
+    });
+
     Route::group(['middleware' => ['auth']], function() {
 
         // upload selector
@@ -136,7 +142,6 @@ Route::group(['middlewareGroups' => ['web']], function () {
 
         // User
         Route::prefix('user/')->group(function () {
-            Route::get('{id}', ['as' => 'user.index', 'uses' => 'User\UserController@index']);
             Route::post('update', ['as' => 'user.index', 'uses' => 'User\UserController@store']);
         });
 
