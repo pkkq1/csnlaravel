@@ -30,11 +30,11 @@ class Solarium
         try{
             $temp = '';
             foreach ($search as $key => $item) {
-                $temp = $temp . $key . ':' . $item . ' | ';
+                $temp = $temp . ($key . ':' . $item) . ' | ';
 //                $query->addFilterQuery(array('key' => $key, 'query' => $key . ':*' . $item . '*'));
 //                $query->addFilterQuery(array('key' => $key, 'query' => $key . ':' . $item ));
             }
-            $query->setQuery($temp);
+            $query->setQuery(substr($temp, 0, strlen($temp) - 3));
             $rows = $perPage;
 
             $query->setStart(($page == 1 ? 0 : $page - 1) * $rows)->setRows($rows); // perpage, rows
@@ -48,6 +48,7 @@ class Solarium
 //          $facetSet = $query->getFacetSet();
 //          $facetSet->createFacetField('stock')->setField('inStock');
             $resultset = $this->client->select($query);
+//            dd($resultset);
             // show documents using the resultset iterator
             foreach ($resultset as $document) {
                 $data[] = $document;

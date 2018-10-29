@@ -64,11 +64,11 @@ class SearchController extends Controller
 //            $searchCharset = Helpers::rawTiengVietUrl(mb_strtolower($search, 'UTF-8'), '');
             if(isset($request->view_all) || isset($request->view_music)) {
 //                dd([
-//                    'music_title_charset' => Helpers::rawTiengVietUrl($search, '+'),
+//                    'music_title_charset' => Helpers::rawTiengVietUrl($search, '+') . '^2',
 //                    'music_title' => $searchNotUtf8,
 //                ]);
                 $resultMusic = $this->Solr->search([
-                    'music_title_charset' => str_replace(' ', '+', $search) . '^2',
+                    'music_title_charset' => Helpers::rawTiengVietUrl($search, '+') . '^2',
                     'music_title' => $searchNotUtf8,
                 ], ($request->page_music ?? 1), $request->rows ?? ROWS_MUSIC_SEARCH_PAGING, array('score' => 'desc','music_listen' => 'desc'));
 
