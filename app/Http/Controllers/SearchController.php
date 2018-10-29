@@ -32,10 +32,18 @@ class SearchController extends Controller
         $result = $this->ajaxSearch($request);
         $titleSearch = $search.' | ';
         $result = $result[0];
+        if(!$search)
+            return redirect('/');
         return view('search.index', compact('result', 'titleSearch', 'search', 'result'));
     }
     public function ajaxSearch(Request $request) {
-        $search = trim($request->q);
+        $search = trim(mb_strtolower($request->q, 'UTF-8'));
+        $searchExp = explode(' ', $search);
+        foreach ($searchExp as $key => $item) {
+            if(mb_detect_encoding($item) != 'UTF-8')
+                unset($searchExp[$key]);
+        }
+        $searchNotUtf8 = implode('+', $searchExp);
         $result[0] = [
             'q' =>  $search,
             'music' => [
@@ -52,13 +60,16 @@ class SearchController extends Controller
             ],
         ];
         if($search) {
-            $searchNoSpace = str_replace(' ','', mb_strtolower($search, 'UTF-8'));
-            $searchCharset = Helpers::rawTiengVietUrl(mb_strtolower($search, 'UTF-8'), '');
+//            $searchNoSpace = str_replace(' ','', mb_strtolower($search, 'UTF-8'));
+//            $searchCharset = Helpers::rawTiengVietUrl(mb_strtolower($search, 'UTF-8'), '');
             if(isset($request->view_all) || isset($request->view_music)) {
+//                dd([
+//                    'music_title_charset' => Helpers::rawTiengVietUrl($search, '+'),
+//                    'music_title' => $searchNotUtf8,
+//                ]);
                 $resultMusic = $this->Solr->search([
-                    'music_title' => str_replace(' ', '+', $search),
-//                    'music_title_no_space' => $searchNoSpace,
-//                    'music_title_charset' => $searchCharset,
+                    'music_title_charset' => str_replace(' ', '+', $search) . '^2',
+                    'music_title' => $searchNotUtf8,
                 ], ($request->page_music ?? 1), $request->rows ?? ROWS_MUSIC_SEARCH_PAGING, array('score' => 'desc','music_listen_total' => 'desc'));
 
                 if($resultMusic['data']) {
