@@ -24,13 +24,18 @@ define('DEFAULT_ROOT_CACHE_MUSIC_PATH', $_SERVER['DOCUMENT_ROOT'].'/storage/data
 define('LYRIC_DETAIL_NEW_MUSIC', 5);
 define('LYRIC_DETAIL_NEW_ALBUM', 5);
 define('LIMIT_COMMENT', 10);
-define('LIMIT_PAGE_MUSIC_UPLOADED', 20);
+define('LIMIT_PAGE_MUSIC_UPLOADED', 10);
 define('LITMIT_TITLE_PLAYLIST', 2);
 define('TIME_EXPIRY_ADD_LISTEN_MUSIC', '+1 hour');
 define('KEY_ID_PLAYLIST_ENCODE_URL', 'csn_playlist~');
 define('KEY_ID_ALBUM_ENCODE_URL', 'csn_album~');
 define('KEY_ID_ARTIST_ENCODE_URL', 'csn_artist~');
 define('DEFAULT_CAT_ID_ACTIVE_BXH', 3);
+define('UPLOAD_STAGE_DELETED', -1);
+define('UPLOAD_STAGE_UNCENSOR', 0);
+define('UPLOAD_STAGE_INCONVERT', 1);
+define('UPLOAD_STAGE_FULLCONVERT', 2);
+define('UPLOAD_STAGE_FULLCENSOR', 3);
 
 // USER
 define('DEACTIVE_USER', 0);

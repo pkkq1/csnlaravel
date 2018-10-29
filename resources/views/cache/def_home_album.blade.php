@@ -15,40 +15,35 @@ $album_hot = array (
   array (
     'cover_id' => 90633,
     'music_album' => 'Just For A While (Single)',
-    'music_artist' => 'K-ICM;T-ICM',
-    'music_artist_id' => '14491;18842',
+    'music_artist' => '<a href="/ca-si/K-ICM~Y3NuX2FydGlzdH4xNDQ5MQ==.html">K-ICM</a>, <a href="/ca-si/T-ICM~Y3NuX2FydGlzdH4xODg0Mg==.html">T-ICM</a>',
     'music_bitrate' => 1000,
   ),
   1 => 
   array (
     'cover_id' => 90632,
     'music_album' => 'Journey (Single)',
-    'music_artist' => 'SaberZ',
-    'music_artist_id' => 18841,
+    'music_artist' => '<a href="/ca-si/SaberZ~Y3NuX2FydGlzdH4xODg0MQ==.html">SaberZ</a>',
     'music_bitrate' => 1000,
   ),
   2 => 
   array (
     'cover_id' => 90622,
     'music_album' => 'Spiritual Jazz 8: Japan pt. 1',
-    'music_artist' => 'Takeo Moriyama',
-    'music_artist_id' => 18811,
+    'music_artist' => '<a href="/ca-si/Takeo-Moriyama~Y3NuX2FydGlzdH4xODgxMQ==.html">Takeo Moriyama</a>, <a href="/ca-si/Yoshio-Ikeda~Y3NuX2FydGlzdH4xODgyMw==.html">Yoshio Ikeda</a>',
     'music_bitrate' => 1000,
   ),
   3 => 
   array (
     'cover_id' => 90621,
     'music_album' => 'Amistad',
-    'music_artist' => 'Michael Hoppé',
-    'music_artist_id' => 18807,
+    'music_artist' => '<a href="/ca-si/Michael-Hoppe~Y3NuX2FydGlzdH4xODgwNw==.html">Michael Hoppé</a>',
     'music_bitrate' => 1000,
   ),
   4 => 
   array (
     'cover_id' => 90620,
     'music_album' => 'Hero (Fight for You) - Single',
-    'music_artist' => 'Max Lean;Reevo;Michael Zhonga',
-    'music_artist_id' => '18804;18805;18806',
+    'music_artist' => '<a href="/ca-si/Max-Lean~Y3NuX2FydGlzdH4xODgwNA==.html">Max Lean</a>, <a href="/ca-si/Reevo~Y3NuX2FydGlzdH4xODgwNQ==.html">Reevo</a>, <a href="/ca-si/Michael-Zhonga~Y3NuX2FydGlzdH4xODgwNg==.html">Michael Zhonga</a>',
     'music_bitrate' => 1000,
   ),
   5 => 
@@ -56,119 +51,104 @@ $album_hot = array (
     'cover_id' => 90619,
     'music_album' => 'Hit The Club (Single)',
     'music_artist' => '',
-    'music_artist_id' => '',
     'music_bitrate' => '',
   ),
   6 => 
   array (
     'cover_id' => 90618,
     'music_album' => 'Yêu Em Từ Tuổi Thanh Xuân (Single)',
-    'music_artist' => 'Cao Nam Thành',
-    'music_artist_id' => 15554,
+    'music_artist' => '<a href="/ca-si/Cao-Nam-Thanh~Y3NuX2FydGlzdH4xNTU1NA==.html">Cao Nam Thành</a>',
     'music_bitrate' => 1000,
   ),
   7 => 
   array (
     'cover_id' => 90617,
     'music_album' => 'Độc Thân (Single)',
-    'music_artist' => 'Châu Đăng Khoa;Ricky Star',
-    'music_artist_id' => '18801;18802',
+    'music_artist' => '<a href="/ca-si/Chau-Dang-Khoa~Y3NuX2FydGlzdH4xODgwMQ==.html">Châu Đăng Khoa</a>, <a href="/ca-si/Ricky-Star~Y3NuX2FydGlzdH4xODgwMg==.html">Ricky Star</a>',
     'music_bitrate' => 1000,
   ),
   8 => 
   array (
     'cover_id' => 90616,
     'music_album' => 'Quá Khứ, Anh Xin Lỗi (Single)',
-    'music_artist' => 'Khánh Phương',
-    'music_artist_id' => 904,
+    'music_artist' => '<a href="/ca-si/Khanh-Phuong~Y3NuX2FydGlzdH45MDQ=.html">Khánh Phương</a>',
     'music_bitrate' => 1000,
   ),
   9 => 
   array (
     'cover_id' => 90615,
     'music_album' => 'More And More (Single)',
-    'music_artist' => 'Sanchez',
-    'music_artist_id' => 18800,
+    'music_artist' => '<a href="/ca-si/Sanchez~Y3NuX2FydGlzdH4xODgwMA==.html">Sanchez</a>',
     'music_bitrate' => 1000,
   ),
   10 => 
   array (
     'cover_id' => 90614,
     'music_album' => 'Are You Human? OST - Part.4 (Single)',
-    'music_artist' => '2BIC',
-    'music_artist_id' => 18799,
+    'music_artist' => '<a href="/ca-si/2BIC~Y3NuX2FydGlzdH4xODc5OQ==.html">2BIC</a>',
     'music_bitrate' => 1000,
   ),
   11 => 
   array (
     'cover_id' => 90613,
     'music_album' => 'Teen Top Story: 8PISODE (Regular)',
-    'music_artist' => 'Teen Top',
-    'music_artist_id' => 2558,
+    'music_artist' => '<a href="/ca-si/Teen-Top~Y3NuX2FydGlzdH4yNTU4.html">Teen Top</a>',
     'music_bitrate' => 1000,
   ),
   12 => 
   array (
     'cover_id' => 90612,
     'music_album' => 'POP  CULTURE 6',
-    'music_artist' => 'Syrufit',
-    'music_artist_id' => 69171,
+    'music_artist' => '<a href="/ca-si/Syrufit~Y3NuX2FydGlzdH42OTE3MQ==.html">Syrufit</a>, <a href="/ca-si/Tracy~Y3NuX2FydGlzdH4xNzQ2Mg==.html">Tracy</a>',
     'music_bitrate' => 1000,
   ),
   13 => 
   array (
     'cover_id' => 90611,
     'music_album' => 'Good Girl (Single)',
-    'music_artist' => 'Shin Ji',
-    'music_artist_id' => 18798,
+    'music_artist' => '<a href="/ca-si/Shin-Ji~Y3NuX2FydGlzdH4xODc5OA==.html">Shin Ji</a>',
     'music_bitrate' => 1000,
   ),
   14 => 
   array (
     'cover_id' => 90610,
     'music_album' => 'Love Me Please (Single)',
-    'music_artist' => 'Haebi',
-    'music_artist_id' => 18797,
+    'music_artist' => '<a href="/ca-si/Haebi~Y3NuX2FydGlzdH4xODc5Nw==.html">Haebi</a>',
     'music_bitrate' => 1000,
   ),
   15 => 
   array (
     'cover_id' => 90609,
     'music_album' => 'Father (Single)',
-    'music_artist' => 'Dino.T',
-    'music_artist_id' => 18796,
+    'music_artist' => '<a href="/ca-si/DinoT~Y3NuX2FydGlzdH4xODc5Ng==.html">Dino.T</a>',
     'music_bitrate' => 1000,
   ),
   16 => 
   array (
     'cover_id' => 90608,
     'music_album' => 'Peppemood (EP)',
-    'music_artist' => 'Peppe',
-    'music_artist_id' => 18795,
+    'music_artist' => '<a href="/ca-si/Peppe~Y3NuX2FydGlzdH4xODc5NQ==.html">Peppe</a>',
     'music_bitrate' => 1000,
   ),
   17 => 
   array (
     'cover_id' => 90607,
     'music_album' => 'Everything Changes (Single)',
-    'music_artist' => 'Miyao',
-    'music_artist_id' => 18793,
+    'music_artist' => '<a href="/ca-si/Miyao~Y3NuX2FydGlzdH4xODc5Mw==.html">Miyao</a>',
     'music_bitrate' => 1000,
   ),
   18 => 
   array (
     'cover_id' => 90606,
     'music_album' => 'Zeus (Single)',
-    'music_artist' => 'Ted Park',
-    'music_artist_id' => 13964,
+    'music_artist' => '<a href="/ca-si/Ted-Park~Y3NuX2FydGlzdH4xMzk2NA==.html">Ted Park</a>',
     'music_bitrate' => 1000,
   ),
   19 => 
   array (
     'cover_id' => 90605,
     'music_album' => 'Everytime, Everyday (Single)',
-    'music_artist' => 'Dinner Coat',
-    'music_artist_id' => 13971,
+    'music_artist' => '<a href="/ca-si/Dinner-Coat~Y3NuX2FydGlzdH4xMzk3MQ==.html">Dinner Coat</a>',
     'music_bitrate' => 1000,
   ),
 );
@@ -177,40 +157,35 @@ $album_new = array (
   array (
     'cover_id' => 90633,
     'music_album' => 'Just For A While (Single)',
-    'music_artist' => 'K-ICM;T-ICM',
-    'music_artist_id' => '14491;18842',
+    'music_artist' => '<a href="/ca-si/K-ICM~Y3NuX2FydGlzdH4xNDQ5MQ==.html">K-ICM</a>, <a href="/ca-si/T-ICM~Y3NuX2FydGlzdH4xODg0Mg==.html">T-ICM</a>',
     'music_bitrate' => 1000,
   ),
   1 => 
   array (
     'cover_id' => 90632,
     'music_album' => 'Journey (Single)',
-    'music_artist' => 'SaberZ',
-    'music_artist_id' => 18841,
+    'music_artist' => '<a href="/ca-si/SaberZ~Y3NuX2FydGlzdH4xODg0MQ==.html">SaberZ</a>',
     'music_bitrate' => 1000,
   ),
   2 => 
   array (
     'cover_id' => 90622,
     'music_album' => 'Spiritual Jazz 8: Japan pt. 1',
-    'music_artist' => 'Takeo Moriyama',
-    'music_artist_id' => 18811,
+    'music_artist' => '<a href="/ca-si/Takeo-Moriyama~Y3NuX2FydGlzdH4xODgxMQ==.html">Takeo Moriyama</a>, <a href="/ca-si/Yoshio-Ikeda~Y3NuX2FydGlzdH4xODgyMw==.html">Yoshio Ikeda</a>',
     'music_bitrate' => 1000,
   ),
   3 => 
   array (
     'cover_id' => 90621,
     'music_album' => 'Amistad',
-    'music_artist' => 'Michael Hoppé',
-    'music_artist_id' => 18807,
+    'music_artist' => '<a href="/ca-si/Michael-Hoppe~Y3NuX2FydGlzdH4xODgwNw==.html">Michael Hoppé</a>',
     'music_bitrate' => 1000,
   ),
   4 => 
   array (
     'cover_id' => 90620,
     'music_album' => 'Hero (Fight for You) - Single',
-    'music_artist' => 'Max Lean;Reevo;Michael Zhonga',
-    'music_artist_id' => '18804;18805;18806',
+    'music_artist' => '<a href="/ca-si/Max-Lean~Y3NuX2FydGlzdH4xODgwNA==.html">Max Lean</a>, <a href="/ca-si/Reevo~Y3NuX2FydGlzdH4xODgwNQ==.html">Reevo</a>, <a href="/ca-si/Michael-Zhonga~Y3NuX2FydGlzdH4xODgwNg==.html">Michael Zhonga</a>',
     'music_bitrate' => 1000,
   ),
   5 => 
@@ -218,119 +193,104 @@ $album_new = array (
     'cover_id' => 90619,
     'music_album' => 'Hit The Club (Single)',
     'music_artist' => '',
-    'music_artist_id' => '',
     'music_bitrate' => '',
   ),
   6 => 
   array (
     'cover_id' => 90618,
     'music_album' => 'Yêu Em Từ Tuổi Thanh Xuân (Single)',
-    'music_artist' => 'Cao Nam Thành',
-    'music_artist_id' => 15554,
+    'music_artist' => '<a href="/ca-si/Cao-Nam-Thanh~Y3NuX2FydGlzdH4xNTU1NA==.html">Cao Nam Thành</a>',
     'music_bitrate' => 1000,
   ),
   7 => 
   array (
     'cover_id' => 90617,
     'music_album' => 'Độc Thân (Single)',
-    'music_artist' => 'Châu Đăng Khoa;Ricky Star',
-    'music_artist_id' => '18801;18802',
+    'music_artist' => '<a href="/ca-si/Chau-Dang-Khoa~Y3NuX2FydGlzdH4xODgwMQ==.html">Châu Đăng Khoa</a>, <a href="/ca-si/Ricky-Star~Y3NuX2FydGlzdH4xODgwMg==.html">Ricky Star</a>',
     'music_bitrate' => 1000,
   ),
   8 => 
   array (
     'cover_id' => 90616,
     'music_album' => 'Quá Khứ, Anh Xin Lỗi (Single)',
-    'music_artist' => 'Khánh Phương',
-    'music_artist_id' => 904,
+    'music_artist' => '<a href="/ca-si/Khanh-Phuong~Y3NuX2FydGlzdH45MDQ=.html">Khánh Phương</a>',
     'music_bitrate' => 1000,
   ),
   9 => 
   array (
     'cover_id' => 90615,
     'music_album' => 'More And More (Single)',
-    'music_artist' => 'Sanchez',
-    'music_artist_id' => 18800,
+    'music_artist' => '<a href="/ca-si/Sanchez~Y3NuX2FydGlzdH4xODgwMA==.html">Sanchez</a>',
     'music_bitrate' => 1000,
   ),
   10 => 
   array (
     'cover_id' => 90614,
     'music_album' => 'Are You Human? OST - Part.4 (Single)',
-    'music_artist' => '2BIC',
-    'music_artist_id' => 18799,
+    'music_artist' => '<a href="/ca-si/2BIC~Y3NuX2FydGlzdH4xODc5OQ==.html">2BIC</a>',
     'music_bitrate' => 1000,
   ),
   11 => 
   array (
     'cover_id' => 90613,
     'music_album' => 'Teen Top Story: 8PISODE (Regular)',
-    'music_artist' => 'Teen Top',
-    'music_artist_id' => 2558,
+    'music_artist' => '<a href="/ca-si/Teen-Top~Y3NuX2FydGlzdH4yNTU4.html">Teen Top</a>',
     'music_bitrate' => 1000,
   ),
   12 => 
   array (
     'cover_id' => 90612,
     'music_album' => 'POP  CULTURE 6',
-    'music_artist' => 'Syrufit',
-    'music_artist_id' => 69171,
+    'music_artist' => '<a href="/ca-si/Syrufit~Y3NuX2FydGlzdH42OTE3MQ==.html">Syrufit</a>, <a href="/ca-si/Tracy~Y3NuX2FydGlzdH4xNzQ2Mg==.html">Tracy</a>',
     'music_bitrate' => 1000,
   ),
   13 => 
   array (
     'cover_id' => 90611,
     'music_album' => 'Good Girl (Single)',
-    'music_artist' => 'Shin Ji',
-    'music_artist_id' => 18798,
+    'music_artist' => '<a href="/ca-si/Shin-Ji~Y3NuX2FydGlzdH4xODc5OA==.html">Shin Ji</a>',
     'music_bitrate' => 1000,
   ),
   14 => 
   array (
     'cover_id' => 90610,
     'music_album' => 'Love Me Please (Single)',
-    'music_artist' => 'Haebi',
-    'music_artist_id' => 18797,
+    'music_artist' => '<a href="/ca-si/Haebi~Y3NuX2FydGlzdH4xODc5Nw==.html">Haebi</a>',
     'music_bitrate' => 1000,
   ),
   15 => 
   array (
     'cover_id' => 90609,
     'music_album' => 'Father (Single)',
-    'music_artist' => 'Dino.T',
-    'music_artist_id' => 18796,
+    'music_artist' => '<a href="/ca-si/DinoT~Y3NuX2FydGlzdH4xODc5Ng==.html">Dino.T</a>',
     'music_bitrate' => 1000,
   ),
   16 => 
   array (
     'cover_id' => 90608,
     'music_album' => 'Peppemood (EP)',
-    'music_artist' => 'Peppe',
-    'music_artist_id' => 18795,
+    'music_artist' => '<a href="/ca-si/Peppe~Y3NuX2FydGlzdH4xODc5NQ==.html">Peppe</a>',
     'music_bitrate' => 1000,
   ),
   17 => 
   array (
     'cover_id' => 90607,
     'music_album' => 'Everything Changes (Single)',
-    'music_artist' => 'Miyao',
-    'music_artist_id' => 18793,
+    'music_artist' => '<a href="/ca-si/Miyao~Y3NuX2FydGlzdH4xODc5Mw==.html">Miyao</a>',
     'music_bitrate' => 1000,
   ),
   18 => 
   array (
     'cover_id' => 90606,
     'music_album' => 'Zeus (Single)',
-    'music_artist' => 'Ted Park',
-    'music_artist_id' => 13964,
+    'music_artist' => '<a href="/ca-si/Ted-Park~Y3NuX2FydGlzdH4xMzk2NA==.html">Ted Park</a>',
     'music_bitrate' => 1000,
   ),
   19 => 
   array (
     'cover_id' => 90605,
     'music_album' => 'Everytime, Everyday (Single)',
-    'music_artist' => 'Dinner Coat',
-    'music_artist_id' => 13971,
+    'music_artist' => '<a href="/ca-si/Dinner-Coat~Y3NuX2FydGlzdH4xMzk3MQ==.html">Dinner Coat</a>',
     'music_bitrate' => 1000,
   ),
 );
@@ -339,160 +299,140 @@ $album_old = array (
   array (
     'cover_id' => 90643,
     'music_album' => 'Barcelona (Special Edition)',
-    'music_artist' => 'Freddie Mercury;Montserrat Caballe',
-    'music_artist_id' => '10041;18743',
+    'music_artist' => '<a href="/ca-si/Freddie-Mercury~Y3NuX2FydGlzdH4xMDA0MQ==.html">Freddie Mercury</a>, <a href="/ca-si/Montserrat-Caballe~Y3NuX2FydGlzdH4xODc0Mw==.html">Montserrat Caballe</a>, <a href="/ca-si/Freddie-Mercury~Y3NuX2FydGlzdH4xMDA0MQ==.html">Freddie Mercury</a>, <a href="/ca-si/Montserrat-Caballe~Y3NuX2FydGlzdH4xODc0Mw==.html">Montserrat Caballe</a>, <a href="/ca-si/David-Garrett~Y3NuX2FydGlzdH4xODc0NA==.html">David Garrett</a>',
     'music_bitrate' => 1000,
   ),
   1 => 
   array (
     'cover_id' => 90642,
     'music_album' => 'L\'equilibrista',
-    'music_artist' => 'Pupo',
-    'music_artist_id' => 18843,
+    'music_artist' => '<a href="/ca-si/Pupo~Y3NuX2FydGlzdH4xODg0Mw==.html">Pupo</a>',
     'music_bitrate' => 1000,
   ),
   2 => 
   array (
     'cover_id' => 90641,
     'music_album' => 'Tornerò',
-    'music_artist' => 'Pupo',
-    'music_artist_id' => 18843,
+    'music_artist' => '<a href="/ca-si/Pupo~Y3NuX2FydGlzdH4xODg0Mw==.html">Pupo</a>, <a href="/ca-si/Pupo~Y3NuX2FydGlzdH4xODg0Mw==.html">Pupo</a>, <a href="/ca-si/Petra-Magoni~Y3NuX2FydGlzdH4xODg0NQ==.html">Petra Magoni</a>',
     'music_bitrate' => 1000,
   ),
   3 => 
   array (
     'cover_id' => 90640,
     'music_album' => '1996',
-    'music_artist' => 'Pupo',
-    'music_artist_id' => 18843,
+    'music_artist' => '<a href="/ca-si/Pupo~Y3NuX2FydGlzdH4xODg0Mw==.html">Pupo</a>',
     'music_bitrate' => 1000,
   ),
   4 => 
   array (
     'cover_id' => 90639,
     'music_album' => 'La Mia Preghiera',
-    'music_artist' => 'Pupo',
-    'music_artist_id' => 18843,
+    'music_artist' => '<a href="/ca-si/Pupo~Y3NuX2FydGlzdH4xODg0Mw==.html">Pupo</a>',
     'music_bitrate' => 1000,
   ),
   5 => 
   array (
     'cover_id' => 90638,
     'music_album' => 'Quello Che Sono',
-    'music_artist' => 'Pupo',
-    'music_artist_id' => 18843,
+    'music_artist' => '<a href="/ca-si/Pupo~Y3NuX2FydGlzdH4xODg0Mw==.html">Pupo</a>',
     'music_bitrate' => 1000,
   ),
   6 => 
   array (
     'cover_id' => 90637,
     'music_album' => 'La Vita È Molto Di Più',
-    'music_artist' => 'Pupo',
-    'music_artist_id' => 18843,
+    'music_artist' => '<a href="/ca-si/Pupo~Y3NuX2FydGlzdH4xODg0Mw==.html">Pupo</a>',
     'music_bitrate' => 1000,
   ),
   7 => 
   array (
     'cover_id' => 90636,
     'music_album' => 'Malattia D\'Amore',
-    'music_artist' => 'Pupo',
-    'music_artist_id' => 18843,
+    'music_artist' => '<a href="/ca-si/Pupo~Y3NuX2FydGlzdH4xODg0Mw==.html">Pupo</a>',
     'music_bitrate' => 1000,
   ),
   8 => 
   array (
     'cover_id' => 90635,
     'music_album' => 'Lo Devo Solo A Te',
-    'music_artist' => 'Pupo',
-    'music_artist_id' => 18843,
+    'music_artist' => '<a href="/ca-si/Pupo~Y3NuX2FydGlzdH4xODg0Mw==.html">Pupo</a>',
     'music_bitrate' => 1000,
   ),
   9 => 
   array (
     'cover_id' => 90634,
     'music_album' => 'Più Di Prima',
-    'music_artist' => 'Pupo',
-    'music_artist_id' => 18843,
+    'music_artist' => '<a href="/ca-si/Pupo~Y3NuX2FydGlzdH4xODg0Mw==.html">Pupo</a>',
     'music_bitrate' => 1000,
   ),
   10 => 
   array (
     'cover_id' => 90631,
     'music_album' => 'Ultimate 2000s (CD4)',
-    'music_artist' => 'John Mayer',
-    'music_artist_id' => 7220,
+    'music_artist' => '<a href="/ca-si/John-Mayer~Y3NuX2FydGlzdH43MjIw.html">John Mayer</a>, <a href="/ca-si/The-Ting-Tings~Y3NuX2FydGlzdH43NTIz.html">The Ting Tings</a>',
     'music_bitrate' => 1000,
   ),
   11 => 
   array (
     'cover_id' => 90630,
     'music_album' => 'Ultimate 2000s (CD3)',
-    'music_artist' => 'Toploader',
-    'music_artist_id' => 18833,
+    'music_artist' => '<a href="/ca-si/Toploader~Y3NuX2FydGlzdH4xODgzMw==.html">Toploader</a>, <a href="/ca-si/The-Calling~Y3NuX2FydGlzdH41NTEx.html">The Calling</a>',
     'music_bitrate' => 1000,
   ),
   12 => 
   array (
     'cover_id' => 90629,
     'music_album' => 'Ultimate 2000s (CD2)',
-    'music_artist' => 'Wu-Tang Clan',
-    'music_artist_id' => 10899,
+    'music_artist' => '<a href="/ca-si/Wu-Tang-Clan~Y3NuX2FydGlzdH4xMDg5OQ==.html">Wu-Tang Clan</a>, <a href="/ca-si/Blu-Cantrell~Y3NuX2FydGlzdH4xMjA4Mg==.html">Blu Cantrell</a>, <a href="/ca-si/Sean-Paul~Y3NuX2FydGlzdH4yNTc=.html">Sean Paul</a>',
     'music_bitrate' => 1000,
   ),
   13 => 
   array (
     'cover_id' => 90628,
     'music_album' => 'Ultimate 2000s (CD1)',
-    'music_artist' => 'Train',
-    'music_artist_id' => 12027,
+    'music_artist' => '<a href="/ca-si/Train~Y3NuX2FydGlzdH4xMjAyNw==.html">Train</a>, <a href="/ca-si/Backstreet-Boys~Y3NuX2FydGlzdH4xMTE=.html">Backstreet Boys</a>',
     'music_bitrate' => 1000,
   ),
   14 => 
   array (
     'cover_id' => 90627,
     'music_album' => 'Omni Sight Seeing',
-    'music_artist' => 'Haruomi Hosono',
-    'music_artist_id' => 18829,
+    'music_artist' => '<a href="/ca-si/Haruomi-Hosono~Y3NuX2FydGlzdH4xODgyOQ==.html">Haruomi Hosono</a>',
     'music_bitrate' => 1000,
   ),
   15 => 
   array (
     'cover_id' => 90626,
     'music_album' => 'The Tale of Genji OST',
-    'music_artist' => 'Haruomi Hosono',
-    'music_artist_id' => 18829,
+    'music_artist' => '<a href="/ca-si/Haruomi-Hosono~Y3NuX2FydGlzdH4xODgyOQ==.html">Haruomi Hosono</a>',
     'music_bitrate' => 1000,
   ),
   16 => 
   array (
     'cover_id' => 90625,
     'music_album' => 'Back Again',
-    'music_artist' => 'Pink Turtle',
-    'music_artist_id' => 18828,
+    'music_artist' => '<a href="/ca-si/Pink-Turtle~Y3NuX2FydGlzdH4xODgyOA==.html">Pink Turtle</a>',
     'music_bitrate' => 1000,
   ),
   17 => 
   array (
     'cover_id' => 90624,
     'music_album' => 'Two',
-    'music_artist' => 'Bob James',
-    'music_artist_id' => 18826,
+    'music_artist' => '<a href="/ca-si/Bob-James~Y3NuX2FydGlzdH4xODgyNg==.html">Bob James</a>, <a href="/ca-si/Bob-James-feat-Patti-Austin~Y3NuX2FydGlzdH4xODgyNw==.html">Bob James (feat. Patti Austin)</a>',
     'music_bitrate' => 1000,
   ),
   18 => 
   array (
     'cover_id' => 90623,
     'music_album' => 'Urban Folktales',
-    'music_artist' => 'Matt Marshak',
-    'music_artist_id' => 18824,
+    'music_artist' => '<a href="/ca-si/Matt-Marshak~Y3NuX2FydGlzdH4xODgyNA==.html">Matt Marshak</a>',
     'music_bitrate' => 1000,
   ),
   19 => 
   array (
     'cover_id' => 90596,
     'music_album' => 'Chúc Tụng Mẹ La Vang',
-    'music_artist' => 'Phượng Vũ',
-    'music_artist_id' => 18773,
+    'music_artist' => '<a href="/ca-si/Phuong-Vu~Y3NuX2FydGlzdH4xODc3Mw==.html">Phượng Vũ</a>, <a href="/ca-si/Le-Uyen~Y3NuX2FydGlzdH44MzY=.html">Lê Uyên</a>',
     'music_bitrate' => 320,
   ),
 );

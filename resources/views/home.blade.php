@@ -41,7 +41,7 @@ global $top_artist_rows;
                             </div>
                             <div class="card-body">
                                 <h3 class="card-title"><a href="{{$url}}" title="{{$item['music_album']}}">{{$item['music_album']}}</a></h3>
-                                <p class="card-text author"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></p>
+                                <p class="card-text author"><?php echo $item['music_artist'] ?></p>
                                 <div class="card-text"><?php echo Helpers::bitrate2str($item['music_bitrate']); ?></div>
                             </div>
                         </div>
@@ -88,7 +88,7 @@ global $top_artist_rows;
                 array_map(function ($i, $item) {
                 $url = Helpers::album_url($item);
                 ?>
-                    @if (($i % 5) == 0)
+                    @if ($i == 5)
                     </div>
                     <div class="row row10px">
                     @endif
@@ -101,7 +101,7 @@ global $top_artist_rows;
                                 </div>
                                 <div class="card-body">
                                     <h3 class="card-title"><a href="{{$url}}" title="{{$item['music_album']}}">{{$item['music_album']}}</a></h3>
-                                    <p class="card-text"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></p>
+                                    <p class="card-text"><?php echo $item['music_artist'] ?></p>
                                 </div>
                             </div>
                         </div>
@@ -262,7 +262,7 @@ global $top_artist_rows;
                 array_map(function ($i, $item) {
                     $url = Helpers::album_url($item);
                 ?>
-                    @if (($i % 5) == 0)
+                    @if ($i == 5)
                     </div>
                     <div class="row row10px">
                     @endif
@@ -275,7 +275,7 @@ global $top_artist_rows;
                                 </div>
                                 <div class="card-body">
                                     <h3 class="card-title"><a href="{{$url}}" title="{{$item['music_album']}}">{{$item['music_album']}}</a></h3>
-                                    <p class="card-text"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></p>
+                                    <p class="card-text"><?php echo $item['music_artist'] ?></p>
                                 </div>
                             </div>
                         </div>

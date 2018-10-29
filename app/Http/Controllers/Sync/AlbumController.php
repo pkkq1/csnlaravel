@@ -48,7 +48,7 @@ class AlbumController extends Controller
                     'cover_id' => $item->cover_id,
                     'music_album' => $item->music_album,
                     'music_artist' => !empty($artistDup) ? array_keys($artistDup)[0] : '',
-                    'music_artist_id' => !empty($artistIdDup) ? array_keys($artistIdDup)[0] : '',
+                    'music_artist' => !empty($artistDup) ? (Helpers::rawHtmlArtists(array_keys($artistIdDup)[0], array_keys($artistDup)[0]) . (count($artistIdDup) > 1 ? ', ' . Helpers::rawHtmlArtists(array_keys($artistIdDup)[1], array_keys($artistDup)[1]) : '')) : '',
                     'music_bitrate' => !empty($bitrateDup) ? array_keys($bitrateDup)[0] : '',
                 ];
             }
@@ -75,8 +75,7 @@ class AlbumController extends Controller
                 $album_old[] = [
                     'cover_id' => $item->cover_id,
                     'music_album' => $item->music_album,
-                    'music_artist' => !empty($artistDup) ? array_keys($artistDup)[0] : '',
-                    'music_artist_id' => !empty($artistIdDup) ? array_keys($artistIdDup)[0] : '',
+                    'music_artist' => !empty($artistDup) ? (Helpers::rawHtmlArtists(array_keys($artistIdDup)[0], array_keys($artistDup)[0]) . (count($artistIdDup) > 1 ? ', ' . Helpers::rawHtmlArtists(array_keys($artistIdDup)[1], array_keys($artistDup)[1]) : '')) : '',
                     'music_bitrate' => !empty($bitrateDup) ? array_keys($bitrateDup)[0] : '',
                 ];
             }

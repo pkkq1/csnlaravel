@@ -111,7 +111,8 @@ Route::group(['middlewareGroups' => ['web']], function () {
     // User
     Route::prefix('user/')->group(function () {
         Route::get('{id}', ['as' => 'user.index', 'uses' => 'User\UserController@index']);
-        Route::post('music_uploaded', ['as' => 'user.index', 'uses' => 'User\MusicController@musicUploaded']);
+        Route::post('{id}/music_uploaded', ['as' => 'user.index', 'uses' => 'User\UserMusicController@musicUploaded']);
+        Route::post('{id}/redirect/{music_id}', ['as' => 'user.index', 'uses' => 'User\UserMusicController@musicUploaded']);
     });
 
     Route::group(['middleware' => ['auth']], function() {

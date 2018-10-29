@@ -151,8 +151,7 @@ class Helpers
     public static function music_url($music_info, $mode = '')
     {
         $id = ($music_info['cat_id'] == CAT_VIDEO) ? self::encodeID($music_info['music_id'], 'video') : self::encodeID($music_info['music_id']);
-
-        return ($music_info['music_title_url']) ? $music_info['music_title_url'] . "~" . $id . $mode . ".".HTMLEX : $id . $mode . "." . HTMLEX;
+        return isset($music_info['music_title_url']) ? $music_info['music_title_url'] . "~" . $id . $mode . ".".HTMLEX : $id . $mode . "." . HTMLEX;
     }
     public static function music_id($music_info, $mode = '')
     {
@@ -161,7 +160,7 @@ class Helpers
     public static function artistUrl($artistId, $artistNickName, $mode = '')
     {
         if(!$artistId || $artistId == -1){
-            return '/tim-kiem?q='.$artistNickName;
+            return 'tim-kiem?q='.$artistNickName;
         }
         return self::rawTiengVietUrl($artistNickName) . "~" . base64_encode(KEY_ID_ARTIST_ENCODE_URL . $artistId) . $mode . ".".HTMLEX;
     }

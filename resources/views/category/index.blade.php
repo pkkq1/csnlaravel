@@ -26,11 +26,11 @@ global $top_artist_rows;
 
     @include('cache.def_home_artist')
 
-    @include('cache.zzz.def_home_cat_3_0')
-    @include('cache.zzz.def_home_cat_4_0')
+    {{--@include('cache.zzz.def_home_cat_3_0')--}}
+    {{--@include('cache.zzz.def_home_cat_4_0')--}}
 
-    @include('cache.zzz.def_home_cat_5_0')
-    @include('cache.zzz.def_home_cat_7_0')
+    {{--@include('cache.zzz.def_home_cat_5_0')--}}
+    {{--@include('cache.zzz.def_home_cat_7_0')--}}
 
     <div class="container">
         <div class="row row_wrapper">
@@ -97,7 +97,7 @@ global $top_artist_rows;
                         <ul class="list-unstyled list_music">
                             <?php
                             array_map(function($item) {
-                            $url = SUB_ALLBUM.'/'.Helpers::music_url($item);
+                            $url = Helpers::album_url($item);
                             ?>
                             <li class="media align-items-stretch">
                                 <div class="media-left align-items-stretch mr-2">
@@ -109,7 +109,7 @@ global $top_artist_rows;
                                 <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
                                     <div>
                                         <h5 class="media-title mt-0 mb-0 title_home_tablet"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
-                                        <div class="author title_home_tablet"><?php echo '<a href="#">'.implode(',</a><a href="#">', explode(';', $item['music_artist'])).'</a>' ?></div>
+                                        <div class="author title_home_tablet"><?php echo $item['music_artist'] ?></div>
                                     </div>
                                     <small class="type_music"><?php echo Helpers::bitrate2str($item['music_bitrate']); ?></small>
                                 </div>
@@ -198,7 +198,7 @@ global $top_artist_rows;
                     <?php
                     $albumNew = Helpers::getRandLimitArr($album_new, LIMIT_HOME_ALBUM_NEW);
                     array_map(function ($i, $item) {
-                    $url = SUB_ALLBUM.'/'.Helpers::music_url($item);
+                    $url = Helpers::album_url($item);
                     ?>
                     @if (($i % 5) == 0)
                 </div>
@@ -213,7 +213,7 @@ global $top_artist_rows;
                             </div>
                             <div class="card-body">
                                 <h3 class="card-title"><a href="{{$url}}" title="{{$item['music_title']}}">{{$item['music_title']}}</a></h3>
-                                <p class="card-text"><?php echo '<a href="#">'.implode(',</a><a href="#">', explode(';', $item['music_artist'])).'</a>' ?></p>
+                                <p class="card-text"><?php echo $item['music_artist'] ?></p>
                             </div>
                         </div>
                     </div>
@@ -230,7 +230,7 @@ global $top_artist_rows;
                     <?php
                     $videoMusic = Helpers::getRandLimitArr($video_new_uploads, LIMIT_HOME_MUSIC_NEW);
                     array_map(function ($i, $item) {
-                    $url = SUB_VIDEO.'/'.Helpers::music_url($item);
+                    $url = Helpers::listen_url($item);
                     ?>
                     @if (($i % 5) == 0)
                 </div>
@@ -276,102 +276,102 @@ global $top_artist_rows;
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                         <ul class="list-unstyled bxh mb-0">
-                            <?php
-                            $catMusic = Helpers::getRandLimitArr($album_rows_3_0, LIMIT_HOME_CAT_MUSIC);
-                            array_map(function ($i, $item) {
-                            $url = SUB_BXH_MUSIC.'/'.Helpers::music_url($item);
-                            ?>
-                            <li class="media {{($i == 0 ? 'first stand' : ($i == 1 ? 'now up' : ($i == 2 ? 'now down' : 'now')))}} align-items-stretch">
-                                <div class="media-left mr-3">
-                                    <span></span>
-                                    <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{Helpers::cover_url($item['cover_id'])}}" alt="{{$item['music_title']}}"></a>
-                                </div>
-                                <div class="media-body d-flex flex-column {{$i == 0 ? '' : 'justify-content-between'}}">
-                                    <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
-                                    <div class="{{$i == 0 ? '' : 'd-flex'}} align-items-center justify-content-between">
-                                        <div class="author"><?php echo '<a href="#">'.implode(',</a><a href="#">', explode(';', $item['music_artist'])).'</a>' ?></div>
-                                        <small class="counter_view">{{number_format($item['music_listen'])}}</small>
-                                    </div>
-                                </div>
-                            </li>
-                            <?php
-                            },array_keys($catMusic), $catMusic)
-                            ?>
+                            {{--<?php--}}
+                            {{--$catMusic = Helpers::getRandLimitArr($album_rows_3_0, LIMIT_HOME_CAT_MUSIC);--}}
+                            {{--array_map(function ($i, $item) {--}}
+                            {{--$url = SUB_BXH_MUSIC.'/'.Helpers::music_url($item);--}}
+                            {{--?>--}}
+                            {{--<li class="media {{($i == 0 ? 'first stand' : ($i == 1 ? 'now up' : ($i == 2 ? 'now down' : 'now')))}} align-items-stretch">--}}
+                                {{--<div class="media-left mr-3">--}}
+                                    {{--<span></span>--}}
+                                    {{--<a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{Helpers::cover_url($item['cover_id'])}}" alt="{{$item['music_title']}}"></a>--}}
+                                {{--</div>--}}
+                                {{--<div class="media-body d-flex flex-column {{$i == 0 ? '' : 'justify-content-between'}}">--}}
+                                    {{--<h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>--}}
+                                    {{--<div class="{{$i == 0 ? '' : 'd-flex'}} align-items-center justify-content-between">--}}
+                                        {{--<div class="author"><?php echo '<a href="#">'.implode(',</a><a href="#">', explode(';', $item['music_artist'])).'</a>' ?></div>--}}
+                                        {{--<small class="counter_view">{{number_format($item['music_listen'])}}</small>--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                            {{--</li>--}}
+                            {{--<?php--}}
+                            {{--},array_keys($catMusic), $catMusic)--}}
+                            {{--?>--}}
                         </ul>
                     </div>
                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                         <ul class="list-unstyled bxh mb-0">
-                            <?php
-                            $catMusic = Helpers::getRandLimitArr($album_rows_4_0, LIMIT_HOME_CAT_MUSIC);
-                            array_map(function ($i, $item) {
-                            $url = SUB_BXH_MUSIC.'/'.Helpers::music_url($item);
-                            ?>
-                            <li class="media {{($i == 0 ? 'first stand' : ($i == 1 ? 'now up' : ($i == 2 ? 'now down' : 'now')))}} align-items-stretch">
-                                <div class="media-left mr-3">
-                                    <span></span>
-                                    <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{Helpers::cover_url($item['cover_id'])}}" alt="{{$item['music_title']}}"></a>
-                                </div>
-                                <div class="media-body d-flex flex-column {{$i == 0 ? '' : 'justify-content-between'}}">
-                                    <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
-                                    <div class="{{$i == 0 ? '' : 'd-flex'}} align-items-center justify-content-between">
-                                        <div class="author"><?php echo '<a href="#">'.implode(',</a><a href="#">', explode(';', $item['music_artist'])).'</a>' ?></div>
-                                        <small class="counter_view">{{number_format($item['music_listen'])}}</small>
-                                    </div>
-                                </div>
-                            </li>
-                            <?php
-                            },array_keys($catMusic), $catMusic)
-                            ?>
+                            {{--<?php--}}
+                            {{--$catMusic = Helpers::getRandLimitArr($album_rows_4_0, LIMIT_HOME_CAT_MUSIC);--}}
+                            {{--array_map(function ($i, $item) {--}}
+                            {{--$url = SUB_BXH_MUSIC.'/'.Helpers::music_url($item);--}}
+                            {{--?>--}}
+                            {{--<li class="media {{($i == 0 ? 'first stand' : ($i == 1 ? 'now up' : ($i == 2 ? 'now down' : 'now')))}} align-items-stretch">--}}
+                                {{--<div class="media-left mr-3">--}}
+                                    {{--<span></span>--}}
+                                    {{--<a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{Helpers::cover_url($item['cover_id'])}}" alt="{{$item['music_title']}}"></a>--}}
+                                {{--</div>--}}
+                                {{--<div class="media-body d-flex flex-column {{$i == 0 ? '' : 'justify-content-between'}}">--}}
+                                    {{--<h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>--}}
+                                    {{--<div class="{{$i == 0 ? '' : 'd-flex'}} align-items-center justify-content-between">--}}
+                                        {{--<div class="author"><?php echo '<a href="#">'.implode(',</a><a href="#">', explode(';', $item['music_artist'])).'</a>' ?></div>--}}
+                                        {{--<small class="counter_view">{{number_format($item['music_listen'])}}</small>--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                            {{--</li>--}}
+                            {{--<?php--}}
+                            {{--},array_keys($catMusic), $catMusic)--}}
+                            {{--?>--}}
                         </ul>
                     </div>
                     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
                         <ul class="list-unstyled bxh mb-0">
-                            <?php
-                            $catMusic = Helpers::getRandLimitArr($album_rows_5_0, LIMIT_HOME_CAT_MUSIC);
-                            array_map(function ($i, $item) {
-                            $url = SUB_BXH_MUSIC.'/'.Helpers::music_url($item);
-                            ?>
-                            <li class="media {{($i == 0 ? 'first stand' : ($i == 1 ? 'now up' : ($i == 2 ? 'now down' : 'now')))}} align-items-stretch">
-                                <div class="media-left mr-3">
-                                    <span></span>
-                                    <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{Helpers::cover_url($item['cover_id'])}}" alt="{{$item['music_title']}}"></a>
-                                </div>
-                                <div class="media-body d-flex flex-column {{$i == 0 ? '' : 'justify-content-between'}}">
-                                    <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
-                                    <div class="{{$i == 0 ? '' : 'd-flex'}} align-items-center justify-content-between">
-                                        <div class="author"><?php echo '<a href="#">'.implode(',</a><a href="#">', explode(';', $item['music_artist'])).'</a>' ?></div>
-                                        <small class="counter_view">{{number_format($item['music_listen'])}}</small>
-                                    </div>
-                                </div>
-                            </li>
-                            <?php
-                            },array_keys($catMusic), $catMusic)
-                            ?>
+                            {{--<?php--}}
+                            {{--$catMusic = Helpers::getRandLimitArr($album_rows_5_0, LIMIT_HOME_CAT_MUSIC);--}}
+                            {{--array_map(function ($i, $item) {--}}
+                            {{--$url = SUB_BXH_MUSIC.'/'.Helpers::music_url($item);--}}
+                            {{--?>--}}
+                            {{--<li class="media {{($i == 0 ? 'first stand' : ($i == 1 ? 'now up' : ($i == 2 ? 'now down' : 'now')))}} align-items-stretch">--}}
+                                {{--<div class="media-left mr-3">--}}
+                                    {{--<span></span>--}}
+                                    {{--<a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{Helpers::cover_url($item['cover_id'])}}" alt="{{$item['music_title']}}"></a>--}}
+                                {{--</div>--}}
+                                {{--<div class="media-body d-flex flex-column {{$i == 0 ? '' : 'justify-content-between'}}">--}}
+                                    {{--<h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>--}}
+                                    {{--<div class="{{$i == 0 ? '' : 'd-flex'}} align-items-center justify-content-between">--}}
+                                        {{--<div class="author"><?php echo '<a href="#">'.implode(',</a><a href="#">', explode(';', $item['music_artist'])).'</a>' ?></div>--}}
+                                        {{--<small class="counter_view">{{number_format($item['music_listen'])}}</small>--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                            {{--</li>--}}
+                            {{--<?php--}}
+                            {{--},array_keys($catMusic), $catMusic)--}}
+                            {{--?>--}}
                         </ul>
                     </div>
                     <div class="tab-pane fade" id="jpop" role="tabpanel" aria-labelledby="jpop-tab">
                         <ul class="list-unstyled bxh mb-0">
-                            <?php
-                            $catMusic = Helpers::getRandLimitArr($album_rows_7_0, LIMIT_HOME_CAT_MUSIC);
-                            array_map(function ($i, $item) {
-                            $url = SUB_BXH_MUSIC.'/'.Helpers::music_url($item);
-                            ?>
-                            <li class="media {{($i == 0 ? 'first stand' : ($i == 1 ? 'now up' : ($i == 2 ? 'now down' : 'now')))}} align-items-stretch">
-                                <div class="media-left mr-3">
-                                    <span></span>
-                                    <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{Helpers::cover_url($item['cover_id'])}}" alt="{{$item['music_title']}}"></a>
-                                </div>
-                                <div class="media-body d-flex flex-column {{$i == 0 ? '' : 'justify-content-between'}}">
-                                    <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
-                                    <div class="{{$i == 0 ? '' : 'd-flex'}} align-items-center justify-content-between">
-                                        <div class="author"><?php echo '<a href="#">'.implode(',</a><a href="#">', explode(';', $item['music_artist'])).'</a>' ?></div>
-                                        <small class="counter_view">{{number_format($item['music_listen'])}}</small>
-                                    </div>
-                                </div>
-                            </li>
-                            <?php
-                            },array_keys($catMusic), $catMusic)
-                            ?>
+                            {{--<?php--}}
+                            {{--$catMusic = Helpers::getRandLimitArr($album_rows_7_0, LIMIT_HOME_CAT_MUSIC);--}}
+                            {{--array_map(function ($i, $item) {--}}
+                            {{--$url = SUB_BXH_MUSIC.'/'.Helpers::music_url($item);--}}
+                            {{--?>--}}
+                            {{--<li class="media {{($i == 0 ? 'first stand' : ($i == 1 ? 'now up' : ($i == 2 ? 'now down' : 'now')))}} align-items-stretch">--}}
+                                {{--<div class="media-left mr-3">--}}
+                                    {{--<span></span>--}}
+                                    {{--<a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{Helpers::cover_url($item['cover_id'])}}" alt="{{$item['music_title']}}"></a>--}}
+                                {{--</div>--}}
+                                {{--<div class="media-body d-flex flex-column {{$i == 0 ? '' : 'justify-content-between'}}">--}}
+                                    {{--<h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>--}}
+                                    {{--<div class="{{$i == 0 ? '' : 'd-flex'}} align-items-center justify-content-between">--}}
+                                        {{--<div class="author"><?php echo '<a href="#">'.implode(',</a><a href="#">', explode(';', $item['music_artist'])).'</a>' ?></div>--}}
+                                        {{--<small class="counter_view">{{number_format($item['music_listen'])}}</small>--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                            {{--</li>--}}
+                            {{--<?php--}}
+                            {{--},array_keys($catMusic), $catMusic)--}}
+                            {{--?>--}}
                         </ul>
                     </div>
                 </div>

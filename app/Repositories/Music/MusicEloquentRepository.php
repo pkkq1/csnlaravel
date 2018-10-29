@@ -70,11 +70,6 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
 
         return $result;
     }
-    public function musicByUser($musicId, $fillOrder, $typeOrder, $page)
-    {
-        $result = $this->_model::where('music_user_id', $musicId)->orderBy($fillOrder, $typeOrder)->with('user')->paginate($page);
-        return $result;
-    }
     public function incrementCol($id, $field)
     {
         $result = $this
