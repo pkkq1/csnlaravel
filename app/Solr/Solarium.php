@@ -30,7 +30,9 @@ class Solarium
         try{
             $temp = '';
             foreach ($search as $key => $item) {
-                $temp = $temp . ($key . ':' . $item) . ' | ';
+                if($item) {
+                    $temp = $temp . ($key . ':' . $item) . ' | ';
+                }
 //                $query->addFilterQuery(array('key' => $key, 'query' => $key . ':*' . $item . '*'));
 //                $query->addFilterQuery(array('key' => $key, 'query' => $key . ':' . $item ));
             }
