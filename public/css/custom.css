@@ -1095,3 +1095,16 @@ form#login-form {
     transform: rotateX(180deg);
     top: -14px;
 }
+.music-listen-title a,
+.card-details li a {
+    color: #212552;
+    text-decoration: none;
+}
+.float-col-width .col{
+    width: 20%;
+    -ms-flex-preferred-size: auto;
+    flex-basis: auto;
+    -webkit-box-flex: initial;
+    -ms-flex-positive: initial;
+    flex-grow: initial;
+}

@@ -50,10 +50,14 @@
     {{--<script type="text/javascript" src="/assets/jQuery-File-Upload-9.21.0/js/jquery.fileupload-validate.js"></script>--}}
     <script>
         var csrfToken = "{{csrf_token()}}";
+        var loaded = false;
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': csrfToken
             }
+        });
+        $( document ).ajaxStop(function() {
+            loaded = false;
         });
         window.fbAsyncInit = function() {
             FB.init({

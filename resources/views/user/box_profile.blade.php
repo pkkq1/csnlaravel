@@ -173,6 +173,8 @@
                 'user_avatar': $('#user_avatar').val()
             },
             beforeSend: function () {
+                if(loaded) return false;
+                loaded = true;
             },
             statusCode: {
                 401: function () {

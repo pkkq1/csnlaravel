@@ -517,6 +517,8 @@ global $top_artist_rows;
                 dataType: "json",
                 data: {},
                 beforeSend: function () {
+                    if(loaded) return false;
+                    loaded = true;
                 },
                 success: function(data) {
                     if(data.success) {
@@ -559,6 +561,8 @@ global $top_artist_rows;
             dataType: "json",
             data: {'music_id': musicId, 'playlist_title': titlePlaylist.val()},
             beforeSend: function () {
+                if(loaded) return false;
+                loaded = true;
             },
             success: function(data) {
                 if(data.success) {
@@ -581,6 +585,8 @@ global $top_artist_rows;
             dataType: "json",
             data: {'playlist_id': playlistId, 'music_id': (musicAddId == false ? musicId : musicAddId), 'artist': (artistAdd == false ? artists : artistAdd), 'artist_id': (artistIdAdd == false ? artistIds : artistIdAdd)},
             beforeSend: function () {
+                if(loaded) return false;
+                loaded = true;
             },
             success: function(data) {
                 if(data.success) {

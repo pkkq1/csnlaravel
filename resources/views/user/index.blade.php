@@ -24,11 +24,13 @@ $mySelf = (Auth::check() && Auth::user()->id == $user->id);
                     <a class="nav-link" id="video-tab" data-toggle="tab" href="#video" role="tab" aria-controls="contact" aria-selected="false"><i class="material-icons" style="font-size: 11px;">favorite_border</i> Video</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="recent-music-tab" data-toggle="tab" href="#recent" role="tab" aria-controls="home" aria-selected="true">Vừa nghe</a>
+                    <a class="nav-link" id="artist-tab" data-toggle="tab" href="#artist" role="tab" aria-controls="contact" aria-selected="false"><i class="material-icons" style="font-size: 11px;">favorite_border</i> Ca Sĩ</a>
                 </li>
+                @if($mySelf)
                 <li class="nav-item">
-                    <a class="nav-link" onclick="musicUser('{{$user->id}}/music_uploaded', 'all')" id="your-upload-tab" data-toggle="tab" href="#uploaded" role="tab" aria-controls="profile" aria-selected="false">Tủ nhạc</a>
+                    <a class="nav-link" onclick="musicUserTab('musicUploaded')" id="your-upload-tab" data-toggle="tab" href="#uploaded" role="tab" aria-controls="profile" aria-selected="false">Tủ nhạc</a>
                 </li>
+                @endif
             </ul>
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="playlist" role="tabpanel" aria-labelledby="playlist-tab">
@@ -66,7 +68,7 @@ $mySelf = (Auth::check() && Auth::user()->id == $user->id);
                 </div>
                 <div class="tab-pane fade" id="music" role="tabpanel" aria-labelledby="music-tab">...</div>
                 <div class="tab-pane fade" id="video" role="tabpanel" aria-labelledby="video-tab">...</div>
-                <div class="tab-pane fade" id="recent" role="tabpanel" aria-labelledby="recent-music-tab">...</div>
+                <div class="tab-pane fade" id="artist" role="tabpanel" aria-labelledby="recent-music-tab">...</div>
                 <div class="tab-pane fade" id="uploaded" role="tabpanel" aria-labelledby="your-upload-tab" style="margin-bottom: 20px">
 
                 </div>
@@ -112,7 +114,14 @@ $mySelf = (Auth::check() && Auth::user()->id == $user->id);
         }
     </style>
     <script>
-        function musicUser(url, stage) {
+        var firstUploaded = true;
+        function musicUserTab(tab) {
+            if(tab == 'musicUploaded' && firstUploaded) {
+                firstUploaded = false;
+                musicUploaded('<?php echo $user->id ?>/music_uploaded', 'all');
+            }
+        }
+        function musicUploaded(url, stage) {
             var uploaded = $('#uploaded');
             $.ajax({
                 url: url,
@@ -123,6 +132,8 @@ $mySelf = (Auth::check() && Auth::user()->id == $user->id);
                     'stage' : stage
                 },
                 beforeSend: function () {
+                    if(loaded) return false;
+                    loaded = true;
                 },
                 success: function(response) {
                     if(stage == 'all') {
@@ -133,7 +144,7 @@ $mySelf = (Auth::check() && Auth::user()->id == $user->id);
                     }
                     uploaded.find('.pagination li a').on('click', function (e) {
                         e.preventDefault();
-                        musicUser($(this).attr('href'), $(this).parents().parents().parents().data('page'));
+                        musicUploaded($(this).attr('href'), $(this).parents().parents().parents().data('page'));
                     });
                 }
             });

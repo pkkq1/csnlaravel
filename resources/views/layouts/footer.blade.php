@@ -373,6 +373,8 @@
                 remember: ($('#remember').is( ":checked" ) ? true : '')
             },
             beforeSend: function () {
+                if(loaded) return false;
+                loaded = true;
             },
             error: function (data) {
                 var errors = data.responseJSON;
@@ -427,6 +429,8 @@
                 password: password.val(),
             },
             beforeSend: function () {
+                if(loaded) return false;
+                loaded = true;
             },
             error: function (data) {
                 var errors = data.responseJSON;
@@ -454,6 +458,8 @@
                 email: email.val(),
             },
             beforeSend: function () {
+                if(loaded) return false;
+                loaded = true;
             },
             error: function (data) {
                 var errors = data.responseJSON;
@@ -485,9 +491,11 @@
                 dataType: "json",
                 data: {},
                 beforeSend: function () {
+                    if(loaded) return false;
+                    loaded = true;
                 },
                 success: function(data) {
-                    loadPlaylist = false;
+                    loadHistory = false;
                     var stringBoxHtml = '';
                     if(data) {
                         $.each(data, function (index, val) {

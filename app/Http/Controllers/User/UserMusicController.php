@@ -64,9 +64,28 @@ class UserMusicController extends Controller
         }
         if($stage == 'all' || $stage == 'album') {
             // album
-            $music['album'] = $this->albumRepository->findAlbumByUser(3, 'album_id', 'desc', LIMIT_PAGE_MUSIC_UPLOADED);
+            $music['album'] = $this->albumRepository->findAlbumByUser($request->input('user_id'), 'album_id', 'desc', LIMIT_PAGE_MUSIC_UPLOADED);
         }
         return view('user.music_uploaded', compact('music', 'stage'));
+    }
+    public function musicUploadedRedirect(Request $request, $user_id, $music_id) {
+//        , 'music_user_id' => $user_id
+        $music = $this->musicRepository->getModel()::where(['music_id' => $music_id])->first();
+        if($music) {
+            $url = Helpers::listen_url($music->toArray());
+            return redirect($url);
+        }
+        return view('errors.404');
+    }
+    public function musicRecent(Request $request) {
+        $result = [];
+        $musics = [];
+        if(isset($_COOKIE['music_history'])) {
+            $musicHistory = array_reverse(unserialize($_COOKIE['music_history']));
+            $tempStr = implode(',', $musicHistory);
+            $musics = $this->musicRepository->getHistoryRecents($tempStr);
+        }
+        return view('user.music_recents', compact('musics'));
     }
 
 }

@@ -95,6 +95,8 @@ use App\Library\Helpers;
                             dataType: "json",
                             data: {playlis_ids: ids},
                             beforeSend: function () {
+                                if(loaded) return false;
+                                loaded = true;
                             },
                             success: function(data) {
                                 if(data.status) {

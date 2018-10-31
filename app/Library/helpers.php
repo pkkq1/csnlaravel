@@ -92,7 +92,7 @@ class Helpers
                 } elseif ($diff->$k <= 1) {
                     $v = 'Hôm qua, ' . date('H:i', $datetime);
                 } else {
-                    $v = $diff->$k . ' ' . $v . ', ' . date('H:i', $datetime);
+                    $v = $diff->$k . ' ' . $v;
                 }
             } else {
                 unset($string[$k]);
@@ -160,7 +160,7 @@ class Helpers
     public static function artistUrl($artistId, $artistNickName, $mode = '')
     {
         if(!$artistId || $artistId == -1){
-            return 'tim-kiem?q='.$artistNickName;
+            return 'tim-kiem?q='.$artistNickName.'&mode=ca-si';
         }
         return self::rawTiengVietUrl($artistNickName) . "~" . base64_encode(KEY_ID_ARTIST_ENCODE_URL . $artistId) . $mode . ".".HTMLEX;
     }
@@ -429,6 +429,10 @@ class Helpers
     public static function rawTiengVietUrl($str, $spaceReplace = '-')
     {
         return preg_replace(array('/[^a-zA-Z0-9 -]/', '/[ -]+/', '/^-|-$/'), array('', $spaceReplace, ''), self::khongdau($str));
+    }
+
+    public static function relaceKeySearch($str) {
+        return preg_replace(['/y/', '/ý/', '/ỳ/', '/ỷ/', '/ỵ/', '/ỹ/', '/s/'], ['i', 'í', 'ì', 'ỉ', 'ị', 'ĩ', 'x'], mb_strtolower($str, 'UTF-8'));
     }
 
     public static function album_url($album_info, $id = 0)

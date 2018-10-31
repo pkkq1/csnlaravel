@@ -33,7 +33,7 @@ Route::group(['middlewareGroups' => ['web']], function () {
 
 
     Route::get('/logout', 'User\UserController@logout');
-    Route::get('/', ['as' => 'HomeController.index', 'uses' => 'HomeController@index']);
+    Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
     Route::get('/home', ['as' => 'HomeController.index', 'uses' => 'HomeController@index']);
     Route::get('/dang-tai', ['as' => 'upload.index', 'uses' => 'UploadController@index']);
 
@@ -111,8 +111,10 @@ Route::group(['middlewareGroups' => ['web']], function () {
     // User
     Route::prefix('user/')->group(function () {
         Route::get('{id}', ['as' => 'user.index', 'uses' => 'User\UserController@index']);
-        Route::post('{id}/music_uploaded', ['as' => 'user.index', 'uses' => 'User\UserMusicController@musicUploaded']);
-        Route::post('{id}/redirect/{music_id}', ['as' => 'user.index', 'uses' => 'User\UserMusicController@musicUploaded']);
+        Route::post('{id}/music_uploaded', ['as' => 'user.uploaded', 'uses' => 'User\UserMusicController@musicUploaded']);
+        Route::get('{id}/redirect/{music_id}', ['as' => 'user.redirect', 'uses' => 'User\UserMusicController@musicUploadedRedirect']);
+        Route::post('{id}/music_recents', ['as' => 'user.uploaded', 'uses' => 'User\UserMusicController@musicRecent']);
+
     });
 
     Route::group(['middleware' => ['auth']], function() {

@@ -1,23 +1,41 @@
-
+@include('cache.suggestion.'.ceil($music->music_id / 1000).'.'.$music->music_id)
+@include('cache.def_home_album')
+@section('hidden_wapper', true)
+@include('cache.def_main_cat')
 <?php
+
 use App\Library\Helpers;
 global $cat_id2info;
 global $cat_url2info;
 
 global $album_new;
 global $music_new_uploads;
-global $sug;
+global $MusicSameArtist;
+global $VideoSameArtist;
+global $titleDup;
+global $typeDup;
 global $video;
 $titleMeta = $music->music_title . ' - '. $music->music_artist;
 $file_url = Helpers::file_url($music);
 $lyric_array = Helpers::lyric_to_web($music->music_lyric);
+$artistHtml = Helpers::rawHtmlArtists($music->music_artist_id, $music->music_artist);
+$sug = [];
+if($typeDup || $titleDup) {
+    $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup));
+    if(isset($titleDup[0])) {
+        $sug1 = array_merge(array_slice($sug, 0, 3), [$titleDup[0]]);
+        shuffle($sug1);
+        if(isset($titleDup[1])) {
+            $sug2 = array_merge(array_slice($sug, 4, 7), [$titleDup[1]]);
+            shuffle($sug2);
+        }else{
+            $sug2 = array_slice($typeDup, 4, 7);
+        }
+        $sug = array_merge($sug1, $sug2);
+    }
+}
+
 ?>
-@include('cache.suggestion.'.ceil($music->music_id / 1000).'.'.$music->music_id)
-@include('cache.def_home_album')
-
-@section('hidden_wapper', true)
-@include('cache.def_main_cat')
-
 @section('contentCSS')
     <link href="{{env('APP_URL')}}/node_modules/rabbit-lyrics/dist/rabbit-lyrics.css" rel="stylesheet" type="text/css"/>
     <script src="{{env('APP_URL')}}/node_modules/rabbit-lyrics/dist/rabbit-lyrics.js" type="text/javascript"></script>
@@ -33,11 +51,11 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{env('APP_URL')}}">{{$cat_id2info[$music->cat_id][0]['cat_title']}}</a></li>
                         <li class="breadcrumb-item"><a href="{{env('APP_URL')}}">{{$cat_id2info[$music->cat_id][$music->cat_level]['cat_title']}}</a></li>
-                        <li class="breadcrumb-item active" aria-current="page"><?php echo '<a href="#">'.implode(',</a><a href="#">', explode(';', $music->music_artist)).'</a>' ?></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{$music->music_title}}</li>
                     </ol>
                 </nav>
-                <div class="d-flex align-items-center justify-content-between mb-3 box1">
-                    <h1 class="title">{{$music->music_title}} - <span>{{$music->music_artist}}</span></h1>
+                <div class="d-flex align-items-center justify-content-between mb-3 box1 music-listen-title">
+                    <h1 class="title">{{$music->music_title}} - <span><?php echo $artistHtml ?></span></h1>
                     <span class="d-flex align-items-center listen"><i class="material-icons">headset</i> {{number_format($music->music_listen)}} lượt nghe</span>
                 </div>
                 <div class="card mb-4 detail_lyric_1">
@@ -107,9 +125,9 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
                             <div class="card-body">
                                 <h4 class="card-title">{{$music->music_title}}</h4>
                                 <ul class="list-unstyled">
-                                    <?php echo $music->music_artist ? '<li><span>Ca sĩ: </span><a href="#" style=" color: #212552; ">'.implode(';</a><a href="#" style=" color: #212552; ">', explode(';', $music->music_artist)).'</a></li>' : '' ?>
-                                    <?php echo $music->music_composer ? '<li><span>Sáng tác: </span><a href="#" style=" color: #212552; ">'.$music->music_composer.'</a></li>' : '' ?>
-                                    <?php echo $music->music_album ? '<li><span>Album: </span><a href="#" style=" color: #212552; ">'.$music->music_album.'</a></li>' : '' ?>
+                                    <?php echo $music->music_artist ? '<li><span>Ca sĩ: </span>'.$artistHtml.'</li>' : '' ?>
+                                    <?php echo $music->music_composer ? '<li><span>Sáng tác: </span><a href="/tim-kiem?q='.$music->music_composer.'&mode=sang-tac" style=" color: #212552; ">'.$music->music_composer.'</a></li>' : '' ?>
+                                    <?php echo $music->music_album ? '<li><span>Album: </span><a href="'.url()->current().'">'.$music->music_album.'</a></li>' : '' ?>
                                     <?php echo $music->music_year ? '<li><span>Năm phát hành: </span>'.$music->music_year.'</li>' : '' ?>
                                 </ul>
                             </div>
@@ -332,16 +350,17 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
                     </div>
                 </div>
                 <div class="box_space"></div>
-                <div class="box_header d-flex justify-content-between align-items-end">
-                    <h5 class="title m-0">Bài hát liên quan</h5>
-                    <a class="link_more" href="{{env('APP_URL')}}/album.html" title="Xem tất cả">Xem tất cả</a>
-                </div>
-                <div class="row row10px">
-                    <?php
-                    $newMusic = Helpers::getRandLimitArr($music_new_uploads, LYRIC_DETAIL_NEW_MUSIC);
-                    array_map(function ($item) {
-                    $url = Helpers::listen_url($item);
-                    ?>
+                @if($MusicSameArtist)
+                    <div class="box_header d-flex justify-content-between align-items-end">
+                        <h5 class="title m-0">Cùng Ca Sĩ</h5>
+                        <a class="link_more" href="{{env('APP_URL')}}/tim-kiem?q={{explode(';', $music->music_artist)[0]}}&mode=nhac" title="Xem tất cả">Xem tất cả</a>
+                    </div>
+                    <div class="row row10px float-col-width">
+                        <?php
+                        $MusicSameArtist = Helpers::getRandLimitArr($MusicSameArtist, LYRIC_DETAIL_NEW_MUSIC);
+                        array_map(function ($item) {
+                        $url = Helpers::listen_url($item);
+                        ?>
                         <div class="col">
                             <div class="card card1">
                                 <div class="card-header" style="background-image: url({{Helpers::cover_url($item['cover_id'])}});">
@@ -355,37 +374,40 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
                                 </div>
                             </div>
                         </div>
-                    <?php
-                    }, $newMusic)
-                    ?>
-                </div>
+                        <?php
+                        }, $MusicSameArtist)
+                        ?>
+                    </div>
+                @endif
+                @if($VideoSameArtist)
                 <div class="box_header d-flex justify-content-between align-items-end">
-                    <h5 class="title m-0">Album liên quan</h5>
-                    <a class="link_more" href="{{env('APP_URL')}}/album.html" title="Xem tất cả">Xem tất cả</a>
+                    <h5 class="title m-0">Video cùng ca sĩ</h5>
+                    <a class="link_more" href="{{env('APP_URL')}}/tim-kiem?q={{explode(';', $music->music_artist)[0]}}&mode=video" title="Xem tất cả">Xem tất cả</a>
                 </div>
-                <div class="row row10px">
+                <div class="row row10px float-col-width">
                     <?php
-                    $albumNew = Helpers::getRandLimitArr($album_new, LYRIC_DETAIL_NEW_ALBUM);
+                    $VideoSameArtist = Helpers::getRandLimitArr($VideoSameArtist, LYRIC_DETAIL_NEW_ALBUM);
                     array_map(function ($item) {
-                    $url = Helpers::album_url($item);
+                    $url = Helpers::listen_url($item);
                     ?>
                     <div class="col">
-                        <div class="card card1">
-                            <div class="card-header" style="background-image: url({{Helpers::cover_url($item['cover_id'])}});">
-                                <a href="{{$url}}" title="{{$item['music_album']}}">
+                        <div class="card card1 video">
+                            <div class="card-header" style="background-image: url({{Helpers::thumbnail_url($item)}});">
+                                <a href="{{$url}}" title="{{$item['music_title']}}">
                                     <span class="icon-play"></span>
                                 </a>
                             </div>
                             <div class="card-body">
-                                <h3 class="card-title"><a href="{{$url}}" title="{{$item['music_album']}}">{{$item['music_album']}}</a></h3>
-                                <p class="card-text"><?php echo $item['music_artist'] ?></p>
+                                <h3 class="card-title"><a href="{{$url}}" title="{{$item['music_title']}}">{{$item['music_title']}}</a></h3>
+                                <p class="card-text"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></p>
                             </div>
                         </div>
                     </div>
                     <?php
-                    }, $albumNew);
+                    }, $VideoSameArtist);
                     ?>
                 </div>
+                @endif
                 <div class="box_header d-flex justify-content-between align-items-end" id="post_comment">
                     <h5 class="title m-0">Bình luận của bạn</h5>
                 </div>
@@ -442,7 +464,7 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
                         </li>
                     </ul>
                 @endif
-                @if(!empty($sug))
+                @if($sug)
                 <div class="box_space"></div>
                 <div class="box_header d-flex justify-content-between align-items-end">
                     <h5 class="title m-0">Gợi ý</h5>
@@ -903,6 +925,8 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
                     'music_id' : musicId,
                     'reply_cmt_id': $('.form-comment-' + formId).find('.reply_cmt_id').val()},
                 beforeSend: function () {
+                    if(loaded) return false;
+                    loaded = true;
                 },
                 statusCode: {
                     401: function(){
@@ -946,6 +970,8 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
                 dataType: "html",
                 data: {'music_id': musicId},
                 beforeSend: function () {
+                    if(loaded) return false;
+                    loaded = true;
                     $('.list_comment .list_body').html('<div class="modal-body" style="text-align: center;"><img src="/imgs/comet-spinner.gif" width="100px" /></div>');
                 },
                 success: function(response) {
@@ -1000,6 +1026,8 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
                     dataType: "json",
                     data: {},
                     beforeSend: function () {
+                        if(loaded) return false;
+                        loaded = true;
                     },
                     success: function(data) {
                         if(data.success) {
@@ -1061,6 +1089,8 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
                 dataType: "json",
                 data: {'music_id': musicId, 'playlist_title': titlePlaylist.val()},
                 beforeSend: function () {
+                    if(loaded) return false;
+                    loaded = true;
                 },
                 success: function(data) {
                     if(data.success) {
@@ -1083,6 +1113,8 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
                 dataType: "json",
                 data: {'playlist_id': playlistId, 'music_id': (musicAddId == false ? musicId : musicAddId), 'artist': (artistAdd == false ? artists : artistAdd), 'artist_id': (artistIdAdd == false ? artistIds : artistIdAdd)},
                 beforeSend: function () {
+                    if(loaded) return false;
+                    loaded = true;
                 },
                 success: function(data) {
                     if(data.success) {
