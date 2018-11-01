@@ -39,4 +39,8 @@
 <script src="//d3.hadarone.com/ads-sync.js?placement=1365"></script>
 
 </body>
+<?php
+    global $timeStart;
+    echo '<center>'.(microtime(true) - $timeStart).'</center>';
+?>
 </html>

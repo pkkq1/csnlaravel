@@ -96,7 +96,7 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
                 }
             }
         }
-        $select = ['music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'music_album_id', 'music_listen', 'music_shortlyric', 'music_bitrate', 'music_filename'];
+        $select = ['music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'music_album_id', 'music_listen', 'music_bitrate', 'music_filename']; //, 'music_shortlyric'
         $artists = explode(';', $music->music_artist);
         // nhạc cùng ca sĩ
         $MusicSameArtist = $model->whereIn('music_artist', $artists)
@@ -121,17 +121,40 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
             ->orderBy('music_downloads', 'desc')
             ->get()->toArray();
         // cùng tên khác ca sĩ
+        $whereTitleDup = [['music_id', '!=',$music->music_id], ['music_downloads', '>=', MIN_DOWNLOAD_SUG_TITLE_SAME]];
+        if($music->music_composer) {
+            $whereTitleDup[] = ['music_composer', 'like',explode(';', $music->music_composer)[0]];
+        }
         $titleDup = $model->where('music_title', 'like', $music->music_title)
-            ->whereNotIn('music_artist', $artists)
-            ->where('music_id', '!=', $music->music_id)
-            ->where('music_downloads', '>=', MIN_DOWNLOAD_SUG_TITLE_SAME)
+            ->where($whereTitleDup)
             ->select($select)
             ->limit(2)
+            ->orderBy('music_bitrate', 'desc')
             ->orderBy('music_downloads_today', 'desc')
             ->orderBy('music_downloads_this_week', 'desc')
             ->orderBy('music_downloads', 'desc')
             ->get()->toArray();
+
+        if($music->music_composer && !$titleDup) {
+            // remove music_composer
+            array_pop($whereTitleDup);
+            $titleDup = $model->where('music_title', 'like', $music->music_title)
+                ->where($whereTitleDup)
+                ->select($select)
+                ->limit(2)
+                ->orderBy('music_bitrate', 'desc')
+                ->orderBy('music_downloads_today', 'desc')
+                ->orderBy('music_downloads_this_week', 'desc')
+                ->orderBy('music_downloads', 'desc')
+                ->get()->toArray();
+        }
         // cùng thể loại
+        $whereTypeDup = [['music_id', '!=', $music->music_id]];
+        if($titleDup) {
+            foreach ($titleDup as $item) {
+                $whereTypeDup[] = ['music_id', '!=', $item['music_id']];
+            }
+        }
         $typeDup = $model->where(['cat_id' => $music->cat_id, 'cat_level' => $music->cat_level])
             ->where('music_id', '!=', $music->music_id)
             ->select($select)
@@ -145,9 +168,10 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
         if($type != 'video') {
             $video = \App\Models\VideoModel::where('music_title', $music->music_title)
                 ->where('music_artist', $music->music_artist)
-                ->select('music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'music_album_id', 'music_listen', 'music_shortlyric', 'music_bitrate', 'music_filename')
+                ->select($select)
                 ->orderBy('music_listen', 'desc')->first();
         }
+
         $pathDir = resource_path() . '/views/cache/suggestion/' . ceil($music->music_id / 1000) . '/';
         file_put_contents($pathDir . $music->music_id . '.blade.php',
             '<?php 

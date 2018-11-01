@@ -14,9 +14,16 @@ use App\Repositories\Category\CategoryEloquentRepository;
 class CategoryController extends Controller
 {
     protected $categoryRepository;
+    protected $musicRepository;
+    protected $videoRepository;
+    protected $musicListenRepository;
+    protected $coverRepository;
 
-    public function __construct(CategoryEloquentRepository $categoryRepository) {
+    public function __construct(CategoryEloquentRepository $categoryRepository, MusicEloquentRepository $musicRepository, CoverEloquentRepository $coverRepository, VideoEloquentRepository $videoRepository) {
         $this->categoryRepository = $categoryRepository;
+        $this->musicRepository = $musicRepository;
+        $this->videoRepository = $videoRepository;
+        $this->coverRepository = $coverRepository;
     }
     public function index1(Request $request, $sub) {
         $category = $this->categoryRepository->getCategoryParentByUrl($sub);

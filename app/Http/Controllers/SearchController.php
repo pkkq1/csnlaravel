@@ -118,10 +118,10 @@ class SearchController extends Controller
                     foreach ($resultAlbum['data'] as $item) {
                         $result[0]['album']['data'][] = [
                             'music_album' => $item['music_album'][0],
-                            'album_link' => '#',
-                            'album_bitrate' => 'Lossless',
-                            'album_artist' => '<a href="#" title="">Phương Ly</a> , <a href="#" title="">JustaTee</a>',
-                            'album_cover' => 'https://zmp3-photo.zadn.vn/thumb/240_240/cover/5/e/7/f/5e7fd038c6d33ec18a2bdd0267649315.jpg'
+                            'album_link' => $item['album_link'][0],
+                            'album_bitrate' => $item['music_bitrate'][0],
+                            'album_artist' => isset($item['music_artist']) ? $item['music_artist'][0] : '',
+                            'cover' => isset($item['cover']) ? $item['cover'][0] : '',
                         ];
                     }
                 }

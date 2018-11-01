@@ -33,7 +33,7 @@ class SolrSyncController extends Controller
     public function syncMusic(Request $request) {
         $searchMusic = MusicSolrModel::select('music_id', 'music_title_search', 'music_artist_search', 'music_composer_search', 'music_album_search', 'music_title', 'music_artist',
         'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_title_url', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_downloads_this_week')
-            ->offset(131617)
+            ->offset(331617)
             ->limit(100000)
             ->get();
         foreach ($searchMusic as $item) {
@@ -129,7 +129,7 @@ class SolrSyncController extends Controller
                     'id' => 'cover_'.$item->cover_id,
                     'music_album' => $item->music_album,
                     'music_album_charset' => Helpers::rawTiengVietUrl(mb_strtolower($item->music_album, 'UTF-8'), ' '),
-                    'cover' => Helpers::album_url($item->toArray()),
+                    'cover' => Helpers::cover_url($item->toArray()),
                     'cover_filename' => $item->cover_filename,
                     'type' => 'album',
                     'music_year' => $item->music_year,
