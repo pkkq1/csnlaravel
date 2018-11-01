@@ -170,7 +170,7 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
 
 
 
-
+        $video = [];
         if($type != 'video') {
             $video = \App\Models\VideoModel::where('music_title', $music->music_title)
                 ->where('music_artist', $music->music_artist)

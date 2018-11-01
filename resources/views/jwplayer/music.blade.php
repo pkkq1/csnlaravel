@@ -978,7 +978,7 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                 beforeSend: function () {
                     if(loaded) return false;
                     loaded = true;
-                    $('.list_comment .list_body').html('<div class="modal-body" style="text-align: center;"><img src="/imgs/comet-spinner.gif" width="100px" /></div>');
+                    // $('.list_comment .list_body').html('<div class="modal-body" style="text-align: center;"><img src="/imgs/comet-spinner.gif" width="100px" /></div>');
                 },
                 success: function(response) {
                     $('.list_comment .list_body').html(response);
