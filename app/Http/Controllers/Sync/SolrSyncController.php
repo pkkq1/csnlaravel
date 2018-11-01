@@ -33,7 +33,7 @@ class SolrSyncController extends Controller
     public function syncMusic(Request $request) {
         $searchMusic = MusicSolrModel::select('music_id', 'music_title_search', 'music_artist_search', 'music_composer_search', 'music_album_search', 'music_title', 'music_artist',
         'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_title_url', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_downloads_this_week')
-            ->offset(331617)
+            ->offset(431617)
             ->limit(100000)
             ->get();
         foreach ($searchMusic as $item) {
@@ -95,10 +95,12 @@ class SolrSyncController extends Controller
     public function syncArtist(Request $request) {
         $artist = ArtistModel::offset(1)->limit(100000)->get();
         foreach ($artist as $item) {
+            $artist_nickname_charset = Helpers::rawTiengVietUrl(mb_strtolower($item->artist_nickname, 'UTF-8'), ' ');
             $data = [
                 'id' => 'artist_'.$item->artist_id,
                 'artist_nickname' => $item->artist_nickname,
-                'artist_nickname_charset' => Helpers::rawTiengVietUrl(mb_strtolower($item->artist_nickname, 'UTF-8'), ' '),
+                'artist_nickname_charset' => $artist_nickname_charset,
+                'artist_nickname_charset_nospace' => str_replace(' ', '', $artist_nickname_charset),
                 'artist_link' => Helpers::artistUrl($item->artist_id, $item->artist_nickname),
                 'artist_cover' => '/imgs/no_cover.jpg',
                 'type' => 'artist',

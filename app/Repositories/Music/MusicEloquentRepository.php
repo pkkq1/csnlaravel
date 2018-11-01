@@ -101,24 +101,36 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
         // nhạc cùng ca sĩ
         $MusicSameArtist = $model->whereIn('music_artist', $artists)
             ->where('music_id', '!=', $music->music_id)
+            ->where('cover_id', '>', 0)
             ->select($select)
             ->distinct('music_title')
-            ->limit(10)
-//            ->orderBy('music_id', 'desc')
-            ->orderBy('music_downloads_today', 'desc')
-            ->orderBy('music_downloads_this_week', 'desc')
-            ->orderBy('music_downloads', 'desc')
+            ->limit(5)
+            ->orderBy('music_id', 'desc')
+//            ->orderBy('music_downloads_today', 'desc')
+//            ->orderBy('music_downloads_this_week', 'desc')
+//            ->orderBy('music_downloads', 'desc')
             ->get()->toArray();
+        if($MusicSameArtist <= 5) {
+            $MusicSameArtist = $model->whereIn('music_artist', $artists)
+                ->where('music_id', '!=', $music->music_id)
+                ->where('cover_id', '<=', 0)
+                ->select($select)
+                ->distinct('music_title')
+                ->limit(5 - count($MusicSameArtist))
+                ->orderBy('music_id', 'desc')
+                ->get()->toArray();
+        }
+
         // video cùng ca sĩ
         $VideoSameArtist = \App\Models\VideoModel::whereIn('music_artist', $artists)
             ->where('music_id', '!=', $music->music_id)
             ->select($select)
             ->distinct('music_title')
-            ->limit(10)
-//            ->orderBy('music_id', 'desc')
-            ->orderBy('music_downloads_today', 'desc')
-            ->orderBy('music_downloads_this_week', 'desc')
-            ->orderBy('music_downloads', 'desc')
+            ->limit(5)
+            ->orderBy('music_id', 'desc')
+//            ->orderBy('music_downloads_today', 'desc')
+//            ->orderBy('music_downloads_this_week', 'desc')
+//            ->orderBy('music_downloads', 'desc')
             ->get()->toArray();
         // cùng tên khác ca sĩ
         $whereTitleDup = [['music_id', '!=',$music->music_id], ['music_downloads', '>=', MIN_DOWNLOAD_SUG_TITLE_SAME]];
@@ -155,16 +167,10 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
                 $whereTypeDup[] = ['music_id', '!=', $item['music_id']];
             }
         }
-        $typeDup = $model->where(['cat_id' => $music->cat_id, 'cat_level' => $music->cat_level])
-            ->where('music_id', '!=', $music->music_id)
-            ->select($select)
-            ->distinct('music_title')
-            ->limit(50)
-//            ->orderBy('music_id', 'desc')
-            ->orderBy('music_downloads_today', 'desc')
-            ->orderBy('music_downloads_this_week', 'desc')
-            ->orderBy('music_downloads', 'desc')
-            ->get()->toArray();
+
+
+
+
         if($type != 'video') {
             $video = \App\Models\VideoModel::where('music_title', $music->music_title)
                 ->where('music_artist', $music->music_artist)
@@ -183,13 +189,11 @@ if ( !ENV(\'IN_PHPBB\') )
 global $MusicSameArtist;
 global $VideoSameArtist;
 global $titleDup;
-global $typeDup;
 global $video;
     
 $MusicSameArtist = ' . var_export($MusicSameArtist, true) . ';
 $VideoSameArtist = ' . var_export($VideoSameArtist, true) . ';
 $titleDup = ' . var_export($titleDup, true) . ';
-$typeDup = ' . var_export($typeDup, true) . ';
 $video = ' . var_export($video ? $video->toArray(): [], true) . ';
 ?>');
     }

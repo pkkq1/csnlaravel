@@ -1,6 +1,7 @@
-@include('cache.suggestion.'.ceil($music->music_id / 1000).'.'.$music->music_id)
-@include('cache.def_home_album')
 @section('hidden_wapper', true)
+@include('cache.suggestion.'.ceil($music->music_id / 1000).'.'.$music->music_id)
+@include('cache.suggestion_cat.'.$music->cat_id.'_'.$music->cat_level)
+@include('cache.def_home_album')
 @include('cache.def_main_cat')
 <?php
 
@@ -20,21 +21,7 @@ $file_url = Helpers::file_url($music);
 $lyric_array = Helpers::lyric_to_web($music->music_lyric);
 $artistHtml = Helpers::rawHtmlArtists($music->music_artist_id, $music->music_artist);
 $sug = [];
-if($typeDup || $titleDup) {
-    $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup));
-    if(isset($titleDup[0])) {
-        $sug1 = array_merge(array_slice($sug, 0, 3), [$titleDup[0]]);
-        shuffle($sug1);
-        if(isset($titleDup[1])) {
-            $sug2 = array_merge(array_slice($sug, 4, 7), [$titleDup[1]]);
-            shuffle($sug2);
-        }else{
-            $sug2 = array_slice($typeDup, 4, 7);
-        }
-        $sug = array_merge($sug1, $sug2);
-    }
-}
-
+$sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3);
 ?>
 @section('contentCSS')
     <link href="{{env('APP_URL')}}/node_modules/rabbit-lyrics/dist/rabbit-lyrics.css" rel="stylesheet" type="text/css"/>
@@ -482,41 +469,60 @@ if($typeDup || $titleDup) {
                 </div>
                 <ul class="list-unstyled list_music sug_music">
                     <?php
-                    $sug = Helpers::getRandLimitArr($sug, LIMIT_HOME_CAT_MUSIC);
-                    $music_history = $musicSet['music_history'];
+                    $music_history = unserialize($musicSet['music_history']['cookie']);
+                    if($titleDup) {
+                        foreach ($titleDup as $item) {
+                            $music_history[] = $item['music_id'];
+                        }
+                    }
+                    $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC + count($music_history));
+                    foreach($sug as $key => $item) {
+                        if(in_array($item['music_id'], $music_history)) {
+                            unset($sug[$key]);
+                        }
+                    }
+                    if(isset($titleDup[0])) {
+                        $sug1 = array_merge(array_slice($sug, 0, 3), [$titleDup[0]]);
+                        shuffle($sug1);
+                        if(isset($titleDup[1])) {
+                            $sug2 = array_merge(array_slice($sug, 4, 5), [$titleDup[1]]);
+                            shuffle($sug2);
+                        }else{
+                            $sug2 = array_slice($typeDup, 4, 6);
+                        }
+                        $sug = array_merge($sug1, $sug2);
+                    }
                     $typeJw = $musicSet['type_jw'];
                     array_map(function ($item) use ($music_history, $typeJw) {
                         $url = Helpers::listen_url($item);
-                        if(!in_array($item['music_id'], $music_history)) {
-                            ?>
-                            <li class="media align-items-stretch">
-                                <div class="media-left align-items-stretch mr-2">
-                                    <a href="{{$url}}" title="{{$item['music_title']}}">
-                                        <img src="{{$typeJw == 'video' ? Helpers::thumbnail_url($item) : Helpers::cover_url($item['cover_id'])}}" alt="">
-                                        <i class="material-icons">play_circle_outline</i>
-                                        <span class="cover"></span>
-                                    </a>
+                        ?>
+                        <li class="media align-items-stretch">
+                            <div class="media-left align-items-stretch mr-2">
+                                <a href="{{$url}}" title="{{$item['music_title']}}">
+                                    <img src="{{$typeJw == 'video' ? Helpers::thumbnail_url($item) : Helpers::cover_url($item['cover_id'])}}" alt="">
+                                    <i class="material-icons">play_circle_outline</i>
+                                    <span class="cover"></span>
+                                </a>
+                            </div>
+                            <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
+                                <div>
+                                    <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
+                                    <div class="author"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></div>
                                 </div>
-                                <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
-                                    <div>
-                                        <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
-                                        <div class="author"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></div>
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-between">
-                                        <small class="type_music c1"><?php echo Helpers::bitrate2str($item['music_bitrate']); ?></small>
-                                        <div class="media-right">
-                                            <small class="time_stt"><i class="material-icons listen-material-icons"> play_arrow </i>{{number_format($item['music_listen'])}}</small>
-                                            <ul class="list-inline">
-                                                <li class="list-inline-item"><a download href="{{MUSIC_PATH.$item['music_filename']}}" title="download {{$item['music_title']}}"><i class="material-icons">file_download</i></a></li>
-                                                <li class="list-inline-item"><a href="{{$url}}" title="nghe riêng {{$item['music_title']}}"><i class="material-icons">headset</i></a></li>
-                                                <li class="list-inline-item"><a target="_blank" href="{{Helpers::fbShareLink($url)}}" title="share {{$item['music_title']}}"><i class="material-icons">share</i></a></li>
-                                            </ul>
-                                        </div>
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <small class="type_music c1"><?php echo Helpers::bitrate2str($item['music_bitrate']); ?></small>
+                                    <div class="media-right">
+                                        <small class="time_stt"><i class="material-icons listen-material-icons"> play_arrow </i>{{number_format($item['music_listen'])}}</small>
+                                        <ul class="list-inline">
+                                            <li class="list-inline-item"><a download href="{{MUSIC_PATH.$item['music_filename']}}" title="download {{$item['music_title']}}"><i class="material-icons">file_download</i></a></li>
+                                            <li class="list-inline-item"><a href="{{$url}}" title="nghe riêng {{$item['music_title']}}"><i class="material-icons">headset</i></a></li>
+                                            <li class="list-inline-item"><a target="_blank" href="{{Helpers::fbShareLink($url)}}" title="share {{$item['music_title']}}"><i class="material-icons">share</i></a></li>
+                                        </ul>
                                     </div>
                                 </div>
-                            </li>
-                            <?php
-                        }
+                            </div>
+                        </li>
+                        <?php
                     }, $sug)
                     ?>
 
