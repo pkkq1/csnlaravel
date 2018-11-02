@@ -483,7 +483,6 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                     if(isset($titleDup[0])) {
                         $sug1 = array_merge(array_slice($sug, 0, 3), [$titleDup[0]]);
                         shuffle($sug1);
-                        dd($sug1);
                         if(isset($titleDup[1])) {
                             $sug2 = array_merge(array_slice($sug, 4, 5), [$titleDup[1]]);
                             shuffle($sug2);
