@@ -42,7 +42,7 @@ global $top_artist_rows;
                             <div class="card-body">
                                 <h3 class="card-title"><a href="{{$url}}" title="{{$item['music_album']}}">{{$item['music_album']}}</a></h3>
                                 <p class="card-text author"><?php echo $item['music_artist'] ?></p>
-                                <div class="card-text"><?php echo Helpers::bitrate2str($item['music_bitrate']); ?></div>
+                                <div class="card-text"><?php echo $item['music_bitrate'] ?></div>
                             </div>
                         </div>
                     </div>
@@ -256,7 +256,7 @@ global $top_artist_rows;
                 <h5 class="title m-0">Album mới</h5>
                 <a class="link_more" href="/album" title="Album mới">Xem tất cả</a>
             </div>
-            <div class="row row10px">
+            <div class="row row10px float-col-width">
                 <?php
                 $albumNew = Helpers::getRandLimitArr($album_old, LIMIT_HOME_ALBUM_NEW_BOTTOM);
                 array_map(function ($i, $item) {
@@ -288,33 +288,27 @@ global $top_artist_rows;
                 <h5 class="title m-0">Video mới</h5>
                 <a class="link_more" href="/video.html" title="Xem tất Cả Video">Xem tất cả</a>
             </div>
-            <div class="row row10px">
+            <div class="row row10px float-col-width-video">
                 <?php
-                $videoMusic = Helpers::getRandLimitArr($video_new_uploads, LIMIT_HOME_MUSIC_NEW);
-                array_map(function ($i, $item) {
+                $videoMusic = Helpers::getRandLimitArr($video_new_uploads, LIMIT_HOME_VIDEO_NEW);
+                array_map(function ($item) {
                 $url = Helpers::listen_url($item);
-                if($i <= 7){
                     ?>
-                    @if ($i == 4)
-                    </div>
-                    <div class="row row10px">
-                        @endif
-                        <div class="col">
-                            <div class="card card1 video">
-                                <div class="card-header" style="background-image: url({{Helpers::thumbnail_url($item)}});">
-                                    <a href="{{$url}}" title="{{$item['music_title']}}">
-                                        <span class="icon-play"></span>
-                                    </a>
-                                </div>
-                                <div class="card-body">
-                                    <h3 class="card-title"><a href="{{$url}}" title="{{$item['music_title']}}">{{$item['music_title']}}</a></h3>
-                                    <p class="card-text"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></p>
-                                </div>
+                    <div class="col">
+                        <div class="card card1 video">
+                            <div class="card-header" style="background-image: url({{Helpers::thumbnail_url($item)}});">
+                                <a href="{{$url}}" title="{{$item['music_title']}}">
+                                    <span class="icon-play"></span>
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <h3 class="card-title"><a href="{{$url}}" title="{{$item['music_title']}}">{{$item['music_title']}}</a></h3>
+                                <p class="card-text"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></p>
                             </div>
                         </div>
+                    </div>
                     <?php
-                }
-                },array_keys($videoMusic), $videoMusic)
+                }, $videoMusic)
                 ?>
             </div>
         </div>

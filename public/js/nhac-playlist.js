@@ -53,10 +53,11 @@
                     PP.className = repeatClassAll;
                     PP.innerHTML = repeatAll;
                 }
-                if(sessionStorage.getItem("auto_repeat") == 'none') {
+                if(sessionStorage.getItem("auto_repeat") == 'none' || !sessionStorage.getItem("auto_repeat")) {
                     jwplayer().setConfig({
                         repeat: false
                     });
+                    sessionStorage.setItem("auto_repeat", 'none');
                     logPlayAudioFlag = false;
                 }
                 if(sessionStorage.getItem("auto_random") == 'true') {

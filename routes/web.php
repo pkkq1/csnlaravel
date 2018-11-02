@@ -28,6 +28,7 @@ Route::group(['middlewareGroups' => ['web']], function () {
         Route::get('album', 'Sync\AlbumController@syncAlbum');
         Route::get('download', 'Sync\MusicDownloadController@syncMusicDownload');
         Route::get('bxh_category', 'Sync\BxhCategoryController@syncBxhCategory');
+        Route::get('demo_cover', 'Sync\SolrSyncController@demo');
         Route::get('bxh_category/{month}/{year}', 'Sync\BxhCategoryController@syncBxhCategoryMonthYear'); // month = all || 1->12
         Route::get('sug_category', 'Sync\SuggestionCatController@suggestion');
     });
@@ -51,6 +52,10 @@ Route::group(['middlewareGroups' => ['web']], function () {
     Route::get('hd/{cat}', ['as' => 'category.get1', 'uses' => 'CategoryController@index1']);
     Route::get('hd/{cat}/{sub}.html', ['as' => 'category.get2', 'uses' => 'CategoryController@index2']);
     Route::get('hd/{cat}/{sub}', ['as' => 'category.get2', 'uses' => 'CategoryController@index2']);
+    Route::post('tab_category', ['as' => 'category.get_tab', 'uses' => 'CategoryController@getTabCategory']);
+
+
+
     // BXH
     Route::get('nhac-hot.html', ['as' => 'bxh.now', 'uses' => 'BxhController@now']);
     Route::get('nhac-hot', ['as' => 'bxh.now', 'uses' => 'BxhController@now']);

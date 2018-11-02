@@ -77,6 +77,17 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
             ->Increment($field);
         return $result;
     }
+    public function getCategoryMusic($catId, $catLevel, $fillOrder, $typeOrder, $page)
+    {
+        $arrWhere[] = ['cat_id', $catId];
+        if($catLevel = 0) {
+            $arrWhere[] = ['cat_level', $catLevel];
+        }
+        $result = $this->_model::where($arrWhere)
+            ->orderBy($fillOrder, $typeOrder)
+            ->paginate($page);
+        return $result;
+    }
     public function suggestion($music, $type = 'music') {
         $model = $this->_model;
         if($type == 'video') {

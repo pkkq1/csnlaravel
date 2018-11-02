@@ -10,6 +10,9 @@ use Illuminate\Http\Request as Request;
 use Illuminate\Support\Facades\Auth;
 use App\Library\Helpers;
 use App\Repositories\Category\CategoryEloquentRepository;
+use App\Repositories\Music\MusicEloquentRepository;
+use App\Repositories\Cover\CoverEloquentRepository;
+use App\Repositories\Video\VideoEloquentRepository;
 
 class CategoryController extends Controller
 {
@@ -29,16 +32,44 @@ class CategoryController extends Controller
         $category = $this->categoryRepository->getCategoryParentByUrl($sub);
         if(!$category)
             return view('errors.404');
-        return view('category.index', compact('category'));
+        $cover = $this->coverRepository->getCategoryCover($category->cat_id, $category->cat_level, 'cover_id', 'desc', LIMIT_PAGE_CATEGORY);
+        $cover = view('category.cover_item', compact('cover'));
+        return view('category.index', compact('category', 'cover'));
     }
     public function index2(Request $request, $cat, $sub) {
         $category = $this->categoryRepository->getCategoryParentByUrl($cat);
-        if(!$category)
-            return view('errors.404');
         $category = $this->categoryRepository->getCategorySub($category->cat_id, $sub);
         if(!$category)
             return view('errors.404');
-        return view('category.index', compact('category'));
+
+        $cover = $this->coverRepository->getCategoryCover($category->cat_id, $category->cat_level, 'cover_id', 'desc', LIMIT_PAGE_CATEGORY);
+        $cover = view('category.cover_item', compact('cover'));
+
+        if(!$category)
+            return view('errors.404');
+        return view('category.index', compact('category', 'cover'));
+    }
+    public function getTabCategory(Request $request) {
+        if($request->tab == 'album') {
+            $cover = $this->coverRepository->getCategoryCover($request->cat_id, $request->cat_level, 'cover_id', 'desc', LIMIT_PAGE_CATEGORY);
+            return view('category.cover_item', compact('cover'));
+        }elseif($request->tab == 'music') {
+            $music = $this->musicRepository->getCategoryMusic($request->cat_id, $request->cat_level, 'music_id', 'desc', LIMIT_PAGE_CATEGORY);
+            return view('category.music_item', compact('music'));
+        }elseif($request->tab == 'video') {
+            $catVideoLevel = $request->cat_level;
+            if($request->cat_id == CATEGORY_ID_VIDEO) {
+                if($request->cat_level == 0)
+                    $catVideoLevel = 0;
+            }else{
+                $catVideoLevel = $request->cat_id - 2;
+            }
+            $video = $this->videoRepository->getCategoryVideo(CATEGORY_ID_VIDEO, $catVideoLevel, 'music_id', 'desc', LIMIT_PAGE_CATEGORY);
+            return view('category.video_item', compact('video'));
+        }elseif($request->tab == 'download') {
+            $music = $this->musicRepository->getCategoryMusic($request->cat_id, $request->cat_level, 'music_downloads', 'desc', LIMIT_PAGE_CATEGORY);
+            return view('category.music_item', compact('music'));
+        }
     }
 
 }

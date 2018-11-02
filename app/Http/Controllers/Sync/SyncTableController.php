@@ -54,7 +54,7 @@ class SyncTableController extends Controller
                 $artistIdDup = array_keys($artistIdDup);
                 $cat = array_keys($cat);
 
-                $item->album_bitrate = isset($bitrateDup[0]) ? array_keys($bitrateDup)[0] : null;
+                $item->music_bitrate = isset($bitrateDup[0]) ? array_keys($bitrateDup)[0] : null;
                 $item->album_artist_1 = isset($artistDup[0]) ? $artistDup[0] : null;
                 $item->album_artist_id_1 = isset($artistIdDup[0]) ? $artistIdDup[0] : null;
                 $item->album_artist_2 = isset($artistDup[1]) ? $artistDup[1] : null;

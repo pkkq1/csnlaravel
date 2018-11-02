@@ -63,6 +63,20 @@ class CoverEloquentRepository extends EloquentRepository implements CoverReposit
         $result = $this->_model::where('cover_id', $id)->with('music', 'video')->first();
         return $result;
     }
+    public function getCategoryCover($catId, $catLevel, $fillOrder, $typeOrder, $page)
+    {
+        $arrWhere[] = ['album_cat_id_1', $catId];
+        $arrWhere2[] = ['album_cat_id_2', $catId];
+        if($catLevel != 0) {
+            $arrWhere[] = ['album_cat_level_1', $catLevel];
+            $arrWhere2[] = ['album_cat_level_2', $catLevel];
+        }
+        $result = $this->_model::where($arrWhere)
+            ->orWhere($arrWhere2)
+            ->orderBy($fillOrder, $typeOrder)
+            ->paginate($page);
+        return $result;
+    }
 
 }
 

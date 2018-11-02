@@ -29,56 +29,34 @@ class AlbumController extends Controller
         $cache = $this->coverRepository->getCoverNew();
         $album_new = [];
         foreach($cache as $key => $item) {
-            $artists = [];
-            $artist_ids = [];
-            $bitrates = [];
-            if($item->music) {
-                foreach ($item->music as $music) {
-                    $artists[] = trim($music->music_artist);
-                    $artist_ids[] = $music->music_artist_id;
-                    $bitrates[] = $music->music_bitrate;
-                }
-                $artistDup = array_count_values($artists);
-                $artistIdDup = array_count_values($artist_ids);
-                $bitrateDup = array_count_values($bitrates);
-                arsort($artistDup);
-                arsort($artistIdDup);
-                arsort($bitrateDup);
-                $album_new[] = [
-                    'cover_id' => $item->cover_id,
-                    'music_album' => $item->music_album,
-                    'music_artist' => !empty($artistDup) ? array_keys($artistDup)[0] : '',
-                    'music_artist' => !empty($artistDup) ? (Helpers::rawHtmlArtists(array_keys($artistIdDup)[0], array_keys($artistDup)[0]) . (count($artistIdDup) > 1 ? ', ' . Helpers::rawHtmlArtists(array_keys($artistIdDup)[1], array_keys($artistDup)[1]) : '')) : '',
-                    'music_bitrate' => !empty($bitrateDup) ? array_keys($bitrateDup)[0] : '',
-                ];
+            $album_artist_id = $item->album_artist_id_1;
+            $album_artist = $item->album_artist_1;
+            if ($item->album_artist_id_2) {
+                $album_artist_id = $album_artist_id . ';' . $item->album_artist_id_2;
+                $album_artist = $album_artist . ';' . $item->album_artist_2;
             }
+            $album_new[] = [
+                'cover_id' => $item->cover_id,
+                'music_album' => $item->music_album,
+                'music_artist' => !empty($album_artist) ? Helpers::rawHtmlArtists($album_artist_id, $album_artist) : '',
+                'music_bitrate' => Helpers::bitrate2str($item->music_bitrate),
+            ];
         }
         $cache = $this->coverRepository->getCoverNew2();
         $album_old = [];
         foreach($cache as $item) {
-            $artists = [];
-            $artist_ids = [];
-            $bitrates = [];
-            if($item->music) {
-                foreach ($item->music as $music) {
-                    $artists[] = trim($music->music_artist);
-                    $artist_ids[] = $music->music_artist_id;
-                    $bitrates[] = $music->music_bitrate;
-                }
-                $artistDup = array_count_values($artists);
-                $artistIdDup = array_count_values($artist_ids);
-                $bitrateDup = array_count_values($bitrates);
-
-                arsort($artistDup);
-                arsort($artistIdDup);
-                arsort($bitrateDup);
-                $album_old[] = [
-                    'cover_id' => $item->cover_id,
-                    'music_album' => $item->music_album,
-                    'music_artist' => !empty($artistDup) ? (Helpers::rawHtmlArtists(array_keys($artistIdDup)[0], array_keys($artistDup)[0]) . (count($artistIdDup) > 1 ? ', ' . Helpers::rawHtmlArtists(array_keys($artistIdDup)[1], array_keys($artistDup)[1]) : '')) : '',
-                    'music_bitrate' => !empty($bitrateDup) ? array_keys($bitrateDup)[0] : '',
-                ];
+            $album_artist_id = $item->album_artist_id_1;
+            $album_artist = $item->album_artist_1;
+            if ($item->album_artist_id_2) {
+                $album_artist_id = $album_artist_id . ';' . $item->album_artist_id_2;
+                $album_artist = $album_artist . ';' . $item->album_artist_2;
             }
+            $album_old[] = [
+                'cover_id' => $item->cover_id,
+                'music_album' => $item->music_album,
+                'music_artist' => !empty($album_artist) ? Helpers::rawHtmlArtists($album_artist_id, $album_artist) : '',
+                'music_bitrate' => Helpers::bitrate2str($item->music_bitrate),
+            ];
         }
         $music_new_uploads = $this->musicRepository->getModel()::orderBy('music_id', 'desc')
             ->select('music_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'cat_id', 'cat_level', 'cat_sublevel', 'cat_custom', 'cover_id', 'music_download_time', 'music_last_update_time', 'music_title_url',

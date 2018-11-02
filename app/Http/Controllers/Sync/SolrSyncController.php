@@ -30,6 +30,7 @@ class SolrSyncController extends Controller
     public function ping() {
         return $this->Solr->ping();
     }
+
     public function syncMusic(Request $request) {
         $searchMusic = MusicSolrModel::select('music_id', 'music_title_search', 'music_artist_search', 'music_composer_search', 'music_album_search', 'music_title', 'music_artist',
         'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_title_url', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_downloads_this_week')
@@ -93,7 +94,7 @@ class SolrSyncController extends Controller
         return response(['Ok']);
     }
     public function syncArtist(Request $request) {
-        $artist = ArtistModel::offset(1)->limit(100000)->get();
+        $artist = ArtistModel::offset(150000)->limit(100000)->get();
         foreach ($artist as $item) {
             $artist_nickname_charset = Helpers::rawTiengVietUrl(mb_strtolower($item->artist_nickname, 'UTF-8'), ' ');
             $data = [
@@ -110,37 +111,34 @@ class SolrSyncController extends Controller
         return response(['Ok']);
     }
     public function syncCover(Request $request) {
-        $cover = CoverModel::with('music')->orderBy('cover_id', 'asc')->offset(100000)->limit(10000)->get();
+        $cover = CoverModel::orderBy('cover_id', 'asc')->offset(100000)->limit(10000)->get();
+        $music_artist = $cover->album_artist_1;
+        $music_artist_id = $cover->album_artist_id_1;
+        if($cover->album_artist_2) {
+            $music_artist = $music_artist.';'.$cover->album_artist_2;
+            $music_artist_id = $music_artist_id.';'.$cover->album_artist_id_2;
+        }
+        $album_cat = $cover->album_cat_id_1;
+        if($album_cat) {
+            $album_cat = $album_cat.'_'.$cover->album_cat_level_1;
+            if($cover->album_cat_id_2)
+                $album_cat = $album_cat.';'.$cover->album_cat_id_2.'_'.$cover->album_cat_level_1;
+        }
+
         foreach ($cover as $item) {
-            if($item->music) {
-                $artists = [];
-                $artist_ids = [];
-                $bitrates = [];
-                foreach ($item->music as $music) {
-                    $artists[] = trim($music->music_artist);
-                    $artist_ids[] = $music->music_artist_id;
-                    $bitrates[] = $music->music_bitrate;
-                }
-                $artistDup = array_count_values($artists);
-                $artistIdDup = array_count_values($artist_ids);
-                $bitrateDup = array_count_values($bitrates);
-                arsort($artistDup);
-                arsort($artistIdDup);
-                arsort($bitrateDup);
-                $data = [
-                    'id' => 'cover_'.$item->cover_id,
-                    'music_album' => $item->music_album,
-                    'music_album_charset' => Helpers::rawTiengVietUrl(mb_strtolower($item->music_album, 'UTF-8'), ' '),
-                    'cover' => Helpers::cover_url($item->toArray()),
-                    'cover_filename' => $item->cover_filename,
-                    'type' => 'album',
-                    'music_year' => $item->music_year,
-                    'album_link' => Helpers::album_url($item->toArray()),
-                    'music_artist' => !empty($artistDup) ? (Helpers::rawHtmlArtists(array_keys($artistIdDup)[0], array_keys($artistDup)[0]) . (count($artistIdDup) > 1 ? ', ' . Helpers::rawHtmlArtists(array_keys($artistIdDup)[1], array_keys($artistDup)[1]) : '')) : '',
-                    'music_bitrate' => !empty($bitrateDup) ? Helpers::bitrate2str(array_keys($bitrateDup)[0]) : '',
-                ];
-                $this->Solr->addDocuments($data);
-            }
+            $data = [
+                'id' => 'cover_'.$item->cover_id,
+                'music_album' => $item->music_album,
+                'music_album_charset' => Helpers::rawTiengVietUrl(mb_strtolower($item->music_album, 'UTF-8'), ' '),
+                'cover' => Helpers::cover_url($item->toArray()),
+                'cover_filename' => $item->cover_filename,
+                'album_cat' => !empty($album_cat) ? $album_cat : '',
+                'music_year' => $item->music_year,
+                'album_link' => Helpers::album_url($item->toArray()),
+                'music_artist' => $music_artist ? Helpers::rawHtmlArtists($music_artist_id, $music_artist) : '',
+                'music_bitrate' => $cover->music_bitrate ? Helpers::bitrate2str($cover->music_bitrate) : '',
+            ];
+            $this->Solr->addDocuments($data);
         }
         return response(['Ok']);
     }

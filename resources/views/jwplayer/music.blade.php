@@ -50,7 +50,9 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                     <div id="csnplayer" class="<?php echo $musicSet['type_jw'] == 'video' ? 'csn_video' : 'csn_music' ?>" style="position:relative; z-index: 99999; width:100%;"> </div>
                     <div id="hidden_lyrics" class="hidden">
                         <div id="lyrics" class="rabbit-lyrics">
+                            @if($musicSet['type_jw'] != 'video')
                             <?php echo isset($music->musicKara->music_lyric_karaoke) ? Helpers::rawLyrics($music->musicKara->music_lyric_karaoke) : ''; ?>
+                            @endif
                         </div>
                     </div>
                     <div class="music_recommendation" style="border-bottom: 1px solid rgba(0,0,0,.125);">
