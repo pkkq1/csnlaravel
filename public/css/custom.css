@@ -1116,3 +1116,20 @@ form#login-form {
     -ms-flex-positive: initial;
     flex-grow: initial;
 }
+.tab-category nav li a {
+    font-weight: 700!important;
+    font-size: 18px!important;
+    text-decoration-line: none;
+    letter-spacing: 0;
+    font-family: 'SFProDisplay-Bold';
+    text-transform: uppercase;
+    white-space: nowrap;
+    border: none;
+}
+.tab-content-category .list_music li:first-child {
+    padding-top: 0px;
+    border-top: none;
+}
+.list_music li .align-items-center {
+    min-width: 30px;
+}

@@ -32,43 +32,68 @@ class CategoryController extends Controller
         $category = $this->categoryRepository->getCategoryParentByUrl($sub);
         if(!$category)
             return view('errors.404');
-        $cover = $this->coverRepository->getCategoryCover($category->cat_id, $category->cat_level, 'cover_id', 'desc', LIMIT_PAGE_CATEGORY);
-        $cover = view('category.cover_item', compact('cover'));
-        return view('category.index', compact('category', 'cover'));
+
+        if($category->cat_id != CATEGORY_ID_VIDEO) {
+            $cover = $this->coverRepository->getCategoryCover($category->cat_id, $category->cat_level, ['music_year', CURRENT_YEAR], MAX_LOSTLESS, 'cover_id', 'desc', LIMIT_PAGE_CATEGORY);
+            $firstTab = view('category.cover_item', compact('cover'));
+        }else{
+            $video = $this->videoRepository->getCategoryVideo($category->cat_id, $category->cat_level, ['music_year', CURRENT_YEAR], 'music_id', 'desc', LIMIT_PAGE_CATEGORY);
+            $firstTab = view('category.video_item', compact('video'));
+        }
+        $caption = $category->cat_title;
+        return view('category.index', compact('category', 'firstTab', 'caption'));
     }
     public function index2(Request $request, $cat, $sub) {
         $category = $this->categoryRepository->getCategoryParentByUrl($cat);
+        $title = $category->cat_title;
         $category = $this->categoryRepository->getCategorySub($category->cat_id, $sub);
         if(!$category)
             return view('errors.404');
-
-        $cover = $this->coverRepository->getCategoryCover($category->cat_id, $category->cat_level, 'cover_id', 'desc', LIMIT_PAGE_CATEGORY);
-        $cover = view('category.cover_item', compact('cover'));
-
+        if($category->cat_id != CATEGORY_ID_VIDEO) {
+            $cover = $this->coverRepository->getCategoryCover($category->cat_id, $category->cat_level, ['music_year', CURRENT_YEAR], MAX_LOSTLESS, 'cover_id', 'desc', LIMIT_PAGE_CATEGORY);
+            $firstTab = view('category.cover_item', compact('cover'));
+            $caption = $title . str_replace('Nhạc', ' ', $category->cat_title);
+        }else {
+            $video = $this->videoRepository->getCategoryVideo($category->cat_id, $category->cat_level, ['music_year', CURRENT_YEAR], 'music_id', 'desc', LIMIT_PAGE_CATEGORY);
+            $firstTab = view('category.video_item', compact('video'));
+            $caption = $title . str_replace('Video', ' ', $category->cat_title);
+        }
         if(!$category)
             return view('errors.404');
-        return view('category.index', compact('category', 'cover'));
+        return view('category.index', compact('category', 'firstTab', 'caption'));
     }
     public function getTabCategory(Request $request) {
-        if($request->tab == 'album') {
-            $cover = $this->coverRepository->getCategoryCover($request->cat_id, $request->cat_level, 'cover_id', 'desc', LIMIT_PAGE_CATEGORY);
-            return view('category.cover_item', compact('cover'));
-        }elseif($request->tab == 'music') {
-            $music = $this->musicRepository->getCategoryMusic($request->cat_id, $request->cat_level, 'music_id', 'desc', LIMIT_PAGE_CATEGORY);
-            return view('category.music_item', compact('music'));
-        }elseif($request->tab == 'video') {
-            $catVideoLevel = $request->cat_level;
-            if($request->cat_id == CATEGORY_ID_VIDEO) {
-                if($request->cat_level == 0)
-                    $catVideoLevel = 0;
-            }else{
-                $catVideoLevel = $request->cat_id - 2;
-            }
-            $video = $this->videoRepository->getCategoryVideo(CATEGORY_ID_VIDEO, $catVideoLevel, 'music_id', 'desc', LIMIT_PAGE_CATEGORY);
-            return view('category.video_item', compact('video'));
-        }elseif($request->tab == 'download') {
-            $music = $this->musicRepository->getCategoryMusic($request->cat_id, $request->cat_level, 'music_downloads', 'desc', LIMIT_PAGE_CATEGORY);
-            return view('category.music_item', compact('music'));
+        switch ($request->tab) {
+            case "album_2018":
+                $cover = $this->coverRepository->getCategoryCover($request->cat_id, $request->cat_level, ['music_year', CURRENT_YEAR], MAX_LOSTLESS, 'cover_id', 'desc', LIMIT_PAGE_CATEGORY);
+                return view('category.cover_item', compact('cover'));
+                break;
+            case "album_new":
+                $cover = $this->coverRepository->getCategoryCover($request->cat_id, $request->cat_level, ['music_year', '!=', CURRENT_YEAR], MAX_LOSTLESS, 'cover_id', 'desc', LIMIT_PAGE_CATEGORY);
+                return view('category.cover_item', compact('cover'));
+                break;
+            case "music_new":
+                $music = $this->musicRepository->getCategoryMusic($request->cat_id, $request->cat_level, 'music_id', 'desc', LIMIT_MUSIC_PAGE_CATEGORY);
+                return view('category.music_item', compact('music'));
+                break;
+            case "video_2018":
+                $video = $this->videoRepository->getCategoryVideo($request->cat_id, $request->cat_level, ['music_year', CURRENT_YEAR], 'music_id', 'desc', LIMIT_PAGE_CATEGORY);
+                return view('category.video_item', compact('video'));
+                break;
+            case "video_new":
+                $video = $this->videoRepository->getCategoryVideo($request->cat_id, $request->cat_level, ['music_year', '!=', CURRENT_YEAR], 'music_id', 'desc', LIMIT_PAGE_CATEGORY);
+                return view('category.video_item', compact('video'));
+                break;
+            case "video_download_now":
+                $video = $this->videoRepository->getCategoryVideo($request->cat_id, $request->cat_level, null,'music_download_time', 'desc', LIMIT_PAGE_CATEGORY);
+                return view('category.video_item', compact('video'));
+                break;
+            case "download_now":
+                $music = $this->musicRepository->getCategoryMusic($request->cat_id, $request->cat_level, 'music_download_time', 'desc', LIMIT_MUSIC_PAGE_CATEGORY);
+                return view('category.music_item', compact('music'));
+                break;
+            default:
+                return view('errors.404');
         }
     }
 

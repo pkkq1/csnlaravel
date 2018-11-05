@@ -31,7 +31,7 @@ class MusicDownloadController extends Controller
                 'music_title_search', 'music_artist_search', 'music_album_search', 'music_composer', 'music_album', 'music_listen', 'music_track_id', 'music_track_id', 'music_filename', 'music_bitrate', 'music_shortlyric', 'music_last_update_time')
             ->limit(20)->get();
         $download_rows = $cache->toArray();
-
+        dd($download_rows);
         file_put_contents(resource_path().'/views/cache/def_home_download.blade.php',
             '<?php 
 if ( !ENV(\'IN_PHPBB\') )

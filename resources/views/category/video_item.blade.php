@@ -24,5 +24,5 @@ use App\Library\Helpers;
     }, $video->toArray()['data'])
     ?>
 </div>
-<center>{{$video->links()}}</center>
+<center><?php echo str_replace(url()->current(), '/tab_category',$video->links()) ?></center>
 @endif

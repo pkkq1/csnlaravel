@@ -80,7 +80,7 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
     public function getCategoryMusic($catId, $catLevel, $fillOrder, $typeOrder, $page)
     {
         $arrWhere[] = ['cat_id', $catId];
-        if($catLevel = 0) {
+        if($catLevel != 0) {
             $arrWhere[] = ['cat_level', $catLevel];
         }
         $result = $this->_model::where($arrWhere)
@@ -178,8 +178,6 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
                 $whereTypeDup[] = ['music_id', '!=', $item['music_id']];
             }
         }
-
-
 
         $video = [];
         if($type != 'video') {

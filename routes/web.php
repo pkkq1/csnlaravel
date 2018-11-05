@@ -16,6 +16,7 @@ Route::get('/sync/solr_music', 'Sync\SolrSyncController@syncMusic');
 Route::get('/sync/solr_video', 'Sync\SolrSyncController@syncVideo');
 Route::get('/sync/solr_artist', 'Sync\SolrSyncController@syncArtist');
 Route::get('/sync/solr_cover', 'Sync\SolrSyncController@syncCover');
+Route::get('/sync/demo', 'Sync\SyncTableController@syncArtistCategoryCover');
 
 
 
@@ -105,8 +106,6 @@ Route::group(['middlewareGroups' => ['web']], function () {
     // ajax comment
     Route::post('binh-luan/get_ajax', ['as' => 'comment.get_ajax', 'uses' => 'CommentController@getAjaxCommentByMusicId']);
     Route::get('music/history_listen', ['as' => 'music.history_listen', 'uses' => 'MusicController@historyListen']);
-
-
 
 
     // Search

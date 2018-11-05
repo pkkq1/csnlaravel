@@ -78,11 +78,14 @@ class VideoEloquentRepository extends EloquentRepository implements VideoReposit
             ->Increment($field);
         return $result;
     }
-    public function getCategoryVideo($catId, $catLevel, $fillOrder, $typeOrder, $page)
+    public function getCategoryVideo($catId, $catLevel, $year = null, $fillOrder, $typeOrder, $page)
     {
         $arrWhere[] = ['cat_id', $catId];
         if($catLevel != 0) {
             $arrWhere[] = ['cat_level', $catLevel];
+        }
+        if($year) {
+            $arrWhere[] = $year;
         }
         $result = $this->_model::where($arrWhere)
             ->orderBy($fillOrder, $typeOrder)

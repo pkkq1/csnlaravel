@@ -63,16 +63,26 @@ class CoverEloquentRepository extends EloquentRepository implements CoverReposit
         $result = $this->_model::where('cover_id', $id)->with('music', 'video')->first();
         return $result;
     }
-    public function getCategoryCover($catId, $catLevel, $fillOrder, $typeOrder, $page)
+    public function getCategoryCover($catId, $catLevel, $year = null, $bitrate = null, $fillOrder, $typeOrder, $page)
     {
-        $arrWhere[] = ['album_cat_id_1', $catId];
-        $arrWhere2[] = ['album_cat_id_2', $catId];
+        $arrWhereCat[] = ['album_cat_id_1', $catId];
+        $arrWhereCat2[] = ['album_cat_id_2', $catId];
         if($catLevel != 0) {
-            $arrWhere[] = ['album_cat_level_1', $catLevel];
-            $arrWhere2[] = ['album_cat_level_2', $catLevel];
+            $arrWhereCat[] = ['album_cat_level_1', $catLevel];
+            $arrWhereCat2[] = ['album_cat_level_2', $catLevel];
         }
-        $result = $this->_model::where($arrWhere)
-            ->orWhere($arrWhere2)
+        $arrWhere[] = ['cover_id',  '!=', 0];
+        if($year) {
+            $arrWhere[] = $year;
+        }
+        if($bitrate) {
+            $arrWhere[] = ['music_bitrate', $bitrate];
+        }
+        $result = $this->_model::where(function($q) use ($arrWhereCat, $arrWhereCat2) {
+                $q->where($arrWhereCat)
+                    ->orWhere($arrWhereCat2);
+            })
+            ->where($arrWhere)
             ->orderBy($fillOrder, $typeOrder)
             ->paginate($page);
         return $result;

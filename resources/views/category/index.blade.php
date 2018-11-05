@@ -3,29 +3,50 @@ use App\Library\Helpers;
 $titleMeta = $category->cat_title . ' - '. Config::get('constants.app.title');
 ?>
 @extends('layouts.app')
+@section('contentCSS')
+    <link rel="stylesheet" type="text/css" href="/css/TabStylesInspiration/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/TabStylesInspiration/tabs.css">
+    <link rel="stylesheet" type="text/css" href="/css/TabStylesInspiration/tabstyles.css">
+@endsection
 @section('content')
     <div class="container">
         <div class="row row_wrapper">
             <div class="col-md-9">
-                <ul class="nav nav-tabs nav-justified nav_bxh" id="myTab" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link active" onclick="categoryTab('/tab_category', 'album')" id="album-tab" data-toggle="tab" href="#album" role="tab" aria-controls="home" aria-selected="true">Album</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" onclick="categoryTab('/tab_category', 'music')" id="music-tab" data-toggle="tab" href="#music" role="tab" aria-controls="home" aria-selected="true">Bài Hát</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" onclick="categoryTab('/tab_category', 'video')" id="video-tab" data-toggle="tab" href="#video" role="tab" aria-controls="home" aria-selected="true">Video</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" onclick="categoryTab('/tab_category', 'download')" id="download-tab" data-toggle="tab" href="#download" role="tab" aria-controls="home" aria-selected="true">Download</a>
-                    </li>
-                </ul>
-                <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade active show" id="album" role="tabpanel" aria-labelledby="album-tab"><?php echo $cover ?></div>
-                    <div class="tab-pane fade" id="music" role="tabpanel" aria-labelledby="music-tab"></div>
-                    <div class="tab-pane fade" id="video" role="tabpanel" aria-labelledby="video-tab"></div>
-                    <div class="tab-pane fade" id="download" role="tabpanel" aria-labelledby="download-tab"></div>
+                <div class="tabs tabs-style-line tab-category">
+                    <div class="media media-tab">
+                        <div class="media-left">
+                            <h2 class="media-title">{{$caption}}</h2>
+                        </div>
+                    </div>
+                    @if($category->cat_id != CATEGORY_ID_VIDEO)
+                    <nav>
+                        <ul>
+                            <li class="tab-current"><a onclick="categoryTab('/tab_category', 'album_2018')" href="#album_2018"><span>Album {{CURRENT_YEAR}}</span></a></li>
+                            <li><a onclick="categoryTab('/tab_category', 'album_new')" href="#album_new"><span>ALbum mới</span></a></li>
+                            <li><a onclick="categoryTab('/tab_category', 'music_new')" href="#music_new"><span>Bài Hát mới</span></a></li>
+                            <li><a onclick="categoryTab('/tab_category', 'download_now')" href="#download_now"><span>Vừa download</span></a></li>
+                        </ul>
+                    </nav>
+                    <div class="content-wrap tab-content-category">
+                        <section id="album_2018" class="content-current"><?php echo $firstTab ?></section>
+                        <section id="album_new"></section>
+                        <section id="music_new"></section>
+                        <section id="download_now"></section>
+                    </div>
+                    @else
+                    <nav>
+                        <ul>
+                            <li class="tab-current"><a onclick="categoryTab('/tab_category', 'video_2018')" href="#video_2018"><span>Video {{CURRENT_YEAR}}</span></a></li>
+                            <li><a onclick="categoryTab('/tab_category', 'video_new')" href="#video_new"><span>Video mới</span></a></li>
+                            <li><a onclick="categoryTab('/tab_category', 'video_download_now')" href="#video_download_now"><span>Vừa download</span></a></li>
+                        </ul>
+                    </nav>
+                    <div class="content-wrap tab-content-category">
+                        <section id="video_2018" class="content-current"><?php echo $firstTab ?></section>
+                        <section id="video_new"></section>
+                        <section id="video_download_now"></section>
+                    </div>
+                    @endif
                 </div>
             </div>
             <div class="col-md-3">
@@ -47,10 +68,20 @@ $titleMeta = $category->cat_title . ' - '. Config::get('constants.app.title');
     </div>
 @endsection
 @section('contentJS')
+    <script src="/js/cbpFWTabs.js"></script>
 <script>
-    $('#album').find('.pagination li a').on('click', function (e) {
+    (function() {
+        [].slice.call( document.querySelectorAll( '.tabs' ) ).forEach( function( el ) {
+            new CBPFWTabs( el );
+        });
+    })();
+    $('#album_2018').find('.pagination li a').on('click', function (e) {
         e.preventDefault();
-        categoryTab($(this).attr('href'), 'album', true);
+        categoryTab($(this).attr('href'), 'album_2018', true);
+    });
+    $('#video_2018').find('.pagination li a').on('click', function (e) {
+        e.preventDefault();
+        categoryTab($(this).attr('href'), 'video_2018', true);
     });
     function categoryTab(url, tab, floatTab = false) {
         if(($('#'+tab).html()).length == 0 || floatTab) {
@@ -61,17 +92,15 @@ $titleMeta = $category->cat_title . ' - '. Config::get('constants.app.title');
                 data: {
                     'cat_id': <?php echo $category->cat_id; ?>,
                     'cat_level' : <?php echo $category->cat_level; ?>,
-                    'tab': tab ? tab : 'album'
+                    'tab': tab ? tab : 'album_2018'
                 },
                 beforeSend: function () {
                     if(loaded) return false;
                     loaded = true;
+                    $('html,body').animate({ scrollTop: 0 }, 400);
                 },
                 success: function(response) {
                     $('#'+tab).html(response);
-                    $('html,body').animate({ scrollTop: 0 }, 400);
-
-
                     $('#'+tab).find('.pagination li a').on('click', function (e) {
                         e.preventDefault();
                         categoryTab($(this).attr('href'), tab, true);
@@ -80,13 +109,6 @@ $titleMeta = $category->cat_title . ' - '. Config::get('constants.app.title');
             });
         }
     }
-    <?php
-        if(!$cover) {
-            ?>
-            // $('#music-tab').click();
-            <?php
-        }
-    ?>
 </script>
 @endsection
 

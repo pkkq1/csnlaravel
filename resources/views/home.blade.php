@@ -144,8 +144,8 @@ global $top_artist_rows;
                             ?>
                             <li class="media align-items-stretch items-stretch-{{$item['music_id']}}">
                                 <div class="media-left align-items-stretch mr-2">
-                                    <a href="{{$url}}" title="{{$item['music_album']}}">
-                                        <img src="{{Helpers::cover_url($item['cover_id'])}}" alt="{{$item['music_album']}}">
+                                    <a href="{{$url}}" title="{{$item['music_title']}}">
+                                        <img src="{{Helpers::cover_url($item['cover_id'])}}" alt="{{$item['music_title']}}">
                                         <i class="material-icons">play_circle_outline</i>
                                     </a>
                                 </div>
