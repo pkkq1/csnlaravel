@@ -70,25 +70,36 @@ class SolrSyncController extends Controller
     public function syncVideo(Request $request) {
         $searchVideo = VideoModel::select('music_id', 'music_title_search', 'music_artist_search', 'music_composer_search', 'music_album_search', 'music_title', 'music_artist',
             'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_title_url', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week')
-            ->offset(3278)
+            ->offset(1)
             ->limit(100000)
             ->get();
         foreach ($searchVideo as $item) {
+            $titleSearch = Helpers::relaceKeySearch($item->music_title);
+            $artistSearch = Helpers::relaceKeySearch($item->music_artist);
+            $titleCharset = Helpers::rawTiengVietUrl($titleSearch, ' ');
+            $artistCharset = Helpers::rawTiengVietUrl($artistSearch, ' ');
             $data = [
                 'id' => 'video_'.$item->music_id,
                 'video_title' => $item->music_title,
-                'video_title_charset' => Helpers::rawTiengVietUrl(mb_strtolower($item->music_title, 'UTF-8'), ' '),
+                'video_title_search' => $titleSearch,
+                'video_artist_search' => $artistSearch,
+                'video_title_charset_nospace' => str_replace(' ', '', $titleCharset),
+                'video_artist_charset_nospace' => str_replace(' ', '', $artistCharset),
+                'video_title_charset' => $titleCharset,
+                'video_artist_charset' => $artistCharset,
                 'video_bitrate' => Helpers::bitrate2str($item->music_bitrate),
-                'video_cover' => Helpers::thumbnail_url($item->toArray()),
+                'video_cover' => Helpers::thumbnail_url($item->cover_id),
                 'video_link' => '/'.Helpers::listen_url($item->toArray(), false),
-                'type' => 'video',
                 'video_filename' => $item->music_filename,
                 'video_artist' => Helpers::rawHtmlArtists($item->music_artist_id, $item->music_artist),
                 'video_listen' => $item->music_listen,
                 'video_download' => $item->music_downloads,
                 'video_downloads_today' => $item->music_downloads_today,
                 'video_downloads_max_week' => $item->music_downloads_max_week,
+                'video_downloads_this_week' => $item->music_downloads_this_week,
+
             ];
+
             $this->Solr->addDocuments($data);
         }
         return response(['Ok']);

@@ -43,6 +43,8 @@ Route::group(['middlewareGroups' => ['web']], function () {
     // Socialite
     Route::get('auth/facebook', 'Auth\AuthFacebookController@redirectToProvider');
     Route::get('auth/facebook/callback', 'Auth\AuthFacebookController@handleProviderCallback');
+    Route::get('auth/google', 'Auth\AuthGoogleController@redirectToProvider');
+    Route::get('auth/google/callback', 'Auth\AuthGoogleController@handleProviderCallback');
     Route::get('/xac-nhan-email/{token}', 'User\UserController@verifyEmail');
     // Category
     Route::get('mp3/{cat}.html', ['as' => 'category.get1', 'uses' => 'CategoryController@index1']);
