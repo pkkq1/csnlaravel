@@ -29,14 +29,14 @@ class SearchController extends Controller
         $request->view_music = true;
         $request->view_album = true;
         $request->view_video = true;
-        $result = $this->ajaxSearch($request);
+        $result = $this->ajaxSearch($request, false);
         $titleSearch = $search.' | ';
         $result = $result[0];
         if(!$search)
             return redirect('/');
         return view('search.index', compact('result', 'titleSearch', 'search', 'result'));
     }
-    public function ajaxSearch(Request $request) {
+    public function ajaxSearch(Request $request, $quickSearch = true) {
         $search = trim(mb_strtolower($request->q, 'UTF-8'));
         $searchExp = explode(' ', $search);
         foreach ($searchExp as $key => $item) {
@@ -60,18 +60,17 @@ class SearchController extends Controller
             ],
         ];
         if($search) {
-//            $searchNoSpace = str_replace(' ','', mb_strtolower($search, 'UTF-8'));
-//            $searchCharset = Helpers::rawTiengVietUrl(mb_strtolower($search, 'UTF-8'), '');
+            $charsetNoSapce = Helpers::rawTiengVietUrl($search, ''). '*^10';
+            $titleCharset = Helpers::rawTiengVietUrl($search, '+') . '^2';
+            $titleSearch = $searchNotUtf8;
             if(isset($request->view_all) || isset($request->view_music)) {
-//                dd([
-//                    'music_title_charset' => Helpers::rawTiengVietUrl($search, '+') . '^2',
-//                    'music_title' => $searchNotUtf8,
-//                ]);
-                $resultMusic = $this->Solr->search([
-                    'music_title_charset' => Helpers::rawTiengVietUrl($search, '+') . '^2',
-                    'music_title' => $searchNotUtf8,
-                ], ($request->page_music ?? 1), $request->rows ?? ROWS_MUSIC_SEARCH_PAGING, array('score' => 'desc','music_listen' => 'desc'));
-
+                $searchSolarium = [];
+                if($quickSearch) {
+                    $searchSolarium['music_title_charset_nospace'] =  $charsetNoSapce;
+                }
+                $searchSolarium['music_title_charset'] = $titleCharset;
+                $searchSolarium['music_title'] = $titleSearch;
+                $resultMusic = $this->Solr->search($searchSolarium, ($request->page_music ?? 1), $request->rows ?? ROWS_MUSIC_SEARCH_PAGING, array('score' => 'desc','music_listen' => 'desc'));
                 if($resultMusic['data']) {
                     foreach ($resultMusic['data'] as $item) {
                         $result[0]['music']['data'][] = [
@@ -90,11 +89,13 @@ class SearchController extends Controller
                 $result[0]['music']['row_total'] = $resultMusic['row_total'];
             }
             if(isset($request->view_all) || isset($request->view_artist)) {
-                $resultArtist = $this->Solr->search([
-                    'artist_nickname' => str_replace(' ', '+', $search),
-//                    'artist_nickname_no_space' => $searchNoSpace,
-//                    'artist_nickname_charset' => $searchCharset,
-                ], ($request->page_artist ?? 1), $request->rows ?? ROWS_ARTIST_SEARCH_PAGING, array('score' => 'desc'));
+                $searchSolarium = [];
+                if($quickSearch) {
+                    $searchSolarium['artist_nickname_charset_nospace'] =  $charsetNoSapce;
+                }
+                $searchSolarium['artist_nickname_charset'] = $titleCharset;
+                $searchSolarium['artist_nickname'] = $titleSearch;
+                $resultArtist = $this->Solr->search($searchSolarium, ($request->page_artist ?? 1), $request->rows ?? ROWS_ARTIST_SEARCH_PAGING, array('score' => 'desc'));
                 if($resultArtist['data']) {
                     foreach ($resultArtist['data'] as $item) {
                         $result[0]['artist']['data'][] = [
@@ -110,9 +111,8 @@ class SearchController extends Controller
             }
             if(isset($request->view_all) || isset($request->view_album)) {
                 $resultAlbum = $this->Solr->search([
-                    'music_album' => str_replace(' ', '+', $search),
-//                    'music_album_no_space' => $searchNoSpace,
-//                    'music_album_charset' => $searchCharset
+                    'music_album_charset' => $titleCharset,
+                    'music_album' => $titleSearch,
                 ], ($request->page_album ?? 1), $request->rows ?? ROWS_ALBUM_SEARCH_PAGING, array('score' => 'desc'));
                 if($resultAlbum['data']) {
                     foreach ($resultAlbum['data'] as $item) {
@@ -130,11 +130,13 @@ class SearchController extends Controller
                 $result[0]['album']['row_total'] = $resultAlbum['row_total'];
             }
             if(isset($request->view_all) || isset($request->view_video)) {
-                $resultVideo = $this->Solr->search([
-                    'video_title' => str_replace(' ', '+', $search),
-//                    'video_title_no_space' => $searchNoSpace,
-//                    'video_title_charset' => $searchCharset,
-                ], ($request->page_video ?? 1), $request->rows ?? ROWS_VIDEO_SEARCH_PAGING, array('score' => 'desc','video_listen' => 'desc'));
+                $searchSolarium = [];
+                if($quickSearch) {
+//                    $searchSolarium['video_title_charset_nospace'] =  $charsetNoSapce;
+                }
+                $searchSolarium['video_title_charset'] = $titleCharset;
+                $searchSolarium['video_title'] = $titleSearch;
+                $resultVideo = $this->Solr->search($searchSolarium, ($request->page_video ?? 1), $request->rows ?? ROWS_VIDEO_SEARCH_PAGING, array('score' => 'desc','video_listen' => 'desc'));
                 if($resultVideo['data']) {
                     foreach ($resultVideo['data'] as $item) {
                         $result[0]['video']['data'][] = [

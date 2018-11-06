@@ -48,7 +48,7 @@
         <div class="collapse navbar-collapse container" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item dropdown">
-                    <a class="nav-link" href="#">Xếp hạng</a>
+                    <a class="nav-link" href="{{env('APP_URL')}}/nhac-hot.html">Xếp hạng</a>
                     <ul class="dropdown-menu list-unstyled">
                         <li><a href="{{env('APP_URL')}}/nhac-hot.html" title="">BXH hôm nay</a></li>
                         <li><a href="{{env('APP_URL')}}/bang-xep-hang/tuan.html" title="BXH tuần này">BXH tuần này</a></li>

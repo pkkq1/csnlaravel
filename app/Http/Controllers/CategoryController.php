@@ -53,6 +53,7 @@ class CategoryController extends Controller
             $cover = $this->coverRepository->getCategoryCover($category->cat_id, $category->cat_level, ['music_year', CURRENT_YEAR], MAX_LOSTLESS, 'cover_id', 'desc', LIMIT_PAGE_CATEGORY);
             $firstTab = view('category.cover_item', compact('cover'));
             $caption = $title . str_replace('Nhạc', ' ', $category->cat_title);
+            $caption = $title . str_replace('Playback', ' ', $category->cat_title);
         }else {
             $video = $this->videoRepository->getCategoryVideo($category->cat_id, $category->cat_level, ['music_year', CURRENT_YEAR], 'music_id', 'desc', LIMIT_PAGE_CATEGORY);
             $firstTab = view('category.video_item', compact('video'));
