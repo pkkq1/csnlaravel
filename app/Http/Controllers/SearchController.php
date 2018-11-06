@@ -60,16 +60,18 @@ class SearchController extends Controller
             ],
         ];
         if($search) {
-            $charsetNoSapce = Helpers::rawTiengVietUrl($search, ''). '*^50';
-            $titleCharset = Helpers::rawTiengVietUrl($search, '+') . '^2';
-            $titleSearch = $searchNotUtf8;
+            $searchTool = Helpers::relaceKeySearch($search);
+            $rawTiengViet = Helpers::rawTiengVietUrl($searchTool, ' ');
+            $charsetNoSapce = str_replace(' ', '', $rawTiengViet). '*^50';
+            $titleCharset = str_replace(' ', '+', $rawTiengViet) . '^2';
+            $titleSearch = Helpers::relaceKeySearch($searchNotUtf8);
             if(isset($request->view_all) || isset($request->view_music)) {
                 $searchSolarium = [];
                 if($quickSearch) {
                     $searchSolarium['music_title_charset_nospace'] =  $charsetNoSapce;
                 }
                 $searchSolarium['music_title_charset'] = $titleCharset;
-                $searchSolarium['music_title'] = $titleSearch;
+                $searchSolarium['music_title_search'] = $titleSearch;
                 $resultMusic = $this->Solr->search($searchSolarium, ($request->page_music ?? 1), $request->rows ?? ROWS_MUSIC_SEARCH_PAGING, array('score' => 'desc','music_listen' => 'desc'));
                 if($resultMusic['data']) {
                     foreach ($resultMusic['data'] as $item) {
@@ -94,7 +96,7 @@ class SearchController extends Controller
                     $searchSolarium['artist_nickname_charset_nospace'] =  $charsetNoSapce;
                 }
                 $searchSolarium['artist_nickname_charset'] = $titleCharset;
-                $searchSolarium['artist_nickname'] = $titleSearch;
+                $searchSolarium['artist_nickname'] = $searchNotUtf8;
                 $resultArtist = $this->Solr->search($searchSolarium, ($request->page_artist ?? 1), $request->rows ?? ROWS_ARTIST_SEARCH_PAGING, array('score' => 'desc'));
                 if($resultArtist['data']) {
                     foreach ($resultArtist['data'] as $item) {
@@ -112,7 +114,7 @@ class SearchController extends Controller
             if(isset($request->view_all) || isset($request->view_album)) {
                 $resultAlbum = $this->Solr->search([
                     'music_album_charset' => $titleCharset,
-                    'music_album' => $titleSearch,
+                    'music_album' => $searchNotUtf8,
                 ], ($request->page_album ?? 1), $request->rows ?? ROWS_ALBUM_SEARCH_PAGING, array('score' => 'desc'));
                 if($resultAlbum['data']) {
                     foreach ($resultAlbum['data'] as $item) {
