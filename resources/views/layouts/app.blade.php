@@ -8,7 +8,7 @@
 @hasSection('hidden_wapper')
 
 @else
-    <div class="ads_box" id="pc_masthead" onchange="pc_masthead_change();" style="padding: 10px">
+    <div class="ads_box" id="pc_masthead" onchange="pc_masthead_change();">
         <div class="container text-center">
                <div id="bsmasthead-wrapper"></div>
         </div>
@@ -28,9 +28,9 @@
     }
     $( document ).ready(function() {
         $('#pc_masthead').on('change', function () {
-            console.log(1);
+            // console.log(1);
         })
-        console.log($('#pc_masthead').height());
+        // console.log($('#pc_masthead').height());
     });
     // $('pc_masthead').contentchanged() {
     //     alert('changed')

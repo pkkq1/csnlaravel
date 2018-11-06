@@ -482,9 +482,6 @@ global $top_artist_rows;
                 ?>
             </div>
             <div class="box_space"></div>
-            <div class="card mb-3 cardads">
-                <a class="card-img-top" href="#" title=""><img class="" src="http://adi.admicro.vn/adt/adn/2018/03/7a-ad-adx5aa737ceba8f7.jpg" alt=""></a>
-            </div>
         </div>
     </div>
 </div>
@@ -635,7 +632,7 @@ global $top_artist_rows;
         top: 980px;
     }
     .show_add_playlist .card-body{
-        padding: 10px!important;
+        /*padding: 10px!important;*/
     }
 </style>
 @endsection

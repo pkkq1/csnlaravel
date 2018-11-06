@@ -1133,3 +1133,12 @@ form#login-form {
 .list_music li .align-items-center {
     min-width: 30px;
 }
+.media-tab {
+    margin-bottom: 10px!important;
+}
+.catalog1 {
+    margin-bottom: 8px!important;
+}
+.row_wrapper {
+    margin-top: 25px;
+}

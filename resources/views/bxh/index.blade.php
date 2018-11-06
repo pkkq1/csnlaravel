@@ -161,9 +161,6 @@ global $hot_video_rows;
                 <span>love</span>
             </a>
             <br>
-            <div class="card mb-3 cardads">
-                <a class="card-img-top" href="#" title=""><img class="" src="http://adi.admicro.vn/adt/adn/2018/03/7a-ad-adx5aa737ceba8f7.jpg" alt=""></a>
-            </div>
         </div>
     </div>
 </div>

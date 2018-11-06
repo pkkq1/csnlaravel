@@ -338,7 +338,6 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                         </div>
                     </div>
                 </div>
-                <div class="box_space"></div>
                 @if($MusicSameArtist)
                     <div class="box_header d-flex justify-content-between align-items-end">
                         <h5 class="title m-0">Cùng Ca Sĩ</h5>
@@ -427,14 +426,10 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="card mb-3 cardads">
-                    <a class="card-img-top" href="#" title=""><img class="" src="http://adi.admicro.vn/adt/adn/2018/03/7a-ad-adx5aa737ceba8f7.jpg" alt=""></a>
-                </div>
                 @if(!empty($video))
                     <?php
                         $urlVideo = Helpers::listen_url($video);
                     ?>
-                    <div class="box_space"></div>
                     <div class="box_header d-flex justify-content-between align-items-end">
                         <h5 class="title m-0">MV của bài hát</h5>
                     </div>
@@ -454,7 +449,6 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                     </ul>
                 @endif
                 @if($sug)
-                <div class="box_space"></div>
                 <div class="box_header d-flex justify-content-between align-items-end">
                     <h5 class="title m-0">Gợi ý</h5>
                     @if($musicSet['type_listen'] == 'single')
@@ -531,7 +525,6 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
 
                 </ul>
                 @endif
-                <div class="box_space"></div>
                 <div class="card mb-3 cardads">
                     <a class="card-img-top" href="#" title=""><img class="" src="https://magiamgia.com/wp-content/uploads/2015/08/lazada-banner-con-mua-deals_336x280.jpg" alt=""></a>
                 </div>
