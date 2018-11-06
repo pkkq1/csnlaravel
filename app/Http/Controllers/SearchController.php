@@ -60,7 +60,7 @@ class SearchController extends Controller
             ],
         ];
         if($search) {
-            $charsetNoSapce = Helpers::rawTiengVietUrl($search, ''). '*^10';
+            $charsetNoSapce = Helpers::rawTiengVietUrl($search, ''). '*^50';
             $titleCharset = Helpers::rawTiengVietUrl($search, '+') . '^2';
             $titleSearch = $searchNotUtf8;
             if(isset($request->view_all) || isset($request->view_music)) {
