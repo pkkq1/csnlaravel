@@ -130,7 +130,11 @@ Route::group(['middlewareGroups' => ['web']], function () {
         Route::get('dang-tai/ca-si', ['as' => 'upload.createArtist', 'uses' => 'UploadController@createArtist']);
         Route::post('dang-tai/ca-si', ['as' => 'upload.storeArtist', 'uses' => 'UploadController@storeArtist']);
         Route::get('dang-tai/nhac', ['as' => 'upload.createMusic', 'uses' => 'UploadController@createMusic']);
+        Route::get('dang-tai/video', ['as' => 'upload.createMusic', 'uses' => 'UploadController@createVideo']);
         Route::post('dang-tai/nhac', ['as' => 'upload.storeMusic', 'uses' => 'UploadController@storeMusic']);
+        Route::post('dang-tai/video', ['as' => 'upload.storeMusic', 'uses' => 'UploadController@storeMusic']);
+        Route::get('dang-tai/album', ['as' => 'upload.createMusic', 'uses' => 'UploadController@createAlbum']);
+        Route::post('dang-tai/album', ['as' => 'upload.storeMusic', 'uses' => 'UploadController@storeAlbum']);
         Route::post('dang-tai/file-nhac', ['as' => 'upload.fileMusic', 'uses' => 'UploadController@uploadFileMusic']);
         Route::get('dang-tai/ca-si/tim-kiem', ['as' => 'artist.gettermartist', 'uses' => 'ArtistController@getTermArtist']);
 

@@ -45,14 +45,36 @@ class ArtistUploadController extends CrudController
             [
                 'name'  => 'artist_avatar',
                 'label' => 'Avatar',
-                'prefix' => PUBLIC_AVATAR_ARTIST_PATH,
-                'type' => 'image',
+                'type' => 'closure',
+                'function' => function($entry) {
+                    $urlImg = Helpers::file_path($entry->artist_id, PUBLIC_AVATAR_ARTIST_PATH, true) . $entry->artist_avatar;
+                    return '<a href="'.$urlImg.'" target="_blank">
+                              <img src="'.$urlImg.'" style="
+                                  max-height: 25px;
+                                  width: auto;
+                                  border-radius: 3px;">
+                            </a>';
+                },
+//                'prefix' => PUBLIC_AVATAR_ARTIST_PATH,
+//                'type' => 'image',
+//                'type' => 'model_function',
+//                'function_name' => 'getPreviewAvt',
             ],
             [
                 'name'  => 'artist_cover',
                 'label' => 'Cover',
-                'prefix' => PUBLIC_COVER_ARTIST_PATH,
-                'type' => 'image',
+//                'prefix' => PUBLIC_COVER_ARTIST_PATH,
+//                'type' => 'image',
+                'type' => 'closure',
+                'function' => function($entry) {
+                    $urlImg = Helpers::file_path($entry->artist_id, PUBLIC_COVER_ARTIST_PATH, true) . $entry->artist_cover;
+                    return '<a href="'.$urlImg.'" target="_blank">
+                              <img src="'.$urlImg.'" style="
+                                  max-height: 25px;
+                                  width: auto;
+                                  border-radius: 3px;">
+                            </a>';
+                },
             ],
         ]);
 
@@ -148,14 +170,14 @@ class ArtistUploadController extends CrudController
         }
         if(strlen($request->input('artist_avatar')) > 100) {
             $typeImageAvatar = array_last(explode('.', $_FILES['choose_artist_avatar']['name']));
-            $fileNameAvt = Helpers::saveBase64Image($request->input('artist_avatar'), AVATAR_ARTIST_CROP_PATH, $request->artist_id, $typeImageAvatar);
-            Helpers::copySourceImage($request->file('choose_artist_avatar'), AVATAR_ARTIST_SOURCE_PATH, $request->artist_id, $typeImageAvatar);
+            $fileNameAvt = Helpers::saveBase64Image($request->input('artist_avatar'), Helpers::file_path($request->input('artist_id'), AVATAR_ARTIST_CROP_PATH, true), $request->artist_id, $typeImageAvatar);
+            Helpers::copySourceImage($request->file('choose_artist_avatar'), Helpers::file_path($request->input('artist_id'), AVATAR_ARTIST_SOURCE_PATH, true), $request->artist_id, $typeImageAvatar);
             $request->request->set('artist_avatar', $fileNameAvt);
         }
         if(strlen($request->input('artist_cover')) > 100) {
             $typeImageCover = array_last(explode('.', $_FILES['choose_artist_cover']['name']));
-            $fileNameCover = Helpers::saveBase64Image($request->input('artist_cover'), COVER_ARTIST_CROP_PATH, $request->artist_id, $typeImageCover);
-            Helpers::copySourceImage($request->file('choose_artist_cover'), COVER_ARTIST_SOURCE_PATH, $request->artist_id, $typeImageCover);
+            $fileNameCover = Helpers::saveBase64Image($request->input('artist_cover'), Helpers::file_path($request->input('artist_id'), COVER_ARTIST_CROP_PATH, true), $request->artist_id, $typeImageCover);
+            Helpers::copySourceImage($request->file('choose_artist_cover'), Helpers::file_path($request->input('artist_id'), COVER_ARTIST_SOURCE_PATH, true), $request->artist_id, $typeImageCover);
             $request->request->set('artist_cover', $fileNameCover);
         }
 

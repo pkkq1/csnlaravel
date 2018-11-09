@@ -186,7 +186,7 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                         @endif
                         <div class="col {{($countAlbum != 5 && $countAlbum != 10) ? 'col col-md-3' : ''}}">
                             <div class="card card1">
-                                <div class="card-header" style="background-image: url({{$item['cover']}});">
+                                <div class="card-header" style="background-image: url({{$item['album_cover']}});">
                                     <a href="{{$item['album_link']}}" title="{{$item['music_album']}}">
                                         <span class="icon-play"></span>
                                     </a>

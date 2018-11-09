@@ -203,7 +203,7 @@ class MusicController extends Controller
     public function historyListen(Request $request) {
         $result = [];
         if(isset($_COOKIE['music_history'])) {
-            $musicHistory = array_reverse(unserialize($_COOKIE['music_history']));
+            $musicHistory = unserialize($_COOKIE['music_history']);
             $tempStr = implode(',', $musicHistory);
             $musics = $this->musicRepository->getHistoryRecents($tempStr);
             foreach ($musics as $key => $item) {

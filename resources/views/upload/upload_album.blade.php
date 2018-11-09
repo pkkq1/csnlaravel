@@ -1,9 +1,9 @@
 @section('hidden_wapper', true)
 <?php
-$mess = $typeUpload == 'music' ? 'bài hát' : 'video';
-$titleMeta = 'Cập nhật '.$mess.' mới - ' . Config::get('constants.app.title');
+$titleMeta = 'Cập nhật nhạc mới - ' . Config::get('constants.app.title');
 ?>
 @section('contentCSS')
+    <link rel="stylesheet" type="text/css" href="/css/croppie.css">
     <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/dropzone.css">
     <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/bootstrap-tagsinput.css">
     <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/typeaheadjs.css">
@@ -19,10 +19,10 @@ $titleMeta = 'Cập nhật '.$mess.' mới - ' . Config::get('constants.app.titl
             <div class="col-md-9">
                 <ul class="nav nav-tabs nav-upload" id="myTab" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" id="upload_lyric-tab" href="/dang-tai/nhac" >Upload {{$mess}}</a>
+                        <a class="nav-link" id="upload_lyric-tab" href="/dang-tai/nhac" >Upload bài hát</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="upload_album-tab" href="/dang-tai/album" >upload album</a>
+                        <a class="nav-link active" id="upload_album-tab" href="/dang-tai/album" >upload album</a>
                     </li>
                 </ul>
                 @if ($message = Session::get('success'))
@@ -53,26 +53,46 @@ $titleMeta = 'Cập nhật '.$mess.' mới - ' . Config::get('constants.app.titl
                                     <strong>{{ str_replace('drop files', 'upload', $errors->first('drop_files')) }}</strong>
                                 </span>
                         @endif
+                        <p class="text-center upload_text_desc"><small>Bạn có thể upload nhiều bài hát cùng lúc bằng cách nhấn giữ phím Ctrl và click chọn các files.</small></p>
                         <hr>
                         <form action="" method="post" class="form_music has_drop_file" accept-charset="utf-8" enctype="multipart/form-data">
                             <div class="row row10px">
-                                <div class="col-12">
-                                    <div class="box_right_upload form-row">
-                                        <div class="form-group col-12">
-                                            <label for="exampleInputEmail1">{{$mess}} gốc</label>
+                                <div class="col-3 {{ $errors->has('album_cover') ? ' has-error' : '' }}">
+                                    @if ($errors->has('album_cover'))
+                                        <span class="help-block">
+                                            <strong>{{ str_replace('album cover', 'cover', $errors->first('album_cover')) }}</strong>
+                                        </span>
+                                    @endif
+                                    <div class="card cover_upload form-group">
+                                        <label for="choose_album_cover" class="card-body d-flex align-items-center justify-content-center" style="z-index: 9999">
+                                            <div class="form-group text-center m-0 icon_camera_cover">
+                                                <label for="choose_album_cover">
+                                                    <i class="material-icons">camera_alt</i>
+                                                    <div class="txt">Upload Cover</div>
+                                                </label>
+                                            </div>
+                                        </label>
+                                        <img class="mr-3" hidden id="album_cover_uploaded" src="/imgs/avatar_default.png" alt="" style="z-index: 999; width: 177px;">
+                                        <div class="media-body">
+                                            <input type="file" hidden class="form-control-file" name="choose_album_cover" id="choose_album_cover">
+                                            <input type="text" hidden  class="form-control-file" name="album_cover" id="album_cover">
                                         </div>
-                                        <div class="form-group col-12{{ $errors->has('music_title') ? ' has-error' : '' }}">
-                                            <label for="music_title">Tên {{$mess}}</label>
-                                            <input type="text" class="form-control" id="music_title" value="{{ old('music_title') }}" name="music_title" placeholder="Nhập tên {{$mess}}">
-                                            @if ($errors->has('music_title'))
+                                    </div>
+                                </div>
+                                <div class="col-9">
+                                    <div class="box_right_upload form-row">
+                                        <div class="form-group col-12{{ $errors->has('music_album') ? ' has-error' : '' }}">
+                                            <label for="music_title">Tên album</label>
+                                            <input type="text" class="form-control" id="music_album" value="{{ old('music_album') }}" name="music_album" placeholder="Nhập tên album">
+                                            @if ($errors->has('music_album'))
                                                 <span class="help-block">
-                                                    <strong>{{ str_replace('music title', $mess.' gốc', $errors->first('music_title')) }}</strong>
+                                                    <strong>{{str_replace('music album', 'tên album', $errors->first('music_album')) }}</strong>
                                                 </span>
                                             @endif
                                         </div>
                                         <div class="form-group music_artist col-12{{ $errors->has('music_artist') ? ' has-error' : '' }}">
                                             <label for="music_artist">Ca sĩ</label>
-                                            <input type="text" class="form-control" name="music_artist_id" value="{{ old('music_artist_id') }}" id="music_artist_id">
+                                            <input type="text" class="form-control" name="music_artist_id" value="{{ old('music_artist_id') }}" placeholder="Nhập tên ca sĩ" id="music_artist_id">
                                             <input type="hidden" class="form-control" name="music_artist" value="{{ old('music_artist') }}" id="music_artist" placeholder="Nhập tên ca sĩ">
                                             @if ($errors->has('music_artist'))
                                                 <span class="help-block">
@@ -82,7 +102,7 @@ $titleMeta = 'Cập nhật '.$mess.' mới - ' . Config::get('constants.app.titl
                                         </div>
                                         <div class="form-group col-12{{ $errors->has('music_composer') ? ' has-error' : '' }}">
                                             <label for="music_composer">Sáng tác</label>
-                                            <input type="text" class="form-control" value="{{ old('music_composer')}}" name="music_composer" id="music_composer" placeholder="">
+                                            <input type="text" class="form-control" name="music_composer" value="{{ old('music_composer')}}" id="music_composer" placeholder="">
                                             @if ($errors->has('music_composer'))
                                                 <span class="help-block">
                                                     <strong>{{ str_replace('music composer', 'sáng tác', $errors->first('music_composer')) }}</strong>
@@ -94,13 +114,13 @@ $titleMeta = 'Cập nhật '.$mess.' mới - ' . Config::get('constants.app.titl
                                             <input type="text" class="form-control" value="{{ old('music_production')}}" name="music_production" id="music_production" placeholder="">
                                             @if ($errors->has('music_production'))
                                                 <span class="help-block">
-                                                    <strong>{{ str_replace('music year', 'hãng sản xuất', $errors->first('music_production')) }}</strong>
+                                                    <strong>{{ str_replace('music production', 'hãng sản xuất', $errors->first('music_production')) }}</strong>
                                                 </span>
                                             @endif
                                         </div>
                                         <div class="form-group col-4{{ $errors->has('music_album_id') ? ' has-error' : '' }}">
                                             <label for="music_album_id">Hãng đĩa</label>
-                                            <input type="text" class="form-control" value="{{ old('music_album_id')}}"  name="music_album_id" id="music_album_id" placeholder="">
+                                            <input type="text" class="form-control" value="{{ old('music_album_id')}}" name="music_album_id" id="music_album_id" placeholder="">
                                             @if ($errors->has('music_album_id'))
                                                 <span class="help-block">
                                                     <strong>{{ str_replace('music album id', 'hãng đĩa', $errors->first('music_album_id')) }}</strong>
@@ -178,15 +198,6 @@ $titleMeta = 'Cập nhật '.$mess.' mới - ' . Config::get('constants.app.titl
                                                 <option value="9">Bonus track</option>
                                             </select>
                                         </div>
-                                        <div class="form-group col-12{{ $errors->has('music_lyric') ? ' has-error' : '' }}">
-                                            <label for="music_lyric">Lời {{$mess}}</label>
-                                            <textarea class="form-control" name="music_lyric" id="music_lyric" rows="9">{{ old('music_lyric')}}</textarea>
-                                            @if ($errors->has('music_lyric'))
-                                                <span class="help-block">
-                                                    <strong>{{ str_replace('music lyric', 'Lời '.$mess, $errors->first('music_lyric')) }}</strong>
-                                                </span>
-                                            @endif
-                                        </div>
                                         <div class="form-group col-12">
                                             <label for="music_note">Ghi chú</label>
                                             <textarea class="form-control" name="music_note" id="music_note" rows="3">{{ old('music_note')}}</textarea>
@@ -196,14 +207,13 @@ $titleMeta = 'Cập nhật '.$mess.' mới - ' . Config::get('constants.app.titl
                                                 <label for="music_source_url" class="m-0">Full link nguồn download</label>
                                                 <small>Yêu cầu bắt buộc khi upload nhạc lossless</small>
                                             </div>
-                                            <input type="text" class="form-control"  value="{{old('music_source_url')}}" name="music_source_url" id="music_source_url" placeholder="">
+                                            <input type="text" class="form-control" {{ old('music_source_url')}} name="music_source_url" id="music_source_url" placeholder="">
                                             @if ($errors->has('music_source_url'))
                                                 <span class="help-block">
-                                                    <strong>{{  str_replace('music source url', 'nguồn download', $errors->first('music_source_url')) }}</strong>
+                                                    <strong>{{ str_replace('music source url', 'nguồn download', $errors->first('music_source_url')) }}</strong>
                                                 </span>
                                             @endif
                                         </div>
-                                        <input type="hidden" name="type_upload" value="{{$typeUpload}}">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <input type="hidden" name="drop_files" class="drop_files" value="{{old('drop_files')}}">
                                         <input type="hidden" name="drop_html" class="drop_html" value="{{old('drop_html')}}">
@@ -221,19 +231,19 @@ $titleMeta = 'Cập nhật '.$mess.' mới - ' . Config::get('constants.app.titl
                 <div class="sidebar_upload">
                     <h3 class="title">Hướng dẫn Upload nhạc mới</h3>
                     <ul class="list-unstyled">
-                        <li><span>Bước 1:</span> Nhấn nút + Chọn tập tin để tải lên... để upload {{$mess}} từ máy tính lên server chiasenhac.com</li>
-                        <li><span>Bước 2:</span> Điền tên <span>Ca sĩ</span> trình bày ở dưới phần <span>Tên {{$mess}}</span>.</li>
-                        <li><span>Bước 3:</span> Chỉnh sửa lại <span>Tên {{$mess}}</span> cho chính xác.</li>
-                        <li><span>Bước 4:</span> Hệ thống sẽ tự động chọn 1 {{$mess}} trong cơ sở dữ liệu có thông tin {{$mess}} gần giống nhất với thông tin bạn đã điền vào. Nếu hệ thống chọn không chính xác, bạn hãy click vào <span>Chọn bài khác</span> ở khung <span>{{$mess}} gốc</span> để chọn lại cho đúng hoặc chỉnh sửa lại <span>Tên {{$mess}}</span> 1 lần nữa giống bước 3 để tự bổ sung thông tin.</li>
+                        <li><span>Bước 1:</span> Nhấn nút + Chọn tập tin để tải lên... để upload bài hát từ máy tính lên server chiasenhac.com</li>
+                        <li><span>Bước 2:</span> Điền tên <span>Ca sĩ</span> trình bày ở dưới phần <span>Tên bài hát</span>.</li>
+                        <li><span>Bước 3:</span> Chỉnh sửa lại <span>Tên bài hát</span> cho chính xác.</li>
+                        <li><span>Bước 4:</span> Hệ thống sẽ tự động chọn 1 bài hát trong cơ sở dữ liệu có thông tin bài hát gần giống nhất với thông tin bạn đã điền vào. Nếu hệ thống chọn không chính xác, bạn hãy click vào <span>Chọn bài khác</span> ở khung <span>Bài hát gốc</span> để chọn lại cho đúng hoặc chỉnh sửa lại <span>Tên bài hát</span> 1 lần nữa giống bước 3 để tự bổ sung thông tin.</li>
                         <li><span>Bước 5:</span> Bổ sung, chỉnh sửa các thông tin còn lại cho chính xác.</li>
-                        <li><span>Bước 6:</span> Nhập link nguồn nhạc mà bạn đã {{$mess}} này về. Nếu bạn rip nhạc từ CD gốc thì vui lòng gửi link file ảnh bìa của CD để chứng minh.</li>
+                        <li><span>Bước 6:</span> Nhập link nguồn nhạc mà bạn đã bài hát này về. Nếu bạn rip nhạc từ CD gốc thì vui lòng gửi link file ảnh bìa của CD để chứng minh.</li>
                     </ul>
                     <hr>
                     <h3 class="title">Lưu ý</h3>
                     <ul class="list-unstyled">
-                        <li>Nếu vì 1 lý do nào đó, bạn cần thay đổi Tên {{$mess}} hoặc tên ca sĩ thì bạn phải thực hiện lại thứ tự các bước như trên.</li>
-                        <li>Bạn chỉ cần upload file {{$mess}} ở chất lượng cao nhất mà bạn có, hệ thống sẽ xử lý thành các định dạng có chất lượng thấp hơn để phù hợp yêu cầu nghe nhạc của mọi người.</li>
-                        <li>Sau khi file nhạc và thông tin {{$mess}} đã được tải lên hệ thống thành công, bạn phát hiện có thông tin nhập chưa chính xác, cần chỉnh sửa thì bạn vẫn có 5 phút để thể thay đổi. Sau thời hạn 5 phút mà hệ thống không phát hiện thay đổi nào mới thì hệ thống bắt đầu xử lý {{$mess}} của bạn để đăng lên.</li>
+                        <li>Nếu vì 1 lý do nào đó, bạn cần thay đổi Tên bài hát hoặc tên ca sĩ thì bạn phải thực hiện lại thứ tự các bước như trên.</li>
+                        <li>Bạn chỉ cần upload file bài hát ở chất lượng cao nhất mà bạn có, hệ thống sẽ xử lý thành các định dạng có chất lượng thấp hơn để phù hợp yêu cầu nghe nhạc của mọi người.</li>
+                        <li>Sau khi file nhạc và thông tin bài hát đã được tải lên hệ thống thành công, bạn phát hiện có thông tin nhập chưa chính xác, cần chỉnh sửa thì bạn vẫn có 5 phút để thể thay đổi. Sau thời hạn 5 phút mà hệ thống không phát hiện thay đổi nào mới thì hệ thống bắt đầu xử lý bài hát của bạn để đăng lên.</li>
                     </ul>
                 </div>
             </div>
@@ -243,7 +253,29 @@ $titleMeta = 'Cập nhật '.$mess.' mới - ' . Config::get('constants.app.titl
 @endsection
 
 @section('contentJS')
+    <div id="uploadimageModal" class="modal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Cắt sửa ảnh</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-10 text-center">
+                            <div id="image_demo" style="width:470px; margin-top:30px"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success crop_image">Cắt ảnh</button>
+                    <button class="btn btn-default" data-dismiss="modal">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <script type="text/javascript" src="/js/dropzone.js"></script>
+    <script type="text/javascript" src="/js/croppie.js"></script>
     <script type="text/javascript" src="/js/bootstrap-tagsinput.js"></script>
     <script type="text/javascript" src="/js/typeahead.bundle.js"></script>
     <script type="text/javascript" src="/js/jquery.tokeninput.js"></script>
@@ -254,7 +286,6 @@ $titleMeta = 'Cập nhật '.$mess.' mới - ' . Config::get('constants.app.titl
                 return false;
             }
         });
-        Dropzone.prototype.defaultOptions.maxFiles = 1;
         // Dropzone.prototype.defaultOptions.acceptedFiles = '';
         Dropzone.prototype.defaultOptions.headers = {
             'X-CSRF-TOKEN': '{{ csrf_token() }}'
@@ -268,7 +299,7 @@ $titleMeta = 'Cập nhật '.$mess.' mới - ' . Config::get('constants.app.titl
             }
         };
         <?php
-          if(old('drop_html'))
+        if(old('drop_html'))
             echo 'Dropzone.prototype.defaultOptions.disableDropZone = true;
                   Dropzone.prototype.defaultOptions.maxFiles = 0;';
         ?>
@@ -283,19 +314,19 @@ $titleMeta = 'Cập nhật '.$mess.' mới - ' . Config::get('constants.app.titl
                 hintText: 'Nhập tên ca sĩ',
                 searchingText: 'Đang tìm ca sĩ',
                 prePopulate: [
-                        <?php
-                        if(old('music_artist') && old('music_artist_id')) {
-                            $oldArtistName = explode(';', old('music_artist'));
-                            $oldArtistId = explode(';', old('music_artist_id'));
-                            foreach ($oldArtistName as $key => $val) {
-                                $oldArtist[] = [
-                                    'id' => $oldArtistId[$key],
-                                    'name' => $val
-                                ];
-                                echo '{id: ' . $oldArtistId[$key] . ', name: "' . $val . '"},';
-                            }
+                    <?php
+                    if(old('music_artist') && old('music_artist_id')) {
+                        $oldArtistName = explode(';', old('music_artist'));
+                        $oldArtistId = explode(';', old('music_artist_id'));
+                        foreach ($oldArtistName as $key => $val) {
+                            $oldArtist[] = [
+                                'id' => $oldArtistId[$key],
+                                'name' => $val
+                            ];
+                            echo '{id: ' . $oldArtistId[$key] . ', name: "' . $val . '"},';
                         }
-                        ?>
+                    }
+                    ?>
                 ],
                 addFunction: function (){
                 }
@@ -440,5 +471,49 @@ $titleMeta = 'Cập nhật '.$mess.' mới - ' . Config::get('constants.app.titl
         document.getElementById('cat_id').value = 3;
         cat_level_reload(3);
 
+        $(document).ready(function(){
+            $('#choose_album_cover').on('change', function(){
+                $('#image_demo').html('');
+                $('.modal-dialog').css("max-width", "500px")
+                $image_crop = $('#image_demo').croppie({
+                    enableExif: true,
+                    viewport: {
+                        width:300,
+                        height:300,
+                        type:'square' //circle
+                    },
+                    boundary:{
+                        width:300,
+                        height:300
+                    },
+                    showZoomer: false,
+                    enableOrientation: true,
+                    mouseWheelZoom: '',
+                });
+                var reader = new FileReader();
+                reader.onload = function (event) {
+                    $image_crop.croppie('bind', {
+                        url: event.target.result
+                    }).then(function(){
+                        console.log('jQuery bind complete');
+                    });
+                }
+                reader.readAsDataURL(this.files[0]);
+                $('#uploadimageModal').modal('show');
+            });
+            $('.crop_image').click(function(event){
+                $image_crop.croppie('result', {
+                    type: 'canvas',
+                    size: 'viewport'
+                }).then(function (response) {
+                    $('#uploadimageModal').modal('hide');
+                    $('#album_cover').val(response);
+                    $('#album_cover_uploaded').removeAttr('hidden');
+                    $('.icon_camera_cover').remove();
+                    $('.cover_upload').css({"padding-top": "0px", "font-size": "200%"})
+                    $('#album_cover_uploaded').attr("src", response);
+                })
+            });
+        });
     </script>
 @endsection

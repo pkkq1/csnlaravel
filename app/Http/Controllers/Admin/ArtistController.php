@@ -7,7 +7,7 @@
  */
 namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request as Request;
-
+use App\Library\Helpers;
 use App\Http\Requests;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 // VALIDATION: change the requests to match your own file names if you need form validation
@@ -43,14 +43,30 @@ class ArtistController extends CrudController
             [
                 'name'  => 'artist_avatar',
                 'label' => 'Avatar',
-                'prefix' => PUBLIC_AVATAR_ARTIST_PATH,
-                'type' => 'image',
+                'type' => 'closure',
+                'function' => function($entry) {
+                    $urlImg = Helpers::file_path($entry->artist_id, PUBLIC_AVATAR_ARTIST_PATH, true) . $entry->artist_avatar;
+                    return '<a href="'.$urlImg.'" target="_blank">
+                              <img src="'.$urlImg.'" style="
+                                  max-height: 25px;
+                                  width: auto;
+                                  border-radius: 3px;">
+                            </a>';
+                },
             ],
             [
                 'name'  => 'artist_cover',
                 'label' => 'Cover',
-                'prefix' => PUBLIC_COVER_ARTIST_PATH,
-                'type' => 'image',
+                'type' => 'closure',
+                'function' => function($entry) {
+                    $urlImg = Helpers::file_path($entry->artist_id, PUBLIC_COVER_ARTIST_PATH, true) . $entry->artist_cover;
+                    return '<a href="'.$urlImg.'" target="_blank">
+                              <img src="'.$urlImg.'" style="
+                                  max-height: 25px;
+                                  width: auto;
+                                  border-radius: 3px;">
+                            </a>';
+                },
             ],
         ]);
 
@@ -74,25 +90,33 @@ class ArtistController extends CrudController
         ], 'update');
 
         $this->crud->addField([
-            'label' => "Avatar",
-            'name' => "artist_avatar",
-            'type' => 'image',
-            'aspect_ratio' => 1,
-            'crop' => true,
-            'aspect_ratio' => 1,
-            'upload' => true,
-            'prefix' => PUBLIC_AVATAR_ARTIST_PATH,
+            'name'  => 'artist_avatar',
+            'label' => 'Avatar',
         ]);
+
         $this->crud->addField([
-            'label' => "Cover",
-            'name' => "artist_cover",
-            'type' => 'image',
-            'aspect_ratio' => 1,
-            'crop' => true,
-            'aspect_ratio' => 1,
-            'upload' => true,
-            'prefix' => PUBLIC_COVER_ARTIST_PATH,
+            'name'  => 'artist_cover',
+            'label' => 'Cover',
         ]);
+//
+//        $this->crud->addField([
+//            'label' => "Avatar",
+//            'name' => "artist_avatar",
+//            'type' => 'image',
+//            'aspect_ratio' => 1,
+//            'crop' => true,
+//            'upload' => true,
+//            'prefix' => PUBLIC_AVATAR_ARTIST_PATH.'1/',
+//        ]);
+//        $this->crud->addField([
+//            'label' => "Cover",
+//            'name' => "artist_cover",
+//            'type' => 'image',
+//            'aspect_ratio' => 1,
+//            'crop' => true,
+//            'upload' => true,
+//            'prefix' => PUBLIC_COVER_ARTIST_PATH,
+//        ]);
     }
     public function edit($id, $template = false)
     {
@@ -109,7 +133,7 @@ class ArtistController extends CrudController
         $this->data['title'] = trans('backpack::crud.edit').' '.$this->crud->entity_name;
         $this->data['id'] = $id;
 
-        return view($this->crud->getEditView(), $this->data);
+        return view('vendor.backpack.upload_artist.edit', $this->data);
     }
 
     public function store(StoreRequest $request)
@@ -120,7 +144,6 @@ class ArtistController extends CrudController
     public function update(UpdateRequest $request)
     {
         $this->crud->hasAccessOrFail('update');
-
         // fallback to global request instance
         if (is_null($request)) {
             $request = \Request::instance();
@@ -132,15 +155,15 @@ class ArtistController extends CrudController
             }
         }
         if(strlen($request->input('artist_avatar')) < 100) {
-            $request->request->set('artist_avatar', str_replace(env('APP_URL') . PUBLIC_AVATAR_ARTIST_PATH, '', $request->input('artist_avatar')));
+            $request->request->set('artist_avatar', str_replace(env('APP_URL') . Helpers::file_path($request->input('artist_id'), PUBLIC_AVATAR_ARTIST_PATH, true), '', $request->input('artist_avatar')));
         }else{
-            $fileNameAvt = Helpers::saveBase64Image($request->input('artist_avatar'), AVATAR_ARTIST_CROP_PATH, $request->input('artist_id'));
+            $fileNameAvt = Helpers::saveBase64Image($request->input('artist_avatar'), Helpers::file_path($request->input('artist_id'), AVATAR_ARTIST_CROP_PATH, true), $request->input('artist_id'));
             $request->request->set('artist_avatar', $fileNameAvt);
         }
         if(strlen($request->input('artist_cover')) < 100) {
-            $request->request->set('artist_cover', str_replace(env('APP_URL') . PUBLIC_COVER_ARTIST_PATH, '', $request->input('artist_avatar')));
+            $request->request->set('artist_cover', str_replace(env('APP_URL') . Helpers::file_path($request->input('artist_id'), PUBLIC_COVER_ARTIST_PATH, true), '', $request->input('artist_avatar')));
         }else{
-            $fileNameCover = Helpers::saveBase64Image($request->input('artist_cover'), COVER_ARTIST_CROP_PATH, $request->input('artist_id'));
+            $fileNameCover = Helpers::saveBase64Image($request->input('artist_cover'), Helpers::file_path($request->input('artist_id'), COVER_ARTIST_CROP_PATH, true), $request->input('artist_id'));
             $request->request->set('artist_cover', $fileNameCover);
         }
 

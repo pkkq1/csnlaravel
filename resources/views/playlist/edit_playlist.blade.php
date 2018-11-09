@@ -18,7 +18,7 @@ use App\Library\Helpers;
                     <div>
                         <div class="form-group form-check">
                             <input type="checkbox" value="all" class="form-check-input check-all" id="">
-                            <a href="javascript:void(0)" onclick="deleteSelectPlaylist()" title="xoá playlist đã chọn" class="btn btn-secondary"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</a>
+                            <a href="javascript:void(0)" onclick="deleteSelectPlaylist()" style="margin-left: 17px;" title="xoá playlist đã chọn" class="btn btn-secondary"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</a>
                             <a href="/user/playlist/them" title="" class="btn btn-danger"><i class="fa fa-pencil" aria-hidden="true"></i> Tạo playlist</a>
                         </div>
                     </div>
@@ -32,13 +32,13 @@ use App\Library\Helpers;
                             ?>
                             <tr id="playlist_{{$item->playlist_id}}">
                                 <td class="pl-0">
-                                    <div class="form-group form-check">
-                                        <input type="checkbox" value="{{$item->playlist_id}}" class="form-check-input check-input" id="check_select">
+                                    <div class="form-group">
+                                        <input type="checkbox" value="{{$item->playlist_id}}" class="check_select">
                                     </div>
                                 </td>
                                 <td>
                                     <div class="media">
-                                        <a class="mr-3" href="{{$user}}" title=""><img src="{{$item->playlist_cover ? PUBLIC_MUSIC_PLAYLIST_PATH.$item->playlist_id . '.png?v=' . time() : '/imgs/avatar_default.png'}}" alt="{{$item->playlist_title}}"></a>
+                                        <a class="mr-3" href="{{$user}}" title=""><img src="{{$item->playlist_cover ? Helpers::file_path($item->playlist_id, PUBLIC_MUSIC_PLAYLIST_PATH, true).$item->playlist_id . '.png?v=' . time() : '/imgs/avatar_default.png'}}" alt="{{$item->playlist_title}}"></a>
                                         <div class="media-body">
                                             <h4 class="media-title"><a href="{{$user}}" title="{{$item->playlist_title}}">{{$item->playlist_title}}</a></h4>
                                             <ul class="list-unstyled">
@@ -48,7 +48,7 @@ use App\Library\Helpers;
                                         </div>
                                     </div>
                                 </td>
-                                <td>
+                                <td class="text-right">
                                     <a href="/user/playlist/cap-nhat/{{$item->playlist_id}}" title="" class="btn btn-danger"><i class="fa fa-pencil" aria-hidden="true"></i> Chỉnh sửa</a>
                                     <a href="javascript:void(0)" onclick="deletePlaylist([{{$item->playlist_id}}], 'Bạn có muốn xóa playlist {{$item->playlist_title}} này không?')" class="btn btn-secondary"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</a>
                                 </td>
@@ -118,15 +118,16 @@ use App\Library\Helpers;
             });
         }
         $('.check-all').change(function () {
+            console.log(1);
             if($('.check-all:checked').val() == 'all') {
-                $('.check-input').prop( "checked", true );
+                $('.check_select').prop( "checked", true );
             }else{
-                $('.check-input').prop( "checked", false );
+                $('.check_select').prop( "checked", false );
             }
         });
         function deleteSelectPlaylist() {
             valDelete = [];
-            $('.check-input:checked').each(function(i){
+            $('.check_select:checked').each(function(i){
                 valDelete[i] = $(this).val();
             });
             deletePlaylist(valDelete, 'bạn có muốn xóa danh sách playlist đã chọn này không?');

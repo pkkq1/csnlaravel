@@ -57,7 +57,7 @@
                         <li><a href="{{env('APP_URL')}}/bang-xep-hang/nam-2018.html" title="BXH năm 2018">BXH năm 2018</a></li>
                     </ul>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item dropdown">
                     <a class="nav-link" href="{{env('APP_URL')}}/hd/video.html">Video Clip</a>
                     <ul class="dropdown-menu list-unstyled">
                         <li><a href="{{env('APP_URL')}}/hd/video/v-video.html" title="Video Việt Nam">Video Việt Nam</a></li>
@@ -71,7 +71,7 @@
                         <li><a href="{{env('APP_URL')}}/hd/video/o-video.html" title="Video Nước Khác">Video Nước Khác</a></li>
                     </ul>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item dropdown">
                     <a class="nav-link" href="{{env('APP_URL')}}/mp3/vietnam.html">Việt Nam</a>
                     <ul class="dropdown-menu list-unstyled">
                         <li><a href="{{env('APP_URL')}}/mp3/vietnam/v-pop.html" title="Nhạc pop, rock">Nhạc pop, rock</a></li>
@@ -83,43 +83,61 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{env('APP_URL')}}/mp3/us-uk.html">US-UK</a>
                     <ul class="dropdown-menu list-unstyled">
-
+                        <li><a href="{{env('APP_URL')}}/mp3/us-uk/us-pop.html" title="Nhạc pop, rock">Nhạc pop, rock</a></li>
+                        <li><a href="{{env('APP_URL')}}/mp3/us-uk/us-rap-hiphop.html" title="Nhạc rap, hiphop">Nhạc rap, hiphop</a></li>
+                        <li><a href="{{env('APP_URL')}}/mp3/us-uk/us-dance-remix.html" title="Nhạc dance, remix">Nhạc dance, remix</a></li>
                     </ul>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item dropdown">
                     <a class="nav-link" href="{{env('APP_URL')}}/mp3/chinese.html">Nhạc Hoa</a>
                     <ul class="dropdown-menu list-unstyled">
-
+                        <li><a href="{{env('APP_URL')}}/mp3/chinese/c-pop.html" title="Nhạc pop, rock">Nhạc pop, rock</a></li>
+                        <li><a href="{{env('APP_URL')}}/mp3/chinese/c-rap-hiphop.html" title="Nhạc rap, hiphop">Nhạc rap, hiphop</a></li>
+                        <li><a href="{{env('APP_URL')}}/mp3/chinese/c-dance-remix.html" title="Nhạc dance, remix">Nhạc dance, remix</a></li>
                     </ul>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item dropdown">
                     <a class="nav-link" href="{{env('APP_URL')}}/mp3/korea.html">Nhạc Hàn</a>
                     <ul class="dropdown-menu list-unstyled">
-
+                        <li><a href="{{env('APP_URL')}}/mp3/korea/k-pop.html" title="Nhạc pop, rock">Nhạc pop, rock</a></li>
+                        <li><a href="{{env('APP_URL')}}/mp3/korea/k-rap-hiphop.html" title="Nhạc rap, hiphop">Nhạc rap, hiphop</a></li>
+                        <li><a href="{{env('APP_URL')}}/mp3/korea/k-dance-remix.html" title="Nhạc dance, remix">Nhạc dance, remix</a></li>
                     </ul>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item dropdown">
                     <a class="nav-link" href="{{env('APP_URL')}}/mp3/japan.html">Nhạc Nhật</a>
                     <ul class="dropdown-menu list-unstyled">
-
+                        <li><a href="{{env('APP_URL')}}/mp3/japan/j-pop.html" title="Nhạc pop, rock">Nhạc pop, rock</a></li>
+                        <li><a href="{{env('APP_URL')}}/mp3/japan/j-rap-hiphop.html" title="Nhạc rap, hiphop">Nhạc rap, hiphop</a></li>
+                        <li><a href="{{env('APP_URL')}}/mp3/japan/j-dance-remix.html" title="Nhạc dance, remix">Nhạc dance, remix</a></li>
                     </ul>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item dropdown">
                     <a class="nav-link" href="{{env('APP_URL')}}/mp3/france.html">Nhạc Pháp</a>
                     <ul class="dropdown-menu list-unstyled">
-
+                        <li><a href="{{env('APP_URL')}}/mp3/france/f-pop.html" title="Nhạc pop, rock">Nhạc pop, rock</a></li>
+                        <li><a href="{{env('APP_URL')}}/mp3/france/f-rap-hiphop.html" title="Nhạc rap, hiphop">Nhạc rap, hiphop</a></li>
+                        <li><a href="{{env('APP_URL')}}/mp3/france/f-dance-remix.html" title="Nhạc dance, remix">Nhạc dance, remix</a></li>
                     </ul>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item dropdown">
                     <a class="nav-link" href="{{env('APP_URL')}}/mp3/other.html">Nước khác</a>
                     <ul class="dropdown-menu list-unstyled">
-
+                        <li><a href="{{env('APP_URL')}}/mp3/other/o-pop.html" title="Nhạc pop, rock">Nhạc pop, rock</a></li>
+                        <li><a href="{{env('APP_URL')}}/mp3/other/o-rap-hiphop.html" title="Nhạc rap, hiphop">Nhạc rap, hiphop</a></li>
+                        <li><a href="{{env('APP_URL')}}/mp3/other/o-dance-remix.html" title="Nhạc dance, remix">Nhạc dance, remix</a></li>
                     </ul>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item dropdown">
                     <a class="nav-link" href="{{env('APP_URL')}}/mp3/beat-playback.html">Playback</a>
                     <ul class="dropdown-menu list-unstyled">
-
+                        <li><a href="{{env('APP_URL')}}/mp3/beat-playback/v-instrumental.html" title="Playback Việt Nam">Playback Việt Nam</a></li>
+                        <li><a href="{{env('APP_URL')}}/mp3/beat-playback/us-instrumental.html" title="Playback US-UK">Playback US-UK</a></li>
+                        <li><a href="{{env('APP_URL')}}/mp3/beat-playback/c-instrumental.html" title="Playback Hoa">Playback Hoa</a></li>
+                        <li><a href="{{env('APP_URL')}}/mp3/beat-playback/k-instrumental.html" title="Playback Hàn">Playback Hàn</a></li>
+                        <li><a href="{{env('APP_URL')}}/mp3/beat-playback/j-instrumental.html" title="Playback Nhật">Playback Nhật</a></li>
+                        <li><a href="{{env('APP_URL')}}/mp3/beat-playback/f-instrumental.html" title="Playback Pháp">Playback Pháp</a></li>
+                        <li><a href="{{env('APP_URL')}}/mp3/beat-playback/o-instrumental.html" title="Playback Nước Khác">Playback Nước Khác</a></li>
                     </ul>
                 </li>
                 <li class="nav-item this_more">

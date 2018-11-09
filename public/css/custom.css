@@ -397,8 +397,8 @@
 }
 .btn-danger {
     color: #fff;
-    background-color: #ffffff00;
-    border-color: #ffffff00;
+    /*background-color: #ffffff00;*/
+    /*border-color: #ffffff00;*/
 }
 .jw-single-repeat {
     margin-right: 15px!important;
@@ -416,6 +416,9 @@
     padding: 11px;
     text-align: center;
     border-radius: 6px;
+    font-family: SFProDisplay-Regular;
+}
+.year-album {
     font-family: SFProDisplay-Regular;
 }
 .csn-title-auto {
@@ -1141,5 +1144,57 @@ form#login-form {
 }
 .row_wrapper {
     margin-top: 25px;
-    margin-bottom: 25px;
+    margin-bottom: 50px;
+}
+.captcha {
+    border-color: white!important;
+    border: 1px solid #ffffff!important;
+}
+.span_h5 {
+    font-size: 1.25rem;
+    font-family: inherit;
+    font-weight: 500;
+    color: inherit;
+}
+.search-line {
+    color: #1B1B1B;
+    text-decoration: none!important;
+    margin-bottom: 10px;
+}
+.search-line li {
+    margin-bottom: 10px;
+}
+.search-line:hover {
+    color: #1B1B1B;
+}
+.btn-secondary-gray {
+    background-color: #cacaca!important;
+}
+.pl-0, .px-0 {
+    padding-right: 0!important;
+}
+.btn-primary {
+    background-color: white;
+}
+.center-text-mes {
+    margin-left: 10px;
+    text-align: center;
+    width: 100%;
+    height: 200px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+}
+.box_space {
+    height: 40px;
+}
+.center-text-mes-upload {
+    margin-left: 10px;
+    text-align: center;
+    width: 100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
 }

@@ -55,7 +55,8 @@ class UserController extends Controller
             'user_interests' => $request->input('user_interests')
         ];
         if($request->input('user_avatar')){
-            $fileNameAvatar = Helpers::saveBase64Image($request->input('user_avatar'), AVATAR_PATH, Auth::user()->id, 'png');
+            $path = Helpers::file_path(Auth::user()->id, AVATAR_PATH, true);
+            $fileNameAvatar = Helpers::saveBase64Image($request->input('user_avatar'), $path, Auth::user()->id, 'png');
             $update['user_avatar'] = $fileNameAvatar;
         }
         $user = UserModel::where('id', Auth::user()->id)->update($update);

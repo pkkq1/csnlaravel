@@ -21,7 +21,6 @@
     <link rel="stylesheet" href="/css/lobibox.min.css"/>
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="stylesheet" type="text/css" href="/css/jquery-ui.css">
-    <link rel="stylesheet" type="text/css" href="/css/custom.css">
     @yield('contentCSS')
     <!-- JS -->
     <script type="text/javascript" src="/node_modules/jquery/dist/jquery.min.js"></script>
@@ -39,6 +38,8 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="/js/functions.js"></script>
     <script src="/js/waves.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
     {{--<script type="text/javascript" src="/js/jquery.autocomplete.min.js"></script>--}}
     {{--<script type="text/javascript" src="/assets/emoji-picker-master/lib/js/emoji-picker.js"></script>--}}
     {{--<script type="text/javascript" src="/assets/jQuery-File-Upload-9.21.0/js/jquery.iframe-transport.js"></script>--}}

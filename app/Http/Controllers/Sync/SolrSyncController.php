@@ -33,8 +33,8 @@ class SolrSyncController extends Controller
 
     public function syncMusic(Request $request) {
         $searchMusic = MusicSolrModel::select('music_id', 'music_title_search', 'music_artist_search', 'music_composer_search', 'music_album_search', 'music_title', 'music_artist',
-        'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_title_url', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_downloads_this_week')
-            ->offset(431617)
+        'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_title_url', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_downloads_this_week', 'music_lyric')
+            ->offset(1)
             ->limit(100000)
             ->get();
         foreach ($searchMusic as $item) {
@@ -42,6 +42,8 @@ class SolrSyncController extends Controller
             $artistSearch = Helpers::relaceKeySearch($item->music_artist);
             $titleCharset = Helpers::rawTiengVietUrl($titleSearch, ' ');
             $artistCharset = Helpers::rawTiengVietUrl($artistSearch, ' ');
+            $lyricSearch = Helpers::relaceKeySearch($item->music_lyric);
+            $lyricCharset = Helpers::rawTiengVietUrl(str_replace("\n", ' ', $lyricSearch), ' ');
             $data = [
                 'id' => 'music_'.$item->music_id,
                 'music_title' => $item->music_title,
@@ -51,6 +53,9 @@ class SolrSyncController extends Controller
                 'music_artist_charset_nospace' => str_replace(' ', '', $artistCharset),
                 'music_title_charset' => $titleCharset,
                 'music_artist_charset' => $artistCharset,
+                'music_lyric' => $item->music_lyric,
+                'music_lyric_search' => $lyricSearch,
+                'music_lyric_charset' => $lyricCharset,
                 'music_bitrate' => Helpers::bitrate2str($item->music_bitrate),
                 'music_cover' => Helpers::cover_url($item->cover_id),
                 'music_link' => '/'.Helpers::listen_url($item->toArray(), false),
@@ -88,7 +93,7 @@ class SolrSyncController extends Controller
                 'video_title_charset' => $titleCharset,
                 'video_artist_charset' => $artistCharset,
                 'video_bitrate' => Helpers::bitrate2str($item->music_bitrate),
-                'video_cover' => Helpers::thumbnail_url($item->cover_id),
+                'video_cover' => Helpers::thumbnail_url($item->toArray()),
                 'video_link' => '/'.Helpers::listen_url($item->toArray(), false),
                 'video_filename' => $item->music_filename,
                 'video_artist' => Helpers::rawHtmlArtists($item->music_artist_id, $item->music_artist),
@@ -99,7 +104,6 @@ class SolrSyncController extends Controller
                 'video_downloads_this_week' => $item->music_downloads_this_week,
 
             ];
-
             $this->Solr->addDocuments($data);
         }
         return response(['Ok']);
@@ -122,32 +126,35 @@ class SolrSyncController extends Controller
         return response(['Ok']);
     }
     public function syncCover(Request $request) {
-        $cover = CoverModel::orderBy('cover_id', 'asc')->offset(100000)->limit(10000)->get();
-        $music_artist = $cover->album_artist_1;
-        $music_artist_id = $cover->album_artist_id_1;
-        if($cover->album_artist_2) {
-            $music_artist = $music_artist.';'.$cover->album_artist_2;
-            $music_artist_id = $music_artist_id.';'.$cover->album_artist_id_2;
-        }
-        $album_cat = $cover->album_cat_id_1;
-        if($album_cat) {
-            $album_cat = $album_cat.'_'.$cover->album_cat_level_1;
-            if($cover->album_cat_id_2)
-                $album_cat = $album_cat.';'.$cover->album_cat_id_2.'_'.$cover->album_cat_level_1;
-        }
-
+        $cover = CoverModel::orderBy('cover_id', 'asc')->offset(90000)->limit(10000)->get();
         foreach ($cover as $item) {
+            $music_artist = $item->album_artist_1;
+            $music_artist_id = $item->album_artist_id_1;
+            if($item->album_artist_2) {
+                $music_artist = $music_artist.';'.$item->album_artist_2;
+                $music_artist_id = $music_artist_id.';'.$item->album_artist_id_2;
+            }
+            $album_cat = $item->album_cat_id_1;
+            if($album_cat) {
+                $album_cat = $album_cat.'_'.$item->album_cat_level_1;
+                if($item->album_cat_id_2)
+                    $album_cat = $album_cat.';'.$item->album_cat_id_2.'_'.$item->album_cat_level_1;
+            }
+            $titleSearch = Helpers::relaceKeySearch($item->music_album);
+            $titleCharset = Helpers::rawTiengVietUrl($item->music_album, ' ');
             $data = [
                 'id' => 'cover_'.$item->cover_id,
                 'music_album' => $item->music_album,
-                'music_album_charset' => Helpers::rawTiengVietUrl(mb_strtolower($item->music_album, 'UTF-8'), ' '),
-                'cover' => Helpers::cover_url($item->toArray()),
+                'music_album_search' => $titleSearch,
+                'music_album_charset' =>$titleCharset,
+                'music_album_charset_nospace' => str_replace(' ', '', $titleCharset),
+                'album_cover' => Helpers::cover_url($item->cover_id),
                 'cover_filename' => $item->cover_filename,
                 'album_cat' => !empty($album_cat) ? $album_cat : '',
                 'music_year' => $item->music_year,
                 'album_link' => Helpers::album_url($item->toArray()),
                 'music_artist' => $music_artist ? Helpers::rawHtmlArtists($music_artist_id, $music_artist) : '',
-                'music_bitrate' => $cover->music_bitrate ? Helpers::bitrate2str($cover->music_bitrate) : '',
+                'music_bitrate' => $item->music_bitrate ? Helpers::bitrate2str($item->music_bitrate) : '',
             ];
             $this->Solr->addDocuments($data);
         }

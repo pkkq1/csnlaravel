@@ -79,8 +79,8 @@ global $top_artist_rows;
     <div class="row row_wrapper">
         <div class="col-md-9">
             <div class="box_header d-flex justify-content-between align-items-end">
-                <h5 class="title m-0">Album mới nhất {{date('Y', time())}}</h5>
-                <a class="link_more" href="/album.html" title="Album mới nhất {{date('Y', time())}}">Xem tất cả</a>
+                <a class="view_all" href="/mp3/vietnam.html"><h5 class="title m-0">Album mới nhất {{date('Y', time())}}</h5></a>
+                <a class="link_more" href="/mp3/vietnam.html" title="Album mới nhất {{date('Y', time())}}">Xem tất cả</a>
             </div>
             <div class="row row10px">
                 <?php
@@ -134,8 +134,8 @@ global $top_artist_rows;
             <div class="row row10px">
                 <div class="col">
                     <div class="box_header d-flex justify-content-between align-items-end">
-                        <h5 class="title m-0">Bài hát mới chia sẻ</h5>
-                        <a class="link_more" href="/album.html" title="Bài hát mới nhất 2018">Xem tất cả</a>
+                        <a class="view_all" href="/mp3/vietnam.html?tab=bai-hat-moi"><h5 class="title m-0">Bài hát mới chia sẻ</h5></a>
+                        <a class="link_more" href="/mp3/vietnam.html?tab=bai-hat-moi" title="Bài hát mới nhất 2018">Xem tất cả</a>
                     </div>
                     <ul class="list-unstyled list_music">
                         <?php
@@ -173,8 +173,8 @@ global $top_artist_rows;
                 </div>
                 <div class="col">
                     <div class="box_header d-flex justify-content-between align-items-end">
-                        <h5 class="title m-0">Download nhiều nhất</h5>
-                        <a class="link_more" href="/download.html" title="Xem tất cả download">Xem tất cả</a>
+                        <a class="view_all" href="/mp3/vietnam.html?tab=vua-download"> <h5 class="title m-0">Download nhiều nhất</h5></a>
+                        <a class="link_more" href="/mp3/vietnam.html?tab=vua-download" title="Xem tất cả download">Xem tất cả</a>
                     </div>
                     <ul class="list-unstyled list_music">
                         <?php
@@ -253,8 +253,8 @@ global $top_artist_rows;
                 })
             </script>
             <div class="box_header d-flex justify-content-between align-items-end">
-                <h5 class="title m-0">Album mới</h5>
-                <a class="link_more" href="/album" title="Album mới">Xem tất cả</a>
+                <a class="view_all" href="/mp3/vietnam.html?tab=album-moi"><h5 class="title m-0">Album mới</h5></a>
+                <a class="link_more" href="/mp3/vietnam.html?tab=album-moi" title="Album mới">Xem tất cả</a>
             </div>
             <div class="row row10px float-col-width">
                 <?php
@@ -274,7 +274,7 @@ global $top_artist_rows;
                                     </a>
                                 </div>
                                 <div class="card-body">
-                                    <h3 class="card-title"><a href="{{$url}}" title="{{$item['music_album']}}">{{$item['music_album']}}</a></h3>
+                                    <h3 class="card-title"><a href="{{$url}}" title="{{$item['music_album']}}">{{$item['music_album']}}</a><span class="year-album"> ({{CURRENT_YEAR}})</span></h3>
                                     <p class="card-text"><?php echo $item['music_artist'] ?></p>
                                 </div>
                             </div>
@@ -285,8 +285,8 @@ global $top_artist_rows;
 
             </div>
             <div class="box_header d-flex justify-content-between align-items-end">
-                <h5 class="title m-0">Video mới</h5>
-                <a class="link_more" href="/video.html" title="Xem tất Cả Video">Xem tất cả</a>
+                <a class="view_all" href="/hd/video.html"><h5 class="title m-0">Video mới</h5></a>
+                <a class="link_more" href="/hd/video.html" title="Xem tất Cả Video">Xem tất cả</a>
             </div>
             <div class="row row10px float-col-width-video">
                 <?php
@@ -314,7 +314,7 @@ global $top_artist_rows;
         </div>
         <div class="col-md-3">
             <div class="box_header d-flex justify-content-between align-items-end">
-                <h5 class="title m-0">Bảng xếp hạng</h5>
+                <a class="view_all" href="/nhac-hot.html"><h5 class="title m-0">Bảng xếp hạng</h5></a>
                 <a class="link_more" href="/nhac-hot.html" title="">Nghe tất cả<span class="ion-android-arrow-dropright-circle"></span></a>
             </div>
             <ul class="nav nav-tabs" id="myTab_bxh" role="tablist">
@@ -438,12 +438,10 @@ global $top_artist_rows;
                 </div>
             </div>
             <div class="box_space"></div>
-            <div class="box_header d-flex justify-content-between align-items-end">
-                <h5 class="title m-0">BXH upload trong tuần</h5>
+            <div class="box_header d-flex justify-content-between align-items-end" style="margin-top: 15px;">
+                <a class="view_all" href="/bang-xep-hang/tuan.html"><h5 class="title m-0">BXH upload trong tuần</h5></a>
             </div>
             <ul class="list-unstyled bxh_week mb-0">
-
-
                 <?php
                 $uploaderMusic = Helpers::getRandLimitArr($top_uploader_rows, LIMIT_HOME_UPLOADER_MUSIC);
                 array_map(function ($i, $item) {
@@ -466,8 +464,8 @@ global $top_artist_rows;
                 ?>
             </ul>
             <div class="box_space"></div>
-            <div class="box_header d-flex justify-content-between align-items-end">
-                <h5 class="title m-0">Ca sĩ yêu thích</h5>
+            <div class="box_header d-flex justify-content-between align-items-end" style="margin-top: 15px;">
+                <a class="view_all" href="#"><h5 class="title m-0">Ca sĩ yêu thích</h5></a>
             </div>
             <div class="singer_grid">
                 <?php

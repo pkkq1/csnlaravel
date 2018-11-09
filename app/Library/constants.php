@@ -22,6 +22,7 @@ define('LIMIT_HOME_CAT_MUSIC', 10);
 define('LIMIT_HOME_UPLOADER_MUSIC', 10);
 define('LIMIT_HOME_ARTIST', 15);
 define('LIMIT_SEARCH_RESULT', 20);
+define('DEFAULT_ROOT_TEMP_MUSIC_PATH', $_SERVER['DOCUMENT_ROOT'].'/storage/data/temp');
 define('DEFAULT_ROOT_CACHE_MUSIC_PATH', $_SERVER['DOCUMENT_ROOT'].'/storage/data/cache_upload');
 define('LYRIC_DETAIL_NEW_MUSIC', 5);
 define('LYRIC_DETAIL_NEW_ALBUM', 5);
@@ -57,6 +58,10 @@ define('AVATAR_ARTIST_SOURCE_PATH', '/data/source_artist_avatar/');
 define('AVATAR_ARTIST_CROP_PATH', '/data/artist_avatar/');
 define('COVER_ARTIST_SOURCE_PATH', '/data/source_artist_cover/');
 define('COVER_ARTIST_CROP_PATH', '/data/artist_cover/');
+
+// ALBUM
+define('AVATAR_ALBUM_CROP_PATH', '/data/album_cover/');
+define('COVER_ALBUM_SOURCE_PATH', '/data/source_album_cover/');
 
 define('PUBLIC_AVATAR_ARTIST_SOURCE_PATH', '/storage/data/source_artist_avatar/');
 define('PUBLIC_COVER_ARTIST_SOURCE_PATH', '/storage/data/source_artist_cover/');

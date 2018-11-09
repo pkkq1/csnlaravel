@@ -102,7 +102,7 @@ class LoginController extends Controller
                 $errors = ['email' => 'Tài Khoản của bạn đang bị khóa'];
             }
         }else{
-            $errors = ['password' => 'Thông tin đăng nhập không chính xác.'];
+            $errors = ['password' => 'Mật khẩu không chính xác.'];
         }
         if ($request->expectsJson()) {
             return response()->json(['errors' => $errors], 422);

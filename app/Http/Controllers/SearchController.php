@@ -62,13 +62,13 @@ class SearchController extends Controller
         if($search) {
             $searchTool = Helpers::relaceKeySearch($search);
             $rawTiengViet = Helpers::rawTiengVietUrl($searchTool, ' ');
-            $charsetNoSapce = str_replace(' ', '', $rawTiengViet). '*^50';
+            $charsetNoSapce = str_replace(' ', '', $rawTiengViet);
             $titleCharset = str_replace(' ', '+', $rawTiengViet) . '^2';
             $titleSearch = Helpers::relaceKeySearch($searchNotUtf8);
             if(isset($request->view_all) || isset($request->view_music)) {
                 $searchSolarium = [];
                 if($quickSearch) {
-                    $searchSolarium['music_title_charset_nospace'] =  $charsetNoSapce;
+                    $searchSolarium['music_title_charset_nospace'] =  $charsetNoSapce . '^100 | music_title_charset_nospace:'.$charsetNoSapce.'*^50';
                 }
                 $searchSolarium['music_title_charset'] = $titleCharset;
                 $searchSolarium['music_title_search'] = $titleSearch;
@@ -112,6 +112,12 @@ class SearchController extends Controller
                 $result[0]['artist']['row_total'] = $resultArtist['row_total'];
             }
             if(isset($request->view_all) || isset($request->view_album)) {
+
+                if($quickSearch) {
+                    $searchSolarium['music_album_charset_nospace'] =  $charsetNoSapce . '^100 | music_album_charset_nospace:'.$charsetNoSapce.'*^50';
+                }
+                $searchSolarium['music_album_charset'] = $titleCharset;
+                $searchSolarium['music_album_search'] = $titleSearch;
                 $resultAlbum = $this->Solr->search([
                     'music_album_charset' => $titleCharset,
                     'music_album' => $searchNotUtf8,
@@ -123,7 +129,7 @@ class SearchController extends Controller
                             'album_link' => $item['album_link'][0],
                             'album_bitrate' => $item['music_bitrate'][0],
                             'album_artist' => isset($item['music_artist']) ? $item['music_artist'][0] : '',
-                            'cover' => isset($item['cover']) ? $item['cover'][0] : '',
+                            'album_cover' => isset($item['album_cover']) ? $item['album_cover'][0] : '',
                         ];
                     }
                 }
@@ -134,10 +140,10 @@ class SearchController extends Controller
             if(isset($request->view_all) || isset($request->view_video)) {
                 $searchSolarium = [];
                 if($quickSearch) {
-//                    $searchSolarium['video_title_charset_nospace'] =  $charsetNoSapce;
+                    $searchSolarium['video_title_charset_nospace'] =  $charsetNoSapce . '^100 | video_title_charset_nospace:'.$charsetNoSapce.'*^50';
                 }
                 $searchSolarium['video_title_charset'] = $titleCharset;
-                $searchSolarium['video_title'] = $titleSearch;
+                $searchSolarium['video_title_search'] = $titleSearch;
                 $resultVideo = $this->Solr->search($searchSolarium, ($request->page_video ?? 1), $request->rows ?? ROWS_VIDEO_SEARCH_PAGING, array('score' => 'desc','video_listen' => 'desc'));
                 if($resultVideo['data']) {
                     foreach ($resultVideo['data'] as $item) {

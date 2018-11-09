@@ -17,6 +17,7 @@ use App\Repositories\PlaylistMusic\PlaylistMusicEloquentRepository;
 use Illuminate\Support\Facades\Auth;
 use App\Models\PlaylistMusicModel;
 use App\Models\PlaylistModel;
+use Illuminate\Support\Facades\Storage;
 
 class PlaylistController extends Controller
 {
@@ -145,6 +146,7 @@ class PlaylistController extends Controller
         ]);
         $id = $request->input('playlist_id');
         $action = $request->input('sumbit_action');
+        $playlistData = [];
         if($action == 'edit') {
             $playlist = PlaylistModel::where([['playlist_id', $id], ['playlist_user_id', Auth::user()->id]]);
             $playlistData = $playlist->first();
@@ -193,7 +195,7 @@ class PlaylistController extends Controller
         }
         // update cover
         if($request->input('playlist_cover')) {
-            $fileNameCover = Helpers::saveBase64Image($request->input('playlist_cover'), MUSIC_PLAYLIST_PATH, $playlistData->playlist_id, 'png');
+            $fileNameCover = Helpers::saveBase64Image($request->input('playlist_cover'), Helpers::file_path($playlistData->playlist_id, MUSIC_PLAYLIST_PATH, true), $playlistData->playlist_id, 'png');
             $update['playlist_cover'] = 1;
         }
         if($action == 'edit') {
@@ -217,6 +219,10 @@ class PlaylistController extends Controller
                 'status' => false,
                 'message' => 'Không tìm thấy playlist',
             ]);
+        }
+        foreach($playlist->get() as $item) {
+            if($item->playlist_cover)
+                Storage::delete('public' . Helpers::file_path($item->playlist_id, MUSIC_PLAYLIST_PATH, true) . $item->playlist_id.'.png');
         }
         $playlist->delete();
         return response()->json([

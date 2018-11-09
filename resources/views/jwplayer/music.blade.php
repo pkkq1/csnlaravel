@@ -16,7 +16,7 @@ global $VideoSameArtist;
 global $titleDup;
 global $typeDup;
 global $video;
-$titleMeta = $music->music_title . ' - '. $music->music_artist;
+$titleMeta = $music->music_title . ' - '. str_replace(';', ', ', $music->music_artist);
 $file_url = Helpers::file_url($music);
 $lyric_array = Helpers::lyric_to_web($music->music_lyric);
 $artistHtml = Helpers::rawHtmlArtists($music->music_artist_id, $music->music_artist);

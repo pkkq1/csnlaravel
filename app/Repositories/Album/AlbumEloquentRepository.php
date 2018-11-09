@@ -47,6 +47,11 @@ class AlbumEloquentRepository extends EloquentRepository implements AlbumReposit
             ->paginate($page);
         return $result;
     }
+    public function create(array $attributes)
+    {
+        $result = $this->_model::firstOrCreate($attributes);
+        return $result;
+    }
 
     /**
      * Create

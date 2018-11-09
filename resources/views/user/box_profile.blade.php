@@ -1,8 +1,13 @@
+<?php
+use App\Library\Helpers;
+?>
 <div class="box_profile">
     <div class="container">
         <div class="media user11">
             <div class="media-left mr-4 align-self-center">
-                <img id="view_user_avatar_2" src="{{(strpos($user->user_avatar, 'http') !== false) ? $user->user_avatar : PUBLIC_AVATAR_PATH . $user->user_avatar}}" alt="{{$user->name}}" alt="{{$user->name}}">
+                <a href="{{'/user/'.$user->id}}" >
+                    <img id="view_user_avatar_2" src="{{(strpos($user->user_avatar, 'http') !== false) ? $user->user_avatar : Helpers::file_path($user->id, PUBLIC_AVATAR_PATH, true) . $user->user_avatar}}" alt="{{$user->name}}" alt="{{$user->name}}">
+                </a>
             </div>
             <div class="media-body align-self-center">
                 <h4 class="media-title user_name">{{$user->name}}</h4>
@@ -12,7 +17,7 @@
                 </ul>
                 @if(Auth::user())
                     @if(Auth::user()->id == $user->id)
-                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target=".edit_profile">Chỉnh sửa <i class="material-icons">mode_edit</i></button>
+                        <button type="button" class="btn btn-secondary btn-secondary-gray" data-toggle="modal" data-target=".edit_profile">Chỉnh sửa <i class="material-icons">mode_edit</i></button>
                     @endif
                 @endif
             </div>
@@ -28,11 +33,11 @@
                 <div class="row">
                     <div class="col-md-3">
                         <div class="change_avatar">
-                            <img class="mr-3" id="view_user_avatar" src="{{(strpos(Auth::user()->user_avatar, 'http') !== false) ? Auth::user()->user_avatar : PUBLIC_AVATAR_PATH . Auth::user()->user_avatar}}" alt="{{Auth::user()->name}}">
+                            <img class="mr-3" id="view_user_avatar" src="{{(strpos(Auth::user()->user_avatar, 'http') !== false) ? Auth::user()->user_avatar : Helpers::file_path($user->id, PUBLIC_AVATAR_PATH, true) . Auth::user()->user_avatar}}" alt="{{Auth::user()->name}}">
                             <div class="form-group">
                                 <label for="choose_user_avatar"><i class="material-icons">photo_camera</i> Thay đổi ảnh đại diện</label>
                                 <input type="file" class="form-control-file" name="choose_user_avatar" id="choose_user_avatar">
-                                <input type="text" hidden name="user_avatar" value="{{Auth::user()->user_avatar}}" alt="" class="form-control-file" id="user_avatar">
+                                <input type="text" hidden name="user_avatar" value="" alt="" class="form-control-file" id="user_avatar">
                             </div>
                         </div>
                     </div>
@@ -40,11 +45,11 @@
                         <form action="" class="profile_submit1" method="get" accept-charset="utf-8">
                             <div class="form-group">
                                 <label for="username">Username</label>
-                                <input type="text" class="form-control" id="username" aria-describedby="emailHelp" placeholder="" value="{{Auth::user()->username}}">
+                                <input type="text" disabled class="form-control" id="username" aria-describedby="emailHelp" placeholder="" value="{{Auth::user()->username}}">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail12">Link URL của bạn</label>
-                                <input type="text" class="form-control disabled" id="exampleInputEmail12" placeholder="" value="chiasenhac.com/user/{{Auth::user()->id}}">
+                                <input type="text" class="form-control disabled" disabled id="exampleInputEmail12" placeholder="" value="{{env('APP_URL').'/user/'.Auth::user()->id}}=">
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
@@ -116,7 +121,7 @@
                 viewport: {
                     width:300,
                     height:300,
-                    type:'square' //circle
+                    type:'circle' //circle
                 },
                 boundary:{
                     width:300,
@@ -185,7 +190,7 @@
             success: function (response) {
                 if(response.success) {
                     if($('#user_avatar').val()){
-                        $("#view_user_avatar_2").attr("src", '<?php echo (strpos(Auth::user()->user_avatar, "http") !== false) ? "" : PUBLIC_AVATAR_PATH ?>' + response.data.user_avatar + '?v=' + Date.now())
+                        $("#view_user_avatar_2").attr("src", '<?php echo (strpos(Auth::user()->user_avatar, "http") !== false) ? "" : Helpers::file_path($user->id, PUBLIC_AVATAR_PATH, true) ?>' + response.data.user_avatar + '?v=' + Date.now())
                         $('#user_avatar').val("");
                     }
                     oldViewAvatar = $('#view_user_avatar').attr("src");

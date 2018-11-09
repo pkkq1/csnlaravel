@@ -21,10 +21,10 @@ $titleMeta = $category->cat_title . ' - '. Config::get('constants.app.title');
                     @if($category->cat_id != CATEGORY_ID_VIDEO)
                     <nav>
                         <ul>
-                            <li class="tab-current"><a onclick="categoryTab('/tab_category', 'album_2018')" href="#album_2018"><span>Album {{CURRENT_YEAR}}</span></a></li>
-                            <li><a onclick="categoryTab('/tab_category', 'album_new')" href="#album_new"><span>ALbum mới</span></a></li>
-                            <li><a onclick="categoryTab('/tab_category', 'music_new')" href="#music_new"><span>Bài Hát mới</span></a></li>
-                            <li><a onclick="categoryTab('/tab_category', 'download_now')" href="#download_now"><span>Vừa download</span></a></li>
+                            <li class="tab-current"><a onclick="categoryTab('/tab_category', 'album_2018')" class="album-{{CURRENT_YEAR}}" href="#album_2018"><span>Album {{CURRENT_YEAR}}</span></a></li>
+                            <li class="album-moi"><a onclick="categoryTab('/tab_category', 'album_new')" class="album-moi" href="#album_new"><span>ALbum mới</span></a></li>
+                            <li class="bai-hat-moi"><a onclick="categoryTab('/tab_category', 'music_new')" class="bai-hat-moi" href="#music_new"><span>Bài Hát mới</span></a></li>
+                            <li class="vua-download"><a onclick="categoryTab('/tab_category', 'download_now')" class="vua-download" href="#download_now"><span>Vừa download</span></a></li>
                         </ul>
                     </nav>
                     <div class="content-wrap tab-content-category">
@@ -65,7 +65,7 @@ $titleMeta = $category->cat_title . ' - '. Config::get('constants.app.title');
     </div>
 @endsection
 @section('contentJS')
-    <script src="/js/cbpFWTabs.js"></script>
+<script src="/js/cbpFWTabs.js"></script>
 <script>
     (function() {
         [].slice.call( document.querySelectorAll( '.tabs' ) ).forEach( function( el ) {
@@ -94,7 +94,7 @@ $titleMeta = $category->cat_title . ' - '. Config::get('constants.app.title');
                 beforeSend: function () {
                     if(loaded) return false;
                     loaded = true;
-                    $('html,body').animate({ scrollTop: 0 }, 400);
+                    // $('html,body').animate({ scrollTop: 0 }, 400);
                 },
                 success: function(response) {
                     $('#'+tab).html(response);
@@ -106,6 +106,15 @@ $titleMeta = $category->cat_title . ' - '. Config::get('constants.app.title');
             });
         }
     }
+    <?php
+        if(isset($_GET['tab'])) {
+            ?>
+            $( document ).ready(function() {
+                $('.<?php echo $_GET['tab'] ?>').click();
+            });
+            <?php
+        }
+    ?>
 </script>
 @endsection
 

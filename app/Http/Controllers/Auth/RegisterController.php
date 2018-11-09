@@ -56,6 +56,7 @@ class RegisterController extends Controller
             'username' => 'required|string|max:255|unique:csn_users|min:4',
             'email' => 'required|string|email|max:255|unique:csn_users',
             'password' => 'required|string|min:6',
+            'captcha' => 'required',
         ]);
     }
 

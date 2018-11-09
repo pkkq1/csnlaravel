@@ -19,6 +19,11 @@
                         <strong>Thành công!</strong> {{ $message }}
                     </div>
                 @endif
+                @if ($message = Session::get('error'))
+                    <div class="alert alert-danger">
+                        <strong>Lỗi!</strong> {{ $message }}
+                    </div>
+                @endif
                 <div class="card card_playlist">
                     <div class="card-body">
                         <form action="" method="post" accept-charset="utf-8" enctype="multipart/form-data">
@@ -30,7 +35,7 @@
                                             <input type="text" class="form-control" value="{{ old('artist_nickname') }}" id="artist_nickname" name="artist_nickname" placeholder="Blooming Days - The 2nd Mini Album">
                                             @if ($errors->has('artist_nickname'))
                                                 <span class="help-block">
-                                                    <strong>{{ $errors->first('artist_nickname') }}</strong>
+                                                    <strong>{{ str_replace('artist nickname', 'Nghệ Danh', $errors->first('artist_nickname')) }}</strong>
                                                 </span>
                                             @endif
                                         </div>
@@ -41,7 +46,7 @@
                                             <input type="date" name="artist_birthday" class="form-control" value="{{ old('artist_birthday') }}" id="artist_birthday">
                                             @if ($errors->has('artist_birthday'))
                                                 <span class="help-block">
-                                                    <strong>{{ $errors->first('artist_birthday') }}</strong>
+                                                    <strong>{{ str_replace('artist birthday', 'Ngày Sinh', $errors->first('artist_birthday')) }}</strong>
                                                 </span>
                                             @endif
                                         </div>
@@ -70,7 +75,7 @@
                                                         <input type="text" hidden name="artist_avatar" class="form-control-file" id="artist_avatar">
                                                         @if ($errors->has('artist_avatar'))
                                                             <span class="help-block">
-                                                                <strong>{{ $errors->first('artist_avatar') }}</strong>
+                                                                <strong>{{ str_replace('artist avatar', 'avatar', $errors->first('artist_avatar')) }}</strong>
                                                             </span>
                                                         @endif
                                                     </div>
@@ -93,7 +98,7 @@
                                                         <input type="text" hidden name="artist_cover" class="form-control-file" id="artist_cover">
                                                         @if ($errors->has('artist_cover'))
                                                             <span class="help-block">
-                                                                <strong>{{ $errors->first('artist_cover') }}</strong>
+                                                                <strong>{{ str_replace('artist cover', 'cover', $errors->first('artist_cover')) }}</strong>
                                                             </span>
                                                         @endif
                                                     </div>
@@ -248,6 +253,7 @@
                         $('#artist_cover_crop_x').val('top_left:' + top_left_x + ';' + 'bottom_right:' + bottom_right_x);
                         $('#artist_cover_crop_y').val('top_left:' + top_left_y + ';' + 'bottom_right:' + top_left_y);
                         $('#artist_cover').val(response);
+                        $('#artist_cover_uploaded').css("width", "250px");
                         $('#artist_cover_uploaded').attr("src", response);
                     }
                 })

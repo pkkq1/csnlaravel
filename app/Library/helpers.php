@@ -17,12 +17,6 @@ class Helpers
         return $coverImg;
     }
 
-    public static function filePath($musicId, $dir = MUSIC_DATA_PATH, $url = '')
-    {
-        global $root_path;
-        return ($url) ? $url . $dir . ceil($musicId / 1000) . '/' : $root_path . $dir . ceil($musicId / 1000) . '/';
-    }
-
     public static function bitrate2str($bitrate, $color = true, $showAll = false)
     {
         if ($color) {
@@ -383,11 +377,15 @@ class Helpers
         }
     }
 
-    public static function file_path($id, $dir, $url = '')
+    public static function file_path($id, $dir = '', $url = '')
     {
         $url = ($url == '') ? env('DATA_URL') : '';
-
         return $url . $dir . ceil($id/1000) . '/';
+    }
+    public static function filePath($musicId, $dir = MUSIC_DATA_PATH, $url = '')
+    {
+        global $root_path;
+        return ($url) ? $url . $dir . ceil($musicId / 1000) . '/' : $root_path . $dir . ceil($musicId / 1000) . '/';
     }
 
     public static function cover_path($cover_id = 0)
@@ -742,9 +740,9 @@ class Helpers
     public static function MusicCookie($request, $music) {
         if(isset($_COOKIE['music_history'])) {
             $musicHistory = unserialize($_COOKIE['music_history']);
-            $musicHistory = array_slice(array_reverse($musicHistory),0, LIMIT_HISTORY_MUSIC);
             $musicHistory = array_diff(array_reverse($musicHistory), [$music->music_id]);
             array_push($musicHistory, $music->music_id);
+            $musicHistory = array_slice(array_reverse($musicHistory),0, LIMIT_HISTORY_MUSIC);
         }else{
             $musicHistory[] = $music->music_id;
         }

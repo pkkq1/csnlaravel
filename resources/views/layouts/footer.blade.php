@@ -44,21 +44,19 @@
         if(musics.length > 0) {
             $.each( musics, function( key, value ) {
                 song = song +
+                    '  <a class="search-line" href="' + value.music_link + '" title="' + value.music_title + '">' +
                     '  <li class="media align-items-stretch">' +
-                    '      <div class="media-left align-items-stretch mr-2">' +
-                    '          <a href="' + value.music_link + '" title="' + value.music_title + '">' +
+                    // '      <div class="media-left align-items-stretch mr-2">' +
                     // '              <img src="' + value.music_cover + '" alt="' + value.music_title + '">' +
-                    '              <i class="material-icons">play_circle_outline</i>' +
-                    '          </a>' +
-                    '      </div>' +
+                    // '           <i class="material-icons">play_circle_outline</i>' +
+                    // '      </div>' +
                     '      <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">' +
-                    '          <div>' +
-                    '              <h5 class="media-title mt-0 mb-0"><a href="' + value.music_link + '" title="' + value.music_title + '">' + searchHighlight(q, value.music_title) + '</a></h5>' +
-                    '              <div class="author">' + value.music_artist + '</div>' +
-                    '          </div>' +
+                    '          <h5 class="media-title mt-0 mb-0 span_h5">' + searchHighlight(q, value.music_title) + '</h5>' +
+                    '          <div class="author">' + $(value.music_artist).text() + '</div>' +
                     '          <small class="type_music c1">' + value.music_bitrate + '</small>' +
                     '      </div>' +
-                    '  </li>';
+                    '  </li>' +
+                    '  </a>';
             });
             return '<h4 class="card-title">Top Kết Quả</h4>' +
                 '<ul class="list-unstyled list_music">' +
@@ -72,23 +70,22 @@
             var artist = '';
             $.each( artists, function( key, value ) {
                 artist = artist +
+                    ' <a class="search-line" href="/ca-si/' + value.artist_link + '" title="' + value.artist_nickname + '">' +
                     '  <li class="media align-items-stretch">' +
                     '      <div class="media-left align-items-stretch mr-2">' +
-                    '          <a href="/ca-si/' + value.artist_link + '" title="' + value.artist_nickname + '">' +
-                    '              <img src="' + value.artist_cover + '" alt="' + value.artist_nickname + '">' +
-                    '              <i class="material-icons">play_circle_outline</i>' +
-                    '          </a>' +
+                    '         <img src="' + value.artist_cover + '" alt="' + value.artist_nickname + '">' +
                     '      </div>' +
                     '      <div class="media-body align-self-center d-flex flex-column justify-content-between p-0">' +
                     '          <div>' +
-                    '              <h5 class="media-title mt-0 mb-0"><a href="/ca-si/' + value.artist_link + '" title="' + value.artist_nickname + '">' + searchHighlight(q, value.artist_nickname) + '</a></h5>' +
+                    '              <h5 class="media-title mt-0 mb-0 span_h5">' + searchHighlight(q, value.artist_nickname) + '</h5>' +
                     '          </div>' +
                     '      </div>' +
-                    '  </li>';
+                    '  </li>' +
+                    ' </a>';
             });
             return '<h4 class="card-title">Nghệ sĩ</h4>' +
                 '<ul class="list-unstyled list_music">' +
-                artist +
+                    artist +
                 '</ul><hr>';
         }
         return '';
@@ -98,15 +95,17 @@
             var song = '';
             $.each( musics, function( key, value ) {
                 song = song +
+                    '<a class="search-line" href="' + value.music_link + '" title="' + value.music_title + '">' +
                     '  <li class="media align-items-stretch">' +
                     '      <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">' +
                     '          <div>' +
-                    '              <h5 class="media-title mt-0 mb-0"><a href="' + value.music_link + '" title="' + value.music_title + '">' + searchHighlight(q, value.music_title) + '</a></h5>' +
-                    '              <div class="author">' + value.music_artist + '</div>' +
+                    '              <h5 class="media-title mt-0 mb-0 span_h5">' + searchHighlight(q, value.music_title) + '</h5>' +
+                    '              <div class="author">' + $(value.music_artist).text() + '</div>' +
                     '          </div>' +
                     '          <small class="type_music c1">' + value.music_bitrate + '</small>' +
                     '      </div>' +
-                    '  </li>';
+                    '  </li>' +
+                    '</a>';
             });
             return '<h4 class="card-title">Bài hát</h4>' +
                 '<ul class="list-unstyled list_music">' +
@@ -122,18 +121,20 @@
                 album = album +
                     '  <li class="media align-items-stretch">' +
                     '      <div class="media-left align-items-stretch mr-2">' +
-                    '          <a href="' + value.album_link + '" title="' + value.music_album + '">' +
+                    '          <a href="' + value.video_link + '" title="' + value.video_title + '">' +
                     '              <img src="' + value.album_cover + '" alt="' + value.music_album + '">' +
                     '              <i class="material-icons">play_circle_outline</i>' +
                     '          </a>' +
                     '      </div>' +
+                    '      <a class="search-line" href="' + value.album_link + '" title="' + value.music_album + '">' +
                     '      <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">' +
                     '          <div>' +
-                    '              <h5 class="media-title mt-0 mb-0"><a href="' + value.album_link + '" title="' + value.music_album + '">' + searchHighlight(q, value.music_album) + '</a></h5>' +
-                    '              <div class="author">' + value.album_artist + '</div>' +
+                    '              <h5 class="media-title mt-0 mb-0 span_h5">' + searchHighlight(q, value.music_album) + '</h5>' +
+                    '              <div class="author">' + $(value.album_artist).text() + '</div>' +
                     '          </div>' +
                     '          <small class="type_music c1">' + value.album_bitrate + '</small>' +
                     '      </div>' +
+                    '       </a>' +
                     '  </li>';
             });
             return '<h4 class="card-title">Album</h4>' +
@@ -155,13 +156,15 @@
                     '              <i class="material-icons">play_circle_outline</i>' +
                     '          </a>' +
                     '      </div>' +
+                    '      <a class="search-line" href="' + value.video_link + '" title="' + value.video_title + '">' +
                     '      <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">' +
                     '          <div>' +
-                    '              <h5 class="media-title mt-0 mb-0"><a href="' + value.video_link + '" title="">' + searchHighlight(q, value.video_title) + '</a></h5>' +
-                    '              <div class="author">' + value.video_artist + '</div>' +
+                    '              <h5 class="media-title mt-0 mb-0 span_h5">' + searchHighlight(q, value.video_title) + '</h5>' +
+                    '              <div class="author">' + $(value.video_artist).text() + '</div>' +
                     '          </div>' +
                     '          <small class="type_music c1">' + value.video_bitrate + '</small>' +
                     '      </div>' +
+                    '      </a>' +
                     '  </li>';
             });
             return '<h4 class="card-title">Video</h4>' +
@@ -196,7 +199,7 @@
         <!-- Modal content-->
         <div class="modal-content modal-login modal-form">
             <div class="modal-header">
-                <h5 class="modal-title" style="float: left;">Đăng nhập</h5>
+                <span class="modal-title span_h5" style="float: left;">Đăng nhập</span>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
@@ -245,7 +248,7 @@
         <!-- Modal content-->
         <div class="modal-content modal-register modal-form">
             <div class="modal-header">
-                <h5 class="modal-title" style="float: left;">Đăng ký tài khoản</h5>
+                <span class="modal-title span_h5" style="float: left;">Đăng ký tài khoản</span>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
@@ -258,6 +261,7 @@
                                 <input class="email" name="email" type="email" placeholder="Địa chỉ email" required="email" />
                                 <input class="password" name="password" type="password" placeholder="Mật khẩu" name="password" />
                                 <input class="confirm_password" name="confirm_password" type="password" placeholder="Xác nhận lại mật khẩu" name="password" />
+                                <div class="g-recaptcha captcha" data-sitekey="{{env('NOCAPTCHA_SECRET')}}"></div>
                                 <div class="login_action">
                                     <input class="contact_csn" type="checkbox" id="contact_csn" checked name="contact_csn">
                                     <label style="cursor: pointer; font-size: 13px; display: inline;" for="contact_csn">Tôi đã đọc và đồng ý các điều kiện<a href="#" > Thỏa thuận sử dụng</a></label>
@@ -298,7 +302,7 @@
         <!-- Modal content-->
         <div class="modal-content modal-forgot modal-form">
             <div class="modal-header">
-                <h5 class="modal-title" style="float: left;">Lấy lại mật khẩu</h5>
+                <span class="modal-title span_h5" style="float: left;">Lấy lại mật khẩu</span>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
@@ -427,6 +431,7 @@
                 username: username.val(),
                 email: email.val(),
                 password: password.val(),
+                captcha: grecaptcha.getResponse()
             },
             beforeSend: function () {
                 if(loaded) return false;
