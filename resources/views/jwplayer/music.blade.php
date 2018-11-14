@@ -1181,14 +1181,16 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
         }
         show_fulllyric();
     </script>
-    <style>
-        .jw-icon-rewind{
-            display: none!important;
-        }
-        .jw-icon-fullscreen, .jw-title-primary{
-            display: none!important;
-        }
-    </style>
+    @if($musicSet['type_jw'] != 'video')
+        <style>
+            .jw-icon-rewind{
+                display: none!important;
+            }
+            .jw-icon-fullscreen, .jw-title-primary{
+                display: none!important;
+            }
+        </style>
+    @endif
     <style>
         .jw-flag-time-slider-above:not(.jw-flag-ads-googleima).jwplayer .jw-group>.jw-icon, .jw-flag-time-slider-above:not(.jw-flag-ads-googleima).jwplayer .jw-group>.jw-text {
             height: 40px;

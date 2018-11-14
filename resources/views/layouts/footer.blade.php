@@ -44,7 +44,7 @@
         if(musics.length > 0) {
             $.each( musics, function( key, value ) {
                 song = song +
-                    '  <a class="search-line" href="' + value.music_link + '" title="' + value.music_title + '">' +
+                    '  <a class="search-line" href="' + value.music_link + '" title="' + value.music_title + ' - ' + $(value.music_artist).text() +'">' +
                     '  <li class="media align-items-stretch">' +
                     // '      <div class="media-left align-items-stretch mr-2">' +
                     // '              <img src="' + value.music_cover + '" alt="' + value.music_title + '">' +
@@ -95,7 +95,7 @@
             var song = '';
             $.each( musics, function( key, value ) {
                 song = song +
-                    '<a class="search-line" href="' + value.music_link + '" title="' + value.music_title + '">' +
+                    '<a class="search-line" href="' + value.music_link + '" title="' + value.music_title + ' - ' + $(value.music_artist).text() + '">' +
                     '  <li class="media align-items-stretch">' +
                     '      <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">' +
                     '          <div>' +
@@ -118,19 +118,20 @@
         if(albums.length > 0) {
             var album = '';
             $.each(albums, function( key, value ) {
+                let textArtist = $(value.album_artist).text();
                 album = album +
                     '  <li class="media align-items-stretch">' +
                     '      <div class="media-left align-items-stretch mr-2">' +
-                    '          <a href="' + value.video_link + '" title="' + value.video_title + '">' +
+                    '          <a href="' + value.album_link + '" title="' + value.music_album + ' - ' + textArtist + '">' +
                     '              <img src="' + value.album_cover + '" alt="' + value.music_album + '">' +
                     '              <i class="material-icons">play_circle_outline</i>' +
                     '          </a>' +
                     '      </div>' +
-                    '      <a class="search-line" href="' + value.album_link + '" title="' + value.music_album + '">' +
+                    '      <a class="search-line" href="' + value.album_link + '" title="' + value.music_album + ' - ' + textArtist + '">' +
                     '      <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">' +
                     '          <div>' +
                     '              <h5 class="media-title mt-0 mb-0 span_h5">' + searchHighlight(q, value.music_album) + '</h5>' +
-                    '              <div class="author">' + $(value.album_artist).text() + '</div>' +
+                    '              <div class="author">' + textArtist + '</div>' +
                     '          </div>' +
                     '          <small class="type_music c1">' + value.album_bitrate + '</small>' +
                     '      </div>' +
@@ -148,19 +149,20 @@
         if(videos.length > 0) {
             var video = '';
             $.each( videos, function( key, value ) {
+                let textArtist = $(value.video_artist).text();
                 video = video +
                     '  <li class="media align-items-stretch">' +
                     '      <div class="media-left align-items-stretch mr-2">' +
-                    '          <a href="' + value.video_link + '" title="' + value.video_title + '">' +
+                    '          <a href="' + value.video_link + '" title="' + value.video_title + ' - ' + textArtist + '">' +
                     '              <img src="' + value.video_cover + '" alt="' + value.video_title + '">' +
                     '              <i class="material-icons">play_circle_outline</i>' +
                     '          </a>' +
                     '      </div>' +
-                    '      <a class="search-line" href="' + value.video_link + '" title="' + value.video_title + '">' +
+                    '      <a class="search-line" href="' + value.video_link + '" title="' + value.video_title + ' - ' + textArtist + '">' +
                     '      <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">' +
                     '          <div>' +
                     '              <h5 class="media-title mt-0 mb-0 span_h5">' + searchHighlight(q, value.video_title) + '</h5>' +
-                    '              <div class="author">' + $(value.video_artist).text() + '</div>' +
+                    '              <div class="author">' + textArtist + '</div>' +
                     '          </div>' +
                     '          <small class="type_music c1">' + value.video_bitrate + '</small>' +
                     '      </div>' +

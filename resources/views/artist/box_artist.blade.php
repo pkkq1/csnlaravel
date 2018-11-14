@@ -7,10 +7,9 @@
             {{--<img id="view_user_avatar_2" src="{{$artist->artist_cover ? PUBLIC_AVATAR_ARTIST_SOURCE_PATH.$artist->artist_cover.'?v='.time() : ''}}">--}}
             </div>
             <div class="media-body align-self-center">
-            <h4 class="media-title user_name">{{$artist->artist_nickname}}</h4>
             </div>
             </div>
-            <div class="thumb-mask"></div>
+            <div class="thumb-mask media align-items-stretch"><h4 class="media-right align-self-center artist_name_box">{{$artist->artist_nickname}}</h4></div>
         </div>
     </div>
 </div>

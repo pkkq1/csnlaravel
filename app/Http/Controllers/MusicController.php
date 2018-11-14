@@ -109,7 +109,13 @@ class MusicController extends Controller
             }
         }
         if($playlistMusic) {
-            $music = $this->musicRepository->findOnlyMusicId($playlistMusic[$request->playlist ? $request->playlist - 1 : 0]['music_id']);
+            $offsetPl = $playlistMusic[$request->playlist ? $request->playlist - 1 : 0];
+            if($offsetPl['cat_id'] == CAT_VIDEO) {
+                $music = $this->videoRepository->findOnlyMusicId($offsetPl['music_id']);
+            }else{
+                $music = $this->musicRepository->findOnlyMusicId($offsetPl['music_id']);
+            }
+
         }else{
             return view('errors.text_error')->with('message', 'Nội dung playlist không có.');
         }
@@ -127,8 +133,8 @@ class MusicController extends Controller
         //update cache file suggestion
         $this->musicRepository->suggestion($music, $type);
         $musicSet = [
-            'type_listen' => 'playlist', // single | playlist | album
-            'type_jw' =>  $typeListen,  // playlist | music | video
+            'type_listen' => $typeListen, // single | playlist | album
+            'type_jw' =>  $type,  // playlist | music | video
             'playlist_music' => $playlistMusic,
             'music_history' => $cookie
         ];

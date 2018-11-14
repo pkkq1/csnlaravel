@@ -38,7 +38,7 @@ $mySelf = (Auth::check() && Auth::user()->id == $user->id);
                         </div>
                         <div class="row row10px" id="playlist">
                             @if(count($playlist))
-                                @foreach($playlist as $item)
+                                @foreach($playlist as $key2 => $item)
                                     <div class="col">
                                         <div class="card card1">
                                             <div class="card-header" style="background-image: url({{$item->playlist_cover ? Helpers::file_path($item->playlist_id, PUBLIC_MUSIC_PLAYLIST_PATH, true).$item->playlist_id . '.png?v=' . time() : '/imgs/avatar_default.png'}});">
@@ -50,9 +50,21 @@ $mySelf = (Auth::check() && Auth::user()->id == $user->id);
                                                 <h3 class="card-title"><a href="#" title="{{$item->playlist_title}}">{{$item->playlist_title}}</a></h3>
                                                 @if($item->playlist_artist)
                                                     <p class="card-text">
-                                                        @foreach(array_slice(unserialize($item->playlist_artist), 0, 2) as $key => $artistItem)
-                                                            <a href="$artistItem['id']">{{$artistItem['name']}}</a>{{$key != 1 ? ', ': ''}}
-                                                        @endforeach
+                                                        <?php
+                                                            $artistPlaylist = unserialize($item->playlist_artist);
+                                                            if($artistPlaylist) {
+                                                                $artistNames = [];
+                                                                $artistIds = [];
+                                                                $i = 0;
+                                                                foreach($artistPlaylist as $key => $item) {
+                                                                    $artistNames[] = $item['name'];
+                                                                    $artistIds[] = $key;
+                                                                    if(++$i == 2)
+                                                                        break;
+                                                                }
+                                                                echo Helpers::rawHtmlArtists(implode(';', $artistIds), implode(';', $artistNames));
+                                                            }
+                                                        ?>
                                                     </p>
                                                 @endif
                                             </div>

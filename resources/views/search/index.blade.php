@@ -175,15 +175,11 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                         <h5 class="title m-0">Album</h5>
                         <a class="link_more" href="#" title="">Xem tất cả</a>
                     </div>
-                    <div class="row row10px">
+                    <div class="row row10px float-col-width">
                         <?php
                         $countAlbum = count($result['album']['data']);
-                        array_map(function ($i, $item) use ($countAlbum) {
+                        array_map(function ($item) use ($countAlbum) {
                         ?>
-                        @if (($i % 5) == 0)
-                    </div>
-                    <div class="row row10px">
-                        @endif
                         <div class="col {{($countAlbum != 5 && $countAlbum != 10) ? 'col col-md-3' : ''}}">
                             <div class="card card1">
                                 <div class="card-header" style="background-image: url({{$item['album_cover']}});">
@@ -198,7 +194,7 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                             </div>
                         </div>
                         <?php
-                        },array_keys($result['album']['data']), $result['album']['data'])
+                        }, $result['album']['data'])
                         ?>
                     </div>
                     @endif
@@ -207,15 +203,10 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                         <h5 class="title m-0">Video</h5>
                         <a class="link_more" href="#" title="">Xem tất cả</a>
                     </div>
-                    <div class="row row10px">
+                    <div class="row row10px float-col-width-video">
                         <?php
-                        array_map(function ($i, $item) {
-                        if($i <= 7) {
+                        array_map(function ($item) {
                         ?>
-                        @if ($i == 4)
-                    </div>
-                    <div class="row row10px">
-                        @endif
                         <div class="col col col-md-3">
                             <div class="card card1 video">
                                 <div class="card-header" style="background-image: url({{$item['video_cover']}});">
@@ -230,8 +221,7 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                             </div>
                         </div>
                         <?php
-                        }
-                        },array_keys($result['video']['data']), $result['video']['data'])
+                        }, $result['video']['data'])
                         ?>
                     </div>
                     @endif
@@ -275,7 +265,7 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                             }, $result['music']['data'])
                             ?>
                         </ul>
-                        <?php Helpers::pagingCustom($result['music']['page'], $result['music']['rows'], $result['music']['row_total'], '<a href="?q='.$search.'&page_music=%d">%d</a>') ?>
+                        <center><?php Helpers::pagingCustom($result['music']['page'], $result['music']['rows'], $result['music']['row_total'], '<a href="?q='.$search.'&page_music=%d">%d</a>') ?></center>
                     @endif
                 </div>
                 <div class="tab-pane fade {{isset($_GET['page_album']) ? 'show active' : ''}}" id="nav-album" role="tabpanel" aria-labelledby="nav-album-tab">
@@ -287,18 +277,14 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                         </div>
                     </div>
                     @if($result['album']['data'])
-                    <div class="row row10px">
+                    <div class="row row10px float-col-width">
                         <?php
                         $countAlbum = count($result['album']['data']);
-                        array_map(function ($i, $item) use ($countAlbum) {
+                        array_map(function ($item) use ($countAlbum) {
                         ?>
-                        @if (($i % 5) == 0)
-                    </div>
-                    <div class="row row10px">
-                        @endif
                         <div class="col {{($countAlbum != 5 && $countAlbum != 10) ? 'col col-md-3' : ''}}">
                             <div class="card card1">
-                                <div class="card-header" style="background-image: url({{$item['cover']}});">
+                                <div class="card-header" style="background-image: url({{$item['album_cover']}});">
                                     <a href="{{$item['album_link']}}" title="{{$item['music_album']}}">
                                         <span class="icon-play"></span>
                                     </a>
@@ -310,10 +296,10 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                             </div>
                         </div>
                         <?php
-                        },array_keys($result['album']['data']), $result['album']['data'])
+                        }, $result['album']['data'])
                         ?>
                     </div>
-                    <?php Helpers::pagingCustom($result['album']['page'], $result['album']['rows'], $result['album']['row_total'], '<a href="?q='.$search.'&page_album=%d">%d</a>') ?>
+                    <center><?php Helpers::pagingCustom($result['album']['page'], $result['album']['rows'], $result['album']['row_total'], '<a href="?q='.$search.'&page_album=%d">%d</a>') ?></center>
                     @endif
                 </div>
                 <div class="tab-pane fade {{isset($_GET['page_video']) ? ' show active' : ''}}" id="nav-video" role="tabpanel" aria-labelledby="nav-video-tab">
@@ -325,15 +311,10 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                         </div>
                     </div>
                     @if($result['video']['data'])
-                        <div class="row row10px">
+                        <div class="row row10px float-col-width-video">
                             <?php
-                            array_map(function ($i, $item) {
-                            if($i <= 7) {
+                            array_map(function ($item) {
                             ?>
-                            @if ($i == 4)
-                        </div>
-                        <div class="row row10px">
-                            @endif
                             <div class="col col col-md-3">
                                 <div class="card card1 video">
                                     <div class="card-header" style="background-image: url({{$item['video_cover']}});">
@@ -348,11 +329,10 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                                 </div>
                             </div>
                             <?php
-                            }
-                            },array_keys($result['video']['data']), $result['video']['data'])
+                            }, $result['video']['data'])
                             ?>
                         </div>
-                        <?php Helpers::pagingCustom($result['video']['page'], $result['video']['rows'], $result['video']['row_total'], '<a href="?q='.$search.'&page_video=%d">%d</a>') ?>
+                        <center><?php Helpers::pagingCustom($result['video']['page'], $result['video']['rows'], $result['video']['row_total'], '<a href="?q='.$search.'&page_video=%d">%d</a>') ?></center>
                     @endif
                 </div>
             </div>

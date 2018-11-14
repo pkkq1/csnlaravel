@@ -11,13 +11,22 @@ use Illuminate\Support\Facades\Auth;
 use App\Library\Helpers;
 use App\Repositories\Artist\ArtistEloquentRepository;
 use App\Models\ArtistModel;
+use App\Repositories\Music\MusicEloquentRepository;
+use App\Repositories\Video\VideoEloquentRepository;
+use App\Repositories\Cover\CoverEloquentRepository;
 
 class ArtistController extends Controller
 {
     protected $artistRepository;
+    protected $musicRepository;
+    protected $videoRepository;
+    protected $coverRepository;
 
-    public function __construct(ArtistEloquentRepository $artistRepository) {
+    public function __construct(ArtistEloquentRepository $artistRepository, MusicEloquentRepository $musicRepository, VideoEloquentRepository $videoRepository, CoverEloquentRepository $coverRepository) {
         $this->artistRepository = $artistRepository;
+        $this->musicRepository = $musicRepository;
+        $this->videoRepository = $videoRepository;
+        $this->coverRepository = $coverRepository;
     }
 
     public function getTermArtist(Request $request) {
@@ -36,6 +45,30 @@ class ArtistController extends Controller
         $artist = $this->artistRepository->find($arrUrl['id']);
         if(!$artist)
             return view('errors.404');
-        return view('artist.index', compact('artist'));
+        $music =  $this->musicRepository->findMusicByArtist($artist->artist_nickname, 'music_id', 'desc', LIMIT_MUSIC_PAGE_ARTIST);
+            $musicHtml =  view('artist.music_item', compact('music'));
+        return view('artist.index', compact('artist', 'musicHtml'));
+    }
+    public function getTabArtist(Request $request) {
+        switch ($request->tab) {
+            case "music":
+                $music = $this->musicRepository->findMusicByArtist($request->artist, 'music_id', 'desc', LIMIT_MUSIC_PAGE_ARTIST);
+                return view('artist.music_item', compact('music'));
+                break;
+            case "video":
+                $video = $this->videoRepository->findVideoByArtist($request->artist, 'music_id', 'desc', LIMIT_MUSIC_PAGE_ARTIST);
+                return view('artist.video_item', compact('video'));
+                break;
+            case "album":
+                $cover = $this->coverRepository->findAlbumByArtist($request->artist, 'cover_id', 'desc', LIMIT_MUSIC_PAGE_ARTIST);
+                return view('artist.cover_item', compact('cover'));
+                break;
+            case "playlist":
+                $video = $this->videoRepository->findMusicByArtist($request->artist, 'music_id', 'desc', LIMIT_MUSIC_PAGE_ARTIST);
+                return view('artist.video_item', compact('video'));
+                break;
+            default:
+                return view('errors.404');
+        }
     }
 }

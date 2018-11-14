@@ -6,19 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 use DB;
 use Backpack\CRUD\CrudTrait;
 
-class PlaylistModel extends Model
+class PlaylistPublisherModel extends Model
 {
     use CrudTrait;
     public $timestamps = false;
-    protected $table = 'csn_playlist';
+    protected $table = 'csn_playlist_publisher';
     protected $primaryKey = 'playlist_id';
     protected $fillable = ['playlist_cat_id', 'playlist_cat_level', 'playlist_artist', 'playlist_cover', 'playlist_music_total', 'user_id', 'playlist_status', 'playlist_title', 'playlist_desc', 'playlist_time', 'playlist_listen'];
 
     public function playlist_music() {
         return $this->hasMany('App\Models\PlaylistMusicModel', 'playlist_id', 'playlist_id')->with('music');
-    }
-    public function playlist_arr_ids() {
-        return $this->hasMany('App\Models\PlaylistMusicModel', 'playlist_id', 'playlist_id')->orderBy('playlist_order', 'asc');
     }
     public function music() {
         return $this->hasManyThrough(
@@ -40,8 +37,7 @@ class PlaylistModel extends Model
             'music_id',
             'playlist_id',
             'music_id'
-        )->orderBy('playlist_order', 'asc')
-            ->select('csn_video.music_id', 'csn_video.music_title_url', 'csn_video.music_title', 'csn_video.music_artist', 'csn_video.music_artist_id', 'csn_video.cat_id', 'csn_video.cat_level', 'csn_video.cat_sublevel', 'csn_video.cat_custom', 'csn_video.cover_id', 'csn_video.music_download_time',
+        )->select('csn_video.music_id', 'csn_video.music_title_url', 'csn_video.music_title', 'csn_video.music_artist', 'csn_video.music_artist_id', 'csn_video.cat_id', 'csn_video.cat_level', 'csn_video.cat_sublevel', 'csn_video.cat_custom', 'csn_video.cover_id', 'csn_video.music_download_time',
             'csn_video.music_last_update_time', 'csn_video.music_title_url', 'csn_video.music_title_search', 'csn_video.music_artist_search', 'csn_video.music_album_search', 'csn_video.music_composer', 'csn_video.music_album', 'csn_video.music_listen', 'csn_video.music_track_id', 'csn_video.music_filename');
     }
     public function playlist_category_cat_id() {

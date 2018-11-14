@@ -1,9 +1,9 @@
 <?php
-namespace App\Repositories\Playlist;
+namespace App\Repositories\PlaylistPublisher;
 
 use App\Repositories\EloquentRepository;
 use DB;
-class PlaylistEloquentRepository extends EloquentRepository implements PlaylistRepositoryInterface
+class PlaylistPublisherPlaylistEloquentRepository extends EloquentRepository implements PlaylistPublisherRepositoryInterface
 {
     /**
      * get model
@@ -11,7 +11,7 @@ class PlaylistEloquentRepository extends EloquentRepository implements PlaylistR
      */
     public function getModel()
     {
-        return \App\Models\PlaylistModel::class;
+        return \App\Models\PlaylistPublisherModel::class;
     }
     /**
      * Get all posts only published

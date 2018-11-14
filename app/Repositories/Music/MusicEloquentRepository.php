@@ -69,6 +69,16 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
 
         return $result;
     }
+    public function findMusicByArtist($artist, $fillOrder, $typeOrder, $page)
+    {
+        $result = $this
+            ->_model
+            ->select('music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'music_album_id', 'music_listen', 'music_bitrate', 'music_filename')
+            ->where('music_artist', 'like', '%'.$artist.'%')
+            ->orderBy($fillOrder, $typeOrder)
+            ->paginate($page);
+        return $result;
+    }
     public function incrementCol($id, $field)
     {
         $result = $this
@@ -110,8 +120,13 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
         $select = ['music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'music_album_id', 'music_listen', 'music_bitrate', 'music_filename']; //, 'music_shortlyric'
         $artists = explode(';', $music->music_artist);
         // nhạc cùng ca sĩ
-        $MusicSameArtist = $model->whereIn('music_artist', $artists)
-            ->where('music_id', '!=', $music->music_id)
+        $MusicSameArtist = \App\Models\MusicModel::where(function($q) use ($artists) {
+            foreach ($artists as $key => $artist) {
+                if($key == 0)
+                    $q->where('music_artist', 'like', '%'.$artist.'%');
+                $q->orWhere('music_artist', 'like', '%'.$artist.'%');
+            }
+        })->where('music_id', '!=', $music->music_id)
             ->where('cover_id', '>', 0)
             ->select($select)
             ->distinct('music_title')
@@ -122,8 +137,13 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
 //            ->orderBy('music_downloads', 'desc')
             ->get()->toArray();
         if($MusicSameArtist <= 5) {
-            $MusicSameArtist = $model->whereIn('music_artist', $artists)
-                ->where('music_id', '!=', $music->music_id)
+            $MusicSameArtist = \App\Models\MusicModel::where(function($q) use ($artists) {
+                foreach ($artists as $key => $artist) {
+                    if($key == 0)
+                        $q->where('music_artist', 'like', '%'.$artist.'%');
+                    $q->orWhere('music_artist', 'like', '%'.$artist.'%');
+                }
+            })->where('music_id', '!=', $music->music_id)
                 ->where('cover_id', '<=', 0)
                 ->select($select)
                 ->distinct('music_title')
@@ -131,10 +151,14 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
                 ->orderBy('music_id', 'desc')
                 ->get()->toArray();
         }
-
         // video cùng ca sĩ
-        $VideoSameArtist = \App\Models\VideoModel::whereIn('music_artist', $artists)
-            ->where('music_id', '!=', $music->music_id)
+        $VideoSameArtist = \App\Models\VideoModel::where(function($q) use ($artists) {
+            foreach ($artists as $key => $artist) {
+                if($key == 0)
+                    $q->where('music_artist', 'like', '%'.$artist.'%');
+                $q->orWhere('music_artist', 'like', '%'.$artist.'%');
+            }
+        })->where('music_id', '!=', $music->music_id)
             ->select($select)
             ->distinct('music_title')
             ->limit(5)
@@ -181,7 +205,7 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
 
         $video = [];
         if($type != 'video') {
-            $video = \App\Models\VideoModel::where('music_title', $music->music_title)
+            $video = \App\Models\VideoModel::where('music_title', 'like', $music->music_title)
                 ->where('music_artist', $music->music_artist)
                 ->select($select)
                 ->orderBy('music_listen', 'desc')->first();

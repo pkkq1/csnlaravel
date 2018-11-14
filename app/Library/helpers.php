@@ -154,18 +154,21 @@ class Helpers
     public static function artistUrl($artistId, $artistNickName, $mode = '')
     {
         if(!$artistId || $artistId == -1){
-            return 'tim-kiem?q='.$artistNickName.'&mode=ca-si';
+            return '/tim-kiem?q='.trim($artistNickName).'&mode=ca-si';
         }
-        return self::rawTiengVietUrl($artistNickName) . "~" . base64_encode(KEY_ID_ARTIST_ENCODE_URL . $artistId) . $mode . ".".HTMLEX;
+        return '/ca-si/'.self::rawTiengVietUrl($artistNickName) . "~" . base64_encode(KEY_ID_ARTIST_ENCODE_URL . $artistId) . $mode . ".".HTMLEX;
     }
     public static function rawHtmlArtists($artistId, $artistNickName) {
         $artistId = explode(';', $artistId);
         $artistNickName = explode(';', $artistNickName);
-        $html = '';
-        foreach ($artistNickName as $key => $val) {
-            $html = $html.', <a href="/ca-si/'.self::artistUrl(isset($artistId[$key]) ? $artistId[$key] : -1, $val).'">'.$val.'</a>';
+        if($artistNickName && $artistId) {
+            $html = '';
+            foreach ($artistNickName as $key => $val) {
+                $html = $html.', <a href="'.self::artistUrl(isset($artistId[$key]) ? $artistId[$key] : -1, $val).'">'.$val.'</a>';
+            }
+            return substr($html, 2);
         }
-        return substr($html, 2);
+        return '';
     }
 
     public static function category_url($c_info = array(), $c_id = 0, $c_level = 0)

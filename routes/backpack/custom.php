@@ -13,7 +13,8 @@ Route::group([
 ], function () { // custom admin routes
     CRUD::resource('category_csn', 'CategoryCsnController');
     CRUD::resource('category_playlist', 'CategoryPlaylistController');
-
+    CRUD::resource('playlist_user', 'PlaylistUserController');
+    CRUD::resource('playlist_publisher', 'PlaylistPublisherController');
 
     Route::get('artist_upload/{id}/approval', 'ArtistUploadController@approvalArtistUpload');
     CRUD::resource('artist_upload', 'ArtistUploadController');

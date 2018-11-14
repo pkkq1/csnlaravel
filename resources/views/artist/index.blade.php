@@ -1,47 +1,35 @@
 @section('hidden_wapper', true)
 <?php
+use App\Library\Helpers;
 $titleMeta = $artist->artist_nickname . ' - '. Config::get('constants.app.title');
 ?>
 @extends('layouts.app')
 @section('contentCSS')
     <link rel="stylesheet" type="text/css" href="/css/croppie.css">
+    <link rel="stylesheet" type="text/css" href="/css/TabStylesInspiration/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/TabStylesInspiration/tabs.css">
+    <link rel="stylesheet" type="text/css" href="/css/TabStylesInspiration/tabstyles.css">
 @endsection
 @section('content')
     @include('artist.box_artist', ['artist' => $artist])
     <div class="container">
         <div class="row row_wrapper">
             <div class="col-md-9">
-                <ul class="nav nav-tabs nav-justified nav_bxh" id="myTab" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link active" id="playlist-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Playlist</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="music-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false"><i class="material-icons" style="font-size: 11px;">favorite_border</i> Bài Hát</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="video-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false"><i class="material-icons" style="font-size: 11px;">favorite_border</i> Video</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="recent-music-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Vừa nghe</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="your-upload-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Tủ nhạc</a>
-                    </li>
-                </ul>
-                <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="playlist-tab">
-                        <div class="d-flex align-items-center justify-content-between" id="header_playlist">
-                            <h3 class="title">playlist | album</h3>
-
-                        </div>
-                        <div class="row row10px" id="playlist">
-
-                        </div>
+                <div class="tabs tabs-style-line tab-category">
+                    <nav>
+                        <ul>
+                            <li class="tab-current"><a onclick="artistTab('/tab_artist', 'music')" href="#music"><span>Bài Hát</span></a></li>
+                            <li><a onclick="artistTab('/tab_artist', 'video')" href="#video"><span>Video</span></a></li>
+                            <li><a onclick="artistTab('/tab_artist', 'album')" href="#album"><span>Album</span></a></li>
+                            <li><a onclick="artistTab('/tab_artist', 'playlist')" href="#playlist"><span>Playlist</span></a></li>
+                        </ul>
+                    </nav>
+                    <div class="content-wrap tab-content-category">
+                        <section id="music" class="content-current"><?php echo $musicHtml ?></section>
+                        <section id="video"></section>
+                        <section id="album"></section>
+                        <section id="playlist"></section>
                     </div>
-                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="music-tab">...</div>
-                    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="video-tab">...</div>
-                    <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="recent-music-tab">...</div>
-                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="your-upload-tab">...</div>
                 </div>
             </div>
             <div class="col-md-3">
@@ -60,19 +48,41 @@ $titleMeta = $artist->artist_nickname . ' - '. Config::get('constants.app.title'
     </div>
 @endsection
 @section('contentJS')
-    <!-- Modal -->
-    <div id="myModal" class="modal fade" role="dialog">
-        <div class="modal-dialog modal-sm">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-body">
-                    <p>Some text in the modal.</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="close" data-dismiss="modal">×</button>
-                </div>
-            </div>
+    <script src="/js/cbpFWTabs.js"></script>
+    <script>
+        (function() {
+            [].slice.call( document.querySelectorAll( '.tabs' ) ).forEach( function( el ) {
+                new CBPFWTabs( el );
+            });
+        })();
+        $('#music').find('.pagination li a').on('click', function (e) {
+            e.preventDefault();
+            artistTab(($(this).attr('href')), 'music', true);
+        });
+        function artistTab(url, tab, floatTab = false) {
+            if(($('#'+tab).html()).length == 0 || floatTab) {
+                $.ajax({
+                    url: url,
+                    type: "POST",
+                    dataType: "html",
+                    data: {
+                        'artist': '<?php echo $artist->artist_nickname; ?>',
+                        'tab': tab ? tab : 'music'
+                    },
+                    beforeSend: function () {
+                        if(loaded) return false;
+                        loaded = true;
+                    },
+                    success: function(response) {
+                        $('#'+tab).html(response);
+                        $('#'+tab).find('.pagination li a').on('click', function (e) {
+                            e.preventDefault();
+                            artistTab($(this).attr('href'), tab, true);
+                        });
+                    }
+                });
+            }
+        }
 
-        </div>
-    </div>
+    </script>
 @endsection

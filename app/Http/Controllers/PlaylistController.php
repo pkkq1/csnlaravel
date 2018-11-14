@@ -61,9 +61,10 @@ class PlaylistController extends Controller
             Helpers::ajaxResult(false, 'Tên playlist mới ít nhất 2 ký tự.', null);
         }
         $result = $this->playlistRepository->create([
-            'playlist_user_id' => Auth::user()->id,
+            'user_id' => Auth::user()->id,
             'playlist_time' => time(),
             'playlist_music_total' => 0,
+            'playlist_status' => 1,
             'playlist_title' => trim($request->input('playlist_title'))
         ]);
         Helpers::ajaxResult(true, 'Đã thêm vào playlist.', $result);
@@ -127,17 +128,18 @@ class PlaylistController extends Controller
         Helpers::ajaxResult(true, 'Đã thêm vào playlist.', null);
     }
     public function editPlaylist(Request $request, $id) {
-        $playlistUser = $this->playlistRepository->getByPlayByUser(Auth::user()->id, $id)->with('music')->first();
+        $playlistUser = $this->playlistRepository->getByPlayByUser(Auth::user()->id, $id)->with('playlist_arr_ids')->first();
         if(!$playlistUser) {
             return view('errors.404');
         }
+        $listMusicVideo = $this->playlistRepository->getMusicVideo(array_column($playlistUser->playlist_arr_ids->toArray(), 'music_id'));
         $playlistLevel = $this->playlistCategoryRepository->getList();
         $playlistCategory = $this->playlistCategoryRepository->getCategory();
-        return view('playlist.create_update_playlist', compact('playlistUser', 'playlistLevel', 'playlistCategory'));
+        return view('user.playlist.create_update_playlist', compact('playlistUser', 'playlistLevel', 'playlistCategory', 'listMusicVideo'));
     }
     public function editPagePlaylist(Request $request) {
         $playlistUser = $this->playlistRepository->getByPlayByUser(Auth::user()->id)->get();
-        return view('playlist.edit_playlist', compact('playlistUser'));
+        return view('user.playlist.edit_playlist', compact('playlistUser'));
     }
     public function storePlaylist(Request $request) {
         $this->validate($request, [
@@ -148,7 +150,7 @@ class PlaylistController extends Controller
         $action = $request->input('sumbit_action');
         $playlistData = [];
         if($action == 'edit') {
-            $playlist = PlaylistModel::where([['playlist_id', $id], ['playlist_user_id', Auth::user()->id]]);
+            $playlist = PlaylistModel::where([['playlist_id', $id], ['user_id', Auth::user()->id]]);
             $playlistData = $playlist->first();
             if(!$playlist->exists()) {
                 return view('errors.404');
@@ -160,7 +162,7 @@ class PlaylistController extends Controller
             'playlist_title' => $request->input('playlist_title'),
             'playlist_cat_id' => $request->input('playlist_cat_id') ?? 0,
             'playlist_cat_level' => $request->input('playlist_cat_level') ?? 0,
-            'playlist_user_id' => Auth::user()->id,
+            'user_id' => Auth::user()->id,
             'playlist_time' => time()
         ];
         // remove music, update count
@@ -213,7 +215,7 @@ class PlaylistController extends Controller
                 'message' => 'Bạn chưa đăng nhập',
             ]);
         }
-        $playlist = PlaylistModel::whereIn('playlist_id', $request->input('playlis_ids'))->where('playlist_user_id', Auth::user()->id);
+        $playlist = PlaylistModel::whereIn('playlist_id', $request->input('playlis_ids'))->where('user_id', Auth::user()->id);
         if(!$playlist->exists()) {
             return response()->json([
                 'status' => false,
@@ -235,6 +237,6 @@ class PlaylistController extends Controller
         $playlistmusic = [];
         $playlistLevel = $this->playlistCategoryRepository->getList();
         $playlistCategory = $this->playlistCategoryRepository->getCategory();
-        return view('playlist.create_update_playlist', compact('playlistUser', 'playlistmusic', 'playlistLevel', 'playlistCategory'));
+        return view('user.playlist.create_update_playlist', compact('playlistUser', 'playlistmusic', 'playlistLevel', 'playlistCategory'));
     }
 }

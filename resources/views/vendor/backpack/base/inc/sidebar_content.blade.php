@@ -7,10 +7,17 @@
     </ul>
 </li>
 <li class="treeview">
-    <a href="#"><i class="fa fa-list"></i> <span>Category</span> <i class="fa fa-angle-left pull-right"></i></a>
+    <a href="#"><i class="fa fa-list"></i> <span>Danh Mục</span> <i class="fa fa-angle-left pull-right"></i></a>
     <ul class="treeview-menu">
-        <li><a href="{{env('APP_URL').'/'.config('backpack.base.route_prefix', 'admin')}}/category_csn"><i class="fa fa-font-awesome"></i> <span>Category CSN</span></a></li>
-        <li><a href="{{env('APP_URL').'/'.config('backpack.base.route_prefix', 'admin')}}/category_playlist"><i class="fa fa-tag"></i> <span>Category Playlist</span></a></li>
+        <li><a href="{{env('APP_URL').'/'.config('backpack.base.route_prefix', 'admin')}}/category_csn"><i class="fa fa-font-awesome"></i> <span>Danh Mục CSN</span></a></li>
+        <li><a href="{{env('APP_URL').'/'.config('backpack.base.route_prefix', 'admin')}}/category_playlist"><i class="fa fa-tag"></i> <span>Danh Mục Playlist</span></a></li>
+    </ul>
+</li>
+<li class="treeview">
+    <a href="#"><i class="fa fa-list-alt"></i> <span>Playlist</span> <i class="fa fa-angle-left pull-right"></i></a>
+    <ul class="treeview-menu">
+        <li><a href="{{env('APP_URL').'/'.config('backpack.base.route_prefix', 'admin')}}/playlist_user"><i class="fa fa-bars"></i> <span>Playlist User</span></a></li>
+        <li><a href="{{env('APP_URL').'/'.config('backpack.base.route_prefix', 'admin')}}/playlist_publisher"><i class="fa fa-align-right"></i> <span>Playlist Publisher</span></a></li>
     </ul>
 </li>
 <!-- Users, Roles Permissions -->

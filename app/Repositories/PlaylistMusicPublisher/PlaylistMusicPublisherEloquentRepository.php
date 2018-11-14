@@ -1,9 +1,9 @@
 <?php
-namespace App\Repositories\Album;
+namespace App\Repositories\PlaylistMusicPublisher;
 
 use App\Repositories\EloquentRepository;
 use DB;
-class AlbumEloquentRepository extends EloquentRepository implements AlbumRepositoryInterface
+class PlaylistMusicPublisherEloquentRepository extends EloquentRepository implements PlaylistMusicRepositoryInterface
 {
     /**
      * get model
@@ -11,7 +11,7 @@ class AlbumEloquentRepository extends EloquentRepository implements AlbumReposit
      */
     public function getModel()
     {
-        return \App\Models\AlbumModel::class;
+        return \App\Models\PlaylistMusicModel::class;
     }
     /**
      * Get all posts only published
@@ -40,24 +40,16 @@ class AlbumEloquentRepository extends EloquentRepository implements AlbumReposit
         return $result;
     }
 
-    public function findAlbumByUser($userId, $fillOrder, $typeOrder, $page)
+    public function getList()
     {
-        $result = $this->_model::where('user_id', $userId)
-            ->orderBy($fillOrder, $typeOrder)
-            ->paginate($page);
+        $result = $this->_model::where('cat_level', '!=', 0)->orderBy('cat_order', 'asc')->get();
         return $result;
     }
-    public function create(array $attributes)
+    public function getCategory()
     {
-        $result = $this->_model::firstOrCreate($attributes);
+        $result = $this->_model::where('cat_level', 0)->orderBy('cat_order', 'asc')->get();
         return $result;
     }
-
-
-    /**
-     * Create
-     * @return mixed
-     */
 
 }
 
