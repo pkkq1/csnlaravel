@@ -22,8 +22,8 @@ define('LIMIT_HOME_CAT_MUSIC', 10);
 define('LIMIT_HOME_UPLOADER_MUSIC', 10);
 define('LIMIT_HOME_ARTIST', 15);
 define('LIMIT_SEARCH_RESULT', 20);
-define('DEFAULT_ROOT_TEMP_MUSIC_PATH', $_SERVER['DOCUMENT_ROOT'].'/storage/data/temp');
-define('DEFAULT_ROOT_CACHE_MUSIC_PATH', $_SERVER['DOCUMENT_ROOT'].'/storage/data/cache_upload');
+define('DEFAULT_ROOT_TEMP_MUSIC_PATH', '/storage/data/temp/');
+define('DEFAULT_ROOT_CACHE_MUSIC_PATH', '/storage/data/cache_upload/');
 define('LYRIC_DETAIL_NEW_MUSIC', 5);
 define('LYRIC_DETAIL_NEW_ALBUM', 5);
 define('LIMIT_COMMENT', 10);
@@ -45,11 +45,6 @@ define('LIMIT_MUSIC_PAGE_ARTIST', 20);
 define('LIMIT_MUSIC_PAGE_CATEGORY', 20);
 define('CURRENT_YEAR', 2018);
 define('MAX_LOSTLESS', 1000);
-
-// USER
-define('DEACTIVE_USER', 0);
-define('ACTIVE_USER', 1);
-define('BANNED_USER', 2);
 
 // MUSIC ID ENCRIPT
 define('MAX_ID_CONST', 71902891);
@@ -74,7 +69,6 @@ define('MUSIC_PATH', '/storage/data/source_music/');
 // VIDEO
 define('VIDEO_PATH', '/storage/data/source_video/');
 
-
 // URL PARAMETERS
 define('CAT_VIDEO', 1);
 define('CAT_VIDEO_URL', 'video');
@@ -96,11 +90,21 @@ define('MUSIC_SPECTRUM_PATH', 'data/spectrum/');
 // Playlist
 define('MUSIC_PLAYLIST_PATH', '/data/playlist/');
 define('PUBLIC_MUSIC_PLAYLIST_PATH', '/storage/data/playlist/');
+define('DEFAULT_APPROVAL_PUBLISHER', 0); // 0 disable 1 activite
+define('MUSIC_PLAYLIST_PUBLISHER_PATH', '/data/playlist_publisher/');
+define('PUBLIC_MUSIC_PLAYLIST_PUBLISHER_PATH', '/storage/data/playlist_publisher/');
 // User
-define('USER_ACTIVE', 1);
 define('AVATAR_PATH', '/data/user_avatar/');
 define('PUBLIC_AVATAR_PATH', '/storage/data/user_avatar/');
 define('HTMLEX', 'html');
+define('DEACTIVE_USER', 0);
+define('ACTIVE_USER', 1);
+define('BANNED_USER', 2);
+
+// setting
+define('SET_ACTIVE', 1);
+define('SET_DEACTIVE', 0);
+
 // search
 define('ROWS_MUSIC_SEARCH_PAGING', 10);
 define('ROWS_ARTIST_SEARCH_PAGING', 10);

@@ -47,7 +47,7 @@ class PlaylistController extends Controller
         if(!Auth::check()){
             Helpers::ajaxResult(false, 'Bạn chưa đang nhập.', null);
         }
-        $result = $this->playlistRepository->getByUserId(Auth::user()->id)->toArray();
+        $result = $this->playlistRepository->getByUser(Auth::user()->id)->toArray();
         return Helpers::ajaxResult(true, '', $result);
     }
     public function createPlayList(Request $request) {
@@ -73,7 +73,7 @@ class PlaylistController extends Controller
         if(!Auth::check()){
             Helpers::ajaxResult(false, 'Bạn chưa đang nhập.', null);
         }
-        $playlistUser = $this->playlistRepository->getByPlayByUser(Auth::user()->id, $request->input('playlist_id'))->first();
+        $playlistUser = $this->playlistRepository->getByUser(Auth::user()->id, $request->input('playlist_id'))->first();
         if(!$playlistUser) {
             Helpers::ajaxResult(false, 'Không tìm thấy playlist của bạn', null);
         }
@@ -128,7 +128,7 @@ class PlaylistController extends Controller
         Helpers::ajaxResult(true, 'Đã thêm vào playlist.', null);
     }
     public function editPlaylist(Request $request, $id) {
-        $playlistUser = $this->playlistRepository->getByPlayByUser(Auth::user()->id, $id)->with('playlist_arr_ids')->first();
+        $playlistUser = $this->playlistRepository->getByUser(Auth::user()->id, $id)->with('playlist_arr_ids')->first();
         if(!$playlistUser) {
             return view('errors.404');
         }
@@ -138,7 +138,7 @@ class PlaylistController extends Controller
         return view('user.playlist.create_update_playlist', compact('playlistUser', 'playlistLevel', 'playlistCategory', 'listMusicVideo'));
     }
     public function editPagePlaylist(Request $request) {
-        $playlistUser = $this->playlistRepository->getByPlayByUser(Auth::user()->id)->get();
+        $playlistUser = $this->playlistRepository->getByUser(Auth::user()->id);
         return view('user.playlist.edit_playlist', compact('playlistUser'));
     }
     public function storePlaylist(Request $request) {
@@ -195,18 +195,24 @@ class PlaylistController extends Controller
                 $this->playlistMusicRepository->getModel()::where('music_id', $item)->update(['playlist_order' => $key]);
             }
         }
+        if($request->input('playlist_cover'))
+            $update['playlist_cover'] = SET_ACTIVE;
+        if($action == 'edit') {
+            $result = $playlist->update($update);
+            $mes = 'Đã Cập nhập playlist.';
+        }else{
+            $update['playlist_status'] = SET_ACTIVE;
+
+            $result = $playlist->create($update);
+            $mes = 'Đã tạo playlist '.$result->playlist_title;
+        }
         // update cover
         if($request->input('playlist_cover')) {
-            $fileNameCover = Helpers::saveBase64Image($request->input('playlist_cover'), Helpers::file_path($playlistData->playlist_id, MUSIC_PLAYLIST_PATH, true), $playlistData->playlist_id, 'png');
-            $update['playlist_cover'] = 1;
+            $fileNameCover = Helpers::saveBase64Image($request->input('playlist_cover'), Helpers::file_path($result->playlist_id, MUSIC_PLAYLIST_PATH, true), $result->playlist_id, 'png');
         }
-        if($action == 'edit') {
-            $playlist->update($update);
-            return redirect()->route('playlist.update_playlist', $id)->with('success', 'Đã Cập nhập playlist.');
-        }else{
-            $playlist->create($update);
-            return redirect()->route('playlist.create_playlist', $id)->with('success', 'Đã tạo playlist.');
-        }
+//        return redirect('/user/playlist/cap-nhat/');
+        return redirect()->route('playlist.update_playlist', $result->playlist_id)->with('success', $mes);
+
     }
     public function deletePlaylist(Request $request) {
         if(!Auth::check()){

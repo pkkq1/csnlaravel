@@ -3,7 +3,7 @@ namespace App\Repositories\PlaylistMusicPublisher;
 
 use App\Repositories\EloquentRepository;
 use DB;
-class PlaylistMusicPublisherEloquentRepository extends EloquentRepository implements PlaylistMusicRepositoryInterface
+class PlaylistMusicPublisherEloquentRepository extends EloquentRepository implements PlaylistMusicPublisherRepositoryInterface
 {
     /**
      * get model
@@ -11,7 +11,7 @@ class PlaylistMusicPublisherEloquentRepository extends EloquentRepository implem
      */
     public function getModel()
     {
-        return \App\Models\PlaylistMusicModel::class;
+        return \App\Models\PlaylistMusicPublisherModel::class;
     }
     /**
      * Get all posts only published
@@ -50,6 +50,11 @@ class PlaylistMusicPublisherEloquentRepository extends EloquentRepository implem
         $result = $this->_model::where('cat_level', 0)->orderBy('cat_order', 'asc')->get();
         return $result;
     }
+    public function create(array $attributes)
+    {
+        return $this->_model->create($attributes);
+    }
+
 
 }
 

@@ -43,7 +43,7 @@ class UserController extends Controller
         $user = $this->userRepository->getUserById($id)->first();
         if(!$user)
             return view('errors.404');
-        $playlist = $this->playlistRepository->getByUserId($user->id);
+        $playlist = $this->playlistRepository->getByUser($user->id);
         return view('user.index', compact('user', 'playlist'));
     }
     public function store(Request $request) {

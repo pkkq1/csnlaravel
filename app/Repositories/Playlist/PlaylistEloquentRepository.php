@@ -40,11 +40,6 @@ class PlaylistEloquentRepository extends EloquentRepository implements PlaylistR
         return $result;
     }
 
-    public function getByUserId($id)
-    {
-        $result = $this->_model::where('user_id', $id)->orderBy('playlist_id', 'desc')->get();
-        return $result;
-    }
     public function getMusicByUserId($id)
     {
         $result = $this->_model::where('user_id', $id)->orderBy('playlist_title', 'desc')->with('playlist_music')->get();
@@ -55,18 +50,23 @@ class PlaylistEloquentRepository extends EloquentRepository implements PlaylistR
         $result = $this->_model::where('playlist_id', $id)->orderBy('playlist_title', 'desc')->with('music', 'video')->first();
         return $result;
     }
-    public function getByPlayByUser($userId, $idPlaylist = null)
+    public function getByUser($userId, $idPlaylist = null)
     {
-        $result = $this->_model::where('user_id', $userId);
+        $result = $this->_model::where('user_id', $userId)->where('playlist_status', SET_ACTIVE);
         if($idPlaylist) {
-            $result = $result->where('playlist_id', $idPlaylist);
+            return $result->where('playlist_id', $idPlaylist)->orderBy('playlist_id', 'desc');
+        }else{
+            return $result->orderBy('playlist_id', 'desc')->get();
         }
-        return $result->orderBy('playlist_id', 'desc');
     }
     public function getMusicVideo($playlisMusicVideoIds) {
-        $q1 = \App\Models\MusicModel::WhereIn('music_id', $playlisMusicVideoIds)->select('music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'music_album_id', 'music_listen', 'music_bitrate', 'music_filename');
-        $q2 = \App\Models\VideoModel::WhereIn('music_id', $playlisMusicVideoIds)->select('music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'music_album_id', 'music_listen', 'music_bitrate', 'music_filename');
-        return $q2->union($q1)->orderBy(\DB::raw("FIELD(music_id, ".implode(',', $playlisMusicVideoIds).")"))->get();
+        if($playlisMusicVideoIds){
+            $q1 = \App\Models\MusicModel::WhereIn('music_id', $playlisMusicVideoIds)->select('music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'music_album_id', 'music_listen', 'music_bitrate', 'music_filename');
+            $q2 = \App\Models\VideoModel::WhereIn('music_id', $playlisMusicVideoIds)->select('music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'music_album_id', 'music_listen', 'music_bitrate', 'music_filename');
+            return $q2->union($q1)->orderBy(\DB::raw("FIELD(music_id, ".implode(',', $playlisMusicVideoIds).")"))->get();
+        }
+        return [];
+
     }
     public function updatePlaylist($where, array $attributes)
     {

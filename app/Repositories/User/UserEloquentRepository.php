@@ -26,7 +26,7 @@ class UserEloquentRepository extends EloquentRepository implements UserRepositor
 
     public function findOnlyPublished($id)
     {
-        $result = $this->_model::where([['id', $id], ['user_active', USER_ACTIVE]]);
+        $result = $this->_model::where([['id', $id], ['user_active', ACTIVE_USER]]);
         return $result;
     }
 

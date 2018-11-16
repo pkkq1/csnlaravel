@@ -12,15 +12,18 @@ class PlaylistPublisherModel extends Model
     public $timestamps = false;
     protected $table = 'csn_playlist_publisher';
     protected $primaryKey = 'playlist_id';
-    protected $fillable = ['playlist_cat_id', 'playlist_cat_level', 'playlist_artist', 'playlist_cover', 'playlist_music_total', 'user_id', 'playlist_status', 'playlist_title', 'playlist_desc', 'playlist_time', 'playlist_listen'];
+    protected $fillable = ['playlist_cat_id', 'playlist_cat_level', 'playlist_artist', 'playlist_cover', 'playlist_music_total', 'user_id', 'playlist_status', 'playlist_title', 'playlist_desc', 'playlist_time', 'playlist_listen', 'approval_user_id', 'playlist_by_id', 'playlist_artist_id', 'playlist_artist_name'];
 
     public function playlist_music() {
-        return $this->hasMany('App\Models\PlaylistMusicModel', 'playlist_id', 'playlist_id')->with('music');
+        return $this->hasMany('App\Models\csn_playlist_music_publisher', 'playlist_id', 'playlist_id')->with('music');
+    }
+    public function playlist_arr_ids() {
+        return $this->hasMany('App\Models\PlaylistMusicPublisherModel', 'playlist_id', 'playlist_id')->orderBy('playlist_order', 'asc');
     }
     public function music() {
         return $this->hasManyThrough(
             'App\Models\MusicModel',
-            'App\Models\PlaylistMusicModel',
+            'App\Models\csn_playlist_music_publisher',
             'playlist_id',
             'music_id',
             'playlist_id',
@@ -32,7 +35,7 @@ class PlaylistPublisherModel extends Model
     public function video() {
         return $this->hasManyThrough(
             'App\Models\VideoModel',
-            'App\Models\PlaylistMusicModel',
+            'App\Models\csn_playlist_music_publisher',
             'playlist_id',
             'music_id',
             'playlist_id',
@@ -51,9 +54,9 @@ class PlaylistPublisherModel extends Model
     }
     static function getPlayListCategoryByUserId($id)
     {
-        $query = 'select `csn_playlist`.*, csn_playlist_category.cat_title, csn_playlist_category.cat_url, DATE_FORMAT(FROM_UNIXTIME(`playlist_time`), \'%d-%m-%Y\') as "playlist_date"
-                from `csn_playlist` left join `csn_playlist_category` on `csn_playlist`.`playlist_cat_id` = `csn_playlist_category`.`cat_id` 
-                and `csn_playlist`.`playlist_cat_level` = `csn_playlist_category`.`cat_level` 
+        $query = 'select `csn_playlist_publisher`.*, csn_playlist_publisher.cat_title, csn_playlist_publisher.cat_url, DATE_FORMAT(FROM_UNIXTIME(`playlist_time`), \'%d-%m-%Y\') as "playlist_date"
+                from `csn_playlist_publisher` left join `csn_playlist_publisher` on `csn_playlist_publisher`.`playlist_cat_id` = `csn_playlist_publisher`.`cat_id` 
+                and `csn_playlist_publisher`.`playlist_cat_level` = `csn_playlist_publisher`.`cat_level` 
                 where `user_id` = '.$id;
         $result = DB::connection('mysql')->select($query);
         return $result;

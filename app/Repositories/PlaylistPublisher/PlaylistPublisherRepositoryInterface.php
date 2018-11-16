@@ -1,5 +1,5 @@
 <?php
-namespace App\Repositories\PlaylistMusicPublisher;
+namespace App\Repositories\PlaylistPublisher;
 
 interface PlaylistPublisherRepositoryInterface
 {

@@ -18,7 +18,7 @@ class PlaylistModel extends Model
         return $this->hasMany('App\Models\PlaylistMusicModel', 'playlist_id', 'playlist_id')->with('music');
     }
     public function playlist_arr_ids() {
-        return $this->hasMany('App\Models\PlaylistMusicModel', 'playlist_id', 'playlist_id')->orderBy('playlist_order', 'asc');
+        return $this->hasMany('App\Models\PlaylistMusicModel', 'playlist_id', 'playlist_id')->orderBy('playlist_order', 'asc')->orderBy('id', 'asc');
     }
     public function music() {
         return $this->hasManyThrough(

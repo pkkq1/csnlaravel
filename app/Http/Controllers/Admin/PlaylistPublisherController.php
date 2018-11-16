@@ -18,29 +18,30 @@ use Backpack\CRUD\app\Http\Requests\CrudRequest as UpdateRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Repositories\Playlist\PlaylistEloquentRepository;
+use App\Repositories\PlaylistPublisher\PlaylistPublisherEloquentRepository;
 use App\Repositories\PlaylistMusic\PlaylistMusicEloquentRepository;
-use App\Models\PlaylistMusicModel;
-use App\Models\PlaylistModel;
+use App\Repositories\PlaylistMusicPublisher\PlaylistMusicPublisherEloquentRepository;
+use App\Models\PlaylistMusicPublisherModel;
+use App\Models\PlaylistPublisherModel;
 
 class PlaylistPublisherController extends CrudController
 {
     protected $artistRepository;
     protected $artistUploadRepository;
-    protected $playlistMusicRepository;
-    protected $playlistRepository;
+    protected $playlistMusicPublisherRepository;
+    protected $playlistPublisherRepository;
 
-    public function __construct(ArtistEloquentRepository $artistRepository, ArtistUploadEloquentRepository $artistUploadRepository, PlaylistMusicEloquentRepository $playlistMusicRepository,
-                                PlaylistEloquentRepository $playlistRepository)
+    public function __construct(ArtistEloquentRepository $artistRepository, ArtistUploadEloquentRepository $artistUploadRepository, PlaylistMusicPublisherEloquentRepository $playlistMusicPublisherRepository,
+                                PlaylistPublisherEloquentRepository $playlistPublisherRepository)
     {
         $this->artistRepository = $artistRepository;
         $this->artistUploadRepository = $artistUploadRepository;
-        $this->playlistMusicRepository = $playlistMusicRepository;
-        $this->playlistRepository = $playlistRepository;
-
+        $this->playlistMusicPublisherRepository = $playlistMusicPublisherRepository;
+        $this->playlistPublisherRepository = $playlistPublisherRepository;
         parent::__construct();
-        $this->crud->setModel("App\Models\PlaylistModel");
-        $this->crud->setEntityNameStrings('Playlist User', 'Playlist User');
-        $this->crud->setRoute(config('backpack.base.route_prefix').'/playlist_user');
+        $this->crud->setModel("App\Models\PlaylistPublisherModel");
+        $this->crud->setEntityNameStrings('Playlist Publisher', 'Playlist Publisher');
+        $this->crud->setRoute(config('backpack.base.route_prefix').'/playlist_publisher');
         $this->crud->denyAccess(['create']);
         $this->crud->orderBy('playlist_id', 'desc');
 //        $this->crud->addClause('where', 'active', 1);
@@ -67,12 +68,20 @@ class PlaylistPublisherController extends CrudController
                 'label' => 'Số bài hát',
             ],
             [
+                'name'  => 'playlist_status',
+                'label' => 'Tình Trạng',
+                'type' => 'closure',
+                'function' => function($entry) {
+                    return $entry->playlist_status == 1 ? '<span class="label label-success">Hoạt động</span>' : '<span class="label label-default">K.hoạt dộng</span>';
+                },
+            ],
+            [
                 'name'  => 'playlist_cover',
                 'label' => 'Cover',
                 'type' => 'closure',
                 'function' => function($entry) {
                     if($entry->playlist_cover) {
-                        $urlImg = Helpers::file_path($entry->playlist_id, PUBLIC_MUSIC_PLAYLIST_PATH, true) . $entry->playlist_id.'.png';
+                        $urlImg = Helpers::file_path($entry->playlist_id, PUBLIC_MUSIC_PLAYLIST_PUBLISHER_PATH, true) . $entry->playlist_id.'.png';
                     }else{
                         $urlImg = '/imgs/avatar_default.png';
                     }
@@ -94,25 +103,33 @@ class PlaylistPublisherController extends CrudController
                 },
             ],
             [
-                'name'  => 'playlist_artist',
-                'label' => 'Top Ca sĩ',
+                'name'  => 'playlist_artist_name',
+                'label' => 'Ca Sĩ',
                 'type' => 'closure',
                 'function' => function($entry) {
-                    if($entry->playlist_artist) {
-                        $artistPlaylist = unserialize($entry->playlist_artist);
-                        $artistNames = [];
-                        $artistIds = [];
-                        $i = 0;
-                        foreach($artistPlaylist as $key => $item) {
-                            $artistNames[] = $item['name'];
-                            $artistIds[] = $key;
-                            if(++$i == 2)
-                                break;
-                        }
-                        return Helpers::rawHtmlArtists(implode(';', $artistIds), implode(';', $artistNames));
-                    }
+                    return Helpers::rawHtmlArtists($entry->playlist_artist_id, $entry->playlist_artist_name);
                 },
             ],
+//            [
+//                'name'  => 'playlist_artist',
+//                'label' => 'Top Ca sĩ',
+//                'type' => 'closure',
+//                'function' => function($entry) {
+//                    if($entry->playlist_artist) {
+//                        $artistPlaylist = unserialize($entry->playlist_artist);
+//                        $artistNames = [];
+//                        $artistIds = [];
+//                        $i = 0;
+//                        foreach($artistPlaylist as $key => $item) {
+//                            $artistNames[] = $item['name'];
+//                            $artistIds[] = $key;
+//                            if(++$i == 2)
+//                                break;
+//                        }
+//                        return Helpers::rawHtmlArtists(implode(';', $artistIds), implode(';', $artistNames));
+//                    }
+//                },
+//            ],
         ]);
 
 //        $this->crud->addColumn([
@@ -121,7 +138,7 @@ class PlaylistPublisherController extends CrudController
 //            'name' => 'user_id',
 //            'entity' => 'playlist_user',
 //            'attribute' => 'name',
-//            'model' => "App/Models/PlaylistModel",
+//            'model' => "App/Models/PlaylistPublisherModel",
 //        ]);
 
 
@@ -132,6 +149,14 @@ class PlaylistPublisherController extends CrudController
         $this->crud->addField([
             'name'  => 'playlist_cover',
             'type'  => 'hidden',
+        ]);
+        $this->crud->addField([
+            'name'  => 'playlist_artist_id',
+            'type' => 'hidden',
+        ]);
+        $this->crud->addField([
+            'name'  => 'playlist_artist_name',
+            'type' => 'hidden',
         ]);
         $this->crud->addField([
             'name'  => 'playlist_title',
@@ -160,11 +185,6 @@ class PlaylistPublisherController extends CrudController
         ]);
 
         $this->crud->addField([
-            'name'  => 'playlist_artist',
-            'label' => 'Json playlist artist',
-        ]);
-
-        $this->crud->addField([
             'name'  => 'artist_cover',
             'label' => 'Cover',
         ]);
@@ -184,10 +204,10 @@ class PlaylistPublisherController extends CrudController
         $this->data['fields'] = $this->crud->getUpdateFields($id);
         $this->data['title'] = trans('backpack::crud.edit').' '.$this->crud->entity_name;
         $this->data['id'] = $id;
-        $listMusicVideo = $this->playlistRepository->getMusicVideo(array_column($this->data['entry']->playlist_arr_ids->toArray(), 'music_id'));
+        $listMusicVideo = $this->playlistPublisherRepository->getMusicVideo(array_column($this->data['entry']->playlist_arr_ids->toArray(), 'music_id'));
         $this->data['list_music_video'] = $listMusicVideo;
         // load the view from /resources/views/vendor/backpack/crud/ if it exists, otherwise load the one in the package
-        return view('vendor.backpack.playlist.edit_user', $this->data);
+        return view('vendor.backpack.playlist.edit_publisher', $this->data);
 
     }
 
@@ -199,7 +219,8 @@ class PlaylistPublisherController extends CrudController
     public function update(UpdateRequest $request)
     {
         $this->crud->hasAccessOrFail('update');
-
+        $request->request->set('playlist_artist_id', $request->input('playlist_artist_id'));
+        $request->request->set('playlist_artist_name', $request->input('playlist_artist_name'));
         // fallback to global request instance
         if (is_null($request)) {
             $request = \Request::instance();
@@ -211,15 +232,15 @@ class PlaylistPublisherController extends CrudController
             }
         }
         if(strlen($request->input('playlist_value_cover')) > 100) {
-            $fileNameCover = Helpers::saveBase64Image($request->input('playlist_value_cover'), Helpers::file_path($request->input('playlist_id'), MUSIC_PLAYLIST_PATH, true), $request->input('playlist_id'), 'png');
-            $request->request->set('playlist_cover', 1);
+            $fileNameCover = Helpers::saveBase64Image($request->input('playlist_value_cover'), Helpers::file_path($request->input('playlist_id'), MUSIC_PLAYLIST_PUBLISHER_PATH, true), $request->input('playlist_id'), 'png');
+            $request->request->set('playlist_cover', SET_ACTIVE);
         }
-        $playlist = PlaylistModel::where('playlist_id', $request->input('playlist_id'))->first();
+        $playlist = PlaylistPublisherModel::where('playlist_id', $request->input('playlist_id'))->first();
         // remove music, update count
         if($request->input('remove_music')) {
             $arrMusic = explode(',', substr($request->input('remove_music'), 1));
-            $countRemove = PlaylistMusicModel::where('playlist_id', $request->input('playlist_id'))->whereIn('music_id', $arrMusic)->delete();
-            $update['playlist_music_total'] = $playlist->playlist_music_total - $countRemove;
+            $countRemove = PlaylistMusicPublisherModel::where('playlist_id', $request->input('playlist_id'))->whereIn('music_id', $arrMusic)->delete();
+            $request->request->set('playlist_music_total', $playlist->playlist_music_total - $countRemove);
             $removeArtist = str_replace(';', ',', substr($request->input('remove_artist'), 1));
             $removeArtistId = str_replace(';', ',', substr($request->input('remove_artist_id'), 1));
             $artistRemove = explode(',', $removeArtist);
@@ -239,10 +260,11 @@ class PlaylistPublisherController extends CrudController
             $request->request->set('playlist_artist', serialize($artistOld));
 
         }
+        // order music
         if($request->input('order_music')) {
             $arrMusic = explode(',', substr($request->input('order_music'), 1));
             foreach ($arrMusic as $key => $item) {
-                $this->playlistMusicRepository->getModel()::where('music_id', $item)->update(['playlist_order' => $key]);
+                $this->playlistMusicPublisherRepository->getModel()::where('music_id', $item)->update(['playlist_order' => $key]);
             }
         }
 
@@ -284,8 +306,8 @@ class PlaylistPublisherController extends CrudController
         // get entry ID from Request (makes sure its the last ID for nested resources)
         $id = $this->crud->getCurrentEntryId() ?? $id;
 
-        if(Storage::exists('public' . Helpers::file_path($id, MUSIC_PLAYLIST_PATH, true) . $id.'.png'))
-            Storage::delete('public' . Helpers::file_path($id, MUSIC_PLAYLIST_PATH, true) . $id.'.png');
+        if(Storage::exists('public' . Helpers::file_path($id, MUSIC_PLAYLIST_PUBLISHER_PATH, true) . $id.'.png'))
+            Storage::delete('public' . Helpers::file_path($id, MUSIC_PLAYLIST_PUBLISHER_PATH, true) . $id.'.png');
         return $this->crud->delete($id);
     }
 }

@@ -630,7 +630,7 @@ global $top_artist_rows;
         top: 980px;
     }
     .show_add_playlist .card-body{
-        /*padding: 10px!important;*/
+        padding: 10px!important;
     }
 </style>
 @endsection

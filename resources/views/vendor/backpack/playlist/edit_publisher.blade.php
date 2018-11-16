@@ -21,6 +21,10 @@ use App\Library\Helpers;
     <script type="text/javascript" src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/croppie.css">
+    <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/bootstrap-tagsinput.css">
+    <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/typeaheadjs.css">
+    <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/token-input.css">
+    <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/token-input-facebook.css">
     {{--<link rel="stylesheet" type="text/css" href="/css/style.css">--}}
 @endsection
 
@@ -66,8 +70,13 @@ use App\Library\Helpers;
                             @include('crud::form_content', ['fields' => $fields, 'action' => 'edit'])
                         @endif
                         <div class="form-group col-xs-12">
+                            <label>Ca Sĩ</label>
+                            <input type="text" class="form-control" name="playlist_artist_id" id="playlist_artist_id" value="" placeholder="Nhập tên ca sĩ">
+                            <input type="hidden" class="form-control" name="playlist_artist_name" value="" id="playlist_artist_name" placeholder="Nhập tên ca sĩ">
+                        </div>
+                        <div class="form-group col-xs-12">
                             <label style="display: -webkit-box;">Avatar</label>
-                            <img class="mr-3" id="artist_cover_uploaded" src="{{$fields['playlist_cover']['value'] ? Helpers::file_path($fields['id']['value'], PUBLIC_MUSIC_PLAYLIST_PATH, true).$fields['playlist_id']['value'].'.png?time='.time() : '/imgs/avatar_default.png'}}" alt="">
+                            <img class="mr-3" id="artist_cover_uploaded" src="{{$fields['playlist_cover']['value'] ? Helpers::file_path($fields['id']['value'], PUBLIC_MUSIC_PLAYLIST_PUBLISHER_PATH, true).$fields['playlist_id']['value'].'.png?time='.time() : '/imgs/avatar_default.png'}}" alt="">
                             <div class="media-body">
                                 <div class="form-group" style="margin-top: 10px;">
                                     <input type="file" class="form-control-file" name="choose_playlist_cover" id="choose_playlist_cover" />
@@ -124,7 +133,6 @@ use App\Library\Helpers;
 
                             <input type="hidden" name="save_action" value="{{ $saveAction['active']['value'] }}">
 
-                            <a href="{{ $crud->hasAccess('list') ? url($crud->route).'/'.$fields['id']['value'].'/approval' : url()->previous() }}" class="btn btn-info"><span class="fa fa-arrow-circle-right"></span> &nbsp;Xác Nhận Publisher</a>
                             <div class="btn-group">
 
                                 <button type="submit" class="btn btn-success">
@@ -178,13 +186,34 @@ use App\Library\Helpers;
         </div>
     </div>
     <script type="text/javascript" src="/js/croppie.js"></script>
+    <script type="text/javascript" src="/js/bootstrap-tagsinput.js"></script>
+    <script type="text/javascript" src="/js/typeahead.bundle.js"></script>
+    <script type="text/javascript" src="/js/jquery.tokeninput.js"></script>
     <script>
         $('input[name=artist_avatar]').parent().addClass('hidden');
         $('input[name=artist_cover]').parent().addClass('hidden');
 
         $(document).ready(function(){
+            $("#playlist_artist_id").tokenInput("/dang-tai/ca-si/tim-kiem", {
+                theme: "facebook",
+                preventDuplicates: true,
+                setInputName: "#playlist_artist_name",
+                noResultsText: 'Không có tên ca sĩ',
+                tokenDelimiter: ';',
+                hintText: 'Nhập tên ca sĩ',
+                searchingText: 'Đang tìm ca sĩ',
+                tokenLimit: 1,
+                prePopulate: [
+                    <?php
+                    if($fields['playlist_artist_id']['value']) {
+                        echo '{id: ' . $fields['playlist_artist_id']['value'] . ', name: "' . $fields['playlist_artist_name']['value'] . '"},';
+                    }
+                    ?>
+                ],
+                addFunction: function (){
+                }
+            });
             var selectImage;
-
             $('#choose_playlist_cover').on('change', function(){
                 selectImage = 'avatar';
                 $('#image_demo').html('');

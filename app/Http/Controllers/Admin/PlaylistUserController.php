@@ -18,9 +18,13 @@ use Backpack\CRUD\app\Http\Requests\CrudRequest as UpdateRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Repositories\Playlist\PlaylistEloquentRepository;
+use App\Repositories\PlaylistPublisher\PlaylistPublisherEloquentRepository;
 use App\Repositories\PlaylistMusic\PlaylistMusicEloquentRepository;
+use App\Repositories\PlaylistMusicPublisher\PlaylistMusicPublisherEloquentRepository;
 use App\Models\PlaylistMusicModel;
 use App\Models\PlaylistModel;
+use App\Models\PlaylistPublisherModel;
+use File;
 
 class PlaylistUserController extends CrudController
 {
@@ -28,15 +32,18 @@ class PlaylistUserController extends CrudController
     protected $artistUploadRepository;
     protected $playlistMusicRepository;
     protected $playlistRepository;
+    protected $playlistPublisherRepository;
+    protected $playlistMusicPublisherRepository;
 
     public function __construct(ArtistEloquentRepository $artistRepository, ArtistUploadEloquentRepository $artistUploadRepository, PlaylistMusicEloquentRepository $playlistMusicRepository,
-                                PlaylistEloquentRepository $playlistRepository)
+                                PlaylistEloquentRepository $playlistRepository, PlaylistPublisherEloquentRepository $playlistPublisherRepository, PlaylistMusicPublisherEloquentRepository $playlistMusicPublisherRepository)
     {
         $this->artistRepository = $artistRepository;
         $this->artistUploadRepository = $artistUploadRepository;
         $this->playlistMusicRepository = $playlistMusicRepository;
         $this->playlistRepository = $playlistRepository;
-
+        $this->playlistPublisherRepository = $playlistPublisherRepository;
+        $this->playlistMusicPublisherRepository = $playlistMusicPublisherRepository;
         parent::__construct();
         $this->crud->setModel("App\Models\PlaylistModel");
         $this->crud->setEntityNameStrings('Playlist User', 'Playlist User');
@@ -159,10 +166,10 @@ class PlaylistUserController extends CrudController
             'label' => 'Sắp xếp theo',
         ]);
 
-        $this->crud->addField([
-            'name'  => 'playlist_artist',
-            'label' => 'Json playlist artist',
-        ]);
+//        $this->crud->addField([
+//            'name'  => 'playlist_artist',
+//            'label' => 'Json playlist artist',
+//        ]);
 
         $this->crud->addField([
             'name'  => 'artist_cover',
@@ -212,7 +219,7 @@ class PlaylistUserController extends CrudController
         }
         if(strlen($request->input('playlist_value_cover')) > 100) {
             $fileNameCover = Helpers::saveBase64Image($request->input('playlist_value_cover'), Helpers::file_path($request->input('playlist_id'), MUSIC_PLAYLIST_PATH, true), $request->input('playlist_id'), 'png');
-            $request->request->set('playlist_cover', 1);
+            $request->request->set('playlist_cover', SET_ACTIVE);
         }
         $playlist = PlaylistModel::where('playlist_id', $request->input('playlist_id'))->first();
         // remove music, update count
@@ -239,6 +246,7 @@ class PlaylistUserController extends CrudController
             $request->request->set('playlist_artist', serialize($artistOld));
 
         }
+        // order music
         if($request->input('order_music')) {
             $arrMusic = explode(',', substr($request->input('order_music'), 1));
             foreach ($arrMusic as $key => $item) {
@@ -259,18 +267,6 @@ class PlaylistUserController extends CrudController
 
         return $this->performSaveAction($item->getKey());
     }
-    public function approvalArtistUpload($id) {
-        $artistUpload = $this->artistUploadRepository->findOnlyPublished($id);
-        $nameExist = $this->artistRepository->getModel()::where('artist_nickname', $artistUpload->artist_nickname)->first();
-        if($nameExist) {
-            \Alert::error('Tên Ca sĩ đã tồn tại.')->flash();
-            return redirect()->back();
-        }
-        $result = $this->artistRepository->createArtist($artistUpload);
-        $this->artistUploadRepository->delete($id);
-        \Alert::success('Xác nhận ca sĩ thành công.')->flash();
-        return \Redirect::to($this->crud->route);
-    }
     public function preview(StoreRequest $request, $id) {
         $artist = $this->artistUploadRepository->find($id);
         if(!$artist)
@@ -287,5 +283,48 @@ class PlaylistUserController extends CrudController
         if(Storage::exists('public' . Helpers::file_path($id, MUSIC_PLAYLIST_PATH, true) . $id.'.png'))
             Storage::delete('public' . Helpers::file_path($id, MUSIC_PLAYLIST_PATH, true) . $id.'.png');
         return $this->crud->delete($id);
+    }
+    public function approvalArtistUpload($id) {
+        $artistUpload = $this->artistUploadRepository->findOnlyPublished($id);
+        $nameExist = $this->artistRepository->getModel()::where('artist_nickname', $artistUpload->artist_nickname)->first();
+        if($nameExist) {
+            \Alert::error('Tên Ca sĩ đã tồn tại.')->flash();
+            return redirect()->back();
+        }
+        $result = $this->artistRepository->createArtist($artistUpload);
+        $this->artistUploadRepository->delete($id);
+        \Alert::success('Xác nhận ca sĩ thành công.')->flash();
+        return \Redirect::to($this->crud->route);
+    }
+    public function approvalPublisher($id) {
+        $playlist = PlaylistModel::where('playlist_id', $id)->with('playlist_arr_ids')->first();
+        $result = $this->playlistPublisherRepository->create([
+            'user_id' => $playlist->user_id,
+            'approval_user_id' => Auth::user()->id,
+            'playlist_time' => time(),
+            'playlist_cat_id' => $playlist->playlist_cat_id,
+            'playlist_cat_level' => $playlist->playlist_cat_level,
+            'playlist_by_id' => $playlist->playlist_id,
+            'playlist_cover' => $playlist->playlist_cover,
+            'playlist_artist' => $playlist->playlist_artist,
+            'playlist_artist_id' => $playlist->playlist_artist_id,
+            'playlist_music_total' => $playlist->playlist_music_total,
+            'playlist_status' => DEFAULT_APPROVAL_PUBLISHER,
+            'playlist_title' => $playlist->playlist_title
+        ]);
+        if($playlist->playlist_cover)
+            File::copy(Helpers::file_path($playlist->playlist_id, $_SERVER['DOCUMENT_ROOT'].PUBLIC_MUSIC_PLAYLIST_PATH, true).$playlist->playlist_id.'.png', Helpers::file_path($result->playlist_id, $_SERVER['DOCUMENT_ROOT'].PUBLIC_MUSIC_PLAYLIST_PUBLISHER_PATH, true).$result->playlist_id.'.png');
+        if(!$result)
+            return view('errors.404');
+        foreach($playlist->playlist_arr_ids as $item) {
+            $this->playlistMusicPublisherRepository->create([
+                'playlist_id' => $result->playlist_id,
+                'music_id' => $item->music_id,
+                'playlist_order' => $item->playlist_order,
+            ]);
+        }
+        \Alert::success('Publisher playlist \<b>'.$playlist->playlist_title.'\</b> thành công.')->flash();
+        return \Redirect::to($this->crud->route);
+//        return redirect('/admin/playlist_publisher');
     }
 }

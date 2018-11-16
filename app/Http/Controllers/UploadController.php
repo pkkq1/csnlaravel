@@ -88,7 +88,7 @@ class UploadController extends Controller
         return redirect()->route('upload.createArtist')->with('success', 'Đã tạo ca sĩ ' . $result->artist_nickname);
     }
     function uploadFileMusic(Request $request) {
-        $fileName = Helpers::moveFile($request->file('file'), DEFAULT_ROOT_TEMP_MUSIC_PATH, $_FILES['file']['name']);
+        $fileName = Helpers::moveFile($request->file('file'), $_SERVER['DOCUMENT_ROOT'].DEFAULT_ROOT_TEMP_MUSIC_PATH, $_FILES['file']['name']);
 //        echo $fileName;
         return response()->json([
             'status' => true,
@@ -129,7 +129,7 @@ class UploadController extends Controller
 
         if(!$result)
             return redirect()->route('upload.createMusic')->with('error', 'tạo '.$mess.' thất bại');
-        File::move(DEFAULT_ROOT_TEMP_MUSIC_PATH.'/'.$request->input('drop_files'), DEFAULT_ROOT_CACHE_MUSIC_PATH.'/'.$request->input('drop_files'));
+        File::move($_SERVER['DOCUMENT_ROOT'].DEFAULT_ROOT_TEMP_MUSIC_PATH.$request->input('drop_files'), $_SERVER['DOCUMENT_ROOT'].DEFAULT_ROOT_CACHE_MUSIC_PATH.$request->input('drop_files'));
         return redirect()->route('upload.createMusic')->with('success', 'Đã tạo '.$mess.' ' . $csnMusic['music_title']);
     }
 
@@ -182,7 +182,7 @@ class UploadController extends Controller
         foreach ($fileUploads as $item) {
             $csnMusic['music_filename_upload'] = $item;
             $this->uploadRepository->create($csnMusic);
-            File::move(DEFAULT_ROOT_TEMP_MUSIC_PATH.'/'.$item, DEFAULT_ROOT_CACHE_MUSIC_PATH.'/'.$item);
+            File::move($_SERVER['DOCUMENT_ROOT'].DEFAULT_ROOT_TEMP_MUSIC_PATH.$item, $_SERVER['DOCUMENT_ROOT'].DEFAULT_ROOT_CACHE_MUSIC_PATH.$item);
         }
         return redirect()->route('upload.createMusic')->with('success', 'Đã tạo album mới' . $request->input('music_album'));
     }
