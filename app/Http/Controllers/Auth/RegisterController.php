@@ -52,12 +52,19 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
+        $validator = Validator::make($data, [
             'username' => 'required|string|max:255|unique:csn_users|min:4',
             'email' => 'required|string|email|max:255|unique:csn_users',
             'password' => 'required|string|min:6',
             'captcha' => 'required',
         ]);
+        $validator->setAttributeNames([
+            'username' => 'Tên Tài Khoản',
+            'email' => 'Email',
+            'password' => 'Mật khẩu',
+            'captcha' => 'Mã bảo vệ'
+        ]);
+        return $validator;
     }
 
     /**

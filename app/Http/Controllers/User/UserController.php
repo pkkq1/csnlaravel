@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\UserModel;
 use App\Repositories\Playlist\PlaylistEloquentRepository;
 use App\Models\MailTokenModel;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -47,6 +49,34 @@ class UserController extends Controller
         return view('user.index', compact('user', 'playlist'));
     }
     public function store(Request $request) {
+        $reqRefresh = false;
+        $reqValid = [
+            'name' => 'required|max:255|min:4',
+        ];
+        $setAttr = [
+            'name' => 'Tên',
+            'username' => 'Tên tài khoản',
+            'password' => 'Mật khẩu',
+            'repassword' => 'Nhập lại mật khẩu',
+            'current_password' => 'Mật khẩu cũ'
+        ];
+        if(!Auth::user()->username) {
+            $reqValid['password'] = 'required|max:255|min:6';
+            $reqValid['username'] = 'required|max:255|min:4|max:30|alpha_dash|unique:csn_users';
+            $reqValid['repassword'] = 'required|max:255|min:6|same:password';
+            $reqRefresh = true;
+        }else{
+            if($request->input('current_password')) {
+                $reqValid['current_password'] = 'required|max:255|min:6';
+                $reqValid['password'] = 'required|max:255|min:6';
+                $setAttr['password'] = 'Mật khẩu mới';
+            }
+        }
+        $validator = Validator::make($request->all(), $reqValid);
+        $validator->setAttributeNames($setAttr);
+        if($validator->fails()) {
+            Helpers::ajaxResult(false, 'Lỗi', $validator->errors()->toArray());
+        }
         $update = [
             'name' => $request->input('name'),
             'user_gender' => $request->input('user_gender'),
@@ -54,13 +84,28 @@ class UserController extends Controller
             'user_phone_number' => $request->input('user_phone_number'),
             'user_interests' => $request->input('user_interests')
         ];
+        if(!Auth::user()->username) {
+            $update['username'] = trim(strtolower($request->input('username')));
+            $update['password'] = Hash::make($request->input('password'));
+        }else{
+            if($request->input('password') && $request->input('current_password')) {
+                if(Hash::check($request->input('current_password'), Auth::User()->password))
+                {
+                    $update['password'] = Hash::make($request->input('password'));
+                }
+                else
+                {
+                    Helpers::ajaxResult(false, 'Lỗi', ['current_password' => ['Xác nhận mật khẩu cũ không chính xác']]);
+                }
+            }
+        }
         if($request->input('user_avatar')){
             $path = Helpers::file_path(Auth::user()->id, AVATAR_PATH, true);
             $fileNameAvatar = Helpers::saveBase64Image($request->input('user_avatar'), $path, Auth::user()->id, 'png');
             $update['user_avatar'] = $fileNameAvatar;
         }
         $user = UserModel::where('id', Auth::user()->id)->update($update);
-//        $update['user_avatar'] = $path.$fileNameAvatar;
+        $update['refresh'] = $reqRefresh;
         Helpers::ajaxResult(true, 'Cập nhật tài khoản thành công', $update);
     }
     public function logout()

@@ -97,7 +97,10 @@ class PlaylistUserController extends CrudController
                 'type' => 'closure',
                 'function' => function($entry) {
                     $user = $entry->playlist_user()->first();
-                    return '<a href="/user/'.$user->id.'" target="_blank">'.$user->name.'</a>';
+                    if($user) {
+                        return '<a href="/user/'.$user->id.'" target="_blank">'.$user->name.'</a>';
+                    }
+                    return '<a href="/user/'.$entry->id.'" target="_blank">'.$entry->name.'</a>';
                 },
             ],
             [

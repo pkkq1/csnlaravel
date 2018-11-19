@@ -40,11 +40,10 @@ class AuthFacebookController extends Controller
         if(!$existUser->exists()) {
             $existUser = User::firstOrCreate([
                 'name' => $user->getName(),
-                'username' => $user->getName(),
                 'email' => $email,
                 'user_avatar' => $user->avatar_original,
                 'app' => 'facebook',
-                'username' => $user->getId(),
+//                'username' => $user->getId(),
                 'app_id' => $user->getId(),
                 'user_phone_number' => ''
             ]);

@@ -195,300 +195,306 @@
 
     </div>
 </div>
-<!-- Login -->
-<div id="myModal_login" class="modal fade" role="dialog" style="z-index: 999999999999999">
-    <div class="modal-dialog modal-lg">
-        <!-- Modal content-->
-        <div class="modal-content modal-login modal-form">
-            <div class="modal-header">
-                <span class="modal-title span_h5" style="float: left;">Đăng nhập</span>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div class="panel-body">
-                    <form class="col-md-12" id="form-login" action="#">
-                        <div class="col-md-6 col-md-offset-2" style="display: table;float: left;">
-                            <div class="input-field">
-                                <input type="text" class="email" name="email" placeholder="Tên đăng nhập hoặc email" />
-                                <input type="password" class="password" name="password" placeholder="Mật khẩu" name="password"/>
-                                <div class="login_action">
-                                    <input type="checkbox" checked id="remember" name="remember" {{ old('remember') ? 'checked' : '' }}>
-                                    <label style="cursor: pointer; display: inline;" for="remember"> Nhớ mật khẩu</label>
-                                    <a href="javascript:void(0)" onclick="switchAuth('myModal_forgot')"  style=" margin-left: 15px; float:right; color: #888;">Quên mật khẩu?</a>
-                                    <button onclick="authLogin()" class="btn btn-outline-success my-2 my-sm-0 waves-effect waves-light" type="submit">Đăng nhập</button>
+@if(!Auth::user())
+    <!-- Login -->
+    <div id="myModal_login" class="modal fade" role="dialog" style="z-index: 999999999999999">
+        <div class="modal-dialog modal-lg">
+            <!-- Modal content-->
+            <div class="modal-content modal-login modal-form">
+                <div class="modal-header">
+                    <span class="modal-title span_h5" style="float: left;">Đăng nhập</span>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="panel-body">
+                        <form class="col-md-12" id="form-login" action="#">
+                            <div class="col-md-6 col-md-offset-2" style="display: table;float: left;">
+                                <div class="input-field">
+                                    <input type="text" class="email" name="email" placeholder="Tên đăng nhập hoặc email" />
+                                    <input type="password" class="password" name="password" placeholder="Mật khẩu" name="password"/>
+                                    <div class="login_action">
+                                        <input type="checkbox" checked id="remember" name="remember" {{ old('remember') ? 'checked' : '' }}>
+                                        <label style="cursor: pointer; display: inline;" for="remember"> Nhớ mật khẩu</label>
+                                        <a href="javascript:void(0)" onclick="switchAuth('myModal_forgot')"  style=" margin-left: 15px; float:right; color: #888;">Quên mật khẩu?</a>
+                                        <button onclick="authLogin()" class="btn btn-outline-success my-2 my-sm-0 waves-effect waves-light" type="submit">Đăng nhập</button>
+                                    </div>
+                                    <p class="text-p">Bạn chưa có tài khoản? <a href="javascript:void(0)" onclick="switchAuth('myModal_register')" style="margin-right: 15px;color: #FF2D55;">Đăng ký</a>
                                 </div>
-                                <p class="text-p">Bạn chưa có tài khoản? <a href="javascript:void(0)" onclick="switchAuth('myModal_register')" style="margin-right: 15px;color: #FF2D55;">Đăng ký</a>
                             </div>
-                        </div>
-                        <div class="col-md-6 col-md-offset-2 social_button">
-                            <div class="social">
-                                <ul>
-                                    <li>
-                                        <a href="{{env('APP_URL')}}/auth/facebook" class="facebook">
-                                            <span class="fa fa-facebook icon_soccial"></span>
-                                            <p class="text_social">Đăng nhập bằng Facebook</p>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{env('APP_URL')}}/auth/google" class="google-plus">
-                                            <span class="fa fa-google-plus icon_soccial"></span>
-                                            <p class="text_social">Đăng nhập bằng Google</p>
-                                        </a>
-                                    </li>
-                                </ul>
+                            <div class="col-md-6 col-md-offset-2 social_button">
+                                <div class="social">
+                                    <ul>
+                                        <li>
+                                            <a href="{{env('APP_URL')}}/auth/facebook" class="facebook">
+                                                <span class="fa fa-facebook icon_soccial"></span>
+                                                <p class="text_social">Đăng nhập bằng Facebook</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{env('APP_URL')}}/auth/google" class="google-plus">
+                                                <span class="fa fa-google-plus icon_soccial"></span>
+                                                <p class="text_social">Đăng nhập bằng Google</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!-- register -->
-<div id="myModal_register" class="modal fade" role="dialog" style="z-index: 999999999999999">
-    <div class="modal-dialog modal-lg">
-        <!-- Modal content-->
-        <div class="modal-content modal-register modal-form">
-            <div class="modal-header">
-                <span class="modal-title span_h5" style="float: left;">Đăng ký tài khoản</span>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div class="panel-body">
-                    <form class="col-md-12" action="#">
-                        <div class="col-md-6 col-md-offset-2" style="display: table;float: left;">
-                            <div class="input-field">
-                                <input class="username" name="username" type="text" placeholder="Tên đăng nhập" />
-                                <input class="name" name="name" type="text" placeholder="Tên hiển thị" />
-                                <input class="email" name="email" type="email" placeholder="Địa chỉ email" required="email" />
-                                <input class="password" name="password" type="password" placeholder="Mật khẩu" name="password" />
-                                <input class="confirm_password" name="confirm_password" type="password" placeholder="Xác nhận lại mật khẩu" name="password" />
-                                <div class="g-recaptcha captcha" data-sitekey="{{env('NOCAPTCHA_SECRET')}}"></div>
-                                <div class="login_action">
-                                    <input class="contact_csn" type="checkbox" id="contact_csn" checked name="contact_csn">
-                                    <label style="cursor: pointer; font-size: 13px; display: inline;" for="contact_csn">Tôi đã đọc và đồng ý các điều kiện<a href="#" > Thỏa thuận sử dụng</a></label>
+    <!-- register -->
+    <div id="myModal_register" class="modal fade" role="dialog" style="z-index: 999999999999999">
+        <div class="modal-dialog modal-lg">
+            <!-- Modal content-->
+            <div class="modal-content modal-register modal-form">
+                <div class="modal-header">
+                    <span class="modal-title span_h5" style="float: left;">Đăng ký tài khoản</span>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="panel-body">
+                        <form class="col-md-12" action="#">
+                            <div class="col-md-6 col-md-offset-2" style="display: table;float: left;">
+                                <div class="input-field">
+                                    <input class="username" name="username" type="text" placeholder="Tên đăng nhập" />
+                                    <input class="name" name="name" type="text" placeholder="Tên hiển thị" />
+                                    <input class="email" name="email" type="email" placeholder="Địa chỉ email" required="email" />
+                                    <input class="password" name="password" type="password" placeholder="Mật khẩu" name="password" />
+                                    <input class="confirm_password" name="confirm_password" type="password" placeholder="Xác nhận lại mật khẩu" name="password" />
+                                    <div class="g-recaptcha captcha" data-sitekey="{{env('NOCAPTCHA_SECRET')}}"></div>
+                                    <div class="login_action">
+                                        <input class="contact_csn" type="checkbox" id="contact_csn" checked name="contact_csn">
+                                        <label style="cursor: pointer; font-size: 13px; display: inline;" for="contact_csn">Tôi đã đọc và đồng ý các điều kiện<a href="#" > Thỏa thuận sử dụng</a></label>
+                                    </div>
+                                    <button onclick="authRegister()" class="btn my-2 my-sm-0 waves-effect waves-light" style="margin-left: 0px;width: 100%; padding: 10px" type="submit">Đăng ký</button>
+                                    <p class="text-p"><a href="javascript:void(0)" onclick="switchAuth('myModal_login')" style=" margin-right: 15px; ">Đăng nhập</a>
+                                        <span style=" color: #d0d0d0; ">|</span>
+                                        <a href="javascript:void(0)" onclick="switchAuth('myModal_forgot')" style=" margin-left: 15px; ">Quên mật khẩu?</a></p>
                                 </div>
-                                   <button onclick="authRegister()" class="btn my-2 my-sm-0 waves-effect waves-light" style="margin-left: 0px;width: 100%; padding: 10px" type="submit">Đăng ký</button>
-                                <p class="text-p"><a href="javascript:void(0)" onclick="switchAuth('myModal_login')" style=" margin-right: 15px; ">Đăng nhập</a>
-                                    <span style=" color: #d0d0d0; ">|</span>
-                                    <a href="javascript:void(0)" onclick="switchAuth('myModal_forgot')" style=" margin-left: 15px; ">Quên mật khẩu?</a></p>
                             </div>
-                        </div>
-                        <div class="col-md-6 col-md-offset-2 social_button" style="padding-top: 50px; padding-bottom: 50px;">
-                            <div class="social">
-                                <ul>
-                                    <li>
-                                        <a href="{{env('APP_URL')}}/auth/facebook" class="facebook">
-                                            <span class="fa fa-facebook icon_soccial"></span>
-                                            <p class="text_social">Đăng ký bằng Facebook</p>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{env('APP_URL')}}/auth/google" class="google-plus">
-                                            <span class="fa fa-google-plus icon_soccial"></span>
-                                            <p class="text_social">Đăng ký bằng Google</p>
-                                        </a>
-                                    </li>
-                                </ul>
+                            <div class="col-md-6 col-md-offset-2 social_button" style="padding-top: 50px; padding-bottom: 50px;">
+                                <div class="social">
+                                    <ul>
+                                        <li>
+                                            <a href="{{env('APP_URL')}}/auth/facebook" class="facebook">
+                                                <span class="fa fa-facebook icon_soccial"></span>
+                                                <p class="text_social">Đăng ký bằng Facebook</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{env('APP_URL')}}/auth/google" class="google-plus">
+                                                <span class="fa fa-google-plus icon_soccial"></span>
+                                                <p class="text_social">Đăng ký bằng Google</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!-- forgot -->
-<div id="myModal_forgot" class="modal fade" role="dialog" style="z-index: 999999999999999">
-    <div class="modal-dialog modal-lg">
-        <!-- Modal content-->
-        <div class="modal-content modal-forgot modal-form">
-            <div class="modal-header">
-                <span class="modal-title span_h5" style="float: left;">Lấy lại mật khẩu</span>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div class="panel-body">
-                    <form class="col-md-12" action="#">
-                        <div class="col-md-6 col-md-offset-2" style="display: table;float: left;">
-                            <div class="input-field">
-                                <input type="email" name="email" class="email" placeholder="Địa chỉ email" required="email" />
-                                <div class="login_action">
-                                    <button onclick="authForgot()" class="btn my-2 my-sm-0 waves-effect waves-light" type="submit">Lấy lại mật khẩu</button>
+    <!-- forgot -->
+    <div id="myModal_forgot" class="modal fade" role="dialog" style="z-index: 999999999999999">
+        <div class="modal-dialog modal-lg">
+            <!-- Modal content-->
+            <div class="modal-content modal-forgot modal-form">
+                <div class="modal-header">
+                    <span class="modal-title span_h5" style="float: left;">Lấy lại mật khẩu</span>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="panel-body">
+                        <form class="col-md-12" action="#">
+                            <div class="col-md-6 col-md-offset-2" style="display: table;float: left;">
+                                <div class="input-field">
+                                    <input type="email" name="email" class="email" placeholder="Địa chỉ email" required="email" />
+                                    <div class="login_action">
+                                        <button onclick="authForgot()" class="btn my-2 my-sm-0 waves-effect waves-light" type="submit">Lấy lại mật khẩu</button>
+                                    </div>
+                                    <p class="text-p"><a href="javascript:void(0)" onclick="switchAuth('myModal_login')" style=" margin-right: 15px; ">Đăng nhập</a>
+                                        <span style=" color: #d0d0d0; ">|</span>
+                                        <a href="javascript:void(0)" onclick="switchAuth('myModal_register')" style=" margin-left: 15px; ">Đăng ký</a></p>
                                 </div>
-                                <p class="text-p"><a href="javascript:void(0)" onclick="switchAuth('myModal_login')" style=" margin-right: 15px; ">Đăng nhập</a>
-                                    <span style=" color: #d0d0d0; ">|</span>
-                                    <a href="javascript:void(0)" onclick="switchAuth('myModal_register')" style=" margin-left: 15px; ">Đăng ký</a></p>
                             </div>
-                        </div>
-                        <div class="col-md-6 col-md-offset-2 social_button" style="padding: 0px;">
-                            <div class="social">
-                                <ul>
-                                    <li>
-                                        <a href="{{env('APP_URL')}}/auth/facebook" class="facebook">
-                                            <span class="fa fa-facebook icon_soccial"></span>
-                                            <p class="text_social">Đăng nhập bằng Facebook</p>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{env('APP_URL')}}/auth/google" class="google-plus">
-                                            <span class="fa fa-google-plus icon_soccial"></span>
-                                            <p class="text_social">Đăng nhập bằng Google</p>
-                                        </a>
-                                    </li>
-                                </ul>
+                            <div class="col-md-6 col-md-offset-2 social_button" style="padding: 0px;">
+                                <div class="social">
+                                    <ul>
+                                        <li>
+                                            <a href="{{env('APP_URL')}}/auth/facebook" class="facebook">
+                                                <span class="fa fa-facebook icon_soccial"></span>
+                                                <p class="text_social">Đăng nhập bằng Facebook</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{env('APP_URL')}}/auth/google" class="google-plus">
+                                                <span class="fa fa-google-plus icon_soccial"></span>
+                                                <p class="text_social">Đăng nhập bằng Google</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<script>
-    function switchAuth(idForm) {
-        $('.modal').modal('hide');
-        setTimeout(function(){
-            $("#" + idForm).modal();
-        }, 200);
-    }
-    $('.modal-login form').submit(false);
-    function authLogin() {
-        resetInputLogin();
-        const email = $('.modal-login').find('.email');
-        const password = $('.modal-login').find('.password');
-        if(!email.val()) {
-            return addErrorInput(email, 'Nội dung này không được để trống.');
+    <script>
+        function switchAuth(idForm) {
+            $('.modal').modal('hide');
+            setTimeout(function(){
+                $("#" + idForm).modal();
+            }, 200);
         }
-        if(!password.val()) {
-            return addErrorInput(password, 'Nội dung này không được để trống.');
-        }
-        if(email.val().length < 4) {
-            return addErrorInput(email, 'Tài khoản trên 4 ký tự.');
-        }
-        if(password.val().length < 6) {
-            return addErrorInput(password, 'Mật khẩu phải trên 6 ký tự.');
-        }
-        $.ajax({
-            url: '/login',
-            type: "POST",
-            dataType: "json",
-            data: {
-                email: email.val(),
-                password: password.val(),
-                remember: ($('#remember').is( ":checked" ) ? true : '')
-            },
-            beforeSend: function () {
-                if(loaded) return false;
-                loaded = true;
-            },
-            error: function (data) {
-                var errors = data.responseJSON;
-                $.each( errors.errors, function( key, value ) {
-                    addErrorInput($('.modal-login').find('.' + key), value);
-                });
-            },
-            success: function(response) {
-                location.reload();
+        $('.modal-login form').submit(false);
+        function authLogin() {
+            resetInputLogin();
+            const email = $('.modal-login').find('.email');
+            const password = $('.modal-login').find('.password');
+            if(!email.val()) {
+                return addErrorInput(email, 'Nội dung này không được để trống.');
             }
-        });
-    }
-    $('.modal-register form').submit(false);
-    function authRegister() {
-        resetInputLogin();
-        const username = $('.modal-register').find('.username');
-        const name = $('.modal-register').find('.name');
-        const email = $('.modal-register').find('.email');
-        const password = $('.modal-register').find('.password');
-        const confirm_password = $('.modal-register').find('.confirm_password');
-        const contact = $('.modal-register').find('.contact_csn');
+            if(!password.val()) {
+                return addErrorInput(password, 'Nội dung này không được để trống.');
+            }
+            if(email.val().length < 4) {
+                return addErrorInput(email, 'Tài khoản trên 4 ký tự.');
+            }
+            if(password.val().length < 6) {
+                return addErrorInput(password, 'Mật khẩu phải trên 6 ký tự.');
+            }
+            $.ajax({
+                url: '/login',
+                type: "POST",
+                dataType: "json",
+                data: {
+                    email: email.val(),
+                    password: password.val(),
+                    remember: ($('#remember').is( ":checked" ) ? true : '')
+                },
+                beforeSend: function () {
+                    if(loaded) return false;
+                    loaded = true;
+                },
+                error: function (data) {
+                    var errors = data.responseJSON;
+                    $.each( errors.errors, function( key, value ) {
+                        addErrorInput($('.modal-login').find('.' + key), value);
+                    });
+                },
+                success: function(response) {
+                    location.reload();
+                }
+            });
+        }
+        $('.modal-register form').submit(false);
+        function authRegister() {
+            resetInputLogin();
+            const username = $('.modal-register').find('.username');
+            const name = $('.modal-register').find('.name');
+            const email = $('.modal-register').find('.email');
+            const password = $('.modal-register').find('.password');
+            const confirm_password = $('.modal-register').find('.confirm_password');
+            const contact = $('.modal-register').find('.contact_csn');
 
-        if(!username.val()) {
-            return addErrorInput(username, 'Tên đăng nhập không được để trống');
-        }
-        if(!email.val()) {
-            return addErrorInput(email, 'Email không được để trống');
-        }
-        if(!password.val()) {
-            return addErrorInput(password, 'Nội dung này không được để trống.');
-        }
-        if(confirm_password.val() != password.val()) {
-            return addErrorInput(confirm_password, 'Xác nhận mật khẩu không khớp.');
-        }
-        if(username.val().length < 4) {
-            return addErrorInput(username, 'Tài khoản trên 4 ký tự.');
-        }
-        if(password.val().length < 6) {
-            return addErrorInput(password, 'Mật khẩu phải trên 6 ký tự.');
-        }
-        if(!contact.is( ":checked" )) {
-            return addErrorInput(contact, 'xác nhận thỏa thuận để đăng ý tài khoản');
-        }
-        $.ajax({
-            url: '/register',
-            type: "POST",
-            dataType: "json",
-            data: {
-                name: name.val(),
-                username: username.val(),
-                email: email.val(),
-                password: password.val(),
-                captcha: grecaptcha.getResponse()
-            },
-            beforeSend: function () {
-                if(loaded) return false;
-                loaded = true;
-            },
-            error: function (data) {
-                var errors = data.responseJSON;
-                $.each( errors.errors, function( key, value ) {
-                    addErrorInput($('.modal-register').find('.' + key), value);
-                });
-            },
-            success: function(response) {
-                location.reload();
+            if(!username.val()) {
+                return addErrorInput(username, 'Tên đăng nhập không được để trống');
             }
-        });
-    }
-    $('.modal-forgot form').submit(false);
-    function authForgot() {
-        resetInputLogin();
-        const email = $('.modal-forgot').find('.email');
-        if(!email.val()) {
-            return addErrorInput(email, 'Email không được để trống');
-        }
-        $.ajax({
-            url: '/password/email',
-            type: "POST",
-            dataType: "json",
-            data: {
-                email: email.val(),
-            },
-            beforeSend: function () {
-                if(loaded) return false;
-                loaded = true;
-            },
-            error: function (data) {
-                var errors = data.responseJSON;
-                $.each(errors.errors, function( key, value ) {
-                    addErrorInput($('.modal-forgot').find('.' + key), value);
-                });
-            },
-            success: function(response) {
-                var status = response.status.email;
-                email.before('<div class="alert alert-success">' + status + ' </div>');
+            if(!email.val()) {
+                return addErrorInput(email, 'Email không được để trống');
             }
-        });
-    }
-    function resetInputLogin() {
-        $('.modal-form').find('.input-help-block').remove();
-        $('.modal-form').find('.alert').remove();
-        $('.modal-form').find('input').removeClass('input-has-error');
-    }
-    function addErrorInput(tag, content) {
-        tag.addClass('input-has-error');
-        tag.before('<span class="input-help-block"><strong>' + content + '</strong></span>');
-    }
+            if(!password.val()) {
+                return addErrorInput(password, 'Nội dung này không được để trống.');
+            }
+            if(confirm_password.val() != password.val()) {
+                return addErrorInput(confirm_password, 'Xác nhận mật khẩu không khớp.');
+            }
+            if(username.val().length < 4) {
+                return addErrorInput(username, 'Tài khoản trên 4 ký tự.');
+            }
+            if(password.val().length < 6) {
+                return addErrorInput(password, 'Mật khẩu phải trên 6 ký tự.');
+            }
+            if(!contact.is( ":checked" )) {
+                return addErrorInput(contact, 'xác nhận thỏa thuận để đăng ý tài khoản');
+            }
+            $.ajax({
+                url: '/register',
+                type: "POST",
+                dataType: "json",
+                data: {
+                    name: name.val(),
+                    username: username.val(),
+                    email: email.val(),
+                    password: password.val(),
+                    captcha: grecaptcha.getResponse()
+                },
+                beforeSend: function () {
+                    if(loaded) return false;
+                    loaded = true;
+                },
+                error: function (data) {
+                    var errors = data.responseJSON;
+                    $.each( errors.errors, function( key, value ) {
+                        addErrorInput($('.modal-register').find('.' + key), value);
+                    });
+                },
+                success: function(response) {
+                    location.reload();
+                }
+            });
+        }
+        $('.modal-forgot form').submit(false);
+        function authForgot() {
+            resetInputLogin();
+            const email = $('.modal-forgot').find('.email');
+            if(!email.val()) {
+                return addErrorInput(email, 'Email không được để trống');
+            }
+            $.ajax({
+                url: '/password/email',
+                type: "POST",
+                dataType: "json",
+                data: {
+                    email: email.val(),
+                },
+                beforeSend: function () {
+                    if(loaded) return false;
+                    loaded = true;
+                },
+                error: function (data) {
+                    var errors = data.responseJSON;
+                    $.each(errors.errors, function( key, value ) {
+                        addErrorInput($('.modal-forgot').find('.' + key), value);
+                    });
+                },
+                success: function(response) {
+                    var status = response.status.email;
+                    email.before('<div class="alert alert-success">' + status + ' </div>');
+                }
+            });
+        }
+        function resetInputLogin() {
+            $('.modal-form').find('.input-help-block').remove();
+            $('.modal-form').find('.alert').remove();
+            $('.modal-form').find('input').removeClass('input-has-error');
+        }
+        function addErrorInput(tag, content) {
+            tag.addClass('input-has-error');
+            tag.before('<span class="input-help-block"><strong>' + content + '</strong></span>');
+        }
+
+
+    </script>
+@endif
+<script>
     var loadHistory = true;
     function showHistoryMusic() {
         if(loadHistory) {

@@ -17,7 +17,7 @@ use App\Library\Helpers;
                 </ul>
                 @if(Auth::user())
                     @if(Auth::user()->id == $user->id)
-                        <button type="button" class="btn btn-secondary btn-secondary-gray" data-toggle="modal" data-target=".edit_profile">Chỉnh sửa <i class="material-icons">mode_edit</i></button>
+                        <button type="button" class="btn btn-secondary btn-secondary-gray click_modal_profile" data-toggle="modal" data-target=".edit_profile">Chỉnh sửa <i class="material-icons">mode_edit</i></button>
                     @endif
                 @endif
             </div>
@@ -44,12 +44,36 @@ use App\Library\Helpers;
                     <div class="col-md-9">
                         <form action="" class="profile_submit1" method="get" accept-charset="utf-8">
                             <div class="form-group">
-                                <label for="username">Username</label>
-                                <input type="text" disabled class="form-control" id="username" aria-describedby="emailHelp" placeholder="" value="{{Auth::user()->username}}">
+                                <label for="username">Tên Tài Khoản</label>
+                                <input type="text" {{Auth::user()->username ? 'disabled ' : ''}}class="form-control" id="username" aria-describedby="emailHelp" placeholder="" value="{{Auth::user()->username}}">
                             </div>
+                            @if(!Auth::user()->username)
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="name">Mật khẩu</label>
+                                    <input type="password" class="form-control" id="password" name="password" placeholder="" value="">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="name">Nhập lại mật khẩu</label>
+                                    <input type="password" class="form-control" id="repassword" name="repassword" placeholder="" value="">
+                                </div>
+                            </div>
+                            @else
+                                <span href="javascript:void(0);" title="" class="btn_change_password" onclick="showChangePassWord();">Thay đổi mật khẩu</span>
+                                <div class="form-row input_change_pass" style="display: none">
+                                    <div class="form-group col-md-6">
+                                        <label for="name">Mật khẩu cũ</label>
+                                        <input type="password" class="form-control" id="current_password" name="current_password" placeholder="" value="">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="name">Mật khẩu mới</label>
+                                        <input type="password" class="form-control" id="password" name="password" placeholder="" value="">
+                                    </div>
+                                </div>
+                            @endif
                             <div class="form-group">
                                 <label for="exampleInputEmail12">Link URL của bạn</label>
-                                <input type="text" class="form-control disabled" disabled id="exampleInputEmail12" placeholder="" value="{{env('APP_URL').'/user/'.Auth::user()->id}}=">
+                                <input type="text" class="form-control disabled" disabled id="exampleInputEmail12" placeholder="" value="{{env('APP_URL').'/user/'.Auth::user()->id}}">
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
@@ -160,9 +184,26 @@ use App\Library\Helpers;
         $('#view_user_avatar').attr("src", oldViewAvatar);
     })
     $('.profile_submit1').submit(false);
+    <?php
+        if(!Auth::user()->username) {
+            ?>
+            $('.click_modal_profile').click(function() {
+                alertModal('Lần đăng nhập với tài khoản facebook hoặc google sẽ cập nhật thêm thông tin tên tài khoản và mật khẩu.');
+            })
+            <?php
+        }
+    ?>
+    function showChangePassWord() {
+        $('.input_change_pass').toggle('slow');
+    }
     function updateProfile() {
-        if(!$('.profile_submit1').find('#name').val()) {
-            alertModal('Tên không được để trống');
+        resetInputLogin();
+        if(($('.profile_submit1').find('#username').val()) < 4) {
+            addErrorInput($('#username'), 'Tên tài khoản không được để trống và lớn hơn 4 ký tự');
+            return false;
+        }
+        if(($('.profile_submit1').find('#name').val()).length < 4) {
+            addErrorInput($('#name'), 'Tên không được để trống và lớn hơn 4 ký tự');
             return false;
         }
         $.ajax({
@@ -175,7 +216,11 @@ use App\Library\Helpers;
                 'user_birthday': $('.profile_submit1').find('#user_birthday').val(),
                 'user_phone_number': $('.profile_submit1').find('#user_phone_number').val(),
                 'user_interests': $('.profile_submit1').find('#user_interests').val(),
-                'user_avatar': $('#user_avatar').val()
+                'user_avatar': $('#user_avatar').val(),
+                'username': $('#username').val(),
+                'password': $('#password').val(),
+                'repassword': $('#repassword').val(),
+                'current_password': $('#current_password').val()
             },
             beforeSend: function () {
                 if(loaded) return false;
@@ -203,11 +248,28 @@ use App\Library\Helpers;
                         delayIndicator: false,
                         msg: response.message
                     });
-                }
+                    $('#password').val('');
+                    $('#current_password').val('');
+                    if(response.data.refresh)
+                        location.reload();
+                }else{
 
+                    $.each( response.data, function( key, value ) {
+                        addErrorInput($('.profile_submit1').find('#' + key), value);
+                    });
+                }
             }
         });
         return false;
+    }
+    function resetInputLogin() {
+        $('.profile_submit1').find('.input-help-block').remove();
+        $('.profile_submit1').find('.alert').remove();
+        $('.profile_submit1').find('input').removeClass('input-has-error');
+    }
+    function addErrorInput(tag, content) {
+        tag.addClass('input-has-error');
+        tag.before('<span class="input-help-block"><strong>' + content + '</strong></span>');
     }
 </script>
 @endif

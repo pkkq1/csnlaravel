@@ -1209,3 +1209,13 @@ form#login-form {
 .ad__box {
     z-index: 99;
 }
+.input-help-block {
+    display: block;
+}
+.btn_change_password {
+    margin-bottom: 2px;
+    color: #9C9C9C;
+    display: -webkit-box;
+    cursor: pointer;
+    font-family: 'SFProDisplay-Medium';
+}
