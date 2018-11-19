@@ -1,7 +1,8 @@
 <?php
 use App\Library\Helpers;
+$videoData = $video->toArray();
 ?>
-@if($video->toArray()['data'])
+@if($videoData['data'])
 <div class="row row10px float-col-width-video">
     <?php
     array_map(function ($item) {
@@ -21,8 +22,10 @@ use App\Library\Helpers;
         </div>
     </div>
     <?php
-    }, $video->toArray()['data'])
+    }, $videoData['data'])
     ?>
 </div>
 <center><?php echo $video->links() ?></center>
+@else
+    <div class="center-text-mes"><span>Chưa có video nào</span></div>
 @endif

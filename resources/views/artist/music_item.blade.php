@@ -1,10 +1,10 @@
 <?php
 use App\Library\Helpers;
+$musicData = $music->toArray();
 ?>
-@if($music->toArray()['data'])
+@if($musicData['data'])
 <ul class="list-unstyled list_music">
     <?php
-    $musicData = $music->toArray();
     $perPage = $musicData['per_page'];
     $curentPage = $musicData['current_page'];
     array_map(function ($i, $item) use($perPage, $curentPage) {
@@ -41,4 +41,6 @@ use App\Library\Helpers;
     ?>
 </ul>
 <center><?php echo str_replace(url()->current(), '/tab_artist',$music->links()) ?></center>
+@else
+    <div class="center-text-mes"><span>Chưa có bài hát nào</span></div>
 @endif

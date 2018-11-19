@@ -77,6 +77,13 @@ class PlaylistPublisherEloquentRepository extends EloquentRepository implements 
     {
         return $this->_model->create($attributes);
     }
+    public function getPlaylistPageByArtist($artistId, $fillOrder, $typeOrder, $page)
+    {
+        $result = $this->_model::where('playlist_artist_id', $artistId)
+            ->orderBy($fillOrder, $typeOrder)
+            ->paginate($page);
+        return $result;
+    }
 
 }
 

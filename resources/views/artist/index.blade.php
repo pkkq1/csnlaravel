@@ -67,6 +67,7 @@ $titleMeta = $artist->artist_nickname . ' - '. Config::get('constants.app.title'
                     dataType: "html",
                     data: {
                         'artist': '<?php echo $artist->artist_nickname; ?>',
+                        'artist_id': '<?php echo $artist->artist_id; ?>',
                         'tab': tab ? tab : 'music'
                     },
                     beforeSend: function () {

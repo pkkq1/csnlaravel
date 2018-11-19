@@ -14,6 +14,7 @@ use App\Models\ArtistModel;
 use App\Repositories\Music\MusicEloquentRepository;
 use App\Repositories\Video\VideoEloquentRepository;
 use App\Repositories\Cover\CoverEloquentRepository;
+use App\Repositories\PlaylistPublisher\PlaylistPublisherEloquentRepository;
 
 class ArtistController extends Controller
 {
@@ -21,12 +22,15 @@ class ArtistController extends Controller
     protected $musicRepository;
     protected $videoRepository;
     protected $coverRepository;
+    protected $playlistPublisherRepository;
 
-    public function __construct(ArtistEloquentRepository $artistRepository, MusicEloquentRepository $musicRepository, VideoEloquentRepository $videoRepository, CoverEloquentRepository $coverRepository) {
+    public function __construct(ArtistEloquentRepository $artistRepository, MusicEloquentRepository $musicRepository, VideoEloquentRepository $videoRepository, CoverEloquentRepository $coverRepository,
+                                PlaylistPublisherEloquentRepository $playlistPublisherRepository) {
         $this->artistRepository = $artistRepository;
         $this->musicRepository = $musicRepository;
         $this->videoRepository = $videoRepository;
         $this->coverRepository = $coverRepository;
+        $this->playlistPublisherRepository = $playlistPublisherRepository;
     }
 
     public function getTermArtist(Request $request) {
@@ -64,8 +68,8 @@ class ArtistController extends Controller
                 return view('artist.cover_item', compact('cover'));
                 break;
             case "playlist":
-                $video = $this->videoRepository->findMusicByArtist($request->artist, 'music_id', 'desc', LIMIT_MUSIC_PAGE_ARTIST);
-                return view('artist.video_item', compact('video'));
+                $playlist = $this->playlistPublisherRepository->getPlaylistPageByArtist($request->artist_id, 'playlist_artist_id', 'desc', LIMIT_MUSIC_PAGE_ARTIST);
+                return view('artist.playlist_item', compact('playlist'));
                 break;
             default:
                 return view('errors.404');

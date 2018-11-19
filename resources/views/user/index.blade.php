@@ -39,15 +39,18 @@ $mySelf = (Auth::check() && Auth::user()->id == $user->id);
                         <div class="row row10px" id="playlist">
                             @if(count($playlist))
                                 @foreach($playlist as $key2 => $item)
+                                    <?php
+                                        $url = Helpers::playlist_url($item->toArray());
+                                    ?>
                                     <div class="col">
                                         <div class="card card1">
                                             <div class="card-header" style="background-image: url({{$item->playlist_cover ? Helpers::file_path($item->playlist_id, PUBLIC_MUSIC_PLAYLIST_PATH, true).$item->playlist_id . '.png?v=' . time() : '/imgs/avatar_default.png'}});">
-                                                <a href="<?php echo Helpers::playlist_url($item->toArray()) ?>" title="{{$item->playlist_title}}">
+                                                <a href="{{$url}}" title="{{$item->playlist_title}}">
                                                     <span class="icon-play"></span>
                                                 </a>
                                             </div>
                                             <div class="card-body">
-                                                <h3 class="card-title"><a href="#" title="{{$item->playlist_title}}">{{$item->playlist_title}}</a></h3>
+                                                <h3 class="card-title"><a href="{{$url}}" title="{{$item->playlist_title}}">{{$item->playlist_title}}</a></h3>
                                                 @if($item->playlist_artist)
                                                     <p class="card-text">
                                                         <?php

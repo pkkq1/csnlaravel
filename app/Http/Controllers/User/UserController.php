@@ -60,7 +60,7 @@ class UserController extends Controller
             $update['user_avatar'] = $fileNameAvatar;
         }
         $user = UserModel::where('id', Auth::user()->id)->update($update);
-
+//        $update['user_avatar'] = $path.$fileNameAvatar;
         Helpers::ajaxResult(true, 'Cập nhật tài khoản thành công', $update);
     }
     public function logout()

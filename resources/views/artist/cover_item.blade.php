@@ -1,7 +1,8 @@
 <?php
 use App\Library\Helpers;
+$dataCover = $cover->toArray();
 ?>
-@if($cover->toArray()['data'])
+@if($dataCover['data'])
 <div class="row row10px float-col-width">
     <?php
     array_map(function ($item) {
@@ -29,8 +30,10 @@ use App\Library\Helpers;
         </div>
     </div>
     <?php
-    }, $cover->toArray()['data']);
+    }, $dataCover['data']);
     ?>
 </div>
 <center><?php echo $cover->links() ?></center>
+@else
+    <div class="center-text-mes"><span>Chưa có album nào</span></div>
 @endif
