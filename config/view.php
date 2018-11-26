@@ -1,17 +1,4 @@
 <?php
-use Jenssegers\Agent\Agent;
-$Agent = new Agent();
-$viewPath = '';
-// agent detection influences the view storage path
-//if(strpos($_SERVER['REQUEST_URI'], '/admin') === false) {
-//    if ($Agent->isMobile()) {
-//        // you're a mobile device
-//        $viewPath = '\mobile';
-//    } else {
-//        // you're a desktop device, or something similar
-//        $viewPath = '\web';
-//    }
-//}
 return [
 
     /*
@@ -26,7 +13,7 @@ return [
     */
 
     'paths' => [
-        resource_path('views'.$viewPath),
+        resource_path('views'),
     ],
 
     /*
