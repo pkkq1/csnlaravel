@@ -60,7 +60,8 @@ class CoverEloquentRepository extends EloquentRepository implements CoverReposit
         return $result;
     }
     public function getCoverMusicById($id) {
-        $result = $this->_model::where('cover_id', $id)->with('music', 'video')->first();
+//        $result = $this->_model::where('cover_id', $id)->with('music', 'video')->first();
+        $result = $this->_model::where('cover_id', $id)->with('music')->first();
         return $result;
     }
     public function getCategoryCover($catId, $catLevel, $year = null, $bitrate = null, $fillOrder, $typeOrder, $page)
@@ -98,6 +99,13 @@ class CoverEloquentRepository extends EloquentRepository implements CoverReposit
             ->paginate($page);
         return $result;
     }
-
+    public function coverNews($fillOrder, $typeOrder, $page)
+    {
+        $result = $this
+            ->_model
+            ->orderBy($fillOrder, $typeOrder)
+            ->paginate($page);
+        return $result;
+    }
 }
 

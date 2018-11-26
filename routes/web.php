@@ -27,6 +27,7 @@ Route::group(['middlewareGroups' => ['web']], function () {
     // sync data
     Route::prefix('sync')->group(function () {
         Route::get('album', 'Sync\AlbumController@syncAlbum');
+        Route::get('album_cat', 'Sync\AlbumCatController@syncAlbum');
         Route::get('download', 'Sync\MusicDownloadController@syncMusicDownload');
         Route::get('bxh_category', 'Sync\BxhCategoryController@syncBxhCategory');
         Route::get('demo_cover', 'Sync\SolrSyncController@demo');
@@ -125,20 +126,35 @@ Route::group(['middlewareGroups' => ['web']], function () {
         Route::post('{id}/music_recents', ['as' => 'user.uploaded', 'uses' => 'User\UserMusicController@musicRecent']);
 
     });
+    Route::prefix('chu-de/')->group(function () {
+        Route::get('{url}.html', ['as' => 'catalog.index', 'uses' => 'CatalogController@playlistPublisher']);
+        Route::get('{url}', ['as' => 'catalog.index', 'uses' => 'CatalogController@playlistPublisher']);
+    });
+    Route::get('bai-hat-moi', ['as' => 'catalog.music', 'uses' => 'CatalogController@musicNews']);
+    Route::get('video-moi', ['as' => 'catalog.video', 'uses' => 'CatalogController@videoNews']);
+    Route::get('album-moi', ['as' => 'catalog.album', 'uses' => 'CatalogController@albumNews']);
+    Route::get('bai-hat-moi.html', ['as' => 'catalog.music', 'uses' => 'CatalogController@musicNews']);
+    Route::get('video-moi.html', ['as' => 'catalog.video', 'uses' => 'CatalogController@videoNews']);
+    Route::get('album-moi.html', ['as' => 'catalog.album', 'uses' => 'CatalogController@albumNews']);
 
     Route::group(['middleware' => ['auth']], function() {
 
         // upload selector
-        Route::get('dang-tai/ca-si', ['as' => 'upload.createArtist', 'uses' => 'UploadController@createArtist']);
-        Route::post('dang-tai/ca-si', ['as' => 'upload.storeArtist', 'uses' => 'UploadController@storeArtist']);
-        Route::get('dang-tai/nhac', ['as' => 'upload.createMusic', 'uses' => 'UploadController@createMusic']);
-        Route::get('dang-tai/video', ['as' => 'upload.createMusic', 'uses' => 'UploadController@createVideo']);
-        Route::post('dang-tai/nhac', ['as' => 'upload.storeMusic', 'uses' => 'UploadController@storeMusic']);
-        Route::post('dang-tai/video', ['as' => 'upload.storeMusic', 'uses' => 'UploadController@storeMusic']);
-        Route::get('dang-tai/album', ['as' => 'upload.createMusic', 'uses' => 'UploadController@createAlbum']);
-        Route::post('dang-tai/album', ['as' => 'upload.storeMusic', 'uses' => 'UploadController@storeAlbum']);
-        Route::post('dang-tai/file-nhac', ['as' => 'upload.fileMusic', 'uses' => 'UploadController@uploadFileMusic']);
-        Route::get('dang-tai/ca-si/tim-kiem', ['as' => 'artist.gettermartist', 'uses' => 'ArtistController@getTermArtist']);
+        Route::prefix('dang-tai/')->group(function () {
+            Route::get('ca-si', ['as' => 'upload.createArtist', 'uses' => 'UploadController@createArtist']);
+            Route::post('ca-si', ['as' => 'upload.storeArtist', 'uses' => 'UploadController@storeArtist']);
+            Route::get('nhac/{musicId?}', ['as' => 'upload.createMusic', 'uses' => 'UploadController@createMusic']);
+            Route::get('video/{musicId?}', ['as' => 'upload.createVideo', 'uses' => 'UploadController@createVideo']);
+            Route::post('nhac', ['as' => 'upload.updateMusic', 'uses' => 'UploadController@storeMusic']);
+            Route::post('nhac/{musicId?}', ['as' => 'upload.storeMusic', 'uses' => 'UploadController@storeMusic']);
+            Route::post('video', ['as' => 'upload.storeVideo', 'uses' => 'UploadController@storeMusic']);
+            Route::post('video/{musicId?}', ['as' => 'upload.storeVideo', 'uses' => 'UploadController@storeMusic']);
+            Route::get('album', ['as' => 'upload.createAlbum', 'uses' => 'UploadController@createAlbum']);
+            Route::post('album', ['as' => 'upload.storeAlbum', 'uses' => 'UploadController@storeAlbum']);
+            Route::post('file-nhac', ['as' => 'upload.fileMusic', 'uses' => 'UploadController@uploadFileMusic']);
+            Route::get('ca-si/tim-kiem', ['as' => 'artist.gettermartist', 'uses' => 'ArtistController@getTermArtist']);
+
+        });
 
         // Comment
         Route::post('comment/post', ['as' => 'comment.create', 'uses' => 'CommentController@postComment']);

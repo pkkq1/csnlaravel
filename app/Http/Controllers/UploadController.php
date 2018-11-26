@@ -36,13 +36,23 @@ class UploadController extends Controller
     public function createArtist(Request $request) {
         return view('upload.upload_artist');
     }
-    public function createMusic(Request $request) {
+    public function createMusic(Request $request, $musicId = null) {
         $typeUpload = 'music';
-        return view('upload.upload_music', compact('typeUpload'));
+        if($musicId) {
+            $music = $this->uploadRepository->findMusicStatus(Auth::user()->id, $musicId, [UPLOAD_STAGE_UNCENSOR]);
+            if(!$music)
+                return view('errors.404');
+        }
+        return view('upload.upload_music', compact('typeUpload', 'music'));
     }
-    public function createVideo(Request $request) {
+    public function createVideo(Request $request, $musicId = null) {
         $typeUpload = 'video';
-        return view('upload.upload_music', compact('typeUpload'));
+        if($musicId) {
+            $music = $this->uploadRepository->findMusicStatus(Auth::user()->id, $musicId, [UPLOAD_STAGE_UNCENSOR]);
+            if(!$music)
+                return view('errors.404');
+        }
+        return view('upload.upload_music', compact('typeUpload', 'music'));
     }
     public function createAlbum(Request $request) {
         return view('upload.upload_album');
@@ -96,41 +106,64 @@ class UploadController extends Controller
             'file_name' => $fileName,
         ]);
     }
-    public function storeMusic(Request $request) {
+    public function storeMusic(Request $request, $musicId = null) {
         $this->validate($request, [
             'music_title' => 'required',
             'music_composer' => 'required',
             'music_artist' => 'required',
             'drop_files' => 'required',
             'music_year' => 'required',
+            'music_source_url' => 'required',
         ]);
         $typeUpload = $request->input('type_upload');
         $mess = $typeUpload == 'music' ? 'bài hát' : 'video';
-        $csnMusic = [
-            'music_title' => $request->input('music_title'),
-            'music_artist' => $request->input('music_artist'),
-            'music_artist_id' => $request->input('music_artist_id'),
-            'music_user_id' => Auth::user()->id,
-            'music_username' => Auth::user()->name,
-            'music_production' => $request->input('music_production') ?? '',
-            'music_composer' => $request->input('music_composer') ?? '',
-            'music_album_id' => $request->input('music_album_id') ?? ' ',
-            'music_year' => $request->input('music_year') ?? 0,
-            'cat_id' => $request->input('cat_id') ?? 0,
-            'cat_level' => $request->input('cat_level') ?? 0,
-            'cat_sublevel' => $request->input('cat_sublevel') ?? 0,
-            'cat_custom' => $request->input('cat_custom') ?? 0,
-            'music_lyric' => $request->input('music_lyric') ?? '',
-            'music_note' => $request->input('music_note') ?? '',
-            'music_source_url' => $request->input('music_source_url') ?? '',
-            'music_filename_upload' => $request->input('drop_files'),
-        ];
-        $result = $this->uploadRepository->create($csnMusic);
+        if($request->input('action_upload') == 'edit') {
+            $result = $this->uploadRepository->findMusicStatus(Auth::user()->id, $musicId, [UPLOAD_STAGE_UNCENSOR]);
+            if(!$result)
+                return view('errors.404');
+            $result->music_title = $request->input('music_title') ?? '';
+            $result->music_artist = $request->input('music_artist') ?? '';
+            $result->music_artist_id = $request->input('music_artist_id') ?? '';
+            $result->music_production = $request->input('music_production') ?? '';
+            $result->music_composer = $request->input('music_composer') ?? '';
+            $result->music_album_id = $request->input('music_album_id') ?? '';
+            $result->music_year = $request->input('music_year') ?? 0;
+            $result->cat_id = $request->input('cat_id') ?? 0;
+            $result->cat_level = $request->input('cat_level') ?? 0;
+            $result->cat_sublevel = $request->input('cat_sublevel') ?? 0;
+            $result->cat_custom = $request->input('cat_custom') ?? 0;
+            $result->music_lyric = $request->input('music_lyric') ?? '';
+            $result->music_source_url = $request->input('music_source_url') ?? '';
+            $result->music_note = $request->input('music_note') ?? '';
+            $result->save();
+            return redirect()->route('upload.storeMusic', ['musicId' => $musicId])->with('success', 'Đã chỉnh sửa '.$mess.' ' . $result->music_title);;
+        }else{
+            $csnMusic = [
+                'music_title' => $request->input('music_title'),
+                'music_artist' => $request->input('music_artist'),
+                'music_artist_id' => $request->input('music_artist_id'),
+                'music_user_id' => Auth::user()->id,
+                'music_username' => Auth::user()->name,
+                'music_production' => $request->input('music_production') ?? '',
+                'music_composer' => $request->input('music_composer') ?? '',
+                'music_album_id' => $request->input('music_album_id') ?? '',
+                'music_year' => $request->input('music_year') ?? 0,
+                'cat_id' => $request->input('cat_id') ?? 0,
+                'cat_level' => $request->input('cat_level') ?? 0,
+                'cat_sublevel' => $request->input('cat_sublevel') ?? 0,
+                'cat_custom' => $request->input('cat_custom') ?? 0,
+                'music_lyric' => $request->input('music_lyric') ?? '',
+                'music_note' => $request->input('music_note') ?? '',
+                'music_source_url' => $request->input('music_source_url') ?? '',
+                'music_filename_upload' => $request->input('drop_files'),
+            ];
+            $result = $this->uploadRepository->create($csnMusic);
+        }
 
         if(!$result)
             return redirect()->route('upload.createMusic')->with('error', 'tạo '.$mess.' thất bại');
         File::move($_SERVER['DOCUMENT_ROOT'].DEFAULT_ROOT_TEMP_MUSIC_PATH.$request->input('drop_files'), $_SERVER['DOCUMENT_ROOT'].DEFAULT_ROOT_CACHE_MUSIC_PATH.$request->input('drop_files'));
-        return redirect()->route('upload.createMusic')->with('success', 'Đã tạo '.$mess.' ' . $csnMusic['music_title']);
+        return redirect()->route($typeUpload == 'music' ? 'upload.createMusic' : 'upload.createVideo')->with('success', 'Đã tạo '.$mess.' ' . $csnMusic['music_title']);
     }
 
     public function storeAlbum(Request $request) {

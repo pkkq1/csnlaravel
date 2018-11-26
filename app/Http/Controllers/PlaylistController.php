@@ -81,6 +81,7 @@ class PlaylistController extends Controller
         if($exist) {
             Helpers::ajaxResult(false, 'Bài hát đã tồn tại trong playlist.', null);
         }
+
         $result = PlaylistMusicModel::firstOrCreate([
             'playlist_id' => $request->input('playlist_id'),
             'music_id' => $request->input('music_id')
@@ -128,11 +129,13 @@ class PlaylistController extends Controller
         Helpers::ajaxResult(true, 'Đã thêm vào playlist.', null);
     }
     public function editPlaylist(Request $request, $id) {
-        $playlistUser = $this->playlistRepository->getByUser(Auth::user()->id, $id)->with('playlist_arr_ids')->first();
+//        $playlistUser = $this->playlistRepository->getByUser(Auth::user()->id, $id)->with('playlist_arr_ids')->first();
+        $playlistUser = $this->playlistRepository->getByUser(Auth::user()->id, $id)->with('music')->first();
         if(!$playlistUser) {
             return view('errors.404');
         }
-        $listMusicVideo = $this->playlistRepository->getMusicVideo(array_column($playlistUser->playlist_arr_ids->toArray(), 'music_id'));
+//        $listMusicVideo = $this->playlistRepository->getMusicVideo(array_column($playlistUser->playlist_arr_ids->toArray(), 'music_id'));
+        $listMusicVideo = $playlistUser->music;
         $playlistLevel = $this->playlistCategoryRepository->getList();
         $playlistCategory = $this->playlistCategoryRepository->getCategory();
         return view('user.playlist.create_update_playlist', compact('playlistUser', 'playlistLevel', 'playlistCategory', 'listMusicVideo'));

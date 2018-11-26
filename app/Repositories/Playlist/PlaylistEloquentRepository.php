@@ -47,7 +47,8 @@ class PlaylistEloquentRepository extends EloquentRepository implements PlaylistR
     }
     public function getMusicByPlaylistId($id)
     {
-        $result = $this->_model::where('playlist_id', $id)->orderBy('playlist_title', 'desc')->with('music', 'video')->first();
+//        $result = $this->_model::where('playlist_id', $id)->orderBy('playlist_title', 'desc')->with('music', 'video')->first();
+        $result = $this->_model::where('playlist_id', $id)->orderBy('playlist_title', 'desc')->with('music')->first();
         return $result;
     }
     public function getByUser($userId, $idPlaylist = null)

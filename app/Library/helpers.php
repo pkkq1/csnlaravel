@@ -757,4 +757,24 @@ class Helpers
         ];
 
     }
+    public static function numberShorten($number) {
+        $numberFormat = number_format($number);
+        if($number < 999) {
+            return $numberFormat;
+        }elseif($number < 999999) {
+            return substr($numberFormat, 0, strlen($numberFormat) - 2) . 'k';
+        }elseif($number < 999999999) {
+            return substr($numberFormat, 0, strlen($numberFormat) - 5) . 'm';
+        }elseif($number < 999999999999) {
+            return substr($numberFormat, 0, strlen($numberFormat) - 8) . 't';
+        }else{
+            return $numberFormat;
+        }
+    }
+    public static function formatBytes($size) {
+        $base = log($size) / log(1024);
+        $suffix = array("", "KB", "MB", "GB", "TB");
+        $f_base = floor($base);
+        return round(pow(1024, $base - floor($base)), 1) . $suffix[$f_base];
+    }
 }

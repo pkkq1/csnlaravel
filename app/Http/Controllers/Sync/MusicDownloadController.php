@@ -28,10 +28,13 @@ class MusicDownloadController extends Controller
 
         $cache = $this->musicRepository->getModel()::orderBy('music_last_update_time', 'desc')
             ->select('music_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'cat_id', 'cat_level', 'cat_sublevel', 'cat_custom', 'cover_id', 'music_download_time', 'music_last_update_time', 'music_title_url',
-                'music_title_search', 'music_artist_search', 'music_album_search', 'music_composer', 'music_album', 'music_listen', 'music_track_id', 'music_track_id', 'music_filename', 'music_bitrate', 'music_shortlyric', 'music_last_update_time')
+                'music_title_search', 'music_artist_search', 'music_album_search', 'music_composer', 'music_album', 'music_listen', 'music_track_id', 'music_track_id', 'music_filename', 'music_bitrate', 'music_shortlyric', 'music_last_update_time', 'music_time')
             ->limit(20)->get();
         $download_rows = $cache->toArray();
-        dd($download_rows);
+        foreach ($download_rows as $key => $item) {
+            $download_rows[$key]['music_bitrate'] = Helpers::bitrate2str($item['music_bitrate']);
+            $download_rows[$key]['music_artist_html'] = Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']);
+        }
         file_put_contents(resource_path().'/views/cache/def_home_download.blade.php',
             '<?php 
 if ( !ENV(\'IN_PHPBB\') )

@@ -38,7 +38,8 @@ class AlbumController extends Controller
             $album_new[] = [
                 'cover_id' => $item->cover_id,
                 'music_album' => $item->music_album,
-                'music_artist' => !empty($album_artist) ? Helpers::rawHtmlArtists($album_artist_id, $album_artist) : '',
+                'music_artist' => $album_artist,
+                'music_artist_html' => !empty($album_artist) ? Helpers::rawHtmlArtists($album_artist_id, $album_artist) : '',
                 'music_bitrate' => Helpers::bitrate2str($item->music_bitrate),
             ];
         }
@@ -54,19 +55,26 @@ class AlbumController extends Controller
             $album_old[] = [
                 'cover_id' => $item->cover_id,
                 'music_album' => $item->music_album,
-                'music_artist' => !empty($album_artist) ? Helpers::rawHtmlArtists($album_artist_id, $album_artist) : '',
+                'music_artist_html' => !empty($album_artist) ? Helpers::rawHtmlArtists($album_artist_id, $album_artist) : '',
                 'music_bitrate' => Helpers::bitrate2str($item->music_bitrate),
             ];
         }
         $music_new_uploads = $this->musicRepository->getModel()::orderBy('music_id', 'desc')
             ->select('music_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'cat_id', 'cat_level', 'cat_sublevel', 'cat_custom', 'cover_id', 'music_download_time', 'music_last_update_time', 'music_title_url',
-                'music_title_search', 'music_artist_search', 'music_album_search', 'music_composer', 'music_album', 'music_listen', 'music_track_id', 'music_track_id', 'music_filename', 'music_bitrate', 'music_shortlyric', 'music_last_update_time')
+                'music_title_search', 'music_artist_search', 'music_album_search', 'music_composer', 'music_album', 'music_listen', 'music_track_id', 'music_track_id', 'music_filename', 'music_bitrate', 'music_shortlyric', 'music_last_update_time', 'music_time')
             ->limit(20)->get()->toArray();
-
+        foreach ($music_new_uploads as $key => $item) {
+            $music_new_uploads[$key]['music_bitrate'] = Helpers::bitrate2str($item['music_bitrate']);
+            $music_new_uploads[$key]['music_artist_html'] = Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']);
+        }
         $video_new_uploads = $this->videoRepository->getModel()::orderBy('music_id', 'desc')
             ->select('music_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'cat_id', 'cat_level', 'cat_sublevel', 'cat_custom', 'cover_id', 'music_download_time', 'music_last_update_time', 'music_title_url',
-                'music_title_search', 'music_artist_search', 'music_album_search', 'music_composer', 'music_album', 'music_listen', 'music_track_id', 'music_track_id', 'music_filename', 'music_bitrate', 'music_shortlyric', 'music_last_update_time')
+                'music_title_search', 'music_artist_search', 'music_album_search', 'music_composer', 'music_album', 'music_listen', 'music_track_id', 'music_track_id', 'music_filename', 'music_bitrate', 'music_shortlyric', 'music_last_update_time', 'music_length', 'music_time')
             ->limit(50)->get()->toArray();
+        foreach ($video_new_uploads as $key => $item) {
+            $video_new_uploads[$key]['music_bitrate'] = Helpers::bitrate2str($item['music_bitrate']);
+            $video_new_uploads[$key]['music_artist_html'] = Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']);
+        }
 
         file_put_contents(resource_path().'/views/cache/def_home_album.blade.php',
 '<?php 

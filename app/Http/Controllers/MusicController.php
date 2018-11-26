@@ -96,16 +96,16 @@ class MusicController extends Controller
             if(!$album)
                 return view('errors.404');
             $typeListen = 'album';
-            if(($album->music || $album->music)) {
-                $playlistMusic = array_merge($album->music->toArray(), $album->video->toArray());
+            if(($album->music)) {
+                $playlistMusic = $album->music->toArray();
             }
         }elseif($arrUrl['type'] == 'playlist'){
             $playlist = $this->playlistRepository->getMusicByPlaylistId($arrUrl['id']);
             if(!$playlist)
                 return view('errors.404');
             $typeListen = 'playlist';
-            if(($playlist->music || $playlist->video)) {
-                $playlistMusic = array_merge($playlist->music->toArray(), $playlist->video->toArray());
+            if(($playlist->music)) {
+                $playlistMusic = $playlist->music->toArray();
             }
         }
         if($playlistMusic) {
