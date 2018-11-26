@@ -3,7 +3,6 @@
 namespace Backpack\Base\app\Http\Middleware;
 
 use Closure;
-use Illuminate\Support\Facades\Auth;
 
 class CheckIfAdmin
 {
@@ -24,10 +23,7 @@ class CheckIfAdmin
                 return redirect()->guest(backpack_url('login'));
             }
         }
-        if(Auth::user()->hasRole('admin') || Auth::user()->hasRole('manager')) {
-            return $next($request);
-        }else{
-            return response(trans('backpack::base.unauthorized'), 401);
-        }
+
+        return $next($request);
     }
 }

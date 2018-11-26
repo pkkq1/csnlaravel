@@ -19,6 +19,21 @@ All Notable changes to `backupmanager` will be documented in this file
 ### Security
 - Nothing
 
+## [1.4.5] - 2018-11-22
+
+- added support for Base 1.0.x
+
+## [1.4.4] - 2018-10-15
+
+### Fixed
+- monitored backups now has the correct disk name;
+
+
+## [1.4.3] - 2018-10-15
+
+### Fixed
+- custom views folder is only loaded when it exists; this fixes the conflicts in the ```php artisan view:cache``` command;
+
 
 ## [1.4.2] - 2018-06-19
 

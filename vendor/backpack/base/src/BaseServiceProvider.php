@@ -8,13 +8,14 @@ use Route;
 
 class BaseServiceProvider extends ServiceProvider
 {
-    const VERSION = '0.9.7';
+    const VERSION = '0.9.12';
 
     protected $commands = [
         \Backpack\Base\app\Console\Commands\Install::class,
         \Backpack\Base\app\Console\Commands\AddSidebarContent::class,
         \Backpack\Base\app\Console\Commands\AddCustomRouteContent::class,
         \Backpack\Base\app\Console\Commands\Version::class,
+        \Backpack\Base\app\Console\Commands\CreateUser::class,
     ];
 
     /**
@@ -46,10 +47,13 @@ class BaseServiceProvider extends ServiceProvider
     public function boot(\Illuminate\Routing\Router $router)
     {
         $_SERVER['BACKPACK_BASE_VERSION'] = $this::VERSION;
+        $customViewsFolder = resource_path('views/vendor/backpack/base');
 
         // LOAD THE VIEWS
         // - first the published views (in case they have any changes)
-        $this->loadViewsFrom(resource_path('views/vendor/backpack/base'), 'backpack');
+        if (file_exists(resource_path('views/vendor/backpack/base'))) {
+            $this->loadViewsFrom($customViewsFolder, 'backpack');
+        }
         // - then the stock views that come with the package, in case a published view might be missing
         $this->loadViewsFrom(realpath(__DIR__.'/resources/views'), 'backpack');
 
@@ -223,8 +227,8 @@ class BaseServiceProvider extends ServiceProvider
      */
     private function checkLicenseCodeExists()
     {
-//        if ($this->app->environment() != 'local' && !config('backpack.base.license_code')) {
-//            \Alert::add('warning', "<strong>You're using unlicensed software.</strong> Please ask your web developer to <a target='_blank' href='http://backpackforlaravel.com'>purchase a license code</a> to hide this message.");
-//        }
+        if ($this->app->environment() != 'local' && !config('backpack.base.license_code')) {
+            \Alert::add('warning', "<strong>You're using unlicensed software.</strong> Please ask your web developer to <a target='_blank' href='http://backpackforlaravel.com'>purchase a license code</a> to hide this message.");
+        }
     }
 }

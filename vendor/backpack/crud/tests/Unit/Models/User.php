@@ -9,7 +9,7 @@ class User extends Model
 {
     use CrudTrait;
 
-    protected $table = 'csn_users';
+    protected $table = 'users';
     protected $fillable = ['name', 'email', 'password'];
 
     /**

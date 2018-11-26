@@ -2,12 +2,12 @@
 
 namespace Backpack\Base\app\Models;
 
-use App\Models\UserModel as User;
+use App\User;
 use Backpack\Base\app\Notifications\ResetPasswordNotification as ResetPasswordNotification;
 
 class BackpackUser extends User
 {
-    protected $table = 'csn_users';
+    protected $table = 'users';
 
     /**
      * Send the password reset notification.

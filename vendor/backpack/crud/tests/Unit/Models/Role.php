@@ -9,7 +9,7 @@ class Role extends Model
 {
     use CrudTrait;
 
-    protected $table = 'csn_roles';
+    protected $table = 'roles';
     protected $fillable = ['name'];
 
     /**
