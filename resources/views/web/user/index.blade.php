@@ -20,11 +20,11 @@ $mySelf = (Auth::check() && Auth::user()->id == $user->id);
                 <nav>
                     <ul>
                         <li class="tab-current"><a href="#playlist"><span>Playlist</span></a></li>
-                        <li><a href="#music"><span><i class="material-icons" style="font-size: 11px;">favorite_border</i> Bài Hát</span></a></li>
-                        <li><a href="#video"><span><i class="material-icons" style="font-size: 11px;">favorite_border</i> Video</span></a></li>
-                        <li><a href="#video"><span><i class="material-icons" style="font-size: 11px;">favorite_border</i> Ca Sĩ</span></a></li>
+                        <li class="bai-hat"><a class="bai-hat" href="#music"><span><i class="material-icons" style="font-size: 11px;">favorite_border</i> Bài Hát</span></a></li>
+                        <li class="video"><a class="video" href="#video"><span><i class="material-icons" style="font-size: 11px;">favorite_border</i> Video</span></a></li>
+                        <li class="ca-si"><a class="ca-si" href="#video"><span><i class="material-icons" style="font-size: 11px;">favorite_border</i> Ca Sĩ</span></a></li>
                         @if($mySelf)
-                        <li><a href="#uploaded" onclick="musicUserTab('musicUploaded')" ><span>Tủ nhạc</span></a></li>
+                        <li class="tu-nhac"><a class="tu-nhac" href="#uploaded" onclick="musicUserTab('musicUploaded')" ><span>Tủ nhạc</span></a></li>
                         @endif
                     </ul>
                 </nav>
@@ -170,5 +170,14 @@ $mySelf = (Auth::check() && Auth::user()->id == $user->id);
             }
         });
     }
+    <?php
+    if(isset($_GET['tab'])) {
+    ?>
+    $( document ).ready(function() {
+        $('.<?php echo $_GET['tab'] ?>').click();
+    });
+    <?php
+    }
+    ?>
 </script>
 @endsection

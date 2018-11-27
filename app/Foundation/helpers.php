@@ -11,7 +11,7 @@ function view($view = null, $data = [], $mergeData = [])
     if(strpos($_SERVER['REQUEST_URI'], '/admin') === false) {
         if ($Agent->isMobile()) {
             // you're a mobile device
-            if(file_exists(resource_path('views/mobile').'\\'.str_replace('.', '\\', $view).'.blade.php') === false){
+            if(file_exists(resource_path('views/mobile').'/'.str_replace('.', '/', $view).'.blade.php') === false){
                 $view = 'web.'.$view;
             }else{
                 $view = 'mobile.'.$view;

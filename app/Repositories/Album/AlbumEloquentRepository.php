@@ -47,6 +47,16 @@ class AlbumEloquentRepository extends EloquentRepository implements AlbumReposit
             ->paginate($page);
         return $result;
     }
+    public function findAlbum($userId, $id)
+    {
+        $result = $this
+            ->_model
+            ->where('album_id', $id)
+            ->where('user_id', $userId)
+            ->first();
+
+        return $result;
+    }
     public function create(array $attributes)
     {
         $result = $this->_model::firstOrCreate($attributes);

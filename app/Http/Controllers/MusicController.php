@@ -115,7 +115,6 @@ class MusicController extends Controller
             }else{
                 $music = $this->musicRepository->findOnlyMusicId($offsetPl['music_id']);
             }
-
         }else{
             return view('errors.text_error')->with('message', 'Nội dung playlist không có.');
         }

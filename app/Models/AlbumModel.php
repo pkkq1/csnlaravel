@@ -11,5 +11,7 @@ class AlbumModel extends Model
     protected $table = 'csn_album';
     protected $primaryKey = 'album_id';
     protected $fillable = ['album_id', 'album_name', 'album_production', 'album_code', 'album_year', 'cover_filename', 'album_music_total', 'user_id'];
-
+    public function uploadFIle() {
+        return $this->hasMany('App\Models\UploadModel', 'album_id', 'album_id')->get();
+    }
 }

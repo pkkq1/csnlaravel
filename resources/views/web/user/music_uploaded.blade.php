@@ -38,7 +38,7 @@
                             <div class="media-right align-self-center">
                                 <small class="time_stt"><?php echo Helpers::timeElapsedString($item['music_last_update_time']); ?></small>
                                 <ul class="list-inline" style="margin-right:0px">
-                                    <li class="list-inline-item"><a href="{{$url}}" target="_blank" title="nghe riêng nhạc {{$item['music_title']}}">Chỉnh Sửa</a></li>
+                                    <li class="list-inline-item"><a href="{{$url}}" target="_blank" title="chỉnh sửa {{$item['music_title']}}">Chỉnh Sửa</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -75,7 +75,7 @@
                                 <div class="media-right align-self-center">
                                     <small class="time_stt"><?php echo Helpers::timeElapsedString($item['music_last_update_time']); ?></small>
                                     <ul class="list-inline" style="margin-right:0px">
-                                        <li class="list-inline-item"><a href="{{$url}}" target="_blank" title="nghe riêng nhạc {{$item['music_title']}}">Chỉnh Sửa</a></li>
+                                        <li class="list-inline-item"><a href="{{$url}}" target="_blank" title="chỉnh sửa {{$item['music_title']}}">Chỉnh Sửa</a></li>
                                     </ul>
                                 </div>
                             </li>

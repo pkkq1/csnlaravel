@@ -28,12 +28,12 @@ $titleMeta = (isset($music) ? 'Chỉnh sửa '.$music->music_title : 'Cập nh�
                 </ul>
                 @if ($message = Session::get('success'))
                     <div class="alert alert-success">
-                        <strong>Thành công!</strong> {{ $message }}
+                        <strong>Thành công!</strong> <?php echo $message ?>
                     </div>
                 @endif
                 @if ($message = Session::get('error'))
                     <div class="alert alert-danger">
-                        <strong>Lỗi!</strong> {{ $message }}
+                        <strong>Lỗi!</strong> <?php echo $message ?>
                     </div>
                 @endif
                 <div class="tab-content upload-content" id="myTabContent">
@@ -112,9 +112,10 @@ $titleMeta = (isset($music) ? 'Chỉnh sửa '.$music->music_title : 'Cập nh�
                                                 </span>
                                             @endif
                                         </div>
+
                                         <div class="form-group col-4{{ $errors->has('music_production') ? ' has-error' : '' }}">
                                             <label for="music_production">Hãng sản xuất</label>
-                                            <input type="text" class="form-control" value="{{ old('music_production') ?? $music->music_production ?? '' }}" name="music_production" id="music_production" placeholder="">
+                                            <input type="text" class="form-control" {{isset($music) ? ($music->album_id > 0 ? 'disabled' : '') : ''}} value="{{ old('music_production') ?? $music->music_production ?? '' }}" name="music_production" id="music_production" placeholder="">
                                             @if ($errors->has('music_production'))
                                                 <span class="help-block">
                                                     <strong>{{ str_replace('music year', 'hãng sản xuất', $errors->first('music_production')) }}</strong>
@@ -123,7 +124,7 @@ $titleMeta = (isset($music) ? 'Chỉnh sửa '.$music->music_title : 'Cập nh�
                                         </div>
                                         <div class="form-group col-4{{ $errors->has('music_album_id') ? ' has-error' : '' }}">
                                             <label for="music_album_id">Hãng đĩa</label>
-                                            <input type="text" class="form-control" value="{{ old('music_album_id') ?? $music->music_album_id ?? '' }}"  name="music_album_id" id="music_album_id" placeholder="">
+                                            <input type="text" class="form-control" {{isset($music) ? ($music->album_id > 0 ? 'disabled' : '') : ''}} value="{{ old('music_album_id') ?? $music->music_album_id ?? '' }}"  name="music_album_id" id="music_album_id" placeholder="">
                                             @if ($errors->has('music_album_id'))
                                                 <span class="help-block">
                                                     <strong>{{ str_replace('music album id', 'hãng đĩa', $errors->first('music_album_id')) }}</strong>
@@ -132,7 +133,10 @@ $titleMeta = (isset($music) ? 'Chỉnh sửa '.$music->music_title : 'Cập nh�
                                         </div>
                                         <div class="form-group col-4{{ $errors->has('music_year') ? ' has-error' : '' }}">
                                             <label for="music_year">Năm phát hành</label>
-                                            <input type="text" class="form-control" name="music_year" value="{{ old('music_year') ?? $music->music_year ?? '' }}" id="music_year" placeholder="">
+                                            <input type="text" class="form-control" {{isset($music) ? ($music->album_id > 0 ? 'disabled' : '') : ''}} name="music_year" value="{{ old('music_year') ?? $music->music_year ?? '' }}" id="music_year" placeholder="">
+                                            @if(isset($music))
+                                                <input type="hidden" name="music_year" value="{{ old('music_year') ?? $music->music_year ?? '' }}">
+                                            @endif
                                             @if ($errors->has('music_year'))
                                                 <span class="help-block">
                                                     <strong>{{ str_replace('music year', 'năm phát hành', $errors->first('music_year')) }}</strong>
@@ -231,13 +235,22 @@ $titleMeta = (isset($music) ? 'Chỉnh sửa '.$music->music_title : 'Cập nh�
                                                 </span>
                                             @endif
                                         </div>
+                                        @if(isset($music) && $music->album_id > 0)
+                                            <div class="form-group col-12">
+                                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                                    <a href="/dang-tai/album/{{$music->album_id}}">Chỉnh sửa album</a>
+                                                </div>
+                                            </div>
+                                        @endif
                                         <input type="hidden" name="type_upload" value="{{$typeUpload}}">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <input type="hidden" name="drop_files" class="drop_files" value="{{ old('drop_files') ?? (isset($music) ? 'true' : '') }}">
                                         <input type="hidden" name="drop_html" class="drop_html" value="{{old('drop_html')}}">
-                                        <input type="hidden" name="action_upload" class="drop_html" value="{{ isset($music) ? 'edit' : 'create' }}">
+                                        <input type="hidden" name="music_filesize" class="music_filesize" value="{{old('music_filesize')}}">
+                                        <input type="hidden" name="action_upload" class="action_upload" value="{{ isset($music) ? 'edit' : 'create' }}">
                                         <div class="text-center col-12">
                                             <button type="submit" class="btn btn-danger btn-upload">{{isset($music) ? 'Cập nhật' : 'Tải lên'}}</button>
+
                                         </div>
                                     </div>
                                 </div>
@@ -294,6 +307,7 @@ $titleMeta = (isset($music) ? 'Chỉnh sửa '.$music->music_title : 'Cập nh�
                 $('.drop_files').val(oldFileDrops ? oldFileDrops + ';' + result.file_name : result.file_name);
                 $('.dz-message').remove();
                 $('.drop_html').val($('.dropzone').html());
+                $('.music_filesize').val(result.file_size);
             }
         };
         <?php

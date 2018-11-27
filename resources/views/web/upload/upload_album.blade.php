@@ -1,5 +1,6 @@
 @section('hidden_wapper', true)
 <?php
+use App\Library\Helpers;
 $titleMeta = 'Cập nhật nhạc mới - ' . Config::get('constants.app.title');
 ?>
 @section('contentCSS')
@@ -27,23 +28,50 @@ $titleMeta = 'Cập nhật nhạc mới - ' . Config::get('constants.app.title')
                 </ul>
                 @if ($message = Session::get('success'))
                     <div class="alert alert-success">
-                        <strong>Thành công!</strong> {{ $message }}
+                        <strong>Thành công!</strong> <?php echo $message ?>
                     </div>
                 @endif
                 @if ($message = Session::get('error'))
                     <div class="alert alert-danger">
-                        <strong>Lỗi!</strong> {{ $message }}
+                        <strong>Lỗi!</strong> <?php echo $message ?>
                     </div>
                 @endif
                 <div class="tab-content upload-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="upload_lyric" role="tabpanel" aria-labelledby="upload_lyric-tab">
                         <div class="box_upload_file d-flex align-items-center justify-content-center{{ $errors->has('drop_files') ? ' has-error-drop-file' : '' }}" >
-                            <form action="/dang-tai/file-nhac" class="box_process{{ $errors->has('drop_html') ? '' : ' dropzone' }}" enctype="multipart/form-data">
+                            <form action="/dang-tai/file-nhac" class="box_process{{ ($errors->has('drop_html') || isset($album)) ? '' : ' dropzone' }}" enctype="multipart/form-data">
                                 @if(old('drop_html'))
                                     <?php echo old('drop_html'); ?>
                                 @else
-                                    <h5 class="count_file_music" style="text-align: left;"></h5>
-                                    <div class="form-group m-0 fallback"><label for="upload_lyric_file" class="text-center"><img src="/imgs/ copy.png" alt=""><h3 class="title">Chọn file để upload</h3><small>Bạn có thể kéo và thả file vào đây</small><input name="file" type="file" multiple /></label><input type="file" class="form-control-file" id="upload_lyric_file"></div>
+                                    @if(isset($album))
+                                        <?php
+                                        $uploadFile = $album->uploadFIle();
+                                        ?>
+                                        <h5 class="count_file_music title" style="text-align: left;">Đang tải lên {{count($uploadFile)}} mục</h5>
+                                        @foreach($uploadFile as $item)
+                                            <div class="media dz-processing"><img class="mr-3 align-self-center" src="/imgs/document.png" alt="">
+                                                <div class="media-body align-self-center">
+                                                    <div class="d-flex align-items-center justify-content-between mb-1">
+                                                        <h4 class="media-title"><a href="#" data-dz-name="" title="">{{$item->music_filename_upload}}</a>
+                                                            <small data-dz-size="" class="text-danger"><strong>{{Helpers::formatBytes($item->music_filesize)}}</strong>
+                                                            </small>
+                                                            <small data-progress-present="" class="text-danger data-progress-present"
+                                                                   style=" color: #8c959a!important;">100%
+                                                            </small>
+                                                        </h4>
+                                                    </div>
+                                                    <div class="progress">
+                                                        <div class="progress-bar dz-upload" role="progressbar"
+                                                             data-dz-uploadprogress="" style="width: 100%;"
+                                                             aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    @else
+                                        <h5 class="count_file_music" style="text-align: left;"></h5>
+                                        <div class="form-group m-0 fallback"><label for="upload_lyric_file" class="text-center"><img src="/imgs/ copy.png" alt=""><h3 class="title">Chọn file để upload</h3><small>Bạn có thể kéo và thả file vào đây</small><input name="file" type="file" multiple /></label><input type="file" class="form-control-file" id="upload_lyric_file"></div>
+                                    @endif
                                 @endif
                             </form>
 
@@ -63,7 +91,11 @@ $titleMeta = 'Cập nhật nhạc mới - ' . Config::get('constants.app.title')
                                             <strong>{{ str_replace('album cover', 'cover', $errors->first('album_cover')) }}</strong>
                                         </span>
                                     @endif
-                                    <div class="card cover_upload form-group">
+                                    <div class="card cover_upload form-group" <?php echo isset($album) ? 'style="padding-top: 0px; font-size: 200%;"' : '' ?>>
+                                        @if(isset($album))
+                                        <label for="choose_album_cover" class="card-body d-flex align-items-center justify-content-center" style="z-index: 9999"></label>
+                                        <img class="mr-3" {{isset($album) ? '' : 'hidden'}} id="album_cover_uploaded" src="{{isset($album) ? Helpers::file_path($album->album_id, PUBLIC_COVER_ALBUM_CROP_PATH, true).$album->cover_filename : '/imgs/avatar_default.png?v='.time()}}" alt="" style="z-index: 999; width: 177px;">
+                                        @else
                                         <label for="choose_album_cover" class="card-body d-flex align-items-center justify-content-center" style="z-index: 9999">
                                             <div class="form-group text-center m-0 icon_camera_cover">
                                                 <label for="choose_album_cover">
@@ -72,7 +104,9 @@ $titleMeta = 'Cập nhật nhạc mới - ' . Config::get('constants.app.title')
                                                 </label>
                                             </div>
                                         </label>
-                                        <img class="mr-3" hidden id="album_cover_uploaded" src="/imgs/avatar_default.png" alt="" style="z-index: 999; width: 177px;">
+                                        <img class="mr-3" id="album_cover_uploaded" src="{{isset($album) ? COVER_ALBUM_SOURCE_PATH.$album->cover_filename : '/imgs/avatar_default.png'}}" alt="" style="z-index: 999; width: 177px;">
+                                        @endif
+
                                         <div class="media-body">
                                             <input type="file" hidden class="form-control-file" name="choose_album_cover" id="choose_album_cover">
                                             <input type="text" hidden  class="form-control-file" name="album_cover" id="album_cover">
@@ -83,26 +117,26 @@ $titleMeta = 'Cập nhật nhạc mới - ' . Config::get('constants.app.title')
                                     <div class="box_right_upload form-row">
                                         <div class="form-group col-12{{ $errors->has('music_album') ? ' has-error' : '' }}">
                                             <label for="music_title">Tên album</label>
-                                            <input type="text" class="form-control" id="music_album" value="{{ old('music_album') }}" name="music_album" placeholder="Nhập tên album">
+                                            <input type="text" class="form-control" id="music_album" value="{{ old('music_album') ?? $album->album_name ?? '' }}" name="music_album" placeholder="Nhập tên album">
                                             @if ($errors->has('music_album'))
                                                 <span class="help-block">
                                                     <strong>{{str_replace('music album', 'tên album', $errors->first('music_album')) }}</strong>
                                                 </span>
                                             @endif
                                         </div>
-                                        <div class="form-group music_artist col-12{{ $errors->has('music_artist') ? ' has-error' : '' }}">
+                                        <div {{isset($album) ? 'hidden' : ''}} class="form-group music_artist col-12{{ $errors->has('music_artist') ? ' has-error' : '' }}">
                                             <label for="music_artist">Ca sĩ</label>
-                                            <input type="text" class="form-control" name="music_artist_id" value="{{ old('music_artist_id') }}" placeholder="Nhập tên ca sĩ" id="music_artist_id">
-                                            <input type="hidden" class="form-control" name="music_artist" value="{{ old('music_artist') }}" id="music_artist" placeholder="Nhập tên ca sĩ">
+                                            <input type="text" {{isset($album) ? 'disabled' : ''}} class="form-control" name="music_artist_id" value="{{ old('music_artist_id') }}" placeholder="Nhập tên ca sĩ" id="music_artist_id">
+                                            <input type="hidden" {{isset($album) ? 'disabled' : ''}} class="form-control" name="music_artist" value="{{ old('music_artist') }}" id="music_artist" placeholder="Nhập tên ca sĩ">
                                             @if ($errors->has('music_artist'))
                                                 <span class="help-block">
                                                     <strong>{{ str_replace('music artist', 'ca sĩ', $errors->first('music_artist')) }}</strong>
                                                 </span>
                                             @endif
                                         </div>
-                                        <div class="form-group col-12{{ $errors->has('music_composer') ? ' has-error' : '' }}">
+                                        <div {{isset($album) ? 'hidden' : ''}} class="form-group col-12{{ $errors->has('music_composer') ? ' has-error' : '' }}">
                                             <label for="music_composer">Sáng tác</label>
-                                            <input type="text" class="form-control" name="music_composer" value="{{ old('music_composer')}}" id="music_composer" placeholder="">
+                                            <input type="text" class="form-control" {{isset($album) ? 'disabled' : ''}} name="music_composer" value="{{ old('music_composer')}}" id="music_composer" placeholder="">
                                             @if ($errors->has('music_composer'))
                                                 <span class="help-block">
                                                     <strong>{{ str_replace('music composer', 'sáng tác', $errors->first('music_composer')) }}</strong>
@@ -111,7 +145,7 @@ $titleMeta = 'Cập nhật nhạc mới - ' . Config::get('constants.app.title')
                                         </div>
                                         <div class="form-group col-4{{ $errors->has('music_production') ? ' has-error' : '' }}">
                                             <label for="music_production">Hãng sản xuất</label>
-                                            <input type="text" class="form-control" value="{{ old('music_production')}}" name="music_production" id="music_production" placeholder="">
+                                            <input type="text" class="form-control" value="{{ old('music_production') ?? $album->album_production ?? '' }}" name="music_production" id="music_production" placeholder="">
                                             @if ($errors->has('music_production'))
                                                 <span class="help-block">
                                                     <strong>{{ str_replace('music production', 'hãng sản xuất', $errors->first('music_production')) }}</strong>
@@ -120,7 +154,7 @@ $titleMeta = 'Cập nhật nhạc mới - ' . Config::get('constants.app.title')
                                         </div>
                                         <div class="form-group col-4{{ $errors->has('music_album_id') ? ' has-error' : '' }}">
                                             <label for="music_album_id">Hãng đĩa</label>
-                                            <input type="text" class="form-control" value="{{ old('music_album_id')}}" name="music_album_id" id="music_album_id" placeholder="">
+                                            <input type="text" class="form-control" value="{{ old('music_album_id') ?? $album->album_code ?? '' }}" name="music_album_id" id="music_album_id" placeholder="">
                                             @if ($errors->has('music_album_id'))
                                                 <span class="help-block">
                                                     <strong>{{ str_replace('music album id', 'hãng đĩa', $errors->first('music_album_id')) }}</strong>
@@ -129,16 +163,16 @@ $titleMeta = 'Cập nhật nhạc mới - ' . Config::get('constants.app.title')
                                         </div>
                                         <div class="form-group col-4{{ $errors->has('music_year') ? ' has-error' : '' }}">
                                             <label for="music_year">Năm phát hành</label>
-                                            <input type="text" class="form-control" name="music_year" value="{{ old('music_year')}}" id="music_year" placeholder="">
+                                            <input type="text" class="form-control" name="music_year" value="{{ old('music_year') ?? $album->album_year ?? '' }}" id="music_year" placeholder="">
                                             @if ($errors->has('music_year'))
                                                 <span class="help-block">
                                                     <strong>{{ str_replace('music year', 'năm phát hành', $errors->first('music_year')) }}</strong>
                                                 </span>
                                             @endif
                                         </div>
-                                        <div class="form-group col-3{{ $errors->has('cat_id') ? ' has-error' : '' }}">
+                                        <div {{isset($album) ? 'hidden' : ''}} class="form-group col-3{{ $errors->has('cat_id') ? ' has-error' : '' }}">
                                             <label for="cat_id">Chuyên mục</label>
-                                            <select class="form-control" name="cat_id" id="cat_id" onchange="cat_level_reload(this.value);">
+                                            <select {{isset($album) ? 'disabled' : ''}} class="form-control" name="cat_id" id="cat_id" onchange="cat_level_reload(this.value);">
                                                 <option value="2">Beat, Playback</option>
                                                 <option value="3">Nhạc Việt Nam</option>
                                                 <option value="4">Nhạc US-UK</option>
@@ -154,9 +188,9 @@ $titleMeta = 'Cập nhật nhạc mới - ' . Config::get('constants.app.title')
                                                 </span>
                                             @endif
                                         </div>
-                                        <div class="form-group col-3{{ $errors->has('cat_level') ? ' has-error' : '' }}">
+                                        <div {{isset($album) ? 'hidden' : ''}} class="form-group col-3{{ $errors->has('cat_level') ? ' has-error' : '' }}">
                                             <label for="cat_level" style="opacity: 0;">csn</label>
-                                            <select class="form-control" name="cat_level" id="cat_level" onchange="cat_sublevel_reload(this.value);">
+                                            <select {{isset($album) ? 'disabled' : ''}} class="form-control" name="cat_level" id="cat_level" onchange="cat_sublevel_reload(this.value);">
                                                 <option value="1">Nhạc pop, rock...</option>
                                                 <option value="2">Nhạc rap, hiphop</option>
                                                 <option value="3">Nhạc dance, remix</option>
@@ -168,9 +202,9 @@ $titleMeta = 'Cập nhật nhạc mới - ' . Config::get('constants.app.title')
                                                 </span>
                                             @endif
                                         </div>
-                                        <div class="form-group col-3{{ $errors->has('cat_sublevel') ? ' has-error' : '' }}">
+                                        <div {{isset($album) ? 'hidden' : ''}} class="form-group col-3{{ $errors->has('cat_sublevel') ? ' has-error' : '' }}">
                                             <label for="cat_sublevel" style="opacity: 0;">csn</label>
-                                            <select class="form-control" name="cat_sublevel" id="cat_sublevel">
+                                            <select {{isset($album) ? 'disabled' : ''}} class="form-control" name="cat_sublevel" id="cat_sublevel">
                                                 <option value="1">Nhạc trẻ</option>
                                                 <option value="2">Nhạc rock</option>
                                                 <option value="3">Thiếu nhi</option>
@@ -183,9 +217,9 @@ $titleMeta = 'Cập nhật nhạc mới - ' . Config::get('constants.app.title')
                                                 </span>
                                             @endif
                                         </div>
-                                        <div class="form-group col-3">
+                                        <div {{isset($album) ? 'hidden' : ''}} class="form-group col-3">
                                             <label for="cat_custom" style="opacity: 0;">csn</label>
-                                            <select class="form-control" name="cat_custom" id="cat_custom">
+                                            <select {{isset($album) ? 'disabled' : ''}} class="form-control" name="cat_custom" id="cat_custom">
                                                 <option value="0">---</option>
                                                 <option value="1">Giáng sinh</option>
                                                 <option value="2">Năm mới</option>
@@ -198,16 +232,16 @@ $titleMeta = 'Cập nhật nhạc mới - ' . Config::get('constants.app.title')
                                                 <option value="9">Bonus track</option>
                                             </select>
                                         </div>
-                                        <div class="form-group col-12">
+                                        <div {{isset($album) ? 'hidden' : ''}} class="form-group col-12">
                                             <label for="music_note">Ghi chú</label>
-                                            <textarea class="form-control" name="music_note" id="music_note" rows="3">{{ old('music_note')}}</textarea>
+                                            <textarea {{isset($album) ? 'disabled' : ''}} class="form-control" name="music_note" id="music_note" rows="3">{{ old('music_note')}}</textarea>
                                         </div>
-                                        <div class="form-group col-12{{ $errors->has('music_source_url') ? ' has-error' : '' }}">
+                                        <div {{isset($album) ? 'hidden' : ''}} class="form-group col-12{{ $errors->has('music_source_url') ? ' has-error' : '' }}">
                                             <div class="d-flex align-items-center justify-content-between mb-2">
                                                 <label for="music_source_url" class="m-0">Full link nguồn download</label>
                                                 <small>Yêu cầu bắt buộc khi upload nhạc lossless</small>
                                             </div>
-                                            <input type="text" class="form-control" {{ old('music_source_url')}} name="music_source_url" id="music_source_url" placeholder="">
+                                            <input {{isset($album) ? 'disabled' : ''}} type="text" class="form-control" value="{{ old('music_source_url')}}" name="music_source_url" id="music_source_url" placeholder="">
                                             @if ($errors->has('music_source_url'))
                                                 <span class="help-block">
                                                     <strong>{{ str_replace('music source url', 'nguồn download', $errors->first('music_source_url')) }}</strong>
@@ -217,8 +251,10 @@ $titleMeta = 'Cập nhật nhạc mới - ' . Config::get('constants.app.title')
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <input type="hidden" name="drop_files" class="drop_files" value="{{old('drop_files')}}">
                                         <input type="hidden" name="drop_html" class="drop_html" value="{{old('drop_html')}}">
+                                        <input type="hidden" name="music_filesize" class="music_filesize" value="{{old('music_filesize')}}">
+                                        <input type="hidden" name="action_upload" class="action_upload" value="{{ isset($album) ? 'edit' : 'create' }}">
                                         <div class="text-center col-12">
-                                            <button type="submit" class="btn btn-danger btn-upload">Tải lên</button>
+                                            <button type="submit" class="btn btn-danger btn-upload">{{isset($album) ? 'Cập nhật' : 'Tải lên'}}</button>
                                         </div>
                                     </div>
                                 </div>
@@ -293,7 +329,9 @@ $titleMeta = 'Cập nhật nhạc mới - ' . Config::get('constants.app.title')
         Dropzone.prototype.defaultOptions.callResponseSuccess = function(result) {
             if(result.status === true) {
                 var oldFileDrops = $('.drop_files').val();
+                var oldFileSize = $('.music_filesize').val();
                 $('.drop_files').val(oldFileDrops ? oldFileDrops + ';' + result.file_name : result.file_name);
+                $('.music_filesize').val(oldFileSize ? oldFileSize + ';' + result.file_size : result.file_size);
                 $('.dz-message').remove();
                 $('.drop_html').val($('.dropzone').html());
             }

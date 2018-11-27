@@ -145,12 +145,11 @@ Route::group(['middlewareGroups' => ['web']], function () {
             Route::post('ca-si', ['as' => 'upload.storeArtist', 'uses' => 'UploadController@storeArtist']);
             Route::get('nhac/{musicId?}', ['as' => 'upload.createMusic', 'uses' => 'UploadController@createMusic']);
             Route::get('video/{musicId?}', ['as' => 'upload.createVideo', 'uses' => 'UploadController@createVideo']);
-            Route::post('nhac', ['as' => 'upload.updateMusic', 'uses' => 'UploadController@storeMusic']);
             Route::post('nhac/{musicId?}', ['as' => 'upload.storeMusic', 'uses' => 'UploadController@storeMusic']);
             Route::post('video', ['as' => 'upload.storeVideo', 'uses' => 'UploadController@storeMusic']);
             Route::post('video/{musicId?}', ['as' => 'upload.storeVideo', 'uses' => 'UploadController@storeMusic']);
-            Route::get('album', ['as' => 'upload.createAlbum', 'uses' => 'UploadController@createAlbum']);
-            Route::post('album', ['as' => 'upload.storeAlbum', 'uses' => 'UploadController@storeAlbum']);
+            Route::get('album/{albumId?}', ['as' => 'upload.createAlbum', 'uses' => 'UploadController@createAlbum']);
+            Route::post('album/{albumId?}', ['as' => 'upload.storeAlbum', 'uses' => 'UploadController@storeAlbum']);
             Route::post('file-nhac', ['as' => 'upload.fileMusic', 'uses' => 'UploadController@uploadFileMusic']);
             Route::get('ca-si/tim-kiem', ['as' => 'artist.gettermartist', 'uses' => 'ArtistController@getTermArtist']);
 

@@ -61,6 +61,8 @@ define('COVER_ARTIST_CROP_PATH', '/data/artist_cover/');
 // ALBUM
 define('AVATAR_ALBUM_CROP_PATH', '/data/album_cover/');
 define('COVER_ALBUM_SOURCE_PATH', '/data/source_album_cover/');
+define('PUBLIC_COVER_ALBUM_CROP_PATH', '/storage/data/album_cover/');
+
 
 define('PUBLIC_AVATAR_ARTIST_SOURCE_PATH', '/storage/data/source_artist_avatar/');
 define('PUBLIC_COVER_ARTIST_SOURCE_PATH', '/storage/data/source_artist_cover/');
