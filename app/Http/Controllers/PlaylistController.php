@@ -146,7 +146,7 @@ class PlaylistController extends Controller
     }
     public function storePlaylist(Request $request) {
         $this->validate($request, [
-            'playlist_title' => 'required|max:255',
+            'playlist_title' => 'required|max:255|min:2',
             'sumbit_action' => 'required'
         ]);
         $id = $request->input('playlist_id');
@@ -203,19 +203,22 @@ class PlaylistController extends Controller
         if($action == 'edit') {
             $result = $playlist->update($update);
             $mes = 'Đã Cập nhập playlist.';
+            // update cover
+            if($request->input('playlist_cover')) {
+                $fileNameCover = Helpers::saveBase64Image($request->input('playlist_cover'), Helpers::file_path($id, MUSIC_PLAYLIST_PATH, true), $id, 'png');
+            }
+            return redirect()->route('playlist.update_playlist', $id)->with('success', $mes);
         }else{
             $update['playlist_status'] = SET_ACTIVE;
 
             $result = $playlist->create($update);
             $mes = 'Đã tạo playlist '.$result->playlist_title;
+            // update cover
+            if($request->input('playlist_cover')) {
+                $fileNameCover = Helpers::saveBase64Image($request->input('playlist_cover'), Helpers::file_path($result->playlist_id, MUSIC_PLAYLIST_PATH, true), $result->playlist_id, 'png');
+            }
+            return redirect('/user/playlist/chinh-sua')->with('success', $mes);
         }
-        // update cover
-        if($request->input('playlist_cover')) {
-            $fileNameCover = Helpers::saveBase64Image($request->input('playlist_cover'), Helpers::file_path($result->playlist_id, MUSIC_PLAYLIST_PATH, true), $result->playlist_id, 'png');
-        }
-//        return redirect('/user/playlist/cap-nhat/');
-        return redirect()->route('playlist.update_playlist', $result->playlist_id)->with('success', $mes);
-
     }
     public function deletePlaylist(Request $request) {
         if(!Auth::check()){

@@ -1219,3 +1219,10 @@ form#login-form {
     cursor: pointer;
     font-family: 'SFProDisplay-Medium';
 }
+.navbar-nav {
+    display: contents;
+}
+.navbar-nav .dropdown-menu {
+    position: absolute;
+    float: none;
+}

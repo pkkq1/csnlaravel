@@ -121,7 +121,7 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                     <div class="col-md-8">
                         <div class="d-flex justify-content-between mb-3">
                             <div class="title2">
-                                Đóng góp: <span class="author"><a href="{{env('APP_URL')}}">{{$music->music_username}}</a></span>
+                                Đóng góp: <span class="author"><a target="_blank" href="/user/{{$music->music_user_id}}">{{$music->music_username}}</a></span>
                             </div>
                             <div>
                                 <div class="fb-like" data-href="{{url()->current()}}" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>

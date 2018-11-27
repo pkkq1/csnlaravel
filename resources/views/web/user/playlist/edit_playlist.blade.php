@@ -13,6 +13,11 @@ use App\Library\Helpers;
     <div class="container">
         <div class="row row_wrapper">
             <div class="col-md-9">
+                @if ($message = Session::get('success'))
+                    <div class="alert alert-success">
+                        <strong>Thành công!</strong> {{ $message }}
+                    </div>
+                @endif
                 <div class="box_playlist">
                     <h3 class="title">playlist</h3>
                     <div>
