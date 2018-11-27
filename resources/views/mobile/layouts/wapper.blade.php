@@ -131,9 +131,7 @@
             <div class="swiper-slide">Chủ đề</div>
             <div class="swiper-slide">Album mới</div>
             <div class="swiper-slide">Bài hát mới</div>
-            <div class="swiper-slide">item 5</div>
-            <div class="swiper-slide">item 6</div>
-            <div class="swiper-slide">item 7</div>
+            <div class="swiper-slide">Video mới</div>
         </div>
     </div>
     <div class="wrap-search">

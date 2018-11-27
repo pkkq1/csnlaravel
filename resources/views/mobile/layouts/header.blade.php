@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/mobile/assets/css/style.css">
     <link rel="stylesheet" href="/mobile/assets/css/responsive.css">
     <link rel="stylesheet" href="/mobile/assets/css/custom.css">
+    <script src='https://www.google.com/recaptcha/api.js'></script>
     @yield('contentCSS')
     <script src="/mobile/assets/js/jquery-3.3.1.min.js"></script>
     <script>

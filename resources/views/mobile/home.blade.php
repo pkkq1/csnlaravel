@@ -438,64 +438,51 @@ global $album_cat_new;
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide">content 5</div>
-                    <div class="swiper-slide">content 6</div>
-                    <div class="swiper-slide">content 7</div>
+                    <div class="swiper-slide">
+                        <div class="container">
+                            <div class="block_bxhvideo block_more">
+                                <div class="block_baihat_main block_more" id="music_news">
+                                    <?php
+                                    array_map(function($item) {
+                                    $url = Helpers::listen_url($item);
+                                    ?>
+                                    <div class="element py-3 border-bottom">
+                                        <a href="{{$url}}">
+                                            <div class="image mr-2 d-inline-block align-middle" style="background : url({{Helpers::thumbnail_url($item)}}) no-repeat center;background-size: cover;">
+                                                <p class="time"><img src="/mobile/assets/images/icon/ic_menu_clock.png" width="14"> {{$item['music_length'] >= 3600 ? gmdate("H:i:s", $item['music_length']) : gmdate("i:s", $item['music_length'])}}</p>
+                                            </div>
+                                        </a>
+                                        <div class="content d-inline-block align-middle">
+                                            <a href="{{$url}}"><h6 class="name_song text-black mb-1 card-title">{{$item['music_title']}}</h6></a>
+                                            <p class="name_singer text-gray mb-1 author"><?php echo $item['music_artist_html']; ?></p>
+                                        </div>
+                                    </div>
+                                    <?php
+                                    }, $video_new_uploads);
+                                    ?>
+                                    <center>
+                                        <ul class="pagination">
+                                            <li class="disabled"><span>«</span></li>
+                                            <li class="active"><span>1</span></li>
+                                            <li><a href="/bai-hat-moi.html?page=2">2</a></li>
+                                            <li><a href="/bai-hat-moi.html?page=3">3</a></li>
+                                            <li class="disabled"><span>...</span></li>
+                                            <li><a href="/bai-hat-moi.html?page=51425">51425</a></li>
+                                            <li><a href="/bai-hat-moi.html?page=51426">51426</a></li>
+                                            <li><a href="/bai-hat-moi.html?page=2" rel="next">»</a></li>
+                                        </ul>
+                                    </center>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="wrap-bottom-sheet">
     </div>
-    <div class="bottom-sheet select-quality text-center">
-        <h4>Trong trí nhớ của anh</h4>
-        <form action="#">
-            <div class="container">
-                <div class="form-group">
-                    <label class="relative">
-                        <input type="radio" class="form-control d-none" id="exampleInputEmail1" name="quality" checked>
-                        <strong>
-                            <i class="fa fa-download mr-1 align-middle"></i>
-                            <span>Download 1</span>
-                            <span class="cl-green">Mp4 360p</span>
-                            <span>18.55MB</span>
-                        </strong>
-                    </label>
-                    <label class="relative">
-                        <input type="radio" class="form-control d-none" id="exampleInputEmail1" name="quality">
-                        <strong>
-                            <i class="fa fa-download mr-1 align-middle"></i>
-                            <span>Download 2</span>
-                            <span class="cl-blue">Mp4 360p</span>
-                            <span>18.55MB</span>
-                        </strong>
-                    </label>
-                    <label class="relative">
-                        <input type="radio" class="form-control d-none" id="exampleInputEmail1" name="quality">
-                        <strong>
-                            <i class="fa fa-download mr-1 align-middle"></i>
-                            <span>Download 3</span>
-                            <span class="cl-orange">Mp4 360p</span>
-                            <span>18.55MB</span>
-                        </strong>
-                    </label>
-                    <label class="relative">
-                        <input type="radio" class="form-control d-none" id="exampleInputEmail1" name="quality">
-                        <strong>
-                            <i class="fa fa-download mr-1 align-middle"></i>
-                            <span>Download 4</span>
-                            <span class="cl-pink">Mp4 360p</span>
-                            <span>18.55MB</span>
-                        </strong>
-                    </label>
-                </div>
-            </div>
-            <div class="group-btn">
-                <a href="#" class="c-btn c-btn-default">Hủy</a>
-                <a href="#" class="c-btn c-btn-default c-btn-red">Tải về</a>
-            </div>
-        </form>
-    </div>
+    @include('mobile.layouts.bottom_sheet')
 @endsection
 @section('contentJS')
     <script>
@@ -506,12 +493,13 @@ global $album_cat_new;
         function musicPage(url, tab) {
             $.ajax({
                 url: url,
-                type: "GET",
+                type: "POST",
                 dataType: "html",
                 data: {
                     'tab': 'music'
                 },
                 beforeSend: function () {
+                    console.log(loaded);
                     if(loaded) return false;
                     loaded = true;
                     // $('html,body').animate({ scrollTop: 0 }, 400);
