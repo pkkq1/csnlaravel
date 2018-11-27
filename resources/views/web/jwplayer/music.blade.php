@@ -603,7 +603,7 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
             sources: [
                     <?php
                     for ($i=0; $i<sizeof($file_url); $i++){
-                        echo '{"file": "'. $file_url[$i]['url'] .'", "label": "'. $file_url[$i]['label'] .'", "type": "mp4"},';
+                        echo '{"file": "'. $file_url[$i]['url'] .'", "label": "'. $file_url[$i]['label'] .'", "type": "mp4", "default": '. (($i==1) ? 'true' : 'false') .'},';
                     }
                     ?>
             ],
