@@ -184,7 +184,7 @@ class Helpers
             }
         }
 
-        $url = ($c_id == CAT_VIDEO) ? VIEW_VIDEO_URL . '/' : VIEW_URL . '/';
+        $url = ($c_id == CAT_VIDEO) ? VIEW_VIDEO_URL . '/' : VIEW_MUSIC_URL . '/';
         if (isset($cat_id2info[$c_id][0]['cat_url'])) {
             $url .= $cat_id2info[$c_id][0]['cat_url'] . "/";
         }
@@ -216,7 +216,7 @@ class Helpers
             }
         }
 
-        $url .= ($c_id == CAT_VIDEO) ? VIEW_VIDEO_URL . '/' : VIEW_URL . '/';
+        $url .= ($c_id == CAT_VIDEO) ? VIEW_VIDEO_URL . '/' : VIEW_MUSIC_URL . '/';
         $ct_id = 1;
         $nav_links = ($theme['themes_id'] == 4) ? '<li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a href="' . $url . '" itemprop="item"><span itemprop="name">' . $lang['MUSIC'] . '</span></a><meta itemprop="position" content="' . $ct_id . '"></li>' : '';
         if (isset($cat_id2info[$c_id][0]['cat_short_title'])) {

@@ -1,28 +1,23 @@
 <?php
 use App\Library\Helpers;
 ?>
-@if($video->toArray()['data'])
-<div class="row row10px float-col-width-video">
-    <?php
-    array_map(function ($item) {
-    $url = Helpers::listen_url($item);
-    ?>
-    <div class="col">
-        <div class="card card1 video">
-            <div class="card-header" style="background-image: url({{Helpers::thumbnail_url($item)}});">
-                <a href="{{$url}}" title="{{$item['music_title']}}">
-                    <span class="icon-play"></span>
-                </a>
-            </div>
-            <div class="card-body">
-                <h3 class="card-title"><a href="{{$url}}" title="{{$item['music_title']}}">{{$item['music_title']}}</a></h3>
-                <p class="card-text"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></p>
-            </div>
+<?php
+$videoData = $video->toArray();
+array_map(function($item) {
+$url = Helpers::listen_url($item);
+?>
+<div class="element py-3 border-bottom">
+    <a href="{{$url}}">
+        <div class="image mr-2 d-inline-block align-middle" style="background : url({{Helpers::thumbnail_url($item)}}) no-repeat center;background-size: cover;">
+            <p class="time"><img src="/mobile/assets/images/icon/ic_menu_clock.png" width="14"> {{$item['music_length'] >= 3600 ? gmdate("H:i:s", $item['music_length']) : gmdate("i:s", $item['music_length'])}}</p>
         </div>
+    </a>
+    <div class="content d-inline-block align-middle">
+        <a href="{{$url}}"><h6 class="name_song text-black mb-1 card-title">{{$item['music_title']}}</h6></a>
+        <p class="name_singer text-gray mb-1 author"><?php echo Helpers::bitrate2str($item['music_bitrate']); ?></p>
     </div>
-    <?php
-    }, $video->toArray()['data'])
-    ?>
 </div>
-<center><?php echo str_replace(url()->current(), '/tab_category',$video->links()) ?></center>
-@endif
+<?php
+}, $videoData['data']);
+?>
+<center>{{$video->links()}}</center>

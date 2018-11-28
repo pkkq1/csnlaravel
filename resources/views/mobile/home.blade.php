@@ -10,15 +10,25 @@ global $music_new_uploads;
 global $video_new_uploads;
 global $album_cat_new;
 ?>
-
 @extends('mobile.layouts.app')
-
 @section('content')
-
     @include('cache.def_home_album')
     @include('cache.def_home_download')
     @include('cache.def_home_album_cat')
-    @include('mobile.layouts.wapper')
+    <div class="header">
+    @include('mobile.layouts.header_top')
+    <!-- swiper1-->
+        <div data-itemmenu="4" class="swiper-container swiper1">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide selected">Home</div>
+                <div class="swiper-slide theme_all">Chủ đề</div>
+                <div class="swiper-slide album_news">Album mới</div>
+                <div class="swiper-slide music_news">Bài hát mới</div>
+                <div class="swiper-slide video_news">Video mới</div>
+            </div>
+        </div>
+        @include('mobile.layouts.wrap_search')
+    </div>
     <div class="main">
         <div class="sidebar_top">
             <!-- swiper2 -->
@@ -47,7 +57,7 @@ global $album_cat_new;
                                 <div class="block block_baihat">
                                     <div class="block_header d-flex flex-row justify-content-between mb-2">
                                         <h3 class="main_title text-pink mb-0">Bài hát mới nhất</h3>
-                                        <a href="/mp3/vietnam.html?tab=bai-hat-moi"><span class="text-gray align-self-end">Xem tất cả</span></a>
+                                        <a href="javascript:void(0);" onclick="tabHome('music_news')"><span class="text-gray align-self-end">Xem tất cả</span></a>
                                     </div>
                                     <div class="block_baihat_main block_more">
                                         <?php
@@ -100,7 +110,7 @@ global $album_cat_new;
                                 <div class="block block_album">
                                     <div class="block_header d-flex flex-row justify-content-between mb-2">
                                         <h3 class="main_title text-pink mb-0">Album mới nhất {{date('Y', time())}}</h3>
-                                        <a class="link_more" href="/mp3/vietnam.html" title="Album mới nhất {{date('Y', time())}}"><span class="text-gray align-self-end">Xem tất cả</span></a>
+                                        <a class="link_more" href="javascript:void(0);" onclick="tabHome('album_news')" title="Album mới nhất {{date('Y', time())}}"><span class="text-gray align-self-end">Xem tất cả</span></a>
                                     </div>
                                     <div class="block_album_main d-flex flex-wrap">
                                         <div class="slide-album owl-theme owl-carousel">
@@ -145,35 +155,35 @@ global $album_cat_new;
                                 <div class="block block_detail_chude">
                                     <div class="block_header d-flex flex-row justify-content-between mb-2">
                                         <h3 class="main_title text-pink mb-0">Chủ đề</h3>
-                                        <span class="text-gray align-self-end">Xem tất cả</span>
+                                        <a href="javascript:void(0);" onclick="tabHome('theme_all')"><span class="text-gray align-self-end">Xem tất cả</span></a>
                                     </div>
                                     <div class="slide-chude owl-carousel owl-theme">
                                         <div class="item">
-                                            <div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url(/mobile/assets/images/img_category_weekend.png) no-repeat center;background-size: cover;">
-                                                <h5 class="text-white">Buồn</h5>
-                                            </div>
+                                            <a href="/chu-de/romance.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url(/mobile/assets/images/img_category_weekend.png) no-repeat center;background-size: cover;">
+                                                <h5 class="text-white">Lãng mạn</h5>
+                                            </div></a>
                                         </div>
                                         <div class="item">
-                                            <div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url(/mobile/assets/images/img_category_edm.png) no-repeat center;background-size: cover;">
-                                                <h5 class="text-white">Mưa</h5>
-                                            </div>
+                                            <a href="/chu-de/sleep.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url(/mobile/assets/images/img_category_edm.png) no-repeat center;background-size: cover;">
+                                                <h5 class="text-white">Giấc ngủ</h5>
+                                            </div></a>
                                         </div>
                                         <div class="item">
-                                            <div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url(/mobile/assets/images/img_category_love.png) no-repeat center;background-size: cover;">
-                                                <h5 class="text-white">Mùa xuân</h5>
-                                            </div>
+                                            <a href="/chu-de/gym.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url(/mobile/assets/images/img_category_love.png) no-repeat center;background-size: cover;">
+                                                <h5 class="text-white">Gym</h5>
+                                            </div></a>
                                         </div>
                                         <div class="item">
-                                            <div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url(/mobile/assets/images/img_category_topshare.png) no-repeat center;background-size: cover;">
-                                                <h5 class="text-white">Rock</h5>
-                                            </div>
+                                            <a href="/chu-de/dance.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url(/mobile/assets/images/img_category_topshare.png) no-repeat center;background-size: cover;">
+                                                <h5 class="text-white">Dance</h5>
+                                            </div></a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="block block_video">
                                     <div class="block_header d-flex flex-row justify-content-between mb-2">
                                         <h3 class="main_title text-pink mb-0">Video mới nhất</h3>
-                                        <a href="/hd/video.html"><span class="text-gray align-self-end">Xem tất cả</span></a>
+                                        <a href="javascript:void(0);" onclick="tabHome('video_news')"><span class="text-gray align-self-end">Xem tất cả</span></a>
                                     </div>
                                     <div class="block_video_main d-flex flex-wrap">
                                         <?php
@@ -203,28 +213,28 @@ global $album_cat_new;
                         <div class="container">
                             <div class="block block_detail_chude">
                                 <a href="/chu-de/romance.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url(/mobile/assets/images/img_category_weekend.png) no-repeat center;background-size: cover;">
-                                        <h5 class="text-white">lãng mạn</h5>
+                                        <h5 class="text-white">Lãng mạn</h5>
                                     </div></a>
                                 <a href="/chu-de/sleep.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url(/mobile/assets/images/img_category_edm.png) no-repeat center;background-size: cover;">
-                                        <h5 class="text-white">giấc ngủ</h5>
+                                        <h5 class="text-white">Giấc ngủ</h5>
                                     </div></a>
                                 <a href="/chu-de/gym.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url(/mobile/assets/images/img_category_love.png) no-repeat center;background-size: cover;">
-                                        <h5 class="text-white">gym</h5>
+                                        <h5 class="text-white">Gym</h5>
                                     </div></a>
-                                <a href="/chu-de/dace.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url(/mobile/assets/images/img_category_topshare.png) no-repeat center;background-size: cover;">
-                                        <h5 class="text-white">dance</h5>
+                                <a href="/chu-de/dance.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url(/mobile/assets/images/img_category_topshare.png) no-repeat center;background-size: cover;">
+                                        <h5 class="text-white">Dance</h5>
                                     </div></a>
                                 <a href="/chu-de/work.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url(/mobile/assets/images/img_category_hit_vpop.png) no-repeat center;background-size: cover;">
-                                        <h5 class="text-white">work</h5>
+                                        <h5 class="text-white">Work</h5>
                                     </div></a>
                                 <a href="/chu-de/coffee.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url(/mobile/assets/images/img_category_hit_vpop.png) no-repeat center;background-size: cover;">
-                                        <h5 class="text-white">coffee</h5>
+                                        <h5 class="text-white">Coffee</h5>
                                     </div></a>
                                 <a href="/chu-de/game.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url(/mobile/assets/images/img_category_hit_vpop.png) no-repeat center;background-size: cover;">
-                                        <h5 class="text-white">game</h5>
+                                        <h5 class="text-white">Game</h5>
                                     </div></a>
                                 <a href="/chu-de/travel.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url(/mobile/assets/images/img_category_hit_vpop.png) no-repeat center;background-size: cover;">
-                                        <h5 class="text-white">travel</h5>
+                                        <h5 class="text-white">Travel</h5>
                                     </div></a>
                             </div>
                         </div>
@@ -441,7 +451,7 @@ global $album_cat_new;
                     <div class="swiper-slide">
                         <div class="container">
                             <div class="block_bxhvideo block_more">
-                                <div class="block_baihat_main block_more" id="music_news">
+                                <div class="block_baihat_main block_more" id="video_news">
                                     <?php
                                     array_map(function($item) {
                                     $url = Helpers::listen_url($item);
@@ -464,12 +474,12 @@ global $album_cat_new;
                                         <ul class="pagination">
                                             <li class="disabled"><span>«</span></li>
                                             <li class="active"><span>1</span></li>
-                                            <li><a href="/bai-hat-moi.html?page=2">2</a></li>
-                                            <li><a href="/bai-hat-moi.html?page=3">3</a></li>
+                                            <li><a href="/video-moi.html?page=2">2</a></li>
+                                            <li><a href="/video-moi.html?page=3">3</a></li>
                                             <li class="disabled"><span>...</span></li>
-                                            <li><a href="/bai-hat-moi.html?page=51425">51425</a></li>
-                                            <li><a href="/bai-hat-moi.html?page=51426">51426</a></li>
-                                            <li><a href="/bai-hat-moi.html?page=2" rel="next">»</a></li>
+                                            <li><a href="/video-moi.html?page=51425">51425</a></li>
+                                            <li><a href="/video-moi.html?page=51426">51426</a></li>
+                                            <li><a href="/video-moi.html?page=2" rel="next">»</a></li>
                                         </ul>
                                     </center>
                                 </div>
@@ -480,15 +490,19 @@ global $album_cat_new;
             </div>
         </div>
     </div>
-    <div class="wrap-bottom-sheet">
-    </div>
-    @include('mobile.layouts.bottom_sheet')
 @endsection
 @section('contentJS')
     <script>
+        function tabHome(tab) {
+            $('.' + tab).click();
+        }
         $('#music_news').find('.pagination li a').on('click', function (e) {
             e.preventDefault();
             musicPage($(this).attr('href'), 'music_news');
+        });
+        $('#video_news').find('.pagination li a').on('click', function (e) {
+            e.preventDefault();
+            musicPage($(this).attr('href'), 'video_news');
         });
         function musicPage(url, tab) {
             $.ajax({
@@ -496,7 +510,7 @@ global $album_cat_new;
                 type: "POST",
                 dataType: "html",
                 data: {
-                    'tab': 'music'
+                    'tab': tab == 'music_news' ? 'music' : tab == 'video_news' ? 'video' : 'cover'
                 },
                 beforeSend: function () {
                     console.log(loaded);

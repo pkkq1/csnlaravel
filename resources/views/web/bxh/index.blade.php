@@ -63,10 +63,10 @@ global $hot_video_rows;
                                 $url = $urlBxh.'/'.$itemCategory['cat_url'].'.html?playlist='.$i;
                                 ?>
                                 <li class="media align-items-stretch {{$i == 1 ? 'up' : ($i == 2 ? 'down' : 'not')}}">
-                                    <div class="media_tmp align-self-center d-flex align-items-center mr-3 pl-3">
+                                    <div class="media_tmp align-self-center d-flex align-items-center mr-3 pl-3" style="width: 50px">
                                         <span class="counter">{{sprintf("%02d", $i)}}</span>
-                                        <i class="material-icons">{{$i == 1 ? 'keyboard_arrow_up' : ($i == 2 ? 'keyboard_arrow_down' : 'remove')}}</i>
-                                        <span class="rate">+1</span>
+                                        {{--<i class="material-icons">{{$i == 1 ? 'keyboard_arrow_up' : ($i == 2 ? 'keyboard_arrow_down' : 'remove')}}</i>--}}
+                                        {{--<span class="rate">+1</span>--}}
                                     </div>
                                     <div class="media-left align-items-stretch mr-2">
                                         <a href="{{$url}}" title="{{$item['music_title']}}">
@@ -77,9 +77,9 @@ global $hot_video_rows;
                                     <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
                                         <div>
                                             <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_title']}}">{{$item['music_title']}}</a></h5>
-                                            <div class="author"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></div>
+                                            <div class="author"><?php echo $item['music_artist_html'] ?></div>
                                         </div>
-                                        <small class="type_music c1"><?php echo Helpers::bitrate2str($item['music_bitrate']); ?></small>
+                                        <small class="type_music c1"><?php echo $item['music_bitrate']; ?></small>
                                     </div>
                                     <div class="media-right align-self-center">
                                         <small class="time_stt"><i class="material-icons listen-material-icons"> play_arrow </i>{{number_format($item['music_listen'])}}</small>
@@ -107,10 +107,10 @@ global $hot_video_rows;
                                 $url = $urlBxh.'/'.CAT_VIDEO_URL.'/'.$videoItem['cat_url'].'.html?playlist='.$i;
                                 ?>
                                 <li class="media align-items-stretch {{$i == 1 ? 'up' : ($i == 2 ? 'down' : 'not')}}">
-                                    <div class="media_tmp align-self-center d-flex align-items-center mr-3 pl-3">
+                                    <div class="media_tmp align-self-center d-flex align-items-center mr-3 pl-3" style="width: 50px">
                                         <span class="counter">{{sprintf("%02d", $i)}}</span>
-                                        <i class="material-icons">{{$i == 1 ? 'keyboard_arrow_up' : ($i == 2 ? 'keyboard_arrow_down' : 'remove')}}</i>
-                                        <span class="rate">+1</span>
+                                        {{--<i class="material-icons">{{$i == 1 ? 'keyboard_arrow_up' : ($i == 2 ? 'keyboard_arrow_down' : 'remove')}}</i>--}}
+                                        {{--<span class="rate">+1</span>--}}
                                     </div>
                                     <div class="col-2">
                                         <div class="card card1 video">
@@ -124,7 +124,7 @@ global $hot_video_rows;
                                     <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
                                         <div>
                                             <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_title']}}">{{$item['music_title']}}</a></h5>
-                                            <div class="author"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></div>
+                                            <div class="author"><?php echo $item['music_artist_html'] ?></div>
                                         </div>
                                     </div>
                                     <div class="media-right align-self-center">
@@ -177,7 +177,9 @@ global $hot_video_rows;
     if(isset($_GET['tab'])) {
     ?>
     $( document ).ready(function() {
-        $('.<?php echo $_GET['tab'] ?>').click();
+        setTimeout(function(){
+            $('.<?php echo $_GET['tab'] ?>').click();
+        }, 2000);
     });
     <?php
     }

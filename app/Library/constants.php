@@ -78,7 +78,7 @@ define('VIDEO_PATH', '/storage/data/source_video/');
 define('CAT_VIDEO', 1);
 define('CAT_VIDEO_URL', 'video');
 define('VIEW_VIDEO_URL', 'hd');
-define('VIEW_URL', 'mp3');
+define('VIEW_MUSIC_URL', 'mp3');
 // Video thumbnail
 define('MUSIC_THUMBNAIL_PATH', 'data/thumb/');
 // Cover

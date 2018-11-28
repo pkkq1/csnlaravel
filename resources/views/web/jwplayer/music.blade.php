@@ -33,9 +33,12 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
             <div class="col-md-9">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{env('APP_URL')}}">{{$cat_id2info[$music->cat_id][0]['cat_title']}}</a></li>
-                        <li class="breadcrumb-item"><a href="{{env('APP_URL')}}">{{$cat_id2info[$music->cat_id][$music->cat_level]['cat_title']}}</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">{{$music->music_title}}</li>
+                        <?php
+                            $catMusic = $cat_id2info[$music->cat_id];
+                            $prefixCatUrl = $music->cat_id == CAT_VIDEO ? VIEW_VIDEO_URL : VIEW_MUSIC_URL;
+                        ?>
+                        <li class="breadcrumb-item"><a href="{{env('APP_URL').'/'.$prefixCatUrl.'/'.$catMusic[0]['cat_url']}}.html">{{$catMusic[0]['cat_title']}}</a></li>
+                        <li class="breadcrumb-item"><a href="{{env('APP_URL').'/'.$prefixCatUrl.'/'.$catMusic[0]['cat_url'].'/'.$catMusic[$music->cat_level]['cat_url']}}.html">{{$catMusic[$music->cat_level]['cat_title']}}</a></li>
                     </ol>
                 </nav>
                 <div class="d-flex align-items-center justify-content-between mb-3 box1 music-listen-title">
@@ -112,7 +115,7 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                                 <ul class="list-unstyled">
                                     <?php echo $music->music_artist ? '<li><span>Ca sĩ: </span>'.$artistHtml.'</li>' : '' ?>
                                     <?php echo $music->music_composer ? '<li><span>Sáng tác: </span><a href="/tim-kiem?q='.$music->music_composer.'&mode=sang-tac" style=" color: #212552; ">'.$music->music_composer.'</a></li>' : '' ?>
-                                    <?php echo $music->music_album ? '<li><span>Album: </span><a href="'.url()->current().'">'.$music->music_album.'</a></li>' : '' ?>
+                                    <?php echo $music->music_album ? '<li><span>Album: </span><a href="'.(($musicSet['type_listen'] != 'album') ? Helpers::album_url(['music_album' => $music->music_album, 'cover_id' => $music->cover_id ]) : url()->current()).'">'.$music->music_album.'</a></li>' : '' ?>
                                     <?php echo $music->music_year ? '<li><span>Năm phát hành: </span>'.$music->music_year.'</li>' : '' ?>
                                 </ul>
                             </div>

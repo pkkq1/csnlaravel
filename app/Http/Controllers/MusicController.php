@@ -94,7 +94,7 @@ class MusicController extends Controller
         if($arrUrl['type'] == 'nghe-album') {
             $album = $this->coverRepository->getCoverMusicById($arrUrl['id']);
             if(!$album)
-                return view('errors.404');
+                return view('errors.text_error')->with('message', 'Album không tìm thấy.');;
             $typeListen = 'album';
             if(($album->music)) {
                 $playlistMusic = $album->music->toArray();
@@ -180,7 +180,11 @@ class MusicController extends Controller
             $firstMusic = $playlistMusic[$request->playlist ? $request->playlist - 1 : 0];
             $id = $firstMusic['music_id'];
         }
-        $music = $this->musicRepository->findOnlyMusicId(Helpers::decodeID($id));
+        if($catUrl == CAT_VIDEO_URL) {
+            $music = $this->videoRepository->findOnlyMusicId(Helpers::decodeID($id));
+        }else{
+            $music = $this->musicRepository->findOnlyMusicId(Helpers::decodeID($id));
+        }
         if(!$music)
             return view('errors.404');
         // +1 view

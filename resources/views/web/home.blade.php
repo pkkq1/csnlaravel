@@ -110,14 +110,14 @@ global $top_artist_rows;
                 ?>
             </div>
             <div class="box_catalog owl-carousel owl-theme">
-                <a href="/chu-de/romance.html" title="" class="item img-thumbnail swiper-slide top_share" style="background: url('https://avatar-nct.nixcdn.com/topic/thumb/2018/04/12/e/d/6/8/1523498904907_org.jpg') no-repeat;"><span>lãng mạn</span></a>
-                <a href="/chu-de/sleep.html" title="" class="item img-thumbnail swiper-slide top_hitvpop" style="background: url('https://avatar-nct.nixcdn.com/topic/thumb/2017/04/11/8/c/d/c/1491886414148_org.jpg') no-repeat;"><span>giấc ngủ</span></a>
-                <a href="/chu-de/gym.html" title="" class="item img-thumbnail swiper-slide hitvpop_new" style="background: url('https://avatar-nct.nixcdn.com/topic/thumb/2016/09/30/e/5/7/8/1475229833731_org.jpg') no-repeat;"><span>gym</span></a>
-                <a href="/chu-de/dace.html" title="" class="item img-thumbnail swiper-slide top_share" style="background: url('https://avatar-nct.nixcdn.com/topic/thumb/2016/11/09/9/1/7/f/1478679979642_org.jpg') no-repeat;"><span>dance</span></a>
-                <a href="/chu-de/work.html" title="" class="item img-thumbnail swiper-slide top_share" style="background: url('https://avatar-nct.nixcdn.com/topic/thumb/2018/04/12/e/d/6/8/1523498904907_org.jpg') no-repeat;"><span>work</span></a>
-                <a href="/chu-de/coffee.html" title="" class="item img-thumbnail swiper-slide top_hitvpop" style="background: url('https://avatar-nct.nixcdn.com/topic/thumb/2017/04/11/8/c/d/c/1491886414148_org.jpg') no-repeat;"><span>coffee</span></a>
-                <a href="/chu-de/game.html" title="" class="item img-thumbnail swiper-slide hitvpop_new" style="background: url('https://avatar-nct.nixcdn.com/topic/thumb/2016/09/30/e/5/7/8/1475229833731_org.jpg') no-repeat;"><span>game</span></a>
-                <a href="/chu-de/travel.html" title="" class="item img-thumbnail swiper-slide top_share" style="background: url('https://avatar-nct.nixcdn.com/topic/thumb/2016/11/09/9/1/7/f/1478679979642_org.jpg') no-repeat;"><span>travel</span></a>
+                <a href="/chu-de/romance.html" title="" class="item img-thumbnail swiper-slide top_share" style="background: url('https://avatar-nct.nixcdn.com/topic/thumb/2018/04/12/e/d/6/8/1523498904907_org.jpg') no-repeat;"><span>Lãng mạn</span></a>
+                <a href="/chu-de/sleep.html" title="" class="item img-thumbnail swiper-slide top_hitvpop" style="background: url('https://avatar-nct.nixcdn.com/topic/thumb/2017/04/11/8/c/d/c/1491886414148_org.jpg') no-repeat;"><span>Giấc ngủ</span></a>
+                <a href="/chu-de/gym.html" title="" class="item img-thumbnail swiper-slide hitvpop_new" style="background: url('https://avatar-nct.nixcdn.com/topic/thumb/2016/09/30/e/5/7/8/1475229833731_org.jpg') no-repeat;"><span>Gym</span></a>
+                <a href="/chu-de/dance.html" title="" class="item img-thumbnail swiper-slide top_share" style="background: url('https://avatar-nct.nixcdn.com/topic/thumb/2016/11/09/9/1/7/f/1478679979642_org.jpg') no-repeat;"><span>Dance</span></a>
+                <a href="/chu-de/work.html" title="" class="item img-thumbnail swiper-slide top_share" style="background: url('https://avatar-nct.nixcdn.com/topic/thumb/2018/04/12/e/d/6/8/1523498904907_org.jpg') no-repeat;"><span>Work</span></a>
+                <a href="/chu-de/coffee.html" title="" class="item img-thumbnail swiper-slide top_hitvpop" style="background: url('https://avatar-nct.nixcdn.com/topic/thumb/2017/04/11/8/c/d/c/1491886414148_org.jpg') no-repeat;"><span>Coffee</span></a>
+                <a href="/chu-de/game.html" title="" class="item img-thumbnail swiper-slide hitvpop_new" style="background: url('https://avatar-nct.nixcdn.com/topic/thumb/2016/09/30/e/5/7/8/1475229833731_org.jpg') no-repeat;"><span>Game</span></a>
+                <a href="/chu-de/travel.html" title="" class="item img-thumbnail swiper-slide top_share" style="background: url('https://avatar-nct.nixcdn.com/topic/thumb/2016/11/09/9/1/7/f/1478679979642_org.jpg') no-repeat;"><span>Travel</span></a>
             </div>
             <!-- Initialize Carousel -->
             <script>

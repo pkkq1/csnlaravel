@@ -6,11 +6,11 @@ use App\Library\Helpers;
     array_map(function ($item) use ($commentReply) {
     ?>
         <li class="media" id="comment-{{$item['comment_id']}}" style="width: 100%">
-            <img class="mr-3" src="{{(strpos($item['user']['user_avatar'], 'http') !== false) ? $item['user']['user_avatar'] : PUBLIC_AVATAR_PATH . $item['user']['user_avatar']}}" alt="{{$item['user']['name']}}">
+            <a href="/user/{{$item['user']['id']}}" title="{{$item['user']['name']}}"><img class="mr-3" src="{{(strpos($item['user']['user_avatar'], 'http') !== false) ? $item['user']['user_avatar'] : Helpers::file_path($item['user']['id'], PUBLIC_AVATAR_PATH, true) . $item['user']['user_avatar']}}" alt="{{$item['user']['name']}}"></a>
             <div class="media-body">
                 <div class="body_commnet">
                     <div class="d-flex align-items-center justify-content-between">
-                        <h5 class="media-title mt-0 mb-1"><a href="#" title="{{$item['user']['name']}}">{{$item['user']['name']}}</a> at <span>{{date('H:i', $item['comment_time'])}}</span></h5>
+                        <h5 class="media-title mt-0 mb-1"><a href="/user/{{$item['user']['id']}}" title="{{$item['user']['name']}}">{{$item['user']['name']}}</a> at <span>{{date('H:i', $item['comment_time'])}}</span></h5>
                         <time><?php echo Helpers::timeElapsedString($item['comment_time']); ?></time>
                     </div>
                     <p class="media-text">{{$item['comment_text']}}</p>
@@ -32,10 +32,10 @@ use App\Library\Helpers;
                             if($reply['comment_id'] == $item['comment_id']){
                             ?>
                             <div class="media">
-                                <img class="mr-3" src="{{(strpos($reply['user']['user_avatar'], 'http') !== false) ? $reply['user']['user_avatar'] : PUBLIC_AVATAR_PATH . $reply['user']['user_avatar']}}" alt="Generic placeholder image">
+                                <a href="/user/{{$reply['user']['id']}}" title="{{$reply['user']['name']}}"><img class="mr-3" src="{{(strpos($reply['user']['user_avatar'], 'http') !== false) ? $reply['user']['user_avatar'] : Helpers::file_path($reply['user']['id'], PUBLIC_AVATAR_PATH, true) . $reply['user']['user_avatar']}}" alt="{{$reply['user']['name']}}"></a>
                                 <div class="media-body">
                                     <div class="d-flex align-items-center justify-content-between">
-                                        <h5 class="media-title mt-0 mb-1"><a href="#" title="{{$reply['user']['name']}}">{{$reply['user']['name']}}</a> at <span>{{date('H:i', $reply['comment_time'])}}</span></h5>
+                                        <h5 class="media-title mt-0 mb-1"><a href="/user/{{$reply['user']['id']}}" title="{{$reply['user']['name']}}">{{$reply['user']['name']}}</a> at <span>{{date('H:i', $reply['comment_time'])}}</span></h5>
                                         <time><?php echo Helpers::timeElapsedString($reply['comment_time']); ?></time>
                                     </div>
                                     <p class="media-text">{{$reply['comment_text']}}</p>

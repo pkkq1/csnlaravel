@@ -96,7 +96,7 @@ class VideoEloquentRepository extends EloquentRepository implements VideoReposit
     {
         $result = $this
             ->_model
-            ->select('music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'music_album_id', 'music_listen', 'music_bitrate', 'music_filename')
+            ->select('music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'music_album_id', 'music_listen', 'music_bitrate', 'music_filename', 'music_length')
             ->orderBy($fillOrder, $typeOrder)
             ->paginate($page);
         return $result;
