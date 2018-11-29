@@ -92,10 +92,6 @@ class LoginController extends Controller
                 'email' => 'email',
             ]);
         }
-        $this->setAttributeNames([
-            'email' => 'Email',
-            'password' => 'Mật khẩu',
-        ]);
     }
     protected function sendFailedLoginResponse(Request $request)
     {

@@ -777,4 +777,9 @@ class Helpers
         $f_base = floor($base);
         return round(pow(1024, $base - floor($base)), 1) . $suffix[$f_base];
     }
+    public static function pathAvatar($userAvatar, $userId) {
+        if(!$userAvatar)
+            return '/imgs/no_avatar.png';
+        return (strpos($userAvatar, 'http') !== false) ? $userAvatar : Helpers::file_path($userId, PUBLIC_AVATAR_PATH, true) . $userAvatar;
+    }
 }

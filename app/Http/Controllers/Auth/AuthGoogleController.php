@@ -40,11 +40,11 @@ class AuthGoogleController extends Controller
         if(!empty($existUser)) {
             $existUser = User::firstOrCreate([
                 'name' => $user->getName(),
-                'username' => $user->getName(),
+                'username' => '',
                 'email' => $email,
+                'user_active' => DEACTIVE_USER,
                 'user_avatar' => $user->avatar_original,
                 'app' => 'google',
-                'username' => $user->getId(),
                 'app_id' => $user->getId(),
                 'user_phone_number' => ''
             ]);

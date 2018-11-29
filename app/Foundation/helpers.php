@@ -1,6 +1,8 @@
 <?php
 use Illuminate\Contracts\View\Factory as ViewFactory;
 use Jenssegers\Agent\Agent;
+use App\Models\ErrorLogModel;
+
 function view($view = null, $data = [], $mergeData = [])
 {
     $factory = app(ViewFactory::class);
@@ -19,6 +21,25 @@ function view($view = null, $data = [], $mergeData = [])
         }else{
             $view = 'web.'.$view;
         }
+    }
+    if(strpos($view, '.errors') !== false) {
+        dd($se);
+        dd([
+            'request' => json_encode(app('request')->route()->getAction()),
+            'type' => last(explode('.', $view)),
+            'url' => $_SERVER['REQUEST_URI'],
+            'view' => '',
+            'message' => '',
+            'parameter' => json_encode(Request()->all())
+        ]);
+        ErrorLogModel::create([
+            'request' => json_encode(app('request')->route()->getAction()),
+            'type' => last(explode('.', $view)),
+            'url' => $_SERVER['REQUEST_URI'],
+            'view' => '',
+            'message' => '',
+            'parameter' => json_encode(Request()->all())
+        ]);
     }
     return $factory->make($view, $data, $mergeData);
 }

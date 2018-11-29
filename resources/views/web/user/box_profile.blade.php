@@ -7,7 +7,7 @@ isset($float_edit) ? $float_edit = $float_edit : $float_edit = false;
         <div class="media user11">
             <div class="media-left mr-4 align-self-center">
                 <a href="{{'/user/'.$user->id}}" >
-                    <img id="view_user_avatar_2" src="{{(strpos($user->user_avatar, 'http') !== false) ? $user->user_avatar : Helpers::file_path($user->id, PUBLIC_AVATAR_PATH, true) . $user->user_avatar}}" alt="{{$user->name}}" alt="{{$user->name}}">
+                    <img id="view_user_avatar_2" src="<?php echo Helpers::pathAvatar($user->user_avatar, $user->id) ?>" alt="{{$user->name}}" alt="{{$user->name}}">
                 </a>
             </div>
             <div class="media-body align-self-center">
