@@ -23,7 +23,6 @@ function view($view = null, $data = [], $mergeData = [])
         }
     }
     if(strpos($view, '.errors') !== false) {
-        dd($se);
         dd([
             'request' => json_encode(app('request')->route()->getAction()),
             'type' => last(explode('.', $view)),
