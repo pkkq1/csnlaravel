@@ -49,7 +49,7 @@ class AuthGoogleController extends Controller
                 'user_phone_number' => ''
             ]);
         }else{
-            $existUser = $existUser[0];
+            $existUser = $existUser;
         }
         Auth::login($existUser);
         return redirect('/');

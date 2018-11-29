@@ -423,7 +423,7 @@
                 return addErrorInput(password, 'Mật khẩu phải trên 6 ký tự.');
             }
             if(!contact.is( ":checked" )) {
-                return addErrorInput(contact, 'xác nhận thỏa thuận để đăng ý tài khoản');
+                return addErrorInput(contact, 'Xác nhận thỏa thuận để đăng ý tài khoản');
             }
             $.ajax({
                 url: '/register',

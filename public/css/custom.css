@@ -965,6 +965,7 @@ form#login-form {
     border: 1px solid #f85f64!important;
 }
 .input-help-block {
+    display: block;
     color: #f85f64;
 }
 .jw-video-csn{
@@ -1208,9 +1209,6 @@ form#login-form {
 }
 .ad__box {
     z-index: 99;
-}
-.input-help-block {
-    display: block;
 }
 .btn_change_password {
     margin-bottom: 2px;

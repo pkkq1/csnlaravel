@@ -41,6 +41,6 @@
 </body>
 <?php
     global $timeStart;
-    echo '<center>'.(microtime(true) - $timeStart).'</center>';
+    echo '<center>'.number_format((microtime(true) - $timeStart), 2).'</center>';
 ?>
 </html>

@@ -38,7 +38,7 @@ class ForgotPasswordController extends Controller
     protected function sendResetLinkResponse($response)
     {
         return response()->json(['status' => [
-            'email' => 'Kiểm tra hộ thư email của bạn.'
+            'email' => 'Kiểm tra hộp thư email của bạn.'
         ]], 200);
     }
 }
