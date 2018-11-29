@@ -36,8 +36,8 @@ class AuthFacebookController extends Controller
         $user = Socialite::driver('facebook')->user();
         // Create user
         $email = ($user->getEmail() ? $user->getEmail() : $user->getId() . '@chiasenhac.com');
-        $existUser = User::where([['app_id', '=', $user->getId()], ['email', '=', $email]])->first();
-        if(empty($existUser)) {
+        $existUser = User::where('app_id', '=', $user->getId())->orWhere('email', '=', $email)->first();
+        if(!$existUser) {
             $existUser = User::firstOrCreate([
                 'name' => $user->getName(),
                 'email' => $email,
