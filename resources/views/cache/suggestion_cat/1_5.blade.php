@@ -15,11 +15,15 @@ $typeDup = array (
     'music_title_url' => 'nandemonaiya~kobasolo',
     'music_title' => 'Nandemonaiya (なんでもんしや)',
     'music_artist' => 'Kobasolo',
-    'music_artist_id' => '',
+    'music_artist_id' => '93491',
     'music_album_id' => '',
     'music_listen' => 7631,
     'music_bitrate' => 96,
     'music_filename' => '1756102-602788dd.mp4',
+    'music_width' => 1280,
+    'music_height' => 720,
+    'music_artist_html' => '<a href="/ca-si/Kobasolo~Y3NuX2FydGlzdH45MzQ5MQ==.html">Kobasolo</a>',
+    'music_bitrate_html' => '<span style="color: orange">HD 720p</span>',
   ),
   1 => 
   array (
@@ -35,6 +39,10 @@ $typeDup = array (
     'music_listen' => 108,
     'music_bitrate' => 192,
     'music_filename' => '1960828-243e6e3f.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Kana-Hanazawa~Y3NuX2FydGlzdH4xNDczOA==.html">Kana Hanazawa</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   2 => 
   array (
@@ -45,11 +53,15 @@ $typeDup = array (
     'music_title_url' => 'tell-me-good-bye~big-bang',
     'music_title' => 'Tell Me Good Bye',
     'music_artist' => 'Big Bang',
-    'music_artist_id' => '',
+    'music_artist_id' => '982',
     'music_album_id' => '',
     'music_listen' => 35949,
     'music_bitrate' => 96,
     'music_filename' => '358991-3b541eb2.mp4',
+    'music_width' => 640,
+    'music_height' => 360,
+    'music_artist_html' => '<a href="/ca-si/Big-Bang~Y3NuX2FydGlzdH45ODI=.html">Big Bang</a>',
+    'music_bitrate_html' => '<span style="color: darkgreen">MV 360p</span>',
   ),
   3 => 
   array (
@@ -65,6 +77,10 @@ $typeDup = array (
     'music_listen' => 856,
     'music_bitrate' => 128,
     'music_filename' => '1952708-42e1a5ce.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/NGT48~Y3NuX2FydGlzdH4xMzYzNQ==.html">NGT48</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   4 => 
   array (
@@ -80,6 +96,10 @@ $typeDup = array (
     'music_listen' => 276,
     'music_bitrate' => 96,
     'music_filename' => '1960104-0dce2911.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Momoland~Y3NuX2FydGlzdH4xMzM5MQ==.html">Momoland</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   5 => 
   array (
@@ -95,6 +115,10 @@ $typeDup = array (
     'music_listen' => 958,
     'music_bitrate' => 128,
     'music_filename' => '1950516-9e12803c.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Nogizaka46~Y3NuX2FydGlzdH4xMzU1Nw==.html">Nogizaka46</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   6 => 
   array (
@@ -110,6 +134,10 @@ $typeDup = array (
     'music_listen' => 919,
     'music_bitrate' => 128,
     'music_filename' => '1875596-9f6c1469.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Nogizaka46~Y3NuX2FydGlzdH4xMzU1Nw==.html">Nogizaka46</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   7 => 
   array (
@@ -120,11 +148,15 @@ $typeDup = array (
     'music_title_url' => 'natsu-yo-isoge~ske48',
     'music_title' => 'Natsu yo, Isoge! (夏よ、急げ！)',
     'music_artist' => 'SKE48',
-    'music_artist_id' => '',
+    'music_artist_id' => '13695',
     'music_album_id' => '',
     'music_listen' => 54771,
     'music_bitrate' => 128,
     'music_filename' => '1767658-d34dc118.mp4',
+    'music_width' => 1280,
+    'music_height' => 720,
+    'music_artist_html' => '<a href="/ca-si/SKE48~Y3NuX2FydGlzdH4xMzY5NQ==.html">SKE48</a>',
+    'music_bitrate_html' => '<span style="color: orange">HD 720p</span>',
   ),
   8 => 
   array (
@@ -135,11 +167,15 @@ $typeDup = array (
     'music_title_url' => 'frontiers~the-rampage-from-exile-tribe',
     'music_title' => 'Frontiers',
     'music_artist' => 'THE RAMPAGE from EXILE TRIBE',
-    'music_artist_id' => '',
+    'music_artist_id' => '14051',
     'music_album_id' => '',
     'music_listen' => 10561,
     'music_bitrate' => 256,
     'music_filename' => '1776490-fa6c9b25.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/THE-RAMPAGE-from-EXILE-TRIBE~Y3NuX2FydGlzdH4xNDA1MQ==.html">THE RAMPAGE from EXILE TRIBE</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   9 => 
   array (
@@ -150,11 +186,15 @@ $typeDup = array (
     'music_title_url' => 'bokutachi-wa-tsukiatteiru-hiragana-keyakizaka46-akb48-show-ep148-ke~keyakizaka46',
     'music_title' => 'Bokutachi wa Tsukiatteiru (僕たちは付き合っている) / Hiragana Keyakizaka46 (AKB48 SHOW! ep148 (Keyakizaka46 SHOW!) 2017.04.15)',
     'music_artist' => 'Keyakizaka46',
-    'music_artist_id' => '',
+    'music_artist_id' => '15964',
     'music_album_id' => '',
     'music_listen' => 1585,
     'music_bitrate' => 128,
     'music_filename' => '1780588-954ce10c.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Keyakizaka46~Y3NuX2FydGlzdH4xNTk2NA==.html">Keyakizaka46</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   10 => 
   array (
@@ -170,6 +210,10 @@ $typeDup = array (
     'music_listen' => 2283,
     'music_bitrate' => 96,
     'music_filename' => '1897228-366106c9.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/HKT48~Y3NuX2FydGlzdH4xNDYwMw==.html">HKT48</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   11 => 
   array (
@@ -185,6 +229,10 @@ $typeDup = array (
     'music_listen' => 1025,
     'music_bitrate' => 96,
     'music_filename' => '1920973-ba70d571.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/SKE48~Y3NuX2FydGlzdH4xMzY5NQ==.html">SKE48</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   12 => 
   array (
@@ -200,6 +248,10 @@ $typeDup = array (
     'music_listen' => 457,
     'music_bitrate' => 192,
     'music_filename' => '1897410-7e4bc2ae.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Nogizaka46~Y3NuX2FydGlzdH4xMzU1Nw==.html">Nogizaka46</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   13 => 
   array (
@@ -215,6 +267,10 @@ $typeDup = array (
     'music_listen' => 1135,
     'music_bitrate' => 96,
     'music_filename' => '1880784-cf7a8140.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Keyakizaka46~Y3NuX2FydGlzdH4xNTk2NA==.html">Keyakizaka46</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   14 => 
   array (
@@ -230,6 +286,10 @@ $typeDup = array (
     'music_listen' => 574,
     'music_bitrate' => 128,
     'music_filename' => '1836406-7a396771.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   15 => 
   array (
@@ -245,6 +305,10 @@ $typeDup = array (
     'music_listen' => 628,
     'music_bitrate' => 128,
     'music_filename' => '1928497-7d8ed239.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/THE-RAMPAGE-from-EXILE-TRIBE~Y3NuX2FydGlzdH4xNDA1MQ==.html">THE RAMPAGE from EXILE TRIBE</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   16 => 
   array (
@@ -260,6 +324,10 @@ $typeDup = array (
     'music_listen' => 660,
     'music_bitrate' => 128,
     'music_filename' => '1950515-09b30459.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Nogizaka46~Y3NuX2FydGlzdH4xMzU1Nw==.html">Nogizaka46</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   17 => 
   array (
@@ -275,6 +343,10 @@ $typeDup = array (
     'music_listen' => 593,
     'music_bitrate' => 96,
     'music_filename' => '1934883-067a0201.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Nogizaka46~Y3NuX2FydGlzdH4xMzU1Nw==.html">Nogizaka46</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   18 => 
   array (
@@ -290,6 +362,10 @@ $typeDup = array (
     'music_listen' => 782,
     'music_bitrate' => 128,
     'music_filename' => '1890881-ad393c14.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Keyakizaka46~Y3NuX2FydGlzdH4xNTk2NA==.html">Keyakizaka46</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   19 => 
   array (
@@ -305,6 +381,10 @@ $typeDup = array (
     'music_listen' => 428,
     'music_bitrate' => 128,
     'music_filename' => '1950514-b4408fa3.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Nogizaka46~Y3NuX2FydGlzdH4xMzU1Nw==.html">Nogizaka46</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   20 => 
   array (
@@ -320,6 +400,10 @@ $typeDup = array (
     'music_listen' => 256,
     'music_bitrate' => 96,
     'music_filename' => '1931708-f5aa260c.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Nogizaka46~Y3NuX2FydGlzdH4xMzU1Nw==.html">Nogizaka46</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   21 => 
   array (
@@ -335,6 +419,10 @@ $typeDup = array (
     'music_listen' => 1526,
     'music_bitrate' => 320,
     'music_filename' => '1943756-d8b0d3a3.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Twice~Y3NuX2FydGlzdH4xMzM4OA==.html">Twice</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   22 => 
   array (
@@ -350,6 +438,10 @@ $typeDup = array (
     'music_listen' => 158,
     'music_bitrate' => 192,
     'music_filename' => '1894451-46274419.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/T-Ara~Y3NuX2FydGlzdH4xNDEz.html">T-Ara</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   23 => 
   array (
@@ -365,6 +457,10 @@ $typeDup = array (
     'music_listen' => 10265,
     'music_bitrate' => 128,
     'music_filename' => '1946758-d09bdd00.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   24 => 
   array (
@@ -380,6 +476,10 @@ $typeDup = array (
     'music_listen' => 588,
     'music_bitrate' => 128,
     'music_filename' => '1959520-1fae48a5.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/NMB48~Y3NuX2FydGlzdH4xNjgyNg==.html">NMB48</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   25 => 
   array (
@@ -395,6 +495,10 @@ $typeDup = array (
     'music_listen' => 788,
     'music_bitrate' => 128,
     'music_filename' => '1953963-c473eeb0.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/NGT48~Y3NuX2FydGlzdH4xMzYzNQ==.html">NGT48</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   26 => 
   array (
@@ -410,6 +514,10 @@ $typeDup = array (
     'music_listen' => 4387,
     'music_bitrate' => 96,
     'music_filename' => '1955249-e12e7691.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/GFriend~Y3NuX2FydGlzdH4xMzM5MA==.html">GFriend</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   27 => 
   array (
@@ -425,6 +533,10 @@ $typeDup = array (
     'music_listen' => 1611,
     'music_bitrate' => 128,
     'music_filename' => '1955418-fee50aae.mp4',
+    'music_width' => 1280,
+    'music_height' => 720,
+    'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
+    'music_bitrate_html' => '<span style="color: orange">HD 720p</span>',
   ),
   28 => 
   array (
@@ -440,6 +552,10 @@ $typeDup = array (
     'music_listen' => 12787,
     'music_bitrate' => 256,
     'music_filename' => '1827002-5c8327cf.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/BlackPink~Y3NuX2FydGlzdH4xNDY3Mw==.html">BlackPink</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   29 => 
   array (
@@ -455,6 +571,10 @@ $typeDup = array (
     'music_listen' => 923,
     'music_bitrate' => 128,
     'music_filename' => '1950513-7ba99b41.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Nogizaka46~Y3NuX2FydGlzdH4xMzU1Nw==.html">Nogizaka46</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   30 => 
   array (
@@ -465,11 +585,15 @@ $typeDup = array (
     'music_title_url' => 'mazariau-mono-nogizaka-akb-kojimatsuri-kojima-haruna-kanshasa-day-1-201702~akb48',
     'music_title' => 'Mazariau Mono (混ざり合うもの) / Nogizaka AKB (Kojimatsuri ～Kojima Haruna Kanshasa～ DAY 1 2017.02.21)',
     'music_artist' => 'AKB48',
-    'music_artist_id' => '',
+    'music_artist_id' => '723',
     'music_album_id' => '',
     'music_listen' => 48688,
     'music_bitrate' => 256,
     'music_filename' => '1781978-7dcdfd66.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   31 => 
   array (
@@ -485,6 +609,10 @@ $typeDup = array (
     'music_listen' => 1865,
     'music_bitrate' => 256,
     'music_filename' => '1810696-5086d03c.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/RADWIMPS~Y3NuX2FydGlzdH4xODY1Mg==.html">RADWIMPS</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   32 => 
   array (
@@ -500,6 +628,10 @@ $typeDup = array (
     'music_listen' => 1445,
     'music_bitrate' => 128,
     'music_filename' => '1955294-f3b75e20.mp4',
+    'music_width' => 1280,
+    'music_height' => 720,
+    'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
+    'music_bitrate_html' => '<span style="color: orange">HD 720p</span>',
   ),
   33 => 
   array (
@@ -515,6 +647,10 @@ $typeDup = array (
     'music_listen' => 522,
     'music_bitrate' => 128,
     'music_filename' => '1953565-49972834.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/TWICE~Y3NuX2FydGlzdH4xMzg5OA==.html">TWICE</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   34 => 
   array (
@@ -525,11 +661,15 @@ $typeDup = array (
     'music_title_url' => 'suki-na-hito-ga-iru-koto~jy',
     'music_title' => 'Suki Na Hito Ga Iru Koto (好きな人がいること)',
     'music_artist' => 'JY',
-    'music_artist_id' => '',
+    'music_artist_id' => '80855',
     'music_album_id' => 'SRCL-9121',
     'music_listen' => 11860,
     'music_bitrate' => 96,
     'music_filename' => '1735723-6091c7dc.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/JY~Y3NuX2FydGlzdH44MDg1NQ==.html">JY</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   35 => 
   array (
@@ -539,12 +679,16 @@ $typeDup = array (
     'cover_id' => 0,
     'music_title_url' => 'love-is-a-beautiful-paint~endless-tears-nakamura-maiko',
     'music_title' => 'Love Is A Beautiful Paint',
-    'music_artist' => 'Endless Tears; Nakamura Maiko',
-    'music_artist_id' => '',
+    'music_artist' => 'Endless Tears;Nakamura Maiko',
+    'music_artist_id' => '69752;50115',
     'music_album_id' => '',
     'music_listen' => 36073,
     'music_bitrate' => 192,
     'music_filename' => '1525644-fc4bb767.mp4',
+    'music_width' => 1280,
+    'music_height' => 720,
+    'music_artist_html' => '<a href="/ca-si/Endless-Tears~Y3NuX2FydGlzdH42OTc1Mg==.html">Endless Tears</a>, <a href="/ca-si/Nakamura-Maiko~Y3NuX2FydGlzdH41MDExNQ==.html">Nakamura Maiko</a>',
+    'music_bitrate_html' => '<span style="color: orange">HD 720p</span>',
   ),
   36 => 
   array (
@@ -555,11 +699,15 @@ $typeDup = array (
     'music_title_url' => 'dear-bride~nishino-kana',
     'music_title' => 'Dear Bride',
     'music_artist' => 'Nishino Kana',
-    'music_artist_id' => '',
+    'music_artist_id' => '13693',
     'music_album_id' => '',
     'music_listen' => 2632,
     'music_bitrate' => 256,
     'music_filename' => '1733813-6ed9154f.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Nishino-Kana~Y3NuX2FydGlzdH4xMzY5Mw==.html">Nishino Kana</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   37 => 
   array (
@@ -570,11 +718,15 @@ $typeDup = array (
     'music_title_url' => 'flash~perfume',
     'music_title' => 'Flash',
     'music_artist' => 'Perfume',
-    'music_artist_id' => '',
+    'music_artist_id' => '11906',
     'music_album_id' => 'UPCP-9013',
     'music_listen' => 3115,
     'music_bitrate' => 256,
     'music_filename' => '1650059-0c741708.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Perfume~Y3NuX2FydGlzdH4xMTkwNg==.html">Perfume</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   38 => 
   array (
@@ -590,6 +742,10 @@ $typeDup = array (
     'music_listen' => 3578,
     'music_bitrate' => 128,
     'music_filename' => '1823615-181a4216.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Nogizaka46~Y3NuX2FydGlzdH4xMzU1Nw==.html">Nogizaka46</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   39 => 
   array (
@@ -600,11 +756,15 @@ $typeDup = array (
     'music_title_url' => 'renai-circulation~hanazawa-kana',
     'music_title' => 'Renai Circulation (恋愛サーキュレーション)',
     'music_artist' => 'Hanazawa Kana',
-    'music_artist_id' => '',
+    'music_artist_id' => '14756',
     'music_album_id' => 'SVWC-70127',
     'music_listen' => 3387,
     'music_bitrate' => 320,
     'music_filename' => '1726280-f30b6f73.mp4',
+    'music_width' => 720,
+    'music_height' => 480,
+    'music_artist_html' => '<a href="/ca-si/Hanazawa-Kana~Y3NuX2FydGlzdH4xNDc1Ng==.html">Hanazawa Kana</a>',
+    'music_bitrate_html' => '<span style="color: darkgreen">720x480</span>',
   ),
   40 => 
   array (
@@ -615,11 +775,15 @@ $typeDup = array (
     'music_title_url' => 'fuusen-wa-ikiteiru-under-members-akb48-show-ep150-nogizaka46-show-201~nogizaka46',
     'music_title' => 'Fuusen wa Ikiteiru (風船は生きている) / Under Members @ AKB48 SHOW! ep150 (Nogizaka46 SHOW!) (2017.05.06)',
     'music_artist' => 'Nogizaka46',
-    'music_artist_id' => '',
+    'music_artist_id' => '13557',
     'music_album_id' => '',
     'music_listen' => 4489,
     'music_bitrate' => 128,
     'music_filename' => '1785494-df1c6e5d.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Nogizaka46~Y3NuX2FydGlzdH4xMzU1Nw==.html">Nogizaka46</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   41 => 
   array (
@@ -630,11 +794,15 @@ $typeDup = array (
     'music_title_url' => 'ima-naraba-saya-milky~nmb48',
     'music_title' => 'Ima Naraba (今ならば) / Saya Milky',
     'music_artist' => 'NMB48',
-    'music_artist_id' => '',
+    'music_artist_id' => '16826',
     'music_album_id' => '',
     'music_listen' => 2774,
     'music_bitrate' => 96,
     'music_filename' => '1698428-4ade0eb1.mp4',
+    'music_width' => 864,
+    'music_height' => 480,
+    'music_artist_html' => '<a href="/ca-si/NMB48~Y3NuX2FydGlzdH4xNjgyNg==.html">NMB48</a>',
+    'music_bitrate_html' => '<span style="color: darkblue">864x480</span>',
   ),
   42 => 
   array (
@@ -650,6 +818,10 @@ $typeDup = array (
     'music_listen' => 2046,
     'music_bitrate' => 128,
     'music_filename' => '1828871-8ea02fee.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Nogizaka46~Y3NuX2FydGlzdH4xMzU1Nw==.html">Nogizaka46</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   43 => 
   array (
@@ -660,11 +832,15 @@ $typeDup = array (
     'music_title_url' => 'seifuku-wo-kita-meitantei-dreaming-girl-akb48-show-ep151-20170513~ske48',
     'music_title' => 'Seifuku wo Kita Meitantei (制服を着た名探偵) / Dreaming Girl (AKB48 SHOW! ep151 2017.05.13)',
     'music_artist' => 'SKE48',
-    'music_artist_id' => '',
+    'music_artist_id' => '13695',
     'music_album_id' => '',
     'music_listen' => 1281,
     'music_bitrate' => 128,
     'music_filename' => '1787261-cbd2ef38.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/SKE48~Y3NuX2FydGlzdH4xMzY5NQ==.html">SKE48</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   44 => 
   array (
@@ -680,6 +856,10 @@ $typeDup = array (
     'music_listen' => 1217,
     'music_bitrate' => 128,
     'music_filename' => '1948114-afeab3d3.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/BLACKPINK~Y3NuX2FydGlzdH4xOTU2NQ==.html">BLACKPINK</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   45 => 
   array (
@@ -695,6 +875,10 @@ $typeDup = array (
     'music_listen' => 879,
     'music_bitrate' => 192,
     'music_filename' => '1901688-19b54933.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/EXO-CBX~Y3NuX2FydGlzdH4xMzU3Mw==.html">EXO-CBX</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   46 => 
   array (
@@ -710,6 +894,10 @@ $typeDup = array (
     'music_listen' => 1181,
     'music_bitrate' => 128,
     'music_filename' => '1815324-c58e8049.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/BlackPink~Y3NuX2FydGlzdH4xNDY3Mw==.html">BlackPink</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   47 => 
   array (
@@ -725,6 +913,10 @@ $typeDup = array (
     'music_listen' => 745,
     'music_bitrate' => 128,
     'music_filename' => '1904818-2c8f868d.mp4',
+    'music_width' => 1280,
+    'music_height' => 720,
+    'music_artist_html' => '<a href="/ca-si/HKT48~Y3NuX2FydGlzdH4xNDYwMw==.html">HKT48</a>',
+    'music_bitrate_html' => '<span style="color: orange">HD 720p</span>',
   ),
   48 => 
   array (
@@ -740,6 +932,10 @@ $typeDup = array (
     'music_listen' => 1242,
     'music_bitrate' => 128,
     'music_filename' => '1955417-1b5c0f02.mp4',
+    'music_width' => 1280,
+    'music_height' => 720,
+    'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
+    'music_bitrate_html' => '<span style="color: orange">HD 720p</span>',
   ),
   49 => 
   array (
@@ -750,11 +946,15 @@ $typeDup = array (
     'music_title_url' => '365nichi-no-kamihikouki-365-piano-ver-yokoyama-yui-akb48-group-douji-kaisa~akb48',
     'music_title' => '365nichi no Kamihikouki (365日の紙飛行機) -Piano ver.- / Yokoyama Yui (AKB48 Group Douji Kaisai Concert in Yokohama 2016.09.15)',
     'music_artist' => 'AKB48',
-    'music_artist_id' => '',
+    'music_artist_id' => '723',
     'music_album_id' => '',
     'music_listen' => 1273,
     'music_bitrate' => 256,
     'music_filename' => '1764239-69d1b938.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   50 => 
   array (
@@ -770,6 +970,10 @@ $typeDup = array (
     'music_listen' => 1361,
     'music_bitrate' => 128,
     'music_filename' => '1821781-d19df87b.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Nogizaka46~Y3NuX2FydGlzdH4xMzU1Nw==.html">Nogizaka46</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   51 => 
   array (
@@ -785,6 +989,10 @@ $typeDup = array (
     'music_listen' => 648,
     'music_bitrate' => 256,
     'music_filename' => '1942961-c66a0cb1.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/NMB48~Y3NuX2FydGlzdH4xNjgyNg==.html">NMB48</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   52 => 
   array (
@@ -800,6 +1008,10 @@ $typeDup = array (
     'music_listen' => 1626,
     'music_bitrate' => 128,
     'music_filename' => '1833012-0a2eca63.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/NGT48~Y3NuX2FydGlzdH4xMzYzNQ==.html">NGT48</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   53 => 
   array (
@@ -815,6 +1027,10 @@ $typeDup = array (
     'music_listen' => 642,
     'music_bitrate' => 128,
     'music_filename' => '1901200-9be9e5b2.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Nogizaka46~Y3NuX2FydGlzdH4xMzU1Nw==.html">Nogizaka46</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   54 => 
   array (
@@ -830,6 +1046,10 @@ $typeDup = array (
     'music_listen' => 430,
     'music_bitrate' => 128,
     'music_filename' => '1905229-d1fb6e49.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Nogizaka46~Y3NuX2FydGlzdH4xMzU1Nw==.html">Nogizaka46</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   55 => 
   array (
@@ -845,6 +1065,10 @@ $typeDup = array (
     'music_listen' => 580,
     'music_bitrate' => 128,
     'music_filename' => '1910016-83ffd089.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   56 => 
   array (
@@ -860,6 +1084,10 @@ $typeDup = array (
     'music_listen' => 545,
     'music_bitrate' => 128,
     'music_filename' => '1796940-97f1a39b.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   57 => 
   array (
@@ -875,6 +1103,10 @@ $typeDup = array (
     'music_listen' => 531,
     'music_bitrate' => 128,
     'music_filename' => '1837818-255159eb.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Nogizaka46~Y3NuX2FydGlzdH4xMzU1Nw==.html">Nogizaka46</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   58 => 
   array (
@@ -890,6 +1122,10 @@ $typeDup = array (
     'music_listen' => 797,
     'music_bitrate' => 128,
     'music_filename' => '1850844-dc6d720a.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Nogizaka46~Y3NuX2FydGlzdH4xMzU1Nw==.html">Nogizaka46</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   59 => 
   array (
@@ -905,6 +1141,10 @@ $typeDup = array (
     'music_listen' => 522,
     'music_bitrate' => 128,
     'music_filename' => '1953564-2d7080c7.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/TWICE~Y3NuX2FydGlzdH4xMzg5OA==.html">TWICE</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   60 => 
   array (
@@ -920,6 +1160,10 @@ $typeDup = array (
     'music_listen' => 360,
     'music_bitrate' => 192,
     'music_filename' => '1883805-67cd4bd7.mp4',
+    'music_width' => 1280,
+    'music_height' => 720,
+    'music_artist_html' => '<a href="/ca-si/CHiE~Y3NuX2FydGlzdH4xMDQ5NjQ=.html">CHiE</a>',
+    'music_bitrate_html' => '<span style="color: orange">HD 720p</span>',
   ),
   61 => 
   array (
@@ -935,6 +1179,10 @@ $typeDup = array (
     'music_listen' => 539,
     'music_bitrate' => 128,
     'music_filename' => '1846816-ac37adb0.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Nogizaka46~Y3NuX2FydGlzdH4xMzU1Nw==.html">Nogizaka46</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   62 => 
   array (
@@ -950,6 +1198,10 @@ $typeDup = array (
     'music_listen' => 455,
     'music_bitrate' => 128,
     'music_filename' => '1852453-dc1bd02d.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Watanabe-Mayu~Y3NuX2FydGlzdH40MjE5Ng==.html">Watanabe Mayu</a>, <a href="/ca-si/Inoue-Yoshio~Y3NuX2FydGlzdH4xMDI2NDk=.html">Inoue Yoshio</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   63 => 
   array (
@@ -965,6 +1217,10 @@ $typeDup = array (
     'music_listen' => 386,
     'music_bitrate' => 128,
     'music_filename' => '1947873-c97f3dc8.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/SKE48~Y3NuX2FydGlzdH4xMzY5NQ==.html">SKE48</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   64 => 
   array (
@@ -980,6 +1236,10 @@ $typeDup = array (
     'music_listen' => 368,
     'music_bitrate' => 128,
     'music_filename' => '1852455-cabb2529.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Chinen-Rina~Y3NuX2FydGlzdH4xMDI2NTE=.html">Chinen Rina</a>, <a href="/ca-si/Niizuma-Seiko~Y3NuX2FydGlzdH4xMDI2NTI=.html">Niizuma Seiko</a>, <a href="/ca-si/Ikuta-Erika~Y3NuX2FydGlzdH4xNzIyOQ==.html">Ikuta Erika</a>, <a href="/ca-si/Kon-Natsumi~Y3NuX2FydGlzdH4xMDI2NTA=.html">Kon Natsumi</a>, <a href="/ca-si/Yamazaki-Ikusaburo~Y3NuX2FydGlzdH4xNzIzMA==.html">Yamazaki Ikusaburo</a>, <a href="/ca-si/Inoue-Yoshio~Y3NuX2FydGlzdH4xMDI2NDk=.html">Inoue Yoshio</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   65 => 
   array (
@@ -995,6 +1255,10 @@ $typeDup = array (
     'music_listen' => 145,
     'music_bitrate' => 128,
     'music_filename' => '1959523-7096a60d.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/E-girls~Y3NuX2FydGlzdH4xNjA5Mw==.html">E-girls</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   66 => 
   array (
@@ -1010,6 +1274,10 @@ $typeDup = array (
     'music_listen' => 400,
     'music_bitrate' => 128,
     'music_filename' => '1875597-a4f8ce9b.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Nogizaka46~Y3NuX2FydGlzdH4xMzU1Nw==.html">Nogizaka46</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   67 => 
   array (
@@ -1025,6 +1293,10 @@ $typeDup = array (
     'music_listen' => 223,
     'music_bitrate' => 128,
     'music_filename' => '1852435-0f72a54b.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Nishino-Kana~Y3NuX2FydGlzdH4xMzY5Mw==.html">Nishino Kana</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   68 => 
   array (
@@ -1040,6 +1312,10 @@ $typeDup = array (
     'music_listen' => 393,
     'music_bitrate' => 128,
     'music_filename' => '1869691-0382aaf5.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/TWICE~Y3NuX2FydGlzdH4xMzg5OA==.html">TWICE</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   69 => 
   array (
@@ -1055,6 +1331,10 @@ $typeDup = array (
     'music_listen' => 197,
     'music_bitrate' => 128,
     'music_filename' => '1953979-91260012.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   70 => 
   array (
@@ -1070,6 +1350,10 @@ $typeDup = array (
     'music_listen' => 272,
     'music_bitrate' => 128,
     'music_filename' => '1920534-24f49ed5.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/BIGBANG~Y3NuX2FydGlzdH4xODExNA==.html">BIGBANG</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   71 => 
   array (
@@ -1085,6 +1369,10 @@ $typeDup = array (
     'music_listen' => 309,
     'music_bitrate' => 128,
     'music_filename' => '1875598-e1534b25.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Nogizaka46~Y3NuX2FydGlzdH4xMzU1Nw==.html">Nogizaka46</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   72 => 
   array (
@@ -1100,6 +1388,10 @@ $typeDup = array (
     'music_listen' => 102,
     'music_bitrate' => 320,
     'music_filename' => '1960265-6fb130db.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Mamamoo~Y3NuX2FydGlzdH4xNDg5Mg==.html">Mamamoo</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   73 => 
   array (
@@ -1115,6 +1407,10 @@ $typeDup = array (
     'music_listen' => 112,
     'music_bitrate' => 128,
     'music_filename' => '1960502-c8f50c2b.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/GFRIEND~Y3NuX2FydGlzdH4xNDU2NA==.html">GFRIEND</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   74 => 
   array (
@@ -1130,6 +1426,10 @@ $typeDup = array (
     'music_listen' => 109,
     'music_bitrate' => 320,
     'music_filename' => '1960323-e024370a.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/GFriend~Y3NuX2FydGlzdH4xMzM5MA==.html">GFriend</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   75 => 
   array (
@@ -1145,6 +1445,10 @@ $typeDup = array (
     'music_listen' => 123,
     'music_bitrate' => 128,
     'music_filename' => '1925685-f8e5be62.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Nogizaka46~Y3NuX2FydGlzdH4xMzU1Nw==.html">Nogizaka46</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   76 => 
   array (
@@ -1155,11 +1459,15 @@ $typeDup = array (
     'music_title_url' => 'levan-polkka~hatsune-miku',
     'music_title' => 'Levan Polkka',
     'music_artist' => 'Hatsune Miku',
-    'music_artist_id' => '',
+    'music_artist_id' => '2021',
     'music_album_id' => '',
     'music_listen' => 33312,
     'music_bitrate' => 96,
     'music_filename' => '1716582-92462174.mp4',
+    'music_width' => 1280,
+    'music_height' => 720,
+    'music_artist_html' => '<a href="/ca-si/Hatsune-Miku~Y3NuX2FydGlzdH4yMDIx.html">Hatsune Miku</a>',
+    'music_bitrate_html' => '<span style="color: orange">HD 720p</span>',
   ),
   77 => 
   array (
@@ -1170,11 +1478,15 @@ $typeDup = array (
     'music_title_url' => 'kurayami-motomu~ngt48',
     'music_title' => 'Kurayami Motomu (暗闇求む)',
     'music_artist' => 'NGT48',
-    'music_artist_id' => '',
+    'music_artist_id' => '13635',
     'music_album_id' => '',
     'music_listen' => 24843,
     'music_bitrate' => 128,
     'music_filename' => '1777619-13d14040.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/NGT48~Y3NuX2FydGlzdH4xMzYzNQ==.html">NGT48</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   78 => 
   array (
@@ -1185,11 +1497,15 @@ $typeDup = array (
     'music_title_url' => 'seishun-dokei~ngt48',
     'music_title' => 'Seishun Dokei (青春時計)',
     'music_artist' => 'NGT48',
-    'music_artist_id' => '',
+    'music_artist_id' => '13635',
     'music_album_id' => '',
     'music_listen' => 10902,
     'music_bitrate' => 96,
     'music_filename' => '1773515-23e7dcd8.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/NGT48~Y3NuX2FydGlzdH4xMzYzNQ==.html">NGT48</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   79 => 
   array (
@@ -1200,11 +1516,15 @@ $typeDup = array (
     'music_title_url' => 'futari-saison~keyakizaka46',
     'music_title' => 'Futari Saison (二人セゾン)',
     'music_artist' => 'Keyakizaka46',
-    'music_artist_id' => '',
+    'music_artist_id' => '15964',
     'music_album_id' => '',
     'music_listen' => 11289,
     'music_bitrate' => 192,
     'music_filename' => '1749791-27451a42.mp4',
+    'music_width' => 1280,
+    'music_height' => 720,
+    'music_artist_html' => '<a href="/ca-si/Keyakizaka46~Y3NuX2FydGlzdH4xNTk2NA==.html">Keyakizaka46</a>',
+    'music_bitrate_html' => '<span style="color: orange">HD 720p</span>',
   ),
   80 => 
   array (
@@ -1215,11 +1535,15 @@ $typeDup = array (
     'music_title_url' => 'hitsuzenteki-koibito~hkt48',
     'music_title' => 'Hitsuzenteki Koibito (必然的恋人)',
     'music_artist' => 'HKT48',
-    'music_artist_id' => '',
+    'music_artist_id' => '14603',
     'music_album_id' => '',
     'music_listen' => 4309,
     'music_bitrate' => 96,
     'music_filename' => '1764273-33d49a9b.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/HKT48~Y3NuX2FydGlzdH4xNDYwMw==.html">HKT48</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   81 => 
   array (
@@ -1230,11 +1554,15 @@ $typeDup = array (
     'music_title_url' => 'sayonara-no-imi-nogizaka46-show-akb48-show-ep142-20170218~nogizaka46',
     'music_title' => 'Sayonara no Imi (サヨナラの意味) @ Nogizaka46 SHOW! (AKB48 SHOW! ep142 (2017.02.18)',
     'music_artist' => 'Nogizaka46',
-    'music_artist_id' => '',
+    'music_artist_id' => '13557',
     'music_album_id' => '',
     'music_listen' => 4471,
     'music_bitrate' => 128,
     'music_filename' => '1766841-1b2f03de.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Nogizaka46~Y3NuX2FydGlzdH4xMzU1Nw==.html">Nogizaka46</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   82 => 
   array (
@@ -1245,11 +1573,15 @@ $typeDup = array (
     'music_title_url' => 'accident-chu-akb48-u-19-senbatsu~akb48',
     'music_title' => 'Accident Chu (アクシデント中) / AKB48 U-19 Senbatsu',
     'music_artist' => 'AKB48',
-    'music_artist_id' => '',
+    'music_artist_id' => '723',
     'music_album_id' => '',
     'music_listen' => 7273,
     'music_bitrate' => 256,
     'music_filename' => '1773246-3316888e.mp4',
+    'music_width' => 1280,
+    'music_height' => 720,
+    'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
+    'music_bitrate_html' => '<span style="color: orange">HD 720p</span>',
   ),
   83 => 
   array (
@@ -1260,11 +1592,15 @@ $typeDup = array (
     'music_title_url' => 'max-toki-315go-max-315~ngt48',
     'music_title' => 'Max Toki 315go (Max とき315 号)',
     'music_artist' => 'NGT48',
-    'music_artist_id' => '',
+    'music_artist_id' => '13635',
     'music_album_id' => '',
     'music_listen' => 6658,
     'music_bitrate' => 192,
     'music_filename' => '1634563-28abcae7.mp4',
+    'music_width' => 1280,
+    'music_height' => 720,
+    'music_artist_html' => '<a href="/ca-si/NGT48~Y3NuX2FydGlzdH4xMzYzNQ==.html">NGT48</a>',
+    'music_bitrate_html' => '<span style="color: orange">HD 720p</span>',
   ),
   84 => 
   array (
@@ -1275,11 +1611,15 @@ $typeDup = array (
     'music_title_url' => 'boku-wa-shitteiru-movie-ver~ske48',
     'music_title' => 'Boku wa Shitteiru (僕は知っている) Movie ver.',
     'music_artist' => 'SKE48',
-    'music_artist_id' => '',
+    'music_artist_id' => '13695',
     'music_album_id' => 'AVXD-92440～2',
     'music_listen' => 1439,
     'music_bitrate' => 128,
     'music_filename' => '1766405-f7abf2e5.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/SKE48~Y3NuX2FydGlzdH4xMzY5NQ==.html">SKE48</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   85 => 
   array (
@@ -1290,11 +1630,15 @@ $typeDup = array (
     'music_title_url' => '2dome-no-kiss-kara-2-manatsu-respect-corps-nogizaka46-show-akb48-show~nogizaka46',
     'music_title' => '2dome no Kiss Kara (2度目のキスから) / Manatsu Respect Corps @ Nogizaka46 SHOW! (AKB48 SHOW! ep142 (2017.02.18)',
     'music_artist' => 'Nogizaka46',
-    'music_artist_id' => '',
+    'music_artist_id' => '13557',
     'music_album_id' => '',
     'music_listen' => 2447,
     'music_bitrate' => 128,
     'music_filename' => '1766840-1944a949.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Nogizaka46~Y3NuX2FydGlzdH4xMzU1Nw==.html">Nogizaka46</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   86 => 
   array (
@@ -1305,11 +1649,15 @@ $typeDup = array (
     'music_title_url' => 'darkness~ske48',
     'music_title' => 'Darkness',
     'music_artist' => 'SKE48',
-    'music_artist_id' => '',
+    'music_artist_id' => '13695',
     'music_album_id' => 'AVXD-92440～2',
     'music_listen' => 3526,
     'music_bitrate' => 128,
     'music_filename' => '1754487-e518ad9c.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/SKE48~Y3NuX2FydGlzdH4xMzY5NQ==.html">SKE48</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   87 => 
   array (
@@ -1320,11 +1668,15 @@ $typeDup = array (
     'music_title_url' => 'nandemonaiya-fns-kayousai-20161207-first-night~kamishiraishi-mone',
     'music_title' => 'Nandemonaiya (なんでもないや) (FNS Kayousai - 2016.12.07 - First Night)',
     'music_artist' => 'Kamishiraishi Mone',
-    'music_artist_id' => '',
+    'music_artist_id' => '90218',
     'music_album_id' => '',
     'music_listen' => 2176,
     'music_bitrate' => 320,
     'music_filename' => '1779783-42fa4be3.mp4',
+    'music_width' => 1280,
+    'music_height' => 720,
+    'music_artist_html' => '<a href="/ca-si/Kamishiraishi-Mone~Y3NuX2FydGlzdH45MDIxOA==.html">Kamishiraishi Mone</a>',
+    'music_bitrate_html' => '<span style="color: orange">HD 720p</span>',
   ),
   88 => 
   array (
@@ -1340,6 +1692,10 @@ $typeDup = array (
     'music_listen' => 1726,
     'music_bitrate' => 192,
     'music_filename' => '1825100-4a5a6e9a.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/BlackPink~Y3NuX2FydGlzdH4xNDY3Mw==.html">BlackPink</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   89 => 
   array (
@@ -1355,6 +1711,10 @@ $typeDup = array (
     'music_listen' => 3108,
     'music_bitrate' => 128,
     'music_filename' => '1955293-c9596baf.mp4',
+    'music_width' => 1280,
+    'music_height' => 720,
+    'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
+    'music_bitrate_html' => '<span style="color: orange">HD 720p</span>',
   ),
   90 => 
   array (
@@ -1370,6 +1730,10 @@ $typeDup = array (
     'music_listen' => 2218,
     'music_bitrate' => 128,
     'music_filename' => '1801843-39df5bb3.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   91 => 
   array (
@@ -1385,6 +1749,10 @@ $typeDup = array (
     'music_listen' => 4950,
     'music_bitrate' => 96,
     'music_filename' => '1839719-f14a69b1.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Apink~Y3NuX2FydGlzdH40MDQ3.html">Apink</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   92 => 
   array (
@@ -1400,6 +1768,10 @@ $typeDup = array (
     'music_listen' => 1804,
     'music_bitrate' => 96,
     'music_filename' => '1948592-86325c9c.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/NGT48~Y3NuX2FydGlzdH4xMzYzNQ==.html">NGT48</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   93 => 
   array (
@@ -1415,6 +1787,10 @@ $typeDup = array (
     'music_listen' => 1594,
     'music_bitrate' => 96,
     'music_filename' => '1897889-445f9534.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Nogizaka46~Y3NuX2FydGlzdH4xMzU1Nw==.html">Nogizaka46</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   94 => 
   array (
@@ -1430,6 +1806,10 @@ $typeDup = array (
     'music_listen' => 1924,
     'music_bitrate' => 96,
     'music_filename' => '1934806-514d763f.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Keyakizaka46~Y3NuX2FydGlzdH4xNTk2NA==.html">Keyakizaka46</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   95 => 
   array (
@@ -1440,11 +1820,15 @@ $typeDup = array (
     'music_title_url' => 'buranko-under-members-akb48-show-ep132-nogizaka46-show-20161112~nogizaka46',
     'music_title' => 'Buranko (ブランコ) / Under Members (AKB48 SHOW! Ep132 (Nogizaka46 SHOW!) 2016.11.12)',
     'music_artist' => 'Nogizaka46',
-    'music_artist_id' => '',
+    'music_artist_id' => '13557',
     'music_album_id' => '',
     'music_listen' => 1318,
     'music_bitrate' => 128,
     'music_filename' => '1740046-bf846f96.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Nogizaka46~Y3NuX2FydGlzdH4xMzU1Nw==.html">Nogizaka46</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   96 => 
   array (
@@ -1460,6 +1844,10 @@ $typeDup = array (
     'music_listen' => 1419,
     'music_bitrate' => 128,
     'music_filename' => '1953980-50e081a7.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   97 => 
   array (
@@ -1475,6 +1863,10 @@ $typeDup = array (
     'music_listen' => 850,
     'music_bitrate' => 128,
     'music_filename' => '1833062-f448fb69.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Nogizaka46~Y3NuX2FydGlzdH4xMzU1Nw==.html">Nogizaka46</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   98 => 
   array (
@@ -1490,6 +1882,10 @@ $typeDup = array (
     'music_listen' => 1342,
     'music_bitrate' => 128,
     'music_filename' => '1815323-3416715f.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/BlackPink~Y3NuX2FydGlzdH4xNDY3Mw==.html">BlackPink</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   99 => 
   array (
@@ -1505,6 +1901,10 @@ $typeDup = array (
     'music_listen' => 510,
     'music_bitrate' => 256,
     'music_filename' => '1923439-13a2e654.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Taeyeon~Y3NuX2FydGlzdH4xNjY0.html">Taeyeon</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   100 => 
   array (
@@ -1520,6 +1920,10 @@ $typeDup = array (
     'music_listen' => 769,
     'music_bitrate' => 128,
     'music_filename' => '1902156-cb6daa96.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Nogizaka46~Y3NuX2FydGlzdH4xMzU1Nw==.html">Nogizaka46</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   101 => 
   array (
@@ -1535,6 +1939,10 @@ $typeDup = array (
     'music_listen' => 1074,
     'music_bitrate' => 96,
     'music_filename' => '1882038-844e6df8.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Keyakizaka46~Y3NuX2FydGlzdH4xNTk2NA==.html">Keyakizaka46</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   102 => 
   array (
@@ -1550,6 +1958,10 @@ $typeDup = array (
     'music_listen' => 495,
     'music_bitrate' => 128,
     'music_filename' => '1834740-c078086e.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Nogizaka46~Y3NuX2FydGlzdH4xMzU1Nw==.html">Nogizaka46</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   103 => 
   array (
@@ -1565,6 +1977,10 @@ $typeDup = array (
     'music_listen' => 591,
     'music_bitrate' => 128,
     'music_filename' => '1917202-864faf2d.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   104 => 
   array (
@@ -1580,6 +1996,10 @@ $typeDup = array (
     'music_listen' => 757,
     'music_bitrate' => 128,
     'music_filename' => '1850841-a51fd7c0.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Nogizaka46~Y3NuX2FydGlzdH4xMzU1Nw==.html">Nogizaka46</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   105 => 
   array (
@@ -1595,6 +2015,10 @@ $typeDup = array (
     'music_listen' => 504,
     'music_bitrate' => 128,
     'music_filename' => '1835876-c1aac845.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   106 => 
   array (
@@ -1610,6 +2034,10 @@ $typeDup = array (
     'music_listen' => 689,
     'music_bitrate' => 128,
     'music_filename' => '1924298-f8fb7eef.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/HKT48~Y3NuX2FydGlzdH4xNDYwMw==.html">HKT48</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   107 => 
   array (
@@ -1625,6 +2053,10 @@ $typeDup = array (
     'music_listen' => 875,
     'music_bitrate' => 128,
     'music_filename' => '1863331-5707d133.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Nogizaka46~Y3NuX2FydGlzdH4xMzU1Nw==.html">Nogizaka46</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   108 => 
   array (
@@ -1640,6 +2072,10 @@ $typeDup = array (
     'music_listen' => 260,
     'music_bitrate' => 128,
     'music_filename' => '1850843-343cf5b4.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Nogizaka46~Y3NuX2FydGlzdH4xMzU1Nw==.html">Nogizaka46</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   109 => 
   array (
@@ -1650,11 +2086,15 @@ $typeDup = array (
     'music_title_url' => 'bokutachi-no-sensou-five-cards~keyakizaka46',
     'music_title' => 'Bokutachi no Sensou (僕たちの戦争) / FIVE CARDS',
     'music_artist' => 'Keyakizaka46',
-    'music_artist_id' => '',
+    'music_artist_id' => '15964',
     'music_album_id' => '',
     'music_listen' => 431,
     'music_bitrate' => 192,
     'music_filename' => '1749793-403e0733.mp4',
+    'music_width' => 1280,
+    'music_height' => 720,
+    'music_artist_html' => '<a href="/ca-si/Keyakizaka46~Y3NuX2FydGlzdH4xNTk2NA==.html">Keyakizaka46</a>',
+    'music_bitrate_html' => '<span style="color: orange">HD 720p</span>',
   ),
   110 => 
   array (
@@ -1670,6 +2110,10 @@ $typeDup = array (
     'music_listen' => 378,
     'music_bitrate' => 128,
     'music_filename' => '1849589-c10477ce.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Ohara-Sakurako~Y3NuX2FydGlzdH4yMzkwMw==.html">Ohara Sakurako</a>, <a href="/ca-si/Shiraishi-Mai-Nogizaka46~Y3NuX2FydGlzdH4xMDI0NzE=.html">Shiraishi Mai (Nogizaka46)</a>, <a href="/ca-si/CHEMISTRY~Y3NuX2FydGlzdH4yMTkzMw==.html">CHEMISTRY</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   111 => 
   array (
@@ -1685,6 +2129,10 @@ $typeDup = array (
     'music_listen' => 344,
     'music_bitrate' => 128,
     'music_filename' => '1838927-a975cef1.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   112 => 
   array (
@@ -1700,6 +2148,10 @@ $typeDup = array (
     'music_listen' => 344,
     'music_bitrate' => 128,
     'music_filename' => '1851913-8cedf341.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Nogizaka46~Y3NuX2FydGlzdH4xMzU1Nw==.html">Nogizaka46</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   113 => 
   array (
@@ -1715,6 +2167,10 @@ $typeDup = array (
     'music_listen' => 209,
     'music_bitrate' => 320,
     'music_filename' => '1904836-cd75482a.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/BlackPink~Y3NuX2FydGlzdH4xNDY3Mw==.html">BlackPink</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   114 => 
   array (
@@ -1730,6 +2186,10 @@ $typeDup = array (
     'music_listen' => 186,
     'music_bitrate' => 128,
     'music_filename' => '1849590-342dc1c2.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Yokoyama-Daisuke~Y3NuX2FydGlzdH4xMDI0NzI=.html">Yokoyama Daisuke</a>, <a href="/ca-si/Ikuta-Erika-Nogizaka46~Y3NuX2FydGlzdH4xMDI0NzM=.html">Ikuta Erika (Nogizaka46)</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   115 => 
   array (
@@ -1745,6 +2205,10 @@ $typeDup = array (
     'music_listen' => 194,
     'music_bitrate' => 128,
     'music_filename' => '1851144-9f497cea.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Nogizaka46~Y3NuX2FydGlzdH4xMzU1Nw==.html">Nogizaka46</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   116 => 
   array (
@@ -1760,6 +2224,10 @@ $typeDup = array (
     'music_listen' => 355,
     'music_bitrate' => 192,
     'music_filename' => '1861533-4674fc92.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Nogizaka46~Y3NuX2FydGlzdH4xMzU1Nw==.html">Nogizaka46</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   117 => 
   array (
@@ -1775,6 +2243,10 @@ $typeDup = array (
     'music_listen' => 177,
     'music_bitrate' => 128,
     'music_filename' => '1846260-a180116c.mp4',
+    'music_width' => 1280,
+    'music_height' => 720,
+    'music_artist_html' => '<a href="/ca-si/NGT48~Y3NuX2FydGlzdH4xMzYzNQ==.html">NGT48</a>',
+    'music_bitrate_html' => '<span style="color: orange">HD 720p</span>',
   ),
   118 => 
   array (
@@ -1790,6 +2262,10 @@ $typeDup = array (
     'music_listen' => 246,
     'music_bitrate' => 128,
     'music_filename' => '1896555-ee78f3a0.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Nogizaka46~Y3NuX2FydGlzdH4xMzU1Nw==.html">Nogizaka46</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   119 => 
   array (
@@ -1805,6 +2281,10 @@ $typeDup = array (
     'music_listen' => 207,
     'music_bitrate' => 128,
     'music_filename' => '1902483-7b36f6ce.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Nogizaka46~Y3NuX2FydGlzdH4xMzU1Nw==.html">Nogizaka46</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   120 => 
   array (
@@ -1820,6 +2300,10 @@ $typeDup = array (
     'music_listen' => 180,
     'music_bitrate' => 96,
     'music_filename' => '1951272-da75c089.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Mai-Kuraki~Y3NuX2FydGlzdH40MzA4.html">Mai Kuraki</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   121 => 
   array (
@@ -1835,6 +2319,10 @@ $typeDup = array (
     'music_listen' => 241,
     'music_bitrate' => 128,
     'music_filename' => '1882134-fada4ce8.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/SKE48~Y3NuX2FydGlzdH4xMzY5NQ==.html">SKE48</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   122 => 
   array (
@@ -1850,6 +2338,10 @@ $typeDup = array (
     'music_listen' => 114,
     'music_bitrate' => 128,
     'music_filename' => '1900792-438e12e0.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Nogizaka46~Y3NuX2FydGlzdH4xMzU1Nw==.html">Nogizaka46</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   123 => 
   array (
@@ -1865,6 +2357,10 @@ $typeDup = array (
     'music_listen' => 61,
     'music_bitrate' => 96,
     'music_filename' => '1960143-ca9ebeca.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/MOMOLAND~Y3NuX2FydGlzdH4xNTU1Nw==.html">MOMOLAND</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   124 => 
   array (
@@ -1880,6 +2376,10 @@ $typeDup = array (
     'music_listen' => 211433,
     'music_bitrate' => 320,
     'music_filename' => '1866787-450dec7e.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/T-Ara~Y3NuX2FydGlzdH4xNDEz.html">T-Ara</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   125 => 
   array (
@@ -1895,6 +2395,10 @@ $typeDup = array (
     'music_listen' => 1715,
     'music_bitrate' => 128,
     'music_filename' => '1815984-e5cfc2d1.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Nogizaka46~Y3NuX2FydGlzdH4xMzU1Nw==.html">Nogizaka46</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   126 => 
   array (
@@ -1905,11 +2409,15 @@ $typeDup = array (
     'music_title_url' => 'genie-japanese-version~girls-generation',
     'music_title' => 'Genie (Japanese Version)',
     'music_artist' => 'Girls\' Generation',
-    'music_artist_id' => '',
+    'music_artist_id' => '922',
     'music_album_id' => '',
     'music_listen' => 195307,
     'music_bitrate' => 320,
     'music_filename' => '1510185-78484cc2.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Girls-Generation~Y3NuX2FydGlzdH45MjI=.html">Girls\' Generation</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   127 => 
   array (
@@ -1920,11 +2428,15 @@ $typeDup = array (
     'music_title_url' => 'shoot-sign~akb48',
     'music_title' => 'Shoot Sign (シュートサイン)',
     'music_artist' => 'AKB48',
-    'music_artist_id' => '',
+    'music_artist_id' => '723',
     'music_album_id' => '',
     'music_listen' => 40538,
     'music_bitrate' => 128,
     'music_filename' => '1769865-551b0c64.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   128 => 
   array (
@@ -1935,11 +2447,15 @@ $typeDup = array (
     'music_title_url' => 'all-my-love-is-for-you~girls-generation',
     'music_title' => 'All My Love Is For You',
     'music_artist' => 'Girls\' Generation',
-    'music_artist_id' => '',
+    'music_artist_id' => '922',
     'music_album_id' => '',
     'music_listen' => 155263,
     'music_bitrate' => 192,
     'music_filename' => '1015072-d66fee6e.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Girls-Generation~Y3NuX2FydGlzdH45MjI=.html">Girls\' Generation</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   129 => 
   array (
@@ -1955,6 +2471,10 @@ $typeDup = array (
     'music_listen' => 96333,
     'music_bitrate' => 320,
     'music_filename' => '1871858-200b36cd.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Girls-Generation~Y3NuX2FydGlzdH45MjI=.html">Girls\' Generation</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   130 => 
   array (
@@ -1965,11 +2485,15 @@ $typeDup = array (
     'music_title_url' => 'time-machine~girls-generation',
     'music_title' => 'Time Machine',
     'music_artist' => 'Girls\' Generation',
-    'music_artist_id' => '',
+    'music_artist_id' => '922',
     'music_album_id' => '',
     'music_listen' => 156612,
     'music_bitrate' => 128,
     'music_filename' => '1003905-b407de92.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Girls-Generation~Y3NuX2FydGlzdH45MjI=.html">Girls\' Generation</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   131 => 
   array (
@@ -1980,11 +2504,15 @@ $typeDup = array (
     'music_title_url' => 'influencer~nogizaka46',
     'music_title' => 'Influencer (インフルエンサー)',
     'music_artist' => 'Nogizaka46',
-    'music_artist_id' => '',
+    'music_artist_id' => '13557',
     'music_album_id' => '',
     'music_listen' => 36422,
     'music_bitrate' => 96,
     'music_filename' => '1769615-f3c8019c.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Nogizaka46~Y3NuX2FydGlzdH4xMzU1Nw==.html">Nogizaka46</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   132 => 
   array (
@@ -1995,11 +2523,15 @@ $typeDup = array (
     'music_title_url' => 'bagutte-iijan~hkt48',
     'music_title' => 'Bagutte Iijan (バグっていいじゃん)',
     'music_artist' => 'HKT48',
-    'music_artist_id' => '',
+    'music_artist_id' => '14603',
     'music_album_id' => '',
     'music_listen' => 31147,
     'music_bitrate' => 128,
     'music_filename' => '1766612-3a4893b2.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/HKT48~Y3NuX2FydGlzdH4xNDYwMw==.html">HKT48</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   133 => 
   array (
@@ -2009,12 +2541,16 @@ $typeDup = array (
     'cover_id' => 0,
     'music_title_url' => 'on-rainy-day~b2st-beast',
     'music_title' => 'On Rainy Day',
-    'music_artist' => 'B2ST; Beast',
-    'music_artist_id' => '',
+    'music_artist' => 'B2ST;Beast',
+    'music_artist_id' => '1692;2393',
     'music_album_id' => '',
     'music_listen' => 94633,
     'music_bitrate' => 64,
     'music_filename' => '83642-90a6792a.mp4',
+    'music_width' => 480,
+    'music_height' => 270,
+    'music_artist_html' => '<a href="/ca-si/B2ST~Y3NuX2FydGlzdH4xNjky.html">B2ST</a>, <a href="/ca-si/Beast~Y3NuX2FydGlzdH4yMzkz.html">Beast</a>',
+    'music_bitrate_html' => '480x270',
   ),
   134 => 
   array (
@@ -2025,11 +2561,15 @@ $typeDup = array (
     'music_title_url' => 'hayaku-aitai~dream-ami',
     'music_title' => 'Hayaku Aitai (はやく逢いたい)',
     'music_artist' => 'Dream Ami',
-    'music_artist_id' => '',
+    'music_artist_id' => '94789',
     'music_album_id' => '',
     'music_listen' => 26707,
     'music_bitrate' => 96,
     'music_filename' => '1767791-d3cf050e.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Dream-Ami~Y3NuX2FydGlzdH45NDc4OQ==.html">Dream Ami</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   135 => 
   array (
@@ -2040,11 +2580,15 @@ $typeDup = array (
     'music_title_url' => 'boku-wa-inai-dance-version~nmb48',
     'music_title' => 'Boku Wa Inai (僕はいない) (Dance Version)',
     'music_artist' => 'NMB48',
-    'music_artist_id' => '',
+    'music_artist_id' => '16826',
     'music_album_id' => '',
     'music_listen' => 32724,
     'music_bitrate' => 320,
     'music_filename' => '1694631-9372139b.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/NMB48~Y3NuX2FydGlzdH4xNjgyNg==.html">NMB48</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   136 => 
   array (
@@ -2055,11 +2599,15 @@ $typeDup = array (
     'music_title_url' => '365-nichi-no-kamihikouki-365-shoot-sign-music-station-20170210~akb48',
     'music_title' => '365 Nichi no Kamihikouki (365日の紙飛行機) + Shoot Sign (シュートサイン) @ MUSIC STATION 2017.02.10',
     'music_artist' => 'AKB48',
-    'music_artist_id' => '',
+    'music_artist_id' => '723',
     'music_album_id' => '',
     'music_listen' => 23770,
     'music_bitrate' => 128,
     'music_filename' => '1764614-1f510617.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   137 => 
   array (
@@ -2070,11 +2618,15 @@ $typeDup = array (
     'music_title_url' => 'gee-japanese-version~girls-generation',
     'music_title' => 'Gee (Japanese Version)',
     'music_artist' => 'Girls\' Generation',
-    'music_artist_id' => '',
+    'music_artist_id' => '922',
     'music_album_id' => '',
     'music_listen' => 121017,
     'music_bitrate' => 320,
     'music_filename' => '1002227-ecd4f772.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Girls-Generation~Y3NuX2FydGlzdH45MjI=.html">Girls\' Generation</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   138 => 
   array (
@@ -2085,11 +2637,15 @@ $typeDup = array (
     'music_title_url' => 'hayaku-aitai~dream-ami',
     'music_title' => 'Hayaku Aitai (はやく逢いたい)',
     'music_artist' => 'Dream Ami',
-    'music_artist_id' => '',
+    'music_artist_id' => '94789',
     'music_album_id' => '',
     'music_listen' => 30397,
     'music_bitrate' => 128,
     'music_filename' => '1769987-b31b2c14.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Dream-Ami~Y3NuX2FydGlzdH45NDc4OQ==.html">Dream Ami</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   139 => 
   array (
@@ -2105,6 +2661,10 @@ $typeDup = array (
     'music_listen' => 44405,
     'music_bitrate' => 320,
     'music_filename' => '1901694-13fb6162.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/A-Pink~Y3NuX2FydGlzdH4yMzEw.html">A Pink</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   140 => 
   array (
@@ -2115,11 +2675,15 @@ $typeDup = array (
     'music_title_url' => 'shoot-sign-akb48-show-ep145-20170318~akb48',
     'music_title' => 'Shoot Sign (シュートサイン) (AKB48 SHOW! Ep145 2017.03.18)',
     'music_artist' => 'AKB48',
-    'music_artist_id' => '',
+    'music_artist_id' => '723',
     'music_album_id' => '',
     'music_listen' => 23724,
     'music_bitrate' => 128,
     'music_filename' => '1774074-ac2e71df.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   141 => 
   array (
@@ -2130,11 +2694,15 @@ $typeDup = array (
     'music_title_url' => 'sparkle~radwimps',
     'music_title' => 'Sparkle (スパークル)',
     'music_artist' => 'Radwimps',
-    'music_artist_id' => '',
+    'music_artist_id' => '55416',
     'music_album_id' => '',
     'music_listen' => 30446,
     'music_bitrate' => 192,
     'music_filename' => '1752833-7cd1224d.mp4',
+    'music_width' => 1280,
+    'music_height' => 720,
+    'music_artist_html' => '<a href="/ca-si/Radwimps~Y3NuX2FydGlzdH41NTQxNg==.html">Radwimps</a>',
+    'music_bitrate_html' => '<span style="color: orange">HD 720p</span>',
   ),
   142 => 
   array (
@@ -2145,11 +2713,15 @@ $typeDup = array (
     'music_title_url' => 'bagutte-iijan-akbingo-ver~hkt48',
     'music_title' => 'Bagutte Iijan (バグっていいじゃん) -AKBINGO! Ver.-',
     'music_artist' => 'HKT48',
-    'music_artist_id' => '',
+    'music_artist_id' => '14603',
     'music_album_id' => '',
     'music_listen' => 13316,
     'music_bitrate' => 128,
     'music_filename' => '1765740-8b984140.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/HKT48~Y3NuX2FydGlzdH4xNDYwMw==.html">HKT48</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   143 => 
   array (
@@ -2160,11 +2732,15 @@ $typeDup = array (
     'music_title_url' => 'taiyou-mo-tsuki-mo~generations-from-exile-tribe',
     'music_title' => 'Taiyou mo Tsuki mo (太陽も月も)',
     'music_artist' => 'GENERATIONS from EXILE TRIBE',
-    'music_artist_id' => '',
+    'music_artist_id' => '19918',
     'music_album_id' => '',
     'music_listen' => 26635,
     'music_bitrate' => 256,
     'music_filename' => '1775322-a66dba55.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/GENERATIONS-from-EXILE-TRIBE~Y3NuX2FydGlzdH4xOTkxOA==.html">GENERATIONS from EXILE TRIBE</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   144 => 
   array (
@@ -2175,11 +2751,15 @@ $typeDup = array (
     'music_title_url' => 'dare-no-koto-wo-ichiban-aishiteru-sakamichi-akb~akb48',
     'music_title' => 'Dare no Koto wo Ichiban Aishiteru? (誰のことを一番 愛してる?) / Sakamichi AKB',
     'music_artist' => 'AKB48',
-    'music_artist_id' => '',
+    'music_artist_id' => '723',
     'music_album_id' => '',
     'music_listen' => 25437,
     'music_bitrate' => 256,
     'music_filename' => '1773240-4bd09147.mp4',
+    'music_width' => 1280,
+    'music_height' => 720,
+    'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
+    'music_bitrate_html' => '<span style="color: orange">HD 720p</span>',
   ),
   145 => 
   array (
@@ -2190,11 +2770,15 @@ $typeDup = array (
     'music_title_url' => 'natsu-yo-isoge-akbingo-ep429-20170221~ske48',
     'music_title' => 'Natsu yo, Isoge! (夏よ、急げ！) @ AKBINGO! ep429 2017.02.21',
     'music_artist' => 'SKE48',
-    'music_artist_id' => '',
+    'music_artist_id' => '13695',
     'music_album_id' => '',
     'music_listen' => 15624,
     'music_bitrate' => 128,
     'music_filename' => '1767482-1ce66744.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/SKE48~Y3NuX2FydGlzdH4xMzY5NQ==.html">SKE48</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   146 => 
   array (
@@ -2205,11 +2789,15 @@ $typeDup = array (
     'music_title_url' => 'nagiichi~nmb48',
     'music_title' => 'Nagiichi (ナギイチ)',
     'music_artist' => 'NMB48',
-    'music_artist_id' => '',
+    'music_artist_id' => '16826',
     'music_album_id' => '',
     'music_listen' => 28323,
     'music_bitrate' => 256,
     'music_filename' => '1715397-96b2ab25.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/NMB48~Y3NuX2FydGlzdH4xNjgyNg==.html">NMB48</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   147 => 
   array (
@@ -2220,11 +2808,15 @@ $typeDup = array (
     'music_title_url' => 'natsu-yo-isoge-nhk-uta-tube-20170218~ske48',
     'music_title' => 'Natsu yo, Isoge! (夏よ、急げ！) @ NHK Uta-Tube 2017.02.18',
     'music_artist' => 'SKE48',
-    'music_artist_id' => '',
+    'music_artist_id' => '13695',
     'music_album_id' => '',
     'music_listen' => 17623,
     'music_bitrate' => 128,
     'music_filename' => '1770082-1ac2a49e.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/SKE48~Y3NuX2FydGlzdH4xMzY5NQ==.html">SKE48</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   148 => 
   array (
@@ -2234,12 +2826,16 @@ $typeDup = array (
     'cover_id' => 0,
     'music_title_url' => 'senbonzakura~yuko-suzuhana-wagakki-band',
     'music_title' => 'Senbonzakura (千本桜)',
-    'music_artist' => 'Yuko Suzuhana; Wagakki Band (鈴華ゆう子; 和楽器バンド)',
-    'music_artist_id' => '',
+    'music_artist' => 'Yuko Suzuhana;Wagakki Band (鈴華ゆう子;和楽器バンド)',
+    'music_artist_id' => '41910;42961;42962',
     'music_album_id' => '',
     'music_listen' => 31834,
     'music_bitrate' => 96,
     'music_filename' => '1231984-71271a6a.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Yuko-Suzuhana~Y3NuX2FydGlzdH40MTkxMA==.html">Yuko Suzuhana</a>, <a href="/ca-si/Wagakki-Band~Y3NuX2FydGlzdH40Mjk2MQ==.html">Wagakki Band (鈴華ゆう子</a>, <a href="/ca-si/~Y3NuX2FydGlzdH40Mjk2Mg==.html">和楽器バンド)</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   149 => 
   array (
@@ -2250,11 +2846,15 @@ $typeDup = array (
     'music_title_url' => 'yume-de-kiss-me-kiss-me-akb48-kouhaku-taikou-uta-gassen-2016~akb48',
     'music_title' => 'Yume de Kiss me! (夢でKiss me！) @ AKB48 Kouhaku Taikou Uta Gassen 2016',
     'music_artist' => 'AKB48',
-    'music_artist_id' => '',
+    'music_artist_id' => '723',
     'music_album_id' => '',
     'music_listen' => 15954,
     'music_bitrate' => 128,
     'music_filename' => '1758670-65a26fbd.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   150 => 
   array (
@@ -2270,6 +2870,10 @@ $typeDup = array (
     'music_listen' => 26081,
     'music_bitrate' => 320,
     'music_filename' => '1901693-b82c899b.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/A-Pink~Y3NuX2FydGlzdH4yMzEw.html">A Pink</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   151 => 
   array (
@@ -2280,11 +2884,15 @@ $typeDup = array (
     'music_title_url' => 'mr-chu-on-stage-japanese-version~a-pink',
     'music_title' => 'Mr. Chu (On Stage) (Japanese Version)',
     'music_artist' => 'A Pink',
-    'music_artist_id' => '',
+    'music_artist_id' => '2310',
     'music_album_id' => 'UPCH-89200',
     'music_listen' => 26052,
     'music_bitrate' => 128,
     'music_filename' => '1457953-d4ef27f4.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/A-Pink~Y3NuX2FydGlzdH4yMzEw.html">A Pink</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   152 => 
   array (
@@ -2295,11 +2903,15 @@ $typeDup = array (
     'music_title_url' => 'junjo-yoroshiku-ngt48-dance-senbatsu~ngt48',
     'music_title' => 'Junjo Yoroshiku (純情よろしく) / NGT48 Dance Senbatsu',
     'music_artist' => 'NGT48',
-    'music_artist_id' => '',
+    'music_artist_id' => '13635',
     'music_album_id' => '',
     'music_listen' => 33578,
     'music_bitrate' => 256,
     'music_filename' => '1780603-d7224a7e.mp4',
+    'music_width' => 1280,
+    'music_height' => 720,
+    'music_artist_html' => '<a href="/ca-si/NGT48~Y3NuX2FydGlzdH4xMzYzNQ==.html">NGT48</a>',
+    'music_bitrate_html' => '<span style="color: orange">HD 720p</span>',
   ),
   153 => 
   array (
@@ -2310,11 +2922,15 @@ $typeDup = array (
     'music_title_url' => 'tokyo-girl~perfume',
     'music_title' => 'TOKYO GIRL',
     'music_artist' => 'Perfume',
-    'music_artist_id' => '',
+    'music_artist_id' => '11906',
     'music_album_id' => '',
     'music_listen' => 14842,
     'music_bitrate' => 128,
     'music_filename' => '1763019-201dd829.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Perfume~Y3NuX2FydGlzdH4xMTkwNg==.html">Perfume</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   154 => 
   array (
@@ -2330,6 +2946,10 @@ $typeDup = array (
     'music_listen' => 25780,
     'music_bitrate' => 96,
     'music_filename' => '1832705-df02f074.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/TWICE~Y3NuX2FydGlzdH4xMzg5OA==.html">TWICE</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   155 => 
   array (
@@ -2340,11 +2960,15 @@ $typeDup = array (
     'music_title_url' => 'shoot-sign-utacon-20170314~akb48',
     'music_title' => 'Shoot Sign (シュートサイン) (Utacon 2017.03.14)',
     'music_artist' => 'AKB48',
-    'music_artist_id' => '',
+    'music_artist_id' => '723',
     'music_album_id' => '',
     'music_listen' => 9613,
     'music_bitrate' => 128,
     'music_filename' => '1772740-28f2634d.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   156 => 
   array (
@@ -2355,11 +2979,15 @@ $typeDup = array (
     'music_title_url' => 'mazariau-mono~akb48',
     'music_title' => 'Mazariau Mono',
     'music_artist' => 'AKB48',
-    'music_artist_id' => '',
+    'music_artist_id' => '723',
     'music_album_id' => '',
     'music_listen' => 16242,
     'music_bitrate' => 192,
     'music_filename' => '1634564-577b3da2.mp4',
+    'music_width' => 1280,
+    'music_height' => 720,
+    'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
+    'music_bitrate_html' => '<span style="color: orange">HD 720p</span>',
   ),
   157 => 
   array (
@@ -2370,11 +2998,15 @@ $typeDup = array (
     'music_title_url' => 'bye-bye-short-version~apink',
     'music_title' => 'Bye Bye (Short Version)',
     'music_artist' => 'Apink',
-    'music_artist_id' => '',
+    'music_artist_id' => '4047',
     'music_album_id' => '',
     'music_listen' => 11484,
     'music_bitrate' => 96,
     'music_filename' => '1772986-f2a7fd7c.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Apink~Y3NuX2FydGlzdH40MDQ3.html">Apink</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   158 => 
   array (
@@ -2385,11 +3017,15 @@ $typeDup = array (
     'music_title_url' => 'motion~nishiuchi-mariya',
     'music_title' => 'Motion',
     'music_artist' => 'Nishiuchi Mariya',
-    'music_artist_id' => '',
+    'music_artist_id' => '76943',
     'music_album_id' => '',
     'music_listen' => 16834,
     'music_bitrate' => 128,
     'music_filename' => '1772044-81463592.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Nishiuchi-Mariya~Y3NuX2FydGlzdH43Njk0Mw==.html">Nishiuchi Mariya</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   159 => 
   array (
@@ -2400,11 +3036,15 @@ $typeDup = array (
     'music_title_url' => 'shoot-sign-cdtv-20170312~akb48',
     'music_title' => 'Shoot Sign (シュートサイン) @ CDTV 2017.03.12',
     'music_artist' => 'AKB48',
-    'music_artist_id' => '',
+    'music_artist_id' => '723',
     'music_album_id' => '',
     'music_listen' => 8213,
     'music_bitrate' => 128,
     'music_filename' => '1772164-e93002db.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   160 => 
   array (
@@ -2415,11 +3055,15 @@ $typeDup = array (
     'music_title_url' => 'mt-ni-sasagu-akb48-team-a-7th-stage-mt-ni-sasagu~akb48',
     'music_title' => 'M.T. ni Sasagu (Ｍ.Ｔ.に捧ぐ) @ AKB48 Team A 7th stage M.T ni Sasagu',
     'music_artist' => 'AKB48',
-    'music_artist_id' => '',
+    'music_artist_id' => '723',
     'music_album_id' => 'AKB-D2339',
     'music_listen' => 15267,
     'music_bitrate' => 128,
     'music_filename' => '1771336-093ea651.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   161 => 
   array (
@@ -2430,11 +3074,15 @@ $typeDup = array (
     'music_title_url' => 'silent-majority~keyakizaka46',
     'music_title' => 'Silent Majority (サイレントマジョリティー)',
     'music_artist' => 'Keyakizaka46',
-    'music_artist_id' => '',
+    'music_artist_id' => '15964',
     'music_album_id' => '',
     'music_listen' => 10702,
     'music_bitrate' => 256,
     'music_filename' => '1639372-7aad3c8d.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Keyakizaka46~Y3NuX2FydGlzdH4xNTk2NA==.html">Keyakizaka46</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   162 => 
   array (
@@ -2445,11 +3093,15 @@ $typeDup = array (
     'music_title_url' => 'futari-saison-utacon-20161206~keyakizaka46',
     'music_title' => 'Futari Saison (二人セゾン) @ Utacon 2016.12.06',
     'music_artist' => 'Keyakizaka46',
-    'music_artist_id' => '',
+    'music_artist_id' => '15964',
     'music_album_id' => '',
     'music_listen' => 17988,
     'music_bitrate' => 128,
     'music_filename' => '1748519-3650b5a4.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Keyakizaka46~Y3NuX2FydGlzdH4xNTk2NA==.html">Keyakizaka46</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   163 => 
   array (
@@ -2465,6 +3117,10 @@ $typeDup = array (
     'music_listen' => 33455,
     'music_bitrate' => 320,
     'music_filename' => '1870421-41c62af8.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/4Minute~Y3NuX2FydGlzdH4xNTcx.html">4Minute</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   164 => 
   array (
@@ -2480,6 +3136,10 @@ $typeDup = array (
     'music_listen' => 34421,
     'music_bitrate' => 96,
     'music_filename' => '1849011-2a99aff6.mp4',
+    'music_width' => 1746,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/EXO~Y3NuX2FydGlzdH4yNTcy.html">EXO</a>',
+    'music_bitrate_html' => '<span style="color: orange">1746x1080</span>',
   ),
   165 => 
   array (
@@ -2490,11 +3150,15 @@ $typeDup = array (
     'music_title_url' => 'high-tension-akb48-show-ep134-20161203~akb48',
     'music_title' => 'High Tension (ハイテンション) (AKB48 SHOW! Ep134 2016.12.03)',
     'music_artist' => 'AKB48',
-    'music_artist_id' => '',
+    'music_artist_id' => '723',
     'music_album_id' => '',
     'music_listen' => 11244,
     'music_bitrate' => 128,
     'music_filename' => '1747907-44dfacd2.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   166 => 
   array (
@@ -2510,6 +3174,10 @@ $typeDup = array (
     'music_listen' => 37192,
     'music_bitrate' => 320,
     'music_filename' => '1866795-1f7f6a38.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/QBS~Y3NuX2FydGlzdH4zNTMw.html">QBS</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   167 => 
   array (
@@ -2519,12 +3187,16 @@ $typeDup = array (
     'cover_id' => 0,
     'music_title_url' => 'breath-japanese-version~changmin-krystal',
     'music_title' => 'Breath (Japanese Version)',
-    'music_artist' => 'Changmin; Krystal',
-    'music_artist_id' => '',
+    'music_artist' => 'Changmin;Krystal',
+    'music_artist_id' => '1365;2162',
     'music_album_id' => '',
     'music_listen' => 23856,
     'music_bitrate' => 96,
     'music_filename' => '1217655-6421d589.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Changmin~Y3NuX2FydGlzdH4xMzY1.html">Changmin</a>, <a href="/ca-si/Krystal~Y3NuX2FydGlzdH4yMTYy.html">Krystal</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   168 => 
   array (
@@ -2535,11 +3207,15 @@ $typeDup = array (
     'music_title_url' => 'bagutte-iijan-buzz-rhythm-20170217~hkt48',
     'music_title' => 'Bagutte Iijan (バグっていいじゃん) @ Buzz Rhythm 2017.02.17',
     'music_artist' => 'HKT48',
-    'music_artist_id' => '',
+    'music_artist_id' => '14603',
     'music_album_id' => '',
     'music_listen' => 7267,
     'music_bitrate' => 128,
     'music_filename' => '1766836-f140b755.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/HKT48~Y3NuX2FydGlzdH4xNDYwMw==.html">HKT48</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   169 => 
   array (
@@ -2550,11 +3226,15 @@ $typeDup = array (
     'music_title_url' => 'shoot-sign-momm-20170313~akb48',
     'music_title' => 'Shoot Sign (シュートサイン) (Momm!! 2017.03.13)',
     'music_artist' => 'AKB48',
-    'music_artist_id' => '',
+    'music_artist_id' => '723',
     'music_album_id' => '',
     'music_listen' => 5745,
     'music_bitrate' => 128,
     'music_filename' => '1772683-e64af2ec.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   170 => 
   array (
@@ -2565,11 +3245,15 @@ $typeDup = array (
     'music_title_url' => 'natsu-yo-isoge-good-time-music-20170221~ske48',
     'music_title' => 'Natsu yo, Isoge! (夏よ、急げ！) @ Good Time Music 2017.02.21',
     'music_artist' => 'SKE48',
-    'music_artist_id' => '',
+    'music_artist_id' => '13695',
     'music_album_id' => '',
     'music_listen' => 10978,
     'music_bitrate' => 128,
     'music_filename' => '1767651-e3534a26.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/SKE48~Y3NuX2FydGlzdH4xMzY5NQ==.html">SKE48</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   171 => 
   array (
@@ -2585,6 +3269,10 @@ $typeDup = array (
     'music_listen' => 31644,
     'music_bitrate' => 256,
     'music_filename' => '1812524-20929893.mp4',
+    'music_width' => 1280,
+    'music_height' => 720,
+    'music_artist_html' => '<a href="/ca-si/NMB48~Y3NuX2FydGlzdH4xNjgyNg==.html">NMB48</a>',
+    'music_bitrate_html' => '<span style="color: orange">HD 720p</span>',
   ),
   172 => 
   array (
@@ -2595,11 +3283,15 @@ $typeDup = array (
     'music_title_url' => 'skirt-hirari-heart-gata-virus-shoot-sign-music-station-3hours-sp-20170331~akb48',
     'music_title' => 'Skirt, Hirari (スカート、ひらり) + Heart Gata Virus (ハート型ウイルス) + Shoot Sign (シュートサイン) (Music Station 3hours SP 2017.03.31)',
     'music_artist' => 'AKB48',
-    'music_artist_id' => '',
+    'music_artist_id' => '723',
     'music_album_id' => '',
     'music_listen' => 8434,
     'music_bitrate' => 128,
     'music_filename' => '1777114-10a18b76.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   173 => 
   array (
@@ -2610,11 +3302,15 @@ $typeDup = array (
     'music_title_url' => 'harujion-ga-sakukoro~nogizaka46',
     'music_title' => 'Harujion Ga Sakukoro (ハルジオンが咲く頃)',
     'music_artist' => 'Nogizaka46',
-    'music_artist_id' => '',
+    'music_artist_id' => '13557',
     'music_album_id' => '',
     'music_listen' => 11953,
     'music_bitrate' => 96,
     'music_filename' => '1633554-8baf919e.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Nogizaka46~Y3NuX2FydGlzdH4xMzU1Nw==.html">Nogizaka46</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   174 => 
   array (
@@ -2630,6 +3326,10 @@ $typeDup = array (
     'music_listen' => 2665,
     'music_bitrate' => 128,
     'music_filename' => '1821133-d1a34963.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/DAOKO~Y3NuX2FydGlzdH4xMzI5OA==.html">DAOKO</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   175 => 
   array (
@@ -2640,11 +3340,15 @@ $typeDup = array (
     'music_title_url' => 'shoot-sign-akbingo-ver~akb48',
     'music_title' => 'Shoot Sign (シュートサイン) -AKBINGO Ver.-',
     'music_artist' => 'AKB48',
-    'music_artist_id' => '',
+    'music_artist_id' => '723',
     'music_album_id' => '',
     'music_listen' => 6594,
     'music_bitrate' => 128,
     'music_filename' => '1769317-e19482af.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   176 => 
   array (
@@ -2655,11 +3359,15 @@ $typeDup = array (
     'music_title_url' => 'love-trip-akb48-kouhaku-taikou-uta-gassen-2016~akb48',
     'music_title' => 'LOVE TRIP (AKB48 Kouhaku Taikou Uta Gassen 2016)',
     'music_artist' => 'AKB48',
-    'music_artist_id' => '',
+    'music_artist_id' => '723',
     'music_album_id' => '',
     'music_listen' => 10523,
     'music_bitrate' => 128,
     'music_filename' => '1758632-077f69f8.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   177 => 
   array (
@@ -2675,6 +3383,10 @@ $typeDup = array (
     'music_listen' => 9727,
     'music_bitrate' => 320,
     'music_filename' => '1901692-f497a3ce.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/A-Pink~Y3NuX2FydGlzdH4yMzEw.html">A Pink</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   178 => 
   array (
@@ -2685,11 +3397,15 @@ $typeDup = array (
     'music_title_url' => 'saba-kaidou~iwasa-misaki',
     'music_title' => 'Saba Kaidou (鯖街道)',
     'music_artist' => 'Iwasa Misaki',
-    'music_artist_id' => '',
+    'music_artist_id' => '40397',
     'music_album_id' => '',
     'music_listen' => 7943,
     'music_bitrate' => 128,
     'music_filename' => '1759905-bad92b5b.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Iwasa-Misaki~Y3NuX2FydGlzdH40MDM5Nw==.html">Iwasa Misaki</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   179 => 
   array (
@@ -2700,11 +3416,15 @@ $typeDup = array (
     'music_title_url' => 'midori-to-mori-no-undokouen-ngt48~akb48',
     'music_title' => 'Midori to Mori no Undokouen (みどりと森の運動公園) / NGT48',
     'music_artist' => 'AKB48',
-    'music_artist_id' => '',
+    'music_artist_id' => '723',
     'music_album_id' => '',
     'music_listen' => 20676,
     'music_bitrate' => 64,
     'music_filename' => '1773006-415ccb55.mp4',
+    'music_width' => 720,
+    'music_height' => 404,
+    'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
+    'music_bitrate_html' => '<span style="color: darkgreen">720x404</span>',
   ),
   180 => 
   array (
@@ -2715,11 +3435,15 @@ $typeDup = array (
     'music_title_url' => 'coming-over~exo',
     'music_title' => 'Coming Over',
     'music_artist' => 'EXO',
-    'music_artist_id' => '',
+    'music_artist_id' => '2572',
     'music_album_id' => '',
     'music_listen' => 11672,
     'music_bitrate' => 256,
     'music_filename' => '1752868-7c402498.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/EXO~Y3NuX2FydGlzdH4yNTcy.html">EXO</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   181 => 
   array (
@@ -2730,11 +3454,15 @@ $typeDup = array (
     'music_title_url' => 'silent-majority-67th-nhk-kouhaku-uta-gassen-20161231~keyakizaka46',
     'music_title' => 'Silent Majority (サイレントマジョリティー) @ 67th NHK Kouhaku Uta Gassen 2016.12.31',
     'music_artist' => 'Keyakizaka46',
-    'music_artist_id' => '',
+    'music_artist_id' => '15964',
     'music_album_id' => '',
     'music_listen' => 6266,
     'music_bitrate' => 256,
     'music_filename' => '1755600-c198e094.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Keyakizaka46~Y3NuX2FydGlzdH4xNTk2NA==.html">Keyakizaka46</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   182 => 
   array (
@@ -2750,6 +3478,10 @@ $typeDup = array (
     'music_listen' => 26061,
     'music_bitrate' => 320,
     'music_filename' => '1866797-2cd029df.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/T-Ara~Y3NuX2FydGlzdH4xNDEz.html">T-Ara</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   183 => 
   array (
@@ -2760,11 +3492,15 @@ $typeDup = array (
     'music_title_url' => 'harajuku-iyahoi~kyary-pamyu-pamyu',
     'music_title' => 'Harajuku Iyahoi (原宿いやほい)',
     'music_artist' => 'Kyary Pamyu Pamyu',
-    'music_artist_id' => '',
+    'music_artist_id' => '13779',
     'music_album_id' => '',
     'music_listen' => 7076,
     'music_bitrate' => 128,
     'music_filename' => '1758356-4f6e6266.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Kyary-Pamyu-Pamyu~Y3NuX2FydGlzdH4xMzc3OQ==.html">Kyary Pamyu Pamyu</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   184 => 
   array (
@@ -2775,11 +3511,15 @@ $typeDup = array (
     'music_title_url' => 'boku-igai-no-dareka-dance-version~nmb48',
     'music_title' => 'Boku Igai no Dareka (僕以外の誰か) -Dance Version.-',
     'music_artist' => 'NMB48',
-    'music_artist_id' => '',
+    'music_artist_id' => '16826',
     'music_album_id' => '',
     'music_listen' => 6827,
     'music_bitrate' => 128,
     'music_filename' => '1755891-b0dfdb1f.mp4',
+    'music_width' => 1280,
+    'music_height' => 720,
+    'music_artist_html' => '<a href="/ca-si/NMB48~Y3NuX2FydGlzdH4xNjgyNg==.html">NMB48</a>',
+    'music_bitrate_html' => '<span style="color: orange">HD 720p</span>',
   ),
   185 => 
   array (
@@ -2790,11 +3530,15 @@ $typeDup = array (
     'music_title_url' => 'haru-no-uta-utacon-20170404~fujiwara-sakura',
     'music_title' => 'Haru no Uta (春の歌) (Utacon 2017.04.04)',
     'music_artist' => 'Fujiwara Sakura',
-    'music_artist_id' => '',
+    'music_artist_id' => '92555',
     'music_album_id' => '',
     'music_listen' => 3383,
     'music_bitrate' => 128,
     'music_filename' => '1777776-ba2ffe70.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Fujiwara-Sakura~Y3NuX2FydGlzdH45MjU1NQ==.html">Fujiwara Sakura</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   186 => 
   array (
@@ -2805,11 +3549,15 @@ $typeDup = array (
     'music_title_url' => 'fukyouwaon~keyakizaka46',
     'music_title' => 'Fukyouwaon (不協和音)',
     'music_artist' => 'Keyakizaka46',
-    'music_artist_id' => '',
+    'music_artist_id' => '15964',
     'music_album_id' => '',
     'music_listen' => 9831,
     'music_bitrate' => 96,
     'music_filename' => '1775036-225c2096.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Keyakizaka46~Y3NuX2FydGlzdH4xNTk2NA==.html">Keyakizaka46</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   187 => 
   array (
@@ -2825,6 +3573,10 @@ $typeDup = array (
     'music_listen' => 2540,
     'music_bitrate' => 256,
     'music_filename' => '1827657-3a3e29f5.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Nogizaka46~Y3NuX2FydGlzdH4xMzU1Nw==.html">Nogizaka46</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   188 => 
   array (
@@ -2835,11 +3587,15 @@ $typeDup = array (
     'music_title_url' => 'futari-saison-akb48-show-ep135-keyakizaka46-show-20161210~keyakizaka46',
     'music_title' => 'Futari Saison (二人セゾン) @ AKB48 SHOW! ep135 (Keyakizaka46 SHOW!) 2016.12.10',
     'music_artist' => 'Keyakizaka46',
-    'music_artist_id' => '',
+    'music_artist_id' => '15964',
     'music_album_id' => '',
     'music_listen' => 9054,
     'music_bitrate' => 128,
     'music_filename' => '1749870-a22ef22d.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Keyakizaka46~Y3NuX2FydGlzdH4xNTk2NA==.html">Keyakizaka46</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   189 => 
   array (
@@ -2850,11 +3606,15 @@ $typeDup = array (
     'music_title_url' => 'saikou-ka-yo~hkt48',
     'music_title' => 'Saikou ka yo (最高かよ)',
     'music_artist' => 'HKT48',
-    'music_artist_id' => '',
+    'music_artist_id' => '14603',
     'music_album_id' => '',
     'music_listen' => 6440,
     'music_bitrate' => 256,
     'music_filename' => '1713063-6517cf4e.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/HKT48~Y3NuX2FydGlzdH4xNDYwMw==.html">HKT48</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   190 => 
   array (
@@ -2865,11 +3625,15 @@ $typeDup = array (
     'music_title_url' => 'boku-igai-no-dareka-kusaka-konomi-dance-version~nmb48',
     'music_title' => 'Boku Igai no Dareka (僕以外の誰か) -Kusaka Konomi Dance Version-',
     'music_artist' => 'NMB48',
-    'music_artist_id' => '',
+    'music_artist_id' => '16826',
     'music_album_id' => '',
     'music_listen' => 9671,
     'music_bitrate' => 128,
     'music_filename' => '1755890-9b71ef97.mp4',
+    'music_width' => 1280,
+    'music_height' => 720,
+    'music_artist_html' => '<a href="/ca-si/NMB48~Y3NuX2FydGlzdH4xNjgyNg==.html">NMB48</a>',
+    'music_bitrate_html' => '<span style="color: orange">HD 720p</span>',
   ),
   191 => 
   array (
@@ -2880,11 +3644,15 @@ $typeDup = array (
     'music_title_url' => 'tokyo-girl~perfume',
     'music_title' => 'TOKYO GIRL',
     'music_artist' => 'Perfume',
-    'music_artist_id' => '',
+    'music_artist_id' => '11906',
     'music_album_id' => '',
     'music_listen' => 10682,
     'music_bitrate' => 96,
     'music_filename' => '1769449-7b5eefcc.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Perfume~Y3NuX2FydGlzdH4xMTkwNg==.html">Perfume</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   192 => 
   array (
@@ -2894,12 +3662,16 @@ $typeDup = array (
     'cover_id' => 0,
     'music_title_url' => 'idol-collaboration-medley-2016-fns-kayousai-20161~akb48-nogizaka46-keyakizaka46-',
     'music_title' => 'Idol Collaboration Medley 2016 (FNS Kayousai 2016.12.14)',
-    'music_artist' => 'AKB48; Nogizaka46; Keyakizaka46; Morning Musume. 16\'; ℃-ute; Momoiro Clove Z; Shiritsu Ebisu Chuugaku',
-    'music_artist_id' => '',
+    'music_artist' => 'AKB48;Nogizaka46;Keyakizaka46;Morning Musume. 16\';℃-ute;Momoiro Clove Z;Shiritsu Ebisu Chuugaku',
+    'music_artist_id' => '723;13557;15964;92815;91970;92816;18578',
     'music_album_id' => '',
     'music_listen' => 13195,
     'music_bitrate' => 256,
     'music_filename' => '1750859-edffc644.mp4',
+    'music_width' => 1280,
+    'music_height' => 720,
+    'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>, <a href="/ca-si/Nogizaka46~Y3NuX2FydGlzdH4xMzU1Nw==.html">Nogizaka46</a>, <a href="/ca-si/Keyakizaka46~Y3NuX2FydGlzdH4xNTk2NA==.html">Keyakizaka46</a>, <a href="/ca-si/Morning-Musume-16~Y3NuX2FydGlzdH45MjgxNQ==.html">Morning Musume. 16\'</a>, <a href="/ca-si/ute~Y3NuX2FydGlzdH45MTk3MA==.html">℃-ute</a>, <a href="/ca-si/Momoiro-Clove-Z~Y3NuX2FydGlzdH45MjgxNg==.html">Momoiro Clove Z</a>, <a href="/ca-si/Shiritsu-Ebisu-Chuugaku~Y3NuX2FydGlzdH4xODU3OA==.html">Shiritsu Ebisu Chuugaku</a>',
+    'music_bitrate_html' => '<span style="color: orange">HD 720p</span>',
   ),
   193 => 
   array (
@@ -2910,11 +3682,15 @@ $typeDup = array (
     'music_title_url' => 'make-noise~akb48',
     'music_title' => 'Make Noise',
     'music_artist' => 'AKB48',
-    'music_artist_id' => '',
+    'music_artist_id' => '723',
     'music_album_id' => '',
     'music_listen' => 4328,
     'music_bitrate' => 192,
     'music_filename' => '1634561-6e8e2455.mp4',
+    'music_width' => 1280,
+    'music_height' => 720,
+    'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
+    'music_bitrate_html' => '<span style="color: orange">HD 720p</span>',
   ),
   194 => 
   array (
@@ -2924,12 +3700,16 @@ $typeDup = array (
     'cover_id' => 0,
     'music_title_url' => 'hallelujah-live~jotta-a-michely-manuely',
     'music_title' => 'Hallelujah (Live)',
-    'music_artist' => 'Jotta A; Michely Manuely',
-    'music_artist_id' => '',
+    'music_artist' => 'Jotta A;Michely Manuely',
+    'music_artist_id' => '24057;24058',
     'music_album_id' => '',
     'music_listen' => 13038,
     'music_bitrate' => 320,
     'music_filename' => '1003145-217bfad8.mp4',
+    'music_width' => 1280,
+    'music_height' => 720,
+    'music_artist_html' => '<a href="/ca-si/Jotta-A~Y3NuX2FydGlzdH4yNDA1Nw==.html">Jotta A</a>, <a href="/ca-si/Michely-Manuely~Y3NuX2FydGlzdH4yNDA1OA==.html">Michely Manuely</a>',
+    'music_bitrate_html' => '<span style="color: orange">HD 720p</span>',
   ),
   195 => 
   array (
@@ -2940,11 +3720,15 @@ $typeDup = array (
     'music_title_url' => 'ketsuro~katahira-rina',
     'music_title' => 'Ketsuro (結露)',
     'music_artist' => 'Katahira Rina',
-    'music_artist_id' => '',
+    'music_artist_id' => '84094',
     'music_album_id' => '',
     'music_listen' => 8112,
     'music_bitrate' => 128,
     'music_filename' => '1768493-483ecff1.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Katahira-Rina~Y3NuX2FydGlzdH44NDA5NA==.html">Katahira Rina</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   196 => 
   array (
@@ -2955,11 +3739,15 @@ $typeDup = array (
     'music_title_url' => 'bye-bye~apink',
     'music_title' => 'Bye Bye',
     'music_artist' => 'Apink',
-    'music_artist_id' => '',
+    'music_artist_id' => '4047',
     'music_album_id' => '',
     'music_listen' => 6529,
     'music_bitrate' => 96,
     'music_filename' => '1774948-d2130b79.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Apink~Y3NuX2FydGlzdH40MDQ3.html">Apink</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   197 => 
   array (
@@ -2970,11 +3758,15 @@ $typeDup = array (
     'music_title_url' => 'futari-saison~keyakizaka46',
     'music_title' => 'Futari Saison (二人セゾン)',
     'music_artist' => 'Keyakizaka46',
-    'music_artist_id' => '',
+    'music_artist_id' => '15964',
     'music_album_id' => '',
     'music_listen' => 11448,
     'music_bitrate' => 96,
     'music_filename' => '1741331-5e8008dc.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Keyakizaka46~Y3NuX2FydGlzdH4xNTk2NA==.html">Keyakizaka46</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   198 => 
   array (
@@ -2985,11 +3777,15 @@ $typeDup = array (
     'music_title_url' => 'koi~hoshino-gen',
     'music_title' => 'Koi (恋)',
     'music_artist' => 'Hoshino Gen',
-    'music_artist_id' => '',
+    'music_artist_id' => '92792',
     'music_album_id' => '',
     'music_listen' => 10524,
     'music_bitrate' => 128,
     'music_filename' => '1754158-c622c4eb.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Hoshino-Gen~Y3NuX2FydGlzdH45Mjc5Mg==.html">Hoshino Gen</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   199 => 
   array (
@@ -3000,11 +3796,15 @@ $typeDup = array (
     'music_title_url' => 'kyuushamen~nogizaka46',
     'music_title' => 'Kyuushamen (急斜面)',
     'music_artist' => 'Nogizaka46',
-    'music_artist_id' => '',
+    'music_artist_id' => '13557',
     'music_album_id' => '',
     'music_listen' => 4292,
     'music_bitrate' => 256,
     'music_filename' => '1640987-7ef883ec.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Nogizaka46~Y3NuX2FydGlzdH4xMzU1Nw==.html">Nogizaka46</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
 );
 ?>

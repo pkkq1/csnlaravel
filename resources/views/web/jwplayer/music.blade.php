@@ -495,7 +495,7 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                         <li class="media align-items-stretch">
                             <div class="media-left align-items-stretch mr-2">
                                 <a href="{{$url}}" title="{{$item['music_title']}}">
-                                    <img src="{{$typeJw == 'video' ? Helpers::thumbnail_url($item) : Helpers::cover_url($item['cover_id'])}}" alt="">
+                                    <img class="{{$typeJw == 'video' ? 'video_thumbnail' : ''}}" src="{{$typeJw == 'video' ? Helpers::thumbnail_url($item) : Helpers::cover_url($item['cover_id'])}}" alt="">
                                     <i class="material-icons">play_circle_outline</i>
                                     <span class="cover"></span>
                                 </a>
@@ -503,10 +503,10 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                             <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
                                 <div>
                                     <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
-                                    <div class="author"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></div>
+                                    <div class="author"><?php echo $item['music_artist_html'] ?></div>
                                 </div>
                                 <div class="d-flex align-items-center justify-content-between">
-                                    <small class="type_music c1"><?php echo Helpers::bitrate2str($item['music_bitrate']); ?></small>
+                                    <small class="type_music c1"><?php echo $item['music_bitrate_html']; ?></small>
                                     <div class="media-right">
                                         <small class="time_stt"><i class="material-icons listen-material-icons"> play_arrow </i>{{number_format($item['music_listen'])}}</small>
                                         <ul class="list-inline">

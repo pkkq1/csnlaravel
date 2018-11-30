@@ -8,11 +8,11 @@ use DB;
 class MusicListenModel extends Model
 {
     public $timestamps = false;
+    protected $primaryKey = 'music_id';
     protected $table = 'csn_music_listen';
     protected $fillable = ['music_id', 'music_listen_total', 'music_listen_time', 'music_listen_today', 'music_listen_ago', 'music_listen_3day', 'music_listen_7day'];
 
     public function hasOneMusic() {
         return $this->hasOne('App\Models\MusicModel', 'music_id');
     }
-
 }

@@ -38,13 +38,21 @@ class SuggestionCatController extends Controller
             }
             foreach ($childrenCat as $level) {
                 $typeDup = $model::where(['cat_id' => $item->cat_id, 'cat_level' => $level->cat_level])
-                    ->select('music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'music_album_id', 'music_listen', 'music_bitrate', 'music_filename')
+                    ->select('music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'music_album_id', 'music_listen', 'music_bitrate', 'music_filename', 'music_width', 'music_height')
                     ->distinct('music_title')
                     ->limit(200)
                     ->orderBy('music_downloads_today', 'desc')
                     ->orderBy('music_downloads_this_week', 'desc')
                     ->orderBy('music_downloads', 'desc')
                     ->get()->toArray();
+                foreach ($typeDup as $key => $item2) {
+                    $typeDup[$key]['music_artist_html'] = Helpers::rawHtmlArtists($item2['music_artist_id'], $item2['music_artist']);
+                    if($item->cat_id == 1) {
+                        $typeDup[$key]['music_bitrate_html'] = Helpers::size2str($item2['music_width'], $item2['music_height']);
+                    }else{
+                        $typeDup[$key]['music_bitrate_html'] = Helpers::bitrate2str($item2['music_bitrate']);
+                    }
+                }
                 $pathDir = resource_path() . '/views/cache/suggestion_cat/';
                 file_put_contents($pathDir.$item->cat_id .'_'. $level->cat_level . '.blade.php',
                     '<?php 

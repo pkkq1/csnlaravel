@@ -20,6 +20,10 @@ $typeDup = array (
     'music_listen' => 3189,
     'music_bitrate' => 96,
     'music_filename' => '1855673-08482b63.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Anitta~Y3NuX2FydGlzdH4xNDIzOA==.html">Anitta</a>, <a href="/ca-si/J-Balvin~Y3NuX2FydGlzdH4xMzQzNg==.html">J Balvin</a>, <a href="/ca-si/Lele-Pons~Y3NuX2FydGlzdH4yMjA1MQ==.html">Lele Pons</a>, <a href="/ca-si/Juanpa-Zurita~Y3NuX2FydGlzdH4xMDI4MTk=.html">Juanpa Zurita</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   1 => 
   array (
@@ -29,12 +33,16 @@ $typeDup = array (
     'cover_id' => 0,
     'music_title_url' => 'hey-ma-spanish-version~pitbull-j-balvin-camila-cabello',
     'music_title' => 'Hey Ma (Spanish Version)',
-    'music_artist' => 'Pitbull; J Balvin; Camila Cabello',
-    'music_artist_id' => '',
+    'music_artist' => 'Pitbull;J Balvin;Camila Cabello',
+    'music_artist_id' => '1814;13436;13959',
     'music_album_id' => '',
     'music_listen' => 16274,
     'music_bitrate' => 96,
     'music_filename' => '1771706-33b3190c.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Pitbull~Y3NuX2FydGlzdH4xODE0.html">Pitbull</a>, <a href="/ca-si/J-Balvin~Y3NuX2FydGlzdH4xMzQzNg==.html">J Balvin</a>, <a href="/ca-si/Camila-Cabello~Y3NuX2FydGlzdH4xMzk1OQ==.html">Camila Cabello</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   2 => 
   array (
@@ -50,6 +58,10 @@ $typeDup = array (
     'music_listen' => 4857,
     'music_bitrate' => 96,
     'music_filename' => '1832257-94535f14.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Thanh-Lan~Y3NuX2FydGlzdH41NzAz.html">Thanh Lan</a>, <a href="/ca-si/Jo-Marcel~Y3NuX2FydGlzdH4xMTI4Ng==.html">Jo Marcel</a>, <a href="/ca-si/Julie~Y3NuX2FydGlzdH42MjA5.html">Julie</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   3 => 
   array (
@@ -60,11 +72,15 @@ $typeDup = array (
     'music_title_url' => 'ammore-annascunnuto-live-in-lasvegas~celine-dion',
     'music_title' => 'Ammore Annascunnuto (Live In LasVegas)',
     'music_artist' => 'Celine Dion',
-    'music_artist_id' => '',
+    'music_artist_id' => '192',
     'music_album_id' => '',
     'music_listen' => 584,
     'music_bitrate' => 320,
     'music_filename' => '1734002-439c7563.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Celine-Dion~Y3NuX2FydGlzdH4xOTI=.html">Celine Dion</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   4 => 
   array (
@@ -75,11 +91,15 @@ $typeDup = array (
     'music_title_url' => 'pour-que-tu-maimes-encore-live-in-lasvegas~celine-dion',
     'music_title' => 'Pour Que Tu M\'aimes Encore (Live In LasVegas)',
     'music_artist' => 'Celine Dion',
-    'music_artist_id' => '',
+    'music_artist_id' => '192',
     'music_album_id' => '',
     'music_listen' => 816,
     'music_bitrate' => 320,
     'music_filename' => '1733999-dfc1a454.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Celine-Dion~Y3NuX2FydGlzdH4xOTI=.html">Celine Dion</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   5 => 
   array (
@@ -95,6 +115,10 @@ $typeDup = array (
     'music_listen' => 412,
     'music_bitrate' => 96,
     'music_filename' => '1813932-feb371d2.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Desireless~Y3NuX2FydGlzdH4yMjIyMQ==.html">Desireless</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   6 => 
   array (
@@ -110,6 +134,10 @@ $typeDup = array (
     'music_listen' => 156,
     'music_bitrate' => 96,
     'music_filename' => '1950792-b34ce1c9.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Olesia-Shatmanbekova~Y3NuX2FydGlzdH4yMzI3OA==.html">Olesia Shatmanbekova</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
 );
 ?>

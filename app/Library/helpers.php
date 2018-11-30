@@ -740,6 +740,61 @@ class Helpers
             'sub' => $nosub ? false : true
         );
     }
+    public static function size2str($width, $height, $color = true, $show_all = false)
+    {
+        if ($width == 1920 && $height <= 1080)
+            $size2str = 'HD 1080p';
+        else if ($width == 1280 && $height <= 720)
+            $size2str = 'HD 720p';
+        else if ($width == 854 && $height <= 480)
+            $size2str = 'MV 480p';
+        else if ($width == 640 && $height <= 360)
+            $size2str = 'MV 360p';
+        else if ($width == 320 && $height <= 180)
+            $size2str = 'MV 180p';
+        else
+            $size2str = $width .'x'. $height;
+
+        if ($color)
+        {
+            if ($width >= 1920)// && $height >= 1080)
+                $size2str = '<span style="color: red">'. $size2str .'</span>';
+            else if ($width >= 1280)// && $height >= 720)
+                $size2str = '<span style="color: orange">'. $size2str .'</span>';
+            else if ($width >= 854)// && $height >= 480)
+                $size2str = '<span style="color: darkblue">'. $size2str .'</span>';
+            else if ($width >= 640)// && $height >= 360)
+                $size2str = '<span style="color: darkgreen">'. $size2str .'</span>';
+        }
+        else
+        {
+            if ($show_all)
+            {
+                if ( $show_all == -1 )
+                {
+                    $size2str = 'MV 360p';
+                    if ($width >= 854)
+                        $size2str .= ', MV 480p';
+                    if ($width >= 1280)
+                        $size2str .= ', HD 720p';
+                    if ($width >= 1920)
+                        $size2str .= ', HD 1080p';
+                }
+                else
+                {
+                    $size2str = 'MV 360p';
+                    if ($width >= 854)
+                        $size2str = 'MV 480p, ' . $size2str;
+                    if ($width >= 1280)
+                        $size2str = 'HD 720p, ' . $size2str;
+                    if ($width >= 1920)
+                        $size2str = 'HD 1080p, ' . $size2str;
+                }
+            }
+        }
+
+        return $size2str;
+    }
     public static function MusicCookie($request, $music) {
         if(isset($_COOKIE['music_history'])) {
             $musicHistory = unserialize($_COOKIE['music_history']);

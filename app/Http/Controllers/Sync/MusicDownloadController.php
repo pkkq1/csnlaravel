@@ -32,7 +32,7 @@ class MusicDownloadController extends Controller
             ->limit(20)->get();
         $download_rows = $cache->toArray();
         foreach ($download_rows as $key => $item) {
-            $download_rows[$key]['music_bitrate'] = Helpers::bitrate2str($item['music_bitrate']);
+            $download_rows[$key]['music_bitrate_html'] = Helpers::bitrate2str($item['music_bitrate']);
             $download_rows[$key]['music_artist_html'] = Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']);
         }
         file_put_contents(resource_path().'/views/cache/def_home_download.blade.php',

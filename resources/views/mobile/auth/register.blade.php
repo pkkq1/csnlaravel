@@ -25,12 +25,17 @@ use App\Library\Helpers;
                 <div class="image" style="background: url('https://avatar-nct.nixcdn.com/mv/2018/04/03/5/c/9/d/1522735856670_268.jpg') no-repeat center;background-size: cover"></div>
                 <div class="image" style="background: url('https://avatar-nct.nixcdn.com/mv/2018/04/03/5/c/9/d/1522735856670_268.jpg') no-repeat center;background-size: cover"></div>
                 <div class="image" style="background: url('https://avatar-nct.nixcdn.com/mv/2018/04/03/5/c/9/d/1522735856670_268.jpg') no-repeat center;background-size: cover"></div>
-                <div class="image" style="background: url('https://avatar-nct.nixcdn.com/mv/2018/04/03/5/c/9/d/1522735856670_268.jpg') no-repeat center;background-size: cover"></div><div class="image" style="background: url('https://avatar-nct.nixcdn.com/mv/2018/04/03/5/c/9/d/1522735856670_268.jpg') no-repeat center;background-size: cover"></div>
-                <div class="image" style="background: url('https://avatar-nct.nixcdn.com/mv/2018/04/03/5/c/9/d/1522735856670_268.jpg') no-repeat center;background-size: cover"></div><div class="image" style="background: url('https://avatar-nct.nixcdn.com/mv/2018/04/03/5/c/9/d/1522735856670_268.jpg') no-repeat center;background-size: cover"></div>
+                <div class="image" style="background: url('https://avatar-nct.nixcdn.com/mv/2018/04/03/5/c/9/d/1522735856670_268.jpg') no-repeat center;background-size: cover"></div>
+                <div class="image" style="background: url('https://avatar-nct.nixcdn.com/mv/2018/04/03/5/c/9/d/1522735856670_268.jpg') no-repeat center;background-size: cover"></div>
+                <div class="image" style="background: url('https://avatar-nct.nixcdn.com/mv/2018/04/03/5/c/9/d/1522735856670_268.jpg') no-repeat center;background-size: cover"></div>
+                <div class="image" style="background: url('https://avatar-nct.nixcdn.com/mv/2018/04/03/5/c/9/d/1522735856670_268.jpg') no-repeat center;background-size: cover"></div>
+                <div class="image" style="background: url('https://avatar-nct.nixcdn.com/mv/2018/04/03/5/c/9/d/1522735856670_268.jpg') no-repeat center;background-size: cover"></div>
+                <div class="image" style="background: url('https://avatar-nct.nixcdn.com/mv/2018/04/03/5/c/9/d/1522735856670_268.jpg') no-repeat center;background-size: cover"></div>
+                <div class="image" style="background: url('https://avatar-nct.nixcdn.com/mv/2018/04/03/5/c/9/d/1522735856670_268.jpg') no-repeat center;background-size: cover"></div>
+                <div class="image" style="background: url('https://avatar-nct.nixcdn.com/mv/2018/04/03/5/c/9/d/1522735856670_268.jpg') no-repeat center;background-size: cover"></div>
                 <div class="thumb-mask media align-items-stretch"></div>
             </div>
-
-            <div class="login_possition register_possition d-flex flex-column justify-content-end" style="height: calc(100vh);">
+            <div class="login_possition register_possition d-flex flex-column justify-content-end" style="height: calc(135vh);">
                 <div class="w-75 mx-auto text-center" style="margin-bottom: 10px;">
                     <input type="text" placeholder="Tên đăng nhập" class="input_type_mobile login_button mb-3 username">
                     <input type="text" placeholder="Tên hiển thị" class="input_type_mobile login_button mb-3 name">

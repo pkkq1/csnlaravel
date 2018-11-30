@@ -4029,7 +4029,11 @@ Một khúc hát du dương &quot;Vợ tuyệt vời nhất&quot;
 Với anh thật sự chẳng có ai sánh bằng. 
 
 Hôm nay anh phải công tác xa...',
+      'music_length' => 384,
+      'music_width' => 1920,
+      'music_height' => 1080,
       'music_artist_html' => '<a href="/ca-si/Vu-Duy-Khanh~Y3NuX2FydGlzdH4yNTk2.html">Vũ Duy Khánh</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
     1 => 
     array (
@@ -4056,7 +4060,11 @@ Hôm nay anh phải công tác xa...',
       'music_filename' => '1608027-0f0d3a45.mp4',
       'music_bitrate' => 96,
       'music_shortlyric' => '',
+      'music_length' => 299,
+      'music_width' => 1920,
+      'music_height' => 1080,
       'music_artist_html' => '<a href="/ca-si/Huynh-Nguyen-Cong-Bang~Y3NuX2FydGlzdH4zMTQ2MA==.html">Huỳnh Nguyễn Công Bằng</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
     2 => 
     array (
@@ -4085,7 +4093,11 @@ Hôm nay anh phải công tác xa...',
       'music_shortlyric' => 'Khi mà em rời xa vòng tay của riêng anh chạy theo cơn mơ
 Chạy theo hạnh phúc ở nơi nào, chỉ mỗi anh nơi này nâng niu những thơ ngây
 Và khi anh lặng lẽ chôn giấu bao buồn vui gói trong ngăn đựng nhữ...',
+      'music_length' => 333,
+      'music_width' => 1920,
+      'music_height' => 1080,
       'music_artist_html' => '<a href="/ca-si/Vu-Cat-Tuong~Y3NuX2FydGlzdH4yNTU5.html">Vũ Cát Tường</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
     3 => 
     array (
@@ -4123,7 +4135,11 @@ Cho ta bao niềm thương mến.
 
 Gia đình gia đình
 Vươ...',
+      'music_length' => 296,
+      'music_width' => 1920,
+      'music_height' => 1080,
       'music_artist_html' => '<a href="/ca-si/Ky-Phuong~Y3NuX2FydGlzdH4zMDk3MA==.html">Kỳ Phương</a>, <a href="/ca-si/Hong-Mo~Y3NuX2FydGlzdH4zMDUx.html">Hồng Mơ</a>, <a href="/ca-si/Viet-My~Y3NuX2FydGlzdH4xNTg1.html">Việt My</a>, <a href="/ca-si/Anh-Tam~Y3NuX2FydGlzdH40Mjg5.html">Anh Tâm</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
     4 => 
     array (
@@ -4157,7 +4173,11 @@ Tách cà phê ấm môi
 Mình ngồi ôn lại những phút vui trôi qua mất rồi.
 
 Này cây phượng vĩ bên đường ch...',
+      'music_length' => 524,
+      'music_width' => 1920,
+      'music_height' => 1080,
       'music_artist_html' => '<a href="/ca-si/Giao-Linh~Y3NuX2FydGlzdH4xNDQz.html">Giao Linh</a>, <a href="/ca-si/Trang-My-Dung~Y3NuX2FydGlzdH4yMDkwMg==.html">Trang Mỹ Dung</a>, <a href="/ca-si/Phuong-Dung~Y3NuX2FydGlzdH40Njk4.html">Phương Dung</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
     5 => 
     array (
@@ -4190,7 +4210,11 @@ Từng ngày xa lìa khiến con tim bồi hồi
 Và ta lại cần nhau hơn nữa. 
 
 Có nh...',
+      'music_length' => 287,
+      'music_width' => 1920,
+      'music_height' => 1012,
       'music_artist_html' => '<a href="/ca-si/Erik~Y3NuX2FydGlzdH4xNDM3Ng==.html">Erik</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
     6 => 
     array (
@@ -4225,7 +4249,11 @@ Em đeo dải yếm đào
 Quần lĩnh, áo the mới
 Tay em cầm chiếc nón quai thao
 Chân em đi đôi...',
+      'music_length' => 132,
+      'music_width' => 1920,
+      'music_height' => 1080,
       'music_artist_html' => '<a href="/ca-si/Chuong-Dan~Y3NuX2FydGlzdH4xMDYyNQ==.html">Chương Đan</a>, <a href="/ca-si/Tu-Suong~Y3NuX2FydGlzdH42MTIwOA==.html">Tú Sương</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
     7 => 
     array (
@@ -4263,7 +4291,11 @@ Bờ vai em nhỏ
 Chim non lề đường 
 Nằm im giấu mỏ 
 Anh theo Ngọ v...',
+      'music_length' => 375,
+      'music_width' => 1920,
+      'music_height' => 1080,
       'music_artist_html' => '<a href="/ca-si/Le-Trung-Cuong~Y3NuX2FydGlzdH4xMjM4Mg==.html">Lê Trung Cương</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
     8 => 
     array (
@@ -4298,7 +4330,11 @@ Rồi hẹn tuần sau
 Khi hoa mười giờ nở
 Anh sẽ đến thăm em
 Em trông chờ từng ph...',
+      'music_length' => 257,
+      'music_width' => 1920,
+      'music_height' => 1080,
       'music_artist_html' => '<a href="/ca-si/Lam-Ngoc-Hoa~Y3NuX2FydGlzdH42MzExOA==.html">Lâm Ngọc Hoa</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
     9 => 
     array (
@@ -4328,7 +4364,11 @@ Em trông chờ từng ph...',
 Anh đếm từng giây từng ngày để mang em về đây 
 Hãy nhận một lời xin lỗi của anh, mong em đừng có như vậy 
 Bỏ qua em nhé anh xin em tha thứ một lần...',
+      'music_length' => 410,
+      'music_width' => 1920,
+      'music_height' => 1080,
       'music_artist_html' => '<a href="/ca-si/Ho-Gia-Khanh~Y3NuX2FydGlzdH4xMzc1NQ==.html">Hồ Gia Khánh</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
     10 => 
     array (
@@ -4367,7 +4407,11 @@ Inh lả ơi! Sao noọng ơi.
 Ai mặt noọng lái lai. (x2)
 
 Gọi tên của an...',
+      'music_length' => 338,
+      'music_width' => 1920,
+      'music_height' => 1080,
       'music_artist_html' => '<a href="/ca-si/Yen-Trang~Y3NuX2FydGlzdH40Njg=.html">Yến Trang</a>, <a href="/ca-si/Yen-Nhi~Y3NuX2FydGlzdH40Njk=.html">Yến Nhi</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
     11 => 
     array (
@@ -4395,7 +4439,11 @@ Gọi tên của an...',
       'music_bitrate' => 96,
       'music_shortlyric' => '1. Ước Nguyện Đầu Xuân
 2. Mùa Xuân Đó Có Em',
+      'music_length' => 1071,
+      'music_width' => 1280,
+      'music_height' => 720,
       'music_artist_html' => '<a href="/ca-si/Thuy-Duong~Y3NuX2FydGlzdH4zNzcy.html">Thuỳ Dương</a>, <a href="/ca-si/Dao-Anh-Thu~Y3NuX2FydGlzdH4xMzI5Ng==.html">Đào Anh Thư</a>, <a href="/ca-si/Hoang-Quyen~Y3NuX2FydGlzdH4zNzQy.html">Hoàng Quyên</a>, <a href="/ca-si/Da-Thao-My~Y3NuX2FydGlzdH41NzM4Ng==.html">Dạ Thảo My</a>, <a href="/ca-si/Phuong-Tran~Y3NuX2FydGlzdH40NDUzMA==.html">Phương Trần</a>',
+      'music_bitrate_html' => '<span style="color: orange">HD 720p</span>',
     ),
     12 => 
     array (
@@ -4427,7 +4475,11 @@ Dòng tháng năm đó đã cho tình yêu em tha thiết
 Những ái ân để phôi pha.
  
 Đành với đuyên kiếp, em bước đi t...',
+      'music_length' => 210,
+      'music_width' => 1920,
+      'music_height' => 1080,
       'music_artist_html' => '<a href="/ca-si/Nguyen-Hong-Nhung~Y3NuX2FydGlzdH4yNTE2.html">Nguyễn Hồng Nhung</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
     13 => 
     array (
@@ -4461,7 +4513,11 @@ Chung nhau mấy ngày xuân hiền lành.
 
 Niềm vui lên khoé mắt lứa đôi
 Chia nhữ...',
+      'music_length' => 255,
+      'music_width' => 1920,
+      'music_height' => 1080,
       'music_artist_html' => '<a href="/ca-si/Dang-The-Luan~Y3NuX2FydGlzdH42NzM3.html">Đặng Thế Luân</a>, <a href="/ca-si/Truc-Mi~Y3NuX2FydGlzdH40NDEwMA==.html">Trúc Mi</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
     14 => 
     array (
@@ -4488,7 +4544,11 @@ Chia nhữ...',
       'music_filename' => '1608026-0723b993.mp4',
       'music_bitrate' => 96,
       'music_shortlyric' => '',
+      'music_length' => 311,
+      'music_width' => 1920,
+      'music_height' => 1080,
       'music_artist_html' => '<a href="/ca-si/Huynh-Nguyen-Cong-Bang~Y3NuX2FydGlzdH4zMTQ2MA==.html">Huỳnh Nguyễn Công Bằng</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
     15 => 
     array (
@@ -4521,7 +4581,11 @@ Lỡ hứa rồi anh biết làm sao đây
 
 Em cứ hỏi lòng tại sao
 Mỗi lúc gặp nhau thì anh nói chuyện đườn...',
+      'music_length' => 345,
+      'music_width' => 1920,
+      'music_height' => 1080,
       'music_artist_html' => '<a href="/ca-si/Le-Minh-Trung~Y3NuX2FydGlzdH4yMTEz.html">Lê Minh Trung</a>, <a href="/ca-si/My-Hanh~Y3NuX2FydGlzdH4yMzM5.html">Mỹ Hạnh</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
     16 => 
     array (
@@ -4556,7 +4620,11 @@ Bố anh thì đi lại
 Còn mẹ anh gọi điện thoại đến từng nhà 
 Nhiều ngày rồi mình không về
 Không liên lạc được gì cả...',
+      'music_length' => 402,
+      'music_width' => 1280,
+      'music_height' => 720,
       'music_artist_html' => '<a href="/ca-si/Den~Y3NuX2FydGlzdH4xMjQxMQ==.html">Đen</a>, <a href="/ca-si/Linh-Cao~Y3NuX2FydGlzdH4xNzM4Nw==.html">Linh Cáo</a>, <a href="/ca-si/Hoa-Minzy~Y3NuX2FydGlzdH40NTc3.html">Hoà Minzy</a>, <a href="/ca-si/Mr-T~Y3NuX2FydGlzdH41OTAzOQ==.html">Mr. T</a>',
+      'music_bitrate_html' => '<span style="color: orange">HD 720p</span>',
     ),
     17 => 
     array (
@@ -4589,7 +4657,11 @@ Từng ngày xa lìa khiến con tim bồi hồi
 Và ta lại cần nhau hơn nữa. 
 
 Có nh...',
+      'music_length' => 232,
+      'music_width' => 1280,
+      'music_height' => 720,
       'music_artist_html' => '<a href="/ca-si/Erik~Y3NuX2FydGlzdH4xNDM3Ng==.html">Erik</a>',
+      'music_bitrate_html' => '<span style="color: orange">HD 720p</span>',
     ),
     18 => 
     array (
@@ -4622,7 +4694,11 @@ Từng ngày xa lìa khiến con tim bồi hồi
 Và ta lại cần nhau hơn nữa. 
 
 Có nh...',
+      'music_length' => 138,
+      'music_width' => 1920,
+      'music_height' => 1080,
       'music_artist_html' => '<a href="/ca-si/Van-Mai-Huong~Y3NuX2FydGlzdH4yMzI4.html">Văn Mai Hương</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
     19 => 
     array (
@@ -4657,7 +4733,11 @@ Cho kiếp người tình thương đắm đuối
 Ánh xuân đem vui với đời.
 
 Kìa trong vạt...',
+      'music_length' => 296,
+      'music_width' => 1920,
+      'music_height' => 1080,
       'music_artist_html' => '<a href="/ca-si/The-Son~Y3NuX2FydGlzdH41MjU0.html">Thế Sơn</a>, <a href="/ca-si/Quoc-Khanh~Y3NuX2FydGlzdH4yNDQ5.html">Quốc Khanh</a>, <a href="/ca-si/Nguyen-Khang~Y3NuX2FydGlzdH43ODc=.html">Nguyên Khang</a>, <a href="/ca-si/Mai-Thanh-Son~Y3NuX2FydGlzdH4xMDM5MA==.html">Mai Thanh Sơn</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
   ),
   2 => 
@@ -4692,7 +4772,11 @@ No matter what I say or do I\'ll still feel you here \'til the moment I\'m gone.
 
 You hold me without touch
 You keep me without chains...',
+      'music_length' => 563,
+      'music_width' => 1920,
+      'music_height' => 786,
       'music_artist_html' => '<a href="/ca-si/Jessica-Jung~Y3NuX2FydGlzdH42MzM4OQ==.html">Jessica Jung</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
     1 => 
     array (
@@ -4719,7 +4803,11 @@ You keep me without chains...',
       'music_filename' => '1608647-8e6a0c54.mp4',
       'music_bitrate' => 96,
       'music_shortlyric' => '',
+      'music_length' => 172,
+      'music_width' => 1920,
+      'music_height' => 1080,
       'music_artist_html' => '<a href="/ca-si/DubVision~Y3NuX2FydGlzdH4xMzQ1Nw==.html">DubVision</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
     2 => 
     array (
@@ -4750,7 +4838,11 @@ Coming in unannounced, drag my nails on the tile
 I just follow your scent, you can just follow my smile
 All of your flaws are aligned with this mood of mine
 Cutting me to the bone, nothi...',
+      'music_length' => 210,
+      'music_width' => 1920,
+      'music_height' => 1080,
       'music_artist_html' => '<a href="/ca-si/Fall-Out-Boy~Y3NuX2FydGlzdH41MDc0.html">Fall Out Boy</a>, <a href="/ca-si/Demi-Lovato~Y3NuX2FydGlzdH45NjU=.html">Demi Lovato</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
     3 => 
     array (
@@ -4781,7 +4873,11 @@ You had me mezmorized
 And three weeks later, in the front porch light
 Taking forty-five minutes to kiss goodnight
 I hadn\'t told you...',
+      'music_length' => 263,
+      'music_width' => 1920,
+      'music_height' => 1080,
       'music_artist_html' => '<a href="/ca-si/Vo-Trong-Phuc~Y3NuX2FydGlzdH4yNjY5.html">Võ Trọng Phúc</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
     4 => 
     array (
@@ -4815,7 +4911,11 @@ Hey sista, go sista, soul sista, go sista.
 
 He met marmalade down in old Moulin Rouge
 Struttin...',
+      'music_length' => 312,
+      'music_width' => 1920,
+      'music_height' => 1080,
       'music_artist_html' => '<a href="/ca-si/Hang-BingBoong~Y3NuX2FydGlzdH4yNTUw.html">Hằng BingBoong</a>, <a href="/ca-si/DJ-Dan-Nguyen~Y3NuX2FydGlzdH43NzgzMA==.html">DJ Dan Nguyễn</a>, <a href="/ca-si/Race~Y3NuX2FydGlzdH43NTcxNg==.html">Race</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
     5 => 
     array (
@@ -4846,7 +4946,11 @@ Supersonic boom, da boys are gettin\' loud
 Da club is gettin crazy, intoxicating
 Tonigh t won\'t be the same, or else you got me hatin\'
 I\'m hotter tha...',
+      'music_length' => 360,
+      'music_width' => 1920,
+      'music_height' => 1080,
       'music_artist_html' => '<a href="/ca-si/Hoang-Thuy-Linh~Y3NuX2FydGlzdH43ODU=.html">Hoàng Thuỳ Linh</a>, <a href="/ca-si/Triple-D~Y3NuX2FydGlzdH4xMzY2NA==.html">Triple D</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
     6 => 
     array (
@@ -4877,7 +4981,11 @@ Don\'t know where your heart is, but mine\'s bruised
 You knew when you started, that I\'d lose
 The blood on the carpet, is not you
 I tried to wash the scars and ma...',
+      'music_length' => 229,
+      'music_width' => 1920,
+      'music_height' => 1080,
       'music_artist_html' => '<a href="/ca-si/JoJo~Y3NuX2FydGlzdH41MzEx.html">JoJo</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
     7 => 
     array (
@@ -4914,7 +5022,11 @@ So guess it\'s better to stay.
 
 Well, come on and say
 Well, the food\'s g...',
+      'music_length' => 232,
+      'music_width' => 1920,
+      'music_height' => 1080,
       'music_artist_html' => '<a href="/ca-si/Coldplay~Y3NuX2FydGlzdH42ODA1.html">Coldplay</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
     8 => 
     array (
@@ -4941,7 +5053,11 @@ Well, the food\'s g...',
       'music_filename' => '1612970-0222e294.mp4',
       'music_bitrate' => 96,
       'music_shortlyric' => '',
+      'music_length' => 175,
+      'music_width' => 1920,
+      'music_height' => 1080,
       'music_artist_html' => '<a href="/ca-si/Vicetone~Y3NuX2FydGlzdH4yMDk4MQ==.html">Vicetone</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
     9 => 
     array (
@@ -4973,7 +5089,11 @@ All the nights and the fights and the blood and all the break ups
 You\'re always there to call up
 I\'m in pain, I\'m a child, I\'m afraid
 But, yeah, y...',
+      'music_length' => 242,
+      'music_width' => 1920,
+      'music_height' => 1080,
       'music_artist_html' => '<a href="/ca-si/Ellie-Goulding~Y3NuX2FydGlzdH4zNzg3.html">Ellie Goulding</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
     10 => 
     array (
@@ -5004,7 +5124,11 @@ Supersonic boom, da boys are gettin\' loud
 Da club is gettin crazy, intoxicating
 Tonigh t won\'t be the same, or else you got me hatin\'
 I\'m hotter tha...',
+      'music_length' => 266,
+      'music_width' => 1920,
+      'music_height' => 1080,
       'music_artist_html' => '<a href="/ca-si/Hoang-Thuy-Linh~Y3NuX2FydGlzdH43ODU=.html">Hoàng Thuỳ Linh</a>, <a href="/ca-si/Triple-D~Y3NuX2FydGlzdH4xMzY2NA==.html">Triple D</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
     11 => 
     array (
@@ -5038,7 +5162,11 @@ They say that time\'s supposed to heal ya
 But I ain\'t done much healing.
 
 Hello, can you hear me?...',
+      'music_length' => 215,
+      'music_width' => 1920,
+      'music_height' => 1080,
       'music_artist_html' => '<a href="/ca-si/Huong-Tram~Y3NuX2FydGlzdH4yNTM3.html">Hương Tràm</a>, <a href="/ca-si/Duy-Anh~Y3NuX2FydGlzdH4zMzYx.html">Duy Anh</a>, <a href="/ca-si/DJ-King-Lady~Y3NuX2FydGlzdH42MTkxNQ==.html">DJ King Lady</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
     12 => 
     array (
@@ -5072,7 +5200,11 @@ We poppin\' like ayo
 All my bitches got real hair chilling with the top down
 Screaming like ayo
 I\'mma take her ass down when she bring her friend around...',
+      'music_length' => 198,
+      'music_width' => 1920,
+      'music_height' => 1080,
       'music_artist_html' => '<a href="/ca-si/Rhymastic~Y3NuX2FydGlzdH4xNTQ1.html">Rhymastic</a>, <a href="/ca-si/DJ-Gin~Y3NuX2FydGlzdH4zNzI3NQ==.html">DJ Gin</a>, <a href="/ca-si/Antei-Ngoc-Thinh~Y3NuX2FydGlzdH43NzA1MA==.html">Antei Ngọc Thịnh</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
     13 => 
     array (
@@ -5105,7 +5237,11 @@ Let me escape in your arms
 Baby I\'m yours, baby I\'m yours
 Love don\'t come easy at all
 I miss you so much,...',
+      'music_length' => 233,
+      'music_width' => 1920,
+      'music_height' => 1080,
       'music_artist_html' => '<a href="/ca-si/Major-Lazer~Y3NuX2FydGlzdH4xMzM2Nw==.html">Major Lazer</a>, <a href="/ca-si/Wild-Belle~Y3NuX2FydGlzdH42NjYzNg==.html">Wild Belle</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
     14 => 
     array (
@@ -5142,7 +5278,11 @@ before the storm
 Top of the world 
 is where we belong
 so we\'ll b...',
+      'music_length' => 206,
+      'music_width' => 1920,
+      'music_height' => 1080,
       'music_artist_html' => '<a href="/ca-si/Ummet-Ozcan~Y3NuX2FydGlzdH4xMzI4Ng==.html">Ummet Ozcan</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
     15 => 
     array (
@@ -5178,7 +5318,11 @@ We running out of time
 Killing it goes so easily
 I want to feel him breathe
 I want h...',
+      'music_length' => 216,
+      'music_width' => 1920,
+      'music_height' => 1080,
       'music_artist_html' => '<a href="/ca-si/Tisto~Y3NuX2FydGlzdH4xNTU5NA==.html">Tiësto</a>, <a href="/ca-si/Oliver-Heldens~Y3NuX2FydGlzdH4xODg3NA==.html">Oliver Heldens</a>, <a href="/ca-si/Natalie-La-Rose~Y3NuX2FydGlzdH42MTA2OA==.html">Natalie La Rose</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
     16 => 
     array (
@@ -5212,7 +5356,11 @@ I can\'t get enough
 We got the future, but in the past
 Good and the bad, making it last
 We...',
+      'music_length' => 219,
+      'music_width' => 1920,
+      'music_height' => 1080,
       'music_artist_html' => '<a href="/ca-si/You~Y3NuX2FydGlzdH4yMjM1NA==.html">You</a>, <a href="/ca-si/Katelyn-Tarver~Y3NuX2FydGlzdH4xNDY3.html">Katelyn Tarver</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
     17 => 
     array (
@@ -5265,7 +5413,11 @@ Down
 Low
 Deep
 Dow...',
+      'music_length' => 184,
+      'music_width' => 1920,
+      'music_height' => 1080,
       'music_artist_html' => '<a href="/ca-si/Valentino-Khan~Y3NuX2FydGlzdH4xMzU5NA==.html">Valentino Khan</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
     18 => 
     array (
@@ -5292,7 +5444,11 @@ Dow...',
       'music_filename' => '1618938-1f393f6a.mp4',
       'music_bitrate' => 96,
       'music_shortlyric' => '',
+      'music_length' => 207,
+      'music_width' => 1920,
+      'music_height' => 1080,
       'music_artist_html' => '<a href="/ca-si/Mike-Mago~Y3NuX2FydGlzdH4zMzgyOA==.html">Mike Mago</a>, <a href="/ca-si/KC-Lights~Y3NuX2FydGlzdH43ODY1OA==.html">KC Lights</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
     19 => 
     array (
@@ -5326,7 +5482,11 @@ It\'s not fine, i\'m going crazy
 What is happening to me?
 What is this music?
 Bill, b...',
+      'music_length' => 211,
+      'music_width' => 1920,
+      'music_height' => 1080,
       'music_artist_html' => '<a href="/ca-si/Blasterjaxx~Y3NuX2FydGlzdH4xNDgwOQ==.html">Blasterjaxx</a>, <a href="/ca-si/DBSTF~Y3NuX2FydGlzdH42MTA4Mw==.html">DBSTF</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
   ),
   4 => 
@@ -5363,7 +5523,11 @@ Red carpet gateun gibun
 Modu nal chyeoda bojyo.
 
 Eotteon sarameun...',
+      'music_length' => 150,
+      'music_width' => 1920,
+      'music_height' => 1080,
       'music_artist_html' => '<a href="/ca-si/Twice~Y3NuX2FydGlzdH4xMzM4OA==.html">Twice</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
     1 => 
     array (
@@ -5395,7 +5559,11 @@ Jumare jibeun geoui keulleobigo
 Yeonrak oneun geon nae geosman musihaedo
 Eotteohge geureohge ippeul su issni
 Hesgallyeo hyeonsirinji...',
+      'music_length' => 191,
+      'music_width' => 1920,
+      'music_height' => 1080,
       'music_artist_html' => '<a href="/ca-si/Louie~Y3NuX2FydGlzdH4xNTQ5NQ==.html">Louie</a>, <a href="/ca-si/Geeks~Y3NuX2FydGlzdH40Mzk2.html">Geeks</a>, <a href="/ca-si/Lee-Hyun-Woo~Y3NuX2FydGlzdH4xOTc0Nw==.html">Lee Hyun Woo</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
     2 => 
     array (
@@ -5429,7 +5597,11 @@ I love you I need you
 You.. Nega piryohae.
 
 Eogime...',
+      'music_length' => 234,
+      'music_width' => 1920,
+      'music_height' => 1080,
       'music_artist_html' => '<a href="/ca-si/Gary~Y3NuX2FydGlzdH4yNjc5.html">Gary</a>, <a href="/ca-si/Gaeko~Y3NuX2FydGlzdH40NTg1.html">Gaeko</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
     3 => 
     array (
@@ -5465,7 +5637,11 @@ Just like U baby baby baby.
 
 Gwansimdo eopseonneunde
 Nae seutail...',
+      'music_length' => 202,
+      'music_width' => 1920,
+      'music_height' => 1080,
       'music_artist_html' => '<a href="/ca-si/Dalshabet~Y3NuX2FydGlzdH4yODk1.html">Dalshabet</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
     4 => 
     array (
@@ -5499,7 +5675,11 @@ Anin han sarangi doego
 Ijen da naekkeorago mideoneunde
 Ring ring ring ring
 Yeojeonhi ba...',
+      'music_length' => 266,
+      'music_width' => 1920,
+      'music_height' => 1080,
       'music_artist_html' => '<a href="/ca-si/Kwill~Y3NuX2FydGlzdH40Mjk5.html">K.will</a>, <a href="/ca-si/Davichi~Y3NuX2FydGlzdH4xMDUw.html">Davichi</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
     5 => 
     array (
@@ -5531,7 +5711,11 @@ Ireon mareul hal ttaemada neoneun
 Mot deureun cheok neul ttan yaegireul hae
 Eojen neomu joheun kkumeul kkwosseo
 Jigeum malhaejugin ganji...',
+      'music_length' => 230,
+      'music_width' => 1920,
+      'music_height' => 1080,
       'music_artist_html' => '<a href="/ca-si/Baekhyun~Y3NuX2FydGlzdH4yMzAwNA==.html">Baekhyun</a>, <a href="/ca-si/Suzy~Y3NuX2FydGlzdH4yMTU0.html">Suzy</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
     6 => 
     array (
@@ -5567,7 +5751,11 @@ Ha haneuren gureumi
 Everybody look at me gureum wi
 Ttwieo gada neomeojyeodo joha
 Neoreul bor...',
+      'music_length' => 357,
+      'music_width' => 1920,
+      'music_height' => 1080,
       'music_artist_html' => '<a href="/ca-si/Twice~Y3NuX2FydGlzdH4xMzM4OA==.html">Twice</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
     7 => 
     array (
@@ -5600,7 +5788,11 @@ Josimhi nal boneun neoui ttatteushan nunbich
 Ileohge naui jameul kkaeuneun geudaejyo.
 
 Nuntteumyeon moningkis...',
+      'music_length' => 307,
+      'music_width' => 1920,
+      'music_height' => 1080,
       'music_artist_html' => '<a href="/ca-si/Dal-Shabet~Y3NuX2FydGlzdH4yNDE0OA==.html">Dal Shabet</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
     8 => 
     array (
@@ -5627,7 +5819,11 @@ Nuntteumyeon moningkis...',
       'music_filename' => '1609559-222bf191.mp4',
       'music_bitrate' => 96,
       'music_shortlyric' => '',
+      'music_length' => 238,
+      'music_width' => 1920,
+      'music_height' => 1080,
       'music_artist_html' => '<a href="/ca-si/Cando~Y3NuX2FydGlzdH4xNzc2Ng==.html">Cando</a>, <a href="/ca-si/Kasper~Y3NuX2FydGlzdH4yMTU5Mg==.html">Kasper</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
     9 => 
     array (
@@ -5668,7 +5864,11 @@ Olle olle
 We goin yeah.
 
 Nan pumwi eobseo...',
+      'music_length' => 465,
+      'music_width' => 1920,
+      'music_height' => 1080,
       'music_artist_html' => '<a href="/ca-si/iKON~Y3NuX2FydGlzdH4xNDM1OQ==.html">iKON</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
     10 => 
     array (
@@ -5705,7 +5905,11 @@ Sarajiryeo hajima.
 
 Is it true? Is it true?
 You...',
+      'music_length' => 374,
+      'music_width' => 1920,
+      'music_height' => 1080,
       'music_artist_html' => '<a href="/ca-si/BTS~Y3NuX2FydGlzdH40NzQ4.html">BTS</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
     11 => 
     array (
@@ -5738,7 +5942,11 @@ Josimhi nal boneun neoui ttatteushan nunbich
 Ileohge naui jameul kkaeuneun geudaejyo.
 
 Nuntteumyeon moningkis...',
+      'music_length' => 370,
+      'music_width' => 1920,
+      'music_height' => 1080,
       'music_artist_html' => '<a href="/ca-si/Dal-Shabet~Y3NuX2FydGlzdH4yNDE0OA==.html">Dal Shabet</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
     12 => 
     array (
@@ -5772,7 +5980,11 @@ Red carpet gateun gibun
 Modu nal chyeoda bojyo.
 
 Eotteon sarameun...',
+      'music_length' => 231,
+      'music_width' => 1920,
+      'music_height' => 1080,
       'music_artist_html' => '<a href="/ca-si/Twice~Y3NuX2FydGlzdH4xMzM4OA==.html">Twice</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
     13 => 
     array (
@@ -5811,7 +6023,11 @@ Olle olle
 [B.I/Bobby] We goin yeah.
 
 Nan pumwi eob...',
+      'music_length' => 250,
+      'music_width' => 1920,
+      'music_height' => 1080,
       'music_artist_html' => '<a href="/ca-si/iKON~Y3NuX2FydGlzdH4xNDM1OQ==.html">iKON</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
     14 => 
     array (
@@ -5843,7 +6059,11 @@ Ni nunbichi malhaejudeon chejeung
 I was nae mameun ni mamiragu
 Noteureul pyeolchyeo hangeulja hangeulja
 Pitmulcheoreo...',
+      'music_length' => 224,
+      'music_width' => 1920,
+      'music_height' => 1080,
       'music_artist_html' => '<a href="/ca-si/Lucky-J~Y3NuX2FydGlzdH41MDY4NQ==.html">Lucky J</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
     15 => 
     array (
@@ -5877,7 +6097,11 @@ Baby baby baby baby baby you
 Play me play me play me play me play me.
 
 Geu nun...',
+      'music_length' => 278,
+      'music_width' => 1920,
+      'music_height' => 1080,
       'music_artist_html' => '<a href="/ca-si/Red-Velvet~Y3NuX2FydGlzdH40NzE5.html">Red Velvet</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
     16 => 
     array (
@@ -5911,7 +6135,11 @@ Neomu neujeosseo neujeosseo neo eopsi sal sun eopseo
 Gajiga mallado deo himkkeot soneul ppeodeo.
 
 S...',
+      'music_length' => 297,
+      'music_width' => 1920,
+      'music_height' => 1080,
       'music_artist_html' => '<a href="/ca-si/BTS~Y3NuX2FydGlzdH40NzQ4.html">BTS</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
     17 => 
     array (
@@ -5944,7 +6172,11 @@ Sigani meomchwobeorin gieok geu soge.
 Hayan morae wireul
 Hamkke geotdeon nal gieokhanayo
 Jamkkan millyeooneun pado sog...',
+      'music_length' => 301,
+      'music_width' => 1920,
+      'music_height' => 1080,
       'music_artist_html' => '<a href="/ca-si/A-Pink~Y3NuX2FydGlzdH4yMzEw.html">A Pink</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
     18 => 
     array (
@@ -5977,7 +6209,11 @@ Eodiseo manhi deureobon iyagi
 Miun oriwa baekjo tto nalgi jeonui nabi
 Saramdeureun molla neoui nalgaereul motbwa
 Nega m...',
+      'music_length' => 180,
+      'music_width' => 1920,
+      'music_height' => 1080,
       'music_artist_html' => '<a href="/ca-si/Taeyeon~Y3NuX2FydGlzdH4xNjY0.html">Taeyeon</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
     19 => 
     array (
@@ -6011,7 +6247,11 @@ Baby baby baby baby baby you
 Play me play me play me play me play me.
 
 Geu nun...',
+      'music_length' => 253,
+      'music_width' => 1920,
+      'music_height' => 1080,
       'music_artist_html' => '<a href="/ca-si/Red-Velvet~Y3NuX2FydGlzdH40NzE5.html">Red Velvet</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
   ),
   7 => 
@@ -6048,7 +6288,11 @@ Ru bên đời bằng mảnh tình dở dang
 Phút giây này dao động trong ta.
 
 [ĐK:]...',
+      'music_length' => 271,
+      'music_width' => 1920,
+      'music_height' => 1080,
       'music_artist_html' => '<a href="/ca-si/Danh-Dat~Y3NuX2FydGlzdH43MTk2NQ==.html">Danh Đạt</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
     1 => 
     array (
@@ -6084,7 +6328,11 @@ Phố xưa vắng em chờ anh.
 Đưa người về nơi giá băng 
 Nước mắt em chung lệ tôi 
 Biết rằng, từ nay mất nh...',
+      'music_length' => 348,
+      'music_width' => 1920,
+      'music_height' => 1080,
       'music_artist_html' => '<a href="/ca-si/Trung-Quan~Y3NuX2FydGlzdH4yMDQ1.html">Trung Quân</a>, <a href="/ca-si/DJ-Huy-DX~Y3NuX2FydGlzdH43NzM5Mg==.html">DJ Huy DX</a>, <a href="/ca-si/Mastal~Y3NuX2FydGlzdH43NzM5MQ==.html">Mastal</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
     2 => 
     array (
@@ -6120,7 +6368,11 @@ Tanoshī koto shiyou
 Toji kometa jo onets yeah.
 
 De guchi sagsh teru ye...',
+      'music_length' => 125,
+      'music_width' => 1920,
+      'music_height' => 1080,
       'music_artist_html' => '<a href="/ca-si/SHINee~Y3NuX2FydGlzdH4xODIx.html">SHINee</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
     3 => 
     array (
@@ -6157,7 +6409,11 @@ Mukiatte tatteiru yo.
 
 Mou jikan wa nai kedo
 Itsu...',
+      'music_length' => 322,
+      'music_width' => 1920,
+      'music_height' => 1080,
       'music_artist_html' => '<a href="/ca-si/2PM~Y3NuX2FydGlzdH4xODIw.html">2PM</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
     4 => 
     array (
@@ -6195,7 +6451,11 @@ Tenkuu kakeru yo kon\'ya wa
 Just right
 Shidou wa joujou akuseru datte joukigen
 O dekake ts...',
+      'music_length' => 231,
+      'music_width' => 1920,
+      'music_height' => 1080,
       'music_artist_html' => '<a href="/ca-si/EXO~Y3NuX2FydGlzdH4yNTcy.html">EXO</a>',
+      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     ),
   ),
 );

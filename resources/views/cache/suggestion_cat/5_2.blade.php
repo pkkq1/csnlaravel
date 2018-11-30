@@ -20,6 +20,10 @@ $typeDup = array (
     'music_listen' => 1808,
     'music_bitrate' => 320,
     'music_filename' => '1859689-2588d3a1.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Higher-Brothers~Y3NuX2FydGlzdH4yMTk4OA==.html">Higher Brothers</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
   1 => 
   array (
@@ -35,6 +39,10 @@ $typeDup = array (
     'music_listen' => 28646,
     'music_bitrate' => 320,
     'music_filename' => '1703964-cec8a6e7.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/EXO~Y3NuX2FydGlzdH4yNTcy.html">EXO</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
   2 => 
   array (
@@ -50,6 +58,10 @@ $typeDup = array (
     'music_listen' => 5784,
     'music_bitrate' => 1000,
     'music_filename' => '1917133-5239b468.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Ngo-Diec-Pham~Y3NuX2FydGlzdH40Njg1.html">Ngô Diệc Phàm</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   3 => 
   array (
@@ -65,6 +77,10 @@ $typeDup = array (
     'music_listen' => 64514,
     'music_bitrate' => 1000,
     'music_filename' => '1865635-abccc0c4.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Chu-But-Suong~Y3NuX2FydGlzdH40NTI5MA==.html">Chu Bút Sướng</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   4 => 
   array (
@@ -80,6 +96,10 @@ $typeDup = array (
     'music_listen' => 44129,
     'music_bitrate' => 1000,
     'music_filename' => '1845029-f7c86396.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Hoa-Than-Vu~Y3NuX2FydGlzdH4xNjkyNw==.html">Hoa Thần Vũ</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   5 => 
   array (
@@ -95,6 +115,10 @@ $typeDup = array (
     'music_listen' => 8854,
     'music_bitrate' => 1000,
     'music_filename' => '1839707-feccb9bd.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Higher-Brothers-Famous-Dex~Y3NuX2FydGlzdH4xMDE1Nzg=.html">Higher Brothers, Famous Dex</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   6 => 
   array (
@@ -110,6 +134,10 @@ $typeDup = array (
     'music_listen' => 1562,
     'music_bitrate' => 320,
     'music_filename' => '1859416-44acc358.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Higher-Brothers~Y3NuX2FydGlzdH4yMTk4OA==.html">Higher Brothers</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
   7 => 
   array (
@@ -125,6 +153,10 @@ $typeDup = array (
     'music_listen' => 6214,
     'music_bitrate' => 320,
     'music_filename' => '1943467-13ecc73c.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/88rising~Y3NuX2FydGlzdH4xODU2Mg==.html">88rising</a>, <a href="/ca-si/Phum-Viphurit~Y3NuX2FydGlzdH4yMTk5NA==.html">Phum Viphurit</a>, <a href="/ca-si/Higher-Brothers~Y3NuX2FydGlzdH4yMTk4OA==.html">Higher Brothers</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
   8 => 
   array (
@@ -140,6 +172,10 @@ $typeDup = array (
     'music_listen' => 11389,
     'music_bitrate' => 1000,
     'music_filename' => '1931536-f4d17f0e.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Tieu-Quy-AKAimp-Ft-Nine-Percent~Y3NuX2FydGlzdH4yMDAzMg==.html">Tiểu Quỷ (AKA.imp) Ft Nine Percent</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   9 => 
   array (
@@ -155,6 +191,10 @@ $typeDup = array (
     'music_listen' => 4032,
     'music_bitrate' => 1000,
     'music_filename' => '1912409-af9a2fd9.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Tieu-Toan~Y3NuX2FydGlzdH4xNDAzNw==.html">Tiêu Toàn</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   10 => 
   array (
@@ -170,6 +210,10 @@ $typeDup = array (
     'music_listen' => 44382,
     'music_bitrate' => 1000,
     'music_filename' => '1847212-5a521715.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Jackson-Wang~Y3NuX2FydGlzdH4xMzYyOA==.html">Jackson Wang</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   11 => 
   array (
@@ -185,6 +229,10 @@ $typeDup = array (
     'music_listen' => 7436,
     'music_bitrate' => 320,
     'music_filename' => '1810148-e1b07373.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Wu-Yi-Fan-Kris-Wu~Y3NuX2FydGlzdH45ODg2OQ==.html">Wu Yi Fan (Kris Wu)</a>, <a href="/ca-si/Kevin-Shin~Y3NuX2FydGlzdH45ODM0NA==.html">Kevin Shin</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
   12 => 
   array (
@@ -200,6 +248,10 @@ $typeDup = array (
     'music_listen' => 9431,
     'music_bitrate' => 320,
     'music_filename' => '1810147-ad9b0daa.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Wu-Yi-Fan-Kris-Wu~Y3NuX2FydGlzdH45ODg2OQ==.html">Wu Yi Fan (Kris Wu)</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
   13 => 
   array (
@@ -215,6 +267,10 @@ $typeDup = array (
     'music_listen' => 6107,
     'music_bitrate' => 192,
     'music_filename' => '1900314-7653df43.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
   ),
   14 => 
   array (
@@ -230,6 +286,10 @@ $typeDup = array (
     'music_listen' => 7515,
     'music_bitrate' => 1000,
     'music_filename' => '1883051-270cb13c.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/AKAimp~Y3NuX2FydGlzdH4xMDQ4NzY=.html">AKA.imp小鬼</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   15 => 
   array (
@@ -245,6 +305,10 @@ $typeDup = array (
     'music_listen' => 1885,
     'music_bitrate' => 320,
     'music_filename' => '1868144-8edc9191.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Higher-Brothers~Y3NuX2FydGlzdH4yMTk4OA==.html">Higher Brothers</a>, <a href="/ca-si/Bohan-Phoenix~Y3NuX2FydGlzdH4xMDM4MzQ=.html">Bohan Phoenix</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
   16 => 
   array (
@@ -260,6 +324,10 @@ $typeDup = array (
     'music_listen' => 30003,
     'music_bitrate' => 192,
     'music_filename' => '1591536-cf8e36d4.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Namewee~Y3NuX2FydGlzdH4xNDI0OQ==.html">Namewee</a>, <a href="/ca-si/Joyce-Chu~Y3NuX2FydGlzdH40ODQyMA==.html">Joyce Chu</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
   ),
   17 => 
   array (
@@ -275,6 +343,10 @@ $typeDup = array (
     'music_listen' => 31712,
     'music_bitrate' => 192,
     'music_filename' => '1665824-10ac346b.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Chino-y-Nacho-ft-Daddy-Yankee~Y3NuX2FydGlzdH44NDI4Ng==.html">Chino y Nacho ft. Daddy Yankee</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
   ),
   18 => 
   array (
@@ -290,6 +362,10 @@ $typeDup = array (
     'music_listen' => 38195,
     'music_bitrate' => 1000,
     'music_filename' => '1856648-76aa1b2a.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/LAMPHO~Y3NuX2FydGlzdH4xMDI4ODI=.html">LAMPHO</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   19 => 
   array (
@@ -305,6 +381,10 @@ $typeDup = array (
     'music_listen' => 12616,
     'music_bitrate' => 1000,
     'music_filename' => '1824911-c1c2494c.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Ngo-Diec-Pham~Y3NuX2FydGlzdH40Njg1.html">Ngô Diệc Phàm</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   20 => 
   array (
@@ -320,6 +400,10 @@ $typeDup = array (
     'music_listen' => 4314,
     'music_bitrate' => 320,
     'music_filename' => '1859417-ba321c0b.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Higher-Brothers~Y3NuX2FydGlzdH4yMTk4OA==.html">Higher Brothers</a>, <a href="/ca-si/Keith-Ape~Y3NuX2FydGlzdH4xOTU1Mw==.html">Keith Ape</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
   21 => 
   array (
@@ -335,6 +419,10 @@ $typeDup = array (
     'music_listen' => 4125,
     'music_bitrate' => 1000,
     'music_filename' => '1939551-49b9b882.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Ngai-Nhiet~Y3NuX2FydGlzdH4yMTE1OQ==.html">Ngải Nhiệt</a>, <a href="/ca-si/Ly-Giai-Long~Y3NuX2FydGlzdH4yMTE2MA==.html">Lý Giai Long</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   22 => 
   array (
@@ -350,6 +438,10 @@ $typeDup = array (
     'music_listen' => 17419,
     'music_bitrate' => 192,
     'music_filename' => '1435091-bb089996.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>, <a href="/ca-si/ZJ~Y3NuX2FydGlzdH42MDYyMQ==.html">ZJ</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
   ),
   23 => 
   array (
@@ -365,6 +457,10 @@ $typeDup = array (
     'music_listen' => 13471,
     'music_bitrate' => 192,
     'music_filename' => '1380116-2b7fa7d2.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>, <a href="/ca-si/Vincent~Y3NuX2FydGlzdH41ODcx.html">Vincent</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
   ),
   24 => 
   array (
@@ -380,6 +476,10 @@ $typeDup = array (
     'music_listen' => 10520,
     'music_bitrate' => 192,
     'music_filename' => '1207927-bb66318e.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
   ),
   25 => 
   array (
@@ -395,6 +495,10 @@ $typeDup = array (
     'music_listen' => 18275,
     'music_bitrate' => 192,
     'music_filename' => '1078414-f6d06603.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>, <a href="/ca-si/~Y3NuX2FydGlzdH4yOTU4OA==.html">汪大頭</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
   ),
   26 => 
   array (
@@ -410,6 +514,10 @@ $typeDup = array (
     'music_listen' => 12352,
     'music_bitrate' => 128,
     'music_filename' => '333921-d3b1f3c0.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Au-Duong-Tinh~Y3NuX2FydGlzdH42MTcxMQ==.html">Âu Dương Tĩnh</a>, <a href="/ca-si/MC-Jing~Y3NuX2FydGlzdH4xMDcyMzE=.html">MC Jing</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">128kbps</span>',
   ),
   27 => 
   array (
@@ -425,6 +533,10 @@ $typeDup = array (
     'music_listen' => 10895,
     'music_bitrate' => 192,
     'music_filename' => '1074853-e331f292.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>, <a href="/ca-si/~Y3NuX2FydGlzdH4yOTc5Mg==.html">鍾洁</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
   ),
   28 => 
   array (
@@ -440,6 +552,10 @@ $typeDup = array (
     'music_listen' => 11809,
     'music_bitrate' => 192,
     'music_filename' => '1087484-1fefd4cc.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>, <a href="/ca-si/Aka~Y3NuX2FydGlzdH4zMTI1NA==.html">Aka 小東</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
   ),
   29 => 
   array (
@@ -455,6 +571,10 @@ $typeDup = array (
     'music_listen' => 24337,
     'music_bitrate' => 128,
     'music_filename' => '1101492-1c2dc5fe.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/24Herbs~Y3NuX2FydGlzdH4zMjMwNg==.html">24Herbs</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">128kbps</span>',
   ),
   30 => 
   array (
@@ -470,6 +590,10 @@ $typeDup = array (
     'music_listen' => 9485,
     'music_bitrate' => 192,
     'music_filename' => '1171038-f3855d43.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>, <a href="/ca-si/YK~Y3NuX2FydGlzdH4xNjA3MA==.html">YK</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
   ),
   31 => 
   array (
@@ -485,6 +609,10 @@ $typeDup = array (
     'music_listen' => 9513,
     'music_bitrate' => 192,
     'music_filename' => '1160082-4be9d1af.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>, <a href="/ca-si/Tieu-Thong~Y3NuX2FydGlzdH4zNjQyOA==.html">Tiểu Thông</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
   ),
   32 => 
   array (
@@ -500,6 +628,10 @@ $typeDup = array (
     'music_listen' => 7594,
     'music_bitrate' => 128,
     'music_filename' => '1162507-3c2b4824.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>, <a href="/ca-si/Hoan-My~Y3NuX2FydGlzdH4zNjU4MA==.html">Hoàn Mỹ</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">128kbps</span>',
   ),
   33 => 
   array (
@@ -515,6 +647,10 @@ $typeDup = array (
     'music_listen' => 5653,
     'music_bitrate' => 192,
     'music_filename' => '1434953-aefb9c2e.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>, <a href="/ca-si/XL~Y3NuX2FydGlzdH42MDYwNA==.html">XL</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
   ),
   34 => 
   array (
@@ -530,6 +666,10 @@ $typeDup = array (
     'music_listen' => 16134,
     'music_bitrate' => 320,
     'music_filename' => '1061596-9db5eda4.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
   35 => 
   array (
@@ -545,6 +685,10 @@ $typeDup = array (
     'music_listen' => 6650,
     'music_bitrate' => 128,
     'music_filename' => '1194531-b1c3f04b.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>, <a href="/ca-si/Tieu-Tan~Y3NuX2FydGlzdH4zOTY3Nw==.html">Tiểu Tân</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">128kbps</span>',
   ),
   36 => 
   array (
@@ -560,6 +704,10 @@ $typeDup = array (
     'music_listen' => 7460,
     'music_bitrate' => 128,
     'music_filename' => '1192110-e553e2e8.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>, <a href="/ca-si/Dien-Luc-Tu~Y3NuX2FydGlzdH4zOTUzMw==.html">Điền Lực Tử</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">128kbps</span>',
   ),
   37 => 
   array (
@@ -575,6 +723,10 @@ $typeDup = array (
     'music_listen' => 6136,
     'music_bitrate' => 192,
     'music_filename' => '1196154-84da275b.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>, <a href="/ca-si/Phan-Thanh~Y3NuX2FydGlzdH4zOTc5NQ==.html">Phan Thành</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
   ),
   38 => 
   array (
@@ -590,6 +742,10 @@ $typeDup = array (
     'music_listen' => 6211,
     'music_bitrate' => 192,
     'music_filename' => '1434983-de5d37fa.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>, <a href="/ca-si/Luu-Suong~Y3NuX2FydGlzdH42MDYwOA==.html">Lưu Sướng</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
   ),
   39 => 
   array (
@@ -605,6 +761,10 @@ $typeDup = array (
     'music_listen' => 9362,
     'music_bitrate' => 128,
     'music_filename' => '1150293-c54c9b45.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">128kbps</span>',
   ),
   40 => 
   array (
@@ -620,6 +780,10 @@ $typeDup = array (
     'music_listen' => 9264,
     'music_bitrate' => 320,
     'music_filename' => '1084983-ee4e171f.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>, <a href="/ca-si/Young-J~Y3NuX2FydGlzdH4zMTAxNA==.html">Young J</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
   41 => 
   array (
@@ -635,6 +799,10 @@ $typeDup = array (
     'music_listen' => 12623,
     'music_bitrate' => 128,
     'music_filename' => '1062224-743b42cc.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">128kbps</span>',
   ),
   42 => 
   array (
@@ -650,6 +818,10 @@ $typeDup = array (
     'music_listen' => 9718,
     'music_bitrate' => 128,
     'music_filename' => '1169190-be042567.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>, <a href="/ca-si/Vincent~Y3NuX2FydGlzdH41ODcx.html">Vincent</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">128kbps</span>',
   ),
   43 => 
   array (
@@ -665,6 +837,10 @@ $typeDup = array (
     'music_listen' => 8033,
     'music_bitrate' => 128,
     'music_filename' => '1191053-6e3849e3.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>, <a href="/ca-si/Young-J~Y3NuX2FydGlzdH4zMTAxNA==.html">Young J</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">128kbps</span>',
   ),
   44 => 
   array (
@@ -680,6 +856,10 @@ $typeDup = array (
     'music_listen' => 8267,
     'music_bitrate' => 128,
     'music_filename' => '1085430-276e15f6.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>, <a href="/ca-si/Young-J~Y3NuX2FydGlzdH4zMTAxNA==.html">Young J</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">128kbps</span>',
   ),
   45 => 
   array (
@@ -695,6 +875,10 @@ $typeDup = array (
     'music_listen' => 6427,
     'music_bitrate' => 192,
     'music_filename' => '1291917-8f03f56d.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>, <a href="/ca-si/Young-J~Y3NuX2FydGlzdH4zMTAxNA==.html">Young J</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
   ),
   46 => 
   array (
@@ -710,6 +894,10 @@ $typeDup = array (
     'music_listen' => 7614,
     'music_bitrate' => 128,
     'music_filename' => '1116347-826671c5.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">128kbps</span>',
   ),
   47 => 
   array (
@@ -725,6 +913,10 @@ $typeDup = array (
     'music_listen' => 9689,
     'music_bitrate' => 128,
     'music_filename' => '1109601-b7d9621e.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>, <a href="/ca-si/Young-J~Y3NuX2FydGlzdH4zMTAxNA==.html">Young J</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">128kbps</span>',
   ),
   48 => 
   array (
@@ -740,6 +932,10 @@ $typeDup = array (
     'music_listen' => 6865,
     'music_bitrate' => 128,
     'music_filename' => '1118556-ef7035b4.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">128kbps</span>',
   ),
   49 => 
   array (
@@ -755,6 +951,10 @@ $typeDup = array (
     'music_listen' => 7069,
     'music_bitrate' => 192,
     'music_filename' => '1132389-61c1317b.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
   ),
   50 => 
   array (
@@ -770,6 +970,10 @@ $typeDup = array (
     'music_listen' => 3576,
     'music_bitrate' => 192,
     'music_filename' => '1434984-7e94a1c8.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>, <a href="/ca-si/Luu-Suong~Y3NuX2FydGlzdH42MDYwOA==.html">Lưu Sướng</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
   ),
   51 => 
   array (
@@ -785,6 +989,10 @@ $typeDup = array (
     'music_listen' => 4911,
     'music_bitrate' => 192,
     'music_filename' => '1718478-257cb2a2.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>, <a href="/ca-si/Hy~Y3NuX2FydGlzdH44MzM3OQ==.html">Hy</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
   ),
   52 => 
   array (
@@ -800,6 +1008,10 @@ $typeDup = array (
     'music_listen' => 13499,
     'music_bitrate' => 320,
     'music_filename' => '1800777-4cd86f71.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/LuHan~Y3NuX2FydGlzdH40OTk1OQ==.html">LuHan</a>, <a href="/ca-si/AR~Y3NuX2FydGlzdH45ODE1NQ==.html">AR</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
   53 => 
   array (
@@ -815,6 +1027,10 @@ $typeDup = array (
     'music_listen' => 13796,
     'music_bitrate' => 1000,
     'music_filename' => '1809843-c20ee133.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Ngo-Diec-Pham~Y3NuX2FydGlzdH40Njg1.html">Ngô Diệc Phàm</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   54 => 
   array (
@@ -830,6 +1046,10 @@ $typeDup = array (
     'music_listen' => 6700,
     'music_bitrate' => 192,
     'music_filename' => '1562029-04d1841f.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
   ),
   55 => 
   array (
@@ -845,6 +1065,10 @@ $typeDup = array (
     'music_listen' => 3964,
     'music_bitrate' => 192,
     'music_filename' => '1777220-61862457.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
   ),
   56 => 
   array (
@@ -860,6 +1084,10 @@ $typeDup = array (
     'music_listen' => 2374,
     'music_bitrate' => 256,
     'music_filename' => '1532065-f33a28bc.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/MIC-Steelo~Y3NuX2FydGlzdH43MDM3NA==.html">M.I.C. Steelo</a>, <a href="/ca-si/MIC-JC-T~Y3NuX2FydGlzdH43MDM3NQ==.html">M.I.C JC-T</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkblue">256kbps</span>',
   ),
   57 => 
   array (
@@ -875,6 +1103,10 @@ $typeDup = array (
     'music_listen' => 5021,
     'music_bitrate' => 192,
     'music_filename' => '1644749-e0461395.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>, <a href="/ca-si/Ngu-Hoa~Y3NuX2FydGlzdH44MTMwMQ==.html">Ngũ Hoa</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
   ),
   58 => 
   array (
@@ -890,6 +1122,10 @@ $typeDup = array (
     'music_listen' => 6657,
     'music_bitrate' => 192,
     'music_filename' => '1495498-74048b32.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>, <a href="/ca-si/WalterSU~Y3NuX2FydGlzdH42NjI0MA==.html">WalterS.U</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
   ),
   59 => 
   array (
@@ -905,6 +1141,10 @@ $typeDup = array (
     'music_listen' => 8764,
     'music_bitrate' => 320,
     'music_filename' => '1800776-0a0addc0.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/LuHan~Y3NuX2FydGlzdH40OTk1OQ==.html">LuHan</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
   60 => 
   array (
@@ -920,6 +1160,10 @@ $typeDup = array (
     'music_listen' => 6064,
     'music_bitrate' => 192,
     'music_filename' => '1561217-16a34a19.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
   ),
   61 => 
   array (
@@ -935,6 +1179,10 @@ $typeDup = array (
     'music_listen' => 4485,
     'music_bitrate' => 192,
     'music_filename' => '1562024-477c56a8.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>, <a href="/ca-si/ZJ~Y3NuX2FydGlzdH42MDYyMQ==.html">ZJ</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
   ),
   62 => 
   array (
@@ -950,6 +1198,10 @@ $typeDup = array (
     'music_listen' => 3319,
     'music_bitrate' => 192,
     'music_filename' => '1562030-be5253cb.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>, <a href="/ca-si/To-A~Y3NuX2FydGlzdH43MzA1OQ==.html">Tô Á</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
   ),
   63 => 
   array (
@@ -965,6 +1217,10 @@ $typeDup = array (
     'music_listen' => 9369,
     'music_bitrate' => 1000,
     'music_filename' => '1809845-91b487d7.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Ngo-Diec-Pham~Y3NuX2FydGlzdH40Njg1.html">Ngô Diệc Phàm</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   64 => 
   array (
@@ -980,6 +1236,10 @@ $typeDup = array (
     'music_listen' => 3130,
     'music_bitrate' => 320,
     'music_filename' => '1703977-623c68af.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/EXO~Y3NuX2FydGlzdH4yNTcy.html">EXO</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
   65 => 
   array (
@@ -995,6 +1255,10 @@ $typeDup = array (
     'music_listen' => 4019,
     'music_bitrate' => 192,
     'music_filename' => '1785126-7f51f096.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
   ),
   66 => 
   array (
@@ -1010,6 +1274,10 @@ $typeDup = array (
     'music_listen' => 7474,
     'music_bitrate' => 1000,
     'music_filename' => '1809844-275df8cb.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Ngo-Diec-Pham~Y3NuX2FydGlzdH40Njg1.html">Ngô Diệc Phàm</a>, <a href="/ca-si/Kevin-Shin~Y3NuX2FydGlzdH45ODM0NA==.html">Kevin Shin</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   67 => 
   array (
@@ -1025,6 +1293,10 @@ $typeDup = array (
     'music_listen' => 3255,
     'music_bitrate' => 320,
     'music_filename' => '1703976-edd6c48a.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/EXO~Y3NuX2FydGlzdH4yNTcy.html">EXO</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
   68 => 
   array (
@@ -1040,6 +1312,10 @@ $typeDup = array (
     'music_listen' => 2247,
     'music_bitrate' => 192,
     'music_filename' => '1723422-72cd71c7.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
   ),
   69 => 
   array (
@@ -1055,6 +1331,10 @@ $typeDup = array (
     'music_listen' => 4556,
     'music_bitrate' => 320,
     'music_filename' => '1703479-a0d54a39.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Ngo-Tuan-Du~Y3NuX2FydGlzdH44ODM1Ng==.html">Ngô Tuấn Dư</a>, <a href="/ca-si/Ly-Khai-Hinh~Y3NuX2FydGlzdH44ODM1Nw==.html">Lý Khải Hinh</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
   70 => 
   array (
@@ -1070,6 +1350,10 @@ $typeDup = array (
     'music_listen' => 3172,
     'music_bitrate' => 192,
     'music_filename' => '1727981-a8c99ea8.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
   ),
   71 => 
   array (
@@ -1085,6 +1369,10 @@ $typeDup = array (
     'music_listen' => 2259,
     'music_bitrate' => 192,
     'music_filename' => '1721856-6de92819.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
   ),
   72 => 
   array (
@@ -1100,6 +1388,10 @@ $typeDup = array (
     'music_listen' => 4617,
     'music_bitrate' => 320,
     'music_filename' => '1889590-b2684ec8.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Idol-Producer-Trainees~Y3NuX2FydGlzdH4yMzA5Ng==.html">Idol Producer Trainees</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
   73 => 
   array (
@@ -1115,6 +1407,10 @@ $typeDup = array (
     'music_listen' => 4176,
     'music_bitrate' => 1000,
     'music_filename' => '1824949-1244e3a8.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phan-Vy-Ba~Y3NuX2FydGlzdH4xMDg5NA==.html">Phan Vỹ Bá</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   74 => 
   array (
@@ -1130,6 +1426,10 @@ $typeDup = array (
     'music_listen' => 4580,
     'music_bitrate' => 320,
     'music_filename' => '1889588-4595efd3.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Idol-Producer-Trainees~Y3NuX2FydGlzdH4yMzA5Ng==.html">Idol Producer Trainees</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
   75 => 
   array (
@@ -1145,6 +1445,10 @@ $typeDup = array (
     'music_listen' => 5793,
     'music_bitrate' => 1000,
     'music_filename' => '1824948-758634cd.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phan-Vy-Ba~Y3NuX2FydGlzdH4xMDg5NA==.html">Phan Vỹ Bá</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   76 => 
   array (
@@ -1160,6 +1464,10 @@ $typeDup = array (
     'music_listen' => 9496,
     'music_bitrate' => 1000,
     'music_filename' => '1846478-8ff9d254.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Ngo-Diec-Pham~Y3NuX2FydGlzdH40Njg1.html">Ngô Diệc Phàm</a>, <a href="/ca-si/Kevin-Shin~Y3NuX2FydGlzdH45ODM0NA==.html">Kevin Shin</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   77 => 
   array (
@@ -1175,6 +1483,10 @@ $typeDup = array (
     'music_listen' => 4194,
     'music_bitrate' => 1000,
     'music_filename' => '1814469-08bf5902.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Gai~Y3NuX2FydGlzdH45OTE2Mw==.html">Gai</a>, <a href="/ca-si/Bridge~Y3NuX2FydGlzdH4yMzUxMg==.html">Bridge</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   78 => 
   array (
@@ -1190,6 +1502,10 @@ $typeDup = array (
     'music_listen' => 5514,
     'music_bitrate' => 1000,
     'music_filename' => '1907363-8262a594.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Jackson-Wang~Y3NuX2FydGlzdH4xMzYyOA==.html">Jackson Wang</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   79 => 
   array (
@@ -1205,6 +1521,10 @@ $typeDup = array (
     'music_listen' => 3926,
     'music_bitrate' => 320,
     'music_filename' => '1752414-7f1820dd.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Luc-Triet~Y3NuX2FydGlzdH4yMjIy.html">Lục Triết</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
   80 => 
   array (
@@ -1220,6 +1540,10 @@ $typeDup = array (
     'music_listen' => 3949,
     'music_bitrate' => 320,
     'music_filename' => '1824873-d8ddeeb5.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Wu-Yi-Fan-Kris-Wu~Y3NuX2FydGlzdH45ODg2OQ==.html">Wu Yi Fan (Kris Wu)</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
   81 => 
   array (
@@ -1235,6 +1559,10 @@ $typeDup = array (
     'music_listen' => 1762,
     'music_bitrate' => 192,
     'music_filename' => '1562028-3c84a4ce.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>, <a href="/ca-si/5Hua~Y3NuX2FydGlzdH43MzA1OA==.html">5Hua</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
   ),
   82 => 
   array (
@@ -1250,6 +1578,10 @@ $typeDup = array (
     'music_listen' => 1820,
     'music_bitrate' => 192,
     'music_filename' => '1806598-12772d1f.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
   ),
   83 => 
   array (
@@ -1265,6 +1597,10 @@ $typeDup = array (
     'music_listen' => 2865,
     'music_bitrate' => 1000,
     'music_filename' => '1824953-9a7bed72.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phan-Vy-Ba~Y3NuX2FydGlzdH4xMDg5NA==.html">Phan Vỹ Bá</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   84 => 
   array (
@@ -1280,6 +1616,10 @@ $typeDup = array (
     'music_listen' => 3547,
     'music_bitrate' => 1000,
     'music_filename' => '1824952-312cd563.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phan-Vy-Ba~Y3NuX2FydGlzdH4xMDg5NA==.html">Phan Vỹ Bá</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   85 => 
   array (
@@ -1295,6 +1635,10 @@ $typeDup = array (
     'music_listen' => 2396,
     'music_bitrate' => 1000,
     'music_filename' => '1824955-807adb73.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phan-Vy-Ba~Y3NuX2FydGlzdH4xMDg5NA==.html">Phan Vỹ Bá</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   86 => 
   array (
@@ -1310,6 +1654,10 @@ $typeDup = array (
     'music_listen' => 4008,
     'music_bitrate' => 192,
     'music_filename' => '1823603-34c6a779.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
   ),
   87 => 
   array (
@@ -1325,6 +1673,10 @@ $typeDup = array (
     'music_listen' => 1333,
     'music_bitrate' => 192,
     'music_filename' => '1789352-b78d40d6.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
   ),
   88 => 
   array (
@@ -1340,6 +1692,10 @@ $typeDup = array (
     'music_listen' => 1975,
     'music_bitrate' => 1000,
     'music_filename' => '1824950-8d3ba5e9.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phan-Vy-Ba~Y3NuX2FydGlzdH4xMDg5NA==.html">Phan Vỹ Bá</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   89 => 
   array (
@@ -1355,6 +1711,10 @@ $typeDup = array (
     'music_listen' => 3301,
     'music_bitrate' => 320,
     'music_filename' => '1751362-bd8443fa.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Hi-Cap-Trach-Nam~Y3NuX2FydGlzdH45Mjg2MA==.html">Hi Cáp Trạch Nam</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
   90 => 
   array (
@@ -1370,6 +1730,10 @@ $typeDup = array (
     'music_listen' => 1902,
     'music_bitrate' => 1000,
     'music_filename' => '1824951-717fed96.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phan-Vy-Ba~Y3NuX2FydGlzdH4xMDg5NA==.html">Phan Vỹ Bá</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   91 => 
   array (
@@ -1385,6 +1749,10 @@ $typeDup = array (
     'music_listen' => 1165,
     'music_bitrate' => 1000,
     'music_filename' => '1824958-200dc5f8.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phan-Vy-Ba~Y3NuX2FydGlzdH4xMDg5NA==.html">Phan Vỹ Bá</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   92 => 
   array (
@@ -1400,6 +1768,10 @@ $typeDup = array (
     'music_listen' => 1351,
     'music_bitrate' => 192,
     'music_filename' => '1701713-32ec6d85.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Dong-Tu~Y3NuX2FydGlzdH44ODE1NQ==.html">Đồng Tư</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
   ),
   93 => 
   array (
@@ -1415,6 +1787,10 @@ $typeDup = array (
     'music_listen' => 1955,
     'music_bitrate' => 1000,
     'music_filename' => '1895226-cd635278.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Nine-One-One~Y3NuX2FydGlzdH4xMDU5MDE=.html">Nine One One</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   94 => 
   array (
@@ -1430,6 +1806,10 @@ $typeDup = array (
     'music_listen' => 1500,
     'music_bitrate' => 192,
     'music_filename' => '1668074-e6ee24b8.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Aya-Liu~Y3NuX2FydGlzdH44NDUyOQ==.html">Aya Liu</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
   ),
   95 => 
   array (
@@ -1445,6 +1825,10 @@ $typeDup = array (
     'music_listen' => 1723,
     'music_bitrate' => 128,
     'music_filename' => '335819-d66de18e.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Sizongbu~Y3NuX2FydGlzdH4xMDc0Njk=.html">Sizongbu</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">128kbps</span>',
   ),
   96 => 
   array (
@@ -1460,6 +1844,10 @@ $typeDup = array (
     'music_listen' => 2195,
     'music_bitrate' => 1000,
     'music_filename' => '1895231-eaac4e80.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Nine-One-One~Y3NuX2FydGlzdH4xMDU5MDE=.html">Nine One One</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   97 => 
   array (
@@ -1475,6 +1863,10 @@ $typeDup = array (
     'music_listen' => 4188,
     'music_bitrate' => 1000,
     'music_filename' => '1865014-beeea83e.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/GAI~Y3NuX2FydGlzdH4xNzQ0Mw==.html">GAI</a>, <a href="/ca-si/Song-Senh~Y3NuX2FydGlzdH4xNTU3NQ==.html">Song Sênh</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   98 => 
   array (
@@ -1490,6 +1882,10 @@ $typeDup = array (
     'music_listen' => 1774,
     'music_bitrate' => 1000,
     'music_filename' => '1912410-19bd6c07.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Tieu-Toan~Y3NuX2FydGlzdH4xNDAzNw==.html">Tiêu Toàn</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   99 => 
   array (
@@ -1505,6 +1901,10 @@ $typeDup = array (
     'music_listen' => 3029,
     'music_bitrate' => 1000,
     'music_filename' => '1895230-8a7a5b73.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Nine-One-One~Y3NuX2FydGlzdH4xMDU5MDE=.html">Nine One One</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   100 => 
   array (
@@ -1520,6 +1920,10 @@ $typeDup = array (
     'music_listen' => 624,
     'music_bitrate' => 1000,
     'music_filename' => '1912411-20a5b75a.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Tieu-Toan~Y3NuX2FydGlzdH4xNDAzNw==.html">Tiêu Toàn</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   101 => 
   array (
@@ -1535,6 +1939,10 @@ $typeDup = array (
     'music_listen' => 2945,
     'music_bitrate' => 1000,
     'music_filename' => '1847352-e0074b77.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Fi9-Giang-Triet~Y3NuX2FydGlzdH4yMzU3Nw==.html">Fi9 Giang Triệt</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   102 => 
   array (
@@ -1550,6 +1958,10 @@ $typeDup = array (
     'music_listen' => 1583,
     'music_bitrate' => 1000,
     'music_filename' => '1912408-478a1abe.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Tieu-Toan~Y3NuX2FydGlzdH4xNDAzNw==.html">Tiêu Toàn</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   103 => 
   array (
@@ -1565,6 +1977,10 @@ $typeDup = array (
     'music_listen' => 1461,
     'music_bitrate' => 1000,
     'music_filename' => '1912412-7247a9c8.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Tieu-Toan~Y3NuX2FydGlzdH4xNDAzNw==.html">Tiêu Toàn</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   104 => 
   array (
@@ -1580,6 +1996,10 @@ $typeDup = array (
     'music_listen' => 1078,
     'music_bitrate' => 1000,
     'music_filename' => '1912413-bcd71dbf.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Tieu-Toan~Y3NuX2FydGlzdH4xNDAzNw==.html">Tiêu Toàn</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   105 => 
   array (
@@ -1595,6 +2015,10 @@ $typeDup = array (
     'music_listen' => 238,
     'music_bitrate' => 1000,
     'music_filename' => '1912416-136408f8.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Tieu-Toan~Y3NuX2FydGlzdH4xNDAzNw==.html">Tiêu Toàn</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   106 => 
   array (
@@ -1610,6 +2034,10 @@ $typeDup = array (
     'music_listen' => 1363,
     'music_bitrate' => 320,
     'music_filename' => '1761948-eb2dcb27.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Tieu-Huu~Y3NuX2FydGlzdH45NDA4OA==.html">Tiểu Hữu</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
   107 => 
   array (
@@ -1625,6 +2053,10 @@ $typeDup = array (
     'music_listen' => 3781,
     'music_bitrate' => 1000,
     'music_filename' => '1858082-0325d41c.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Man-Thu-Khac~Y3NuX2FydGlzdH4xMDI5NjY=.html">Mãn Thư Khắc</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   108 => 
   array (
@@ -1640,6 +2072,10 @@ $typeDup = array (
     'music_listen' => 1368,
     'music_bitrate' => 1000,
     'music_filename' => '1895228-870c04e3.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Nine-One-One~Y3NuX2FydGlzdH4xMDU5MDE=.html">Nine One One</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   109 => 
   array (
@@ -1655,6 +2091,10 @@ $typeDup = array (
     'music_listen' => 3085,
     'music_bitrate' => 1000,
     'music_filename' => '1903423-28f2029f.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Hoang-Tu-Thao~Y3NuX2FydGlzdH4xNDMxMA==.html">Hoàng Tử Thao</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   110 => 
   array (
@@ -1670,6 +2110,10 @@ $typeDup = array (
     'music_listen' => 1974,
     'music_bitrate' => 1000,
     'music_filename' => '1952963-448dd8df.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Chanyeol~Y3NuX2FydGlzdH4xNTcwMg==.html">Chanyeol</a>, <a href="/ca-si/Sehun~Y3NuX2FydGlzdH4xOTc4OQ==.html">Sehun</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   111 => 
   array (
@@ -1685,6 +2129,10 @@ $typeDup = array (
     'music_listen' => 482,
     'music_bitrate' => 320,
     'music_filename' => '1798861-a191029e.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
   112 => 
   array (
@@ -1700,6 +2148,10 @@ $typeDup = array (
     'music_listen' => 2034,
     'music_bitrate' => 1000,
     'music_filename' => '1895233-a6583df0.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/CaoTunBoyz~Y3NuX2FydGlzdH4xMDU5MDM=.html">CaoTunBoyz</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   113 => 
   array (
@@ -1715,6 +2167,10 @@ $typeDup = array (
     'music_listen' => 2261,
     'music_bitrate' => 1000,
     'music_filename' => '1895232-d05396c7.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Lai-Tu-Hoang~Y3NuX2FydGlzdH4xMDU5MDI=.html">Lại Từ Hoằng</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   114 => 
   array (
@@ -1730,6 +2186,10 @@ $typeDup = array (
     'music_listen' => 1586,
     'music_bitrate' => 1000,
     'music_filename' => '1895235-3afcd60e.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Nine-One-One~Y3NuX2FydGlzdH4xMDU5MDE=.html">Nine One One</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   115 => 
   array (
@@ -1745,6 +2205,10 @@ $typeDup = array (
     'music_listen' => 1293,
     'music_bitrate' => 1000,
     'music_filename' => '1895229-41696b18.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Nine-One-One~Y3NuX2FydGlzdH4xMDU5MDE=.html">Nine One One</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   116 => 
   array (
@@ -1760,6 +2224,10 @@ $typeDup = array (
     'music_listen' => 634,
     'music_bitrate' => 1000,
     'music_filename' => '1895227-dbbe0b73.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Nine-One-One~Y3NuX2FydGlzdH4xMDU5MDE=.html">Nine One One</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   117 => 
   array (
@@ -1775,6 +2243,10 @@ $typeDup = array (
     'music_listen' => 1985,
     'music_bitrate' => 1000,
     'music_filename' => '1856647-df805a18.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Truong-Dai-Tien~Y3NuX2FydGlzdH4xMDI4ODE=.html">Trương Đại Tiên</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   118 => 
   array (
@@ -1790,6 +2262,10 @@ $typeDup = array (
     'music_listen' => 1655,
     'music_bitrate' => 192,
     'music_filename' => '1910837-8a2df578.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>, <a href="/ca-si/YK~Y3NuX2FydGlzdH4xNjA3MA==.html">YK</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
   ),
   119 => 
   array (
@@ -1805,6 +2281,10 @@ $typeDup = array (
     'music_listen' => 887,
     'music_bitrate' => 192,
     'music_filename' => '1829554-57247f5f.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
   ),
   120 => 
   array (
@@ -1820,6 +2300,10 @@ $typeDup = array (
     'music_listen' => 1310,
     'music_bitrate' => 192,
     'music_filename' => '1943905-1798c2a1.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
   ),
   121 => 
   array (
@@ -1835,6 +2319,10 @@ $typeDup = array (
     'music_listen' => 2137,
     'music_bitrate' => 1000,
     'music_filename' => '1946360-3c91fbab.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Ly-Gia-Cach~Y3NuX2FydGlzdH4yMjQ0Ng==.html">Lý Gia Cách</a>, <a href="/ca-si/GAI~Y3NuX2FydGlzdH4xNzQ0Mw==.html">GAI</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   122 => 
   array (
@@ -1850,6 +2338,10 @@ $typeDup = array (
     'music_listen' => 649,
     'music_bitrate' => 1000,
     'music_filename' => '1895234-9d987c6f.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/CaoTunBoyz~Y3NuX2FydGlzdH4xMDU5MDM=.html">CaoTunBoyz</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   123 => 
   array (
@@ -1865,6 +2357,10 @@ $typeDup = array (
     'music_listen' => 355,
     'music_bitrate' => 192,
     'music_filename' => '1815473-0cd9aea1.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
   ),
   124 => 
   array (
@@ -1880,6 +2376,10 @@ $typeDup = array (
     'music_listen' => 519,
     'music_bitrate' => 320,
     'music_filename' => '1677155-b78120ad.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Dewen~Y3NuX2FydGlzdH44NTYwNA==.html">Dewen</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
   125 => 
   array (
@@ -1895,6 +2395,10 @@ $typeDup = array (
     'music_listen' => 1735,
     'music_bitrate' => 320,
     'music_filename' => '1943462-064baab8.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/88rising~Y3NuX2FydGlzdH4xODU2Mg==.html">88rising</a>, <a href="/ca-si/Higher-Brothers~Y3NuX2FydGlzdH4yMTk4OA==.html">Higher Brothers</a>, <a href="/ca-si/03-Greedo~Y3NuX2FydGlzdH4yMTk5MQ==.html">03 Greedo</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
   126 => 
   array (
@@ -1910,6 +2414,10 @@ $typeDup = array (
     'music_listen' => 604,
     'music_bitrate' => 1000,
     'music_filename' => '1866028-fcef869a.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Tieu-Uong-Hoang-Minh-Chi~Y3NuX2FydGlzdH4xMDM1OTk=.html">Tiêu Ương, Hoàng Minh Chí</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   127 => 
   array (
@@ -1925,6 +2433,10 @@ $typeDup = array (
     'music_listen' => 400,
     'music_bitrate' => 1000,
     'music_filename' => '1846078-a9eb7bc7.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   128 => 
   array (
@@ -1940,6 +2452,10 @@ $typeDup = array (
     'music_listen' => 998,
     'music_bitrate' => 192,
     'music_filename' => '1904313-b555f9d2.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
   ),
   129 => 
   array (
@@ -1955,6 +2471,10 @@ $typeDup = array (
     'music_listen' => 471,
     'music_bitrate' => 192,
     'music_filename' => '1861343-79f0a25c.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
   ),
   130 => 
   array (
@@ -1970,6 +2490,10 @@ $typeDup = array (
     'music_listen' => 1517,
     'music_bitrate' => 192,
     'music_filename' => '1924535-9b785f62.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
   ),
   131 => 
   array (
@@ -1985,6 +2509,10 @@ $typeDup = array (
     'music_listen' => 1816,
     'music_bitrate' => 320,
     'music_filename' => '1888493-c96ee3fa.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Truong-Duc-Suy~Y3NuX2FydGlzdH4xMDUzMDE=.html">Trương Đức Suý</a>, <a href="/ca-si/XXXZEROONE~Y3NuX2FydGlzdH4xMDUzMDI=.html">XXXZEROONE</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
   132 => 
   array (
@@ -2000,6 +2528,10 @@ $typeDup = array (
     'music_listen' => 293,
     'music_bitrate' => 192,
     'music_filename' => '1864200-61d2ee27.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
   ),
   133 => 
   array (
@@ -2015,6 +2547,10 @@ $typeDup = array (
     'music_listen' => 342,
     'music_bitrate' => 1000,
     'music_filename' => '1866034-f7a564d0.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Hua-Tung~Y3NuX2FydGlzdH4xMTE3MQ==.html">Hứa Tung</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   134 => 
   array (
@@ -2030,6 +2566,10 @@ $typeDup = array (
     'music_listen' => 116,
     'music_bitrate' => 1000,
     'music_filename' => '1912414-5e1988ac.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Tieu-Toan~Y3NuX2FydGlzdH4xNDAzNw==.html">Tiêu Toàn</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   135 => 
   array (
@@ -2045,6 +2585,10 @@ $typeDup = array (
     'music_listen' => 146,
     'music_bitrate' => 1000,
     'music_filename' => '1912415-f21dc744.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Tieu-Toan~Y3NuX2FydGlzdH4xNDAzNw==.html">Tiêu Toàn</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   136 => 
   array (
@@ -2060,6 +2604,10 @@ $typeDup = array (
     'music_listen' => 92,
     'music_bitrate' => 1000,
     'music_filename' => '1949906-8df5cfdf.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Ngai-Nhiet~Y3NuX2FydGlzdH4yMTE1OQ==.html">Ngải Nhiệt</a>, <a href="/ca-si/Ly-Giai-Long~Y3NuX2FydGlzdH4yMTE2MA==.html">Lý Giai Long</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   137 => 
   array (
@@ -2075,6 +2623,10 @@ $typeDup = array (
     'music_listen' => 1470,
     'music_bitrate' => 320,
     'music_filename' => '1888494-081bf5ad.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Ly-Gia-Nam-Doc-Cubi-Robins-Lu~Y3NuX2FydGlzdH4xMDUzMDM=.html">Lý Già Nam (Doc), Cubi, Robins Lu</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
   138 => 
   array (
@@ -2090,6 +2642,10 @@ $typeDup = array (
     'music_listen' => 54,
     'music_bitrate' => 192,
     'music_filename' => '1937884-b30a47d4.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
   ),
   139 => 
   array (
@@ -2105,6 +2661,10 @@ $typeDup = array (
     'music_listen' => 51,
     'music_bitrate' => 192,
     'music_filename' => '1950768-3aa0f03f.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
   ),
   140 => 
   array (
@@ -2120,6 +2680,10 @@ $typeDup = array (
     'music_listen' => 175,
     'music_bitrate' => 192,
     'music_filename' => '1958740-9dd17207.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
   ),
   141 => 
   array (
@@ -2135,6 +2699,10 @@ $typeDup = array (
     'music_listen' => 108,
     'music_bitrate' => 192,
     'music_filename' => '1894200-71b79bcf.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
   ),
   142 => 
   array (
@@ -2150,6 +2718,10 @@ $typeDup = array (
     'music_listen' => 69,
     'music_bitrate' => 320,
     'music_filename' => '1922374-1fc13287.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
   143 => 
   array (
@@ -2165,6 +2737,10 @@ $typeDup = array (
     'music_listen' => 36,
     'music_bitrate' => 192,
     'music_filename' => '1954280-db1baa61.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
   ),
 );
 ?>

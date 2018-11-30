@@ -499,7 +499,7 @@ $music_new_uploads = array (
     'music_listen' => 0,
     'music_track_id' => 1,
     'music_filename' => '1961317-a54343fa.mp3',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
     'music_shortlyric' => 'Ở 1 nơi xa xôi nào đó 
 Tôi thèm nghe tiếng nói trẻ thơ 
 Nghe tiếng nói của tôi 
@@ -509,6 +509,7 @@ Từng khoảnh khắc muốn níu kéo về
 Về nơi tôi sinh ra 
 Về...',
     'music_time' => 1539077613,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     'music_artist_html' => '<a href="/ca-si/Luong-Chan-Nam~Y3NuX2FydGlzdH42MzU5OQ==.html">Lương Chấn Nam</a>',
   ),
   1 => 
@@ -533,7 +534,7 @@ Về...',
     'music_listen' => 0,
     'music_track_id' => 2,
     'music_filename' => '1961316-6608041f.mp3',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
     'music_shortlyric' => 'Ở 1 nơi xa xôi nào đó 
 Tôi thèm nghe tiếng nói trẻ thơ 
 Nghe tiếng nói của tôi 
@@ -543,6 +544,7 @@ Từng khoảnh khắc muốn níu kéo về
 Về nơi tôi sinh ra 
 Về...',
     'music_time' => 1539077613,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     'music_artist_html' => '<a href="/ca-si/Luong-Chan-Nam~Y3NuX2FydGlzdH42MzU5OQ==.html">Lương Chấn Nam</a>',
   ),
   2 => 
@@ -567,7 +569,7 @@ Về...',
     'music_listen' => 0,
     'music_track_id' => 3,
     'music_filename' => '1961315-5c16400f.mp3',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
     'music_shortlyric' => 'Barae barae barae
 Barae barae barae
 
@@ -578,6 +580,7 @@ Barae barae barae eonjena gachi itgireul barae
 Barae barae barae
 Barae b...',
     'music_time' => 1539077246,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     'music_artist_html' => '<a href="/ca-si/Lee-Ji-Hye~Y3NuX2FydGlzdH44ODEz.html">Lee Ji Hye</a>, <a href="/ca-si/Jang-Suk-Hyun~Y3NuX2FydGlzdH4xMjI2MTI=.html">Jang Suk Hyun</a>, <a href="/ca-si/DinDin~Y3NuX2FydGlzdH4xMzY3Mw==.html">DinDin</a>, <a href="/ca-si/Sungyeon~Y3NuX2FydGlzdH45ODE2Nw==.html">Sungyeon</a>',
   ),
   3 => 
@@ -602,7 +605,7 @@ Barae b...',
     'music_listen' => 0,
     'music_track_id' => 2,
     'music_filename' => '1961314-597ea8b1.mp3',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
     'music_shortlyric' => 'Maybe I love you
 Maybe I need you
 Maybe I love you saranghana bwa
@@ -614,6 +617,7 @@ Hamkke Maybe I love you
 Hangsang sum gappatdeon chagaun nae sale hanjulgi 
 Bichi...',
     'music_time' => 1539077246,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     'music_artist_html' => '<a href="/ca-si/Chae-Rina~Y3NuX2FydGlzdH4xMjI2MTQ=.html">Chae Rina</a>, <a href="/ca-si/Seunghee~Y3NuX2FydGlzdH4xNjE0Ng==.html">Seunghee</a>',
   ),
   4 => 
@@ -638,7 +642,7 @@ Bichi...',
     'music_listen' => 0,
     'music_track_id' => 1,
     'music_filename' => '1961313-418c4f0f.mp3',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
     'music_shortlyric' => 'Geunyeoui geomeun meoritgyeoreun jeongmal 
 Naneun saranghaji aneul suga eopseosseo 
 Geuraeseo ppajyeo beoryeotji 
@@ -646,6 +650,7 @@ Jidokan geu sarang soge ppajigo man geoya
 Geunyeoui yeppeun du nuni dallyeowaseo 
 N...',
     'music_time' => 1539077246,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     'music_artist_html' => '<a href="/ca-si/Spapa~Y3NuX2FydGlzdH4xMjI2MTY=.html">Spapa</a>, <a href="/ca-si/Kei~Y3NuX2FydGlzdH4yODY4.html">Kei</a>',
   ),
   5 => 
@@ -670,7 +675,7 @@ N...',
     'music_listen' => 0,
     'music_track_id' => 2,
     'music_filename' => '1961312-5342043b.mp3',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
     'music_shortlyric' => 'Có những nỗi nhớ rung động mãi không thể quên.. 
 Có những nỗi buồn không làm sao xoá hết. 
 Nhớ những lúc xưa đôi mình 
@@ -678,6 +683,7 @@ Nhớ những lúc xưa đôi mình
 Giận nhau em hay trách anh vô tình, 
 Vì sao không đến bên dỗ dành để cho em...',
     'music_time' => 1539076869,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     'music_artist_html' => '<a href="/ca-si/Luong-Chan-Nam~Y3NuX2FydGlzdH42MzU5OQ==.html">Lương Chấn Nam</a>',
   ),
   6 => 
@@ -702,7 +708,7 @@ Vì sao không đến bên dỗ dành để cho em...',
     'music_listen' => 0,
     'music_track_id' => 1,
     'music_filename' => '1961311-d01d8f4a.mp3',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
     'music_shortlyric' => 'Chiều hoàng hôn nắng nhẹ buông 
 Màn đêm cũng dần buông xuống 
 A lại viết nỗi nhớ về e 
@@ -712,6 +718,7 @@ Là đàn ông sao giọt lệ cứ tuôn
 
 Khóc hay buồn gì cũng...',
     'music_time' => 1539076869,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     'music_artist_html' => '<a href="/ca-si/Luong-Chan-Nam~Y3NuX2FydGlzdH42MzU5OQ==.html">Lương Chấn Nam</a>',
   ),
   7 => 
@@ -736,7 +743,7 @@ Khóc hay buồn gì cũng...',
     'music_listen' => 0,
     'music_track_id' => 3,
     'music_filename' => '1961310-08aeb320.mp3',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
     'music_shortlyric' => 'Cheoeum dangsineul mannatjyo
 Mannaja maja ureotjyo
 Gippeoseo geuraenneunji
@@ -747,6 +754,7 @@ Geujeo batgiman haetjyo
 Geureogodo geuttaen
 Gomaumeul...',
     'music_time' => 1539076839,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     'music_artist_html' => '<a href="/ca-si/Oh-Seung-Hee~Y3NuX2FydGlzdH4xMjI2MTg=.html">Oh Seung Hee</a>, <a href="/ca-si/Kim-Bo-Hyung~Y3NuX2FydGlzdH45MDAxNQ==.html">Kim Bo Hyung</a>',
   ),
   8 => 
@@ -771,7 +779,7 @@ Gomaumeul...',
     'music_listen' => 0,
     'music_track_id' => 2,
     'music_filename' => '1961309-cc39d6fd.mp3',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
     'music_shortlyric' => 'Sumgyeodo twinkle eojjeona 
 Nune hwak ttuijana 
 Beire ssayeo isseodo 
@@ -784,6 +792,7 @@ Naneun twinkle tiga na
 
 Ttan sara...',
     'music_time' => 1539076839,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     'music_artist_html' => '<a href="/ca-si/UJi~Y3NuX2FydGlzdH4xMjI2MjA=.html">UJi</a>, <a href="/ca-si/Kei~Y3NuX2FydGlzdH4yODY4.html">Kei</a>',
   ),
   9 => 
@@ -808,7 +817,7 @@ Ttan sara...',
     'music_listen' => 0,
     'music_track_id' => 1,
     'music_filename' => '1961308-368620af.mp3',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
     'music_shortlyric' => 'Sigani neomuna ppalli ga 
 Neowaui haruga ilbun gata 
 Nan michil geot gata 
@@ -820,6 +829,7 @@ Tteoreojijil ana
 (neol bogo isseumyeon) 
 Modeun geol da...',
     'music_time' => 1539076838,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     'music_artist_html' => '<a href="/ca-si/Seunghee~Y3NuX2FydGlzdH4xNjE0Ng==.html">Seunghee</a>, <a href="/ca-si/Sojeung~Y3NuX2FydGlzdH4xMjI2MjI=.html">Sojeung</a>',
   ),
   10 => 
@@ -844,7 +854,7 @@ Modeun geol da...',
     'music_listen' => 0,
     'music_track_id' => 3,
     'music_filename' => '1961307-0ce5affe.mp3',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
     'music_shortlyric' => 'Ua ua uahae
 Ua ua uahae ua ua uahae
 Ua ua 
@@ -855,6 +865,7 @@ Neomu areumdawo hwanhage unneun
 Geu moseubeun nuni busige
 Malgeun haetsal gatayo nal...',
     'music_time' => 1539076417,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     'music_artist_html' => '<a href="/ca-si/Jinsol~Y3NuX2FydGlzdH4xMzY3OQ==.html">Jinsol</a>',
   ),
   11 => 
@@ -879,7 +890,7 @@ Malgeun haetsal gatayo nal...',
     'music_listen' => 0,
     'music_track_id' => 2,
     'music_filename' => '1961306-6cf1b750.mp3',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
     'music_shortlyric' => 'Neowa na saiui ujureul geonneo 
 Naegero would you 
 Like to come over to me
@@ -890,6 +901,7 @@ Deo isang gidarige haji ma
 Would you like to come over to me 
 Would y...',
     'music_time' => 1539076417,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     'music_artist_html' => '<a href="/ca-si/Flowsik~Y3NuX2FydGlzdH4yNTU0Mw==.html">Flowsik</a>, <a href="/ca-si/Kim-Bo-Hyung~Y3NuX2FydGlzdH45MDAxNQ==.html">Kim Bo Hyung</a>',
   ),
   12 => 
@@ -914,7 +926,7 @@ Would y...',
     'music_listen' => 0,
     'music_track_id' => 1,
     'music_filename' => '1961305-4f68555f.mp3',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
     'music_shortlyric' => 'Museun mareul halkka 
 Eodiseobuteo eotteoke
 Gogaeman tteolguneun na 
@@ -924,6 +936,7 @@ Neol saranghaji ana
 Neodo algo itgetjiman 
 Nunmul heullineun neoui moseubedo...',
     'music_time' => 1539076417,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     'music_artist_html' => '<a href="/ca-si/Sojeong~Y3NuX2FydGlzdH4xMjEwMjA=.html">Sojeong</a>',
   ),
   13 => 
@@ -948,7 +961,7 @@ Nunmul heullineun neoui moseubedo...',
     'music_listen' => 0,
     'music_track_id' => 4,
     'music_filename' => '1961304-752b3fb1.mp3',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
     'music_shortlyric' => 'Khi ánh bình minh này sớm mai thức dậy
 Anh muốn cùng em nhặt chiếc lá thu rơi
 Đếm dòng thời gian ngày tháng năm qua dần
@@ -956,6 +969,7 @@ Cùng nhau đi đến nơi phía xa chân trời.
 
 Anh muốn cùng em đi trên con đường d...',
     'music_time' => 1539076096,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     'music_artist_html' => '<a href="/ca-si/Luong-Chan-Nam~Y3NuX2FydGlzdH42MzU5OQ==.html">Lương Chấn Nam</a>',
   ),
   14 => 
@@ -980,12 +994,13 @@ Anh muốn cùng em đi trên con đường d...',
     'music_listen' => 0,
     'music_track_id' => 3,
     'music_filename' => '1961303-428b8252.mp3',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
     'music_shortlyric' => 'Anh muốn là người mang cho em nụ cười vào mỗi sớm mai
 Anh muốn là người chăm sóc em suốt đời ôm chặt em với giấc mơ đêm
 Anh sẽ mãi luôn ở bên chở che dù đời có bao ngàn khó khăn
 Và anh hứa sẽ mãi l...',
     'music_time' => 1539076075,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     'music_artist_html' => '<a href="/ca-si/Luong-Chan-Nam~Y3NuX2FydGlzdH42MzU5OQ==.html">Lương Chấn Nam</a>',
   ),
   15 => 
@@ -1010,7 +1025,7 @@ Và anh hứa sẽ mãi l...',
     'music_listen' => 0,
     'music_track_id' => 3,
     'music_filename' => '1961302-a0c62a71.mp3',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
     'music_shortlyric' => 'Heil su eopsi sumaneun bameul 
 Nae gaseum doryeonaeneun apeume gyeowo 
 Eolmana ureotdeonga dongbaek agassi 
@@ -1020,6 +1035,7 @@ Kkochipeun ppalgake meongi deureotso
 
 Dongbaekkkoc...',
     'music_time' => 1539076003,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     'music_artist_html' => '<a href="/ca-si/Soyeon~Y3NuX2FydGlzdH4xNDc2MA==.html">Soyeon</a>',
   ),
   16 => 
@@ -1044,7 +1060,7 @@ Dongbaekkkoc...',
     'music_listen' => 0,
     'music_track_id' => 2,
     'music_filename' => '1961301-316bfb8f.mp3',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
     'music_shortlyric' => 'Geoul sogui geudae moseubeul 
 Barabon jeok inneunga
 Bukkeureopji aneun salinga 
@@ -1053,6 +1069,7 @@ Nugul wihae sarawanneunga
 Yeogin jigeum eodinga
 Eoril jeok geudaeui kkumd...',
     'music_time' => 1539076003,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     'music_artist_html' => '<a href="/ca-si/Kim-Bo-Hyung~Y3NuX2FydGlzdH45MDAxNQ==.html">Kim Bo Hyung</a>',
   ),
   17 => 
@@ -1077,7 +1094,7 @@ Eoril jeok geudaeui kkumd...',
     'music_listen' => 0,
     'music_track_id' => 1,
     'music_filename' => '1961300-54b60c3f.mp3',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
     'music_shortlyric' => 'Share my life 
 Take me for what I am	
 Cause I\'ll never change all my colors for you
@@ -1088,6 +1105,7 @@ And everything that you do
 
 I don\'t really need to...',
     'music_time' => 1539076003,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     'music_artist_html' => '<a href="/ca-si/UJi~Y3NuX2FydGlzdH4xMjI2MjA=.html">UJi</a>',
   ),
   18 => 
@@ -1112,7 +1130,7 @@ I don\'t really need to...',
     'music_listen' => 0,
     'music_track_id' => 0,
     'music_filename' => '1961296-314a8a58.mp3',
-    'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+    'music_bitrate' => 320,
     'music_shortlyric' => '[Verse 1]
 Right from the start, couldn\'t pull us apart, it just works
 Nobody else ever gets me as well on this earth
@@ -1120,6 +1138,7 @@ Like rock and roll, Marshall\'s and telly\'s
 Mac and cheese, PB\'s and jellies
 Some...',
     'music_time' => 1539075229,
+    'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     'music_artist_html' => '<a href="/ca-si/Andy-Grammer~Y3NuX2FydGlzdH4xMzc4OQ==.html">Andy Grammer</a>',
   ),
   19 => 
@@ -1144,7 +1163,7 @@ Some...',
     'music_listen' => 0,
     'music_track_id' => 3,
     'music_filename' => '1961295-cb663f96.mp3',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
     'music_shortlyric' => 'Secret Time
 We don\'t need you boy ah
 What do you want
@@ -1156,6 +1175,7 @@ Kkumeun No kkumeun No
 Ppuyeon yeongi sogeun 
 Nar...',
     'music_time' => 1539075157,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     'music_artist_html' => '<a href="/ca-si/Spica~Y3NuX2FydGlzdH4zOTIz.html">Spica</a>',
   ),
 );   
@@ -1182,7 +1202,7 @@ $video_new_uploads = array (
     'music_listen' => 0,
     'music_track_id' => 0,
     'music_filename' => '1961073-db5d44fe.mp4',
-    'music_bitrate' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
+    'music_bitrate' => 192,
     'music_shortlyric' => 'Trăng lắng sâu vào đêm đợi chờ. 
 Đêm thế gian quạnh khô mịt mờ. 
 Như ném ai vào cõi bơ vơ. 
@@ -1193,6 +1213,9 @@ trong tiếng đêm dài ... tan.
 Ngàn tơ vàng chì...',
     'music_length' => 227,
     'music_time' => 1539069770,
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     'music_artist_html' => '<a href="/ca-si/Phuong-Trang~Y3NuX2FydGlzdH4xMjI2MzQ=.html">Phương Trăng</a>',
   ),
   1 => 
@@ -1217,7 +1240,7 @@ Ngàn tơ vàng chì...',
     'music_listen' => 0,
     'music_track_id' => 6,
     'music_filename' => '1961026-a414c5d5.mp4',
-    'music_bitrate' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
+    'music_bitrate' => 192,
     'music_shortlyric' => 'Nae nuneneun niga
 Eonjebuteonga niga
 Naege deureowa hansungan
@@ -1227,6 +1250,9 @@ Geuraegeurae gachi isseum eoreum
 Ttan namja gyeonggyehae nan tto bu...',
     'music_length' => 227,
     'music_time' => 1539062183,
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     'music_artist_html' => '<a href="/ca-si/Snuper~Y3NuX2FydGlzdH4xMzkyNw==.html">Snuper</a>',
   ),
   2 => 
@@ -1251,12 +1277,15 @@ Ttan namja gyeonggyehae nan tto bu...',
     'music_listen' => 0,
     'music_track_id' => 0,
     'music_filename' => '1961019-d8f66834.mp4',
-    'music_bitrate' => '<span class="card-text" style="color: darkgreen">96kbps</span>',
+    'music_bitrate' => 96,
     'music_shortlyric' => '1. Tiếng Sông Hồng 
 2. Tiếng Sông Hương 
 3. Tiếng Cửu Long',
     'music_length' => 500,
     'music_time' => 1539056184,
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     'music_artist_html' => '<a href="/ca-si/Le-Uyen~Y3NuX2FydGlzdH44MzY=.html">Lê Uyên</a>, <a href="/ca-si/Hue-Thy~Y3NuX2FydGlzdH4xNDYwOA==.html">Huệ Thy</a>, <a href="/ca-si/Bich-Dao~Y3NuX2FydGlzdH4xNDYwNQ==.html">Bích Đào</a>',
   ),
   3 => 
@@ -1281,7 +1310,7 @@ Ttan namja gyeonggyehae nan tto bu...',
     'music_listen' => 108,
     'music_track_id' => 0,
     'music_filename' => '1960828-243e6e3f.mp4',
-    'music_bitrate' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
+    'music_bitrate' => 192,
     'music_shortlyric' => '(se~ no!)
 
 Demo sonnan ja dame
@@ -1295,6 +1324,9 @@ Omotteta? Osoreteta?
 Dakedo are? Nanka chigau...',
     'music_length' => 344,
     'music_time' => 1538995373,
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     'music_artist_html' => '<a href="/ca-si/Kana-Hanazawa~Y3NuX2FydGlzdH4xNDczOA==.html">Kana Hanazawa</a>',
   ),
   4 => 
@@ -1319,10 +1351,13 @@ Dakedo are? Nanka chigau...',
     'music_listen' => 7,
     'music_track_id' => 0,
     'music_filename' => '1960817-8dea063d.mp4',
-    'music_bitrate' => '<span class="card-text" style="color: darkgreen">96kbps</span>',
+    'music_bitrate' => 96,
     'music_shortlyric' => 'Em à, cái điều mà khó nhất trên đời này là mình phải đi vá 1 trái tim mà mình ko phải là người làm ...',
     'music_length' => 406,
     'music_time' => 1538992442,
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     'music_artist_html' => '<a href="/ca-si/Loren-Kid~Y3NuX2FydGlzdH4yMjc4.html">Loren Kid</a>, <a href="/ca-si/Ho-Gia-Hung~Y3NuX2FydGlzdH4xNjY2NQ==.html">Hồ Gia Hùng</a>',
   ),
   5 => 
@@ -1347,7 +1382,7 @@ Dakedo are? Nanka chigau...',
     'music_listen' => 464,
     'music_track_id' => 6,
     'music_filename' => '1960802-f5164ad2.mp4',
-    'music_bitrate' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
+    'music_bitrate' => 192,
     'music_shortlyric' => 'Baby nareul tteonajima nega eopsin
 Amugeotdo anin i bameun an doegesseo nan
 Neukkyeojineun geol sechage ttwigo inneun
@@ -1356,6 +1391,9 @@ Jeo bulkkotcheoreom taneun nae nunbit
 Tteuge...',
     'music_length' => 208,
     'music_time' => 1538992136,
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     'music_artist_html' => '<a href="/ca-si/Reik~Y3NuX2FydGlzdH4yMzQyMw==.html">Reik</a>, <a href="/ca-si/Super-Junior~Y3NuX2FydGlzdH4yMTM=.html">Super Junior</a>',
   ),
   6 => 
@@ -1380,7 +1418,7 @@ Tteuge...',
     'music_listen' => 14,
     'music_track_id' => 0,
     'music_filename' => '1960781-3bef35f0.mp4',
-    'music_bitrate' => '<span class="card-text" style="color: darkgreen">128kbps</span>',
+    'music_bitrate' => 128,
     'music_shortlyric' => 'Anh đi chiến dịch xa vời, lòng súng nhân đạo cứu người lầm than 
 Thương dân nghèo ruộng hoang cỏ cháy 
 Thấy nỗi xót xa của kiếp đoạ đầy anh đi. 
@@ -1388,6 +1426,9 @@ Thấy nỗi xót xa của kiếp đoạ đầy anh đi.
 Không quên lời xưa đã ước thề, dâng cả đời trai với...',
     'music_length' => 311,
     'music_time' => 1538982400,
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     'music_artist_html' => '<a href="/ca-si/The-Son~Y3NuX2FydGlzdH41MjU0.html">Thế Sơn</a>',
   ),
   7 => 
@@ -1412,7 +1453,7 @@ Không quên lời xưa đã ước thề, dâng cả đời trai với...',
     'music_listen' => 211,
     'music_track_id' => 0,
     'music_filename' => '1960752-15803f8d.mp4',
-    'music_bitrate' => '<span class="card-text" style="color: darkgreen">96kbps</span>',
+    'music_bitrate' => 96,
     'music_shortlyric' => 'Oh ye!… Oh ye!… Oh ye!…eh.eh.eh.eh.eh!
 I can\'t find you!!!!!!!!!
 
@@ -1422,6 +1463,9 @@ Do you know from that day I\'ve got insane
 The pain remind...',
     'music_length' => 208,
     'music_time' => 1538976412,
+    'music_width' => 1280,
+    'music_height' => 720,
+    'music_bitrate_html' => '<span style="color: orange">HD 720p</span>',
     'music_artist_html' => '<a href="/ca-si/HOAPROX-ftBel-Red~Y3NuX2FydGlzdH4xMjI2Mzg=.html">HOAPROX ft.Bel Red</a>',
   ),
   8 => 
@@ -1446,7 +1490,7 @@ The pain remind...',
     'music_listen' => 24,
     'music_track_id' => 0,
     'music_filename' => '1960670-cb3ec338.mp4',
-    'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+    'music_bitrate' => 320,
     'music_shortlyric' => '1. Nhớ, đừng hoài nghi, em như thế 
 Dẫu quanh em, nhiêu kẻ si tình 
 Em lơ đãng, trước bao lời bướm hoa 
@@ -1456,6 +1500,9 @@ Vì, em luôn có bóng anh, soi sáng, đêm dài.
 Mong anh đừng nghĩ sai, cho tình ta chóng...',
     'music_length' => 232,
     'music_time' => 1538913428,
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     'music_artist_html' => '<a href="/ca-si/Bao-Han~Y3NuX2FydGlzdH45Njc=.html">Bảo Hân</a>',
   ),
   9 => 
@@ -1480,7 +1527,7 @@ Mong anh đừng nghĩ sai, cho tình ta chóng...',
     'music_listen' => 556,
     'music_track_id' => 0,
     'music_filename' => '1960663-c1a58e00.mp4',
-    'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+    'music_bitrate' => 320,
     'music_shortlyric' => '[Spoken Intro]
 The way she came into the place
 I knew right then and there
@@ -1494,6 +1541,9 @@ Divinity in motion
 As she...',
     'music_length' => 333,
     'music_time' => 1538909152,
+    'music_width' => 1440,
+    'music_height' => 1080,
+    'music_bitrate_html' => '<span style="color: orange">1440x1080</span>',
     'music_artist_html' => '<a href="/ca-si/Michael-Jackson~Y3NuX2FydGlzdH4xNTEw.html">Michael Jackson</a>',
   ),
   10 => 
@@ -1518,7 +1568,7 @@ As she...',
     'music_listen' => 4,
     'music_track_id' => 0,
     'music_filename' => '1960628-8be406fc.mp4',
-    'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+    'music_bitrate' => 320,
     'music_shortlyric' => 'Do you hear me
 [t2]Do you hear me
 [t1]Người có nghe thấy lời tôi nói không?
@@ -1532,6 +1582,9 @@ Gloomy day
 [...',
     'music_length' => 246,
     'music_time' => 1538904402,
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     'music_artist_html' => '<a href="/ca-si/The-Rose~Y3NuX2FydGlzdH4yMTkxMw==.html">The Rose</a>',
   ),
   11 => 
@@ -1556,7 +1609,7 @@ Gloomy day
     'music_listen' => 5,
     'music_track_id' => 0,
     'music_filename' => '1960627-4cc4c455.mp4',
-    'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+    'music_bitrate' => 320,
     'music_shortlyric' => 'Nalssiga byeolloyeonneunji 
 Gibuni an joeun geonji
 Oneulttara eomneun useumgie 
@@ -1566,6 +1619,9 @@ Dodaeche museun il itdeongeonde
 Neo ttaemune jami an...',
     'music_length' => 189,
     'music_time' => 1538904267,
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     'music_artist_html' => '<a href="/ca-si/Lucente~Y3NuX2FydGlzdH4xMjI3MjY=.html">Lucente</a>',
   ),
   12 => 
@@ -1590,7 +1646,7 @@ Neo ttaemune jami an...',
     'music_listen' => 3,
     'music_track_id' => 0,
     'music_filename' => '1960626-4d943b8a.mp4',
-    'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+    'music_bitrate' => 320,
     'music_shortlyric' => 'Achimimyeon ttasaroun haetsare
 Hamkke nun tteo misoreul jitgo
 Jichin jeonyeogen sugohan haru
@@ -1600,6 +1656,9 @@ Gwaenchantago dodangnyeojumyeo
 Nae saengui modeu...',
     'music_length' => 193,
     'music_time' => 1538904149,
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     'music_artist_html' => '<a href="/ca-si/Seo-Ji-An~Y3NuX2FydGlzdH4xMjI3Mjc=.html">Seo Ji An</a>',
   ),
   13 => 
@@ -1624,7 +1683,7 @@ Nae saengui modeu...',
     'music_listen' => 7,
     'music_track_id' => 0,
     'music_filename' => '1960625-3ba66a32.mp4',
-    'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+    'music_bitrate' => 320,
     'music_shortlyric' => '한낮에 꾸는 꿈
 [t2]Hannaje kkuneun kkum
 [t1]Một giấc mộng giữa ban ngày
@@ -1638,6 +1697,9 @@ Nae saengui modeu...',
 [t1]Dư...',
     'music_length' => 219,
     'music_time' => 1538904036,
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     'music_artist_html' => '<a href="/ca-si/GOT7~Y3NuX2FydGlzdH40NDY0.html">GOT7</a>',
   ),
   14 => 
@@ -1662,7 +1724,7 @@ Nae saengui modeu...',
     'music_listen' => 59,
     'music_track_id' => 0,
     'music_filename' => '1960624-11d8cdba.mp4',
-    'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+    'music_bitrate' => 320,
     'music_shortlyric' => '더 빠져가 깊이 너와 나 같이
 [t2]Deo ppajyeoga gipi neowa na gachi
 [t1]Đắm chìm sâu hơn vào thứ tình cảm này, anh cùng với em
@@ -1672,6 +1734,9 @@ Nae saengui modeu...',
 [t1]Ta say mê nhau đậm sâu hơn, a...',
     'music_length' => 233,
     'music_time' => 1538903884,
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     'music_artist_html' => '<a href="/ca-si/Yuri~Y3NuX2FydGlzdH40NjI3.html">Yuri</a>',
   ),
   15 => 
@@ -1696,7 +1761,7 @@ Nae saengui modeu...',
     'music_listen' => 6,
     'music_track_id' => 0,
     'music_filename' => '1960623-f4160921.mp4',
-    'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+    'music_bitrate' => 320,
     'music_shortlyric' => 'Jinjjain cheokaji ma 
 Neol garyeonaegi beokcha nan nan 
 Ontong yesang bakkiya 
@@ -1707,6 +1772,9 @@ Kkeutdo eopsi tteoreojyeo tto
 E...',
     'music_length' => 212,
     'music_time' => 1538903758,
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     'music_artist_html' => '<a href="/ca-si/Yuri~Y3NuX2FydGlzdH40NjI3.html">Yuri</a>',
   ),
   16 => 
@@ -1731,7 +1799,7 @@ E...',
     'music_listen' => 91,
     'music_track_id' => 0,
     'music_filename' => '1960622-4dbe1d59.mp4',
-    'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+    'music_bitrate' => 320,
     'music_shortlyric' => '부탁해 너의 얘길 들려줄래
 [t2]Butakhae neoui yaegil deullyeojullae
 [t1]Có thể hay không, kể cho em nghe về chuyện đời anh
@@ -1743,6 +1811,9 @@ E...',
 네가 내게 그랬듯...',
     'music_length' => 225,
     'music_time' => 1538903645,
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     'music_artist_html' => '<a href="/ca-si/Cosmic-Girls~Y3NuX2FydGlzdH4xNTA3MQ==.html">Cosmic Girls</a>',
   ),
   17 => 
@@ -1767,7 +1838,7 @@ E...',
     'music_listen' => 49,
     'music_track_id' => 0,
     'music_filename' => '1960620-674aa8e8.mp4',
-    'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+    'music_bitrate' => 320,
     'music_shortlyric' => 'What What What
 [t2]What What What
 [t1]What What What
@@ -1781,6 +1852,9 @@ What What
 [t1]Thật khó để có thể tỉnh dậy và...',
     'music_length' => 202,
     'music_time' => 1538903499,
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     'music_artist_html' => '<a href="/ca-si/Dreamcatcher~Y3NuX2FydGlzdH4xNTAxNg==.html">Dreamcatcher</a>',
   ),
   18 => 
@@ -1805,7 +1879,7 @@ What What
     'music_listen' => 4,
     'music_track_id' => 0,
     'music_filename' => '1960619-6a20adae.mp4',
-    'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+    'music_bitrate' => 320,
     'music_shortlyric' => 'THE BOYZ you got it right
 Jigeum my time
 Right here appear
@@ -1816,6 +1890,9 @@ My zone THE BOYZ is right here
 Pihal su eopseo N...',
     'music_length' => 202,
     'music_time' => 1538903388,
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     'music_artist_html' => '<a href="/ca-si/The-Boyz~Y3NuX2FydGlzdH4xOTM4MA==.html">The Boyz</a>',
   ),
   19 => 
@@ -1840,7 +1917,7 @@ Pihal su eopseo N...',
     'music_listen' => 53,
     'music_track_id' => 0,
     'music_filename' => '1960618-f038e9fc.mp4',
-    'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+    'music_bitrate' => 320,
     'music_shortlyric' => 'Modeun ge da mugiryeokaejyeo
 Deo byeonhaeganeun neoreul bomyeon
 Nae gyeote niga itdaneun ge deo oerowo
@@ -1850,6 +1927,9 @@ Neoui gwansimi
 Nan yeojeo...',
     'music_length' => 203,
     'music_time' => 1538903218,
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     'music_artist_html' => '<a href="/ca-si/Soyou~Y3NuX2FydGlzdH4xNTcwNA==.html">Soyou</a>',
   ),
   20 => 
@@ -1874,7 +1954,7 @@ Nan yeojeo...',
     'music_listen' => 2,
     'music_track_id' => 0,
     'music_filename' => '1960617-55f9144b.mp4',
-    'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+    'music_bitrate' => 320,
     'music_shortlyric' => '다가온 어둠 사이 사이로
 [t2]Dagaon eodum sai sairo
 [t1]Giữa bóng đêm đang dần đến gần
@@ -1887,6 +1967,9 @@ Nan yeojeo...',
 [t2]J...',
     'music_length' => 195,
     'music_time' => 1538903085,
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     'music_artist_html' => '<a href="/ca-si/Sik-K~Y3NuX2FydGlzdH4xNjM4NA==.html">Sik-K</a>, <a href="/ca-si/Soyou~Y3NuX2FydGlzdH4xNTcwNA==.html">Soyou</a>',
   ),
   21 => 
@@ -1911,7 +1994,7 @@ Nan yeojeo...',
     'music_listen' => 4,
     'music_track_id' => 0,
     'music_filename' => '1960615-6163bcf2.mp4',
-    'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+    'music_bitrate' => 320,
     'music_shortlyric' => '조급해 하지 않을게
 [t2]Jogeuphae haji aneulge
 [t1]Em sẽ không quá vội vã đâu
@@ -1924,6 +2007,9 @@ Nan yeojeo...',
 [t2]Sucheon gaeui neoeges...',
     'music_length' => 191,
     'music_time' => 1538902976,
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     'music_artist_html' => '<a href="/ca-si/GWSN~Y3NuX2FydGlzdH4yMzMyNA==.html">GWSN</a>',
   ),
   22 => 
@@ -1948,7 +2034,7 @@ Nan yeojeo...',
     'music_listen' => 5,
     'music_track_id' => 0,
     'music_filename' => '1960614-44e86335.mp4',
-    'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+    'music_bitrate' => 320,
     'music_shortlyric' => 'Ah Ah ai ssuinna
 Mae mae mae maem maemmaeya
 Ah Ah ai ssuinna
@@ -1960,6 +2046,9 @@ Seonggeupan deiteuneun NOPE
 Neul seu...',
     'music_length' => 185,
     'music_time' => 1538902854,
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     'music_artist_html' => '<a href="/ca-si/Purple~Y3NuX2FydGlzdH4zNjg4MQ==.html">Purple</a>',
   ),
   23 => 
@@ -1984,7 +2073,7 @@ Neul seu...',
     'music_listen' => 18,
     'music_track_id' => 0,
     'music_filename' => '1960613-9f1b5ec1.mp4',
-    'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+    'music_bitrate' => 320,
     'music_shortlyric' => '오 더하기 오는 구구
 [t2]O deohagi oneun gugu
 [t1]Năm cộng năm là &quot;cục tác&quot;
@@ -1997,6 +2086,9 @@ Neul seu...',
 [t2]Sikkeureopda hamyeon nunn...',
     'music_length' => 196,
     'music_time' => 1538902747,
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     'music_artist_html' => '<a href="/ca-si/Pentagon~Y3NuX2FydGlzdH4xNDA5NQ==.html">Pentagon</a>',
   ),
   24 => 
@@ -2021,7 +2113,7 @@ Neul seu...',
     'music_listen' => 7,
     'music_track_id' => 0,
     'music_filename' => '1960612-3d0da414.mp4',
-    'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+    'music_bitrate' => 320,
     'music_shortlyric' => 'Remember me do you remember me
 [t2]Remember me do you remember me
 [t1]Nhớ đến em, anh có còn nhớ đến em không?
@@ -2031,6 +2123,9 @@ Neul seu...',
 [t1]Hình ảnh phản chiếu của em t...',
     'music_length' => 195,
     'music_time' => 1538902641,
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     'music_artist_html' => '<a href="/ca-si/Oh-My-Girl~Y3NuX2FydGlzdH4xNzE2OQ==.html">Oh My Girl</a>',
   ),
   25 => 
@@ -2055,7 +2150,7 @@ Neul seu...',
     'music_listen' => 12,
     'music_track_id' => 0,
     'music_filename' => '1960611-fb85c2c5.mp4',
-    'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+    'music_bitrate' => 320,
     'music_shortlyric' => 'Goodbye goodbye
 [t2]Goodbye goodbye
 [t1]Tạm biệt, tạm biệt nhé
@@ -2068,6 +2163,9 @@ Neul seu...',
 [t2]Geutorok saranghaji mal geol g...',
     'music_length' => 250,
     'music_time' => 1538902340,
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     'music_artist_html' => '<a href="/ca-si/iKON~Y3NuX2FydGlzdH4xNDM1OQ==.html">iKON</a>',
   ),
   26 => 
@@ -2092,7 +2190,7 @@ Neul seu...',
     'music_listen' => 64,
     'music_track_id' => 0,
     'music_filename' => '1960609-03e1f606.mp4',
-    'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+    'music_bitrate' => 320,
     'music_shortlyric' => '살아가며 내가 널 만나 많은 기억을 남기고
 [t2]Saragamyeo naega neol manna maneun gieogeul namgigo
 [t1]Anh cố sống tiếp và để lại những kí ức về ngày anh gặp em
@@ -2101,6 +2199,9 @@ Neul seu...',
 [t2]Gakkawojilsurok saeeo naon...',
     'music_length' => 145,
     'music_time' => 1538902134,
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     'music_artist_html' => '<a href="/ca-si/iKON~Y3NuX2FydGlzdH4xNDM1OQ==.html">iKON</a>',
   ),
   27 => 
@@ -2125,7 +2226,7 @@ Neul seu...',
     'music_listen' => 67,
     'music_track_id' => 0,
     'music_filename' => '1960561-19855cf9.mp4',
-    'music_bitrate' => '<span class="card-text" style="color: darkgreen">128kbps</span>',
+    'music_bitrate' => 128,
     'music_shortlyric' => 'Thư rằng: thư từ biên ải xa xa 
 gửi người em nho nhỏ quê nhà. 
 Đã cách xa bao năm 
@@ -2135,6 +2236,9 @@ Chiến đấu ngăn quân thù
 vì anh xót thương khi quê hươ...',
     'music_length' => 303,
     'music_time' => 1538894826,
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     'music_artist_html' => '<a href="/ca-si/Dang-The-Luan~Y3NuX2FydGlzdH42NzM3.html">Đặng Thế Luân</a>',
   ),
   28 => 
@@ -2159,7 +2263,7 @@ vì anh xót thương khi quê hươ...',
     'music_listen' => 112,
     'music_track_id' => 0,
     'music_filename' => '1960502-c8f50c2b.mp4',
-    'music_bitrate' => '<span class="card-text" style="color: darkgreen">128kbps</span>',
+    'music_bitrate' => 128,
     'music_shortlyric' => 'Memoria memoria
 Memoria memoria
 Hitori taiyou no shimo hitomi o tojitemita
@@ -2168,6 +2272,9 @@ Donnani kanashikute namida o nagashite mo
 Kimi to no daiarii kokoro ni kizamar...',
     'music_length' => 154,
     'music_time' => 1538887489,
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     'music_artist_html' => '<a href="/ca-si/GFRIEND~Y3NuX2FydGlzdH4xNDU2NA==.html">GFRIEND</a>',
   ),
   29 => 
@@ -2192,7 +2299,7 @@ Kimi to no daiarii kokoro ni kizamar...',
     'music_listen' => 7,
     'music_track_id' => 0,
     'music_filename' => '1960408-91c03e5f.mp4',
-    'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+    'music_bitrate' => 320,
     'music_shortlyric' => 'THE BOYZ you got it right
 Jigeum my time
 Right here appear
@@ -2203,6 +2310,9 @@ My zone THE BOYZ is right here
 Pihal su eopseo N...',
     'music_length' => 202,
     'music_time' => 1538841056,
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     'music_artist_html' => '<a href="/ca-si/The-Boyz~Y3NuX2FydGlzdH4xOTM4MA==.html">The Boyz</a>',
   ),
   30 => 
@@ -2227,7 +2337,7 @@ Pihal su eopseo N...',
     'music_listen' => 102,
     'music_track_id' => 0,
     'music_filename' => '1960407-7b1d5e0a.mp4',
-    'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+    'music_bitrate' => 320,
     'music_shortlyric' => '한낮에 꾸는 꿈
 [t2]Hannaje kkuneun kkum
 [t1]Một giấc mộng giữa ban ngày
@@ -2241,6 +2351,9 @@ Pihal su eopseo N...',
 [t1]Dư...',
     'music_length' => 327,
     'music_time' => 1538841024,
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     'music_artist_html' => '<a href="/ca-si/GOT7~Y3NuX2FydGlzdH40NDY0.html">GOT7</a>',
   ),
   31 => 
@@ -2265,7 +2378,7 @@ Pihal su eopseo N...',
     'music_listen' => 4,
     'music_track_id' => 0,
     'music_filename' => '1960406-fffbf6a6.mp4',
-    'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+    'music_bitrate' => 320,
     'music_shortlyric' => 'Do you hear me
 Hoesaekbit angae deopin
 Gloomy day
@@ -2279,6 +2392,9 @@ Dwidoraboni amudo eomne
 Naeg...',
     'music_length' => 217,
     'music_time' => 1538840731,
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     'music_artist_html' => '<a href="/ca-si/The-Rose~Y3NuX2FydGlzdH4yMTkxMw==.html">The Rose</a>',
   ),
   32 => 
@@ -2303,10 +2419,13 @@ Naeg...',
     'music_listen' => 5,
     'music_track_id' => 0,
     'music_filename' => '1960404-05784d75.mp4',
-    'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+    'music_bitrate' => 320,
     'music_shortlyric' => '',
     'music_length' => 168,
     'music_time' => 1538840282,
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     'music_artist_html' => '<a href="/ca-si/Blanc7~Y3NuX2FydGlzdH4yMzMyMw==.html">Blanc7</a>',
   ),
   33 => 
@@ -2331,10 +2450,13 @@ Naeg...',
     'music_listen' => 6,
     'music_track_id' => 0,
     'music_filename' => '1960378-cb25ac94.mp4',
-    'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+    'music_bitrate' => 320,
     'music_shortlyric' => '',
     'music_length' => 195,
     'music_time' => 1538826104,
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     'music_artist_html' => '<a href="/ca-si/LipBubble~Y3NuX2FydGlzdH4xMjI3NTg=.html">LipBubble</a>',
   ),
   34 => 
@@ -2359,7 +2481,7 @@ Naeg...',
     'music_listen' => 59,
     'music_track_id' => 0,
     'music_filename' => '1960377-5fc6779d.mp4',
-    'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+    'music_bitrate' => 320,
     'music_shortlyric' => '부탁해 너의 얘길 들려줄래
 [t2]Butakhae neoui yaegil deullyeojullae
 [t1]Có thể hay không, kể cho em nghe về chuyện đời anh
@@ -2371,6 +2493,9 @@ Naeg...',
 네가 내게 그랬듯...',
     'music_length' => 224,
     'music_time' => 1538826003,
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     'music_artist_html' => '<a href="/ca-si/Cosmic-Girls~Y3NuX2FydGlzdH4xNTA3MQ==.html">Cosmic Girls</a>',
   ),
   35 => 
@@ -2395,7 +2520,7 @@ Naeg...',
     'music_listen' => 99,
     'music_track_id' => 0,
     'music_filename' => '1960376-ea15deac.mp4',
-    'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+    'music_bitrate' => 320,
     'music_shortlyric' => 'What What What
 [t2]What What What
 [t1]What What What
@@ -2409,6 +2534,9 @@ What What
 [t1]Thật khó để có thể tỉnh dậy và...',
     'music_length' => 202,
     'music_time' => 1538825875,
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     'music_artist_html' => '<a href="/ca-si/Dreamcatcher~Y3NuX2FydGlzdH4xNTAxNg==.html">Dreamcatcher</a>',
   ),
   36 => 
@@ -2433,7 +2561,7 @@ What What
     'music_listen' => 108,
     'music_track_id' => 0,
     'music_filename' => '1960375-0e9f434e.mp4',
-    'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+    'music_bitrate' => 320,
     'music_shortlyric' => 'Yeah Brave Sound You ready
 [t2]Yeah Brave Sound You ready
 [t1]Yeah Brave Sound cưng đã sẵn sàng chưa nào
@@ -2443,6 +2571,9 @@ Let\'s get ready to Rumble
 [t1]Chuẩn bị quẩy tung trời thôi nà...',
     'music_length' => 178,
     'music_time' => 1538823309,
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     'music_artist_html' => '<a href="/ca-si/UNIT~Y3NuX2FydGlzdH4xNTY1NQ==.html">UNI.T</a>',
   ),
   37 => 
@@ -2467,7 +2598,7 @@ Let\'s get ready to Rumble
     'music_listen' => 3,
     'music_track_id' => 0,
     'music_filename' => '1960366-b0572acf.mp4',
-    'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+    'music_bitrate' => 320,
     'music_shortlyric' => '조급해 하지 않을게
 [t2]Jogeuphae haji aneulge
 [t1]Em sẽ không quá vội vã đâu
@@ -2480,6 +2611,9 @@ Let\'s get ready to Rumble
 [t2]Sucheon gaeui neoeges...',
     'music_length' => 170,
     'music_time' => 1538820734,
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     'music_artist_html' => '<a href="/ca-si/GWSN~Y3NuX2FydGlzdH4yMzMyNA==.html">GWSN</a>',
   ),
   38 => 
@@ -2504,7 +2638,7 @@ Let\'s get ready to Rumble
     'music_listen' => 4,
     'music_track_id' => 0,
     'music_filename' => '1960364-6bbae179.mp4',
-    'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+    'music_bitrate' => 320,
     'music_shortlyric' => '오 더하기 오는 구구
 [t2]O deohagi oneun gugu
 [t1]Năm cộng năm là &quot;cục tác&quot;
@@ -2517,6 +2651,9 @@ Let\'s get ready to Rumble
 [t2]Sikkeureopda hamyeon nunn...',
     'music_length' => 196,
     'music_time' => 1538820552,
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     'music_artist_html' => '<a href="/ca-si/Pentagon~Y3NuX2FydGlzdH4xNDA5NQ==.html">Pentagon</a>',
   ),
   39 => 
@@ -2541,7 +2678,7 @@ Let\'s get ready to Rumble
     'music_listen' => 9,
     'music_track_id' => 0,
     'music_filename' => '1960360-d4c7b2e4.mp4',
-    'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+    'music_bitrate' => 320,
     'music_shortlyric' => 'Remember me do you remember me
 [t2]Remember me do you remember me
 [t1]Nhớ đến em, anh có còn nhớ đến em không?
@@ -2551,6 +2688,9 @@ Let\'s get ready to Rumble
 [t1]Hình ảnh phản chiếu của em t...',
     'music_length' => 194,
     'music_time' => 1538820351,
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     'music_artist_html' => '<a href="/ca-si/Oh-My-Girl~Y3NuX2FydGlzdH4xNzE2OQ==.html">Oh My Girl</a>',
   ),
   40 => 
@@ -2575,7 +2715,7 @@ Let\'s get ready to Rumble
     'music_listen' => 6,
     'music_track_id' => 0,
     'music_filename' => '1960356-1216e196.mp4',
-    'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+    'music_bitrate' => 320,
     'music_shortlyric' => 'Achime ireona 
 Seupgwanjeogeuro gogael dollimyeon 
 Niga isseul geot gata
@@ -2586,6 +2726,9 @@ Jipbakke nawaseo
 Kyeojyeo inneun haendeupone...',
     'music_length' => 73,
     'music_time' => 1538820225,
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     'music_artist_html' => '<a href="/ca-si/Soyou~Y3NuX2FydGlzdH4xNTcwNA==.html">Soyou</a>',
   ),
   41 => 
@@ -2610,7 +2753,7 @@ Kyeojyeo inneun haendeupone...',
     'music_listen' => 8,
     'music_track_id' => 0,
     'music_filename' => '1960355-c1387f14.mp4',
-    'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+    'music_bitrate' => 320,
     'music_shortlyric' => '다가온 어둠 사이 사이로
 [t2]Dagaon eodum sai sairo
 [t1]Giữa bóng đêm đang dần đến gần
@@ -2623,6 +2766,9 @@ Kyeojyeo inneun haendeupone...',
 [t2]J...',
     'music_length' => 193,
     'music_time' => 1538820186,
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     'music_artist_html' => '<a href="/ca-si/Sik-K~Y3NuX2FydGlzdH4xNjM4NA==.html">Sik-K</a>, <a href="/ca-si/Soyou~Y3NuX2FydGlzdH4xNTcwNA==.html">Soyou</a>',
   ),
   42 => 
@@ -2647,7 +2793,7 @@ Kyeojyeo inneun haendeupone...',
     'music_listen' => 16,
     'music_track_id' => 0,
     'music_filename' => '1960352-a3acdd23.mp4',
-    'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+    'music_bitrate' => 320,
     'music_shortlyric' => '더 빠져가 깊이 너와 나 같이
 [t2]Deo ppajyeoga gipi neowa na gachi
 [t1]Đắm chìm sâu hơn vào thứ tình cảm này, anh cùng với em
@@ -2657,6 +2803,9 @@ Kyeojyeo inneun haendeupone...',
 [t1]Ta say mê nhau đậm sâu hơn, a...',
     'music_length' => 186,
     'music_time' => 1538820065,
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     'music_artist_html' => '<a href="/ca-si/Yuri~Y3NuX2FydGlzdH40NjI3.html">Yuri</a>',
   ),
   43 => 
@@ -2681,7 +2830,7 @@ Kyeojyeo inneun haendeupone...',
     'music_listen' => 57,
     'music_track_id' => 0,
     'music_filename' => '1960346-44846b86.mp4',
-    'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+    'music_bitrate' => 320,
     'music_shortlyric' => 'Jinjjain cheokaji ma 
 Neol garyeonaegi beokcha nan nan 
 Ontong yesang bakkiya 
@@ -2692,6 +2841,9 @@ Kkeutdo eopsi tteoreojyeo tto
 E...',
     'music_length' => 139,
     'music_time' => 1538819865,
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     'music_artist_html' => '<a href="/ca-si/Yuri~Y3NuX2FydGlzdH40NjI3.html">Yuri</a>',
   ),
   44 => 
@@ -2716,7 +2868,7 @@ E...',
     'music_listen' => 218,
     'music_track_id' => 0,
     'music_filename' => '1960344-7e03d35a.mp4',
-    'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+    'music_bitrate' => 320,
     'music_shortlyric' => 'Goodbye goodbye
 [t2]Goodbye goodbye
 [t1]Tạm biệt, tạm biệt nhé
@@ -2729,6 +2881,9 @@ E...',
 [t2]Geutorok saranghaji mal geol g...',
     'music_length' => 241,
     'music_time' => 1538818858,
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     'music_artist_html' => '<a href="/ca-si/iKON~Y3NuX2FydGlzdH4xNDM1OQ==.html">iKON</a>',
   ),
   45 => 
@@ -2753,7 +2908,7 @@ E...',
     'music_listen' => 11,
     'music_track_id' => 0,
     'music_filename' => '1960343-2fc60ed9.mp4',
-    'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+    'music_bitrate' => 320,
     'music_shortlyric' => '살아가며 내가 널 만나 많은 기억을 남기고
 [t2]Saragamyeo naega neol manna maneun gieogeul namgigo
 [t1]Anh cố sống tiếp và để lại những kí ức về ngày anh gặp em
@@ -2762,6 +2917,9 @@ E...',
 [t2]Gakkawojilsurok saeeo naon...',
     'music_length' => 142,
     'music_time' => 1538818704,
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     'music_artist_html' => '<a href="/ca-si/iKON~Y3NuX2FydGlzdH4xNDM1OQ==.html">iKON</a>',
   ),
   46 => 
@@ -2786,7 +2944,7 @@ E...',
     'music_listen' => 109,
     'music_track_id' => 0,
     'music_filename' => '1960323-e024370a.mp4',
-    'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+    'music_bitrate' => 320,
     'music_shortlyric' => 'Memoria memoria
 Memoria memoria
 Hitori taiyou no shimo hitomi o tojitemita
@@ -2795,6 +2953,9 @@ Donnani kanashikute namida o nagashite mo
 Kimi to no daiarii kokoro ni kizamar...',
     'music_length' => 155,
     'music_time' => 1538813130,
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     'music_artist_html' => '<a href="/ca-si/GFriend~Y3NuX2FydGlzdH4xMzM5MA==.html">GFriend</a>',
   ),
   47 => 
@@ -2819,7 +2980,7 @@ Kimi to no daiarii kokoro ni kizamar...',
     'music_listen' => 102,
     'music_track_id' => 0,
     'music_filename' => '1960265-6fb130db.mp4',
-    'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+    'music_bitrate' => 320,
     'music_shortlyric' => 'Knock knock minarenu hitomi
 You\'re so chigau manazashi
 Mon amour Gimme your tenderness
@@ -2831,6 +2992,9 @@ Chinmoku sae It\'s OK!
 Sakerarenai unmei....',
     'music_length' => 331,
     'music_time' => 1538806922,
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
     'music_artist_html' => '<a href="/ca-si/Mamamoo~Y3NuX2FydGlzdH4xNDg5Mg==.html">Mamamoo</a>',
   ),
   48 => 
@@ -2855,7 +3019,7 @@ Sakerarenai unmei....',
     'music_listen' => 38,
     'music_track_id' => 0,
     'music_filename' => '1960178-08738e4e.mp4',
-    'music_bitrate' => '<span class="card-text" style="color: darkgreen">64kbps</span>',
+    'music_bitrate' => 64,
     'music_shortlyric' => '1. Tình yêu như mật ngọt trên cao
 Làm lòng ta luôn khát khao
 Tình yêu như mộng đẹp nên thơ
@@ -2866,6 +3030,9 @@ Gửi trọn tình yêu đến anh
 Dấu yêu ơi, gửi đến mai...',
     'music_length' => 278,
     'music_time' => 1538777665,
+    'music_width' => 720,
+    'music_height' => 480,
+    'music_bitrate_html' => '<span style="color: darkgreen">720x480</span>',
     'music_artist_html' => '<a href="/ca-si/My-Tam~Y3NuX2FydGlzdH40ODEy.html">Mỹ Tâm</a>',
   ),
   49 => 
@@ -2890,7 +3057,7 @@ Dấu yêu ơi, gửi đến mai...',
     'music_listen' => 15,
     'music_track_id' => 0,
     'music_filename' => '1960177-0e629cbb.mp4',
-    'music_bitrate' => '<span class="card-text" style="color: darkgreen">64kbps</span>',
+    'music_bitrate' => 64,
     'music_shortlyric' => 'Ngày nào em đến bên anh
 Tim anh ngẩn ngơ chợt buồn vu vơ
 Em rất vô tư, em quá ngây thơ
@@ -2902,6 +3069,9 @@ Em đã ra đi, không nói năng chi
 A...',
     'music_length' => 326,
     'music_time' => 1538776388,
+    'music_width' => 720,
+    'music_height' => 480,
+    'music_bitrate_html' => '<span style="color: darkgreen">720x480</span>',
     'music_artist_html' => '<a href="/ca-si/My-Tam~Y3NuX2FydGlzdH40ODEy.html">Mỹ Tâm</a>',
   ),
 );     

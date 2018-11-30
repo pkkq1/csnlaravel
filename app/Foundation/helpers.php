@@ -23,14 +23,6 @@ function view($view = null, $data = [], $mergeData = [])
         }
     }
     if(strpos($view, '.errors') !== false) {
-        dd([
-            'request' => json_encode(app('request')->route()->getAction()),
-            'type' => last(explode('.', $view)),
-            'url' => $_SERVER['REQUEST_URI'],
-            'view' => '',
-            'message' => '',
-            'parameter' => json_encode(Request()->all())
-        ]);
         ErrorLogModel::create([
             'request' => json_encode(app('request')->route()->getAction()),
             'type' => last(explode('.', $view)),

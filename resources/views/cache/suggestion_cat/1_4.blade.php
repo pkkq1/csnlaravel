@@ -20,6 +20,10 @@ $typeDup = array (
     'music_listen' => 15953,
     'music_bitrate' => 256,
     'music_filename' => '1953760-5452997e.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/My-Tam~Y3NuX2FydGlzdH40ODEy.html">Mỹ Tâm</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   1 => 
   array (
@@ -35,6 +39,10 @@ $typeDup = array (
     'music_listen' => 464,
     'music_bitrate' => 192,
     'music_filename' => '1960802-f5164ad2.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Reik~Y3NuX2FydGlzdH4yMzQyMw==.html">Reik</a>, <a href="/ca-si/Super-Junior~Y3NuX2FydGlzdH4yMTM=.html">Super Junior</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   2 => 
   array (
@@ -50,6 +58,10 @@ $typeDup = array (
     'music_listen' => 15787,
     'music_bitrate' => 128,
     'music_filename' => '1921636-9ccba6fa.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Momoland~Y3NuX2FydGlzdH4xMzM5MQ==.html">Momoland</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   3 => 
   array (
@@ -65,6 +77,10 @@ $typeDup = array (
     'music_listen' => 130073,
     'music_bitrate' => 96,
     'music_filename' => '1919140-2364e511.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/BlackPink~Y3NuX2FydGlzdH4xNDY3Mw==.html">BlackPink</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   4 => 
   array (
@@ -80,6 +96,10 @@ $typeDup = array (
     'music_listen' => 762,
     'music_bitrate' => 192,
     'music_filename' => '1959745-210443f9.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Epitone-Project~Y3NuX2FydGlzdH40NjY0MA==.html">Epitone Project</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   5 => 
   array (
@@ -95,6 +115,10 @@ $typeDup = array (
     'music_listen' => 9294,
     'music_bitrate' => 192,
     'music_filename' => '1937727-141351b4.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/iKON~Y3NuX2FydGlzdH4xNDM1OQ==.html">iKON</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   6 => 
   array (
@@ -110,6 +134,10 @@ $typeDup = array (
     'music_listen' => 4750,
     'music_bitrate' => 192,
     'music_filename' => '1929495-d507583f.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Mamamoo~Y3NuX2FydGlzdH4xNDg5Mg==.html">Mamamoo</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   7 => 
   array (
@@ -125,6 +153,10 @@ $typeDup = array (
     'music_listen' => 10673,
     'music_bitrate' => 192,
     'music_filename' => '1897137-afae5918.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Twice~Y3NuX2FydGlzdH4xMzM4OA==.html">Twice</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   8 => 
   array (
@@ -140,6 +172,10 @@ $typeDup = array (
     'music_listen' => 260,
     'music_bitrate' => 192,
     'music_filename' => '1959744-34272454.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Yuri~Y3NuX2FydGlzdH40NjI3.html">Yuri</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   9 => 
   array (
@@ -155,6 +191,10 @@ $typeDup = array (
     'music_listen' => 1692,
     'music_bitrate' => 192,
     'music_filename' => '1894711-da56af5a.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Pentagon~Y3NuX2FydGlzdH4xNDA5NQ==.html">Pentagon</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   10 => 
   array (
@@ -170,6 +210,10 @@ $typeDup = array (
     'music_listen' => 783,
     'music_bitrate' => 192,
     'music_filename' => '1919993-09367378.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/BTOB~Y3NuX2FydGlzdH4zMjk2.html">BTOB</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   11 => 
   array (
@@ -179,12 +223,16 @@ $typeDup = array (
     'cover_id' => 0,
     'music_title_url' => 'roll-deep~hyuna-jung-ilhoon',
     'music_title' => 'Roll Deep',
-    'music_artist' => 'HyunA; Jung Ilhoon',
-    'music_artist_id' => '',
+    'music_artist' => 'HyunA;Jung Ilhoon',
+    'music_artist_id' => '2274;15873',
     'music_album_id' => '',
     'music_listen' => 28891,
     'music_bitrate' => 96,
     'music_filename' => '1538855-019ad39a.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/HyunA~Y3NuX2FydGlzdH4yMjc0.html">HyunA</a>, <a href="/ca-si/Jung-Ilhoon~Y3NuX2FydGlzdH4xNTg3Mw==.html">Jung Ilhoon</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   12 => 
   array (
@@ -200,6 +248,10 @@ $typeDup = array (
     'music_listen' => 266,
     'music_bitrate' => 320,
     'music_filename' => '1845820-ba3bef4a.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Twice~Y3NuX2FydGlzdH4xMzM4OA==.html">Twice</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   13 => 
   array (
@@ -209,12 +261,16 @@ $typeDup = array (
     'cover_id' => 0,
     'music_title_url' => 'beautiful-girl~hyomin-brave-brothers',
     'music_title' => 'Beautiful Girl',
-    'music_artist' => 'Hyomin; Brave Brothers',
-    'music_artist_id' => '',
+    'music_artist' => 'Hyomin;Brave Brothers',
+    'music_artist_id' => '3663;54996',
     'music_album_id' => '',
     'music_listen' => 8578,
     'music_bitrate' => 96,
     'music_filename' => '1370807-21ad9eaf.mp4',
+    'music_width' => 1280,
+    'music_height' => 720,
+    'music_artist_html' => '<a href="/ca-si/Hyomin~Y3NuX2FydGlzdH4zNjYz.html">Hyomin</a>, <a href="/ca-si/Brave-Brothers~Y3NuX2FydGlzdH41NDk5Ng==.html">Brave Brothers</a>',
+    'music_bitrate_html' => '<span style="color: orange">HD 720p</span>',
   ),
   14 => 
   array (
@@ -225,11 +281,15 @@ $typeDup = array (
     'music_title_url' => 'i-choose-to-love-you~hyorin',
     'music_title' => 'I Choose To Love You',
     'music_artist' => 'Hyorin',
-    'music_artist_id' => '',
+    'music_artist_id' => '2966',
     'music_album_id' => '',
     'music_listen' => 9537,
     'music_bitrate' => 128,
     'music_filename' => '385330-d6472e27.mp4',
+    'music_width' => 640,
+    'music_height' => 360,
+    'music_artist_html' => '<a href="/ca-si/Hyorin~Y3NuX2FydGlzdH4yOTY2.html">Hyorin</a>',
+    'music_bitrate_html' => '<span style="color: darkgreen">MV 360p</span>',
   ),
   15 => 
   array (
@@ -239,12 +299,16 @@ $typeDup = array (
     'cover_id' => 0,
     'music_title_url' => 'bad-girl-good-girl-kbs-gayo-daechukje-2016~bambam-minhyuk-youngjae',
     'music_title' => 'Bad Girl Good Girl (KBS Gayo Daechukje 2016)',
-    'music_artist' => 'BamBam; Minhyuk; Youngjae',
-    'music_artist_id' => '',
+    'music_artist' => 'BamBam;Minhyuk;Youngjae',
+    'music_artist_id' => '23809;73752;15402',
     'music_album_id' => '',
     'music_listen' => 2073,
     'music_bitrate' => 192,
     'music_filename' => '1755225-048d9d86.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/BamBam~Y3NuX2FydGlzdH4yMzgwOQ==.html">BamBam</a>, <a href="/ca-si/Minhyuk~Y3NuX2FydGlzdH43Mzc1Mg==.html">Minhyuk</a>, <a href="/ca-si/Youngjae~Y3NuX2FydGlzdH4xNTQwMg==.html">Youngjae</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   16 => 
   array (
@@ -255,11 +319,15 @@ $typeDup = array (
     'music_title_url' => 'simon-dominic~simon-dominic',
     'music_title' => 'Simon Dominic',
     'music_artist' => 'Simon Dominic',
-    'music_artist_id' => '',
+    'music_artist_id' => '4441',
     'music_album_id' => '',
     'music_listen' => 1369,
     'music_bitrate' => 96,
     'music_filename' => '1535823-aa41a8d6.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Simon-Dominic~Y3NuX2FydGlzdH40NDQx.html">Simon Dominic</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   17 => 
   array (
@@ -270,11 +338,15 @@ $typeDup = array (
     'music_title_url' => 'talk-love-live~kwill',
     'music_title' => 'Talk Love (Live)',
     'music_artist' => 'K.Will',
-    'music_artist_id' => '',
+    'music_artist_id' => '1528',
     'music_album_id' => '',
     'music_listen' => 17676,
     'music_bitrate' => 96,
     'music_filename' => '1714696-fb504d37.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/KWill~Y3NuX2FydGlzdH4xNTI4.html">K.Will</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   18 => 
   array (
@@ -290,6 +362,10 @@ $typeDup = array (
     'music_listen' => 1681,
     'music_bitrate' => 320,
     'music_filename' => '1848098-51f4abb1.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Wanna-One~Y3NuX2FydGlzdH4xMzUxMA==.html">Wanna One</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   19 => 
   array (
@@ -305,6 +381,10 @@ $typeDup = array (
     'music_listen' => 45818,
     'music_bitrate' => 192,
     'music_filename' => '1908448-bb73cce1.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/BTS~Y3NuX2FydGlzdH40NzQ4.html">BTS</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   20 => 
   array (
@@ -320,6 +400,10 @@ $typeDup = array (
     'music_listen' => 2946,
     'music_bitrate' => 192,
     'music_filename' => '1953894-4b5362b7.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/GOT7~Y3NuX2FydGlzdH40NDY0.html">GOT7</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   21 => 
   array (
@@ -335,6 +419,10 @@ $typeDup = array (
     'music_listen' => 464,
     'music_bitrate' => 320,
     'music_filename' => '1958320-6da958ce.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/WJSN~Y3NuX2FydGlzdH4xMzUxOQ==.html">WJSN</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   22 => 
   array (
@@ -345,11 +433,15 @@ $typeDup = array (
     'music_title_url' => 'not-today~bts',
     'music_title' => 'Not Today',
     'music_artist' => 'BTS',
-    'music_artist_id' => '',
+    'music_artist_id' => '4748',
     'music_album_id' => '',
     'music_listen' => 99493,
     'music_bitrate' => 96,
     'music_filename' => '1767051-54548536.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/BTS~Y3NuX2FydGlzdH40NzQ4.html">BTS</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   23 => 
   array (
@@ -365,6 +457,10 @@ $typeDup = array (
     'music_listen' => 95826,
     'music_bitrate' => 96,
     'music_filename' => '1845906-f97e5df6.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/BTS~Y3NuX2FydGlzdH40NzQ4.html">BTS</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   24 => 
   array (
@@ -380,6 +476,10 @@ $typeDup = array (
     'music_listen' => 434,
     'music_bitrate' => 320,
     'music_filename' => '1942326-6419c4d5.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Mamamoo~Y3NuX2FydGlzdH4xNDg5Mg==.html">Mamamoo</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   25 => 
   array (
@@ -390,11 +490,15 @@ $typeDup = array (
     'music_title_url' => 'new-face~psy',
     'music_title' => 'New Face',
     'music_artist' => 'PSY',
-    'music_artist_id' => '',
+    'music_artist_id' => '2645',
     'music_album_id' => '',
     'music_listen' => 26028,
     'music_bitrate' => 96,
     'music_filename' => '1786457-829de459.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/PSY~Y3NuX2FydGlzdH4yNjQ1.html">PSY</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   26 => 
   array (
@@ -405,11 +509,15 @@ $typeDup = array (
     'music_title_url' => 'evening-sky~ailee',
     'music_title' => 'Evening Sky',
     'music_artist' => 'Ailee',
-    'music_artist_id' => '',
+    'music_artist_id' => '4137',
     'music_album_id' => '',
     'music_listen' => 4667,
     'music_bitrate' => 128,
     'music_filename' => '472838-10fb7036.mp4',
+    'music_width' => 640,
+    'music_height' => 360,
+    'music_artist_html' => '<a href="/ca-si/Ailee~Y3NuX2FydGlzdH40MTM3.html">Ailee</a>',
+    'music_bitrate_html' => '<span style="color: darkgreen">MV 360p</span>',
   ),
   27 => 
   array (
@@ -425,6 +533,10 @@ $typeDup = array (
     'music_listen' => 2212,
     'music_bitrate' => 320,
     'music_filename' => '1911431-e5022759.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/BTS~Y3NuX2FydGlzdH40NzQ4.html">BTS</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   28 => 
   array (
@@ -440,6 +552,10 @@ $typeDup = array (
     'music_listen' => 2959,
     'music_bitrate' => 96,
     'music_filename' => '1881531-c7e61957.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/J-Hope~Y3NuX2FydGlzdH4xNjU5MA==.html">J-Hope</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   29 => 
   array (
@@ -450,11 +566,15 @@ $typeDup = array (
     'music_title_url' => 'if-i-leave-king-of-mask-singer-live~hyelin',
     'music_title' => 'If I Leave (King Of Mask Singer Live)',
     'music_artist' => 'Hyelin',
-    'music_artist_id' => '',
+    'music_artist_id' => '17258',
     'music_album_id' => '',
     'music_listen' => 1980,
     'music_bitrate' => 320,
     'music_filename' => '1677486-2a2cb639.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Hyelin~Y3NuX2FydGlzdH4xNzI1OA==.html">Hyelin</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   30 => 
   array (
@@ -470,6 +590,10 @@ $typeDup = array (
     'music_listen' => 1208,
     'music_bitrate' => 320,
     'music_filename' => '1911557-98ea03a1.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/BTS~Y3NuX2FydGlzdH40NzQ4.html">BTS</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   31 => 
   array (
@@ -480,11 +604,15 @@ $typeDup = array (
     'music_title_url' => 'lie-show-champion-goodbye-stage-live~exid',
     'music_title' => 'L.I.E (Show Champion Goodbye Stage Live)',
     'music_artist' => 'EXID',
-    'music_artist_id' => '',
+    'music_artist_id' => '13209',
     'music_album_id' => '',
     'music_listen' => 1147,
     'music_bitrate' => 192,
     'music_filename' => '1682273-ec7a25c2.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/EXID~Y3NuX2FydGlzdH4xMzIwOQ==.html">EXID</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   32 => 
   array (
@@ -500,6 +628,10 @@ $typeDup = array (
     'music_listen' => 1532,
     'music_bitrate' => 96,
     'music_filename' => '1848613-a8b8511c.mp4',
+    'music_width' => 1280,
+    'music_height' => 720,
+    'music_artist_html' => '<a href="/ca-si/Stella-Jang~Y3NuX2FydGlzdH4xMzkxNA==.html">Stella Jang</a>, <a href="/ca-si/Olltii~Y3NuX2FydGlzdH4xNDAzNQ==.html">Olltii</a>',
+    'music_bitrate_html' => '<span style="color: orange">HD 720p</span>',
   ),
   33 => 
   array (
@@ -515,6 +647,10 @@ $typeDup = array (
     'music_listen' => 587,
     'music_bitrate' => 192,
     'music_filename' => '1798696-55475b8e.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/WJSN~Y3NuX2FydGlzdH4xMzUxOQ==.html">WJSN</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   34 => 
   array (
@@ -530,6 +666,10 @@ $typeDup = array (
     'music_listen' => 471,
     'music_bitrate' => 128,
     'music_filename' => '1935416-4a478e36.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Produce-48~Y3NuX2FydGlzdH4xNDk4NA==.html">Produce 48</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   35 => 
   array (
@@ -545,6 +685,10 @@ $typeDup = array (
     'music_listen' => 215,
     'music_bitrate' => 256,
     'music_filename' => '1951071-49b71d2a.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Sunmi~Y3NuX2FydGlzdH40Mjg0.html">Sunmi</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   36 => 
   array (
@@ -560,6 +704,10 @@ $typeDup = array (
     'music_listen' => 520,
     'music_bitrate' => 320,
     'music_filename' => '1902671-3e86c3e6.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Loco~Y3NuX2FydGlzdH4xMzY2Nw==.html">Loco</a>, <a href="/ca-si/Hwasa~Y3NuX2FydGlzdH4xMzY2OA==.html">Hwasa</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   37 => 
   array (
@@ -575,6 +723,10 @@ $typeDup = array (
     'music_listen' => 229,
     'music_bitrate' => 320,
     'music_filename' => '1885879-2d388236.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/T-Ara~Y3NuX2FydGlzdH4xNDEz.html">T-Ara</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   38 => 
   array (
@@ -590,6 +742,10 @@ $typeDup = array (
     'music_listen' => 215,
     'music_bitrate' => 192,
     'music_filename' => '1952614-0cb7c88a.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Hyomin~Y3NuX2FydGlzdH4zNjYz.html">Hyomin</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   39 => 
   array (
@@ -605,6 +761,10 @@ $typeDup = array (
     'music_listen' => 91,
     'music_bitrate' => 320,
     'music_filename' => '1960622-4dbe1d59.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Cosmic-Girls~Y3NuX2FydGlzdH4xNTA3MQ==.html">Cosmic Girls</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   40 => 
   array (
@@ -620,6 +780,10 @@ $typeDup = array (
     'music_listen' => 61,
     'music_bitrate' => 320,
     'music_filename' => '1960138-987916a2.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Cosmic-Girls~Y3NuX2FydGlzdH4xNTA3MQ==.html">Cosmic Girls</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   41 => 
   array (
@@ -630,11 +794,15 @@ $typeDup = array (
     'music_title_url' => 'lie~bigbang',
     'music_title' => 'Lie',
     'music_artist' => 'Bigbang',
-    'music_artist_id' => '',
+    'music_artist_id' => '50346',
     'music_album_id' => 'Disc 2',
     'music_listen' => 29171,
     'music_bitrate' => 320,
     'music_filename' => '1318834-31caa445.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Bigbang~Y3NuX2FydGlzdH41MDM0Ng==.html">Bigbang</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   42 => 
   array (
@@ -650,6 +818,10 @@ $typeDup = array (
     'music_listen' => 391,
     'music_bitrate' => 192,
     'music_filename' => '1940065-c0d97311.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Stray-Kids~Y3NuX2FydGlzdH4xMzU3NQ==.html">Stray Kids</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   43 => 
   array (
@@ -665,6 +837,10 @@ $typeDup = array (
     'music_listen' => 6555,
     'music_bitrate' => 192,
     'music_filename' => '1926072-0ad51a82.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Twice~Y3NuX2FydGlzdH4xMzM4OA==.html">Twice</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   44 => 
   array (
@@ -674,12 +850,16 @@ $typeDup = array (
     'cover_id' => 0,
     'music_title_url' => 'palette~iu-g-dragon',
     'music_title' => 'Palette',
-    'music_artist' => 'IU; G-Dragon',
-    'music_artist_id' => '',
+    'music_artist' => 'IU;G-Dragon',
+    'music_artist_id' => '2059;1682',
     'music_album_id' => '',
     'music_listen' => 56005,
     'music_bitrate' => 96,
     'music_filename' => '1781680-7a8b1874.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/IU~Y3NuX2FydGlzdH4yMDU5.html">IU</a>, <a href="/ca-si/G-Dragon~Y3NuX2FydGlzdH4xNjgy.html">G-Dragon</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   45 => 
   array (
@@ -695,6 +875,10 @@ $typeDup = array (
     'music_listen' => 2441,
     'music_bitrate' => 192,
     'music_filename' => '1929509-874b0d46.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Seventeen~Y3NuX2FydGlzdH4xNDY1NQ==.html">Seventeen</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   46 => 
   array (
@@ -710,6 +894,10 @@ $typeDup = array (
     'music_listen' => 25603,
     'music_bitrate' => 192,
     'music_filename' => '1865541-a27e29f1.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Momoland~Y3NuX2FydGlzdH4xMzM5MQ==.html">Momoland</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   47 => 
   array (
@@ -725,6 +913,10 @@ $typeDup = array (
     'music_listen' => 1440,
     'music_bitrate' => 96,
     'music_filename' => '1936296-71db020a.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Zico~Y3NuX2FydGlzdH4xNDEwNw==.html">Zico</a>, <a href="/ca-si/IU~Y3NuX2FydGlzdH4yMDU5.html">IU</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   48 => 
   array (
@@ -735,11 +927,15 @@ $typeDup = array (
     'music_title_url' => 'blood-sweat-tears~bts',
     'music_title' => 'Blood Sweat &amp; Tears',
     'music_artist' => 'BTS',
-    'music_artist_id' => '',
+    'music_artist_id' => '4748',
     'music_album_id' => '',
     'music_listen' => 110293,
     'music_bitrate' => 96,
     'music_filename' => '1725090-3328f58c.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/BTS~Y3NuX2FydGlzdH40NzQ4.html">BTS</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   49 => 
   array (
@@ -755,6 +951,10 @@ $typeDup = array (
     'music_listen' => 8491,
     'music_bitrate' => 192,
     'music_filename' => '1943140-bc9e3c13.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/GI-DLE~Y3NuX2FydGlzdH4xNDQyOQ==.html">(G)I-DLE</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   50 => 
   array (
@@ -770,6 +970,10 @@ $typeDup = array (
     'music_listen' => 2131,
     'music_bitrate' => 192,
     'music_filename' => '1954505-733328d7.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Cosmic-Girls~Y3NuX2FydGlzdH4xNTA3MQ==.html">Cosmic Girls</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   51 => 
   array (
@@ -785,6 +989,10 @@ $typeDup = array (
     'music_listen' => 1095,
     'music_bitrate' => 128,
     'music_filename' => '1949927-2f9ab5ce.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Produce-48~Y3NuX2FydGlzdH4xNDk4NA==.html">Produce 48</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   52 => 
   array (
@@ -800,6 +1008,10 @@ $typeDup = array (
     'music_listen' => 5065,
     'music_bitrate' => 256,
     'music_filename' => '1928473-e24e9a39.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/BlackPink~Y3NuX2FydGlzdH4xNDY3Mw==.html">BlackPink</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   53 => 
   array (
@@ -815,6 +1027,10 @@ $typeDup = array (
     'music_listen' => 3545,
     'music_bitrate' => 96,
     'music_filename' => '1951164-132017b9.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Nicki-Minaj~Y3NuX2FydGlzdH4yNjY0.html">Nicki Minaj</a>, <a href="/ca-si/BTS~Y3NuX2FydGlzdH40NzQ4.html">BTS</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   54 => 
   array (
@@ -825,11 +1041,15 @@ $typeDup = array (
     'music_title_url' => 'whistle~blackpink',
     'music_title' => 'Whistle',
     'music_artist' => 'BlackPink',
-    'music_artist_id' => '',
+    'music_artist_id' => '14673',
     'music_album_id' => '',
     'music_listen' => 78431,
     'music_bitrate' => 96,
     'music_filename' => '1700651-40518ad9.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/BlackPink~Y3NuX2FydGlzdH4xNDY3Mw==.html">BlackPink</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   55 => 
   array (
@@ -845,6 +1065,10 @@ $typeDup = array (
     'music_listen' => 7402,
     'music_bitrate' => 128,
     'music_filename' => '1882492-420e79c4.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Wanna-One~Y3NuX2FydGlzdH4xMzUxMA==.html">Wanna One</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   56 => 
   array (
@@ -860,6 +1084,10 @@ $typeDup = array (
     'music_listen' => 1190,
     'music_bitrate' => 96,
     'music_filename' => '1930132-225361c3.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/MOMOLAND~Y3NuX2FydGlzdH4xNTU1Nw==.html">MOMOLAND</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   57 => 
   array (
@@ -875,6 +1103,10 @@ $typeDup = array (
     'music_listen' => 983,
     'music_bitrate' => 128,
     'music_filename' => '1935420-03d1e035.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Produce-48~Y3NuX2FydGlzdH4xNDk4NA==.html">Produce 48</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   58 => 
   array (
@@ -890,6 +1122,10 @@ $typeDup = array (
     'music_listen' => 391,
     'music_bitrate' => 128,
     'music_filename' => '1948344-e7177489.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Red-Velvet~Y3NuX2FydGlzdH40NzE5.html">Red Velvet</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   59 => 
   array (
@@ -905,6 +1141,10 @@ $typeDup = array (
     'music_listen' => 329,
     'music_bitrate' => 192,
     'music_filename' => '1958639-ed8fb450.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/iKON~Y3NuX2FydGlzdH4xNDM1OQ==.html">iKON</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   60 => 
   array (
@@ -920,6 +1160,10 @@ $typeDup = array (
     'music_listen' => 218,
     'music_bitrate' => 320,
     'music_filename' => '1960344-7e03d35a.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/iKON~Y3NuX2FydGlzdH4xNDM1OQ==.html">iKON</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   61 => 
   array (
@@ -930,11 +1174,15 @@ $typeDup = array (
     'music_title_url' => 'paparazzi~girls-generation',
     'music_title' => 'Paparazzi',
     'music_artist' => 'Girls\' Generation',
-    'music_artist_id' => '',
+    'music_artist_id' => '922',
     'music_album_id' => '',
     'music_listen' => 283958,
     'music_bitrate' => 128,
     'music_filename' => '1046002-01db090e.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Girls-Generation~Y3NuX2FydGlzdH45MjI=.html">Girls\' Generation</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   62 => 
   array (
@@ -945,11 +1193,15 @@ $typeDup = array (
     'music_title_url' => 'fire~bts',
     'music_title' => 'Fire',
     'music_artist' => 'BTS',
-    'music_artist_id' => '',
+    'music_artist_id' => '4748',
     'music_album_id' => '',
     'music_listen' => 109501,
     'music_bitrate' => 96,
     'music_filename' => '1663636-4d2a17e6.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/BTS~Y3NuX2FydGlzdH40NzQ4.html">BTS</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   63 => 
   array (
@@ -960,11 +1212,15 @@ $typeDup = array (
     'music_title_url' => 'no-other~super-junior',
     'music_title' => 'No Other',
     'music_artist' => 'Super Junior',
-    'music_artist_id' => '',
+    'music_artist_id' => '213',
     'music_album_id' => '',
     'music_listen' => 140513,
     'music_bitrate' => 256,
     'music_filename' => '1151344-99a442fd.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Super-Junior~Y3NuX2FydGlzdH4yMTM=.html">Super Junior</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   64 => 
   array (
@@ -974,12 +1230,16 @@ $typeDup = array (
     'cover_id' => 0,
     'music_title_url' => 'once-again-music-bank-descendants-of-the-sun-special-stage-live~mad-clown-dawon',
     'music_title' => 'Once Again (Music Bank Descendants Of The Sun Special Stage Live)',
-    'music_artist' => 'Mad Clown; Dawon',
-    'music_artist_id' => '',
+    'music_artist' => 'Mad Clown;Dawon',
+    'music_artist_id' => '4521;15974',
     'music_album_id' => '',
     'music_listen' => 9272,
     'music_bitrate' => 320,
     'music_filename' => '1647231-f690ab34.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Mad-Clown~Y3NuX2FydGlzdH40NTIx.html">Mad Clown</a>, <a href="/ca-si/Dawon~Y3NuX2FydGlzdH4xNTk3NA==.html">Dawon</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   65 => 
   array (
@@ -990,11 +1250,15 @@ $typeDup = array (
     'music_title_url' => 'russian-roulette~red-velvet',
     'music_title' => 'Russian Roulette',
     'music_artist' => 'Red Velvet',
-    'music_artist_id' => '',
+    'music_artist_id' => '4719',
     'music_album_id' => '',
     'music_listen' => 26910,
     'music_bitrate' => 320,
     'music_filename' => '1712493-45bfa42e.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Red-Velvet~Y3NuX2FydGlzdH40NzE5.html">Red Velvet</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   66 => 
   array (
@@ -1005,11 +1269,15 @@ $typeDup = array (
     'music_title_url' => 'arirang-alone~so-hyang',
     'music_title' => 'Arirang Alone',
     'music_artist' => 'So Hyang',
-    'music_artist_id' => '',
+    'music_artist_id' => '23804',
     'music_album_id' => '',
     'music_listen' => 11060,
     'music_bitrate' => 192,
     'music_filename' => '1494802-6a375814.mp4',
+    'music_width' => 1280,
+    'music_height' => 720,
+    'music_artist_html' => '<a href="/ca-si/So-Hyang~Y3NuX2FydGlzdH4yMzgwNA==.html">So Hyang</a>',
+    'music_bitrate_html' => '<span style="color: orange">HD 720p</span>',
   ),
   67 => 
   array (
@@ -1025,6 +1293,10 @@ $typeDup = array (
     'music_listen' => 6262,
     'music_bitrate' => 96,
     'music_filename' => '1919711-f703a935.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/BlackPink~Y3NuX2FydGlzdH4xNDY3Mw==.html">BlackPink</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   68 => 
   array (
@@ -1034,12 +1306,16 @@ $typeDup = array (
     'cover_id' => 0,
     'music_title_url' => 'lonely~jonghyun-taeyeon',
     'music_title' => 'Lonely',
-    'music_artist' => 'Jonghyun; Taeyeon',
-    'music_artist_id' => '',
+    'music_artist' => 'Jonghyun;Taeyeon',
+    'music_artist_id' => '4252;1664',
     'music_album_id' => '',
     'music_listen' => 6614,
     'music_bitrate' => 96,
     'music_filename' => '1782803-c208de84.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Jonghyun~Y3NuX2FydGlzdH40MjUy.html">Jonghyun</a>, <a href="/ca-si/Taeyeon~Y3NuX2FydGlzdH4xNjY0.html">Taeyeon</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   69 => 
   array (
@@ -1055,6 +1331,10 @@ $typeDup = array (
     'music_listen' => 1758,
     'music_bitrate' => 96,
     'music_filename' => '1950730-6def598d.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Sunmi~Y3NuX2FydGlzdH40Mjg0.html">Sunmi</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   70 => 
   array (
@@ -1070,6 +1350,10 @@ $typeDup = array (
     'music_listen' => 1937,
     'music_bitrate' => 96,
     'music_filename' => '1922813-450e281c.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/MOMOLAND~Y3NuX2FydGlzdH4xNTU1Nw==.html">MOMOLAND</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   71 => 
   array (
@@ -1085,6 +1369,10 @@ $typeDup = array (
     'music_listen' => 1972,
     'music_bitrate' => 96,
     'music_filename' => '1946057-19b80177.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/HINP~Y3NuX2FydGlzdH4yMjM3Mg==.html">H.I.N.P</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   72 => 
   array (
@@ -1100,6 +1388,10 @@ $typeDup = array (
     'music_listen' => 582,
     'music_bitrate' => 128,
     'music_filename' => '1935419-da1aa79c.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Produce-48~Y3NuX2FydGlzdH4xNDk4NA==.html">Produce 48</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   73 => 
   array (
@@ -1115,6 +1407,10 @@ $typeDup = array (
     'music_listen' => 185,
     'music_bitrate' => 320,
     'music_filename' => '1960130-99a0a966.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Yuri~Y3NuX2FydGlzdH40NjI3.html">Yuri</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   74 => 
   array (
@@ -1130,6 +1426,10 @@ $typeDup = array (
     'music_listen' => 300,
     'music_bitrate' => 320,
     'music_filename' => '1958333-7b3d57e5.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/GOT7~Y3NuX2FydGlzdH40NDY0.html">GOT7</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   75 => 
   array (
@@ -1140,11 +1440,15 @@ $typeDup = array (
     'music_title_url' => 'roly-poly~t-ara',
     'music_title' => 'Roly Poly',
     'music_artist' => 'T-Ara',
-    'music_artist_id' => '',
+    'music_artist_id' => '1413',
     'music_album_id' => '',
     'music_listen' => 1045662,
     'music_bitrate' => 128,
     'music_filename' => '1046003-a7d977f5.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/T-Ara~Y3NuX2FydGlzdH4xNDEz.html">T-Ara</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   76 => 
   array (
@@ -1155,11 +1459,15 @@ $typeDup = array (
     'music_title_url' => 'run-devil-run~girls-generation',
     'music_title' => 'Run Devil Run',
     'music_artist' => 'Girls\' Generation',
-    'music_artist_id' => '',
+    'music_artist_id' => '922',
     'music_album_id' => '',
     'music_listen' => 516241,
     'music_bitrate' => 128,
     'music_filename' => '1002234-c2fc8399.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Girls-Generation~Y3NuX2FydGlzdH45MjI=.html">Girls\' Generation</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   77 => 
   array (
@@ -1170,11 +1478,15 @@ $typeDup = array (
     'music_title_url' => 'eyes-nose-lips~taeyang',
     'music_title' => 'Eyes, Nose, Lips',
     'music_artist' => 'Taeyang',
-    'music_artist_id' => '',
+    'music_artist_id' => '12145',
     'music_album_id' => '',
     'music_listen' => 117544,
     'music_bitrate' => 96,
     'music_filename' => '1292166-b0a1a2a9.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Taeyang~Y3NuX2FydGlzdH4xMjE0NQ==.html">Taeyang</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   78 => 
   array (
@@ -1185,11 +1497,15 @@ $typeDup = array (
     'music_title_url' => 'countryside-life-dance-version~t-ara-n4',
     'music_title' => 'Countryside Life (Dance Version)',
     'music_artist' => 'T-ARA N4',
-    'music_artist_id' => '',
+    'music_artist_id' => '31246',
     'music_album_id' => '',
     'music_listen' => 284910,
     'music_bitrate' => 192,
     'music_filename' => '1087387-7e282f0f.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/T-ARA-N4~Y3NuX2FydGlzdH4zMTI0Ng==.html">T-ARA N4</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   79 => 
   array (
@@ -1200,11 +1516,15 @@ $typeDup = array (
     'music_title_url' => 'beautiful-night~beast',
     'music_title' => 'Beautiful Night',
     'music_artist' => 'BEAST',
-    'music_artist_id' => '',
+    'music_artist_id' => '1619',
     'music_album_id' => '',
     'music_listen' => 223436,
     'music_bitrate' => 192,
     'music_filename' => '1046001-e042258b.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/BEAST~Y3NuX2FydGlzdH4xNjE5.html">BEAST</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   80 => 
   array (
@@ -1215,11 +1535,15 @@ $typeDup = array (
     'music_title_url' => 'the-boys~girls-generation',
     'music_title' => 'The Boys',
     'music_artist' => 'Girls\' Generation',
-    'music_artist_id' => '',
+    'music_artist_id' => '922',
     'music_album_id' => '',
     'music_listen' => 216057,
     'music_bitrate' => 320,
     'music_filename' => '1267533-2b57e4e5.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Girls-Generation~Y3NuX2FydGlzdH45MjI=.html">Girls\' Generation</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   81 => 
   array (
@@ -1230,11 +1554,15 @@ $typeDup = array (
     'music_title_url' => 'i-know-the-feeling~t-ara',
     'music_title' => 'I Know The Feeling',
     'music_artist' => 'T-Ara',
-    'music_artist_id' => '',
+    'music_artist_id' => '1413',
     'music_album_id' => '',
     'music_listen' => 222147,
     'music_bitrate' => 192,
     'music_filename' => '1148658-5b0058a0.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/T-Ara~Y3NuX2FydGlzdH4xNDEz.html">T-Ara</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   82 => 
   array (
@@ -1245,11 +1573,15 @@ $typeDup = array (
     'music_title_url' => 'beautiful~bts',
     'music_title' => 'Beautiful',
     'music_artist' => 'BTS',
-    'music_artist_id' => '',
+    'music_artist_id' => '4748',
     'music_album_id' => '',
     'music_listen' => 91510,
     'music_bitrate' => 192,
     'music_filename' => '540612-bcd4b8b0.mp4',
+    'music_width' => 1280,
+    'music_height' => 720,
+    'music_artist_html' => '<a href="/ca-si/BTS~Y3NuX2FydGlzdH40NzQ4.html">BTS</a>',
+    'music_bitrate_html' => '<span style="color: orange">HD 720p</span>',
   ),
   83 => 
   array (
@@ -1260,11 +1592,15 @@ $typeDup = array (
     'music_title_url' => 'spring-day~bts',
     'music_title' => 'Spring Day',
     'music_artist' => 'BTS',
-    'music_artist_id' => '',
+    'music_artist_id' => '4748',
     'music_album_id' => '',
     'music_listen' => 62135,
     'music_bitrate' => 96,
     'music_filename' => '1765150-c84b4446.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/BTS~Y3NuX2FydGlzdH40NzQ4.html">BTS</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   84 => 
   array (
@@ -1275,11 +1611,15 @@ $typeDup = array (
     'music_title_url' => 'holler~taetiseo',
     'music_title' => 'Holler',
     'music_artist' => 'TaeTiSeo',
-    'music_artist_id' => '',
+    'music_artist_id' => '4787',
     'music_album_id' => '',
     'music_listen' => 122829,
     'music_bitrate' => 96,
     'music_filename' => '1361017-9a7aa077.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/TaeTiSeo~Y3NuX2FydGlzdH40Nzg3.html">TaeTiSeo</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   85 => 
   array (
@@ -1290,11 +1630,15 @@ $typeDup = array (
     'music_title_url' => 'boombayah~blackpink',
     'music_title' => 'Boombayah',
     'music_artist' => 'BlackPink',
-    'music_artist_id' => '',
+    'music_artist_id' => '14673',
     'music_album_id' => '',
     'music_listen' => 90473,
     'music_bitrate' => 96,
     'music_filename' => '1700648-39dee9e0.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/BlackPink~Y3NuX2FydGlzdH4xNDY3Mw==.html">BlackPink</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   86 => 
   array (
@@ -1305,11 +1649,15 @@ $typeDup = array (
     'music_title_url' => 'tt~twice',
     'music_title' => 'TT',
     'music_artist' => 'Twice',
-    'music_artist_id' => '',
+    'music_artist_id' => '13388',
     'music_album_id' => '',
     'music_listen' => 81954,
     'music_bitrate' => 96,
     'music_filename' => '1732229-da7ef19e.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Twice~Y3NuX2FydGlzdH4xMzM4OA==.html">Twice</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   87 => 
   array (
@@ -1320,11 +1668,15 @@ $typeDup = array (
     'music_title_url' => 'my-destiny-you-who-came-from-the-stars-ost~lyn',
     'music_title' => 'My Destiny (You Who Came From The Stars OST)',
     'music_artist' => 'Lyn',
-    'music_artist_id' => '',
+    'music_artist_id' => '4132',
     'music_album_id' => '',
     'music_listen' => 42852,
     'music_bitrate' => 96,
     'music_filename' => '1218119-6d2f6c96.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Lyn~Y3NuX2FydGlzdH40MTMy.html">Lyn</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   88 => 
   array (
@@ -1335,11 +1687,15 @@ $typeDup = array (
     'music_title_url' => 'ice-cream-cake~red-velvet',
     'music_title' => 'Ice Cream Cake',
     'music_artist' => 'Red Velvet',
-    'music_artist_id' => '',
+    'music_artist_id' => '4719',
     'music_album_id' => '',
     'music_listen' => 76309,
     'music_bitrate' => 96,
     'music_filename' => '1469013-52a02ebd.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Red-Velvet~Y3NuX2FydGlzdH40NzE5.html">Red Velvet</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   89 => 
   array (
@@ -1350,11 +1706,15 @@ $typeDup = array (
     'music_title_url' => 'playing-with-fire~blackpink',
     'music_title' => 'Playing With Fire',
     'music_artist' => 'BlackPink',
-    'music_artist_id' => '',
+    'music_artist_id' => '14673',
     'music_album_id' => '',
     'music_listen' => 65526,
     'music_bitrate' => 96,
     'music_filename' => '1735181-ee92e864.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/BlackPink~Y3NuX2FydGlzdH4xNDY3Mw==.html">BlackPink</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   90 => 
   array (
@@ -1365,11 +1725,15 @@ $typeDup = array (
     'music_title_url' => 'fxxk-it~big-bang',
     'music_title' => 'Fxxk It',
     'music_artist' => 'Big Bang',
-    'music_artist_id' => '',
+    'music_artist_id' => '982',
     'music_album_id' => '8809269506764',
     'music_listen' => 44179,
     'music_bitrate' => 96,
     'music_filename' => '1750335-80d1027a.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Big-Bang~Y3NuX2FydGlzdH45ODI=.html">Big Bang</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   91 => 
   array (
@@ -1379,12 +1743,16 @@ $typeDup = array (
     'cover_id' => 0,
     'music_title_url' => 'oh-yeah~g-dragon-top-park-bom',
     'music_title' => 'Oh Yeah',
-    'music_artist' => 'G-Dragon; TOP; Park Bom',
-    'music_artist_id' => '',
+    'music_artist' => 'G-Dragon;TOP;Park Bom',
+    'music_artist_id' => '1682;2035;2036',
     'music_album_id' => '',
     'music_listen' => 76787,
     'music_bitrate' => 128,
     'music_filename' => '73649-12eb5cea.mp4',
+    'music_width' => 426,
+    'music_height' => 240,
+    'music_artist_html' => '<a href="/ca-si/G-Dragon~Y3NuX2FydGlzdH4xNjgy.html">G-Dragon</a>, <a href="/ca-si/TOP~Y3NuX2FydGlzdH4yMDM1.html">TOP</a>, <a href="/ca-si/Park-Bom~Y3NuX2FydGlzdH4yMDM2.html">Park Bom</a>',
+    'music_bitrate_html' => '426x240',
   ),
   92 => 
   array (
@@ -1395,11 +1763,15 @@ $typeDup = array (
     'music_title_url' => 'i-need-you-dance-practice~bts',
     'music_title' => 'I Need You (Dance Practice)',
     'music_artist' => 'BTS',
-    'music_artist_id' => '',
+    'music_artist_id' => '4748',
     'music_album_id' => '',
     'music_listen' => 46333,
     'music_bitrate' => 96,
     'music_filename' => '1527479-9ef2d307.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/BTS~Y3NuX2FydGlzdH40NzQ4.html">BTS</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   93 => 
   array (
@@ -1410,11 +1782,15 @@ $typeDup = array (
     'music_title_url' => 'cry-cry-dance-version~t-ara',
     'music_title' => 'Cry Cry (Dance Version)',
     'music_artist' => 'T-Ara',
-    'music_artist_id' => '',
+    'music_artist_id' => '1413',
     'music_album_id' => '',
     'music_listen' => 72216,
     'music_bitrate' => 96,
     'music_filename' => '1447951-bfc12e74.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/T-Ara~Y3NuX2FydGlzdH4xNDEz.html">T-Ara</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   94 => 
   array (
@@ -1425,11 +1801,15 @@ $typeDup = array (
     'music_title_url' => 'do-you-love-me~2ne1',
     'music_title' => 'Do You Love Me',
     'music_artist' => '2NE1',
-    'music_artist_id' => '',
+    'music_artist_id' => '1570',
     'music_album_id' => '',
     'music_listen' => 68433,
     'music_bitrate' => 192,
     'music_filename' => '1122442-26c59be3.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/2NE1~Y3NuX2FydGlzdH4xNTcw.html">2NE1</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   95 => 
   array (
@@ -1440,11 +1820,15 @@ $typeDup = array (
     'music_title_url' => 'rhythm-ta~ikon',
     'music_title' => 'Rhythm Ta',
     'music_artist' => 'iKON',
-    'music_artist_id' => '',
+    'music_artist_id' => '14359',
     'music_album_id' => '',
     'music_listen' => 41423,
     'music_bitrate' => 96,
     'music_filename' => '1560485-dba746fb.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/iKON~Y3NuX2FydGlzdH4xNDM1OQ==.html">iKON</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   96 => 
   array (
@@ -1455,11 +1839,15 @@ $typeDup = array (
     'music_title_url' => 'the-boy~girls-generation',
     'music_title' => 'The Boy',
     'music_artist' => 'Girls\' Generation',
-    'music_artist_id' => '',
+    'music_artist_id' => '922',
     'music_album_id' => '',
     'music_listen' => 52934,
     'music_bitrate' => 96,
     'music_filename' => '1544413-e45a933a.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Girls-Generation~Y3NuX2FydGlzdH45MjI=.html">Girls\' Generation</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   97 => 
   array (
@@ -1475,6 +1863,10 @@ $typeDup = array (
     'music_listen' => 40394,
     'music_bitrate' => 96,
     'music_filename' => '1818175-d1c42938.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Sunmi~Y3NuX2FydGlzdH40Mjg0.html">Sunmi</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   98 => 
   array (
@@ -1485,11 +1877,15 @@ $typeDup = array (
     'music_title_url' => 'talk-love-music-bank-descendants-of-the-sun-special-stage-live~kwill',
     'music_title' => 'Talk Love (Music Bank Descendants Of The Sun Special Stage Live)',
     'music_artist' => 'K.Will',
-    'music_artist_id' => '',
+    'music_artist_id' => '1528',
     'music_album_id' => '',
     'music_listen' => 25488,
     'music_bitrate' => 320,
     'music_filename' => '1644487-f9b9223a.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/KWill~Y3NuX2FydGlzdH4xNTI4.html">K.Will</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   99 => 
   array (
@@ -1500,11 +1896,15 @@ $typeDup = array (
     'music_title_url' => 'my-first-and-last~nct-dream',
     'music_title' => 'My First And Last',
     'music_artist' => 'NCT Dream',
-    'music_artist_id' => '',
+    'music_artist_id' => '15817',
     'music_album_id' => '',
     'music_listen' => 6959,
     'music_bitrate' => 96,
     'music_filename' => '1764378-ca07cfcd.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/NCT-Dream~Y3NuX2FydGlzdH4xNTgxNw==.html">NCT Dream</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   100 => 
   array (
@@ -1515,11 +1915,15 @@ $typeDup = array (
     'music_title_url' => 'cover-up~taeyeon',
     'music_title' => 'Cover Up',
     'music_artist' => 'Taeyeon',
-    'music_artist_id' => '',
+    'music_artist_id' => '1664',
     'music_album_id' => '',
     'music_listen' => 7812,
     'music_bitrate' => 96,
     'music_filename' => '1774538-ae10a1ae.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Taeyeon~Y3NuX2FydGlzdH4xNjY0.html">Taeyeon</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   101 => 
   array (
@@ -1530,11 +1934,15 @@ $typeDup = array (
     'music_title_url' => 'automatic~red-velvet',
     'music_title' => 'Automatic',
     'music_artist' => 'Red Velvet',
-    'music_artist_id' => '',
+    'music_artist_id' => '4719',
     'music_album_id' => '',
     'music_listen' => 22376,
     'music_bitrate' => 96,
     'music_filename' => '1468383-21ae0af1.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Red-Velvet~Y3NuX2FydGlzdH40NzE5.html">Red Velvet</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   102 => 
   array (
@@ -1545,11 +1953,15 @@ $typeDup = array (
     'music_title_url' => 'turtle~davichi',
     'music_title' => 'Turtle',
     'music_artist' => 'Davichi',
-    'music_artist_id' => '',
+    'music_artist_id' => '1050',
     'music_album_id' => '',
     'music_listen' => 24634,
     'music_bitrate' => 128,
     'music_filename' => '452017-458f3190.mp4',
+    'music_width' => 640,
+    'music_height' => 360,
+    'music_artist_html' => '<a href="/ca-si/Davichi~Y3NuX2FydGlzdH4xMDUw.html">Davichi</a>',
+    'music_bitrate_html' => '<span style="color: darkgreen">MV 360p</span>',
   ),
   103 => 
   array (
@@ -1560,11 +1972,15 @@ $typeDup = array (
     'music_title_url' => 'closer~oh-my-girl',
     'music_title' => 'Closer',
     'music_artist' => 'Oh My Girl',
-    'music_artist_id' => '',
+    'music_artist_id' => '17169',
     'music_album_id' => '',
     'music_listen' => 17039,
     'music_bitrate' => 96,
     'music_filename' => '1564748-a456410d.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Oh-My-Girl~Y3NuX2FydGlzdH4xNzE2OQ==.html">Oh My Girl</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   104 => 
   array (
@@ -1575,11 +1991,15 @@ $typeDup = array (
     'music_title_url' => 'love-blossom~kwill',
     'music_title' => 'Love Blossom',
     'music_artist' => 'K.Will',
-    'music_artist_id' => '',
+    'music_artist_id' => '1528',
     'music_album_id' => '',
     'music_listen' => 20670,
     'music_bitrate' => 128,
     'music_filename' => '475912-40b1ecce.mp4',
+    'music_width' => 640,
+    'music_height' => 360,
+    'music_artist_html' => '<a href="/ca-si/KWill~Y3NuX2FydGlzdH4xNTI4.html">K.Will</a>',
+    'music_bitrate_html' => '<span style="color: darkgreen">MV 360p</span>',
   ),
   105 => 
   array (
@@ -1590,11 +2010,15 @@ $typeDup = array (
     'music_title_url' => 'one-of-these-nights~red-velvet',
     'music_title' => 'One Of These Nights',
     'music_artist' => 'Red Velvet',
-    'music_artist_id' => '',
+    'music_artist_id' => '4719',
     'music_album_id' => '',
     'music_listen' => 17200,
     'music_bitrate' => 96,
     'music_filename' => '1639042-51c2b882.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Red-Velvet~Y3NuX2FydGlzdH40NzE5.html">Red Velvet</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   106 => 
   array (
@@ -1605,11 +2029,15 @@ $typeDup = array (
     'music_title_url' => 'snow-flower~hari-won',
     'music_title' => 'Snow Flower',
     'music_artist' => 'Hari Won',
-    'music_artist_id' => '',
+    'music_artist_id' => '3971',
     'music_album_id' => '',
     'music_listen' => 12376,
     'music_bitrate' => 96,
     'music_filename' => '573119-368414c8.mp4',
+    'music_width' => 480,
+    'music_height' => 360,
+    'music_artist_html' => '<a href="/ca-si/Hari-Won~Y3NuX2FydGlzdH4zOTcx.html">Hari Won</a>',
+    'music_bitrate_html' => '480x360',
   ),
   107 => 
   array (
@@ -1625,6 +2053,10 @@ $typeDup = array (
     'music_listen' => 14167,
     'music_bitrate' => 192,
     'music_filename' => '1878692-ef60e764.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/iKON~Y3NuX2FydGlzdH4xNDM1OQ==.html">iKON</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   108 => 
   array (
@@ -1640,6 +2072,10 @@ $typeDup = array (
     'music_listen' => 9899,
     'music_bitrate' => 96,
     'music_filename' => '1792606-844f859f.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Its~Y3NuX2FydGlzdH4xODQwOQ==.html">It\'s</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   109 => 
   array (
@@ -1655,6 +2091,10 @@ $typeDup = array (
     'music_listen' => 11538,
     'music_bitrate' => 192,
     'music_filename' => '1947082-5158908f.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/BTS~Y3NuX2FydGlzdH40NzQ4.html">BTS</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   110 => 
   array (
@@ -1670,6 +2110,10 @@ $typeDup = array (
     'music_listen' => 16027,
     'music_bitrate' => 320,
     'music_filename' => '1827484-fd0eeeda.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/BTS~Y3NuX2FydGlzdH40NzQ4.html">BTS</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   111 => 
   array (
@@ -1680,11 +2124,15 @@ $typeDup = array (
     'music_title_url' => 'fire-mama-2016-live~bts',
     'music_title' => 'Fire (MAMA 2016 Live)',
     'music_artist' => 'BTS',
-    'music_artist_id' => '',
+    'music_artist_id' => '4748',
     'music_album_id' => '',
     'music_listen' => 8374,
     'music_bitrate' => 320,
     'music_filename' => '1747237-cb9005ff.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/BTS~Y3NuX2FydGlzdH40NzQ4.html">BTS</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   112 => 
   array (
@@ -1695,11 +2143,15 @@ $typeDup = array (
     'music_title_url' => 'breathe~lee-hi',
     'music_title' => 'Breathe',
     'music_artist' => 'Lee Hi',
-    'music_artist_id' => '',
+    'music_artist_id' => '2713',
     'music_album_id' => '',
     'music_listen' => 13584,
     'music_bitrate' => 96,
     'music_filename' => '1635659-a5277d6f.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Lee-Hi~Y3NuX2FydGlzdH4yNzEz.html">Lee Hi</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   113 => 
   array (
@@ -1710,11 +2162,15 @@ $typeDup = array (
     'music_title_url' => 'lion-heart-inkigayo-150830~girls-generation',
     'music_title' => 'Lion Heart (Inkigayo 150830)',
     'music_artist' => 'Girls\' Generation',
-    'music_artist_id' => '',
+    'music_artist_id' => '922',
     'music_album_id' => '',
     'music_listen' => 12209,
     'music_bitrate' => 320,
     'music_filename' => '1543680-bd6f7022.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Girls-Generation~Y3NuX2FydGlzdH45MjI=.html">Girls\' Generation</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   114 => 
   array (
@@ -1730,6 +2186,10 @@ $typeDup = array (
     'music_listen' => 11061,
     'music_bitrate' => 192,
     'music_filename' => '1872118-d82d6a69.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Davichi~Y3NuX2FydGlzdH4xMDUw.html">Davichi</a>, <a href="/ca-si/HaHa~Y3NuX2FydGlzdH4yNjA1Ng==.html">HaHa</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   115 => 
   array (
@@ -1745,6 +2205,10 @@ $typeDup = array (
     'music_listen' => 11674,
     'music_bitrate' => 96,
     'music_filename' => '1813275-e4f7c230.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Girls-Generation~Y3NuX2FydGlzdH45MjI=.html">Girls\' Generation</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   116 => 
   array (
@@ -1755,11 +2219,15 @@ $typeDup = array (
     'music_title_url' => 'la-la-la~mighty-mouth',
     'music_title' => 'La La La',
     'music_artist' => 'Mighty Mouth',
-    'music_artist_id' => '',
+    'music_artist_id' => '2678',
     'music_album_id' => '',
     'music_listen' => 4882,
     'music_bitrate' => 128,
     'music_filename' => '363795-7820a8b1.mp4',
+    'music_width' => 640,
+    'music_height' => 360,
+    'music_artist_html' => '<a href="/ca-si/Mighty-Mouth~Y3NuX2FydGlzdH4yNjc4.html">Mighty Mouth</a>',
+    'music_bitrate_html' => '<span style="color: darkgreen">MV 360p</span>',
   ),
   117 => 
   array (
@@ -1770,11 +2238,15 @@ $typeDup = array (
     'music_title_url' => 'my-boy~han-groo',
     'music_title' => 'My Boy',
     'music_artist' => 'Han Groo',
-    'music_artist_id' => '',
+    'music_artist_id' => '52929',
     'music_album_id' => '',
     'music_listen' => 3793,
     'music_bitrate' => 128,
     'music_filename' => '361607-2222f782.mp4',
+    'music_width' => 640,
+    'music_height' => 360,
+    'music_artist_html' => '<a href="/ca-si/Han-Groo~Y3NuX2FydGlzdH41MjkyOQ==.html">Han Groo</a>',
+    'music_bitrate_html' => '<span style="color: darkgreen">MV 360p</span>',
   ),
   118 => 
   array (
@@ -1785,11 +2257,15 @@ $typeDup = array (
     'music_title_url' => 'sorry-im-happy~davichi',
     'music_title' => 'Sorry, I\'m Happy (행복해서 미안해)',
     'music_artist' => 'Davichi',
-    'music_artist_id' => '',
+    'music_artist_id' => '1050',
     'music_album_id' => '',
     'music_listen' => 7344,
     'music_bitrate' => 96,
     'music_filename' => '1447359-a15c0378.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Davichi~Y3NuX2FydGlzdH4xMDUw.html">Davichi</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   119 => 
   array (
@@ -1800,11 +2276,15 @@ $typeDup = array (
     'music_title_url' => 'monster-lotto-6th-gaon-chart-music-awards-live~exo',
     'music_title' => 'Monster; Lotto (6th Gaon Chart Music Awards Live)',
     'music_artist' => 'EXO',
-    'music_artist_id' => '',
+    'music_artist_id' => '2572',
     'music_album_id' => '',
     'music_listen' => 2966,
     'music_bitrate' => 192,
     'music_filename' => '1767728-570668ca.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/EXO~Y3NuX2FydGlzdH4yNTcy.html">EXO</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   120 => 
   array (
@@ -1820,6 +2300,10 @@ $typeDup = array (
     'music_listen' => 5950,
     'music_bitrate' => 192,
     'music_filename' => '1950880-a782c8b3.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Girls-Generation-OhGG~Y3NuX2FydGlzdH4yMzI5OA==.html">Girls\' Generation-Oh!GG</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   121 => 
   array (
@@ -1830,11 +2314,15 @@ $typeDup = array (
     'music_title_url' => 'only-you-music-core-live~miss-a',
     'music_title' => 'Only You (Music Core Live)',
     'music_artist' => 'Miss A',
-    'music_artist_id' => '',
+    'music_artist_id' => '2486',
     'music_album_id' => '',
     'music_listen' => 7908,
     'music_bitrate' => 320,
     'music_filename' => '1480299-c61a6a5e.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Miss-A~Y3NuX2FydGlzdH4yNDg2.html">Miss A</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   122 => 
   array (
@@ -1845,11 +2333,15 @@ $typeDup = array (
     'music_title_url' => 'one-time-yoo-hee-yeols-sketchbook~cnblue',
     'music_title' => 'One Time (Yoo Hee Yeol\'s Sketchbook)',
     'music_artist' => 'CNBlue',
-    'music_artist_id' => '',
+    'music_artist_id' => '2069',
     'music_album_id' => '',
     'music_listen' => 4016,
     'music_bitrate' => 128,
     'music_filename' => '395938-0847e03b.mp4',
+    'music_width' => 640,
+    'music_height' => 360,
+    'music_artist_html' => '<a href="/ca-si/CNBlue~Y3NuX2FydGlzdH4yMDY5.html">CNBlue</a>',
+    'music_bitrate_html' => '<span style="color: darkgreen">MV 360p</span>',
   ),
   123 => 
   array (
@@ -1860,11 +2352,15 @@ $typeDup = array (
     'music_title_url' => 'louder-lotto-music-bank-live~exo',
     'music_title' => 'Louder (Lotto) (Music Bank Live)',
     'music_artist' => 'EXO',
-    'music_artist_id' => '',
+    'music_artist_id' => '2572',
     'music_album_id' => '',
     'music_listen' => 6312,
     'music_bitrate' => 256,
     'music_filename' => '1708127-59d040a2.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/EXO~Y3NuX2FydGlzdH4yNTcy.html">EXO</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   124 => 
   array (
@@ -1875,11 +2371,15 @@ $typeDup = array (
     'music_title_url' => 'i-love-you-japanese-ver~2ne1',
     'music_title' => 'I Love You (Japanese Ver.)',
     'music_artist' => '2NE1',
-    'music_artist_id' => '',
+    'music_artist_id' => '1570',
     'music_album_id' => '',
     'music_listen' => 5684,
     'music_bitrate' => 128,
     'music_filename' => '412857-7f438fb9.mp4',
+    'music_width' => 640,
+    'music_height' => 360,
+    'music_artist_html' => '<a href="/ca-si/2NE1~Y3NuX2FydGlzdH4xNTcw.html">2NE1</a>',
+    'music_bitrate_html' => '<span style="color: darkgreen">MV 360p</span>',
   ),
   125 => 
   array (
@@ -1895,6 +2395,10 @@ $typeDup = array (
     'music_listen' => 9346,
     'music_bitrate' => 256,
     'music_filename' => '1827481-0ffee173.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/BTS~Y3NuX2FydGlzdH40NzQ4.html">BTS</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   126 => 
   array (
@@ -1905,11 +2409,15 @@ $typeDup = array (
     'music_title_url' => 'offically-missing-you-kpopstar-season-2~akdong-musician',
     'music_title' => 'Offically Missing You (Kpopstar Season 2)',
     'music_artist' => 'Akdong Musician',
-    'music_artist_id' => '',
+    'music_artist_id' => '4440',
     'music_album_id' => '',
     'music_listen' => 3959,
     'music_bitrate' => 128,
     'music_filename' => '476152-9f4259cf.mp4',
+    'music_width' => 640,
+    'music_height' => 360,
+    'music_artist_html' => '<a href="/ca-si/Akdong-Musician~Y3NuX2FydGlzdH40NDQw.html">Akdong Musician</a>',
+    'music_bitrate_html' => '<span style="color: darkgreen">MV 360p</span>',
   ),
   127 => 
   array (
@@ -1920,11 +2428,15 @@ $typeDup = array (
     'music_title_url' => 'im-sorry-200213-mbc-show-champion~cnblue',
     'music_title' => 'I\'m Sorry (200213 Mbc Show! Champion)',
     'music_artist' => 'CNBlue',
-    'music_artist_id' => '',
+    'music_artist_id' => '2069',
     'music_album_id' => '',
     'music_listen' => 1479,
     'music_bitrate' => 128,
     'music_filename' => '450394-96b77a60.mp4',
+    'music_width' => 640,
+    'music_height' => 360,
+    'music_artist_html' => '<a href="/ca-si/CNBlue~Y3NuX2FydGlzdH4yMDY5.html">CNBlue</a>',
+    'music_bitrate_html' => '<span style="color: darkgreen">MV 360p</span>',
   ),
   128 => 
   array (
@@ -1935,11 +2447,15 @@ $typeDup = array (
     'music_title_url' => 'coffee-shop-im-sorry-240212-sbs-inkigayo~cnblue',
     'music_title' => 'Coffee Shop + I\'m Sorry (240212 Sbs Inkigayo...',
     'music_artist' => 'CNBlue',
-    'music_artist_id' => '',
+    'music_artist_id' => '2069',
     'music_album_id' => '',
     'music_listen' => 3423,
     'music_bitrate' => 128,
     'music_filename' => '451176-8ec9a889.mp4',
+    'music_width' => 640,
+    'music_height' => 360,
+    'music_artist_html' => '<a href="/ca-si/CNBlue~Y3NuX2FydGlzdH4yMDY5.html">CNBlue</a>',
+    'music_bitrate_html' => '<span style="color: darkgreen">MV 360p</span>',
   ),
   129 => 
   array (
@@ -1950,11 +2466,15 @@ $typeDup = array (
     'music_title_url' => 'im-young~taehyun',
     'music_title' => 'I\'m Young',
     'music_artist' => 'Taehyun',
-    'music_artist_id' => '',
+    'music_artist_id' => '52323',
     'music_album_id' => '',
     'music_listen' => 4224,
     'music_bitrate' => 96,
     'music_filename' => '1622822-eef24627.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Taehyun~Y3NuX2FydGlzdH41MjMyMw==.html">Taehyun</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   130 => 
   array (
@@ -1965,11 +2485,15 @@ $typeDup = array (
     'music_title_url' => 'cant-stop-070312-music-bank~cnblue',
     'music_title' => 'Can\'t Stop (07.03.12 Music Bank)',
     'music_artist' => 'CNBlue',
-    'music_artist_id' => '',
+    'music_artist_id' => '2069',
     'music_album_id' => '',
     'music_listen' => 2346,
     'music_bitrate' => 192,
     'music_filename' => '580567-6f98e845.mp4',
+    'music_width' => 1280,
+    'music_height' => 720,
+    'music_artist_html' => '<a href="/ca-si/CNBlue~Y3NuX2FydGlzdH4yMDY5.html">CNBlue</a>',
+    'music_bitrate_html' => '<span style="color: orange">HD 720p</span>',
   ),
   131 => 
   array (
@@ -1980,11 +2504,15 @@ $typeDup = array (
     'music_title_url' => 'monster-m-countdown-live~exo',
     'music_title' => 'Monster (M Countdown Live)',
     'music_artist' => 'EXO',
-    'music_artist_id' => '',
+    'music_artist_id' => '2572',
     'music_album_id' => '',
     'music_listen' => 4495,
     'music_bitrate' => 320,
     'music_filename' => '1679844-82fb812f.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/EXO~Y3NuX2FydGlzdH4yNTcy.html">EXO</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   132 => 
   array (
@@ -1995,11 +2523,15 @@ $typeDup = array (
     'music_title_url' => 'cant-stop-200314-mnet-m-countdown~cnblue',
     'music_title' => 'Can\'t Stop (20.03.14 Mnet M Countdown)',
     'music_artist' => 'CNBlue',
-    'music_artist_id' => '',
+    'music_artist_id' => '2069',
     'music_album_id' => '',
     'music_listen' => 1197,
     'music_bitrate' => 192,
     'music_filename' => '581361-a3114f7f.mp4',
+    'music_width' => 1280,
+    'music_height' => 720,
+    'music_artist_html' => '<a href="/ca-si/CNBlue~Y3NuX2FydGlzdH4yMDY5.html">CNBlue</a>',
+    'music_bitrate_html' => '<span style="color: orange">HD 720p</span>',
   ),
   133 => 
   array (
@@ -2010,11 +2542,15 @@ $typeDup = array (
     'music_title_url' => 'i-need-you-dope-5th-gaon-chart-k-pop-awards-live~bts',
     'music_title' => 'I Need You; Dope (5th Gaon Chart K-Pop Awards Live)',
     'music_artist' => 'BTS',
-    'music_artist_id' => '',
+    'music_artist_id' => '4748',
     'music_album_id' => '',
     'music_listen' => 3432,
     'music_bitrate' => 96,
     'music_filename' => '1628597-f3acb7ea.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/BTS~Y3NuX2FydGlzdH40NzQ4.html">BTS</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   134 => 
   array (
@@ -2025,11 +2561,15 @@ $typeDup = array (
     'music_title_url' => 'like-a-child-270214-mnet-m-countdown~cnblue',
     'music_title' => 'Like A Child (27.02.14 Mnet M Countdown)',
     'music_artist' => 'CNBlue',
-    'music_artist_id' => '',
+    'music_artist_id' => '2069',
     'music_album_id' => '',
     'music_listen' => 1429,
     'music_bitrate' => 192,
     'music_filename' => '580105-93827b13.mp4',
+    'music_width' => 1280,
+    'music_height' => 720,
+    'music_artist_html' => '<a href="/ca-si/CNBlue~Y3NuX2FydGlzdH4yMDY5.html">CNBlue</a>',
+    'music_bitrate_html' => '<span style="color: orange">HD 720p</span>',
   ),
   135 => 
   array (
@@ -2040,11 +2580,15 @@ $typeDup = array (
     'music_title_url' => 'diamond-girl-020314-sbs-inkigayo~cnblue',
     'music_title' => 'Diamond Girl (02.03.14 SBS Inkigayo)',
     'music_artist' => 'CNBlue',
-    'music_artist_id' => '',
+    'music_artist_id' => '2069',
     'music_album_id' => '',
     'music_listen' => 788,
     'music_bitrate' => 192,
     'music_filename' => '580257-e136aaf4.mp4',
+    'music_width' => 1280,
+    'music_height' => 720,
+    'music_artist_html' => '<a href="/ca-si/CNBlue~Y3NuX2FydGlzdH4yMDY5.html">CNBlue</a>',
+    'music_bitrate_html' => '<span style="color: orange">HD 720p</span>',
   ),
   136 => 
   array (
@@ -2060,6 +2604,10 @@ $typeDup = array (
     'music_listen' => 3377,
     'music_bitrate' => 192,
     'music_filename' => '1902906-ee08b953.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/GFriend~Y3NuX2FydGlzdH4xMzM5MA==.html">GFriend</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   137 => 
   array (
@@ -2070,11 +2618,15 @@ $typeDup = array (
     'music_title_url' => 'i-need-you-inkigayo-20150524~bts',
     'music_title' => 'I Need You (Inkigayo 20150524)',
     'music_artist' => 'BTS',
-    'music_artist_id' => '',
+    'music_artist_id' => '4748',
     'music_album_id' => '',
     'music_listen' => 2790,
     'music_bitrate' => 96,
     'music_filename' => '1581794-c69f8137.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/BTS~Y3NuX2FydGlzdH40NzQ4.html">BTS</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   138 => 
   array (
@@ -2085,11 +2637,15 @@ $typeDup = array (
     'music_title_url' => 'cant-stop-060314-m-countdown~cnblue',
     'music_title' => 'Can\'t Stop (06.03.14 M Countdown)',
     'music_artist' => 'CNBlue',
-    'music_artist_id' => '',
+    'music_artist_id' => '2069',
     'music_album_id' => '',
     'music_listen' => 1162,
     'music_bitrate' => 192,
     'music_filename' => '580495-1f82c5ba.mp4',
+    'music_width' => 1280,
+    'music_height' => 720,
+    'music_artist_html' => '<a href="/ca-si/CNBlue~Y3NuX2FydGlzdH4yMDY5.html">CNBlue</a>',
+    'music_bitrate_html' => '<span style="color: orange">HD 720p</span>',
   ),
   139 => 
   array (
@@ -2100,11 +2656,15 @@ $typeDup = array (
     'music_title_url' => 'youre-so-fine-the-show-live~cnblue',
     'music_title' => 'You\'re So Fine (The Show Live)',
     'music_artist' => 'CNBlue',
-    'music_artist_id' => '',
+    'music_artist_id' => '2069',
     'music_album_id' => '',
     'music_listen' => 3208,
     'music_bitrate' => 320,
     'music_filename' => '1656462-65f03aa1.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/CNBlue~Y3NuX2FydGlzdH4yMDY5.html">CNBlue</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   140 => 
   array (
@@ -2115,11 +2675,15 @@ $typeDup = array (
     'music_title_url' => 'lucky-one-monster-suwon-k-pop-concert-live~exo',
     'music_title' => 'Lucky One; Monster (Suwon K-Pop Concert Live)',
     'music_artist' => 'EXO',
-    'music_artist_id' => '',
+    'music_artist_id' => '2572',
     'music_album_id' => '',
     'music_listen' => 2812,
     'music_bitrate' => 256,
     'music_filename' => '1681576-716d6b31.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/EXO~Y3NuX2FydGlzdH4yNTcy.html">EXO</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   141 => 
   array (
@@ -2130,11 +2694,15 @@ $typeDup = array (
     'music_title_url' => 'cant-stop-im-sorry-love-light-29th-golden-disk-awards-150125~cnblue',
     'music_title' => 'Can\'t Stop; I\'m Sorry; Love Light (29th Golden Disk Awards 150125)',
     'music_artist' => 'CNBlue',
-    'music_artist_id' => '',
+    'music_artist_id' => '2069',
     'music_album_id' => '',
     'music_listen' => 1805,
     'music_bitrate' => 320,
     'music_filename' => '1454615-2bd7c5d2.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/CNBlue~Y3NuX2FydGlzdH4yMDY5.html">CNBlue</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   142 => 
   array (
@@ -2145,11 +2713,15 @@ $typeDup = array (
     'music_title_url' => 'cant-stop-kbs-gayo-daechukje-2014-141226~cnblue',
     'music_title' => 'Can\'t Stop (KBS Gayo Daechukje 2014 141226)',
     'music_artist' => 'CNBlue',
-    'music_artist_id' => '',
+    'music_artist_id' => '2069',
     'music_album_id' => '',
     'music_listen' => 1030,
     'music_bitrate' => 320,
     'music_filename' => '1432497-e101f75f.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/CNBlue~Y3NuX2FydGlzdH4yMDY5.html">CNBlue</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   143 => 
   array (
@@ -2165,6 +2737,10 @@ $typeDup = array (
     'music_listen' => 1922,
     'music_bitrate' => 192,
     'music_filename' => '1894708-ed010622.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/EXID~Y3NuX2FydGlzdH4xMzIwOQ==.html">EXID</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   144 => 
   array (
@@ -2175,11 +2751,15 @@ $typeDup = array (
     'music_title_url' => 'domino-cinderella-inkigayo-comeback-stage-150920~cnblue',
     'music_title' => 'Domino; Cinderella (Inkigayo Comeback Stage 150920)',
     'music_artist' => 'CNBlue',
-    'music_artist_id' => '',
+    'music_artist_id' => '2069',
     'music_album_id' => '',
     'music_listen' => 1637,
     'music_bitrate' => 320,
     'music_filename' => '1555191-6c5fa293.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/CNBlue~Y3NuX2FydGlzdH4yMDY5.html">CNBlue</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   145 => 
   array (
@@ -2195,6 +2775,10 @@ $typeDup = array (
     'music_listen' => 2521,
     'music_bitrate' => 96,
     'music_filename' => '1862006-c28db4b3.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Infinite~Y3NuX2FydGlzdH4yMDc3.html">Infinite</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   146 => 
   array (
@@ -2205,11 +2789,15 @@ $typeDup = array (
     'music_title_url' => 'hold-my-hand-cinderella-music-bank-comeback-stage-150918~cnblue',
     'music_title' => 'Hold My Hand; Cinderella (Music Bank Comeback Stage 150918)',
     'music_artist' => 'CNBlue',
-    'music_artist_id' => '',
+    'music_artist_id' => '2069',
     'music_album_id' => '',
     'music_listen' => 582,
     'music_bitrate' => 320,
     'music_filename' => '1554309-1d146bf6.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/CNBlue~Y3NuX2FydGlzdH4yMDY5.html">CNBlue</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   147 => 
   array (
@@ -2220,11 +2808,15 @@ $typeDup = array (
     'music_title_url' => 'lotto-star-show-360-ep02~exo',
     'music_title' => 'Lotto (Star Show 360 EP.02)',
     'music_artist' => 'EXO',
-    'music_artist_id' => '',
+    'music_artist_id' => '2572',
     'music_album_id' => '',
     'music_listen' => 2208,
     'music_bitrate' => 96,
     'music_filename' => '1720617-2863c42a.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/EXO~Y3NuX2FydGlzdH4yNTcy.html">EXO</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   148 => 
   array (
@@ -2235,11 +2827,15 @@ $typeDup = array (
     'music_title_url' => 'bing-bing-excuse-me-inkigayo-comeback-stage~aoa',
     'music_title' => 'Bing Bing; Excuse Me (Inkigayo Comeback Stage)',
     'music_artist' => 'AOA',
-    'music_artist_id' => '',
+    'music_artist_id' => '4133',
     'music_album_id' => '',
     'music_listen' => 1813,
     'music_bitrate' => 320,
     'music_filename' => '1757313-0a022f70.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/AOA~Y3NuX2FydGlzdH40MTMz.html">AOA</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   149 => 
   array (
@@ -2250,11 +2846,15 @@ $typeDup = array (
     'music_title_url' => 'lie-the-show-goodbye-stage-live~exid',
     'music_title' => 'L.I.E (The Show Goodbye Stage Live)',
     'music_artist' => 'EXID',
-    'music_artist_id' => '',
+    'music_artist_id' => '13209',
     'music_album_id' => '',
     'music_listen' => 1926,
     'music_bitrate' => 320,
     'music_filename' => '1685585-98ada065.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/EXID~Y3NuX2FydGlzdH4xMzIwOQ==.html">EXID</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   150 => 
   array (
@@ -2270,6 +2870,10 @@ $typeDup = array (
     'music_listen' => 2445,
     'music_bitrate' => 320,
     'music_filename' => '1830254-cad06421.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/BTS~Y3NuX2FydGlzdH40NzQ4.html">BTS</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   151 => 
   array (
@@ -2285,6 +2889,10 @@ $typeDup = array (
     'music_listen' => 933,
     'music_bitrate' => 96,
     'music_filename' => '1827677-353abbc7.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/IU~Y3NuX2FydGlzdH4yMDU5.html">IU</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   152 => 
   array (
@@ -2300,6 +2908,10 @@ $typeDup = array (
     'music_listen' => 1000,
     'music_bitrate' => 320,
     'music_filename' => '1905111-8524bfa5.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/GI-DLE~Y3NuX2FydGlzdH4xNDQyOQ==.html">(G)I-DLE</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   153 => 
   array (
@@ -2315,6 +2927,10 @@ $typeDup = array (
     'music_listen' => 2160,
     'music_bitrate' => 320,
     'music_filename' => '1909884-23a35c3e.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/BTS~Y3NuX2FydGlzdH40NzQ4.html">BTS</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   154 => 
   array (
@@ -2325,11 +2941,15 @@ $typeDup = array (
     'music_title_url' => 'love-im-sorry-grand-k-pop-festival-150916~cnblue',
     'music_title' => 'Love; I\'m Sorry (Grand K-pop Festival 150916)',
     'music_artist' => 'CNBlue',
-    'music_artist_id' => '',
+    'music_artist_id' => '2069',
     'music_album_id' => '',
     'music_listen' => 507,
     'music_bitrate' => 320,
     'music_filename' => '1554137-bd858528.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/CNBlue~Y3NuX2FydGlzdH4yMDY5.html">CNBlue</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   155 => 
   array (
@@ -2345,6 +2965,10 @@ $typeDup = array (
     'music_listen' => 918,
     'music_bitrate' => 96,
     'music_filename' => '1946056-4e1e6ad8.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Love-Potion~Y3NuX2FydGlzdH4yMjIwOQ==.html">Love Potion</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   156 => 
   array (
@@ -2360,6 +2984,10 @@ $typeDup = array (
     'music_listen' => 685,
     'music_bitrate' => 192,
     'music_filename' => '1796894-21853b70.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/EXO~Y3NuX2FydGlzdH4yNTcy.html">EXO</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   157 => 
   array (
@@ -2375,6 +3003,10 @@ $typeDup = array (
     'music_listen' => 999,
     'music_bitrate' => 320,
     'music_filename' => '1837145-0527613b.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/BTS~Y3NuX2FydGlzdH40NzQ4.html">BTS</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   158 => 
   array (
@@ -2390,6 +3022,10 @@ $typeDup = array (
     'music_listen' => 1247,
     'music_bitrate' => 96,
     'music_filename' => '1883076-77b5108d.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/J-Hope~Y3NuX2FydGlzdH4xNjU5MA==.html">J-Hope</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   159 => 
   array (
@@ -2400,11 +3036,15 @@ $typeDup = array (
     'music_title_url' => 'mirror-show-kbs-music-bank-live~fiestar',
     'music_title' => 'Mirror (Show KBS Music Bank Live)',
     'music_artist' => 'Fiestar',
-    'music_artist_id' => '',
+    'music_artist_id' => '4134',
     'music_album_id' => '',
     'music_listen' => 354,
     'music_bitrate' => 320,
     'music_filename' => '1640311-b63694d1.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Fiestar~Y3NuX2FydGlzdH40MTM0.html">Fiestar</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   160 => 
   array (
@@ -2420,6 +3060,10 @@ $typeDup = array (
     'music_listen' => 485,
     'music_bitrate' => 192,
     'music_filename' => '1906085-36e15612.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Dreamcatcher~Y3NuX2FydGlzdH4xNTAxNg==.html">Dreamcatcher</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   161 => 
   array (
@@ -2435,6 +3079,10 @@ $typeDup = array (
     'music_listen' => 526,
     'music_bitrate' => 96,
     'music_filename' => '1919347-67aa66de.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/BlackPink~Y3NuX2FydGlzdH4xNDY3Mw==.html">BlackPink</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   162 => 
   array (
@@ -2450,6 +3098,10 @@ $typeDup = array (
     'music_listen' => 298,
     'music_bitrate' => 256,
     'music_filename' => '1946819-b4595b33.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/PRODUCE48~Y3NuX2FydGlzdH4xODUyNA==.html">PRODUCE48</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   163 => 
   array (
@@ -2465,6 +3117,10 @@ $typeDup = array (
     'music_listen' => 148,
     'music_bitrate' => 256,
     'music_filename' => '1951852-44272424.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/GI-DLE~Y3NuX2FydGlzdH4xNDQyOQ==.html">(G)I-DLE</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   164 => 
   array (
@@ -2480,6 +3136,10 @@ $typeDup = array (
     'music_listen' => 295,
     'music_bitrate' => 320,
     'music_filename' => '1898781-944367fb.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/WJSN~Y3NuX2FydGlzdH4xMzUxOQ==.html">WJSN</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   165 => 
   array (
@@ -2495,6 +3155,10 @@ $typeDup = array (
     'music_listen' => 154,
     'music_bitrate' => 192,
     'music_filename' => '1958640-2b98a7ff.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Spoonz~Y3NuX2FydGlzdH4xMjI5NzM=.html">Spoonz</a>, <a href="/ca-si/NUEST-W~Y3NuX2FydGlzdH4xODMzMw==.html">NU\'EST W</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   166 => 
   array (
@@ -2510,6 +3174,10 @@ $typeDup = array (
     'music_listen' => 229,
     'music_bitrate' => 320,
     'music_filename' => '1900952-484f3780.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Winner~Y3NuX2FydGlzdH40NzQ3.html">Winner</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   167 => 
   array (
@@ -2525,6 +3193,10 @@ $typeDup = array (
     'music_listen' => 186,
     'music_bitrate' => 320,
     'music_filename' => '1955601-03a8059f.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Sunmi~Y3NuX2FydGlzdH40Mjg0.html">Sunmi</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   168 => 
   array (
@@ -2540,6 +3212,10 @@ $typeDup = array (
     'music_listen' => 248,
     'music_bitrate' => 192,
     'music_filename' => '1906088-f5e1d7a5.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Dreamcatcher~Y3NuX2FydGlzdH4xNTAxNg==.html">Dreamcatcher</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   169 => 
   array (
@@ -2555,6 +3231,10 @@ $typeDup = array (
     'music_listen' => 245,
     'music_bitrate' => 320,
     'music_filename' => '1911374-10b6e8a0.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/BTS~Y3NuX2FydGlzdH40NzQ4.html">BTS</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   170 => 
   array (
@@ -2570,6 +3250,10 @@ $typeDup = array (
     'music_listen' => 210,
     'music_bitrate' => 256,
     'music_filename' => '1935859-6e6e2627.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/GFriend~Y3NuX2FydGlzdH4xMzM5MA==.html">GFriend</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   171 => 
   array (
@@ -2585,6 +3269,10 @@ $typeDup = array (
     'music_listen' => 240,
     'music_bitrate' => 320,
     'music_filename' => '1955593-141622bb.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Dreamcatcher~Y3NuX2FydGlzdH4xNTAxNg==.html">Dreamcatcher</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   172 => 
   array (
@@ -2600,6 +3288,10 @@ $typeDup = array (
     'music_listen' => 207,
     'music_bitrate' => 96,
     'music_filename' => '1874310-d657abc4.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/IU~Y3NuX2FydGlzdH4yMDU5.html">IU</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   173 => 
   array (
@@ -2615,6 +3307,10 @@ $typeDup = array (
     'music_listen' => 207,
     'music_bitrate' => 320,
     'music_filename' => '1953850-3a9c2951.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Girls-Generation~Y3NuX2FydGlzdH45MjI=.html">Girls\' Generation</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   174 => 
   array (
@@ -2630,6 +3326,10 @@ $typeDup = array (
     'music_listen' => 109,
     'music_bitrate' => 320,
     'music_filename' => '1955383-db199ca7.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Dreamcatcher~Y3NuX2FydGlzdH4xNTAxNg==.html">Dreamcatcher</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   175 => 
   array (
@@ -2645,6 +3345,10 @@ $typeDup = array (
     'music_listen' => 97,
     'music_bitrate' => 320,
     'music_filename' => '1959262-678874d1.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/GWSN~Y3NuX2FydGlzdH4yMzMyNA==.html">GWSN</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   176 => 
   array (
@@ -2660,6 +3364,10 @@ $typeDup = array (
     'music_listen' => 114,
     'music_bitrate' => 320,
     'music_filename' => '1950464-d69b7325.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Monsta-X~Y3NuX2FydGlzdH4xNDA2OQ==.html">Monsta X</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   177 => 
   array (
@@ -2675,6 +3383,10 @@ $typeDup = array (
     'music_listen' => 132,
     'music_bitrate' => 320,
     'music_filename' => '1959265-a450f6d7.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/UNIT~Y3NuX2FydGlzdH4xNTY1NQ==.html">UNI.T</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   178 => 
   array (
@@ -2690,6 +3402,10 @@ $typeDup = array (
     'music_listen' => 102,
     'music_bitrate' => 320,
     'music_filename' => '1960407-7b1d5e0a.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/GOT7~Y3NuX2FydGlzdH40NDY0.html">GOT7</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   179 => 
   array (
@@ -2705,6 +3421,10 @@ $typeDup = array (
     'music_listen' => 135,
     'music_bitrate' => 320,
     'music_filename' => '1954181-1a9d1058.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/We-Girls~Y3NuX2FydGlzdH4yMzY0Mw==.html">We Girls</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   180 => 
   array (
@@ -2720,6 +3440,10 @@ $typeDup = array (
     'music_listen' => 127,
     'music_bitrate' => 320,
     'music_filename' => '1959258-ba620756.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Twice~Y3NuX2FydGlzdH4xMzM4OA==.html">Twice</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   181 => 
   array (
@@ -2735,6 +3459,10 @@ $typeDup = array (
     'music_listen' => 113,
     'music_bitrate' => 320,
     'music_filename' => '1959716-9e616493.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Kiss-N~Y3NuX2FydGlzdH4xMjI4NzU=.html">Kiss N</a>, <a href="/ca-si/High-Soul~Y3NuX2FydGlzdH4xNzgzNg==.html">High Soul</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   182 => 
   array (
@@ -2750,6 +3478,10 @@ $typeDup = array (
     'music_listen' => 101,
     'music_bitrate' => 320,
     'music_filename' => '1959998-96479ae2.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Soyou~Y3NuX2FydGlzdH4xNTcwNA==.html">Soyou</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   183 => 
   array (
@@ -2765,6 +3497,10 @@ $typeDup = array (
     'music_listen' => 121,
     'music_bitrate' => 320,
     'music_filename' => '1905941-99c9e6d0.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Ben~Y3NuX2FydGlzdH4xMjk0Mg==.html">Ben</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   184 => 
   array (
@@ -2780,6 +3516,10 @@ $typeDup = array (
     'music_listen' => 99,
     'music_bitrate' => 320,
     'music_filename' => '1959260-66a0db88.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Dreamcatcher~Y3NuX2FydGlzdH4xNTAxNg==.html">Dreamcatcher</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   185 => 
   array (
@@ -2795,6 +3535,10 @@ $typeDup = array (
     'music_listen' => 111,
     'music_bitrate' => 320,
     'music_filename' => '1959983-c55048dd.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Dreamcatcher~Y3NuX2FydGlzdH4xNTAxNg==.html">Dreamcatcher</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   186 => 
   array (
@@ -2810,6 +3554,10 @@ $typeDup = array (
     'music_listen' => 108,
     'music_bitrate' => 320,
     'music_filename' => '1960375-0e9f434e.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/UNIT~Y3NuX2FydGlzdH4xNTY1NQ==.html">UNI.T</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   187 => 
   array (
@@ -2825,6 +3573,10 @@ $typeDup = array (
     'music_listen' => 99,
     'music_bitrate' => 320,
     'music_filename' => '1960376-ea15deac.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Dreamcatcher~Y3NuX2FydGlzdH4xNTAxNg==.html">Dreamcatcher</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   188 => 
   array (
@@ -2835,11 +3587,15 @@ $typeDup = array (
     'music_title_url' => 'gangnam-style~psy',
     'music_title' => 'Gangnam Style',
     'music_artist' => 'PSY',
-    'music_artist_id' => '',
+    'music_artist_id' => '2645',
     'music_album_id' => '',
     'music_listen' => 6870203,
     'music_bitrate' => 192,
     'music_filename' => '1015379-082a7571.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/PSY~Y3NuX2FydGlzdH4yNjQ1.html">PSY</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   189 => 
   array (
@@ -2850,11 +3606,15 @@ $typeDup = array (
     'music_title_url' => 'sugar-free~t-ara',
     'music_title' => 'Sugar Free',
     'music_artist' => 'T-Ara',
-    'music_artist_id' => '',
+    'music_artist_id' => '1413',
     'music_album_id' => '',
     'music_listen' => 797196,
     'music_bitrate' => 96,
     'music_filename' => '1356087-06414fa2.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/T-Ara~Y3NuX2FydGlzdH4xNDEz.html">T-Ara</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   190 => 
   array (
@@ -2865,11 +3625,15 @@ $typeDup = array (
     'music_title_url' => 'mr-taxi~girls-generation',
     'music_title' => 'Mr. Taxi',
     'music_artist' => 'Girls\' Generation',
-    'music_artist_id' => '',
+    'music_artist_id' => '922',
     'music_album_id' => '',
     'music_listen' => 1178973,
     'music_bitrate' => 128,
     'music_filename' => '1046547-834fde22.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Girls-Generation~Y3NuX2FydGlzdH45MjI=.html">Girls\' Generation</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   191 => 
   array (
@@ -2880,11 +3644,15 @@ $typeDup = array (
     'music_title_url' => 'oh~girls-generation',
     'music_title' => 'Oh!',
     'music_artist' => 'Girls\' Generation',
-    'music_artist_id' => '',
+    'music_artist_id' => '922',
     'music_album_id' => '',
     'music_listen' => 733249,
     'music_bitrate' => 128,
     'music_filename' => '1105261-877cf363.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Girls-Generation~Y3NuX2FydGlzdH45MjI=.html">Girls\' Generation</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   192 => 
   array (
@@ -2895,11 +3663,15 @@ $typeDup = array (
     'music_title_url' => 'blue~big-bang',
     'music_title' => 'Blue',
     'music_artist' => 'Big Bang',
-    'music_artist_id' => '',
+    'music_artist_id' => '982',
     'music_album_id' => '',
     'music_listen' => 455526,
     'music_bitrate' => 128,
     'music_filename' => '1068782-a1f8d417.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Big-Bang~Y3NuX2FydGlzdH45ODI=.html">Big Bang</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   193 => 
   array (
@@ -2910,11 +3682,15 @@ $typeDup = array (
     'music_title_url' => 'number-nine~t-ara',
     'music_title' => 'Number Nine',
     'music_artist' => 'T-Ara',
-    'music_artist_id' => '',
+    'music_artist_id' => '1413',
     'music_album_id' => '',
     'music_listen' => 313042,
     'music_bitrate' => 192,
     'music_filename' => '1185774-bbdf05f4.mp4',
+    'music_width' => 1280,
+    'music_height' => 720,
+    'music_artist_html' => '<a href="/ca-si/T-Ara~Y3NuX2FydGlzdH4xNDEz.html">T-Ara</a>',
+    'music_bitrate_html' => '<span style="color: orange">HD 720p</span>',
   ),
   194 => 
   array (
@@ -2925,11 +3701,15 @@ $typeDup = array (
     'music_title_url' => 'echo~girls-generation',
     'music_title' => 'Echo',
     'music_artist' => 'Girls\' Generation',
-    'music_artist_id' => '',
+    'music_artist_id' => '922',
     'music_album_id' => '',
     'music_listen' => 296826,
     'music_bitrate' => 128,
     'music_filename' => '1002892-0b236eca.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Girls-Generation~Y3NuX2FydGlzdH45MjI=.html">Girls\' Generation</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   195 => 
   array (
@@ -2939,12 +3719,16 @@ $typeDup = array (
     'cover_id' => 0,
     'music_title_url' => 'i~taeyeon-verbal-jint',
     'music_title' => 'I',
-    'music_artist' => 'Taeyeon; Verbal Jint',
-    'music_artist_id' => '',
+    'music_artist' => 'Taeyeon;Verbal Jint',
+    'music_artist_id' => '1664;3315',
     'music_album_id' => '',
     'music_listen' => 144854,
     'music_bitrate' => 96,
     'music_filename' => '1564410-63b2eb1f.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Taeyeon~Y3NuX2FydGlzdH4xNjY0.html">Taeyeon</a>, <a href="/ca-si/Verbal-Jint~Y3NuX2FydGlzdH4zMzE1.html">Verbal Jint</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   196 => 
   array (
@@ -2955,11 +3739,15 @@ $typeDup = array (
     'music_title_url' => 'tell-me-goodbye~big-bang',
     'music_title' => 'Tell Me Goodbye',
     'music_artist' => 'Big Bang',
-    'music_artist_id' => '',
+    'music_artist_id' => '982',
     'music_album_id' => '',
     'music_listen' => 196336,
     'music_bitrate' => 320,
     'music_filename' => '1002235-934acca6.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Big-Bang~Y3NuX2FydGlzdH45ODI=.html">Big Bang</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   197 => 
   array (
@@ -2970,11 +3758,15 @@ $typeDup = array (
     'music_title_url' => 'dont-say-goodbye~davichi',
     'music_title' => 'Don\'t Say Goodbye',
     'music_artist' => 'Davichi',
-    'music_artist_id' => '',
+    'music_artist_id' => '1050',
     'music_album_id' => '',
     'music_listen' => 134000,
     'music_bitrate' => 128,
     'music_filename' => '1064538-0c3dcaf0.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Davichi~Y3NuX2FydGlzdH4xMDUw.html">Davichi</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   198 => 
   array (
@@ -2985,11 +3777,15 @@ $typeDup = array (
     'music_title_url' => 'bad-girl-good-girl~miss-a',
     'music_title' => 'Bad Girl, Good Girl',
     'music_artist' => 'Miss A',
-    'music_artist_id' => '',
+    'music_artist_id' => '2486',
     'music_album_id' => '',
     'music_listen' => 152474,
     'music_bitrate' => 96,
     'music_filename' => '1444197-f0b90b6d.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Miss-A~Y3NuX2FydGlzdH4yNDg2.html">Miss A</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
   199 => 
   array (
@@ -3000,11 +3796,15 @@ $typeDup = array (
     'music_title_url' => 'like-ooh-ahh~twice',
     'music_title' => 'Like Ooh-Ahh',
     'music_artist' => 'Twice',
-    'music_artist_id' => '',
+    'music_artist_id' => '13388',
     'music_album_id' => '',
     'music_listen' => 71748,
     'music_bitrate' => 96,
     'music_filename' => '1570430-e00ffe72.mp4',
+    'music_width' => 1920,
+    'music_height' => 1080,
+    'music_artist_html' => '<a href="/ca-si/Twice~Y3NuX2FydGlzdH4xMzM4OA==.html">Twice</a>',
+    'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
   ),
 );
 ?>

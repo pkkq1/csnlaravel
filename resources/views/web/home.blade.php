@@ -154,7 +154,7 @@ global $top_artist_rows;
                                         <h5 class="media-title mt-0 mb-0 title_home_tablet"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
                                         <div class="author title_home_tablet"><?php echo $item['music_artist_html'] ?></div>
                                     </div>
-                                    <small class="type_music"><?php echo $item['music_bitrate']; ?></small>
+                                    <small class="type_music"><?php echo $item['music_bitrate_html']; ?></small>
                                 </div>
                                 <div class="media-right align-self-center">
                                     <small class="time_stt"><?php echo Helpers::timeElapsedString($item['music_time']); ?></small>
@@ -192,7 +192,7 @@ global $top_artist_rows;
                                         <h5 class="media-title mt-0 mb-0 title_home_tablet"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
                                         <div class="author title_home_tablet"><?php echo $item['music_artist_html'] ?></div>
                                     </div>
-                                    <small class="type_music c1"><?php echo $item['music_bitrate']; ?></small>
+                                    <small class="type_music c1"><?php echo $item['music_bitrate_html']; ?></small>
                                 </div>
                                 <div class="media-right align-self-center">
                                     <small class="time_stt"><?php echo Helpers::timeElapsedString($item['music_time']); ?></small>

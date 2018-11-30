@@ -126,7 +126,7 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
                 }
             }
         }
-        $select = ['music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'music_album_id', 'music_listen', 'music_bitrate', 'music_filename']; //, 'music_shortlyric'
+        $select = ['music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'music_album_id', 'music_listen', 'music_bitrate', 'music_filename', 'music_width', 'music_height']; //, 'music_shortlyric'
         $artists = explode(';', $music->music_artist);
         // nhạc cùng ca sĩ
         $MusicSameArtist = \App\Models\MusicModel::where(function($q) use ($artists) {
@@ -220,6 +220,22 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
                 ->orderBy('music_listen', 'desc')->first();
         }
 
+        foreach ($MusicSameArtist as  $key => $item) {
+            $MusicSameArtist[$key]['music_bitrate_html'] = Helpers::bitrate2str($item['music_bitrate']);
+            $MusicSameArtist[$key]['music_artist_html'] = Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']);
+        }
+        foreach ($VideoSameArtist as  $key => $item) {
+            $VideoSameArtist[$key]['music_bitrate_html'] = Helpers::size2str($item['music_artist_id'], $item['music_artist']);
+            $VideoSameArtist[$key]['music_artist_html'] = Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']);
+        }
+        foreach ($titleDup as  $key => $item) {
+            $titleDup[$key]['music_bitrate_html'] = Helpers::bitrate2str($item['music_bitrate']);
+            $titleDup[$key]['music_artist_html'] = Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']);
+        }
+        if($video){
+            $video['music_bitrate_html'] = Helpers::size2str($video['music_width'], $video['music_height']);
+            $video['music_artist_html'] = Helpers::rawHtmlArtists($video['music_artist_id'], $video['music_artist']);
+        }
         $pathDir = resource_path() . '/views/cache/suggestion/' . ceil($music->music_id / 1000) . '/';
         file_put_contents($pathDir . $music->music_id . '.blade.php',
             '<?php 

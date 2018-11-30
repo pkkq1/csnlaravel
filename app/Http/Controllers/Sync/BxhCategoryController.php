@@ -41,6 +41,7 @@ class BxhCategoryController extends Controller
             $result = $this->musicListenRepository->bxhHotTodayCategoryVideo($item->cat_id)->toArray();
             foreach($result as $item2) {
                 $item2['music_artist_html'] = Helpers::rawHtmlArtists($item2['music_artist_id'], $item2['music_artist']);
+                $item2['music_bitrate_html'] = Helpers::size2str($item2['music_width'], $item2['music_height']);
                 $ressultVideo[$item->cat_id][] = $item2;
             }
         }
@@ -71,6 +72,7 @@ $hot_video_rows = ' . var_export($ressultVideo, true) . ';
             $result = $this->musicListenRepository->bxhWeekCategoryVideo($item->cat_id)->toArray();
             foreach($result as $item2) {
                 $item2['music_artist_html'] = Helpers::rawHtmlArtists($item2['music_artist_id'], $item2['music_artist']);
+                $item2['music_bitrate_html'] = Helpers::size2str($item2['music_width'], $item2['music_height']);
                 $ressultVideo[$item->cat_id][] = $item2;
             }
         }
@@ -105,6 +107,7 @@ $hot_video_rows = ' . var_export($ressultVideo, true) . ';
                 $result = $ressultVideo[$item->cat_id] = $this->musicListenRepository->bxhYearCategoryVideo($item->cat_id, $year)->toArray();
                 foreach($result as $item2) {
                     $item2['music_artist_html'] = Helpers::rawHtmlArtists($item2['music_artist_id'], $item2['music_artist']);
+                    $item2['music_bitrate_html'] = Helpers::size2str($item2['music_width'], $item2['music_height']);
                     $ressultVideo[$item->cat_id][] = $item2;
                 }
             }
@@ -136,6 +139,7 @@ $hot_video_rows = ' . var_export($ressultVideo, true) . ';
                     $result = $this->musicListenRepository->bxhMonthCategoryVideo($item->cat_id, $firstDate, $lastDate, $year)->toArray();
                     foreach($result as $item2) {
                         $item2['music_artist_html'] = Helpers::rawHtmlArtists($item2['music_artist_id'], $item2['music_artist']);
+                        $item2['music_bitrate_html'] = Helpers::size2str($item2['music_width'], $item2['music_height']);
                         $ressultVideo[$item->cat_id][] = $item2;
                     }
                 }
