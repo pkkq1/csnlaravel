@@ -50,7 +50,7 @@ use App\Library\Helpers;
                 </div>
                 <p style="color: white; text-align: center;" class="text-p"><a href="/login" style="margin-right: 15px;color: #FF2D55;">Đăng nhập</a><span style="color: #888">|</span><a href="/password/reset" style="margin-left: 15px;color: #FF2D55;">Quên mật khẩu</a></p>
             </div>
-            <div class="w-304 mx-auto text-center"><a href="#" class="login_button facebook mb-3">Facebook</a><a href="#" class="login_button google text-gray btn-gradien">Google</a></div>
+            <div class="w-304 mx-auto text-center"><a href="#" class="login_button facebook mb-3">Đăng ký bằng Facebook</a><a href="#" class="login_button google text-gray btn-gradien">Đăng ký bằng Google</a></div>
         </div>
     </div>
 </main>
