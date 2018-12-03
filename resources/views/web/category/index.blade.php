@@ -21,30 +21,30 @@ $titleMeta = $category->cat_title . ' - '. Config::get('constants.app.title');
                     @if($category->cat_id != CATEGORY_ID_VIDEO)
                     <nav>
                         <ul>
-                            <li class="tab-current"><a onclick="categoryTab('/tab_category', 'album_2018')" class="album-{{CURRENT_YEAR}}" href="#album_2018"><span>Album {{CURRENT_YEAR}}</span></a></li>
-                            <li class="album-moi"><a onclick="categoryTab('/tab_category', 'album_new')" class="album-moi" href="#album_new"><span>ALbum mới</span></a></li>
-                            <li class="bai-hat-moi"><a onclick="categoryTab('/tab_category', 'music_new')" class="bai-hat-moi" href="#music_new"><span>Bài Hát mới</span></a></li>
-                            <li class="vua-download"><a onclick="categoryTab('/tab_category', 'download_now')" class="vua-download" href="#download_now"><span>Vừa download</span></a></li>
+                            <li class="tab-current album-{{CURRENT_YEAR}}"><a onclick="categoryTab('/tab_category', 'album-{{CURRENT_YEAR}}')" class="album-{{CURRENT_YEAR}}" href="#album_{{CURRENT_YEAR}}"><span>Album {{CURRENT_YEAR}}</span></a></li>
+                            <li class="album-moi"><a onclick="categoryTab('/tab_category', 'album-moi')" class="album-moi" href="#album-moi"><span>ALbum mới</span></a></li>
+                            <li class="bai-hat-moi"><a onclick="categoryTab('/tab_category', 'bai-hat-moi')" class="bai-hat-moi" href="#bai-hat-moi"><span>Bài Hát mới</span></a></li>
+                            <li class="vua-download"><a onclick="categoryTab('/tab_category', 'vua-download')" class="vua-download" href="#vua-download"><span>Vừa download</span></a></li>
                         </ul>
                     </nav>
                     <div class="content-wrap tab-content-category">
-                        <section id="album_2018" class="content-current"><?php echo $firstTab ?></section>
-                        <section id="album_new"></section>
-                        <section id="music_new"></section>
-                        <section id="download_now"></section>
+                        <section id="album-{{CURRENT_YEAR}}" class="content-current"><?php echo $firstTab ?></section>
+                        <section id="album-moi"></section>
+                        <section id="bai-hat-moi"></section>
+                        <section id="vua-download"></section>
                     </div>
                     @else
                     <nav>
                         <ul>
-                            <li class="tab-current"><a onclick="categoryTab('/tab_category', 'video_2018')" href="#video_2018"><span>Video {{CURRENT_YEAR}}</span></a></li>
-                            <li><a onclick="categoryTab('/tab_category', 'video_new')" href="#video_new"><span>Video mới</span></a></li>
-                            <li><a onclick="categoryTab('/tab_category', 'video_download_now')" href="#video_download_now"><span>Vừa download</span></a></li>
+                            <li class="tab-current video-{{CURRENT_YEAR}}"><a onclick="categoryTab('/tab_category', 'video-{{CURRENT_YEAR}}')" href="#video-{{CURRENT_YEAR}}"><span>Video {{CURRENT_YEAR}}</span></a></li>
+                            <li class="video-moi"><a class="video-moi" onclick="categoryTab('/tab_category', 'video-moi')" href="#video-moi"><span>Video mới</span></a></li>
+                            <li class="video-vua-download"><a class="video-vua-download" onclick="categoryTab('/tab_category', 'video-vua-download')" href="#video-vua-download"><span>Vừa download</span></a></li>
                         </ul>
                     </nav>
                     <div class="content-wrap tab-content-category">
-                        <section id="video_2018" class="content-current"><?php echo $firstTab ?></section>
-                        <section id="video_new"></section>
-                        <section id="video_download_now"></section>
+                        <section id="video-{{CURRENT_YEAR}}" class="content-current"><?php echo $firstTab ?></section>
+                        <section id="video-moi"></section>
+                        <section id="video-vua-download"></section>
                     </div>
                     @endif
                 </div>
@@ -72,13 +72,13 @@ $titleMeta = $category->cat_title . ' - '. Config::get('constants.app.title');
             new CBPFWTabs( el );
         });
     })();
-    $('#album_2018').find('.pagination li a').on('click', function (e) {
+    $('#album_<?php echo CURRENT_YEAR ?>').find('.pagination li a').on('click', function (e) {
         e.preventDefault();
-        categoryTab($(this).attr('href'), 'album_2018', true);
+        categoryTab($(this).attr('href'), 'album_<?php echo CURRENT_YEAR ?>', true);
     });
-    $('#video_2018').find('.pagination li a').on('click', function (e) {
+    $('#video_<?php echo CURRENT_YEAR ?>').find('.pagination li a').on('click', function (e) {
         e.preventDefault();
-        categoryTab($(this).attr('href'), 'video_2018', true);
+        categoryTab($(this).attr('href'), 'video_<?php echo CURRENT_YEAR ?>', true);
     });
     function categoryTab(url, tab, floatTab = false) {
         if(($('#'+tab).html()).length == 0 || floatTab) {
@@ -89,12 +89,12 @@ $titleMeta = $category->cat_title . ' - '. Config::get('constants.app.title');
                 data: {
                     'cat_id': <?php echo $category->cat_id; ?>,
                     'cat_level' : <?php echo $category->cat_level; ?>,
-                    'tab': tab ? tab : 'album_2018'
+                    'tab': tab ? tab : 'album_<?php echo CURRENT_YEAR ?>'
                 },
                 beforeSend: function () {
                     if(loaded) return false;
                     loaded = true;
-                    // $('html,body').animate({ scrollTop: 0 }, 400);
+                    $('html,body').animate({ scrollTop: 0 }, 400);
                 },
                 success: function(response) {
                     $('#'+tab).html(response);

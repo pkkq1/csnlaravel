@@ -28,6 +28,9 @@ jQuery(document).ready(function($) {
                 setCurrentSlide(ele, index);
                 swiper2.slideTo(index, 500, false);                
                 swiper1.slideTo(index, 500, false);
+                if (typeof slideSwiperChange !== 'undefined' && typeof slideSwiperChange === 'function') {
+                    slideSwiperChange(swiper1, 'click');
+                }
             });
         });
 
@@ -41,6 +44,11 @@ jQuery(document).ready(function($) {
                 var n = swiper.activeIndex;
                 setCurrentSlide($(".swiper1 .swiper-slide").eq(n), n);
                 swiper1.slideTo(n, 500, false);
+            },
+            onTransitionEnd: function (swiper) {
+                if (typeof slideSwiperChange !== 'undefined' && typeof slideSwiperChange === 'function') {
+                    slideSwiperChange(swiper, 'drag');
+                }
             }
         });
         

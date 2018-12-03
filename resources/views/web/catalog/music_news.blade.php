@@ -98,7 +98,7 @@ $titleMeta = $title.' - '. Config::get('constants.app.title');
                 beforeSend: function () {
                     if(loaded) return false;
                     loaded = true;
-                    // $('html,body').animate({ scrollTop: 0 }, 400);
+                    $('html,body').animate({ scrollTop: 0 }, 400);
                 },
                 success: function(response) {
                     $('#music_news').html(response);
