@@ -13,22 +13,22 @@ global $hot_video_rows;
     <div data-itemmenu="3" class="swiper-container swiper1">
         <div class="swiper-wrapper">
             @if(!isset($_GET['type']) || $_GET['type'] == 'music')
-            <div class="swiper-slide selected vietnam">BXH Nhạc VN</div>
-            <div class="swiper-slide tab-music us-uk">BXH Nhạc US-UK</div>
-            <div class="swiper-slide tab-music chinese">BXH Nhạc Hoa</div>
-            <div class="swiper-slide tab-music korea">BXH Nhạc Hàn</div>
-            <div class="swiper-slide tab-music japan">BXH Nhạc Nhật</div>
-            <div class="swiper-slide tab-music france">BXH Nhạc Pháp</div>
-            <div class="swiper-slide tab-music other swiper-w145">BXH Nhạc Nước Khác</div>
+            <div class="swiper-slide selected swiper-w145 vietnam">BXH Nhạc VN</div>
+            <div class="swiper-slide tab-music swiper-w145 us-uk">BXH Nhạc US-UK</div>
+            <div class="swiper-slide tab-music swiper-w145 chinese">BXH Nhạc Hoa</div>
+            <div class="swiper-slide tab-music swiper-w145 korea">BXH Nhạc Hàn</div>
+            <div class="swiper-slide tab-music swiper-w145 japan">BXH Nhạc Nhật</div>
+            <div class="swiper-slide tab-music swiper-w145 france">BXH Nhạc Pháp</div>
+            <div class="swiper-slide tab-music swiper-w145 other swiper-w145">BXH Nhạc Nước Khác</div>
             <div class="swiper-slide tab-music beat-playback swiper-w145">BXH Nhạc Playback</div>
             @endif
             @if(!isset($_GET['type']) || $_GET['type'] == 'video')
-            <div class="swiper-slide tab-video">BXH Video VN</div>
-            <div class="swiper-slide tab-video">BXH Video US-UK</div>
-            <div class="swiper-slide tab-video">BXH Video Hoa</div>
-            <div class="swiper-slide tab-video">BXH Video Hàn</div>
-            <div class="swiper-slide tab-video">BXH Video Nhật</div>
-            <div class="swiper-slide tab-video">BXH Video Pháp</div>
+            <div class="swiper-slide swiper-w145 tab-video">BXH Video VN</div>
+            <div class="swiper-slide swiper-w145 tab-video">BXH Video US-UK</div>
+            <div class="swiper-slide swiper-w145 tab-video">BXH Video Hoa</div>
+            <div class="swiper-slide swiper-w145 tab-video">BXH Video Hàn</div>
+            <div class="swiper-slide swiper-w145 tab-video">BXH Video Nhật</div>
+            <div class="swiper-slide swiper-w145 tab-video">BXH Video Pháp</div>
             <div class="swiper-slide swiper-w145 tab-video">BXH Video Nước Khác</div>
             @endif
         </div>

@@ -5,12 +5,14 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,400italic,300italic' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="/mobile/assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/mobile/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="/mobile/assets/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="/mobile/assets/css/owl.carousel.min.css">
     <link rel="stylesheet" href="/mobile/assets/css/swiper.min.css">
     <link rel="stylesheet" href="/mobile/assets/css/style.css">
     <link rel="stylesheet" href="/mobile/assets/css/responsive.css">
     <link rel="stylesheet" href="/mobile/assets/css/custom.css">
+
     @yield('contentCSS')
     <script src="/mobile/assets/js/jquery-3.3.1.min.js"></script>
     <script src='https://www.google.com/recaptcha/api.js'></script>
