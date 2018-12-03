@@ -192,3 +192,6 @@ a {
     display: block;
     color: #FF2D55!important;
 }
+footer {
+    min-height: auto;
+}

@@ -26,45 +26,44 @@ use App\Library\Helpers;
     </div>
     <div class="menumain">
         <div id="navbar_main_header_top">
+            @if(Auth::check())
             <div class="profile">
-                <div style="background: url(https://zmp3-photo.zadn.vn/thumb/240_240/avatars/6/5/65df30e0c4787c0c26fe601c30b5df48_1509944158.jpg) no-repeat center;background-size: cover;" class="image mr-3 d-inline-block align-middle rounded-circle"></div>
-                <div class="content d-inline-block align-middle">
-                    <h5 class="text-white">Alice Holmes</h5>
-                    <p class="text-gray m-0">alice.holmes@lovely.com</p>
-                </div>
+                <a href="{{env('APP_URL')}}/user/{{Auth::user()->id}}"><div style="background: url(<?php echo Helpers::pathAvatar(Auth::user()->user_avatar, Auth::user()->id) ?>) no-repeat center;background-size: cover;" class="image mr-3 d-inline-block align-middle rounded-circle"></div>
+                    <div class="content d-inline-block align-middle">
+                        <h5 class="text-white">{{Auth::user()->name}}</h5>
+                        <p class="text-gray m-0">{{Auth::user()->email}}</p>
+                    </div></a>
             </div>
+            @endif
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <h2>Tài khoản</h2>
                 </li>
-                <li class="nav-item"><a href="#" class="nav-link dropdown-toggle"><img src="images/ic_menu_user.png" alt="user" class="icon"> Đăng nhập</a></li>
-                <li class="nav-item"><a href="#" class="nav-link dropdown-toggle"><img src="images/ic_menu_playlist.png" alt="playlist" class="icon"> Playlist</a></li>
-                <li class="nav-item"><a href="#" class="nav-link dropdown-toggle"><img src="images/ic_menu_clock.png" alt="playlist" class="icon"> Bài hát vừa nghe</a></li>
-                <li class="nav-item"><a href="#" class="nav-link dropdown-toggle"><img src="images/ic_menu_rating.png" alt="playlist" class="icon"> Bài hát yêu thích</a></li>
-            </ul>
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <h2>NHẠC OFFLINE</h2>
-                </li>
-                <li class="nav-item"><a href="#" class="nav-link dropdown-toggle"><img src="images/ic_menu_music_in_device.png" alt="playlist" class="icon"> Nhạc trong máy</a></li>
-                <li class="nav-item"><a href="#" class="nav-link dropdown-toggle"><img src="images/ic_menu_playlist.png" alt="playlist" class="icon"> Playlist</a></li>
-                <li class="nav-item"><a href="#" class="nav-link dropdown-toggle"><img src="images/ic_menu_downloading.png" alt="playlist" class="icon"> Đang tải</a></li>
+                @if(!Auth::check())
+                    <li class="nav-item"><a href="/login" class="nav-link dropdown-toggle"><img src="/images/ic_menu_user.png" alt="user" class="icon"> Đăng nhập</a></li>
+                @else
+                    <li class="nav-item"><a href="/logout" class="nav-link dropdown-toggle"><img src="/images/ic_menu_out.png" alt="user" class="icon"> Thoát</a></li>
+                    <li class="nav-item"><a href="/user/{{Auth::user()->id}}" class="nav-link dropdown-toggle"><img src="/images/ic_menu_playlist.png" alt="playlist" class="icon"> Playlist</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link dropdown-toggle"><img src="/images/ic_menu_clock.png" alt="playlist" class="icon"> Bài hát vừa nghe</a></li>
+                    <li class="nav-item"><a href="/user/{{Auth::user()->id}}/?tab=bai-hat" class="nav-link dropdown-toggle"><img src="/images/ic_menu_rating.png" alt="playlist" class="icon"> Bài hát yêu thích</a></li>
+                    <li class="nav-item"><a href="/user/{{Auth::user()->id}}/?tab=tu-nhac" class="nav-link dropdown-toggle"><img src="/images/CSN.png" alt="playlist" class="icon"> Tủ nhạc</a></li>
+                @endif
             </ul>
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <h2>NHẠC ONLINE</h2>
                 </li>
-                <li class="nav-item"><a href="#" class="nav-link dropdown-toggle"><img src="images/ic_menu_home.png" alt="playlist" class="icon"> Trang chủ</a></li>
-                <li class="nav-item"><a href="#" class="nav-link dropdown-toggle"><img src="images/ic_menu_bxh.png" alt="playlist" class="icon"> Bảng Xếp Hạng</a></li>
-                <li class="nav-item"><a href="#" class="nav-link dropdown-toggle"><img src="images/ic_menu_video_clip.png" alt="playlist" class="icon"> Video Clip</a></li>
-                <li class="nav-item"><a href="#" class="nav-link dropdown-toggle"><img src="images/ic_menu_music_active.png" alt="playlist" class="icon"> Việt Nam</a></li>
-                <li class="nav-item"><a href="#" class="nav-link dropdown-toggle"><img src="images/ic_menu_music_active.png" alt="playlist" class="icon"> US-UK</a></li>
-                <li class="nav-item"><a href="#" class="nav-link dropdown-toggle"><img src="images/ic_menu_music_active.png" alt="playlist" class="icon"> K-Pop</a></li>
-                <li class="nav-item"><a href="#" class="nav-link dropdown-toggle"><img src="images/ic_menu_music_active.png" alt="playlist" class="icon"> J-Pop</a></li>
-                <li class="nav-item"><a href="#" class="nav-link dropdown-toggle"><img src="images/ic_menu_music_active.png" alt="playlist" class="icon"> C-Pop</a></li>
-                <li class="nav-item"><a href="#" class="nav-link dropdown-toggle"><img src="images/ic_menu_music_active.png" alt="playlist" class="icon"> F-Pop</a></li>
-                <li class="nav-item"><a href="#" class="nav-link dropdown-toggle"><img src="images/ic_menu_music_active.png" alt="playlist" class="icon"> Nước khác</a></li>
-                <li class="nav-item"><a href="#" class="nav-link dropdown-toggle"><img src="images/ic_menu_other.png" alt="playlist" class="icon"> Playback</a></li>
+                <li class="nav-item"><a href="/" class="nav-link dropdown-toggle"><img src="/images/ic_menu_home.png" alt="playlist" class="icon"> Trang chủ</a></li>
+                <li class="nav-item"><a href="/nhac-hot.html?type=music" class="nav-link dropdown-toggle"><img src="/images/ic_menu_bxh.png" alt="playlist" class="icon"> Bảng Xếp Hạng Bài Hát</a></li>
+                <li class="nav-item"><a href="/nhac-hot.html?type=video" class="nav-link dropdown-toggle"><img src="/images/ic_menu_bxh.png" alt="playlist" class="icon"> Bảng Xếp Hạng Video</a></li>
+                <li class="nav-item"><a href="/mp3/vietnam.html" class="nav-link dropdown-toggle"><img src="/images/ic_menu_music_active.png" alt="playlist" class="icon"> Việt Nam</a></li>
+                <li class="nav-item"><a href="/mp3/us-uk.html" class="nav-link dropdown-toggle"><img src="/images/ic_menu_music_active.png" alt="playlist" class="icon"> US-UK</a></li>
+                <li class="nav-item"><a href="/mp3/korea.html" class="nav-link dropdown-toggle"><img src="/images/ic_menu_music_active.png" alt="playlist" class="icon"> K-Pop</a></li>
+                <li class="nav-item"><a href="/mp3/japan.html" class="nav-link dropdown-toggle"><img src="/images/ic_menu_music_active.png" alt="playlist" class="icon"> J-Pop</a></li>
+                <li class="nav-item"><a href="/mp3/chinese.html" class="nav-link dropdown-toggle"><img src="/images/ic_menu_music_active.png" alt="playlist" class="icon"> C-Pop</a></li>
+                <li class="nav-item"><a href="/mp3/france.html" class="nav-link dropdown-toggle"><img src="/images/ic_menu_music_active.png" alt="playlist" class="icon"> F-Pop</a></li>
+                <li class="nav-item"><a href="/mp3/other.html" class="nav-link dropdown-toggle"><img src="/images/ic_menu_music_active.png" alt="playlist" class="icon"> Nước khác</a></li>
+                <li class="nav-item"><a href="/mp3/beat-playback.html" class="nav-link dropdown-toggle"><img src="/images/ic_menu_other.png" alt="playlist" class="icon"> Playback</a></li>
             </ul>
         </div>
     </div>
@@ -166,35 +165,8 @@ use App\Library\Helpers;
     </div>
 </sectiton>
 <footer>
-    <div class="player_fixed p-2 d-flex flex-row border-top">
-        <div style="background: url('https://avatar-nct.nixcdn.com/mv/2017/01/16/d/7/6/3/1484535771754_268.jpg') no-repeat center;background-size: cover;" class="image rounded mr-2">
-            <div class="icon d-flex flex-column justify-content-center text-center">
-                <!--
-                <div class="icon_play">
-                <i class="fa fa-play" aria-hidden="true"></i>
-                </div>
-                -->
-            </div>
-        </div>
-        <div class="text">
-            <h6 class="name_song mb-1">Trái tim mùa đông</h6>
-            <p class="name_singer text-gray mb-1">Camila Cabello ft Young Thug</p>
-            <!-- <p class="size text-gray m-0">128kbps</p>-->
-        </div>
-        <div class="next_prev ml-auto d-flex flex-column justify-content-center">
-            <div class="next_prev_wrap">
-                <!--
-                <i class="fa fa-backward" aria-hidden="true"></i>
-                <i class="fa fa-play mx-2" aria-hidden="true"></i>
-                <i class="fa fa-forward" aria-hidden="true"></i>
-                --><span class="prev"><img src="images/img_prev_mp3_bottom.png" height="20" alt="prev"></span><span class="play"><img src="images/img_play_mp3_bottom_black.png" height="24" alt="play"></span><span class="next"><img src="images/img_next_mp3_bottom.png" height="20" alt="next"></span>
-            </div>
-        </div>
-    </div>
+
 </footer>
-
-
-<script src="/mobile/assets/js/jquery-3.3.1.min.js"></script>
 <script src="/mobile/assets/js/bootstrap.min.js"></script>
 <script src="/mobile/assets/js/owl.carousel.min.js"></script>
 <script src="/mobile/assets/js/swiper.jquery.min.js"></script>
