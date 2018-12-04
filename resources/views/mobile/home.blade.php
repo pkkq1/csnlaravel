@@ -199,7 +199,7 @@ global $album_cat_new;
                                         <div class="element">
                                             <a href="{{$url}}"><div class="image" style="background: url({{Helpers::thumbnail_url($item)}}) no-repeat center;background-size: cover">
                                                     <p class="view text-white mb-0 px-2 py-1"><img src="/mobile/assets/images/img_camera.png" width="16" /> <?php echo Helpers::numberShorten($item['music_listen']) ?></p>
-                                                    <p class="time text-white mb-0 px-2 py-1"><img src="/mobile/assets/images/icon/ic_menu_clock.png" width="14" /> {{$item['music_length'] >= 3600 ? gmdate("H:i:s", $item['music_length']) : gmdate("i:s", $item['music_length'])}}</p>
+                                                    <p class="time text-white mb-0 px-2 py-1"><img src="/mobile/assets/images/ic_menu_clock.png" width="14" /> {{$item['music_length'] >= 3600 ? gmdate("H:i:s", $item['music_length']) : gmdate("i:s", $item['music_length'])}}</p>
                                                 </div></a>
                                             <div class="content mt-3">
                                                 <a href="{{$url}}"><h6 class="name_song mb-1 card-title">{{$item['music_title']}}</h6></a>
