@@ -6,7 +6,7 @@ $titleMeta = $category->cat_title . ' - '. Config::get('constants.app.title');
 @section('content')
     <div class="header">
         <div class="header_top">
-            <nav class="navbar navbar-expand-lg navbar-dark flex-row-reverse"><a href="#" class="navbar-brand text-white button_search"><i aria-hidden="true" class="fa fa-search"></i></a><a href="#" class="navbar-brand logo"><img src="/images/logo-header.png" alt="logo"></a>
+            <nav class="navbar navbar-expand-lg navbar-dark flex-row-reverse"><a href="#" class="navbar-brand text-white button_search"><i aria-hidden="true" class="fa fa-search"></i></a><a href="/" class="navbar-brand logo"><img src="/images/logo-header.png" alt="logo"></a>
                 <button type="button" class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
             </nav>
         </div>
@@ -28,42 +28,42 @@ $titleMeta = $category->cat_title . ' - '. Config::get('constants.app.title');
             </div>
         </div>
     </div>
-    <div class="main">
+    <main class="main">
         <div class="sidebar_top">
             <!-- swiper2-->
             <div class="swiper-container swiper2">
                 <div class="swiper-wrapper">
                     @if($category->cat_id != CATEGORY_ID_VIDEO)
-                    <div class="swiper-slide block_baihat_main block_more" data-tab="album-{{CURRENT_YEAR}}">
-                        <div class="container">
-                            <div class="block block_baihat">
-                                <div class="block_baihat_main block_more" id="album-{{CURRENT_YEAR}}">
-                                    <?php echo $firstTab ?>
+                        <div class="swiper-slide block_baihat_main block_more" data-tab="album-{{CURRENT_YEAR}}">
+                            <div class="container">
+                                <div class="block block_baihat">
+                                    <div class="block_baihat_main block_more" id="album-{{CURRENT_YEAR}}">
+                                        <?php echo $firstTab ?>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="swiper-slide block_baihat_main block_more" data-tab="album-moi">
-                        <div class="container">
-                            <div class="block block_baihat">
-                                <div class="block_baihat_main block_more" id="album-moi"></div>
+                        <div class="swiper-slide block_baihat_main block_more" data-tab="album-moi">
+                            <div class="container">
+                                <div class="block block_baihat">
+                                    <div class="block_baihat_main block_more" id="album-moi"></div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="swiper-slide block_baihat_main block_more" data-tab="bai-hat-moi">
-                        <div class="container">
-                            <div class="block block_baihat">
-                                <div class="block_baihat_main block_more" id="bai-hat-moi"></div>
+                        <div class="swiper-slide block_baihat_main block_more" data-tab="bai-hat-moi">
+                            <div class="container">
+                                <div class="block block_baihat">
+                                    <div class="block_baihat_main block_more" id="bai-hat-moi"></div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="swiper-slide block_baihat_main block_more" data-tab="vua-download">
-                        <div class="container">
-                            <div class="block block_baihat">
-                                <div class="block_baihat_main block_more" id="vua-download"></div>
+                        <div class="swiper-slide block_baihat_main block_more" data-tab="vua-download">
+                            <div class="container">
+                                <div class="block block_baihat">
+                                    <div class="block_baihat_main block_more" id="vua-download"></div>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     @else
                         <div class="swiper-slide block_baihat_main block_more" data-tab="video-{{CURRENT_YEAR}}">
                             <div class="container">
@@ -92,13 +92,17 @@ $titleMeta = $category->cat_title . ' - '. Config::get('constants.app.title');
                 </div>
             </div>
         </div>
-    </div>
+    </main>
 @endsection
 @section('contentJS')
     <script>
-        $('#album_<?php echo CURRENT_YEAR ?>').find('.pagination li a').on('click', function (e) {
+        $('#album-<?php echo CURRENT_YEAR ?>').find('.pagination li a').on('click', function (e) {
             e.preventDefault();
-            categoryTab($(this).attr('href'), 'album_<?php echo CURRENT_YEAR ?>', true);
+            categoryTab($(this).attr('href'), 'album-<?php echo CURRENT_YEAR ?>', true);
+        });
+        $('#video-<?php echo CURRENT_YEAR ?>').find('.pagination li a').on('click', function (e) {
+            e.preventDefault();
+            categoryTab($(this).attr('href'), 'video-<?php echo CURRENT_YEAR ?>', true);
         });
         function slideSwiperChange(swiper){
             let tabSelected = $('.swiper2').find('.swiper-slide-active');

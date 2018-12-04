@@ -6,31 +6,13 @@ use App\Library\Helpers;
 @section('content')
 <div class="header">
     <div class="header_top">
-        <nav class="navbar navbar-expand-lg navbar-dark flex-row-reverse"><a href="#" class="navbar-brand text-white button_search"><i aria-hidden="true" class="fa fa-search"></i></a><a href="#" class="navbar-brand logo"><img src="images/logo-header.png" alt="logo"></a>
+        <nav class="navbar navbar-expand-lg navbar-dark flex-row-reverse"><a href="#" class="navbar-brand text-white button_search"><i aria-hidden="true" class="fa fa-search"></i></a><a href="/" class="navbar-brand logo"><img src="/images/logo-header.png" alt="logo"></a>
             <button type="button" class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
         </nav>
     </div>
 </div>
 <main class="main main-no-swiper main-account">
     <div class="block_login">
-        <div class="block_login_image d-flex flex-row flex-wrap">
-            <div style="background: url('https://avatar-nct.nixcdn.com/mv/2018/04/03/5/c/9/d/1522735856670_268.jpg') no-repeat center;background-size: cover;" class="image"></div>
-            <div style="background: url('https://avatar-nct.nixcdn.com/mv/2018/04/03/5/c/9/d/1522735856670_268.jpg') no-repeat center;background-size: cover;" class="image"></div>
-            <div style="background: url('https://avatar-nct.nixcdn.com/mv/2018/04/03/5/c/9/d/1522735856670_268.jpg') no-repeat center;background-size: cover;" class="image"></div>
-            <div style="background: url('https://avatar-nct.nixcdn.com/mv/2018/04/03/5/c/9/d/1522735856670_268.jpg') no-repeat center;background-size: cover;" class="image"></div>
-            <div style="background: url('https://avatar-nct.nixcdn.com/mv/2018/04/03/5/c/9/d/1522735856670_268.jpg') no-repeat center;background-size: cover;" class="image"></div>
-            <div style="background: url('https://avatar-nct.nixcdn.com/mv/2018/04/03/5/c/9/d/1522735856670_268.jpg') no-repeat center;background-size: cover;" class="image"></div>
-            <div style="background: url('https://avatar-nct.nixcdn.com/mv/2018/04/03/5/c/9/d/1522735856670_268.jpg') no-repeat center;background-size: cover;" class="image"></div>
-            <div style="background: url('https://avatar-nct.nixcdn.com/mv/2018/04/03/5/c/9/d/1522735856670_268.jpg') no-repeat center;background-size: cover;" class="image"></div>
-            <div style="background: url('https://avatar-nct.nixcdn.com/mv/2018/04/03/5/c/9/d/1522735856670_268.jpg') no-repeat center;background-size: cover;" class="image"></div>
-            <div style="background: url('https://avatar-nct.nixcdn.com/mv/2018/04/03/5/c/9/d/1522735856670_268.jpg') no-repeat center;background-size: cover;" class="image"></div>
-            <div style="background: url('https://avatar-nct.nixcdn.com/mv/2018/04/03/5/c/9/d/1522735856670_268.jpg') no-repeat center;background-size: cover;" class="image"></div>
-            <div style="background: url('https://avatar-nct.nixcdn.com/mv/2018/04/03/5/c/9/d/1522735856670_268.jpg') no-repeat center;background-size: cover;" class="image"></div>
-            <div style="background: url('https://avatar-nct.nixcdn.com/mv/2018/04/03/5/c/9/d/1522735856670_268.jpg') no-repeat center;background-size: cover;" class="image"></div>
-            <div style="background: url('https://avatar-nct.nixcdn.com/mv/2018/04/03/5/c/9/d/1522735856670_268.jpg') no-repeat center;background-size: cover;" class="image"></div>
-            <div style="background: url('https://avatar-nct.nixcdn.com/mv/2018/04/03/5/c/9/d/1522735856670_268.jpg') no-repeat center;background-size: cover;" class="image"></div>
-            <div class="thumb-mask media align-items-stretch"></div>
-        </div>
         <div class="login_possition d-flex flex-column justify-content-center">
             <div class="w-304 mx-auto text-center mb-5">
                 <input type="text" placeholder="Tên đăng nhập hoặc email" class="input_type_mobile login_button mb-3 email">
@@ -46,15 +28,16 @@ use App\Library\Helpers;
                         <div class="col-6 text-left"><a href="/password/reset">Quên mật khẩu?</a></div>
                     </div>
                 </div><br>
+                <p style="width: 100%" class="text-p"> </p>
                 <p style="color: white; text-align: center;display: flow-root;width: 100%" class="text-p">Bạn chưa có tài khoản? <a href="/register" style="margin-right: 15px;color: #FF2D55;display: flow-root;">Đăng ký</a></p>
             </div>
-            <div class="w-304 mx-auto text-center"><a href="/auth/facebook" class="login_button facebook mb-3">Đăng nhập bằng Facebook</a>
-                <a href="/auth/google" class="login_button google text-gray">Đăng nhập bằng Google</a>
+            <div class="w-304 mx-auto text-center">
+                <a href="/auth/facebook" class="login_button facebook mb-3">Facebook</a>
+                <a href="/auth/google" class="login_button google text-gray btn-gradien">Google</a>
             </div>
         </div>
     </div>
 </main>
-
 @endsection
 @section('contentJS')
     <script>

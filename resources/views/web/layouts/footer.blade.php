@@ -644,10 +644,10 @@
             <div class="col-3">
                 <div class="text-right">
                     <ul class="list-inline m-0 social_f">
-   <li class="list-inline-item"><a href="#" title=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-   <li class="list-inline-item"><a href="#" title=""><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
-   <li class="list-inline-item"><a href="#" title=""><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-   <li class="list-inline-item"><a href="#" title=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                        <li class="list-inline-item"><a href="https://www.facebook.com/chiasenhac/" title=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        {{--<li class="list-inline-item"><a href="#" title=""><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>--}}
+                        {{--<li class="list-inline-item"><a href="#" title=""><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>--}}
+                        {{--<li class="list-inline-item"><a href="#" title=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>--}}
                     </ul>
                 </div>
             </div>

@@ -72,13 +72,13 @@ $titleMeta = $category->cat_title . ' - '. Config::get('constants.app.title');
             new CBPFWTabs( el );
         });
     })();
-    $('#album_<?php echo CURRENT_YEAR ?>').find('.pagination li a').on('click', function (e) {
+    $('#album-<?php echo CURRENT_YEAR ?>').find('.pagination li a').on('click', function (e) {
         e.preventDefault();
-        categoryTab($(this).attr('href'), 'album_<?php echo CURRENT_YEAR ?>', true);
+        categoryTab($(this).attr('href'), 'album-<?php echo CURRENT_YEAR ?>', true);
     });
-    $('#video_<?php echo CURRENT_YEAR ?>').find('.pagination li a').on('click', function (e) {
+    $('#video-<?php echo CURRENT_YEAR ?>').find('.pagination li a').on('click', function (e) {
         e.preventDefault();
-        categoryTab($(this).attr('href'), 'video_<?php echo CURRENT_YEAR ?>', true);
+        categoryTab($(this).attr('href'), 'video-<?php echo CURRENT_YEAR ?>', true);
     });
     function categoryTab(url, tab, floatTab = false) {
         if(($('#'+tab).html()).length == 0 || floatTab) {
