@@ -379,7 +379,6 @@ a.navbar-brand.logo {
     color: rgba(255, 255, 255, .8);
     font-size: 1rem;
     line-height: 1;
-    font-family:
 }
 
 .menumain .navbar-nav .nav-link .fa {
@@ -654,18 +653,6 @@ a.navbar-brand.logo {
     -webkit-filter: blur(8px);
 }
 
-.main_player:after {
-    content: "";
-    width: 40%;
-    position: fixed;
-    left: 30%;
-    bottom: 10px;
-    height: 5px;
-    background: #000000;
-    border-radius: 100px;
-    z-index: 2;
-}
-
 .block_playlist_list_element .number {
     line-height: 2;
 }
@@ -867,7 +854,7 @@ a.navbar-brand.logo {
 .select-quality label>strong:after {
     content: "";
     position: absolute;
-    top: 50;
+    top: 50px;
     left: 0;
 }
 

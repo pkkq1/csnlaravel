@@ -51,114 +51,130 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                                 <p class="text-gray m-0">{{number_format($music->music_listen)}} lượt nghe</p>
                             </div>
                             <div class="block_button d-flex justify-content-between">
-                                <div class="element"><img src="/images/img_like_black.png" alt="yeu thich"></div>
-                                <div class="element"><img src="/images/img_share_mp3.png" alt="chia se" class="icon"></div>
-                                <div class="element"><img src="/images/img_download.png" alt="tai ve" class="icon"></div>
+                                <div class="element ele-playlist"><img src="/images/img_like_black.png" alt="yeu thich" class="icon"></div>
+                                <div class="element ele-playlist"><img src="/images/img_share_mp3.png" alt="chia se" class="icon"></div>
+                                <div class="element ele-download"><img src="/images/img_download.png" alt="tai ve" class="icon"></div>
                             </div>
                         </div>
                         <!-- swiper1-->
                         <div data-itemmenu="4" class="swiper-container swiper1">
                             <div class="swiper-wrapper">
                                 <?php
+                                    $sugSeleced = true;
                                     if(($musicSet['type_listen'] == 'playlist' || $musicSet['type_listen'] == 'album') && !empty($musicSet['playlist_music'])){
+                                        $sugSeleced = false;
                                         ?>
                                         <div class="swiper-slide selected"><span class="d-inline-block align-middle">Playlist</span></div>
                                         <?php
                                     }else{
+                                        if($music->music_lyric) {
+                                        $sugSeleced = false;
                                         ?>
-                                        <div class="swiper-slide selected"><span class="d-inline-block align-middle">Lyric</span></div>
+                                            <div class="swiper-slide selected"><span class="d-inline-block align-middle">Lyric</span></div>
                                         <?php
+                                        }
+
                                     }
                                 ?>
-                                <div class="swiper-slide"><a class="d-inline-block align-middle">Gợi ý</a></div>
+                                <div class="swiper-slide {{$sugSeleced ? 'selected' : ''}}"><a class="d-inline-block align-middle">Gợi ý</a></div>
                                 @if($MusicSameArtist)
                                     <div class="swiper-slide"><a class="d-inline-block align-middle">Cùng ca cĩ</a></div>
                                 @endif
                                 @if($VideoSameArtist)
                                     <div class="swiper-slide"><a class="d-inline-block align-middle">Video cùng ca cĩ</a></div>
                                 @endif
-                                <div onclick="firstLoadComment();" class="swiper-slide"><span class="d-inline-block align-middle">Bình luận</span></div>
                             </div>
                         </div>
                         <!-- swiper2-->
                         <div class="swiper-container swiper2">
                             <div class="swiper-wrapper">
                                 <?php
-                                    if(($musicSet['type_listen'] == 'playlist' || $musicSet['type_listen'] == 'album') && !empty($musicSet['playlist_music'])){
-                                        ?>
-                                        <div class="swiper-slide">
-                                        <div class="container">
-                                            <div class="block block_player">
-                                                <div class="block_baihat_main block_more">
-                                                    <div class="element mb-2">
-                                                        <div style="background : url('https://zmp3-photo.zadn.vn/thumb/240_240/cover/d/5/a/b/d5ab15666207be0eafa55757ce67dad8.jpg') no-repeat center;background-size: cover;" class="image image100px mr-2 d-inline-block align-middle"></div>
-                                                        <div class="content d-inline-block align-middle">
-                                                            <h6 class="name_song text-black mb-1">Trong trí nhớ của anh</h6>
-                                                            <p class="name_singer text-gray mb-1">Hạnh Sino</p>
-                                                            <p class="loss text-pink mb-0">Lossless</p><img src="/images/img_dot_gray.png" class="icon">
-                                                        </div>
+                                if(($musicSet['type_listen'] == 'playlist' || $musicSet['type_listen'] == 'album') && !empty($musicSet['playlist_music'])){
+                                    ?>
+                                    <div class="swiper-slide">
+                                    <div class="container">
+                                        <div class="block block_player">
+                                            <div class="block_baihat_main block_more">
+                                                <div class="element mb-2">
+                                                    <div style="background : url('https://zmp3-photo.zadn.vn/thumb/240_240/cover/d/5/a/b/d5ab15666207be0eafa55757ce67dad8.jpg') no-repeat center;background-size: cover;" class="image image100px mr-2 d-inline-block align-middle"></div>
+                                                    <div class="content d-inline-block align-middle">
+                                                        <h6 class="name_song text-black mb-1">Trong trí nhớ của anh</h6>
+                                                        <p class="name_singer text-gray mb-1">Hạnh Sino</p>
+                                                        <p class="loss text-pink mb-0">Lossless</p><img src="/images/img_dot_gray.png" class="icon">
                                                     </div>
-                                                    <div class="element mb-2">
-                                                        <div style="background : url('https://zmp3-photo.zadn.vn/thumb/240_240/cover/d/5/a/b/d5ab15666207be0eafa55757ce67dad8.jpg') no-repeat center;background-size: cover;" class="image image100px mr-2 d-inline-block align-middle"></div>
-                                                        <div class="content d-inline-block align-middle">
-                                                            <h6 class="name_song text-black mb-1">Trong trí nhớ của anh</h6>
-                                                            <p class="name_singer text-gray mb-1">Hạnh Sino</p>
-                                                            <p class="loss text-pink mb-0">Lossless</p><img src="/images/img_dot_gray.png" class="icon">
-                                                        </div>
+                                                </div>
+                                                <div class="element mb-2">
+                                                    <div style="background : url('https://zmp3-photo.zadn.vn/thumb/240_240/cover/d/5/a/b/d5ab15666207be0eafa55757ce67dad8.jpg') no-repeat center;background-size: cover;" class="image image100px mr-2 d-inline-block align-middle"></div>
+                                                    <div class="content d-inline-block align-middle">
+                                                        <h6 class="name_song text-black mb-1">Trong trí nhớ của anh</h6>
+                                                        <p class="name_singer text-gray mb-1">Hạnh Sino</p>
+                                                        <p class="loss text-pink mb-0">Lossless</p><img src="/images/img_dot_gray.png" class="icon">
                                                     </div>
-                                                    <div class="element mb-2">
-                                                        <div style="background : url('https://zmp3-photo.zadn.vn/thumb/240_240/cover/d/5/a/b/d5ab15666207be0eafa55757ce67dad8.jpg') no-repeat center;background-size: cover;" class="image image100px mr-2 d-inline-block align-middle"></div>
-                                                        <div class="content d-inline-block align-middle">
-                                                            <h6 class="name_song text-black mb-1">Trong trí nhớ của anh</h6>
-                                                            <p class="name_singer text-gray mb-1">Hạnh Sino</p>
-                                                            <p class="loss text-pink mb-0">Lossless</p><img src="/images/img_dot_gray.png" class="icon">
-                                                        </div>
+                                                </div>
+                                                <div class="element mb-2">
+                                                    <div style="background : url('https://zmp3-photo.zadn.vn/thumb/240_240/cover/d/5/a/b/d5ab15666207be0eafa55757ce67dad8.jpg') no-repeat center;background-size: cover;" class="image image100px mr-2 d-inline-block align-middle"></div>
+                                                    <div class="content d-inline-block align-middle">
+                                                        <h6 class="name_song text-black mb-1">Trong trí nhớ của anh</h6>
+                                                        <p class="name_singer text-gray mb-1">Hạnh Sino</p>
+                                                        <p class="loss text-pink mb-0">Lossless</p><img src="/images/img_dot_gray.png" class="icon">
                                                     </div>
-                                                    <div class="element mb-2">
-                                                        <div style="background : url('https://zmp3-photo.zadn.vn/thumb/240_240/cover/d/5/a/b/d5ab15666207be0eafa55757ce67dad8.jpg') no-repeat center;background-size: cover;" class="image image100px mr-2 d-inline-block align-middle"></div>
-                                                        <div class="content d-inline-block align-middle">
-                                                            <h6 class="name_song text-black mb-1">Trong trí nhớ của anh</h6>
-                                                            <p class="name_singer text-gray mb-1">Hạnh Sino</p>
-                                                            <p class="loss text-pink mb-0">Lossless</p><img src="/images/img_dot_gray.png" class="icon">
-                                                        </div>
+                                                </div>
+                                                <div class="element mb-2">
+                                                    <div style="background : url('https://zmp3-photo.zadn.vn/thumb/240_240/cover/d/5/a/b/d5ab15666207be0eafa55757ce67dad8.jpg') no-repeat center;background-size: cover;" class="image image100px mr-2 d-inline-block align-middle"></div>
+                                                    <div class="content d-inline-block align-middle">
+                                                        <h6 class="name_song text-black mb-1">Trong trí nhớ của anh</h6>
+                                                        <p class="name_singer text-gray mb-1">Hạnh Sino</p>
+                                                        <p class="loss text-pink mb-0">Lossless</p><img src="/images/img_dot_gray.png" class="icon">
                                                     </div>
-                                                    <div class="element mb-2">
-                                                        <div style="background : url('https://zmp3-photo.zadn.vn/thumb/240_240/cover/d/5/a/b/d5ab15666207be0eafa55757ce67dad8.jpg') no-repeat center;background-size: cover;" class="image image100px mr-2 d-inline-block align-middle"></div>
-                                                        <div class="content d-inline-block align-middle">
-                                                            <h6 class="name_song text-black mb-1">Trong trí nhớ của anh</h6>
-                                                            <p class="name_singer text-gray mb-1">Hạnh Sino</p>
-                                                            <p class="loss text-pink mb-0">Lossless</p><img src="/images/img_dot_gray.png" class="icon">
-                                                        </div>
+                                                </div>
+                                                <div class="element mb-2">
+                                                    <div style="background : url('https://zmp3-photo.zadn.vn/thumb/240_240/cover/d/5/a/b/d5ab15666207be0eafa55757ce67dad8.jpg') no-repeat center;background-size: cover;" class="image image100px mr-2 d-inline-block align-middle"></div>
+                                                    <div class="content d-inline-block align-middle">
+                                                        <h6 class="name_song text-black mb-1">Trong trí nhớ của anh</h6>
+                                                        <p class="name_singer text-gray mb-1">Hạnh Sino</p>
+                                                        <p class="loss text-pink mb-0">Lossless</p><img src="/images/img_dot_gray.png" class="icon">
                                                     </div>
-                                                    <div class="element mb-2">
-                                                        <div style="background : url('https://zmp3-photo.zadn.vn/thumb/240_240/cover/d/5/a/b/d5ab15666207be0eafa55757ce67dad8.jpg') no-repeat center;background-size: cover;" class="image image100px mr-2 d-inline-block align-middle"></div>
-                                                        <div class="content d-inline-block align-middle">
-                                                            <h6 class="name_song text-black mb-1">Trong trí nhớ của anh</h6>
-                                                            <p class="name_singer text-gray mb-1">Hạnh Sino</p>
-                                                            <p class="loss text-pink mb-0">Lossless</p><img src="/images/img_dot_gray.png" class="icon">
-                                                        </div>
+                                                </div>
+                                                <div class="element mb-2">
+                                                    <div style="background : url('https://zmp3-photo.zadn.vn/thumb/240_240/cover/d/5/a/b/d5ab15666207be0eafa55757ce67dad8.jpg') no-repeat center;background-size: cover;" class="image image100px mr-2 d-inline-block align-middle"></div>
+                                                    <div class="content d-inline-block align-middle">
+                                                        <h6 class="name_song text-black mb-1">Trong trí nhớ của anh</h6>
+                                                        <p class="name_singer text-gray mb-1">Hạnh Sino</p>
+                                                        <p class="loss text-pink mb-0">Lossless</p><img src="/images/img_dot_gray.png" class="icon">
                                                     </div>
-                                                    <div class="element mb-2">
-                                                        <div style="background : url('https://zmp3-photo.zadn.vn/thumb/240_240/cover/d/5/a/b/d5ab15666207be0eafa55757ce67dad8.jpg') no-repeat center;background-size: cover;" class="image image100px mr-2 d-inline-block align-middle"></div>
-                                                        <div class="content d-inline-block align-middle">
-                                                            <h6 class="name_song text-black mb-1">Trong trí nhớ của anh</h6>
-                                                            <p class="name_singer text-gray mb-1">Hạnh Sino</p>
-                                                            <p class="loss text-pink mb-0">Lossless</p><img src="/images/img_dot_gray.png" class="icon">
-                                                        </div>
+                                                </div>
+                                                <div class="element mb-2">
+                                                    <div style="background : url('https://zmp3-photo.zadn.vn/thumb/240_240/cover/d/5/a/b/d5ab15666207be0eafa55757ce67dad8.jpg') no-repeat center;background-size: cover;" class="image image100px mr-2 d-inline-block align-middle"></div>
+                                                    <div class="content d-inline-block align-middle">
+                                                        <h6 class="name_song text-black mb-1">Trong trí nhớ của anh</h6>
+                                                        <p class="name_singer text-gray mb-1">Hạnh Sino</p>
+                                                        <p class="loss text-pink mb-0">Lossless</p><img src="/images/img_dot_gray.png" class="icon">
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                        <?php
-                                    }else{
+                                </div>
+                                    <?php
+                                }else{
+                                    if($music->music_lyric) {
                                         ?>
                                         <div class="swiper-slide">
-                                            <div class="text-song text-gray p-3">Produced by Rhymastic <br>© SpaceSpeakers 2017<br><br>[Verse 1]
-                                                Xin những bối rối này cứ thế lên ngôi <br>Xin con tim rẽ lối tìm giây phút nghẹn lời<br>Chạm nhau mang theo gọi mời<br><br>Xin cho ta tan vào những đắm đuối miên man<br>Khi em ghé ngang đời chợt mang sắc hương thiên đàng <br>Và cho những ấm áp lại đến lấp kín nhân gian<br>Ngày ta yên vui cùng nàng<br><br>
+                                            <div class="text-song text-gray p-3">
+                                                @if(isset($lyric_array['sub']) && $lyric_array['sub'] != false)
+                                                    <div class="nav-link form-group form-check mb-0 autoplay" style="padding-left: 0px;">
+                                                        <input type="checkbox" class="form-check-input display-sub" id="display-sub" onclick="display_sub()">
+                                                        <label class="form-check-label d-flex align-items-center" for="display-sub">
+                                                            <span class="switch"><span class="switch-inner"></span></span>
+                                                            <span style="font-size: 15px; color: #4b4b4b; font-family: 'SFProDisplay-Medium'; margin-left: 10px" class="txt">Hiển Thị Sub</span>
+                                                        </label>
+                                                    </div>
+                                                @endif
+                                                <?php echo $lyric_array['lyric'] ?>
                                             </div>
                                         </div>
                                         <?php
+                                    }
                                 }
                                 ?>
                                 <div class="swiper-slide">
@@ -298,103 +314,27 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                                         </div>
                                     </div>
                                 @endif
-                                <div class="swiper-slide">
-                                    <div class="container">
-                                        <div class="block block_comment">
-                                            <div class="block_header d-flex flex-row justify-content-between mb-2">
-                                                <h3 class="main_title text-pink mb-0">Bình luận của bạn</h3><?php echo $music->music_comment ? '<span class="text-gray align-self-end">'.number_format($music->music_comment).' bình luận</span>' : '' ?>
-                                            </div>
-                                            <div class="block_body_comment">
-                                                <div class="block_form_comment">
-                                                    <form id="form_comment box_form_comment">
-                                                        <div class="form-group">
-                                                            <textarea rows="3"  name="comment" placeholder="Viết bình luận tại đây..." class="form-control comment"></textarea>
-                                                            <input type="hidden" class="music_id" name="music_id" value="{{ $music->music_id }}">
-                                                        </div>
-                                                        <div class="form-group text-right">
-                                                            <button onclick="postComment(0)" type="submit" class="btn btn-secondary btn-gradien btn-radius send-comment"><span>Đăng Bình Luận</span></button>
-                                                        </div>
-                                                    </form>
+                            </div>
+                            <div class="p-3">
+                                <div class="block block_comment">
+                                    <div class="block_header d-flex flex-row justify-content-between mb-2 music_comment">
+                                        <h3 class="main_title text-pink mb-0">Bình luận của bạn</h3><?php echo $music->music_comment ? '<span class="text-gray align-self-end"><span class="number_comment">'.number_format($music->music_comment).'</span> bình luận</span>' : '' ?>
+                                    </div>
+
+                                    <div class="block_body_comment">
+                                        <div class="block_form_comment">
+                                            <form id="form_comment" class="form-comment-0 box_form_comment">
+                                                <div class="form-group">
+                                                    <textarea rows="3"  name="comment" placeholder="Viết bình luận tại đây..." class="form-control comment"></textarea>
+                                                    <input type="hidden" class="music_id" name="music_id" value="{{ $music->music_id }}">
                                                 </div>
-                                                <div class="block_all_comment list_comment_list_body">
-                                                    <div class="area_comment d-flex">
-                                                        <div align="top" class="avatar user_comment py-2"><img src="https://graph.facebook.com/v3.0/1928096143946677/picture?width=1920" alt=""></div>
-                                                        <div class="content_comment text-left pl-2 py-2">
-                                                            <div class="item position_relative">
-                                                                <div class="body_comment">
-                                                                    <div class="infor"><strong class="author">Quang vinh</strong><span class="text-gray">at</span>
-                                                                        <time>00:02</time>
-                                                                    </div>
-                                                                    <div class="detail">
-                                                                        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                                                                    </div>
-                                                                    <div class="data_time text-gray text-right"><span>3 ngày trước</span></div>
-                                                                </div>
-                                                                <div class="block_form_comment"><a href="" class="reply_comment">Trả lời</a>
-                                                                    <form class="form_reply_comment">
-                                                                        <div class="form-group mb-2">
-                                                                            <textarea rows="1" placeholder="Viết bình luận tại đây..." class="form-control p-2"></textarea>
-                                                                        </div>
-                                                                        <div class="form-group text-left m-0">
-                                                                            <button type="submit" class="btn btn-secondary btn-gradien btn-radius send-comment"><span>Gửi</span></button>
-                                                                        </div>
-                                                                    </form>
-                                                                </div>
-                                                                <div class="post_comment_reply">
-                                                                    <div class="area_comment_reply d-flex">
-                                                                        <div align="top" class="avatar user_comment py-2"><img src="https://graph.facebook.com/v3.0/1928096143946677/picture?width=1920" alt=""></div>
-                                                                        <div class="content_comment text-left pl-2 py-2">
-                                                                            <div class="item position_relative">
-                                                                                <div class="body_comment">
-                                                                                    <div class="infor"><strong class="author">Quang vinh</strong><span class="text-gray">at</span>
-                                                                                        <time>00:02</time>
-                                                                                    </div>
-                                                                                    <div class="detail">
-                                                                                        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                                                                                    </div>
-                                                                                    <div class="data_time text-gray text-left"><span>3 ngày trước</span></div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="area_comment_reply d-flex">
-                                                                        <div align="top" class="avatar user_comment py-2"><img src="https://graph.facebook.com/v3.0/1928096143946677/picture?width=1920" alt=""></div>
-                                                                        <div class="content_comment text-left pl-2 py-2">
-                                                                            <div class="item position_relative">
-                                                                                <div class="body_comment">
-                                                                                    <div class="infor"><strong class="author">Quang vinh</strong><span class="text-gray">at</span>
-                                                                                        <time>00:02</time>
-                                                                                    </div>
-                                                                                    <div class="detail">
-                                                                                        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                                                                                    </div>
-                                                                                    <div class="data_time text-gray text-right"><span>3 ngày trước</span></div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="area_comment_reply d-flex">
-                                                                        <div align="top" class="avatar user_comment py-2"><img src="https://graph.facebook.com/v3.0/1928096143946677/picture?width=1920" alt=""></div>
-                                                                        <div class="content_comment text-left pl-2 py-2">
-                                                                            <div class="item position_relative">
-                                                                                <div class="body_comment">
-                                                                                    <div class="infor"><strong class="author">Quang vinh</strong><span class="text-gray">at</span>
-                                                                                        <time>00:02</time>
-                                                                                    </div>
-                                                                                    <div class="detail">
-                                                                                        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                                                                                    </div>
-                                                                                    <div class="data_time text-gray text-right"><span>3 ngày trước</span></div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                <div class="form-group text-right">
+                                                    <button onclick="postComment(0)" type="submit" class="btn btn-secondary btn-gradien btn-radius send-comment"><span>Đăng Bình Luận</span></button>
                                                 </div>
-                                            </div>
+                                            </form>
+                                        </div>
+                                        <div class="block_all_comment list_comment_list_body">
+
                                         </div>
                                     </div>
                                 </div>
@@ -407,29 +347,65 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
     </main>
 @endsection
 @section('popupMusic')
-<div class="popup">
+<section class="popup">
     <div class="wrap-bottom-sheet"></div>
-    <div class="bottom-sheet text-center">
+    <div class="bottom-sheet select-quality text-center popup-download">
+        <h4>Trong trí nhớ của anh</h4>
+        <form action="#">
+            <div class="container">
+                <div class="form-group">
+                    <?php
+                    if ( isset($file_url[1]['url']) ){
+                        echo '<label class="relative">
+                                <input id="exampleInputEmail1" value="'. $file_url[1]['url'] .'" type="radio" name="quality" class="form-control d-none"><strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 1 </span><span class="cl-green">'. strtoupper($file_url[1]['type']) .' '. $file_url[1]['label'] .'</span><span> '. $file_url[1]['size'] .'</span></strong>
+                            </label>';
+                    }
+                    if ( isset($file_url[2]['url']) ){
+                        echo '<label class="relative">
+                                <input id="exampleInputEmail1" value="'. $file_url[2]['url'] .'" type="radio" name="quality" class="form-control d-none"><strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 2 </span><span class="cl-blue">'. strtoupper($file_url[2]['type']) .' '. $file_url[2]['label'] .'</span><span> '. $file_url[2]['size'] .'</span></strong>
+                            </label>';
+                    }
+                    if ( isset($file_url[3]['url']) ){
+                        echo '<label class="relative">
+                                <input id="exampleInputEmail1" value="'. $file_url[3]['url'] .'" type="radio" name="quality" '.(isset($file_url[4]['url']) ? 'checked=""' : '').' class="form-control d-none"><strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 3 </span><span class="cl-orange">'. strtoupper($file_url[3]['type']) .' '. $file_url[3]['label'] .'</span><span> '. $file_url[3]['size'] .'</span></strong>
+                            </label>';
+                    }
+                    if ( isset($file_url[4]['url']) ){
+                        echo '<label class="relative">
+                                <input id="exampleInputEmail1" value="'. $file_url[4]['url'] .'" type="radio" name="quality" checked="" class="form-control d-none"><strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 4 </span><span class="cl-pink">'. strtoupper($file_url[4]['type']) .' '. $file_url[4]['label'] .'</span><span> '. $file_url[4]['size'] .'</span></strong>
+                            </label>';
+                    }
+                    if ( isset($file_url[0]['url']) ){
+                        echo '<label class="relative">
+                                <input id="exampleInputEmail1" value="'. $file_url[0]['url'] .'" type="radio" name="quality" class="form-control d-none"><strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 5 </span><span class="">'. strtoupper($file_url[0]['type']) .' '. $file_url[0]['label'] .'</span><span> '. $file_url[0]['size'] .'</span></strong>
+                            </label>';
+                    }
+                    ?>
+                </div>
+            </div>
+            <div class="group-btn"><a href="#" class="c-btn c-btn-default cancel-download">Hủy</a><a href="javascript:void(0)" onclick="downloadMusic()" class="c-btn c-btn-default c-btn-red">Tải về</a></div>
+        </form>
+    </div>
+    <div class="bottom-sheet text-center popup-playlist">
         <h4>Trong trí nhớ của anh</h4>
         <div class="container">
             <div class="row">
-                <div class="col-4"><img src="/images/img_like_black.png" alt="yeu thich">
+                <div class="col-4"><img src="/images/img_like_black.png" alt="yêu thích">
                     <p>Yêu thích</p>
                 </div>
-                <div class="col-4"><img src="/images/img_play_plus.png" alt="them vao playlist">
+                <div class="col-4"><img src="/images/img_play_plus.png" alt="thêm vào playlist">
                     <p>Thêm vào playlist online</p>
                 </div>
-                <div class="col-4"><img src="/images/img_download.png" alt="tai ve">
+                <div class="col-4 ele-download"><img src="/images/img_download.png" class="icon" alt="tai về">
                     <p>Tải về</p>
                 </div>
-                <div class="col-4"><img src="/images/img_share_mp3.png" alt="chia se">
+                <div class="col-4 ele-share"><img src="/images/img_share_mp3.png" class="icon" alt="chia sẻ">
                     <p>Chia sẻ</p>
                 </div>
             </div>
         </div>
     </div>
-</div>
-
+</section>
 @endsection
 @section('contentJS')
 
@@ -440,9 +416,41 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
     var musicAddId = '';
 
 
-
-
-
+    $('.cancel-download').click(function(e) {
+        $('.wrap-bottom-sheet').hide();
+        $('.bottom-sheet').slideUp();
+    });
+    $('.wrap-bottom-sheet').click(function(e) {
+        $(this).hide();
+        $('.bottom-sheet').slideUp();
+    });
+    $('.ele-download .icon').click(function(e) {
+        $('.bottom-sheet').slideUp();
+        $('.wrap-bottom-sheet').show();
+        jQuery('.popup-download').slideDown();
+    });
+    $('.ele-playlist .icon').click(function(e) {
+        $('.bottom-sheet').slideUp();
+        $('.wrap-bottom-sheet').show();
+        jQuery('.popup-playlist').slideDown();
+    });
+    $('.ele-share .icon').click(function(e) {
+        $('.wrap-bottom-sheet').hide();
+        $('.bottom-sheet').slideUp();
+        copyClipboardAction(window.location.href);
+        alertModal('Đã copy địa chỉ vào bộ nhớ máy của bạn.');
+    });
+    function downloadMusic() {
+        var radios = document.getElementsByName('quality');
+        for (var i = 0, length = radios.length; i < length; i++)
+        {
+            if (radios[i].checked)
+            {
+                window.open(radios[i].value, '_blank');
+                break;
+            }
+        }
+    }
 
     //////////////////////////
     //////Comment///////////////
@@ -486,8 +494,8 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                 $('.form-comment-' + formId).find('textarea').val('');
                 if(formId == 0) {
                     if(pageComment == 1) {
-                        $('.ul_comments').prepend(response);
-                        $('.ul_comments .reply_comment').first().on('click', function () {
+                        $('.list_comment_list_body').prepend(response);
+                        $('.list_comment_list_body .reply_comment').first().on('click', function () {
                             var reply = $('.post_comment_reply_' + $(this).data('comment_id'));
                             if (!reply.hasClass('reply_show')) {
                                 $('.post_comment_reply').removeClass('reply_show');
@@ -504,7 +512,7 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                 }else{
                     $('.comment-reply-' + formId).prepend(response);
                 }
-                $('.music_comment span').html(parseInt($('.music_comment span').html()) + 1);
+                $('.music_comment .number_comment').html(parseInt($('.music_comment .number_comment').html()) + 1);
                 $('.box_form_comment').submit(false);
             }
         });
@@ -543,10 +551,30 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
             }
         });
     }
-    function firstLoadComment() {
-        loadPageComment('/binh-luan/get_ajax?page=<?php echo $_GET['comment_page'] ?? 1 ?>');
-        pageComment = <?php echo $_GET['comment_page'] ?? 1 ?>;
-        loadComment = false;
+    $(window).scroll(function(event){
+        var st = $(this).scrollTop();
+        if(loadComment) {
+            if (st > $('#form_comment').offset().top - 680){
+                loadPageComment('/binh-luan/get_ajax?page=<?php echo $_GET['comment_page'] ?? 1 ?>');
+                pageComment = <?php echo $_GET['comment_page'] ?? 1 ?>;
+                loadComment = false;
+            }
+        }
+    });
+    //// display Sub
+    var displaySub = $('.sub_line');
+    if(sessionStorage.getItem("display_sub") == 'true') {
+        displaySub.css('display', 'block');
+        $('#display-sub').attr("checked", "checked");
+    }
+    function display_sub() {
+        if(sessionStorage.getItem("display_sub") == 'true') {
+            sessionStorage.setItem("display_sub", false);
+            displaySub.css('display', 'none');
+        }else{
+            sessionStorage.setItem("display_sub", true);
+            displaySub.css('display', 'block');
+        }
     }
 </script>
 

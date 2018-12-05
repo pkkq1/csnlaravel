@@ -40,7 +40,6 @@ jQuery(document).ready(function($) {
             noSwiping: false,
             autoHeight: true,
             resizeReInit: true,
-            noSwiping: true,
             noSwipingClass: 'owl-carousel',
             onSlideChangeEnd: function(swiper) {
                 var n = swiper.activeIndex;
@@ -143,21 +142,6 @@ jQuery(document).ready(function($) {
         var $body = $(this).parents('body');
         $body.find('.wrap-search').addClass('open');
     });*/
-
-
-    $('.block_more .icon').click(function(e) {
-        $('.wrap-bottom-sheet').show();
-        $('.bottom-sheet').slideDown();
-    });
-    $('.wrap-bottom-sheet').click(function(e) {
-        $(this).hide();
-        $('.bottom-sheet').slideUp();
-    });
-
-    $('.block_button .icon').click(function(e) {
-        $('.wrap-bottom-sheet').show();
-        jQuery('.bottom-sheet').slideDown();
-    });
 
     // var $uploadCrop = $('#upload-avatar').croppie({
     //     enableExif: true,

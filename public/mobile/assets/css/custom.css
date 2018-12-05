@@ -200,5 +200,53 @@ footer {
 }
 .modal_content_csn {
     padding-left: 30px;
-    padding-top: 1px;
+    font-size: 17px;
 }
+.autoplay input {
+    display: none;
+}
+.autoplay input:checked + .form-check-label .switch {
+    background-image: linear-gradient(-243deg, #fb6b60 0%, #ff2e55 100%);
+}
+.autoplay input:checked + .form-check-label .switch:after {
+    left: calc(100% - 23px);
+}
+.autoplay .switch {
+    display: inline-block;
+    cursor: pointer;
+    width: 42px;
+    border-radius: 20px;
+    height: 25px;
+    transition: all 0.36s;
+    position: relative;
+    background-image: linear-gradient(-243deg, #e3e3e3 0%, #afafaf 100%);
+}
+.autoplay .switch:after {
+    content: '';
+    width: 21px;
+    height: 21px;
+    border-radius: 50%;
+    position: absolute;
+    top: calc((100% - 21px)/2);
+    left: 2px;
+    background: #fff;
+    border: 0 solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.15), 0 1px 1px 0 rgba(0, 0, 0, 0.16), 0 3px 1px 0 rgba(0, 0, 0, 0.10);
+    transition: all 0.36s;
+}
+.autoplay .txt {
+    font-family: 'SFProDisplay-Regular';
+    font-size: 13px;
+    color: #9b9b9b;
+    letter-spacing: -0.21px;
+}
+.sub_line {
+    display: none;
+}
+.vietsub1 {
+    color: #65abbc;
+}
+.vietsub2 {
+    color: #c0a478;
+}
+

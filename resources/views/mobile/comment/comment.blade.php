@@ -21,9 +21,10 @@ use App\Library\Helpers;
                 </div>
                 <div class="block_form_comment"><a href="" class="reply_comment" data-comment_id="{{$item['comment_id']}}" >Trả lời</a>
                     <div class="post_comment_reply post_comment_reply_{{$item['comment_id']}}">
-                        <form class="form_reply_comment form-comment-{{$item['comment_id']}}">
+                        <form class="box_form_comment form_reply_comment form-comment-{{$item['comment_id']}}">
                             <div class="form-group mb-2">
                                 <textarea rows="1" placeholder="Viết bình luận tại đây..." class="form-control p-2"></textarea>
+                                <input type="hidden" class="reply_cmt_id" name="reply_cmt_id" value="{{$item['comment_id']}}">
                             </div>
                             <div class="form-group text-left m-0">
                                 <button type="submit" onclick="postComment({{$item['comment_id']}})" class="btn btn-secondary btn-gradien btn-radius send-comment"><span>Gửi</span></button>
@@ -32,54 +33,6 @@ use App\Library\Helpers;
                     </div>
                 </div>
                 <div class="post_comment_reply comment-reply-{{$item['comment_id']}}">
-                    <div class="area_comment_reply d-flex">
-                        <div align="top" class="avatar user_comment py-2"><img src="https://graph.facebook.com/v3.0/1928096143946677/picture?width=1920" alt=""></div>
-                        <div class="content_comment text-left pl-2 py-2">
-                            <div class="item position_relative">
-                                <div class="body_comment">
-                                    <div class="infor"><strong class="author">Quang vinh</strong><span class="text-gray">at</span>
-                                        <time>00:02</time>
-                                    </div>
-                                    <div class="detail">
-                                        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                                    </div>
-                                    <div class="data_time text-gray text-left"><span>3 ngày trước</span></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="area_comment_reply d-flex">
-                        <div align="top" class="avatar user_comment py-2"><img src="https://graph.facebook.com/v3.0/1928096143946677/picture?width=1920" alt=""></div>
-                        <div class="content_comment text-left pl-2 py-2">
-                            <div class="item position_relative">
-                                <div class="body_comment">
-                                    <div class="infor"><strong class="author">Quang vinh</strong><span class="text-gray">at</span>
-                                        <time>00:02</time>
-                                    </div>
-                                    <div class="detail">
-                                        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                                    </div>
-                                    <div class="data_time text-gray text-right"><span>3 ngày trước</span></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="area_comment_reply d-flex">
-                        <div align="top" class="avatar user_comment py-2"><img src="https://graph.facebook.com/v3.0/1928096143946677/picture?width=1920" alt=""></div>
-                        <div class="content_comment text-left pl-2 py-2">
-                            <div class="item position_relative">
-                                <div class="body_comment">
-                                    <div class="infor"><strong class="author">Quang vinh</strong><span class="text-gray">at</span>
-                                        <time>00:02</time>
-                                    </div>
-                                    <div class="detail">
-                                        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                                    </div>
-                                    <div class="data_time text-gray text-right"><span>3 ngày trước</span></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     <?php
                     if($commentReply) {
                         foreach ($commentReply as $reply) {

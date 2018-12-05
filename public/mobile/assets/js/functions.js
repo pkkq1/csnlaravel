@@ -36,3 +36,16 @@ function searchHighlight(key, string) {
     }
     return string.replace(stringPos, '<span class="search_highlight">' + stringPos + '</span>');
 }
+function copyClipboardAction(copyValue){
+    // we need to create element or use existing element but should n't visible to user.
+    var hiddenEleForCopy = $('#_hiddenEleForCopy_');
+    // Checking Element exists or not
+    if(!hiddenEleForCopy.length){
+        $('body').append('<input style="position:absolute;top: -9999px;" id="_hiddenEleForCopy_" value=""></input>');
+        hiddenEleForCopy = $('#_hiddenEleForCopy_');
+    }
+    hiddenEleForCopy.val(copyValue);
+    hiddenEleForCopy.select();
+    document.execCommand('copy');
+    document.getSelection().removeAllRanges();
+}

@@ -149,11 +149,12 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                         <div class="tab-content" id="pills-tabContent">
                             <div class="tab-pane show active" id="pills-liric" role="tabpanel"
                                  aria-labelledby="pills-liric-tab">
+                                @if(isset($lyric_array['sub']) && $lyric_array['sub'] != false)
                                 <ul class="nav nav-tabs sub_Tab" id="myTab" role="tablist">
                                     <li class="nav-item">
                                         <div class="nav-link form-group form-check mb-0 autoplay"
                                              style="padding: 10px 20px;">
-                                            @if(isset($lyric_array['sub']))
+
                                             <input type="checkbox" class="form-check-input display-sub"
                                                    id="display-sub" onclick="display_sub()">
                                             <label class="form-check-label d-flex align-items-center"
@@ -164,16 +165,18 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                                                     <span class="switch-inner"></span>
                                                 </span>
                                             </label>
-                                            @endif
                                         </div>
                                     </li>
                                 </ul>
+                                @else
+                                <br/>
+                                @endif
                                 <div class="tab-content tab-lyric" id="myTabContent">
                                     <div class="tab-pane fade show active" id="home" role="tabpanel"
                                          aria-labelledby="home-tab">
                                         <article>
                                             <div id="fulllyric">
-                                                @if(isset($lyric_array['sub']))
+                                                @if(isset($lyric_array['lyric']))
                                                     <?php echo $lyric_array['lyric'] ?>
                                                 @endif
                                             </div>
@@ -880,6 +883,8 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
             });
             return false;
         });
+
+
         //// display Sub
         var displaySub = $('.sub_line');
         if(sessionStorage.getItem("display_sub") == 'true') {
