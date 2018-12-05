@@ -17,7 +17,8 @@ $album_hot = array (
     'music_album' => 'Just For A While (Single)',
     'music_artist' => 'K-ICM;T-ICM',
     'music_artist_html' => '<a href="/ca-si/K-ICM~Y3NuX2FydGlzdH4xNDQ5MQ==.html">K-ICM</a>, <a href="/ca-si/T-ICM~Y3NuX2FydGlzdH4xODg0Mg==.html">T-ICM</a>',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   1 => 
   array (
@@ -25,7 +26,8 @@ $album_hot = array (
     'music_album' => 'Journey (Single)',
     'music_artist' => 'SaberZ',
     'music_artist_html' => '<a href="/ca-si/SaberZ~Y3NuX2FydGlzdH4xODg0MQ==.html">SaberZ</a>',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   2 => 
   array (
@@ -33,7 +35,8 @@ $album_hot = array (
     'music_album' => 'Spiritual Jazz 8: Japan pt. 1',
     'music_artist' => 'Takeo Moriyama;Yoshio Ikeda',
     'music_artist_html' => '<a href="/ca-si/Takeo-Moriyama~Y3NuX2FydGlzdH4xODgxMQ==.html">Takeo Moriyama</a>, <a href="/ca-si/Yoshio-Ikeda~Y3NuX2FydGlzdH4xODgyMw==.html">Yoshio Ikeda</a>',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   3 => 
   array (
@@ -41,7 +44,8 @@ $album_hot = array (
     'music_album' => 'Amistad',
     'music_artist' => 'Michael Hoppé',
     'music_artist_html' => '<a href="/ca-si/Michael-Hoppe~Y3NuX2FydGlzdH4xODgwNw==.html">Michael Hoppé</a>',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   4 => 
   array (
@@ -49,7 +53,8 @@ $album_hot = array (
     'music_album' => 'Hero (Fight for You) - Single',
     'music_artist' => 'Max Lean;Reevo',
     'music_artist_html' => '<a href="/ca-si/Max-Lean~Y3NuX2FydGlzdH4xODgwNA==.html">Max Lean</a>, <a href="/ca-si/Reevo~Y3NuX2FydGlzdH4xODgwNQ==.html">Reevo</a>',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   5 => 
   array (
@@ -57,7 +62,8 @@ $album_hot = array (
     'music_album' => 'Hit The Club (Single)',
     'music_artist' => NULL,
     'music_artist_html' => '',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => NULL,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   6 => 
   array (
@@ -65,7 +71,8 @@ $album_hot = array (
     'music_album' => 'Yêu Em Từ Tuổi Thanh Xuân (Single)',
     'music_artist' => 'Cao Nam Thành',
     'music_artist_html' => '<a href="/ca-si/Cao-Nam-Thanh~Y3NuX2FydGlzdH4xNTU1NA==.html">Cao Nam Thành</a>',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   7 => 
   array (
@@ -73,7 +80,8 @@ $album_hot = array (
     'music_album' => 'Độc Thân (Single)',
     'music_artist' => 'Châu Đăng Khoa;Ricky Star',
     'music_artist_html' => '<a href="/ca-si/Chau-Dang-Khoa~Y3NuX2FydGlzdH4xODgwMQ==.html">Châu Đăng Khoa</a>, <a href="/ca-si/Ricky-Star~Y3NuX2FydGlzdH4xODgwMg==.html">Ricky Star</a>',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   8 => 
   array (
@@ -81,7 +89,8 @@ $album_hot = array (
     'music_album' => 'Quá Khứ, Anh Xin Lỗi (Single)',
     'music_artist' => 'Khánh Phương',
     'music_artist_html' => '<a href="/ca-si/Khanh-Phuong~Y3NuX2FydGlzdH45MDQ=.html">Khánh Phương</a>',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   9 => 
   array (
@@ -89,7 +98,8 @@ $album_hot = array (
     'music_album' => 'More And More (Single)',
     'music_artist' => 'Sanchez',
     'music_artist_html' => '<a href="/ca-si/Sanchez~Y3NuX2FydGlzdH4xODgwMA==.html">Sanchez</a>',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   10 => 
   array (
@@ -97,7 +107,8 @@ $album_hot = array (
     'music_album' => 'Are You Human? OST - Part.4 (Single)',
     'music_artist' => '2BIC',
     'music_artist_html' => '<a href="/ca-si/2BIC~Y3NuX2FydGlzdH4xODc5OQ==.html">2BIC</a>',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   11 => 
   array (
@@ -105,7 +116,8 @@ $album_hot = array (
     'music_album' => 'Teen Top Story: 8PISODE (Regular)',
     'music_artist' => 'Teen Top',
     'music_artist_html' => '<a href="/ca-si/Teen-Top~Y3NuX2FydGlzdH4yNTU4.html">Teen Top</a>',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   12 => 
   array (
@@ -113,7 +125,8 @@ $album_hot = array (
     'music_album' => 'POP  CULTURE 6',
     'music_artist' => 'Syrufit;Tracy',
     'music_artist_html' => '<a href="/ca-si/Syrufit~Y3NuX2FydGlzdH42OTE3MQ==.html">Syrufit</a>, <a href="/ca-si/Tracy~Y3NuX2FydGlzdH4xNzQ2Mg==.html">Tracy</a>',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   13 => 
   array (
@@ -121,7 +134,8 @@ $album_hot = array (
     'music_album' => 'Good Girl (Single)',
     'music_artist' => 'Shin Ji',
     'music_artist_html' => '<a href="/ca-si/Shin-Ji~Y3NuX2FydGlzdH4xODc5OA==.html">Shin Ji</a>',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   14 => 
   array (
@@ -129,7 +143,8 @@ $album_hot = array (
     'music_album' => 'Love Me Please (Single)',
     'music_artist' => 'Haebi',
     'music_artist_html' => '<a href="/ca-si/Haebi~Y3NuX2FydGlzdH4xODc5Nw==.html">Haebi</a>',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   15 => 
   array (
@@ -137,7 +152,8 @@ $album_hot = array (
     'music_album' => 'Father (Single)',
     'music_artist' => 'Dino.T',
     'music_artist_html' => '<a href="/ca-si/DinoT~Y3NuX2FydGlzdH4xODc5Ng==.html">Dino.T</a>',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   16 => 
   array (
@@ -145,7 +161,8 @@ $album_hot = array (
     'music_album' => 'Peppemood (EP)',
     'music_artist' => 'Peppe',
     'music_artist_html' => '<a href="/ca-si/Peppe~Y3NuX2FydGlzdH4xODc5NQ==.html">Peppe</a>',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   17 => 
   array (
@@ -153,7 +170,8 @@ $album_hot = array (
     'music_album' => 'Everything Changes (Single)',
     'music_artist' => 'Miyao',
     'music_artist_html' => '<a href="/ca-si/Miyao~Y3NuX2FydGlzdH4xODc5Mw==.html">Miyao</a>',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   18 => 
   array (
@@ -161,7 +179,8 @@ $album_hot = array (
     'music_album' => 'Zeus (Single)',
     'music_artist' => 'Ted Park',
     'music_artist_html' => '<a href="/ca-si/Ted-Park~Y3NuX2FydGlzdH4xMzk2NA==.html">Ted Park</a>',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   19 => 
   array (
@@ -169,7 +188,8 @@ $album_hot = array (
     'music_album' => 'Everytime, Everyday (Single)',
     'music_artist' => 'Dinner Coat',
     'music_artist_html' => '<a href="/ca-si/Dinner-Coat~Y3NuX2FydGlzdH4xMzk3MQ==.html">Dinner Coat</a>',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
 );
 $album_new = array (
@@ -179,7 +199,8 @@ $album_new = array (
     'music_album' => 'Just For A While (Single)',
     'music_artist' => 'K-ICM;T-ICM',
     'music_artist_html' => '<a href="/ca-si/K-ICM~Y3NuX2FydGlzdH4xNDQ5MQ==.html">K-ICM</a>, <a href="/ca-si/T-ICM~Y3NuX2FydGlzdH4xODg0Mg==.html">T-ICM</a>',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   1 => 
   array (
@@ -187,7 +208,8 @@ $album_new = array (
     'music_album' => 'Journey (Single)',
     'music_artist' => 'SaberZ',
     'music_artist_html' => '<a href="/ca-si/SaberZ~Y3NuX2FydGlzdH4xODg0MQ==.html">SaberZ</a>',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   2 => 
   array (
@@ -195,7 +217,8 @@ $album_new = array (
     'music_album' => 'Spiritual Jazz 8: Japan pt. 1',
     'music_artist' => 'Takeo Moriyama;Yoshio Ikeda',
     'music_artist_html' => '<a href="/ca-si/Takeo-Moriyama~Y3NuX2FydGlzdH4xODgxMQ==.html">Takeo Moriyama</a>, <a href="/ca-si/Yoshio-Ikeda~Y3NuX2FydGlzdH4xODgyMw==.html">Yoshio Ikeda</a>',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   3 => 
   array (
@@ -203,7 +226,8 @@ $album_new = array (
     'music_album' => 'Amistad',
     'music_artist' => 'Michael Hoppé',
     'music_artist_html' => '<a href="/ca-si/Michael-Hoppe~Y3NuX2FydGlzdH4xODgwNw==.html">Michael Hoppé</a>',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   4 => 
   array (
@@ -211,7 +235,8 @@ $album_new = array (
     'music_album' => 'Hero (Fight for You) - Single',
     'music_artist' => 'Max Lean;Reevo',
     'music_artist_html' => '<a href="/ca-si/Max-Lean~Y3NuX2FydGlzdH4xODgwNA==.html">Max Lean</a>, <a href="/ca-si/Reevo~Y3NuX2FydGlzdH4xODgwNQ==.html">Reevo</a>',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   5 => 
   array (
@@ -219,7 +244,8 @@ $album_new = array (
     'music_album' => 'Hit The Club (Single)',
     'music_artist' => NULL,
     'music_artist_html' => '',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => NULL,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   6 => 
   array (
@@ -227,7 +253,8 @@ $album_new = array (
     'music_album' => 'Yêu Em Từ Tuổi Thanh Xuân (Single)',
     'music_artist' => 'Cao Nam Thành',
     'music_artist_html' => '<a href="/ca-si/Cao-Nam-Thanh~Y3NuX2FydGlzdH4xNTU1NA==.html">Cao Nam Thành</a>',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   7 => 
   array (
@@ -235,7 +262,8 @@ $album_new = array (
     'music_album' => 'Độc Thân (Single)',
     'music_artist' => 'Châu Đăng Khoa;Ricky Star',
     'music_artist_html' => '<a href="/ca-si/Chau-Dang-Khoa~Y3NuX2FydGlzdH4xODgwMQ==.html">Châu Đăng Khoa</a>, <a href="/ca-si/Ricky-Star~Y3NuX2FydGlzdH4xODgwMg==.html">Ricky Star</a>',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   8 => 
   array (
@@ -243,7 +271,8 @@ $album_new = array (
     'music_album' => 'Quá Khứ, Anh Xin Lỗi (Single)',
     'music_artist' => 'Khánh Phương',
     'music_artist_html' => '<a href="/ca-si/Khanh-Phuong~Y3NuX2FydGlzdH45MDQ=.html">Khánh Phương</a>',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   9 => 
   array (
@@ -251,7 +280,8 @@ $album_new = array (
     'music_album' => 'More And More (Single)',
     'music_artist' => 'Sanchez',
     'music_artist_html' => '<a href="/ca-si/Sanchez~Y3NuX2FydGlzdH4xODgwMA==.html">Sanchez</a>',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   10 => 
   array (
@@ -259,7 +289,8 @@ $album_new = array (
     'music_album' => 'Are You Human? OST - Part.4 (Single)',
     'music_artist' => '2BIC',
     'music_artist_html' => '<a href="/ca-si/2BIC~Y3NuX2FydGlzdH4xODc5OQ==.html">2BIC</a>',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   11 => 
   array (
@@ -267,7 +298,8 @@ $album_new = array (
     'music_album' => 'Teen Top Story: 8PISODE (Regular)',
     'music_artist' => 'Teen Top',
     'music_artist_html' => '<a href="/ca-si/Teen-Top~Y3NuX2FydGlzdH4yNTU4.html">Teen Top</a>',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   12 => 
   array (
@@ -275,7 +307,8 @@ $album_new = array (
     'music_album' => 'POP  CULTURE 6',
     'music_artist' => 'Syrufit;Tracy',
     'music_artist_html' => '<a href="/ca-si/Syrufit~Y3NuX2FydGlzdH42OTE3MQ==.html">Syrufit</a>, <a href="/ca-si/Tracy~Y3NuX2FydGlzdH4xNzQ2Mg==.html">Tracy</a>',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   13 => 
   array (
@@ -283,7 +316,8 @@ $album_new = array (
     'music_album' => 'Good Girl (Single)',
     'music_artist' => 'Shin Ji',
     'music_artist_html' => '<a href="/ca-si/Shin-Ji~Y3NuX2FydGlzdH4xODc5OA==.html">Shin Ji</a>',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   14 => 
   array (
@@ -291,7 +325,8 @@ $album_new = array (
     'music_album' => 'Love Me Please (Single)',
     'music_artist' => 'Haebi',
     'music_artist_html' => '<a href="/ca-si/Haebi~Y3NuX2FydGlzdH4xODc5Nw==.html">Haebi</a>',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   15 => 
   array (
@@ -299,7 +334,8 @@ $album_new = array (
     'music_album' => 'Father (Single)',
     'music_artist' => 'Dino.T',
     'music_artist_html' => '<a href="/ca-si/DinoT~Y3NuX2FydGlzdH4xODc5Ng==.html">Dino.T</a>',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   16 => 
   array (
@@ -307,7 +343,8 @@ $album_new = array (
     'music_album' => 'Peppemood (EP)',
     'music_artist' => 'Peppe',
     'music_artist_html' => '<a href="/ca-si/Peppe~Y3NuX2FydGlzdH4xODc5NQ==.html">Peppe</a>',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   17 => 
   array (
@@ -315,7 +352,8 @@ $album_new = array (
     'music_album' => 'Everything Changes (Single)',
     'music_artist' => 'Miyao',
     'music_artist_html' => '<a href="/ca-si/Miyao~Y3NuX2FydGlzdH4xODc5Mw==.html">Miyao</a>',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   18 => 
   array (
@@ -323,7 +361,8 @@ $album_new = array (
     'music_album' => 'Zeus (Single)',
     'music_artist' => 'Ted Park',
     'music_artist_html' => '<a href="/ca-si/Ted-Park~Y3NuX2FydGlzdH4xMzk2NA==.html">Ted Park</a>',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   19 => 
   array (
@@ -331,7 +370,8 @@ $album_new = array (
     'music_album' => 'Everytime, Everyday (Single)',
     'music_artist' => 'Dinner Coat',
     'music_artist_html' => '<a href="/ca-si/Dinner-Coat~Y3NuX2FydGlzdH4xMzk3MQ==.html">Dinner Coat</a>',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
 );
 $album_old = array (
@@ -339,141 +379,201 @@ $album_old = array (
   array (
     'cover_id' => 90643,
     'music_album' => 'Barcelona (Special Edition)',
+    'music_artist' => 'Montserrat Caballe;Freddie Mercury',
+    'music_artist_id' => '18743;10041',
     'music_artist_html' => '<a href="/ca-si/Montserrat-Caballe~Y3NuX2FydGlzdH4xODc0Mw==.html">Montserrat Caballe</a>, <a href="/ca-si/Freddie-Mercury~Y3NuX2FydGlzdH4xMDA0MQ==.html">Freddie Mercury</a>',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   1 => 
   array (
     'cover_id' => 90642,
     'music_album' => 'L\'equilibrista',
+    'music_artist' => 'Pupo',
+    'music_artist_id' => 18843,
     'music_artist_html' => '<a href="/ca-si/Pupo~Y3NuX2FydGlzdH4xODg0Mw==.html">Pupo</a>',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   2 => 
   array (
     'cover_id' => 90641,
     'music_album' => 'Tornerò',
+    'music_artist' => 'Pupo;Petra Magoni',
+    'music_artist_id' => '18843;18845',
     'music_artist_html' => '<a href="/ca-si/Pupo~Y3NuX2FydGlzdH4xODg0Mw==.html">Pupo</a>, <a href="/ca-si/Petra-Magoni~Y3NuX2FydGlzdH4xODg0NQ==.html">Petra Magoni</a>',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   3 => 
   array (
     'cover_id' => 90640,
     'music_album' => '1996',
+    'music_artist' => 'Pupo',
+    'music_artist_id' => 18843,
     'music_artist_html' => '<a href="/ca-si/Pupo~Y3NuX2FydGlzdH4xODg0Mw==.html">Pupo</a>',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   4 => 
   array (
     'cover_id' => 90639,
     'music_album' => 'La Mia Preghiera',
+    'music_artist' => 'Pupo',
+    'music_artist_id' => 18843,
     'music_artist_html' => '<a href="/ca-si/Pupo~Y3NuX2FydGlzdH4xODg0Mw==.html">Pupo</a>',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   5 => 
   array (
     'cover_id' => 90638,
     'music_album' => 'Quello Che Sono',
+    'music_artist' => 'Pupo',
+    'music_artist_id' => 18843,
     'music_artist_html' => '<a href="/ca-si/Pupo~Y3NuX2FydGlzdH4xODg0Mw==.html">Pupo</a>',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   6 => 
   array (
     'cover_id' => 90637,
     'music_album' => 'La Vita È Molto Di Più',
+    'music_artist' => 'Pupo',
+    'music_artist_id' => 18843,
     'music_artist_html' => '<a href="/ca-si/Pupo~Y3NuX2FydGlzdH4xODg0Mw==.html">Pupo</a>',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   7 => 
   array (
     'cover_id' => 90636,
     'music_album' => 'Malattia D\'Amore',
+    'music_artist' => 'Pupo',
+    'music_artist_id' => 18843,
     'music_artist_html' => '<a href="/ca-si/Pupo~Y3NuX2FydGlzdH4xODg0Mw==.html">Pupo</a>',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   8 => 
   array (
     'cover_id' => 90635,
     'music_album' => 'Lo Devo Solo A Te',
+    'music_artist' => 'Pupo',
+    'music_artist_id' => 18843,
     'music_artist_html' => '<a href="/ca-si/Pupo~Y3NuX2FydGlzdH4xODg0Mw==.html">Pupo</a>',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   9 => 
   array (
     'cover_id' => 90634,
     'music_album' => 'Più Di Prima',
+    'music_artist' => 'Pupo',
+    'music_artist_id' => 18843,
     'music_artist_html' => '<a href="/ca-si/Pupo~Y3NuX2FydGlzdH4xODg0Mw==.html">Pupo</a>',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   10 => 
   array (
     'cover_id' => 90631,
     'music_album' => 'Ultimate 2000s (CD4)',
+    'music_artist' => 'John Mayer;The Ting Tings',
+    'music_artist_id' => '7220;7523',
     'music_artist_html' => '<a href="/ca-si/John-Mayer~Y3NuX2FydGlzdH43MjIw.html">John Mayer</a>, <a href="/ca-si/The-Ting-Tings~Y3NuX2FydGlzdH43NTIz.html">The Ting Tings</a>',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   11 => 
   array (
     'cover_id' => 90630,
     'music_album' => 'Ultimate 2000s (CD3)',
+    'music_artist' => 'Toploader;The Calling',
+    'music_artist_id' => '18833;5511',
     'music_artist_html' => '<a href="/ca-si/Toploader~Y3NuX2FydGlzdH4xODgzMw==.html">Toploader</a>, <a href="/ca-si/The-Calling~Y3NuX2FydGlzdH41NTEx.html">The Calling</a>',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   12 => 
   array (
     'cover_id' => 90629,
     'music_album' => 'Ultimate 2000s (CD2)',
+    'music_artist' => 'Wu-Tang Clan;Chris Brown',
+    'music_artist_id' => '10899;588',
     'music_artist_html' => '<a href="/ca-si/Wu-Tang-Clan~Y3NuX2FydGlzdH4xMDg5OQ==.html">Wu-Tang Clan</a>, <a href="/ca-si/Chris-Brown~Y3NuX2FydGlzdH41ODg=.html">Chris Brown</a>',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   13 => 
   array (
     'cover_id' => 90628,
     'music_album' => 'Ultimate 2000s (CD1)',
+    'music_artist' => 'Train;Backstreet Boys',
+    'music_artist_id' => '12027;111',
     'music_artist_html' => '<a href="/ca-si/Train~Y3NuX2FydGlzdH4xMjAyNw==.html">Train</a>, <a href="/ca-si/Backstreet-Boys~Y3NuX2FydGlzdH4xMTE=.html">Backstreet Boys</a>',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   14 => 
   array (
     'cover_id' => 90627,
     'music_album' => 'Omni Sight Seeing',
+    'music_artist' => 'Haruomi Hosono',
+    'music_artist_id' => 18829,
     'music_artist_html' => '<a href="/ca-si/Haruomi-Hosono~Y3NuX2FydGlzdH4xODgyOQ==.html">Haruomi Hosono</a>',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   15 => 
   array (
     'cover_id' => 90626,
     'music_album' => 'The Tale of Genji OST',
+    'music_artist' => 'Haruomi Hosono',
+    'music_artist_id' => 18829,
     'music_artist_html' => '<a href="/ca-si/Haruomi-Hosono~Y3NuX2FydGlzdH4xODgyOQ==.html">Haruomi Hosono</a>',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   16 => 
   array (
     'cover_id' => 90625,
     'music_album' => 'Back Again',
+    'music_artist' => 'Pink Turtle',
+    'music_artist_id' => 18828,
     'music_artist_html' => '<a href="/ca-si/Pink-Turtle~Y3NuX2FydGlzdH4xODgyOA==.html">Pink Turtle</a>',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   17 => 
   array (
     'cover_id' => 90624,
     'music_album' => 'Two',
+    'music_artist' => 'Bob James;Bob James (feat. Patti Austin)',
+    'music_artist_id' => '18826;18827',
     'music_artist_html' => '<a href="/ca-si/Bob-James~Y3NuX2FydGlzdH4xODgyNg==.html">Bob James</a>, <a href="/ca-si/Bob-James-feat-Patti-Austin~Y3NuX2FydGlzdH4xODgyNw==.html">Bob James (feat. Patti Austin)</a>',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   18 => 
   array (
     'cover_id' => 90623,
     'music_album' => 'Urban Folktales',
+    'music_artist' => 'Matt Marshak',
+    'music_artist_id' => 18824,
     'music_artist_html' => '<a href="/ca-si/Matt-Marshak~Y3NuX2FydGlzdH4xODgyNA==.html">Matt Marshak</a>',
-    'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_bitrate' => 1000,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   19 => 
   array (
     'cover_id' => 90596,
     'music_album' => 'Chúc Tụng Mẹ La Vang',
+    'music_artist' => 'Phượng Vũ;Lê Uyên',
+    'music_artist_id' => '18773;836',
     'music_artist_html' => '<a href="/ca-si/Phuong-Vu~Y3NuX2FydGlzdH4xODc3Mw==.html">Phượng Vũ</a>, <a href="/ca-si/Le-Uyen~Y3NuX2FydGlzdH44MzY=.html">Lê Uyên</a>',
-    'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+    'music_bitrate' => 320,
+    'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
 );
 $music_new_uploads = array (

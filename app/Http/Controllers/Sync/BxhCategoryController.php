@@ -35,7 +35,7 @@ class BxhCategoryController extends Controller
             $result = $this->musicListenRepository->bxhHotTodayCategoryMusic($item->cat_id)->toArray();
             foreach($result as $item2) {
                 $item2['music_artist_html'] = Helpers::rawHtmlArtists($item2['music_artist_id'], $item2['music_artist']);
-                $item2['music_bitrate'] = Helpers::bitrate2str($item2['music_bitrate']);
+                $item2['music_bitrate_html'] = Helpers::bitrate2str($item2['music_bitrate']);
                 $ressultMusic[$item->cat_id][] = $item2;
             }
             $result = $this->musicListenRepository->bxhHotTodayCategoryVideo($item->cat_id)->toArray();

@@ -79,7 +79,7 @@ global $hot_video_rows;
                                             <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_title']}}">{{$item['music_title']}}</a></h5>
                                             <div class="author"><?php echo $item['music_artist_html'] ?></div>
                                         </div>
-                                        <small class="type_music c1"><?php echo $item['music_bitrate']; ?></small>
+                                        <small class="type_music c1"><?php echo $item['music_bitrate_html']; ?></small>
                                     </div>
                                     <div class="media-right align-self-center">
                                         <small class="time_stt"><i class="material-icons listen-material-icons"> play_arrow </i>{{number_format($item['music_listen'])}}</small>

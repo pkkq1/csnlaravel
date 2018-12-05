@@ -33,9 +33,10 @@ $hot_music_rows = array (
       'music_listen' => 1652732,
       'music_track_id' => 1,
       'music_filename' => '1676363-7f5e0db7.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Alan-Walker~Y3NuX2FydGlzdH4xNDk5MQ==.html">Alan Walker</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     1 => 
     array (
@@ -60,9 +61,10 @@ $hot_music_rows = array (
       'music_listen' => 2314,
       'music_track_id' => 0,
       'music_filename' => '1960340-91c910c8.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/SHAHMEN~Y3NuX2FydGlzdH4xMjI3ODU=.html">SHAHMEN</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     2 => 
     array (
@@ -87,7 +89,7 @@ $hot_music_rows = array (
       'music_listen' => 1717284,
       'music_track_id' => 1,
       'music_filename' => '1676364-453a6672.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. Silky tidal waves
 In the midst of summer
 Trap door of our house
@@ -100,6 +102,7 @@ Ever since then.
 
 [Chorus...',
       'music_artist_html' => '<a href="/ca-si/Alan-Walker~Y3NuX2FydGlzdH4xNDk5MQ==.html">Alan Walker</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     3 => 
     array (
@@ -124,7 +127,7 @@ Ever since then.
       'music_listen' => 22129,
       'music_track_id' => 5,
       'music_filename' => '1921641-d82df91a.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Bae Bae Bae BAAM BAAM 
 Bae Bae Bae BAAM BAAM 
 Jakku eojireowo 
@@ -135,6 +138,7 @@ Nareul heundeureo
 Musimhage deonjin mare 
 Pick Pick Pick sseureojyeo BAAM...',
       'music_artist_html' => '<a href="/ca-si/Momoland~Y3NuX2FydGlzdH4xMzM5MQ==.html">Momoland</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     4 => 
     array (
@@ -159,9 +163,10 @@ Pick Pick Pick sseureojyeo BAAM...',
       'music_listen' => 2732571,
       'music_track_id' => 6,
       'music_filename' => '1015078-530ac618.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Yiruma~Y3NuX2FydGlzdH4xMDc1.html">Yiruma</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     5 => 
     array (
@@ -186,9 +191,10 @@ Pick Pick Pick sseureojyeo BAAM...',
       'music_listen' => 961821,
       'music_track_id' => 3,
       'music_filename' => '1487713-0059366e.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Two-Steps-From-Hell~Y3NuX2FydGlzdH4yNDQ0Mw==.html">Two Steps From Hell</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     6 => 
     array (
@@ -213,9 +219,10 @@ Pick Pick Pick sseureojyeo BAAM...',
       'music_listen' => 2125309,
       'music_track_id' => 0,
       'music_filename' => '1018382-39280895.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Yiruma~Y3NuX2FydGlzdH4xMDc1.html">Yiruma</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     7 => 
     array (
@@ -240,9 +247,10 @@ Pick Pick Pick sseureojyeo BAAM...',
       'music_listen' => 593284,
       'music_track_id' => 1,
       'music_filename' => '1803174-1432db5d.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Elektronomia~Y3NuX2FydGlzdH4xMzU5Mg==.html">Elektronomia</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     8 => 
     array (
@@ -267,9 +275,10 @@ Pick Pick Pick sseureojyeo BAAM...',
       'music_listen' => 310645,
       'music_track_id' => 1,
       'music_filename' => '1779263-42bc2c2e.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Alan-Walker~Y3NuX2FydGlzdH4xNDk5MQ==.html">Alan Walker</a>, <a href="/ca-si/K-391~Y3NuX2FydGlzdH4xNDk5MA==.html">K-391</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     9 => 
     array (
@@ -294,9 +303,10 @@ Pick Pick Pick sseureojyeo BAAM...',
       'music_listen' => 623487,
       'music_track_id' => 16,
       'music_filename' => '1348546-19ee3347.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Various-Artists~Y3NuX2FydGlzdH45Nw==.html">Various Artists</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     10 => 
     array (
@@ -321,9 +331,10 @@ Pick Pick Pick sseureojyeo BAAM...',
       'music_listen' => 1205985,
       'music_track_id' => 2,
       'music_filename' => '1209985-3ef5ca98.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Ahrix~Y3NuX2FydGlzdH4xNTg2MQ==.html">Ahrix</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     11 => 
     array (
@@ -348,9 +359,10 @@ Pick Pick Pick sseureojyeo BAAM...',
       'music_listen' => 819883,
       'music_track_id' => 1,
       'music_filename' => '1109040-83cd1ae8.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Tito-Morano-amp~Y3NuX2FydGlzdH4zMjk3Nw==.html">Tito Morano &amp</a>, <a href="/ca-si/His-Orchestra~Y3NuX2FydGlzdH4yMTE4Nw==.html">His Orchestra</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     12 => 
     array (
@@ -375,9 +387,10 @@ Pick Pick Pick sseureojyeo BAAM...',
       'music_listen' => 52418,
       'music_track_id' => 0,
       'music_filename' => '1936321-e746988b.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/SHAUN~Y3NuX2FydGlzdH4yMDQzMw==.html">SHAUN</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     13 => 
     array (
@@ -402,9 +415,10 @@ Pick Pick Pick sseureojyeo BAAM...',
       'music_listen' => 1078733,
       'music_track_id' => 16,
       'music_filename' => '1041339-1a85ec1a.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Kenny-G~Y3NuX2FydGlzdH4zODM=.html">Kenny G</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     14 => 
     array (
@@ -429,9 +443,10 @@ Pick Pick Pick sseureojyeo BAAM...',
       'music_listen' => 1413637,
       'music_track_id' => 1,
       'music_filename' => '1753267-6d349df0.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Alan-Walker~Y3NuX2FydGlzdH4xNDk5MQ==.html">Alan Walker</a>, <a href="/ca-si/David-Whistle~Y3NuX2FydGlzdH45MzEzNA==.html">David Whistle</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     15 => 
     array (
@@ -456,9 +471,10 @@ Pick Pick Pick sseureojyeo BAAM...',
       'music_listen' => 728813,
       'music_track_id' => 1,
       'music_filename' => '1035278-c1ccabe5.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Various-Artists~Y3NuX2FydGlzdH45Nw==.html">Various Artists</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     16 => 
     array (
@@ -483,7 +499,7 @@ Pick Pick Pick sseureojyeo BAAM...',
       'music_listen' => 111358,
       'music_track_id' => 3,
       'music_filename' => '1626363-6b89f26d.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. Every night in my dreams i see you, i feel you
 That is how i know you go on
 Far across the distance 
@@ -493,6 +509,7 @@ You have come to show you go on.
 [Chorus:]
 Near, far, wherever you ar...',
       'music_artist_html' => '<a href="/ca-si/Various-Artists~Y3NuX2FydGlzdH45Nw==.html">Various Artists</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     17 => 
     array (
@@ -517,9 +534,10 @@ Near, far, wherever you ar...',
       'music_listen' => 48410,
       'music_track_id' => 1,
       'music_filename' => '1899851-b8521a21.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Vexento~Y3NuX2FydGlzdH4xMzMxMQ==.html">Vexento</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     18 => 
     array (
@@ -544,9 +562,10 @@ Near, far, wherever you ar...',
       'music_listen' => 4715,
       'music_track_id' => 0,
       'music_filename' => '1954161-4025df01.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Khung-x-Nguyen-Hoang~Y3NuX2FydGlzdH4yMzg4OQ==.html">Khùng x Nguyễn Hoàng</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     19 => 
     array (
@@ -571,9 +590,10 @@ Near, far, wherever you ar...',
       'music_listen' => 499592,
       'music_track_id' => 2,
       'music_filename' => '1796822-c29af755.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Alan-Walker~Y3NuX2FydGlzdH4xNDk5MQ==.html">Alan Walker</a>, <a href="/ca-si/Alex-Skrindo~Y3NuX2FydGlzdH4xODAyNA==.html">Alex Skrindo</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
   ),
   3 => 
@@ -601,7 +621,7 @@ Near, far, wherever you ar...',
       'music_listen' => 159434,
       'music_track_id' => 1,
       'music_filename' => '1960160-2697f348.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. Nếu trái tim mình nói không nên lời
 Đắng cay từng tiếng yêu xa vời
 Thế là.
@@ -614,6 +634,7 @@ Vì ai, vì ai.
 [ĐK:]
 Và giờ anh b...',
       'music_artist_html' => '<a href="/ca-si/Nguyen-Trong-Tai~Y3NuX2FydGlzdH4xMjI4MDU=.html">Nguyễn Trọng Tài</a>, <a href="/ca-si/San-Ji~Y3NuX2FydGlzdH4xMjI4MDY=.html">San Ji</a>, <a href="/ca-si/Double-X~Y3NuX2FydGlzdH4xMjI4MDc=.html">Double X</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     1 => 
     array (
@@ -638,7 +659,7 @@ Và giờ anh b...',
       'music_listen' => 383600,
       'music_track_id' => 1,
       'music_filename' => '1954975-5ca14ce1.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. Cuộc tình đầu tiên khi tôi 20
 Tôi yêu với những tinh khôi
 Sinh viên thì như thế thôi
@@ -648,6 +669,7 @@ Rồi người rời xa bằng lời chê bai
 Người trách tôi không tương lai
 Tim tôi chỉ biết...',
       'music_artist_html' => '<a href="/ca-si/Duc-Phuc~Y3NuX2FydGlzdH4xNTgyNA==.html">Đức Phúc</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     2 => 
     array (
@@ -672,7 +694,7 @@ Tim tôi chỉ biết...',
       'music_listen' => 291826,
       'music_track_id' => 1,
       'music_filename' => '1956260-3e5c5504.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Intro:] 
 Nếu có nơi tôn thờ tình yêu là tất cả 
 Sẽ có chốn vô vọng để ta buông mình sau những tổn thương mãi không thể hàn gắn. 
@@ -680,6 +702,7 @@ Sẽ có chốn vô vọng để ta buông mình sau những tổn thương mãi
 Lời chia tay nào chẳng ưu sầu 
 Dồn lại bao nhiêu tổn thương, tình...',
       'music_artist_html' => '<a href="/ca-si/Mr-Siro~Y3NuX2FydGlzdH44ODU=.html">Mr Siro</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     3 => 
     array (
@@ -704,13 +727,14 @@ Dồn lại bao nhiêu tổn thương, tình...',
       'music_listen' => 580232,
       'music_track_id' => 1,
       'music_filename' => '1947516-5ee65222.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Intro/Outro:]
 Hôm nay ta thức dậy cũng như thường nhật 
 Thấy thanh xuân ngày nào bỗng dưng trở lại 
 Em soi gương cười duyên chẳng còn thấy đâu những vết đồi mồi 
 Mặc một chiếc váy xinh ngồi chờ an...',
       'music_artist_html' => '<a href="/ca-si/Da-LAB~Y3NuX2FydGlzdH4xMzcwMQ==.html">Da LAB</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     4 => 
     array (
@@ -735,12 +759,13 @@ Mặc một chiếc váy xinh ngồi chờ an...',
       'music_listen' => 303175,
       'music_track_id' => 1,
       'music_filename' => '1952649-6dff961b.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Tiếng chuông vang bên tai có một dòng thư gửi đến
 Ngày 8 tháng 5 hôm nay là ngày của em đám cưới 
 Con tim anh rối bời rồi đôi môi anh muốn thốt lên trái tim anh rụng rời
 Giống y như trong phim ở nh...',
       'music_artist_html' => '<a href="/ca-si/Kay-Tran~Y3NuX2FydGlzdH40MDA2.html">Kay Trần</a>, <a href="/ca-si/Nguyen-Khoa~Y3NuX2FydGlzdH4yMzYxOQ==.html">Nguyễn Khoa</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     5 => 
     array (
@@ -765,7 +790,7 @@ Giống y như trong phim ở nh...',
       'music_listen' => 76463,
       'music_track_id' => 0,
       'music_filename' => '1956939-01fb6b4e.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => 'Nếu đoá hoa trồng trước kia chưa về
 Nhánh hương tình thắm thêm câu thề
 Anh ước rằng:
@@ -777,6 +802,7 @@ Vì ai, vì ai?
 
 [ĐK:...',
       'music_artist_html' => '<a href="/ca-si/Nguyen-Anh~Y3NuX2FydGlzdH4zMDc3.html">Nguyễn Anh</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     6 => 
     array (
@@ -801,7 +827,7 @@ Vì ai, vì ai?
       'music_listen' => 785434,
       'music_track_id' => 1,
       'music_filename' => '1951336-86774cc2.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Buccellati lấp lánh
 Ươm lên tai với nét mặt rạng ngời
 Maserati hai cánh
@@ -812,6 +838,7 @@ Băng qua nhanh khuôn viên mỗi tối
 Dinh cơ dang tay sẵn lối
 Nơi...',
       'music_artist_html' => '<a href="/ca-si/Rhymastic~Y3NuX2FydGlzdH4xNTQ1.html">Rhymastic</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     7 => 
     array (
@@ -836,7 +863,7 @@ Nơi...',
       'music_listen' => 62197,
       'music_track_id' => 1,
       'music_filename' => '1958481-42244670.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. Trạm dừng chân của đôi ta trước mặt 
 Em tăng ga bỏ lại phía sau 
 Từng nhịp tim níu đau thương chìm sâu 
@@ -844,6 +871,7 @@ Tiếng yêu kia chưa nói đã biến tan vào nhau
 Ngọn đèn đêm với góc phố yên lặng 
 Tay em khô...',
       'music_artist_html' => '<a href="/ca-si/Kimmese~Y3NuX2FydGlzdH4yNjYz.html">Kimmese</a>, <a href="/ca-si/Touliver~Y3NuX2FydGlzdH4yNTcz.html">Touliver</a>, <a href="/ca-si/MrA~Y3NuX2FydGlzdH4yMzI3.html">Mr.A</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     8 => 
     array (
@@ -868,9 +896,10 @@ Tay em khô...',
       'music_listen' => 170398,
       'music_track_id' => 1,
       'music_filename' => '1953342-42158939.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/BlackBi~Y3NuX2FydGlzdH4xMzg5.html">BlackBi</a>, <a href="/ca-si/Vo-Dinh-Hieu~Y3NuX2FydGlzdH4yMzcyOQ==.html">Võ Đình Hiếu</a>, <a href="/ca-si/Elbi~Y3NuX2FydGlzdH4xNjk3.html">Elbi</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     9 => 
     array (
@@ -895,7 +924,7 @@ Tay em khô...',
       'music_listen' => 97232,
       'music_track_id' => 1,
       'music_filename' => '1953338-c01edf31.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Hết yêu hết thương hết bên nhau rồi 
 Chợt tình phai phôi ôm lòng đau mình anh thế thôi
 Đêm từng đêm mình anh với nỗi đơn côi 
@@ -903,6 +932,7 @@ Con tim bồi hồi chẳng thể nào ân tình ra lối.
 
 Khúc ca viết lên chứa b...',
       'music_artist_html' => '<a href="/ca-si/Chau-Khai-Phong~Y3NuX2FydGlzdH4yMjQ4.html">Châu Khải Phong</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     10 => 
     array (
@@ -927,12 +957,13 @@ Khúc ca viết lên chứa b...',
       'music_listen' => 278049,
       'music_track_id' => 0,
       'music_filename' => '1932244-b903f792.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkgreen">128kbps</span>',
+      'music_bitrate' => 128,
       'music_shortlyric' => 'Biết điều tôn trọng người lớn đấy là kính lão đắc thọ
 Đánh 83 mà ra 38 thì đấy là số mày max nhọ
 Nhưng mà thôi không sao tiền thì mất rồi thì không việc gì phải nhăn nhó
 Nếu mà cảm thấy cuộc sống b...',
       'music_artist_html' => '<a href="/ca-si/Lil-Shady~Y3NuX2FydGlzdH4xNTUy.html">Lil Shady</a>, <a href="/ca-si/Binh-Gold~Y3NuX2FydGlzdH4yMDEyNw==.html">Bình Gold</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">128kbps</span>',
     ),
     11 => 
     array (
@@ -957,7 +988,7 @@ Nếu mà cảm thấy cuộc sống b...',
       'music_listen' => 1357998,
       'music_track_id' => 1,
       'music_filename' => '1930838-8f3711b9.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. Đường về chiều mưa rơi
 Thấy anh cùng ai bước chung
 Bỗng nhiên bao nhiêu ký ức quen thuộc
@@ -967,6 +998,7 @@ Hình như anh đang vui
 Vì thấy anh mỉm cười rất tươi
 Nắm tay anh rồi ai đó...',
       'music_artist_html' => '<a href="/ca-si/Toc-Tien~Y3NuX2FydGlzdH4zNDM=.html">Tóc Tiên</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     12 => 
     array (
@@ -991,13 +1023,14 @@ Nắm tay anh rồi ai đó...',
       'music_listen' => 130652,
       'music_track_id' => 0,
       'music_filename' => '1947840-38149cd6.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => 'Người yêu hỡi dù gì cũng xa nhau rồi
 Ngày nào chiếc hôn bao đêm rã rời giờ đã hết rồi
 Chẳng còn hơi ấm trên đầu môi
 Người yêu hỡi giờ đây tiếng yêu phai phôi
 Chỉ còn những đêm cô đơn rối bời giọt n...',
       'music_artist_html' => '<a href="/ca-si/Bang-Kieu~Y3NuX2FydGlzdH4xMjU4.html">Bằng Kiều</a>, <a href="/ca-si/Anh-Khang~Y3NuX2FydGlzdH4yMDk1.html">Anh Khang</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     13 => 
     array (
@@ -1022,7 +1055,7 @@ Chỉ còn những đêm cô đơn rối bời giọt n...',
       'music_listen' => 96386,
       'music_track_id' => 1,
       'music_filename' => '1958135-94f56f17.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Nếu đoá hoa trồng trước kia chưa về
 Nhánh hương tình thắm thêm câu thề
 Anh ước rằng:
@@ -1034,6 +1067,7 @@ Vì ai, vì ai?
 
 [ĐK:...',
       'music_artist_html' => '<a href="/ca-si/Cao-Tung-Anh~Y3NuX2FydGlzdH4yNDY4.html">Cao Tùng Anh</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     14 => 
     array (
@@ -1058,7 +1092,7 @@ Vì ai, vì ai?
       'music_listen' => 5067074,
       'music_track_id' => 1,
       'music_filename' => '1750325-63589c26.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. Từ bao lâu nay, anh cứ mãi cô đơn
 Bơ vơ bao lâu rồi ai đâu hay
 Ngày cứ thế trôi qua
@@ -1068,6 +1102,7 @@ Những phút giây trôi qua tầm tay
 Chờ một ai đó đến bên anh
 Lặng nghe nhữ...',
       'music_artist_html' => '<a href="/ca-si/Duc-Phuc~Y3NuX2FydGlzdH4xNTgyNA==.html">Đức Phúc</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     15 => 
     array (
@@ -1092,12 +1127,13 @@ Lặng nghe nhữ...',
       'music_listen' => 568719,
       'music_track_id' => 1,
       'music_filename' => '1931243-03357d7e.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. Suýt nữa thì anh có thể nói muôn vàn lời muốn nói
 Suýt nữa thì có thể đèo em, qua từng hàng phố quen
 Dòng lưu bút năm xưa viết vội hay còn nhớ nhau đến những ngày sau
 Tình yêu đầu tiên anh giữ,...',
       'music_artist_html' => '<a href="/ca-si/Andiez~Y3NuX2FydGlzdH4xMzI0Nw==.html">Andiez</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     16 => 
     array (
@@ -1122,7 +1158,7 @@ Tình yêu đầu tiên anh giữ,...',
       'music_listen' => 501697,
       'music_track_id' => 0,
       'music_filename' => '1770067-28a56da6.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. Anh ơi có biết điều gì thật đau
 Trong cuộc sống muôn màu 
 Để em nói cho anh nghe nhé
@@ -1132,6 +1168,7 @@ Mỗi khi anh kề bên được nghe anh nói cười.
 Mình đã biết nhau từ lâu 
 Nên...',
       'music_artist_html' => '<a href="/ca-si/Huynh-Tu~Y3NuX2FydGlzdH4xMzQ4NQ==.html">Huỳnh Tú</a>, <a href="/ca-si/Magazine~Y3NuX2FydGlzdH4xMzQ4Ng==.html">Magazine</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     17 => 
     array (
@@ -1156,7 +1193,7 @@ Nên...',
       'music_listen' => 214369,
       'music_track_id' => 1,
       'music_filename' => '1842406-2cf61c91.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Anh chàng ôm gối nằm 
 Nghĩ suy về cô gái 
 Anh thầm yêu cô ấy 
@@ -1167,6 +1204,7 @@ Nắm tay đi bên người khác
 Giật mình ra mồ hôi ướt đẫm 
 Cứ như...',
       'music_artist_html' => '<a href="/ca-si/Tino~Y3NuX2FydGlzdH4xNTU3MA==.html">Tino</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     18 => 
     array (
@@ -1191,7 +1229,7 @@ Cứ như...',
       'music_listen' => 5389005,
       'music_track_id' => 1,
       'music_filename' => '1821294-559b5410.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Mưa trôi cả bầu trời nắng, trượt theo những nỗi buồn
 Thấm ướt lệ sầu môi đắng vì đánh mất hy vọng
 Lần đầu gặp nhau dưới mưa, trái tim rộn ràng bởi ánh nhìn
@@ -1199,6 +1237,7 @@ Tình cảm dầm mưa thấm lâu, em nào ngờ.
 
 M...',
       'music_artist_html' => '<a href="/ca-si/Huong-Tram~Y3NuX2FydGlzdH4yNTM3.html">Hương Tràm</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     19 => 
     array (
@@ -1223,7 +1262,7 @@ M...',
       'music_listen' => 943388,
       'music_track_id' => 1,
       'music_filename' => '1803310-1249db02.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Kìa màn đêm hiu hắt mang tên em
 Quay về trong kí ức của anh qua thời gian
 Chiều lặng im nghe gió đung đưa cây
@@ -1232,6 +1271,7 @@ Như là bao nỗi nhớ cuốn anh trôi về đâu.
 Này gió đừng hát và mang nỗi nhớ chạy đi
 Quên...',
       'music_artist_html' => '<a href="/ca-si/Vu~Y3NuX2FydGlzdH4xNDI0Nw==.html">Vũ</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
   ),
   4 => 
@@ -1259,7 +1299,7 @@ Quên...',
       'music_listen' => 2328445,
       'music_track_id' => 13,
       'music_filename' => '1739574-04b9b9a9.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Intro]
 There\'s a girl but I let her get away
 It\'s all my fault cause pride got in the way
@@ -1270,6 +1310,7 @@ About that girl the one I let get away
 I keep saying no
 T...',
       'music_artist_html' => '<a href="/ca-si/Olly-Murs~Y3NuX2FydGlzdH4xMjQwMA==.html">Olly Murs</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     1 => 
     array (
@@ -1294,7 +1335,7 @@ T...',
       'music_listen' => 201653,
       'music_track_id' => 1,
       'music_filename' => '1957296-35322530.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Verse 1: Sophia Somajo]
 Hello, sweet grief
 [t1]Chào anh, nỗi thống khổ ngọt ngào
@@ -1302,6 +1343,7 @@ I know you\'ll be the death of me
 [t1]Em biết anh sẽ là sự kết liễu cho chính mình
 Feel like the morning after ecsta...',
       'music_artist_html' => '<a href="/ca-si/Alan-Walker~Y3NuX2FydGlzdH4xNDk5MQ==.html">Alan Walker</a>, <a href="/ca-si/Sophia-Somajo~Y3NuX2FydGlzdH44NDgwOQ==.html">Sophia Somajo</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     2 => 
     array (
@@ -1326,7 +1368,7 @@ Feel like the morning after ecsta...',
       'music_listen' => 2926071,
       'music_track_id' => 2,
       'music_filename' => '1540695-49ecd0c4.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Chorus 1]
 Decisions as I go, to anywhere I flow
 Sometimes I believe, at times I\'m rational
@@ -1336,6 +1378,7 @@ Today I got a million. Tomorrow, I don\'t know
 [Chorus 1]
 Decisions as I go,...',
       'music_artist_html' => '<a href="/ca-si/Lost-Frequencies~Y3NuX2FydGlzdH4xMzgyOQ==.html">Lost Frequencies</a>, <a href="/ca-si/Janieck-Devy~Y3NuX2FydGlzdH42NzAxNA==.html">Janieck Devy</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     3 => 
     array (
@@ -1360,13 +1403,14 @@ Decisions as I go,...',
       'music_listen' => 56145,
       'music_track_id' => 1,
       'music_filename' => '1959860-1456cfa9.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Verse 1]
 Found you when your heart was broke
 [t1]Em đã đến bên anh khi con tim anh đau khổ trong tan vỡ
 I filled your cup until it overflowed
 [t1]Và trao cho anh mọi thứ nhiều hơn anh có thể mong...',
       'music_artist_html' => '<a href="/ca-si/Halsey~Y3NuX2FydGlzdH4xMzM1MA==.html">Halsey</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     4 => 
     array (
@@ -1391,7 +1435,7 @@ I filled your cup until it overflowed
       'music_listen' => 1021022,
       'music_track_id' => 1,
       'music_filename' => '1705437-bd0a3284.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Austin Mahone:]
 Send it to my phone, send it to my phone
 [t1]Cứ gửi chúng vào điện thoại của anh đi em
@@ -1399,6 +1443,7 @@ You already know I keep it on the low
 [t1]Yên tâm rằng anh sẽ không cho ai xem đâu
 Baby, you...',
       'music_artist_html' => '<a href="/ca-si/Austin-Mahone~Y3NuX2FydGlzdH40NDM5.html">Austin Mahone</a>, <a href="/ca-si/Rich-Homie-Quan~Y3NuX2FydGlzdH40MTUyOA==.html">Rich Homie Quan</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     5 => 
     array (
@@ -1423,7 +1468,7 @@ Baby, you...',
       'music_listen' => 15669,
       'music_track_id' => 34,
       'music_filename' => '1959913-0d7fd987.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Verse 1: Lady Gaga]
 Wish I could, I could\'ve said goodbye
 [t1]Em ước gì, ước gì mình có thể nói câu tạm biệt
@@ -1431,6 +1476,7 @@ I would\'ve said what I wanted to
 [t1]Ước gì em nói được những điều em muốn nói
 Maybe ev...',
       'music_artist_html' => '<a href="/ca-si/Lady-Gaga~Y3NuX2FydGlzdH4xMzIz.html">Lady Gaga</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     6 => 
     array (
@@ -1455,13 +1501,14 @@ Maybe ev...',
       'music_listen' => 143178,
       'music_track_id' => 1,
       'music_filename' => '1957642-2c4e9c1e.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Verse 1]
 Welcome to the wild, no heroes and villains
 [t1]Chào mừng đến vùng hoang dã, không ai là anh hùng hay kẻ phản diện nữa
 Welcome to the war we\'ve only begun, so
 [t1]Chào mừng đến cuộc chiến...',
       'music_artist_html' => '<a href="/ca-si/The-Glitch-Mob~Y3NuX2FydGlzdH4yNzcyNg==.html">The Glitch Mob</a>, <a href="/ca-si/Mako~Y3NuX2FydGlzdH4zMzgxNw==.html">Mako</a>, <a href="/ca-si/The-Word-Alive~Y3NuX2FydGlzdH41NDA1Mg==.html">The Word Alive</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     7 => 
     array (
@@ -1486,13 +1533,14 @@ Welcome to the war we\'ve only begun, so
       'music_listen' => 345662,
       'music_track_id' => 1,
       'music_filename' => '1952903-c571edc9.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Verse 1]
 Flash far, I\'m coming for ya
 [t1]Vượt muôn trùng xa, anh đang đến bên em đây
 You\'re gonna fill me like the summer, like the sun in your eyes
 [t1]Để được em lấp đầy anh như mùa hè thơm ngá...',
       'music_artist_html' => '<a href="/ca-si/Martin-Garrix~Y3NuX2FydGlzdH4xMzM0Mw==.html">Martin Garrix</a>, <a href="/ca-si/Justin-Mylo~Y3NuX2FydGlzdH4xNTU5Ng==.html">Justin Mylo</a>, <a href="/ca-si/Dewain-Whitmore~Y3NuX2FydGlzdH4yMzY1Mg==.html">Dewain Whitmore</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     8 => 
     array (
@@ -1517,7 +1565,7 @@ You\'re gonna fill me like the summer, like the sun in your eyes
       'music_listen' => 46269,
       'music_track_id' => 13,
       'music_filename' => '1948859-ce31c3c6.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Intro:]
 I got a song filled with shit for the strong willed
 When the world gives you a raw deal
@@ -1526,6 +1574,7 @@ Scream, piss off, screw you
 When it talks to you like you don\'t belong
 Or tells...',
       'music_artist_html' => '<a href="/ca-si/Eminem~Y3NuX2FydGlzdH40NA==.html">Eminem</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     9 => 
     array (
@@ -1550,13 +1599,14 @@ Or tells...',
       'music_listen' => 1601034,
       'music_track_id' => 1,
       'music_filename' => '1913149-b66e2d75.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Verse 1: Adam Levine]
 Spent 24 hours, I need more hours with you
 [t1]Ôi ước gì một ngày có nhiều hơn 24 giờ, vì anh muốn bên em nhiều hơn nữa
 You spent the weekend getting even, ooh
 [t1]Em đã dành...',
       'music_artist_html' => '<a href="/ca-si/Maroon-5~Y3NuX2FydGlzdH40Njc4.html">Maroon 5</a>, <a href="/ca-si/Cardi-B~Y3NuX2FydGlzdH4xNDk5Mw==.html">Cardi B</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     10 => 
     array (
@@ -1581,7 +1631,7 @@ You spent the weekend getting even, ooh
       'music_listen' => 666526,
       'music_track_id' => 1,
       'music_filename' => '1899618-3b9dda5c.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'You were the shadow to my light
 Did you feel us
 Another Start
@@ -1596,6 +1646,7 @@ Where are you now
 Where are you now
 Was it all in...',
       'music_artist_html' => '<a href="/ca-si/Alan-Walker~Y3NuX2FydGlzdH4xNDk5MQ==.html">Alan Walker</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     11 => 
     array (
@@ -1620,7 +1671,7 @@ Was it all in...',
       'music_listen' => 109091,
       'music_track_id' => 1,
       'music_filename' => '1957575-2f3e3840.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Intro: Ozuna]
 Wo-oh, oh-oh
 
@@ -1630,6 +1681,7 @@ Báilame como si fuera la última vez
 Y enséñame ese pasito que no sé
 [t1]Và cho anh thấy những kĩ thuật anh chưa t...',
       'music_artist_html' => '<a href="/ca-si/DJ-Snake~Y3NuX2FydGlzdH4xNDc3NA==.html">DJ Snake</a>, <a href="/ca-si/Selena-Gomez~Y3NuX2FydGlzdH4xMDU0.html">Selena Gomez</a>, <a href="/ca-si/Ozuna~Y3NuX2FydGlzdH4xNDU1Ng==.html">Ozuna</a>, <a href="/ca-si/Cardi-B~Y3NuX2FydGlzdH4xNDk5Mw==.html">Cardi B</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     12 => 
     array (
@@ -1654,7 +1706,7 @@ Y enséñame ese pasito que no sé
       'music_listen' => 226997,
       'music_track_id' => 1,
       'music_filename' => '1954534-8451ac35.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Verse 1]
 I\'ve gotta keep the calm before the storm
 [t1]Con phải giữ vững sự thản nhiên, trước khi cơn bão tới
@@ -1662,6 +1714,7 @@ I don\'t want less, I don\'t want more
 [t1]Con không muốn hơn, cũng chẳng muốn kém
 Must...',
       'music_artist_html' => '<a href="/ca-si/Avril-Lavigne~Y3NuX2FydGlzdH4xMDQ4.html">Avril Lavigne</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     13 => 
     array (
@@ -1686,13 +1739,14 @@ Must...',
       'music_listen' => 17226,
       'music_track_id' => 1,
       'music_filename' => '1959762-544db685.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Intro: Liam Payne]
 Let me tell you how it happened
 [t1]Hãy để anh kể em nghe nó đã xảy ra như thế nào
 I wasn\'t looking for someone that night
 [t1]Anh không hề có ý định tìm kiếm ai trong đêm ấy cả...',
       'music_artist_html' => '<a href="/ca-si/Jonas-Blue~Y3NuX2FydGlzdH4xNTk4OA==.html">Jonas Blue</a>, <a href="/ca-si/Liam-Payne~Y3NuX2FydGlzdH4xMzQzNQ==.html">Liam Payne</a>, <a href="/ca-si/Lennon-Stella~Y3NuX2FydGlzdH4zMjA1Mg==.html">Lennon Stella</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     14 => 
     array (
@@ -1717,7 +1771,7 @@ I wasn\'t looking for someone that night
       'music_listen' => 62087,
       'music_track_id' => 1,
       'music_filename' => '1957703-c4c239d4.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Verse 1: Bradley Cooper]
 Tell me somethin\' girl
 [t1]Tâm sự với anh một chút đi cô bé
@@ -1725,6 +1779,7 @@ Are you happy in this modern world?
 [t1]Em có hạnh phúc trong thế giới hiện đại này không?
 Or do you need more?...',
       'music_artist_html' => '<a href="/ca-si/Lady-Gaga~Y3NuX2FydGlzdH4xMzIz.html">Lady Gaga</a>, <a href="/ca-si/Bradley-Cooper~Y3NuX2FydGlzdH4xMjI4NTU=.html">Bradley Cooper</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     15 => 
     array (
@@ -1749,7 +1804,7 @@ Or do you need more?...',
       'music_listen' => 5164107,
       'music_track_id' => 1,
       'music_filename' => '1767877-78ef562d.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. I\'ve been reading books of old
 [t1]Tôi vẫn luôn chìm đắm trong những cuốn sách cũ
 The legends and the myths
@@ -1757,6 +1812,7 @@ The legends and the myths
 Achilles and his gold
 [t1]Achilles vớ...',
       'music_artist_html' => '<a href="/ca-si/The-Chainsmokers~Y3NuX2FydGlzdH4xMzMzOQ==.html">The Chainsmokers</a>, <a href="/ca-si/Coldplay~Y3NuX2FydGlzdH42ODA1.html">Coldplay</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     16 => 
     array (
@@ -1781,7 +1837,7 @@ Achilles and his gold
       'music_listen' => 6735,
       'music_track_id' => 1,
       'music_filename' => '1960076-400466c3.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Yeah yeah
 Girl I can\'t get away from you
 But just tell me what you want it\'s true
@@ -1792,6 +1848,7 @@ Yeah but
 Baby tell me that there something is there
 \'Cause I...',
       'music_artist_html' => '<a href="/ca-si/Lay~Y3NuX2FydGlzdH4yOTY0.html">Lay</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     17 => 
     array (
@@ -1816,9 +1873,10 @@ Baby tell me that there something is there
       'music_listen' => 195482,
       'music_track_id' => 1,
       'music_filename' => '1954415-c5b85d60.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[t1]Bài hát này nói về một cô gái yêu một chàng &quot;bad boy&quot;, họ tâm sự và kể cho nhau nghe mọi bí mật. Sau đó cô gái đem bí mật của chàng trai kể cho bạn của cô nghe, họ lập tức phản đối, v...',
       'music_artist_html' => '<a href="/ca-si/The-Chainsmokers~Y3NuX2FydGlzdH4xMzMzOQ==.html">The Chainsmokers</a>, <a href="/ca-si/Kelsea-Ballerini~Y3NuX2FydGlzdH4xNzI3MQ==.html">Kelsea Ballerini</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     18 => 
     array (
@@ -1843,13 +1901,14 @@ Baby tell me that there something is there
       'music_listen' => 9939379,
       'music_track_id' => 1,
       'music_filename' => '1757811-ebb87651.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. The club isn\'t the best place to find a lover
 [t1]Club hẳn không phải nơi tốt để tìm một người tình
 So the bar is where I go
 [t1]Thế nên hôm nay tôi sẽ đi bar
 Me and my friends at the table doin...',
       'music_artist_html' => '<a href="/ca-si/Ed-Sheeran~Y3NuX2FydGlzdH4yNjUz.html">Ed Sheeran</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     19 => 
     array (
@@ -1874,7 +1933,7 @@ Me and my friends at the table doin...',
       'music_listen' => 11372053,
       'music_track_id' => 5,
       'music_filename' => '1348625-00a323af.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'I\'m hurting baby, I\'m broken down
 I need your loving, loving
 I need it now
@@ -1885,6 +1944,7 @@ I\'m on my knees
 I don\'t wanna be needing your love
 I j...',
       'music_artist_html' => '<a href="/ca-si/Maroon-5~Y3NuX2FydGlzdH40Njc4.html">Maroon 5</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
   ),
   5 => 
@@ -1912,7 +1972,7 @@ I j...',
       'music_listen' => 26311,
       'music_track_id' => 1,
       'music_filename' => '1950883-8e4dfdf7.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '幽静 窗外，满地片片寒花
 一瞬间，永恒的时差 窝在棉被里
 倾听 踏雪听沉默的声音
@@ -1932,6 +1992,7 @@ I j...',
 倾听 踏雪听沉默的声音
 飘雪藏永恒的身...',
       'music_artist_html' => '<a href="/ca-si/Christine-Welch~Y3NuX2FydGlzdH4yMzI5OQ==.html">Christine Welch</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     1 => 
     array (
@@ -1956,13 +2017,14 @@ I j...',
       'music_listen' => 399749,
       'music_track_id' => 1,
       'music_filename' => '1913036-9d50c903.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Ni zhi dao wo dui ni bu jin jin shi xi huan 
 Ni yan zhong que mei you wo xiang yao di da an 
 Zhe yang ruo ji ruo li rang wo hen zhua kuang 
 Bu zhi dao gai zen me shuo 
 Xin li mian zai xiang shi me...',
       'music_artist_html' => '<a href="/ca-si/Ton-Ngu-Trai~Y3NuX2FydGlzdH4xNDAzNg==.html">Tôn Ngữ Trại</a>, <a href="/ca-si/Tieu-Toan~Y3NuX2FydGlzdH4xNDAzNw==.html">Tiêu Toàn</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     2 => 
     array (
@@ -1987,7 +2049,7 @@ Xin li mian zai xiang shi me...',
       'music_listen' => 89504,
       'music_track_id' => 1,
       'music_filename' => '1948719-6710bff0.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Intro]
 Big things sure enough
 [t1]Những điều lớn chắc chắn đủ
@@ -1997,6 +2059,7 @@ Sheep gang glorious
 [t1]Băng đảng cừu vinh quang
 Run thro...',
       'music_artist_html' => '<a href="/ca-si/Lay~Y3NuX2FydGlzdH4yOTY0.html">Lay</a>, <a href="/ca-si/Alan-Walker~Y3NuX2FydGlzdH4xNDk5MQ==.html">Alan Walker</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     3 => 
     array (
@@ -2021,9 +2084,10 @@ Run thro...',
       'music_listen' => 222296,
       'music_track_id' => 0,
       'music_filename' => '1656215-aa76b5a3.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Ho-Duong-Lam~Y3NuX2FydGlzdH43NDY=.html">Hồ Dương Lâm</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     4 => 
     array (
@@ -2048,7 +2112,7 @@ Run thro...',
       'music_listen' => 588902,
       'music_track_id' => 1,
       'music_filename' => '1917802-2fea2b0e.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Wo men yi qi xue mao jiao 
 Yi qi miao miao miao miao miao 
 Zai ni mian qian sa ge jiao 
@@ -2057,6 +2121,7 @@ Wo di xin zang peng peng tiao
 Mi lian shang ni di huai xiao 
 Ni bu shuo ai...',
       'music_artist_html' => '<a href="/ca-si/Tieu-Phan-Phan~Y3NuX2FydGlzdH4xMzQ4MA==.html">Tiểu Phan Phan</a>, <a href="/ca-si/Tieu-Phong-Phong~Y3NuX2FydGlzdH4xMzQ4MQ==.html">Tiểu Phong Phong</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     5 => 
     array (
@@ -2081,7 +2146,7 @@ Ni bu shuo ai...',
       'music_listen' => 210182,
       'music_track_id' => 0,
       'music_filename' => '1893304-cf15a889.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '輕輕貼近你的耳朵
 [t1]Qīng qīng tiējìn nǐ de ěrduǒ
 [t2]Getting close to your ears gently
@@ -2092,6 +2157,7 @@ Ni bu shuo ai...',
 [t1]qínghuà yǒngyuǎn bù xián tài duō
 [t2]Never complain to many lov...',
       'music_artist_html' => '<a href="/ca-si/Ha-Tu-Linh~Y3NuX2FydGlzdH4xMzUwMg==.html">Hạ Tử Linh</a>, <a href="/ca-si/Giang-Trieu~Y3NuX2FydGlzdH4xMzUwMw==.html">Giang Triều</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     6 => 
     array (
@@ -2116,7 +2182,7 @@ Ni bu shuo ai...',
       'music_listen' => 2867225,
       'music_track_id' => 4,
       'music_filename' => '1003998-6e4f5436.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Ie kai wo zui shen mi de deng dai 
 Xing xing zhui luo feng zai chui dong 
 Zhong yu zai jiang ni rong ru huai zhong 
@@ -2125,6 +2191,7 @@ Liang ke xin chan dou.
 Xiang xin wo bu bian de zhen xin 
 Quan nian deng dai you...',
       'music_artist_html' => '<a href="/ca-si/Jackie-Chan~Y3NuX2FydGlzdH40MDEx.html">Jackie Chan</a>, <a href="/ca-si/Kim-Hee-Sun~Y3NuX2FydGlzdH4zMjY5.html">Kim Hee Sun</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     7 => 
     array (
@@ -2149,7 +2216,7 @@ Quan nian deng dai you...',
       'music_listen' => 8301,
       'music_track_id' => 1,
       'music_filename' => '1958864-9259669b.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. 每天都只想看电视猫
 [t2]Měitiān dū zhǐ xiǎng kàn diànshì māo
 [t1]Anh chỉ muốn xem những chú mèo trên TV mỗi ngày.
@@ -2158,6 +2225,7 @@ Quan nian deng dai you...',
 [t2]zhēnxī jīngcǎi huàmiàn měi fēn měi miǎo
 [t1]Trân trọng hình ảnh tuyệt vời...',
       'music_artist_html' => '<a href="/ca-si/Tieu-Phan-Phan~Y3NuX2FydGlzdH4xMzQ4MA==.html">Tiểu Phan Phan</a>, <a href="/ca-si/Tieu-Phong-Phong~Y3NuX2FydGlzdH4xMzQ4MQ==.html">Tiểu Phong Phong</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     8 => 
     array (
@@ -2182,7 +2250,7 @@ Quan nian deng dai you...',
       'music_listen' => 536491,
       'music_track_id' => 1,
       'music_filename' => '1841697-846877e1.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '这么多年的兄弟
 [t2]Zhème duōnián de xiōngdì
 [t1]Anh em nhiều năm như vậy
@@ -2195,6 +2263,7 @@ Quan nian deng dai you...',
 [t2]tài duō tài duō bù róngyì
 [t1]Có quá nhiều thứ...',
       'music_artist_html' => '<a href="/ca-si/Dai-Trang~Y3NuX2FydGlzdH4xMzY1OA==.html">Đại Tráng</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     9 => 
     array (
@@ -2219,7 +2288,7 @@ Quan nian deng dai you...',
       'music_listen' => 432661,
       'music_track_id' => 0,
       'music_filename' => '1518751-229c258e.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '摘一颗苹果
 [t2]Zhāi yī kē píng guǒ
 [t1]Hái một quả táo trên cây ven đường.
@@ -2231,6 +2300,7 @@ Quan nian deng dai you...',
 送到你的手中帮你解渴
 [t2]Sòng dào nǐ de shǒu zhōng b...',
       'music_artist_html' => '<a href="/ca-si/Uong-To-Lang~Y3NuX2FydGlzdH4xMzUwNQ==.html">Uông Tô Lang</a>, <a href="/ca-si/By2~Y3NuX2FydGlzdH40NTE1NA==.html">By2</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     10 => 
     array (
@@ -2255,7 +2325,7 @@ Quan nian deng dai you...',
       'music_listen' => 1250,
       'music_track_id' => 1,
       'music_filename' => '1960726-14a608f3.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '我曾经充满了期待 
 关于爱 关于未来
 然后就受到了伤害 
@@ -2278,6 +2348,7 @@ Quan nian deng dai you...',
 被岁月漂白
 我开始为明天默哀...',
       'music_artist_html' => '<a href="/ca-si/Truong-Luong-Dinh~Y3NuX2FydGlzdH40MTQ4.html">Trương Lương Dĩnh</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     11 => 
     array (
@@ -2302,7 +2373,7 @@ Quan nian deng dai you...',
       'music_listen' => 751112,
       'music_track_id' => 1,
       'music_filename' => '1757627-41d5d017.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. 入夜漸微涼 繁花落地成霜
 [t2]Ruỳè jiàn wēi liáng fánhuā luòdì chéng shuāng
 [t1]Đêm trở lạnh, muôn hoa rơi xuống đất thành sương
@@ -2311,6 +2382,7 @@ Quan nian deng dai you...',
 [t2]nǐ zài yuǎnfāng tiàowàng hào jìn suǒyǒu mù guāng
 [t1]Người...',
       'music_artist_html' => '<a href="/ca-si/Truong-Bich-Than~Y3NuX2FydGlzdH4xNzgzMw==.html">Trương Bích Thần</a>, <a href="/ca-si/Duong-Tong-Vy~Y3NuX2FydGlzdH4xNzA4MQ==.html">Dương Tông Vỹ</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     12 => 
     array (
@@ -2335,7 +2407,7 @@ Quan nian deng dai you...',
       'music_listen' => 17353,
       'music_track_id' => 0,
       'music_filename' => '1954165-a2dcb878.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkgreen">128kbps</span>',
+      'music_bitrate' => 128,
       'music_shortlyric' => '有个简单的问题 
 [t2]Yǒu gè jiǎn dān de wèn tí 
 [t1]Có một câu hỏi thật giản đơn 
@@ -2347,6 +2419,7 @@ Quan nian deng dai you...',
 它是否是一种味道 还是引力 
 [t2]Tā shì fǒu shì yī zhǒng wèi dào hái shì yǐn l...',
       'music_artist_html' => '<a href="/ca-si/Phuong-Vu-Kiet~Y3NuX2FydGlzdH4yMDc4OA==.html">Phương Vũ Kiệt</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">128kbps</span>',
     ),
     13 => 
     array (
@@ -2371,7 +2444,7 @@ Quan nian deng dai you...',
       'music_listen' => 361991,
       'music_track_id' => 0,
       'music_filename' => '1497978-d9846bca.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => 'Liú zhù nǐ yīmiàn huà zài wǒ xīnjiān
 Shuí yě ná bù zǒu chū jiàn de huàmiàn
 Nǎpà shì suìyuè cuàngǎi wǒ hóngyán
@@ -2380,6 +2453,7 @@ Nǐ háishì xīrì duōqíng de shàonián.
 Wǒ hé nǐ zhè gùshì zhǐ shèng pínáng
 Liànrén zǎo hu...',
       'music_artist_html' => '<a href="/ca-si/Dieu-Boi-Na~Y3NuX2FydGlzdH4yMTMzMg==.html">Diêu Bối Na</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     14 => 
     array (
@@ -2404,9 +2478,10 @@ Liànrén zǎo hu...',
       'music_listen' => 29350,
       'music_track_id' => 1,
       'music_filename' => '1947322-40996a64.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Tu-Mong-Vien~Y3NuX2FydGlzdH4xNDY4Mw==.html">Từ Mộng Viên</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     15 => 
     array (
@@ -2431,7 +2506,7 @@ Liànrén zǎo hu...',
       'music_listen' => 7599,
       'music_track_id' => 0,
       'music_filename' => '1954060-292a56e0.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkgreen">128kbps</span>',
+      'music_bitrate' => 128,
       'music_shortlyric' => 'Wǒmen yǐjīng yǒu hěnjiǔ méiyǒu liánxì 
 Xuéhuì jiēshòu nǐ líkāi de shìshí 
 Yǒuxiē shì yǒuxiē rén yǐ biàn chéng huíyì 
@@ -2439,6 +2514,7 @@ Zài suìyuè de zhǎozé lǐ wúfǎ mǒ qù.
 
 Céngjīng nà yī chǎng liàn\'ài bǎowèi zhànyì...',
       'music_artist_html' => '<a href="/ca-si/Bach-Tieu-Bach~Y3NuX2FydGlzdH4xNDA4Ng==.html">Bạch Tiểu Bạch</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">128kbps</span>',
     ),
     16 => 
     array (
@@ -2463,7 +2539,7 @@ Céngjīng nà yī chǎng liàn\'ài bǎowèi zhànyì...',
       'music_listen' => 94208,
       'music_track_id' => 1,
       'music_filename' => '1884853-40ce2400.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '春去白了华发落寞了思量
 [t2]Chūn qù báile huáfà luòmòle sīliang
 [t1]Xuân đi, tóc bạc cô đơn tưởng niệm.
@@ -2472,6 +2548,7 @@ Céngjīng nà yī chǎng liàn\'ài bǎowèi zhànyì...',
 [t2]jiǎn xià yī lǚ chóu sī zhē mù ràng rén máng
 [t1]Cắt đi sợi tơ sầu khiến người nhìn không...',
       'music_artist_html' => '<a href="/ca-si/Ly-Vien-Kiet~Y3NuX2FydGlzdH4xODA3OQ==.html">Lý Viên Kiệt</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     17 => 
     array (
@@ -2496,9 +2573,10 @@ Céngjīng nà yī chǎng liàn\'ài bǎowèi zhànyì...',
       'music_listen' => 128369,
       'music_track_id' => 4,
       'music_filename' => '1839607-bd7deec2.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Tu-Mong-Vien~Y3NuX2FydGlzdH4xNDY4Mw==.html">Từ Mộng Viên</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     18 => 
     array (
@@ -2523,7 +2601,7 @@ Céngjīng nà yī chǎng liàn\'ài bǎowèi zhànyì...',
       'music_listen' => 124230,
       'music_track_id' => 7,
       'music_filename' => '1508726-4430bc38.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. 徘徊着的 在路上的 你要走吗 
 [t2]Páihuáizhe de zài lùshàng de nǐ yào zǒu ma 
 [t1]Lang thang trên những con đường dài, cậu muốn đi thật xa phải không?
@@ -2531,6 +2609,7 @@ Céngjīng nà yī chǎng liàn\'ài bǎowèi zhànyì...',
 易碎的骄傲着 那也曾是我的模样
 [t2]yì suì de jiāo\'àozhe nà yě céng shì...',
       'music_artist_html' => '<a href="/ca-si/Phac-Thu~Y3NuX2FydGlzdH4xNDY3Ng==.html">Phác Thụ</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     19 => 
     array (
@@ -2555,7 +2634,7 @@ Céngjīng nà yī chǎng liàn\'ài bǎowèi zhànyì...',
       'music_listen' => 51056,
       'music_track_id' => 5,
       'music_filename' => '1882329-2f90903d.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '落叶堆积了好几层
 而我踩过青春
 听见
@@ -2577,6 +2656,7 @@ Céngjīng nà yī chǎng liàn\'ài bǎowèi zhànyì...',
 我拿醇酒一坛饮恨
 你那千...',
       'music_artist_html' => '<a href="/ca-si/Lam-Tuan-Kiet~Y3NuX2FydGlzdH41MjI=.html">Lâm Tuấn Kiệt</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
   ),
   6 => 
@@ -2604,7 +2684,7 @@ Céngjīng nà yī chǎng liàn\'ài bǎowèi zhànyì...',
       'music_listen' => 1655574,
       'music_track_id' => 1,
       'music_filename' => '1926577-5f437da4.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '멈춘 시간 속 잠든 너를 찾아가
 [t2]Meomchun sigan sok jamdeun neoreul chajaga
 [t1]Trong phút giây thời gian ngưng đọng, anh đi tìm em và chìm vào giấc ngủ
@@ -2612,6 +2692,7 @@ Céngjīng nà yī chǎng liàn\'ài bǎowèi zhànyì...',
 아무리 막아도 결국 너의 곁인 걸
 [t2]Amuri magado gyeolguk neoui gye...',
       'music_artist_html' => '<a href="/ca-si/Shaun~Y3NuX2FydGlzdH4xOTIwOQ==.html">Shaun</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     1 => 
     array (
@@ -2636,7 +2717,7 @@ Céngjīng nà yī chǎng liàn\'ài bǎowèi zhànyì...',
       'music_listen' => 1466,
       'music_track_id' => 1,
       'music_filename' => '1960797-62823e54.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Baby nareul tteonajima nega eopsin
 Amugeotdo anin i bameun an doegesseo nan
 Neukkyeojineun geol sechage ttwigo inneun
@@ -2644,6 +2725,7 @@ Sarangui heunjeok nal ttokbaro bwa
 Jeo bulkkotcheoreom taneun nae nunbit
 Tteuge...',
       'music_artist_html' => '<a href="/ca-si/Reik~Y3NuX2FydGlzdH4yMzQyMw==.html">Reik</a>, <a href="/ca-si/Super-Junior~Y3NuX2FydGlzdH4yMTM=.html">Super Junior</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     2 => 
     array (
@@ -2668,7 +2750,7 @@ Tteuge...',
       'music_listen' => 47524,
       'music_track_id' => 1,
       'music_filename' => '1958635-cee931f3.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Goodbye goodbye
 [t2]Goodbye goodbye
 [t1]Tạm biệt, tạm biệt nhé
@@ -2680,6 +2762,7 @@ Tteuge...',
 그토록 사랑하지 말 걸 그랬나 봐요
 [t2]Geutorok saranghaji mal geol g...',
       'music_artist_html' => '<a href="/ca-si/iKON~Y3NuX2FydGlzdH4xNDM1OQ==.html">iKON</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     3 => 
     array (
@@ -2704,7 +2787,7 @@ Tteuge...',
       'music_listen' => 791722,
       'music_track_id' => 1,
       'music_filename' => '1919141-58ed8c53.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '착한 얼굴에 그렇지 못한 태도
 [t2]Chakan eolgure geureochi mothan taedo
 [t1]Mặt trông thế nhưng chẳng hiền
@@ -2713,6 +2796,7 @@ Tteuge...',
 [t2]Ganyeorin mommae sok garyeojin Volumeeun du baero
 [t1]Body mảnh mai nhưn...',
       'music_artist_html' => '<a href="/ca-si/BlackPink~Y3NuX2FydGlzdH4xNDY3Mw==.html">BlackPink</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     4 => 
     array (
@@ -2737,7 +2821,7 @@ Tteuge...',
       'music_listen' => 512358,
       'music_track_id' => 1,
       'music_filename' => '1877126-069b0180.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Naui du nuneul gameumyeon
 Tteooreuneun geu nundongja
 Jakku gaseumi siryeoseo
@@ -2747,6 +2831,7 @@ Kkumiramyeon ije kkaeeonasseumyeon jebal
 Jeongmal nega naui unmyeongin geolkka
 Neon falling you....',
       'music_artist_html' => '<a href="/ca-si/Chanyeol~Y3NuX2FydGlzdH4xNTcwMg==.html">Chanyeol</a>, <a href="/ca-si/Punch~Y3NuX2FydGlzdH40NzI3.html">Punch</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     5 => 
     array (
@@ -2771,7 +2856,7 @@ Neon falling you....',
       'music_listen' => 254617,
       'music_track_id' => 15,
       'music_filename' => '1947097-e091b486.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'You can call me artist
 [t2]You can call me artist
 [t1]Gọi tao là ARTIST
@@ -2783,6 +2868,7 @@ You can call me idol
 아님 어떤 다른 뭐라 해도 
 [t2]Anim eotteon dareun mwora...',
       'music_artist_html' => '<a href="/ca-si/BTS~Y3NuX2FydGlzdH40NzQ4.html">BTS</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     6 => 
     array (
@@ -2807,7 +2893,7 @@ You can call me idol
       'music_listen' => 16501,
       'music_track_id' => 1,
       'music_filename' => '1959663-ddc6370d.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '더 빠져가 깊이 너와 나 같이
 [t2]Deo ppajyeoga gipi neowa na gachi
 [t1]Đắm chìm sâu hơn vào thứ tình cảm này, anh cùng với em
@@ -2816,6 +2902,7 @@ You can call me idol
 [t2]Ppajyeoga gipi neowa na gachi
 [t1]Ta say mê nhau đậm sâu hơn, a...',
       'music_artist_html' => '<a href="/ca-si/Yuri~Y3NuX2FydGlzdH40NjI3.html">Yuri</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     7 => 
     array (
@@ -2840,7 +2927,7 @@ You can call me idol
       'music_listen' => 2969,
       'music_track_id' => 2,
       'music_filename' => '1960018-a29857bf.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Do you hear me
 [t2]Do you hear me
 [t1]Người có nghe thấy lời tôi nói không?
@@ -2853,6 +2940,7 @@ Gloomy day
 [t2]Gloomy day
 [...',
       'music_artist_html' => '<a href="/ca-si/The-Rose~Y3NuX2FydGlzdH4yMTkxMw==.html">The Rose</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     8 => 
     array (
@@ -2877,7 +2965,7 @@ Gloomy day
       'music_listen' => 1350,
       'music_track_id' => 1,
       'music_filename' => '1960728-44683890.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Meomchun sigan sok jamdeun neoreul chajaga 
 Amuri magado gyeolguk neoui gyeotin geol 
 Gilgo gin yeohaengeul kkeutnae ijen doraga 
@@ -2885,6 +2973,7 @@ Neoraneun jibeuro jigeum dasi way back home.
 
 Amuri himkkeot dadado...',
       'music_artist_html' => '<a href="/ca-si/Jang-Mi~Y3NuX2FydGlzdH4xMzc3NQ==.html">Jang Mi</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     9 => 
     array (
@@ -2909,7 +2998,7 @@ Amuri himkkeot dadado...',
       'music_listen' => 169690,
       'music_track_id' => 1,
       'music_filename' => '1943175-35590a55.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Do you remember you remember remember what you said
 [t2] Do you remember you remember remember what you said
 [t1] Liệu anh còn nhớ những gì mình đã nói?
@@ -2917,6 +3006,7 @@ Amuri himkkeot dadado...',
 너는 내게 뭐든 줄 것처럼 말을 건넸다 
 [t2] Neoneun naege m...',
       'music_artist_html' => '<a href="/ca-si/GI-DLE~Y3NuX2FydGlzdH4xNDQyOQ==.html">(G)I-DLE</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     10 => 
     array (
@@ -2941,7 +3031,7 @@ Amuri himkkeot dadado...',
       'music_listen' => 39178,
       'music_track_id' => 1,
       'music_filename' => '1957796-3f1a710b.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Woo Yeah yeah Woo
 [t2]Woo Yeah yeah Woo
 [t1]Woo Yeah yeah Woo
@@ -2953,6 +3043,7 @@ Amuri himkkeot dadado...',
 제자리 쳇바퀴 돌기
 [t2]Jejari chesbakwi d...',
       'music_artist_html' => '<a href="/ca-si/Seulgi~Y3NuX2FydGlzdH40Njcy.html">Seulgi</a>, <a href="/ca-si/SinB~Y3NuX2FydGlzdH44NTkyMw==.html">SinB</a>, <a href="/ca-si/Chungha~Y3NuX2FydGlzdH4xNTk3OA==.html">Chungha</a>, <a href="/ca-si/Soyeon~Y3NuX2FydGlzdH4xNDc2MA==.html">Soyeon</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     11 => 
     array (
@@ -2977,7 +3068,7 @@ Amuri himkkeot dadado...',
       'music_listen' => 122669,
       'music_track_id' => 2,
       'music_filename' => '1950732-39d95c54.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '내가 말했잖아 속지 말라고
 [t2]Naega malhaetjana sokji mallago
 [t1]Tôi đã nói với anh rằng hãy cẩn thận đừng để bị gạt cơ mà
@@ -2988,6 +3079,7 @@ Amuri himkkeot dadado...',
 
 너...',
       'music_artist_html' => '<a href="/ca-si/Sunmi~Y3NuX2FydGlzdH40Mjg0.html">Sunmi</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     12 => 
     array (
@@ -3012,7 +3104,7 @@ Amuri himkkeot dadado...',
       'music_listen' => 2352322,
       'music_track_id' => 3,
       'music_filename' => '1111001-6220dd76.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[G-Dragon] Yeah
 Finally I realized
 That I\'m nothing without you
@@ -3023,6 +3115,7 @@ Forgive me
 [T.O.P] Padocheoreom buswojin nae mam
 [G-Dragon] Baramcheoreom heundeullineun nae m...',
       'music_artist_html' => '<a href="/ca-si/Big-Bang~Y3NuX2FydGlzdH45ODI=.html">Big Bang</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     13 => 
     array (
@@ -3047,7 +3140,7 @@ Forgive me
       'music_listen' => 608890,
       'music_track_id' => 1,
       'music_filename' => '1860881-022717f3.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Seolleeo neowa naye rangdebyu
 (rangdebyu)
 Nae maeumeul deureotta nwatta hae mamdaeru
@@ -3056,6 +3149,7 @@ Jigeum nae nunen nunen nunen
 Ne eokkae mureup bal (oh)
 Sumi tak makhil geot gata nan neoman bomyeon...',
       'music_artist_html' => '<a href="/ca-si/Momoland~Y3NuX2FydGlzdH4xMzM5MQ==.html">Momoland</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     14 => 
     array (
@@ -3080,7 +3174,7 @@ Sumi tak makhil geot gata nan neoman bomyeon...',
       'music_listen' => 1446970,
       'music_track_id' => 10,
       'music_filename' => '1674794-6267a518.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Suga] 
 Bultaoreune 
 [all] 
@@ -3096,6 +3190,7 @@ Haega jigo nan hu biteuldaemyeo geotji.
 [suga] 
 Da mansinchangiro chwihaesseo chwihaes...',
       'music_artist_html' => '<a href="/ca-si/BTS~Y3NuX2FydGlzdH40NzQ4.html">BTS</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     15 => 
     array (
@@ -3120,7 +3215,7 @@ Da mansinchangiro chwihaesseo chwihaes...',
       'music_listen' => 41796,
       'music_track_id' => 5,
       'music_filename' => '1951208-83dbcd67.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '너의 싸늘해진 그 눈빛이
 [t2]Neoui ssaneulhaejin geu nunbichi
 [t1]Ánh mắt lạnh lùng ấy của anh
@@ -3132,6 +3227,7 @@ Da mansinchangiro chwihaesseo chwihaes...',
 커지던 니 맘의 불씨
 [t2]Keojideon ni mamui bulssi...',
       'music_artist_html' => '<a href="/ca-si/Sunmi~Y3NuX2FydGlzdH40Mjg0.html">Sunmi</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     16 => 
     array (
@@ -3156,7 +3252,7 @@ Da mansinchangiro chwihaesseo chwihaes...',
       'music_listen' => 615121,
       'music_track_id' => 2,
       'music_filename' => '1908429-ce66734f.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Intro: V, Jungkook] 
 널 위해서라면 난 슬퍼도 기쁜 척 할 수가 있었어
 [t2]Neol wihaeseoramyeon nan seulpeodo gippeun cheok hal suga isseosseo
@@ -3164,6 +3260,7 @@ Da mansinchangiro chwihaesseo chwihaes...',
 
 널 위해서라면 난 아파도 강한...',
       'music_artist_html' => '<a href="/ca-si/BTS~Y3NuX2FydGlzdH40NzQ4.html">BTS</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     17 => 
     array (
@@ -3188,7 +3285,7 @@ Da mansinchangiro chwihaesseo chwihaes...',
       'music_listen' => 672370,
       'music_track_id' => 1,
       'music_filename' => '1867160-5552c94e.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Sarangeul haessda uriga manna
 Jiuji moshal chueogi dwaessda
 Bolmanhan mellodeurama
@@ -3198,6 +3295,7 @@ Geugeomyeon dwaessda neol saranghaessda.
 Uriga mandeun love scenario
 Ijen jomyeongi kkeoji...',
       'music_artist_html' => '<a href="/ca-si/IKON~Y3NuX2FydGlzdH41NzM4OQ==.html">IKON</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     18 => 
     array (
@@ -3222,7 +3320,7 @@ Ijen jomyeongi kkeoji...',
       'music_listen' => 132769,
       'music_track_id' => 1,
       'music_filename' => '1950876-90511576.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '몰랐니 네 맘이 날 원하잖니
 [t2]Mollanni ne mami nal wonhajanni
 [t1]Anh không hề hay biết sao, rằng trái tim anh đang khao khát có được em?
@@ -3231,6 +3329,7 @@ Ijen jomyeongi kkeoji...',
 [t2]Seodulleo naege ppalli Lalalalala
 [t1]Hãy m...',
       'music_artist_html' => '<a href="/ca-si/Girls-Generation-OhGG~Y3NuX2FydGlzdH4yMzI5OA==.html">Girls\' Generation-Oh!GG</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     19 => 
     array (
@@ -3255,7 +3354,7 @@ Ijen jomyeongi kkeoji...',
       'music_listen' => 1010855,
       'music_track_id' => 11,
       'music_filename' => '1674795-fde7f434.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Nan sumswigo sipeo i bami silheo
 Ijen kkaego sipeo kkumsogi silheo
 Nae ane gathyeoseo nan jugeoisseo
@@ -3265,6 +3364,7 @@ Just wanna be yours.
 Wae iri kkamkkamhan geonji niga eopsneun i goseun
 Wi...',
       'music_artist_html' => '<a href="/ca-si/BTS~Y3NuX2FydGlzdH40NzQ4.html">BTS</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
   ),
   7 => 
@@ -3292,7 +3392,7 @@ Wi...',
       'music_listen' => 2174,
       'music_track_id' => 1,
       'music_filename' => '1960140-c15c7de4.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'どんなに遠く遠く　
 離れていたって
 信じ続けていれば
@@ -3314,6 +3414,7 @@ Wi...',
 信じ続けていれば
 everything is for you...',
       'music_artist_html' => '<a href="/ca-si/lol~Y3NuX2FydGlzdH4xODU1Mw==.html">lol</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     1 => 
     array (
@@ -3338,7 +3439,7 @@ everything is for you...',
       'music_listen' => 1028701,
       'music_track_id' => 1,
       'music_filename' => '1038305-78627a21.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Sakura hirahira maiorite ochite
 Yureru omoi no take wo dakishimeta
 Kimi to haru ni negai shi ano yume wa
@@ -3348,6 +3449,7 @@ Densha kara mieta no wa
 Itsuka no omokage
 Futari de ka...',
       'music_artist_html' => '<a href="/ca-si/Ikimono-gakari~Y3NuX2FydGlzdH4yNjMyOQ==.html">Ikimono-gakari</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     2 => 
     array (
@@ -3372,7 +3474,7 @@ Futari de ka...',
       'music_listen' => 2632930,
       'music_track_id' => 6,
       'music_filename' => '1122983-ac406bdb.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[G-Dragon] Letting you go... (can somebody...)
 Letting you go... (please somebody...)
 No I got this, yeah
@@ -3381,6 +3483,7 @@ Steady thinkin\' \'bout this thing called love
 It got me shaken up
 ([Seungri] Please tell me...',
       'music_artist_html' => '<a href="/ca-si/Big-Bang~Y3NuX2FydGlzdH45ODI=.html">Big Bang</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     3 => 
     array (
@@ -3405,7 +3508,7 @@ It got me shaken up
       'music_listen' => 21399,
       'music_track_id' => 2,
       'music_filename' => '1794257-2082f3fa.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'ato hitotsubu no namida de
 [t1]Chỉ cần một giọt nước mắt nữa
 
@@ -3415,6 +3518,7 @@ hito koto no yuuki de
 negai ga kanau sono toki ga kurutte 
 [t1]Những nguyện ước của bạn...',
       'music_artist_html' => '<a href="/ca-si/Funky-Monkey-Babys~Y3NuX2FydGlzdH45NzU2MA==.html">Funky Monkey Babys</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     4 => 
     array (
@@ -3439,7 +3543,7 @@ negai ga kanau sono toki ga kurutte
       'music_listen' => 1399,
       'music_track_id' => 1,
       'music_filename' => '1960220-b3048e16.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Like the scarlet night veiling the dark 
 You can hide your fear 
 Can lie my dear 
@@ -3450,6 +3554,7 @@ chidarake no tsubasa hirogete
 Like a Fallen Angel toki no kaze ni 
 nagasarete ochite yuk...',
       'music_artist_html' => '<a href="/ca-si/Yoshiki-feat-hyde~Y3NuX2FydGlzdH4xMjI3OTc=.html">Yoshiki feat. hyde</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     5 => 
     array (
@@ -3474,11 +3579,12 @@ nagasarete ochite yuk...',
       'music_listen' => 258698,
       'music_track_id' => 1,
       'music_filename' => '1715535-f64c0bcf.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'あぁ　このまま僕たちの声が　世界の端っこまで消えることなく
 [t2]aa kono mama bokutachi no koe ga sekai no hajikko made kieru koto naku
 [t1]Mình ước sao giọng nói của chúng ta sẽ không tan biến mà vang đến nơi tận cùng thế giới...',
       'music_artist_html' => '<a href="/ca-si/RADWIMPS~Y3NuX2FydGlzdH4xODY1Mg==.html">RADWIMPS</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     6 => 
     array (
@@ -3503,7 +3609,7 @@ nagasarete ochite yuk...',
       'music_listen' => 212548,
       'music_track_id' => 0,
       'music_filename' => '1719387-f370d026.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Tsuyu no man naka
 Kyou wa ameagari
 Namanurui kaze
@@ -3516,6 +3622,7 @@ Te ni shitaku naru
 Furete mitaku naru
 Anata wa kono hotaru no y...',
       'music_artist_html' => '<a href="/ca-si/Fujita-Maiko~Y3NuX2FydGlzdH4yOTA2NA==.html">Fujita Maiko</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     7 => 
     array (
@@ -3540,7 +3647,7 @@ Anata wa kono hotaru no y...',
       'music_listen' => 235898,
       'music_track_id' => 24,
       'music_filename' => '1718380-6fa79f67.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'まだこの世界は　僕を飼いならしてたいみたいだ
 [t2]Mada kono sekai wa boku wo kainarashitetai mitai da
 望み通りいいだろう　美しくもがくよ
@@ -3549,6 +3656,7 @@ Anata wa kono hotaru no y...',
 互いの砂時計　眺めながらキスをしようよ
 [t2]Tagai no sunadokei nagamenagar...',
       'music_artist_html' => '<a href="/ca-si/RADWIMPS~Y3NuX2FydGlzdH4xODY1Mg==.html">RADWIMPS</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     8 => 
     array (
@@ -3573,13 +3681,14 @@ Anata wa kono hotaru no y...',
       'music_listen' => 60631,
       'music_track_id' => 1,
       'music_filename' => '1925460-dfde7ac4.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Sai iraira mo nai gi Yama Fumi kanari zu ka i hi mu 
 Se kau ri mu ri te ka hirihiri sonna fume tari 
 (Candy) haruka akenai amai no ya hashi 
 (Can be) kimi no kokoro imasu no i hashi 
 To kiki ka kak...',
       'music_artist_html' => '<a href="/ca-si/Red-Velvet~Y3NuX2FydGlzdH40NzE5.html">Red Velvet</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     9 => 
     array (
@@ -3604,12 +3713,13 @@ To kiki ka kak...',
       'music_listen' => 1317664,
       'music_track_id' => 1,
       'music_filename' => '1391607-78229d27.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '“sakura sakura aitai yo iya da kimi ni ima sugu aitai yo”
 daijoubu mou nakanaide watashi wa kaze anata wo tsundeiru yo
 “sakura sakura aitai yo iya da kimi ni ima sugu aitai yo”
 arigatou zutto daisu...',
       'music_artist_html' => '<a href="/ca-si/RSP~Y3NuX2FydGlzdH4yNDI0.html">RSP</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     10 => 
     array (
@@ -3634,7 +3744,7 @@ arigatou zutto daisu...',
       'music_listen' => 298135,
       'music_track_id' => 1,
       'music_filename' => '1170277-48c2e5c9.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '(せーの♪）
 [t2](Se~ no ♪)
 [t1]Một ~ Hai♪
@@ -3648,6 +3758,7 @@ arigatou zutto daisu...',
 心は進化するよ
 [...',
       'music_artist_html' => '<a href="/ca-si/Hanazawa-Kana~Y3NuX2FydGlzdH4xNDc1Ng==.html">Hanazawa Kana</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     11 => 
     array (
@@ -3672,7 +3783,7 @@ arigatou zutto daisu...',
       'music_listen' => 28702,
       'music_track_id' => 10,
       'music_filename' => '1882099-5e257a7a.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Chiisa na kata o narabete aruita
 Nandemonai koto de waraiai onaji yume o mitsumeteita
 Mimi o sumaseba ima demo kikoeru
@@ -3680,6 +3791,7 @@ Kimi no koe orenjiiro ni somaru machi no naka
 
 Kimi ga inai to hontou ni taiku...',
       'music_artist_html' => '<a href="/ca-si/7~Y3NuX2FydGlzdH4yNzEwNg==.html">7!!</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     12 => 
     array (
@@ -3704,7 +3816,7 @@ Kimi ga inai to hontou ni taiku...',
       'music_listen' => 8516,
       'music_track_id' => 2,
       'music_filename' => '1328658-d849a321.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Hey!
 No vayas presumiendo por ahi
 Diciendo que no puede estar sin ti
@@ -3718,6 +3830,7 @@ Ya no puedo vivir.
 Hey!
 No creas que t...',
       'music_artist_html' => '<a href="/ca-si/Julio-Iglesias~Y3NuX2FydGlzdH42MDUz.html">Julio Iglesias</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     13 => 
     array (
@@ -3742,7 +3855,7 @@ No creas que t...',
       'music_listen' => 78147,
       'music_track_id' => 1,
       'music_filename' => '1877716-5875360b.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '夢ならばどれほどよかったでしょう
 [t2]Yume nara ba dore hodo yokatta deshou
 [t1]Sẽ tốt hơn nhiều nếu đây chỉ là giấc mơ
@@ -3751,6 +3864,7 @@ No creas que t...',
 [t2]Imada ni anata no koto wo yume ni miru
 [t1]Cho đến bây giờ anh vẫn thấy em...',
       'music_artist_html' => '<a href="/ca-si/Kenshi-Yonezu~Y3NuX2FydGlzdH44NzE5Nw==.html">Kenshi Yonezu</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     14 => 
     array (
@@ -3775,7 +3889,7 @@ No creas que t...',
       'music_listen' => 3444,
       'music_track_id' => 1,
       'music_filename' => '1959431-a8094e8e.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">276kbps</span>',
+      'music_bitrate' => 276,
       'music_shortlyric' => 'Memoria memoria
 Memoria memoria
 Hitori taiyou no shimo hitomi o tojitemita
@@ -3783,6 +3897,7 @@ Sou always kanjita nukumori Come back to me
 Donnani kanashikute namida o nagashite mo
 Kimi to no daiarii kokoro ni kizamar...',
       'music_artist_html' => '<a href="/ca-si/GFRIEND~Y3NuX2FydGlzdH4xNDU2NA==.html">GFRIEND</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">276kbps</span>',
     ),
     15 => 
     array (
@@ -3807,7 +3922,7 @@ Kimi to no daiarii kokoro ni kizamar...',
       'music_listen' => 14011,
       'music_track_id' => 1,
       'music_filename' => '1951322-f512f56c.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'I am very, very crazy, very
 [t1]Tôi là một kẻ điên rồ, cực kì điên rồ
 
@@ -3819,6 +3934,7 @@ Kimi to no daiarii kokoro ni kizamar...',
 [t2]Sekai no subete kono koukuu no naka
 [t1]...',
       'music_artist_html' => '<a href="/ca-si/MYTH~Y3NuX2FydGlzdH4yMzM5MA==.html">MYTH</a>, <a href="/ca-si/ROID~Y3NuX2FydGlzdH4yMzM5MQ==.html">ROID</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     16 => 
     array (
@@ -3843,9 +3959,10 @@ Kimi to no daiarii kokoro ni kizamar...',
       'music_listen' => 2254,
       'music_track_id' => 3,
       'music_filename' => '1959433-9e721bb5.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/YOSHIKI-feat-HYDE~Y3NuX2FydGlzdH4xMjI4OTc=.html">YOSHIKI feat. HYDE</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     17 => 
     array (
@@ -3870,7 +3987,7 @@ Kimi to no daiarii kokoro ni kizamar...',
       'music_listen' => 69190,
       'music_track_id' => 0,
       'music_filename' => '1881693-71197762.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'どうやって　こうやって　また　ほら　君と话そうか?
 [t1]dou yatte kou yatte mata hora kimi to hana souka? 
 あれだって　これだって　今すぐ気付いてくれ 
@@ -3878,6 +3995,7 @@ Kimi to no daiarii kokoro ni kizamar...',
 仆は君の惑星(プラネット)回り続けて 
 [t1]boku wa kimi no pura...',
       'music_artist_html' => '<a href="/ca-si/Lambsey~Y3NuX2FydGlzdH4xMzczMA==.html">Lambsey</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     18 => 
     array (
@@ -3902,9 +4020,10 @@ Kimi to no daiarii kokoro ni kizamar...',
       'music_listen' => 13264,
       'music_track_id' => 1,
       'music_filename' => '1955262-dde39ae5.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     19 => 
     array (
@@ -3929,12 +4048,13 @@ Kimi to no daiarii kokoro ni kizamar...',
       'music_listen' => 301760,
       'music_track_id' => 27,
       'music_filename' => '1727262-e84ebadb.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '二人の間　通り過ぎた風は　どこから寂しさを運んできたの
 [t2]futari no aida toorisugita kaze wa doko kara sabishisa wo hakonde kita no
 [t1]Cơn gió thổi qua khoảnh cách đôi ta, mang theo nổi cô đơn từ phương trời nào đó
 泣いたりしたそ...',
       'music_artist_html' => '<a href="/ca-si/RADWIMPS~Y3NuX2FydGlzdH4xODY1Mg==.html">RADWIMPS</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
   ),
   8 => 
@@ -3962,7 +4082,7 @@ Kimi to no daiarii kokoro ni kizamar...',
       'music_listen' => 2059,
       'music_track_id' => 5,
       'music_filename' => '1959886-da23450d.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Des yeux qui font baisser les miens
 Un rire qui se perd sur sa bouche
 Voilà le portrait sans retouches
@@ -3972,6 +4092,7 @@ Quand il me prend dans ses bras
 Il me parle tout bas
 Je vois...',
       'music_artist_html' => '<a href="/ca-si/Lady-Gaga~Y3NuX2FydGlzdH4xMzIz.html">Lady Gaga</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     1 => 
     array (
@@ -3996,7 +4117,7 @@ Je vois...',
       'music_listen' => 279302,
       'music_track_id' => 2,
       'music_filename' => '1106408-0029b3bd.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Elle avait les yeux clairs et la robe en velours
 A côté de sa mère et la famille autour
 Elle pose un peu distraite au doux soleil
@@ -4005,6 +4126,7 @@ de la fin du jour
 La photo n\'est pas bonne mais l\'on peut y voir
 L...',
       'music_artist_html' => '<a href="/ca-si/Jean-Jacques-Goldman~Y3NuX2FydGlzdH4zMjY0NA==.html">Jean Jacques Goldman</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     2 => 
     array (
@@ -4029,7 +4151,7 @@ L...',
       'music_listen' => 379528,
       'music_track_id' => 12,
       'music_filename' => '1052324-a3d91852.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'J\'avais dessine sur le sable
 Son doux visage
 Qui me souriait
@@ -4038,6 +4160,7 @@ Dans cet orage elle a disparu
 Et j\'ai crié, crié, Aline! Faut qu\'elle revienne
 Et j\'ai pleuré, pleuré, oh...',
       'music_artist_html' => '<a href="/ca-si/Christophe~Y3NuX2FydGlzdH42MDQ2.html">Christophe</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     3 => 
     array (
@@ -4062,7 +4185,7 @@ Et j\'ai pleuré, pleuré, oh...',
       'music_listen' => 75291,
       'music_track_id' => 12,
       'music_filename' => '1378718-335eb372.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'La reina de la noche
 La diosa de vudu
 Yo no podre salvarme
@@ -4073,6 +4196,7 @@ Te lleva a los infiernos
 Ella es tu adiccion
 Te besa y te desnuda con su baile de...',
       'music_artist_html' => '<a href="/ca-si/Ricky-Martin~Y3NuX2FydGlzdH40OTgz.html">Ricky Martin</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     4 => 
     array (
@@ -4097,7 +4221,7 @@ Te besa y te desnuda con su baile de...',
       'music_listen' => 89462,
       'music_track_id' => 21,
       'music_filename' => '1247764-450081fa.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Il était une fois un petit garçon
 Qui vivait dans une grande maison
 Sa vie n\'était que joie et bonheur
@@ -4106,6 +4230,7 @@ Il voulait devenir grand
 Rêvait d\'être un homme
 Chaque soir il...',
       'music_artist_html' => '<a href="/ca-si/Claude-Francois~Y3NuX2FydGlzdH41MDE1.html">Claude Francois</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     5 => 
     array (
@@ -4130,7 +4255,7 @@ Chaque soir il...',
       'music_listen' => 95142,
       'music_track_id' => 2,
       'music_filename' => '1444825-234dca91.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Viens m\'embrasser
 Avant de t\'en aller ce soir, viens m\'embrasser
 On ne va plus se voir mais on n\'est pas fâchés
@@ -4139,6 +4264,7 @@ Viens m\'embrasser!
 Viens m\'embrasser
 Dis toi qu\'entre nous deux ça ne va rien change...',
       'music_artist_html' => '<a href="/ca-si/Julio-Iglesias~Y3NuX2FydGlzdH42MDUz.html">Julio Iglesias</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     6 => 
     array (
@@ -4163,13 +4289,14 @@ Dis toi qu\'entre nous deux ça ne va rien change...',
       'music_listen' => 63052,
       'music_track_id' => 10,
       'music_filename' => '1050179-48fd4b99.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Elle avait les yeux clairs et la robe en velours
 À côté de sa mère et la famille autour
 Elle pose un peu distraite au doux soleil de la fin du jour
 La photo n\'est pas bonne mais l\'on peut y voir
 Le...',
       'music_artist_html' => '<a href="/ca-si/Jean-Jacques-Goldman~Y3NuX2FydGlzdH4yNjMwMg==.html">Jean-Jacques Goldman</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     7 => 
     array (
@@ -4194,9 +4321,10 @@ Le...',
       'music_listen' => 9567,
       'music_track_id' => 2,
       'music_filename' => '1704498-7d3fc48e.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Faun~Y3NuX2FydGlzdH4yODgwMg==.html">Faun</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     8 => 
     array (
@@ -4221,13 +4349,14 @@ Le...',
       'music_listen' => 124549,
       'music_track_id' => 1,
       'music_filename' => '1153804-b2c3bcf5.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Les rêves des amoureux sont comme le bon vin
 Ils donnent de la joie ou bien du chagrin
 Affaibli par la faim je suis malheureux
 Volant en chemin tout ce que je peux
 Car rien n\'est gratuit dans la vi...',
       'music_artist_html' => '<a href="/ca-si/Camile~Y3NuX2FydGlzdH4zNTk5NA==.html">Camile</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     9 => 
     array (
@@ -4252,7 +4381,7 @@ Car rien n\'est gratuit dans la vi...',
       'music_listen' => 198652,
       'music_track_id' => 2,
       'music_filename' => '1411398-343fa06e.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Madames et Monsieurs
 S\'il vous plaît
 Soyez prêt pour aronchupa et Albatraoz
@@ -4262,6 +4391,7 @@ About a mouse, name dilory
 Dilory was a mouse in a big brown house
 She call hers...',
       'music_artist_html' => '<a href="/ca-si/Aronchupa~Y3NuX2FydGlzdH41ODM1MQ==.html">Aronchupa</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     10 => 
     array (
@@ -4286,7 +4416,7 @@ She call hers...',
       'music_listen' => 162420,
       'music_track_id' => 5,
       'music_filename' => '1106451-5f093284.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Demandez-moi de combattre le diable
 D´aller défier les dragons du néant
 De vous construire des tours, des cathédrales
@@ -4294,6 +4424,7 @@ Sur des sables mouvants
 Demandez-moi de briser les montagnes
 D´aller plonger da...',
       'music_artist_html' => '<a href="/ca-si/Jean-Jacquer-Lafont~Y3NuX2FydGlzdH4yNDU4Mw==.html">Jean-Jacquer Lafont</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     11 => 
     array (
@@ -4318,7 +4449,7 @@ D´aller plonger da...',
       'music_listen' => 97471,
       'music_track_id' => 18,
       'music_filename' => '1199407-3e8e59de.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Des yeux qui font baisser les miens
 Un rire qui se perd sur sa bouche
 Voilà le portrait sans retouches
@@ -4328,6 +4459,7 @@ Quand il me prend dans ses bras
 Il me parle tout bas
 Je vois l...',
       'music_artist_html' => '<a href="/ca-si/Edith-Piaf~Y3NuX2FydGlzdH40MDAzOA==.html">Édith Piaf</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     12 => 
     array (
@@ -4352,7 +4484,7 @@ Je vois l...',
       'music_listen' => 3029,
       'music_track_id' => 10,
       'music_filename' => '1658173-6009964d.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Un beau matin, je sais que je m\'éveillerai
 Différemment de tous les autres jours
 Et mon coeur délivré enfin de notre amour
@@ -4361,6 +4493,7 @@ Et pourtant, et pourtant
 Sans un remords, sans un regret, je partirai
 Dro...',
       'music_artist_html' => '<a href="/ca-si/Charles-Aznavour~Y3NuX2FydGlzdH41NzU2.html">Charles Aznavour</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     13 => 
     array (
@@ -4385,7 +4518,7 @@ Dro...',
       'music_listen' => 901,
       'music_track_id' => 6,
       'music_filename' => '1944935-b867340f.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Au dessus des vieux volcans
 Glisse des ailes sous les tapis du vent
 Voyage, voyage
@@ -4396,6 +4529,7 @@ Voyage, voyage
 Vole dans les hauteurs
 A...',
       'music_artist_html' => '<a href="/ca-si/Desireless~Y3NuX2FydGlzdH4yMjIyMQ==.html">Desireless</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     14 => 
     array (
@@ -4420,7 +4554,7 @@ A...',
       'music_listen' => 123249,
       'music_track_id' => 13,
       'music_filename' => '1050201-6fcc16ef.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Je n\'ai qu\'un souvenir
 Qui ne soit rien qu\'à moi
 Je revois son sourire
@@ -4433,6 +4567,7 @@ Mais ils ne savent pas.
 
 Refrain...',
       'music_artist_html' => '<a href="/ca-si/Christophe~Y3NuX2FydGlzdH42MDQ2.html">Christophe</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     15 => 
     array (
@@ -4457,7 +4592,7 @@ Refrain...',
       'music_listen' => 28665,
       'music_track_id' => 7,
       'music_filename' => '1092142-661e1dc3.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Y\'a pas de voiles aux volets de mes freres
 Y\'a pas d\'opale autour de mes doigts
 Ni cathedrale ou cacher mes prieres
@@ -4466,6 +4601,7 @@ Juste un peu d\'or autour de ma voix.
 There\'s no voile to my brother\'s shutters
 T...',
       'music_artist_html' => '<a href="/ca-si/Celine-Dion~Y3NuX2FydGlzdH4xOTI=.html">Celine Dion</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     16 => 
     array (
@@ -4490,7 +4626,7 @@ T...',
       'music_listen' => 92046,
       'music_track_id' => 1,
       'music_filename' => '1106343-0eb5906f.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Je m\'eveille je pense a toi
 Il fait soleil je pense a toi
 On me telephone je parle
@@ -4500,6 +4636,7 @@ Quelle heure ce soir je pense a toi
 Ou allons me dit t\'elle
 Je pense a toi...',
       'music_artist_html' => '<a href="/ca-si/Jean-Francois-Michael~Y3NuX2FydGlzdH4yNzAwMA==.html">Jean Francois Michael</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     17 => 
     array (
@@ -4524,9 +4661,10 @@ Je pense a toi...',
       'music_listen' => 29031,
       'music_track_id' => 15,
       'music_filename' => '1038989-9a4db8aa.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Celine-Dion~Y3NuX2FydGlzdH4xOTI=.html">Celine Dion</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     18 => 
     array (
@@ -4551,7 +4689,7 @@ Je pense a toi...',
       'music_listen' => 154884,
       'music_track_id' => 5,
       'music_filename' => '1050211-feee1a5d.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Je t\'aime et je t\'aimerai toujours
 Mon presque premier amour
 Ma tendresse, mon bonheur 
@@ -4560,6 +4698,7 @@ ma douleurJe t\'enferme au fond de mon cœur.
 Nous serons tous deux comme des amoureux
 Nous serons si bien mai...',
       'music_artist_html' => '<a href="/ca-si/Christophe~Y3NuX2FydGlzdH42MDQ2.html">Christophe</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     19 => 
     array (
@@ -4584,7 +4723,7 @@ Nous serons si bien mai...',
       'music_listen' => 75424,
       'music_track_id' => 16,
       'music_filename' => '1106422-b0a240ff.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'J´ai traversé des nuits et des jours sans sommeil
 Pour en arriver là
 J´ai eu chaud sous la pluie et froid en plein soleil
@@ -4592,6 +4731,7 @@ Pour en arriver là
 J´ai parlé à la peur et fait taire le silence
 J´ai maqui...',
       'music_artist_html' => '<a href="/ca-si/Dalida~Y3NuX2FydGlzdH41ODky.html">Dalida</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
   ),
   9 => 
@@ -4619,7 +4759,7 @@ J´ai maqui...',
       'music_listen' => 873388,
       'music_track_id' => 1,
       'music_filename' => '1881656-b864c106.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Dacă nici aşa nu-ţi place Ia mai zboară în panama
 Zile, zile
 Zile, zile eu alerg
@@ -4630,6 +4770,7 @@ Pentru tine tine
 Să-ţi dau un dar, dar cel mai de preţ dar fără nici un ban
 Ganja,...',
       'music_artist_html' => '<a href="/ca-si/Matteo~Y3NuX2FydGlzdH4xMDE2NDU=.html">Matteo</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     1 => 
     array (
@@ -4654,7 +4795,7 @@ Ganja,...',
       'music_listen' => 127,
       'music_track_id' => 4,
       'music_filename' => '1960800-4fce16d8.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Si tu me hubieras dicho siempre la verdad
 Si hubieras respondido cuando te llame
 Si hubieras amado cuando te ame
@@ -4663,6 +4804,7 @@ Si no supiste amar
 Ahora te puedes marchar
 Si tu...',
       'music_artist_html' => '<a href="/ca-si/Super-Junior~Y3NuX2FydGlzdH4yMTM=.html">Super Junior</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     2 => 
     array (
@@ -4687,7 +4829,7 @@ Si tu...',
       'music_listen' => 675295,
       'music_track_id' => 1,
       'music_filename' => '1803308-c827e180.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Verse 1: J Balvin]
 Si el ritmo te lleva a mover la cabeza
 Ya empezamos cómo es
@@ -4698,6 +4840,7 @@ Toda mi gente se mueve
 Mira el ritmo cómo los tiene
 Hago músi...',
       'music_artist_html' => '<a href="/ca-si/J-Balvin~Y3NuX2FydGlzdH4xMzQzNg==.html">J Balvin</a>, <a href="/ca-si/Willy-William~Y3NuX2FydGlzdH4xMzg1Nw==.html">Willy William</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     3 => 
     array (
@@ -4722,9 +4865,10 @@ Hago músi...',
       'music_listen' => 55922,
       'music_track_id' => 0,
       'music_filename' => '1934790-ea200cdf.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Pascal-Letoublon~Y3NuX2FydGlzdH4yMDQ4Nw==.html">Pascal Letoublon</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     4 => 
     array (
@@ -4749,13 +4893,14 @@ Hago músi...',
       'music_listen' => 33502,
       'music_track_id' => 1,
       'music_filename' => '1938138-40cb4fff.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Intro: Paulo Londra, Becky G]
 Y cuando te vi, supe que no eras para mí (Paulo)
 Seguro tenías alguien que no lo ibas a dejar ir (Becky G), ey
 Pero cuando te vi, te juro que me decidí
 A acercarme y...',
       'music_artist_html' => '<a href="/ca-si/Becky-G~Y3NuX2FydGlzdH4xMzQwMQ==.html">Becky G</a>, <a href="/ca-si/Paulo-Londra~Y3NuX2FydGlzdH4yMDk5MA==.html">Paulo Londra</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     5 => 
     array (
@@ -4780,13 +4925,14 @@ A acercarme y...',
       'music_listen' => 2516615,
       'music_track_id' => 3,
       'music_filename' => '1234250-1724ca16.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Yo te miro, se me corta la respiración
 Cuanto tu me miras se me sube el corazón
 (Me palpita lento el corazon)
 Y en silencio tu mirada dice mil palabras
 La noche en la que te suplico que no salga el...',
       'music_artist_html' => '<a href="/ca-si/Enrique-Iglesias~Y3NuX2FydGlzdH42MDQ=.html">Enrique Iglesias</a>, <a href="/ca-si/Decemer-Bueno~Y3NuX2FydGlzdH40MzE3Nw==.html">Decemer Bueno</a>, <a href="/ca-si/Gente-De-Zona~Y3NuX2FydGlzdH4xMzM2OA==.html">Gente De Zona</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     6 => 
     array (
@@ -4811,7 +4957,7 @@ La noche en la que te suplico que no salga el...',
       'music_listen' => 9135,
       'music_track_id' => 5,
       'music_filename' => '1951415-7f659421.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Intro: Zion]
 Oh-oh
 Uoh-oh-oh
@@ -4822,6 +4968,7 @@ Cuando empiezas a bailar, no es justo, no es justo
 Y lo noté en tu mirar, te gusto, te gusto (baby)
 Sona...',
       'music_artist_html' => '<a href="/ca-si/J-Balvin~Y3NuX2FydGlzdH4xMzQzNg==.html">J Balvin</a>, <a href="/ca-si/Zion~Y3NuX2FydGlzdH41NTY5.html">Zion</a>, <a href="/ca-si/Lennox~Y3NuX2FydGlzdH4xNDU5Nw==.html">Lennox</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     7 => 
     array (
@@ -4846,7 +4993,7 @@ Sona...',
       'music_listen' => 13848,
       'music_track_id' => 0,
       'music_filename' => '1574625-77bf9fc9.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Într-o seară cu Costică
 Eu c-o sticlă, el c-o sticlă
 Am udat cu mâna noastră
@@ -4857,6 +5004,7 @@ I-am turnat şi lui pisică
 Nu ştiu floarea ce-o să simtă
 Dar pisica...',
       'music_artist_html' => '<a href="/ca-si/Cleopatra-Stratan~Y3NuX2FydGlzdH4xMDI0Ng==.html">Cleopatra Stratan</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     8 => 
     array (
@@ -4881,7 +5029,7 @@ Dar pisica...',
       'music_listen' => 48937,
       'music_track_id' => 1,
       'music_filename' => '1892932-6ec792d4.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">270kbps</span>',
+      'music_bitrate' => 270,
       'music_shortlyric' => '[Verso 1: Sebastián Yatra]
 Si pudieras ver como estoy
 Hecho mierda sin ti
@@ -4894,6 +5042,7 @@ Como el que yo te di.
 [Pre-coro: Sebastián Yatra]
 D...',
       'music_artist_html' => '<a href="/ca-si/Sebastian-Yatra~Y3NuX2FydGlzdH4xMzQzMg==.html">Sebastian Yatra</a>, <a href="/ca-si/Luis-Figueroa~Y3NuX2FydGlzdH4yMjUxNg==.html">Luis Figueroa</a>, <a href="/ca-si/Lary-Over~Y3NuX2FydGlzdH4yMzE4Nw==.html">Lary Over</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">270kbps</span>',
     ),
     9 => 
     array (
@@ -4918,7 +5067,7 @@ D...',
       'music_listen' => 11406,
       'music_track_id' => 3,
       'music_filename' => '1951384-0f6dc01e.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Intro: Ozuna, Manuel Turizo]
 Jeje, woah-oh
 Au-Aura.
@@ -4929,6 +5078,7 @@ Tras de ti, voy tras de ti (yeh)
 Tú tienes todo lo que quiero para mí
 Y tú tan sola por ah...',
       'music_artist_html' => '<a href="/ca-si/Ozuna~Y3NuX2FydGlzdH4xNDU1Ng==.html">Ozuna</a>, <a href="/ca-si/Manuel-Turizo~Y3NuX2FydGlzdH4xODU0Nw==.html">Manuel Turizo</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     10 => 
     array (
@@ -4953,7 +5103,7 @@ Y tú tan sola por ah...',
       'music_listen' => 92840,
       'music_track_id' => 1,
       'music_filename' => '1874989-776c22b0.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Verso 1: Sofia Reyes]
 Oh, baby, I think it may be
 That you were always a piece of sh...
@@ -4961,6 +5111,7 @@ You rubbed on your dirt and everyone\'s [?]
 You know how to be a dr...
 En dónde están tus modales que no apre...',
       'music_artist_html' => '<a href="/ca-si/Sofia-Reyes~Y3NuX2FydGlzdH4xNTU4Ng==.html">Sofia Reyes</a>, <a href="/ca-si/Jason-Derulo~Y3NuX2FydGlzdH4xMTQ4Mw==.html">Jason Derulo</a>, <a href="/ca-si/De-La-Ghetto~Y3NuX2FydGlzdH4xODU0OQ==.html">De La Ghetto</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     11 => 
     array (
@@ -4985,7 +5136,7 @@ En dónde están tus modales que no apre...',
       'music_listen' => 99363,
       'music_track_id' => 1,
       'music_filename' => '1899788-f87fbb89.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => '[Intro: Darell, Ozuna]
 Wo-oh
 Oh, oh (oh, oh)
@@ -4999,6 +5150,7 @@ Eso e\' así
 Paso mucha\' noches pensándote
 Yo no sé ni cómo ni cuándo fue (eh, eh)...',
       'music_artist_html' => '<a href="/ca-si/Nio-Garcia~Y3NuX2FydGlzdH4xMDYyNDM=.html">Nio Garcia</a>, <a href="/ca-si/Casper-Magico~Y3NuX2FydGlzdH4xMDYyNDQ=.html">Casper Magico</a>, <a href="/ca-si/Bad-Bunny~Y3NuX2FydGlzdH4xMzUwOQ==.html">Bad Bunny</a>, <a href="/ca-si/Darrell~Y3NuX2FydGlzdH4xMDYyNDU=.html">Darrell</a>, <a href="/ca-si/Ozuna~Y3NuX2FydGlzdH4xNDU1Ng==.html">Ozuna</a>, <a href="/ca-si/Nicky-Jam~Y3NuX2FydGlzdH4xNjAxNw==.html">Nicky Jam</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     12 => 
     array (
@@ -5023,7 +5175,7 @@ Yo no sé ni cómo ni cuándo fue (eh, eh)...',
       'music_listen' => 84015,
       'music_track_id' => 1,
       'music_filename' => '1395760-d450165c.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Cuando despiertes un día
 Y sientas que no puedes más
 Que en el nombre del de arriba
@@ -5033,6 +5185,7 @@ Si sientes que el miedo se pega a tu piel
 Por ser comunero y justicia querer
 Si te rindes...',
       'music_artist_html' => '<a href="/ca-si/Mgo-De-Oz~Y3NuX2FydGlzdH41Njc1Nw==.html">Mägo De Oz</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     13 => 
     array (
@@ -5057,7 +5210,7 @@ Si te rindes...',
       'music_listen' => 11410,
       'music_track_id' => 1,
       'music_filename' => '1952906-d017e0ff.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => '[Intro: Anuel AA]
 Uah, uah
 Mera, dime Karol G, bebesita
@@ -5067,6 +5220,7 @@ Real Hasta la Muerte ¿oí\'te bebé? (oh-oh, oh-oh)
 [Estribillo: Anuel AA, Karol G]
 Baby, tú tiene\' marido y yo me enredé en tu p...',
       'music_artist_html' => '<a href="/ca-si/Anuel-AA~Y3NuX2FydGlzdH4xOTk1Mg==.html">Anuel AA</a>, <a href="/ca-si/Karol-G~Y3NuX2FydGlzdH4xNTExNw==.html">Karol G</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     14 => 
     array (
@@ -5091,7 +5245,7 @@ Baby, tú tiene\' marido y yo me enredé en tu p...',
       'music_listen' => 1141726,
       'music_track_id' => 1,
       'music_filename' => '1173522-306f5428.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Chorando se foi quem um dia so me fez chorar
 Chorando se foi quem um dia so me fez chorar
 Chorando estara, ao lembrar de um amor
@@ -5099,6 +5253,7 @@ Que um dia nao soube cuidar.
 
 Chorando estara, ao lembrar de um amor...',
       'music_artist_html' => '<a href="/ca-si/Kaoma~Y3NuX2FydGlzdH41MDM3.html">Kaoma</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     15 => 
     array (
@@ -5123,13 +5278,14 @@ Chorando estara, ao lembrar de um amor...',
       'music_listen' => 104634,
       'music_track_id' => 1,
       'music_filename' => '1874703-caf97d62.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => 'Es difícil abrir mis ojos y ya no verte 
 Tu olor en la cama, aun sigue intacto 
 Te he buscado en mis sueños, deseando tenerte 
 Y no encuentro tu rostro, por más que trato
 Aun quedan tus retratos, e...',
       'music_artist_html' => '<a href="/ca-si/Reik~Y3NuX2FydGlzdH4yMzQyMw==.html">Reik</a>, <a href="/ca-si/Ozuna~Y3NuX2FydGlzdH4xNDU1Ng==.html">Ozuna</a>, <a href="/ca-si/Wisin~Y3NuX2FydGlzdH45NTk=.html">Wisin</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     16 => 
     array (
@@ -5154,7 +5310,7 @@ Aun quedan tus retratos, e...',
       'music_listen' => 988708,
       'music_track_id' => 5,
       'music_filename' => '1038237-3f429f16.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Ma-ia-hii 
 Ma-ia-huu 
 Ma-ia-hoo 
@@ -5166,6 +5322,7 @@ Alo, alo, sunt eu Picasso
 Ti-am dat beep, si sunt voinic 
 Dar sa stii nu-ti...',
       'music_artist_html' => '<a href="/ca-si/O-Zone~Y3NuX2FydGlzdH4xNTg=.html">O-Zone</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     17 => 
     array (
@@ -5190,7 +5347,7 @@ Dar sa stii nu-ti...',
       'music_listen' => 7034,
       'music_track_id' => 14,
       'music_filename' => '1951395-d22722dd.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Intro]
 Salgo a gastar unos poco\' (poco\')
 Música en el Lambo pa\' que te relaje\' (relaje\')
@@ -5200,6 +5357,7 @@ Puedo reconocerla de ver su celaje.
 [Coro]
 Única, tiene la disco expl...',
       'music_artist_html' => '<a href="/ca-si/Ozuna~Y3NuX2FydGlzdH4xNDU1Ng==.html">Ozuna</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     18 => 
     array (
@@ -5224,7 +5382,7 @@ Puedo reconocerla de ver su celaje.
       'music_listen' => 1120,
       'music_track_id' => 1,
       'music_filename' => '1960146-a969539a.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">262kbps</span>',
+      'music_bitrate' => 262,
       'music_shortlyric' => '[Verso 1: Sebastián Yatra &amp; Beret]
 Vuelve (vuelve)
 A decirme lo de siempre
@@ -5233,6 +5391,7 @@ He hecho lo imposible por hacerme fuerte
 Y aunque sea el mismo camino sólo-
 Vuel...',
       'music_artist_html' => '<a href="/ca-si/Sebastian-Yatra~Y3NuX2FydGlzdH4xMzQzMg==.html">Sebastian Yatra</a>, <a href="/ca-si/Beret~Y3NuX2FydGlzdH4xMjI4MTA=.html">Beret</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">262kbps</span>',
     ),
     19 => 
     array (
@@ -5257,7 +5416,7 @@ Vuel...',
       'music_listen' => 114241,
       'music_track_id' => 1,
       'music_filename' => '1828723-a7b1fa69.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Intro: Wisin, Ozuna]
 Ozuna, W.
 
@@ -5268,6 +5427,7 @@ Y de tu hechizo no puedo escapar
 Que ganas tengo de buscarte (aja)
 Y de v...',
       'music_artist_html' => '<a href="/ca-si/Wisin~Y3NuX2FydGlzdH45NTk=.html">Wisin</a>, <a href="/ca-si/Ozuna~Y3NuX2FydGlzdH4xNDU1Ng==.html">Ozuna</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
   ),
 );

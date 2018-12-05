@@ -40,7 +40,8 @@ class AlbumController extends Controller
                 'music_album' => $item->music_album,
                 'music_artist' => $album_artist,
                 'music_artist_html' => !empty($album_artist) ? Helpers::rawHtmlArtists($album_artist_id, $album_artist) : '',
-                'music_bitrate' => Helpers::bitrate2str($item->music_bitrate),
+                'music_bitrate' => $item->music_bitrate,
+                'music_bitrate_html' => Helpers::bitrate2str($item->music_bitrate),
             ];
         }
         $cache = $this->coverRepository->getCoverNew2();
@@ -55,8 +56,11 @@ class AlbumController extends Controller
             $album_old[] = [
                 'cover_id' => $item->cover_id,
                 'music_album' => $item->music_album,
+                'music_artist' => $album_artist,
+                'music_artist_id' => $album_artist_id,
                 'music_artist_html' => !empty($album_artist) ? Helpers::rawHtmlArtists($album_artist_id, $album_artist) : '',
-                'music_bitrate' => Helpers::bitrate2str($item->music_bitrate),
+                'music_bitrate' => $item->music_bitrate,
+                'music_bitrate_html' => Helpers::bitrate2str($item->music_bitrate),
             ];
         }
         $music_new_uploads = $this->musicRepository->getModel()::orderBy('music_id', 'desc')

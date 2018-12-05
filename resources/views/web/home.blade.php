@@ -42,7 +42,7 @@ global $top_artist_rows;
                             <div class="card-body">
                                 <h3 class="card-title"><a href="{{$url}}" title="{{$item['music_album']}}">{{$item['music_album']}}</a></h3>
                                 <p class="card-text author"><?php echo $item['music_artist_html'] ?></p>
-                                <div class="card-text"><?php echo $item['music_bitrate'] ?></div>
+                                <div class="card-text"><?php echo $item['music_bitrate_html'] ?></div>
                             </div>
                         </div>
                     </div>
