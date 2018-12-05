@@ -249,4 +249,6 @@ footer {
 .vietsub2 {
     color: #c0a478;
 }
-
+.block_player .listen {
+    background-color: #ff93938f;
+}

@@ -583,8 +583,8 @@ a.navbar-brand.logo {
 }
 
 .block_thongtin .element:hover {
-    border-bottom: 1px solid #ff2d55;
-    color: #ff2d55
+    /*border-bottom: 1px solid #ff2d55;*/
+    /*color: #ff2d55*/
 }
 
 .block_thongtin .image {
