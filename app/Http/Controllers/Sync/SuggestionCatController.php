@@ -38,7 +38,7 @@ class SuggestionCatController extends Controller
             }
             foreach ($childrenCat as $level) {
                 $typeDup = $model::where(['cat_id' => $item->cat_id, 'cat_level' => $level->cat_level])
-                    ->select('music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'music_album_id', 'music_listen', 'music_bitrate', 'music_filename', 'music_width', 'music_height')
+                    ->select('music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'music_album_id', 'music_listen', 'music_bitrate', 'music_filename', 'music_width', 'music_height', 'music_length')
                     ->distinct('music_title')
                     ->limit(200)
                     ->orderBy('music_downloads_today', 'desc')

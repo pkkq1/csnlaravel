@@ -528,7 +528,7 @@ global $album_cat_new;
                         e.preventDefault();
                         musicPage($(this).attr('href'), tab);
                     });
-                    $('.swiper-wrapper-content').height($('#' + tab).height())
+                    // $('.swiper-wrapper-content').height($('#' + tab).height())
                 }
             });
         }

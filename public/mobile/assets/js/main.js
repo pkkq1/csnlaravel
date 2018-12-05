@@ -5,7 +5,6 @@ jQuery(document).ready(function($) {
     // $('#binhluan_time_player').slider();
     var swiperMenu = function() {
         var itemMenu = $(".swiper1").data('itemmenu');
-
         function setCurrentSlide(ele, index) {
             $(".swiper1 .swiper-slide").removeClass("selected");
             ele.addClass("selected");
@@ -22,6 +21,7 @@ jQuery(document).ready(function($) {
                 var n = swiper1.clickedIndex;
             }
         });
+
         swiper1.slides.each(function(index, val) {
             var ele = $(this);
             ele.on("click", function() {
@@ -34,12 +34,14 @@ jQuery(document).ready(function($) {
             });
         });
 
-
         var swiper2 = new Swiper('.swiper2', {
             direction: 'horizontal',
             loop: false,
+            noSwiping: false,
             autoHeight: true,
             resizeReInit: true,
+            noSwiping: true,
+            noSwipingClass: 'owl-carousel',
             onSlideChangeEnd: function(swiper) {
                 var n = swiper.activeIndex;
                 setCurrentSlide($(".swiper1 .swiper-slide").eq(n), n);
@@ -51,7 +53,6 @@ jQuery(document).ready(function($) {
                 }
             }
         });
-
     }
     if ($('.swiper-container').length) {
         swiperMenu();
@@ -64,8 +65,6 @@ jQuery(document).ready(function($) {
         items: 1.3,
         dots: true,
         autoplay: true,
-        touchDrag: false,
-        mouseDrag: false,
     });
 
     $('.slide-chude').owlCarousel({
@@ -74,8 +73,6 @@ jQuery(document).ready(function($) {
         nav: false,
         items: 1.6,
         dots: false,
-        touchDrag: false,
-        mouseDrag: false,
     });
 
     $('.slide-album').owlCarousel({
@@ -84,8 +81,6 @@ jQuery(document).ready(function($) {
         nav: false,
         items: 2.3,
         dots: false,
-        touchDrag: false,
-        mouseDrag: false,
     });
 
     $('.header_top .navbar-toggler').click(function(e) {
@@ -139,6 +134,8 @@ jQuery(document).ready(function($) {
             $body.scrollTop(0);
         });
     }
+
+
     openModal('.modal-edit-profile', '.wrap-edit-profile', true);
     closeModal('.cancel_model_profile', '.wrap-edit-profile');
     /*$('.cancel_model_profile').click(function(e) {
@@ -146,6 +143,7 @@ jQuery(document).ready(function($) {
         var $body = $(this).parents('body');
         $body.find('.wrap-search').addClass('open');
     });*/
+
 
     $('.block_more .icon').click(function(e) {
         $('.wrap-bottom-sheet').show();
@@ -161,7 +159,58 @@ jQuery(document).ready(function($) {
         jQuery('.bottom-sheet').slideDown();
     });
 
-
+    // var $uploadCrop = $('#upload-avatar').croppie({
+    //     enableExif: true,
+    //     viewport: {
+    //         width: 220,
+    //         height: 220,
+    //         type: 'circle'
+    //     },
+    //     boundary: {
+    //         width: 260,
+    //         height: 260
+    //     }
+    // });
+    // if ($('#upload')) {
+    //     var inputfile = $("#upload");
+    //     $('#upload').on('change', function() {
+    //         var reader = new FileReader();
+    //         reader.onload = function(e) {
+    //             $uploadCrop.croppie('bind', {
+    //                 url: e.target.result
+    //             }).then(function() {
+    //                 console.log('jQuery bind complete');
+    //             });
+    //         }
+    //         reader.readAsDataURL(this.files[0]);
+    //     });
+    // }
+    // $('.upload-result').on('click', function(ev) {
+    //     var action = $(this).data('action');
+    //     $uploadCrop.croppie('result', {
+    //         type: 'canvas',
+    //         size: {
+    //             width: 250,
+    //             height: 250
+    //         }
+    //     }).then(function(resp) {
+    //         $("#upload-avatar-crop img").attr('src', resp);
+    //         $("#changeAvatarModal").modal('hide');
+    //         /*$.ajax({
+    //             url: action,
+    //             type: "POST",
+    //             data: { "image": resp },
+    //             success: function(data) {
+    //                 html = '<img src="' + resp + '" />';
+    //                 $("#upload-avatar-crop").html(html);
+    //                 $('body').find('.avatar-ajax').css({
+    //                     'background': `url(${data}) center center no-repeat`,
+    //                     'backgroundSize': `cover`
+    //                 });
+    //             }
+    //         });*/
+    //     });
+    // });
     $(document).on("click",".reply_comment",function(e){
         e.preventDefault();
         var $this = $(this);

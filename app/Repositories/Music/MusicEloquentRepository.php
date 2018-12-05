@@ -73,7 +73,7 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
     {
         $result = $this
             ->_model
-            ->select('music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'music_album_id', 'music_listen', 'music_bitrate', 'music_filename')
+            ->select('music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'music_album_id', 'music_listen', 'music_bitrate', 'music_filename', 'music_length')
             ->where('music_artist', 'like', '%'.$artist.'%')
             ->orderBy($fillOrder, $typeOrder)
             ->paginate($page);
@@ -83,7 +83,7 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
     {
         $result = $this
             ->_model
-            ->select('music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'music_album_id', 'music_listen', 'music_bitrate', 'music_filename')
+            ->select('music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'music_album_id', 'music_listen', 'music_bitrate', 'music_filename', 'music_length')
             ->orderBy($fillOrder, $typeOrder)
             ->paginate($page);
         return $result;
@@ -126,7 +126,7 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
                 }
             }
         }
-        $select = ['music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'music_album_id', 'music_listen', 'music_bitrate', 'music_filename', 'music_width', 'music_height']; //, 'music_shortlyric'
+        $select = ['music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'music_album_id', 'music_listen', 'music_bitrate', 'music_filename', 'music_width', 'music_height', 'music_length']; //, 'music_shortlyric'
         $artists = explode(';', $music->music_artist);
         // nhạc cùng ca sĩ
         $MusicSameArtist = \App\Models\MusicModel::where(function($q) use ($artists) {

@@ -109,7 +109,7 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                 <div class="row">
                     <div class="col-md-4">
                         <div class="card card-details">
-                            <img src="{{Helpers::cover_url($music->cover_id)}}" alt="" class="card-img-top">
+                            <img src="{{$musicSet['type_jw'] != 'video' ? Helpers::cover_url($music->cover_id) : Helpers::thumbnail_url($music->toArray())}}" alt="" class="card-img-top">
                             <div class="card-body">
                                 <h4 class="card-title">{{$music->music_title}}</h4>
                                 <ul class="list-unstyled">

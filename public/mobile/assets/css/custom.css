@@ -195,3 +195,10 @@ a {
 footer {
     min-height: auto;
 }
+.modal_icon_csn {
+    float: left;
+}
+.modal_content_csn {
+    padding-left: 30px;
+    padding-top: 1px;
+}

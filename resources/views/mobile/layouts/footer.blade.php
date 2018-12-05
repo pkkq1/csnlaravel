@@ -2,24 +2,15 @@
 use App\Library\Helpers;
 ?>
 <sectiton class="block_popup">
-    <div class="popup">
-        <div class="wrap-bottom-sheet"></div>
-        <div class="bottom-sheet text-center">
-            <h4>Trong trí nhớ của anh</h4>
-            <div class="container">
-                <div class="row">
-                    <div class="col-4"><img src="/images/img_like_black.png" alt="yeu thich">
-                        <p>Yêu thích</p>
-                    </div>
-                    <div class="col-4"><img src="/images/img_play_plus.png" alt="them vao playlist">
-                        <p>Thêm vào playlist online</p>
-                    </div>
-                    <div class="col-4"><img src="/images/img_download.png" alt="tai ve">
-                        <p>Tải về</p>
-                    </div>
-                    <div class="col-4"><img src="/images/img_share_mp3.png" alt="chia se">
-                        <p>Chia sẻ</p>
-                    </div>
+    @yield('popupMusic')
+    <div id="alertModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade">
+        <div role="document" class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="modal_content_csn">Lần đăng nhập với tài khoản facebook hoặc google sẽ cập nhật thêm thông tin tên tài khoản và mật khẩu.</div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" data-dismiss="modal" class="btn">Ok</button>
                 </div>
             </div>
         </div>
@@ -171,3 +162,4 @@ use App\Library\Helpers;
 <script src="/mobile/assets/js/owl.carousel.min.js"></script>
 <script src="/mobile/assets/js/swiper.jquery.min.js"></script>
 <script src="/mobile/assets/js/main.js"></script>
+<script src="/mobile/assets/js/functions.js"></script>
