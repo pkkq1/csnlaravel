@@ -89,15 +89,17 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                                     ?>
                                     <div class="swiper-slide">
                                     <div class="container">
-                                        <div class="block block_player">
+                                        <div class="block block_player {{$musicSet['type_jw'] == 'video' ? 'block_bxhvideo' : ''}}">
                                             <div class="block_baihat_main block_more">
                                                 <?php
                                                 array_map(function ($i, $item) use($music, $musicSet) {
                                                 $url = Helpers::listen_url($item);
                                                 $urlAlbum = url()->current() . '?playlist='.++$i;
+                                                $item['music_artist_html'] = $item['music_artist_html'] ?? Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']);
+                                                $item['music_bitrate_html'] = $item['music_bitrate_html'] ?? ($musicSet['type_jw'] != 'video' ? Helpers::bitrate2str($item['music_bitrate']) : Helpers::size2str($item['music_width'], $item['music_height']));
                                                 ?>
                                                 @if($musicSet['type_jw'] != 'video')
-                                                    <div class="element mb-2{{($music->music_id == $item['music_id'] ? ' listen' : '')}}" id="music-listen-{{$item['music_id']}}">
+                                                    <div class="element mb-2 {{($music->music_id == $item['music_id'] ? (count($musicSet['playlist_music']) > 1 ? 'listen' : '') : '')}}" id="music-listen-{{$item['music_id']}}">
                                                         <a href="{{$urlAlbum}}"><div style="background : url(<?php echo Helpers::cover_url($item['cover_id']) ?>) no-repeat center;background-size: cover;" class="image image100px mr-2 d-inline-block align-middle"></div></a>
                                                         <div class="content d-inline-block align-middle">
                                                             <a href="{{$urlAlbum}}"><h6 class="name_song text-black mb-1 card-title">{{$item['music_title']}}</h6></a>
@@ -106,7 +108,7 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                                                         </div>
                                                     </div>
                                                 @else
-                                                    <div class="element py-3 border-bottom{{($music->music_id == $item['music_id'] ? ' listen' : '')}}" id="music-listen-{{$item['music_id']}}">
+                                                    <div class="element py-3 border-bottom {{($music->music_id == $item['music_id'] ? (count($musicSet['playlist_music']) > 1 ? 'listen' : '') : '')}}" id="music-listen-{{$item['music_id']}}">
                                                         <a href="{{$urlAlbum}}">
                                                             <div class="image mr-2 d-inline-block align-middle" style="background : url({{Helpers::thumbnail_url($item)}}) no-repeat center;background-size: cover;">
                                                                 <p class="time"><img src="/mobile/assets/images/icon/ic_menu_clock.png" width="14"> {{$item['music_length'] >= 3600 ? gmdate("H:i:s", $item['music_length']) : gmdate("i:s", $item['music_length'])}}</p>

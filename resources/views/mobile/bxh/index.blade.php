@@ -18,7 +18,7 @@ global $hot_video_rows;
         <div data-itemmenu="4" class="swiper-container swiper1">
             <div class="swiper-wrapper">
                 @if(!isset($_GET['type']) || $_GET['type'] == 'music')
-                    <div class="swiper-slide selected swiper-w145 vietnam">BXH Nhạc VN</div>
+                    <div class="swiper-slide selected swiper-w145 vietnam selected">BXH Nhạc VN</div>
                     <div class="swiper-slide tab-music swiper-w145 us-uk">BXH Nhạc US-UK</div>
                     <div class="swiper-slide tab-music swiper-w145 chinese">BXH Nhạc Hoa</div>
                     <div class="swiper-slide tab-music swiper-w145 korea">BXH Nhạc Hàn</div>
@@ -28,7 +28,7 @@ global $hot_video_rows;
                     <div class="swiper-slide tab-music beat-playback swiper-w145">BXH Nhạc Playback</div>
                 @endif
                 @if(!isset($_GET['type']) || $_GET['type'] == 'video')
-                    <div class="swiper-slide swiper-w145 tab-video">BXH Video VN</div>
+                    <div class="swiper-slide swiper-w145 tab-video {{(isset($_GET['type']) && $_GET['type'] == 'video') ? 'selected' : ''}}">BXH Video VN</div>
                     <div class="swiper-slide swiper-w145 tab-video">BXH Video US-UK</div>
                     <div class="swiper-slide swiper-w145 tab-video">BXH Video Hoa</div>
                     <div class="swiper-slide swiper-w145 tab-video">BXH Video Hàn</div>
