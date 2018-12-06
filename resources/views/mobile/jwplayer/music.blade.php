@@ -149,7 +149,7 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                                 @endif
                                 <div class="swiper-slide">
                                     <div class="container">
-                                        <div class="block block_player block_bxhvideo {{!empty($video) ? 'block_bxhvideo' : ''}}">
+                                        <div class="block block_player {{!empty($video) ? 'block_bxhvideo' : ''}}">
                                             <div class="block_baihat_main block_more">
                                                 @if(!empty($video))
                                                     <?php
@@ -363,14 +363,47 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                 <div class="col-4"><img src="/images/img_like_black.png" alt="yêu thích">
                     <p>Yêu thích</p>
                 </div>
-                <div class="col-4"><img src="/images/img_play_plus.png" alt="thêm vào playlist">
-                    <p>Thêm vào playlist online</p>
+                <div class="col-4">
+                    <div data-toggle="modal" data-target="#addPlayList"><img src="/images/img_play_plus.png" alt="them vao playlist">
+                        <p>Thêm vào playlist online</p>
+                    </div>
                 </div>
                 <div class="col-4 ele-download"><img src="/images/img_download.png" class="icon" alt="tai về">
                     <p>Tải về</p>
                 </div>
                 <div class="col-4 ele-share"><img src="/images/img_share_mp3.png" class="icon" alt="chia sẻ">
                     <p>Chia sẻ</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="addPlayList" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true" class="modal fade">
+        <div role="document" class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header p-2"><span class="modal-title">Thêm bài hát<span class="text-pink m-1">Chạm Khẽ Tim Anh Một Chút Thôi</span>vào danh sách Playlist</span>
+                    <button type="button" data-dismiss="modal" aria-label="Close" class="close"><i class="fa fa-times"></i></button>
+                </div>
+                <div class="modal-body p-2">
+                    <div class="box_show_playlist box_show_playlist_popup">
+                        <div class="list-group">
+                            <div onclick="addBoxMusicPlaylist(131)" class="item playlist_id_131"><a href="javascript:void(0)" class="list-group-item list-group-item-action d-flex title_playlist">vvvvvvvvvvvvv (<span>0</span>)</a></div>
+                            <div onclick="addBoxMusicPlaylist(130)" class="item playlist_id_130"><a href="javascript:void(0)" class="list-group-item list-group-item-action d-flex title_playlist">wwwwwwwwwwwwwww (<span>0</span>)</a></div>
+                            <div onclick="addBoxMusicPlaylist(129)" class="item playlist_id_129"><a href="javascript:void(0)" class="list-group-item list-group-item-action d-flex title_playlist">wwwwwwwwwwwwwww (<span>1</span>)</a></div>
+                            <div onclick="addBoxMusicPlaylist(128)" class="item playlist_id_128"><a href="javascript:void(0)" class="list-group-item list-group-item-action d-flex title_playlist">wwwwwwwwwwwww (<span>0</span>)</a></div>
+                            <div onclick="addBoxMusicPlaylist(127)" class="item playlist_id_127"><a href="javascript:void(0)" class="list-group-item list-group-item-action d-flex title_playlist">wwwwwwwww (<span>0</span>)</a></div>
+                            <div onclick="addBoxMusicPlaylist(126)" class="item playlist_id_126"><a href="javascript:void(0)" class="list-group-item list-group-item-action d-flex title_playlist">vvvvv (<span>0</span>)</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer p-2">
+                    <form action="">
+                        <div class="input-group create_playlist">
+                            <input type="text" placeholder="Nhập tên playlist mới cần tạo" class="form-control box_text_create_playlist btn-radius">
+                            <div class="input-group-append">
+                                <button onclick="btnCreatePlaylist('box_text_create_playlist')" type="button" class="btn btn-secondary btn-gradien btn-radius">Tạo Playlist</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

@@ -12,6 +12,7 @@ use App\Models\UserModel as User;
 use App\Models\UserSocialModel;
 use Illuminate\Support\Facades\Auth;
 use Socialite;
+use Session;
 
 class AuthGoogleController extends Controller
 {
@@ -22,7 +23,7 @@ class AuthGoogleController extends Controller
      * @return Response
      */
     public function redirectToProvider() {
-
+        Session::flash('redirect_flash', url()->previous());
         return Socialite::driver('google')->redirect();
     }
 

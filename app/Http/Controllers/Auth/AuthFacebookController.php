@@ -12,6 +12,7 @@ use App\Models\UserModel as User;
 use App\Models\UserSocialModel;
 use Illuminate\Support\Facades\Auth;
 use Socialite;
+use Session;
 
 class AuthFacebookController extends Controller
 {
@@ -22,7 +23,7 @@ class AuthFacebookController extends Controller
      * @return Response
      */
     public function redirectToProvider() {
-
+        Session::flash('redirect_flash', url()->previous());
         return Socialite::driver('facebook')->redirect();
     }
 
@@ -52,6 +53,6 @@ class AuthFacebookController extends Controller
             $existUser = $existUser;
         }
         Auth::login($existUser);
-        return redirect('/');
+        return redirect(Session::get('redirect_flash') ?? '/');
     }
 }

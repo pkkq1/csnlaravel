@@ -134,6 +134,18 @@ jQuery(document).ready(function($) {
         });
     }
 
+    // $('.block_more .icon').click(function(e) {
+    //     $('.wrap-bottom-sheet').show();
+    //     $('.bottom-sheet').slideDown();
+    // });
+    // $('.wrap-bottom-sheet').click(function(e) {
+    //     $(this).hide();
+    //     $('.bottom-sheet').slideUp();
+    // });
+    // $('.block_button .icon').click(function(e) {
+    //     $('.wrap-bottom-sheet').show();
+    //     jQuery('.bottom-sheet').slideDown();
+    // });
 
     openModal('.modal-edit-profile', '.wrap-edit-profile', true);
     closeModal('.cancel_model_profile', '.wrap-edit-profile');

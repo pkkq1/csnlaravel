@@ -87,7 +87,7 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                                             <i class="material-icons">close</i>
                                         </button>
                                         <h5 class="card-title box_add_playlist"></h5>
-                                        <div class="box_show_playlist box_show_playlist_popup mb-2">
+                                        <div class="box_show_playlist box_show_playlist_popup mb-2 box-playlist all-playlist">
                                             <div class="list-group">
 
                                             </div>
@@ -142,7 +142,7 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                             </li>
                             @if($musicSet['type_jw'] !== 'video')
                             <li class="nav-item">
-                                <a class="nav-link add_playlist" onclick="loadPlayList()" id="pills-plus-tab" data-toggle="pill" href="#pills-plus" role="tab" aria-controls="pills-plus" aria-selected="false"><i class="material-icons">control_point</i> Thêm vào</a>
+                                <a class="nav-link add_playlist" onclick="loadPlayList({{$music->music_id}})" id="pills-plus-tab" data-toggle="pill" href="#pills-plus" role="tab" aria-controls="pills-plus" aria-selected="false"><i class="material-icons">control_point</i> Thêm vào</a>
                             </li>
                             @endif
                         </ul>
@@ -327,7 +327,7 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                                     </div>
                                 </div>
                                 <div class="card mb-2 playlist_1 border-0">
-                                    <div class="card-body playlist-csn">
+                                    <div class="card-body playlist-csn tab-playlist all-playlist">
                                         <ul class="list-unstyled mb-0">
                                         </ul>
                                     </div>
@@ -912,7 +912,7 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
             <?php
                 if(!Auth::check()) {
                 ?>
-                    alertModal('Bạn chưa đăng nhập.');
+                    switchAuth('myModal_login');
                     return false;
                 <?php
                 }
@@ -1014,53 +1014,56 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
         //////////////////////////
         ////Add Playlist////////
         ////////////////////////
-        var loadPlaylist = true;
-        function loadPlayList() {
+
+        function loadPlayList(musicIdSelect, type = 'tab') {
             <?php
                 if(!Auth::check()) {
                     ?>
-                    alertModal('Bạn chưa đăng nhập.');
+                    switchAuth('myModal_login');
                     return false;
                     <?php
                 }
             ?>
-            if(loadPlaylist) {
-                $.ajax({
-                    url: "/user/playlist/danh-sach-playlist",
-                    type: "GET",
-                    dataType: "json",
-                    data: {},
-                    beforeSend: function () {
-                        if(loaded) return false;
-                        loaded = true;
-                    },
-                    success: function(data) {
-                        if(data.success) {
-                            loadPlaylist = false;
-                            var stringHtml = '';
-                            var stringBoxHtml = '';
-                            if(data.data) {
-                                $.each(data.data, function (index, val) {
-                                    stringHtml += stringItemPlaylist(val.playlist_title, val.playlist_music_total, val.playlist_id, val.music_exist, val.playlist_time);
-                                    stringBoxHtml += stringItemBoxPlaylist(val.playlist_title, val.playlist_music_total, val.playlist_id, val.music_exist, val.playlist_time);
-                                });
-                            }
-                            $('.playlist-csn ul').html(stringHtml);
+            $.ajax({
+                url: "/user/playlist/danh-sach-playlist",
+                type: "GET",
+                dataType: "json",
+                data: { music_id : musicIdSelect},
+                beforeSend: function () {
+                    $('.box_show_playlist .list-group').html('');
+                    if(loaded) return false;
+                    loaded = true;
+                },
+                success: function(data) {
+                    if(data.success) {
+                        var stringHtml = '';
+                        var stringBoxHtml = '';
+                        if(data.data) {
+                            $.each(data.data, function (index, val) {
+                                if(type == 'box') {
+                                    stringBoxHtml += stringItemBoxPlaylist(val.playlist_title, val.playlist_music_total, val.playlist_id, val.music_exists, val.playlist_time);
+                                }else{
+                                    stringHtml += stringItemPlaylist(val.playlist_title, val.playlist_music_total, val.playlist_id, val.music_exists, val.playlist_time);
+                                }
+                            });
+                        }
+                        if(type == 'box') {
                             $('.box_show_playlist .list-group').html(stringBoxHtml);
                         }else{
-                            alertModal(data.message);
+                            $('.playlist-csn ul').html(stringHtml);
                         }
-
+                    }else{
+                        alertModal(data.message);
                     }
-                });
-            }
 
+                }
+            });
         }
         function stringItemPlaylist(playlist_title, playlist_music_total, playlist_id, music_exist, playlist_time){
-            return '<li onclick="addMusicPlaylist(' + playlist_id + ', false, false, false)" class="d-flex justify-content-between playlist_id_' + playlist_id + '"><a class="title_playlist" href="javascript:void(0)" title="' + playlist_title + '">' + playlist_title + ' (<span>' + playlist_music_total + '</span>)</a><time>' + convertDateTime(playlist_time) + '</time></li>';
+            return '<li onclick="addMusicPlaylist(' + playlist_id + ', false, false, false)" class="d-flex justify-content-between playlist_id_' + playlist_id + ' ' + (music_exist ? 'music-exists' : '') + '"><a class="title_playlist" href="javascript:void(0)" title="' + playlist_title + '">' + playlist_title + ' (<span>' + playlist_music_total + '</span>)</a>' + (music_exist ? '<i class="material-icons"> check </i>' : '') + '<time>' + convertDateTime(playlist_time) + '</time></li>';
         }
         function stringItemBoxPlaylist(playlist_title, playlist_music_total, playlist_id, music_exist, playlist_time){
-            return '<div onclick="addBoxMusicPlaylist(' + playlist_id + ')" class="playlist_id_' + playlist_id + '"><a href="javascript:void(0)" class="list-group-item list-group-item-action d-flex title_playlist">' + playlist_title + ' (<span>' + playlist_music_total + '</span>)</a></div>';
+            return '<div onclick="addBoxMusicPlaylist(' + playlist_id + ')" class="playlist_id_' + playlist_id + ' ' + (music_exist ? 'music-exists' : '') + '"><a href="javascript:void(0)" class="list-group-item list-group-item-action d-flex title_playlist">' + playlist_title + ' (<span>' + playlist_music_total + '</span>)' + (music_exist ? '<i class="material-icons icon-box-playlist"> check </i>' : '') + '</a></div>';
         }
         function convertDateTime(timestamp) {
             date = new Date(timestamp * 1000),
@@ -1079,7 +1082,7 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
             <?php
                 if(!Auth::check()) {
                 ?>
-                    alertModal('Bạn chưa đăng nhập.')
+                    switchAuth('myModal_login');
                     return false;
                 <?php
                 }
@@ -1110,13 +1113,14 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                 }
             });
         }
-        function addMusicPlaylist(playlistId, musicAddId, artistAdd, artistIdAdd) {
+        function addMusicPlaylist(playlistId, musicAddId, artistAdd, artistIdAdd, type = 'tab') {
             const playlistIdSelect = $('.playlist_id_' + playlistId);
+            let music_id = (musicAddId == false ? musicId : musicAddId);
             $.ajax({
                 url: "/user/playlist/add-music-playlist",
                 type: "POST",
                 dataType: "json",
-                data: {'playlist_id': playlistId, 'music_id': (musicAddId == false ? musicId : musicAddId), 'artist': (artistAdd == false ? artists : artistAdd), 'artist_id': (artistIdAdd == false ? artistIds : artistIdAdd)},
+                data: {'playlist_id': playlistId, 'music_id': music_id, 'artist': (artistAdd == false ? artists : artistAdd), 'artist_id': (artistIdAdd == false ? artistIds : artistIdAdd)},
                 beforeSend: function () {
                     if(loaded) return false;
                     loaded = true;
@@ -1124,9 +1128,26 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                 success: function(data) {
                     if(data.success) {
                         var countPlaylist = playlistIdSelect.find('.title_playlist span');
-                        countPlaylist.html(parseInt(countPlaylist.html()) + 1);
-                        successModal(data.message);
                         playlistIdSelect.find('time').html(convertDateTime(Date.now() / 1000));
+                        if(type == 'box' && music_id == musicId){
+                            if($('.add_playlist').hasClass('active')) {
+                                type = 'all';
+                            }
+                        }
+                        var selectPlaylist = $('.' + type + '-playlist').find('.playlist_id_' + playlistId);
+                        if(data.data) {
+                            countPlaylist.html(parseInt(countPlaylist.html()) - 1);
+                            selectPlaylist.removeClass('music-exists');
+                            selectPlaylist.find('.material-icons').remove();
+                            alertModal(data.message);
+                        }else {
+                            countPlaylist.html(parseInt(countPlaylist.html()) + 1);
+                            selectPlaylist.addClass('music-exists');
+                            selectPlaylist.find('time').before('<i class="material-icons"> check </i>');
+                            $('.box-playlist').find('.playlist_id_' + playlistId).find('a').prepend('<i class="material-icons icon-box-playlist"> check </i>');
+                        }
+
+                        successModal(data.message);
                     }else{
                         alertModal(data.message);
                     }
@@ -1140,7 +1161,7 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
             <?php
             if(!Auth::check()) {
                 ?>
-                    alertModal('Bạn chưa đăng nhập.');
+                    switchAuth('myModal_login');
                     return false;
                 <?php
             }
@@ -1157,10 +1178,10 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                     $('#boxOutPlaylist').remove();
                 }
             }
-            loadPlayList();
+            loadPlayList(setId, 'box');
         }
         function addBoxMusicPlaylist(playlist_id) {
-            addMusicPlaylist(playlist_id, boxMusicId, boxArtists, boxArtistIds);
+            addMusicPlaylist(playlist_id, boxMusicId, boxArtists, boxArtistIds, 'box');
         }
         $('.show_add_playlist').find('.close').on('click', function () {
             $('.show_add_playlist').css('display', 'none');

@@ -66,13 +66,22 @@ $('body').mousemove(function (event) {
         top: (event.pageY - upvote_position.top - 35) + 'px'
     });
 });
+var setTimeOutModal;
 function alertModal(content) {
+    clearTimeout(setTimeOutModal);
     $("#myModal .modal-body").html('<i class="material-icons modal_icon_csn">error_outline</i><div class="modal_content_csn">' + content + '</div>');
     $("#myModal").modal();
+    setTimeOutModal = setTimeout(function(){
+        $('#myModal .modal-footer .close').click();
+    }, 3000);
 }
 function successModal(content) {
+    clearTimeout(setTimeOutModal);
     $("#myModal .modal-body").html('<i class="material-icons modal_icon_csn">check_circle_outline</i><div class="modal_content_csn">' + content + '</div>');
     $("#myModal").modal();
+    setTimeOutModal = setTimeout(function(){
+        $('#myModal .modal-footer .close').click();
+    }, 3000);
 }
 String.prototype.replaceArray = function(find, replace) {
     var replaceString = this;

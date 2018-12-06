@@ -65,7 +65,7 @@ class CommentController extends Controller
             $result = $this->commentReplayRepository->create([
                 'comment_id' => $request->input('reply_cmt_id'),
                 'user_id' => Auth::user()->id,
-                'username' => Auth::user()->username,
+                'username' => Auth::user()->username ?? '',
                 'comment_text' => $request->input('comment')
             ]);
             $this->musicRepository->incrementCol($request->input('music_id'), 'music_comment');
@@ -76,9 +76,8 @@ class CommentController extends Controller
             // add comment parent
             $result = $this->commentRepository->create([
                 'music_id' => $request->input('music_id'),
-                'music_id' => $request->input('music_id'),
                 'user_id' => Auth::user()->id,
-                'username' => Auth::user()->username,
+                'username' => Auth::user()->username ?? '',
                 'comment_text' => $request->input('comment')
             ]);
             $this->musicRepository->incrementCol($request->input('music_id'), 'music_comment');

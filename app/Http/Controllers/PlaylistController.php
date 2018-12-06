@@ -47,7 +47,10 @@ class PlaylistController extends Controller
         if(!Auth::check()){
             Helpers::ajaxResult(false, 'Bạn chưa đang nhập.', null);
         }
-        $result = $this->playlistRepository->getByUser(Auth::user()->id)->toArray();
+        $result = $this->playlistRepository->getByUser(Auth::user()->id);
+        foreach ($result as &$item) {
+            $item->music_exists = $item->findExistsMusic($request->music_id);
+        }
         return Helpers::ajaxResult(true, '', $result);
     }
     public function createPlayList(Request $request) {
@@ -77,17 +80,23 @@ class PlaylistController extends Controller
         if(!$playlistUser) {
             Helpers::ajaxResult(false, 'Không tìm thấy playlist của bạn', null);
         }
-        $exist = PlaylistMusicModel::where([['playlist_id', $request->input('playlist_id')], ['music_id', $request->input('music_id')]])->exists();
-        if($exist) {
-            Helpers::ajaxResult(false, 'Bài hát đã tồn tại trong playlist.', null);
+        $countUpdate = 1;
+        $dataResult = null;
+        $mess = 'Đã thêm vào playlist.';
+        $exist = PlaylistMusicModel::where([['playlist_id', $request->input('playlist_id')], ['music_id', $request->input('music_id')]]);
+        if($exist->exists()) {
+            $exist->delete();
+            $countUpdate = -1;
+            $dataResult = ['remove' => true];
+            $mess = 'Đã xóa bài hát khỏi playlist.';
+        }else{
+            $result = PlaylistMusicModel::firstOrCreate([
+                'playlist_id' => $request->input('playlist_id'),
+                'music_id' => $request->input('music_id')
+            ]);
         }
-
-        $result = PlaylistMusicModel::firstOrCreate([
-            'playlist_id' => $request->input('playlist_id'),
-            'music_id' => $request->input('music_id')
-        ]);
         $playlistUser->playlist_time = time();
-        $playlistUser->playlist_music_total = $playlistUser->playlist_music_total + 1;
+        $playlistUser->playlist_music_total = $playlistUser->playlist_music_total + $countUpdate;
         // add and sort artist
         if($request->input('artist')) {
             $artistNew = explode(';', $request->input('artist'));
@@ -126,7 +135,7 @@ class PlaylistController extends Controller
             $playlistUser->playlist_artist = serialize($artistOld);
         }
         $playlistUser->save();
-        Helpers::ajaxResult(true, 'Đã thêm vào playlist.', null);
+        Helpers::ajaxResult(true, $mess, $dataResult);
     }
     public function editPlaylist(Request $request, $id) {
 //        $playlistUser = $this->playlistRepository->getByUser(Auth::user()->id, $id)->with('playlist_arr_ids')->first();

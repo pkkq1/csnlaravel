@@ -32,6 +32,9 @@ class PlaylistModel extends Model
             ->select('csn_music.music_id', 'csn_music.music_title_url', 'csn_music.music_title', 'csn_music.music_artist', 'csn_music.music_artist_id', 'csn_music.cat_id', 'csn_music.cat_level', 'csn_music.cat_sublevel', 'csn_music.cat_custom', 'csn_music.cover_id', 'csn_music.music_download_time',
             'csn_music.music_last_update_time', 'csn_music.music_title_url', 'csn_music.music_title_search', 'csn_music.music_artist_search', 'csn_music.music_album_search', 'csn_music.music_composer', 'csn_music.music_album', 'csn_music.music_listen', 'csn_music.music_track_id', 'csn_music.music_filename');
     }
+    public function findExistsMusic($id) {
+        return $this->belongsTo('App\Models\PlaylistMusicModel', 'playlist_id', 'playlist_id')->where('csn_playlist_music.music_id', $id)->exists();
+    }
     public function video() {
         return $this->hasManyThrough(
             'App\Models\VideoModel',

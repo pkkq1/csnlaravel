@@ -46,7 +46,7 @@ global $hot_video_rows;
         <div class="swiper-container swiper2">
             <div class="swiper-wrapper">
                 @if(!isset($_GET['type']) || $_GET['type'] == 'music')
-                    <div class="swiper-slide tab-music content-vietnam">
+                    <div class="swiper-slide block_bxhbaihat block_more tab-music content-vietnam">
                         <?php
                         array_map(function ($i, $item) {
                         $url = Helpers::listen_url($item);
@@ -66,7 +66,7 @@ global $hot_video_rows;
                         }, array_keys($hot_music_rows[3]), $hot_music_rows[3]);
                         ?>
                     </div>
-                    <div class="swiper-slide tab-music content-us-uk">
+                    <div class="swiper-slide block_bxhbaihat block_more tab-music content-us-uk">
                         <?php
                         array_map(function ($i, $item) {
                         $url = Helpers::listen_url($item);
@@ -86,7 +86,7 @@ global $hot_video_rows;
                         }, array_keys($hot_music_rows[4]), $hot_music_rows[4]);
                         ?>
                     </div>
-                    <div class="swiper-slide tab-music content-chinese">
+                    <div class="swiper-slide block_bxhbaihat block_more tab-music content-chinese">
                         <?php
                         array_map(function ($i, $item) {
                         $url = Helpers::listen_url($item);
@@ -106,7 +106,7 @@ global $hot_video_rows;
                         }, array_keys($hot_music_rows[5]), $hot_music_rows[5]);
                         ?>
                     </div>
-                    <div class="swiper-slide tab-music content-korea">
+                    <div class="swiper-slide block_bxhbaihat block_more tab-music content-korea">
                         <?php
                         array_map(function ($i, $item) {
                         $url = Helpers::listen_url($item);
@@ -126,7 +126,7 @@ global $hot_video_rows;
                         }, array_keys($hot_music_rows[6]), $hot_music_rows[6]);
                         ?>
                     </div>
-                    <div class="swiper-slide tab-music content-japan">
+                    <div class="swiper-slide block_bxhbaihat block_more tab-music content-japan">
                         <?php
                         array_map(function ($i, $item) {
                         $url = Helpers::listen_url($item);
@@ -146,7 +146,7 @@ global $hot_video_rows;
                         }, array_keys($hot_music_rows[7]), $hot_music_rows[7]);
                         ?>
                     </div>
-                    <div class="swiper-slide tab-music content-france">
+                    <div class="swiper-slide block_bxhbaihat block_more tab-music content-france">
                         <?php
                         array_map(function ($i, $item) {
                         $url = Helpers::listen_url($item);
@@ -166,7 +166,7 @@ global $hot_video_rows;
                         }, array_keys($hot_music_rows[8]), $hot_music_rows[8]);
                         ?>
                     </div>
-                    <div class="swiper-slide tab-music content-other">
+                    <div class="swiper-slide block_bxhbaihat block_more tab-music content-other">
                         <?php
                         array_map(function ($i, $item) {
                         $url = Helpers::listen_url($item);
@@ -186,7 +186,7 @@ global $hot_video_rows;
                         }, array_keys($hot_music_rows[9]), $hot_music_rows[9]);
                         ?>
                     </div>
-                    <div class="swiper-slide tab-music content-beat-playback">
+                    <div class="swiper-slide block_bxhbaihat block_more tab-music content-beat-playback">
                         <?php
                         array_map(function ($i, $item) {
                         $url = Helpers::listen_url($item);

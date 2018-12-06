@@ -252,3 +252,9 @@ footer {
 .block_player .listen {
     background-color: #ff93938f;
 }
+.music-exists {
+    color: #FC655F!important;
+}
+.music-exists a {
+    color: #FC655F!important;
+}

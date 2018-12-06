@@ -487,53 +487,51 @@ global $top_artist_rows;
     //////////////////////////
     ////Add Playlist////////
     ////////////////////////
-    var loadPlaylist = true;
-    function loadPlayList() {
+    function loadPlayList(music_id) {
         <?php
         if(!Auth::check()) {
         ?>
-        alertModal('Bạn chưa đăng nhập.');
+        switchAuth('myModal_login');
         return false;
         <?php
             }
             ?>
-        if(loadPlaylist) {
-            $.ajax({
-                url: "/user/playlist/danh-sach-playlist",
-                type: "GET",
-                dataType: "json",
-                data: {},
-                beforeSend: function () {
-                    if(loaded) return false;
-                    loaded = true;
-                },
-                success: function(data) {
-                    if(data.success) {
-                        loadPlaylist = false;
-                        var stringBoxHtml = '';
-                        if(data.data) {
-                            $.each(data.data, function (index, val) {
-                                stringBoxHtml += stringItemBoxPlaylist(val.playlist_title, val.playlist_music_total, val.playlist_id, val.music_exist, val.playlist_time);
-                            });
-                        }
-                        $('.box_show_playlist .list-group').html(stringBoxHtml);
-                    }else{
-                        alertModal(data.message);
+        $.ajax({
+            url: "/user/playlist/danh-sach-playlist",
+            type: "GET",
+            dataType: "json",
+            data: {music_id: music_id},
+            beforeSend: function () {
+                $('.box_show_playlist .list-group').html('');
+                if(loaded) return false;
+                loaded = true;
+            },
+            success: function(data) {
+                if(data.success) {
+                    var stringBoxHtml = '';
+                    if(data.data) {
+                        $.each(data.data, function (index, val) {
+                            stringBoxHtml += stringItemBoxPlaylist(val.playlist_title, val.playlist_music_total, val.playlist_id, val.music_exists, val.playlist_time);
+                        });
                     }
-
+                    $('.box_show_playlist .list-group').html(stringBoxHtml);
+                }else{
+                    alertModal(data.message);
                 }
+
+            }
             });
-        }
     }
     function stringItemBoxPlaylist(playlist_title, playlist_music_total, playlist_id, music_exist, playlist_time){
-        return '<div onclick="addBoxMusicPlaylist(' + playlist_id + ')" class="playlist_id_' + playlist_id + '"><a href="javascript:void(0)" class="list-group-item list-group-item-action d-flex title_playlist">' + playlist_title + ' (<span>' + playlist_music_total + '</span>)</a></div>';
+        return '<div onclick="addBoxMusicPlaylist(' + playlist_id + ')" class="playlist_id_' + playlist_id + ' ' + (music_exist ? 'music-exists' : '') + '"><a href="javascript:void(0)" class="list-group-item list-group-item-action d-flex title_playlist">' + playlist_title + ' (<span>' + playlist_music_total + '</span>)' + (music_exist ? '<i class="material-icons icon-box-playlist"> check </i>' : '') + '</a></div>';
     }
+
     function btnCreatePlaylist(box_text_create_playlist) {
         var titlePlaylist = $('.' + box_text_create_playlist);
         <?php
         if(!Auth::check()) {
         ?>
-        alertModal('Bạn chưa đăng nhập.')
+        switchAuth('myModal_login');
         return false;
         <?php
             }
@@ -578,9 +576,16 @@ global $top_artist_rows;
             success: function(data) {
                 if(data.success) {
                     var countPlaylist = playlistIdSelect.find('.title_playlist span');
-                    countPlaylist.html(parseInt(countPlaylist.html()) + 1);
+                    if(data.data) {
+                        countPlaylist.html(parseInt(countPlaylist.html()) - 1);
+                        playlistIdSelect.removeClass('music-exists');
+                        playlistIdSelect.find('.material-icons').remove();
+                    }else{
+                        countPlaylist.html(parseInt(countPlaylist.html()) + 1);
+                        playlistIdSelect.addClass('music-exists');
+                        playlistIdSelect.find('a').prepend('<i class="material-icons icon-box-playlist"> check </i>');
+                    }
                     successModal(data.message);
-                    playlistIdSelect.find('time').html(convertDateTime(Date.now() / 1000));
                 }else{
                     alertModal(data.message);
                 }
@@ -594,7 +599,7 @@ global $top_artist_rows;
         <?php
         if(!Auth::check()) {
             ?>
-                alertModal('Bạn chưa đăng nhập.');
+                switchAuth('myModal_login');
                 return false;
             <?php
         }
@@ -611,7 +616,7 @@ global $top_artist_rows;
                 $('#boxOutPlaylist').remove();
             }
         }
-        loadPlayList();
+        loadPlayList(setId);
     }
     function addBoxMusicPlaylist(playlist_id) {
         addMusicPlaylist(playlist_id, boxMusicId, boxArtists, boxArtistIds);

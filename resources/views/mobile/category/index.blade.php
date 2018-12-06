@@ -34,57 +34,57 @@ $titleMeta = $category->cat_title . ' - '. Config::get('constants.app.title');
             <div class="swiper-container swiper2">
                 <div class="swiper-wrapper">
                     @if($category->cat_id != CATEGORY_ID_VIDEO)
-                        <div class="swiper-slide block_baihat_main block_more" data-tab="album-{{CURRENT_YEAR}}">
+                        <div class="swiper-slide block_bxhbaihat block_more" data-tab="album-{{CURRENT_YEAR}}">
                             <div class="container">
                                 <div class="block block_baihat">
-                                    <div class="block_baihat_main block_more" id="album-{{CURRENT_YEAR}}">
+                                    <div class="block_bxhbaihat block_more" id="album-{{CURRENT_YEAR}}">
                                         <?php echo $firstTab ?>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper-slide block_baihat_main block_more" data-tab="album-moi">
+                        <div class="swiper-slide block_bxhbaihat block_more" data-tab="album-moi">
                             <div class="container">
                                 <div class="block block_baihat">
-                                    <div class="block_baihat_main block_more" id="album-moi"></div>
+                                    <div class="block_bxhbaihat block_more" id="album-moi"></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper-slide block_baihat_main block_more" data-tab="bai-hat-moi">
+                        <div class="swiper-slide block_bxhbaihat block_more" data-tab="bai-hat-moi">
                             <div class="container">
                                 <div class="block block_baihat">
-                                    <div class="block_baihat_main block_more" id="bai-hat-moi"></div>
+                                    <div class="block_bxhbaihat block_more" id="bai-hat-moi"></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper-slide block_baihat_main block_more" data-tab="vua-download">
+                        <div class="swiper-slide block_bxhbaihat block_more" data-tab="vua-download">
                             <div class="container">
                                 <div class="block block_baihat">
-                                    <div class="block_baihat_main block_more" id="vua-download"></div>
+                                    <div class="block_bxhbaihat block_more" id="vua-download"></div>
                                 </div>
                             </div>
                         </div>
                     @else
-                        <div class="swiper-slide block_baihat_main block_more" data-tab="video-{{CURRENT_YEAR}}">
+                        <div class="swiper-slide block_bxhbaihat block_more" data-tab="video-{{CURRENT_YEAR}}">
                             <div class="container">
                                 <div class="block block_baihat">
-                                    <div class="block_baihat_main block_more" id="video-{{CURRENT_YEAR}}">
+                                    <div class="block_bxhbaihat block_more" id="video-{{CURRENT_YEAR}}">
                                         <?php echo $firstTab ?>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper-slide block_baihat_main block_more" data-tab="video-moi">
+                        <div class="swiper-slide block_bxhbaihat block_more" data-tab="video-moi">
                             <div class="container">
                                 <div class="block block_baihat">
-                                    <div class="block_baihat_main block_more" id="video-moi"></div>
+                                    <div class="block_bxhbaihat block_more" id="video-moi"></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper-slide block_baihat_main block_more" data-tab="video-vua-download">
+                        <div class="swiper-slide block_bxhbaihat block_more" data-tab="video-vua-download">
                             <div class="container">
                                 <div class="block block_baihat">
-                                    <div class="block_baihat_main block_more" id="video-vua-download"></div>
+                                    <div class="block_bxhbaihat block_more" id="video-vua-download"></div>
                                 </div>
                             </div>
                         </div>
