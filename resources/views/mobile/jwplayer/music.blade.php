@@ -42,7 +42,13 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                         <div class="infor_main">
                             <div style="background: url('{{Helpers::cover_url($music->cover_id)}}') no-repeat center;background-size: cover;padding-bottom: 70%;" class="image bg-blur"></div>
                             <div style="background: url('{{Helpers::cover_url($music->cover_id)}}') no-repeat center;background-size: cover;padding: 20%;" class="image-main"></div>
-                            <div class="player_media"></div>
+                            <div id="csnplayerads" style="position:relative; z-index: 99999; width:100%;"> </div>
+                            <div id="csnplayer" class="player_media <?php echo $musicSet['type_jw'] == 'video' ? 'csn_video' : 'csn_music' ?>" style="position:relative; z-index: 99999; width:100%;"> </div>
+                            <div id="hidden_lyrics" class="hidden">
+                                <div id="lyrics" class="rabbit-lyrics">
+
+                                </div>
+                            </div>
                         </div>
                         <div class="title p-3 relative">
                             <div>
@@ -406,12 +412,274 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
 </section>
 @endsection
 @section('contentJS')
-
+<script src="/assets/jwplayer-7.12.0/jwplayer.js"></script>
 <script>
     var musicId = '<?php echo $music->music_id ?>';
     var artists = "<?php echo $music->music_artist  ?>";
     var artistIds = '<?php echo $music->music_artist_id  ?>';
     var musicAddId = '';
+    //////////////////////////
+    ////JW Player//////////
+    ////////////////////////
+
+    <?php
+    if($musicSet['type_listen'] == 'playlist' && !empty($musicSet['playlist_music'])){
+    ?>
+    $("#music-listen-1904314").addClass('listen');
+    var vtop = document.getElementById("music-listen-<?php echo $music->music_id ?>").offsetTop;
+    $('.music_recommendation').animate({scrollTop: vtop - 50}, 'slow');
+    <?php
+        }
+        ?>
+        jwplayer.key="dWwDdbLI0ul1clbtlw+4/UHPxlYmLoE9Ii9QEw==";
+    var player = jwplayer('csnplayer');
+    var firstPlayer = true;
+    <?php
+    if($musicSet['type_jw'] != 'video') {
+    ?>
+    // ads
+    <?php
+    }
+    ?>
+
+    player.setup({
+        width: '100%',
+        height: '88',
+        repeat: false,
+        aspectratio: "<?php echo $musicSet['type_jw'] == 'video' ? '16:9' : 'false' ?>",
+        stretching: 'fill',
+        sources: [
+            <?php
+            for ($i=0; $i<sizeof($file_url); $i++){
+                echo '{"file": "'. $file_url[$i]['url'] .'", "label": "'. $file_url[$i]['label'] .'", "type": "mp4", "default": '. (($i==1) ? 'true' : 'false') .'},';
+            }
+            ?>
+        ],
+        title: "<?php echo $music->music_title ?>",
+        skin: {
+            name: 'nhac'
+        },
+        timeSliderAbove: true,
+        autostart: true,
+        controlbar: "bottom",
+        plugins: {
+            '<?php echo $musicSet['type_listen'] == 'single' ? '/js/nhac-csn.js' : '/js/nhac-playlist.js' ?>': {
+                duration: 20,
+                msisdn: '',
+                package_id: 0,
+                album_id : '0',
+                content_type: 'song',
+                utm_source: '',
+                utm_medium: '',
+                utm_term: '',
+                utm_content: '',
+                utm_campaign: '',
+                device_id: '',
+                channel: 'WEB',
+                url_referer: '',
+                action_type: 'play_song',
+                player_type: 'NotDRM',
+                service_id: 0,
+                source_rec: 'rand',
+                listen_state: 'online',
+                other_info: '',
+                expired_time: 0,
+                version: '1.0'
+            }
+        }
+    });
+    var device_type = 'desktop';
+    var listPlayed =Array();
+    var logPlayAudioFlag = false;
+    var firstPause = false;
+
+    var embed = 'false';
+    var userStatus = 1;
+    var firstLoadLyric = false;
+    var listLyrics = [];
+    jwplayer().onBeforePlay(function() {
+        //logPlayAudioFlag = true;
+        //console.log('set flag again|'+logPlayAudioFlag);
+        $('#csnplayer').find('.jw-captions').html($('#hidden_lyrics').html());
+        $('#hidden_lyrics').remove();
+        new RabbitLyrics({
+            element: document.getElementById("lyrics"),
+            viewMode: 'mini',
+            onUpdateTimeJw: false
+        });
+        <?php
+        if($musicSet['type_jw'] != 'video') {
+        ?>
+        $('.jw-display-icon-display').css('display', 'none')
+        <?php
+        }
+        ?>
+    });
+    jwplayer().onTime(function () {
+        new RabbitLyrics({
+            element: document.getElementById("lyrics"),
+            viewMode: 'mini',
+            onUpdateTimeJw: true
+        });
+    })
+    jwplayer().onQualityLevels(function(callback){
+        updateQuality(callback);
+        if(sessionStorage.getItem("auto_next") == 'true') {
+            $('.check_auto_play').prop('checked', false).change();
+        }
+    });
+    jwplayer().onQualityChange(function(callback){
+        updateQuality(callback);
+    })
+    jwplayer().on('userInactive', function () {
+        <?php
+        if($musicSet['type_jw'] != 'video') {
+        ?>
+        $('#csnplayer').removeClass('jw-flag-user-inactive');
+        <?php
+            }
+            ?>
+            $
+    })
+    function onPlayerAutoNextOn()
+    {
+        sessionStorage.setItem("auto_next", false);
+        $('.check_auto_play').prop('checked', true).change();
+    }
+    function onPlayerAutoNextOff()
+    {
+        sessionStorage.setItem("auto_next", true);
+        $('.check_auto_play').prop('checked', false).change();
+    }
+    $('.check_auto_play').on('change', function(){
+        if($(this).is(':checked')){
+            logPlayAudioFlag = false;
+            sessionStorage.setItem("auto_next", false);
+            setAutoNext(true);
+        }else{
+            logPlayAudioFlag = true;
+            sessionStorage.setItem("auto_next", true);
+            setAutoNext(false);
+            jwplayer().setConfig({
+                repeat: true
+            });
+        }
+    })
+    function onPlayerAutoNext()
+    {
+        AutoPlay(true);
+    }
+    function onPlayerAutoBack()
+    {
+        window.location.href = '<?php echo url()->previous() ?>';
+    }
+    function generateRandom(min, max, except = array()) {
+        var valRad = Math.floor(Math.random() * (max - min + 1)) + min;
+        return (except.indexOf(valRad) !== -1 ? generateRandom(min, max, except) : valRad);
+    }
+    function AutoPlay(float = false){
+            <?php
+            if($musicSet['type_listen'] == 'single') {
+            ?>
+        let sug_first = $('.sug_music').find('.media');
+        window.location.href = sug_first.first().find('.media-left a').attr('href');
+            <?php
+            }else{
+            ?>
+        let recommendation = $('.music_recommendation');
+        let nextListen = 1;
+        let maxPlaylist = <?php echo count($musicSet['playlist_music']); ?>;
+        let activeBool = 0;
+        recommendation.find('.card-footer').each(function(index, value) {
+            if(activeBool) {
+                nextListen = index + 1;
+                return false;
+            }
+            if($(value).hasClass('listen')) {
+                activeBool = index + 1;
+            }
+        })
+        if(sessionStorage.getItem("auto_random") == 'true') {
+            let keyPlaylist = (((window.location.pathname).split('.')[0]).split('/'))[2];
+            let playlistStore = sessionStorage.getItem(keyPlaylist);
+            if(playlistStore) {
+                playlistStore = JSON.parse(playlistStore);
+                if(playlistStore.length == maxPlaylist) {
+                    if(sessionStorage.getItem("auto_repeat") == 'none') {
+                        sessionStorage.removeItem(keyPlaylist);
+                        if(!float)
+                            return false;
+                    }
+                    playlistStore = new Array();
+                }
+            }else{
+                playlistStore = new Array();
+                playlistStore.push(activeBool);
+
+            }
+            nextListen = generateRandom(1, maxPlaylist, playlistStore);
+            playlistStore.push(nextListen);
+            sessionStorage.setItem(keyPlaylist, JSON.stringify(playlistStore))
+        }else{
+            if(sessionStorage.getItem("auto_repeat") == 'none') {
+                if(nextListen == 1 && float == false)
+                    return false;
+            }
+        }
+        window.location.href = '?playlist=' + nextListen;
+        <?php
+        }
+        ?>
+        console.log('next');
+    }
+    function autoRepeat(T){
+        if(T == 'one') {
+            jwplayer().setConfig({
+                repeat: true
+            });
+            logPlayAudioFlag = true;
+            sessionStorage.setItem("auto_repeat", 'one');
+        }
+        if(T == 'all' || T == 'none') {
+            jwplayer().setConfig({
+                repeat: false
+            });
+            logPlayAudioFlag = false;
+            sessionStorage.setItem("auto_repeat", T);
+        }
+    }
+    function autoRandom(F){
+        if(F) {
+            sessionStorage.setItem("auto_random", true);
+        }else{
+            sessionStorage.setItem("auto_random", false);
+        }
+    }
+    jwplayer().onBeforeComplete(function() {
+        if(logPlayAudioFlag == false && typeof AutoPlay=='function'){
+            AutoPlay();
+        }
+    });
+
+    function updateQuality(callback) {
+        var curQual = jwplayer('csnplayer').getCurrentQuality();
+        if(callback['levels'].length == 2) {
+            if(!$('.jw-icon-hd').hasClass('stringQ')) {
+                $('.jw-icon-hd').html(callback['levels'][curQual]['label']);
+            }
+            $('.jw-icon-hd').addClass('stringQ');
+            $('.jw-icon-hd').removeClass('jw-icon-hd');
+            $('.stringQ').html(callback['levels'][curQual]['label']);
+        }else{
+            if(!$('.jw-icon-hd').hasClass('stringQ')) {
+                $('.jw-icon-hd').append('<span>' + callback['levels'][curQual]['label'] + '</span>');
+            }
+            $('.jw-icon-hd').addClass('stringQ');
+            $('.jw-icon-hd').removeClass('jw-icon-hd');
+            $('.stringQ').find('span').html(callback['levels'][curQual]['label']);
+        }
+    }
+
 
 
     $('.cancel-download').click(function(e) {
@@ -709,4 +977,28 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
         });
     }
 </script>
+@if($musicSet['type_jw'] != 'video')
+    <style>
+        .jw-icon-rewind{
+            display: none!important;
+        }
+        .jw-icon-fullscreen, .jw-title-primary{
+            display: none!important;
+        }
+    </style>
+@endif
+@if(($musicSet['type_listen'] == 'playlist' || $musicSet['type_listen'] == 'album') && !empty($musicSet['playlist_music']))
+    @if(!(isset($_GET['playlist'])) || $_GET['playlist'] == 1)
+        <style>
+            .jw-icon-backsong{
+                display: none!important;
+            }
+        </style>
+    @endif
+@endif
+<style>
+    .jw-flag-time-slider-above:not(.jw-flag-ads-googleima).jwplayer .jw-group>.jw-icon, .jw-flag-time-slider-above:not(.jw-flag-ads-googleima).jwplayer .jw-group>.jw-text {
+        height: 40px;
+    }
+</style>
 @endsection

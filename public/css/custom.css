@@ -369,13 +369,7 @@
     padding-left: 30px;
     padding-top: 1px;
 }
-.modal_icon_csn {
-    float: left;
-}
-.modal-footer {
-    padding-top: 5px;
-    padding-bottom: 10px;
-}
+
 .playlist-csn {
     padding: 10px!important;
 }
@@ -679,6 +673,13 @@ form#login-form {
     color: #f85f64!important;
     background-color: #f85f64!important;
     border-color: #f85f64!important;
+}
+.modal_icon_csn {
+    float: left;
+}
+.modal-footer {
+    padding-top: 5px;
+    padding-bottom: 10px;
 }
 .social ul li a{
     display: inline-block;

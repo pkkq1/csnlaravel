@@ -819,16 +819,7 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
             }
         });
 
-        $('#old_embed').click(function(){
-            embedString()
-        });
-        $('#auto_play').click(function(){
-            embedString()
-        });
-        $('#size_embed').change(function(){
-            embedString()
-        });
-        function updateQuality(callback) {
+        function v(callback) {
             var curQual = jwplayer('csnplayer').getCurrentQuality();
             if(callback['levels'].length == 2) {
                 if(!$('.jw-icon-hd').hasClass('stringQ')) {
@@ -846,6 +837,29 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                 $('.stringQ').find('span').html(callback['levels'][curQual]['label']);
             }
         }
+
+        //////////////////////////
+        ////Add Button//////////
+        ////////////////////////
+        $('#old_embed').click(function(){
+            embedString()
+        });
+        $('#auto_play').click(function(){
+            embedString()
+        });
+        $('#size_embed').change(function(){
+            embedString()
+        });
+
+        $('.fb-share-link').click(function(e) {
+            e.preventDefault();
+            FB.ui({
+                method: 'share',
+                href: $(this).attr('href'),
+                caption: 'Chia Sẻ Nhạc',
+            }, function(response){});
+            return false;
+        });
         function embedString() {
             var width_height = 'width="640" height="180"';
             var auto = '?auto=true';
@@ -861,19 +875,6 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                 $('#embed_textarea').text('<iframe src="<?php echo env('APP_URL').'/embed/mp3/'.$music->music_id; ?>' + auto + '"  scrolling="no" ' + width_height + ' frameborder="0" allowfullscreen="true" allow="encrypted-media" allowfullscreen></iframe>');
             }
         }
-        //////////////////////////
-        ////Add Button//////////
-        ////////////////////////
-
-        $('.fb-share-link').click(function(e) {
-            e.preventDefault();
-            FB.ui({
-                method: 'share',
-                href: $(this).attr('href'),
-                caption: 'Chia Sẻ Nhạc',
-            }, function(response){});
-            return false;
-        });
         $('.messenger-share-link').click(function(e) {
             e.preventDefault();
             FB.ui({
@@ -1201,7 +1202,7 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
             }
         }
         show_fulllyric();
-    </script>
+    </script>jw-icon-backsong
     @if($musicSet['type_jw'] != 'video')
         <style>
             .jw-icon-rewind{
@@ -1211,6 +1212,15 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                 display: none!important;
             }
         </style>
+    @endif
+    @if(($musicSet['type_listen'] == 'playlist' || $musicSet['type_listen'] == 'album') && !empty($musicSet['playlist_music']))
+        @if(!(isset($_GET['playlist'])) || $_GET['playlist'] == 1)
+        <style>
+            .jw-icon-backsong{
+                display: none!important;
+            }
+        </style>
+        @endif
     @endif
     <style>
         .jw-flag-time-slider-above:not(.jw-flag-ads-googleima).jwplayer .jw-group>.jw-icon, .jw-flag-time-slider-above:not(.jw-flag-ads-googleima).jwplayer .jw-group>.jw-text {
