@@ -383,7 +383,13 @@ footer {
     font-family: SFProDisplay-Regular;
 }
 
-
+.jw-progress {
+    background-color: #FF2E55!important;
+    /* transition: width 0.05s!important; */
+}
+.jw-progress {
+    background-image: linear-gradient(-243deg, #FB6B60 0%, #FF2E55 100%)!important;
+}
 
 
 

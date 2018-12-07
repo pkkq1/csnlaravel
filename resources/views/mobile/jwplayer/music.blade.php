@@ -517,8 +517,11 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
     })
     jwplayer().onQualityLevels(function(callback){
         updateQuality(callback);
-        if(sessionStorage.getItem("auto_next") == 'true') {
-            $('.check_auto_play').prop('checked', false).change();
+        if(sessionStorage.getItem("auto_next") == 'false') {
+            $('.jw-icon-auto-next-on').removeClass('jw-icon-auto-next-on').addClass('jw-icon-auto-next-off');
+            jwplayer().setConfig({
+                repeat: true
+            });
         }
     });
     jwplayer().onQualityChange(function(callback){
@@ -536,28 +539,19 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
     })
     function onPlayerAutoNextOn()
     {
-        sessionStorage.setItem("auto_next", false);
-        $('.check_auto_play').prop('checked', true).change();
+        sessionStorage.setItem("auto_next", true);
+        jwplayer().setConfig({
+            repeat: false
+        });
+
     }
     function onPlayerAutoNextOff()
     {
-        sessionStorage.setItem("auto_next", true);
-        $('.check_auto_play').prop('checked', false).change();
+        sessionStorage.setItem("auto_next", false);
+        jwplayer().setConfig({
+            repeat: true
+        });
     }
-    $('.check_auto_play').on('change', function(){
-        if($(this).is(':checked')){
-            logPlayAudioFlag = false;
-            sessionStorage.setItem("auto_next", false);
-            setAutoNext(true);
-        }else{
-            logPlayAudioFlag = true;
-            sessionStorage.setItem("auto_next", true);
-            setAutoNext(false);
-            jwplayer().setConfig({
-                repeat: true
-            });
-        }
-    })
     function onPlayerAutoNext()
     {
         AutoPlay(true);
@@ -574,6 +568,9 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
             <?php
             if($musicSet['type_listen'] == 'single') {
             ?>
+            if(sessionStorage.getItem("auto_next") == 'false' && float == false) {
+                return false;
+            }
         let sug_first = $('.sug_music').find('.media');
         window.location.href = sug_first.first().find('.media-left').attr('href');
             <?php
@@ -591,7 +588,7 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
             if($(value).hasClass('listen')) {
                 activeBool = index + 1;
             }
-        })
+        });
         if(sessionStorage.getItem("auto_random") == 'true') {
             let keyPlaylist = (((window.location.pathname).split('.')[0]).split('/'))[2];
             let playlistStore = sessionStorage.getItem(keyPlaylist);
@@ -990,12 +987,6 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
 <style>
     .jw-flag-time-slider-above:not(.jw-flag-ads-googleima).jwplayer .jw-group>.jw-icon, .jw-flag-time-slider-above:not(.jw-flag-ads-googleima).jwplayer .jw-group>.jw-text {
         height: 40px;
-    }
-    .jwplayer.jw-state-paused .jw-display-icon-container {
-        display: table;
-    }
-    .jwplayer.jw-state-paused .jw-icon-display::before {
-        content: "\e60e";
     }
 </style>
 @endsection
