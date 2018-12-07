@@ -37,7 +37,6 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        Session::flash('redirect_flash', url()->previous());
         $this->middleware('guest')->except('logout');
     }
     public function redirectToProvider() {

@@ -48,12 +48,13 @@ global $hot_video_rows;
                 @if(!isset($_GET['type']) || $_GET['type'] == 'music')
                     <div class="swiper-slide block_bxhbaihat block_more tab-music content-vietnam">
                         <?php
-                        array_map(function ($i, $item) {
-                        $url = Helpers::listen_url($item);
+                        array_map(function ($i, $item) use ($urlBxh) {
+                        $i = ++$i;
+                        $url = $urlBxh.'/vietnam'.'.html?playlist='.$i;
                         ?>
                         <div class="element py-3 border-bottom">
                             <div class="number_wrap text-center text-orange_ d-inline-block align-middle mx-3">
-                                <p class="number m-0">{{++$i}}</p>
+                                <p class="number m-0">{{$i}}</p>
                             </div>
                             <a href="{{$url}}"><div class="image100 mr-2 d-inline-block align-middle" style="background : url('{{Helpers::cover_url($item['cover_id'])}}') no-repeat center;background-size: cover;"></div></a>
                             <div class="content d-inline-block align-middle">
@@ -68,12 +69,13 @@ global $hot_video_rows;
                     </div>
                     <div class="swiper-slide block_bxhbaihat block_more tab-music content-us-uk">
                         <?php
-                        array_map(function ($i, $item) {
-                        $url = Helpers::listen_url($item);
+                        array_map(function ($i, $item) use ($urlBxh) {
+                        $i = ++$i;
+                        $url = $urlBxh.'/us-uk'.'.html?playlist='.$i;
                         ?>
                         <div class="element py-3 border-bottom">
                             <div class="number_wrap text-center text-orange_ d-inline-block align-middle mx-3">
-                                <p class="number m-0">{{++$i}}</p>
+                                <p class="number m-0">{{$i}}</p>
                             </div>
                             <a href="{{$url}}"><div class="image100 mr-2 d-inline-block align-middle" style="background : url('{{Helpers::cover_url($item['cover_id'])}}') no-repeat center;background-size: cover;"></div></a>
                             <div class="content d-inline-block align-middle">
@@ -88,12 +90,13 @@ global $hot_video_rows;
                     </div>
                     <div class="swiper-slide block_bxhbaihat block_more tab-music content-chinese">
                         <?php
-                        array_map(function ($i, $item) {
-                        $url = Helpers::listen_url($item);
+                        array_map(function ($i, $item) use ($urlBxh) {
+                        $i = ++$i;
+                        $url = $urlBxh.'/chinese'.'.html?playlist='.$i;
                         ?>
                         <div class="element py-3 border-bottom">
                             <div class="number_wrap text-center text-orange_ d-inline-block align-middle mx-3">
-                                <p class="number m-0">{{++$i}}</p>
+                                <p class="number m-0">{{$i}}</p>
                             </div>
                             <a href="{{$url}}"><div class="image100 mr-2 d-inline-block align-middle" style="background : url('{{Helpers::cover_url($item['cover_id'])}}') no-repeat center;background-size: cover;"></div></a>
                             <div class="content d-inline-block align-middle">
@@ -108,12 +111,13 @@ global $hot_video_rows;
                     </div>
                     <div class="swiper-slide block_bxhbaihat block_more tab-music content-korea">
                         <?php
-                        array_map(function ($i, $item) {
-                        $url = Helpers::listen_url($item);
+                        array_map(function ($i, $item) use ($urlBxh) {
+                        $i = ++$i;
+                        $url = $urlBxh.'/korea'.'.html?playlist='.$i;
                         ?>
                         <div class="element py-3 border-bottom">
                             <div class="number_wrap text-center text-orange_ d-inline-block align-middle mx-3">
-                                <p class="number m-0">{{++$i}}</p>
+                                <p class="number m-0">{{$i}}</p>
                             </div>
                             <a href="{{$url}}"><div class="image100 mr-2 d-inline-block align-middle" style="background : url('{{Helpers::cover_url($item['cover_id'])}}') no-repeat center;background-size: cover;"></div></a>
                             <div class="content d-inline-block align-middle">
@@ -128,12 +132,13 @@ global $hot_video_rows;
                     </div>
                     <div class="swiper-slide block_bxhbaihat block_more tab-music content-japan">
                         <?php
-                        array_map(function ($i, $item) {
-                        $url = Helpers::listen_url($item);
+                        array_map(function ($i, $item) use ($urlBxh) {
+                        $i = ++$i;
+                        $url = $urlBxh.'/japan'.'.html?playlist='.$i;
                         ?>
                         <div class="element py-3 border-bottom">
                             <div class="number_wrap text-center text-orange_ d-inline-block align-middle mx-3">
-                                <p class="number m-0">{{++$i}}</p>
+                                <p class="number m-0">{{$i}}</p>
                             </div>
                             <a href="{{$url}}"><div class="image100 mr-2 d-inline-block align-middle" style="background : url('{{Helpers::cover_url($item['cover_id'])}}') no-repeat center;background-size: cover;"></div></a>
                             <div class="content d-inline-block align-middle">
@@ -148,12 +153,13 @@ global $hot_video_rows;
                     </div>
                     <div class="swiper-slide block_bxhbaihat block_more tab-music content-france">
                         <?php
-                        array_map(function ($i, $item) {
-                        $url = Helpers::listen_url($item);
+                        array_map(function ($i, $item) use ($urlBxh) {
+                        $i = ++$i;
+                        $url = $urlBxh.'/france'.'.html?playlist='.$i;
                         ?>
                         <div class="element py-3 border-bottom">
                             <div class="number_wrap text-center text-orange_ d-inline-block align-middle mx-3">
-                                <p class="number m-0">{{++$i}}</p>
+                                <p class="number m-0">{{$i}}</p>
                             </div>
                             <a href="{{$url}}"><div class="image100 mr-2 d-inline-block align-middle" style="background : url('{{Helpers::cover_url($item['cover_id'])}}') no-repeat center;background-size: cover;"></div></a>
                             <div class="content d-inline-block align-middle">
@@ -168,12 +174,13 @@ global $hot_video_rows;
                     </div>
                     <div class="swiper-slide block_bxhbaihat block_more tab-music content-other">
                         <?php
-                        array_map(function ($i, $item) {
-                        $url = Helpers::listen_url($item);
+                        array_map(function ($i, $item) use ($urlBxh) {
+                        $i = ++$i;
+                        $url = $urlBxh.'/other'.'.html?playlist='.$i;
                         ?>
                         <div class="element py-3 border-bottom">
                             <div class="number_wrap text-center text-orange_ d-inline-block align-middle mx-3">
-                                <p class="number m-0">{{++$i}}</p>
+                                <p class="number m-0">{{$i}}</p>
                             </div>
                             <a href="{{$url}}"><div class="image100 mr-2 d-inline-block align-middle" style="background : url('{{Helpers::cover_url($item['cover_id'])}}') no-repeat center;background-size: cover;"></div></a>
                             <div class="content d-inline-block align-middle">
@@ -188,12 +195,13 @@ global $hot_video_rows;
                     </div>
                     <div class="swiper-slide block_bxhbaihat block_more tab-music content-beat-playback">
                         <?php
-                        array_map(function ($i, $item) {
-                        $url = Helpers::listen_url($item);
+                        array_map(function ($i, $item) use ($urlBxh) {
+                        $i = ++$i;
+                        $url = $urlBxh.'/beat-playback'.'.html?playlist='.$i;
                         ?>
                         <div class="element py-3 border-bottom">
                             <div class="number_wrap text-center text-orange_ d-inline-block align-middle mx-3">
-                                <p class="number m-0">{{++$i}}</p>
+                                <p class="number m-0">{{$i}}</p>
                             </div>
                             <a href="{{$url}}"><div class="image100 mr-2 d-inline-block align-middle" style="background : url('{{Helpers::cover_url($item['cover_id'])}}') no-repeat center;background-size: cover;"></div></a>
                             <div class="content d-inline-block align-middle">
@@ -210,12 +218,13 @@ global $hot_video_rows;
                 @if(!isset($_GET['type']) || $_GET['type'] == 'video')
                     <div class="swiper-slide tab-video block_bxhvideo">
                         <?php
-                        array_map(function ($i, $item) {
-                        $url = Helpers::listen_url($item);
+                        array_map(function ($i, $item) use ($urlBxh) {
+                        $i = ++$i;
+                        $url = $urlBxh.'/video/v-video'.'.html?playlist='.$i;
                         ?>
                         <div class="element py-3 border-bottom">
                             <div class="number_wrap text-center text-orange_ d-inline-block align-middle mx-3">
-                                <p class="number m-0">{{++$i}}</p>
+                                <p class="number m-0">{{$i}}</p>
                             </div>
                             <a href="{{$url}}">
                                 <div class="image mr-2 d-inline-block align-middle" style="background : url({{Helpers::thumbnail_url($item)}}) no-repeat center;background-size: cover;">
@@ -233,12 +242,13 @@ global $hot_video_rows;
                     </div>
                     <div class="swiper-slide tab-video block_bxhvideo">
                         <?php
-                        array_map(function ($i, $item) {
-                        $url = Helpers::listen_url($item);
+                        array_map(function ($i, $item) use ($urlBxh) {
+                        $i = ++$i;
+                        $url = $urlBxh.'/video/us-video'.'.html?playlist='.$i;
                         ?>
                         <div class="element py-3 border-bottom">
                             <div class="number_wrap text-center text-orange_ d-inline-block align-middle mx-3">
-                                <p class="number m-0">{{++$i}}</p>
+                                <p class="number m-0">{{$i}}</p>
                             </div>
                             <a href="{{$url}}">
                                 <div class="image mr-2 d-inline-block align-middle" style="background : url({{Helpers::thumbnail_url($item)}}) no-repeat center;background-size: cover;">
@@ -256,12 +266,13 @@ global $hot_video_rows;
                     </div>
                     <div class="swiper-slide tab-video block_bxhvideo">
                         <?php
-                        array_map(function ($i, $item) {
-                        $url = Helpers::listen_url($item);
+                        array_map(function ($i, $item) use ($urlBxh) {
+                        $i = ++$i;
+                        $url = $urlBxh.'/video/c-video'.'.html?playlist='.$i;
                         ?>
                         <div class="element py-3 border-bottom">
                             <div class="number_wrap text-center text-orange_ d-inline-block align-middle mx-3">
-                                <p class="number m-0">{{++$i}}</p>
+                                <p class="number m-0">{{$i}}</p>
                             </div>
                             <a href="{{$url}}">
                                 <div class="image mr-2 d-inline-block align-middle" style="background : url({{Helpers::thumbnail_url($item)}}) no-repeat center;background-size: cover;">
@@ -279,12 +290,13 @@ global $hot_video_rows;
                     </div>
                     <div class="swiper-slide tab-video block_bxhvideo">
                         <?php
-                        array_map(function ($i, $item) {
-                        $url = Helpers::listen_url($item);
+                        array_map(function ($i, $item) use ($urlBxh) {
+                        $i = ++$i;
+                        $url = $urlBxh.'/video/k-video'.'.html?playlist='.$i;
                         ?>
                         <div class="element py-3 border-bottom">
                             <div class="number_wrap text-center text-orange_ d-inline-block align-middle mx-3">
-                                <p class="number m-0">{{++$i}}</p>
+                                <p class="number m-0">{{$i}}</p>
                             </div>
                             <a href="{{$url}}">
                                 <div class="image mr-2 d-inline-block align-middle" style="background : url({{Helpers::thumbnail_url($item)}}) no-repeat center;background-size: cover;">
@@ -302,12 +314,13 @@ global $hot_video_rows;
                     </div>
                     <div class="swiper-slide tab-video block_bxhvideo">
                         <?php
-                        array_map(function ($i, $item) {
-                        $url = Helpers::listen_url($item);
+                        array_map(function ($i, $item) use ($urlBxh) {
+                        $i = ++$i;
+                        $url = $urlBxh.'/video/j-video'.'.html?playlist='.$i;
                         ?>
                         <div class="element py-3 border-bottom">
                             <div class="number_wrap text-center text-orange_ d-inline-block align-middle mx-3">
-                                <p class="number m-0">{{++$i}}</p>
+                                <p class="number m-0">{{$i}}</p>
                             </div>
                             <a href="{{$url}}">
                                 <div class="image mr-2 d-inline-block align-middle" style="background : url({{Helpers::thumbnail_url($item)}}) no-repeat center;background-size: cover;">
@@ -325,12 +338,13 @@ global $hot_video_rows;
                     </div>
                     <div class="swiper-slide tab-video block_bxhvideo">
                         <?php
-                        array_map(function ($i, $item) {
-                        $url = Helpers::listen_url($item);
+                        array_map(function ($i, $item) use ($urlBxh) {
+                        $i = ++$i;
+                        $url = $urlBxh.'/video/f-video'.'.html?playlist='.$i;
                         ?>
                         <div class="element py-3 border-bottom">
                             <div class="number_wrap text-center text-orange_ d-inline-block align-middle mx-3">
-                                <p class="number m-0">{{++$i}}</p>
+                                <p class="number m-0">{{$i}}</p>
                             </div>
                             <a href="{{$url}}">
                                 <div class="image mr-2 d-inline-block align-middle" style="background : url({{Helpers::thumbnail_url($item)}}) no-repeat center;background-size: cover;">
@@ -348,12 +362,13 @@ global $hot_video_rows;
                     </div>
                     <div class="swiper-slide tab-video block_bxhvideo">
                         <?php
-                        array_map(function ($i, $item) {
-                        $url = Helpers::listen_url($item);
+                        array_map(function ($i, $item) use ($urlBxh) {
+                        $i = ++$i;
+                        $url = $urlBxh.'/video/o-video'.'.html?playlist='.$i;
                         ?>
                         <div class="element py-3 border-bottom block_bxhvideo">
                             <div class="number_wrap text-center text-orange_ d-inline-block align-middle mx-3">
-                                <p class="number m-0">{{++$i}}</p>
+                                <p class="number m-0">{{$i}}</p>
                             </div>
                             <a href="{{$url}}">
                                 <div class="image mr-2 d-inline-block align-middle" style="background : url({{Helpers::thumbnail_url($item)}}) no-repeat center;background-size: cover;">

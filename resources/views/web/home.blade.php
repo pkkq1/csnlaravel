@@ -607,7 +607,7 @@ global $top_artist_rows;
         boxMusicId = setId;
         boxArtists = setArtist;
         boxArtistIds = setArtistId;
-        $('.box_add_playlist').html('Thêm bài hát ' + musicName + ' vào danh sách Playlist');
+        $('.box_add_playlist').html('Thêm bài hát <span class="text-pink">' + musicName + '</span> vào danh sách Playlist');
         $('.show_add_playlist').css('display', 'inherit');
         $('body').append('<div id="boxOutPlaylist" style="display: block; z-index: 99999;" role="dialog" class="modal"> </div>');
         window.onclick = function(event) {

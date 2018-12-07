@@ -1239,18 +1239,21 @@ form#login-form {
     overflow-y: auto;
     max-height: calc(100vh - 200px);
 }
+.playlist-csn li {
+    cursor: pointer;
+}
 .music-exists {
     color: #FC655F!important;
 }
 .music-exists a {
     color: #FC655F!important;
 }
-.playlist-csn li {
-    cursor: pointer;
-}
 .icon-box-playlist {
     float: right;
     position: absolute;
     right: 0;
     font-size: 20px;
+}
+.text-pink {
+    color: #ff2d55;
 }

@@ -252,8 +252,11 @@ footer {
 .block_player .listen {
     background-color: #ff93938f;
 }
-.music-exists {
-    color: #FC655F!important;
+.icon-box-playlist {
+    float: right;
+    position: absolute;
+    right: 0;
+    margin-top: -4px;
 }
 .music-exists a {
     color: #FC655F!important;

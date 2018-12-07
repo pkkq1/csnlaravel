@@ -135,10 +135,10 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                                 <div class="swiper-slide">
                                     <div class="text-song text-gray p-3">
                                         @if(isset($lyric_array['sub']) && $lyric_array['sub'] != false)
-                                            <div class="nav-link form-group form-check mb-0 autoplay" style="padding-left: 0px;">
-                                                <input type="checkbox" class="form-check-input display-sub" id="display-sub" onclick="display_sub()">
+                                            <div class="nav-link form-group form-check mb-0 autoplay sub-text" style="padding-left: 0px;">
+                                                <input type="checkbox" class="form-check-input display-sub button-test-swiper" id="display-sub" onclick="display_sub()">
                                                 <label class="form-check-label d-flex align-items-center" for="display-sub">
-                                                    <span class="switch"><span class="switch-inner"></span></span>
+                                                    <span class="switch button-test-swiper"><span class="switch-inner"></span></span>
                                                     <span style="font-size: 15px; color: #4b4b4b; font-family: 'SFProDisplay-Medium'; margin-left: 10px" class="txt">Hiển Thị Sub</span>
                                                 </label>
                                             </div>
@@ -149,7 +149,7 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                                 @endif
                                 <div class="swiper-slide">
                                     <div class="container">
-                                        <div class="block block_player {{!empty($video) ? 'block_bxhvideo' : ''}}">
+                                        <div class="block block_player {{!empty($video) || $musicSet['type_jw'] == 'video' ? 'block_bxhvideo' : ''}}">
                                             <div class="block_baihat_main block_more">
                                                 @if(!empty($video))
                                                     <?php
@@ -320,7 +320,7 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
 <section class="popup">
     <div class="wrap-bottom-sheet"></div>
     <div class="bottom-sheet select-quality text-center popup-download">
-        <h4>Trong trí nhớ của anh</h4>
+        <h4>{{$music->music_title}}</h4>
         <form action="#">
             <div class="container">
                 <div class="form-group">
@@ -357,14 +357,14 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
         </form>
     </div>
     <div class="bottom-sheet text-center popup-playlist">
-        <h4>Trong trí nhớ của anh</h4>
+        <h4>{{$music->music_title}}</h4>
         <div class="container">
             <div class="row">
                 <div class="col-4"><img src="/images/img_like_black.png" alt="yêu thích">
                     <p>Yêu thích</p>
                 </div>
-                <div class="col-4">
-                    <div data-toggle="modal" data-target="#addPlayList"><img src="/images/img_play_plus.png" alt="them vao playlist">
+                <div class="col-4" data-toggle="modal" onclick="addPlaylistTable('{{$music->music_title}}', '{{$music->music_id}}', '{{isset($music->music_artist) ? $music->music_artist : "false"}}', '{{isset($music->music_artist_id) ? $music->music_artist_id : "false"}}')" data-target="#addPlayList">
+                    <div><img src="/images/img_play_plus.png" alt="them vao playlist">
                         <p>Thêm vào playlist online</p>
                     </div>
                 </div>
@@ -380,18 +380,13 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
     <div id="addPlayList" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true" class="modal fade">
         <div role="document" class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <div class="modal-header p-2"><span class="modal-title">Thêm bài hát<span class="text-pink m-1">Chạm Khẽ Tim Anh Một Chút Thôi</span>vào danh sách Playlist</span>
+                <div class="modal-header p-2"><span class="modal-title box_add_playlist"></span>
                     <button type="button" data-dismiss="modal" aria-label="Close" class="close"><i class="fa fa-times"></i></button>
                 </div>
                 <div class="modal-body p-2">
-                    <div class="box_show_playlist box_show_playlist_popup">
+                    <div class="box_show_playlist box_show_playlist_popup box_show_playlist">
                         <div class="list-group">
-                            <div onclick="addBoxMusicPlaylist(131)" class="item playlist_id_131"><a href="javascript:void(0)" class="list-group-item list-group-item-action d-flex title_playlist">vvvvvvvvvvvvv (<span>0</span>)</a></div>
-                            <div onclick="addBoxMusicPlaylist(130)" class="item playlist_id_130"><a href="javascript:void(0)" class="list-group-item list-group-item-action d-flex title_playlist">wwwwwwwwwwwwwww (<span>0</span>)</a></div>
-                            <div onclick="addBoxMusicPlaylist(129)" class="item playlist_id_129"><a href="javascript:void(0)" class="list-group-item list-group-item-action d-flex title_playlist">wwwwwwwwwwwwwww (<span>1</span>)</a></div>
-                            <div onclick="addBoxMusicPlaylist(128)" class="item playlist_id_128"><a href="javascript:void(0)" class="list-group-item list-group-item-action d-flex title_playlist">wwwwwwwwwwwww (<span>0</span>)</a></div>
-                            <div onclick="addBoxMusicPlaylist(127)" class="item playlist_id_127"><a href="javascript:void(0)" class="list-group-item list-group-item-action d-flex title_playlist">wwwwwwwww (<span>0</span>)</a></div>
-                            <div onclick="addBoxMusicPlaylist(126)" class="item playlist_id_126"><a href="javascript:void(0)" class="list-group-item list-group-item-action d-flex title_playlist">vvvvv (<span>0</span>)</a></div>
+
                         </div>
                     </div>
                 </div>
@@ -466,7 +461,7 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
         <?php
         if(!Auth::check()) {
         ?>
-        alertModal('Bạn chưa đăng nhập.');
+        window.location.href = '/login?back_url=' + window.location.href;
         return false;
         <?php
             }
@@ -489,7 +484,7 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
             },
             statusCode: {
                 401: function(){
-                    window.location.replace('/login');
+                    window.location.href = '/login?back_url=' + window.location.href;
                     return false;
                 }
             },
@@ -579,7 +574,139 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
             displaySub.css('display', 'block');
         }
     }
+
+    //////////////////////////
+    ////Add Playlist////////
+    ////////////////////////
+
+    function btnCreatePlaylist(box_text_create_playlist) {
+        var titlePlaylist = $('.' + box_text_create_playlist);
+        <?php
+        if(!Auth::check()) {
+        ?>
+        window.location.href = '/login?back_url=' + window.location.href;
+        return false;
+        <?php
+            }
+            ?>
+        if(!titlePlaylist.val()) {
+            alertModal('Bạn chưa nhập tên playlist mới.');
+            return false;
+        }
+        $.ajax({
+            url: "/user/playlist/create-playlist",
+            type: "POST",
+            dataType: "json",
+            data: {'music_id': musicId, 'playlist_title': titlePlaylist.val()},
+            beforeSend: function () {
+                if(loaded) return false;
+                loaded = true;
+            },
+            success: function(data) {
+                if(data.success) {
+                    $('.box_show_playlist_popup .list-group').prepend(stringItemBoxPlaylist(data.data.playlist_title, data.data.playlist_music_total, data.data.playlist_id, false, data.data.playlist_time));
+                    titlePlaylist.val("");
+                    $('.box_show_playlist').animate({scrollTop: 0}, 'slow');
+                }else{
+                    alertModal(data.message);
+                }
+            }
+        });
+    }
+    function loadPlayList(musicId) {
+        <?php
+        if(!Auth::check()) {
+        ?>
+        window.location.href = '/login?back_url=' + window.location.href;
+        return false;
+        <?php
+        }
+        ?>
+        $.ajax({
+            url: "/user/playlist/danh-sach-playlist",
+            type: "GET",
+            dataType: "json",
+            data: { music_id : musicId},
+            beforeSend: function () {
+                $('.box_show_playlist .list-group').html('');
+                if(loaded) return false;
+                loaded = true;
+            },
+            success: function(data) {
+                if(data.success) {
+                    var stringHtml = '';
+                    var stringBoxHtml = '';
+                    if(data.data) {
+                        $.each(data.data, function (index, val) {
+                            stringBoxHtml += stringItemBoxPlaylist(val.playlist_title, val.playlist_music_total, val.playlist_id, val.music_exists, val.playlist_time);
+                        });
+                    }
+                    $('.box_show_playlist .list-group').html(stringBoxHtml);
+                }else{
+                    alertModal(data.message);
+                }
+
+            }
+        });
+    }
+    function stringItemBoxPlaylist(playlist_title, playlist_music_total, playlist_id, music_exist, playlist_time){
+        return '<div onclick="addBoxMusicPlaylist(' + playlist_id + ')" class="item playlist_id_' + playlist_id + ' ' + (music_exist ? 'music-exists' : '') + '"><a href="javascript:void(0)" class="list-group-item list-group-item-action d-flex title_playlist">' + playlist_title + ' (<span>' + playlist_music_total + '</span>)' + (music_exist ? '<i class="material-icons icon-box-playlist"> check </i>' : '') + '</a></div>';
+    }
+    var boxMusicId = '';
+    var boxArtists = '';
+    var boxArtistIds = '';
+    function addPlaylistTable(musicName, setId, setArtist, setArtistId) {
+        <?php
+        if(!Auth::check()) {
+        ?>
+        window.location.href = '/login?back_url=' + window.location.href;
+        return false;
+        <?php
+            }
+            ?>
+            boxMusicId = setId;
+        boxArtists = setArtist;
+        boxArtistIds = setArtistId;
+        $('.box_add_playlist').html('Thêm bài hát <span class="text-pink">' + musicName + '</span> vào danh sách Playlist');
+        loadPlayList(setId);
+    }
+    function addBoxMusicPlaylist(playlist_id) {
+        addMusicPlaylist(playlist_id, boxMusicId, boxArtists, boxArtistIds, 'box');
+    }
+    function addMusicPlaylist(playlistId, musicAddId, artistAdd, artistIdAdd, type = 'tab') {
+        const playlistIdSelect = $('.playlist_id_' + playlistId);
+        let music_id = (musicAddId == false ? musicId : musicAddId);
+        $.ajax({
+            url: "/user/playlist/add-music-playlist",
+            type: "POST",
+            dataType: "json",
+            data: {'playlist_id': playlistId, 'music_id': music_id, 'artist': (artistAdd == false ? artists : artistAdd), 'artist_id': (artistIdAdd == false ? artistIds : artistIdAdd)},
+            beforeSend: function () {
+                if(loaded) return false;
+                loaded = true;
+            },
+            success: function(data) {
+                if(data.success) {
+                    var countPlaylist = playlistIdSelect.find('.title_playlist span');
+                    if(type == 'box' && music_id == musicId){
+                        if($('.add_playlist').hasClass('active')) {
+                            type = 'all';
+                        }
+                    }
+                    if(data.data) {
+                        countPlaylist.html(parseInt(countPlaylist.html()) - 1);
+                        playlistIdSelect.removeClass('music-exists');
+                        playlistIdSelect.find('.material-icons').remove();
+                    }else {
+                        countPlaylist.html(parseInt(countPlaylist.html()) + 1);
+                        playlistIdSelect.addClass('music-exists');
+                        playlistIdSelect.find('a').prepend('<i class="material-icons icon-box-playlist"> check </i>');
+                    }
+                }else{
+                    alertModal(data.message);
+                }
+            }
+        });
+    }
 </script>
-
-
 @endsection

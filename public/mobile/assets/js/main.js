@@ -41,6 +41,16 @@ jQuery(document).ready(function($) {
             autoHeight: true,
             resizeReInit: true,
             noSwipingClass: 'owl-carousel',
+            onTouchStart: function(swiper,event) {
+                var button = event.target.className;
+                if (button.indexOf('button-test-swiper') >= 0 ) {
+                    if ($('.sub_line').length) {
+                        $('body').find('.sub_line').fadeToggle('fast',function(){
+                            swiper2.update();
+                        });
+                    }
+                }
+            },
             onSlideChangeEnd: function(swiper) {
                 var n = swiper.activeIndex;
                 setCurrentSlide($(".swiper1 .swiper-slide").eq(n), n);
@@ -51,7 +61,17 @@ jQuery(document).ready(function($) {
                     slideSwiperChange(swiper, 'drag');
                 }
             }
-        });
+        });/*
+        swiper2.on("click",function(swiper,event){
+            console.log('event');
+            if ($('#show_content').length) {
+                $('body').find('#show_content').fadeToggle('fast',function(){
+                    var heightE = $('body').find('.container-text-heiht-swiper').innerHeight();
+                    $('body').find('.swiper2 .swiper-slide.swiper-slide-active').height(heightE);
+                    swiper2.update();
+                });
+            }
+        });*/
     }
     if ($('.swiper-container').length) {
         swiperMenu();
@@ -212,4 +232,14 @@ jQuery(document).ready(function($) {
         var $this = $(this);
         $this.parents('.block_form_comment').find('.form_reply_comment').slideToggle('fast');
     })
+    /*$(document).on("click",".button-test-swiper",function(e){
+        e.preventDefault();
+        var $this = $(this);
+        $this.parents('body').find('#test_content').slideToggle('fast',function(){
+            var height = $this.parents('body').find('.container-text-heiht-swiper').innerHeight();
+            $this.parents('.swiper-slide').height(height);
+            var swiper2 = new Swiper('.swiper2');
+            swiper2.update();
+        });
+    })*/
 });

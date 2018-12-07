@@ -16,9 +16,9 @@ use App\Library\Helpers;
         <div class="login_possition d-flex flex-column justify-content-center">
             <div class="w-304 mx-auto text-center mb-5">
                 <input type="text" placeholder="Địa chỉ email" class="input_type_mobile login_button mb-3 email">
-                <a href="javascript:void(0)" onclick="authLogin()" class="login_button google text-gray btn-gradien">Lấy Lại Mật Khẩu</a><br><a href="/login" style="margin-right: 15px;color: #FF2D55;">Đăng nhập</a><span style="color: #888">|</span><a href="/register" style="margin-left: 15px;color: #FF2D55;">Đăng ký</a>
+                <a href="javascript:void(0)" onclick="authLogin()" class="login_button google text-gray btn-gradien">Lấy Lại Mật Khẩu</a><br><a href="/login?back_url={{$_GET['back_url'] ?? url()->previous()}}" style="margin-right: 15px;color: #FF2D55;">Đăng nhập</a><span style="color: #888">|</span><a href="/register?back_url={{$_GET['back_url'] ?? url()->previous()}}" style="margin-left: 15px;color: #FF2D55;">Đăng ký</a>
             </div>
-            <div class="w-304 mx-auto text-center"><a href="/auth/facebook" class="login_button facebook mb-3">Đăng nhập bằng Facebook</a><a href="/auth/google" class="login_button google text-gray btn-gradien">Đăng nhập bằng Google</a></div>
+            <div class="w-304 mx-auto text-center"><a href="/auth/facebook?back_url={{$_GET['back_url'] ?? url()->previous()}}" class="login_button facebook mb-3">Đăng nhập bằng Facebook</a><a href="/auth/google?back_url={{$_GET['back_url'] ?? url()->previous()}}" class="login_button google text-gray btn-gradien">Đăng nhập bằng Google</a></div>
         </div>
     </div>
 </main>

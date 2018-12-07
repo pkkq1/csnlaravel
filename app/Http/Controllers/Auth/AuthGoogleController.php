@@ -23,7 +23,7 @@ class AuthGoogleController extends Controller
      * @return Response
      */
     public function redirectToProvider() {
-        Session::flash('redirect_flash', url()->previous());
+        Session::flash('redirect_flash', $_GET['back_url'] ?? url()->previous());
         return Socialite::driver('google')->redirect();
     }
 

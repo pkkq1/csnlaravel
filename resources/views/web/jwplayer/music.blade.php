@@ -323,7 +323,7 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                             <div class="tab-pane" id="pills-plus" role="tabpanel" aria-labelledby="pills-plus-tab">
                                 <div class="card mb-0 card3">
                                     <div class="card-header mb-0">
-                                        <h4 class="card-title">Thêm bài hát {{$music->music_title}} vào danh sách Playlist</h4>
+                                        <h4 class="card-title">Thêm bài hát <span class="text-pink m-1">{{$music->music_title}}</span> vào danh sách Playlist</h4>
                                     </div>
                                 </div>
                                 <div class="card mb-2 playlist_1 border-0">
@@ -1102,11 +1102,11 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                 },
                 success: function(data) {
                     if(data.success) {
-                        $('.playlist-csn .list-unstyled').append(stringItemPlaylist(data.data.playlist_title, data.data.playlist_music_total, data.data.playlist_id, false, data.data.playlist_time));
-                        $('.box_show_playlist_popup .list-group').append(stringItemBoxPlaylist(data.data.playlist_title, data.data.playlist_music_total, data.data.playlist_id, false, data.data.playlist_time));
+                        $('.playlist-csn .list-unstyled').prepend(stringItemPlaylist(data.data.playlist_title, data.data.playlist_music_total, data.data.playlist_id, false, data.data.playlist_time));
+                        $('.box_show_playlist_popup .list-group').prepend(stringItemBoxPlaylist(data.data.playlist_title, data.data.playlist_music_total, data.data.playlist_id, false, data.data.playlist_time));
                         titlePlaylist.val("");
-                        $('.playlist-csn').animate({scrollTop: $('.playlist-csn .list-unstyled').height()}, 'slow');
-                        $('.box_show_playlist').animate({scrollTop: $('.box_show_playlist_popup .list-group').height()}, 'slow');
+                        $('.playlist-csn').animate({scrollTop: 0}, 'slow');
+                        $('.box_show_playlist').animate({scrollTop: 0}, 'slow');
                     }else{
                         alertModal(data.message);
                     }
@@ -1139,15 +1139,12 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                             countPlaylist.html(parseInt(countPlaylist.html()) - 1);
                             selectPlaylist.removeClass('music-exists');
                             selectPlaylist.find('.material-icons').remove();
-                            alertModal(data.message);
                         }else {
                             countPlaylist.html(parseInt(countPlaylist.html()) + 1);
                             selectPlaylist.addClass('music-exists');
                             selectPlaylist.find('time').before('<i class="material-icons"> check </i>');
                             $('.box-playlist').find('.playlist_id_' + playlistId).find('a').prepend('<i class="material-icons icon-box-playlist"> check </i>');
                         }
-
-                        successModal(data.message);
                     }else{
                         alertModal(data.message);
                     }
@@ -1169,7 +1166,7 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
             boxMusicId = setId;
             boxArtists = setArtist;
             boxArtistIds = setArtistId;
-            $('.box_add_playlist').html('Thêm bài hát ' + musicName + ' vào danh sách Playlist');
+            $('.box_add_playlist').html('Thêm bài hát <span class="text-pink">' + musicName + '</span> vào danh sách Playlist');
             $('.show_add_playlist').css({'display': 'inherit', 'top': ($('.music_recommendation').offset().top - 200) + 'px'});
             $('body').append('<div id="boxOutPlaylist" style="display: block; z-index: 99999;" role="dialog" class="modal"> </div>')
             window.onclick = function(event) {

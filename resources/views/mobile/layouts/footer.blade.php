@@ -31,7 +31,7 @@ use App\Library\Helpers;
                     <h2>Tài khoản</h2>
                 </li>
                 @if(!Auth::check())
-                    <li class="nav-item"><a href="/login" class="nav-link dropdown-toggle"><img src="/images/ic_menu_user.png" alt="user" class="icon"> Đăng nhập</a></li>
+                    <li class="nav-item"><a href="/login?back_url={{$_SERVER['REQUEST_URI']}}" class="nav-link dropdown-toggle"><img src="/images/ic_menu_user.png" alt="user" class="icon"> Đăng nhập</a></li>
                 @else
                     <li class="nav-item"><a href="/logout" class="nav-link dropdown-toggle"><img src="/images/ic_menu_out.png" alt="user" class="icon"> Thoát</a></li>
                     <li class="nav-item"><a href="/user/{{Auth::user()->id}}" class="nav-link dropdown-toggle"><img src="/images/ic_menu_playlist.png" alt="playlist" class="icon"> Playlist</a></li>

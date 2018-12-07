@@ -25,15 +25,15 @@ use App\Library\Helpers;
                                 <input id="remember" type="checkbox" checked="" id="remember" name="remember"><span>Nhớ mật khẩu</span>
                             </label>
                         </div>
-                        <div class="col-6 text-left"><a href="/password/reset">Quên mật khẩu?</a></div>
+                        <div class="col-6 text-left"><a href="/password/reset?back_url={{$_GET['back_url'] ?? url()->previous()}}">Quên mật khẩu?</a></div>
                     </div>
                 </div><br>
                 <p style="width: 100%" class="text-p"> </p>
-                <p style="color: white; text-align: center;display: flow-root;width: 100%" class="text-p">Bạn chưa có tài khoản? <a href="/register" style="margin-right: 15px;color: #FF2D55;display: flow-root;">Đăng ký</a></p>
+                <p style="color: white; text-align: center;display: flow-root;width: 100%" class="text-p">Bạn chưa có tài khoản? <a href="/register?back_url={{$_GET['back_url'] ?? url()->previous()}}" style="margin-right: 15px;color: #FF2D55;display: flow-root;">Đăng ký</a></p>
             </div>
             <div class="w-304 mx-auto text-center">
-                <a href="/auth/facebook" class="login_button facebook mb-3">Facebook</a>
-                <a href="/auth/google" class="login_button google text-gray btn-gradien">Google</a>
+                <a href="/auth/facebook?back_url={{$_GET['back_url'] ?? url()->previous()}}" class="login_button facebook mb-3">Facebook</a>
+                <a href="/auth/google?back_url={{$_GET['back_url'] ?? url()->previous()}}" class="login_button google text-gray btn-gradien">Google</a>
             </div>
         </div>
     </div>
@@ -77,7 +77,7 @@ use App\Library\Helpers;
                     });
                 },
                 success: function(response) {
-                    location.reload('/');
+                    window.location.href = '<?php echo $_GET['back_url'] ?? '/' ?>';
                 }
             });
         }

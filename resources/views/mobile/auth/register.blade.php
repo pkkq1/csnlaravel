@@ -27,9 +27,9 @@ use App\Library\Helpers;
                         <input id="contact_csn" type="checkbox" id="contact_csn" checked="" name="contact_csn" name="contact_csn" class="contact_csn"><span>Tôi đã đọc và đồng ý các điều kiện<a href="#"> Thỏa thuận sử dụng</a></span>
                     </label>
                 </div>
-                <p style="color: white; text-align: center;" class="text-p"><a href="/login" style="margin-right: 15px;color: #FF2D55;">Đăng nhập</a><span style="color: #888">|</span><a href="/password/reset" style="margin-left: 15px;color: #FF2D55;">Quên mật khẩu</a></p>
+                <p style="color: white; text-align: center;" class="text-p"><a href="/login?back_url={{$_GET['back_url'] ?? url()->previous()}}" style="margin-right: 15px;color: #FF2D55;">Đăng nhập</a><span style="color: #888">|</span><a href="/password/reset?back_url={{$_GET['back_url'] ?? url()->previous()}}" style="margin-left: 15px;color: #FF2D55;">Quên mật khẩu</a></p>
             </div>
-            <div class="w-304 mx-auto text-center"><a href="/auth/facebook" class="login_button facebook mb-3">Đăng ký bằng Facebook</a><a href="/auth/google" class="login_button google text-gray btn-gradien">Đăng ký bằng Google</a></div>
+            <div class="w-304 mx-auto text-center"><a href="/auth/facebook?back_url={{$_GET['back_url'] ?? url()->previous()}}" class="login_button facebook mb-3">Đăng ký bằng Facebook</a><a href="/auth/google?back_url={{$_GET['back_url'] ?? url()->previous()}}" class="login_button google text-gray btn-gradien">Đăng ký bằng Google</a></div>
         </div>
     </div>
 </main>
@@ -88,7 +88,7 @@ use App\Library\Helpers;
                     });
                 },
                 success: function(response) {
-                    location.reload();
+                    window.location.href = '<?php echo $_GET['back_url'] ?? '/' ?>';
                 }
             });
         }
