@@ -549,7 +549,6 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
         <?php
         if($musicSet['type_listen'] == 'playlist' && !empty($musicSet['playlist_music'])){
             ?>
-            $("#music-listen-1904314").addClass('listen');
             var vtop = document.getElementById("music-listen-<?php echo $music->music_id ?>").offsetTop;
             $('.music_recommendation').animate({scrollTop: vtop - 50}, 'slow');
             <?php
@@ -608,8 +607,9 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
             stretching: 'fill',
             sources: [
                     <?php
+                    $typeJwSource = $musicSet['type_jw'] == 'video' ? 'mp4' : 'mp3';
                     for ($i=0; $i<sizeof($file_url); $i++){
-                        echo '{"file": "'. $file_url[$i]['url'] .'", "label": "'. $file_url[$i]['label'] .'", "type": "mp4", "default": '. (($i==1) ? 'true' : 'false') .'},';
+                        echo '{"file": "'. $file_url[$i]['url'] .'", "label": "'. $file_url[$i]['label'] .'", "type": "'.$typeJwSource.'", "default": '. (($i==1) ? 'true' : 'false') .'},';
                     }
                     ?>
             ],
@@ -819,7 +819,8 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
             }
         });
 
-        function v(callback) {
+
+        function updateQuality(callback) {
             var curQual = jwplayer('csnplayer').getCurrentQuality();
             if(callback['levels'].length == 2) {
                 if(!$('.jw-icon-hd').hasClass('stringQ')) {
@@ -1202,7 +1203,7 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
             }
         }
         show_fulllyric();
-    </script>jw-icon-backsong
+    </script>
     @if($musicSet['type_jw'] != 'video')
         <style>
             .jw-icon-rewind{
@@ -1215,11 +1216,11 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
     @endif
     @if(($musicSet['type_listen'] == 'playlist' || $musicSet['type_listen'] == 'album') && !empty($musicSet['playlist_music']))
         @if(!(isset($_GET['playlist'])) || $_GET['playlist'] == 1)
-        <style>
-            .jw-icon-backsong{
-                display: none!important;
-            }
-        </style>
+            <style>
+                .jw-icon-backsong{
+                    display: none!important;
+                }
+            </style>
         @endif
     @endif
     <style>

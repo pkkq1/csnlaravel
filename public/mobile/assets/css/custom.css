@@ -251,6 +251,8 @@ footer {
 }
 .block_player .listen {
     background-color: #ff93938f;
+    margin-bottom: 0px!important;
+    padding-bottom: 10px;
 }
 .icon-box-playlist {
     float: right;
@@ -362,12 +364,24 @@ footer {
 .jw-controlbar .jw-option {
     height: 25px!important;
 }
-
-
-
-
-
-
+.jw-icon-auto-next:hover .csn-title-auto{
+    display: inline;
+}
+.csn-title-auto {
+    display: none;
+    color: white;
+    background: rgba(49, 46, 46, 0.8)!important;
+    top: -33px;
+    margin-left: -74px;
+    font-size: 14px;
+    position: absolute;
+    height: 26px;
+    line-height: 3px;
+    padding: 11px;
+    text-align: center;
+    border-radius: 6px;
+    font-family: SFProDisplay-Regular;
+}
 
 
 
