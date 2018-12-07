@@ -1354,10 +1354,10 @@ a:hover{
     border:none;
     border-radius: 0;
 }
-#addPlayList .modal-body .list-group .list-group-item:hover {
-    background: #FF2F55;
-    color: #fff;
-}
+/*#addPlayList .modal-body .list-group .list-group-item:hover {*/
+    /*background: #FF2F55;*/
+    /*color: #fff;*/
+/*}*/
 #addPlayList .modal-body .box_show_playlist {
     height: 180px;
     overflow-y: scroll;
