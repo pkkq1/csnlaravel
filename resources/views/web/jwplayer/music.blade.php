@@ -672,6 +672,19 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
             <?php
             }
             ?>
+            setTimeout(function(){
+                $('.jw-icon-auto-next').on('click', function () {
+                    if($('.jw-icon-auto-next').hasClass('jw-icon-auto-next-on')){
+                        $('.jw-icon-auto-next').removeClass('jw-icon-auto-next-on');
+                        $('.jw-icon-auto-next').addClass('jw-icon-auto-next-off');
+                        onPlayerAutoNextOff();
+                    }else{
+                        $('.jw-icon-auto-next').removeClass('jw-icon-auto-next-off');
+                        $('.jw-icon-auto-next').addClass('jw-icon-auto-next-on');
+                        onPlayerAutoNextOn();
+                    }
+                });
+            }, 500);
         });
         jwplayer().onTime(function () {
             new RabbitLyrics({

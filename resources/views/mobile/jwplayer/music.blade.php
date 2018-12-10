@@ -530,7 +530,7 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                     $('.stringQ').addClass('jw-open');
                 }
             });
-            $('.jw-icon-auto-next').on('click touchstart', function () {
+            $('.jw-icon-auto-next').on('touchstart', function () {
                 if($('.jw-icon-auto-next').hasClass('jw-icon-auto-next-on')){
                     $('.jw-icon-auto-next').removeClass('jw-icon-auto-next-on');
                     $('.jw-icon-auto-next').addClass('jw-icon-auto-next-off');
