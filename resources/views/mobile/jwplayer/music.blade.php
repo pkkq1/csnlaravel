@@ -516,24 +516,22 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
             // jwplayer().setConfig({
             //     mute: false,
             // });
-            $('.stringQ').click(function () {
+            $('.stringQ').on('click touchstart', function () {
                 if($('.stringQ').hasClass('jw-open')){
                     $('.stringQ').removeClass('jw-open');
                 }else{
                     $('.stringQ').addClass('jw-open');
                 }
             });
-            $('.stringQ .jw-text').click(function () {
+            $('.stringQ .jw-text').on('click touchstart', function () {
                 if($('.stringQ').hasClass('jw-open')){
                     $('.stringQ').removeClass('jw-open');
                 }else{
                     $('.stringQ').addClass('jw-open');
                 }
-            })
-        }, 200);
-        $('.stringQ').hover(function () {
-            $('.stringQ').addClass('jw-open');
-        })
+            });
+        }, 500);
+
         // console.log(jwplayer().getMute());
         // console.log(jwplayer().getVolume());
     });
@@ -544,11 +542,6 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
             onUpdateTimeJw: true
         });
     })
-    setTimeout(function(){
-        console.log(123);
-        $('#csnplayer').trigger('click');
-    }, 5000);
-
     jwplayer().onQualityLevels(function(callback){
         updateQuality(callback);
         if(sessionStorage.getItem("auto_next") == 'false') {
