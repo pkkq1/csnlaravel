@@ -456,7 +456,6 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
         },
         timeSliderAbove: true,
         autostart: true,
-        mute: false,
         controlbar: "bottom",
         plugins: {
             '<?php echo $musicSet['type_listen'] == 'single' ? '/js/nhac-csn.js' : '/js/nhac-playlist.js' ?>': {
@@ -513,7 +512,6 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
         // setTimeout(function(){
         //     jwplayer().setConfig({
         //         mute: false,
-        //         autostart: true,
         //     });
         // }, 500);
         // console.log(jwplayer().getMute());
