@@ -530,6 +530,9 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                     $('.stringQ').addClass('jw-open');
                 }
             });
+            $('.jw-icon-auto-next').on('click touchstart', function () {
+                $('.jw-icon-auto-next').click();
+            });
         }, 500);
 
         // console.log(jwplayer().getMute());
