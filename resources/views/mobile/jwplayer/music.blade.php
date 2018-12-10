@@ -516,7 +516,7 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
         //         autostart: true,
         //     });
         // }, 500);
-        console.log(jwplayer().getMute());
+        // console.log(jwplayer().getMute());
         // console.log(jwplayer().getVolume());
     });
     jwplayer().onTime(function () {

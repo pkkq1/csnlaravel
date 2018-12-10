@@ -1232,7 +1232,6 @@ window.jwplayer = function(e) {
             return !(t && i(/chrome\/[123456789]/i) && !i(/chrome\/18/)) && (e ? (r(e) && !/\./.test(e) && (e = "" + e + "."), i(new RegExp("Android\\s*" + e, "i"))) : i(/Android/i))
         };
         return n.isMobile = function() {
-            return false;1
             return l() || u()
         }, n.isIframe = function() {
             try {
@@ -1515,7 +1514,6 @@ window.jwplayer = function(e) {
                 }, this.persistVideoSubtitleTrack = function(e, t) {
                     this.setVideoSubtitleTrack(e, t), this.persistCaptionsTrack()
                 }, this.autoStartOnMobile = function() {
-                    return false;
                     return this.get("autostart") && c()
                 }, this.setAutoStart = function(e) {
                     i.isUndefined(e) || this.set("autostart", e);
