@@ -587,7 +587,7 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                     }
                 }
             },
-            mute: false,
+            mute: true,
             width: "100%",
             aspectratio: "16:9",
             autostart: true,
@@ -619,6 +619,7 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
             },
             timeSliderAbove: true,
             autostart: true,
+            mute: false,
             controlbar: "bottom",
             plugins: {
                 '<?php echo $musicSet['type_listen'] == 'single' ? '/js/nhac-csn.js' : '/js/nhac-playlist.js' ?>': {
@@ -672,10 +673,6 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
             <?php
             }
             ?>
-            console.log(jwplayer().getMute());
-            jwplayer().setConfig({
-                mute: false
-            });
         });
         jwplayer().onTime(function () {
             new RabbitLyrics({
