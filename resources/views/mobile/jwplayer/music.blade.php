@@ -76,11 +76,11 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                                         <?php
                                     }
                                 ?>
+                                <div class="swiper-slide {{$firstSeleced ? 'selected' : ''}}"><a class="d-inline-block align-middle">Gợi ý</a></div>
+                                <?php $firstSeleced = false; ?>
                                 @if($music->music_lyric)
                                     <div class="swiper-slide {{$firstSeleced ? 'selected' : ''}}"><span class="d-inline-block align-middle">Lyric</span></div>
-                                    <?php $firstSeleced = false; ?>
                                 @endif
-                                <div class="swiper-slide {{$firstSeleced ? 'selected' : ''}}"><a class="d-inline-block align-middle">Gợi ý</a></div>
                                 @if($MusicSameArtist)
                                     <div class="swiper-slide"><a class="d-inline-block align-middle">Cùng ca cĩ</a></div>
                                 @endif
@@ -139,22 +139,6 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                                     <?php
                                 }
                                 ?>
-                                @if($music->music_lyric)
-                                <div class="swiper-slide">
-                                    <div class="text-song text-gray p-3">
-                                        @if(isset($lyric_array['sub']) && $lyric_array['sub'] != false)
-                                            <div class="nav-link form-group form-check mb-0 autoplay sub-text" style="padding-left: 0px;">
-                                                <input type="checkbox" class="form-check-input display-sub button-test-swiper" id="display-sub" onclick="display_sub()">
-                                                <label class="form-check-label d-flex align-items-center" for="display-sub">
-                                                    <span class="switch button-test-swiper"><span class="switch-inner"></span></span>
-                                                    <span style="font-size: 15px; color: #4b4b4b; font-family: 'SFProDisplay-Medium'; margin-left: 10px" class="txt">Hiển Thị Sub</span>
-                                                </label>
-                                            </div>
-                                        @endif
-                                        <?php echo $lyric_array['lyric'] ?>
-                                    </div>
-                                </div>
-                                @endif
                                 <div class="swiper-slide">
                                     <div class="container">
                                         <div class="block block_player {{!empty($video) || $musicSet['type_jw'] == 'video' ? 'block_bxhvideo' : ''}}">
@@ -237,6 +221,22 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                                         </div>
                                     </div>
                                 </div>
+                                @if($music->music_lyric)
+                                        <div class="swiper-slide">
+                                            <div class="text-song text-gray p-3">
+                                                @if(isset($lyric_array['sub']) && $lyric_array['sub'] != false)
+                                                    <div class="nav-link form-group form-check mb-0 autoplay sub-text" style="padding-left: 0px;">
+                                                        <input type="checkbox" class="form-check-input display-sub button-test-swiper" id="display-sub" onclick="display_sub()">
+                                                        <label class="form-check-label d-flex align-items-center" for="display-sub">
+                                                            <span class="switch button-test-swiper"><span class="switch-inner"></span></span>
+                                                            <span style="font-size: 15px; color: #4b4b4b; font-family: 'SFProDisplay-Medium'; margin-left: 10px" class="txt">Hiển Thị Sub</span>
+                                                        </label>
+                                                    </div>
+                                                @endif
+                                                <?php echo $lyric_array['lyric'] ?>
+                                            </div>
+                                        </div>
+                                    @endif
                                 @if($MusicSameArtist)
                                 <div class="swiper-slide">
                                     <div class="container">
@@ -509,11 +509,28 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
         <?php
         }
         ?>
-        // setTimeout(function(){
-        //     jwplayer().setConfig({
-        //         mute: false,
-        //     });
-        // }, 500);
+        setTimeout(function(){
+            jwplayer().setConfig({
+                mute: false,
+            });
+            $('.stringQ').click(function () {
+                if($('.stringQ').hasClass('jw-open')){
+                    $('.stringQ').removeClass('jw-open');
+                }else{
+                    $('.stringQ').addClass('jw-open');
+                }
+            });
+            $('.stringQ .jw-text').click(function () {
+                if($('.stringQ').hasClass('jw-open')){
+                    $('.stringQ').removeClass('jw-open');
+                }else{
+                    $('.stringQ').addClass('jw-open');
+                }
+            })
+        }, 200);
+        $('.stringQ').hover(function () {
+            $('.stringQ').addClass('jw-open');
+        })
         // console.log(jwplayer().getMute());
         // console.log(jwplayer().getVolume());
     });

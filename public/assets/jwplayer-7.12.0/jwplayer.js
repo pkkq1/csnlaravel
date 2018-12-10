@@ -1416,7 +1416,6 @@ window.jwplayer = function(e) {
                         i = e.isAndroid() && e.isChrome(),
                         r = n || i,
                         o = 1 === p.get("sdkplatform");
-                    return false;
                     return !p.get("sdkplatform") && t && r || o
                 }
                 var d, f, p = this,
@@ -1520,7 +1519,6 @@ window.jwplayer = function(e) {
                 }, this.setAutoStart = function(e) {
                     i.isUndefined(e) || this.set("autostart", e);
                     var t = this.autoStartOnMobile();
-                    console.log(t);
                     t && this.set("autostartMuted", !0), this.set("playOnViewable", t || "viewable" === this.get("autostart"))
                 }
             },
