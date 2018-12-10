@@ -533,6 +533,18 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
             $('.jw-icon-auto-next').on('click touchstart', function () {
                 $('.jw-icon-auto-next').click();
             });
+            $('.jw-icon-auto-next').on('click touchstart', function () {
+                if($('.jw-icon-auto-next').hasClass('jw-icon-auto-next-off')){
+                    $('.jw-icon-auto-next').removeClass('jw-icon-auto-next-on');
+                    $('.jw-icon-auto-next').addClass('jw-icon-auto-next-off');
+                    onPlayerAutoNextOff();
+                }else{
+                    $('.jw-icon-auto-next').removeClass('jw-icon-auto-next-off');
+                    $('.jw-icon-auto-next').addClass('jw-icon-auto-next-pn');
+                    onPlayerAutoNextOn();
+                }
+            });
+
         }, 500);
 
         // console.log(jwplayer().getMute());
