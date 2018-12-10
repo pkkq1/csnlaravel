@@ -509,9 +509,12 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
         <?php
         }
         ?>
-        jwplayer().setConfig({
-            mute: false
-        });
+        // setTimeout(function(){
+        //     $('.jw-icon-volume').click();
+        //     jwplayer().setConfig({
+        //         mute: false
+        //     });
+        // }, 3000);
     });
     jwplayer().onTime(function () {
         new RabbitLyrics({
