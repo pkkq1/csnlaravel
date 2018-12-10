@@ -40,8 +40,10 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                 <div id="pills-thongtin" role="tabpanel" aria-labelledby="pills-thongtin-tab" class="tab-pane fade active show">
                     <div class="block_thongtin">
                         <div class="infor_main">
+                            @if($musicSet['type_jw'] != 'video')
                             <div style="background: url('{{Helpers::cover_url($music->cover_id)}}') no-repeat center;background-size: cover;padding-bottom: 70%;" class="image bg-blur"></div>
                             <div style="background: url('{{Helpers::cover_url($music->cover_id)}}') no-repeat center;background-size: cover;padding: 20%;" class="image-main"></div>
+                            @endif
                             <div id="csnplayerads" style="position:relative; z-index: 99999; width:100%;"> </div>
                             <div id="csnplayer" class="player_media <?php echo $musicSet['type_jw'] == 'video' ? 'csn_video' : 'csn_music' ?>" style="position:relative; z-index: 99999; width:100%;"> </div>
                             <div id="hidden_lyrics" class="hidden">
@@ -507,6 +509,9 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
         <?php
         }
         ?>
+        jwplayer().setConfig({
+            mute: false
+        });
     });
     jwplayer().onTime(function () {
         new RabbitLyrics({

@@ -587,7 +587,7 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                     }
                 }
             },
-            mute: true,
+            mute: false,
             width: "100%",
             aspectratio: "16:9",
             autostart: true,
@@ -672,6 +672,10 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
             <?php
             }
             ?>
+            console.log(jwplayer().getMute());
+            jwplayer().setConfig({
+                mute: false
+            });
         });
         jwplayer().onTime(function () {
             new RabbitLyrics({
