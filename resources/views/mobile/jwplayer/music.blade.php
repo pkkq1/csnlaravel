@@ -78,7 +78,7 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                                 ?>
                                 <div class="swiper-slide {{$firstSeleced ? 'selected' : ''}}"><a class="d-inline-block align-middle">Gợi ý</a></div>
                                 <?php $firstSeleced = false; ?>
-                                @if($music->music_lyric)
+                                @if(isset($lyric_array['lyric']))
                                     <div class="swiper-slide {{$firstSeleced ? 'selected' : ''}}"><span class="d-inline-block align-middle">Lyric</span></div>
                                 @endif
                                 @if($MusicSameArtist)
@@ -224,16 +224,18 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                                 @if($music->music_lyric)
                                         <div class="swiper-slide">
                                             <div class="text-song text-gray p-3">
-                                                @if(isset($lyric_array['sub']) && $lyric_array['sub'] != false)
-                                                    <div class="nav-link form-group form-check mb-0 autoplay sub-text" style="padding-left: 0px;">
-                                                        <input type="checkbox" class="form-check-input display-sub button-test-swiper" id="display-sub" onclick="display_sub()">
-                                                        <label class="form-check-label d-flex align-items-center" for="display-sub">
-                                                            <span class="switch button-test-swiper"><span class="switch-inner"></span></span>
-                                                            <span style="font-size: 15px; color: #4b4b4b; font-family: 'SFProDisplay-Medium'; margin-left: 10px" class="txt">Hiển Thị Sub</span>
-                                                        </label>
-                                                    </div>
+                                                @if(isset($lyric_array['lyric']))
+                                                    @if(isset($lyric_array['sub']) && $lyric_array['sub'] != false)
+                                                        <div class="nav-link form-group form-check mb-0 autoplay sub-text" style="padding-left: 0px;">
+                                                            <input type="checkbox" class="form-check-input display-sub button-test-swiper" id="display-sub" onclick="display_sub()">
+                                                            <label class="form-check-label d-flex align-items-center" for="display-sub">
+                                                                <span class="switch button-test-swiper"><span class="switch-inner"></span></span>
+                                                                <span style="font-size: 15px; color: #4b4b4b; font-family: 'SFProDisplay-Medium'; margin-left: 10px" class="txt">Hiển Thị Sub</span>
+                                                            </label>
+                                                        </div>
+                                                    @endif
+                                                    <?php echo $lyric_array['lyric'] ?>
                                                 @endif
-                                                <?php echo $lyric_array['lyric'] ?>
                                             </div>
                                         </div>
                                     @endif
@@ -455,7 +457,8 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
             name: 'nhac'
         },
         timeSliderAbove: true,
-        autostart: true,
+        // autostart: true,
+        autostart: false,
         controlbar: "bottom",
         plugins: {
             '<?php echo $musicSet['type_listen'] == 'single' ? '/js/nhac-csn.js' : '/js/nhac-playlist.js' ?>': {
@@ -510,9 +513,9 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
         }
         ?>
         setTimeout(function(){
-            jwplayer().setConfig({
-                mute: false,
-            });
+            // jwplayer().setConfig({
+            //     mute: false,
+            // });
             $('.stringQ').click(function () {
                 if($('.stringQ').hasClass('jw-open')){
                     $('.stringQ').removeClass('jw-open');
@@ -541,6 +544,11 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
             onUpdateTimeJw: true
         });
     })
+    setTimeout(function(){
+        console.log(123);
+        $('#csnplayer').trigger('click');
+    }, 5000);
+
     jwplayer().onQualityLevels(function(callback){
         updateQuality(callback);
         if(sessionStorage.getItem("auto_next") == 'false') {
