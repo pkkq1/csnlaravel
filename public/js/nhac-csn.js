@@ -4,7 +4,12 @@
             if (void 0 == w.showAutoNext || w.showAutoNext) {
                 if (void 0 == D) {
                     var a = E.getElementsByClassName("jw-icon-hd")[0];
-                    void 0 != a && (D = document.createElement("div"), D.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-auto-next jw-icon-auto-next-on", D.title = "Tự động chuyển bài gợi ý", D.innerHTML = '<span class="csn-title-auto">Tự động chuyển bài gợi ý</span>', a.parentNode.insertBefore(D, a));
+                    void 0 != a && (D = document.createElement("div"), D.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-auto-next jw-icon-auto-next-on", D.title = "Tự động chuyển bài gợi ý", D.innerHTML = '<span class="csn-title-auto">Tự động chuyển bài gợi ý</span>',
+                        // D.onclick = function() {
+                        // "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-auto-next jw-icon-auto-next-on" == D.className ? (D.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-auto-next jw-icon-auto-next-off",
+                        // "function" === typeof onPlayerAutoNextOff && onPlayerAutoNextOff()) : (D.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-auto-next jw-icon-auto-next-on", "function" === typeof onPlayerAutoNextOn && onPlayerAutoNextOn())
+                        // },
+                        a.parentNode.insertBefore(D, a));
                 }
                 var a = E.getElementsByClassName("jw-icon-playback")[0];
                 void 0 != a && (void 0 == Q && (Q = document.createElement("div"), Q.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-nextsong", Q.innerHTML = "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 16 16\"><path class=\"zp-svg-fill\" fill=\"#BEBEBE\" fill-rule=\"nonzero\" d=\"M14 2v12h-1.98V2H14zm-3.48 6L2 14V2l8.52 6z\"></path></svg>", Q.onclick = function () {

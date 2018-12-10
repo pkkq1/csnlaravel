@@ -531,16 +531,15 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                 }
             });
             $('.jw-icon-auto-next').on('click touchstart', function () {
-               alert(123);
-                // if($('.jw-icon-auto-next').hasClass('jw-icon-auto-next-off')){
-                //     $('.jw-icon-auto-next').removeClass('jw-icon-auto-next-on');
-                //     $('.jw-icon-auto-next').addClass('jw-icon-auto-next-off');
-                //     onPlayerAutoNextOff();
-                // }else{
-                //     $('.jw-icon-auto-next').removeClass('jw-icon-auto-next-off');
-                //     $('.jw-icon-auto-next').addClass('jw-icon-auto-next-pn');
-                //     onPlayerAutoNextOn();
-                // }
+                if($('.jw-icon-auto-next').hasClass('jw-icon-auto-next-on')){
+                    $('.jw-icon-auto-next').removeClass('jw-icon-auto-next-on');
+                    $('.jw-icon-auto-next').addClass('jw-icon-auto-next-off');
+                    onPlayerAutoNextOff();
+                }else{
+                    $('.jw-icon-auto-next').removeClass('jw-icon-auto-next-off');
+                    $('.jw-icon-auto-next').addClass('jw-icon-auto-next-on');
+                    onPlayerAutoNextOn();
+                }
             });
 
         }, 500);
