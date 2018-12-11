@@ -494,6 +494,7 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
     var embed = 'false';
     var userStatus = 1;
     var firstLoadLyric = false;
+    var firstLoadBeforePlay = false;
     var listLyrics = [];
     jwplayer().onBeforePlay(function() {
         //logPlayAudioFlag = true;
@@ -512,32 +513,29 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
         <?php
         }
         ?>
-        // console.log(jwplayer().getMute());
-        // console.log(jwplayer().getVolume());
+        setTimeout(function(){
+            if(!firstLoadBeforePlay) {
+                firstLoadBeforePlay = true;
+                $('.stringQ').on('click touchstart', function () {
+                    if($('.stringQ').hasClass('jw-open')){
+                        $('.stringQ').removeClass('jw-open');
+                    }else{
+                        $('.stringQ').addClass('jw-open');
+                    }
+                });
+                $('.stringQ .jw-text').on('click touchstart', function () {
+                    if($('.stringQ').hasClass('jw-open')){
+                        $('.stringQ').removeClass('jw-open');
+                    }else{
+                        $('.stringQ').addClass('jw-open');
+                    }
+                });
+                $('.jw-icon-auto-next').on('touchstart', function () {
+                    $('.jw-icon-auto-next').click();
+                });
+            }
+        }, 500);
     });
-    setTimeout(function(){
-        // jwplayer().setConfig({
-        //     mute: false,
-        // });
-        $('.stringQ').on('click touchstart', function () {
-            if($('.stringQ').hasClass('jw-open')){
-                $('.stringQ').removeClass('jw-open');
-            }else{
-                $('.stringQ').addClass('jw-open');
-            }
-        });
-        $('.stringQ .jw-text').on('click touchstart', function () {
-            if($('.stringQ').hasClass('jw-open')){
-                $('.stringQ').removeClass('jw-open');
-            }else{
-                $('.stringQ').addClass('jw-open');
-            }
-        });
-        $('.jw-icon-auto-next').on('touchstart', function () {
-            $('.jw-icon-auto-next').click();
-        });
-
-    }, 500);
     jwplayer().onTime(function () {
         new RabbitLyrics({
             element: document.getElementById("lyrics"),
