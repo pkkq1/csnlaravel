@@ -1258,3 +1258,6 @@ form#login-form {
 .text-pink {
     color: #ff2d55;
 }
+.jw-icon:hover .zp-svg-fill{
+    fill: #ff3456!important;
+}

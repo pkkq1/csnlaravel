@@ -1,9 +1,6 @@
 .jw-icon-sequence, .jw-icon-shuffle, .jw-icon-repeat-not, .jw-icon-repeat-all, .jw-icon-repeat-one, .jw-icon-nextsong, .jw-icon-backsong{
     font-size: 22px!important;
 }
-.jw-icon:hover .zp-svg-fill{
-    fill: #ff3456!important;
-}
 .jw-icon-playback{
     line-height: 41px!important;
     font-size: 25px!important;
