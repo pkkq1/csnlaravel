@@ -516,19 +516,8 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
         setTimeout(function(){
             if(!firstLoadBeforePlay) {
                 firstLoadBeforePlay = true;
-                $('.stringQ').on('click touchstart', function () {
-                    if($('.stringQ').hasClass('jw-open')){
-                        $('.stringQ').removeClass('jw-open');
-                    }else{
-                        $('.stringQ').addClass('jw-open');
-                    }
-                });
-                $('.stringQ .jw-text').on('click touchstart', function () {
-                    if($('.stringQ').hasClass('jw-open')){
-                        $('.stringQ').removeClass('jw-open');
-                    }else{
-                        $('.stringQ').addClass('jw-open');
-                    }
+                $('.stringQ').on('touchstart', function () {
+                    $('.stringQ').click();
                 });
                 $('.jw-icon-auto-next').on('touchstart', function () {
                     $('.jw-icon-auto-next').click();
