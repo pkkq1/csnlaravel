@@ -60,97 +60,11 @@ use App\Library\Helpers;
     </div>
     <div class="wrap-search">
         <div class="block_search_fixed">
-            <input type="text" placeholder="Search" class="input_search">
+            <input type="text" placeholder="Search" class="input_search" id="search_autocomplete" autofocus>
             <div class="button_close"><span>Hủy</span></div>
         </div>
         <div class="block_search_result">
-            <div class="container">
-                <div class="block block_baihat">
-                    <div class="block_header d-flex flex-row justify-content-between mb-2">
-                        <h3 class="main_title text-pink mb-0">Bài hát</h3><span class="text-gray align-self-end">Xem tất cả</span>
-                    </div>
-                    <div class="block_baihat_main block_more">
-                        <div class="element mb-2">
-                            <div class="content d-inline-block align-middle">
-                                <h6 class="name_song text-black mb-1">Trong trí nhớ của anh</h6>
-                                <p class="name_singer text-gray mb-1">Hạnh Sino</p>
-                                <p class="loss text-pink mb-0">Lossless</p><img src="/images/img_dot_gray.png" class="icon">
-                            </div>
-                        </div>
-                        <div class="element mb-2">
-                            <div class="content d-inline-block align-middle">
-                                <h6 class="name_song text-black mb-1">Trong trí nhớ của anh</h6>
-                                <p class="name_singer text-gray mb-1">Hạnh Sino</p>
-                                <p class="loss text-pink mb-0">Lossless</p><img src="/images/img_dot_gray.png" class="icon">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="block block_album">
-                    <div class="block_header d-flex flex-row justify-content-between mb-2">
-                        <h3 class="main_title text-pink mb-0">Album</h3><span class="text-gray align-self-end">Xem tất cả</span>
-                    </div>
-                    <div class="block_baihat_main block_more">
-                        <div class="element mb-2">
-                            <div style="background : url('https://zmp3-photo.zadn.vn/thumb/240_240/cover/d/5/a/b/d5ab15666207be0eafa55757ce67dad8.jpg') no-repeat center;background-size: cover;" class="image100 mr-2 d-inline-block align-middle"></div>
-                            <div class="content d-inline-block align-middle">
-                                <h6 class="name_song text-black mb-1">Trong trí nhớ của anh</h6>
-                                <p class="name_singer text-gray mb-1">Hạnh Sino</p>
-                                <p class="loss text-pink mb-0">Lossless</p><img src="/images/img_dot_gray.png" class="icon">
-                            </div>
-                        </div>
-                        <div class="element mb-2">
-                            <div style="background : url('https://zmp3-photo.zadn.vn/thumb/240_240/cover/d/5/a/b/d5ab15666207be0eafa55757ce67dad8.jpg') no-repeat center;background-size: cover;" class="image100 mr-2 d-inline-block align-middle"></div>
-                            <div class="content d-inline-block align-middle">
-                                <h6 class="name_song text-black mb-1">Trong trí nhớ của anh</h6>
-                                <p class="name_singer text-gray mb-1">Hạnh Sino</p>
-                                <p class="loss text-pink mb-0">Lossless</p><img src="/images/img_dot_gray.png" class="icon">
-                            </div>
-                        </div>
-                        <div class="element mb-2">
-                            <div style="background : url('https://zmp3-photo.zadn.vn/thumb/240_240/cover/d/5/a/b/d5ab15666207be0eafa55757ce67dad8.jpg') no-repeat center;background-size: cover;" class="image100 mr-2 d-inline-block align-middle"></div>
-                            <div class="content d-inline-block align-middle">
-                                <h6 class="name_song text-black mb-1">Trong trí nhớ của anh</h6>
-                                <p class="name_singer text-gray mb-1">Hạnh Sino</p>
-                                <p class="loss text-pink mb-0">Lossless</p><img src="/images/img_dot_gray.png" class="icon">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="block block_video">
-                    <div class="block_header d-flex flex-row justify-content-between mb-2">
-                        <h3 class="main_title text-pink mb-0">Video</h3><span class="text-gray align-self-end">Xem tất cả</span>
-                    </div>
-                    <div class="block_baihat_main block_more">
-                        <div class="element mb-2">
-                            <div style="background : url('https://zmp3-photo.zadn.vn/thumb/240_240/cover/d/5/a/b/d5ab15666207be0eafa55757ce67dad8.jpg') no-repeat center;background-size: cover;" class="image100 mr-2 d-inline-block align-middle">
-                                <p class="time text-white mb-0 px-2 py-1"><img src="/images/ic_menu_clock.png" width="14"> 03:45</p>
-                            </div>
-                            <div class="content d-inline-block align-middle">
-                                <h6 class="name_song text-black mb-1">Bad and Boujee</h6>
-                                <p class="name_singer text-gray mb-1">Migo(feat. Lil Uzi Vert)</p><img src="/images/img_dot_gray.png" class="icon">
-                            </div>
-                        </div>
-                        <div class="element mb-2">
-                            <div style="background : url('https://zmp3-photo.zadn.vn/thumb/240_240/cover/d/5/a/b/d5ab15666207be0eafa55757ce67dad8.jpg') no-repeat center;background-size: cover;" class="image100 mr-2 d-inline-block align-middle">
-                                <p class="time text-white mb-0 px-2 py-1"><img src="/images/ic_menu_clock.png" width="14"> 03:45</p>
-                            </div>
-                            <div class="content d-inline-block align-middle">
-                                <h6 class="name_song text-black mb-1">Bad and Boujee</h6>
-                                <p class="name_singer text-gray mb-1">Migo(feat. Lil Uzi Vert)</p><img src="/images/img_dot_gray.png" class="icon">
-                            </div>
-                        </div>
-                        <div class="element mb-2">
-                            <div style="background : url('https://zmp3-photo.zadn.vn/thumb/240_240/cover/d/5/a/b/d5ab15666207be0eafa55757ce67dad8.jpg') no-repeat center;background-size: cover;" class="image100 mr-2 d-inline-block align-middle">
-                                <p class="time text-white mb-0 px-2 py-1"><img src="/images/ic_menu_clock.png" width="14"> 03:45</p>
-                            </div>
-                            <div class="content d-inline-block align-middle">
-                                <h6 class="name_song text-black mb-1">Bad and Boujee</h6>
-                                <p class="name_singer text-gray mb-1">Migo(feat. Lil Uzi Vert)</p><img src="/images/img_dot_gray.png" class="icon">
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="container search_layout">
             </div>
         </div>
     </div>
@@ -162,4 +76,140 @@ use App\Library\Helpers;
 <script src="/mobile/assets/js/owl.carousel.min.js"></script>
 <script src="/mobile/assets/js/swiper.jquery.min.js"></script>
 <script src="/mobile/assets/js/main.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="/mobile/assets/js/functions.js"></script>
+<script>
+    var dataSearch = [];
+    $( document ).ready(function() {
+        $( "#search_autocomplete" ).autocomplete({
+            minLength: 1,
+            source: function( request, response ) {
+                $.ajax( {
+                    url: "/search/real",
+                    dataType: "json",
+                    data: {
+                        q: request.term,
+                        type: 'json',
+                        rows: 3,
+                        view_all: true
+                    },
+                    success: function( data ) {
+                        dataSearch = response( data );
+                    }
+                } );
+            }
+        }).autocomplete( "instance" )._renderItem = function( ul, item ) {
+            var theHtml = rawBodySearch(rawArtist(item.artist['data'], item.q), rawMusic(item.music['data'], item.q), rawAlbum(item.album['data'], item.q), rawVideo(item.video['data'], item.q));
+            $('.search_layout').html(theHtml);
+            return $( "<li>" )
+                .appendTo( ul );
+        };
+    });
+    function rawBodySearch(artist, music, album, video) {
+        return music +
+            artist +
+            album +
+            video;
+    }
+    function rawArtist(artists, q) {
+        if(artists.length > 0) {
+            var artist = '';
+            $.each( artists, function( key, value ) {
+                artist = artist +
+                    '   <a class="search-line" href="' + value.artist_link + '"><div class="element mb-2">' +
+                    '   <div style="background : url(' + value.artist_cover + ') no-repeat center;background-size: cover;" class="image100 mr-2 d-inline-block align-middle"></div>' +
+                    '       <div class="content d-inline-block align-middle">' +
+                    '           <h6 class="name_song text-black mb-1">' + searchHighlight(q, value.artist_nickname) + '</h6>' +
+                    '       </div>' +
+                    '   </div></a>';
+            });
+            return '<div class="block block_artist">' +
+                '<div class="block_header d-flex flex-row justify-content-between mb-2">' +
+                '   <h3 class="main_title text-pink mb-0">Nghệ sĩ</h3><a onclick="redirectSearch(\'ca-si\')" href="javascript:void(0)"><span class="text-gray align-self-end">Xem tất cả</span></a>' +
+                '</div>' +
+                '<div class="block_baihat_main block_more">' + artist +
+                '</div>' +
+                '</div>';
+        }
+        return '';
+    }
+    function rawMusic(musics, q) {
+        if(musics.length > 0) {
+            var song = '';
+            $.each( musics, function( key, value ) {
+                song = song +
+                    '   <a class="search-line" href="' + value.music_link + '"><div class="element mb-2">' +
+                    '       <div class="content d-inline-block align-middle">' +
+                    '           <h6 class="name_song text-black mb-1">' + searchHighlight(q, value.music_title) + '</h6>' +
+                    '           <p class="name_singer text-gray mb-1">' + $(value.music_artist).text() + '</p>' +
+                    '           <p class="loss text-pink mb-0">' + value.music_bitrate + '</p>' +
+                    '       </div>' +
+                    '   </div></a>';
+            });
+            return '<div class="block block_baihat">' +
+                '<div class="block_header d-flex flex-row justify-content-between mb-2">' +
+                '   <h3 class="main_title text-pink mb-0">Bài hát</h3><a onclick="redirectSearch(\'bai-hat\')" href="javascript:void(0)"><span class="text-gray align-self-end">Xem tất cả</span></a>' +
+                '</div>' +
+                '<div class="block_baihat_main block_more">' + song +
+                '</div>' +
+                '</div>';
+        }
+        return '';
+    }
+    function rawAlbum(albums, q) {
+        if(albums.length > 0) {
+            var album = '';
+            $.each( albums, function( key, value ) {
+                album = album +
+                    '   <a class="search-line" href="' + value.album_link + '"><div class="element mb-2">' +
+                    '   <div style="background : url(' + value.album_cover + ') no-repeat center;background-size: cover;" class="image100 mr-2 d-inline-block align-middle"></div>' +
+                    '       <div class="content d-inline-block align-middle">' +
+                    '           <h6 class="name_song text-black mb-1">' + searchHighlight(q, value.music_album) + '</h6>' +
+                    '           <p class="name_singer text-gray mb-1">' + $(value.album_artist).text() + '</p>' +
+                    '           <p class="loss text-pink mb-0">' + value.album_bitrate + '</p>' +
+                    '       </div>' +
+                    '   </div></a>';
+            });
+            return '<div class="block block_album">' +
+                '<div class="block_header d-flex flex-row justify-content-between mb-2">' +
+                '   <h3 class="main_title text-pink mb-0">Album</h3><a onclick="redirectSearch(\'album\')" href="javascript:void(0)"><span class="text-gray align-self-end">Xem tất cả</span></a>' +
+                '</div>' +
+                '<div class="block_baihat_main block_more">' + album +
+                '</div>' +
+                '</div>';
+        }
+        return '';
+    }
+    function rawVideo(videos, q) {
+        if(videos.length > 0) {
+            var video = '';
+            $.each( videos, function( key, value ) {
+                video = video +
+                    '<a class="search-line" href="' + value.video_link + '">' +
+                    '<div class="element mb-2">' +
+                    '   <div style="background : url(' + value.video_cover + ') no-repeat center;background-size: cover;" class="image100 mr-2 d-inline-block align-middle">' +
+                    '       <p class="time text-white mb-0 px-2 py-1"><img src="/images/ic_menu_clock.png" width="14"> 03:45</p>' +
+                    '   </div>' +
+                    '   <div class="content d-inline-block align-middle">' +
+                    '       <h6 class="name_song text-black mb-1">' + searchHighlight(q, value.video_title) + '</h6>' +
+                    '       <p class="name_singer text-gray mb-1">' + $(value.video_artist).text() + '</p>' +
+                    '   </div>' +
+                    '</div></a>';
+            });
+            return '<div class="block block_album">' +
+                '<div class="block_header d-flex flex-row justify-content-between mb-2">' +
+                '   <h3 class="main_title text-pink mb-0">Video</h3><a onclick="redirectSearch(\'video\')" href="javascript:void(0)"><span class="text-gray align-self-end">Xem tất cả</span></a>' +
+                '</div>' +
+                '<div class="block_baihat_main block_more">' + video +
+                '</div>' +
+                '</div>';
+        }
+        return '';
+    }
+    function redirectSearch(tab) {
+        window.location.href = "/tim-kiem?q=" + $('#search_autocomplete').val() + '&tab='+tab;
+    }
+    $('.fa-search').click(function() {
+        document.getElementById("search_autocomplete").focus();
+    })
+</script>

@@ -1,3 +1,45 @@
+$( document ).ready(function() {
+    $(".this_more").click(function (a) {
+        a.stopPropagation();
+        if ($(".iconmenu").hasClass("active")) {
+            $(".iconmenu").removeClass("active");
+            $(".iconmenu .material-icons").text("more_horiz");
+            $(".menu-expand-wrapper").fadeOut("fast")
+        } else {
+            $(".iconmenu").addClass("active");
+            $(".iconmenu .material-icons").text("close");
+            $(".menu-expand-wrapper").fadeIn("fast")
+        }
+    });
+    var b;
+    $(".this_more").on("mouseenter", function (a) {
+        b = setTimeout(function () {
+            a.stopPropagation();
+            $(".iconmenu").addClass("active");
+            $(".iconmenu .material-icons").text("close");
+            $(".menu-expand-wrapper").fadeIn("fast")
+        }, 300)
+    }).on("mouseleave", function (a) {
+        clearTimeout(b);
+        a.stopPropagation();
+        $(".iconmenu").removeClass("hidden")
+    });
+    $(".ghw-bottom-header").hover(function () {
+    }, function (a) {
+        a.stopPropagation();
+        $(".iconmenu").removeClass("active");
+        $(".iconmenu .material-icons").text("more_horiz");
+        $(".menu-expand-wrapper").fadeOut("fast")
+    });
+
+    $('#header .top .form-group .form-control').click(function(a){
+        a.stopPropagation();
+        $(".suggest").fadeIn("fast")
+    });
+    $('body').click(function(){
+        $(".suggest").fadeOut("fast")
+    });
+});
 function alertModal(content) {
     $("#alertModal .modal-body").html('<i class="material-icons modal_icon_csn">error_outline</i><div class="modal_content_csn">' + content + '</div>');
     $('#alertModal').modal('show');
