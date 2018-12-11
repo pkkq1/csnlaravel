@@ -517,13 +517,32 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
             if(!firstLoadBeforePlay) {
                 firstLoadBeforePlay = true;
                 $('.stringQ').on('touchstart', function () {
-                    $('.stringQ').click();
+                    if($('.stringQ').hasClass('jw-open')){
+                        $('.stringQ').removeClass('jw-open');
+                    }else{
+                        $('.stringQ').addClass('jw-open');
+                    }
+                });
+                $('.stringQ .jw-text').on('touchstart', function () {
+                    if($('.stringQ').hasClass('jw-open')){
+                        $('.stringQ').removeClass('jw-open');
+                    }else{
+                        $('.stringQ').addClass('jw-open');
+                    }
                 });
                 $('.jw-icon-auto-next').on('touchstart', function () {
-                    $('.jw-icon-auto-next').click();
+                    if($('.jw-icon-auto-next').hasClass('jw-icon-auto-next-on')){
+                        $('.jw-icon-auto-next').removeClass('jw-icon-auto-next-on');
+                        $('.jw-icon-auto-next').addClass('jw-icon-auto-next-off');
+                        onPlayerAutoNextOff();
+                    }else{
+                        $('.jw-icon-auto-next').removeClass('jw-icon-auto-next-off');
+                        $('.jw-icon-auto-next').addClass('jw-icon-auto-next-on');
+                        onPlayerAutoNextOn();
+                    }
                 });
             }
-        }, 500);
+        }, 300);
     });
     jwplayer().onTime(function () {
         new RabbitLyrics({
