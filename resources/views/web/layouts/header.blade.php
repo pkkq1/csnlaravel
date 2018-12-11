@@ -61,11 +61,13 @@
         $( document ).ajaxStart(function() {
             timeOutLoading = setTimeout(function(){
                 waitingDialog.show();
-            }, 3000);
+            }, 1200);
         });
         $( document ).ajaxStop(function() {
             clearTimeout(timeOutLoading);
-            waitingDialog.hide();
+            $('.modal-backdrop').last().remove();
+            $('.modal-loading-waiting').remove();
+            // waitingDialog.hide();
             loaded = false;
         });
         window.fbAsyncInit = function() {
