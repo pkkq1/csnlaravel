@@ -52,12 +52,20 @@
     <script>
         var csrfToken = "{{csrf_token()}}";
         var loaded = false;
+        var timeOutLoading = 0;
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': csrfToken
             }
         });
+        $( document ).ajaxStart(function() {
+            timeOutLoading = setTimeout(function(){
+                waitingDialog.show();
+            }, 3000);
+        });
         $( document ).ajaxStop(function() {
+            clearTimeout(timeOutLoading);
+            waitingDialog.hide();
             loaded = false;
         });
         window.fbAsyncInit = function() {

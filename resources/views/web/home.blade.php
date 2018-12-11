@@ -110,8 +110,8 @@ global $top_artist_rows;
                 ?>
             </div>
             <div class="box_catalog owl-carousel owl-theme">
-                <a href="/chu-de/romance.html" title="" class="item img-thumbnail swiper-slide top_share" style="background: url('https://avatar-nct.nixcdn.com/topic/thumb/2018/04/12/e/d/6/8/1523498904907_org.jpg') no-repeat;"><span>Lãng mạn</span></a>
-                <a href="/chu-de/sleep.html" title="" class="item img-thumbnail swiper-slide top_hitvpop" style="background: url('https://avatar-nct.nixcdn.com/topic/thumb/2017/04/11/8/c/d/c/1491886414148_org.jpg') no-repeat;"><span>Giấc ngủ</span></a>
+                <a href="/chu-de/romance.html" title="" class="item img-thumbnail swiper-slide top_share" style="background: url('https://avatar-nct.nixcdn.com/topic/thumb/2018/04/12/e/d/6/8/1523498904907_org.jpg') no-repeat;"><span>Lãng Mạn</span></a>
+                <a href="/chu-de/sleep.html" title="" class="item img-thumbnail swiper-slide top_hitvpop" style="background: url('https://avatar-nct.nixcdn.com/topic/thumb/2017/04/11/8/c/d/c/1491886414148_org.jpg') no-repeat;"><span>Giấc Ngủ</span></a>
                 <a href="/chu-de/gym.html" title="" class="item img-thumbnail swiper-slide hitvpop_new" style="background: url('https://avatar-nct.nixcdn.com/topic/thumb/2016/09/30/e/5/7/8/1475229833731_org.jpg') no-repeat;"><span>Gym</span></a>
                 <a href="/chu-de/dance.html" title="" class="item img-thumbnail swiper-slide top_share" style="background: url('https://avatar-nct.nixcdn.com/topic/thumb/2016/11/09/9/1/7/f/1478679979642_org.jpg') no-repeat;"><span>Dance</span></a>
                 <a href="/chu-de/work.html" title="" class="item img-thumbnail swiper-slide top_share" style="background: url('https://avatar-nct.nixcdn.com/topic/thumb/2018/04/12/e/d/6/8/1523498904907_org.jpg') no-repeat;"><span>Work</span></a>
@@ -160,7 +160,7 @@ global $top_artist_rows;
                                     <small class="time_stt"><?php echo Helpers::timeElapsedString($item['music_time']); ?></small>
                                     <ul class="list-inline">
                                         <li class="list-inline-item"><a href="{{$url}}" target="_blank" title="nghe riêng nhạc {{$item['music_title']}}"><i class="material-icons">headset</i></a></li>
-                                        <li class="list-inline-item"><a onclick="addPlaylistTable('{{$item['music_title']}}', '{{$item['music_id']}}', '{{isset($item['music_artist']) ? $item['music_artist'] : "false"}}', '{{isset($item['music_artist_id']) ? $item['music_artist_id'] : "false"}}')" href="javascript:void(0)" title="thêm vào playlist"><i class="material-icons">playlist_add</i></a></li>
+                                        <li class="list-inline-item"><a onclick="addPlaylistTable('{{str_replace("'", "\'", $item['music_title'])}}', '{{$item['music_id']}}', '{{isset($item['music_artist']) ? $item['music_artist'] : "false"}}', '{{isset($item['music_artist_id']) ? $item['music_artist_id'] : "false"}}')" href="javascript:void(0)" title="thêm vào playlist"><i class="material-icons">playlist_add</i></a></li>
                                         <li class="list-inline-item"><a href="{{Helpers::fbShareLink($url)}}" target="_blank" title="chia sẻ {{$item['music_title']}}"><i class="material-icons">share</i></a></li>
                                     </ul>
                                 </div>
@@ -198,7 +198,7 @@ global $top_artist_rows;
                                     <small class="time_stt"><?php echo Helpers::timeElapsedString($item['music_time']); ?></small>
                                     <ul class="list-inline">
                                         <li class="list-inline-item"><a href="{{$url}}" title="nghe riêng nhạc {{$item['music_title']}}"target="_blank" ><i class="material-icons">headset</i></a></li>
-                                        <li class="list-inline-item"><a onclick="addPlaylistTable('{{$item['music_title']}}', {{$item['music_id']}}, {{isset($item['music_artist']) ? "'".$item['music_artist']."'" : "'false'"}}, {{isset($item['music_artist_id']) ? "'".$item['music_artist_id']."'" : "'false'"}})" href="javascript:void(0)" title="thêm vào playlist"><i class="material-icons">playlist_add</i></a></li>
+                                        <li class="list-inline-item"><a onclick="addPlaylistTable('{{str_replace("'", "\'", $item['music_title'])}}', {{$item['music_id']}}, {{isset($item['music_artist']) ? "'".$item['music_artist']."'" : "'false'"}}, {{isset($item['music_artist_id']) ? "'".$item['music_artist_id']."'" : "'false'"}})" href="javascript:void(0)" title="thêm vào playlist"><i class="material-icons">playlist_add</i></a></li>
                                         <li class="list-inline-item"><a href="{{Helpers::fbShareLink($url)}}" target="_blank" title="chia sẻ {{$item['music_title']}}"><i class="material-icons">share</i></a></li>
                                     </ul>
                                 </div>
@@ -585,7 +585,6 @@ global $top_artist_rows;
                         playlistIdSelect.addClass('music-exists');
                         playlistIdSelect.find('a').prepend('<i class="material-icons icon-box-playlist"> check </i>');
                     }
-                    successModal(data.message);
                 }else{
                     alertModal(data.message);
                 }

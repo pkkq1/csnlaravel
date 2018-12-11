@@ -857,7 +857,7 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
     $(window).scroll(function(event){
         var st = $(this).scrollTop();
         if(loadComment) {
-            if (st > $('#form_comment').offset().top - 700){
+            if (st > $('#form_comment').offset().top - 800){
                 loadPageComment('/binh-luan/get_ajax?page=<?php echo $_GET['comment_page'] ?? 1 ?>');
                 pageComment = <?php echo $_GET['comment_page'] ?? 1 ?>;
                 loadComment = false;
