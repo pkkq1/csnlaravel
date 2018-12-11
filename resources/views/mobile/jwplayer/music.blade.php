@@ -541,6 +541,19 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                         onPlayerAutoNextOn();
                     }
                 });
+                <?php
+                    if(($musicSet['type_listen'] == 'playlist' || $musicSet['type_listen'] == 'album') && !empty($musicSet['playlist_music'])) {
+                        ?>
+                        $('.csn-repeat-btn').on('touchstart', function () {
+                            $('.csn-repeat-btn').click();
+                        });
+                        $('.csn-random-btn').on('touchstart', function () {
+                            $('.csn-random-btn').click();
+                        });
+                        <?php
+                    }
+                ?>
+
             }
         }, 300);
     });
