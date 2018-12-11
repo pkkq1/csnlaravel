@@ -550,6 +550,8 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                         $('.csn-random-btn').on('touchstart', function () {
                             $('.csn-random-btn').click();
                         });
+                        $('.zp-svg-fill').removeClass('zp-svg-fill');
+                        $('.zp-svg-fill').removeClass('zp-svg-fill');
                         <?php
                     }
                 ?>
