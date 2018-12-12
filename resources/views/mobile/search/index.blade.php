@@ -6,7 +6,7 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
 @section('content')
     <div class="header">
         <div class="header_top">
-            <nav class="navbar navbar-expand-lg navbar-dark flex-row-reverse"><a href="#" class="navbar-brand text-white button_search"><i aria-hidden="true" class="fa fa-search"></i></a><a href="/" class="navbar-brand logo"><img src="/images/logo-header.png" alt="logo"></a>
+            <nav class="navbar navbar-expand-lg navbar-dark flex-row-reverse"><a href="/" class="navbar-brand text-white button_search"><i aria-hidden="true" class="fa fa-search"></i></a><a href="/" class="navbar-brand logo"><img src="/images/logo-header.png" alt="logo"></a>
                 <button type="button" class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
             </nav>
         </div>
@@ -14,10 +14,10 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
         <div class="header_sub_menu">
             <div data-itemmenu="4" class="swiper-container swiper1">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide selected tab-music swiper-w145 search-music">Bài Hát ({{number_format($result['music']['row_total'])}})</div>
-                    <div class="swiper-slide tab-music swiper-w145 search-album" >Album ({{number_format($result['album']['row_total'])}})</div>
-                    <div class="swiper-slide tab-music swiper-w145 search-video">Video ({{number_format($result['video']['row_total'])}})</div>
-                    <div class="swiper-slide tab-music swiper-w145 search-artist">Ca sĩ</div>
+                    <div class="swiper-slide selected swiper-w145 search-music">Bài Hát ({{number_format($result['music']['row_total'])}})</div>
+                    <div class="swiper-slide swiper-w145 search-album" >Album ({{number_format($result['album']['row_total'])}})</div>
+                    <div class="swiper-slide swiper-w145 search-video">Video ({{number_format($result['video']['row_total'])}})</div>
+                    <div class="swiper-slide swiper-w145 search-artist">Ca sĩ ({{number_format($result['artist']['row_total'])}})</div>
                 </div>
             </div>
         </div>
