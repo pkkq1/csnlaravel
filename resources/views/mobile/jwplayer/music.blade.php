@@ -775,13 +775,13 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
             alertModal('Chưa nhập nội dung bình luận.');
             return false;
         }
-
         $.ajax({
             url: "/comment/post",
             type: "POST",
             dataType: "html",
             data: {'comment': $('.form-comment-' + formId).find('textarea').val(),
                 'music_id' : musicId,
+                'comment_jw_postion' : jwplayer().getPosition(),
                 'reply_cmt_id': $('.form-comment-' + formId).find('.reply_cmt_id').val()},
             beforeSend: function () {
                 if(loaded) return false;
