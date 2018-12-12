@@ -29,6 +29,7 @@ class SearchController extends Controller
         $request->view_music = true;
         $request->view_album = true;
         $request->view_video = true;
+        $request->view_artist= true;
         $result = $this->ajaxSearch($request, false);
         $titleSearch = $search.' | ';
         $result = $result[0];
@@ -154,6 +155,8 @@ class SearchController extends Controller
                             'video_link' => $item['video_link'][0],
                             'video_cover' => isset($item['video_cover']) ? $item['video_cover'][0] : '',
                             'video_listen' => $item['video_listen_total'][0],
+                            'video_listen' => $item['video_listen_total'][0],
+                            'music_length' => '03:45',
                         ];
                     }
                 }

@@ -65,9 +65,7 @@
         });
         $( document ).ajaxStop(function() {
             clearTimeout(timeOutLoading);
-            $('.modal-backdrop').last().remove();
-            $('.modal-loading-waiting').remove();
-            // waitingDialog.hide();
+            waitingDialog.hide();
             loaded = false;
         });
         window.fbAsyncInit = function() {

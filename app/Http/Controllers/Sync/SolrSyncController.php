@@ -155,7 +155,7 @@ class SolrSyncController extends Controller
                 'music_year' => $item->music_year,
                 'album_link' => Helpers::album_url($item->toArray()),
                 'music_artist' => $music_artist ? Helpers::rawHtmlArtists($music_artist_id, $music_artist) : '',
-                'music_bitrate' => $item->music_bitrate ? Helpers::bitrate2str($item->music_bitrate) : '',
+                'album_bitrate' => $item->music_bitrate ? Helpers::bitrate2str($item->music_bitrate) : '',
             ];
             $this->Solr->addDocuments($data);
         }

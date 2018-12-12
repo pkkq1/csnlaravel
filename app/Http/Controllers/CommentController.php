@@ -66,6 +66,7 @@ class CommentController extends Controller
                 'comment_id' => $request->input('reply_cmt_id'),
                 'user_id' => Auth::user()->id,
                 'username' => Auth::user()->username ?? '',
+                'comment_jw_postion' => $request->comment_jw_postion,
                 'comment_text' => $request->input('comment')
             ]);
             $this->musicRepository->incrementCol($request->input('music_id'), 'music_comment');
@@ -78,6 +79,7 @@ class CommentController extends Controller
                 'music_id' => $request->input('music_id'),
                 'user_id' => Auth::user()->id,
                 'username' => Auth::user()->username ?? '',
+                'comment_jw_postion' => $request->comment_jw_postion,
                 'comment_text' => $request->input('comment')
             ]);
             $this->musicRepository->incrementCol($request->input('music_id'), 'music_comment');

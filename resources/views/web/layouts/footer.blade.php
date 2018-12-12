@@ -133,7 +133,7 @@
                     '              <h5 class="media-title mt-0 mb-0 span_h5">' + searchHighlight(q, value.music_album) + '</h5>' +
                     '              <div class="author">' + textArtist + '</div>' +
                     '          </div>' +
-                    '          <small class="type_music c1">' + value.album_bitrate + '</small>' +
+                    '          <small class="type_music c1">' + (value.album_bitrate ? value.album_bitrate : '') + '</small>' +
                     '      </div>' +
                     '       </a>' +
                     '  </li>';

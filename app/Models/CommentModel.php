@@ -10,7 +10,7 @@ class CommentModel extends Model
     public $timestamps = false;
     protected $table = 'csn_comment';
     protected $primaryKey = 'comment_id';
-    protected $fillable = ['music_id', 'user_id', 'username', 'comment_text', 'comment_time', 'comment_reply'];
+    protected $fillable = ['music_id', 'user_id', 'username', 'comment_text', 'comment_time', 'comment_reply', 'comment_jw_postion'];
 
     public function user()
     {

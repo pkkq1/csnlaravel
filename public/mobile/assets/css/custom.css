@@ -397,6 +397,9 @@ footer {
 .search-line {
     color: #212529;
 }
+.bottom-sheet {
+    z-index: 999999999999;
+}
 
 
 

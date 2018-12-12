@@ -11,8 +11,11 @@ use App\Library\Helpers;
         <div class="content_comment text-left pl-2 py-2">
             <div class="item position_relative">
                 <div class="body_comment">
-                    <a href="/user/{{$item['user']['id']}}"><div class="infor"><strong class="author card-title">{{$item['user']['name']}}</strong><span class="text-gray">at</span>
-                        <time>{{date('H:i', $item['comment_time'])}}</time>
+                    <a href="/user/{{$item['user']['id']}}"><div class="infor"><strong class="author card-title">{{$item['user']['name']}}</strong>
+                        @if($item['comment_jw_postion'])
+                        <span class="text-gray">at</span>
+                        <time>{{ $item['comment_jw_postion'] >= 3600 ? gmdate("H:i:s", $item['comment_jw_postion']) : gmdate("i:s", $item['comment_jw_postion'])}}</time>
+                        @endif
                     </div></a>
                     <div class="detail">
                         <p>{{$item['comment_text']}}</p>
@@ -45,8 +48,11 @@ use App\Library\Helpers;
                                 <div class="content_comment text-left pl-2 py-2">
                                     <div class="item position_relative">
                                         <div class="body_comment">
-                                            <a href="/user/{{$reply['user']['id']}}"><div class="infor"><strong class="author">{{$reply['user']['name']}}</strong><span class="text-gray">at</span>
-                                                <time>{{date('H:i', $reply['comment_time'])}}</time>
+                                            <a href="/user/{{$reply['user']['id']}}"><div class="infor"><strong class="author card-title">{{$reply['user']['name']}}</strong>
+                                                @if($item['comment_jw_postion'])
+                                                <span class="text-gray">at</span>
+                                                <time>{{ $item['comment_jw_postion'] >= 3600 ? gmdate("H:i:s", $item['comment_jw_postion']) : gmdate("i:s", $item['comment_jw_postion'])}}</time>
+                                                @endif
                                             </div></a>
                                             <div class="detail">
                                                 <p>{{$reply['comment_text']}}</p>

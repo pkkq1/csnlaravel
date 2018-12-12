@@ -125,7 +125,7 @@ use App\Library\Helpers;
             });
             return '<div class="block block_artist">' +
                 '<div class="block_header d-flex flex-row justify-content-between mb-2">' +
-                '   <h3 class="main_title text-pink mb-0">Nghệ sĩ</h3><a onclick="redirectSearch(\'ca-si\')" href="javascript:void(0)"><span class="text-gray align-self-end">Xem tất cả</span></a>' +
+                '   <h3 class="main_title text-pink mb-0">Nghệ sĩ</h3><a onclick="redirectSearch(\'page_artist\')" href="javascript:void(0)"><span class="text-gray align-self-end">Xem tất cả</span></a>' +
                 '</div>' +
                 '<div class="block_baihat_main block_more">' + artist +
                 '</div>' +
@@ -148,7 +148,7 @@ use App\Library\Helpers;
             });
             return '<div class="block block_baihat">' +
                 '<div class="block_header d-flex flex-row justify-content-between mb-2">' +
-                '   <h3 class="main_title text-pink mb-0">Bài hát</h3><a onclick="redirectSearch(\'bai-hat\')" href="javascript:void(0)"><span class="text-gray align-self-end">Xem tất cả</span></a>' +
+                '   <h3 class="main_title text-pink mb-0">Bài hát</h3><a onclick="redirectSearch(\'page_music\')" href="javascript:void(0)"><span class="text-gray align-self-end">Xem tất cả</span></a>' +
                 '</div>' +
                 '<div class="block_baihat_main block_more">' + song +
                 '</div>' +
@@ -166,13 +166,13 @@ use App\Library\Helpers;
                     '       <div class="content d-inline-block align-middle">' +
                     '           <h6 class="name_song text-black mb-1">' + searchHighlight(q, value.music_album) + '</h6>' +
                     '           <p class="name_singer text-gray mb-1">' + $(value.album_artist).text() + '</p>' +
-                    '           <p class="loss text-pink mb-0">' + value.album_bitrate + '</p>' +
+                    '           <p class="loss text-pink mb-0">' + (value.album_bitrate ? value.album_bitrate : '') + '</p>' +
                     '       </div>' +
                     '   </div></a>';
             });
             return '<div class="block block_album">' +
                 '<div class="block_header d-flex flex-row justify-content-between mb-2">' +
-                '   <h3 class="main_title text-pink mb-0">Album</h3><a onclick="redirectSearch(\'album\')" href="javascript:void(0)"><span class="text-gray align-self-end">Xem tất cả</span></a>' +
+                '   <h3 class="main_title text-pink mb-0">Album</h3><a onclick="redirectSearch(\'page_album\')" href="javascript:void(0)"><span class="text-gray align-self-end">Xem tất cả</span></a>' +
                 '</div>' +
                 '<div class="block_baihat_main block_more">' + album +
                 '</div>' +
@@ -188,7 +188,7 @@ use App\Library\Helpers;
                     '<a class="search-line" href="' + value.video_link + '">' +
                     '<div class="element mb-2">' +
                     '   <div style="background : url(' + value.video_cover + ') no-repeat center;background-size: cover;" class="image100 mr-2 d-inline-block align-middle">' +
-                    '       <p class="time text-white mb-0 px-2 py-1"><img src="/images/ic_menu_clock.png" width="14"> 03:45</p>' +
+                    '       <p class="time text-white mb-0 px-2 py-1"><img src="/images/ic_menu_clock.png" width="14"> ' + value.music_length + '</p>' +
                     '   </div>' +
                     '   <div class="content d-inline-block align-middle">' +
                     '       <h6 class="name_song text-black mb-1">' + searchHighlight(q, value.video_title) + '</h6>' +
@@ -198,7 +198,7 @@ use App\Library\Helpers;
             });
             return '<div class="block block_album">' +
                 '<div class="block_header d-flex flex-row justify-content-between mb-2">' +
-                '   <h3 class="main_title text-pink mb-0">Video</h3><a onclick="redirectSearch(\'video\')" href="javascript:void(0)"><span class="text-gray align-self-end">Xem tất cả</span></a>' +
+                '   <h3 class="main_title text-pink mb-0">Video</h3><a onclick="redirectSearch(\'page_video\')" href="javascript:void(0)"><span class="text-gray align-self-end">Xem tất cả</span></a>' +
                 '</div>' +
                 '<div class="block_baihat_main block_more">' + video +
                 '</div>' +
@@ -207,9 +207,9 @@ use App\Library\Helpers;
         return '';
     }
     function redirectSearch(tab) {
-        window.location.href = "/tim-kiem?q=" + $('#search_autocomplete').val() + '&tab='+tab;
+        window.location.href = "/tim-kiem?q=" + $('#search_autocomplete').val() + '&' + tab + '=1';
     }
     $('.fa-search').click(function() {
-        document.getElementById("search_autocomplete").focus();
+        document.getElementById("search_autocomplete").trigger('focus');
     })
 </script>
