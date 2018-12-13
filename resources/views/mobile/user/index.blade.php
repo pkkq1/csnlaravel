@@ -45,7 +45,7 @@ $mySelf = (Auth::check() && Auth::user()->id == $user->id);
         <!-- swiper2-->
         <div class="swiper-container swiper2">
             <div class="swiper-wrapper">
-                <div class="swiper-slide">
+                <div data-tab="playlist" class="swiper-slide">
                     <div class="container">
                         @if($mySelf)
                         <div class="block_header d-flex flex-row justify-content-around pt-3">
@@ -101,7 +101,7 @@ $mySelf = (Auth::check() && Auth::user()->id == $user->id);
                         </div>
                     </div>
                 </div>
-                <div class="swiper-slide">
+                <div data-tab="bat-hat" class="swiper-slide">
                     <div class="container">
                         <div class="block block_baihat">
                             <div class="block_baihat_main block_more">
@@ -130,7 +130,7 @@ $mySelf = (Auth::check() && Auth::user()->id == $user->id);
                         </div>
                     </div>
                 </div>
-                <div class="swiper-slide">
+                <div data-tab="video" class="swiper-slide">
                     <div class="container">
                         <div class="block block_player">
                             <div class="block_baihat_main block_more">
@@ -187,7 +187,7 @@ $mySelf = (Auth::check() && Auth::user()->id == $user->id);
                         </div>
                     </div>
                 </div>
-                <div class="swiper-slide">
+                <div data-tab="ca-si" class="swiper-slide">
                     <div class="container">
                         <div class="block block_album block_profile_playlist">
                             <div class="row row-sm">
@@ -255,7 +255,7 @@ $mySelf = (Auth::check() && Auth::user()->id == $user->id);
                         </div>
                     </div>
                 </div>
-                <div class="swiper-slide">
+                <div data-tab="tu-nhac" class="swiper-slide">
                     <div class="container" id="uploaded">
                     </div>
                 </div>
@@ -589,11 +589,13 @@ $mySelf = (Auth::check() && Auth::user()->id == $user->id);
                 }
             });
         }
-
-
-
-
-
+        function slideSwiperChange(swiper){
+            let tabSelected = $('.swiper2').find('.swiper-slide-active');
+            let tab =  tabSelected.data('tab');
+            if(tab == 'tu-nhac') {
+                musicUserTab('musicUploaded');
+            }
+        }
 
     </script>
 @endsection
