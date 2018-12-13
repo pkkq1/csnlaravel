@@ -50,19 +50,21 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide block_bxhbaihat block_more">
+                    <div class="swiper-slide">
                         <div class="container">
-                            <div class="block block_baihat">
-                                <div class="block_bxhbaihat block_more" id="album">
+                            <div class="block block_album block_profile_playlist">
+                                <div class="row row-sm" id="album">
                                     <?php
                                     array_map(function ($item) {
                                     ?>
-                                    <div class="element mb-2">
-                                        <a href="{{$item['album_link']}}"><div class="image100 mr-2 d-inline-block align-middle" style="background : url('{{$item['album_cover']}}') no-repeat center;background-size: cover;"></div></a>
-                                        <div class="content d-inline-block align-middle">
-                                            <a href="{{$item['album_link']}}"><h6 class="name_song text-black mb-1 card-title">{{$item['music_album']}}</h6></a>
-                                            <p class="name_singer text-gray mb-1 author"><?php echo $item['album_artist'] ?></p>
-                                            <p class="loss text-pink mb-0"><?php echo $item['album_bitrate'] ?></p>
+                                    <div class="col-6">
+                                        <div class="item element">
+                                            <a href="{{$item['album_link']}}"><div style="background: url({{$item['album_cover']}}) no-repeat center;background-size: cover;" class="image rounded"></div></a>
+                                            <div class="content mt-3">
+                                                <a href="{{$item['album_link']}}"><h6 class="name_song mb-1 card-title">{{$item['music_album']}}</h6></a>
+                                                <p class="name_singer text-gray mb-1 author"><?php echo $item['album_artist'] ?></p>
+                                                <p class="loss text-pink mb-0"><?php echo $item['album_bitrate'] ?></p>
+                                            </div>
                                         </div>
                                     </div>
                                     <?php

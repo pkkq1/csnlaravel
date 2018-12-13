@@ -56,7 +56,15 @@
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': csrfToken
-            }
+            },
+            statusCode: {
+                401: function () {
+                    clearTimeout(timeOutLoading);
+                    waitingDialog.hide();
+                    switchAuth('myModal_login');
+                    return false;
+                }
+            },
         });
         $( document ).ajaxStart(function() {
             timeOutLoading = setTimeout(function(){

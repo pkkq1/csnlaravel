@@ -34,19 +34,20 @@ $titleMeta = $category->cat_title . ' - '. Config::get('constants.app.title');
             <div class="swiper-container swiper2">
                 <div class="swiper-wrapper">
                     @if($category->cat_id != CATEGORY_ID_VIDEO)
-                        <div class="swiper-slide block_bxhbaihat block_more" data-tab="album-{{CURRENT_YEAR}}">
+                        <div class="swiper-slide" data-tab="album-{{CURRENT_YEAR}}">
                             <div class="container">
-                                <div class="block block_baihat">
-                                    <div class="block_bxhbaihat block_more" id="album-{{CURRENT_YEAR}}">
+                                <div class="block block_album block_profile_playlist">
+                                    <div class="row row-sm" id="album-{{CURRENT_YEAR}}">
                                         <?php echo $firstTab ?>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper-slide block_bxhbaihat block_more" data-tab="album-moi">
+
+                        <div class="swiper-slide" data-tab="album-moi">
                             <div class="container">
-                                <div class="block block_baihat">
-                                    <div class="block_bxhbaihat block_more" id="album-moi"></div>
+                                <div class="block block_album block_profile_playlist">
+                                    <div class="row row-sm" id="album-moi"></div>
                                 </div>
                             </div>
                         </div>
@@ -65,10 +66,10 @@ $titleMeta = $category->cat_title . ' - '. Config::get('constants.app.title');
                             </div>
                         </div>
                     @else
-                        <div class="swiper-slide block_bxhbaihat block_more" data-tab="video-{{CURRENT_YEAR}}">
+                        <div class="swiper-slide" data-tab="video-{{CURRENT_YEAR}}">
                             <div class="container">
-                                <div class="block block_baihat">
-                                    <div class="block_bxhbaihat block_more" id="video-{{CURRENT_YEAR}}">
+                                <div class="block block_album block_profile_playlist">
+                                    <div class="row row-sm" id="video-{{CURRENT_YEAR}}">
                                         <?php echo $firstTab ?>
                                     </div>
                                 </div>

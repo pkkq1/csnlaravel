@@ -7,14 +7,13 @@ isset($float_edit) ? $float_edit = $float_edit : $float_edit = false;
         <div class="media user11">
             <div class="media-left mr-4 align-self-center">
                 <a href="{{'/user/'.$user->id}}" >
-                    <img id="view_user_avatar_2" src="<?php echo Helpers::pathAvatar($user->user_avatar, $user->id) ?>" alt="{{$user->name}}" alt="{{$user->name}}">
+                    <img id="view_user_avatar_2" src="<?php echo Helpers::pathAvatar($user->user_avatar, $user->id) ?>?time={{time()}}" alt="{{$user->name}}" alt="{{$user->name}}">
                 </a>
             </div>
             <div class="media-body align-self-center">
                 <h4 class="media-title user_name">{{$user->name}}</h4>
                 <ul class="list-inline">
-                    <li class="list-inline-item"><b>193.085</b> <small>upload(17Gb)</small></li>
-                    <li class="list-inline-item"><b>193.085</b> <small>download</small></li>
+                    <li class="list-inline-item"><b>{{number_format($user->user_music)}}</b> <small> upload</small></li>
                 </ul>
                 @if(Auth::user() && $float_edit == true)
                     @if(Auth::user()->id == $user->id)
@@ -34,7 +33,7 @@ isset($float_edit) ? $float_edit = $float_edit : $float_edit = false;
                 <div class="row">
                     <div class="col-md-3">
                         <div class="change_avatar">
-                            <img class="mr-3" id="view_user_avatar" src="{{(strpos(Auth::user()->user_avatar, 'http') !== false) ? Auth::user()->user_avatar : Helpers::file_path($user->id, PUBLIC_AVATAR_PATH, true) . Auth::user()->user_avatar}}" alt="{{Auth::user()->name}}">
+                            <img class="mr-3" id="view_user_avatar" src="{{(strpos(Auth::user()->user_avatar, 'http') !== false) ? Auth::user()->user_avatar : Helpers::file_path($user->id, PUBLIC_AVATAR_PATH, true) . Auth::user()->user_avatar}}?time={{time()}}" alt="{{Auth::user()->name}}">
                             <div class="form-group">
                                 <label for="choose_user_avatar"><i class="material-icons">photo_camera</i> Thay đổi ảnh đại diện</label>
                                 <input type="file" class="form-control-file" name="choose_user_avatar" id="choose_user_avatar">
@@ -46,7 +45,7 @@ isset($float_edit) ? $float_edit = $float_edit : $float_edit = false;
                         <form action="" class="profile_submit1" method="get" accept-charset="utf-8">
                             <div class="form-group">
                                 <label for="username">Tên Tài Khoản</label>
-                                <input type="text" {{Auth::user()->username ? 'disabled ' : ''}}class="form-control" id="username" aria-describedby="emailHelp" placeholder="" value="{{Auth::user()->username}}">
+                                <input type="text" {{Auth::user()->username ? 'disabled ' : ''}}class="form-control" id="username" aria-describedby="emailHelp" placeholder="bắt buộc nhập" value="{{Auth::user()->username}}">
                             </div>
                             @if(!Auth::user()->username)
                             <div class="form-row">
@@ -138,141 +137,147 @@ isset($float_edit) ? $float_edit = $float_edit : $float_edit = false;
 <script>
     var oldViewAvatar = $('#view_user_avatar').attr("src");
     var oldAvatar = $('#user_avatar').val();
-    $(document).ready(function(){
-        $('#choose_user_avatar').on('change', function(){
-            $('#image_demo').html('');
-            $('.update_avatar').css("max-width", "500px")
-            $image_crop = $('#image_demo').croppie({
-                enableExif: true,
-                viewport: {
-                    width:300,
-                    height:300,
-                    type:'circle' //circle
-                },
-                boundary:{
-                    width:300,
-                    height:300
-                },
-                showZoomer: false,
-                enableOrientation: true,
-                mouseWheelZoom: '',
-            });
-            var reader = new FileReader();
-            reader.onload = function (event) {
-                $image_crop.croppie('bind', {
-                    url: event.target.result
-                }).then(function(){
-                    console.log('jQuery bind complete');
-                });
-            }
-            reader.readAsDataURL(this.files[0]);
-            $('#uploadimageModal').modal('show');
-        });
-        $('.crop_image').click(function(event){
-            $image_crop.croppie('result', {
-                type: 'canvas',
-                size: 'viewport'
-            }).then(function (response) {
-                const info = $image_crop.croppie('get');
-                $('#uploadimageModal').modal('hide');
-                $('#user_avatar').val(response);
-                $('#view_user_avatar').attr("src", response);
-                // $('#view_user_avatar_2').attr("src", response);
-            })
-        });
-    });
-    $('.cancel_model_profile').on('click', function () {
-        $('#user_avatar').val('');
-        $('#view_user_avatar').attr("src", oldViewAvatar);
-    })
-    $('.profile_submit1').submit(false);
     <?php
-        if(!Auth::user()->username) {
+        if($mySelf){
+            ?>
+            $(document).ready(function(){
+                $('#choose_user_avatar').on('change', function(){
+                    $('#image_demo').html('');
+                    $('.update_avatar').css("max-width", "500px")
+                    $image_crop = $('#image_demo').croppie({
+                        enableExif: true,
+                        viewport: {
+                            width:300,
+                            height:300,
+                            type:'circle' //circle
+                        },
+                        boundary:{
+                            width:300,
+                            height:300
+                        },
+                        showZoomer: false,
+                        enableOrientation: true,
+                        mouseWheelZoom: '',
+                    });
+                    var reader = new FileReader();
+                    reader.onload = function (event) {
+                        $image_crop.croppie('bind', {
+                            url: event.target.result
+                        }).then(function(){
+                            console.log('jQuery bind complete');
+                        });
+                    }
+                    reader.readAsDataURL(this.files[0]);
+                    $('#uploadimageModal').modal('show');
+                });
+                $('.crop_image').click(function(event){
+                    $image_crop.croppie('result', {
+                        type: 'canvas',
+                        size: 'viewport'
+                    }).then(function (response) {
+                        const info = $image_crop.croppie('get');
+                        $('#uploadimageModal').modal('hide');
+                        $('#user_avatar').val(response);
+                        $('#view_user_avatar').attr("src", response);
+                        // $('#view_user_avatar_2').attr("src", response);
+                    })
+                });
+            });
+            $('.cancel_model_profile').on('click', function () {
+                $('#user_avatar').val('');
+                $('#view_user_avatar').attr("src", oldViewAvatar);
+            })
+            $('.profile_submit1').submit(false);
+            <?php
+            if(!Auth::user()->username) {
             ?>
             $('.click_modal_profile').click(function() {
                 alertModal('Lần đăng nhập với tài khoản facebook hoặc google sẽ cập nhật thêm thông tin tên tài khoản và mật khẩu.');
             })
             <?php
-        }
-    ?>
-    function showChangePassWord() {
-        $('.input_change_pass').toggle('slow');
-    }
-    function updateProfile() {
-        resetInputLogin();
-        if(($('.profile_submit1').find('#username').val()) < 4) {
-            addErrorInput($('#username'), 'Tên tài khoản không được để trống và lớn hơn 4 ký tự');
-            return false;
-        }
-        if(($('.profile_submit1').find('#name').val()).length < 4) {
-            addErrorInput($('#name'), 'Tên không được để trống và lớn hơn 4 ký tự');
-            return false;
-        }
-        $.ajax({
-            url: "/user/update",
-            type: "POST",
-            dataType: 'json',
-            data: {
-                'name': $('.profile_submit1').find('#name').val(),
-                'user_gender': $('.profile_submit1').find('#user_gender').val(),
-                'user_birthday': $('.profile_submit1').find('#user_birthday').val(),
-                'user_phone_number': $('.profile_submit1').find('#user_phone_number').val(),
-                'user_interests': $('.profile_submit1').find('#user_interests').val(),
-                'user_avatar': $('#user_avatar').val(),
-                'username': $('#username').val(),
-                'password': $('#password').val(),
-                'repassword': $('#repassword').val(),
-                'current_password': $('#current_password').val()
-            },
-            beforeSend: function () {
-                if(loaded) return false;
-                loaded = true;
-            },
-            statusCode: {
-                401: function () {
-                    window.location.replace('/login');
+            }
+            ?>
+            function showChangePassWord() {
+                $('.input_change_pass').toggle('slow');
+            }
+            function updateProfile() {
+                resetInputLogin();
+                if(($('.profile_submit1').find('#username').val()) < 4) {
+                    addErrorInput($('#username'), 'Tên tài khoản không được để trống và lớn hơn 4 ký tự');
                     return false;
                 }
-            },
-            success: function (response) {
-                if(response.success) {
-                    if($('#user_avatar').val()){
-                        $("#view_user_avatar_2").attr("src", '<?php echo (strpos(Auth::user()->user_avatar, "http") !== false) ? "" : Helpers::file_path($user->id, PUBLIC_AVATAR_PATH, true) ?>' + response.data.user_avatar + '?v=' + Date.now())
-                        $('#user_avatar').val("");
-                    }
-                    oldViewAvatar = $('#view_user_avatar').attr("src");
-                    $('.user_name').html(response.data.name);
-                    $('.edit_profile').modal('toggle');
-                    Lobibox.notify('success', {
-                        size: 'mini',
-                        sound: false,
-                        delay: 1500,
-                        delayIndicator: false,
-                        msg: response.message
-                    });
-                    $('#password').val('');
-                    $('#current_password').val('');
-                    if(response.data.refresh)
-                        location.reload();
-                }else{
-
-                    $.each( response.data, function( key, value ) {
-                        addErrorInput($('.profile_submit1').find('#' + key), value);
-                    });
+                if(($('.profile_submit1').find('#name').val()).length < 4) {
+                    addErrorInput($('#name'), 'Tên không được để trống và lớn hơn 4 ký tự');
+                    return false;
                 }
+                $.ajax({
+                    url: "/user/update",
+                    type: "POST",
+                    dataType: 'json',
+                    data: {
+                        'name': $('.profile_submit1').find('#name').val(),
+                        'user_gender': $('.profile_submit1').find('#user_gender').val(),
+                        'user_birthday': $('.profile_submit1').find('#user_birthday').val(),
+                        'user_phone_number': $('.profile_submit1').find('#user_phone_number').val(),
+                        'user_interests': $('.profile_submit1').find('#user_interests').val(),
+                        'user_avatar': $('#user_avatar').val(),
+                        'username': $('#username').val(),
+                        'password': $('#password').val(),
+                        'repassword': $('#repassword').val(),
+                        'current_password': $('#current_password').val()
+                    },
+                    beforeSend: function () {
+                        if(loaded) return false;
+                        loaded = true;
+                    },
+                    statusCode: {
+                        401: function () {
+                            window.location.replace('/login');
+                            return false;
+                        }
+                    },
+                    success: function (response) {
+                        if(response.success) {
+                            if($('#user_avatar').val()){
+                                $("#view_user_avatar_2").attr("src", '<?php echo (strpos(Auth::user()->user_avatar, "http") !== false) ? "" : Helpers::file_path($user->id, PUBLIC_AVATAR_PATH, true) ?>' + response.data.user_avatar + '?v=' + Date.now())
+                                $('#user_avatar').val("");
+                            }
+                            oldViewAvatar = $('#view_user_avatar').attr("src");
+                            $('.user_name').html(response.data.name);
+                            $('.edit_profile').modal('toggle');
+                            Lobibox.notify('success', {
+                                size: 'mini',
+                                sound: false,
+                                delay: 1500,
+                                delayIndicator: false,
+                                msg: response.message
+                            });
+                            $('#password').val('');
+                            $('#current_password').val('');
+                            if(response.data.refresh)
+                                location.reload();
+                        }else{
+
+                            $.each( response.data, function( key, value ) {
+                                addErrorInput($('.profile_submit1').find('#' + key), value);
+                            });
+                        }
+                    }
+                });
+                return false;
             }
-        });
-        return false;
-    }
-    function resetInputLogin() {
-        $('.profile_submit1').find('.input-help-block').remove();
-        $('.profile_submit1').find('.alert').remove();
-        $('.profile_submit1').find('input').removeClass('input-has-error');
-    }
-    function addErrorInput(tag, content) {
-        tag.addClass('input-has-error');
-        tag.before('<span class="input-help-block"><strong>' + content + '</strong></span>');
-    }
+            function resetInputLogin() {
+                $('.profile_submit1').find('.input-help-block').remove();
+                $('.profile_submit1').find('.alert').remove();
+                $('.profile_submit1').find('input').removeClass('input-has-error');
+            }
+            function addErrorInput(tag, content) {
+                tag.addClass('input-has-error');
+                tag.before('<span class="input-help-block"><strong>' + content + '</strong></span>');
+            }
+            <?php
+        }
+    ?>
 </script>
 @endif
 @endif

@@ -10,7 +10,7 @@ $mySelf = (Auth::check() && Auth::user()->id == $user->id);
 @section('content')
     <div class="header">
         <div class="header_top">
-            <nav class="navbar navbar-expand-lg navbar-dark flex-row-reverse"><a href="/" class="navbar-brand text-white button_search"><i aria-hidden="true" class="fa fa-search"></i></a><a href="/" class="navbar-brand logo"><img src="/images/logo-header.png" alt="logo"></a>
+            <nav class="navbar navbar-expand-lg navbar-dark flex-row-reverse"><a href="{{'/user/'.$user->id}}" class="navbar-brand text-white button_search"><i aria-hidden="true" class="fa fa-search"></i></a><a href="/" class="navbar-brand logo"><img src="/images/logo-header.png" alt="logo"></a>
                 <button type="button" class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
             </nav>
         </div>
@@ -19,14 +19,15 @@ $mySelf = (Auth::check() && Auth::user()->id == $user->id);
         <section class="block_box_profile">
             <div class="container">
                 <div class="box_profile py-3">
-                    <div class="box_profile__header"><a href="#"><img id="profile_avatar" src="https://graph.facebook.com/v3.0/1928096143946677/picture?width=1920" alt="Quang Vinh"></a></div>
+                    <div class="box_profile__header"><a href="#"><img id="view_user_avatar_2" src="<?php echo Helpers::pathAvatar($user->user_avatar, $user->id) ?>?time={{time()}}" alt="{{$user->name}}"></a></div>
                     <div class="box_profile__body">
-                        <h4 class="media-title user_name">Quang Vinh</h4>
+                        <h4 class="media-title user_name">{{$user->name}}</h4>
                         <ul class="list-inline">
-                            <li class="list-inline-item"><strong>193.085</strong><small>upload(17Gb)</small></li>
-                            <li class="list-inline-item"><b>193.085</b><small>download</small></li>
+                            <li class="list-inline-item"><strong>{{number_format($user->user_music)}}</strong><small> upload</small></li>
                         </ul>
+                        @if($mySelf)
                         <button type="button" data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-secondary btn-gradien btn-radius modal-edit-profile"><span>Chỉnh sửa </span><i aria-hidden="true" class="fa fa-pencil"></i></button>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -35,10 +36,10 @@ $mySelf = (Auth::check() && Auth::user()->id == $user->id);
         <div data-itemmenu="4" class="swiper-container swiper1 swiper_wauto">
             <div class="swiper-wrapper">
                 <div class="swiper-slide selected"><span class="d-inline-block align-middle">Playlist</span></div>
-                <div class="swiper-slide"><span class="d-inline-block align-middle">Bài Hát</span></div>
-                <div class="swiper-slide"><a class="d-inline-block align-middle">Video</a></div>
-                <div class="swiper-slide"><a class="d-inline-block align-middle">Ca Sĩ</a></div>
-                <div class="swiper-slide"><a class="d-inline-block align-middle">Tủ nhạc</a></div>
+                <div class="swiper-slide bai-hat"><span class="d-inline-block align-middle"><i class="material-icons" style="font-size: 11px;">favorite_border</i> Bài Hát</span></div>
+                <div class="swiper-slide video"><a class="d-inline-block align-middle"><i class="material-icons" style="font-size: 11px;">favorite_border</i> Video</a></div>
+                <div class="swiper-slide ca-si"><a class="d-inline-block align-middle"><i class="material-icons" style="font-size: 11px;">favorite_border</i> Ca Sĩ</a></div>
+                <div class="swiper-slide tu-nhac" onclick="musicUserTab('musicUploaded')"><a class="d-inline-block align-middle">Tủ nhạc</a></div>
             </div>
         </div>
         <!-- swiper2-->
@@ -46,72 +47,56 @@ $mySelf = (Auth::check() && Auth::user()->id == $user->id);
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
                     <div class="container">
+                        @if($mySelf)
                         <div class="block_header d-flex flex-row justify-content-around pt-3">
                             <button type="button" class="btn btn-danger btn-gradien btn-radius">			<i aria-hidden="true" class="fa fa-pencil"></i><span>Tạo playlist</span></button>
                             <button type="button" class="btn btn-secondary-grey btn-radius">			<i aria-hidden="true" class="fa fa-pencil"></i><span>Chỉnh sửa</span></button>
                         </div>
+                        @endif
                         <div class="block block_album block_profile_playlist">
                             <div class="row row-sm">
-                                <div class="col-6">
-                                    <div class="item element">
-                                        <div style="background: url('https://avatar-nct.nixcdn.com/mv/2017/12/21/5/5/3/7/1513863104309_268.jpg') no-repeat center;background-size: cover;" class="image rounded"></div>
-                                        <div class="content mt-3">
-                                            <h6 class="name_song mb-1">Bad and Boujee</h6>
-                                            <p class="name_singer text-gray mb-1">Migo(feat. Lil Uzi Vert</p>
-                                            <p class="loss text-pink mb-0">Lossless</p>
+                                @if(count($playlist))
+                                    @foreach($playlist as $key2 => $item)
+                                        <?php
+                                        $url = Helpers::playlist_url($item->toArray());
+                                        ?>
+                                        <div class="col-6">
+                                            <div class="item element">
+                                                <a href="{{$url}}"><div style="background: url({{$item->playlist_cover ? Helpers::file_path($item->playlist_id, PUBLIC_MUSIC_PLAYLIST_PATH, true).$item->playlist_id . '.png?v=' . time() : '/imgs/avatar_default.png'}}) no-repeat center;background-size: cover;" class="image rounded"></div></a>
+                                                <div class="content mt-3">
+                                                    <a href="{{$url}}"><h6 class="name_song mb-1 card-title">{{$item->playlist_title}}</h6></a>
+                                                    @if($item->playlist_artist)
+                                                    <p class="name_singer text-gray mb-1 author">
+                                                        <?php
+                                                        $artistPlaylist = unserialize($item->playlist_artist);
+                                                        if($artistPlaylist) {
+                                                            $artistNames = [];
+                                                            $artistIds = [];
+                                                            $i = 0;
+                                                            foreach($artistPlaylist as $key => $item) {
+                                                                $artistNames[] = $item['name'];
+                                                                $artistIds[] = $key;
+                                                                if(++$i == 2)
+                                                                    break;
+                                                            }
+                                                            echo Helpers::rawHtmlArtists(implode(';', $artistIds), implode(';', $artistNames));
+                                                        }
+                                                        ?></p>
+                                                    @endif
+                                                    <p class="loss text-pink mb-0">Lossless</p>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="item element">
-                                        <div style="background: url('https://avatar-nct.nixcdn.com/mv/2017/12/21/5/5/3/7/1513863104309_268.jpg') no-repeat center;background-size: cover;" class="image rounded"></div>
-                                        <div class="content mt-3">
-                                            <h6 class="name_song mb-1">Bad and Boujee</h6>
-                                            <p class="name_singer text-gray mb-1">Migo(feat. Lil Uzi Vert</p>
-                                            <p class="loss text-pink mb-0">Lossless</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="item element">
-                                        <div style="background: url('https://avatar-nct.nixcdn.com/mv/2017/12/21/5/5/3/7/1513863104309_268.jpg') no-repeat center;background-size: cover;" class="image rounded"></div>
-                                        <div class="content mt-3">
-                                            <h6 class="name_song mb-1">Bad and Boujee</h6>
-                                            <p class="name_singer text-gray mb-1">Migo(feat. Lil Uzi Vert</p>
-                                            <p class="loss text-pink mb-0">Lossless</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="item element">
-                                        <div style="background: url('https://avatar-nct.nixcdn.com/mv/2017/12/21/5/5/3/7/1513863104309_268.jpg') no-repeat center;background-size: cover;" class="image rounded"></div>
-                                        <div class="content mt-3">
-                                            <h6 class="name_song mb-1">Bad and Boujee</h6>
-                                            <p class="name_singer text-gray mb-1">Migo(feat. Lil Uzi Vert</p>
-                                            <p class="loss text-pink mb-0">Lossless</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="item element">
-                                        <div style="background: url('https://avatar-nct.nixcdn.com/mv/2017/12/21/5/5/3/7/1513863104309_268.jpg') no-repeat center;background-size: cover;" class="image rounded"></div>
-                                        <div class="content mt-3">
-                                            <h6 class="name_song mb-1">Bad and Boujee</h6>
-                                            <p class="name_singer text-gray mb-1">Migo(feat. Lil Uzi Vert</p>
-                                            <p class="loss text-pink mb-0">Lossless</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="item element">
-                                        <div style="background: url('https://avatar-nct.nixcdn.com/mv/2017/12/21/5/5/3/7/1513863104309_268.jpg') no-repeat center;background-size: cover;" class="image rounded"></div>
-                                        <div class="content mt-3">
-                                            <h6 class="name_song mb-1">Bad and Boujee</h6>
-                                            <p class="name_singer text-gray mb-1">Migo(feat. Lil Uzi Vert</p>
-                                            <p class="loss text-pink mb-0">Lossless</p>
-                                        </div>
-                                    </div>
-                                </div>
+                                    @endforeach
+                                @else
+                                    <div class="center-text-mes"><span>
+                                        @if($mySelf)
+                                            Bạn chưa có playlist nào, <a href="/user/playlist/them">click vào đây để tạo playlist</a>
+                                        @else
+                                            {{$user->name}} chưa tạo playlist nào.
+                                        @endif
+                                </span></div>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -125,7 +110,6 @@ $mySelf = (Auth::check() && Auth::user()->id == $user->id);
                                     <div class="content d-inline-block">
                                         <h6 class="name_song text-black mb-1">Trong trí nhớ của anh</h6>
                                         <p class="name_singer text-gray mb-1">Hạnh Sino</p>
-                                        <p class="loss text-pink mb-0">Lossless</p><img src="/images/img_dot_gray.png" class="icon">
                                     </div>
                                 </div>
                                 <div class="element mb-2">
@@ -133,7 +117,6 @@ $mySelf = (Auth::check() && Auth::user()->id == $user->id);
                                     <div class="content d-inline-block">
                                         <h6 class="name_song text-black mb-1">Trong trí nhớ của anh</h6>
                                         <p class="name_singer text-gray mb-1">Hạnh Sino</p>
-                                        <p class="loss text-pink mb-0">Lossless</p><img src="/images/img_dot_gray.png" class="icon">
                                     </div>
                                 </div>
                                 <div class="element mb-2">
@@ -141,7 +124,6 @@ $mySelf = (Auth::check() && Auth::user()->id == $user->id);
                                     <div class="content d-inline-block">
                                         <h6 class="name_song text-black mb-1">Trong trí nhớ của anh</h6>
                                         <p class="name_singer text-gray mb-1">Hạnh Sino</p>
-                                        <p class="loss text-pink mb-0">Lossless</p><img src="/images/img_dot_gray.png" class="icon">
                                     </div>
                                 </div>
                             </div>
@@ -157,7 +139,6 @@ $mySelf = (Auth::check() && Auth::user()->id == $user->id);
                                     <div class="content d-inline-block align-middle">
                                         <h6 class="name_song text-black mb-1">Trong trí nhớ của anh</h6>
                                         <p class="name_singer text-gray mb-1">Hạnh Sino</p>
-                                        <p class="loss text-pink mb-0">Lossless</p><img src="/images/img_dot_gray.png" class="icon">
                                     </div>
                                 </div>
                                 <div class="element mb-2">
@@ -165,7 +146,6 @@ $mySelf = (Auth::check() && Auth::user()->id == $user->id);
                                     <div class="content d-inline-block align-middle">
                                         <h6 class="name_song text-black mb-1">Trong trí nhớ của anh</h6>
                                         <p class="name_singer text-gray mb-1">Hạnh Sino</p>
-                                        <p class="loss text-pink mb-0">Lossless</p><img src="/images/img_dot_gray.png" class="icon">
                                     </div>
                                 </div>
                                 <div class="element mb-2">
@@ -173,7 +153,6 @@ $mySelf = (Auth::check() && Auth::user()->id == $user->id);
                                     <div class="content d-inline-block align-middle">
                                         <h6 class="name_song text-black mb-1">Trong trí nhớ của anh</h6>
                                         <p class="name_singer text-gray mb-1">Hạnh Sino</p>
-                                        <p class="loss text-pink mb-0">Lossless</p><img src="/images/img_dot_gray.png" class="icon">
                                     </div>
                                 </div>
                                 <div class="element mb-2">
@@ -181,7 +160,6 @@ $mySelf = (Auth::check() && Auth::user()->id == $user->id);
                                     <div class="content d-inline-block align-middle">
                                         <h6 class="name_song text-black mb-1">Trong trí nhớ của anh</h6>
                                         <p class="name_singer text-gray mb-1">Hạnh Sino</p>
-                                        <p class="loss text-pink mb-0">Lossless</p><img src="/images/img_dot_gray.png" class="icon">
                                     </div>
                                 </div>
                                 <div class="element mb-2">
@@ -189,7 +167,6 @@ $mySelf = (Auth::check() && Auth::user()->id == $user->id);
                                     <div class="content d-inline-block align-middle">
                                         <h6 class="name_song text-black mb-1">Trong trí nhớ của anh</h6>
                                         <p class="name_singer text-gray mb-1">Hạnh Sino</p>
-                                        <p class="loss text-pink mb-0">Lossless</p><img src="/images/img_dot_gray.png" class="icon">
                                     </div>
                                 </div>
                                 <div class="element mb-2">
@@ -197,7 +174,6 @@ $mySelf = (Auth::check() && Auth::user()->id == $user->id);
                                     <div class="content d-inline-block align-middle">
                                         <h6 class="name_song text-black mb-1">Trong trí nhớ của anh</h6>
                                         <p class="name_singer text-gray mb-1">Hạnh Sino</p>
-                                        <p class="loss text-pink mb-0">Lossless</p><img src="/images/img_dot_gray.png" class="icon">
                                     </div>
                                 </div>
                                 <div class="element mb-2">
@@ -205,7 +181,6 @@ $mySelf = (Auth::check() && Auth::user()->id == $user->id);
                                     <div class="content d-inline-block align-middle">
                                         <h6 class="name_song text-black mb-1">Trong trí nhớ của anh</h6>
                                         <p class="name_singer text-gray mb-1">Hạnh Sino</p>
-                                        <p class="loss text-pink mb-0">Lossless</p><img src="/images/img_dot_gray.png" class="icon">
                                     </div>
                                 </div>
                             </div>
@@ -281,203 +256,7 @@ $mySelf = (Auth::check() && Auth::user()->id == $user->id);
                     </div>
                 </div>
                 <div class="swiper-slide">
-                    <div class="container">
-                        <div class="block block_baihat">
-                            <div class="block_header d-flex flex-row justify-content-between mb-2">
-                                <h3 class="main_title text-pink mb-0">Chờ Xủ Lý</h3>
-                            </div>
-                            <div class="block_bxhbaihat block_more">
-                                <div class="element py-3 border-bottom">
-                                    <div class="number_wrap text-center text-orange_ d-inline-block align-middle mx-3">
-                                        <p class="number m-0">01</p>
-                                    </div>
-                                    <div style="background : url('https://zmp3-photo.zadn.vn/thumb/240_240/cover/d/5/a/b/d5ab15666207be0eafa55757ce67dad8.jpg') no-repeat center;background-size: cover;" class="image100 mr-2 d-inline-block align-middle"></div>
-                                    <div class="content d-inline-block align-middle">
-                                        <h6 class="name_song text-black mb-1">Trong trí nhớ của anh</h6>
-                                        <p class="name_singer text-gray mb-1">Hạnh Sino</p>
-                                        <p class="loss text-pink mb-0">Lossless</p>
-                                        <time class="time_request">22 giờ trước</time>
-                                    </div>
-                                </div>
-                                <div class="element py-3 border-bottom">
-                                    <div class="number_wrap text-center text-orange_ d-inline-block align-middle mx-3">
-                                        <p class="number m-0">02</p>
-                                    </div>
-                                    <div style="background : url('https://zmp3-photo.zadn.vn/thumb/240_240/cover/d/5/a/b/d5ab15666207be0eafa55757ce67dad8.jpg') no-repeat center;background-size: cover;" class="image100 mr-2 d-inline-block align-middle"></div>
-                                    <div class="content d-inline-block align-middle">
-                                        <h6 class="name_song text-black mb-1">Trong trí nhớ của anh</h6>
-                                        <p class="name_singer text-gray mb-1">Hạnh Sino</p>
-                                        <p class="loss text-pink mb-0">Lossless</p>
-                                        <time class="time_request">22 giờ trước</time>
-                                    </div>
-                                </div>
-                                <div class="element py-3 border-bottom">
-                                    <div class="number_wrap text-center text-orange_ d-inline-block align-middle mx-3">
-                                        <p class="number m-0">03</p>
-                                    </div>
-                                    <div style="background : url('https://zmp3-photo.zadn.vn/thumb/240_240/cover/d/5/a/b/d5ab15666207be0eafa55757ce67dad8.jpg') no-repeat center;background-size: cover;" class="image100 mr-2 d-inline-block align-middle"></div>
-                                    <div class="content d-inline-block align-middle">
-                                        <h6 class="name_song text-black mb-1">Trong trí nhớ của anh</h6>
-                                        <p class="name_singer text-gray mb-1">Hạnh Sino</p>
-                                        <p class="loss text-pink mb-0">Lossless</p>
-                                        <time class="time_request">22 giờ trước</time>
-                                    </div>
-                                </div>
-                                <div class="element py-3 border-bottom">
-                                    <div class="number_wrap text-center text-orange_ d-inline-block align-middle mx-3">
-                                        <p class="number m-0">04</p>
-                                    </div>
-                                    <div style="background : url('https://zmp3-photo.zadn.vn/thumb/240_240/cover/d/5/a/b/d5ab15666207be0eafa55757ce67dad8.jpg') no-repeat center;background-size: cover;" class="image100 mr-2 d-inline-block align-middle"></div>
-                                    <div class="content d-inline-block align-middle">
-                                        <h6 class="name_song text-black mb-1">Trong trí nhớ của anh</h6>
-                                        <p class="name_singer text-gray mb-1">Hạnh Sino</p>
-                                        <p class="loss text-pink mb-0">Lossless</p>
-                                        <time class="time_request">22 giờ trước</time>
-                                    </div>
-                                </div>
-                                <div class="element py-3 border-bottom">
-                                    <div class="number_wrap text-center text-orange_ d-inline-block align-middle mx-3">
-                                        <p class="number m-0">05</p>
-                                    </div>
-                                    <div style="background : url('https://zmp3-photo.zadn.vn/thumb/240_240/cover/d/5/a/b/d5ab15666207be0eafa55757ce67dad8.jpg') no-repeat center;background-size: cover;" class="image100 mr-2 d-inline-block align-middle"></div>
-                                    <div class="content d-inline-block align-middle">
-                                        <h6 class="name_song text-black mb-1">Trong trí nhớ của anh</h6>
-                                        <p class="name_singer text-gray mb-1">Hạnh Sino</p>
-                                        <p class="loss text-pink mb-0">Lossless</p>
-                                        <time class="time_request">22 giờ trước</time>
-                                    </div>
-                                </div>
-                                <div class="element py-3 border-bottom">
-                                    <div class="number_wrap text-center text-orange_ d-inline-block align-middle mx-3">
-                                        <p class="number m-0">06</p>
-                                    </div>
-                                    <div style="background : url('https://zmp3-photo.zadn.vn/thumb/240_240/cover/d/5/a/b/d5ab15666207be0eafa55757ce67dad8.jpg') no-repeat center;background-size: cover;" class="image100 mr-2 d-inline-block align-middle"></div>
-                                    <div class="content d-inline-block align-middle">
-                                        <h6 class="name_song text-black mb-1">Trong trí nhớ của anh</h6>
-                                        <p class="name_singer text-gray mb-1">Hạnh Sino</p>
-                                        <p class="loss text-pink mb-0">Lossless</p>
-                                        <time class="time_request">22 giờ trước</time>
-                                    </div>
-                                </div>
-                                <div class="element py-3 border-bottom">
-                                    <div class="number_wrap text-center text-orange_ d-inline-block align-middle mx-3">
-                                        <p class="number m-0">07</p>
-                                    </div>
-                                    <div style="background : url('https://zmp3-photo.zadn.vn/thumb/240_240/cover/d/5/a/b/d5ab15666207be0eafa55757ce67dad8.jpg') no-repeat center;background-size: cover;" class="image100 mr-2 d-inline-block align-middle"></div>
-                                    <div class="content d-inline-block align-middle">
-                                        <h6 class="name_song text-black mb-1">Trong trí nhớ của anh</h6>
-                                        <p class="name_singer text-gray mb-1">Hạnh Sino</p>
-                                        <p class="loss text-pink mb-0">Lossless</p>
-                                        <time class="time_request">22 giờ trước</time>
-                                    </div>
-                                </div>
-                                <div class="element py-3 border-bottom">
-                                    <div class="number_wrap text-center text-orange_ d-inline-block align-middle mx-3">
-                                        <p class="number m-0">08</p>
-                                    </div>
-                                    <div style="background : url('https://zmp3-photo.zadn.vn/thumb/240_240/cover/d/5/a/b/d5ab15666207be0eafa55757ce67dad8.jpg') no-repeat center;background-size: cover;" class="image100 mr-2 d-inline-block align-middle"></div>
-                                    <div class="content d-inline-block align-middle">
-                                        <h6 class="name_song text-black mb-1">Trong trí nhớ của anh</h6>
-                                        <p class="name_singer text-gray mb-1">Hạnh Sino</p>
-                                        <p class="loss text-pink mb-0">Lossless</p>
-                                        <time class="time_request">22 giờ trước</time>
-                                    </div>
-                                </div>
-                                <div class="element py-3 border-bottom">
-                                    <div class="number_wrap text-center text-orange_ d-inline-block align-middle mx-3">
-                                        <p class="number m-0">09</p>
-                                    </div>
-                                    <div style="background : url('https://zmp3-photo.zadn.vn/thumb/240_240/cover/d/5/a/b/d5ab15666207be0eafa55757ce67dad8.jpg') no-repeat center;background-size: cover;" class="image100 mr-2 d-inline-block align-middle"></div>
-                                    <div class="content d-inline-block align-middle">
-                                        <h6 class="name_song text-black mb-1">Trong trí nhớ của anh</h6>
-                                        <p class="name_singer text-gray mb-1">Hạnh Sino</p>
-                                        <p class="loss text-pink mb-0">Lossless</p>
-                                        <time class="time_request">22 giờ trước</time>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="block block_baihat">
-                            <div class="block_header d-flex flex-row justify-content-between mb-2">
-                                <h3 class="main_title text-pink mb-0">Đã Duyệt</h3>
-                            </div>
-                        </div>
-                        <div class="block block_baihat">
-                            <div class="block_header d-flex flex-row justify-content-between mb-2">
-                                <h3 class="main_title text-pink mb-0">Đã Xóa</h3>
-                            </div>
-                        </div>
-                        <div class="block block_album">
-                            <div class="block_header d-flex flex-row justify-content-between mb-2">
-                                <h3 class="main_title text-pink mb-0">Album</h3>
-                            </div>
-                            <div class="block_more">
-                                <div class="container">
-                                    <div class="row row-sm">
-                                        <div class="col-6">
-                                            <div class="item element">
-                                                <div style="background: url('https://avatar-nct.nixcdn.com/mv/2017/12/21/5/5/3/7/1513863104309_268.jpg') no-repeat center;background-size: cover;" class="image rounded"></div>
-                                                <div class="content mt-3">
-                                                    <h6 class="name_song mb-1">Bad and Boujee</h6>
-                                                    <p class="name_singer text-gray mb-1">Migo(feat. Lil Uzi Vert</p>
-                                                    <p class="loss text-pink mb-0">Lossless</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="item element">
-                                                <div style="background: url('https://avatar-nct.nixcdn.com/mv/2017/12/21/5/5/3/7/1513863104309_268.jpg') no-repeat center;background-size: cover;" class="image rounded"></div>
-                                                <div class="content mt-3">
-                                                    <h6 class="name_song mb-1">Bad and Boujee</h6>
-                                                    <p class="name_singer text-gray mb-1">Migo(feat. Lil Uzi Vert</p>
-                                                    <p class="loss text-pink mb-0">Lossless</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="item element">
-                                                <div style="background: url('https://avatar-nct.nixcdn.com/mv/2017/12/21/5/5/3/7/1513863104309_268.jpg') no-repeat center;background-size: cover;" class="image rounded"></div>
-                                                <div class="content mt-3">
-                                                    <h6 class="name_song mb-1">Bad and Boujee</h6>
-                                                    <p class="name_singer text-gray mb-1">Migo(feat. Lil Uzi Vert</p>
-                                                    <p class="loss text-pink mb-0">Lossless</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="item element">
-                                                <div style="background: url('https://avatar-nct.nixcdn.com/mv/2017/12/21/5/5/3/7/1513863104309_268.jpg') no-repeat center;background-size: cover;" class="image rounded"></div>
-                                                <div class="content mt-3">
-                                                    <h6 class="name_song mb-1">Bad and Boujee</h6>
-                                                    <p class="name_singer text-gray mb-1">Migo(feat. Lil Uzi Vert</p>
-                                                    <p class="loss text-pink mb-0">Lossless</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="item element">
-                                                <div style="background: url('https://avatar-nct.nixcdn.com/mv/2017/12/21/5/5/3/7/1513863104309_268.jpg') no-repeat center;background-size: cover;" class="image rounded"></div>
-                                                <div class="content mt-3">
-                                                    <h6 class="name_song mb-1">Bad and Boujee</h6>
-                                                    <p class="name_singer text-gray mb-1">Migo(feat. Lil Uzi Vert</p>
-                                                    <p class="loss text-pink mb-0">Lossless</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="item element">
-                                                <div style="background: url('https://avatar-nct.nixcdn.com/mv/2017/12/21/5/5/3/7/1513863104309_268.jpg') no-repeat center;background-size: cover;" class="image rounded"></div>
-                                                <div class="content mt-3">
-                                                    <h6 class="name_song mb-1">Bad and Boujee</h6>
-                                                    <p class="name_singer text-gray mb-1">Migo(feat. Lil Uzi Vert</p>
-                                                    <p class="loss text-pink mb-0">Lossless</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="container" id="uploaded">
                     </div>
                 </div>
             </div>
@@ -493,12 +272,15 @@ $mySelf = (Auth::check() && Auth::user()->id == $user->id);
                     <h4 class="text-center">Chỉnh sửa tài khoản</h4>
                 </div>
                 <div class="box_profile pb-3">
-                    <div class="box_profile__header"><a href="#" id="upload-avatar-crop"><img id="profile_avatar" src="https://graph.facebook.com/v3.0/1928096143946677/picture?width=1920" alt="Quang Vinh"></a></div>
+                    <div class="box_profile__header"><a href="#" id="upload-avatar-crop">
+                            <img id="view_user_avatar" src="<?php echo Helpers::pathAvatar($user->user_avatar, $user->id) ?>?time={{time()}}" alt="{{$user->name}}">
+                        </a></div>
                     <div class="box_profile__body text-center">
-                        <h4 class="media-title user_name">Quang Vinh</h4>
+                        <h4 class="media-title user_name">{{$user->name}}</h4>
                         <form>
                             <label data-toggle="modal" data-target="#changeAvatarModal" class="btn btn-secondary btn-gradien btn-radius changeAvatarButton"><i aria-hidden="true" class="fa fa-camera"></i> Thay đổi ảnh đại diện
                                 <input id="upload" type="file" name="choose_user_avatar" class="d-none">
+                                <input type="text" hidden name="user_avatar" value="" alt="" class="form-control-file" id="user_avatar">
                             </label>
                         </form>
                     </div>
@@ -507,42 +289,58 @@ $mySelf = (Auth::check() && Auth::user()->id == $user->id);
                     <form action="" method="get" accept-charset="utf-8" class="profile_submit1">
                         <div class="form-group">
                             <label for="username">Tên Tài Khoản</label>
-                            <input id="username" type="text" placeholder="" class="form-control">
+                            <input id="username" {{$user->username ? 'disabled ' : ''}}type="text" id="username" value="{{$user->username}}" placeholder="bắt buộc nhập" class="form-control">
                         </div>
-                        <div class="form-group">
-                            <label for="name">Mật khẩu</label>
-                            <input id="password" type="password" name="password" placeholder="" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="name">Nhập lại mật khẩu</label>
-                            <input id="repassword" type="password" name="repassword" placeholder="" class="form-control">
-                        </div>
+                        @if(!$user->username)
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="name">Mật khẩu</label>
+                                    <input type="password" class="form-control" id="password" name="password" placeholder="" value="">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="name">Nhập lại mật khẩu</label>
+                                    <input type="password" class="form-control" id="repassword" name="repassword" placeholder="" value="">
+                                </div>
+                            </div>
+                        @else
+                            <span href="javascript:void(0);" title="" class="btn_change_password" onclick="showChangePassWord();">Thay đổi mật khẩu <br/></span>
+                            <div class="form-row input_change_pass" style="display: none">
+                                <div class="form-group col-md-6">
+                                    <label for="name">Mật khẩu cũ</label>
+                                    <input type="password" class="form-control" id="current_password" name="current_password" placeholder="" value="">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="name">Mật khẩu mới</label>
+                                    <input type="password" class="form-control" id="password" name="password" placeholder="" value="">
+                                </div>
+                            </div>
+                        @endif
                         <div class="form-group">
                             <label for="exampleInputEmail12">Link URL của bạn</label>
-                            <input id="exampleInputEmail12" type="text" disabled="" placeholder="" value="https://beta.chiasenhac.com/user/997968" class="form-control disabled">
+                            <input type="text" class="form-control disabled" disabled id="exampleInputEmail12" placeholder="" value="{{env('APP_URL').'/user/'.$user->id}}">
                         </div>
                         <div class="form-group">
                             <label for="name">Tên</label>
-                            <input id="name" type="text" name="name" aria-describedby="emailHelp" placeholder="" value="Quang Vinh" class="form-control">
+                            <input id="name" type="text" name="name" aria-describedby="emailHelp" placeholder="" value="{{$user->name}}" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="user_gender">Giới tính</label>
-                            <select id="user_gender" name="user_gender" class="form-control">
-                                <option selected="" value="0">Nam</option>
-                                <option value="1">Nữ</option>
+                            <select name="user_gender" id="user_gender" class="form-control">
+                                <option {{ ($user->user_gender == 0 ? 'selected' : '') }} value="0">Nam</option>
+                                <option {{ ($user->user_gender == 1 ? 'selected' : '') }} value="1">Nữ</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="user_birthday">Số điện thoại</label>
-                            <input id="user_phone_number" type="text" name="user_phone_number" placeholder="" class="form-control">
+                            <input type="text" class="form-control"  name="user_phone_number" id="user_phone_number" placeholder="" value="{{$user->user_phone_number}}">
                         </div>
                         <div class="form-group">
                             <label for="user_phone_number">Ngày Sinh</label>
-                            <input id="user_birthday" type="date" name="user_birthday" placeholder="" class="form-control">
+                            <input type="date" class="form-control"  name="user_birthday" id="user_birthday" aria-describedby="phone" placeholder="" value="{{$user->user_birthday}}">
                         </div>
                         <div class="form-group">
                             <label for="user_interests">Thông tin</label>
-                            <textarea id="user_interests" name="user_interests" rows="3" class="form-control"></textarea>
+                            <textarea class="form-control" id="user_interests" name="user_interests" rows="3">{{$user->user_interests}}</textarea>
                         </div>
                         <div class="text-right"><a href="#" class="cancel cancel_model_profile">Hủy</a>
                             <button onclick="updateProfile();" class="btn btn-secondary ml-3">Hoàn tất</button>
@@ -568,22 +366,16 @@ $mySelf = (Auth::check() && Auth::user()->id == $user->id);
             </div>
         </div>
     </div>
-    <div id="alertAvatarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade">
-        <div role="document" class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <div class="modal_content_csn">Lần đăng nhập với tài khoản facebook hoặc google sẽ cập nhật thêm thông tin tên tài khoản và mật khẩu.</div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" data-dismiss="modal" class="btn">Ok</button>
-                </div>
-            </div>
-        </div>
-    </div>
 @endsection
 @section('contentJS')
     <script type="text/javascript" src="/js/croppie.js"></script>
     <script>
+        var oldViewAvatar = $('#view_user_avatar').attr("src");
+        var oldAvatar = $('#user_avatar').val();
+        $('.profile_submit1').submit(false);
+        function showChangePassWord() {
+            $('.input_change_pass').toggle('slow');
+        }
         var $uploadCrop = $('#upload-avatar').croppie({
             enableExif: true,
             viewport: {
@@ -620,6 +412,7 @@ $mySelf = (Auth::check() && Auth::user()->id == $user->id);
                 }
             }).then(function(resp) {
                 $("#upload-avatar-crop img").attr('src', resp);
+                $("#user_avatar").val(resp);
                 $("#changeAvatarModal").modal('hide');
                 /*$.ajax({
                     url: action,
@@ -637,11 +430,12 @@ $mySelf = (Auth::check() && Auth::user()->id == $user->id);
             });
         });
         $('.cancel_model_profile').click(function(e) {
+            $('#user_avatar').val('');
+            $('#view_user_avatar').attr("src", oldViewAvatar);
             e.preventDefault();
             var $body = $(this).parents('body');
-            $body.find('.wrap-search').addClass('open');
         });
-        var openModal = function(button, containerModal , alertMess = false) {
+        var openModal = function(button, containerModal) {
             $(button).click(function(e) {
                 e.preventDefault();
                 var height = $(containerModal).innerHeight();
@@ -649,9 +443,13 @@ $mySelf = (Auth::check() && Auth::user()->id == $user->id);
                 $body.addClass('overlay');
                 $body.find(containerModal).fadeIn('400');
                 $body.scrollTop(0);
-                if ( alertMess == true ) {
-                    $('#alertAvatarModal').modal('show');
+                <?php
+                if(!$user->username) {
+                    ?>
+                    alertModal('Lần đăng nhập với tài khoản facebook hoặc google sẽ cập nhật thêm thông tin tên tài khoản và mật khẩu.');
+                    <?php
                 }
+                ?>
             });
 
         }
@@ -664,7 +462,138 @@ $mySelf = (Auth::check() && Auth::user()->id == $user->id);
                 $body.scrollTop(0);
             });
         }
-        openModal('.modal-edit-profile', '.wrap-edit-profile', true);
+        openModal('.modal-edit-profile', '.wrap-edit-profile');
         closeModal('.cancel_model_profile', '.wrap-edit-profile');
+        function updateProfile() {
+            resetInputLogin();
+            if(($('.profile_submit1').find('#username').val()) < 4) {
+                var $body = $(this).parents('body');
+                $("#username").focus();
+                addErrorInput($('#username'), 'Tên tài khoản không được để trống và lớn hơn 4 ký tự');
+                return false;
+            }
+            if(($('.profile_submit1').find('#name').val()).length < 4) {
+                $("#name").focus();
+                addErrorInput($('#name'), 'Tên không được để trống và lớn hơn 4 ký tự');
+                return false;
+            }
+            $.ajax({
+                url: "/user/update",
+                type: "POST",
+                dataType: 'json',
+                data: {
+                    'name': $('.profile_submit1').find('#name').val(),
+                    'user_gender': $('.profile_submit1').find('#user_gender').val(),
+                    'user_birthday': $('.profile_submit1').find('#user_birthday').val(),
+                    'user_phone_number': $('.profile_submit1').find('#user_phone_number').val(),
+                    'user_interests': $('.profile_submit1').find('#user_interests').val(),
+                    'user_avatar': $('#user_avatar').val(),
+                    'username': $('#username').val(),
+                    'password': $('#password').val(),
+                    'repassword': $('#repassword').val(),
+                    'current_password': $('#current_password').val()
+                },
+                beforeSend: function () {
+                    if(loaded) return false;
+                    loaded = true;
+                },
+                statusCode: {
+                    401: function () {
+                        window.location.replace('/login');
+                        return false;
+                    }
+                },
+                success: function (response) {
+                    waitingDialog.hide();
+                    if(response.success) {
+                        if($('#user_avatar').val()){
+                            let urlImageAvt = '<?php echo (strpos($user->user_avatar, "http") !== false) ? "" : Helpers::file_path($user->id, PUBLIC_AVATAR_PATH, true) ?>' + response.data.user_avatar + '?v=' + Date.now();
+                            $("#view_user_avatar_2").attr("src", urlImageAvt)
+                            $('#user_avatar').val("");
+                            $('#nav-avatar').css('background-image', 'url(' + urlImageAvt + ')');
+                        }
+                        oldViewAvatar = $('#view_user_avatar').attr("src");
+                        $('.user_name').html(response.data.name);
+                        $('.edit_profile').modal('toggle');
+                        $('#password').val('');
+                        $('#current_password').val('');
+                        if(response.data.refresh) {
+                            location.reload();
+                        }else{
+                            $('.cancel_model_profile').click();
+                            successModal(response.message);
+                        }
+                    }else{
+                        $.each( response.data, function( key, value ) {
+                            addErrorInput($('.profile_submit1').find('#' + key), value);
+                        });
+                    }
+
+                }
+            });
+            return false;
+        }
+        function resetInputLogin() {
+            $('.profile_submit1').find('.input-help-block').remove();
+            $('.profile_submit1').find('.alert').remove();
+            $('.profile_submit1').find('input').removeClass('input-has-error');
+        }
+        function addErrorInput(tag, content) {
+            tag.focus();
+            tag.addClass('input-has-error');
+            tag.before('<span class="input-help-block"><strong>' + content + '</strong></span>');
+        }
+        <?php
+        if(isset($_GET['tab'])) {
+        ?>
+        $( document ).ready(function() {
+            setTimeout(function(){
+                $('.<?php echo $_GET['tab'] ?>').click();
+            }, 600);
+        });
+        <?php
+        }
+        ?>
+        var firstUploaded = true;
+        function musicUserTab(tab) {
+            if(tab == 'musicUploaded' && firstUploaded) {
+                firstUploaded = false;
+                musicUploaded('<?php echo $user->id ?>/music_uploaded', 'all');
+            }
+        }
+        function musicUploaded(url, stage) {
+            var uploaded = $('#uploaded');
+            $.ajax({
+                url: url,
+                type: "POST",
+                dataType: "html",
+                data: {
+                    'user_id': <?php echo $user->id; ?>,
+                    'stage' : stage
+                },
+                beforeSend: function () {
+                    if(loaded) return false;
+                    loaded = true;
+                },
+                success: function(response) {
+                    if(stage == 'all') {
+                        uploaded.html(response);
+                    }else{
+                        uploaded = $('.stage_' + stage);
+                        $('.stage_' + stage).html(response);
+                    }
+                    uploaded.find('.pagination li a').on('click', function (e) {
+                        e.preventDefault();
+                        musicUploaded($(this).attr('href'), $(this).parents().parents().parents().data('page'));
+                    });
+                }
+            });
+        }
+
+
+
+
+
+
     </script>
 @endsection

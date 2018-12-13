@@ -23,7 +23,15 @@
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': csrfToken
-            }
+            },
+            statusCode: {
+                401: function () {
+                    clearTimeout(timeOutLoading);
+                    waitingDialog.hide();
+                    window.location.replace('/login');
+                    return false;
+                }
+            },
         });
         $( document ).ajaxStart(function() {
             timeOutLoading = setTimeout(function(){

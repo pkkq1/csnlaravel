@@ -12,12 +12,13 @@ use App\Library\Helpers;
         $album_artist = $album_artist. ';'.$item['album_artist_2'];
     }
     ?>
-    <div class="element mb-2">
-        <a href="{{$url}}"><div class="image100 mr-2 d-inline-block align-middle" style="background : url('{{Helpers::cover_url($item['cover_id'])}}') no-repeat center;background-size: cover;"></div></a>
-        <div class="content d-inline-block align-middle">
-            <a href="{{$url}}"><h6 class="name_song text-black mb-1 card-title">{{$item['music_album']}}</h6></a>
-            <p class="name_singer text-gray mb-1 author"><?php echo Helpers::rawHtmlArtists($album_artist_id, $album_artist) ?></p>
-            <p class="loss text-pink mb-0"><?php echo Helpers::bitrate2str($item['music_bitrate']); ?></p>
+    <div class="col-6">
+        <div class="item element">
+            <a href="{{$url}}"><div style="background: url({{Helpers::cover_url($item['cover_id'])}}) no-repeat center;background-size: cover;" class="image rounded"></div></a>
+            <div class="content mt-3">
+                <a href="{{$url}}"><h6 class="name_song mb-1 card-title">{{$item['music_album']}}</h6></a>
+                <p class="name_singer text-gray mb-1 author"><?php echo Helpers::rawHtmlArtists($album_artist_id, $album_artist) ?></p>
+            </div>
         </div>
     </div>
     <?php

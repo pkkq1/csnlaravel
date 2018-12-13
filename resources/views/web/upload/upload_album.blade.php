@@ -1,7 +1,7 @@
 @section('hidden_wapper', true)
 <?php
 use App\Library\Helpers;
-$titleMeta = 'Cập nhật nhạc mới - ' . Config::get('constants.app.title');
+$titleMeta = 'Cập nhật album - ' . Config::get('constants.app.title');
 ?>
 @section('contentCSS')
     <link rel="stylesheet" type="text/css" href="/css/croppie.css">
@@ -93,7 +93,7 @@ $titleMeta = 'Cập nhật nhạc mới - ' . Config::get('constants.app.title')
                                     @endif
                                     <div class="card cover_upload form-group" <?php echo isset($album) ? 'style="padding-top: 0px; font-size: 200%;"' : '' ?>>
                                         @if(isset($album))
-                                        <label for="choose_album_cover" class="card-body d-flex align-items-center justify-content-center" style="z-index: 9999"></label>
+                                        <label for="choose_album_cover" class="card-body d-flex align-items-center justify-content-center" style="z-index: 9999;cursor: pointer;"></label>
                                         <img class="mr-3" {{isset($album) ? '' : 'hidden'}} id="album_cover_uploaded" src="{{isset($album) ? Helpers::file_path($album->album_id, PUBLIC_COVER_ALBUM_CROP_PATH, true).$album->cover_filename : '/imgs/avatar_default.png?v='.time()}}" alt="" style="z-index: 999; width: 177px;">
                                         @else
                                         <label for="choose_album_cover" class="card-body d-flex align-items-center justify-content-center" style="z-index: 9999">
@@ -104,7 +104,7 @@ $titleMeta = 'Cập nhật nhạc mới - ' . Config::get('constants.app.title')
                                                 </label>
                                             </div>
                                         </label>
-                                        <img class="mr-3" id="album_cover_uploaded" src="{{isset($album) ? COVER_ALBUM_SOURCE_PATH.$album->cover_filename : '/imgs/avatar_default.png'}}" alt="" style="z-index: 999; width: 177px;">
+                                        <img class="mr-3" id="album_cover_uploaded" src="{{isset($album) ? COVER_ALBUM_SOURCE_PATH.$album->cover_filename : '/imgs/avatar_default.png'}}?time={{time()}}" alt="" style="z-index: 999; width: 177px;">
                                         @endif
 
                                         <div class="media-body">

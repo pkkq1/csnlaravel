@@ -60,6 +60,7 @@ use App\Library\Helpers;
             $('.login_possition').find('input').removeClass('input-has-error');
         }
         function addErrorInput(tag, content) {
+            tag.focus();
             tag.addClass('input-has-error');
             tag.before('<span class="input-help-block"><strong>' + content + '</strong></span>');
         }

@@ -19,7 +19,7 @@ use App\Library\Helpers;
         <div id="navbar_main_header_top">
             @if(Auth::check())
             <div class="profile">
-                <a href="{{env('APP_URL')}}/user/{{Auth::user()->id}}"><div style="background: url(<?php echo Helpers::pathAvatar(Auth::user()->user_avatar, Auth::user()->id) ?>) no-repeat center;background-size: cover;" class="image mr-3 d-inline-block align-middle rounded-circle"></div>
+                <a href="{{env('APP_URL')}}/user/{{Auth::user()->id}}"><div style="background: url(<?php echo Helpers::pathAvatar(Auth::user()->user_avatar, Auth::user()->id) ?>?time={{time()}}) no-repeat center;background-size: cover;" id="nav-avatar" class="image mr-3 d-inline-block align-middle rounded-circle"></div>
                     <div class="content d-inline-block align-middle">
                         <h5 class="text-white">{{Auth::user()->name}}</h5>
                         <p class="text-gray m-0">{{Auth::user()->email}}</p>
@@ -94,6 +94,8 @@ use App\Library\Helpers;
                         view_all: true
                     },
                     success: function( data ) {
+                        clearTimeout(timeOutLoading);
+                        waitingDialog.hide();
                         dataSearch = response( data );
                     }
                 } );
@@ -209,7 +211,7 @@ use App\Library\Helpers;
     function redirectSearch(tab) {
         window.location.href = "/tim-kiem?q=" + $('#search_autocomplete').val() + '&' + tab + '=1';
     }
-    $('.fa-search').click(function() {
-        document.getElementById("search_autocomplete").trigger('focus');
-    })
+    // $('.fa-search').click(function() {
+    //     document.getElementById("search_autocomplete").trigger('focus');
+    // })
 </script>

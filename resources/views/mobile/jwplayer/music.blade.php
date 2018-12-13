@@ -148,7 +148,7 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                                                     $urlVideo = Helpers::listen_url($video);
                                                     ?>
                                                     <div class="box_header d-flex justify-content-between align-items-end">
-                                                        <h5 class="title m-0">MV của bài hát</h5>
+                                                        <h3 class="main_title text-pink mb-0">MV của bài hát</h3>
                                                     </div>
                                                     <div class="element py-3 border-bottom">
                                                         <a href="{{$urlVideo}}">

@@ -349,11 +349,10 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                             <a class="search-line" href="{{$item['artist_link']}}" title="{{$item['artist_nickname']}}">
                             <li class="media align-items-stretch">
                                 <div class="media-left align-items-stretch mr-2">
-
                                         <img src="{{$item['artist_cover']}}" alt="{{$item['artist_link']}}">
                                 </div>
                                 <div class="media-body align-self-center d-flex flex-column justify-content-between p-0">
-                                    <div><h5 class="media-title mt-0 mb-0 span_h5">Jenn Em</h5></div>
+                                    <div><h5 class="media-title mt-0 mb-0 span_h5">{{$item['artist_nickname']}}</h5></div>
                                 </div>
                             </li></a>
                             <?php

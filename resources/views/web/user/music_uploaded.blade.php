@@ -277,7 +277,7 @@
     <div class="row row10px float-col-width">
         <?php
         array_map(function ($i, $item) {
-        $url = '#';
+        $url = '/dang-tai/album/'.$item['album_id'];
         ?>
         <div class="col">
             <div class="card card1">
