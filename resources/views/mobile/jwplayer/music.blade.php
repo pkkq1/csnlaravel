@@ -547,9 +547,9 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                         $('.csn-repeat-btn').on('touchstart', function () {
                             $('.csn-repeat-btn').click();
                         });
-                        $('.csn-random-btn').on('touchstart', function () {
-                            $('.csn-random-btn').click();
-                        });
+                        // $('.csn-random-btn').on('touchstart', function () {
+                        //     $('.csn-random-btn').click();
+                        // });
                         <?php
                     }
                 ?>
