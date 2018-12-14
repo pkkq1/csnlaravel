@@ -718,7 +718,7 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
             $('.stringQ').find('span').html(callback['levels'][curQual]['label']);
         }
     }
-
+    // btn playlist, download, factories
     $('.cancel-download').click(function(e) {
         $('.wrap-bottom-sheet').hide();
         $('.bottom-sheet').slideUp();
@@ -963,6 +963,7 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
     var boxArtists = '';
     var boxArtistIds = '';
     function addPlaylistTable(musicName, setId, setArtist, setArtistId) {
+        $('.bottom-sheet').slideUp();
         <?php
         if(!Auth::check()) {
         ?>
