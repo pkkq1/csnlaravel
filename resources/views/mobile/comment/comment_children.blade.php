@@ -9,9 +9,9 @@ use App\Library\Helpers;
         <div class="item position_relative">
             <div class="body_comment">
                 <a href="/user/{{$reply['user']['id']}}"><div class="infor"><strong class="author card-title">{{$reply['user']['name']}}</strong>
-                        @if($item['comment_jw_postion'])
+                        @if($reply['comment_jw_postion'])
                         <span class="text-gray">at</span>
-                        <time>{{ $item['comment_jw_postion'] >= 3600 ? gmdate("H:i:s", $item['comment_jw_postion']) : gmdate("i:s", $item['comment_jw_postion'])}}</time>
+                        <time>{{ $reply['comment_jw_postion'] >= 3600 ? gmdate("H:i:s", $reply['comment_jw_postion']) : gmdate("i:s", $reply['comment_jw_postion'])}}</time>
                         @endif
                     </div></a>
                 <div class="detail">
