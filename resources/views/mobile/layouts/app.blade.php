@@ -7,7 +7,7 @@
 @yield('contentJS')
 </body>
 <?php
-global $timeStart;
-echo '<center>'.number_format((microtime(true) - $timeStart), 2).'</center>';
+//global $timeStart;
+//echo '<center>'.number_format((microtime(true) - $timeStart), 2).'</center>';
 ?>
 </html>

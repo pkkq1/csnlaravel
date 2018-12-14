@@ -26,10 +26,10 @@ global $album_cat_new;
             <div data-itemmenu="4" class="swiper-container swiper1">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide selected">Home</div>
-                    <div class="swiper-slide swiper-w90">Chủ đề</div>
-                    <div class="swiper-slide swiper-w90">Album mới</div>
-                    <div class="swiper-slide swiper-w90">Bài hát mới</div>
-                    <div class="swiper-slide swiper-w90">Video mới</div>
+                    <div class="swiper-slide">Chủ đề</div>
+                    <div class="swiper-slide">Album mới</div>
+                    <div class="swiper-slide">Bài hát mới</div>
+                    <div class="swiper-slide">Video mới</div>
                 </div>
             </div>
         </div>
@@ -528,7 +528,7 @@ global $album_cat_new;
                         e.preventDefault();
                         musicPage($(this).attr('href'), tab);
                     });
-                    // $('.swiper-wrapper-content').height($('#' + tab).height())
+                    swiper2.update();
                 }
             });
         }

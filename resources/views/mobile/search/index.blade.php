@@ -14,10 +14,10 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
         <div class="header_sub_menu">
             <div data-itemmenu="4" class="swiper-container swiper1">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide selected swiper-w145 search-music">Bài Hát ({{number_format($result['music']['row_total'])}})</div>
-                    <div class="swiper-slide swiper-w145 search-album" >Album ({{number_format($result['album']['row_total'])}})</div>
-                    <div class="swiper-slide swiper-w145 search-video">Video ({{number_format($result['video']['row_total'])}})</div>
-                    <div class="swiper-slide swiper-w145 search-artist">Ca sĩ ({{number_format($result['artist']['row_total'])}})</div>
+                    <div class="swiper-slide selected search-music">Bài Hát ({{number_format($result['music']['row_total'])}})</div>
+                    <div class="swiper-slide search-album" >Album ({{number_format($result['album']['row_total'])}})</div>
+                    <div class="swiper-slide search-video">Video ({{number_format($result['video']['row_total'])}})</div>
+                    <div class="swiper-slide search-artist">Ca sĩ ({{number_format($result['artist']['row_total'])}})</div>
                 </div>
             </div>
         </div>

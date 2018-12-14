@@ -586,6 +586,7 @@ $mySelf = (Auth::check() && Auth::user()->id == $user->id);
                         e.preventDefault();
                         musicUploaded($(this).attr('href'), $(this).parents().parents().parents().data('page'));
                     });
+                    swiper2.update();
                 }
             });
         }

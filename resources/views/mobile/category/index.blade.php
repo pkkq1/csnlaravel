@@ -15,14 +15,14 @@ $titleMeta = $category->cat_title . ' - '. Config::get('constants.app.title');
             <div data-itemmenu="4" class="swiper-container swiper1">
                 <div class="swiper-wrapper">
                     @if($category->cat_id != CATEGORY_ID_VIDEO)
-                    <div class="swiper-slide tab-music selected swiper-w90 album-{{CURRENT_YEAR}}" data-tab="album-{{CURRENT_YEAR}}">Album {{CURRENT_YEAR}}</div>
-                    <div class="swiper-slide tab-music swiper-w90 album-moi" data-tab="album-moi">Album Mới</div>
-                    <div class="swiper-slide tab-music swiper-w90 bai-hat-moi" data-tab="bai-hat-moi">Bài Hát Mới</div>
-                    <div class="swiper-slide tab-music swiper-w145 vua-download" data-tab="vua-download">Vừa Download</div>
+                    <div class="swiper-slide tab-music selected album-{{CURRENT_YEAR}}" data-tab="album-{{CURRENT_YEAR}}">Album {{CURRENT_YEAR}}</div>
+                    <div class="swiper-slide tab-music album-moi" data-tab="album-moi">Album Mới</div>
+                    <div class="swiper-slide tab-music bai-hat-moi" data-tab="bai-hat-moi">Bài Hát Mới</div>
+                    <div class="swiper-slide tab-music  vua-download" data-tab="vua-download">Vừa Download</div>
                     @else
-                    <div class="swiper-slide tab-music selected swiper-w90 video-{{CURRENT_YEAR}}" data-tab="video-{{CURRENT_YEAR}}">Video {{CURRENT_YEAR}}</div>
-                    <div class="swiper-slide tab-music swiper-w90 video-moi" data-tab="video-moi">Video mới</div>
-                    <div class="swiper-slide tab-music swiper-w90 video-vua-download" data-tab="video-vua-download">Vừa download</div>
+                    <div class="swiper-slide tab-music selected video-{{CURRENT_YEAR}}" data-tab="video-{{CURRENT_YEAR}}">Video {{CURRENT_YEAR}}</div>
+                    <div class="swiper-slide tab-music video-moi" data-tab="video-moi">Video mới</div>
+                    <div class="swiper-slide tab-music video-vua-download" data-tab="video-vua-download">Vừa download</div>
                     @endif
                 </div>
             </div>
@@ -135,6 +135,7 @@ $titleMeta = $category->cat_title . ' - '. Config::get('constants.app.title');
                             categoryTab($(this).attr('href'), tab, true);
                         });
                         $('.'+tab).click();
+                        swiper2.update();
                     }
                 });
             }

@@ -817,6 +817,7 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                 }
                 $('.music_comment .number_comment').html(parseInt($('.music_comment .number_comment').html()) + 1);
                 $('.box_form_comment').submit(false);
+                swiper2.update();
             }
         });
         return false;
@@ -851,13 +852,14 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                     loadPageComment($(this).attr('href'));
                     pageComment = $(this).html();
                 });
+                swiper2.update();
             }
         });
     }
     $(window).scroll(function(event){
         var st = $(this).scrollTop();
         if(loadComment) {
-            if (st > $('#form_comment').offset().top - 800){
+            if (st > $('#form_comment').offset().top - 900){
                 loadPageComment('/binh-luan/get_ajax?page=<?php echo $_GET['comment_page'] ?? 1 ?>');
                 pageComment = <?php echo $_GET['comment_page'] ?? 1 ?>;
                 loadComment = false;
