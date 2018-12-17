@@ -90,8 +90,10 @@ Route::group(['middlewareGroups' => ['web']], function () {
     // playlist
     Route::get('playlist/{playlistUrl}.html', ['as' => 'music.playlist.listen', 'uses' => 'MusicController@listenPlaylistMusic']);
     Route::get('playlist/{playlistUrl}', ['as' => 'music.playlist.listen', 'uses' => 'MusicController@listenPlaylistMusic']);
+    Route::get('nghe-bat-hat-ca-si/{playlistUrl}', ['as' => 'music.playlist.listen', 'uses' => 'MusicController@listenPlaylistMusic']);
     // artist
     Route::get('ca-si/{artistUrl}', ['as' => 'artist.home', 'uses' => 'ArtistController@index']);
+    Route::post('ca-si/favorite', ['as' => 'artist.home', 'uses' => 'ArtistController@favorite']);
     Route::post('tab_artist', ['as' => 'artist.get_tab', 'uses' => 'ArtistController@getTabArtist']);
 
     // nhac hot, bang xep hang
@@ -112,6 +114,7 @@ Route::group(['middlewareGroups' => ['web']], function () {
     Route::post('binh-luan/get_ajax', ['as' => 'comment.get_ajax', 'uses' => 'CommentController@getAjaxCommentByMusicId']);
     Route::get('music/history_listen', ['as' => 'music.history_listen', 'uses' => 'MusicController@historyListen']);
 
+    Route::post('music/favourite', ['as' => 'user.uploaded', 'uses' => 'MusicController@musicFavourite']);
 
     // Search
     Route::get('tim-kiem', ['as' => 'search.index', 'uses' => 'SearchController@index']);
@@ -121,9 +124,13 @@ Route::group(['middlewareGroups' => ['web']], function () {
     // User
     Route::prefix('user/')->group(function () {
         Route::get('{id}', ['as' => 'user.index', 'uses' => 'User\UserController@index']);
-        Route::post('{id}/music_uploaded', ['as' => 'user.uploaded', 'uses' => 'User\UserMusicController@musicUploaded']);
         Route::get('{id}/redirect/{music_id}', ['as' => 'user.redirect', 'uses' => 'User\UserMusicController@musicUploadedRedirect']);
         Route::post('{id}/music_recents', ['as' => 'user.uploaded', 'uses' => 'User\UserMusicController@musicRecent']);
+        Route::post('music_uploaded', ['as' => 'user.uploaded', 'uses' => 'User\UserMusicController@musicUploaded']);
+        Route::post('artist_favourite', ['as' => 'user.uploaded', 'uses' => 'User\UserMusicController@artistFavourite']);
+        Route::post('video_favourite', ['as' => 'user.uploaded', 'uses' => 'User\UserMusicController@videoFavourite']);
+        Route::post('music_favourite', ['as' => 'user.uploaded', 'uses' => 'User\UserMusicController@musicFavourite']);
+
 
     });
     Route::prefix('chu-de/')->group(function () {

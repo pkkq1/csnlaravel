@@ -16,6 +16,9 @@ use App\Repositories\MusicListen\MusicListenEloquentRepository;
 use App\Repositories\Video\VideoEloquentRepository;
 use App\Repositories\Category\CategoryEloquentRepository;
 use App\Repositories\Cover\CoverEloquentRepository;
+use App\Repositories\Artist\ArtistRepository;
+use App\Repositories\MusicFavourite\MusicFavouriteRepository;
+use App\Repositories\VideoFavourite\VideoFavouriteRepository;
 use Illuminate\Support\Facades\Auth;
 use App\Models\PlaylistMusicModel;
 use DB;
@@ -33,9 +36,13 @@ class MusicController extends Controller
     protected $musicListenRepository;
     protected $categoryListenRepository;
     protected $coverRepository;
+    protected $artistRepository;
+    protected $musicFavouriteRepository;
+    protected $videoFavouriteRepository;
 
     public function __construct(MusicEloquentRepository $musicRepository, PlaylistEloquentRepository $playlistRepository, MusicListenEloquentRepository $musicListenRepository,
-                                CategoryEloquentRepository $categoryListenRepository, CoverEloquentRepository $coverRepository, VideoEloquentRepository $videoRepository)
+                                CategoryEloquentRepository $categoryListenRepository, CoverEloquentRepository $coverRepository, VideoEloquentRepository $videoRepository, ArtistRepository $artistRepository,
+                                MusicFavouriteRepository $musicFavouriteRepository, VideoFavouriteRepository $videoFavouriteRepository)
     {
         $this->musicRepository = $musicRepository;
         $this->videoRepository = $videoRepository;
@@ -43,6 +50,9 @@ class MusicController extends Controller
         $this->musicListenRepository = $musicListenRepository;
         $this->categoryListenRepository = $categoryListenRepository;
         $this->coverRepository = $coverRepository;
+        $this->artistRepository = $artistRepository;
+        $this->musicFavouriteRepository = $musicFavouriteRepository;
+        $this->videoFavouriteRepository = $videoFavouriteRepository;
     }
 
     /**
@@ -84,7 +94,14 @@ class MusicController extends Controller
             'playlist_music' => [],
             'music_history' => $cookie
         ];
-        return view('jwplayer.music', compact('music', 'musicSet'));
+        $musicFavourite = false;
+        if(Auth::check()){
+            $getModelFavourite = $this->musicFavouriteRepository;
+            if($type == 'video')
+                $getModelFavourite = $this->videoFavouriteRepository;
+            $musicFavourite = $getModelFavourite->getModel()::where([['user_id', Auth::user()->id], ['music_id', $music->music_id]])->first();
+        }
+        return view('jwplayer.music', compact('music', 'musicSet', 'musicFavourite'));
     }
     public function listenPlaylistMusic(Request $request, $musicUrl) {
         $arrUrl = Helpers::splitPlaylistUrl($musicUrl);
@@ -94,7 +111,7 @@ class MusicController extends Controller
         if($arrUrl['type'] == 'nghe-album') {
             $album = $this->coverRepository->getCoverMusicById($arrUrl['id']);
             if(!$album)
-                return view('errors.text_error')->with('message', 'Album không tìm thấy.');;
+                return view('errors.text_error')->with('message', 'Album không tìm thấy.');
             $typeListen = 'album';
             if(($album->music)) {
                 $playlistMusic = $album->music->toArray();
@@ -107,6 +124,16 @@ class MusicController extends Controller
             if(($playlist->music)) {
                 $playlistMusic = $playlist->music->toArray();
             }
+        }elseif($arrUrl['type'] == 'nghe-bat-hat-ca-si'){
+            $arrUrl = Helpers::splitArtistUrl($musicUrl);
+            $artist = $this->artistRepository->find($arrUrl['id']);
+            if(!$artist)
+                return view('errors.text_error')->with('message', 'Ca sĩ chưa được phát hành.');
+            $music = $this->musicRepository->findMusicByArtist($artist->artist_nickname, 'music_id', 'desc', LIMIT_MUSIC_PAGE_ARTIST)->toArray();
+            if(!$music['data'])
+                return view('errors.text_error')->with('message', 'Ca sĩ chưa có bài hát nào phát hành.');
+            $playlistMusic = $music['data'];
+            $typeListen = 'playlist';
         }
         if($playlistMusic) {
             $offsetPl = $playlistMusic[$request->playlist ? $request->playlist - 1 : 0];
@@ -137,7 +164,14 @@ class MusicController extends Controller
             'playlist_music' => $playlistMusic,
             'music_history' => $cookie
         ];
-        return view('jwplayer.music', compact('music', 'musicSet'));
+        $musicFavourite = false;
+        if(Auth::check()){
+            $getModelFavourite = $this->musicFavouriteRepository;
+            if($type == 'video')
+                $getModelFavourite = $this->videoFavouriteRepository;
+            $musicFavourite = $getModelFavourite->getModel()::where([['user_id', Auth::user()->id], ['music_id', $music->music_id]])->first();
+        }
+        return view('jwplayer.music', compact('music', 'musicSet', 'musicFavourite'));
     }
     public function listenBxhNow(Request $request, $catUrl, $catLevel = '') {
         return $this->listenBxhMusic($request, str_replace('.html', '', $catUrl), 'now', $catLevel);
@@ -201,7 +235,14 @@ class MusicController extends Controller
             'playlist_music' => $playlistMusic,
             'music_history' => $cookie
         ];
-        return view('jwplayer.music', compact('music', 'musicSet'));
+        $musicFavourite = false;
+        if(Auth::check()){
+            $getModelFavourite = $this->musicFavouriteRepository;
+            if($type == 'video')
+                $getModelFavourite = $this->videoFavouriteRepository;
+            $musicFavourite = $getModelFavourite->getModel()::where([['user_id', Auth::user()->id], ['music_id', $music->music_id]])->first();
+        }
+        return view('jwplayer.music', compact('music', 'musicSet', 'musicFavourite'));
     }
     public function embed(Request $request, $music) {
         $music = $this->musicRepository->findOnlyMusicId($music);
@@ -228,5 +269,25 @@ class MusicController extends Controller
             }
         }
         return response($result);
+    }
+    function musicFavourite (Request $request) {
+        $dataRes = null;
+        if(!Auth::check())
+            return 'Lỗi User';
+        $typeMes = 'bài hát';
+        $getModelFavourite = $this->musicFavouriteRepository;
+        if($request->type_of == 'video') {
+            $typeMes = 'video';
+            $getModelFavourite = $this->videoFavouriteRepository;
+        }
+        if($request->type == 'true'){
+            $msg = 'Đã bỏ '.$typeMes.' '.$request->name.' ra khỏi danh sách yêu thích.';
+            $dataRes = [];
+            $getModelFavourite->getModel()::where([['user_id', Auth::user()->id], ['music_id', $request->music_id]])->delete();
+        }else{
+            $msg = 'Đã thêm '.$typeMes.' '.$request->name.' vào danh sách yêu thích.';
+            $getModelFavourite->getModel()::create(['user_id' => Auth::user()->id, 'music_id' => $request->music_id]);
+        }
+        Helpers::ajaxResult(true, $msg, $dataRes);
     }
 }

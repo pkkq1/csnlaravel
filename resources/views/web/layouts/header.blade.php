@@ -67,13 +67,13 @@
             },
         });
         $( document ).ajaxStart(function() {
-            timeOutLoading = setTimeout(function(){
-                waitingDialog.show();
-            }, 1200);
+            // timeOutLoading = setTimeout(function(){
+            //     waitingDialog.show();
+            // }, 1200);
         });
         $( document ).ajaxStop(function() {
-            clearTimeout(timeOutLoading);
-            waitingDialog.hide();
+            // clearTimeout(timeOutLoading);
+            // waitingDialog.hide();
             loaded = false;
         });
         window.fbAsyncInit = function() {

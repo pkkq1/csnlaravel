@@ -558,7 +558,7 @@ $mySelf = (Auth::check() && Auth::user()->id == $user->id);
         function musicUserTab(tab) {
             if(tab == 'musicUploaded' && firstUploaded) {
                 firstUploaded = false;
-                musicUploaded('<?php echo $user->id ?>/music_uploaded', 'all');
+                musicUploaded('/user/music_uploaded', 'all');
             }
         }
         function musicUploaded(url, stage) {

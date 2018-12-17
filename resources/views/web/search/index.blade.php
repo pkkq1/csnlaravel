@@ -15,7 +15,7 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                     <a class="nav-item nav-link {{isset($_GET['page_music']) ? 'active' : ''}}" id="nav-music-tab" data-toggle="tab" href="#nav-music" role="tab" aria-controls="nav-music" aria-selected="false">bài hát ({{number_format($result['music']['row_total'])}})</a>
                     <a class="nav-item nav-link {{isset($_GET['page_album']) ? 'active' : ''}}" id="nav-album-tab" data-toggle="tab" href="#nav-album" role="tab" aria-controls="nav-album" aria-selected="false">album ({{number_format($result['album']['row_total'])}})</a>
                     <a class="nav-item nav-link {{isset($_GET['page_video']) ? 'active' : ''}}" id="nav-video-tab" data-toggle="tab" href="#nav-video" role="tab" aria-controls="nav-video" aria-selected="false">video ({{number_format($result['video']['row_total'])}})</a>
-                    <a class="nav-item nav-link {{isset($_GET['page_artist']) ? 'active' : ''}}" id="nav-artist-tab" data-toggle="tab" href="#nav-artist" role="tab" aria-controls="nav-artist" aria-selected="false">artist ({{number_format($result['artist']['row_total'])}})</a>
+                    <a class="nav-item nav-link {{isset($_GET['page_artist']) ? 'active' : ''}}" id="nav-artist-tab" data-toggle="tab" href="#nav-artist" role="tab" aria-controls="nav-artist" aria-selected="false">ca sĩ ({{number_format($result['artist']['row_total'])}})</a>
                 </div>
                 <div class="dropdown">
                     <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -346,10 +346,10 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                             <?php
                             array_map(function ($item) {
                             ?>
-                            <a class="search-line" href="{{$item['artist_link']}}" title="{{$item['artist_nickname']}}">
+                            <a class="search-line" href="/ca-si/{{$item['artist_link']}}" title="{{$item['artist_nickname']}}">
                             <li class="media align-items-stretch">
                                 <div class="media-left align-items-stretch mr-2">
-                                        <img src="{{$item['artist_cover']}}" alt="{{$item['artist_link']}}">
+                                        <img src="{{$item['artist_cover']}}" alt="{{$item['artist_nickname']}}">
                                 </div>
                                 <div class="media-body align-self-center d-flex flex-column justify-content-between p-0">
                                     <div><h5 class="media-title mt-0 mb-0 span_h5">{{$item['artist_nickname']}}</h5></div>

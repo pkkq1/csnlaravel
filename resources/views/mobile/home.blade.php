@@ -25,11 +25,11 @@ global $album_cat_new;
         <div class="header_sub_menu">
             <div data-itemmenu="4" class="swiper-container swiper1">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide selected">Home</div>
-                    <div class="swiper-slide">Chủ đề</div>
-                    <div class="swiper-slide">Album mới</div>
-                    <div class="swiper-slide">Bài hát mới</div>
-                    <div class="swiper-slide">Video mới</div>
+                    <div class="swiper-slide tabHome selected">Home</div>
+                    <div class="swiper-slide theme_all">Chủ đề</div>
+                    <div class="swiper-slide album_news">Album mới</div>
+                    <div class="swiper-slide music_news">Bài hát mới</div>
+                    <div class="swiper-slide video_news">Video mới</div>
                 </div>
             </div>
         </div>

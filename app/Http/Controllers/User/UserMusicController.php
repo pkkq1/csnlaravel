@@ -18,6 +18,9 @@ use App\Repositories\Playlist\PlaylistEloquentRepository;
 use App\Repositories\Album\AlbumEloquentRepository;
 use App\Models\MailTokenModel;
 use App\Repositories\Upload\UploadEloquentRepository;
+use App\Repositories\ArtistFavourite\ArtistFavouriteRepository;
+use App\Repositories\MusicFavourite\MusicFavouriteRepository;
+use App\Repositories\VideoFavourite\VideoFavouriteRepository;
 
 class UserMusicController extends Controller
 {
@@ -31,15 +34,22 @@ class UserMusicController extends Controller
     protected $playlistRepository;
     protected $uploadRepository;
     protected $albumRepository;
+    protected $artistFavouriteRepository;
+    protected $musicFavouriteRepository;
+    protected $videoFavouriteRepository;
 
     public function __construct(UserEloquentRepository $userRepository, PlaylistEloquentRepository $playlistRepository, MusicEloquentRepository $musicRepository,
-        UploadEloquentRepository $uploadRepository, AlbumEloquentRepository $albumRepository)
+                                UploadEloquentRepository $uploadRepository, AlbumEloquentRepository $albumRepository, ArtistFavouriteRepository $artistFavouriteRepository, MusicFavouriteRepository $musicFavouriteRepository,
+                                VideoFavouriteRepository $videoFavouriteRepository)
     {
         $this->userRepository = $userRepository;
         $this->playlistRepository = $playlistRepository;
         $this->musicRepository = $musicRepository;
         $this->uploadRepository = $uploadRepository;
         $this->albumRepository = $albumRepository;
+        $this->artistFavouriteRepository = $artistFavouriteRepository;
+        $this->musicFavouriteRepository = $musicFavouriteRepository;
+        $this->videoFavouriteRepository = $videoFavouriteRepository;
     }
 
     /**
@@ -49,22 +59,24 @@ class UserMusicController extends Controller
      */
     public function musicUploaded(Request $request)
     {
+        if(!Auth::check())
+            return 'Lỗi User';
         $stage = $request->input('stage');
         if($stage == 'all' || $stage == 'uncensor') {
             // chờ xử lý
-            $music['stage_uncensor'] = $this->uploadRepository->musicByUser($request->input('user_id'),[UPLOAD_STAGE_UNCENSOR], 'music_id', 'desc', LIMIT_PAGE_MUSIC_UPLOADED);
+            $music['stage_uncensor'] = $this->uploadRepository->musicByUser(Auth::user()->id,[UPLOAD_STAGE_UNCENSOR], 'music_id', 'desc', LIMIT_PAGE_MUSIC_UPLOADED);
         }
         if($stage == 'all' || $stage == 'fullcensor') {
             // đã duyệt
-            $music['stage_fullcensor'] = $this->uploadRepository->musicByUser($request->input('user_id'),[UPLOAD_STAGE_FULLCENSOR, UPLOAD_STAGE_FULLCONVERT], 'music_id', 'desc', LIMIT_PAGE_MUSIC_UPLOADED);
+            $music['stage_fullcensor'] = $this->uploadRepository->musicByUser(Auth::user()->id,[UPLOAD_STAGE_FULLCENSOR, UPLOAD_STAGE_FULLCONVERT], 'music_id', 'desc', LIMIT_PAGE_MUSIC_UPLOADED);
         }
         if($stage == 'all' || $stage == 'delete') {
             // đã xóa
-            $music['stage_delete'] = $this->uploadRepository->musicByUser($request->input('user_id'),[UPLOAD_STAGE_DELETED], 'music_id', 'desc', LIMIT_PAGE_MUSIC_UPLOADED);
+            $music['stage_delete'] = $this->uploadRepository->musicByUser(Auth::user()->id,[UPLOAD_STAGE_DELETED], 'music_id', 'desc', LIMIT_PAGE_MUSIC_UPLOADED);
         }
         if($stage == 'all' || $stage == 'album') {
             // album
-            $music['album'] = $this->albumRepository->findAlbumByUser($request->input('user_id'), 'album_id', 'desc', LIMIT_PAGE_MUSIC_UPLOADED);
+            $music['album'] = $this->albumRepository->findAlbumByUser(Auth::user()->id, 'album_id', 'desc', LIMIT_PAGE_MUSIC_UPLOADED);
         }
         return view('user.music_uploaded', compact('music', 'stage'));
     }
@@ -78,7 +90,6 @@ class UserMusicController extends Controller
         return view('errors.404');
     }
     public function musicRecent(Request $request) {
-        $result = [];
         $musics = [];
         if(isset($_COOKIE['music_history'])) {
             $musicHistory = array_reverse(unserialize($_COOKIE['music_history']));
@@ -86,6 +97,18 @@ class UserMusicController extends Controller
             $musics = $this->musicRepository->getHistoryRecents($tempStr);
         }
         return view('user.music_recents', compact('musics'));
+    }
+    public function artistFavourite(Request $request) {
+        $artistFavourite = $this->artistFavouriteRepository->getModel()::where('user_id', $request->user_id)->with('artist')->orderBy('id', 'desc')->paginate(LIMIT_PAGE_ARTIST_FAVOURITE);
+        return view('user.artist_favourite', compact('artistFavourite'));
+    }
+    public function videoFavourite(Request $request) {
+        $videoFavourite = $this->videoFavouriteRepository->getModel()::where('user_id', $request->user_id)->with('video')->orderBy('id', 'desc')->paginate(LIMIT_PAGE_MUSIC_FAVOURITE);
+        return view('user.video_favourite', compact('videoFavourite'));
+    }
+    public function musicFavourite(Request $request) {
+        $musicFavourite = $this->musicFavouriteRepository->getModel()::where('user_id', $request->user_id)->with('music')->orderBy('id', 'desc')->paginate(LIMIT_PAGE_MUSIC_FAVOURITE);
+        return view('user.music_favourite', compact('musicFavourite'));
     }
 
 }

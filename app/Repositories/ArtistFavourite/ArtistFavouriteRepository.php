@@ -1,9 +1,9 @@
 <?php
-namespace App\Repositories\Artist;
+namespace App\Repositories\ArtistFavourite;
 
 use App\Repositories\EloquentRepository;
 use DB;
-class ArtistEloquentRepository extends EloquentRepository implements ArtistRepositoryInterface
+class ArtistFavouriteRepository extends EloquentRepository implements ArtistFavouriteRepositoryInterface
 {
     /**
      * get model
@@ -11,7 +11,7 @@ class ArtistEloquentRepository extends EloquentRepository implements ArtistRepos
      */
     public function getModel()
     {
-        return \App\Models\ArtistModel::class;
+        return \App\Models\ArtistFavouriteModel::class;
     }
     /**
      * Get all posts only published

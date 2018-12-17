@@ -20,9 +20,9 @@ $mySelf = (Auth::check() && Auth::user()->id == $user->id);
                 <nav>
                     <ul>
                         <li class="tab-current"><a href="#playlist"><span>Playlist</span></a></li>
-                        <li class="bai-hat"><a class="bai-hat" href="#music"><span><i class="material-icons" style="font-size: 11px;">favorite_border</i> Bài Hát</span></a></li>
-                        <li class="video"><a class="video" href="#video"><span><i class="material-icons" style="font-size: 11px;">favorite_border</i> Video</span></a></li>
-                        <li class="ca-si"><a class="ca-si" href="#video"><span><i class="material-icons" style="font-size: 11px;">favorite_border</i> Ca Sĩ</span></a></li>
+                        <li class="bai-hat"><a class="bai-hat" onclick="userTab('music', '/user/music_favourite')" href="#music"><span><i class="material-icons" style="font-size: 11px;">favorite_border</i> Bài Hát</span></a></li>
+                        <li class="video"><a class="video" onclick="userTab('video', '/user/video_favourite')"  href="#video"><span><i class="material-icons" style="font-size: 11px;">favorite_border</i> Video</span></a></li>
+                        <li class="ca-si"><a class="ca-si" onclick="userTab('artist', '/user/artist_favourite')" href="#artist"><span><i class="material-icons" style="font-size: 11px;">favorite_border</i> Ca Sĩ</span></a></li>
                         @if($mySelf)
                         <li class="tu-nhac"><a class="tu-nhac" href="#uploaded" onclick="musicUserTab('musicUploaded')" ><span>Tủ nhạc</span></a></li>
                         @endif
@@ -52,7 +52,7 @@ $mySelf = (Auth::check() && Auth::user()->id == $user->id);
                                             <div class="card-body">
                                                 <h3 class="card-title"><a href="{{$url}}" title="{{$item->playlist_title}}">{{$item->playlist_title}}</a></h3>
                                                 @if($item->playlist_artist)
-                                                    <p class="card-text">
+                                                    <p class="card-text" style="padding: 0px;">
                                                         <?php
                                                             $artistPlaylist = unserialize($item->playlist_artist);
                                                             if($artistPlaylist) {
@@ -85,9 +85,9 @@ $mySelf = (Auth::check() && Auth::user()->id == $user->id);
                             @endif
                         </div>
                     </section>
-                    <section id="music"><div class="center-text-mes"><span>Chưa có bài hát nào</span></div></section>
-                    <section id="video"><div class="center-text-mes"><span>Chưa có video nào</span></div></section>
-                    <section id="artist"><div class="center-text-mes"><span>Chưa có ca sĩ nào</span></div></section>
+                    <section id="music"></section>
+                    <section id="video"></section>
+                    <section id="artist"></section>
                     <section id="uploaded"></section>
                 </div>
             </div>
@@ -136,10 +136,11 @@ $mySelf = (Auth::check() && Auth::user()->id == $user->id);
         });
     })();
     var firstUploaded = true;
+    var firstUploaded = true;
     function musicUserTab(tab) {
         if(tab == 'musicUploaded' && firstUploaded) {
             firstUploaded = false;
-            musicUploaded('<?php echo $user->id ?>/music_uploaded', 'all');
+            musicUploaded('/user/music_uploaded', 'all');
         }
     }
     function musicUploaded(url, stage) {
@@ -149,7 +150,6 @@ $mySelf = (Auth::check() && Auth::user()->id == $user->id);
             type: "POST",
             dataType: "html",
             data: {
-                'user_id': <?php echo $user->id; ?>,
                 'stage' : stage
             },
             beforeSend: function () {
@@ -169,6 +169,31 @@ $mySelf = (Auth::check() && Auth::user()->id == $user->id);
                 });
             }
         });
+    }
+    function userTab(tab, url, float = false) {
+        var tabContent = $('#' + tab);
+        if(tabContent.html().length == 0 || float) {
+            $.ajax({
+                url: url,
+                type: "POST",
+                dataType: "html",
+                data: {
+                    'user_id': '<?php echo $user->user_id ?>'
+                },
+                beforeSend: function () {
+                    if(loaded) return false;
+                    loaded = true;
+                },
+                success: function(response) {
+                    tabContent.html(response);
+                    tabContent.find('.pagination li a').on('click', function (e) {
+                        e.preventDefault();
+                        userTab(tab, $(this).attr('href'), true);
+                    });
+                }
+            });
+        }
+
     }
     <?php
     if(isset($_GET['tab'])) {

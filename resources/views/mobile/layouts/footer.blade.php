@@ -94,7 +94,6 @@ use App\Library\Helpers;
                         view_all: true
                     },
                     success: function( data ) {
-                        clearTimeout(timeOutLoading);
                         waitingDialog.hide();
                         dataSearch = response( data );
                     }

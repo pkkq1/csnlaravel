@@ -18,6 +18,7 @@ use App\Repositories\Playlist\PlaylistEloquentRepository;
 use App\Models\MailTokenModel;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
+use App\Repositories\ArtistFavourite\ArtistFavouriteRepository;
 
 class UserController extends Controller
 {
@@ -28,8 +29,9 @@ class UserController extends Controller
      */
     protected $userRepository;
     protected $playlistRepository;
+    protected $artistFavouriteRepository;
 
-    public function __construct(UserEloquentRepository $userRepository, PlaylistEloquentRepository $playlistRepository)
+    public function __construct(UserEloquentRepository $userRepository, PlaylistEloquentRepository $playlistRepository, ArtistFavouriteRepository $artistFavouriteRepository)
     {
         $this->userRepository = $userRepository;
         $this->playlistRepository = $playlistRepository;

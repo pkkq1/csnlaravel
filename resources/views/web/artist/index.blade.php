@@ -84,6 +84,48 @@ $titleMeta = $artist->artist_nickname . ' - '. Config::get('constants.app.title'
                 });
             }
         }
-
+        $('.toggle_wishlist').click(function(e) {
+            <?php
+            if(!Auth::check()) {
+            ?>
+            switchAuth('myModal_login');
+            return false;
+            <?php
+            }
+            ?>
+            e.preventDefault();
+            let falgFav = $('.toggle_wishlist').hasClass('selector');
+            $.ajax({
+                url: '/ca-si/favorite',
+                type: "POST",
+                dataType: "json",
+                data: {
+                    'type': falgFav,
+                    'name': '<?php echo $artist->artist_nickname; ?>',
+                    'artist_id' : '<?php echo $artist->artist_id; ?>',
+                },
+                beforeSend: function () {
+                    if(loaded) return false;
+                    loaded = true;
+                },
+                success: function(response) {
+                    if(response.success) {
+                        let notifType = 'success';
+                        if(response.data !== null)
+                            notifType = 'default';
+                        Lobibox.notify(notifType, {
+                            size: 'mini',
+                            sound: false,
+                            delay: 1500,
+                            delayIndicator: false,
+                            msg: response.message
+                        });
+                    }else {
+                        alertModal(data.message);
+                    }
+                }
+            });
+            $(this).toggleClass('selector');
+        });
     </script>
 @endsection

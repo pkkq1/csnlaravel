@@ -110,9 +110,9 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                                     array_map(function ($item) {
                                     ?>
                                     <div class="element mb-2">
-                                        <a href="{{$item['artist_link']}}"><div class="image100 mr-2 d-inline-block align-middle" style="background : url('{{$item['artist_cover']}}') no-repeat center;background-size: cover;"></div></a>
+                                        <a href="/ca-si/{{$item['artist_link']}}"><div class="image100 mr-2 d-inline-block align-middle" style="background : url('{{$item['artist_cover']}}') no-repeat center;background-size: cover;"></div></a>
                                         <div class="content d-inline-block align-middle">
-                                            <a href="{{$item['artist_link']}}"><h6 class="name_song text-black mb-1 card-title">{{$item['artist_nickname']}}</h6></a>
+                                            <a href="/ca-si/{{$item['artist_link']}}"><h6 class="name_song text-black mb-1 card-title">{{$item['artist_nickname']}}</h6></a>
                                         </div>
                                     </div>
                                     <?php
