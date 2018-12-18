@@ -8,8 +8,9 @@
                         D.onclick = function() {
                         "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-auto-next jw-icon-auto-next-on" == D.className ? (D.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-auto-next jw-icon-auto-next-off",
                         "function" === typeof onPlayerAutoNextOff && onPlayerAutoNextOff()) : (D.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-auto-next jw-icon-auto-next-on", "function" === typeof onPlayerAutoNextOn && onPlayerAutoNextOn())
-                        },
+                        }, V = document.createElement("div"), V.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-favourite jw-icon-show-title", V.style = 'margin-right: 14px!important; line-height: 38px;' ,V.innerHTML = '<span class="csn-title-favourite">Yêu thích bài hát này</span><span class="wishlist toggle_wishlist"><i aria-hidden="true" style="font-size: 20px" class="fa fa-heart-o"></i></span>',
                         a.parentNode.insertBefore(D, a));
+                    D.parentNode.insertBefore(V, D);
                 }
                 var a = E.getElementsByClassName("jw-icon-playback")[0];
                 void 0 != a && (void 0 == Q && (Q = document.createElement("div"), Q.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-nextsong", Q.innerHTML = "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 16 16\"><path class=\"zp-svg-fill\" fill=\"#BEBEBE\" fill-rule=\"nonzero\" d=\"M14 2v12h-1.98V2H14zm-3.48 6L2 14V2l8.52 6z\"></path></svg>", Q.onclick = function () {
@@ -230,7 +231,7 @@
             return b + "(" + d.join(",") + ")"
         }
         "undefined" !== typeof GoPerformance && "function" === typeof GoPerformance && GoPerformance(e, w, C);
-        var D, K, F, E, v, c, k, y, B, p, G, h, u, m, r, l, z, H = !1,
+        var D, V, K, F, E, v, c, k, y, B, p, G, h, u, m, r, l, z, H = !1,
             S = !1,
             TT = !1,
             TTT = !1,

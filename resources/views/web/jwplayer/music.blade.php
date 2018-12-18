@@ -140,9 +140,11 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                             <li class="nav-item">
                                 <a class="nav-link" id="pills-share-tab" data-toggle="pill" href="#pills-share" role="tab" aria-controls="pills-share" aria-selected="false"><i class="material-icons">share</i> Chia sẻ</a>
                             </li>
+                            @if($musicSet['type_jw'] !== 'video')
                             <li class="nav-item">
                                 <a class="nav-link add_playlist" <?php echo $musicSet['type_jw'] !== 'video' ? 'onclick="loadPlayList('.$music->music_id.')"' : '' ?> id="pills-plus-tab" data-toggle="pill" href="#pills-plus" role="tab" aria-controls="pills-plus" aria-selected="false"><i class="material-icons">control_point</i> Thêm vào</a>
                             </li>
+                            @endif
                         </ul>
                         <div class="tab-content" id="pills-tabContent">
                             <div class="tab-pane show active" id="pills-liric" role="tabpanel"
@@ -337,14 +339,7 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                                         <button class="btn btn-primary " onclick="btnCreatePlaylist('text-create-playlist')" type="button">Tạo Playlist mới</button>
                                     </div>
                                 </div>
-                                @else
-                                    <br/>
                                 @endif
-                                <div class="card mb-0 card3">
-                                    <label class="card-header mb-0 favourite_music" style="border-bottom: none;padding-top: 0px; cursor: pointer">
-                                        <h4 class="card-title">Thêm vào yêu thích <span class="wishlist toggle_wishlist {{$musicFavourite ? 'selector' : ''}}" style="color: red"><i aria-hidden="true" class="fa fa-heart-o" style="font-size: 16px;"></i></span></h4>
-                                    </label>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -661,24 +656,29 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
         var embed = 'false';
         var userStatus = 1;
         var firstLoadLyric = false;
+        var firstLoadBeforePlay = true;
+        var firstLoadUpdateQuality = true;
         var listLyrics = [];
         jwplayer().onBeforePlay(function() {
             //logPlayAudioFlag = true;
             //console.log('set flag again|'+logPlayAudioFlag);
-            $('#csnplayer').find('.jw-captions').html($('#hidden_lyrics').html());
-            $('#hidden_lyrics').remove();
-            new RabbitLyrics({
-                element: document.getElementById("lyrics"),
-                viewMode: 'mini',
-                onUpdateTimeJw: false
-            });
-            <?php
-            if($musicSet['type_jw'] != 'video') {
-            ?>
+            if(firstLoadBeforePlay) {
+                firstLoadBeforePlay = false;
+                $('#csnplayer').find('.jw-captions').html($('#hidden_lyrics').html());
+                $('#hidden_lyrics').remove();
+                new RabbitLyrics({
+                    element: document.getElementById("lyrics"),
+                    viewMode: 'mini',
+                    onUpdateTimeJw: false
+                });
+                <?php
+                if($musicSet['type_jw'] != 'video') {
+                ?>
                 $('.jw-display-icon-display').css('display', 'none')
-            <?php
+                <?php
+                }
+                ?>
             }
-            ?>
         });
         jwplayer().onTime(function () {
             new RabbitLyrics({
@@ -695,7 +695,7 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
         });
         jwplayer().onQualityChange(function(callback){
             updateQuality(callback);
-        })
+        });
         jwplayer().on('userInactive', function () {
             <?php
             if($musicSet['type_jw'] != 'video') {
@@ -704,10 +704,8 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                 <?php
             }
             ?>
-        })
-        jwplayer().on('time', function () {
-            console.log();
-        })
+        });
+
         function onPlayerAutoNextOn()
         {
             sessionStorage.setItem("auto_next", false);
@@ -830,6 +828,15 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
 
 
         function updateQuality(callback) {
+            if(firstLoadUpdateQuality){
+                firstLoadUpdateQuality = false;
+                <?php if($musicFavourite) {
+                    ?>
+                    $('.toggle_wishlist').addClass('selector');
+                    <?php
+                } ?>
+                reloadFavourite();
+            }
             var curQual = jwplayer('csnplayer').getCurrentQuality();
             if(callback['levels'].length == 2) {
                 if(!$('.jw-icon-hd').hasClass('stringQ')) {
@@ -1215,49 +1222,51 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
         //////////////////////////////
         //// favourite music ////////
         //////////////////////////////////
-        $('.favourite_music').click(function(e) {
-            <?php
-            if(!Auth::check()) {
-            ?>
-            switchAuth('myModal_login');
-            return false;
-            <?php
-            }
-            ?>
-            let falgFav = $('.toggle_wishlist').hasClass('selector');
-            $.ajax({
-                url: '/music/favourite',
-                type: "POST",
-                dataType: "json",
-                data: {
-                    'type': falgFav,
-                    'type_of': '<?php echo $musicSet['type_jw'] ?>',
-                    'name': '<?php echo $music->music_title; ?>',
-                    'music_id' : '<?php echo $music->music_id; ?>',
-                },
-                beforeSend: function () {
-                    if(loaded) return false;
-                    loaded = true;
-                },
-                success: function(response) {
-                    if(response.success) {
-                        let notifType = 'success';
-                        if(response.data !== null)
-                            notifType = 'default';
-                        Lobibox.notify(notifType, {
-                            size: 'mini',
-                            sound: false,
-                            delay: 1500,
-                            delayIndicator: false,
-                            msg: response.message
-                        });
-                    }else {
-                        alertModal(data.message);
+        function reloadFavourite() {
+            $('.jw-favourite').click(function(e) {
+                <?php
+                if(!Auth::check()) {
+                ?>
+                switchAuth('myModal_login');
+                return false;
+                    <?php
                     }
-                }
+                    ?>
+                let falgFav = $('.toggle_wishlist').hasClass('selector');
+                $.ajax({
+                    url: '/music/favourite',
+                    type: "POST",
+                    dataType: "json",
+                    data: {
+                        'type': falgFav,
+                        'type_of': '<?php echo $musicSet['type_jw'] ?>',
+                        'name': '<?php echo $music->music_title; ?>',
+                        'music_id' : '<?php echo $music->music_id; ?>',
+                    },
+                    beforeSend: function () {
+                        if(loaded) return false;
+                        loaded = true;
+                    },
+                    success: function(response) {
+                        if(response.success) {
+                            // let notifType = 'success';
+                            // if(response.data !== null)
+                            //     notifType = 'default';
+                            // Lobibox.notify(notifType, {
+                            //     size: 'mini',
+                            //     sound: false,
+                            //     delay: 1500,
+                            //     delayIndicator: false,
+                            //     msg: response.message
+                            // });
+                        }else {
+                            alertModal(data.message);
+                        }
+                    }
+                });
+                $('.toggle_wishlist').toggleClass('selector');
             });
-            $('.toggle_wishlist').toggleClass('selector');
-        });
+        }
     </script>
     @if($musicSet['type_jw'] != 'video')
         <style>

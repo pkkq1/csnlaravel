@@ -33,7 +33,8 @@
                 }, a.parentNode.insertBefore(PP, a)), void 0 == PPP && (PPP = document.createElement("div"), PPP.className = "jw-icon csn-random-btn jw-icon-inline jw-button-color jw-reset jw-icon-sequence", PPP.innerHTML = sequence, PPP.title = "Ngẫu nhiên", PPP.onclick = function () {
                     "jw-icon csn-random-btn jw-icon-inline jw-button-color jw-reset jw-icon-sequence" == PPP.className ? (PPP.className = "jw-icon csn-random-btn jw-icon-inline jw-button-color jw-reset jw-icon-shuffle",
                         TTT = !1, PPP.innerHTML = shuffle, autoRandom(true)) : (PPP.className = "jw-icon csn-random-btn jw-icon-inline jw-button-color jw-reset jw-icon-sequence", TTT = !0, PPP.innerHTML = sequence, autoRandom(false))
-                }, a.parentNode.insertBefore(PPP, a)));
+                }, V = document.createElement("div"), V.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-favourite",V.style = 'line-height: 38px;', V.innerHTML = '<span class="csn-title-favourite">Yêu thích bài hát này</span><span class="wishlist toggle_wishlist"><i aria-hidden="true" style="font-size: 18px"  class="fa fa-heart-o"></i></span>',
+                a.parentNode.insertBefore(PPP, a), PP.parentNode.insertBefore(V, PP)));
                 jwplayer().setConfig({
                     repeat: false
                 });
@@ -278,7 +279,7 @@
             return b + "(" + d.join(",") + ")"
         }
         "undefined" !== typeof GoPerformance && "function" === typeof GoPerformance && GoPerformance(e, w, C);
-        var D, K, F, E, v, c, k, y, B, p, G, h, u, m, r, l, z, H = !1,
+        var D, K, V, F, E, v, c, k, y, B, p, G, h, u, m, r, l, z, H = !1,
             S = !1,
             TT = !1,
             TTT = !1,
