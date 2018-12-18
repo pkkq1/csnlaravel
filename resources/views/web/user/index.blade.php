@@ -21,7 +21,7 @@ $mySelf = (Auth::check() && Auth::user()->id == $user->id);
                     <ul>
                         <li class="tab-current"><a href="#playlist"><span>Playlist</span></a></li>
                         <li class="bai-hat"><a class="bai-hat" onclick="userTab('music', '/user/music_favourite')" href="#music"><span><i class="material-icons" style="font-size: 11px;">favorite_border</i> Bài Hát</span></a></li>
-                        <li class="video"><a class="video" onclick="userTab('video', '/user/video_favourite')"  href="#video"><span><i class="material-icons" style="font-size: 11px;">favorite_border</i> Video</span></a></li>
+                        <li class="video"><a class="video" onclick="userTab('video', '/user/video_favourite')" href="#video"><span><i class="material-icons" style="font-size: 11px;">favorite_border</i> Video</span></a></li>
                         <li class="ca-si"><a class="ca-si" onclick="userTab('artist', '/user/artist_favourite')" href="#artist"><span><i class="material-icons" style="font-size: 11px;">favorite_border</i> Ca Sĩ</span></a></li>
                         @if($mySelf)
                         <li class="tu-nhac"><a class="tu-nhac" href="#uploaded" onclick="musicUserTab('musicUploaded')" ><span>Tủ nhạc</span></a></li>

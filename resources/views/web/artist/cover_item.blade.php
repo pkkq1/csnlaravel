@@ -7,12 +7,6 @@ $dataCover = $cover->toArray();
     <?php
     array_map(function ($item) {
     $url = Helpers::album_url($item);
-    $album_artist_id = $item['album_artist_id_1'];
-    $album_artist = $item['album_artist_1'];
-    if($item['album_artist_id_2']) {
-        $album_artist_id = $album_artist_id. ';'.$item['album_artist_id_2'];
-        $album_artist = $album_artist. ';'.$item['album_artist_2'];
-    }
     ?>
     <div class="col">
         <div class="card card1">
@@ -23,9 +17,6 @@ $dataCover = $cover->toArray();
             </div>
             <div class="card-body">
                 <h3 class="card-title"><a href="{{$url}}" title="{{$item['music_album']}}">{{$item['music_album']}}</a></h3>
-                <p class="card-text">
-                    <?php echo Helpers::rawHtmlArtists($album_artist_id, $album_artist) ?>
-                </p>
             </div>
         </div>
     </div>

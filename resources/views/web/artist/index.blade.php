@@ -5,7 +5,6 @@ $titleMeta = $artist->artist_nickname . ' - '. Config::get('constants.app.title'
 ?>
 @extends('web.layouts.app')
 @section('contentCSS')
-    <link rel="stylesheet" type="text/css" href="/css/croppie.css">
     <link rel="stylesheet" type="text/css" href="/css/TabStylesInspiration/normalize.css">
     <link rel="stylesheet" type="text/css" href="/css/TabStylesInspiration/tabs.css">
     <link rel="stylesheet" type="text/css" href="/css/TabStylesInspiration/tabstyles.css">
@@ -110,16 +109,16 @@ $titleMeta = $artist->artist_nickname . ' - '. Config::get('constants.app.title'
                 },
                 success: function(response) {
                     if(response.success) {
-                        let notifType = 'success';
-                        if(response.data !== null)
-                            notifType = 'default';
-                        Lobibox.notify(notifType, {
-                            size: 'mini',
-                            sound: false,
-                            delay: 1500,
-                            delayIndicator: false,
-                            msg: response.message
-                        });
+                        // let notifType = 'success';
+                        // if(response.data !== null)
+                        //     notifType = 'default';
+                        // Lobibox.notify(notifType, {
+                        //     size: 'mini',
+                        //     sound: false,
+                        //     delay: 1500,
+                        //     delayIndicator: false,
+                        //     msg: response.message
+                        // });
                     }else {
                         alertModal(data.message);
                     }

@@ -36,9 +36,9 @@ $mySelf = (Auth::check() && Auth::user()->id == $user->id);
         <div data-itemmenu="4" class="swiper-container swiper1 swiper_wauto">
             <div class="swiper-wrapper">
                 <div class="swiper-slide selected"><span class="d-inline-block align-middle">Playlist</span></div>
-                <div class="swiper-slide bai-hat"><span class="d-inline-block align-middle"><i class="material-icons" style="font-size: 11px;">favorite_border</i> Bài Hát</span></div>
-                <div class="swiper-slide video"><a class="d-inline-block align-middle"><i class="material-icons" style="font-size: 11px;">favorite_border</i> Video</a></div>
-                <div class="swiper-slide ca-si"><a class="d-inline-block align-middle"><i class="material-icons" style="font-size: 11px;">favorite_border</i> Ca Sĩ</a></div>
+                <div class="swiper-slide bai-hat" onclick="userTab('music', '/user/music_favourite')"><span class="d-inline-block align-middle"><i class="material-icons" style="font-size: 11px;">favorite_border</i> Bài Hát</span></div>
+                <div class="swiper-slide video" onclick="userTab('video', '/user/video_favourite')"><a class="d-inline-block align-middle"><i class="material-icons" style="font-size: 11px;">favorite_border</i> Video</a></div>
+                <div class="swiper-slide ca-si" onclick="userTab('artist', '/user/artist_favourite')"><a class="d-inline-block align-middle"><i class="material-icons" style="font-size: 11px;">favorite_border</i> Ca Sĩ</a></div>
                 <div class="swiper-slide tu-nhac" onclick="musicUserTab('musicUploaded')"><a class="d-inline-block align-middle">Tủ nhạc</a></div>
             </div>
         </div>
@@ -104,160 +104,24 @@ $mySelf = (Auth::check() && Auth::user()->id == $user->id);
                 <div data-tab="bat-hat" class="swiper-slide">
                     <div class="container">
                         <div class="block block_baihat">
-                            <div class="block_baihat_main block_more">
-                                <div class="element mb-2">
-                                    <div style="background : url('https://zmp3-photo.zadn.vn/thumb/240_240/cover/d/5/a/b/d5ab15666207be0eafa55757ce67dad8.jpg') no-repeat center;background-size: cover;" class="image100 mr-2 d-inline-block"></div>
-                                    <div class="content d-inline-block">
-                                        <h6 class="name_song text-black mb-1">Trong trí nhớ của anh</h6>
-                                        <p class="name_singer text-gray mb-1">Hạnh Sino</p>
-                                    </div>
-                                </div>
-                                <div class="element mb-2">
-                                    <div style="background : url('https://zmp3-photo.zadn.vn/thumb/240_240/cover/d/5/a/b/d5ab15666207be0eafa55757ce67dad8.jpg') no-repeat center;background-size: cover;" class="image100 mr-2 d-inline-block"></div>
-                                    <div class="content d-inline-block">
-                                        <h6 class="name_song text-black mb-1">Trong trí nhớ của anh</h6>
-                                        <p class="name_singer text-gray mb-1">Hạnh Sino</p>
-                                    </div>
-                                </div>
-                                <div class="element mb-2">
-                                    <div style="background : url('https://zmp3-photo.zadn.vn/thumb/240_240/cover/d/5/a/b/d5ab15666207be0eafa55757ce67dad8.jpg') no-repeat center;background-size: cover;" class="image100 mr-2 d-inline-block"></div>
-                                    <div class="content d-inline-block">
-                                        <h6 class="name_song text-black mb-1">Trong trí nhớ của anh</h6>
-                                        <p class="name_singer text-gray mb-1">Hạnh Sino</p>
-                                    </div>
-                                </div>
-                            </div>
+                            <div class="block_baihat_main block_more" id="music"></div>
                         </div>
                     </div>
                 </div>
                 <div data-tab="video" class="swiper-slide">
                     <div class="container">
-                        <div class="block block_player">
-                            <div class="block_baihat_main block_more">
-                                <div class="element mb-2">
-                                    <div style="background : url('https://zmp3-photo.zadn.vn/thumb/240_240/cover/d/5/a/b/d5ab15666207be0eafa55757ce67dad8.jpg') no-repeat center;background-size: cover;" class="image image100px mr-2 d-inline-block align-middle"></div>
-                                    <div class="content d-inline-block align-middle">
-                                        <h6 class="name_song text-black mb-1">Trong trí nhớ của anh</h6>
-                                        <p class="name_singer text-gray mb-1">Hạnh Sino</p>
-                                    </div>
-                                </div>
-                                <div class="element mb-2">
-                                    <div style="background : url('https://zmp3-photo.zadn.vn/thumb/240_240/cover/d/5/a/b/d5ab15666207be0eafa55757ce67dad8.jpg') no-repeat center;background-size: cover;" class="image image100px mr-2 d-inline-block align-middle"></div>
-                                    <div class="content d-inline-block align-middle">
-                                        <h6 class="name_song text-black mb-1">Trong trí nhớ của anh</h6>
-                                        <p class="name_singer text-gray mb-1">Hạnh Sino</p>
-                                    </div>
-                                </div>
-                                <div class="element mb-2">
-                                    <div style="background : url('https://zmp3-photo.zadn.vn/thumb/240_240/cover/d/5/a/b/d5ab15666207be0eafa55757ce67dad8.jpg') no-repeat center;background-size: cover;" class="image image100px mr-2 d-inline-block align-middle"></div>
-                                    <div class="content d-inline-block align-middle">
-                                        <h6 class="name_song text-black mb-1">Trong trí nhớ của anh</h6>
-                                        <p class="name_singer text-gray mb-1">Hạnh Sino</p>
-                                    </div>
-                                </div>
-                                <div class="element mb-2">
-                                    <div style="background : url('https://zmp3-photo.zadn.vn/thumb/240_240/cover/d/5/a/b/d5ab15666207be0eafa55757ce67dad8.jpg') no-repeat center;background-size: cover;" class="image image100px mr-2 d-inline-block align-middle"></div>
-                                    <div class="content d-inline-block align-middle">
-                                        <h6 class="name_song text-black mb-1">Trong trí nhớ của anh</h6>
-                                        <p class="name_singer text-gray mb-1">Hạnh Sino</p>
-                                    </div>
-                                </div>
-                                <div class="element mb-2">
-                                    <div style="background : url('https://zmp3-photo.zadn.vn/thumb/240_240/cover/d/5/a/b/d5ab15666207be0eafa55757ce67dad8.jpg') no-repeat center;background-size: cover;" class="image image100px mr-2 d-inline-block align-middle"></div>
-                                    <div class="content d-inline-block align-middle">
-                                        <h6 class="name_song text-black mb-1">Trong trí nhớ của anh</h6>
-                                        <p class="name_singer text-gray mb-1">Hạnh Sino</p>
-                                    </div>
-                                </div>
-                                <div class="element mb-2">
-                                    <div style="background : url('https://zmp3-photo.zadn.vn/thumb/240_240/cover/d/5/a/b/d5ab15666207be0eafa55757ce67dad8.jpg') no-repeat center;background-size: cover;" class="image image100px mr-2 d-inline-block align-middle"></div>
-                                    <div class="content d-inline-block align-middle">
-                                        <h6 class="name_song text-black mb-1">Trong trí nhớ của anh</h6>
-                                        <p class="name_singer text-gray mb-1">Hạnh Sino</p>
-                                    </div>
-                                </div>
-                                <div class="element mb-2">
-                                    <div style="background : url('https://zmp3-photo.zadn.vn/thumb/240_240/cover/d/5/a/b/d5ab15666207be0eafa55757ce67dad8.jpg') no-repeat center;background-size: cover;" class="image image100px mr-2 d-inline-block align-middle"></div>
-                                    <div class="content d-inline-block align-middle">
-                                        <h6 class="name_song text-black mb-1">Trong trí nhớ của anh</h6>
-                                        <p class="name_singer text-gray mb-1">Hạnh Sino</p>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="block block_player block_bxhvideo">
+                            <div class="block_baihat_main block_more" id="video"></div>
                         </div>
                     </div>
                 </div>
                 <div data-tab="ca-si" class="swiper-slide">
                     <div class="container">
-                        <div class="block block_album block_profile_playlist">
-                            <div class="row row-sm">
-                                <div class="col-6">
-                                    <div class="item element">
-                                        <div style="background: url('https://data.chiasenhac.com/data/cover/92/91140.jpg') no-repeat center;background-size: cover;" class="image rounded"></div>
-                                        <div class="content mt-3">
-                                            <h6 class="name_song mb-1">Bad and Boujee</h6>
-                                            <p class="name_singer text-gray mb-1">Migo(feat. Lil Uzi Vert</p>
-                                            <p class="loss text-pink mb-0">Lossless</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="item element">
-                                        <div style="background: url('https://data.chiasenhac.com/data/cover/92/91140.jpg') no-repeat center;background-size: cover;" class="image rounded"></div>
-                                        <div class="content mt-3">
-                                            <h6 class="name_song mb-1">Bad and Boujee</h6>
-                                            <p class="name_singer text-gray mb-1">Migo(feat. Lil Uzi Vert</p>
-                                            <p class="loss text-pink mb-0">Lossless</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="item element">
-                                        <div style="background: url('https://data.chiasenhac.com/data/cover/92/91140.jpg') no-repeat center;background-size: cover;" class="image rounded"></div>
-                                        <div class="content mt-3">
-                                            <h6 class="name_song mb-1">Bad and Boujee</h6>
-                                            <p class="name_singer text-gray mb-1">Migo(feat. Lil Uzi Vert</p>
-                                            <p class="loss text-pink mb-0">Lossless</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="item element">
-                                        <div style="background: url('https://data.chiasenhac.com/data/cover/92/91140.jpg') no-repeat center;background-size: cover;" class="image rounded"></div>
-                                        <div class="content mt-3">
-                                            <h6 class="nme_song mb-1">Bad and Boujee</h6>
-                                            <p class="name_singer text-gray mb-1">Migo(feat. Lil Uzi Vert</p>
-                                            <p class="loss text-pink mb-0">Lossless</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="item element">
-                                        <div style="background: url('https://data.chiasenhac.com/data/cover/92/91140.jpg') no-repeat center;background-size: cover;" class="image rounded"></div>
-                                        <div class="content mt-3">
-                                            <h6 class="name_song mb-1">Bad and Boujee</h6>
-                                            <p class="name_singer text-gray mb-1">Migo(feat. Lil Uzi Vert</p>
-                                            <p class="loss text-pink mb-0">Lossless</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="item element">
-                                        <div style="background: url('https://data.chiasenhac.com/data/cover/92/91140.jpg') no-repeat center;background-size: cover;" class="image rounded"></div>
-                                        <div class="content mt-3">
-                                            <h6 class="name_song mb-1">Bad and Boujee</h6>
-                                            <p class="name_singer text-gray mb-1">Migo(feat. Lil Uzi Vert</p>
-                                            <p class="loss text-pink mb-0">Lossless</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <div class="block block_album block_profile_playlist" id="artist"></div>
                     </div>
                 </div>
                 <div data-tab="tu-nhac" class="swiper-slide">
-                    <div class="container" id="uploaded">
-                    </div>
+                    <div class="container" id="uploaded"></div>
                 </div>
             </div>
         </div>
@@ -582,19 +446,54 @@ $mySelf = (Auth::check() && Auth::user()->id == $user->id);
                         uploaded = $('.stage_' + stage);
                         $('.stage_' + stage).html(response);
                     }
+                    swiper2.update();
                     uploaded.find('.pagination li a').on('click', function (e) {
                         e.preventDefault();
                         musicUploaded($(this).attr('href'), $(this).parents().parents().parents().data('page'));
                     });
-                    swiper2.update();
                 }
             });
+        }
+        function userTab(tab, url, float = false) {
+            var tabContent = $('#' + tab);
+            if(tabContent.html().length == 0 || float) {
+                $.ajax({
+                    url: url,
+                    type: "POST",
+                    dataType: "html",
+                    data: {
+                        'user_id': '<?php echo $user->user_id ?>'
+                    },
+                    beforeSend: function () {
+                        if(loaded) return false;
+                        loaded = true;
+                    },
+                    success: function(response) {
+                        tabContent.html(response);
+                        swiper2.update();
+                        tabContent.find('.pagination li a').on('click', function (e) {
+                            e.preventDefault();
+                            userTab(tab, $(this).attr('href'), true);
+                        });
+                    }
+                });
+            }
+
         }
         function slideSwiperChange(swiper){
             let tabSelected = $('.swiper2').find('.swiper-slide-active');
             let tab =  tabSelected.data('tab');
             if(tab == 'tu-nhac') {
                 musicUserTab('musicUploaded');
+            }
+            if(tab == 'bat-hat') {
+                userTab('music', '/user/music_favourite');
+            }
+            if(tab == 'video') {
+                userTab('video', '/user/video_favourite');
+            }
+            if(tab == 'ca-si') {
+                userTab('artist', '/user/artist_favourite');
             }
         }
 

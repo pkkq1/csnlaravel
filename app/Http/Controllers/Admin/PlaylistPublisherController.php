@@ -7,7 +7,7 @@
  */
 namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request as Request;
-use App\Repositories\Artist\ArtistFavouriteRepository;
+use App\Repositories\Artist\ArtistRepository;
 use App\Repositories\ArtistUpload\ArtistUploadEloquentRepository;
 use App\Library\Helpers;
 use App\Http\Requests;
@@ -31,7 +31,7 @@ class PlaylistPublisherController extends CrudController
     protected $playlistMusicPublisherRepository;
     protected $playlistPublisherRepository;
 
-    public function __construct(ArtistFavouriteRepository $artistRepository, ArtistUploadEloquentRepository $artistUploadRepository, PlaylistMusicPublisherEloquentRepository $playlistMusicPublisherRepository,
+    public function __construct(ArtistRepository $artistRepository, ArtistUploadEloquentRepository $artistUploadRepository, PlaylistMusicPublisherEloquentRepository $playlistMusicPublisherRepository,
                                 PlaylistPublisherEloquentRepository $playlistPublisherRepository)
     {
         $this->artistRepository = $artistRepository;

@@ -69,14 +69,14 @@ global $album_cat_new;
                                         array_map(function($item) {
                                         $url = Helpers::listen_url($item);
                                         ?>
-                                        <div class="element mb-2">
-                                            <a href="{{$url}}"><div class="image100 mr-2 d-inline-block align-middle" style="background : url('{{Helpers::cover_url($item['cover_id'])}}') no-repeat center;background-size: cover;"></div></a>
+                                        <a href="{{$url}}"><div class="element mb-2">
+                                            <div class="image100 mr-2 d-inline-block align-middle" style="background : url('{{Helpers::cover_url($item['cover_id'])}}') no-repeat center;background-size: cover;"></div>
                                             <div class="content d-inline-block align-middle">
-                                                <a href="{{$url}}"><h6 class="name_song text-black mb-1 card-title">{{$item['music_title']}}</h6></a>
-                                                <p class="name_singer text-gray mb-1 author"><?php echo $item['music_artist_html']; ?></p>
+                                                <h6 class="name_song text-black mb-1 card-title">{{$item['music_title']}}</h6>
+                                                <p class="name_singer text-gray mb-1 author"><?php echo $item['music_artist']; ?></p>
                                                 <p class="loss text-pink mb-0"><?php echo $item['music_bitrate_html']; ?></p>
                                             </div>
-                                        </div>
+                                        </div></a>
                                         <?php
                                         }, Helpers::getRandLimitArr($music_new_uploads, LIMIT_HOME_ALBUM_OLD_MOBILE));
                                         ?>
