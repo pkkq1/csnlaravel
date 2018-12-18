@@ -704,9 +704,9 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
         if(firstLoadUpdateQuality){
             firstLoadUpdateQuality = false;
             $('.jw-favourite').remove();
-            $('.jw-icon-playback').on('touchstart', function () {
-                $('.jw-icon-playback').click();
-            });
+            // $('.jw-icon-playback').on('touchstart', function () {
+            //     $('.jw-icon-playback').click();
+            // });
             var curQual = jwplayer('csnplayer').getCurrentQuality();
             if(callback['levels'].length == 2) {
                 if(!$('.jw-icon-hd').hasClass('stringQ')) {
