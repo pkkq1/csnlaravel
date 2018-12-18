@@ -47,7 +47,7 @@ use App\Library\Helpers;
                                         <div class="media-body">
                                             <h4 class="media-title"><a href="{{$user}}" title="{{$item->playlist_title}}">{{$item->playlist_title}}</a></h4>
                                             <ul class="list-unstyled">
-                                                <li><i class="material-icons">mic</i> Đang cập nhật</li>
+                                                <li><i class="material-icons">mic</i> {{number_format($item->playlist_music_total)}}</li>
                                                 <li><i class="material-icons">headset</i> {{$item->playlist_listen}}</li>
                                             </ul>
                                         </div>

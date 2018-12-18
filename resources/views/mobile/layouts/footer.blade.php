@@ -60,7 +60,7 @@ use App\Library\Helpers;
     </div>
     <div class="wrap-search">
         <div class="block_search_fixed">
-            <input type="text" placeholder="Search" class="input_search" id="search_autocomplete" autofocus>
+            <input type="search" placeholder="Search" class="input_search" id="search_autocomplete" autofocus>
             <div class="button_close"><span>Hủy</span></div>
         </div>
         <div class="block_search_result">
