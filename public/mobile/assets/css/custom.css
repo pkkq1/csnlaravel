@@ -152,12 +152,12 @@ a {
 .block_baihat_main {
     margin-bottom: 10px;
 }
-.swiper-w145 {
+/* .swiper-w145 {
     width: 145px!important;
 }
 .swiper-w90 {
     width: 90px!important;
-}
+} */
 .input_type_mobile {
     background: #fff;
     width: 100%;
@@ -400,16 +400,7 @@ footer {
 .bottom-sheet {
     z-index: 999999999999;
 }
-.center-text-mes {
-    margin-left: 10px;
-    text-align: center;
-    width: 100%;
-    height: 100px;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-}
+
 
 
 

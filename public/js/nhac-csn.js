@@ -8,7 +8,7 @@
                         D.onclick = function() {
                         "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-auto-next jw-icon-auto-next-on" == D.className ? (D.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-auto-next jw-icon-auto-next-off",
                         "function" === typeof onPlayerAutoNextOff && onPlayerAutoNextOff()) : (D.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-auto-next jw-icon-auto-next-on", "function" === typeof onPlayerAutoNextOn && onPlayerAutoNextOn())
-                        }, V = document.createElement("div"), V.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-favourite jw-icon-show-title", V.style = 'margin-right: 14px!important; line-height: 38px;' ,V.innerHTML = '<span class="csn-title-favourite">Yêu thích bài hát này</span><span class="wishlist toggle_wishlist"><i aria-hidden="true" style="font-size: 20px" class="fa fa-heart-o"></i></span>',
+                        }, V = document.createElement("div"), V.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-favourite jw-icon-show-title", V.style = 'margin-right: 14px!important; line-height: 40px;' ,V.innerHTML = '<span class="csn-title-favourite">Yêu thích bài hát này</span><span class="wishlist toggle_wishlist"><i aria-hidden="true" style="font-size: 20px" class="fa fa-heart-o"></i></span>',
                         a.parentNode.insertBefore(D, a));
                     D.parentNode.insertBefore(V, D);
                 }

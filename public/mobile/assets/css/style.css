@@ -177,8 +177,9 @@ a {
 }
 
 .image100 {
-    width: 17%;
-    padding-bottom: 17%;
+    width: 63px;
+    min-width: 63px;
+    height: 63px;
     border-radius: 5px;
 }
 
@@ -311,8 +312,8 @@ a.navbar-brand.logo {
 }
 
 .image100px {
-    width: 100px;
-    padding-bottom: 20%;
+    width: 90px;
+    padding-bottom: 17%;
 }
 
 .block_thongtin .title.p-3.relative {
@@ -324,7 +325,7 @@ a.navbar-brand.logo {
 }
 
 .block_bxhvideo .image {
-    width: 25%;
+    width: 90px;
     padding-bottom: 17%;
     position: relative;
 }
@@ -424,12 +425,12 @@ a.navbar-brand.logo {
 .swiper1 .swiper-slide a {
     font-size: 15px;
 }
-
+/*
 .block_thongtin .swiper1 .swiper-slide {
     width: auto !important;
     padding: 0 19px !important;
     margin-right: 0 !important;
-}
+}*/
 
 .navbar-brand .fa-search {
     font-size: 24px;
@@ -973,7 +974,11 @@ a.navbar-brand.logo {
     border-bottom: 2px solid #ec5566;
 }
 
-.swiper1 .swiper-slide.swiper-slide {
+.swiper1 .swiper-slide{
+    width: auto !important;
+    padding: 0 10px !important;
+    min-width: calc(100%/4) !important;
+    max-width: calc(70%) !important;
     text-align: center;
     font-size: 15px;
     height: 50px;
@@ -992,6 +997,7 @@ a.navbar-brand.logo {
     align-items: center;
     cursor: pointer;
     padding: 0 5px;
+    overflow: hidden;
 }
 
 .swiper-container.swiper1 {
@@ -1035,30 +1041,27 @@ footer {
     vertical-align: top;
 }
 
-.block_baihat .content {
-    width: calc(100% - 85px);
+/* .block_baihat .content {
+    width: calc(100% - 80px);
     padding-right: 25px;
 }
 
 .block_bxhvideo .content {
-    width: calc(100% - 165px);
-    padding-right: 25px;
+    width: calc(100% - 160px);
 }
 
 .block_player .content {
-    width: calc(100% - 115px);
-    padding-right: 25px;
+    width: calc(100% - 10px);
 }
 
 .block_bxhvideo .content {
     width: calc(100% - 165px);
-    padding-right: 25px;
-}
+} */
 
-.block_bxhbaihat .content {
+/* .block_bxhbaihat .content {
     width: calc(100% - 130px);
     padding-right: 25px;
-}
+} */
 
 .swiper_wfree .swiper-slide.swiper-slide {
     width: auto !important;
@@ -1362,4 +1365,27 @@ a:hover{
     height: 180px;
     overflow-y: scroll;
     background: #f1f1f1;
+}
+#show_content {
+    display: none;
+}
+.element{
+    display: flex;
+    align-items: center;
+    justify-content: stretch;
+}
+.number_wrap {
+    min-width: 50px;
+    margin: 0 !important;
+}
+.element .image
+ {
+    min-width: 90px;
+    height: 63px;
+}
+.element .content {
+    padding-right: 15px;
+}
+.item.element {
+    display: block;
 }

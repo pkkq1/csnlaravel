@@ -51,6 +51,7 @@ var swiper2 = new Swiper('.swiper2', {
         }
     }
 });
+
 function setCurrentSlide(ele, index) {
     $(".swiper1 .swiper-slide").removeClass("selected");
     ele.addClass("selected");
@@ -61,7 +62,6 @@ jQuery(document).ready(function($) {
     // $('#time_player').slider();
     // $('#playlist_time_player').slider();
     // $('#binhluan_time_player').slider();
-    //var itemMenu = $(".swiper1").data('itemmenu');
 
     $('.slider_home').owlCarousel({
         loop: true,
