@@ -110,7 +110,7 @@ $mySelf = (Auth::check() && Auth::user()->id == $user->id);
                 </div>
                 <div data-tab="video" class="swiper-slide">
                     <div class="container">
-                        <div class="block block_player block_bxhvideo">
+                        <div class="block_player block_bxhvideo">
                             <div class="block_baihat_main block_more" id="video"></div>
                         </div>
                     </div>

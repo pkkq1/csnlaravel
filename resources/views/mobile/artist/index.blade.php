@@ -53,7 +53,7 @@ $titleMeta = $artist->artist_nickname . ' - '. Config::get('constants.app.title'
                 </div>
                 <div data-tab="video" class="swiper-slide">
                     <div class="container">
-                        <div class="block block_player block_bxhvideo">
+                        <div class="block_player block_bxhvideo">
                             <div class="block_baihat_main block_more" id="video"></div>
                         </div>
                     </div>
@@ -96,6 +96,7 @@ $titleMeta = $artist->artist_nickname . ' - '. Config::get('constants.app.title'
                 beforeSend: function () {
                     if(loaded) return false;
                     loaded = true;
+                    $('html,body').animate({ scrollTop: 0 }, 400);
                 },
                 success: function(response) {
                     $('#'+tab).html(response);
