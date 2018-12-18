@@ -59,10 +59,12 @@ use App\Library\Helpers;
         </div>
     </div>
     <div class="wrap-search">
-        <div class="block_search_fixed">
-            <input type="search" placeholder="Search" class="input_search" id="search_autocomplete" autofocus>
-            <div class="button_close"><span>Hủy</span></div>
-        </div>
+        <form  method="GET" action="/tim-kiem">
+            <div class="block_search_fixed">
+                <input type="search" placeholder="Search" class="input_search" name="q" id="search_autocomplete" autofocus>
+                <div class="button_close"><span>Hủy</span></div>
+            </div>
+        </form>
         <div class="block_search_result">
             <div class="container search_layout">
             </div>
