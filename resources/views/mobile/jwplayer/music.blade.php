@@ -59,7 +59,9 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                                 <p class="text-gray m-0">{{number_format($music->music_listen)}} lượt nghe</p>
                             </div>
                             <div class="block_button d-flex justify-content-between">
-                                <div class="element ele-playlist"><img src="/images/img_like_black.png" alt="yeu thich" class="icon"></div>
+                                <div class="element ele-playlist">
+                                    <span class="wishlist toggle_wishlist {{$musicFavourite ? 'selector' : ''}}"><i aria-hidden="true" style="font-size: 22px" class="fa fa-heart-o"></i></span>
+                                </div>
                                 <div class="element ele-playlist"><img src="/images/img_share_mp3.png" alt="chia se" class="icon"></div>
                                 <div class="element ele-download"><img src="/images/img_download.png" alt="tai ve" class="icon"></div>
                             </div>
@@ -370,9 +372,6 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
         <h4>{{$music->music_title}}</h4>
         <div class="container">
             <div class="row">
-                <div class="col-4"><img src="/images/img_like_black.png" alt="yêu thích">
-                    <p>Yêu thích</p>
-                </div>
                 <div class="col-4" data-toggle="modal" onclick="addPlaylistTable('{{$music->music_title}}', '{{$music->music_id}}', '{{isset($music->music_artist) ? $music->music_artist : "false"}}', '{{isset($music->music_artist_id) ? $music->music_artist_id : "false"}}')" data-target="#addPlayList">
                     <div><img src="/images/img_play_plus.png" alt="them vao playlist">
                         <p>Thêm vào playlist online</p>
@@ -494,7 +493,8 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
     var embed = 'false';
     var userStatus = 1;
     var firstLoadLyric = false;
-    var firstLoadBeforePlay = false;
+    var firstLoadBeforePlay = true;
+    var firstLoadUpdateQuality = true;
     var listLyrics = [];
     jwplayer().onBeforePlay(function() {
         //logPlayAudioFlag = true;
@@ -514,8 +514,8 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
         }
         ?>
         setTimeout(function(){
-            if(!firstLoadBeforePlay) {
-                firstLoadBeforePlay = true;
+            if(firstLoadBeforePlay) {
+                firstLoadBeforePlay = false;
                 $('.stringQ').on('touchstart', function () {
                     if($('.stringQ').hasClass('jw-open')){
                         $('.stringQ').removeClass('jw-open');
@@ -701,21 +701,25 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
     });
 
     function updateQuality(callback) {
-        var curQual = jwplayer('csnplayer').getCurrentQuality();
-        if(callback['levels'].length == 2) {
-            if(!$('.jw-icon-hd').hasClass('stringQ')) {
-                $('.jw-icon-hd').html(callback['levels'][curQual]['label']);
+        if(firstLoadUpdateQuality){
+            firstLoadUpdateQuality = false;
+            $('.jw-favourite').remove();
+            var curQual = jwplayer('csnplayer').getCurrentQuality();
+            if(callback['levels'].length == 2) {
+                if(!$('.jw-icon-hd').hasClass('stringQ')) {
+                    $('.jw-icon-hd').html(callback['levels'][curQual]['label']);
+                }
+                $('.jw-icon-hd').addClass('stringQ');
+                $('.jw-icon-hd').removeClass('jw-icon-hd');
+                $('.stringQ').html(callback['levels'][curQual]['label']);
+            }else{
+                if(!$('.jw-icon-hd').hasClass('stringQ')) {
+                    $('.jw-icon-hd').append('<span>' + callback['levels'][curQual]['label'] + '</span>');
+                }
+                $('.jw-icon-hd').addClass('stringQ');
+                $('.jw-icon-hd').removeClass('jw-icon-hd');
+                $('.stringQ').find('span').html(callback['levels'][curQual]['label']);
             }
-            $('.jw-icon-hd').addClass('stringQ');
-            $('.jw-icon-hd').removeClass('jw-icon-hd');
-            $('.stringQ').html(callback['levels'][curQual]['label']);
-        }else{
-            if(!$('.jw-icon-hd').hasClass('stringQ')) {
-                $('.jw-icon-hd').append('<span>' + callback['levels'][curQual]['label'] + '</span>');
-            }
-            $('.jw-icon-hd').addClass('stringQ');
-            $('.jw-icon-hd').removeClass('jw-icon-hd');
-            $('.stringQ').find('span').html(callback['levels'][curQual]['label']);
         }
     }
     // btn playlist, download, factories
@@ -1016,6 +1020,39 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
             }
         });
     }
+    $('.toggle_wishlist').click(function(e) {
+        <?php
+        if(!Auth::check()) {
+        ?>
+        window.location.href = '/login?back_url=' + window.location.href;
+        return false;
+            <?php
+            }
+            ?>
+        let falgFav = $('.toggle_wishlist').hasClass('selector');
+        $.ajax({
+            url: '/music/favourite',
+            type: "POST",
+            dataType: "json",
+            data: {
+                'type': falgFav,
+                'type_of': '<?php echo $musicSet['type_jw'] ?>',
+                'name': '<?php echo $music->music_title; ?>',
+                'music_id' : '<?php echo $music->music_id; ?>',
+            },
+            beforeSend: function () {
+                if(loaded) return false;
+                loaded = true;
+            },
+            success: function(response) {
+                if(response.success) {
+
+                }else {
+                    alertModal(data.message);
+                }
+            }
+        });
+    });
 </script>
 @if($musicSet['type_jw'] != 'video')
     <style>

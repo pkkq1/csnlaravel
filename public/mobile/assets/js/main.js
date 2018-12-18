@@ -36,7 +36,7 @@ swiper1.slides.each(function(index, val) {
 var swiper2 = new Swiper('.swiper2', {
     direction: 'horizontal',
     loop: false,
-    noSwiping: false,
+    noSwiping: true,
     autoHeight: true,
     resizeReInit: true,
     noSwipingClass: 'owl-carousel',
