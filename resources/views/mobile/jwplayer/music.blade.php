@@ -372,7 +372,7 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
         <h4>{{$music->music_title}}</h4>
         <div class="container">
             <div class="row">
-                <div class="col-4" data-toggle="modal" onclick="addPlaylistTable('{{$music->music_title}}', '{{$music->music_id}}', '{{isset($music->music_artist) ? $music->music_artist : "false"}}', '{{isset($music->music_artist_id) ? $music->music_artist_id : "false"}}')" data-target="#addPlayList">
+                <div class="col-4" data-toggle="modal" onclick="addPlaylistTable('<?php echo str_replace("'", "\'", $music->music_title); ?>', '{{$music->music_id}}', '{{isset($music->music_artist) ? $music->music_artist : "false"}}', '{{isset($music->music_artist_id) ? $music->music_artist_id : "false"}}')" data-target="#addPlayList">
                     <div><img src="/images/img_play_plus.png" alt="them vao playlist">
                         <p>Thêm vào playlist online</p>
                     </div>
@@ -451,7 +451,7 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
             }
             ?>
         ],
-        title: "<?php echo $music->music_title ?>",
+        title: "<?php echo str_replace("'", "\'", $music->music_title); ?>",
         skin: {
             name: 'nhac'
         },
