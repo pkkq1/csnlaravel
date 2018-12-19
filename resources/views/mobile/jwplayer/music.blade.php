@@ -400,14 +400,12 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                     </div>
                 </div>
                 <div class="modal-footer p-2">
-                    <form action="">
+                    <form action="#" onsubmit="return btnCreatePlaylist('box_text_create_playlist');">
                         <div class="input-group create_playlist">
-                            <form action="#" onsubmit="return btnCreatePlaylist('box_text_create_playlist');">
                             <input type="text" placeholder="Nhập tên playlist mới cần tạo" class="form-control box_text_create_playlist btn-radius">
                             <div class="input-group-append">
                                 <button onclick="btnCreatePlaylist('box_text_create_playlist')" type="button" class="btn btn-secondary btn-gradien btn-radius">Tạo Playlist</button>
                             </div>
-                            </form>
                         </div>
                     </form>
                 </div>
