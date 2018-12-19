@@ -1240,7 +1240,7 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                     data: {
                         'type': falgFav,
                         'type_of': '<?php echo $musicSet['type_jw'] ?>',
-                        'name': '<?php echo $music->music_title; ?>',
+                        'name': '<?php echo str_replace("'", "\'", $music->music_title); ?>',
                         'music_id' : '<?php echo $music->music_id; ?>',
                     },
                     beforeSend: function () {

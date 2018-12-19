@@ -21,18 +21,19 @@ var swiper1 = new Swiper('.swiper1', {
         var n = swiper1.clickedIndex;
     }
 });
-swiper1.slides.each(function(index, val) {
-    var ele = $(this);
-    ele.on("click", function() {
-        setCurrentSlide(ele, index);
-        swiper2.slideTo(index, 300, false);
-        swiper1.slideTo(index, 300, false);
-        if (typeof slideSwiperChange !== 'undefined' && typeof slideSwiperChange === 'function') {
-            slideSwiperChange(swiper1, 'click');
-        }
+if(swiper1.slides != undefined) {
+    swiper1.slides.each(function(index, val) {
+        var ele = $(this);
+        ele.on("click", function() {
+            setCurrentSlide(ele, index);
+            swiper2.slideTo(index, 300, false);
+            swiper1.slideTo(index, 300, false);
+            if (typeof slideSwiperChange !== 'undefined' && typeof slideSwiperChange === 'function') {
+                slideSwiperChange(swiper1, 'click');
+            }
+        });
     });
-});
-
+}
 var swiper2 = new Swiper('.swiper2', {
     direction: 'horizontal',
     loop: false,

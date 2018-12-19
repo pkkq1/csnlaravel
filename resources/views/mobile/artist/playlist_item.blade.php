@@ -4,7 +4,7 @@ use App\Library\Helpers;
 @if($playlist->toArray()['data'])
     <?php
     array_map(function ($item) {
-    $url = Helpers::album_url($item);
+    $url = Helpers::playlist_url($item);
     ?>
     <div class="col-6">
         <div class="item element">

@@ -1,0 +1,78 @@
+<?php
+use App\Library\Helpers;
+$titleMeta = $caption . ' - '. Config::get('constants.app.title');
+?>
+@extends('mobile.layouts.app')
+@section('contentCSS')
+@endsection
+@section('content')
+    <div class="header">
+        <div class="header_top">
+            <nav class="navbar navbar-expand-lg navbar-dark flex-row-reverse"><a href="#" class="navbar-brand text-white button_search"><i aria-hidden="true" class="fa fa-search"></i></a><a href="/" class="navbar-brand logo"><img src="/images/logo-header.png" alt="logo"></a>
+                <button type="button" class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
+            </nav>
+        </div>
+    </div>
+    <main class="main main_player">
+        <div class="sidebar_top">
+            <div id="pills-tabContent" class="tab-content">
+                <div id="pills-thongtin" role="tabpanel" aria-labelledby="pills-thongtin-tab" class="tab-pane fade active show">
+                    <div class="block_thongtin">
+                        <div class="swiper-container swiper2 swiper-container-horizontal swiper-container-autoheight">
+                            <div class="swiper-wrapper" style="height: 747px;">
+                                <div class="swiper-slide swiper-slide-active" style="width: 375px;">
+                                    <div class="container">
+                                        <div class="block block_album block_profile_playlist">
+                                            <div class="block_header d-flex flex-row justify-content-between mb-2">
+                                                <h3 class="main_title text-pink mb-0">{{$caption}}</h3>
+                                            </div>
+                                            <div class="row row-sm" id="album">
+                                                <?php
+                                                array_map(function ($item) {
+                                                $url = Helpers::playlist_url($item);
+                                                ?>
+                                                <div class="col-6">
+                                                    <div class="item element">
+                                                        <a href="{{$url}}"><div style="background: url({{$item['playlist_cover'] ? Helpers::file_path($item['playlist_id'], PUBLIC_MUSIC_PLAYLIST_PATH, true).$item['playlist_id'] . '.png?v=' . time() : '/imgs/avatar_default.png'}}) no-repeat center;background-size: cover;" class="image rounded"></div></a>
+                                                        <div class="content mt-3">
+                                                            <a href="{{$url}}"><h6 class="name_song mb-1 card-title">{{$item['playlist_title']}}</h6></a>
+                                                            <p class="name_singer text-gray mb-1 author">
+                                                                <?php
+                                                                $artistPlaylist = unserialize($item['playlist_artist']);
+                                                                if($artistPlaylist) {
+                                                                    $artistNames = [];
+                                                                    $artistIds = [];
+                                                                    $i = 0;
+                                                                    foreach($artistPlaylist as $key => $item) {
+                                                                        $artistNames[] = $item['name'];
+                                                                        $artistIds[] = $key;
+                                                                        if(++$i == 2)
+                                                                            break;
+                                                                    }
+                                                                    echo Helpers::rawHtmlArtists(implode(';', $artistIds), implode(';', $artistNames));
+                                                                }
+                                                                ?>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <?php
+                                                }, $playlist->toArray());
+                                                ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+@endsection
+@section('contentJS')
+    <script>
+
+    </script>
+@endsection

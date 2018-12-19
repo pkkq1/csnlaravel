@@ -137,12 +137,13 @@ Route::group(['middlewareGroups' => ['web']], function () {
         Route::get('{url}.html', ['as' => 'catalog.index', 'uses' => 'CatalogController@playlistPublisher']);
         Route::get('{url}', ['as' => 'catalog.index', 'uses' => 'CatalogController@playlistPublisher']);
     });
-    Route::post('bai-hat-moi', ['as' => 'catalog.music', 'uses' => 'CatalogController@musicNews']);
-    Route::post('video-moi', ['as' => 'catalog.video', 'uses' => 'CatalogController@videoNews']);
-    Route::post('album-moi', ['as' => 'catalog.album', 'uses' => 'CatalogController@albumNews']);
-    Route::post('bai-hat-moi.html', ['as' => 'catalog.music', 'uses' => 'CatalogController@musicNews']);
-    Route::post('video-moi.html', ['as' => 'catalog.video', 'uses' => 'CatalogController@videoNews']);
-    Route::post('album-moi.html', ['as' => 'catalog.album', 'uses' => 'CatalogController@albumNews']);
+    ///// catalog
+    Route::get('bai-hat-moi', ['as' => 'catalog.music', 'uses' => 'CatalogController@musicNews']);
+    Route::get('video-moi', ['as' => 'catalog.video', 'uses' => 'CatalogController@videoNews']);
+    Route::get('album-moi', ['as' => 'catalog.album', 'uses' => 'CatalogController@albumNews']);
+    Route::get('bai-hat-moi.html', ['as' => 'catalog.music', 'uses' => 'CatalogController@musicNews']);
+    Route::get('video-moi.html', ['as' => 'catalog.video', 'uses' => 'CatalogController@videoNews']);
+    Route::get('album-moi.html', ['as' => 'catalog.album', 'uses' => 'CatalogController@albumNews']);
 
     Route::group(['middleware' => ['auth']], function() {
 

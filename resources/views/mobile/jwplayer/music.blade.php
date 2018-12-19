@@ -99,7 +99,7 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                                     ?>
                                     <div class="swiper-slide">
                                     <div class="container">
-                                        <div class="block block_player {{$musicSet['type_jw'] == 'video' ? 'block_bxhvideo' : ''}}">
+                                        <div class="block_player {{$musicSet['type_jw'] == 'video' ? 'block_bxhvideo' : 'block'}}">
                                             <div class="block_baihat_main block_more music_recommendation">
                                                 <?php
                                                 array_map(function ($i, $item) use($music, $musicSet) {
@@ -143,7 +143,7 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                                 ?>
                                 <div class="swiper-slide">
                                     <div class="container">
-                                        <div class="block block_player {{!empty($video) || $musicSet['type_jw'] == 'video' ? 'block_bxhvideo' : ''}}">
+                                        <div class="block_player {{!empty($video) || $musicSet['type_jw'] == 'video' ? 'block_bxhvideo' : 'block'}}">
                                             <div class="block_baihat_main block_more sug_music">
                                                 @if(!empty($video))
                                                     <?php
@@ -270,7 +270,7 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                                 @if($VideoSameArtist)
                                     <div class="swiper-slide">
                                         <div class="container">
-                                            <div class="block block_player block_bxhvideo block_more">
+                                            <div class="block_player block_bxhvideo block_more">
                                                 <div class="block_baihat_main block_more">
                                                     <?php
                                                     $VideoSameArtist = Helpers::getRandLimitArr($VideoSameArtist, LYRIC_DETAIL_NEW_ALBUM);
@@ -1040,7 +1040,7 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
             data: {
                 'type': falgFav,
                 'type_of': '<?php echo $musicSet['type_jw'] ?>',
-                'name': '<?php echo $music->music_title; ?>',
+                'name': '<?php echo str_replace("'", "\'", $music->music_title); ?>',
                 'music_id' : '<?php echo $music->music_id; ?>',
             },
             beforeSend: function () {

@@ -4,9 +4,6 @@ $titleMeta = $caption . ' - '. Config::get('constants.app.title');
 ?>
 @extends('web.layouts.app')
 @section('contentCSS')
-    <link rel="stylesheet" type="text/css" href="/css/TabStylesInspiration/normalize.css">
-    <link rel="stylesheet" type="text/css" href="/css/TabStylesInspiration/tabs.css">
-    <link rel="stylesheet" type="text/css" href="/css/TabStylesInspiration/tabstyles.css">
 @endsection
 @section('content')
     <div class="container">
@@ -80,7 +77,6 @@ $titleMeta = $caption . ' - '. Config::get('constants.app.title');
     </div>
 @endsection
 @section('contentJS')
-    <script src="/js/cbpFWTabs.js"></script>
     <script>
     </script>
 @endsection
