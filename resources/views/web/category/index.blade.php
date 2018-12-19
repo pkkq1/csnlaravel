@@ -1,7 +1,15 @@
 <?php
 use App\Library\Helpers;
-$titleMeta = $category->cat_title . ' - '. Config::get('constants.app.title');
+$titleMeta = $caption . ' - '. Config::get('constants.app.title');
+global $hot_music_rows;
+if($category->cat_id == CAT_VIDEO)
+    global $hot_video_rows;
+$bxhCatExists = false;
+$parentTitle = str_replace('Nhạc ', '', explode(" >", $caption)[0]);
+if($category->cat_id == 3 || $category->cat_id == 4 || $category->cat_id == 5 || $category->cat_id == 7)
+    $bxhCatExists = true;
 ?>
+@include('cache.bxh.bxh_today')
 @extends('web.layouts.app')
 @section('contentCSS')
     <link rel="stylesheet" type="text/css" href="/css/TabStylesInspiration/normalize.css">
@@ -59,7 +67,171 @@ $titleMeta = $category->cat_title . ' - '. Config::get('constants.app.title');
                 <a class="catalog1 love" style="background-image: url(https://i.scdn.co/image/56228f9353b23405516a6ea8af1c22083f450b57);" href="#" title="">
                     <span>love</span>
                 </a>
-                <br>
+                <div class="box_space"></div>
+                <div class="box_header d-flex justify-content-between align-items-end">
+                    <a class="view_all" href="/nhac-hot.html"><h5 class="title m-0">Bảng xếp hạng</h5></a>
+                    <a class="link_more" href="/nhac-hot.html" title="">Nghe tất cả<span class="ion-android-arrow-dropright-circle"></span></a>
+                </div>
+                <ul class="nav nav-tabs" id="myTab_bxh" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link {{$category->cat_id == 3 ? 'active' : ''}}" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">việt nam</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{$category->cat_id == 4 ? 'active' : ''}}" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">us-uk</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{$category->cat_id == 5 ? 'active' : ''}}" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">k-pop</a>
+                    </li>
+                    @if($bxhCatExists)
+                    <li class="nav-item">
+                        <a class="nav-link {{$category->cat_id == 7 ? 'active' : ''}}" id="jpop-tab" data-toggle="tab" href="#jpop" role="tab" aria-controls="jpop" aria-selected="false">j-pop</a>
+                    </li>
+                    @else
+                    <li class="nav-item">
+                        <a class="nav-link active" id="jpop-tab" data-toggle="tab" href="#jpop" role="tab" aria-controls="jpop" aria-selected="false">{{$parentTitle}}</a>
+                    </li>
+                    @endif
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade {{$category->cat_id == 3 ? 'show active' : ''}}" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <ul class="list-unstyled bxh mb-0">
+                            <?php
+                            $catMusic = array_slice($hot_music_rows[3], 0, LIMIT_HOME_CAT_MUSIC);
+                            array_map(function ($i, $item) {
+                            $musicId = Helpers::music_id($item);
+                            $url = SUB_BXH_NOW_MUSIC.'vietnam.html?playlist='.++$i;
+                            ?>
+                            <li class="media {{($i == 1 ? 'first stand' : ($i == 2 ? 'now up' : ($i == 3 ? 'now down' : 'now')))}} align-items-stretch">
+                                <div class="media-left mr-3">
+                                    <span></span>
+                                    <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{Helpers::cover_url($item['cover_id'])}}" alt="{{$item['music_title']}}"></a>
+                                </div>
+                                <div class="media-body d-flex flex-column {{$i == 1 ? '' : 'justify-content-between'}}">
+                                    <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
+                                    <div class="{{$i == 1 ? '' : 'd-flex'}} align-items-center justify-content-between">
+                                        <div class="author"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></div>
+                                        <small class="counter_view">{{number_format($item['music_listen'])}}</small>
+                                    </div>
+                                </div>
+                            </li>
+                            <?php
+                            },array_keys($catMusic), $catMusic)
+                            ?>
+                        </ul>
+                    </div>
+                    <div class="tab-pane fade {{$category->cat_id == 4 ? 'show active' : ''}}" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                        <ul class="list-unstyled bxh mb-0">
+                            <?php
+                            $catMusic = array_slice($hot_music_rows[4], 0, LIMIT_HOME_CAT_MUSIC);
+                            array_map(function ($i, $item) {
+                            $musicId = Helpers::music_id($item);
+                            $url = SUB_BXH_NOW_MUSIC.'us-uk.html?playlist='.++$i;
+                            ?>
+                            <li class="media {{($i == 1 ? 'first stand' : ($i == 2 ? 'now up' : ($i == 3 ? 'now down' : 'now')))}} align-items-stretch">
+                                <div class="media-left mr-3">
+                                    <span></span>
+                                    <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{Helpers::cover_url($item['cover_id'])}}" alt="{{$item['music_title']}}"></a>
+                                </div>
+                                <div class="media-body d-flex flex-column {{$i == 1 ? '' : 'justify-content-between'}}">
+                                    <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
+                                    <div class="{{$i == 1 ? '' : 'd-flex'}} align-items-center justify-content-between">
+                                        <div class="author"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></div>
+                                        <small class="counter_view">{{number_format($item['music_listen'])}}</small>
+                                    </div>
+                                </div>
+                            </li>
+                            <?php
+                            },array_keys($catMusic), $catMusic)
+                            ?>
+                        </ul>
+                    </div>
+                    <div class="tab-pane fade {{$category->cat_id == 5 ? 'show active' : ''}}" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                        <ul class="list-unstyled bxh mb-0">
+                            <?php
+                            $catMusic = array_slice($hot_music_rows[5], 0, LIMIT_HOME_CAT_MUSIC);
+                            array_map(function ($i, $item) {
+                            $musicId = Helpers::music_id($item);
+                            $url = SUB_BXH_NOW_MUSIC.'chinese.html?playlist='.++$i;
+                            ?>
+                            <li class="media {{($i == 1 ? 'first stand' : ($i == 2 ? 'now up' : ($i == 3 ? 'now down' : 'now')))}} align-items-stretch">
+                                <div class="media-left mr-3">
+                                    <span></span>
+                                    <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{Helpers::cover_url($item['cover_id'])}}" alt="{{$item['music_title']}}"></a>
+                                </div>
+                                <div class="media-body d-flex flex-column {{$i == 1 ? '' : 'justify-content-between'}}">
+                                    <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
+                                    <div class="{{$i == 1 ? '' : 'd-flex'}} align-items-center justify-content-between">
+                                        <div class="author"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></div>
+                                        <small class="counter_view">{{number_format($item['music_listen'])}}</small>
+                                    </div>
+                                </div>
+                            </li>
+                            <?php
+                            },array_keys($catMusic), $catMusic)
+                            ?>
+                        </ul>
+                    </div>
+                    @if($bxhCatExists)
+                        <div class="tab-pane fade {{$category->cat_id == 7 ? 'show active' : ''}}" id="jpop" role="tabpanel" aria-labelledby="jpop-tab">
+                            <ul class="list-unstyled bxh mb-0">
+                                <?php
+                                $catMusic = array_slice($hot_music_rows[7], 0, LIMIT_HOME_CAT_MUSIC);
+                                array_map(function ($i, $item) {
+                                $musicId = Helpers::music_id($item);
+                                $url = SUB_BXH_NOW_MUSIC.'japan.html?playlist='.++$i;
+                                ?>
+                                <li class="media {{($i == 1 ? 'first stand' : ($i == 2 ? 'now up' : ($i == 3 ? 'now down' : 'now')))}} align-items-stretch">
+                                    <div class="media-left mr-3">
+                                        <span></span>
+                                        <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{Helpers::cover_url($item['cover_id'])}}" alt="{{$item['music_title']}}"></a>
+                                    </div>
+                                    <div class="media-body d-flex flex-column {{$i == 1 ? '' : 'justify-content-between'}}">
+                                        <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
+                                        <div class="{{$i == 1 ? '' : 'd-flex'}} align-items-center justify-content-between">
+                                            <div class="author"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></div>
+                                            <small class="counter_view">{{number_format($item['music_listen'])}}</small>
+                                        </div>
+                                    </div>
+                                </li>
+                                <?php
+                                },array_keys($catMusic), $catMusic)
+                                ?>
+                            </ul>
+                        </div>
+                    @else
+                        <div class="tab-pane fade show active" id="jpop" role="tabpanel" aria-labelledby="jpop-tab">
+                            <ul class="list-unstyled bxh mb-0">
+                                <?php
+                                if($category->cat_id == CAT_VIDEO){
+                                    $catMusic = array_slice($hot_video_rows[$category->cat_level == 0 ? 1 : $category->cat_level], 0, LIMIT_HOME_CAT_MUSIC);
+                                }else{
+                                    $catMusic = array_slice($hot_music_rows[$category->cat_id], 0, LIMIT_HOME_CAT_MUSIC);
+                                }
+                                array_map(function ($i, $item) use ($category) {
+                                $musicId = Helpers::music_id($item);
+                                $url = SUB_BXH_NOW_MUSIC.'japan.html?playlist='.++$i;
+                                ?>
+                                <li class="media {{($i == 1 ? 'first stand' : ($i == 2 ? 'now up' : ($i == 3 ? 'now down' : 'now')))}} align-items-stretch">
+                                    <div class="media-left mr-3">
+                                        <span></span>
+                                        <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{$category->cat_id == CAT_VIDEO ? Helpers::thumbnail_url($item) : Helpers::cover_url($item['cover_id'])}}" alt="{{$item['music_title']}}"></a>
+                                    </div>
+                                    <div class="media-body d-flex flex-column {{$i == 1 ? '' : 'justify-content-between'}}">
+                                        <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
+                                        <div class="{{$i == 1 ? '' : 'd-flex'}} align-items-center justify-content-between">
+                                            <div class="author"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></div>
+                                            <small class="counter_view">{{number_format($item['music_listen'])}}</small>
+                                        </div>
+                                    </div>
+                                </li>
+                                <?php
+                                },array_keys($catMusic), $catMusic)
+                                ?>
+                            </ul>
+                        </div>
+                    @endif
+
+                </div>
             </div>
         </div>
     </div>
