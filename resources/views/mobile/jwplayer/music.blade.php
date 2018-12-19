@@ -925,7 +925,6 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                 }
             }
         });
-        return false;
     }
     function loadPlayList(musicId) {
         <?php
