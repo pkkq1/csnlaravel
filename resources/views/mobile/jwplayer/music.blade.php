@@ -402,7 +402,7 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                 <div class="modal-footer p-2">
                     <form action="">
                         <div class="input-group create_playlist">
-                            <form action="#" id="submit_create_playlist">
+                            <form action="#" onsubmit="return btnCreatePlaylist('box_text_create_playlist');">
                             <input type="text" placeholder="Nhập tên playlist mới cần tạo" class="form-control box_text_create_playlist btn-radius">
                             <div class="input-group-append">
                                 <button onclick="btnCreatePlaylist('box_text_create_playlist')" type="button" class="btn btn-secondary btn-gradien btn-radius">Tạo Playlist</button>
@@ -894,9 +894,6 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
     //////////////////////////
     ////Add Playlist////////
     ////////////////////////
-    $('.submit_create_playlist').submit(function () {
-        btnCreatePlaylist('box_text_create_playlist');
-    })
     function btnCreatePlaylist(box_text_create_playlist) {
         var titlePlaylist = $('.' + box_text_create_playlist);
         <?php
@@ -930,6 +927,7 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                 }
             }
         });
+        return false;
     }
     function loadPlayList(musicId) {
         <?php
