@@ -514,7 +514,7 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
         }
         ?>
         setTimeout(function(){
-            if(firstLoadBeforePlay) {
+            console.log(1);
                 firstLoadBeforePlay = false;
                 $('.stringQ').on('touchstart', function () {
                     if($('.stringQ').hasClass('jw-open')){
@@ -554,7 +554,6 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                     }
                 ?>
 
-            }
         }, 300);
     });
     jwplayer().onTime(function () {
