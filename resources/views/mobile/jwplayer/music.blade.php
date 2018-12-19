@@ -513,33 +513,17 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
         <?php
         }
         ?>
-        setTimeout(function(){
-            console.log(1);
-                firstLoadBeforePlay = false;
+        if(firstLoadBeforePlay) {
+            firstLoadBeforePlay = false;
+            setTimeout(function(){
                 $('.stringQ').on('touchstart', function () {
-                    if($('.stringQ').hasClass('jw-open')){
-                        $('.stringQ').removeClass('jw-open');
-                    }else{
-                        $('.stringQ').addClass('jw-open');
-                    }
+                    $('.stringQ').click();
                 });
                 $('.stringQ .jw-text').on('touchstart', function () {
-                    if($('.stringQ').hasClass('jw-open')){
-                        $('.stringQ').removeClass('jw-open');
-                    }else{
-                        $('.stringQ').addClass('jw-open');
-                    }
+                    $('.stringQ').click();
                 });
                 $('.jw-icon-auto-next').on('touchstart', function () {
-                    if($('.jw-icon-auto-next').hasClass('jw-icon-auto-next-on')){
-                        $('.jw-icon-auto-next').removeClass('jw-icon-auto-next-on');
-                        $('.jw-icon-auto-next').addClass('jw-icon-auto-next-off');
-                        onPlayerAutoNextOff();
-                    }else{
-                        $('.jw-icon-auto-next').removeClass('jw-icon-auto-next-off');
-                        $('.jw-icon-auto-next').addClass('jw-icon-auto-next-on');
-                        onPlayerAutoNextOn();
-                    }
+                    $('.jw-icon-auto-next').click();
                 });
                 <?php
                     if(($musicSet['type_listen'] == 'playlist' || $musicSet['type_listen'] == 'album') && !empty($musicSet['playlist_music'])) {
@@ -553,8 +537,8 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                         <?php
                     }
                 ?>
-
-        }, 300);
+            }, 300);
+        }
     });
     jwplayer().onTime(function () {
         new RabbitLyrics({
