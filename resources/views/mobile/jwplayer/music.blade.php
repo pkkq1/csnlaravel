@@ -229,9 +229,9 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                                                 @if(isset($lyric_array['lyric']))
                                                     @if(isset($lyric_array['sub']) && $lyric_array['sub'] != false)
                                                         <div class="nav-link form-group form-check mb-0 autoplay sub-text" style="padding-left: 0px;">
-                                                            <input type="checkbox" class="form-check-input display-sub button-test-swiper" id="display-sub" onclick="display_sub()">
+                                                            <input type="checkbox" class="form-check-input display-sub" id="display-sub" onclick="display_sub()">
                                                             <label class="form-check-label d-flex align-items-center" for="display-sub">
-                                                                <span class="switch button-test-swiper"><span class="switch-inner"></span></span>
+                                                                <span class="switch"><span class="switch-inner"></span></span>
                                                                 <span style="font-size: 15px; color: #4b4b4b; font-family: 'SFProDisplay-Medium'; margin-left: 10px" class="txt">Hiển Thị Sub</span>
                                                             </label>
                                                         </div>
