@@ -704,7 +704,7 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
             firstLoadUpdateQuality = false;
             $('.jw-favourite').remove();
             $('.jw-icon-playback').on('touchstart', function () {
-                // alert(1);
+                alert(1);
                 $('.jw-icon-playback').click();
             });
             var curQual = jwplayer('csnplayer').getCurrentQuality();
