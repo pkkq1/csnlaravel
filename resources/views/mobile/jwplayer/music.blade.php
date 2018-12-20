@@ -531,7 +531,8 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                     }
                 });
                 $('.jw-icon-playback').on('touchstart', function () {
-                    $('.jw-icon-playback').click();
+                    alert(1);
+                    // $('.jw-icon-playback').click();
                 });
                 // $('.jw-icon-auto-next').on('touchstart', function () {
                 //     if($('.jw-icon-auto-next').hasClass('jw-icon-auto-next-on')){
