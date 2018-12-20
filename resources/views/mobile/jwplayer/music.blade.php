@@ -496,7 +496,24 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
     var firstLoadBeforePlay = true;
     var firstLoadUpdateQuality = true;
     var listLyrics = [];
-
+    jwplayer().onBeforePlay(function() {
+        //logPlayAudioFlag = true;
+        //console.log('set flag again|'+logPlayAudioFlag);
+        // $('#csnplayer').find('.jw-captions').html($('#hidden_lyrics').html());
+        // $('#hidden_lyrics').remove();
+        // new RabbitLyrics({
+        //     element: document.getElementById("lyrics"),
+        //     viewMode: 'mini',
+        //     onUpdateTimeJw: false
+        // });
+        <?php
+        if($musicSet['type_jw'] != 'video') {
+        ?>
+        $('.jw-display-icon-display').css('display', 'none')
+        <?php
+        }
+        ?>
+    });
     jwplayer().onTime(function () {
         new RabbitLyrics({
             element: document.getElementById("lyrics"),
@@ -646,6 +663,20 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
             $('.jw-favourite').remove();
             $('.jw-icon-playback').on('touchstart', function () {
                 $('.jw-icon-playback').click();
+            });
+            $('.stringQ').on('touchstart', function () {
+                if($('.stringQ').hasClass('jw-open')){
+                    $('.stringQ').removeClass('jw-open');
+                }else{
+                    $('.stringQ').addClass('jw-open');
+                }
+            });
+            $('.stringQ .jw-text').on('touchstart', function () {
+                if($('.stringQ').hasClass('jw-open')){
+                    $('.stringQ').removeClass('jw-open');
+                }else{
+                    $('.stringQ').addClass('jw-open');
+                }
             });
             var curQual = jwplayer('csnplayer').getCurrentQuality();
             if(callback['levels'].length == 2) {
