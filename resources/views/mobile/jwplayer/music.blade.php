@@ -84,10 +84,10 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                                     <div class="swiper-slide {{$firstSeleced ? 'selected' : ''}}"><span class="d-inline-block align-middle">Lyric</span></div>
                                 @endif
                                 @if($MusicSameArtist)
-                                    <div class="swiper-slide"><a class="d-inline-block align-middle">Cùng ca cĩ</a></div>
+                                    <div class="swiper-slide"><a class="d-inline-block align-middle">Cùng ca sĩ</a></div>
                                 @endif
                                 @if($VideoSameArtist)
-                                    <div class="swiper-slide"><a class="d-inline-block align-middle">Video cùng ca cĩ</a></div>
+                                    <div class="swiper-slide"><a class="d-inline-block align-middle">Video cùng ca sĩ</a></div>
                                 @endif
                             </div>
                         </div>
@@ -515,6 +515,8 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
         ?>
         if(firstLoadBeforePlay) {
             firstLoadBeforePlay = false;
+            consooel.log(123);
+            // jw-icon-playback
             setTimeout(function(){
                 $('.stringQ').on('touchstart', function () {
                     if($('.stringQ').hasClass('jw-open')){
