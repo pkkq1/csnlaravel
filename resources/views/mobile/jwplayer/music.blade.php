@@ -516,23 +516,24 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
         if(firstLoadBeforePlay) {
             firstLoadBeforePlay = false;
             setTimeout(function(){
-                // $('.stringQ').on('touchstart', function () {
-                //     if($('.stringQ').hasClass('jw-open')){
-                //         $('.stringQ').removeClass('jw-open');
-                //     }else{
-                //         $('.stringQ').addClass('jw-open');
-                //     }
-                // });
-                // $('.stringQ .jw-text').on('touchstart', function () {
-                //     if($('.stringQ').hasClass('jw-open')){
-                //         $('.stringQ').removeClass('jw-open');
-                //     }else{
-                //         $('.stringQ').addClass('jw-open');
-                //     }
-                // });
-                // $('.jw-icon-playback').on('touchstart', function () {
-                //
-                // });
+                $('.stringQ').on('touchstart', function () {
+                    if($('.stringQ').hasClass('jw-open')){
+                        $('.stringQ').removeClass('jw-open');
+                    }else{
+                        $('.stringQ').addClass('jw-open');
+                    }
+                });
+                $('.stringQ .jw-text').on('touchstart', function () {
+                    if($('.stringQ').hasClass('jw-open')){
+                        $('.stringQ').removeClass('jw-open');
+                    }else{
+                        $('.stringQ').addClass('jw-open');
+                    }
+                });
+                $('.jw-icon-playback').on('touchstart', function () {
+                    // alert(1);
+                    // $('.jw-icon-playback').click();
+                });
                 // $('.jw-icon-auto-next').on('touchstart', function () {
                 //     if($('.jw-icon-auto-next').hasClass('jw-icon-auto-next-on')){
                 //         $('.jw-icon-auto-next').removeClass('jw-icon-auto-next-on');
@@ -568,12 +569,12 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
     })
     jwplayer().onQualityLevels(function(callback){
         updateQuality(callback);
-        // if(sessionStorage.getItem("auto_next") == 'false') {
-        //     $('.jw-icon-auto-next-on').removeClass('jw-icon-auto-next-on').addClass('jw-icon-auto-next-off');
-        //     jwplayer().setConfig({
-        //         repeat: true
-        //     });
-        // }
+        if(sessionStorage.getItem("auto_next") == 'false') {
+            $('.jw-icon-auto-next-on').removeClass('jw-icon-auto-next-on').addClass('jw-icon-auto-next-off');
+            jwplayer().setConfig({
+                repeat: true
+            });
+        }
     });
     jwplayer().onQualityChange(function(callback){
         updateQuality(callback);
@@ -582,7 +583,7 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
         <?php
         if($musicSet['type_jw'] != 'video') {
         ?>
-        // $('#csnplayer').removeClass('jw-flag-user-inactive');
+        $('#csnplayer').removeClass('jw-flag-user-inactive');
         <?php
             }
             ?>
@@ -703,27 +704,27 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
     });
 
     function updateQuality(callback) {
-        // if(firstLoadUpdateQuality){
-        //     firstLoadUpdateQuality = false;
-        //     $('.jw-favourite').remove();
-        //
-        //     var curQual = jwplayer('csnplayer').getCurrentQuality();
-        //     if(callback['levels'].length == 2) {
-        //         if(!$('.jw-icon-hd').hasClass('stringQ')) {
-        //             $('.jw-icon-hd').html(callback['levels'][curQual]['label']);
-        //         }
-        //         $('.jw-icon-hd').addClass('stringQ');
-        //         $('.jw-icon-hd').removeClass('jw-icon-hd');
-        //         $('.stringQ').html(callback['levels'][curQual]['label']);
-        //     }else{
-        //         if(!$('.jw-icon-hd').hasClass('stringQ')) {
-        //             $('.jw-icon-hd').append('<span>' + callback['levels'][curQual]['label'] + '</span>');
-        //         }
-        //         $('.jw-icon-hd').addClass('stringQ');
-        //         $('.jw-icon-hd').removeClass('jw-icon-hd');
-        //         $('.stringQ').find('span').html(callback['levels'][curQual]['label']);
-        //     }
-        // }
+        if(firstLoadUpdateQuality){
+            firstLoadUpdateQuality = false;
+            $('.jw-favourite').remove();
+
+            var curQual = jwplayer('csnplayer').getCurrentQuality();
+            if(callback['levels'].length == 2) {
+                if(!$('.jw-icon-hd').hasClass('stringQ')) {
+                    $('.jw-icon-hd').html(callback['levels'][curQual]['label']);
+                }
+                $('.jw-icon-hd').addClass('stringQ');
+                $('.jw-icon-hd').removeClass('jw-icon-hd');
+                $('.stringQ').html(callback['levels'][curQual]['label']);
+            }else{
+                if(!$('.jw-icon-hd').hasClass('stringQ')) {
+                    $('.jw-icon-hd').append('<span>' + callback['levels'][curQual]['label'] + '</span>');
+                }
+                $('.jw-icon-hd').addClass('stringQ');
+                $('.jw-icon-hd').removeClass('jw-icon-hd');
+                $('.stringQ').find('span').html(callback['levels'][curQual]['label']);
+            }
+        }
     }
     // btn playlist, download, factories
     $('.cancel-download').click(function(e) {
