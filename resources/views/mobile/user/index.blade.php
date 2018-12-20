@@ -49,8 +49,8 @@ $mySelf = (Auth::check() && Auth::user()->id == $user->id);
                     <div class="container">
                         @if($mySelf)
                         <div class="block_header d-flex flex-row justify-content-around pt-3">
-                            <button type="button" class="btn btn-danger btn-gradien btn-radius">			<i aria-hidden="true" class="fa fa-pencil"></i><span>Tạo playlist</span></button>
-                            <button type="button" class="btn btn-secondary-grey btn-radius">			<i aria-hidden="true" class="fa fa-pencil"></i><span>Chỉnh sửa</span></button>
+                            <a href="/user/playlist/them"> <button type="button" class="btn btn-danger btn-gradien btn-radius">			<i aria-hidden="true" class="fa fa-pencil"></i><span>Tạo playlist</span></button></a>
+                            <a href="/user/playlist/chinh-sua"> <button type="button" class="btn btn-secondary-grey btn-radius">			<i aria-hidden="true" class="fa fa-pencil"></i><span>Chỉnh sửa</span></button></a>
                         </div>
                         @endif
                         <div class="block block_album block_profile_playlist">
