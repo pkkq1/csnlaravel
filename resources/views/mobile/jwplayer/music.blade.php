@@ -515,7 +515,7 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
         ?>
         if(firstLoadBeforePlay) {
             firstLoadBeforePlay = false;
-            consooel.log(123);
+            console.log(123);
             // jw-icon-playback
             setTimeout(function(){
                 $('.stringQ').on('touchstart', function () {
