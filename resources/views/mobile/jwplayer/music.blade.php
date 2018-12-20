@@ -459,6 +459,9 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
         // autostart: true,
         autostart: false,
         controlbar: "bottom",
+        modes: [
+            { type: 'html5' }
+        ],
         plugins: {
             '<?php echo $musicSet['type_listen'] == 'single' ? '/js/nhac-csn.js' : '/js/nhac-playlist.js' ?>': {
                 duration: 20,
@@ -531,7 +534,7 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                     }
                 });
                 $('.jw-icon-playback').on('touchstart', function () {
-                    alert(1);
+                    // alert(1);
                     // $('.jw-icon-playback').click();
                 });
                 // $('.jw-icon-auto-next').on('touchstart', function () {
