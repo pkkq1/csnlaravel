@@ -459,10 +459,6 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
         // autostart: true,
         autostart: false,
         controlbar: "bottom",
-        modes: [
-            { type: "html5" },
-            { type: "flash", src: "player.swf" }
-        ],
         plugins: {
             '<?php echo $musicSet['type_listen'] == 'single' ? '/js/nhac-csn.js' : '/js/nhac-playlist.js' ?>': {
                 duration: 20,
@@ -533,13 +529,6 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                     }else{
                         $('.stringQ').addClass('jw-open');
                     }
-                });
-                $('.jw-icon-playback').hover(function() {
-                    $('.jw-icon-playback').click();
-                });
-                $('.jw-icon-playback').on('touchstart', function () {
-                    // alert(1);
-                    $('.jw-icon-playback').click();
                 });
                 // $('.jw-icon-auto-next').on('touchstart', function () {
                 //     if($('.jw-icon-auto-next').hasClass('jw-icon-auto-next-on')){
@@ -714,7 +703,10 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
         if(firstLoadUpdateQuality){
             firstLoadUpdateQuality = false;
             $('.jw-favourite').remove();
-
+            $('.jw-icon-playback').on('touchstart', function () {
+                // alert(1);
+                $('.jw-icon-playback').click();
+            });
             var curQual = jwplayer('csnplayer').getCurrentQuality();
             if(callback['levels'].length == 2) {
                 if(!$('.jw-icon-hd').hasClass('stringQ')) {
