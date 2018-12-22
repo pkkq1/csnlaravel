@@ -1,6 +1,7 @@
 @section('hidden_wapper', true)
 <?php
-    $titleMeta = 'cập nhật nghệ sĩ mới - ' . Config::get('constants.app.title');
+use App\Library\Helpers;
+$titleMeta = isset($artistExist) ? 'Cập nhật nghệ sĩ '.$artistExist->artist_nickname : 'Thêm nghệ sĩ mới';
 ?>
 @extends('web.layouts.app')
 @section('contentCSS')
@@ -12,7 +13,7 @@
         <div class="row row_wrapper">
             <div class="col-md-9">
                 <div class="box_playlist border-0">
-                    <h3 class="title">UPLOAD ARTIST</h3>
+                    <h3 class="title">{{isset($artistExist) ? 'CẬP NHẬP CA SĨ' : 'UPLOAD ARTIST'}}</h3>
                 </div>
                 @if ($message = Session::get('success'))
                     <div class="alert alert-success">
@@ -32,7 +33,7 @@
                                     <div class="form-group row{{ $errors->has('artist_nickname') ? ' has-error' : '' }}">
                                         <label for="artist_nickname" class="col-sm-4 col-form-label">Nghệ Danh</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" value="{{ old('artist_nickname') }}" id="artist_nickname" name="artist_nickname" placeholder="Blooming Days - The 2nd Mini Album">
+                                            <input {{isset($artistExist) ? 'disabled' : ''}} type="text" class="form-control" value="{{ old('artist_nickname') ?? (isset($artistExist->artist_nickname) ? $artistExist->artist_nickname : '') }}" id="artist_nickname" name="artist_nickname" placeholder="Blooming Days - The 2nd Mini Album">
                                             @if ($errors->has('artist_nickname'))
                                                 <span class="help-block">
                                                     <strong>{{ str_replace('artist nickname', 'Nghệ Danh', $errors->first('artist_nickname')) }}</strong>
@@ -43,7 +44,7 @@
                                     <div class="form-group row {{ $errors->has('artist_birthday') ? ' has-error' : '' }}">
                                         <label for="artist_birthday" class="col-sm-4 col-form-label">Ngày Sinh</label>
                                         <div class="col-sm-8">
-                                            <input type="date" name="artist_birthday" class="form-control" value="{{ old('artist_birthday') }}" id="artist_birthday">
+                                            <input type="date" name="artist_birthday" class="form-control" value="{{ old('artist_birthday') ?? (isset($artistExist->artist_birthday) ? $artistExist->artist_birthday : '') }}" id="artist_birthday">
                                             @if ($errors->has('artist_birthday'))
                                                 <span class="help-block">
                                                     <strong>{{ str_replace('artist birthday', 'Ngày Sinh', $errors->first('artist_birthday')) }}</strong>
@@ -55,8 +56,11 @@
                                         <label for="artist_gender" class="col-sm-4 col-form-label">Giới Tính</label>
                                         <div class="col-sm-8">
                                             <select name="artist_gender" id="artist_gender" class="form-control">
-                                                <option {{ (old('artist_gender') == 0 ? 'selected' : '') }} value="0">Nam</option>
-                                                <option {{ (old('artist_gender') == 1 ? 'selected' : '') }} value="1">Nữ</option>
+                                                <?php
+                                                $old_artist_gender = old('artist_gender') ?? (isset($artistExist->artist_nickname) ? $artistExist->artist_nickname : '');
+                                                ?>
+                                                <option {{ ($old_artist_gender == 0 ? 'selected' : '') }} value="0">Nam</option>
+                                                <option {{ ($old_artist_gender == 1 ? 'selected' : '') }} value="1">Nữ</option>
                                             </select>
                                         </div>
                                     </div>
@@ -67,7 +71,7 @@
                                         </div>
                                         <div class="col-sm-8">
                                             <div class="media">
-                                                <img class="mr-3" id="artist_avatar_uploaded" src="/imgs/avatar_default.png" alt="">
+                                                <img class="mr-3" id="artist_avatar_uploaded" src="{{isset($artistExist->artist_avatar) && $artistExist->artist_avatar ? Helpers::file_path($artistExist->artist_id, PUBLIC_AVATAR_ARTIST_PATH, true) . $artistExist->artist_avatar : '/imgs/avatar_default.png'}}" alt="">
                                                 <div class="media-body">
                                                     <div class="form-group">
                                                         <label for="choose_artist_avatar">Chọn file ảnh</label>
@@ -90,7 +94,7 @@
                                         </div>
                                         <div class="col-sm-8">
                                             <div class="media">
-                                                <img class="mr-3" id="artist_cover_uploaded" src="/imgs/avatar_default.png" alt="">
+                                                <img class="mr-3" id="artist_cover_uploaded" src="{{isset($artistExist->artist_cover) && $artistExist->artist_cover ? Helpers::file_path($artistExist->artist_id, PUBLIC_COVER_ARTIST_PATH, true) . $artistExist->artist_avatar : '/imgs/avatar_default.png'}}" alt="">
                                                 <div class="media-body">
                                                     <div class="form-group">
                                                         <label for="choose_artist_cover">Chọn file ảnh</label>
@@ -119,8 +123,12 @@
                                     <div class="form-group row">
                                         <label for="inputPassword" class="col-sm-4 col-form-label"></label>
                                         <div class="col-sm-8">
-                                            <button type="submit" class="btn btn-primary btn-lg">Lưu</button>
-                                            <button type="button" class="btn btn-primary btn-lg" onclick="return remove_artist();" >Xóa</button>
+                                            <button type="submit" class="btn btn-primary btn-lg">{{isset($artistExist) ? 'Cập nhật' : 'Lưu'}}</button>
+                                            @if(!isset($artistExist))
+                                                <button type="button" class="btn btn-primary btn-lg" onclick="return remove_artist();" >Xóa</button>
+                                            @else
+                                                <input type="hidden" name="artist_id" id="artist_id" value="{{$artistExist->artist_id}}">
+                                            @endif
                                         </div>
                                     </div>
                                 </div>

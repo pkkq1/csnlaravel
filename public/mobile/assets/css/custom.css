@@ -414,7 +414,30 @@ footer {
     align-items: center;
     justify-content: center;
 }
-
+.card_playlist .btn {
+    font-size: 14px;
+    border-radius: 2px;
+    background-image: -webkit-linear-gradient(333deg, #FB6B60 0%, #FF2E55 100%);
+    background-image: -o-linear-gradient(333deg, #FB6B60 0%, #FF2E55 100%);
+    background-image: linear-gradient(-243deg, #FB6B60 0%, #FF2E55 100%);
+    border: none;
+}
+.list-group-item a{
+    color: #212529;
+}
+.edit_playlist_mobile .media a {
+    color: #212529;
+}
+.edit_playlist_mobile .media img {
+    width: 70px;
+}
+.edit_playlist_mobile .media i {
+    font-size: 15px;
+}
+.edit_playlist_mobile .btn-action {
+    font-size: 15px;
+    padding: 5px;
+}
 
 
 

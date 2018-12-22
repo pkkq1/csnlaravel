@@ -21,6 +21,8 @@ function view($view = null, $data = [], $mergeData = [])
         }else{
             $view = 'web.'.$view;
         }
+    }else{
+
     }
     if(strpos($view, '.errors') !== false) {
         ErrorLogModel::create([

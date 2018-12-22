@@ -123,7 +123,6 @@ use App\Library\Helpers;
             });
         }
         $('.check-all').change(function () {
-            console.log(1);
             if($('.check-all:checked').val() == 'all') {
                 $('.check_select').prop( "checked", true );
             }else{

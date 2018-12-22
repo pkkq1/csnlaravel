@@ -19,6 +19,7 @@ use App\Repositories\Cover\CoverEloquentRepository;
 use App\Repositories\Artist\ArtistRepository;
 use App\Repositories\MusicFavourite\MusicFavouriteRepository;
 use App\Repositories\VideoFavourite\VideoFavouriteRepository;
+use App\Repositories\MusicDownload\MusicDownloadEloquentRepository;
 use Illuminate\Support\Facades\Auth;
 use App\Models\PlaylistMusicModel;
 use DB;
@@ -39,10 +40,11 @@ class MusicController extends Controller
     protected $artistRepository;
     protected $musicFavouriteRepository;
     protected $videoFavouriteRepository;
+    protected $musicDownloadRepository;
 
     public function __construct(MusicEloquentRepository $musicRepository, PlaylistEloquentRepository $playlistRepository, MusicListenEloquentRepository $musicListenRepository,
                                 CategoryEloquentRepository $categoryListenRepository, CoverEloquentRepository $coverRepository, VideoEloquentRepository $videoRepository, ArtistRepository $artistRepository,
-                                MusicFavouriteRepository $musicFavouriteRepository, VideoFavouriteRepository $videoFavouriteRepository)
+                                MusicFavouriteRepository $musicFavouriteRepository, VideoFavouriteRepository $videoFavouriteRepository, MusicDownloadEloquentRepository $musicDownloadRepository)
     {
         $this->musicRepository = $musicRepository;
         $this->videoRepository = $videoRepository;
@@ -53,6 +55,7 @@ class MusicController extends Controller
         $this->artistRepository = $artistRepository;
         $this->musicFavouriteRepository = $musicFavouriteRepository;
         $this->videoFavouriteRepository = $videoFavouriteRepository;
+        $this->musicDownloadRepository = $musicDownloadRepository;
     }
 
     /**
@@ -78,7 +81,7 @@ class MusicController extends Controller
         if(!$music)
             return view('errors.404');
         // +1 view
-        if(Helpers::sessionListenMusic($arrUrl['id'])){
+        if(Helpers::sessionCountTimesMusic($arrUrl['id'])){
             $this->musicListenRepository->incrementListen($arrUrl['id']);
         }
         $type = 'music';
@@ -148,7 +151,7 @@ class MusicController extends Controller
         if(!$music)
             return view('errors.404');
         // +1 view
-        if(Helpers::sessionListenMusic($arrUrl['id'])){
+        if(Helpers::sessionCountTimesMusic($arrUrl['id'])){
             $this->musicListenRepository->incrementListen($music->music_id);
         }
         $type = 'music';
@@ -222,7 +225,7 @@ class MusicController extends Controller
         if(!$music)
             return view('errors.404');
         // +1 view
-        if(Helpers::sessionListenMusic($id)){
+        if(Helpers::sessionCountTimesMusic($id)){
             $this->musicListenRepository->incrementListen($id);
         }
         // update cookie music history
@@ -289,5 +292,14 @@ class MusicController extends Controller
             $getModelFavourite->getModel()::create(['user_id' => Auth::user()->id, 'music_id' => $request->music_id]);
         }
         Helpers::ajaxResult(true, $msg, $dataRes);
+    }
+    public function countDownload(Request $request) {
+        // +1 download
+        if($request->music_id) {
+            if(Helpers::sessionCountTimesMusic($request->music_id, 'download')){
+                $this->musicDownloadRepository->incrementDownload($request->music_id);
+            }
+        }
+        Helpers::ajaxResult(true, '', null);
     }
 }

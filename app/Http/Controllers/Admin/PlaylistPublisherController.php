@@ -99,7 +99,9 @@ class PlaylistPublisherController extends CrudController
                 'type' => 'closure',
                 'function' => function($entry) {
                     $user = $entry->playlist_user()->first();
-                    return '<a href="/user/'.$user->id.'" target="_blank">'.$user->name.'</a>';
+                    if($user)
+                        return '<a href="/user/'.$user->id.'" target="_blank">'.$user->name.'</a>';
+                    return '<a href="#" target="_blank">ẩn danh</a>';
                 },
             ],
             [

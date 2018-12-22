@@ -189,7 +189,7 @@ $titleMeta = $playlistUser ? 'Cập nhật playlist - ' . $playlistUser->playlis
     <script type="text/javascript" src="/js/croppie.js"></script>
     <script>
         function back() {
-            window.location.replace('/user/playlist/chinh-sua');
+            window.location.replace('<?php echo $playlistUser ? '/user/playlist/chinh-sua' : url()->previous() ?>');
         }
         $(document).ready(function(){
             $('#choose_playlist_cover').on('change', function(){

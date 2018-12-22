@@ -33,8 +33,7 @@ class ArtistRepository extends EloquentRepository implements ArtistRepositoryInt
     {
         $result = $this
             ->_model
-            ->where('id', $id)
-            ->where('is_published', 1)
+            ->where('artist_id', $id)
             ->first();
 
         return $result;
@@ -51,7 +50,8 @@ class ArtistRepository extends EloquentRepository implements ArtistRepositoryInt
             'artist_country' => $attributes->artist_country,
             'artist_avatar' => $attributes->artist_avatar,
             'artist_cover' => $attributes->artist_cover,
-            'artist_desc' => $attributes->artist_desc
+            'artist_desc' => $attributes->artist_desc,
+            'artist_id_source' => $attributes->artist_id
         ]);
         return $result;
     }

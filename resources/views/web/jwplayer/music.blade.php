@@ -17,6 +17,7 @@ $titleMeta = $music->music_title . ' - '. str_replace(';', ', ', $music->music_a
 $file_url = Helpers::file_url($music);
 $lyric_array = Helpers::lyric_to_web($music->music_lyric);
 $artistHtml = Helpers::rawHtmlArtists($music->music_artist_id, $music->music_artist);
+preg_match('/href=["\']?([^"\'>]+)["\']?/', $artistHtml, $matchArtist);
 $sug = [];
 $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3);
 ?>
@@ -188,27 +189,27 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                             <div class="tab-pane" id="pills-download" role="tabpanel" aria-labelledby="pills-download-tab">
                                 <div class="card card2">
                                     <div class="card-header">
-                                        <h4 class="card-title">Vui lòng click chọn một trong các liên kết ở bên dưới để tải bài bài hát {{$music->music_title}} về máy:</h4>
+                                        <h4 class="card-title">Vui lòng click chọn một trong các liên kết ở bên dưới để tải bài bài hát <span class="text-pink m-1">{{$music->music_title}}</span> về máy:</h4>
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-12">
-                                                <ul class="list-unstyled">
+                                                <ul class="list-unstyled download_status">
                                                     <?php
                                                     if ( isset($file_url[1]['url']) ){
-                                                        echo '<li><a href="'. $file_url[1]['url'] .'" title="Click vào đây để tải bài hát '. $music->music_title .'"><i class="material-icons">file_download</i> Link tải nhạc <span class="c1">'. strtoupper($file_url[1]['type']) .' '. $file_url[1]['label'] .'</span> '. $file_url[1]['size'] .'</a></li>' . "\n";
+                                                        echo '<li><a class="download_item" href="'. $file_url[1]['url'] .'" title="Click vào đây để tải bài hát '. $music->music_title .'"><i class="material-icons">file_download</i> Link tải nhạc <span class="c1">'. strtoupper($file_url[1]['type']) .' '. $file_url[1]['label'] .'</span> '. $file_url[1]['size'] .'</a></li>' . "\n";
                                                     }
                                                     if ( isset($file_url[2]['url']) ){
-                                                        echo '<li><a href="'. $file_url[2]['url'] .'" title="Click vào đây để tải bài hát '. $music->music_title .'"><i class="material-icons">file_download</i> Link tải nhạc <span class="c2">'. strtoupper($file_url[2]['type']) .' '. $file_url[2]['label'] .'</span> '. $file_url[2]['size'] .'</a></li>' . "\n";
+                                                        echo '<li><a class="download_item" href="'. $file_url[2]['url'] .'" title="Click vào đây để tải bài hát '. $music->music_title .'"><i class="material-icons">file_download</i> Link tải nhạc <span class="c2">'. strtoupper($file_url[2]['type']) .' '. $file_url[2]['label'] .'</span> '. $file_url[2]['size'] .'</a></li>' . "\n";
                                                     }
                                                     if ( isset($file_url[3]['url']) ){
-                                                        echo '<li><a href="'. $file_url[3]['url'] .'" title="Click vào đây để tải bài hát '. $music->music_title .'"><i class="material-icons">file_download</i> Link tải nhạc <span class="c3">'. strtoupper($file_url[3]['type']) .' '. $file_url[3]['label'] .'</span> '. $file_url[3]['size'] .'</a></li>' . "\n";
+                                                        echo '<li><a class="download_item" href="'. $file_url[3]['url'] .'" title="Click vào đây để tải bài hát '. $music->music_title .'"><i class="material-icons">file_download</i> Link tải nhạc <span class="c3">'. strtoupper($file_url[3]['type']) .' '. $file_url[3]['label'] .'</span> '. $file_url[3]['size'] .'</a></li>' . "\n";
                                                     }
                                                     if ( isset($file_url[4]['url']) ){
-                                                        echo '<li><a href="'. $file_url[4]['url'] .'" title="Click vào đây để tải bài hát '. $music->music_title .'"><i class="material-icons">file_download</i> Link tải nhạc <span class="c4">'. strtoupper($file_url[4]['type']) .' '. $file_url[4]['label'] .'</span> '. $file_url[4]['size'] .'</a></li>' . "\n";
+                                                        echo '<li><a class="download_item" href="'. $file_url[4]['url'] .'" title="Click vào đây để tải bài hát '. $music->music_title .'"><i class="material-icons">file_download</i> Link tải nhạc <span class="c4">'. strtoupper($file_url[4]['type']) .' '. $file_url[4]['label'] .'</span> '. $file_url[4]['size'] .'</a></li>' . "\n";
                                                     }
                                                     if ( isset($file_url[0]['url']) ){
-                                                        echo '<li><a href="'. $file_url[0]['url'] .'" title="Click vào đây để tải bài hát '. $music->music_title .'"><i class="material-icons">file_download</i> Link tải nhạc chất lượng thấp: '. strtoupper($file_url[0]['type']) .' '. $file_url[0]['label'] .' '. $file_url[0]['size'] .'</a></li>' . "\n";
+                                                        echo '<li><a class="download_item" href="'. $file_url[0]['url'] .'" title="Click vào đây để tải bài hát '. $music->music_title .'"><i class="material-icons">file_download</i> Link tải nhạc chất lượng thấp: '. strtoupper($file_url[0]['type']) .' '. $file_url[0]['label'] .' '. $file_url[0]['size'] .'</a></li>' . "\n";
                                                     }
                                                     ?>
                                                 </ul>
@@ -347,7 +348,7 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                 @if($MusicSameArtist)
                     <div class="box_header d-flex justify-content-between align-items-end">
                         <h5 class="title m-0">Cùng Ca Sĩ</h5>
-                        <a class="link_more" href="{{env('APP_URL')}}/tim-kiem?q={{explode(';', $music->music_artist)[0]}}&mode=nhac" title="Xem tất cả">Xem tất cả</a>
+                        <a class="link_more" href="{{$matchArtist[1]}}" title="Xem tất cả">Xem tất cả</a>
                     </div>
                     <div class="row row10px float-col-width">
                         <?php
@@ -376,7 +377,7 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                 @if($VideoSameArtist)
                 <div class="box_header d-flex justify-content-between align-items-end">
                     <h5 class="title m-0">Video cùng ca sĩ</h5>
-                    <a class="link_more" href="{{env('APP_URL')}}/tim-kiem?q={{explode(';', $music->music_artist)[0]}}&mode=video" title="Xem tất cả">Xem tất cả</a>
+                    <a class="link_more" href="{{$matchArtist[1]}}?tab=video" title="Xem tất cả">Xem tất cả</a>
                 </div>
                 <div class="row row10px float-col-width">
                     <?php
@@ -1219,6 +1220,30 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
             }
         }
         show_fulllyric();
+        //////////////////////////////
+        //// count download ////////
+        //////////////////////////////////
+        $('.download_item').click(function () {
+            if(!$('.download_status').hasClass('music_downloaded')) {
+                $.ajax({
+                    url: '/count_to_download',
+                    type: "POST",
+                    dataType: "json",
+                    data: {
+                        'music_id' : '<?php echo $music->music_id; ?>',
+                    },
+                    beforeSend: function () {
+                        if(loaded) return false;
+                        loaded = true;
+                    },
+                    success: function(response) {
+
+                    }
+                });
+            }
+            $('.download_status').addClass('music_downloaded');
+        });
+
         //////////////////////////////
         //// favourite music ////////
         //////////////////////////////////

@@ -11,6 +11,8 @@ use App\Repositories\Artist\ArtistRepository;
 use App\Repositories\ArtistUpload\ArtistUploadEloquentRepository;
 use App\Library\Helpers;
 use App\Http\Requests;
+use File;
+use Illuminate\Support\Facades\Storage;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 // VALIDATION: change the requests to match your own file names if you need form validation
 use Backpack\CRUD\app\Http\Requests\CrudRequest as StoreRequest;
@@ -43,11 +45,19 @@ class ArtistUploadController extends CrudController
                 'label' => 'Nghệ Danh',
             ],
             [
+                'name'  => 'type',
+                'label' => 'Thể loại',
+                'type' => 'closure',
+                'function' => function($entry) {
+                    return $entry->type == 0 ? '<span class="label label-default">Chỉnh sửa</span>' : '<span class="label label-success">Thêm mới</span>';
+                },
+            ],
+            [
                 'name'  => 'artist_avatar',
                 'label' => 'Avatar',
                 'type' => 'closure',
                 'function' => function($entry) {
-                    $urlImg = Helpers::file_path($entry->artist_id, PUBLIC_AVATAR_ARTIST_PATH, true) . $entry->artist_avatar;
+                    $urlImg = Helpers::file_path($entry->artist_id, PUBLIC_CACHE_AVATAR_ARTIST_PATH, true) . $entry->artist_avatar;
                     return '<a href="'.$urlImg.'" target="_blank">
                               <img src="'.$urlImg.'" style="
                                   max-height: 25px;
@@ -60,6 +70,7 @@ class ArtistUploadController extends CrudController
 //                'type' => 'model_function',
 //                'function_name' => 'getPreviewAvt',
             ],
+
             [
                 'name'  => 'artist_cover',
                 'label' => 'Cover',
@@ -67,7 +78,7 @@ class ArtistUploadController extends CrudController
 //                'type' => 'image',
                 'type' => 'closure',
                 'function' => function($entry) {
-                    $urlImg = Helpers::file_path($entry->artist_id, PUBLIC_COVER_ARTIST_PATH, true) . $entry->artist_cover;
+                    $urlImg = Helpers::file_path($entry->artist_id, PUBLIC_CACHE_COVER_ARTIST_PATH, true) . $entry->artist_cover;
                     return '<a href="'.$urlImg.'" target="_blank">
                               <img src="'.$urlImg.'" style="
                                   max-height: 25px;
@@ -105,6 +116,10 @@ class ArtistUploadController extends CrudController
         $this->crud->addField([
             'name'  => 'artist_cover',
             'label' => 'Cover',
+        ]);
+        $this->crud->addField([
+            'name'  => 'type',
+            'type'  => 'hidden',
         ]);
 
 //        $this->crud->addField([
@@ -170,13 +185,13 @@ class ArtistUploadController extends CrudController
         }
         if(strlen($request->input('artist_avatar')) > 100) {
             $typeImageAvatar = array_last(explode('.', $_FILES['choose_artist_avatar']['name']));
-            $fileNameAvt = Helpers::saveBase64Image($request->input('artist_avatar'), Helpers::file_path($request->input('artist_id'), AVATAR_ARTIST_CROP_PATH, true), $request->artist_id, $typeImageAvatar);
+            $fileNameAvt = Helpers::saveBase64Image($request->input('artist_avatar'), Helpers::file_path($request->input('artist_id'), CACHE_AVATAR_ARTIST_CROP_PATH, true), $request->artist_id, $typeImageAvatar);
             Helpers::copySourceImage($request->file('choose_artist_avatar'), Helpers::file_path($request->input('artist_id'), AVATAR_ARTIST_SOURCE_PATH, true), $request->artist_id, $typeImageAvatar);
             $request->request->set('artist_avatar', $fileNameAvt);
         }
         if(strlen($request->input('artist_cover')) > 100) {
             $typeImageCover = array_last(explode('.', $_FILES['choose_artist_cover']['name']));
-            $fileNameCover = Helpers::saveBase64Image($request->input('artist_cover'), Helpers::file_path($request->input('artist_id'), COVER_ARTIST_CROP_PATH, true), $request->artist_id, $typeImageCover);
+            $fileNameCover = Helpers::saveBase64Image($request->input('artist_cover'), Helpers::file_path($request->input('artist_id'), COVER_ARTIST_SOURCE_PATH, true), $request->artist_id, $typeImageCover);
             Helpers::copySourceImage($request->file('choose_artist_cover'), Helpers::file_path($request->input('artist_id'), COVER_ARTIST_SOURCE_PATH, true), $request->artist_id, $typeImageCover);
             $request->request->set('artist_cover', $fileNameCover);
         }
@@ -194,14 +209,20 @@ class ArtistUploadController extends CrudController
 
         return $this->performSaveAction($item->getKey());
     }
-    public function approvalArtistUpload($id) {
+    public function approvalArtistUpload(StoreRequest $request, $id) {
         $artistUpload = $this->artistUploadRepository->findOnlyPublished($id);
         $nameExist = $this->artistRepository->getModel()::where('artist_nickname', $artistUpload->artist_nickname)->first();
         if($nameExist) {
             \Alert::error('Tên Ca sĩ đã tồn tại.')->flash();
             return redirect()->back();
         }
-        $result = $this->artistRepository->createArtist($artistUpload);
+        $result = $this->artistRepository->createArtsist($artistUpload);
+        if($artistUpload->artist_avatar){
+            Storage::disk('public')->move(Helpers::file_path($artistUpload->artist_id, CACHE_AVATAR_ARTIST_CROP_PATH, true).$artistUpload->artist_avatar, Helpers::file_path($result->artist_id, AVATAR_ARTIST_CROP_PATH, true).$result->artist_avatar);
+        }
+        if($artistUpload->artist_cover){
+            Storage::disk('public')->move(Helpers::file_path($artistUpload->artist_id, CACHE_COVER_ARTIST_CROP_PATH, true).$artistUpload->artist_cover, Helpers::file_path($result->artist_id, COVER_ARTIST_CROP_PATH, true).$result->artist_avatar);
+        }
         $this->artistUploadRepository->delete($id);
         \Alert::success('Xác nhận ca sĩ thành công.')->flash();
         return \Redirect::to($this->crud->route);
@@ -210,6 +231,42 @@ class ArtistUploadController extends CrudController
         $artist = $this->artistUploadRepository->find($id);
         if(!$artist)
             return view('errors.404');
-        return view('artist.index', compact('artist'));
+        $musicHtml = '';
+        $artistFavourite = '';
+        $artistUrl = '';
+        return view('web.artist.index', compact('artist', 'musicHtml', 'artistFavourite', 'artistUrl'));
+    }
+    public function suggest(StoreRequest $request, $id) {
+        $artistUpload = $this->artistUploadRepository->findOnlyPublished($id);
+        $artistExist = $this->artistRepository->getModel()::where('artist_id', $artistUpload->artist_id_suggest)->first();
+        if(!$artistExist) {
+            \Alert::error('Ca sĩ không đã tồn tại.')->flash();
+            return redirect()->back();
+        }
+        if($artistUpload->artist_avatar){
+            $file = Helpers::file_path($artistExist->artist_id, AVATAR_ARTIST_CROP_PATH, true).$artistExist->artist_avatar;
+            if (Storage::disk('public')->exists($file)) {
+                Storage::disk('public')->delete($file);
+            }
+            Storage::disk('public')->move(Helpers::file_path($artistUpload->artist_id, CACHE_AVATAR_ARTIST_CROP_PATH, true).$artistUpload->artist_avatar, $file);
+        }
+        if($artistUpload->artist_cover){
+            $file = Helpers::file_path($artistExist->artist_id, COVER_ARTIST_CROP_PATH, true).$artistExist->artist_avatar;
+            if (Storage::disk('public')->exists($file)) {
+                Storage::disk('public')->delete($file);
+            }
+            Storage::disk('public')->move(Helpers::file_path($artistUpload->artist_id, CACHE_COVER_ARTIST_CROP_PATH, true).$artistUpload->artist_cover, $file);
+        }
+        $artistExist->artist_id_source = $artistUpload->artist_id;
+        if( $artistUpload->artist_birthday)
+            $artistExist->artist_birthday = $artistUpload->artist_birthday;
+        if($artistUpload->artist_gender)
+            $artistExist->artist_gender = $artistUpload->artist_gender;
+        if($artistUpload->artist_country)
+            $artistExist->artist_country = $artistUpload->artist_country;
+        $artistExist->save();
+        $this->artistUploadRepository->delete($id);
+        \Alert::success('Chỉnh sửa ca sĩ thành công.')->flash();
+        return \Redirect::to($this->crud->route);
     }
 }

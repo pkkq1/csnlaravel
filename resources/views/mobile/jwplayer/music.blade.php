@@ -335,7 +335,7 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
         <h4>{{$music->music_title}}</h4>
         <form action="#">
             <div class="container">
-                <div class="form-group">
+                <div class="form-group download_status">
                     <?php
                     if ( isset($file_url[1]['url']) ){
                         echo '<label class="relative">
@@ -762,6 +762,27 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                 break;
             }
         }
+        //////////////////////////////
+        //// count download ////////
+        //////////////////////////////////
+        if(!$('.download_status').hasClass('music_downloaded')) {
+            $.ajax({
+                url: '/count_to_download',
+                type: "POST",
+                dataType: "json",
+                data: {
+                    'music_id' : '<?php echo $music->music_id; ?>',
+                },
+                beforeSend: function () {
+                    if(loaded) return false;
+                    loaded = true;
+                },
+                success: function(response) {
+
+                }
+            });
+        }
+        $('.download_status').addClass('music_downloaded');
     }
 
     //////////////////////////
@@ -1057,6 +1078,7 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
             }
         });
     });
+
 </script>
 @if($musicSet['type_jw'] != 'video')
     <style>

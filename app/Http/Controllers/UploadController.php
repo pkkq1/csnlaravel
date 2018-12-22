@@ -14,21 +14,24 @@ use App\Repositories\ArtistUpload\ArtistUploadEloquentRepository;
 use App\Repositories\Music\MusicEloquentRepository;
 use App\Repositories\Upload\UploadEloquentRepository;
 use App\Repositories\Album\AlbumEloquentRepository;
+use App\Repositories\Artist\ArtistRepository;
 use File;
 
 class UploadController extends Controller
 {
     protected $artistUploadRepository;
+    protected $artistRepository;
     protected $musicRepository;
     protected $uploadRepository;
     protected $albumRepository;
 
-    public function __construct(ArtistUploadEloquentRepository $artistUploadRepository, MusicEloquentRepository $musicRepository,
+    public function __construct(ArtistUploadEloquentRepository $artistUploadRepository, MusicEloquentRepository $musicRepository, ArtistRepository $artistRepository,
                                 UploadEloquentRepository $uploadRepository, AlbumEloquentRepository $albumRepository) {
         $this->artistUploadRepository = $artistUploadRepository;
         $this->musicRepository = $musicRepository;
         $this->uploadRepository = $uploadRepository;
         $this->albumRepository = $albumRepository;
+        $this->artistRepository = $artistRepository;
     }
     public function index() {
         return view('upload.index');
@@ -74,7 +77,7 @@ class UploadController extends Controller
             'artist_avatar_crop_x' => 'required',
             'artist_avatar_crop_y' => 'required',
             'artist_cover_crop_x' => 'required',
-            'artist_cover_crop_y' => 'required'
+            'artist_cover_crop_y' => 'required',
         ]);
         $artist = [
             'artist_nickname' => $request->input('artist_nickname'),
@@ -84,23 +87,73 @@ class UploadController extends Controller
             'artist_avatar_crop_x' => $request->input('artist_avatar_crop_x'),
             'artist_avatar_crop_y' => $request->input('artist_avatar_crop_y'),
             'artist_cover_crop_x' => $request->input('artist_cover_crop_x'),
-            'artist_cover_crop_y' => $request->input('artist_cover_crop_y')
+            'artist_cover_crop_y' => $request->input('artist_cover_crop_y'),
+            'type' => 1,
+
         ];
-        if(!$artist)
-            return redirect()->route('upload.createArtist')->with('error', 'tạo ca sĩ thất bại');
         $result = $this->artistUploadRepository->create($artist);
+        if(!$result)
+            return redirect()->route('upload.createArtist')->with('error', 'tạo ca sĩ thất bại');
         //save image
         $typeImageAvatar = array_last(explode('.', $_FILES['choose_artist_avatar']['name']));
         $typeImageCover = array_last(explode('.', $_FILES['choose_artist_cover']['name']));
 //        dd($request->input('artist_avatar'));
-        $fileNameAvt = Helpers::saveBase64Image($request->input('artist_avatar'), Helpers::file_path($result->artist_id, AVATAR_ARTIST_CROP_PATH, true), $result->artist_id, $typeImageAvatar);
+        $fileNameAvt = Helpers::saveBase64Image($request->input('artist_avatar'), Helpers::file_path($result->artist_id, CACHE_AVATAR_ARTIST_CROP_PATH, true), $result->artist_id, $typeImageAvatar);
         Helpers::copySourceImage($request->file('choose_artist_avatar'), Helpers::file_path($result->artist_id, AVATAR_ARTIST_SOURCE_PATH, true), $result->artist_id, $typeImageAvatar);
-        $fileNameCover = Helpers::saveBase64Image($request->input('artist_cover'), Helpers::file_path($result->artist_id, COVER_ARTIST_CROP_PATH, true), $result->artist_id, $typeImageCover);
+        $fileNameCover = Helpers::saveBase64Image($request->input('artist_cover'), Helpers::file_path($result->artist_id, CACHE_COVER_ARTIST_CROP_PATH, true), $result->artist_id, $typeImageCover);
         Helpers::copySourceImage($request->file('choose_artist_cover'), Helpers::file_path($result->artist_id, COVER_ARTIST_SOURCE_PATH, true), $result->artist_id, $typeImageCover);
         $result->artist_avatar = $fileNameAvt;
         $result->artist_cover = $fileNameCover;
         $result->save();
         return redirect()->route('upload.createArtist')->with('success', 'Đã tạo ca sĩ ' . $result->artist_nickname);
+    }
+    function storeSuggestArtist(Request $request, $urlArtist) {
+        $arrUrl = Helpers::splitArtistUrl($urlArtist);
+        $artistExist = $this->artistRepository->findOnlyPublished($arrUrl['id']);
+        if(!$artistExist && $arrUrl['id'])
+            return view('errors.404');
+        if(!$request->artist_nickname && !$request->artist_birthday && !$request->artist_avatar && !$request->artist_cover && !$request->input('artist_id')) {
+            return view('errors.text_error')->with('message', 'Nhập ít nhất các thông tin cho ca sĩ '.$artistExist->artist_nickname);
+        }
+        $artist = [
+            'artist_nickname' => $artistExist->artist_nickname,
+            'artist_birthday' => date("Y/m/d", strtotime($request->input('artist_birthday'))),
+            'artist_gender' => $request->input('artist_gender'),
+            'last_update_user_id' => Auth::user()->id,
+            'artist_avatar_crop_x' => $request->input('artist_avatar_crop_x'),
+            'artist_avatar_crop_y' => $request->input('artist_avatar_crop_y'),
+            'artist_cover_crop_x' => $request->input('artist_cover_crop_x'),
+            'artist_cover_crop_y' => $request->input('artist_cover_crop_y'),
+            'artist_id_suggest' => $request->input('artist_id'),
+            'type' => 0,
+        ];
+        $result = $this->artistUploadRepository->create($artist);
+        if(!$result)
+            return redirect()->route('upload.createArtist')->with('error', 'cập nhật ca sĩ thất bại');
+        //save image
+        if($request->input('artist_avatar') && $request->file('choose_artist_avatar')) {
+            $typeImageAvatar = array_last(explode('.', $_FILES['choose_artist_avatar']['name']));
+            $typeImageCover = array_last(explode('.', $_FILES['choose_artist_cover']['name']));
+            $fileNameAvt = Helpers::saveBase64Image($request->input('artist_avatar'), Helpers::file_path($result->artist_id, CACHE_AVATAR_ARTIST_CROP_PATH, true), $result->artist_id, $typeImageAvatar);
+            Helpers::copySourceImage($request->file('choose_artist_avatar'), Helpers::file_path($result->artist_id, AVATAR_ARTIST_SOURCE_PATH, true), $result->artist_id, $typeImageAvatar);
+            $result->artist_avatar = $fileNameAvt;
+        }
+        if($request->input('artist_cover') && $request->file('choose_artist_cover')) {
+            $fileNameCover = Helpers::saveBase64Image($request->input('artist_cover'), Helpers::file_path($result->artist_id, CACHE_COVER_ARTIST_CROP_PATH, true), $result->artist_id, $typeImageCover);
+            Helpers::copySourceImage($request->file('choose_artist_cover'), Helpers::file_path($result->artist_id, COVER_ARTIST_SOURCE_PATH, true), $result->artist_id, $typeImageCover);
+            $result->artist_cover = $fileNameCover;
+        }
+        $result->save();
+        return redirect()->route('upload.createArtist')->with('success', 'Đã gửi gợi ý ca sĩ ' . $result->artist_nickname);
+
+    }
+    function suggestArtist(Request $request, $urlArtist) {
+        $arrUrl = Helpers::splitArtistUrl($urlArtist);
+        $artistExist = $this->artistRepository->findOnlyPublished($arrUrl['id']);
+        if(!$artistExist)
+            return view('errors.404');
+        return view('upload.upload_artist', compact('artistExist'));
+//        $this->artistSuggestRepository
     }
     function uploadFileMusic(Request $request) {
         $fileU = $request->file('file');

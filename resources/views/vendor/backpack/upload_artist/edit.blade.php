@@ -65,7 +65,7 @@ use App\Library\Helpers;
                         @endif
                         <div class="form-group col-xs-12">
                             <label style="display: -webkit-box;">Avatar</label>
-                            <img class="mr-3" id="artist_avatar_uploaded" src="{{$fields['artist_avatar']['value'] ? Helpers::file_path($fields['id']['value'], PUBLIC_AVATAR_ARTIST_PATH, true).$fields['artist_avatar']['value'].'?time='.time() : '/imgs/avatar_default.png'}}" alt="">
+                            <img class="mr-3" id="artist_avatar_uploaded" src="{{$fields['artist_avatar']['value'] ? Helpers::file_path($fields['id']['value'], PUBLIC_CACHE_AVATAR_ARTIST_PATH, true).$fields['artist_avatar']['value'].'?time='.time() : '/imgs/avatar_default.png'}}" alt="">
                             <div class="media-body">
                                 <div class="form-group" style="margin-top: 10px;">
                                     <input type="file" class="form-control-file" name="choose_artist_avatar" id="choose_artist_avatar">
@@ -75,7 +75,7 @@ use App\Library\Helpers;
 
                         <div class="form-group col-xs-12">
                             <label style="display: -webkit-box;">Cover</label>
-                            <img class="mr-3" width="800px" id="artist_cover_uploaded" src="{{$fields['artist_cover']['value'] ? Helpers::file_path($fields['id']['value'], PUBLIC_COVER_ARTIST_PATH, true).$fields['artist_cover']['value'].'?time='.time() : '/imgs/avatar_default.png'}}" alt="">
+                            <img class="mr-3" width="300px" id="artist_cover_uploaded" src="{{$fields['artist_cover']['value'] ? Helpers::file_path($fields['id']['value'], PUBLIC_CACHE_COVER_ARTIST_PATH, true).$fields['artist_cover']['value'].'?time='.time() : '/imgs/avatar_default.png'}}" alt="">
                             <div class="media-body">
                                 <div class="form-group" style="margin-top: 10px;">
                                     <input type="file" class="form-control-file" name="choose_artist_cover" id="choose_artist_cover">
@@ -85,15 +85,17 @@ use App\Library\Helpers;
                     </div><!-- /.box-body -->
 
                     <div class="box-footer">
-
+                        <label>Chỉnh sửa thông tin trước khi xác nhận ca sĩ</label>
                         <div id="saveActions" class="form-group">
 
                             <input type="hidden" name="save_action" value="{{ $saveAction['active']['value'] }}">
-
-                            <a href="{{ $crud->hasAccess('list') ? url($crud->route).'/'.$fields['id']['value'].'/approval' : url()->previous() }}" class="btn btn-info"><span class="fa fa-arrow-circle-right"></span> &nbsp;Xác Nhận Ca Sĩ</a>
+                            @if($fields['type']['value'] == 0)
+                                <a href="{{ $crud->hasAccess('list') ? url($crud->route).'/suggest/'.$fields['id']['value'] : url()->previous() }}" class="btn btn-primary"><span class="fa fa-arrow-circle-right"></span> &nbsp;Xác Nhận Chỉnh Sửa</a>
+                            @else
+                                <a href="{{ $crud->hasAccess('list') ? url($crud->route).'/'.$fields['id']['value'].'/approval' : url()->previous() }}" class="btn btn-info"><span class="fa fa-arrow-circle-right"></span> &nbsp;Xác Nhận Ca Sĩ</a>
+                            @endif
                             <a href="{{ $crud->hasAccess('list') ? url($crud->route).'/preview/'.$fields['id']['value'].'' : url()->previous() }}" target="_blank" class="btn btn-warning"><span class="fa fa-align-center"></span> &nbsp;Xem Trước</a>
                             <div class="btn-group">
-
                                 <button type="submit" class="btn btn-success">
                                     <span class="fa fa-save" role="presentation" aria-hidden="true"></span> &nbsp;
                                     <span data-value="{{ $saveAction['active']['value'] }}">{{ $saveAction['active']['label'] }}</span>

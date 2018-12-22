@@ -1254,9 +1254,11 @@ form#login-form {
 .ul_comments .media-text {
     word-break: break-word !important;
 }
-.modal-body {
-    overflow-y: auto;
-    max-height: calc(100vh - 200px);
+@media only screen and (max-width: 800px) {
+    .modal-body {
+        overflow-y: auto;
+        max-height: calc(100vh - 200px);
+    }
 }
 .playlist-csn li {
     cursor: pointer;

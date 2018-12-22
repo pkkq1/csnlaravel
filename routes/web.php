@@ -119,6 +119,8 @@ Route::group(['middlewareGroups' => ['web']], function () {
     // Search
     Route::get('tim-kiem', ['as' => 'search.index', 'uses' => 'SearchController@index']);
     Route::get('/search/real', 'SearchController@ajaxSearch');
+    // count download
+    Route::post('/count_to_download', ['as' => 'music.count_download', 'uses' => 'MusicController@countDownload']);
 
 
     // User
@@ -151,6 +153,8 @@ Route::group(['middlewareGroups' => ['web']], function () {
         Route::prefix('dang-tai/')->group(function () {
             Route::get('ca-si', ['as' => 'upload.createArtist', 'uses' => 'UploadController@createArtist']);
             Route::post('ca-si', ['as' => 'upload.storeArtist', 'uses' => 'UploadController@storeArtist']);
+            Route::get('ca-si/{urlArtist}', ['as' => 'upload.suggestArtist', 'uses' => 'UploadController@suggestArtist']);
+            Route::post('ca-si/{urlArtist}', ['as' => 'upload.storeSuggestArtist', 'uses' => 'UploadController@storeSuggestArtist']);
             Route::get('nhac/{musicId?}', ['as' => 'upload.createMusic', 'uses' => 'UploadController@createMusic']);
             Route::get('video/{musicId?}', ['as' => 'upload.createVideo', 'uses' => 'UploadController@createVideo']);
             Route::post('nhac/{musicId?}', ['as' => 'upload.storeMusic', 'uses' => 'UploadController@storeMusic']);

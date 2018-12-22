@@ -351,22 +351,22 @@ class Helpers
             exit();
         }
     }
-    public static function sessionListenMusic($idMusic) {
+    public static function sessionCountTimesMusic($idMusic, $type = 'listen') {
         session_start();
-        if(!isset($_SESSION["listen"])) {
+        if(!isset($_SESSION[$type])) {
             $newSession[$idMusic] = [
                 'time_expiry' => strtotime('+1 hour')
             ];
-            $_SESSION["listen"] = $newSession;
+            $_SESSION[$type] = $newSession;
             return true;
         }else{
-            $listen = $_SESSION["listen"];
+            $listen = $_SESSION[$type];
             if(isset($listen[$idMusic])) {
                 if($listen[$idMusic]['time_expiry'] <= time()) {
                     $listen[$idMusic] = [
                         'time_expiry' => strtotime(TIME_EXPIRY_ADD_LISTEN_MUSIC)
                     ];
-                    $_SESSION["listen"] = $listen;
+                    $_SESSION[$type] = $listen;
                     return true;
                 }
                 return false;
@@ -374,7 +374,7 @@ class Helpers
                 $listen[$idMusic] = [
                     'time_expiry' => strtotime('+1 hour')
                 ];
-                $_SESSION["listen"] = $listen;
+                $_SESSION[$type] = $listen;
                 return true;
             }
         }

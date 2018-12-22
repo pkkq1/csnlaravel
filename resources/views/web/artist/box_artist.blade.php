@@ -20,11 +20,15 @@ use App\Library\Helpers;
                         <ul class="list-inline navbar justify-content-center p-0 mb-4 menu_option">
                             <li class="list-inline-item"><a href="/nghe-bat-hat-ca-si/{{$artistUrl}}" class="btn btn-secondary btn-gradien btn-radius"><span>Play</span></a></li>
                             <li class="list-inline-item"><a href="javascript:void(0)" class="wishlist toggle_wishlist {{$artistFavourite ? 'selector' : ''}} px-3"><i aria-hidden="true" class="fa fa-heart-o"></i></a></li>
-                            {{--<li class="list-inline-item">--}}
-                                {{--<div class="dropdown"><a id="dropdownMenuSinger" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i aria-hidden="true" class="fa fa-ellipsis-h"></i></a>--}}
-                                    {{--<div aria-labelledby="dropdownMenuSinger" class="dropdown-menu"><a href="#" class="dropdown-item">Bắt đầu Radio</a><a href="#" class="dropdown-item">Lưu vào thư viện</a><a href="#" class="dropdown-item">Sao chép Liên kết Nghệ sĩ</a></div>--}}
-                                {{--</div>--}}
-                            {{--</li>--}}
+                            <li class="list-inline-item">
+                                <div class="dropdown"><a id="dropdownMenuSinger" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i aria-hidden="true" class="fa fa-ellipsis-h"></i></a>
+                                    <div aria-labelledby="dropdownMenuSinger" class="dropdown-menu">
+                                        <a href="/dang-tai/ca-si/{{$artistUrl}}" class="dropdown-item">Gợi ý chỉnh sửa</a>
+                                        {{--<a href="#" class="dropdown-item">Bắt đầu Radio</a>--}}
+                                        {{--<a href="#" class="dropdown-item">Lưu vào thư viện</a>--}}
+                                        {{--<a href="#" class="dropdown-item">Sao chép Liên kết Nghệ sĩ</a></div>--}}
+                                </div>
+                            </li>
                         </ul>
                     </div>
                 </div>

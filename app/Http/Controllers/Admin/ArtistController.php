@@ -39,6 +39,10 @@ class ArtistController extends CrudController
             [
                 'name'  => 'artist_nickname',
                 'label' => 'Nghệ Danh',
+                'type' => 'closure',
+                'function' => function($entry) {
+                    return Helpers::rawHtmlArtists($entry->artist_id, $entry->artist_nickname);
+                },
             ],
             [
                 'name'  => 'artist_avatar',
@@ -98,6 +102,10 @@ class ArtistController extends CrudController
             'name'  => 'artist_cover',
             'label' => 'Cover',
         ]);
+        $this->crud->addField([
+            'name'  => 'type',
+            'type'  => 'hidden',
+        ]);
 //
 //        $this->crud->addField([
 //            'label' => "Avatar",
@@ -133,7 +141,7 @@ class ArtistController extends CrudController
         $this->data['title'] = trans('backpack::crud.edit').' '.$this->crud->entity_name;
         $this->data['id'] = $id;
 
-        return view('vendor.backpack.upload_artist.edit', $this->data);
+        return view('vendor.backpack.artist.edit', $this->data);
     }
 
     public function store(StoreRequest $request)

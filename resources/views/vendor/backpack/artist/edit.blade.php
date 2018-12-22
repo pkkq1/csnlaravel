@@ -75,7 +75,7 @@ use App\Library\Helpers;
 
                         <div class="form-group col-xs-12">
                             <label style="display: -webkit-box;">Cover</label>
-                            <img class="mr-3" width="800px" id="artist_cover_uploaded" src="{{$fields['artist_cover']['value'] ? Helpers::file_path($fields['id']['value'], PUBLIC_COVER_ARTIST_PATH, true).$fields['artist_cover']['value'].'?time='.time() : '/imgs/avatar_default.png'}}" alt="">
+                            <img class="mr-3" width="300px" id="artist_cover_uploaded" src="{{$fields['artist_cover']['value'] ? Helpers::file_path($fields['id']['value'], PUBLIC_COVER_ARTIST_PATH, true).$fields['artist_cover']['value'].'?time='.time() : '/imgs/avatar_default.png'}}" alt="">
                             <div class="media-body">
                                 <div class="form-group" style="margin-top: 10px;">
                                     <input type="file" class="form-control-file" name="choose_artist_cover" id="choose_artist_cover">
@@ -91,7 +91,7 @@ use App\Library\Helpers;
                             <input type="hidden" name="save_action" value="{{ $saveAction['active']['value'] }}">
 
                             <a href="{{ $crud->hasAccess('list') ? url($crud->route).'/'.$fields['id']['value'].'/approval' : url()->previous() }}" class="btn btn-info"><span class="fa fa-arrow-circle-right"></span> &nbsp;Xác Nhận Ca Sĩ</a>
-                            <a href="{{ $crud->hasAccess('list') ? url($crud->route).'/preview/'.$fields['id']['value'].'' : url()->previous() }}" target="_blank" class="btn btn-warning"><span class="fa fa-align-center"></span> &nbsp;Xem Trước</a>
+                            <a href="{{Helpers::artistUrl($fields['id']['value'], $fields['artist_nickname']['value'])}}" target="_blank" class="btn btn-warning"><span class="fa fa-align-center"></span> &nbsp;Xem Trước</a>
                             <div class="btn-group">
 
                                 <button type="submit" class="btn btn-success">
