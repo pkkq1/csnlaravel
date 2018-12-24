@@ -220,7 +220,15 @@ a.navbar-brand.logo {
 
 .block_video_main .element {
     padding: 0 7.5px;
-    width: 50%;
+    width: 100%;
+}
+
+.block_video_main .element .image {
+    margin-right: 15px;
+}
+.block_video_main .element .content{
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
 }
 
 .block_album_main,
@@ -969,13 +977,13 @@ a.navbar-brand.logo {
     border-bottom: 2px solid transparent;
 }
 
-.swiper1 .selected {
+.swiper1 .swiper-slide.swiper-slide-thumb-active.swiper-slide-visible {
     color: #ec5566;
     border-bottom: 2px solid #ec5566;
 }
 
 .swiper1 .swiper-slide{
-    width: auto !important;
+    width: auto !important; 
     padding: 0 10px !important;
     min-width: calc(100%/4) !important;
     max-width: calc(70%) !important;

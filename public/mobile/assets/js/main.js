@@ -1,68 +1,39 @@
 var swiper1 = new Swiper('.swiper1', {
-    slidesPerView: 2,
-    paginationClickable: true,
-    freeMode: true,
+    slidesPerView: 'auto',
     loop: false,
-    resizeReInit: true,
+    freeMode: true,
+    watchSlidesVisibility: true,
     watchSlidesProgress: true,
-    onSetTransition: function(swiper) {
-        var n = swiper.activeIndex;
-        var slideActive = [];
-        for (var i = 0; i < swiper.slides.length; i++) {
-            var slide = swiper.slides[i];
-            slideActive[i] = $(slide).position().left
-        }
-        var translate = slideActive[n];
-        $(".swiper1 .swiper-wrapper").css({
-            transform: 'translate3d(-' + translate + 'px,0,0)'
-        });
-    },
-    onTab: function(swiper) {
-        var n = swiper1.clickedIndex;
-    }
+    centeredSlides: false,    
+    resizeReInit: true
 });
-if(swiper1.slides != undefined) {
-    swiper1.slides.each(function(index, val) {
-        var ele = $(this);
-        ele.on("click", function() {
-            setCurrentSlide(ele, index);
-            swiper2.slideTo(index, 300, false);
-            swiper1.slideTo(index, 300, false);
-            if (typeof slideSwiperChange !== 'undefined' && typeof slideSwiperChange === 'function') {
-                slideSwiperChange(swiper1, 'click');
-            }
-        });
+swiper1.slides.each(function(index, val) {
+    var ele = $(this);
+    ele.on("click", function() {
+        swiper2.slideTo(index, 300, false);
+        swiper1.slideTo(index, 300, false);
     });
-}
+});
 var swiper2 = new Swiper('.swiper2', {
     direction: 'horizontal',
     loop: false,
-    noSwiping: true,
     autoHeight: true,
     resizeReInit: true,
+    noSwiping: true,
     noSwipingClass: 'owl-carousel',
-    onSlideChangeEnd: function(swiper) {
-        var n = swiper.activeIndex;
-        setCurrentSlide($(".swiper1 .swiper-slide").eq(n), n);
-        swiper1.slideTo(n, 300, false);
+    thumbs: {
+        swiper: swiper1,
     },
-    onTransitionEnd: function(swiper) {
-        if (typeof slideSwiperChange !== 'undefined' && typeof slideSwiperChange === 'function') {
-            slideSwiperChange(swiper, 'drag');
-        }
+    on: {
+        slideChangeTransitionEnd: function () {
+            var n = $(this)[0].activeIndex;
+            swiper1.slideTo(n, 300, false);
+        },
     }
 });
 
-function setCurrentSlide(ele, index) {
-    $(".swiper1 .swiper-slide").removeClass("selected");
-    ele.addClass("selected");
-}
-
 jQuery(document).ready(function($) {
     'use strict';
-    // $('#time_player').slider();
-    // $('#playlist_time_player').slider();
-    // $('#binhluan_time_player').slider();
 
     $('.slider_home').owlCarousel({
         loop: true,

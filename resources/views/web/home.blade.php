@@ -470,7 +470,7 @@ global $top_artist_rows;
                 $artistRows = Helpers::getRandLimitArr($top_artist_rows[3], LIMIT_HOME_ARTIST);
                 array_map(function ($i, $item) {
                 ?>
-                    <a href="#" title="{{$item['music_artist']}}" class="img-thumbnail singer {{$i == 0 ? 'c1' : ''}}" style="background-image: url({{Helpers::cover_url($item['artist_face_id'])}});">
+                    <a href="{{$item['artist_url']}}" title="{{$item['music_artist']}}" class="img-thumbnail singer {{$i == 0 ? 'c1' : ''}}" style="background-image: url({{Helpers::cover_url($item['artist_face_id'])}});">
                         <span>{{$item['music_artist']}}</span>
                     </a>
                 <?php

@@ -23,7 +23,7 @@ global $album_cat_new;
         </div>
         <!-- swiper1-->
         <div class="header_sub_menu">
-            <div data-itemmenu="4" class="swiper-container swiper1">
+            <div data-itemmenu="5" class="swiper-container swiper1">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide tabHome selected">Home</div>
                     <div class="swiper-slide theme_all">Chủ đề</div>

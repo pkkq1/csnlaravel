@@ -39,11 +39,15 @@ class ArtistController extends CrudController
             [
                 'name'  => 'artist_nickname',
                 'label' => 'Nghệ Danh',
-                'type' => 'closure',
-                'function' => function($entry) {
-                    return Helpers::rawHtmlArtists($entry->artist_id, $entry->artist_nickname);
-                },
             ],
+//            [
+//                'name'  => 'artist_nickname',
+//                'label' => 'Nghệ Danh',
+//                'type' => 'closure',
+//                'function' => function($entry) {
+//                    return Helpers::rawHtmlArtists($entry->artist_id, $entry->artist_nickname);
+//                },
+//            ],
             [
                 'name'  => 'artist_avatar',
                 'label' => 'Avatar',
