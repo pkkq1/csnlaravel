@@ -2,6 +2,25 @@
 use App\Library\Helpers;
 $titleMeta = $artist->artist_nickname . ' - '. Config::get('constants.app.title');
 ?>
+@section('meta')
+    <base href="{{env('APP_URL')}}">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+    <meta name="author" content="{{$music->music_username}}">
+    <meta name="copyright" content="{{env('APP_DOMAIN')}}" />
+    <meta name="revisit-after" content="7 Days">
+    <meta name="keywords" content="{{$music->music_title}}, {{$music->music_artist}}, <?php echo $musicSet['type_jw'] == 'video' ? 'HD 1080p, HD 720p, MV 480p, MV 360p, video, mv, hd, mp4' : 'Lossless, 500kbps, 320kbps, music, mp3, m4a, flac, lossless' ?>, csn, nghe nhac, tai nhac, loi bai hat, lyrics">
+    <meta name="description" content="<?php echo $musicSet['type_jw'] == 'video' ? 'Nghe online video '.$music->music_title.' do ca sĩ '.$music->music_artist.' thể hiện. Tải nhạc dạng hd, mp4 và xem lời bài hát '.$music->music_title.' hoàn toàn miễn phí.' : 'Nghe online bài hát '.$music->music_title.' do ca sĩ '.$music->music_artist.' thể hiện. Tải nhạc dạng mp3, m4a, lossless và xem lời bài hát '.$music->music_title.' hoàn toàn miễn phí.' ?>">
+    <link rel="canonical" href="{{url()->current()}}" />
+    <link rel="image_src" href="{{$thumnailMusic}}" />
+    <meta name="title" content="{{$music->music_title}}; {{$music->music_artist}}" />
+    <meta property="og:image" content="{{$thumnailMusic}}" />
+    <meta property="og:url" content="{{url()->current()}}" />
+    <meta property="og:title" content="{{$music->music_title}}; {{$music->music_artist}}" />
+    <meta property="og:description" content="Sáng tác: {{$music->music_composer}} ({{$music->music_year}}); <?php echo $musicSet['type_jw'] == 'video' ? 'Chất lượng: HD 1080p, HD 720p, MV 480p, MV 360p' : 'Chất lượng: Lossless, 500kbps, 320kbps' ?>" />
+    <meta property="og:type" content="website" />
+    <meta property="og:updated_time" content="{{time()}}" />
+@endsection
 @extends('mobile.layouts.app')
 @section('content')
     <div class="header">

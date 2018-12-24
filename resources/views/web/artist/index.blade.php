@@ -2,13 +2,33 @@
 <?php
 use App\Library\Helpers;
 $titleMeta = $artist->artist_nickname . ' - '. Config::get('constants.app.title');
+$avtArtist = $artist->artist_avatar ? Helpers::file_path($artist->artist_id, PUBLIC_AVATAR_ARTIST_PATH, true) . $artist->artist_avatar : env('APP_URL').'/imgs/no_avatar.png';
 ?>
-@extends('web.layouts.app')
+@section('meta')
+    <base href="{{env('APP_URL')}}">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+    <meta name="author" content="{{$artist->artist_nickname}}">
+    <meta name="copyright" content="{{env('APP_DOMAIN')}}" />
+    <meta name="revisit-after" content="7 Days">
+    <meta name="keywords" content="{{$artist->artist_nickname}}, nhac {{$artist->artist_nickname}}, thong tin {{$artist->artist_nickname}}, bai hat moi, video hot, album hay nhất">
+    <meta name="description" content="{{$artist->artist_nickname}}, trang thông tin chính thức về nhạc {{$artist->artist_nickname}}, toàn bộ bài hát mới, video mới nhất và album hay nhất của {{$artist->artist_nickname}}">
+    <link rel="canonical" href="{{url()->current()}}" />
+    <link rel="image_src" href="{{$avtArtist}}" />
+    <meta name="title" content="{{$artist->artist_nickname}}" />
+    <meta property="og:image" content="{{$avtArtist}}" />
+    <meta property="og:url" content="{{url()->current()}}" />
+    <meta property="og:title" content="{{$artist->artist_nickname}}" />
+    <meta property="og:description" content="{{$artist->artist_nickname}}, trang thông tin chính thức về nhạc {{$artist->artist_nickname}}, toàn bộ bài hát mới, video mới nhất và album hay nhất của {{$artist->artist_nickname}}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:updated_time" content="{{time()}}" />
+@endsection
 @section('contentCSS')
     <link rel="stylesheet" type="text/css" href="/css/TabStylesInspiration/normalize.css">
     <link rel="stylesheet" type="text/css" href="/css/TabStylesInspiration/tabs.css">
     <link rel="stylesheet" type="text/css" href="/css/TabStylesInspiration/tabstyles.css">
 @endsection
+@extends('web.layouts.app')
 @section('content')
     @include('web.artist.box_artist', ['artist' => $artist])
     <div class="container">
@@ -17,10 +37,10 @@ $titleMeta = $artist->artist_nickname . ' - '. Config::get('constants.app.title'
                 <div class="tabs tabs-style-line tab-category">
                     <nav>
                         <ul>
-                            <li class="tab-current"><a onclick="artistTab('/tab_artist', 'music')" href="#music"><span>Bài Hát</span></a></li>
-                            <li><a onclick="artistTab('/tab_artist', 'video')" href="#video"><span>Video</span></a></li>
-                            <li><a onclick="artistTab('/tab_artist', 'album')" href="#album"><span>Album</span></a></li>
-                            <li><a onclick="artistTab('/tab_artist', 'playlist')" href="#playlist"><span>Playlist</span></a></li>
+                            <li class="bai-hat tab-current"><a class="bai-hat" onclick="artistTab('/tab_artist', 'music')" href="#music"><span>Bài Hát</span></a></li>
+                            <li class="video"><a class="video" onclick="artistTab('/tab_artist', 'video')" href="#video"><span>Video</span></a></li>
+                            <li class="album"><a class="album" onclick="artistTab('/tab_artist', 'album')" href="#album"><span>Album</span></a></li>
+                            <li class="playlist"><a class="playlist" onclick="artistTab('/tab_artist', 'playlist')" href="#playlist"><span>Playlist</span></a></li>
                         </ul>
                     </nav>
                     <div class="content-wrap tab-content-category">
@@ -126,5 +146,14 @@ $titleMeta = $artist->artist_nickname . ' - '. Config::get('constants.app.title'
             });
             $(this).toggleClass('selector');
         });
+        <?php
+        if(isset($_GET['tab'])) {
+        ?>
+        $( document ).ready(function() {
+            $('.<?php echo $_GET['tab'] ?>').click();
+        });
+        <?php
+        }
+        ?>
     </script>
 @endsection

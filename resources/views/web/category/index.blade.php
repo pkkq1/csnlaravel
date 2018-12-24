@@ -9,6 +9,24 @@ $parentTitle = str_replace('Nhạc ', '', explode(" >", $caption)[0]);
 if($category->cat_id == 3 || $category->cat_id == 4 || $category->cat_id == 5 || $category->cat_id == 7)
     $bxhCatExists = true;
 ?>
+@section('meta')
+    <base href="{{env('APP_URL')}}">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+    <meta name="copyright" content="{{env('APP_DOMAIN')}}" />
+    <meta name="revisit-after" content="7 Days">
+    <meta name="keywords" content="bang xep hang, music, mp3, m4a, flac, lossless, video, mv, hd, mp4, csn, nghe nhạc, tải nhạc, lời bài hát, lyrics">
+    <meta name="description" content="Nghe nhạc online chất lượng cao kèm lyrics, chia sẻ và tải nhạc dạng mp3, mp4, m4a, lossless.">
+    <link rel="canonical" href="{{url()->current()}}" />
+    <link rel="image_src" href="{{env('APP_URL')}}/imgs/no_cover.png" />
+    <meta name="title" content="{{$titleMeta}}" />
+    <meta property="og:image" content="{{env('APP_URL')}}/imgs/no_cover.png" />
+    <meta property="og:url" content="{{url()->current()}}" />
+    <meta property="og:title" content="{{$titleMeta}}" />
+    <meta property="og:description" content="Nghe nhạc online chất lượng cao kèm lyrics, chia sẻ và tải nhạc dạng mp3, mp4, m4a, lossless." />
+    <meta property="og:type" content="website" />
+    <meta property="og:updated_time" content="{{time()}}" />
+@endsection
 @include('cache.bxh.bxh_today')
 @extends('web.layouts.app')
 @section('contentCSS')

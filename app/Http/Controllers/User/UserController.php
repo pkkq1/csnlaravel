@@ -46,7 +46,7 @@ class UserController extends Controller
     {
         $user = $this->userRepository->getUserById($id)->first();
         if(!$user)
-            return view('errors.404');
+            return view('errors.text_error')->with('message', 'Người dùng đang được cập nhật.');
         $playlist = $this->playlistRepository->getByUser($user->id);
         return view('user.index', compact('user', 'playlist'));
     }

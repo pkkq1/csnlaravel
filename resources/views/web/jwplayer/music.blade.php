@@ -20,7 +20,35 @@ $artistHtml = Helpers::rawHtmlArtists($music->music_artist_id, $music->music_art
 preg_match('/href=["\']?([^"\'>]+)["\']?/', $artistHtml, $matchArtist);
 $sug = [];
 $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3);
+$thumnailMusic = $musicSet['type_jw'] != 'video' ? Helpers::cover_url($music->cover_id) : Helpers::thumbnail_url($music->toArray());
+$thumnailMeta = '';
+$titleExMeta = '';
+if($musicSet['type_listen'] == 'playlist') {
+    $thumnailMeta = $musicSet['playlist']->playlist_cover ? env('APP_URL').Helpers::file_path($musicSet['playlist']->playlist_id, PUBLIC_MUSIC_PLAYLIST_PATH, true).$musicSet['playlist']->playlist_id . '.png?v=' . time() : env('APP_URL').'/imgs/avatar_default.png';
+    $titleExMeta = '; '.$musicSet['playlist']->playlist_title;
+} else {
+    $thumnailMeta = $thumnailMusic;
+}
 ?>
+@section('meta')
+    <base href="{{env('APP_URL')}}">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+    <meta name="author" content="{{$music->music_username}}">
+    <meta name="copyright" content="{{env('APP_DOMAIN')}}" />
+    <meta name="revisit-after" content="7 Days">
+    <meta name="keywords" content="{{$music->music_title}}, {{$music->music_artist}}, <?php echo $musicSet['type_jw'] == 'video' ? 'HD 1080p, HD 720p, MV 480p, MV 360p, video, mv, hd, mp4' : 'Lossless, 500kbps, 320kbps, music, mp3, m4a, flac, lossless' ?>, csn, nghe nhac, tai nhac, loi bai hat, lyrics">
+    <meta name="description" content="<?php echo $musicSet['type_jw'] == 'video' ? 'Nghe online video '.$music->music_title.' do ca sĩ '.$music->music_artist.' thể hiện. Tải nhạc dạng hd, mp4 và xem lời bài hát '.$music->music_title.' hoàn toàn miễn phí.' : 'Nghe online bài hát '.$music->music_title.' do ca sĩ '.$music->music_artist.' thể hiện. Tải nhạc dạng mp3, m4a, lossless và xem lời bài hát '.$music->music_title.' hoàn toàn miễn phí.' ?>">
+    <link rel="canonical" href="{{url()->current()}}" />
+    <link rel="image_src" href="{{$thumnailMeta}}" />
+    <meta name="title" content="{{$music->music_title}}; {{$music->music_artist}}<?php echo $titleExMeta?>" />
+    <meta property="og:image" content="{{$thumnailMeta}}" />
+    <meta property="og:url" content="{{url()->current()}}" />
+    <meta property="og:title" content="{{$music->music_title}}; {{$music->music_artist}}<?php echo $titleExMeta?>" />
+    <meta property="og:description" content="Sáng tác: {{$music->music_composer}} ({{$music->music_year}}); <?php echo $musicSet['type_jw'] == 'video' ? 'Chất lượng: HD 1080p, HD 720p, MV 480p, MV 360p' : 'Chất lượng: Lossless, 500kbps, 320kbps' ?>" />
+    <meta property="og:type" content="website" />
+    <meta property="og:updated_time" content="{{time()}}" />
+@endsection
 @section('contentCSS')
     <link href="{{env('APP_URL')}}/node_modules/rabbit-lyrics/dist/rabbit-lyrics.css" rel="stylesheet" type="text/css"/>
     <script src="{{env('APP_URL')}}/node_modules/rabbit-lyrics/dist/rabbit-lyrics.js" type="text/javascript"></script>
@@ -110,7 +138,7 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
                 <div class="row">
                     <div class="col-md-4">
                         <div class="card card-details">
-                            <img src="{{$musicSet['type_jw'] != 'video' ? Helpers::cover_url($music->cover_id) : Helpers::thumbnail_url($music->toArray())}}" alt="" class="card-img-top">
+                            <img src="{{$thumnailMusic}}" alt="" class="card-img-top">
                             <div class="card-body">
                                 <h4 class="card-title">{{$music->music_title}}</h4>
                                 <ul class="list-unstyled">

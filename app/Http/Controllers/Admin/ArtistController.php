@@ -53,7 +53,7 @@ class ArtistController extends CrudController
                 'label' => 'Avatar',
                 'type' => 'closure',
                 'function' => function($entry) {
-                    $urlImg = Helpers::file_path($entry->artist_id, PUBLIC_AVATAR_ARTIST_PATH, true) . $entry->artist_avatar;
+                    $urlImg = $entry->artist_avatar ? Helpers::file_path($entry->artist_id, PUBLIC_AVATAR_ARTIST_PATH, true) . $entry->artist_avatar : '/imgs/no_avatar.png';
                     return '<a href="'.$urlImg.'" target="_blank">
                               <img src="'.$urlImg.'" style="
                                   max-height: 25px;
@@ -67,7 +67,7 @@ class ArtistController extends CrudController
                 'label' => 'Cover',
                 'type' => 'closure',
                 'function' => function($entry) {
-                    $urlImg = Helpers::file_path($entry->artist_id, PUBLIC_COVER_ARTIST_PATH, true) . $entry->artist_cover;
+                    $urlImg = $entry->artist_cover ? Helpers::file_path($entry->artist_id, PUBLIC_COVER_ARTIST_PATH, true) . $entry->artist_cover : '/imgs/no_avatar.png';
                     return '<a href="'.$urlImg.'" target="_blank">
                               <img src="'.$urlImg.'" style="
                                   max-height: 25px;

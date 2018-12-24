@@ -110,6 +110,7 @@ class MusicController extends Controller
         $arrUrl = Helpers::splitPlaylistUrl($musicUrl);
         $playlistMusic = [];
         $music = [];
+        $playlist = [];
         $typeListen = 'single';
         if($arrUrl['type'] == 'nghe-album') {
             $album = $this->coverRepository->getCoverMusicById($arrUrl['id']);
@@ -165,7 +166,8 @@ class MusicController extends Controller
             'type_listen' => $typeListen, // single | playlist | album
             'type_jw' =>  $type,  // playlist | music | video
             'playlist_music' => $playlistMusic,
-            'music_history' => $cookie
+            'music_history' => $cookie,
+            'playlist' => $playlist
         ];
         $musicFavourite = false;
         if(Auth::check()){
