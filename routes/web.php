@@ -151,6 +151,7 @@ Route::group(['middlewareGroups' => ['web']], function () {
 
         // upload selector
         Route::prefix('dang-tai/')->group(function () {
+            Route::get('ca-si/tim-kiem', ['as' => 'artist.gettermartist', 'uses' => 'ArtistController@getTermArtist']);
             Route::get('ca-si', ['as' => 'upload.createArtist', 'uses' => 'UploadController@createArtist']);
             Route::post('ca-si', ['as' => 'upload.storeArtist', 'uses' => 'UploadController@storeArtist']);
             Route::get('ca-si/{urlArtist}', ['as' => 'upload.suggestArtist', 'uses' => 'UploadController@suggestArtist']);
@@ -163,8 +164,6 @@ Route::group(['middlewareGroups' => ['web']], function () {
             Route::get('album/{albumId?}', ['as' => 'upload.createAlbum', 'uses' => 'UploadController@createAlbum']);
             Route::post('album/{albumId?}', ['as' => 'upload.storeAlbum', 'uses' => 'UploadController@storeAlbum']);
             Route::post('file-nhac', ['as' => 'upload.fileMusic', 'uses' => 'UploadController@uploadFileMusic']);
-            Route::get('ca-si/tim-kiem', ['as' => 'artist.gettermartist', 'uses' => 'ArtistController@getTermArtist']);
-
         });
 
         // Comment
