@@ -235,7 +235,7 @@ class MusicController extends Controller
         //update cache file suggestion
         $this->musicRepository->suggestion($music, $type);
         $musicSet = [
-            'type_listen' => 'playlist', // single | playlist | album
+            'type_listen' => 'album', // single | playlist | album
             'type_jw' =>  $type,  // music | video
             'playlist_music' => $playlistMusic,
             'music_history' => $cookie
