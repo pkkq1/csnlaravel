@@ -252,31 +252,25 @@ global $album_cat_new;
                                     <span class="text-gray align-self-end">Xem tất cả</span>
                                 </div>
                                 <div class="block_album_main d-flex flex-wrap">
-                                    <div class="slide-album owl-theme owl-carousel owl-loaded owl-drag">
-                                        <div class="owl-stage-outer">
-                                            <div class="owl-stage" style="transform: translate3d(-584px, 0px, 0px); transition: all 0s ease 0s; width: 1559px;">
-                                                <?php
-                                                $musicNewCat = Helpers::getRandLimitArr($album_cat_new[3], LIMIT_HOME_CAT_MUSIC);
-                                                array_map(function ($item) {
-                                                $url = Helpers::album_url($item);
-                                                ?>
-                                                <div class="owl-item cloned" style="width: 184.783px; margin-right: 10px;">
-                                                    <div class="item element">
-                                                        <a href="{{$url}}"><div class="image rounded" style="background: url({{Helpers::cover_url($item['cover_id'])}}) no-repeat center;background-size: cover"></div></a>
-                                                        <div class="content mt-3">
-                                                            <h6 class="name_song mb-1 card-title">{{$item['music_album']}}</h6>
-                                                            <a href="{{$url}}"><p class="name_singer text-gray mb-1 author"><?php echo $item['music_artist_html'] ?></p></a>
-                                                            <p class="loss text-pink mb-0"><?php echo $item['music_bitrate_html'] ?></p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <?php
-                                                }, $musicNewCat)
-                                                ?>
+                                    <div class="slide-album owl-theme owl-carousel">
+
+
+                                        <?php
+                                        $musicNewCat = Helpers::getRandLimitArr($album_cat_new[3], LIMIT_HOME_CAT_MUSIC);
+                                        array_map(function ($item) {
+                                        $url = Helpers::album_url($item);
+                                        ?>
+                                        <div class="item element">
+                                            <a href="{{$url}}"><div style="background: url({{Helpers::cover_url($item['cover_id'])}}) no-repeat center;background-size: cover;" class="image rounded"></div></a>
+                                            <div class="content mt-3">
+                                                <a href="{{$url}}"><h6 class="name_song mb-1">{{$item['music_album']}}</h6></a>
+                                                <p class="name_singer text-gray mb-1 author"><?php echo $item['music_artist_html'] ?></p>
+                                                <p class="loss text-pink mb-0"><?php echo $item['music_bitrate_html'] ?></p>
                                             </div>
                                         </div>
-                                        <div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev"><span aria-label="Previous">‹</span></button><button type="button" role="presentation" class="owl-next"><span aria-label="Next">›</span></button></div>
-                                        <div class="owl-dots disabled"></div>
+                                        <?php
+                                        }, $musicNewCat)
+                                        ?>
                                     </div>
                                 </div>
                             </div>
