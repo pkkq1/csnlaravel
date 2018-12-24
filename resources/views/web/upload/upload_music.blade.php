@@ -299,7 +299,7 @@ $titleMeta = (isset($music) ? 'Chỉnh sửa '.$music->music_title : 'Cập nh�
         Dropzone.prototype.defaultOptions.maxFiles = 1;
         // Dropzone.prototype.defaultOptions.acceptedFiles = '';
         Dropzone.prototype.defaultOptions.headers = {
-            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+            'X-CSRF-TOKEN': '{{ csrf_token() }}',
         };
         Dropzone.prototype.defaultOptions.callResponseSuccess = function(result) {
             if(result.status === true) {
@@ -308,6 +308,11 @@ $titleMeta = (isset($music) ? 'Chỉnh sửa '.$music->music_title : 'Cập nh�
                 $('.dz-message').remove();
                 $('.drop_html').val($('.dropzone').html());
                 $('.music_filesize').val(result.file_size);
+            }else{
+                alertModal(result.message);
+                $('#myModal').on('hidden.bs.modal', function () {
+                    location.reload();
+                })
             }
         };
         <?php

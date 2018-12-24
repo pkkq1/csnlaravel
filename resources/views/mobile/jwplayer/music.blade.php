@@ -23,9 +23,9 @@ $thumnailMeta = '';
 $titleExMeta = '';
 if($musicSet['type_listen'] == 'playlist') {
     $thumnailMeta = $musicSet['playlist']->playlist_cover ? env('APP_URL').Helpers::file_path($musicSet['playlist']->playlist_id, PUBLIC_MUSIC_PLAYLIST_PATH, true).$musicSet['playlist']->playlist_id . '.png?v=' . time() : env('APP_URL').'/imgs/avatar_default.png';
+    $titleExMeta = '; '.$musicSet['playlist']->playlist_title;
 } elseif ($musicSet['type_listen'] == 'album') {
     $thumnailMeta = Helpers::cover_url($music->cover_id);
-    $titleExMeta = '; '.$musicSet['playlist']->playlist_title;
 } else {
     $thumnailMeta = $thumnailMusic;
 }

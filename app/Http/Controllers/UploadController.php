@@ -157,8 +157,14 @@ class UploadController extends Controller
     }
     function uploadFileMusic(Request $request) {
         $fileU = $request->file('file');
+        $type = substr($_FILES['file']['type'], 0, 5);
+        if($type != 'audio' && $type != 'video') {
+            return response()->json([
+                'status' => false,
+                'message' => 'Định dạng file "'.$_FILES['file']['name'].'" bị sai, chỉ chấp nhận file nhạc hoặc video',
+            ]);
+        }
         $fileName = Helpers::moveFile($request->file('file'), $_SERVER['DOCUMENT_ROOT'].DEFAULT_ROOT_TEMP_MUSIC_PATH, $_FILES['file']['name']);
-//        echo $fileName;
         return response()->json([
             'status' => true,
             'message' => 'Upload Success',

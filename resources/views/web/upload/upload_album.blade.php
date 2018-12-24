@@ -334,6 +334,11 @@ $titleMeta = 'Cập nhật album - ' . Config::get('constants.app.title');
                 $('.music_filesize').val(oldFileSize ? oldFileSize + ';' + result.file_size : result.file_size);
                 $('.dz-message').remove();
                 $('.drop_html').val($('.dropzone').html());
+            }else{
+                alertModal(result.message);
+                $('#myModal').on('hidden.bs.modal', function () {
+                    location.reload();
+                })
             }
         };
         <?php

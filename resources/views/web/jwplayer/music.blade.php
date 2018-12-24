@@ -315,7 +315,7 @@ if($musicSet['type_listen'] == 'playlist') {
                             <div class="tab-pane" id="pills-share" role="tabpanel" aria-labelledby="pills-share-tab">
                                 <div class="form-group">
                                     <ul class="list-inline mb-1">
-                                        <li class="list-inline-item"><a class="zalo-share-button" href="{{url()->current()}}" title="{{$music->music_title}}"></a></li>
+                                        {{--<li class="list-inline-item"><a class="zalo-share-button" href="{{url()->current()}}" title="{{$music->music_title}}"></a></li>--}}
                                         <li class="list-inline-item"><a class="fb-share-link" href="{{url()->current()}}" title="{{$music->music_title}}"></a></li>
                                         <li class="list-inline-item"><a class="messenger-share-link" href="{{url()->current()}}" title="{{$music->music_title}}"></a></li>
                                     </ul>
