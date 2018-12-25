@@ -229,10 +229,10 @@ class UploadController extends Controller
         }
         if(!$result)
             return redirect()->route('upload.createMusic')->with('error', 'tạo '.$mess.' thất bại');
-        $pathSource = MUSIC_STORAGE_PATH;
-        if($request->input('cat_id') == CAT_VIDEO)
-            $pathSource = VIDEO_STORAGE_PATH;
-        Storage::disk('public')->move(DEFAULT_STORAGE_CACHE_MUSIC_PATH.$request->input('drop_files'), Helpers::file_path($result->music_id, $pathSource, true).$request->input('drop_files'));
+        $fileName = $result->music_id.'.'.last(explode('.', $request->input('drop_files')));
+        Storage::disk('public')->move(DEFAULT_STORAGE_CACHE_MUSIC_PATH.$request->input('drop_files'), SOURCE_STORAGE_PATH.$fileName);
+        $result->music_filename_upload = $fileName;
+        $result->save();
         return redirect()->route($typeUpload == 'music' ? 'upload.createMusic' : 'upload.createVideo')->with('success', 'Đã tạo '.$mess.' ' . $csnMusic['music_title'] . '<a href="/dang-tai/'.($typeUpload == 'music' ? 'nhac' : 'video').'/'.$result->music_id.'"> quay lại chỉnh sửa</a>');
     }
 
@@ -305,14 +305,14 @@ class UploadController extends Controller
             'music_note' => $request->input('music_note') ?? '',
             'music_source_url' => $request->input('music_source_url') ?? '',
         ];
-        $pathSource = MUSIC_STORAGE_PATH;
-        if($request->input('cat_id') == CAT_VIDEO)
-            $pathSource = VIDEO_STORAGE_PATH;
         foreach ($fileUploads as $key => $item) {
             $csnMusic['music_filename_upload'] = $item;
             $csnMusic['music_filesize'] = $fileSize[$key];
             $result = $this->uploadRepository->create($csnMusic);
-            Storage::disk('public')->move(DEFAULT_STORAGE_CACHE_MUSIC_PATH.$item, Helpers::file_path($result->music_id, $pathSource, true).$item);
+            $fileName = $result->music_id.'.'.last(explode('.', $item));
+            Storage::disk('public')->move(DEFAULT_STORAGE_CACHE_MUSIC_PATH.$item, SOURCE_STORAGE_PATH.$fileName);
+            $result->music_filename_upload = $fileName;
+            $result->save();
         }
         return redirect()->route('upload.createMusic')->with('success', 'Đã tạo album mới ' . $request->input('music_album'). '<a href="/user/'.Auth::user()->id.'?tab=tu-nhac"> vào tủ nhạc</a>');
     }

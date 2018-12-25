@@ -84,6 +84,8 @@ define('MUSIC_STORAGE_PATH', '/data/source_music/');
 define('VIDEO_PATH', '/storage/data/source_video/');
 define('VIDEO_STORAGE_PATH', '/data/source_video/');
 
+define('SOURCE_STORAGE_PATH', '/data/source/');
+
 // URL PARAMETERS
 define('CAT_VIDEO', 1);
 define('CAT_VIDEO_URL', 'video');
