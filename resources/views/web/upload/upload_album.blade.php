@@ -104,7 +104,7 @@ $titleMeta = 'Cập nhật album - ' . Config::get('constants.app.title');
                                                 </label>
                                             </div>
                                         </label>
-                                        <img class="mr-3" id="album_cover_uploaded" src="{{isset($album) ? COVER_ALBUM_SOURCE_PATH.$album->cover_filename : '/imgs/avatar_default.png'}}?time={{time()}}" alt="" style="z-index: 999; width: 177px;">
+                                        <img class="mr-3" hidden id="album_cover_uploaded" src="{{isset($album) ? COVER_ALBUM_SOURCE_PATH.$album->cover_filename : '/imgs/avatar_default.png'}}?time={{time()}}" alt="" style="z-index: 999; width: 177px;">
                                         @endif
 
                                         <div class="media-body">

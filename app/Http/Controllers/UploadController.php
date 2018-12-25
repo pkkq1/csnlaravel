@@ -15,6 +15,7 @@ use App\Repositories\Music\MusicEloquentRepository;
 use App\Repositories\Upload\UploadEloquentRepository;
 use App\Repositories\Album\AlbumEloquentRepository;
 use App\Repositories\Artist\ArtistRepository;
+use Illuminate\Support\Facades\Storage;
 use File;
 
 class UploadController extends Controller
@@ -164,7 +165,7 @@ class UploadController extends Controller
                 'message' => 'Định dạng file "'.$_FILES['file']['name'].'" bị sai, chỉ chấp nhận file nhạc hoặc video',
             ]);
         }
-        $fileName = Helpers::moveFile($request->file('file'), $_SERVER['DOCUMENT_ROOT'].DEFAULT_ROOT_TEMP_MUSIC_PATH, $_FILES['file']['name']);
+        $fileName = Helpers::moveFile($request->file('file'), $_SERVER['DOCUMENT_ROOT'].DEFAULT_ROOT_CACHE_MUSIC_PATH, $_FILES['file']['name']);
         return response()->json([
             'status' => true,
             'message' => 'Upload Success',
@@ -214,7 +215,7 @@ class UploadController extends Controller
                 'music_composer' => $request->input('music_composer') ?? '',
                 'music_album_id' => $request->input('music_album_id') ?? '',
                 'music_year' => $request->input('music_year') ?? 0,
-                'cat_id' => $request->input('cat_id') ?? 0,
+                'cat_id' => $request->input('cat_id'),
                 'cat_level' => $request->input('cat_level') ?? 0,
                 'cat_sublevel' => $request->input('cat_sublevel') ?? 0,
                 'cat_custom' => $request->input('cat_custom') ?? 0,
@@ -228,7 +229,10 @@ class UploadController extends Controller
         }
         if(!$result)
             return redirect()->route('upload.createMusic')->with('error', 'tạo '.$mess.' thất bại');
-        File::move($_SERVER['DOCUMENT_ROOT'].DEFAULT_ROOT_TEMP_MUSIC_PATH.$request->input('drop_files'), $_SERVER['DOCUMENT_ROOT'].DEFAULT_ROOT_CACHE_MUSIC_PATH.$request->input('drop_files'));
+        $pathSource = MUSIC_STORAGE_PATH;
+        if($request->input('cat_id') == CAT_VIDEO)
+            $pathSource = VIDEO_STORAGE_PATH;
+        Storage::disk('public')->move(DEFAULT_STORAGE_CACHE_MUSIC_PATH.$request->input('drop_files'), Helpers::file_path($result->music_id, $pathSource, true).$request->input('drop_files'));
         return redirect()->route($typeUpload == 'music' ? 'upload.createMusic' : 'upload.createVideo')->with('success', 'Đã tạo '.$mess.' ' . $csnMusic['music_title'] . '<a href="/dang-tai/'.($typeUpload == 'music' ? 'nhac' : 'video').'/'.$result->music_id.'"> quay lại chỉnh sửa</a>');
     }
 
@@ -301,13 +305,16 @@ class UploadController extends Controller
             'music_note' => $request->input('music_note') ?? '',
             'music_source_url' => $request->input('music_source_url') ?? '',
         ];
+        $pathSource = MUSIC_STORAGE_PATH;
+        if($request->input('cat_id') == CAT_VIDEO)
+            $pathSource = VIDEO_STORAGE_PATH;
         foreach ($fileUploads as $key => $item) {
             $csnMusic['music_filename_upload'] = $item;
             $csnMusic['music_filesize'] = $fileSize[$key];
-            $this->uploadRepository->create($csnMusic);
-            File::move($_SERVER['DOCUMENT_ROOT'].DEFAULT_ROOT_TEMP_MUSIC_PATH.$item, $_SERVER['DOCUMENT_ROOT'].DEFAULT_ROOT_CACHE_MUSIC_PATH.$item);
+            $result = $this->uploadRepository->create($csnMusic);
+            Storage::disk('public')->move(DEFAULT_STORAGE_CACHE_MUSIC_PATH.$item, Helpers::file_path($result->music_id, $pathSource, true).$item);
         }
-        return redirect()->route('upload.createMusic')->with('success', 'Đã tạo album mới' . $request->input('music_album'). '<a href="/user/'.Auth::user()->id.'?tab=tu-nhac"> vào tủ nhạc</a>');
+        return redirect()->route('upload.createMusic')->with('success', 'Đã tạo album mới ' . $request->input('music_album'). '<a href="/user/'.Auth::user()->id.'?tab=tu-nhac"> vào tủ nhạc</a>');
     }
 
 }

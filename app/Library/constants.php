@@ -26,7 +26,9 @@ define('LIMIT_HOME_UPLOADER_MUSIC', 10);
 define('LIMIT_HOME_ARTIST', 15);
 define('LIMIT_SEARCH_RESULT', 20);
 define('DEFAULT_ROOT_TEMP_MUSIC_PATH', '/storage/data/temp/');
+define('DEFAULT_STORAGE_TEMP_MUSIC_PATH', '/data/temp/');
 define('DEFAULT_ROOT_CACHE_MUSIC_PATH', '/storage/data/cache_upload/');
+define('DEFAULT_STORAGE_CACHE_MUSIC_PATH', '/data/cache_upload/');
 define('LYRIC_DETAIL_NEW_MUSIC', 5);
 define('LYRIC_DETAIL_NEW_ALBUM', 5);
 define('LIMIT_COMMENT', 10);
@@ -77,8 +79,10 @@ define('PUBLIC_COVER_ARTIST_PATH', '/storage/data/artist_cover/');
 
 // MUSIC
 define('MUSIC_PATH', '/storage/data/source_music/');
+define('MUSIC_STORAGE_PATH', '/data/source_music/');
 // VIDEO
 define('VIDEO_PATH', '/storage/data/source_video/');
+define('VIDEO_STORAGE_PATH', '/data/source_video/');
 
 // URL PARAMETERS
 define('CAT_VIDEO', 1);

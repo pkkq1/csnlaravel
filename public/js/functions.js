@@ -58,14 +58,14 @@ $(function () {
 //     window.emojiPicker.discover();
 // });
 
-var upvote_position = $('#answer-12878316').position();
-$('body').mousemove(function (event) {
-    $(this).css({
-        position: 'relative',
-        left: (event.pageX - upvote_position.left - 22) + 'px',
-        top: (event.pageY - upvote_position.top - 35) + 'px'
-    });
-});
+// var upvote_position = $('#answer-12878316').position();
+// $('body').mousemove(function (event) {
+//     $(this).css({
+//         position: 'relative',
+//         left: (event.pageX - upvote_position.left - 22) + 'px',
+//         top: (event.pageY - upvote_position.top - 35) + 'px'
+//     });
+// });
 function alertModal(content) {
     $("#myModal .modal-body").html('<i class="material-icons modal_icon_csn">error_outline</i><div class="modal_content_csn">' + content + '</div>');
     $("#myModal").modal();
