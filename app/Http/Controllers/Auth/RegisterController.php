@@ -82,6 +82,8 @@ class RegisterController extends Controller
             'user_active' => DEACTIVE_USER,
             'password' => bcrypt($data['password']),
         ]);
+        $user->user_id = $user->id;
+        $user->save();
         $token = MailTokenModel::create([
             'email' => $data['email'],
             'token' => Str::random(60),

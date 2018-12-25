@@ -40,11 +40,15 @@ $( document ).ready(function() {
         $(".suggest").fadeOut("fast")
     });
 });
-function alertModal(content) {
+function alertModal(content = 'Lỗi, không thực hiện được.') {
+    if(!content)
+        content = 'Lỗi, không thực hiện được.'
     $("#alertModal .modal-body").html('<i class="material-icons modal_icon_csn">error_outline</i><div class="modal_content_csn">' + content + '</div>');
     $('#alertModal').modal('show');
 }
-function successModal(content) {
+function successModal(content = 'Lỗi, không thực hiện được.') {
+    if(!content)
+        content = 'Lỗi, không thực hiện được.'
     $("#alertModal .modal-body").html('<i class="material-icons modal_icon_csn">check_circle_outline</i><div class="modal_content_csn">' + content + '</div>');
     $('#alertModal').modal('show');
 }
