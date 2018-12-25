@@ -532,6 +532,17 @@
         $('.box_history_music').css('display', 'none');
         $('#boxOutPlaylist').remove();
     })
+    function redirectUpload(url) {
+        <?php
+        if(!Auth::check()) {
+        ?>
+        switchAuth('myModal_login');
+        return false;
+        <?php
+        }
+        ?>
+        window.location.href = url;
+    }
 </script>
 
 <footer id="footer">

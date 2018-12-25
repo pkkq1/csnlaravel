@@ -21,8 +21,8 @@ Route::get('/sync/demo', 'Sync\SyncTableController@syncArtistCategoryCover');
 
 
 Route::group(['middlewareGroups' => ['web']], function () {
-
     Auth::routes();
+    Route::get('login', ['as' => 'login', 'uses' => 'HomeController@index']);
 
     // sync data
     Route::prefix('sync')->group(function () {
