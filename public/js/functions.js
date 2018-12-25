@@ -66,16 +66,26 @@ $(function () {
 //         top: (event.pageY - upvote_position.top - 35) + 'px'
 //     });
 // });
-function alertModal(content) {
+function alertModal(content = 'Lỗi, không thực hiện được.') {
+    if(!content)
+        content = 'Lỗi, không thực hiện được'
     $("#myModal .modal-body").html('<i class="material-icons modal_icon_csn">error_outline</i><div class="modal_content_csn">' + content + '</div>');
     $("#myModal").modal();
 
 }
-function successModal(content) {
+function successModal(content = 'Lỗi, không thực hiện được') {
+    if(!content)
+        content = 'Lỗi, không thực hiện được.'
     clearTimeout(setTimeOutModal);
     $("#myModal .modal-body").html('<i class="material-icons modal_icon_csn">check_circle_outline</i><div class="modal_content_csn">' + content + '</div>');
     $("#myModal").modal();
 }
+$(document).keydown(function(e) {
+    if (e.keyCode == 27) {
+        $("#myModal").fadeOut(200);
+        $('.modal').find('.close').click();
+    }
+});
 String.prototype.replaceArray = function(find, replace) {
     var replaceString = this;
     var regex;
