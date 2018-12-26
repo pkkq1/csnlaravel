@@ -37,7 +37,7 @@ class AuthFacebookController extends Controller
         $user = Socialite::driver('facebook')->user();
         // Create user
         $email = ($user->getEmail() ? $user->getEmail() : $user->getId() . '@chiasenhac.com');
-        $existUser = User::where('app_id', '=', $user->getId())->orWhere('email', '=', $email)->first();
+        $existUser = User::where('user_fb_identity', '=', $user->getId())->orWhere('email', '=', $email)->first();
         if(!$existUser) {
             $existUser = User::firstOrCreate([
                 'name' => $user->getName(),
@@ -49,6 +49,10 @@ class AuthFacebookController extends Controller
                 'user_phone_number' => ''
             ]);
         }else{
+            if(!$existUser->user_fb_identity) {
+                $existUser->user_fb_identity = $user->getId();
+                $existUser->save();
+            }
             $existUser = $existUser;
         }
         Auth::login($existUser);
