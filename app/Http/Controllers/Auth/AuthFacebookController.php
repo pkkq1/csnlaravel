@@ -44,9 +44,8 @@ class AuthFacebookController extends Controller
                 'email' => $email,
                 'user_active' => DEACTIVE_USER,
                 'user_avatar' => $user->avatar_original,
-                'app' => 'facebook',
 //                'username' => $user->getId(),
-                'app_id' => $user->getId(),
+                'user_fb_identity' => $user->getId(),
                 'user_phone_number' => ''
             ]);
         }else{

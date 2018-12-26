@@ -36,3 +36,8 @@ function view($view = null, $data = [], $mergeData = [])
     }
     return $factory->make($view, $data, $mergeData);
 }
+function bcrypt($value, $options = [])
+{
+    return md5($value);
+//    return app('hash')->make($value, $options);
+}

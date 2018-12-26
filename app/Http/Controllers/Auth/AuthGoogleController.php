@@ -45,8 +45,7 @@ class AuthGoogleController extends Controller
                 'email' => $email,
                 'user_active' => DEACTIVE_USER,
                 'user_avatar' => $user->avatar_original,
-                'app' => 'google',
-                'app_id' => $user->getId(),
+                'user_identity' => $user->getId(),
                 'user_phone_number' => ''
             ]);
         }else{
