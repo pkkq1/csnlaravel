@@ -11,7 +11,7 @@
                 <form action="{{env('APP_URL')}}/tim-kiem">
                     <div class="form-group m-0" style="float:left">
                         <i class="material-icons">search</i>
-                        <input type="text" name="q" class="form-control" value="{{(isset($search) ? $search : '')}}"  class="biginput" id="search_autocomplete" placeholder="nhập bài hát, video, tên nghệ sỹ bạn cần tìm">
+                        <input type="search" name="q" class="form-control" value="{{(isset($search) ? $search : '')}}"  class="biginput" id="search_autocomplete" placeholder="nhập bài hát, video, tên nghệ sỹ bạn cần tìm">
                         <div class="search_layout card suggest">
                         </div>
                     </div>

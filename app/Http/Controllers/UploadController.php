@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Library\Helpers;
 use App\Repositories\ArtistUpload\ArtistUploadEloquentRepository;
 use App\Repositories\Music\MusicEloquentRepository;
+use App\Repositories\Video\VideoEloquentRepository;
 use App\Repositories\Upload\UploadEloquentRepository;
 use App\Repositories\Album\AlbumEloquentRepository;
 use App\Repositories\Artist\ArtistRepository;
@@ -23,13 +24,15 @@ class UploadController extends Controller
     protected $artistUploadRepository;
     protected $artistRepository;
     protected $musicRepository;
+    protected $videoRepository;
     protected $uploadRepository;
     protected $albumRepository;
 
     public function __construct(ArtistUploadEloquentRepository $artistUploadRepository, MusicEloquentRepository $musicRepository, ArtistRepository $artistRepository,
-                                UploadEloquentRepository $uploadRepository, AlbumEloquentRepository $albumRepository) {
+                                UploadEloquentRepository $uploadRepository, AlbumEloquentRepository $albumRepository, VideoEloquentRepository $videoRepository) {
         $this->artistUploadRepository = $artistUploadRepository;
         $this->musicRepository = $musicRepository;
+        $this->videoRepository = $videoRepository;
         $this->uploadRepository = $uploadRepository;
         $this->albumRepository = $albumRepository;
         $this->artistRepository = $artistRepository;
@@ -315,6 +318,20 @@ class UploadController extends Controller
             $result->save();
         }
         return redirect()->route('upload.createMusic')->with('success', 'Đã tạo album mới ' . $request->input('music_album'). '<a href="/user/'.Auth::user()->id.'?tab=tu-nhac"> vào tủ nhạc</a>');
+    }
+    function suggest(Request $request) {
+
+        $arrUrl = Helpers::splitMusicUrl($request->url);
+        if(!$arrUrl['id'])
+            Helpers::ajaxResult(false, 'Không tìm thấy id', null);
+        if($arrUrl['type'] == 'music') {
+            $result = $this->musicRepository->getModel()::where('music_id', $arrUrl['id'])->select('cat_id', 'cat_level', 'cat_sublevel', 'cat_custom', 'music_title', 'music_composer', 'music_lyric')->first();
+        }else {
+            $result = $this->videoRepository->getModel()::where('music_id', $arrUrl['id'])->select('cat_id', 'cat_level', 'cat_sublevel', 'cat_custom', 'music_title', 'music_composer', 'music_lyric')->first();
+        }
+        if(!$result)
+            Helpers::ajaxResult(false, 'Không tìm thấy nội dung', null);
+        Helpers::ajaxResult(true, '', $result->toArray());
     }
 
 }

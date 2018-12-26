@@ -1311,3 +1311,16 @@ form#login-form {
     color:#1B1B1B;
     text-decoration: none;
 }
+.choose_music_search .media {
+    border-top: none;
+}
+.search_layout_upload {
+    width: 98%;
+    position: absolute!important;
+    z-index: 999;
+    display: none;
+}
+.choose_music_search {
+    padding-left: 10px;
+    width: 100%;
+}

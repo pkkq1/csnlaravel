@@ -39,7 +39,6 @@ Route::group(['middlewareGroups' => ['web']], function () {
     Route::get('/logout', 'User\UserController@logout');
     Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
     Route::get('/home', ['as' => 'HomeController.index', 'uses' => 'HomeController@index']);
-    Route::get('/dang-tai', ['as' => 'upload.index', 'uses' => 'UploadController@index']);
 
     // Socialite
     Route::get('auth/facebook', 'Auth\AuthFacebookController@redirectToProvider');
@@ -151,6 +150,8 @@ Route::group(['middlewareGroups' => ['web']], function () {
 
         // upload selector
         Route::prefix('dang-tai/')->group(function () {
+            Route::get('/', ['as' => 'upload.index', 'uses' => 'UploadController@index']);
+            Route::post('/noi-dung-chinh-sua-dang-tai', ['as' => 'upload.suggest', 'uses' => 'UploadController@suggest']);
             Route::get('ca-si/tim-kiem', ['as' => 'artist.gettermartist', 'uses' => 'ArtistController@getTermArtist']);
             Route::get('ca-si', ['as' => 'upload.createArtist', 'uses' => 'UploadController@createArtist']);
             Route::post('ca-si', ['as' => 'upload.storeArtist', 'uses' => 'UploadController@storeArtist']);

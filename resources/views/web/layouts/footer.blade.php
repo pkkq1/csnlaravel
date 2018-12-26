@@ -95,11 +95,11 @@
             var song = '';
             $.each( musics, function( key, value ) {
                 song = song +
-                    '<a class="search-line" href="' + value.music_link + '" title="' + value.music_title + ' - ' + $(value.music_artist).text() + '">' +
+                    '<a class="search-line parent-line" href="' + value.music_link + '" title="' + value.music_title + ' - ' + $(value.music_artist).text() + '">' +
                     '  <li class="media align-items-stretch">' +
                     '      <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">' +
                     '          <div>' +
-                    '              <h5 class="media-title mt-0 mb-0 span_h5">' + searchHighlight(q, value.music_title) + '</h5>' +
+                    '              <h5 class="media-title mt-0 mb-0 span_h5" title="' + value.music_title + ' - ' + $(value.music_artist).text() + '">' + searchHighlight(q, value.music_title) + '</h5>' +
                     '              <div class="author">' + $(value.music_artist).text() + '</div>' +
                     '          </div>' +
                     '          <small class="type_music c1">' + value.music_bitrate + '</small>' +
@@ -151,17 +151,17 @@
             $.each( videos, function( key, value ) {
                 let textArtist = $(value.video_artist).text();
                 video = video +
-                    '  <li class="media align-items-stretch">' +
+                    '  <li class="media align-items-stretch parent-line">' +
                     '      <div class="media-left align-items-stretch mr-2">' +
                     '          <a href="' + value.video_link + '" title="' + value.video_title + ' - ' + textArtist + '">' +
                     '              <img src="' + value.video_cover + '" alt="' + value.video_title + '">' +
                     '              <i class="material-icons">play_circle_outline</i>' +
                     '          </a>' +
                     '      </div>' +
-                    '      <a class="search-line" href="' + value.video_link + '" title="' + value.video_title + ' - ' + textArtist + '">' +
+                    '      <a class="search-line" title="' + value.video_title + ' - ' + textArtist + '"  href="' + value.video_link + '" >' +
                     '      <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">' +
                     '          <div>' +
-                    '              <h5 class="media-title mt-0 mb-0 span_h5">' + searchHighlight(q, value.video_title) + '</h5>' +
+                    '              <h5 class="media-title mt-0 mb-0 span_h5" title="' + value.video_title + ' - ' + textArtist + '">' + searchHighlight(q, value.video_title) + '</h5>' +
                     '              <div class="author">' + textArtist + '</div>' +
                     '          </div>' +
                     '          <small class="type_music c1">' + value.video_bitrate + '</small>' +
@@ -246,7 +246,7 @@
         </div>
     </div>
     <!-- register -->
-    <div id="myModal_register" class="modal fade" role="dialog" style="z-index: 999999999999999">
+    <div id="myModal_register" class="modal fade" role="dialog" style="z-index: 999999">
         <div class="modal-dialog modal-lg">
             <!-- Modal content-->
             <div class="modal-content modal-register modal-form">
@@ -264,7 +264,7 @@
                                     <input class="email" name="email" type="email" placeholder="Địa chỉ email" required="email" />
                                     <input class="password" name="password" type="password" placeholder="Mật khẩu" name="password" />
                                     <input class="confirm_password" name="confirm_password" type="password" placeholder="Xác nhận lại mật khẩu" name="password" />
-                                    <div class="g-recaptcha captcha" data-sitekey="{{env('NOCAPTCHA_SECRET')}}"></div>
+                                    <div class="g-recaptcha captcha" data-sitekey="{{env('NOCAPTCHA_SECRET')}}" style="z-index: 99999999;"></div>
                                     <div class="login_action">
                                         <input class="contact_csn" type="checkbox" id="contact_csn" checked name="contact_csn">
                                         <label style="cursor: pointer; font-size: 13px; display: inline;" for="contact_csn">Tôi đã đọc và đồng ý các điều kiện<a href="#" > Thỏa thuận sử dụng</a></label>
@@ -437,10 +437,12 @@
                     captcha: grecaptcha.getResponse()
                 },
                 beforeSend: function () {
+                    waitingDialog.show();
                     if(loaded) return false;
                     loaded = true;
                 },
                 error: function (data) {
+                    waitingDialog.hide();
                     var errors = data.responseJSON;
                     $.each( errors.errors, function( key, value ) {
                         addErrorInput($('.modal-register').find('.' + key), value);
@@ -466,16 +468,19 @@
                     email: email.val(),
                 },
                 beforeSend: function () {
+                    waitingDialog.show();
                     if(loaded) return false;
                     loaded = true;
                 },
                 error: function (data) {
+                    waitingDialog.hide();
                     var errors = data.responseJSON;
                     $.each(errors.errors, function( key, value ) {
                         addErrorInput($('.modal-forgot').find('.' + key), value);
                     });
                 },
                 success: function(response) {
+                    waitingDialog.hide();
                     var status = response.status.email;
                     email.before('<div class="alert alert-success">' + status + ' </div>');
                 }

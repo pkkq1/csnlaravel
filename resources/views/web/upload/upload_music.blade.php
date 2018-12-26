@@ -81,9 +81,14 @@ $titleMeta = (isset($music) ? 'Chỉnh sửa '.$music->music_title : 'Cập nh�
                             <div class="row row10px">
                                 <div class="col-12">
                                     <div class="box_right_upload form-row">
+
                                         <div class="form-group col-12">
-                                            <label for="exampleInputEmail1">{{$mess}} gốc</label>
+                                            <label for="exampleInputEmail1">Bài hát gốc</label>
+                                            <input type="text" class="form-control" name="music_search" value="" id="music_search"  placeholder="Nhập tên bài hát bạn cần tìm">
+                                            <div class="search_layout_upload card suggest_search"></div>
+                                            <input type="hidden" class="form-control" name="music_original_id" value="" id="music_original_id">
                                         </div>
+                                        <div class="choose_music_search list_music"></div>
                                         <div class="form-group col-12{{ $errors->has('music_title') ? ' has-error' : '' }}">
                                             <label for="music_title">Tên {{$mess}}</label>
                                             <input type="text" class="form-control" id="music_title" value="{{ old('music_title') ?? $music->music_title ?? '' }}" name="music_title" placeholder="Nhập tên {{$mess}}">
@@ -244,6 +249,7 @@ $titleMeta = (isset($music) ? 'Chỉnh sửa '.$music->music_title : 'Cập nh�
                                         @endif
                                         <input type="hidden" name="type_upload" value="{{$typeUpload}}">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                        <input type="hidden" name="suggest_music" class="suggest_music" value="{{old('suggest_music')}}">
                                         <input type="hidden" name="drop_files" class="drop_files" value="{{ old('drop_files') ?? (isset($music) ? 'true' : '') }}">
                                         <input type="hidden" name="drop_html" class="drop_html" value="{{old('drop_html')}}">
                                         <input type="hidden" name="music_filesize" class="music_filesize" value="{{old('music_filesize')}}">
@@ -499,10 +505,12 @@ $titleMeta = (isset($music) ? 'Chỉnh sửa '.$music->music_title : 'Cập nh�
                 }
             }
         }
+        cat_level_reload(3);
         <?php
             if($typeUpload == 'video') {
                 ?>
                 document.getElementById('cat_id').value = 1;
+                cat_level_reload(1);
                 <?php
             }else{
                 ?>
@@ -519,7 +527,106 @@ $titleMeta = (isset($music) ? 'Chỉnh sửa '.$music->music_title : 'Cập nh�
                 <?php
             }
         ?>
-        cat_level_reload(3);
 
+
+        var dataSearch = [];
+        $( document ).ready(function() {
+            $( "#music_search" ).autocomplete({
+                minLength: 1,
+                source: function( request, response ) {
+                    $.ajax( {
+                        url: "/search/real",
+                        dataType: "json",
+                        data: {
+                            q: request.term,
+                            type: 'json',
+                            rows: 10,
+                            view_music: true
+                        },
+                        success: function( data ) {
+                            dataSearch = response( data );
+                        }
+                    } );
+                }
+            }).autocomplete( "instance" )._renderItem = function( ul, item ) {
+                var theHtml = rawBodySearchUpload(rawUploadMusic(item.music['data'], item.q), item.q);
+                $('.search_layout_upload').html(theHtml);
+                $('.search_layout_upload').find('.parent-line').each(function( index ) {
+                    $(this).click(function (event) {
+                        let title = $( this ).find('.media-title').attr('title');
+                        $('#music_search').removeClass('ui-autocomplete-loading');
+                        $('#music_search').val(title);
+                        $('.choose_music_search').html($( this )[0].outerHTML);
+                        $('.choose_music_search').find('.media-title').html('<span class="search_highlight">' + title + '</span>');
+                        $('.suggest_music').val($( this ).attr('href') || $( this ).find('a').attr('href'));
+                        $.ajax({
+                            url: '/dang-tai/noi-dung-chinh-sua-dang-tai',
+                            type: "POST",
+                            dataType: "json",
+                            data: {
+                                url: $('.suggest_music').val(),
+                            },
+                            beforeSend: function () {
+                                // if(loaded) return false;
+                                // loaded = true;
+                            },
+                            error: function (data) {
+                            },
+                            success: function(response) {
+                                $('#music_title').val(response.data.music_title);
+                                $('#music_composer').val(response.data.music_composer);
+                                $('#music_lyric').val(response.data.music_lyric);
+                                document.getElementById('cat_id').value = response.data.cat_id;
+                                document.getElementById('cat_level').value = response.data.cat_level;
+                                document.getElementById('cat_sublevel').value = response.data.cat_sublevel;
+                                document.getElementById('cat_custom').value = response.data.cat_custom;
+                            }
+                        });
+                        event.preventDefault();
+                    })
+                });
+            };
+        });
+        function rawBodySearchUpload(music) {
+            return '<div class="card-body">' +
+                music +
+                '</div>';
+        }
+        function rawUploadMusic(musics, q) {
+            if(musics.length > 0) {
+                var song = '';
+                $.each( musics, function( key, value ) {
+                    song = song +
+                        '  <li class="media align-items-stretch parent-line">' +
+                        '      <div class="media-left align-items-stretch mr-2">' +
+                        '          <a href="' + value.music_link + '" title="' + value.music_title + ' - ' + $(value.music_artist).text() + '">' +
+                        '              <img src="' + value.music_cover + '" alt="' + value.music_title + '">' +
+                        '              <i class="material-icons">play_circle_outline</i>' +
+                        '          </a>' +
+                        '      </div>' +
+                        '      <a class="search-line" title="' + value.music_title + ' - ' + $(value.music_artist).text() + '"  href="' + value.music_link + '" >' +
+                        '      <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">' +
+                        '          <div>' +
+                        '              <h5 class="media-title mt-0 mb-0 span_h5" title="' + value.music_title + ' - ' + $(value.music_artist).text() + '">' + searchHighlight(q, value.music_title) + '</h5>' +
+                        '              <div class="author">' + $(value.music_artist).text() + '</div>' +
+                        '          </div>' +
+                        '          <small class="type_music c1">' + value.music_bitrate + '</small>' +
+                        '      </div>' +
+                        '      </a>' +
+                        '  </li>';
+                });
+                return '<h4 class="card-title">Bài hát</h4>' +
+                    '<ul class="list-unstyled list_music">' +
+                    song +
+                    '</ul><hr>';
+            }
+            return '';
+        }
+        $('.choose_music_search').click(function (event) {
+            event.preventDefault();
+            $('#music_search').val('');
+            $('.choose_music_search').html('');
+            $('.suggest_music').val('');
+        })
     </script>
 @endsection

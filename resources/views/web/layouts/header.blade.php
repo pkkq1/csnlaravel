@@ -60,8 +60,8 @@
             },
             statusCode: {
                 401: function () {
-                    clearTimeout(timeOutLoading);
-                    waitingDialog.hide();
+                    // clearTimeout(timeOutLoading);
+                    // waitingDialog.hide();
                     switchAuth('myModal_login');
                     return false;
                 }

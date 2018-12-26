@@ -36,8 +36,13 @@ $( document ).ready(function() {
 		a.stopPropagation();
 		$(".suggest").fadeIn("fast")
     });
+    $('#music_search').click(function(a){
+        a.stopPropagation();
+        $(".suggest_search").fadeIn("fast")
+    });
     $('body').click(function(){
         $(".suggest").fadeOut("fast")
+        $(".suggest_search").fadeOut("fast")
     });
 });
 
