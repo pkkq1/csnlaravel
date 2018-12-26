@@ -48,6 +48,8 @@ class AuthGoogleController extends Controller
                 'user_identity' => $user->getId(),
                 'user_phone_number' => ''
             ]);
+            $existUser->user_id = $existUser->id;
+            $existUser->save();
         }else{
             if(!$existUser->user_identity) {
                 $existUser->user_identity = $user->getId();

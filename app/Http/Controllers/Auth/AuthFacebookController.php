@@ -48,6 +48,8 @@ class AuthFacebookController extends Controller
                 'user_fb_identity' => $user->getId(),
                 'user_phone_number' => ''
             ]);
+            $existUser->user_id = $existUser->id;
+            $existUser->save();
         }else{
             if(!$existUser->user_fb_identity) {
                 $existUser->user_fb_identity = $user->getId();
