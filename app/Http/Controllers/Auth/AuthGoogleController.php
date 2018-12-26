@@ -56,6 +56,6 @@ class AuthGoogleController extends Controller
             $existUser = $existUser;
         }
         Auth::login($existUser);
-        return redirect('/');
+        return redirect(Session::get('redirect_flash') ?? '/');
     }
 }
