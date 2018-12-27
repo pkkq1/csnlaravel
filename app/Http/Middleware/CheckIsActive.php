@@ -22,7 +22,7 @@ class CheckIsActive
         }
         $Agent = new Agent();
         $view = 'web.';
-        $message = 'Tài khoản của bạn chưa được xác nhận bằng email.';
+        $message = 'Tài khoản của bạn chưa được xác nhận bằng email để thực hiện thao tác này.';
         if ($Agent->isMobile()) {
             $view = 'mobile.';
         }
