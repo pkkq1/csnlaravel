@@ -3,6 +3,7 @@
 namespace App\Exceptions;
 
 use Exception;
+use Jenssegers\Agent\Agent;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
@@ -46,8 +47,25 @@ class Handler extends ExceptionHandler
      * @param  \Exception  $exception
      * @return \Illuminate\Http\Response
      */
+//    public function render($request, Exception $exception)
+//    {
+//        return parent::render($request, $exception);
+//    }
     public function render($request, Exception $exception)
     {
+        $Agent = new Agent();
+        $view = 'web.';
+        if ($Agent->isMobile()) {
+            $view = 'mobile.';
+        }
+        if ($exception->getMessage() == 'Unauthenticated.'){
+            return $request->expectsJson()
+                ? response()->json(['status' => false, 'message' => $exception->getMessage(), 'data' => null], 401)
+                : redirect()->guest('?rq=login&back_url='.$request->getRequestUri());
+        }
+        if($exception->getStatusCode() == 403) {
+            return response()->view($view.'errors.403', [], 403);
+        }
         return parent::render($request, $exception);
     }
 }

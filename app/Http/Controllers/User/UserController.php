@@ -113,7 +113,7 @@ class UserController extends Controller
     public function logout()
     {
         Auth::logout();
-        return redirect()->back();
+        return redirect(url()->previous());
     }
     public function verifyEmail(Request $request, $token)
     {

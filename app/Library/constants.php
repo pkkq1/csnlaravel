@@ -114,9 +114,13 @@ define('PUBLIC_MUSIC_PLAYLIST_PUBLISHER_PATH', '/storage/data/playlist_publisher
 define('AVATAR_PATH', '/data/user_avatar/');
 define('PUBLIC_AVATAR_PATH', '/storage/data/user_avatar/');
 define('HTMLEX', 'html');
-define('DEACTIVE_USER', 0);
-define('ACTIVE_USER', 1);
+define('DEACTIVE_USER', 0); //  not verify
+define('ACTIVE_USER', 1); // verified
 define('BANNED_USER', 2);
+define('DEFAULT_ROLE_NAME_EMPTY', 'user');
+define('ROLE_NAME_ADMIN', 'admin');
+define('ROLE_NAME_MANAGER', 'manager');
+define('ROLE_NAME_USER', 'user');
 
 // setting
 define('SET_ACTIVE', 1);

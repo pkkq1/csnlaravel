@@ -42,7 +42,7 @@ class AuthFacebookController extends Controller
             $existUser = User::firstOrCreate([
                 'name' => $user->getName(),
                 'email' => $email,
-                'user_active' => DEACTIVE_USER,
+                'user_active' => ACTIVE_USER,
                 'user_avatar' => $user->avatar_original,
 //                'username' => $user->getId(),
                 'user_fb_identity' => $user->getId(),

@@ -22,7 +22,7 @@ Route::get('/sync/demo', 'Sync\SyncTableController@syncArtistCategoryCover');
 
 Route::group(['middlewareGroups' => ['web']], function () {
     Auth::routes();
-    Route::get('login', ['as' => 'login', 'uses' => 'HomeController@index']);
+//    Route::get('login', ['as' => 'login', 'uses' => 'HomeController@index']);
 
     // sync data
     Route::prefix('sync')->group(function () {
@@ -148,27 +148,32 @@ Route::group(['middlewareGroups' => ['web']], function () {
 
     Route::group(['middleware' => ['auth']], function() {
 
-        // upload selector
-        Route::prefix('dang-tai/')->group(function () {
-            Route::get('/', ['as' => 'upload.index', 'uses' => 'UploadController@index']);
-            Route::post('/noi-dung-chinh-sua-dang-tai', ['as' => 'upload.suggest', 'uses' => 'UploadController@suggest']);
-            Route::get('ca-si/tim-kiem', ['as' => 'artist.gettermartist', 'uses' => 'ArtistController@getTermArtist']);
-            Route::get('ca-si', ['as' => 'upload.createArtist', 'uses' => 'UploadController@createArtist']);
-            Route::post('ca-si', ['as' => 'upload.storeArtist', 'uses' => 'UploadController@storeArtist']);
-            Route::get('ca-si/{urlArtist}', ['as' => 'upload.suggestArtist', 'uses' => 'UploadController@suggestArtist']);
-            Route::post('ca-si/{urlArtist}', ['as' => 'upload.storeSuggestArtist', 'uses' => 'UploadController@storeSuggestArtist']);
-            Route::get('nhac/{musicId?}', ['as' => 'upload.createMusic', 'uses' => 'UploadController@createMusic']);
-            Route::get('video/{musicId?}', ['as' => 'upload.createVideo', 'uses' => 'UploadController@createVideo']);
-            Route::post('nhac/{musicId?}', ['as' => 'upload.storeMusic', 'uses' => 'UploadController@storeMusic']);
-            Route::post('video', ['as' => 'upload.storeVideo', 'uses' => 'UploadController@storeMusic']);
-            Route::post('video/{musicId?}', ['as' => 'upload.storeVideo', 'uses' => 'UploadController@storeMusic']);
-            Route::get('album/{albumId?}', ['as' => 'upload.createAlbum', 'uses' => 'UploadController@createAlbum']);
-            Route::post('album/{albumId?}', ['as' => 'upload.storeAlbum', 'uses' => 'UploadController@storeAlbum']);
-            Route::post('file-nhac', ['as' => 'upload.fileMusic', 'uses' => 'UploadController@uploadFileMusic']);
+        Route::group(['middleware' => ['isActive']], function() {
+            // upload selector
+            Route::prefix('dang-tai/')->group(function () {
+                Route::get('/', ['as' => 'upload.index', 'uses' => 'UploadController@index']);
+                Route::post('/noi-dung-chinh-sua-dang-tai', ['as' => 'upload.suggest', 'uses' => 'UploadController@suggest']);
+                Route::get('ca-si/tim-kiem', ['as' => 'artist.gettermartist', 'uses' => 'ArtistController@getTermArtist']);
+                Route::get('ca-si', ['as' => 'upload.createArtist', 'uses' => 'UploadController@createArtist']);
+                Route::post('ca-si', ['as' => 'upload.storeArtist', 'uses' => 'UploadController@storeArtist']);
+                Route::get('ca-si/{urlArtist}', ['as' => 'upload.suggestArtist', 'uses' => 'UploadController@suggestArtist']);
+                Route::post('ca-si/{urlArtist}', ['as' => 'upload.storeSuggestArtist', 'uses' => 'UploadController@storeSuggestArtist']);
+                Route::get('nhac/{musicId?}', ['as' => 'upload.createMusic', 'uses' => 'UploadController@createMusic']);
+                Route::get('video/{musicId?}', ['as' => 'upload.createVideo', 'uses' => 'UploadController@createVideo']);
+                Route::post('nhac/{musicId?}', ['as' => 'upload.storeMusic', 'uses' => 'UploadController@storeMusic']);
+                Route::post('video', ['as' => 'upload.storeVideo', 'uses' => 'UploadController@storeMusic']);
+                Route::post('video/{musicId?}', ['as' => 'upload.storeVideo', 'uses' => 'UploadController@storeMusic']);
+                Route::get('album/{albumId?}', ['as' => 'upload.createAlbum', 'uses' => 'UploadController@createAlbum']);
+                Route::post('album/{albumId?}', ['as' => 'upload.storeAlbum', 'uses' => 'UploadController@storeAlbum']);
+                Route::post('file-nhac', ['as' => 'upload.fileMusic', 'uses' => 'UploadController@uploadFileMusic']);
+            });
         });
 
+
         // Comment
-        Route::post('comment/post', ['as' => 'comment.create', 'uses' => 'CommentController@postComment']);
+        Route::group(['middleware' => ['isActive']], function() {
+            Route::post('comment/post', ['as' => 'comment.create', 'uses' => 'CommentController@postComment']);
+        });
 
         // Playlist
         Route::prefix('user/playlist/')->group(function () {

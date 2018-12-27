@@ -22,8 +22,11 @@ class CheckIfAdmin
             } else {
                 return redirect()->guest(backpack_url('login'));
             }
+        }else{
+            if(\Auth::user()->rolesCSNRoleName() == ROLE_NAME_ADMIN || \Auth::user()->rolesCSNRoleName() == ROLE_NAME_MANAGER) {
+                return $next($request);
+            }
         }
-
-        return $next($request);
+        return response(view('web.errors.403'));
     }
 }

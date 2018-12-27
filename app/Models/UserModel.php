@@ -11,6 +11,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Zizaco\Entrust\Traits\EntrustUserTrait;
 use Illuminate\Notifications\Notifiable;
 use DB;
+use Illuminate\Support\Facades\Config;
 
 class UserModel extends Authenticatable
 {
@@ -40,5 +41,12 @@ class UserModel extends Authenticatable
     public function roleUser()
     {
         return $this->belongsTo('App\Models\RoleUserModel', 'user_id');
+    }
+    public function rolesCSNRoleName()
+    {
+        $relationship = $this->belongsToMany(Config::get('entrust.role'), Config::get('entrust.role_user_table'), Config::get('entrust.user_foreign_key'), Config::get('entrust.role_foreign_key'))->first();
+        if(!$relationship)
+            return DEFAULT_ROLE_NAME_EMPTY;
+        return $relationship->name;
     }
 }

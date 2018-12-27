@@ -27,7 +27,15 @@
             statusCode: {
                 401: function () {
                     waitingDialog.hide();
-                    window.location.replace('/login');
+                    window.location.replace('/login?back_url=' + window.location.pathname);
+                    return false;
+                },
+                404: function (response) {
+                    alertModal(response.responseText);
+                    return false;
+                },
+                403: function (response) {
+                    alertModal(response.responseText);
                     return false;
                 }
             },

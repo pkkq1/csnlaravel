@@ -202,7 +202,7 @@
             <!-- Modal content-->
             <div class="modal-content modal-login modal-form">
                 <div class="modal-header">
-                    <span class="modal-title span_h5" style="float: left;">Đăng nhập</span>
+                    <span class="modal-title span_h5" style="float: left;"><?php echo isset($_GET['rq']) ? 'Bạn cần phải <span class="text-pink">đăng nhập</span> để đi tiếp' : 'Đăng nhập' ?></span>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
@@ -353,6 +353,21 @@
                 $("#" + idForm).modal();
             }, 200);
         }
+        <?php
+        if(isset($_GET['rq'])) {
+        ?>
+        switchAuth('myModal_<?php echo $_GET['rq'] ?>');
+        <?php
+            if(isset($_GET['back_url'])) {
+                ?>
+                $('.social').find('.facebook').attr('href', '/auth/facebook?back_url=<?php echo $_GET['back_url'] ?>')
+                $('.social').find('.google-plus').attr('href', '/auth/google?back_url=<?php echo $_GET['back_url'] ?>')
+                <?php
+            }
+        ?>
+        <?php
+        }
+        ?>
         $('.modal-login form').submit(false);
         function authLogin() {
             resetInputLogin();
@@ -390,7 +405,7 @@
                     });
                 },
                 success: function(response) {
-                    location.reload();
+                    location.reload('<?php echo $_GET['back_url'] ?? '' ?>');
                 }
             });
         }

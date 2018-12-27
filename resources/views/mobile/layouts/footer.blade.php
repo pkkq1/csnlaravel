@@ -31,6 +31,15 @@ use App\Library\Helpers;
                     <h2>Tài khoản</h2>
                 </li>
                 @if(!Auth::check())
+                    <?php
+                    if(isset($_GET['rq'])) {
+                    ?>
+                        <script>
+                            window.location.replace('/<?php echo $_GET['rq'] ?>?back_url=' + window.location.pathname);
+                        </script>
+                    <?php
+                    }
+                    ?>
                     <li class="nav-item"><a href="/login?back_url={{$_SERVER['REQUEST_URI']}}" class="nav-link dropdown-toggle"><img src="/images/ic_menu_user.png" alt="user" class="icon"> Đăng nhập</a></li>
                 @else
                     <li class="nav-item"><a href="/logout" class="nav-link dropdown-toggle"><img src="/images/ic_menu_out.png" alt="user" class="icon"> Thoát</a></li>

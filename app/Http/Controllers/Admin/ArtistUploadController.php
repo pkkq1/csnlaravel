@@ -191,7 +191,7 @@ class ArtistUploadController extends CrudController
         }
         if(strlen($request->input('artist_cover')) > 100) {
             $typeImageCover = array_last(explode('.', $_FILES['choose_artist_cover']['name']));
-            $fileNameCover = Helpers::saveBase64Image($request->input('artist_cover'), Helpers::file_path($request->input('artist_id'), COVER_ARTIST_SOURCE_PATH, true), $request->artist_id, $typeImageCover);
+            $fileNameCover = Helpers::saveBase64Image($request->input('artist_cover'), Helpers::file_path($request->input('artist_id'), CACHE_COVER_ARTIST_CROP_PATH, true), $request->artist_id, $typeImageCover);
             Helpers::copySourceImage($request->file('choose_artist_cover'), Helpers::file_path($request->input('artist_id'), COVER_ARTIST_SOURCE_PATH, true), $request->artist_id, $typeImageCover);
             $request->request->set('artist_cover', $fileNameCover);
         }
