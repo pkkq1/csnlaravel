@@ -216,12 +216,12 @@ class ArtistUploadController extends CrudController
             \Alert::error('Tên Ca sĩ đã tồn tại.')->flash();
             return redirect()->back();
         }
-        $result = $this->artistRepository->createArtsist($artistUpload);
+        $result = $this->artistRepository->createArtist($artistUpload);
         if($artistUpload->artist_avatar){
             Storage::disk('public')->move(Helpers::file_path($artistUpload->artist_id, CACHE_AVATAR_ARTIST_CROP_PATH, true).$artistUpload->artist_avatar, Helpers::file_path($result->artist_id, AVATAR_ARTIST_CROP_PATH, true).$result->artist_avatar);
         }
         if($artistUpload->artist_cover){
-            Storage::disk('public')->move(Helpers::file_path($artistUpload->artist_id, CACHE_COVER_ARTIST_CROP_PATH, true).$artistUpload->artist_cover, Helpers::file_path($result->artist_id, COVER_ARTIST_CROP_PATH, true).$result->artist_avatar);
+            Storage::disk('public')->move(Helpers::file_path($artistUpload->artist_id, CACHE_COVER_ARTIST_CROP_PATH, true).$artistUpload->artist_cover, Helpers::file_path($result->artist_id, COVER_ARTIST_CROP_PATH, true).$result->artist_cover);
         }
         $this->artistUploadRepository->delete($id);
         \Alert::success('Xác nhận ca sĩ thành công.')->flash();
