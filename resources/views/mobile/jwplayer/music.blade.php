@@ -788,6 +788,8 @@ if($musicSet['type_listen'] == 'playlist') {
         {
             if (radios[i].checked)
             {
+                $('.wrap-bottom-sheet').hide();
+                $('.bottom-sheet').slideUp();
                 if(i == 3) {
                     FB.ui({
                             method: 'share',
@@ -799,8 +801,7 @@ if($musicSet['type_listen'] == 'playlist') {
                             description: $('meta[name=description]').attr("content"),
                         },
                         function(response) {
-                            $('.wrap-bottom-sheet').hide();
-                            $('.bottom-sheet').slideUp();
+
                             if (response && !response.error_message) {
                                 window.open(radios[i].value, '_blank');
                             } else {
