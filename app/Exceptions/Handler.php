@@ -53,13 +53,12 @@ class Handler extends ExceptionHandler
 //    }
     public function render($request, Exception $exception)
     {
-
-        if (method_exists($exception, 'message') && $exception->getMessage() == 'Unauthenticated.'){
+        if (method_exists($exception, 'getMessage') && $exception->getMessage() == 'Unauthenticated.'){
             return $request->expectsJson()
                 ? response()->json(['status' => false, 'message' => $exception->getMessage(), 'data' => null], 401)
                 : redirect()->guest('?rq=login&back_url='.$request->getRequestUri());
         }
-        if(method_exists($exception, 'statusCode') && $exception->getStatusCode() == 403) {
+        if(method_exists($exception, 'getStatusCode') && $exception->getStatusCode() == 403) {
             $Agent = new Agent();
             $view = 'web.';
             if ($Agent->isMobile()) {

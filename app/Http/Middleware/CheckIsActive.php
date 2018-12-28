@@ -17,22 +17,26 @@ class CheckIsActive
      */
     public function handle($request, Closure $next)
     {
-        if($request->user()->user_active == ACTIVE_USER){
+        $isActive = $request->user()->user_active;
+        if($isActive == ACTIVE_USER){
             return $next($request);
+        }elseif ($isActive == BANNED_USER) {
+            $messageVerify = 'Tài khoản của bạn đang bị khóa, không thể thực hiện thao tác này.';
+        }else{
+            $messageVerify = 'Tài khoản của bạn chưa được xác nhận bằng email để thực hiện thao tác này.';
         }
         $Agent = new Agent();
         $view = 'web.';
-        $message = 'Tài khoản của bạn chưa được xác nhận bằng email để thực hiện thao tác này.';
         if ($Agent->isMobile()) {
             $view = 'mobile.';
         }
         if($request->method() == 'GET') {
-            return response()->view($view.'errors.403', ['message'=> $message], 403);
+            return response()->view($view.'errors.403', ['message'=> $messageVerify], 403);
         }else{
             if($request->format() == 'html') {
-                return $response = response()->make($message, 403);
+                return $response = response()->make($messageVerify, 403);
             }
-            Helpers::ajaxResult(false, $message, null);
+            Helpers::ajaxResult(false, $messageVerify, null);
         }
     }
 }
