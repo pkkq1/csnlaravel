@@ -722,25 +722,23 @@
         var b_height = 1000;
         var b_marginleft = -(500 + b_width);//-(492 + b_width);
 
-        document.write('<a target="_blank" href="https://visitanalytics.userreport.com/hit.gif?t=BLV224c750d&event=click"><div id="bgsb_left" style="position: fixed; top: 150px; left: 0pt; width: 100%; height: ' + b_height + 'px; overflow: hidden; visibility: hidden;"><div style="position: absolute; visibility: visible; left: 50%; margin-left: -960px; margin-right: 0pt; z-index:-2;">');
+        document.write('<a target="_blank" href="https://clicktrackingv2.userreport.com/?BLV224c750d;https://yame.vn/?utm_source=background&utm_medium=CPD"><div id="bgsb_left" style="position: fixed; top: 150px; left: 0pt; width: 100%; height: ' + b_height + 'px; overflow: hidden; visibility: hidden;"><div style="position: absolute; visibility: visible; left: 50%; margin-left: -960px; margin-right: 0pt; z-index:-2;">');
         document.write('<div style="width: 460px; height: 1000px; position: relative; background-color: #851c1c; background-repeat: no-repeat; background-position: center;"/> </div>');
         document.write('<img src="https://visitanalytics.userreport.com/hit.gif?t=BLV224c750d">');
         document.write('</div></div></a>');
 
-        document.write('<a target="_blank" href="https://visitanalytics.userreport.com/hit.gif?t=BLV224c750d&event=click"><div id="asb_left" style="position: fixed; top: 150px; left: 0pt; width: 100%; height: ' + b_height + 'px; overflow: hidden; visibility: hidden;"><div style="position: absolute; visibility: visible; left: 50%; margin-left: ' + b_marginleft + 'px; margin-right: 0pt; z-index:-1;">');
+        document.write('<a target="_blank" href="https://clicktrackingv2.userreport.com/?BLV224c750d;https://yame.vn/?utm_source=background&utm_medium=CPD"><div id="asb_left" style="position: fixed; top: 150px; left: 0pt; width: 100%; height: ' + b_height + 'px; overflow: hidden; visibility: hidden;"><div style="position: absolute; visibility: visible; left: 50%; margin-left: ' + b_marginleft + 'px; margin-right: 0pt; z-index:-1;">');
         document.write('<img src="https://data.chiasenhac.com/banner/yame/Left.png" border="0" width="150" height="700" />');
         document.write('</div></div></a>');
 
-        document.write('<a target="_blank" href="https://visitanalytics.userreport.com/hit.gif?t=BLV9eacb70a&event=click"><div id="bgsb_right" style="position: fixed; top: 150px; right: 0pt; width: 100%; height: ' + b_height + 'px; overflow: hidden; visibility: hidden;"><div style="position: absolute; visibility: visible; left: 50%; margin-left: 500px; margin-right: 0pt; z-index:-2;">');
+        document.write('<a target="_blank" href="https://clicktrackingv2.userreport.com/?BLV9eacb70;https://yame.vn/?utm_source=background&utm_medium=CPD"><div id="bgsb_right" style="position: fixed; top: 150px; right: 0pt; width: 100%; height: ' + b_height + 'px; overflow: hidden; visibility: hidden;"><div style="position: absolute; visibility: visible; left: 50%; margin-left: 500px; margin-right: 0pt; z-index:-2;">');
         document.write('<div style="width: 460px; height: 1000px; position: relative; background-color: #851c1c; background-repeat: no-repeat; background-position: center;"/> </div>');
         document.write('<img src="https://visitanalytics.userreport.com/hit.gif?t=BLV9eacb70a">');
         document.write('</div></a></div>');
 
-        document.write('<a target="_blank" href="https://visitanalytics.userreport.com/hit.gif?t=BLV9eacb70a&event=click"><div id="asb_right" style="position: fixed; top: 150px; right: 0px; width: 100%; height: ' + b_height + 'px; overflow: hidden; visibility: hidden;"><div style="position: absolute; visibility: visible; left: 50%; margin-left: 500px; margin-right: 0pt; z-index:-1;">');
+        document.write('<a target="_blank" href="https://clicktrackingv2.userreport.com/?BLV9eacb70;https://yame.vn/?utm_source=background&utm_medium=CPD"><div id="asb_right" style="position: fixed; top: 150px; right: 0px; width: 100%; height: ' + b_height + 'px; overflow: hidden; visibility: hidden;"><div style="position: absolute; visibility: visible; left: 50%; margin-left: 500px; margin-right: 0pt; z-index:-1;">');
         document.write('<img src="https://data.chiasenhac.com/banner/yame/Right.png" border="0" width="150" height="700" />');
         document.write('</div></div></a>');
-
-        document.write('<!-- img src="https://visitanalytics.userreport.com/hit.gif?t=BLV70dddb8e&t=1545902951" -->');
     }
 </script>
 <script type="text/javascript">
