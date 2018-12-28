@@ -910,23 +910,19 @@ if($musicSet['type_listen'] == 'playlist') {
             if(isset($file_url[4]['url'])) {
                 ?>
                 function downLossLessMusic() {
-                    FB.ui(
-                        {
-                            method: 'feed',
-                            display: 'popup',
-                            // mobile_iframe: true,
+                    FB.ui({
+                            method: 'share',
                             name: 'Chia Sẻ Nhạc',
-                            link: window.location.href,
+                            href: window.location.href,
                             picture: $('link[rel=image_src]').attr("href"),
                             caption: $('meta[name=title]').attr("content"),
-                            description: $('meta[name=description]').attr("content")
+                            description: $('meta[name=description]').attr("content"),
                         },
                         function(response) {
-                            console.log(response);
-                            if (response && response.post_id) {
-                                alert('Post was published.');
+                            if (response && !response.error_message) {
+                                window.open("<?php echo $file_url[4]['url'] ?>");
                             } else {
-                                alert('Post was not published.');
+                                alertModal('Bạn phải chia sẻ bài hát này để được download nhạc Lossless.');
                             }
                         }
                     );

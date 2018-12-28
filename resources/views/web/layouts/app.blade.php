@@ -39,8 +39,4 @@
 <script src="//d3.hadarone.com/ads-sync.js?placement=1365"></script>
 
 </body>
-<?php
-    global $timeStart;
-    echo '<center>'.number_format((microtime(true) - $timeStart), 2).'</center>';
-?>
 </html>

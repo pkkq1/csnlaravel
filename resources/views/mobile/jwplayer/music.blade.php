@@ -788,8 +788,27 @@ if($musicSet['type_listen'] == 'playlist') {
         {
             if (radios[i].checked)
             {
-                window.open(radios[i].value, '_blank');
-                break;
+                if(i == 3) {
+                    FB.ui({
+                            method: 'share',
+                            name: 'Chia Sẻ Nhạc',
+                            href: window.location.href,
+                            picture: $('link[rel=image_src]').attr("href"),
+                            caption: $('meta[name=title]').attr("content"),
+                            description: $('meta[name=description]').attr("content"),
+                        },
+                        function(response) {
+                            if (response && !response.error_message) {
+                                window.open(radios[i].value, '_blank');
+                            } else {
+                                alertModal('Bạn phải chia sẻ bài hát này để được download nhạc Lossless.');
+                            }
+                        }
+                    );
+                }else{
+                    window.open(radios[i].value, '_blank');
+                    break;
+                }
             }
         }
         //////////////////////////////
