@@ -1324,3 +1324,8 @@ form#login-form {
     padding-left: 10px;
     width: 100%;
 }
+.error-container {
+    min-height: 350px;
+    margin: auto;
+    padding-top: 70px;
+}

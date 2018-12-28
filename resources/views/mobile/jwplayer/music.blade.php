@@ -696,7 +696,7 @@ if($musicSet['type_listen'] == 'playlist') {
                     return false;
             }
         }
-        window.location.href = '?playlist=' + nextListen;
+        window.location.href = window.location.pathname + '?playlist=' + nextListen;
         <?php
         }
         ?>

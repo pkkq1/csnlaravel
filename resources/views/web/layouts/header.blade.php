@@ -91,12 +91,13 @@
         window.fbAsyncInit = function() {
             FB.init({
                 appId            : '<?php echo env('FACEBOOK_APP_ID') ?>',
-                autoLogAppEvents : true,
+                // autoLogAppEvents : true,
                 xfbml            : true,
+                status           : true,
+                cookie           : true,
                 version          : 'v3.1'
             });
         };
-
         (function(d, s, id){
             var js, fjs = d.getElementsByTagName(s)[0];
             if (d.getElementById(id)) {return;}

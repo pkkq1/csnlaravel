@@ -234,7 +234,7 @@ if($musicSet['type_listen'] == 'playlist') {
                                                         echo '<li><a class="download_item" href="'. $file_url[3]['url'] .'" title="Click vào đây để tải bài hát '. $music->music_title .'"><i class="material-icons">file_download</i> Link tải nhạc <span class="c3">'. strtoupper($file_url[3]['type']) .' '. $file_url[3]['label'] .'</span> '. $file_url[3]['size'] .'</a></li>' . "\n";
                                                     }
                                                     if ( isset($file_url[4]['url']) ){
-                                                        echo '<li><a class="download_item" href="'. $file_url[4]['url'] .'" title="Click vào đây để tải bài hát '. $music->music_title .'"><i class="material-icons">file_download</i> Link tải nhạc <span class="c4">'. strtoupper($file_url[4]['type']) .' '. $file_url[4]['label'] .'</span> '. $file_url[4]['size'] .'</a></li>' . "\n";
+                                                        echo '<li><a class="download_item" href="javascript:downLossLessMusic();" title="Click vào đây để tải bài hát '. $music->music_title .'"><i class="material-icons">file_download</i> Link tải nhạc <span class="c4">'. strtoupper($file_url[4]['type']) .' '. $file_url[4]['label'] .'</span> '. $file_url[4]['size'] .'</a></li>' . "\n";
                                                     }
                                                     if ( isset($file_url[0]['url']) ){
                                                         echo '<li><a class="download_item" href="'. $file_url[0]['url'] .'" title="Click vào đây để tải bài hát '. $music->music_title .'"><i class="material-icons">file_download</i> Link tải nhạc chất lượng thấp: '. strtoupper($file_url[0]['type']) .' '. $file_url[0]['label'] .' '. $file_url[0]['size'] .'</a></li>' . "\n";
@@ -820,7 +820,7 @@ if($musicSet['type_listen'] == 'playlist') {
                                 return false;
                         }
                     }
-                    window.location.href = '?playlist=' + nextListen;
+                    window.location.href = window.location.pathname + '?playlist=' + nextListen;
                     <?php
                 }
             ?>
@@ -902,10 +902,39 @@ if($musicSet['type_listen'] == 'playlist') {
             FB.ui({
                 method: 'share',
                 href: $(this).attr('href'),
-                caption: 'Chia Sẻ Nhạc',
+                caption: $('meta[name=title]').attr("content"),
             }, function(response){});
             return false;
         });
+        <?php
+            if(isset($file_url[4]['url'])) {
+                ?>
+                function downLossLessMusic() {
+                    FB.ui(
+                        {
+                            method: 'feed',
+                            display: 'popup',
+                            // mobile_iframe: true,
+                            name: 'Chia Sẻ Nhạc',
+                            link: window.location.href,
+                            picture: $('link[rel=image_src]').attr("href"),
+                            caption: $('meta[name=title]').attr("content"),
+                            description: $('meta[name=description]').attr("content")
+                        },
+                        function(response) {
+                            console.log(response);
+                            if (response && response.post_id) {
+                                alert('Post was published.');
+                            } else {
+                                alert('Post was not published.');
+                            }
+                        }
+                    );
+                }
+                <?php
+            }
+        ?>
+
         function embedString() {
             var width_height = 'width="640" height="180"';
             var auto = '?auto=true';
