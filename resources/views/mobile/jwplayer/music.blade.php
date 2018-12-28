@@ -799,6 +799,8 @@ if($musicSet['type_listen'] == 'playlist') {
                             description: $('meta[name=description]').attr("content"),
                         },
                         function(response) {
+                            $('.wrap-bottom-sheet').hide();
+                            $('.bottom-sheet').slideUp();
                             if (response && !response.error_message) {
                                 window.open(radios[i].value, '_blank');
                             } else {
