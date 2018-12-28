@@ -793,6 +793,7 @@ if($musicSet['type_listen'] == 'playlist') {
                             method: 'share',
                             name: 'Chia Sẻ Nhạc',
                             href: window.location.href,
+                            mobile_iframe: true,
                             picture: $('link[rel=image_src]').attr("href"),
                             caption: $('meta[name=title]').attr("content"),
                             description: $('meta[name=description]').attr("content"),
