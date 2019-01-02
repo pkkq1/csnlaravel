@@ -508,7 +508,6 @@ class Helpers
         }else{
             $ipaddress = 'UNKNOWN';
         }
-        dd($_SERVER);
         return $ipaddress;
     }
     public static function domain_hosted($music_info)
