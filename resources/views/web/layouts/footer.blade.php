@@ -686,4 +686,96 @@
     </div>
 </footer>
 <script src="/js/lobiboxcsn.min.js"></script>
+
+
+<script type="text/javascript">
+    var screenW = 640, screenH = 480;
+    if (parseInt(navigator.appVersion)>3) {
+        screenW = screen.width;
+        screenH = screen.height;
+    }
+    else if (navigator.appName == "Netscape" && parseInt(navigator.appVersion)==3 && navigator.javaEnabled() )
+    {
+        var jToolkit = java.awt.Toolkit.getDefaultToolkit();
+        var jScreenSize = jToolkit.getScreenSize();
+        screenW = jScreenSize.width;
+        screenH = jScreenSize.height;
+    }
+
+    if ( screenW > 1024 )
+    {
+        var default_width = 150;
+        var default_height = 700;
+        var b_width = (screenW - 1024) / 2;
+        var b_height = screenH - 60;
+
+        if (b_width / default_width > b_height / default_height)
+        {
+            b_width = b_height * (default_width / default_height);
+        }
+        else
+        {
+            b_height = b_width * (default_height / default_width);
+        }
+
+        var b_width = 150;
+        var b_height = 1000;
+        var b_marginleft = -(500 + b_width);//-(492 + b_width);
+
+        document.write('<a target="_blank" href="https://clicktrackingv2.userreport.com/?BLV224c750d;https://yame.vn/?utm_source=background&utm_medium=CPD"><div id="bgsb_left" style="position: fixed; top: 150px; left: 0pt; width: 100%; height: ' + b_height + 'px; overflow: hidden; visibility: hidden;"><div style="position: absolute; visibility: visible; left: 50%; margin-left: -960px; margin-right: 0pt; z-index:-2;">');
+        document.write('<div style="width: 460px; height: 1000px; position: relative; background-color: #851c1c; background-repeat: no-repeat; background-position: center;"/> </div>');
+        document.write('<img src="https://visitanalytics.userreport.com/hit.gif?t=BLV224c750d">');
+        document.write('</div></div></a>');
+
+        document.write('<a target="_blank" href="https://clicktrackingv2.userreport.com/?BLV224c750d;https://yame.vn/?utm_source=background&utm_medium=CPD"><div id="asb_left" style="position: fixed; top: 150px; left: 0pt; width: 100%; height: ' + b_height + 'px; overflow: hidden; visibility: hidden;"><div style="position: absolute; visibility: visible; left: 50%; margin-left: ' + b_marginleft + 'px; margin-right: 0pt; z-index:-1;">');
+        document.write('<img src="https://data.chiasenhac.com/banner/yame/Left.png" border="0" width="150" height="700" />');
+        document.write('</div></div></a>');
+
+        document.write('<a target="_blank" href="https://clicktrackingv2.userreport.com/?BLV9eacb70;https://yame.vn/?utm_source=background&utm_medium=CPD"><div id="bgsb_right" style="position: fixed; top: 150px; right: 0pt; width: 100%; height: ' + b_height + 'px; overflow: hidden; visibility: hidden;"><div style="position: absolute; visibility: visible; left: 50%; margin-left: 500px; margin-right: 0pt; z-index:-2;">');
+        document.write('<div style="width: 460px; height: 1000px; position: relative; background-color: #851c1c; background-repeat: no-repeat; background-position: center;"/> </div>');
+        document.write('<img src="https://visitanalytics.userreport.com/hit.gif?t=BLV9eacb70a">');
+        document.write('</div></a></div>');
+
+        document.write('<a target="_blank" href="https://clicktrackingv2.userreport.com/?BLV9eacb70;https://yame.vn/?utm_source=background&utm_medium=CPD"><div id="asb_right" style="position: fixed; top: 150px; right: 0px; width: 100%; height: ' + b_height + 'px; overflow: hidden; visibility: hidden;"><div style="position: absolute; visibility: visible; left: 50%; margin-left: 500px; margin-right: 0pt; z-index:-1;">');
+        document.write('<img src="https://data.chiasenhac.com/banner/yame/Right.png" border="0" width="150" height="700" />');
+        document.write('</div></div></a>');
+    }
+</script>
+<script type="text/javascript">
+    (function($){
+        $.fn.visible = function(partial){
+
+            var $t			= $(this),
+                $w			= $(window),
+                viewTop			= $w.scrollTop(),
+                viewBottom		= viewTop + $w.height(),
+                _top			= $t.offset().top,
+                _bottom			= _top + $t.height(),
+                compareTop		= partial === true ? _bottom : _top,
+                compareBottom	= partial === true ? _top : _bottom;
+
+            return ((compareBottom <= viewBottom) && (compareTop >= viewTop));
+        };
+    })(jQuery);
+
+    $( window ).scroll(function() {
+        if ( $(window).scrollTop() > 150 )
+        {
+            $("#bgsb_left").css({ top: "0px" });
+            $("#bgsb_right").css({ top: "0px" });
+            $("#asb_left").css({ top: "0px" });
+            $("#asb_right").css({ top: "0px" });
+        }
+        else
+        {
+            $("#bgsb_left").css({ top: (150 - $(window).scrollTop()) + "px" });
+            $("#bgsb_right").css({ top: (150 - $(window).scrollTop()) + "px" });
+            $("#asb_left").css({ top: (150 - $(window).scrollTop()) + "px" });
+            $("#asb_right").css({ top: (150 - $(window).scrollTop()) + "px" });
+        }
+    });
+</script>
+
+
+
 </section>
