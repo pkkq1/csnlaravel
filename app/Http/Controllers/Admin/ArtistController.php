@@ -29,8 +29,22 @@ class ArtistController extends CrudController
         $this->crud->orderBy('artist_id', 'desc');
 //        $this->crud->setEntityNameStrings('menu item', 'menu items');
 
-//        $this->crud->allowAccess('reorder');
-//        $this->crud->enableReorder('name', 2);
+        $this->middleware(function ($request, $next)
+        {
+            if(!backpack_user()->can('danh_sach_ca_si_(list)')) {
+                $this->crud->denyAccess(['list']);
+            }
+            if(!backpack_user()->can('danh_sach_ca_si_(create)')) {
+                $this->crud->denyAccess(['create']);
+            }
+            if(!backpack_user()->can('danh_sach_ca_si_(update)')) {
+                $this->crud->denyAccess(['update']);
+            }
+            if(!backpack_user()->can('danh_sach_ca_si_(delete)')) {
+                $this->crud->denyAccess(['delete']);
+            }
+            return $next($request);
+        });
         $this->crud->setColumns([
             [
                 'name'  => 'artist_id',

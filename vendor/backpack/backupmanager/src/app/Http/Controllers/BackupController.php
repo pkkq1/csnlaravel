@@ -15,6 +15,9 @@ class BackupController extends Controller
 {
     public function index()
     {
+        if(!backpack_user()->can('advanced_(list)')) {
+            return response(view('web.errors.403'));
+        }
         if (!count(config('backup.backup.destination.disks'))) {
             dd(trans('backpack::backup.no_disks_configured'));
         }

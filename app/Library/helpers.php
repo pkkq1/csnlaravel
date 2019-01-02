@@ -491,7 +491,26 @@ class Helpers
 
         return round($bytes, $precision) . ' ' . $units[$pow];
     }
-
+    public static function getIp(){
+        $ipaddress = '';
+        if (isset($_SERVER['HTTP_CLIENT_IP']) == true){
+            $ipaddress = $_SERVER['HTTP_CLIENT_IP'];
+        }else if(isset($_SERVER['HTTP_X_FORWARDED_FOR']) == true){
+            $ipaddress = $_SERVER['HTTP_X_FORWARDED_FOR'];
+        }else if(isset($_SERVER['HTTP_X_FORWARDED']) == true){
+            $ipaddress = $_SERVER['HTTP_X_FORWARDED'];
+        }else if(isset($_SERVER['HTTP_FORWARDED_FOR']) == true){
+            $ipaddress = $_SERVER['HTTP_FORWARDED_FOR'];
+        }else if(isset($_SERVER['$_SERVER[\'REMOTE_ADDR\']']) == true){
+            $ipaddress = $_SERVER['HTTP_FORWARDED'];
+        }else if(isset($_SERVER['REMOTE_ADDR']) == true){
+            $ipaddress = $_SERVER['REMOTE_ADDR'];
+        }else{
+            $ipaddress = 'UNKNOWN';
+        }
+        dd($_SERVER);
+        return $ipaddress;
+    }
     public static function domain_hosted($music_info)
     {
         $music_id = $music_info['music_id'];
@@ -500,8 +519,10 @@ class Helpers
             $url = 'http://data02.chiasenhac.com/';
         else if ($music_id < 1000000)
             $url = 'http://data3.chiasenhac.com/';
+//        else if ($music_id <= 1005000)
+//            $url = 'http://data5.chiasenhac.com/';
         else if ($music_id <= 1005000)
-            $url = 'http://data5.chiasenhac.com/';
+            $url = 'http://data4.chiasenhac.com/';
         else if ($music_id <= 1029000)
             $url = 'http://data16.chiasenhac.com/';
         else if ($music_id <= 1059000)

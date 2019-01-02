@@ -13,4 +13,5 @@ use Zizaco\Entrust\EntrustPermission;
 class Permission extends EntrustPermission
 {
     protected $table = 'csn_permissions';
+    protected $fillable = ['name', 'display_name', 'description'];
 }

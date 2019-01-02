@@ -33,6 +33,26 @@ class ArtistUploadController extends CrudController
         $this->crud->setEntityNameStrings('Upload Artist', 'Artist Upload');
         $this->crud->setRoute(config('backpack.base.route_prefix').'/artist_upload');
         $this->crud->denyAccess(['create']);
+//        $this->crud->denyAccess(['create', 'delete', 'update', 'list']);
+//        $this->crud->allowAccess('reorder');
+//        $this->crud->hasAccess('update');
+//        $this->crud->enableReorder('name', 2);
+        $this->middleware(function ($request, $next)
+        {
+            if(!backpack_user()->can('xet_duyet_ca_si_(list)')) {
+                $this->crud->denyAccess(['list']);
+            }
+            if(!backpack_user()->can('xet_duyet_ca_si_(create)')) {
+                $this->crud->denyAccess(['create']);
+            }
+            if(!backpack_user()->can('xet_duyet_ca_si_(update)')) {
+                $this->crud->denyAccess(['update']);
+            }
+            if(!backpack_user()->can('xet_duyet_ca_si_(delete)')) {
+                $this->crud->denyAccess(['delete']);
+            }
+            return $next($request);
+        });
         $this->crud->orderBy('artist_id', 'desc');
 //        $this->crud->addClause('where', 'active', 1);
         $this->crud->setColumns([
@@ -57,6 +77,8 @@ class ArtistUploadController extends CrudController
                 'label' => 'Avatar',
                 'type' => 'closure',
                 'function' => function($entry) {
+                    if(!$entry->artist_avatar)
+                        return '-';
                     $urlImg = Helpers::file_path($entry->artist_id, PUBLIC_CACHE_AVATAR_ARTIST_PATH, true) . $entry->artist_avatar;
                     return '<a href="'.$urlImg.'" target="_blank">
                               <img src="'.$urlImg.'" style="
@@ -78,6 +100,8 @@ class ArtistUploadController extends CrudController
 //                'type' => 'image',
                 'type' => 'closure',
                 'function' => function($entry) {
+                    if(!$entry->artist_cover)
+                        return '-';
                     $urlImg = Helpers::file_path($entry->artist_id, PUBLIC_CACHE_COVER_ARTIST_PATH, true) . $entry->artist_cover;
                     return '<a href="'.$urlImg.'" target="_blank">
                               <img src="'.$urlImg.'" style="
@@ -208,6 +232,14 @@ class ArtistUploadController extends CrudController
         $this->setSaveAction();
 
         return $this->performSaveAction($item->getKey());
+    }
+    public function destroy($id)
+    {
+        $this->crud->hasAccessOrFail('delete');
+
+        // get entry ID from Request (makes sure its the last ID for nested resources)
+        $id = $this->crud->getCurrentEntryId() ?? $id;
+        return $this->crud->delete($id);
     }
     public function approvalArtistUpload(StoreRequest $request, $id) {
         $artistUpload = $this->artistUploadRepository->findOnlyPublished($id);

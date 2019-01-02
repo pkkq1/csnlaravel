@@ -17,6 +17,20 @@ class RoleCrudController extends CrudController
         $this->crud->setModel($role_model);
         $this->crud->setEntityNameStrings(trans('backpack::permissionmanager.role'), trans('backpack::permissionmanager.roles'));
         $this->crud->setRoute(config('backpack.base.route_prefix').'/role');
+
+        if(!backpack_user()->can('role_permission_(list)')) {
+            $this->crud->denyAccess(['list']);
+        }
+        if(!backpack_user()->can('role_permission_(create)')) {
+            $this->crud->denyAccess(['create']);
+        }
+        if(!backpack_user()->can('role_permission_(update)')) {
+            $this->crud->denyAccess(['update']);
+        }
+        if(!backpack_user()->can('role_permission_(delete)')) {
+            $this->crud->denyAccess(['delete']);
+        }
+
         $this->crud->setColumns([
             [
                 'name'  => 'name',

@@ -29,7 +29,22 @@ class CategoryPlaylistController extends CrudController
 
 //        $this->crud->allowAccess('reorder');
 //        $this->crud->enableReorder('name', 2);
-
+        $this->middleware(function ($request, $next)
+        {
+            if(!backpack_user()->can('danh_muc_playlist_(list)')) {
+                $this->crud->denyAccess(['list']);
+            }
+            if(!backpack_user()->can('danh_muc_playlist_(create)')) {
+                $this->crud->denyAccess(['create']);
+            }
+            if(!backpack_user()->can('danh_muc_playlist_(update)')) {
+                $this->crud->denyAccess(['update']);
+            }
+            if(!backpack_user()->can('danh_muc_playlist_(delete)')) {
+                $this->crud->denyAccess(['delete']);
+            }
+            return $next($request);
+        });
         $this->crud->addColumn([
             'name' => 'cat_id',
             'label' => 'ID',

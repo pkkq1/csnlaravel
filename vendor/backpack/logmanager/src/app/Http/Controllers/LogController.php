@@ -14,6 +14,9 @@ class LogController extends Controller
      */
     public function index()
     {
+        if(!backpack_user()->can('advanced_(list)')) {
+            return response(view('web.errors.403'));
+        }
         $this->data['files'] = LogViewer::getFiles(true, true);
         $this->data['title'] = trans('backpack::logmanager.log_manager');
 

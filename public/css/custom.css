@@ -1329,3 +1329,6 @@ form#login-form {
     margin: auto;
     padding-top: 70px;
 }
+.list_music .media .media-body .media-title a {
+    text-transform: none;
+}

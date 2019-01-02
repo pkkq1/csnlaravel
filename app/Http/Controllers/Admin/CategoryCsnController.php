@@ -27,7 +27,22 @@ class CategoryCsnController extends CrudController
         $this->crud->setEntityNameStrings('Category CSN', 'Category CSN');
         $this->crud->setRoute(config('backpack.base.route_prefix').'/category_csn');
 //        $this->crud->setEntityNameStrings('menu item', 'menu items');
-
+        $this->middleware(function ($request, $next)
+        {
+            if(!backpack_user()->can('danh_muc_csn_(list)')) {
+                $this->crud->denyAccess(['list']);
+            }
+            if(!backpack_user()->can('danh_muc_csn_(create)')) {
+                $this->crud->denyAccess(['create']);
+            }
+            if(!backpack_user()->can('danh_muc_csn_(update)')) {
+                $this->crud->denyAccess(['update']);
+            }
+            if(!backpack_user()->can('danh_muc_csn_(delete)')) {
+                $this->crud->denyAccess(['delete']);
+            }
+            return $next($request);
+        });
 //        $this->crud->allowAccess('reorder');
 //        $this->crud->enableReorder('name', 2);
         $this->crud->addColumn([

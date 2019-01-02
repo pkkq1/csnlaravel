@@ -21,6 +21,19 @@ class UserCrudController extends CrudController
         $this->crud->setRoute(config('backpack.base.route_prefix').'/user');
         $this->crud->enableAjaxTable();
         // Columns.
+        if(!backpack_user()->can('user_(list)')) {
+            $this->crud->denyAccess(['list']);
+        }
+        if(!backpack_user()->can('user_(create)')) {
+            $this->crud->denyAccess(['create']);
+        }
+        if(!backpack_user()->can('user_(update)')) {
+            $this->crud->denyAccess(['update']);
+        }
+        if(!backpack_user()->can('user_(delete)')) {
+            $this->crud->denyAccess(['delete']);
+        }
+
         $this->crud->setColumns([
             [
                 'name'  => 'name',
