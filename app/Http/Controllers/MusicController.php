@@ -104,7 +104,6 @@ class MusicController extends Controller
                 $getModelFavourite = $this->videoFavouriteRepository;
             $musicFavourite = $getModelFavourite->getModel()::where([['user_id', Auth::user()->id], ['music_id', $music->music_id]])->first();
         }
-        dd(Helpers::getIp());
         return view('jwplayer.music', compact('music', 'musicSet', 'musicFavourite'));
     }
     public function listenPlaylistMusic(Request $request, $musicUrl) {

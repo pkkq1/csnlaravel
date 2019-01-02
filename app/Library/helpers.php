@@ -584,8 +584,7 @@ class Helpers
             $url = 'http://data31.chiasenhac.com/';
         else
             $url = 'http://data.chiasenhac.com/';
-
-        return $url;
+        return $url . md5(self::getIp() . env('DATA_KEY')) . '/';
     }
 
     public static function file_url(&$music_info)
