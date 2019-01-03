@@ -41,6 +41,7 @@ return [
         */
 
         'role' => Backpack\PermissionManager\app\Models\Role::class,
+        'user_has_permissions' => App\Models\PermissionUserModel::class,
 
     ],
 

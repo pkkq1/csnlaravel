@@ -33,7 +33,6 @@ class UserCrudController extends CrudController
         if(!backpack_user()->can('user_(delete)')) {
             $this->crud->denyAccess(['delete']);
         }
-
         $this->crud->setColumns([
             [
                 'name'  => 'name',
@@ -63,7 +62,7 @@ class UserCrudController extends CrudController
                'type'      => 'select_multiple',
                'name'      => 'permissions', // the method that defines the relationship in your Model
                'entity'    => 'permissions', // the method that defines the relationship in your Model
-               'attribute' => 'name', // foreign key attribute that is shown to user
+               'attribute' => 'display_name', // foreign key attribute that is shown to user
                'model'     => config('laravel-permission.models.permission'), // foreign key model
             ],
         ]);
