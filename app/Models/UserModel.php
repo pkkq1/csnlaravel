@@ -12,10 +12,16 @@ use Zizaco\Entrust\Traits\EntrustUserTrait;
 use Illuminate\Notifications\Notifiable;
 use DB;
 use Illuminate\Support\Facades\Config;
+use Backpack\CRUD\CrudTrait;
+use Spatie\Permission\Traits\HasRoles;
 
 class UserModel extends Authenticatable
 {
-    use EntrustUserTrait, Notifiable;
+//    use EntrustUserTrait, Notifiable;
+    use Notifiable;
+    use CrudTrait;
+    use EntrustUserTrait;
+//    use HasRoles;
     /**
      * The attributes that are mass assignable.
      *
@@ -49,4 +55,5 @@ class UserModel extends Authenticatable
             return DEFAULT_ROLE_NAME_EMPTY;
         return $relationship->name;
     }
+
 }

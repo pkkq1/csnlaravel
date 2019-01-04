@@ -128,18 +128,6 @@
                         <li><a href="{{env('APP_URL')}}/mp3/other/o-dance-remix.html" title="Nhạc Dance, Remix">Nhạc Dance, Remix</a></li>
                     </ul>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link" href="{{env('APP_URL')}}/mp3/beat-playback.html">Playback</a>
-                    <ul class="dropdown-menu list-unstyled">
-                        <li><a href="{{env('APP_URL')}}/mp3/beat-playback/v-instrumental.html" title="Playback Việt Nam">Playback Việt Nam</a></li>
-                        <li><a href="{{env('APP_URL')}}/mp3/beat-playback/us-instrumental.html" title="Playback US-UK">Playback US-UK</a></li>
-                        <li><a href="{{env('APP_URL')}}/mp3/beat-playback/c-instrumental.html" title="Playback Hoa">Playback Hoa</a></li>
-                        <li><a href="{{env('APP_URL')}}/mp3/beat-playback/k-instrumental.html" title="Playback Hàn">Playback Hàn</a></li>
-                        <li><a href="{{env('APP_URL')}}/mp3/beat-playback/j-instrumental.html" title="Playback Nhật">Playback Nhật</a></li>
-                        <li><a href="{{env('APP_URL')}}/mp3/beat-playback/f-instrumental.html" title="Playback Pháp">Playback Pháp</a></li>
-                        <li><a href="{{env('APP_URL')}}/mp3/beat-playback/o-instrumental.html" title="Playback Nước Khác">Playback Nước Khác</a></li>
-                    </ul>
-                </li>
                 <li class="nav-item this_more">
                     <a class="nav-link iconmenu" href="#"><i class="material-icons">more_horiz</i></a>
                 </li>

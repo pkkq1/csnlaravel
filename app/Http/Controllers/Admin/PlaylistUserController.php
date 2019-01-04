@@ -97,7 +97,7 @@ class PlaylistUserController extends CrudController
                     if($entry->playlist_cover) {
                         $urlImg = Helpers::file_path($entry->playlist_id, PUBLIC_MUSIC_PLAYLIST_PATH, true) . $entry->playlist_id.'.png';
                     }else{
-                        $urlImg = '/imgs/avatar_default.png';
+                        return '-';
                     }
                     return '<a href="'.$urlImg.'" target="_blank">
                               <img src="'.$urlImg.'" style="

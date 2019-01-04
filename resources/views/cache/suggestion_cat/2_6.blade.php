@@ -968,46 +968,6 @@ $typeDup = array (
   ),
   48 => 
   array (
-    'music_id' => 1915614,
-    'cat_id' => 2,
-    'cat_level' => 6,
-    'cover_id' => 89172,
-    'music_title_url' => 'einaudi-i-giorni-arr-for-violin-piano-and-string-~deutsches-kammerorchester-berl',
-    'music_title' => 'Einaudi: I giorni (Arr. For Violin, Piano And String Orchestra)',
-    'music_artist' => 'Deutsches Kammerorchester Berlin &amp;Daniel Hope &amp;Jacques Ammon',
-    'music_artist_id' => '17047;17048;17049',
-    'music_album_id' => '0289 479 2043 4',
-    'music_listen' => 161,
-    'music_bitrate' => 1000,
-    'music_filename' => '1915614-5cf3890e.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 338,
-    'music_artist_html' => '<a href="/ca-si/Deutsches-Kammerorchester-Berlin-amp~Y3NuX2FydGlzdH4xNzA0Nw==.html">Deutsches Kammerorchester Berlin &amp</a>, <a href="/ca-si/Daniel-Hope-amp~Y3NuX2FydGlzdH4xNzA0OA==.html">Daniel Hope &amp</a>, <a href="/ca-si/Jacques-Ammon~Y3NuX2FydGlzdH4xNzA0OQ==.html">Jacques Ammon</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  49 => 
-  array (
-    'music_id' => 1912908,
-    'cat_id' => 2,
-    'cat_level' => 6,
-    'cover_id' => 88753,
-    'music_title_url' => 'lepee-de-larchange~michel-pepe',
-    'music_title' => 'L\'epée De L\'archange',
-    'music_artist' => 'Michel Pepe',
-    'music_artist_id' => '16319',
-    'music_album_id' => '',
-    'music_listen' => 127,
-    'music_bitrate' => 1000,
-    'music_filename' => '1912908-83ab1924.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 324,
-    'music_artist_html' => '<a href="/ca-si/Michel-Pepe~Y3NuX2FydGlzdH4xNjMxOQ==.html">Michel Pepe</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  50 => 
-  array (
     'music_id' => 1192455,
     'cat_id' => 2,
     'cat_level' => 6,
@@ -1026,7 +986,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Paul-Mauriat~Y3NuX2FydGlzdH4xMDMx.html">Paul Mauriat</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  51 => 
+  49 => 
   array (
     'music_id' => 1192442,
     'cat_id' => 2,
@@ -1046,7 +1006,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Paul-Mauriat~Y3NuX2FydGlzdH4xMDMx.html">Paul Mauriat</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  52 => 
+  50 => 
   array (
     'music_id' => 1105600,
     'cat_id' => 2,
@@ -1066,7 +1026,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  53 => 
+  51 => 
   array (
     'music_id' => 1106063,
     'cat_id' => 2,
@@ -1086,7 +1046,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Paul-Mauriat~Y3NuX2FydGlzdH4xMDMx.html">Paul Mauriat</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  54 => 
+  52 => 
   array (
     'music_id' => 1548572,
     'cat_id' => 2,
@@ -1106,7 +1066,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Paul-Mauriat~Y3NuX2FydGlzdH4xMDMx.html">Paul Mauriat</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  55 => 
+  53 => 
   array (
     'music_id' => 1837384,
     'cat_id' => 2,
@@ -1126,7 +1086,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Paul-Mauriat~Y3NuX2FydGlzdH4xMDMx.html">Paul Mauriat</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  56 => 
+  54 => 
   array (
     'music_id' => 1830285,
     'cat_id' => 2,
@@ -1146,7 +1106,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Jazz-a-Paname~Y3NuX2FydGlzdH4xMDA4MTI=.html">Jazz a Paname</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  57 => 
+  55 => 
   array (
     'music_id' => 1735868,
     'cat_id' => 2,
@@ -1166,7 +1126,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  58 => 
+  56 => 
   array (
     'music_id' => 1830287,
     'cat_id' => 2,
@@ -1186,7 +1146,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Andre-Beun-Quartet~Y3NuX2FydGlzdH4xMDA4MTQ=.html">Andre Beun Quartet</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  59 => 
+  57 => 
   array (
     'music_id' => 1551205,
     'cat_id' => 2,
@@ -1206,7 +1166,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Eugen-Doga~Y3NuX2FydGlzdH43MjA5NA==.html">Eugen Doga</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  60 => 
+  58 => 
   array (
     'music_id' => 1830286,
     'cat_id' => 2,
@@ -1226,7 +1186,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Alex-Jacquemin~Y3NuX2FydGlzdH4xMDA4MTM=.html">Alex Jacquemin</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  61 => 
+  59 => 
   array (
     'music_id' => 1830293,
     'cat_id' => 2,
@@ -1246,7 +1206,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Easy~Y3NuX2FydGlzdH4xMDA4MTc=.html">Easy</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  62 => 
+  60 => 
   array (
     'music_id' => 1830291,
     'cat_id' => 2,
@@ -1266,27 +1226,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/JazznJava~Y3NuX2FydGlzdH4xMDA4MTY=.html">Jazz\'n\'Java</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  63 => 
-  array (
-    'music_id' => 1547367,
-    'cat_id' => 2,
-    'cat_level' => 6,
-    'cover_id' => 45956,
-    'music_title_url' => 'intro~dalriada',
-    'music_title' => 'Intro',
-    'music_artist' => 'Dalriada',
-    'music_artist_id' => '71669',
-    'music_album_id' => 'NAILCD 242',
-    'music_listen' => 1432,
-    'music_bitrate' => 320,
-    'music_filename' => '1547367-04aa0aea.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 103,
-    'music_artist_html' => '<a href="/ca-si/Dalriada~Y3NuX2FydGlzdH43MTY2OQ==.html">Dalriada</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
-  ),
-  64 => 
+  61 => 
   array (
     'music_id' => 1734191,
     'cat_id' => 2,
@@ -1306,47 +1246,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Paul-Mauriat~Y3NuX2FydGlzdH4xMDMx.html">Paul Mauriat</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  65 => 
-  array (
-    'music_id' => 1896267,
-    'cat_id' => 2,
-    'cat_level' => 6,
-    'cover_id' => 86227,
-    'music_title_url' => 'lettre-a-ma-mere-letter-to-my-mother-dsd-remastered~richard-clayderman',
-    'music_title' => 'Lettre A Ma Mere (Letter To My Mother) (DSD Remastered)',
-    'music_artist' => 'Richard Clayderman',
-    'music_artist_id' => '519',
-    'music_album_id' => 'Disc.1',
-    'music_listen' => 586,
-    'music_bitrate' => 1000,
-    'music_filename' => '1896267-8feb8d3d.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 164,
-    'music_artist_html' => '<a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  66 => 
-  array (
-    'music_id' => 1802839,
-    'cat_id' => 2,
-    'cat_level' => 6,
-    'cover_id' => 73415,
-    'music_title_url' => 'triste-coeur~richard-clayderman',
-    'music_title' => 'Triste Coeur',
-    'music_artist' => 'Richard Clayderman',
-    'music_artist_id' => '519',
-    'music_album_id' => 'Disc.1',
-    'music_listen' => 568,
-    'music_bitrate' => 1000,
-    'music_filename' => '1802839-221a3da4.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 167,
-    'music_artist_html' => '<a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  67 => 
+  62 => 
   array (
     'music_id' => 1915626,
     'cat_id' => 2,
@@ -1366,87 +1266,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Daniel-Barenboim~Y3NuX2FydGlzdH4xNzA3NQ==.html">Daniel Barenboim</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  68 => 
-  array (
-    'music_id' => 1916605,
-    'cat_id' => 2,
-    'cat_level' => 6,
-    'cover_id' => 89355,
-    'music_title_url' => 'jazz-tango~paul-mauriat',
-    'music_title' => 'Jazz Tango',
-    'music_artist' => 'Paul Mauriat',
-    'music_artist_id' => '1031',
-    'music_album_id' => '',
-    'music_listen' => 163,
-    'music_bitrate' => 1000,
-    'music_filename' => '1916605-cfc8c8ce.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 147,
-    'music_artist_html' => '<a href="/ca-si/Paul-Mauriat~Y3NuX2FydGlzdH4xMDMx.html">Paul Mauriat</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  69 => 
-  array (
-    'music_id' => 1915611,
-    'cat_id' => 2,
-    'cat_level' => 6,
-    'cover_id' => 89172,
-    'music_title_url' => 'faure-pavane-op50~boston-symphony-orchestra-tang',
-    'music_title' => 'Fauré: Pavane, Op.50',
-    'music_artist' => 'Boston Symphony Orchestra &amp;Tanglewood Festival Chorus &amp;Seiji Ozawa',
-    'music_artist_id' => '17038;17039;17040',
-    'music_album_id' => '0289 479 2043 4',
-    'music_listen' => 195,
-    'music_bitrate' => 1000,
-    'music_filename' => '1915611-4f91eed1.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 408,
-    'music_artist_html' => '<a href="/ca-si/Boston-Symphony-Orchestra-amp~Y3NuX2FydGlzdH4xNzAzOA==.html">Boston Symphony Orchestra &amp</a>, <a href="/ca-si/Tanglewood-Festival-Chorus-amp~Y3NuX2FydGlzdH4xNzAzOQ==.html">Tanglewood Festival Chorus &amp</a>, <a href="/ca-si/Seiji-Ozawa~Y3NuX2FydGlzdH4xNzA0MA==.html">Seiji Ozawa</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  70 => 
-  array (
-    'music_id' => 1915617,
-    'cat_id' => 2,
-    'cat_level' => 6,
-    'cover_id' => 89172,
-    'music_title_url' => 'mozart-clarinet-concerto-in-a-k622-2-adagio~russian-national-orchestra-mic',
-    'music_title' => 'Mozart: Clarinet Concerto In A, K.622-2. Adagio',
-    'music_artist' => 'Russian National Orchestra &amp;Michael Collins &amp;Mikhail Pletnev',
-    'music_artist_id' => '17055;17056;17057',
-    'music_album_id' => '0289 479 2043 4',
-    'music_listen' => 127,
-    'music_bitrate' => 1000,
-    'music_filename' => '1915617-41689b4e.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 459,
-    'music_artist_html' => '<a href="/ca-si/Russian-National-Orchestra-amp~Y3NuX2FydGlzdH4xNzA1NQ==.html">Russian National Orchestra &amp</a>, <a href="/ca-si/Michael-Collins-amp~Y3NuX2FydGlzdH4xNzA1Ng==.html">Michael Collins &amp</a>, <a href="/ca-si/Mikhail-Pletnev~Y3NuX2FydGlzdH4xNzA1Nw==.html">Mikhail Pletnev</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  71 => 
-  array (
-    'music_id' => 1915616,
-    'cat_id' => 2,
-    'cat_level' => 6,
-    'cover_id' => 89172,
-    'music_title_url' => 'js-bach-suite-no3-in-d-bwv-1068-2-air~trevor-pinnock-the-english-concert',
-    'music_title' => 'J.S. Bach: Suite No.3 In D, BWV 1068-2. Air',
-    'music_artist' => 'Trevor Pinnock &amp;The English Concert',
-    'music_artist_id' => '17053;17054',
-    'music_album_id' => '0289 479 2043 4',
-    'music_listen' => 129,
-    'music_bitrate' => 1000,
-    'music_filename' => '1915616-9c8eed14.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 289,
-    'music_artist_html' => '<a href="/ca-si/Trevor-Pinnock-amp~Y3NuX2FydGlzdH4xNzA1Mw==.html">Trevor Pinnock &amp</a>, <a href="/ca-si/The-English-Concert~Y3NuX2FydGlzdH4xNzA1NA==.html">The English Concert</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  72 => 
+  63 => 
   array (
     'music_id' => 1192457,
     'cat_id' => 2,
@@ -1466,7 +1286,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Paul-Mauriat~Y3NuX2FydGlzdH4xMDMx.html">Paul Mauriat</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  73 => 
+  64 => 
   array (
     'music_id' => 1192434,
     'cat_id' => 2,
@@ -1486,7 +1306,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Paul-Mauriat~Y3NuX2FydGlzdH4xMDMx.html">Paul Mauriat</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  74 => 
+  65 => 
   array (
     'music_id' => 1782524,
     'cat_id' => 2,
@@ -1506,7 +1326,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  75 => 
+  66 => 
   array (
     'music_id' => 1192451,
     'cat_id' => 2,
@@ -1526,7 +1346,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Paul-Mauriat~Y3NuX2FydGlzdH4xMDMx.html">Paul Mauriat</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  76 => 
+  67 => 
   array (
     'music_id' => 1105604,
     'cat_id' => 2,
@@ -1546,7 +1366,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  77 => 
+  68 => 
   array (
     'music_id' => 1661477,
     'cat_id' => 2,
@@ -1566,7 +1386,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>, <a href="/ca-si/Nicolas-De-Angelis~Y3NuX2FydGlzdH4zNzY2Mg==.html">Nicolas De Angelis</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  78 => 
+  69 => 
   array (
     'music_id' => 1192445,
     'cat_id' => 2,
@@ -1586,7 +1406,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Paul-Mauriat~Y3NuX2FydGlzdH4xMDMx.html">Paul Mauriat</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  79 => 
+  70 => 
   array (
     'music_id' => 1105595,
     'cat_id' => 2,
@@ -1606,7 +1426,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  80 => 
+  71 => 
   array (
     'music_id' => 1105596,
     'cat_id' => 2,
@@ -1626,7 +1446,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  81 => 
+  72 => 
   array (
     'music_id' => 1051226,
     'cat_id' => 2,
@@ -1646,7 +1466,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Various-Artists~Y3NuX2FydGlzdH45Nw==.html">Various Artists</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  82 => 
+  73 => 
   array (
     'music_id' => 1309397,
     'cat_id' => 2,
@@ -1666,7 +1486,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Various-Artists~Y3NuX2FydGlzdH45Nw==.html">Various Artists</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  83 => 
+  74 => 
   array (
     'music_id' => 1105607,
     'cat_id' => 2,
@@ -1686,7 +1506,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  84 => 
+  75 => 
   array (
     'music_id' => 1105608,
     'cat_id' => 2,
@@ -1706,7 +1526,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  85 => 
+  76 => 
   array (
     'music_id' => 1105601,
     'cat_id' => 2,
@@ -1726,7 +1546,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  86 => 
+  77 => 
   array (
     'music_id' => 1051234,
     'cat_id' => 2,
@@ -1746,7 +1566,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Various-Artists~Y3NuX2FydGlzdH45Nw==.html">Various Artists</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  87 => 
+  78 => 
   array (
     'music_id' => 1051223,
     'cat_id' => 2,
@@ -1766,7 +1586,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Various-Artists~Y3NuX2FydGlzdH45Nw==.html">Various Artists</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  88 => 
+  79 => 
   array (
     'music_id' => 1105610,
     'cat_id' => 2,
@@ -1786,7 +1606,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  89 => 
+  80 => 
   array (
     'music_id' => 1105606,
     'cat_id' => 2,
@@ -1806,7 +1626,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  90 => 
+  81 => 
   array (
     'music_id' => 1105609,
     'cat_id' => 2,
@@ -1826,7 +1646,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  91 => 
+  82 => 
   array (
     'music_id' => 1051224,
     'cat_id' => 2,
@@ -1846,7 +1666,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Various-Artists~Y3NuX2FydGlzdH45Nw==.html">Various Artists</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  92 => 
+  83 => 
   array (
     'music_id' => 1051227,
     'cat_id' => 2,
@@ -1866,7 +1686,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Various-Artists~Y3NuX2FydGlzdH45Nw==.html">Various Artists</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  93 => 
+  84 => 
   array (
     'music_id' => 1105602,
     'cat_id' => 2,
@@ -1886,7 +1706,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  94 => 
+  85 => 
   array (
     'music_id' => 1105599,
     'cat_id' => 2,
@@ -1906,7 +1726,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  95 => 
+  86 => 
   array (
     'music_id' => 1105605,
     'cat_id' => 2,
@@ -1926,7 +1746,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  96 => 
+  87 => 
   array (
     'music_id' => 1204385,
     'cat_id' => 2,
@@ -1946,7 +1766,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Clayderman~Y3NuX2FydGlzdH40MDU5Nw==.html">Clayderman</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  97 => 
+  88 => 
   array (
     'music_id' => 1105597,
     'cat_id' => 2,
@@ -1966,7 +1786,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  98 => 
+  89 => 
   array (
     'music_id' => 1051225,
     'cat_id' => 2,
@@ -1986,7 +1806,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Various-Artists~Y3NuX2FydGlzdH45Nw==.html">Various Artists</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  99 => 
+  90 => 
   array (
     'music_id' => 1051230,
     'cat_id' => 2,
@@ -2006,7 +1826,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Various-Artists~Y3NuX2FydGlzdH45Nw==.html">Various Artists</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  100 => 
+  91 => 
   array (
     'music_id' => 1105603,
     'cat_id' => 2,
@@ -2026,7 +1846,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  101 => 
+  92 => 
   array (
     'music_id' => 1105612,
     'cat_id' => 2,
@@ -2046,7 +1866,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  102 => 
+  93 => 
   array (
     'music_id' => 1529818,
     'cat_id' => 2,
@@ -2066,7 +1886,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  103 => 
+  94 => 
   array (
     'music_id' => 1051235,
     'cat_id' => 2,
@@ -2086,7 +1906,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Various-Artists~Y3NuX2FydGlzdH45Nw==.html">Various Artists</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  104 => 
+  95 => 
   array (
     'music_id' => 1192313,
     'cat_id' => 2,
@@ -2106,7 +1926,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Paul-Mauriat~Y3NuX2FydGlzdH4xMDMx.html">Paul Mauriat</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  105 => 
+  96 => 
   array (
     'music_id' => 1663718,
     'cat_id' => 2,
@@ -2126,7 +1946,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Francis-Goya~Y3NuX2FydGlzdH40.html">Francis Goya</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  106 => 
+  97 => 
   array (
     'music_id' => 1192308,
     'cat_id' => 2,
@@ -2146,7 +1966,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Paul-Mauriat~Y3NuX2FydGlzdH4xMDMx.html">Paul Mauriat</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  107 => 
+  98 => 
   array (
     'music_id' => 1309405,
     'cat_id' => 2,
@@ -2166,7 +1986,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Various-Artists~Y3NuX2FydGlzdH45Nw==.html">Various Artists</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  108 => 
+  99 => 
   array (
     'music_id' => 1198490,
     'cat_id' => 2,
@@ -2186,7 +2006,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  109 => 
+  100 => 
   array (
     'music_id' => 1661478,
     'cat_id' => 2,
@@ -2206,7 +2026,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>, <a href="/ca-si/Nicolas-De-Angelis~Y3NuX2FydGlzdH4zNzY2Mg==.html">Nicolas De Angelis</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  110 => 
+  101 => 
   array (
     'music_id' => 1782529,
     'cat_id' => 2,
@@ -2226,27 +2046,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  111 => 
-  array (
-    'music_id' => 1661479,
-    'cat_id' => 2,
-    'cat_level' => 6,
-    'cover_id' => 56702,
-    'music_title_url' => 'sonate-no3-les-jours-heureux~richard-clayderman-nicolas-de-angelis',
-    'music_title' => 'Sonate No.3 &quot;Les Jours Heureux&quot;',
-    'music_artist' => 'Richard Clayderman;Nicolas De Angelis',
-    'music_artist_id' => '519;37662',
-    'music_album_id' => 'DEL27015.2',
-    'music_listen' => 10175,
-    'music_bitrate' => 1000,
-    'music_filename' => '1661479-9dd653f4.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 111,
-    'music_artist_html' => '<a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>, <a href="/ca-si/Nicolas-De-Angelis~Y3NuX2FydGlzdH4zNzY2Mg==.html">Nicolas De Angelis</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  112 => 
+  102 => 
   array (
     'music_id' => 1043405,
     'cat_id' => 2,
@@ -2266,67 +2066,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Various-Artists~Y3NuX2FydGlzdH45Nw==.html">Various Artists</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  113 => 
-  array (
-    'music_id' => 539607,
-    'cat_id' => 2,
-    'cat_level' => 6,
-    'cover_id' => 0,
-    'music_title_url' => 'le-beau-danube-bleu~le-nhat-quang',
-    'music_title' => 'Le Beau Danube Bleu',
-    'music_artist' => 'Lê Nhật Quang',
-    'music_artist_id' => '120667',
-    'music_album_id' => '',
-    'music_listen' => 5258,
-    'music_bitrate' => 128,
-    'music_filename' => '539607-09c52c64.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 549,
-    'music_artist_html' => '<a href="/ca-si/Le-Nhat-Quang~Y3NuX2FydGlzdH4xMjA2Njc=.html">Lê Nhật Quang</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">128kbps</span>',
-  ),
-  114 => 
-  array (
-    'music_id' => 1661483,
-    'cat_id' => 2,
-    'cat_level' => 6,
-    'cover_id' => 56702,
-    'music_title_url' => 'sonate-no7-angelica-diina~richard-clayderman-nicolas-de-angelis',
-    'music_title' => 'Sonate No.7 &quot;Angelica Diina&quot;',
-    'music_artist' => 'Richard Clayderman;Nicolas De Angelis',
-    'music_artist_id' => '519;37662',
-    'music_album_id' => 'DEL27015.2',
-    'music_listen' => 9011,
-    'music_bitrate' => 1000,
-    'music_filename' => '1661483-471b049e.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 201,
-    'music_artist_html' => '<a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>, <a href="/ca-si/Nicolas-De-Angelis~Y3NuX2FydGlzdH4zNzY2Mg==.html">Nicolas De Angelis</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  115 => 
-  array (
-    'music_id' => 1661480,
-    'cat_id' => 2,
-    'cat_level' => 6,
-    'cover_id' => 56702,
-    'music_title_url' => 'sonate-no4-pastorale~richard-clayderman-nicolas-de-angelis',
-    'music_title' => 'Sonate No.4  &quot;Pastorale&quot;',
-    'music_artist' => 'Richard Clayderman;Nicolas De Angelis',
-    'music_artist_id' => '519;37662',
-    'music_album_id' => 'DEL27015.2',
-    'music_listen' => 10148,
-    'music_bitrate' => 1000,
-    'music_filename' => '1661480-90809f06.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 148,
-    'music_artist_html' => '<a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>, <a href="/ca-si/Nicolas-De-Angelis~Y3NuX2FydGlzdH4zNzY2Mg==.html">Nicolas De Angelis</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  116 => 
+  103 => 
   array (
     'music_id' => 1782527,
     'cat_id' => 2,
@@ -2346,27 +2086,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  117 => 
-  array (
-    'music_id' => 1661484,
-    'cat_id' => 2,
-    'cat_level' => 6,
-    'cover_id' => 56702,
-    'music_title_url' => 'sonate-no8-lamour-heureux~richard-clayderman-nicolas-de-angelis',
-    'music_title' => 'Sonate No.8 &quot;L\'amour Heureux&quot;',
-    'music_artist' => 'Richard Clayderman;Nicolas De Angelis',
-    'music_artist_id' => '519;37662',
-    'music_album_id' => 'DEL27015.2',
-    'music_listen' => 8651,
-    'music_bitrate' => 1000,
-    'music_filename' => '1661484-9b746e7c.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 161,
-    'music_artist_html' => '<a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>, <a href="/ca-si/Nicolas-De-Angelis~Y3NuX2FydGlzdH4zNzY2Mg==.html">Nicolas De Angelis</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  118 => 
+  104 => 
   array (
     'music_id' => 1445069,
     'cat_id' => 2,
@@ -2386,7 +2106,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Paul-Mauriat~Y3NuX2FydGlzdH4xMDMx.html">Paul Mauriat</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
-  119 => 
+  105 => 
   array (
     'music_id' => 1192306,
     'cat_id' => 2,
@@ -2406,7 +2126,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Paul-Mauriat~Y3NuX2FydGlzdH4xMDMx.html">Paul Mauriat</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  120 => 
+  106 => 
   array (
     'music_id' => 1793933,
     'cat_id' => 2,
@@ -2426,7 +2146,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>, <a href="/ca-si/Nicolas-De-Angelis~Y3NuX2FydGlzdH4zNzY2Mg==.html">Nicolas De Angelis</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  121 => 
+  107 => 
   array (
     'music_id' => 1192840,
     'cat_id' => 2,
@@ -2446,7 +2166,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Paul-Mauriat~Y3NuX2FydGlzdH4xMDMx.html">Paul Mauriat</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  122 => 
+  108 => 
   array (
     'music_id' => 1661487,
     'cat_id' => 2,
@@ -2466,7 +2186,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>, <a href="/ca-si/Nicolas-De-Angelis~Y3NuX2FydGlzdH4zNzY2Mg==.html">Nicolas De Angelis</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  123 => 
+  109 => 
   array (
     'music_id' => 1204386,
     'cat_id' => 2,
@@ -2486,7 +2206,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Clayderman~Y3NuX2FydGlzdH40MDU5Nw==.html">Clayderman</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  124 => 
+  110 => 
   array (
     'music_id' => 1445066,
     'cat_id' => 2,
@@ -2506,7 +2226,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Paul-Mauriat~Y3NuX2FydGlzdH4xMDMx.html">Paul Mauriat</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
-  125 => 
+  111 => 
   array (
     'music_id' => 1782526,
     'cat_id' => 2,
@@ -2526,47 +2246,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  126 => 
-  array (
-    'music_id' => 1661482,
-    'cat_id' => 2,
-    'cat_level' => 6,
-    'cover_id' => 56702,
-    'music_title_url' => 'sonate-no6-la-fete~richard-clayderman-nicolas-de-angelis',
-    'music_title' => 'Sonate No.6 &quot;La Fête&quot;',
-    'music_artist' => 'Richard Clayderman;Nicolas De Angelis',
-    'music_artist_id' => '519;37662',
-    'music_album_id' => 'DEL27015.2',
-    'music_listen' => 7109,
-    'music_bitrate' => 1000,
-    'music_filename' => '1661482-ab517f18.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 140,
-    'music_artist_html' => '<a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>, <a href="/ca-si/Nicolas-De-Angelis~Y3NuX2FydGlzdH4zNzY2Mg==.html">Nicolas De Angelis</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  127 => 
-  array (
-    'music_id' => 1661481,
-    'cat_id' => 2,
-    'cat_level' => 6,
-    'cover_id' => 56702,
-    'music_title_url' => 'sonate-no5-les-premiers-pas~richard-clayderman-nicolas-de-angelis',
-    'music_title' => 'Sonate No.5 &quot;Les Premiers Pas&quot;',
-    'music_artist' => 'Richard Clayderman;Nicolas De Angelis',
-    'music_artist_id' => '519;37662',
-    'music_album_id' => 'DEL27015.2',
-    'music_listen' => 7014,
-    'music_bitrate' => 1000,
-    'music_filename' => '1661481-a5b5cb4a.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 193,
-    'music_artist_html' => '<a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>, <a href="/ca-si/Nicolas-De-Angelis~Y3NuX2FydGlzdH4zNzY2Mg==.html">Nicolas De Angelis</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  128 => 
+  112 => 
   array (
     'music_id' => 1663717,
     'cat_id' => 2,
@@ -2586,27 +2266,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Francis-Goya~Y3NuX2FydGlzdH40.html">Francis Goya</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  129 => 
-  array (
-    'music_id' => 1661486,
-    'cat_id' => 2,
-    'cat_level' => 6,
-    'cover_id' => 56702,
-    'music_title_url' => 'sonate-no10-la-mort-dun-oisea~richard-clayderman-nicolas-de-angelis',
-    'music_title' => 'Sonate No.10 &quot;La Mort D\'un Oisea&quot;',
-    'music_artist' => 'Richard Clayderman;Nicolas De Angelis',
-    'music_artist_id' => '519;37662',
-    'music_album_id' => 'DEL27015.2',
-    'music_listen' => 5386,
-    'music_bitrate' => 1000,
-    'music_filename' => '1661486-ed02dfb5.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 143,
-    'music_artist_html' => '<a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>, <a href="/ca-si/Nicolas-De-Angelis~Y3NuX2FydGlzdH4zNzY2Mg==.html">Nicolas De Angelis</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  130 => 
+  113 => 
   array (
     'music_id' => 1192307,
     'cat_id' => 2,
@@ -2626,7 +2286,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Paul-Mauriat~Y3NuX2FydGlzdH4xMDMx.html">Paul Mauriat</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  131 => 
+  114 => 
   array (
     'music_id' => 1687414,
     'cat_id' => 2,
@@ -2646,7 +2306,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Salut-Salon~Y3NuX2FydGlzdH44NjY2Mw==.html">Salut Salon</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  132 => 
+  115 => 
   array (
     'music_id' => 1192310,
     'cat_id' => 2,
@@ -2666,7 +2326,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Paul-Mauriat~Y3NuX2FydGlzdH4xMDMx.html">Paul Mauriat</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  133 => 
+  116 => 
   array (
     'music_id' => 1105679,
     'cat_id' => 2,
@@ -2686,7 +2346,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/James-Last~Y3NuX2FydGlzdH4yNDg3OA==.html">James Last</a>, <a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  134 => 
+  117 => 
   array (
     'music_id' => 1693706,
     'cat_id' => 2,
@@ -2706,7 +2366,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  135 => 
+  118 => 
   array (
     'music_id' => 1192309,
     'cat_id' => 2,
@@ -2726,7 +2386,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Paul-Mauriat~Y3NuX2FydGlzdH4xMDMx.html">Paul Mauriat</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  136 => 
+  119 => 
   array (
     'music_id' => 1365742,
     'cat_id' => 2,
@@ -2746,27 +2406,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Various-Artists~Y3NuX2FydGlzdH45Nw==.html">Various Artists</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
-  137 => 
-  array (
-    'music_id' => 1661485,
-    'cat_id' => 2,
-    'cat_level' => 6,
-    'cover_id' => 56702,
-    'music_title_url' => 'sonate-no9-la-petite-etoile~richard-clayderman-nicolas-de-angelis',
-    'music_title' => 'Sonate No.9 &quot;La Petite Étoile&quot;',
-    'music_artist' => 'Richard Clayderman;Nicolas De Angelis',
-    'music_artist_id' => '519;37662',
-    'music_album_id' => 'DEL27015.2',
-    'music_listen' => 7440,
-    'music_bitrate' => 1000,
-    'music_filename' => '1661485-c7fb40f2.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 167,
-    'music_artist_html' => '<a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>, <a href="/ca-si/Nicolas-De-Angelis~Y3NuX2FydGlzdH4zNzY2Mg==.html">Nicolas De Angelis</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  138 => 
+  120 => 
   array (
     'music_id' => 1529817,
     'cat_id' => 2,
@@ -2786,7 +2426,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  139 => 
+  121 => 
   array (
     'music_id' => 1267690,
     'cat_id' => 2,
@@ -2806,7 +2446,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Jean-Phillipe-Audin~Y3NuX2FydGlzdH40NjExNw==.html">Jean-Phillipe Audin</a>, <a href="/ca-si/Diego-Modena~Y3NuX2FydGlzdH4yNTY1Mw==.html">Diego Modena</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  140 => 
+  122 => 
   array (
     'music_id' => 1735895,
     'cat_id' => 2,
@@ -2826,7 +2466,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  141 => 
+  123 => 
   array (
     'music_id' => 1192316,
     'cat_id' => 2,
@@ -2846,7 +2486,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Paul-Mauriat~Y3NuX2FydGlzdH4xMDMx.html">Paul Mauriat</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  142 => 
+  124 => 
   array (
     'music_id' => 1735898,
     'cat_id' => 2,
@@ -2866,27 +2506,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  143 => 
-  array (
-    'music_id' => 1445065,
-    'cat_id' => 2,
-    'cat_level' => 6,
-    'cover_id' => 36887,
-    'music_title_url' => 'chanson-damour-the-ra-da-da-da-da-song~paul-mauriat',
-    'music_title' => 'Chanson D\'amour \'The Ra-Da-Da-Da-Da-Song\'',
-    'music_artist' => 'Paul Mauriat',
-    'music_artist_id' => '1031',
-    'music_album_id' => 'Vol.08',
-    'music_listen' => 3479,
-    'music_bitrate' => 320,
-    'music_filename' => '1445065-8fb82b01.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 160,
-    'music_artist_html' => '<a href="/ca-si/Paul-Mauriat~Y3NuX2FydGlzdH4xMDMx.html">Paul Mauriat</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
-  ),
-  144 => 
+  125 => 
   array (
     'music_id' => 1365758,
     'cat_id' => 2,
@@ -2906,7 +2526,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Various-Artists~Y3NuX2FydGlzdH45Nw==.html">Various Artists</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
-  145 => 
+  126 => 
   array (
     'music_id' => 1693958,
     'cat_id' => 2,
@@ -2926,7 +2546,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Andre-Rieu~Y3NuX2FydGlzdH4xMDEy.html">André Rieu</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  146 => 
+  127 => 
   array (
     'music_id' => 1522976,
     'cat_id' => 2,
@@ -2946,7 +2566,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Nicolas-de-Angelis~Y3NuX2FydGlzdH42NDY4NQ==.html">Nicolas de Angelis</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  147 => 
+  128 => 
   array (
     'music_id' => 1529829,
     'cat_id' => 2,
@@ -2966,7 +2586,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  148 => 
+  129 => 
   array (
     'music_id' => 1198493,
     'cat_id' => 2,
@@ -2986,7 +2606,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  149 => 
+  130 => 
   array (
     'music_id' => 1548568,
     'cat_id' => 2,
@@ -3006,7 +2626,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Paul-Mauriat~Y3NuX2FydGlzdH4xMDMx.html">Paul Mauriat</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  150 => 
+  131 => 
   array (
     'music_id' => 1548562,
     'cat_id' => 2,
@@ -3026,7 +2646,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Paul-Mauriat~Y3NuX2FydGlzdH4xMDMx.html">Paul Mauriat</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  151 => 
+  132 => 
   array (
     'music_id' => 1192217,
     'cat_id' => 2,
@@ -3046,7 +2666,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Paul-Mauriat~Y3NuX2FydGlzdH4xMDMx.html">Paul Mauriat</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  152 => 
+  133 => 
   array (
     'music_id' => 1365766,
     'cat_id' => 2,
@@ -3066,27 +2686,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Various-Artists~Y3NuX2FydGlzdH45Nw==.html">Various Artists</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
-  153 => 
-  array (
-    'music_id' => 216649,
-    'cat_id' => 2,
-    'cat_level' => 6,
-    'cover_id' => 0,
-    'music_title_url' => 'petit-papa-noel~josh-groban',
-    'music_title' => 'Petit Papa Noel',
-    'music_artist' => 'Josh Groban',
-    'music_artist_id' => '549',
-    'music_album_id' => '',
-    'music_listen' => 3038,
-    'music_bitrate' => 128,
-    'music_filename' => '216649-321e22ed.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 245,
-    'music_artist_html' => '<a href="/ca-si/Josh-Groban~Y3NuX2FydGlzdH41NDk=.html">Josh Groban</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">128kbps</span>',
-  ),
-  154 => 
+  134 => 
   array (
     'music_id' => 1529823,
     'cat_id' => 2,
@@ -3106,7 +2706,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  155 => 
+  135 => 
   array (
     'music_id' => 1365770,
     'cat_id' => 2,
@@ -3126,7 +2726,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Various-Artists~Y3NuX2FydGlzdH45Nw==.html">Various Artists</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
-  156 => 
+  136 => 
   array (
     'music_id' => 1192315,
     'cat_id' => 2,
@@ -3146,7 +2746,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Paul-Mauriat~Y3NuX2FydGlzdH4xMDMx.html">Paul Mauriat</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  157 => 
+  137 => 
   array (
     'music_id' => 1282237,
     'cat_id' => 2,
@@ -3166,7 +2766,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Various-Artists~Y3NuX2FydGlzdH45Nw==.html">Various Artists</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  158 => 
+  138 => 
   array (
     'music_id' => 1669039,
     'cat_id' => 2,
@@ -3186,7 +2786,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Mesa~Y3NuX2FydGlzdH44NDcwMA==.html">Mesa</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  159 => 
+  139 => 
   array (
     'music_id' => 1204398,
     'cat_id' => 2,
@@ -3206,7 +2806,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Clayderman~Y3NuX2FydGlzdH40MDU5Nw==.html">Clayderman</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  160 => 
+  140 => 
   array (
     'music_id' => 1267670,
     'cat_id' => 2,
@@ -3226,7 +2826,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Jean-Phillipe-Audin~Y3NuX2FydGlzdH40NjExNw==.html">Jean-Phillipe Audin</a>, <a href="/ca-si/Diego-Modena~Y3NuX2FydGlzdH4yNTY1Mw==.html">Diego Modena</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  161 => 
+  141 => 
   array (
     'music_id' => 1445064,
     'cat_id' => 2,
@@ -3246,7 +2846,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Paul-Mauriat~Y3NuX2FydGlzdH4xMDMx.html">Paul Mauriat</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
-  162 => 
+  142 => 
   array (
     'music_id' => 1445079,
     'cat_id' => 2,
@@ -3266,7 +2866,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Paul-Mauriat~Y3NuX2FydGlzdH4xMDMx.html">Paul Mauriat</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
-  163 => 
+  143 => 
   array (
     'music_id' => 1365741,
     'cat_id' => 2,
@@ -3286,7 +2886,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Various-Artists~Y3NuX2FydGlzdH45Nw==.html">Various Artists</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
-  164 => 
+  144 => 
   array (
     'music_id' => 1524332,
     'cat_id' => 2,
@@ -3306,7 +2906,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Nicolas-De-Angelis~Y3NuX2FydGlzdH4zNzY2Mg==.html">Nicolas De Angelis</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  165 => 
+  145 => 
   array (
     'music_id' => 1192847,
     'cat_id' => 2,
@@ -3326,7 +2926,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Paul-Mauriat~Y3NuX2FydGlzdH4xMDMx.html">Paul Mauriat</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  166 => 
+  146 => 
   array (
     'music_id' => 1192312,
     'cat_id' => 2,
@@ -3346,7 +2946,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Paul-Mauriat~Y3NuX2FydGlzdH4xMDMx.html">Paul Mauriat</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  167 => 
+  147 => 
   array (
     'music_id' => 1400954,
     'cat_id' => 2,
@@ -3366,7 +2966,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  168 => 
+  148 => 
   array (
     'music_id' => 1687415,
     'cat_id' => 2,
@@ -3386,7 +2986,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Salut-Salon~Y3NuX2FydGlzdH44NjY2Mw==.html">Salut Salon</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  169 => 
+  149 => 
   array (
     'music_id' => 1192223,
     'cat_id' => 2,
@@ -3406,7 +3006,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Paul-Mauriat~Y3NuX2FydGlzdH4xMDMx.html">Paul Mauriat</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  170 => 
+  150 => 
   array (
     'music_id' => 1192164,
     'cat_id' => 2,
@@ -3426,7 +3026,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Paul-Mauriat~Y3NuX2FydGlzdH4xMDMx.html">Paul Mauriat</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  171 => 
+  151 => 
   array (
     'music_id' => 1684876,
     'cat_id' => 2,
@@ -3446,7 +3046,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Wolf-Hoffmann~Y3NuX2FydGlzdH44NjM4NA==.html">Wolf Hoffmann</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
-  172 => 
+  152 => 
   array (
     'music_id' => 1548574,
     'cat_id' => 2,
@@ -3466,27 +3066,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Paul-Mauriat~Y3NuX2FydGlzdH4xMDMx.html">Paul Mauriat</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  173 => 
-  array (
-    'music_id' => 1630307,
-    'cat_id' => 2,
-    'cat_level' => 6,
-    'cover_id' => 53345,
-    'music_title_url' => 'interlude~frero-delavega',
-    'music_title' => 'Interlude',
-    'music_artist' => 'Fréro Delavega',
-    'music_artist_id' => '56452',
-    'music_album_id' => '',
-    'music_listen' => 1912,
-    'music_bitrate' => 1000,
-    'music_filename' => '1630307-108708a8.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 43,
-    'music_artist_html' => '<a href="/ca-si/Frero-Delavega~Y3NuX2FydGlzdH41NjQ1Mg==.html">Fréro Delavega</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  174 => 
+  153 => 
   array (
     'music_id' => 1204396,
     'cat_id' => 2,
@@ -3506,7 +3086,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Clayderman~Y3NuX2FydGlzdH40MDU5Nw==.html">Clayderman</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  175 => 
+  154 => 
   array (
     'music_id' => 1192812,
     'cat_id' => 2,
@@ -3526,7 +3106,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Paul-Mauriat~Y3NuX2FydGlzdH4xMDMx.html">Paul Mauriat</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  176 => 
+  155 => 
   array (
     'music_id' => 1198488,
     'cat_id' => 2,
@@ -3546,7 +3126,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  177 => 
+  156 => 
   array (
     'music_id' => 1650090,
     'cat_id' => 2,
@@ -3566,7 +3146,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Kendji-Girac~Y3NuX2FydGlzdH41NDQzMw==.html">Kendji Girac</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  178 => 
+  157 => 
   array (
     'music_id' => 1548569,
     'cat_id' => 2,
@@ -3586,7 +3166,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Paul-Mauriat~Y3NuX2FydGlzdH4xMDMx.html">Paul Mauriat</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  179 => 
+  158 => 
   array (
     'music_id' => 1548560,
     'cat_id' => 2,
@@ -3606,7 +3186,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Paul-Mauriat~Y3NuX2FydGlzdH4xMDMx.html">Paul Mauriat</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  180 => 
+  159 => 
   array (
     'music_id' => 1630303,
     'cat_id' => 2,
@@ -3626,7 +3206,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Frero-Delavega~Y3NuX2FydGlzdH41NjQ1Mg==.html">Fréro Delavega</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  181 => 
+  160 => 
   array (
     'music_id' => 1192813,
     'cat_id' => 2,
@@ -3646,7 +3226,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Paul-Mauriat~Y3NuX2FydGlzdH4xMDMx.html">Paul Mauriat</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  182 => 
+  161 => 
   array (
     'music_id' => 1107421,
     'cat_id' => 2,
@@ -3666,7 +3246,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Dario-G~Y3NuX2FydGlzdH44OTMw.html">Dario G</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  183 => 
+  162 => 
   array (
     'music_id' => 1522980,
     'cat_id' => 2,
@@ -3686,7 +3266,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Nicolas-De-Anngelis~Y3NuX2FydGlzdH42OTI5Mw==.html">Nicolas De Anngelis</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  184 => 
+  163 => 
   array (
     'music_id' => 1735899,
     'cat_id' => 2,
@@ -3706,7 +3286,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  185 => 
+  164 => 
   array (
     'music_id' => 1365752,
     'cat_id' => 2,
@@ -3726,7 +3306,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Various-Artists~Y3NuX2FydGlzdH45Nw==.html">Various Artists</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
-  186 => 
+  165 => 
   array (
     'music_id' => 1149997,
     'cat_id' => 2,
@@ -3746,7 +3326,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>, <a href="/ca-si/Berdien-Stenberg~Y3NuX2FydGlzdH4zNTc2MA==.html">Berdien Stenberg</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  187 => 
+  166 => 
   array (
     'music_id' => 1365754,
     'cat_id' => 2,
@@ -3766,7 +3346,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Various-Artists~Y3NuX2FydGlzdH45Nw==.html">Various Artists</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
-  188 => 
+  167 => 
   array (
     'music_id' => 1192231,
     'cat_id' => 2,
@@ -3786,7 +3366,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Paul-Mauriat~Y3NuX2FydGlzdH4xMDMx.html">Paul Mauriat</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  189 => 
+  168 => 
   array (
     'music_id' => 1192839,
     'cat_id' => 2,
@@ -3806,27 +3386,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Paul-Mauriat~Y3NuX2FydGlzdH4xMDMx.html">Paul Mauriat</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  190 => 
-  array (
-    'music_id' => 1267682,
-    'cat_id' => 2,
-    'cat_level' => 6,
-    'cover_id' => 20425,
-    'music_title_url' => 'hotel-la-luna~jean-phillipe-audin-diego-modena',
-    'music_title' => 'Hotel La Luna',
-    'music_artist' => 'Jean-Phillipe Audin;Diego Modena',
-    'music_artist_id' => '46117;25653',
-    'music_album_id' => '',
-    'music_listen' => 3509,
-    'music_bitrate' => 1000,
-    'music_filename' => '1267682-3b4f41bf.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 174,
-    'music_artist_html' => '<a href="/ca-si/Jean-Phillipe-Audin~Y3NuX2FydGlzdH40NjExNw==.html">Jean-Phillipe Audin</a>, <a href="/ca-si/Diego-Modena~Y3NuX2FydGlzdH4yNTY1Mw==.html">Diego Modena</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  191 => 
+  169 => 
   array (
     'music_id' => 1666493,
     'cat_id' => 2,
@@ -3846,7 +3406,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
-  192 => 
+  170 => 
   array (
     'music_id' => 1522978,
     'cat_id' => 2,
@@ -3866,7 +3426,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Nicolas-De-Angelis~Y3NuX2FydGlzdH4zNzY2Mg==.html">Nicolas De Angelis</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  193 => 
+  171 => 
   array (
     'music_id' => 1548578,
     'cat_id' => 2,
@@ -3886,7 +3446,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Paul-Mauriat~Y3NuX2FydGlzdH4xMDMx.html">Paul Mauriat</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  194 => 
+  172 => 
   array (
     'music_id' => 1192842,
     'cat_id' => 2,
@@ -3906,7 +3466,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Paul-Mauriat~Y3NuX2FydGlzdH4xMDMx.html">Paul Mauriat</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  195 => 
+  173 => 
   array (
     'music_id' => 1192166,
     'cat_id' => 2,
@@ -3926,7 +3486,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Paul-Mauriat~Y3NuX2FydGlzdH4xMDMx.html">Paul Mauriat</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  196 => 
+  174 => 
   array (
     'music_id' => 1529825,
     'cat_id' => 2,
@@ -3946,7 +3506,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  197 => 
+  175 => 
   array (
     'music_id' => 1684870,
     'cat_id' => 2,
@@ -3966,7 +3526,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Wolf-Hoffmann~Y3NuX2FydGlzdH44NjM4NA==.html">Wolf Hoffmann</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
-  198 => 
+  176 => 
   array (
     'music_id' => 1735905,
     'cat_id' => 2,
@@ -3986,7 +3546,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  199 => 
+  177 => 
   array (
     'music_id' => 1682545,
     'cat_id' => 2,
@@ -4005,6 +3565,446 @@ $typeDup = array (
     'music_length' => 46,
     'music_artist_html' => '<a href="/ca-si/Forteresse~Y3NuX2FydGlzdH4zODY0Mg==.html">Forteresse</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+  ),
+  178 => 
+  array (
+    'music_id' => 1522986,
+    'cat_id' => 2,
+    'cat_level' => 6,
+    'cover_id' => 43580,
+    'music_title_url' => 'amour-fou-amour-loup~nicolas-de-angelis',
+    'music_title' => 'Amour Fou, Amour Loup',
+    'music_artist' => 'Nicolas De Angelis',
+    'music_artist_id' => '37662',
+    'music_album_id' => '',
+    'music_listen' => 4474,
+    'music_bitrate' => 1000,
+    'music_filename' => '1522986-74d7708f.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 141,
+    'music_artist_html' => '<a href="/ca-si/Nicolas-De-Angelis~Y3NuX2FydGlzdH4zNzY2Mg==.html">Nicolas De Angelis</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  179 => 
+  array (
+    'music_id' => 1529826,
+    'cat_id' => 2,
+    'cat_level' => 6,
+    'cover_id' => 44238,
+    'music_title_url' => 'toujours-se-souvenir~richard-clayderman',
+    'music_title' => 'Toujours Se Souvenir',
+    'music_artist' => 'Richard Clayderman',
+    'music_artist_id' => '519',
+    'music_album_id' => 'WWW Records',
+    'music_listen' => 4897,
+    'music_bitrate' => 1000,
+    'music_filename' => '1529826-cbe1097a.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 168,
+    'music_artist_html' => '<a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  180 => 
+  array (
+    'music_id' => 1529833,
+    'cat_id' => 2,
+    'cat_level' => 6,
+    'cover_id' => 44238,
+    'music_title_url' => 'souvenirs-denfance~richard-clayderman',
+    'music_title' => 'Souvenirs D\'enfance',
+    'music_artist' => 'Richard Clayderman',
+    'music_artist_id' => '519',
+    'music_album_id' => 'WWW Records',
+    'music_listen' => 3353,
+    'music_bitrate' => 1000,
+    'music_filename' => '1529833-a9876de8.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 177,
+    'music_artist_html' => '<a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  181 => 
+  array (
+    'music_id' => 1116832,
+    'cat_id' => 2,
+    'cat_level' => 6,
+    'cover_id' => 8013,
+    'music_title_url' => 'la-valse-de-paris~vanessa-paradis-m',
+    'music_title' => 'La Valse De Paris',
+    'music_artist' => 'Vanessa Paradis;M',
+    'music_artist_id' => '4966;270',
+    'music_album_id' => '',
+    'music_listen' => 5214,
+    'music_bitrate' => 1000,
+    'music_filename' => '1116832-3412014e.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 43,
+    'music_artist_html' => '<a href="/ca-si/Vanessa-Paradis~Y3NuX2FydGlzdH40OTY2.html">Vanessa Paradis</a>, <a href="/ca-si/M~Y3NuX2FydGlzdH4yNzA=.html">M</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  182 => 
+  array (
+    'music_id' => 1687424,
+    'cat_id' => 2,
+    'cat_level' => 6,
+    'cover_id' => 60071,
+    'music_title_url' => 'das-liebeslied-an-die-leuchtqualle-the-love-song-to-the-luminescent-~salut-salon',
+    'music_title' => 'Das Liebeslied An Die Leuchtqualle (The Love Song To The Luminescent Jellyfish)',
+    'music_artist' => 'Salut Salon',
+    'music_artist_id' => '86663',
+    'music_album_id' => '',
+    'music_listen' => 2445,
+    'music_bitrate' => 1000,
+    'music_filename' => '1687424-f1de1f7f.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 243,
+    'music_artist_html' => '<a href="/ca-si/Salut-Salon~Y3NuX2FydGlzdH44NjY2Mw==.html">Salut Salon</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  183 => 
+  array (
+    'music_id' => 1400962,
+    'cat_id' => 2,
+    'cat_level' => 6,
+    'cover_id' => 33243,
+    'music_title_url' => 'caminito~richard-clayderman',
+    'music_title' => 'Caminito',
+    'music_artist' => 'Richard Clayderman',
+    'music_artist_id' => '519',
+    'music_album_id' => '',
+    'music_listen' => 5802,
+    'music_bitrate' => 1000,
+    'music_filename' => '1400962-b9f0427f.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 188,
+    'music_artist_html' => '<a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  184 => 
+  array (
+    'music_id' => 1735903,
+    'cat_id' => 2,
+    'cat_level' => 6,
+    'cover_id' => 65308,
+    'music_title_url' => 'les-grelots-du-traineau~richard-clayderman',
+    'music_title' => 'Les Grelots Du Traineau',
+    'music_artist' => 'Richard Clayderman',
+    'music_artist_id' => '519',
+    'music_album_id' => 'Vol 3',
+    'music_listen' => 3364,
+    'music_bitrate' => 1000,
+    'music_filename' => '1735903-07229afa.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 202,
+    'music_artist_html' => '<a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  185 => 
+  array (
+    'music_id' => 1548577,
+    'cat_id' => 2,
+    'cat_level' => 6,
+    'cover_id' => 46048,
+    'music_title_url' => 'dis-lui-feelings~paul-mauriat',
+    'music_title' => 'Dis-Lui \'\'Feelings\'\'',
+    'music_artist' => 'Paul Mauriat',
+    'music_artist_id' => '1031',
+    'music_album_id' => '',
+    'music_listen' => 3962,
+    'music_bitrate' => 1000,
+    'music_filename' => '1548577-3f4ecac6.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 201,
+    'music_artist_html' => '<a href="/ca-si/Paul-Mauriat~Y3NuX2FydGlzdH4xMDMx.html">Paul Mauriat</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  186 => 
+  array (
+    'music_id' => 1687420,
+    'cat_id' => 2,
+    'cat_level' => 6,
+    'cover_id' => 60071,
+    'music_title_url' => 'voliere-aviary~salut-salon',
+    'music_title' => 'Volière (Aviary)',
+    'music_artist' => 'Salut Salon',
+    'music_artist_id' => '86663',
+    'music_album_id' => '',
+    'music_listen' => 3199,
+    'music_bitrate' => 1000,
+    'music_filename' => '1687420-908dda5d.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 69,
+    'music_artist_html' => '<a href="/ca-si/Salut-Salon~Y3NuX2FydGlzdH44NjY2Mw==.html">Salut Salon</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  187 => 
+  array (
+    'music_id' => 1548576,
+    'cat_id' => 2,
+    'cat_level' => 6,
+    'cover_id' => 46048,
+    'music_title_url' => 'theme-de-borsalino~paul-mauriat',
+    'music_title' => 'Theme De \'\'Borsalino\'\'',
+    'music_artist' => 'Paul Mauriat',
+    'music_artist_id' => '1031',
+    'music_album_id' => '',
+    'music_listen' => 3528,
+    'music_bitrate' => 1000,
+    'music_filename' => '1548576-8fcbef35.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 133,
+    'music_artist_html' => '<a href="/ca-si/Paul-Mauriat~Y3NuX2FydGlzdH4xMDMx.html">Paul Mauriat</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  188 => 
+  array (
+    'music_id' => 1735906,
+    'cat_id' => 2,
+    'cat_level' => 6,
+    'cover_id' => 65308,
+    'music_title_url' => 'danse-hongroise-no-5~richard-clayderman',
+    'music_title' => 'Danse Hongroise No 5',
+    'music_artist' => 'Richard Clayderman',
+    'music_artist_id' => '519',
+    'music_album_id' => 'Vol 3',
+    'music_listen' => 3806,
+    'music_bitrate' => 1000,
+    'music_filename' => '1735906-b195db7a.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 149,
+    'music_artist_html' => '<a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  189 => 
+  array (
+    'music_id' => 1687417,
+    'cat_id' => 2,
+    'cat_level' => 6,
+    'cover_id' => 60071,
+    'music_title_url' => 'malaika~salut-salon',
+    'music_title' => 'Malaika',
+    'music_artist' => 'Salut Salon',
+    'music_artist_id' => '86663',
+    'music_album_id' => '',
+    'music_listen' => 2859,
+    'music_bitrate' => 1000,
+    'music_filename' => '1687417-7d25c736.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 130,
+    'music_artist_html' => '<a href="/ca-si/Salut-Salon~Y3NuX2FydGlzdH44NjY2Mw==.html">Salut Salon</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  190 => 
+  array (
+    'music_id' => 1754003,
+    'cat_id' => 2,
+    'cat_level' => 6,
+    'cover_id' => 67451,
+    'music_title_url' => 'le-lac-de-come~do-dinh-phuong',
+    'music_title' => 'Le Lac De Come',
+    'music_artist' => 'Đỗ Đình Phương',
+    'music_artist_id' => '93239',
+    'music_album_id' => '',
+    'music_listen' => 3095,
+    'music_bitrate' => 1000,
+    'music_filename' => '1754003-703f310e.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 203,
+    'music_artist_html' => '<a href="/ca-si/Do-Dinh-Phuong~Y3NuX2FydGlzdH45MzIzOQ==.html">Đỗ Đình Phương</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  191 => 
+  array (
+    'music_id' => 1445072,
+    'cat_id' => 2,
+    'cat_level' => 6,
+    'cover_id' => 36887,
+    'music_title_url' => 'la-mer~paul-mauriat',
+    'music_title' => 'La Mer',
+    'music_artist' => 'Paul Mauriat',
+    'music_artist_id' => '1031',
+    'music_album_id' => 'Vol.08',
+    'music_listen' => 3280,
+    'music_bitrate' => 320,
+    'music_filename' => '1445072-2eae0dc5.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 185,
+    'music_artist_html' => '<a href="/ca-si/Paul-Mauriat~Y3NuX2FydGlzdH4xMDMx.html">Paul Mauriat</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+  ),
+  192 => 
+  array (
+    'music_id' => 1693710,
+    'cat_id' => 2,
+    'cat_level' => 6,
+    'cover_id' => 60704,
+    'music_title_url' => 'serenade-de-letoile~richard-clayderman',
+    'music_title' => 'Serenade De l\'Etoile',
+    'music_artist' => 'Richard Clayderman',
+    'music_artist_id' => '519',
+    'music_album_id' => '',
+    'music_listen' => 5236,
+    'music_bitrate' => 1000,
+    'music_filename' => '1693710-541ed412.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 177,
+    'music_artist_html' => '<a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  193 => 
+  array (
+    'music_id' => 1529831,
+    'cat_id' => 2,
+    'cat_level' => 6,
+    'cover_id' => 44238,
+    'music_title_url' => 'triste-coeur~richard-clayderman',
+    'music_title' => 'Triste Coeur',
+    'music_artist' => 'Richard Clayderman',
+    'music_artist_id' => '519',
+    'music_album_id' => 'WWW Records',
+    'music_listen' => 3255,
+    'music_bitrate' => 1000,
+    'music_filename' => '1529831-76d33622.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 165,
+    'music_artist_html' => '<a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  194 => 
+  array (
+    'music_id' => 1192848,
+    'cat_id' => 2,
+    'cat_level' => 6,
+    'cover_id' => 14210,
+    'music_title_url' => 'stenka-razine~paul-mauriat',
+    'music_title' => 'Stenka Razine',
+    'music_artist' => 'Paul Mauriat',
+    'music_artist_id' => '1031',
+    'music_album_id' => '',
+    'music_listen' => 4101,
+    'music_bitrate' => 1000,
+    'music_filename' => '1192848-6425d47f.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 192,
+    'music_artist_html' => '<a href="/ca-si/Paul-Mauriat~Y3NuX2FydGlzdH4xMDMx.html">Paul Mauriat</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  195 => 
+  array (
+    'music_id' => 1529819,
+    'cat_id' => 2,
+    'cat_level' => 6,
+    'cover_id' => 44238,
+    'music_title_url' => 'la-fuite-du-temps~richard-clayderman',
+    'music_title' => 'La Fuite Du Temps',
+    'music_artist' => 'Richard Clayderman',
+    'music_artist_id' => '519',
+    'music_album_id' => 'WWW Records',
+    'music_listen' => 4872,
+    'music_bitrate' => 1000,
+    'music_filename' => '1529819-d6458337.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 186,
+    'music_artist_html' => '<a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  196 => 
+  array (
+    'music_id' => 1687421,
+    'cat_id' => 2,
+    'cat_level' => 6,
+    'cover_id' => 60071,
+    'music_title_url' => 'le-cygne-the-swan~salut-salon',
+    'music_title' => 'Le Cygne (The Swan)',
+    'music_artist' => 'Salut Salon',
+    'music_artist_id' => '86663',
+    'music_album_id' => '',
+    'music_listen' => 2995,
+    'music_bitrate' => 1000,
+    'music_filename' => '1687421-4f113852.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 207,
+    'music_artist_html' => '<a href="/ca-si/Salut-Salon~Y3NuX2FydGlzdH44NjY2Mw==.html">Salut Salon</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  197 => 
+  array (
+    'music_id' => 1400956,
+    'cat_id' => 2,
+    'cat_level' => 6,
+    'cover_id' => 33243,
+    'music_title_url' => 'el-choclo~richard-clayderman',
+    'music_title' => 'El Choclo',
+    'music_artist' => 'Richard Clayderman',
+    'music_artist_id' => '519',
+    'music_album_id' => '',
+    'music_listen' => 6489,
+    'music_bitrate' => 1000,
+    'music_filename' => '1400956-886cff5a.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 183,
+    'music_artist_html' => '<a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  198 => 
+  array (
+    'music_id' => 1529816,
+    'cat_id' => 2,
+    'cat_level' => 6,
+    'cover_id' => 44238,
+    'music_title_url' => 'les-premiers-sourires-de-vanessa~richard-clayderman',
+    'music_title' => 'Les Premiers Sourires De Vanessa',
+    'music_artist' => 'Richard Clayderman',
+    'music_artist_id' => '519',
+    'music_album_id' => 'WWW Records',
+    'music_listen' => 3837,
+    'music_bitrate' => 1000,
+    'music_filename' => '1529816-e4a0ce6f.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 136,
+    'music_artist_html' => '<a href="/ca-si/Richard-Clayderman~Y3NuX2FydGlzdH41MTk=.html">Richard Clayderman</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  199 => 
+  array (
+    'music_id' => 1192841,
+    'cat_id' => 2,
+    'cat_level' => 6,
+    'cover_id' => 14210,
+    'music_title_url' => 'le-temps-du-muguet~paul-mauriat',
+    'music_title' => 'Le Temps Du Muguet',
+    'music_artist' => 'Paul Mauriat',
+    'music_artist_id' => '1031',
+    'music_album_id' => '',
+    'music_listen' => 4754,
+    'music_bitrate' => 1000,
+    'music_filename' => '1192841-4a467db5.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 167,
+    'music_artist_html' => '<a href="/ca-si/Paul-Mauriat~Y3NuX2FydGlzdH4xMDMx.html">Paul Mauriat</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
 );
 ?>

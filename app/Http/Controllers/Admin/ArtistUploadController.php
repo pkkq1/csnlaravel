@@ -239,6 +239,9 @@ class ArtistUploadController extends CrudController
 
         // get entry ID from Request (makes sure its the last ID for nested resources)
         $id = $this->crud->getCurrentEntryId() ?? $id;
+        $artistUpload = $this->artistUploadRepository->findOnlyPublished($id);
+        Storage::disk('public')->delete(Helpers::file_path($artistUpload->artist_id, CACHE_AVATAR_ARTIST_CROP_PATH, true).$artistUpload->artist_avatar);
+        Storage::disk('public')->delete(Helpers::file_path($artistUpload->artist_id, CACHE_COVER_ARTIST_CROP_PATH, true).$artistUpload->artist_cover);
         return $this->crud->delete($id);
     }
     public function approvalArtistUpload(StoreRequest $request, $id) {
@@ -283,7 +286,7 @@ class ArtistUploadController extends CrudController
             Storage::disk('public')->move(Helpers::file_path($artistUpload->artist_id, CACHE_AVATAR_ARTIST_CROP_PATH, true).$artistUpload->artist_avatar, $file);
         }
         if($artistUpload->artist_cover){
-            $file = Helpers::file_path($artistExist->artist_id, COVER_ARTIST_CROP_PATH, true).$artistExist->artist_avatar;
+            $file = Helpers::file_path($artistExist->artist_id, COVER_ARTIST_CROP_PATH, true).$artistExist->artist_cover;
             if (Storage::disk('public')->exists($file)) {
                 Storage::disk('public')->delete($file);
             }

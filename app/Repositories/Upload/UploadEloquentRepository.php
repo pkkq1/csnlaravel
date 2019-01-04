@@ -42,11 +42,12 @@ class UploadEloquentRepository extends EloquentRepository implements UploadRepos
     {
         $result = $this
             ->_model
-            ->where('music_id', $id)
-            ->where('music_user_id', $userId)
-            ->whereIn('music_state', $stageArr)
+            ->where('music_id', $id);
+        if($userId != 'permission_duyet_csn') {
+            $result = $result->where('music_user_id', $userId);
+        }
+        $result = $result->whereIn('music_state', $stageArr)
             ->first();
-
         return $result;
     }
     /**

@@ -1332,3 +1332,7 @@ form#login-form {
 .list_music .media .media-body .media-title a {
     text-transform: none;
 }
+#header .bottom .navbar-nav .nav-item .nav-link {
+    padding-right: .5rem;
+    padding-left: .5rem;
+}

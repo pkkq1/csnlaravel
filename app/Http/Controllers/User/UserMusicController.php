@@ -59,24 +59,32 @@ class UserMusicController extends Controller
      */
     public function musicUploaded(Request $request)
     {
-        if(!Auth::check())
+        if(!Auth::check()) {
             return 'Lỗi User';
+        }else{
+            $id = Auth::user()->id;
+            if(Auth::user()->hasPermission('duyet_nhac')) {
+                $id = $request->user_id;
+            }
+        }
         $stage = $request->input('stage');
+
+
         if($stage == 'all' || $stage == 'uncensor') {
             // chờ xử lý
-            $music['stage_uncensor'] = $this->uploadRepository->musicByUser(Auth::user()->id,[UPLOAD_STAGE_UNCENSOR], 'music_id', 'desc', LIMIT_PAGE_MUSIC_UPLOADED);
+            $music['stage_uncensor'] = $this->uploadRepository->musicByUser($id,[UPLOAD_STAGE_UNCENSOR], 'music_id', 'desc', LIMIT_PAGE_MUSIC_UPLOADED);
         }
         if($stage == 'all' || $stage == 'fullcensor') {
             // đã duyệt
-            $music['stage_fullcensor'] = $this->uploadRepository->musicByUser(Auth::user()->id,[UPLOAD_STAGE_FULLCENSOR, UPLOAD_STAGE_FULLCONVERT], 'music_id', 'desc', LIMIT_PAGE_MUSIC_UPLOADED);
+            $music['stage_fullcensor'] = $this->uploadRepository->musicByUser($id,[UPLOAD_STAGE_FULLCENSOR, UPLOAD_STAGE_FULLCONVERT], 'music_id', 'desc', LIMIT_PAGE_MUSIC_UPLOADED);
         }
         if($stage == 'all' || $stage == 'delete') {
             // đã xóa
-            $music['stage_delete'] = $this->uploadRepository->musicByUser(Auth::user()->id,[UPLOAD_STAGE_DELETED], 'music_id', 'desc', LIMIT_PAGE_MUSIC_UPLOADED);
+            $music['stage_delete'] = $this->uploadRepository->musicByUser($id,[UPLOAD_STAGE_DELETED], 'music_id', 'desc', LIMIT_PAGE_MUSIC_UPLOADED);
         }
         if($stage == 'all' || $stage == 'album') {
             // album
-            $music['album'] = $this->albumRepository->findAlbumByUser(Auth::user()->id, 'album_id', 'desc', LIMIT_PAGE_MUSIC_UPLOADED);
+            $music['album'] = $this->albumRepository->findAlbumByUser($id, 'album_id', 'desc', LIMIT_PAGE_MUSIC_UPLOADED);
         }
         return view('user.music_uploaded', compact('music', 'stage'));
     }

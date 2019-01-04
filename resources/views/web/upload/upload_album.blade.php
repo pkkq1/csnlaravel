@@ -438,7 +438,7 @@ $titleMeta = 'Cập nhật album - ' . Config::get('constants.app.title');
                 document.getElementById('cat_level').options[1]=new Option("Nhạc rap, hiphop", "2", false, false);
                 document.getElementById('cat_level').options[2]=new Option("Nhạc dance, remix", "3", false, false);
             }
-            cat_sublevel_reload(1);
+            cat_sublevel_reload(cat_id);
         }
 
         function cat_sublevel_reload(cat_level)

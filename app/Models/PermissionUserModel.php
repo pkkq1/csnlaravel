@@ -8,10 +8,14 @@
 
 namespace App\Models;
 
+use Backpack\CRUD\CrudTrait;
 use Zizaco\Entrust\EntrustPermission;
+use Spatie\Permission\Models\Permission as OriginalPermission;
 
-class Permission extends EntrustPermission
+class PermissionUserModel extends OriginalPermission
 {
-    protected $table = 'csn_permissions';
-    protected $fillable = ['name', 'display_name', 'description'];
+    use CrudTrait;
+
+    protected $table = 'csn_permission_user';
+    protected $fillable = ['user_id', 'permission_id'];
 }

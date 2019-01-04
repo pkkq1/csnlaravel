@@ -108,126 +108,6 @@ $typeDup = array (
   ),
   5 => 
   array (
-    'music_id' => 1401014,
-    'cat_id' => 2,
-    'cat_level' => 5,
-    'cover_id' => 33249,
-    'music_title_url' => 'rainy-season~keiko-matsui',
-    'music_title' => 'Rainy Season',
-    'music_artist' => 'Keiko Matsui',
-    'music_artist_id' => '37525',
-    'music_album_id' => '77701-2',
-    'music_listen' => 2738,
-    'music_bitrate' => 1000,
-    'music_filename' => '1401014-b6bb9cc4.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 286,
-    'music_artist_html' => '<a href="/ca-si/Keiko-Matsui~Y3NuX2FydGlzdH4zNzUyNQ==.html">Keiko Matsui</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  6 => 
-  array (
-    'music_id' => 1401022,
-    'cat_id' => 2,
-    'cat_level' => 5,
-    'cover_id' => 33249,
-    'music_title_url' => 'dawn-opener~keiko-matsui',
-    'music_title' => 'Dawn Opener',
-    'music_artist' => 'Keiko Matsui',
-    'music_artist_id' => '37525',
-    'music_album_id' => '77701-2',
-    'music_listen' => 1620,
-    'music_bitrate' => 1000,
-    'music_filename' => '1401022-3227655e.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 329,
-    'music_artist_html' => '<a href="/ca-si/Keiko-Matsui~Y3NuX2FydGlzdH4zNzUyNQ==.html">Keiko Matsui</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  7 => 
-  array (
-    'music_id' => 470535,
-    'cat_id' => 2,
-    'cat_level' => 5,
-    'cover_id' => 0,
-    'music_title_url' => 'redemption~gackt',
-    'music_title' => 'Redemption',
-    'music_artist' => 'Gackt',
-    'music_artist_id' => '5546',
-    'music_album_id' => '',
-    'music_listen' => 1606,
-    'music_bitrate' => 128,
-    'music_filename' => '470535-8ad5a233.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 246,
-    'music_artist_html' => '<a href="/ca-si/Gackt~Y3NuX2FydGlzdH41NTQ2.html">Gackt</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">128kbps</span>',
-  ),
-  8 => 
-  array (
-    'music_id' => 1401016,
-    'cat_id' => 2,
-    'cat_level' => 5,
-    'cover_id' => 33249,
-    'music_title_url' => 'walking-on-the-bridge~keiko-matsui',
-    'music_title' => 'Walking On The Bridge',
-    'music_artist' => 'Keiko Matsui',
-    'music_artist_id' => '37525',
-    'music_album_id' => '77701-2',
-    'music_listen' => 1795,
-    'music_bitrate' => 1000,
-    'music_filename' => '1401016-4f2f15f3.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 256,
-    'music_artist_html' => '<a href="/ca-si/Keiko-Matsui~Y3NuX2FydGlzdH4zNzUyNQ==.html">Keiko Matsui</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  9 => 
-  array (
-    'music_id' => 1817690,
-    'cat_id' => 2,
-    'cat_level' => 5,
-    'cover_id' => 75532,
-    'music_title_url' => 'secret-track~linked-horizon',
-    'music_title' => 'Secret Track',
-    'music_artist' => 'Linked Horizon',
-    'music_artist_id' => '30946',
-    'music_album_id' => 'PCCA-04539',
-    'music_listen' => 1513,
-    'music_bitrate' => 1000,
-    'music_filename' => '1817690-4f85f478.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 85,
-    'music_artist_html' => '<a href="/ca-si/Linked-Horizon~Y3NuX2FydGlzdH4zMDk0Ng==.html">Linked Horizon</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  10 => 
-  array (
-    'music_id' => 1760140,
-    'cat_id' => 2,
-    'cat_level' => 5,
-    'cover_id' => 68149,
-    'music_title_url' => 'konton-noizu~various-artists',
-    'music_title' => 'Konton Noizu (混沌ノィズ)',
-    'music_artist' => 'Various Artists',
-    'music_artist_id' => '97',
-    'music_album_id' => 'ZMXZ-10657',
-    'music_listen' => 254,
-    'music_bitrate' => 1000,
-    'music_filename' => '1760140-4a139254.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 180,
-    'music_artist_html' => '<a href="/ca-si/Various-Artists~Y3NuX2FydGlzdH45Nw==.html">Various Artists</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  11 => 
-  array (
     'music_id' => 1770377,
     'cat_id' => 2,
     'cat_level' => 5,
@@ -246,7 +126,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/October~Y3NuX2FydGlzdH45NTA0NQ==.html">October</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
   ),
-  12 => 
+  6 => 
   array (
     'music_id' => 1803844,
     'cat_id' => 2,
@@ -266,7 +146,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Nigel-Silin~Y3NuX2FydGlzdH45ODQxMQ==.html">Nigel Silin</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
-  13 => 
+  7 => 
   array (
     'music_id' => 1569766,
     'cat_id' => 2,
@@ -286,7 +166,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Masaru-Yokoyama~Y3NuX2FydGlzdH4xNjM5OQ==.html">Masaru Yokoyama</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  14 => 
+  8 => 
   array (
     'music_id' => 1766829,
     'cat_id' => 2,
@@ -306,7 +186,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/MYTH-amp~Y3NuX2FydGlzdH43MTI5NA==.html">MYTH &amp</a>, <a href="/ca-si/ROID~Y3NuX2FydGlzdH4yMzM5MQ==.html">ROID</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  15 => 
+  9 => 
   array (
     'music_id' => 1342073,
     'cat_id' => 2,
@@ -326,7 +206,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Yasuharu-Takanashi~Y3NuX2FydGlzdH4zNTc4Mg==.html">Yasuharu Takanashi</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  16 => 
+  10 => 
   array (
     'music_id' => 1206759,
     'cat_id' => 2,
@@ -346,7 +226,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Toshiro-Masuda~Y3NuX2FydGlzdH4xMTM1.html">Toshiro Masuda</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  17 => 
+  11 => 
   array (
     'music_id' => 1715559,
     'cat_id' => 2,
@@ -366,7 +246,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/RADWIMPS~Y3NuX2FydGlzdH4xODY1Mg==.html">RADWIMPS</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  18 => 
+  12 => 
   array (
     'music_id' => 1791336,
     'cat_id' => 2,
@@ -386,7 +266,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  19 => 
+  13 => 
   array (
     'music_id' => 1724331,
     'cat_id' => 2,
@@ -406,7 +286,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Yuki-Kajiura~Y3NuX2FydGlzdH4yODk5NA==.html">Yuki Kajiura</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  20 => 
+  14 => 
   array (
     'music_id' => 1724365,
     'cat_id' => 2,
@@ -426,7 +306,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Yuki-Kajiura~Y3NuX2FydGlzdH4yODk5NA==.html">Yuki Kajiura</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  21 => 
+  15 => 
   array (
     'music_id' => 1951324,
     'cat_id' => 2,
@@ -446,27 +326,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/MYTH~Y3NuX2FydGlzdH4yMzM5MA==.html">MYTH</a>, <a href="/ca-si/ROID~Y3NuX2FydGlzdH4yMzM5MQ==.html">ROID</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  22 => 
-  array (
-    'music_id' => 1786950,
-    'cat_id' => 2,
-    'cat_level' => 5,
-    'cover_id' => -15146,
-    'music_title_url' => 'synchronicity~yui-makino',
-    'music_title' => 'Synchronicity',
-    'music_artist' => 'Yui Makino',
-    'music_artist_id' => '26494',
-    'music_album_id' => '',
-    'music_listen' => 345,
-    'music_bitrate' => 256,
-    'music_filename' => '1786950-fe4a5d0f.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 323,
-    'music_artist_html' => '<a href="/ca-si/Yui-Makino~Y3NuX2FydGlzdH4yNjQ5NA==.html">Yui Makino</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: darkblue">256kbps</span>',
-  ),
-  23 => 
+  16 => 
   array (
     'music_id' => 1922599,
     'cat_id' => 2,
@@ -486,7 +346,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Casiopea~Y3NuX2FydGlzdH4xODU2NQ==.html">Casiopea</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  24 => 
+  17 => 
   array (
     'music_id' => 1258888,
     'cat_id' => 2,
@@ -506,7 +366,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Kitaro~Y3NuX2FydGlzdH4xNzU1Nw==.html">Kitaro</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  25 => 
+  18 => 
   array (
     'music_id' => 1342086,
     'cat_id' => 2,
@@ -526,7 +386,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Yasuharu-Takanashi~Y3NuX2FydGlzdH4zNTc4Mg==.html">Yasuharu Takanashi</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  26 => 
+  19 => 
   array (
     'music_id' => 1205351,
     'cat_id' => 2,
@@ -546,7 +406,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Ikuko-Kawai~Y3NuX2FydGlzdH4xNzQ1Ng==.html">Ikuko Kawai</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  27 => 
+  20 => 
   array (
     'music_id' => 1780957,
     'cat_id' => 2,
@@ -566,107 +426,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Various-Artists~Y3NuX2FydGlzdH45Nw==.html">Various Artists</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  28 => 
-  array (
-    'music_id' => 1725464,
-    'cat_id' => 2,
-    'cat_level' => 5,
-    'cover_id' => 64188,
-    'music_title_url' => 'kaze-ni-naru~music-box',
-    'music_title' => 'Kaze Ni Naru',
-    'music_artist' => 'music box',
-    'music_artist_id' => '90298',
-    'music_album_id' => 'TKCA-74303',
-    'music_listen' => 1582,
-    'music_bitrate' => 1000,
-    'music_filename' => '1725464-31b903eb.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 218,
-    'music_artist_html' => '<a href="/ca-si/music-box~Y3NuX2FydGlzdH45MDI5OA==.html">music box</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  29 => 
-  array (
-    'music_id' => 1468862,
-    'cat_id' => 2,
-    'cat_level' => 5,
-    'cover_id' => 38648,
-    'music_title_url' => 'fun-fun-fanfare-the-beginning~ikimono-gakari',
-    'music_title' => 'FUN! FUN! FANFARE! -The Beginning-',
-    'music_artist' => 'Ikimono Gakari',
-    'music_artist_id' => '4044',
-    'music_album_id' => '',
-    'music_listen' => 1714,
-    'music_bitrate' => 1000,
-    'music_filename' => '1468862-ccc038ae.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 40,
-    'music_artist_html' => '<a href="/ca-si/Ikimono-Gakari~Y3NuX2FydGlzdH40MDQ0.html">Ikimono Gakari</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  30 => 
-  array (
-    'music_id' => 1917542,
-    'cat_id' => 2,
-    'cat_level' => 5,
-    'cover_id' => 89506,
-    'music_title_url' => 'jupiter-from-the-symphony-the-planet~ikuko-kawai',
-    'music_title' => 'Jupiter From The Symphony \'\'The Planet\'\'',
-    'music_artist' => 'Ikuko Kawai',
-    'music_artist_id' => '17456',
-    'music_album_id' => 'VICC-45001',
-    'music_listen' => 64,
-    'music_bitrate' => 1000,
-    'music_filename' => '1917542-e5af4252.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 272,
-    'music_artist_html' => '<a href="/ca-si/Ikuko-Kawai~Y3NuX2FydGlzdH4xNzQ1Ng==.html">Ikuko Kawai</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  31 => 
-  array (
-    'music_id' => 1956681,
-    'cat_id' => 2,
-    'cat_level' => 5,
-    'cover_id' => 95017,
-    'music_title_url' => 'love-love-orignal-melody-karaoke~emiru-aisaki-cv-nao-tamura-rur',
-    'music_title' => 'LOVE &amp; LOVE (Orignal Melody Karaoke)',
-    'music_artist' => 'Emiru Aisaki (CV: Nao Tamura), Ruru Amour (CV: Yukari Tamura)',
-    'music_artist_id' => '123351',
-    'music_album_id' => 'MJSS-09222~3',
-    'music_listen' => 38,
-    'music_bitrate' => 1000,
-    'music_filename' => '1956681-3d171111.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 227,
-    'music_artist_html' => '<a href="/ca-si/Emiru-Aisaki-CV-Nao-Tamura-Ruru-Amour-CV-Yukari-Tamura~Y3NuX2FydGlzdH4xMjMzNTE=.html">Emiru Aisaki (CV: Nao Tamura), Ruru Amour (CV: Yukari Tamura)</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  32 => 
-  array (
-    'music_id' => 1954354,
-    'cat_id' => 2,
-    'cat_level' => 5,
-    'cover_id' => 94699,
-    'music_title_url' => 'piano-samurai~kors-k',
-    'music_title' => 'Piano Samurai',
-    'music_artist' => 'kors k',
-    'music_artist_id' => '23918',
-    'music_album_id' => 'SCGA-00058',
-    'music_listen' => 18,
-    'music_bitrate' => 1000,
-    'music_filename' => '1954354-30b34ac6.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 243,
-    'music_artist_html' => '<a href="/ca-si/kors-k~Y3NuX2FydGlzdH4yMzkxOA==.html">kors k</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  33 => 
+  21 => 
   array (
     'music_id' => 1525456,
     'cat_id' => 2,
@@ -686,7 +446,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Nana-Hiwatari~Y3NuX2FydGlzdH40NDU2Ng==.html">Nana Hiwatari</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  34 => 
+  22 => 
   array (
     'music_id' => 1831783,
     'cat_id' => 2,
@@ -706,7 +466,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/SuG~Y3NuX2FydGlzdH4xNzU4MA==.html">SuG</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  35 => 
+  23 => 
   array (
     'music_id' => 1794258,
     'cat_id' => 2,
@@ -726,7 +486,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Funky-Monkey-Babys~Y3NuX2FydGlzdH45NzU2MA==.html">Funky Monkey Babys</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  36 => 
+  24 => 
   array (
     'music_id' => 1787815,
     'cat_id' => 2,
@@ -746,7 +506,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Various-Artists~Y3NuX2FydGlzdH45Nw==.html">Various Artists</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
-  37 => 
+  25 => 
   array (
     'music_id' => 1925184,
     'cat_id' => 2,
@@ -766,7 +526,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Koichi-Matsukaze-Trio~Y3NuX2FydGlzdH4xODkyMQ==.html">Koichi Matsukaze Trio</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  38 => 
+  26 => 
   array (
     'music_id' => 1035966,
     'cat_id' => 2,
@@ -786,7 +546,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/All-That-Jazz~Y3NuX2FydGlzdH4yNjIwNA==.html">All That Jazz</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">256kbps</span>',
   ),
-  39 => 
+  27 => 
   array (
     'music_id' => 1816695,
     'cat_id' => 2,
@@ -806,7 +566,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/ClariS~Y3NuX2FydGlzdH4xNDc2OA==.html">ClariS</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
-  40 => 
+  28 => 
   array (
     'music_id' => 1622997,
     'cat_id' => 2,
@@ -826,7 +586,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Ghibli~Y3NuX2FydGlzdH4yNjE3Nw==.html">Ghibli</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
-  41 => 
+  29 => 
   array (
     'music_id' => 1740846,
     'cat_id' => 2,
@@ -846,7 +606,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  42 => 
+  30 => 
   array (
     'music_id' => 1836264,
     'cat_id' => 2,
@@ -866,7 +626,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Nishino-Kana~Y3NuX2FydGlzdH4xMzY5Mw==.html">Nishino Kana</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  43 => 
+  31 => 
   array (
     'music_id' => 1917065,
     'cat_id' => 2,
@@ -886,7 +646,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Keigo-Hoashi~Y3NuX2FydGlzdH4xNzM0Ng==.html">Keigo Hoashi</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  44 => 
+  32 => 
   array (
     'music_id' => 1715544,
     'cat_id' => 2,
@@ -906,7 +666,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/RADWIMPS~Y3NuX2FydGlzdH4xODY1Mg==.html">RADWIMPS</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  45 => 
+  33 => 
   array (
     'music_id' => 1622998,
     'cat_id' => 2,
@@ -926,7 +686,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Ghibli~Y3NuX2FydGlzdH4yNjE3Nw==.html">Ghibli</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
-  46 => 
+  34 => 
   array (
     'music_id' => 1258725,
     'cat_id' => 2,
@@ -946,7 +706,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Kitaro~Y3NuX2FydGlzdH4xNzU1Nw==.html">Kitaro</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  47 => 
+  35 => 
   array (
     'music_id' => 1258735,
     'cat_id' => 2,
@@ -966,7 +726,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Kitaro~Y3NuX2FydGlzdH4xNzU1Nw==.html">Kitaro</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  48 => 
+  36 => 
   array (
     'music_id' => 1511655,
     'cat_id' => 2,
@@ -986,7 +746,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Olivierflora~Y3NuX2FydGlzdH42Nzk0Mw==.html">Olivierflora</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  49 => 
+  37 => 
   array (
     'music_id' => 1566734,
     'cat_id' => 2,
@@ -1006,7 +766,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Hironobu-Kageyama~Y3NuX2FydGlzdH43MjMyNA==.html">Hironobu Kageyama</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  50 => 
+  38 => 
   array (
     'music_id' => 1955265,
     'cat_id' => 2,
@@ -1026,7 +786,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  51 => 
+  39 => 
   array (
     'music_id' => 1947475,
     'cat_id' => 2,
@@ -1046,7 +806,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Luna-Haruna~Y3NuX2FydGlzdH4xNzY0NQ==.html">Luna Haruna</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  52 => 
+  40 => 
   array (
     'music_id' => 1954256,
     'cat_id' => 2,
@@ -1066,7 +826,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Leo-Ieiri~Y3NuX2FydGlzdH4yMTEzMw==.html">Leo Ieiri</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  53 => 
+  41 => 
   array (
     'music_id' => 1904912,
     'cat_id' => 2,
@@ -1086,7 +846,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Joe-Hisaishi~Y3NuX2FydGlzdH4xMTg1.html">Joe Hisaishi</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  54 => 
+  42 => 
   array (
     'music_id' => 1868183,
     'cat_id' => 2,
@@ -1106,7 +866,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Ryo-Takahashi~Y3NuX2FydGlzdH4xMDM4MzU=.html">Ryo Takahashi</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
-  55 => 
+  43 => 
   array (
     'music_id' => 1206745,
     'cat_id' => 2,
@@ -1126,7 +886,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Toshiro-Masuda~Y3NuX2FydGlzdH4xMTM1.html">Toshiro Masuda</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  56 => 
+  44 => 
   array (
     'music_id' => 1715536,
     'cat_id' => 2,
@@ -1146,7 +906,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/RADWIMPS~Y3NuX2FydGlzdH4xODY1Mg==.html">RADWIMPS</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  57 => 
+  45 => 
   array (
     'music_id' => 1715557,
     'cat_id' => 2,
@@ -1166,7 +926,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/RADWIMPS~Y3NuX2FydGlzdH4xODY1Mg==.html">RADWIMPS</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  58 => 
+  46 => 
   array (
     'music_id' => 1258848,
     'cat_id' => 2,
@@ -1186,7 +946,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Kitaro~Y3NuX2FydGlzdH4xNzU1Nw==.html">Kitaro</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  59 => 
+  47 => 
   array (
     'music_id' => 1435506,
     'cat_id' => 2,
@@ -1206,7 +966,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/~Y3NuX2FydGlzdH42MDY2OA==.html">高梨康治</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  60 => 
+  48 => 
   array (
     'music_id' => 1715538,
     'cat_id' => 2,
@@ -1226,7 +986,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/RADWIMPS~Y3NuX2FydGlzdH4xODY1Mg==.html">RADWIMPS</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  61 => 
+  49 => 
   array (
     'music_id' => 1029770,
     'cat_id' => 2,
@@ -1246,7 +1006,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Yamazaki-Masayoshi~Y3NuX2FydGlzdH4yNDMzNA==.html">Yamazaki Masayoshi</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  62 => 
+  50 => 
   array (
     'music_id' => 1715546,
     'cat_id' => 2,
@@ -1266,7 +1026,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/RADWIMPS~Y3NuX2FydGlzdH4xODY1Mg==.html">RADWIMPS</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  63 => 
+  51 => 
   array (
     'music_id' => 1034974,
     'cat_id' => 2,
@@ -1286,7 +1046,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Ghibli~Y3NuX2FydGlzdH4yNjE3Nw==.html">Ghibli</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  64 => 
+  52 => 
   array (
     'music_id' => 1258716,
     'cat_id' => 2,
@@ -1306,7 +1066,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Kitaro~Y3NuX2FydGlzdH4xNzU1Nw==.html">Kitaro</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  65 => 
+  53 => 
   array (
     'music_id' => 1258720,
     'cat_id' => 2,
@@ -1326,7 +1086,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Kitaro~Y3NuX2FydGlzdH4xNzU1Nw==.html">Kitaro</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  66 => 
+  54 => 
   array (
     'music_id' => 1034976,
     'cat_id' => 2,
@@ -1346,7 +1106,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Ghibli~Y3NuX2FydGlzdH4yNjE3Nw==.html">Ghibli</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  67 => 
+  55 => 
   array (
     'music_id' => 1525472,
     'cat_id' => 2,
@@ -1366,7 +1126,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Nana-Hiwatari~Y3NuX2FydGlzdH40NDU2Ng==.html">Nana Hiwatari</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  68 => 
+  56 => 
   array (
     'music_id' => 1258752,
     'cat_id' => 2,
@@ -1386,7 +1146,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Kitaro~Y3NuX2FydGlzdH4xNzU1Nw==.html">Kitaro</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  69 => 
+  57 => 
   array (
     'music_id' => 1034975,
     'cat_id' => 2,
@@ -1406,7 +1166,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Ghibli~Y3NuX2FydGlzdH4yNjE3Nw==.html">Ghibli</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  70 => 
+  58 => 
   array (
     'music_id' => 1673802,
     'cat_id' => 2,
@@ -1426,7 +1186,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Kajiura-Yuki~Y3NuX2FydGlzdH4yNjI2NQ==.html">Kajiura Yuki</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  71 => 
+  59 => 
   array (
     'music_id' => 1034983,
     'cat_id' => 2,
@@ -1446,7 +1206,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Ghibli~Y3NuX2FydGlzdH4yNjE3Nw==.html">Ghibli</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  72 => 
+  60 => 
   array (
     'music_id' => 1703549,
     'cat_id' => 2,
@@ -1466,7 +1226,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Keyakizaka46~Y3NuX2FydGlzdH4xNTk2NA==.html">Keyakizaka46</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  73 => 
+  61 => 
   array (
     'music_id' => 1034977,
     'cat_id' => 2,
@@ -1486,7 +1246,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Ghibli~Y3NuX2FydGlzdH4yNjE3Nw==.html">Ghibli</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  74 => 
+  62 => 
   array (
     'music_id' => 1506190,
     'cat_id' => 2,
@@ -1506,7 +1266,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Kaoru-Wada~Y3NuX2FydGlzdH40Nzkz.html">Kaoru Wada</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">256kbps</span>',
   ),
-  75 => 
+  63 => 
   array (
     'music_id' => 1780581,
     'cat_id' => 2,
@@ -1526,7 +1286,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/NGT48~Y3NuX2FydGlzdH4xMzYzNQ==.html">NGT48</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  76 => 
+  64 => 
   array (
     'music_id' => 1778325,
     'cat_id' => 2,
@@ -1546,7 +1306,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Keyakizaka46~Y3NuX2FydGlzdH4xNTk2NA==.html">Keyakizaka46</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  77 => 
+  65 => 
   array (
     'music_id' => 1525473,
     'cat_id' => 2,
@@ -1566,7 +1326,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Nana-Hiwatari~Y3NuX2FydGlzdH40NDU2Ng==.html">Nana Hiwatari</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  78 => 
+  66 => 
   array (
     'music_id' => 1236013,
     'cat_id' => 2,
@@ -1586,7 +1346,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Mr-Children~Y3NuX2FydGlzdH40MzI3NA==.html">Mr. Children</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  79 => 
+  67 => 
   array (
     'music_id' => 1034880,
     'cat_id' => 2,
@@ -1606,7 +1366,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Czech-Philharmonic-Orchestra~Y3NuX2FydGlzdH4yNjE3NA==.html">Czech Philharmonic Orchestra</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  80 => 
+  68 => 
   array (
     'music_id' => 1525474,
     'cat_id' => 2,
@@ -1626,7 +1386,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Nana-Hiwatari~Y3NuX2FydGlzdH40NDU2Ng==.html">Nana Hiwatari</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  81 => 
+  69 => 
   array (
     'music_id' => 1622990,
     'cat_id' => 2,
@@ -1646,7 +1406,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Ghibli~Y3NuX2FydGlzdH4yNjE3Nw==.html">Ghibli</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
-  82 => 
+  70 => 
   array (
     'music_id' => 1774772,
     'cat_id' => 2,
@@ -1666,7 +1426,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Nogizaka46~Y3NuX2FydGlzdH4xMzU1Nw==.html">Nogizaka46</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  83 => 
+  71 => 
   array (
     'music_id' => 1035962,
     'cat_id' => 2,
@@ -1686,7 +1446,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/All-That-Jazz~Y3NuX2FydGlzdH4yNjIwNA==.html">All That Jazz</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
-  84 => 
+  72 => 
   array (
     'music_id' => 1689134,
     'cat_id' => 2,
@@ -1706,27 +1466,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Yasuharu-Takanashi~Y3NuX2FydGlzdH4zNTc4Mg==.html">Yasuharu Takanashi</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
-  85 => 
-  array (
-    'music_id' => 1891610,
-    'cat_id' => 2,
-    'cat_level' => 5,
-    'cover_id' => 85590,
-    'music_title_url' => 'roly-poly-in-copacabana-japanese-version~t-ara',
-    'music_title' => 'Roly Poly In Copacabana (Japanese Version)',
-    'music_artist' => 'T-Ara',
-    'music_artist_id' => '1413',
-    'music_album_id' => 'TOCT-40385',
-    'music_listen' => 4759,
-    'music_bitrate' => 1000,
-    'music_filename' => '1891610-59e1b789.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 212,
-    'music_artist_html' => '<a href="/ca-si/T-Ara~Y3NuX2FydGlzdH4xNDEz.html">T-Ara</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  86 => 
+  73 => 
   array (
     'music_id' => 1258815,
     'cat_id' => 2,
@@ -1746,7 +1486,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Kitaro~Y3NuX2FydGlzdH4xNzU1Nw==.html">Kitaro</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  87 => 
+  74 => 
   array (
     'music_id' => 1032648,
     'cat_id' => 2,
@@ -1766,7 +1506,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Akiko-Shikata~Y3NuX2FydGlzdH4yNjA3NA==.html">Akiko Shikata</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  88 => 
+  75 => 
   array (
     'music_id' => 1773954,
     'cat_id' => 2,
@@ -1786,7 +1526,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Inada-Tetsu~Y3NuX2FydGlzdH45NTQyOA==.html">Inada Tetsu</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  89 => 
+  76 => 
   array (
     'music_id' => 1539330,
     'cat_id' => 2,
@@ -1806,7 +1546,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Nogizaka46~Y3NuX2FydGlzdH4xMzU1Nw==.html">Nogizaka46</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  90 => 
+  77 => 
   array (
     'music_id' => 1673798,
     'cat_id' => 2,
@@ -1826,7 +1566,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Kajiura-Yuki~Y3NuX2FydGlzdH4yNjI2NQ==.html">Kajiura Yuki</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  91 => 
+  78 => 
   array (
     'music_id' => 1884519,
     'cat_id' => 2,
@@ -1846,7 +1586,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Keyakizaka46~Y3NuX2FydGlzdH4xNTk2NA==.html">Keyakizaka46</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  92 => 
+  79 => 
   array (
     'music_id' => 1737113,
     'cat_id' => 2,
@@ -1866,7 +1606,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Kyary-Pamyu-Pamyu~Y3NuX2FydGlzdH4xMzc3OQ==.html">Kyary Pamyu Pamyu</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  93 => 
+  80 => 
   array (
     'music_id' => 1558434,
     'cat_id' => 2,
@@ -1886,7 +1626,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Minoru~Y3NuX2FydGlzdH43Mjc2NA==.html">Minoru</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
-  94 => 
+  81 => 
   array (
     'music_id' => 1575108,
     'cat_id' => 2,
@@ -1906,7 +1646,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Ling-Yuan-Yousa~Y3NuX2FydGlzdH43NDM1Mw==.html">Ling Yuan Yousa</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">256kbps</span>',
   ),
-  95 => 
+  82 => 
   array (
     'music_id' => 1268201,
     'cat_id' => 2,
@@ -1926,7 +1666,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Various-Artists~Y3NuX2FydGlzdH45Nw==.html">Various Artists</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  96 => 
+  83 => 
   array (
     'music_id' => 1525831,
     'cat_id' => 2,
@@ -1946,7 +1686,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/SENS~Y3NuX2FydGlzdH40NTU4.html">S.E.N.S</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  97 => 
+  84 => 
   array (
     'music_id' => 1673796,
     'cat_id' => 2,
@@ -1966,7 +1706,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Kajiura-Yuki~Y3NuX2FydGlzdH4yNjI2NQ==.html">Kajiura Yuki</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  98 => 
+  85 => 
   array (
     'music_id' => 1819834,
     'cat_id' => 2,
@@ -1986,7 +1726,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Takanashi-Yasuharu~Y3NuX2FydGlzdH44OTI0OQ==.html">Takanashi Yasuharu</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  99 => 
+  86 => 
   array (
     'music_id' => 1769196,
     'cat_id' => 2,
@@ -2006,7 +1746,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/ZAQ~Y3NuX2FydGlzdH40OTEwNg==.html">ZAQ</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  100 => 
+  87 => 
   array (
     'music_id' => 1525881,
     'cat_id' => 2,
@@ -2026,7 +1766,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/SENS~Y3NuX2FydGlzdH40NTU4.html">S.E.N.S</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  101 => 
+  88 => 
   array (
     'music_id' => 1495039,
     'cat_id' => 2,
@@ -2046,7 +1786,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Takeharu-Ishimoto~Y3NuX2FydGlzdH42NjIwNA==.html">Takeharu Ishimoto</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  102 => 
+  89 => 
   array (
     'music_id' => 1850938,
     'cat_id' => 2,
@@ -2066,7 +1806,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Aqours~Y3NuX2FydGlzdH4xOTc2OA==.html">Aqours</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  103 => 
+  90 => 
   array (
     'music_id' => 1610815,
     'cat_id' => 2,
@@ -2086,7 +1826,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Hideyuki-Fukasawa~Y3NuX2FydGlzdH4yMDY2Ng==.html">Hideyuki Fukasawa</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  104 => 
+  91 => 
   array (
     'music_id' => 1815095,
     'cat_id' => 2,
@@ -2106,7 +1846,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/angela~Y3NuX2FydGlzdH42Mjc1MQ==.html">angela</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  105 => 
+  92 => 
   array (
     'music_id' => 1798363,
     'cat_id' => 2,
@@ -2126,7 +1866,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Hiroyuki-Sawano~Y3NuX2FydGlzdH4zODQxMg==.html">Hiroyuki Sawano</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
-  106 => 
+  93 => 
   array (
     'music_id' => 1798371,
     'cat_id' => 2,
@@ -2146,7 +1886,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Hiroyuki-Sawano~Y3NuX2FydGlzdH4zODQxMg==.html">Hiroyuki Sawano</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
-  107 => 
+  94 => 
   array (
     'music_id' => 1267886,
     'cat_id' => 2,
@@ -2166,7 +1906,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Various-Artists~Y3NuX2FydGlzdH45Nw==.html">Various Artists</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  108 => 
+  95 => 
   array (
     'music_id' => 1738266,
     'cat_id' => 2,
@@ -2186,7 +1926,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Field-of-View~Y3NuX2FydGlzdH4xODU4OQ==.html">Field of View</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  109 => 
+  96 => 
   array (
     'music_id' => 1804768,
     'cat_id' => 2,
@@ -2206,47 +1946,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Kaoru-Wada~Y3NuX2FydGlzdH40Nzkz.html">Kaoru Wada</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  110 => 
-  array (
-    'music_id' => 1771488,
-    'cat_id' => 2,
-    'cat_level' => 5,
-    'cover_id' => 69517,
-    'music_title_url' => 'butterfly-kiss~chihiro-yonekura',
-    'music_title' => 'Butterfly Kiss',
-    'music_artist' => 'Chihiro Yonekura',
-    'music_artist_id' => '58905',
-    'music_album_id' => 'KICM-1040',
-    'music_listen' => 1036,
-    'music_bitrate' => 1000,
-    'music_filename' => '1771488-d8845285.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 260,
-    'music_artist_html' => '<a href="/ca-si/Chihiro-Yonekura~Y3NuX2FydGlzdH41ODkwNQ==.html">Chihiro Yonekura</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  111 => 
-  array (
-    'music_id' => 1845605,
-    'cat_id' => 2,
-    'cat_level' => 5,
-    'cover_id' => 79436,
-    'music_title_url' => 'tomorrow~various-artists',
-    'music_title' => 'Tomorrow',
-    'music_artist' => 'Various Artists',
-    'music_artist_id' => '97',
-    'music_album_id' => 'ZMCZ-11622',
-    'music_listen' => 744,
-    'music_bitrate' => 1000,
-    'music_filename' => '1845605-a6c7d75c.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 272,
-    'music_artist_html' => '<a href="/ca-si/Various-Artists~Y3NuX2FydGlzdH45Nw==.html">Various Artists</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  112 => 
+  97 => 
   array (
     'music_id' => 1804769,
     'cat_id' => 2,
@@ -2266,7 +1966,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Kaoru-Wada~Y3NuX2FydGlzdH40Nzkz.html">Kaoru Wada</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  113 => 
+  98 => 
   array (
     'music_id' => 1819852,
     'cat_id' => 2,
@@ -2286,27 +1986,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Takanashi-Yasuharu~Y3NuX2FydGlzdH44OTI0OQ==.html">Takanashi Yasuharu</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  114 => 
-  array (
-    'music_id' => 1802606,
-    'cat_id' => 2,
-    'cat_level' => 5,
-    'cover_id' => 73386,
-    'music_title_url' => 'rebirth-day~roselia',
-    'music_title' => 'Re:birth day',
-    'music_artist' => 'Roselia',
-    'music_artist_id' => '13760',
-    'music_album_id' => 'BRMM-10091',
-    'music_listen' => 717,
-    'music_bitrate' => 1000,
-    'music_filename' => '1802606-34d3bced.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 265,
-    'music_artist_html' => '<a href="/ca-si/Roselia~Y3NuX2FydGlzdH4xMzc2MA==.html">Roselia</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  115 => 
+  99 => 
   array (
     'music_id' => 1723000,
     'cat_id' => 2,
@@ -2326,7 +2006,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Annabel~Y3NuX2FydGlzdH40NDU2MA==.html">Annabel</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  116 => 
+  100 => 
   array (
     'music_id' => 1821064,
     'cat_id' => 2,
@@ -2346,7 +2026,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Hironobu-Kageyama~Y3NuX2FydGlzdH43MjMyNA==.html">Hironobu Kageyama</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  117 => 
+  101 => 
   array (
     'music_id' => 1905132,
     'cat_id' => 2,
@@ -2366,67 +2046,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Roselia~Y3NuX2FydGlzdH4xMzc2MA==.html">Roselia</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  118 => 
-  array (
-    'music_id' => 1763027,
-    'cat_id' => 2,
-    'cat_level' => 5,
-    'cover_id' => 68494,
-    'music_title_url' => 'kiss-no-ryuusei~no3b-no-sleeves-persona',
-    'music_title' => 'Kiss no Ryuusei (キスの流星)',
-    'music_artist' => 'no3b;No Sleeves;Persona (ペルソナ)',
-    'music_artist_id' => '89116;39503;89117',
-    'music_album_id' => 'ESCL-3337',
-    'music_listen' => 396,
-    'music_bitrate' => 1000,
-    'music_filename' => '1763027-d849a2b1.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 294,
-    'music_artist_html' => '<a href="/ca-si/no3b~Y3NuX2FydGlzdH44OTExNg==.html">no3b</a>, <a href="/ca-si/No-Sleeves~Y3NuX2FydGlzdH4zOTUwMw==.html">No Sleeves</a>, <a href="/ca-si/Persona~Y3NuX2FydGlzdH44OTExNw==.html">Persona (ペルソナ)</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  119 => 
-  array (
-    'music_id' => 1798365,
-    'cat_id' => 2,
-    'cat_level' => 5,
-    'cover_id' => -15592,
-    'music_title_url' => 'here-i-am~hiroyuki-sawano',
-    'music_title' => 'HERE I AM',
-    'music_artist' => 'Hiroyuki Sawano',
-    'music_artist_id' => '38412',
-    'music_album_id' => 'Disc 1',
-    'music_listen' => 600,
-    'music_bitrate' => 320,
-    'music_filename' => '1798365-63c06381.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 238,
-    'music_artist_html' => '<a href="/ca-si/Hiroyuki-Sawano~Y3NuX2FydGlzdH4zODQxMg==.html">Hiroyuki Sawano</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
-  ),
-  120 => 
-  array (
-    'music_id' => 1753379,
-    'cat_id' => 2,
-    'cat_level' => 5,
-    'cover_id' => 67368,
-    'music_title_url' => 'we-are-back~remedios',
-    'music_title' => 'We Are Back',
-    'music_artist' => 'Remedios',
-    'music_artist_id' => '37352',
-    'music_album_id' => 'SVWC-7808',
-    'music_listen' => 544,
-    'music_bitrate' => 1000,
-    'music_filename' => '1753379-747f1efe.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 95,
-    'music_artist_html' => '<a href="/ca-si/Remedios~Y3NuX2FydGlzdH4zNzM1Mg==.html">Remedios</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  121 => 
+  102 => 
   array (
     'music_id' => 1955273,
     'cat_id' => 2,
@@ -2446,47 +2066,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  122 => 
-  array (
-    'music_id' => 1821068,
-    'cat_id' => 2,
-    'cat_level' => 5,
-    'cover_id' => 76002,
-    'music_title_url' => 'cha-la-head-cha-la-karaoke~hironobu-kageyama',
-    'music_title' => 'Cha-La Head-Cha-La (Karaoke)',
-    'music_artist' => 'Hironobu Kageyama',
-    'music_artist_id' => '72324',
-    'music_album_id' => '',
-    'music_listen' => 417,
-    'music_bitrate' => 1000,
-    'music_filename' => '1821068-05ae0481.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 198,
-    'music_artist_html' => '<a href="/ca-si/Hironobu-Kageyama~Y3NuX2FydGlzdH43MjMyNA==.html">Hironobu Kageyama</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  123 => 
-  array (
-    'music_id' => 1946003,
-    'cat_id' => 2,
-    'cat_level' => 5,
-    'cover_id' => 93561,
-    'music_title_url' => '~ujico-snails-house',
-    'music_title' => '想い出の場所',
-    'music_artist' => 'Ujico*/ snail\'s house',
-    'music_artist_id' => '22366',
-    'music_album_id' => '',
-    'music_listen' => 135,
-    'music_bitrate' => 1000,
-    'music_filename' => '1946003-9752e519.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 285,
-    'music_artist_html' => '<a href="/ca-si/Ujico-snails-house~Y3NuX2FydGlzdH4yMjM2Ng==.html">Ujico*/ snail\'s house</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  124 => 
+  103 => 
   array (
     'music_id' => 1917551,
     'cat_id' => 2,
@@ -2506,27 +2086,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Ikuko-Kawai~Y3NuX2FydGlzdH4xNzQ1Ng==.html">Ikuko Kawai</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  125 => 
-  array (
-    'music_id' => 1955285,
-    'cat_id' => 2,
-    'cat_level' => 5,
-    'cover_id' => 94823,
-    'music_title_url' => 'nami-ga-tsutaeru-mono~akb48',
-    'music_title' => 'Nami ga Tsutaeru Mono (波が伝えるもの)',
-    'music_artist' => 'AKB48',
-    'music_artist_id' => '723',
-    'music_album_id' => 'KIZM-505',
-    'music_listen' => 290,
-    'music_bitrate' => 1000,
-    'music_filename' => '1955285-147ac56c.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 229,
-    'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  126 => 
+  104 => 
   array (
     'music_id' => 1839320,
     'cat_id' => 2,
@@ -2546,7 +2106,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Shibuya-Rin-CV-Fukuhara-Ayaka~Y3NuX2FydGlzdH45MzIwMQ==.html">Shibuya Rin (CV: Fukuhara Ayaka)</a>, <a href="/ca-si/Morikubo-Nono-CV-Takahashi-Karin~Y3NuX2FydGlzdH4xMDE1NDY=.html">Morikubo Nono (CV: Takahashi Karin)</a>, <a href="/ca-si/Yamato-Aki-CV-Muranaka-Tomo~Y3NuX2FydGlzdH4xMDE1NDc=.html">Yamato Aki (CV: Muranaka Tomo)</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  127 => 
+  105 => 
   array (
     'music_id' => 1804765,
     'cat_id' => 2,
@@ -2566,27 +2126,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Kaoru-Wada~Y3NuX2FydGlzdH40Nzkz.html">Kaoru Wada</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  128 => 
-  array (
-    'music_id' => 1804774,
-    'cat_id' => 2,
-    'cat_level' => 5,
-    'cover_id' => 73722,
-    'music_title_url' => 'kyuuchi~kaoru-wada',
-    'music_title' => 'Kyuuchi',
-    'music_artist' => 'Kaoru Wada',
-    'music_artist_id' => '4793',
-    'music_album_id' => '',
-    'music_listen' => 389,
-    'music_bitrate' => 1000,
-    'music_filename' => '1804774-b30141c7.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 84,
-    'music_artist_html' => '<a href="/ca-si/Kaoru-Wada~Y3NuX2FydGlzdH40Nzkz.html">Kaoru Wada</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  129 => 
+  106 => 
   array (
     'music_id' => 1955267,
     'cat_id' => 2,
@@ -2606,7 +2146,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  130 => 
+  107 => 
   array (
     'music_id' => 1954759,
     'cat_id' => 2,
@@ -2626,287 +2166,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Starlight-Kukugumi~Y3NuX2FydGlzdH4xMjI2NjU=.html">Starlight Kukugumi</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  131 => 
-  array (
-    'music_id' => 1759831,
-    'cat_id' => 2,
-    'cat_level' => 5,
-    'cover_id' => 68126,
-    'music_title_url' => 'nightmare~shiro-sagisu',
-    'music_title' => 'Nightmare',
-    'music_artist' => 'Shiro Sagisu',
-    'music_artist_id' => '17538',
-    'music_album_id' => 'CNS/004',
-    'music_listen' => 305,
-    'music_bitrate' => 1000,
-    'music_filename' => '1759831-07fdaa42.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 144,
-    'music_artist_html' => '<a href="/ca-si/Shiro-Sagisu~Y3NuX2FydGlzdH4xNzUzOA==.html">Shiro Sagisu</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  132 => 
-  array (
-    'music_id' => 1948576,
-    'cat_id' => 2,
-    'cat_level' => 5,
-    'cover_id' => 93921,
-    'music_title_url' => 'lets-walk-across-this-forest-i-can-feel-that-everything-is-~in-love-with-a-ghost',
-    'music_title' => 'let\'s walk across this forest, i can feel that everything is real again',
-    'music_artist' => 'In Love With A Ghost',
-    'music_artist_id' => '22909',
-    'music_album_id' => '',
-    'music_listen' => 157,
-    'music_bitrate' => 1000,
-    'music_filename' => '1948576-25e611ab.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 139,
-    'music_artist_html' => '<a href="/ca-si/In-Love-With-A-Ghost~Y3NuX2FydGlzdH4yMjkwOQ==.html">In Love With A Ghost</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  133 => 
-  array (
-    'music_id' => 1901307,
-    'cat_id' => 2,
-    'cat_level' => 5,
-    'cover_id' => 86992,
-    'music_title_url' => 'melt~minami',
-    'music_title' => 'melt',
-    'music_artist' => 'Minami',
-    'music_artist_id' => '13724',
-    'music_album_id' => 'LACM-14745',
-    'music_listen' => 182,
-    'music_bitrate' => 1000,
-    'music_filename' => '1901307-849eeeaa.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 242,
-    'music_artist_html' => '<a href="/ca-si/Minami~Y3NuX2FydGlzdH4xMzcyNA==.html">Minami</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  134 => 
-  array (
-    'music_id' => 1912451,
-    'cat_id' => 2,
-    'cat_level' => 5,
-    'cover_id' => 88690,
-    'music_title_url' => 'elevator~saury',
-    'music_title' => 'Elevator',
-    'music_artist' => 'Saury',
-    'music_artist_id' => '16411',
-    'music_album_id' => 'SAURY001',
-    'music_listen' => 189,
-    'music_bitrate' => 1000,
-    'music_filename' => '1912451-2e318a70.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 104,
-    'music_artist_html' => '<a href="/ca-si/Saury~Y3NuX2FydGlzdH4xNjQxMQ==.html">Saury</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  135 => 
-  array (
-    'music_id' => 1955284,
-    'cat_id' => 2,
-    'cat_level' => 5,
-    'cover_id' => 94823,
-    'music_title_url' => 'sandal-ja-dekinai-koi~akb48',
-    'music_title' => 'Sandal ja Dekinai Koi (サンダルじゃできない恋)',
-    'music_artist' => 'AKB48',
-    'music_artist_id' => '723',
-    'music_album_id' => 'KIZM-505',
-    'music_listen' => 167,
-    'music_bitrate' => 1000,
-    'music_filename' => '1955284-dcf9b937.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 257,
-    'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  136 => 
-  array (
-    'music_id' => 1958806,
-    'cat_id' => 2,
-    'cat_level' => 5,
-    'cover_id' => 95283,
-    'music_title_url' => 'einsatz~keishi-yonao',
-    'music_title' => 'Einsatz',
-    'music_artist' => 'Keishi Yonao',
-    'music_artist_id' => '122964',
-    'music_album_id' => '4529904004557',
-    'music_listen' => 189,
-    'music_bitrate' => 1000,
-    'music_filename' => '1958806-365ef17e.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 229,
-    'music_artist_html' => '<a href="/ca-si/Keishi-Yonao~Y3NuX2FydGlzdH4xMjI5NjQ=.html">Keishi Yonao</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  137 => 
-  array (
-    'music_id' => 1868176,
-    'cat_id' => 2,
-    'cat_level' => 5,
-    'cover_id' => 82357,
-    'music_title_url' => 'shinrai-koso-ga-takara~ryo-takahashi',
-    'music_title' => 'Shinrai koso ga Takara',
-    'music_artist' => 'Ryo Takahashi',
-    'music_artist_id' => '103835',
-    'music_album_id' => 'LACA-9544',
-    'music_listen' => 277,
-    'music_bitrate' => 320,
-    'music_filename' => '1868176-8a4f2b18.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 174,
-    'music_artist_html' => '<a href="/ca-si/Ryo-Takahashi~Y3NuX2FydGlzdH4xMDM4MzU=.html">Ryo Takahashi</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
-  ),
-  138 => 
-  array (
-    'music_id' => 1868164,
-    'cat_id' => 2,
-    'cat_level' => 5,
-    'cover_id' => 82357,
-    'music_title_url' => 'd-class-danshi~ryo-takahashi',
-    'music_title' => 'D-Class Danshi',
-    'music_artist' => 'Ryo Takahashi',
-    'music_artist_id' => '103835',
-    'music_album_id' => 'LACA-9544',
-    'music_listen' => 178,
-    'music_bitrate' => 320,
-    'music_filename' => '1868164-96b576e2.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 114,
-    'music_artist_html' => '<a href="/ca-si/Ryo-Takahashi~Y3NuX2FydGlzdH4xMDM4MzU=.html">Ryo Takahashi</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
-  ),
-  139 => 
-  array (
-    'music_id' => 1905362,
-    'cat_id' => 2,
-    'cat_level' => 5,
-    'cover_id' => 87643,
-    'music_title_url' => 'sariman-no-mahoujin-shiro-e-no-kikan~joe-hisaishi',
-    'music_title' => 'Sariman no mahoujin: shiro e no kikan',
-    'music_artist' => 'Joe Hisaishi',
-    'music_artist_id' => '1185',
-    'music_album_id' => '',
-    'music_listen' => 148,
-    'music_bitrate' => 1000,
-    'music_filename' => '1905362-08d69e65.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 322,
-    'music_artist_html' => '<a href="/ca-si/Joe-Hisaishi~Y3NuX2FydGlzdH4xMTg1.html">Joe Hisaishi</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  140 => 
-  array (
-    'music_id' => 1939244,
-    'cat_id' => 2,
-    'cat_level' => 5,
-    'cover_id' => 92663,
-    'music_title_url' => 'turn-up~got7',
-    'music_title' => 'Turn Up',
-    'music_artist' => 'GOT7',
-    'music_artist_id' => '4464',
-    'music_album_id' => '',
-    'music_listen' => 153,
-    'music_bitrate' => 1000,
-    'music_filename' => '1939244-3c5b09c4.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 199,
-    'music_artist_html' => '<a href="/ca-si/GOT7~Y3NuX2FydGlzdH40NDY0.html">GOT7</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  141 => 
-  array (
-    'music_id' => 1868177,
-    'cat_id' => 2,
-    'cat_level' => 5,
-    'cover_id' => 82357,
-    'music_title_url' => 'soshite-sono-omoi~ryo-takahashi',
-    'music_title' => 'Soshite, Sono Omoi',
-    'music_artist' => 'Ryo Takahashi',
-    'music_artist_id' => '103835',
-    'music_album_id' => 'LACA-9544',
-    'music_listen' => 154,
-    'music_bitrate' => 320,
-    'music_filename' => '1868177-0b419277.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 153,
-    'music_artist_html' => '<a href="/ca-si/Ryo-Takahashi~Y3NuX2FydGlzdH4xMDM4MzU=.html">Ryo Takahashi</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
-  ),
-  142 => 
-  array (
-    'music_id' => 1868172,
-    'cat_id' => 2,
-    'cat_level' => 5,
-    'cover_id' => 82357,
-    'music_title_url' => 'gouka-kyakusen~ryo-takahashi',
-    'music_title' => 'Gouka Kyakusen',
-    'music_artist' => 'Ryo Takahashi',
-    'music_artist_id' => '103835',
-    'music_album_id' => 'LACA-9544',
-    'music_listen' => 156,
-    'music_bitrate' => 320,
-    'music_filename' => '1868172-d0b72524.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 121,
-    'music_artist_html' => '<a href="/ca-si/Ryo-Takahashi~Y3NuX2FydGlzdH4xMDM4MzU=.html">Ryo Takahashi</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
-  ),
-  143 => 
-  array (
-    'music_id' => 1868162,
-    'cat_id' => 2,
-    'cat_level' => 5,
-    'cover_id' => 82357,
-    'music_title_url' => 'kirameku-bishoujo~ryo-takahashi',
-    'music_title' => 'Kirameku Bishoujo',
-    'music_artist' => 'Ryo Takahashi',
-    'music_artist_id' => '103835',
-    'music_album_id' => 'LACA-9544',
-    'music_listen' => 150,
-    'music_bitrate' => 320,
-    'music_filename' => '1868162-7156b407.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 99,
-    'music_artist_html' => '<a href="/ca-si/Ryo-Takahashi~Y3NuX2FydGlzdH4xMDM4MzU=.html">Ryo Takahashi</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
-  ),
-  144 => 
-  array (
-    'music_id' => 1905353,
-    'cat_id' => 2,
-    'cat_level' => 5,
-    'cover_id' => 87643,
-    'music_title_url' => 'sasurai-no-sofii~joe-hisaishi',
-    'music_title' => 'sasurai no Sofii',
-    'music_artist' => 'Joe Hisaishi',
-    'music_artist_id' => '1185',
-    'music_album_id' => '',
-    'music_listen' => 123,
-    'music_bitrate' => 1000,
-    'music_filename' => '1905353-bc7eaede.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 259,
-    'music_artist_html' => '<a href="/ca-si/Joe-Hisaishi~Y3NuX2FydGlzdH4xMTg1.html">Joe Hisaishi</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  145 => 
+  108 => 
   array (
     'music_id' => 1778324,
     'cat_id' => 2,
@@ -2926,7 +2186,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Keyakizaka46~Y3NuX2FydGlzdH4xNTk2NA==.html">Keyakizaka46</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  146 => 
+  109 => 
   array (
     'music_id' => 1452128,
     'cat_id' => 2,
@@ -2946,7 +2206,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Lindsey-Stirling~Y3NuX2FydGlzdH4xOTAxNQ==.html">Lindsey Stirling</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">128kbps</span>',
   ),
-  147 => 
+  110 => 
   array (
     'music_id' => 1715543,
     'cat_id' => 2,
@@ -2966,7 +2226,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/RADWIMPS~Y3NuX2FydGlzdH4xODY1Mg==.html">RADWIMPS</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  148 => 
+  111 => 
   array (
     'music_id' => 1206750,
     'cat_id' => 2,
@@ -2986,7 +2246,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Toshiro-Masuda~Y3NuX2FydGlzdH4xMTM1.html">Toshiro Masuda</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  149 => 
+  112 => 
   array (
     'music_id' => 1569819,
     'cat_id' => 2,
@@ -3006,7 +2266,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Masaru-Yokoyama~Y3NuX2FydGlzdH4xNjM5OQ==.html">Masaru Yokoyama</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  150 => 
+  113 => 
   array (
     'music_id' => 1206742,
     'cat_id' => 2,
@@ -3026,7 +2286,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Toshiro-Masuda~Y3NuX2FydGlzdH4xMTM1.html">Toshiro Masuda</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  151 => 
+  114 => 
   array (
     'music_id' => 1499180,
     'cat_id' => 2,
@@ -3046,7 +2306,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Yasuharu-Takanashi~Y3NuX2FydGlzdH4zNTc4Mg==.html">Yasuharu Takanashi</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  152 => 
+  115 => 
   array (
     'music_id' => 1034972,
     'cat_id' => 2,
@@ -3066,7 +2326,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Ghibli~Y3NuX2FydGlzdH4yNjE3Nw==.html">Ghibli</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  153 => 
+  116 => 
   array (
     'music_id' => 1034980,
     'cat_id' => 2,
@@ -3086,7 +2346,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Ghibli~Y3NuX2FydGlzdH4yNjE3Nw==.html">Ghibli</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  154 => 
+  117 => 
   array (
     'music_id' => 1034982,
     'cat_id' => 2,
@@ -3106,7 +2366,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Ghibli~Y3NuX2FydGlzdH4yNjE3Nw==.html">Ghibli</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  155 => 
+  118 => 
   array (
     'music_id' => 1774789,
     'cat_id' => 2,
@@ -3126,7 +2386,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Nogizaka46~Y3NuX2FydGlzdH4xMzU1Nw==.html">Nogizaka46</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  156 => 
+  119 => 
   array (
     'music_id' => 1754239,
     'cat_id' => 2,
@@ -3146,7 +2406,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Manack~Y3NuX2FydGlzdH44NTkwOA==.html">Manack</a>, <a href="/ca-si/Bruno-Wen-li~Y3NuX2FydGlzdH45MzI3MQ==.html">Bruno Wen-li</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  157 => 
+  120 => 
   array (
     'music_id' => 1772770,
     'cat_id' => 2,
@@ -3166,27 +2426,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Shoji-Meguro~Y3NuX2FydGlzdH4zOTA5OQ==.html">Shoji Meguro</a>, <a href="/ca-si/Lyn~Y3NuX2FydGlzdH40MTMy.html">Lyn</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  158 => 
-  array (
-    'music_id' => 1622992,
-    'cat_id' => 2,
-    'cat_level' => 5,
-    'cover_id' => 52630,
-    'music_title_url' => 'sanpo-my-neighbour-totoro~ghibli',
-    'music_title' => 'Sanpo (My Neighbour Totoro)',
-    'music_artist' => 'Ghibli',
-    'music_artist_id' => '26177',
-    'music_album_id' => 'B005E041TM',
-    'music_listen' => 3043,
-    'music_bitrate' => 320,
-    'music_filename' => '1622992-509bb5cd.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 283,
-    'music_artist_html' => '<a href="/ca-si/Ghibli~Y3NuX2FydGlzdH4yNjE3Nw==.html">Ghibli</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
-  ),
-  159 => 
+  121 => 
   array (
     'music_id' => 1759807,
     'cat_id' => 2,
@@ -3206,27 +2446,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/DJ-Okawari~Y3NuX2FydGlzdH4yNTI5OQ==.html">DJ Okawari</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  160 => 
-  array (
-    'music_id' => 1542979,
-    'cat_id' => 2,
-    'cat_level' => 5,
-    'cover_id' => 45540,
-    'music_title_url' => 'the-first-ending-instrumental~myth-roid',
-    'music_title' => 'The first ending (instrumental)',
-    'music_artist' => 'MYTH &amp;ROID',
-    'music_artist_id' => '71294;23391',
-    'music_album_id' => 'ZMCZ-10180',
-    'music_listen' => 1201,
-    'music_bitrate' => 1000,
-    'music_filename' => '1542979-35ff64c6.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 262,
-    'music_artist_html' => '<a href="/ca-si/MYTH-amp~Y3NuX2FydGlzdH43MTI5NA==.html">MYTH &amp</a>, <a href="/ca-si/ROID~Y3NuX2FydGlzdH4yMzM5MQ==.html">ROID</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  161 => 
+  122 => 
   array (
     'music_id' => 1035956,
     'cat_id' => 2,
@@ -3246,27 +2466,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/All-That-Jazz~Y3NuX2FydGlzdH4yNjIwNA==.html">All That Jazz</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
-  162 => 
-  array (
-    'music_id' => 1035967,
-    'cat_id' => 2,
-    'cat_level' => 5,
-    'cover_id' => 1160,
-    'music_title_url' => 'kazenotrimichi~all-that-jazz',
-    'music_title' => 'Kazenotōrimichi (風の通り道)',
-    'music_artist' => 'All That Jazz',
-    'music_artist_id' => '26204',
-    'music_album_id' => '',
-    'music_listen' => 2793,
-    'music_bitrate' => 256,
-    'music_filename' => '1035967-333423e8.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 215,
-    'music_artist_html' => '<a href="/ca-si/All-That-Jazz~Y3NuX2FydGlzdH4yNjIwNA==.html">All That Jazz</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: darkblue">256kbps</span>',
-  ),
-  163 => 
+  123 => 
   array (
     'music_id' => 1296183,
     'cat_id' => 2,
@@ -3286,7 +2486,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Joe-Hisaishi~Y3NuX2FydGlzdH4xMTg1.html">Joe Hisaishi</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  164 => 
+  124 => 
   array (
     'music_id' => 1667392,
     'cat_id' => 2,
@@ -3306,7 +2506,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Aimer~Y3NuX2FydGlzdH4yMzQwNw==.html">Aimer</a>, <a href="/ca-si/Chelly~Y3NuX2FydGlzdH41MTc0MQ==.html">Chelly</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  165 => 
+  125 => 
   array (
     'music_id' => 1035960,
     'cat_id' => 2,
@@ -3326,7 +2526,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/All-That-Jazz~Y3NuX2FydGlzdH4yNjIwNA==.html">All That Jazz</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
-  166 => 
+  126 => 
   array (
     'music_id' => 1673805,
     'cat_id' => 2,
@@ -3346,27 +2546,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Kajiura-Yuki~Y3NuX2FydGlzdH4yNjI2NQ==.html">Kajiura Yuki</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  167 => 
-  array (
-    'music_id' => 1035954,
-    'cat_id' => 2,
-    'cat_level' => 5,
-    'cover_id' => 1159,
-    'music_title_url' => 'gakenouenoponyo~all-that-jazz',
-    'music_title' => 'Gakenouenoponyo (崖の上のポニョ)',
-    'music_artist' => 'All That Jazz',
-    'music_artist_id' => '26204',
-    'music_album_id' => '',
-    'music_listen' => 5824,
-    'music_bitrate' => 320,
-    'music_filename' => '1035954-f2204417.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 173,
-    'music_artist_html' => '<a href="/ca-si/All-That-Jazz~Y3NuX2FydGlzdH4yNjIwNA==.html">All That Jazz</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
-  ),
-  168 => 
+  127 => 
   array (
     'music_id' => 1664003,
     'cat_id' => 2,
@@ -3386,27 +2566,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Mito~Y3NuX2FydGlzdH44Mzg5Mg==.html">Mito</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
-  169 => 
-  array (
-    'music_id' => 1035964,
-    'cat_id' => 2,
-    'cat_level' => 5,
-    'cover_id' => 1159,
-    'music_title_url' => 'nausicaa-requiem~all-that-jazz',
-    'music_title' => 'Nausicaa · Requiem (ナウシカ・レクイエム)',
-    'music_artist' => 'All That Jazz',
-    'music_artist_id' => '26204',
-    'music_album_id' => '',
-    'music_listen' => 3282,
-    'music_bitrate' => 320,
-    'music_filename' => '1035964-648865a4.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 113,
-    'music_artist_html' => '<a href="/ca-si/All-That-Jazz~Y3NuX2FydGlzdH4yNjIwNA==.html">All That Jazz</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
-  ),
-  170 => 
+  128 => 
   array (
     'music_id' => 1737234,
     'cat_id' => 2,
@@ -3426,7 +2586,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Kitaro~Y3NuX2FydGlzdH4xNzU1Nw==.html">Kitaro</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  171 => 
+  129 => 
   array (
     'music_id' => 1376174,
     'cat_id' => 2,
@@ -3446,7 +2606,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Akira-Yamaoka~Y3NuX2FydGlzdH4yOTI0Mw==.html">Akira Yamaoka</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  172 => 
+  130 => 
   array (
     'music_id' => 1673997,
     'cat_id' => 2,
@@ -3466,27 +2626,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Kajiura-Yuki~Y3NuX2FydGlzdH4yNjI2NQ==.html">Kajiura Yuki</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  173 => 
-  array (
-    'music_id' => 1569802,
-    'cat_id' => 2,
-    'cat_level' => 5,
-    'cover_id' => 47863,
-    'music_title_url' => 'kore-wa-kitto~masaru-yokoyama',
-    'music_title' => 'Kore Wa Kitto (これはきっと)',
-    'music_artist' => 'Masaru Yokoyama',
-    'music_artist_id' => '16399',
-    'music_album_id' => 'CD2',
-    'music_listen' => 1514,
-    'music_bitrate' => 1000,
-    'music_filename' => '1569802-bb858200.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 100,
-    'music_artist_html' => '<a href="/ca-si/Masaru-Yokoyama~Y3NuX2FydGlzdH4xNjM5OQ==.html">Masaru Yokoyama</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  174 => 
+  131 => 
   array (
     'music_id' => 1267885,
     'cat_id' => 2,
@@ -3506,7 +2646,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Various-Artists~Y3NuX2FydGlzdH45Nw==.html">Various Artists</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  175 => 
+  132 => 
   array (
     'music_id' => 1451272,
     'cat_id' => 2,
@@ -3526,7 +2666,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/mizuki~Y3NuX2FydGlzdH42MjEwOA==.html">mizuki</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  176 => 
+  133 => 
   array (
     'music_id' => 1569058,
     'cat_id' => 2,
@@ -3546,7 +2686,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Various-Artists~Y3NuX2FydGlzdH45Nw==.html">Various Artists</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
   ),
-  177 => 
+  134 => 
   array (
     'music_id' => 1692590,
     'cat_id' => 2,
@@ -3566,7 +2706,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Kenji-Kawai~Y3NuX2FydGlzdH4zNjE3Nw==.html">Kenji Kawai</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  178 => 
+  135 => 
   array (
     'music_id' => 1845015,
     'cat_id' => 2,
@@ -3586,7 +2726,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
-  179 => 
+  136 => 
   array (
     'music_id' => 1770374,
     'cat_id' => 2,
@@ -3606,7 +2746,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Various-Artists~Y3NuX2FydGlzdH45Nw==.html">Various Artists</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
   ),
-  180 => 
+  137 => 
   array (
     'music_id' => 1938205,
     'cat_id' => 2,
@@ -3626,7 +2766,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Evan-Call~Y3NuX2FydGlzdH4yMDk5OA==.html">Evan Call</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  181 => 
+  138 => 
   array (
     'music_id' => 1258878,
     'cat_id' => 2,
@@ -3646,7 +2786,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Kitaro~Y3NuX2FydGlzdH4xNzU1Nw==.html">Kitaro</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  182 => 
+  139 => 
   array (
     'music_id' => 1759864,
     'cat_id' => 2,
@@ -3666,7 +2806,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Nishiuchi-Mariya~Y3NuX2FydGlzdH43Njk0Mw==.html">Nishiuchi Mariya</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
-  183 => 
+  140 => 
   array (
     'music_id' => 1901400,
     'cat_id' => 2,
@@ -3686,47 +2826,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Nogizaka46~Y3NuX2FydGlzdH4xMzU1Nw==.html">Nogizaka46</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  184 => 
-  array (
-    'music_id' => 1700689,
-    'cat_id' => 2,
-    'cat_level' => 5,
-    'cover_id' => 61372,
-    'music_title_url' => 'boku-wa-inai~nmb48',
-    'music_title' => 'Boku wa Inai',
-    'music_artist' => 'NMB48',
-    'music_artist_id' => '16826',
-    'music_album_id' => 'YRCS-90128',
-    'music_listen' => 881,
-    'music_bitrate' => 1000,
-    'music_filename' => '1700689-50cc4b44.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 216,
-    'music_artist_html' => '<a href="/ca-si/NMB48~Y3NuX2FydGlzdH4xNjgyNg==.html">NMB48</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  185 => 
-  array (
-    'music_id' => 1768773,
-    'cat_id' => 2,
-    'cat_level' => 5,
-    'cover_id' => 0,
-    'music_title_url' => 'a-summers-day~jinsang',
-    'music_title' => 'A Summer\'s Day',
-    'music_artist' => 'Jinsang',
-    'music_artist_id' => '89932',
-    'music_album_id' => '',
-    'music_listen' => 1512,
-    'music_bitrate' => 320,
-    'music_filename' => '1768773-8781a644.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 124,
-    'music_artist_html' => '<a href="/ca-si/Jinsang~Y3NuX2FydGlzdH44OTkzMg==.html">Jinsang</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
-  ),
-  186 => 
+  141 => 
   array (
     'music_id' => 1772763,
     'cat_id' => 2,
@@ -3746,27 +2846,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Shoji-Meguro~Y3NuX2FydGlzdH4zOTA5OQ==.html">Shoji Meguro</a>, <a href="/ca-si/Lyn~Y3NuX2FydGlzdH40MTMy.html">Lyn</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  187 => 
-  array (
-    'music_id' => 1644088,
-    'cat_id' => 2,
-    'cat_level' => 5,
-    'cover_id' => 54798,
-    'music_title_url' => 'only-my-railgun~fripside',
-    'music_title' => 'only my railgun',
-    'music_artist' => 'fripSide',
-    'music_artist_id' => '18068',
-    'music_album_id' => 'GNCA-0151',
-    'music_listen' => 1582,
-    'music_bitrate' => 1000,
-    'music_filename' => '1644088-b3509e80.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 251,
-    'music_artist_html' => '<a href="/ca-si/fripSide~Y3NuX2FydGlzdH4xODA2OA==.html">fripSide</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  188 => 
+  142 => 
   array (
     'music_id' => 1947535,
     'cat_id' => 2,
@@ -3786,47 +2866,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/AAA~Y3NuX2FydGlzdH40NDAw.html">AAA</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  189 => 
-  array (
-    'music_id' => 1786320,
-    'cat_id' => 2,
-    'cat_level' => 5,
-    'cover_id' => 71370,
-    'music_title_url' => 'hanyou-inuyasha-boikw-edit-version~kaoru-wada',
-    'music_title' => 'Hanyou Inuyasha (b.O.I/k.W Edit Version)',
-    'music_artist' => 'Kaoru Wada',
-    'music_artist_id' => '4793',
-    'music_album_id' => '',
-    'music_listen' => 1155,
-    'music_bitrate' => 320,
-    'music_filename' => '1786320-e5137bd3.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 145,
-    'music_artist_html' => '<a href="/ca-si/Kaoru-Wada~Y3NuX2FydGlzdH40Nzkz.html">Kaoru Wada</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
-  ),
-  190 => 
-  array (
-    'music_id' => 1649169,
-    'cat_id' => 2,
-    'cat_level' => 5,
-    'cover_id' => 55320,
-    'music_title_url' => 'change-the-world~v6',
-    'music_title' => 'CHANGE THE WORLD',
-    'music_artist' => 'V6',
-    'music_artist_id' => '11474',
-    'music_album_id' => 'AVCD-30147',
-    'music_listen' => 1589,
-    'music_bitrate' => 1000,
-    'music_filename' => '1649169-db589d38.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 292,
-    'music_artist_html' => '<a href="/ca-si/V6~Y3NuX2FydGlzdH4xMTQ3NA==.html">V6</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  191 => 
+  143 => 
   array (
     'music_id' => 1794256,
     'cat_id' => 2,
@@ -3846,165 +2886,1125 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Funky-Monkey-Babys~Y3NuX2FydGlzdH45NzU2MA==.html">Funky Monkey Babys</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  192 => 
+  144 => 
   array (
-    'music_id' => 1648081,
+    'music_id' => 1879473,
     'cat_id' => 2,
     'cat_level' => 5,
-    'cover_id' => 55162,
-    'music_title_url' => 'ttaku-yoo-kyou-mo-shigoto-gakonee-janeeka~kamagata-eiichi',
-    'music_title' => 'Ttaku yoo, Kyou mo Shigoto Gakonee Janeeka',
-    'music_artist' => 'Kamagata Eiichi',
-    'music_artist_id' => '80499',
-    'music_album_id' => '',
-    'music_listen' => 945,
+    'cover_id' => 83882,
+    'music_title_url' => 'pop-team-epic~sumire-uesaka',
+    'music_title' => 'POP TEAM EPIC',
+    'music_artist' => 'Sumire Uesaka',
+    'music_artist_id' => '35628',
+    'music_album_id' => 'KICM-1824',
+    'music_listen' => 747,
     'music_bitrate' => 1000,
-    'music_filename' => '1648081-64cdf1b7.mp3',
+    'music_filename' => '1879473-eaa52ba3.mp3',
     'music_width' => 0,
     'music_height' => 0,
-    'music_length' => 104,
-    'music_artist_html' => '<a href="/ca-si/Kamagata-Eiichi~Y3NuX2FydGlzdH44MDQ5OQ==.html">Kamagata Eiichi</a>',
+    'music_length' => 323,
+    'music_artist_html' => '<a href="/ca-si/Sumire-Uesaka~Y3NuX2FydGlzdH4zNTYyOA==.html">Sumire Uesaka</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  145 => 
+  array (
+    'music_id' => 1764538,
+    'cat_id' => 2,
+    'cat_level' => 5,
+    'cover_id' => 68672,
+    'music_title_url' => 'hoshi-no-furu-machi~numakura-manami',
+    'music_title' => 'Hoshi no Furu Machi (星の降る町)',
+    'music_artist' => 'Numakura Manami',
+    'music_artist_id' => '47048',
+    'music_album_id' => 'VTCL-35254',
+    'music_listen' => 24531,
+    'music_bitrate' => 1000,
+    'music_filename' => '1764538-49004d71.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 320,
+    'music_artist_html' => '<a href="/ca-si/Numakura-Manami~Y3NuX2FydGlzdH40NzA0OA==.html">Numakura Manami</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  146 => 
+  array (
+    'music_id' => 1387744,
+    'cat_id' => 2,
+    'cat_level' => 5,
+    'cover_id' => 32195,
+    'music_title_url' => 'start~depapepe',
+    'music_title' => 'Start',
+    'music_artist' => 'Depapepe',
+    'music_artist_id' => '26800',
+    'music_album_id' => '',
+    'music_listen' => 59989,
+    'music_bitrate' => 1000,
+    'music_filename' => '1387744-5ae6d978.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 300,
+    'music_artist_html' => '<a href="/ca-si/Depapepe~Y3NuX2FydGlzdH4yNjgwMA==.html">Depapepe</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  147 => 
+  array (
+    'music_id' => 1766305,
+    'cat_id' => 2,
+    'cat_level' => 5,
+    'cover_id' => 68882,
+    'music_title_url' => 'baguette-iijan~hkt48',
+    'music_title' => 'Baguette Iijan',
+    'music_artist' => 'HKT48',
+    'music_artist_id' => '14603',
+    'music_album_id' => '',
+    'music_listen' => 16788,
+    'music_bitrate' => 275,
+    'music_filename' => '1766305-2260eed1.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 224,
+    'music_artist_html' => '<a href="/ca-si/HKT48~Y3NuX2FydGlzdH4xNDYwMw==.html">HKT48</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkblue">275kbps</span>',
+  ),
+  148 => 
+  array (
+    'music_id' => 1765551,
+    'cat_id' => 2,
+    'cat_level' => 5,
+    'cover_id' => 69508,
+    'music_title_url' => 'houseki-no-ame~perfume',
+    'music_title' => 'Houseki no Ame (宝石の雨)',
+    'music_artist' => 'Perfume',
+    'music_artist_id' => '11906',
+    'music_album_id' => '',
+    'music_listen' => 15958,
+    'music_bitrate' => 1000,
+    'music_filename' => '1765551-32ce571c.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 238,
+    'music_artist_html' => '<a href="/ca-si/Perfume~Y3NuX2FydGlzdH4xMTkwNg==.html">Perfume</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  149 => 
+  array (
+    'music_id' => 1206599,
+    'cat_id' => 2,
+    'cat_level' => 5,
+    'cover_id' => 15448,
+    'music_title_url' => 'one~depapepe',
+    'music_title' => 'ONE',
+    'music_artist' => 'Depapepe',
+    'music_artist_id' => '26800',
+    'music_album_id' => '',
+    'music_listen' => 54060,
+    'music_bitrate' => 1000,
+    'music_filename' => '1206599-80aa53ca.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 270,
+    'music_artist_html' => '<a href="/ca-si/Depapepe~Y3NuX2FydGlzdH4yNjgwMA==.html">Depapepe</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  150 => 
+  array (
+    'music_id' => 1068810,
+    'cat_id' => 2,
+    'cat_level' => 5,
+    'cover_id' => 4575,
+    'music_title_url' => 'begin~dbsk',
+    'music_title' => 'Begin',
+    'music_artist' => 'DBSK',
+    'music_artist_id' => '212',
+    'music_album_id' => '',
+    'music_listen' => 83450,
+    'music_bitrate' => 1000,
+    'music_filename' => '1068810-c6a490e3.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 291,
+    'music_artist_html' => '<a href="/ca-si/DBSK~Y3NuX2FydGlzdH4yMTI=.html">DBSK</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  151 => 
+  array (
+    'music_id' => 1715537,
+    'cat_id' => 2,
+    'cat_level' => 5,
+    'cover_id' => 68088,
+    'music_title_url' => 'itomori-koukou~radwimps',
+    'music_title' => 'Itomori Koukou (糸守高校)',
+    'music_artist' => 'RADWIMPS',
+    'music_artist_id' => '18652',
+    'music_album_id' => 'UPCH-20423',
+    'music_listen' => 26700,
+    'music_bitrate' => 1000,
+    'music_filename' => '1715537-ec97c474.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 111,
+    'music_artist_html' => '<a href="/ca-si/RADWIMPS~Y3NuX2FydGlzdH4xODY1Mg==.html">RADWIMPS</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  152 => 
+  array (
+    'music_id' => 1566730,
+    'cat_id' => 2,
+    'cat_level' => 5,
+    'cover_id' => -10147,
+    'music_title_url' => 'dragon-ball-z~shunsuke-kikuchi',
+    'music_title' => 'Dragon Ball Z',
+    'music_artist' => 'Shunsuke Kikuchi',
+    'music_artist_id' => '31613',
+    'music_album_id' => '',
+    'music_listen' => 12990,
+    'music_bitrate' => 1000,
+    'music_filename' => '1566730-89293bd8.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 525,
+    'music_artist_html' => '<a href="/ca-si/Shunsuke-Kikuchi~Y3NuX2FydGlzdH4zMTYxMw==.html">Shunsuke Kikuchi</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  153 => 
+  array (
+    'music_id' => 1715555,
+    'cat_id' => 2,
+    'cat_level' => 5,
+    'cover_id' => 68088,
+    'music_title_url' => 'mitsuha-no-theme~radwimps',
+    'music_title' => 'Mitsuha no Theme (三葉のテーマ)',
+    'music_artist' => 'RADWIMPS',
+    'music_artist_id' => '18652',
+    'music_album_id' => 'UPCH-20423',
+    'music_listen' => 24550,
+    'music_bitrate' => 1000,
+    'music_filename' => '1715555-e4d57381.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 246,
+    'music_artist_html' => '<a href="/ca-si/RADWIMPS~Y3NuX2FydGlzdH4xODY1Mg==.html">RADWIMPS</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  154 => 
+  array (
+    'music_id' => 1715552,
+    'cat_id' => 2,
+    'cat_level' => 5,
+    'cover_id' => 68088,
+    'music_title_url' => 'kuchikamizake-trip~radwimps',
+    'music_title' => 'Kuchikamizake Trip (口噛み酒トリップ)',
+    'music_artist' => 'RADWIMPS',
+    'music_artist_id' => '18652',
+    'music_album_id' => 'UPCH-20423',
+    'music_listen' => 16281,
+    'music_bitrate' => 1000,
+    'music_filename' => '1715552-d6a9662c.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 175,
+    'music_artist_html' => '<a href="/ca-si/RADWIMPS~Y3NuX2FydGlzdH4xODY1Mg==.html">RADWIMPS</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  155 => 
+  array (
+    'music_id' => 1759707,
+    'cat_id' => 2,
+    'cat_level' => 5,
+    'cover_id' => 68119,
+    'music_title_url' => 'wagamama-mirror-heart-mirror-heart~ohashi-ayaka',
+    'music_title' => 'Wagamama MIRROR HEART (ワガママMIRROR HEART)',
+    'music_artist' => 'Ohashi Ayaka',
+    'music_artist_id' => '18417',
+    'music_album_id' => 'LACM-14563',
+    'music_listen' => 13992,
+    'music_bitrate' => 1000,
+    'music_filename' => '1759707-6479ca87.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 274,
+    'music_artist_html' => '<a href="/ca-si/Ohashi-Ayaka~Y3NuX2FydGlzdH4xODQxNw==.html">Ohashi Ayaka</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  156 => 
+  array (
+    'music_id' => 1206744,
+    'cat_id' => 2,
+    'cat_level' => 5,
+    'cover_id' => 15454,
+    'music_title_url' => 'the-rising-fighting-spirit~toshiro-masuda',
+    'music_title' => 'The Rising Fighting Spirit',
+    'music_artist' => 'Toshiro Masuda',
+    'music_artist_id' => '1135',
+    'music_album_id' => '',
+    'music_listen' => 34504,
+    'music_bitrate' => 1000,
+    'music_filename' => '1206744-a2d124d3.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 96,
+    'music_artist_html' => '<a href="/ca-si/Toshiro-Masuda~Y3NuX2FydGlzdH4xMTM1.html">Toshiro Masuda</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  157 => 
+  array (
+    'music_id' => 1206746,
+    'cat_id' => 2,
+    'cat_level' => 5,
+    'cover_id' => 15454,
+    'music_title_url' => 'loneliness~toshiro-masuda',
+    'music_title' => 'Loneliness',
+    'music_artist' => 'Toshiro Masuda',
+    'music_artist_id' => '1135',
+    'music_album_id' => '',
+    'music_listen' => 33376,
+    'music_bitrate' => 1000,
+    'music_filename' => '1206746-a1e4ac45.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 126,
+    'music_artist_html' => '<a href="/ca-si/Toshiro-Masuda~Y3NuX2FydGlzdH4xMTM1.html">Toshiro Masuda</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  158 => 
+  array (
+    'music_id' => 1700120,
+    'cat_id' => 2,
+    'cat_level' => 5,
+    'cover_id' => 0,
+    'music_title_url' => 'rain-in-the-park~marika-takeuchi',
+    'music_title' => 'Rain In The Park',
+    'music_artist' => 'Marika Takeuchi',
+    'music_artist_id' => '36009',
+    'music_album_id' => '',
+    'music_listen' => 38902,
+    'music_bitrate' => 320,
+    'music_filename' => '1700120-aed6d816.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 229,
+    'music_artist_html' => '<a href="/ca-si/Marika-Takeuchi~Y3NuX2FydGlzdH4zNjAwOQ==.html">Marika Takeuchi</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+  ),
+  159 => 
+  array (
+    'music_id' => 1715540,
+    'cat_id' => 2,
+    'cat_level' => 5,
+    'cover_id' => 68088,
+    'music_title_url' => 'okudera-senpai-no-theme~radwimps',
+    'music_title' => 'Okudera-senpai no Theme (奥寺先輩のテーマ)',
+    'music_artist' => 'RADWIMPS',
+    'music_artist_id' => '18652',
+    'music_album_id' => 'UPCH-20423',
+    'music_listen' => 18232,
+    'music_bitrate' => 1000,
+    'music_filename' => '1715540-b9d1df83.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 127,
+    'music_artist_html' => '<a href="/ca-si/RADWIMPS~Y3NuX2FydGlzdH4xODY1Mg==.html">RADWIMPS</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  160 => 
+  array (
+    'music_id' => 1715554,
+    'cat_id' => 2,
+    'cat_level' => 5,
+    'cover_id' => 68088,
+    'music_title_url' => 'chou-chou-settoku~radwimps',
+    'music_title' => 'Chou Chou Settoku (町長説得)',
+    'music_artist' => 'RADWIMPS',
+    'music_artist_id' => '18652',
+    'music_album_id' => 'UPCH-20423',
+    'music_listen' => 9491,
+    'music_bitrate' => 1000,
+    'music_filename' => '1715554-d3288e70.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 169,
+    'music_artist_html' => '<a href="/ca-si/RADWIMPS~Y3NuX2FydGlzdH4xODY1Mg==.html">RADWIMPS</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  161 => 
+  array (
+    'music_id' => 1206739,
+    'cat_id' => 2,
+    'cat_level' => 5,
+    'cover_id' => 15454,
+    'music_title_url' => 'i-said-im-naruto~toshiro-masuda',
+    'music_title' => 'I Said I\'m Naruto!',
+    'music_artist' => 'Toshiro Masuda',
+    'music_artist_id' => '1135',
+    'music_album_id' => '',
+    'music_listen' => 29336,
+    'music_bitrate' => 1000,
+    'music_filename' => '1206739-13754782.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 98,
+    'music_artist_html' => '<a href="/ca-si/Toshiro-Masuda~Y3NuX2FydGlzdH4xMTM1.html">Toshiro Masuda</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  162 => 
+  array (
+    'music_id' => 1770687,
+    'cat_id' => 2,
+    'cat_level' => 5,
+    'cover_id' => 69396,
+    'music_title_url' => 'sensen-no-realism~niina-mako',
+    'music_title' => 'Sensen no Realism (戦線のリアリズム)',
+    'music_artist' => 'Niina Mako',
+    'music_artist_id' => '95088',
+    'music_album_id' => 'ZMCZ-10929',
+    'music_listen' => 8731,
+    'music_bitrate' => 1000,
+    'music_filename' => '1770687-a6a90447.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 266,
+    'music_artist_html' => '<a href="/ca-si/Niina-Mako~Y3NuX2FydGlzdH45NTA4OA==.html">Niina Mako</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  163 => 
+  array (
+    'music_id' => 1715539,
+    'cat_id' => 2,
+    'cat_level' => 5,
+    'cover_id' => 68088,
+    'music_title_url' => 'akogare-cafe~radwimps',
+    'music_title' => 'Akogare Cafe (憧れカフェ)',
+    'music_artist' => 'RADWIMPS',
+    'music_artist_id' => '18652',
+    'music_album_id' => 'UPCH-20423',
+    'music_listen' => 16062,
+    'music_bitrate' => 1000,
+    'music_filename' => '1715539-c7a31ca8.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 92,
+    'music_artist_html' => '<a href="/ca-si/RADWIMPS~Y3NuX2FydGlzdH4xODY1Mg==.html">RADWIMPS</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  164 => 
+  array (
+    'music_id' => 1258721,
+    'cat_id' => 2,
+    'cat_level' => 5,
+    'cover_id' => 19542,
+    'music_title_url' => 'caravansary~kitaro',
+    'music_title' => 'Caravansary',
+    'music_artist' => 'Kitaro',
+    'music_artist_id' => '17557',
+    'music_album_id' => '',
+    'music_listen' => 25866,
+    'music_bitrate' => 1000,
+    'music_filename' => '1258721-6e9418f6.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 364,
+    'music_artist_html' => '<a href="/ca-si/Kitaro~Y3NuX2FydGlzdH4xNzU1Nw==.html">Kitaro</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  165 => 
+  array (
+    'music_id' => 1770956,
+    'cat_id' => 2,
+    'cat_level' => 5,
+    'cover_id' => 69437,
+    'music_title_url' => 'uso-no-hibana~96neko',
+    'music_title' => 'Uso no Hibana',
+    'music_artist' => '96neko',
+    'music_artist_id' => '14569',
+    'music_album_id' => 'SRCL-9351~2',
+    'music_listen' => 11925,
+    'music_bitrate' => 1000,
+    'music_filename' => '1770956-62d43f4b.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 223,
+    'music_artist_html' => '<a href="/ca-si/96neko~Y3NuX2FydGlzdH4xNDU2OQ==.html">96neko</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  166 => 
+  array (
+    'music_id' => 1715549,
+    'cat_id' => 2,
+    'cat_level' => 5,
+    'cover_id' => 68088,
+    'music_title_url' => 'toshokan~radwimps',
+    'music_title' => 'Toshokan (図書館)',
+    'music_artist' => 'RADWIMPS',
+    'music_artist_id' => '18652',
+    'music_album_id' => 'UPCH-20423',
+    'music_listen' => 13532,
+    'music_bitrate' => 1000,
+    'music_filename' => '1715549-51c974d6.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 103,
+    'music_artist_html' => '<a href="/ca-si/RADWIMPS~Y3NuX2FydGlzdH4xODY1Mg==.html">RADWIMPS</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  167 => 
+  array (
+    'music_id' => 1715545,
+    'cat_id' => 2,
+    'cat_level' => 5,
+    'cover_id' => 68088,
+    'music_title_url' => 'aki-matsuri~radwimps',
+    'music_title' => 'Aki Matsuri (秋祭り)',
+    'music_artist' => 'RADWIMPS',
+    'music_artist_id' => '18652',
+    'music_album_id' => 'UPCH-20423',
+    'music_listen' => 14635,
+    'music_bitrate' => 1000,
+    'music_filename' => '1715545-77816eca.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 67,
+    'music_artist_html' => '<a href="/ca-si/RADWIMPS~Y3NuX2FydGlzdH4xODY1Mg==.html">RADWIMPS</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  168 => 
+  array (
+    'music_id' => 1673784,
+    'cat_id' => 2,
+    'cat_level' => 5,
+    'cover_id' => 58196,
+    'music_title_url' => 'swordland~kajiura-yuki',
+    'music_title' => 'Swordland',
+    'music_artist' => 'Kajiura Yuki',
+    'music_artist_id' => '26265',
+    'music_album_id' => '',
+    'music_listen' => 19608,
+    'music_bitrate' => 1000,
+    'music_filename' => '1673784-8ac92454.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 197,
+    'music_artist_html' => '<a href="/ca-si/Kajiura-Yuki~Y3NuX2FydGlzdH4yNjI2NQ==.html">Kajiura Yuki</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  169 => 
+  array (
+    'music_id' => 1765608,
+    'cat_id' => 2,
+    'cat_level' => 5,
+    'cover_id' => 68816,
+    'music_title_url' => 'catch-the-moment-instrumental~lisa',
+    'music_title' => 'Catch the Moment (Instrumental)',
+    'music_artist' => 'LiSA',
+    'music_artist_id' => '14995',
+    'music_album_id' => 'SVWC-70235',
+    'music_listen' => 9685,
+    'music_bitrate' => 1000,
+    'music_filename' => '1765608-738d25af.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 279,
+    'music_artist_html' => '<a href="/ca-si/LiSA~Y3NuX2FydGlzdH4xNDk5NQ==.html">LiSA</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  170 => 
+  array (
+    'music_id' => 1418262,
+    'cat_id' => 2,
+    'cat_level' => 5,
+    'cover_id' => 34703,
+    'music_title_url' => 'naruto-and-hinata~yasuharu-takanashi',
+    'music_title' => 'Naruto And Hinata',
+    'music_artist' => 'Yasuharu Takanashi',
+    'music_artist_id' => '35782',
+    'music_album_id' => 'Vol2',
+    'music_listen' => 19853,
+    'music_bitrate' => 320,
+    'music_filename' => '1418262-a05809d4.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 243,
+    'music_artist_html' => '<a href="/ca-si/Yasuharu-Takanashi~Y3NuX2FydGlzdH4zNTc4Mg==.html">Yasuharu Takanashi</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+  ),
+  171 => 
+  array (
+    'music_id' => 1769421,
+    'cat_id' => 2,
+    'cat_level' => 5,
+    'cover_id' => 69221,
+    'music_title_url' => 'tabidachi-no-uta~ayumikurikamaki',
+    'music_title' => 'Tabidachi no Uta (旅立ちの唄)',
+    'music_artist' => 'Ayumikurikamaki',
+    'music_artist_id' => '92633',
+    'music_album_id' => 'SECL-2082',
+    'music_listen' => 3921,
+    'music_bitrate' => 1000,
+    'music_filename' => '1769421-e024aa62.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 206,
+    'music_artist_html' => '<a href="/ca-si/Ayumikurikamaki~Y3NuX2FydGlzdH45MjYzMw==.html">Ayumikurikamaki</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  172 => 
+  array (
+    'music_id' => 1258732,
+    'cat_id' => 2,
+    'cat_level' => 5,
+    'cover_id' => 19540,
+    'music_title_url' => 'heaven-earth~kitaro',
+    'music_title' => 'Heaven &amp; Earth',
+    'music_artist' => 'Kitaro',
+    'music_artist_id' => '17557',
+    'music_album_id' => '',
+    'music_listen' => 31472,
+    'music_bitrate' => 1000,
+    'music_filename' => '1258732-2c45aebc.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 739,
+    'music_artist_html' => '<a href="/ca-si/Kitaro~Y3NuX2FydGlzdH4xNzU1Nw==.html">Kitaro</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  173 => 
+  array (
+    'music_id' => 1387746,
+    'cat_id' => 2,
+    'cat_level' => 5,
+    'cover_id' => 32195,
+    'music_title_url' => 'wedding-bell~depapepe',
+    'music_title' => 'Wedding Bell',
+    'music_artist' => 'Depapepe',
+    'music_artist_id' => '26800',
+    'music_album_id' => '',
+    'music_listen' => 27293,
+    'music_bitrate' => 1000,
+    'music_filename' => '1387746-46d41122.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 289,
+    'music_artist_html' => '<a href="/ca-si/Depapepe~Y3NuX2FydGlzdH4yNjgwMA==.html">Depapepe</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  174 => 
+  array (
+    'music_id' => 1569763,
+    'cat_id' => 2,
+    'cat_level' => 5,
+    'cover_id' => 47862,
+    'music_title_url' => 'shigatsu-wa-kimi-no-uso~masaru-yokoyama',
+    'music_title' => 'Shigatsu Wa Kimi No Uso (四月は君の嘘)',
+    'music_artist' => 'Masaru Yokoyama',
+    'music_artist_id' => '16399',
+    'music_album_id' => '',
+    'music_listen' => 24999,
+    'music_bitrate' => 1000,
+    'music_filename' => '1569763-6aa38679.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 105,
+    'music_artist_html' => '<a href="/ca-si/Masaru-Yokoyama~Y3NuX2FydGlzdH4xNjM5OQ==.html">Masaru Yokoyama</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  175 => 
+  array (
+    'music_id' => 1759365,
+    'cat_id' => 2,
+    'cat_level' => 5,
+    'cover_id' => 68088,
+    'music_title_url' => 'futari-no-ihen~radwimps',
+    'music_title' => 'Futari no Ihen (ふたりの異変)',
+    'music_artist' => 'RADWIMPS',
+    'music_artist_id' => '18652',
+    'music_album_id' => 'UPCH-20423',
+    'music_listen' => 13415,
+    'music_bitrate' => 1000,
+    'music_filename' => '1759365-41c75c8a.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 156,
+    'music_artist_html' => '<a href="/ca-si/RADWIMPS~Y3NuX2FydGlzdH4xODY1Mg==.html">RADWIMPS</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  176 => 
+  array (
+    'music_id' => 1715551,
+    'cat_id' => 2,
+    'cat_level' => 5,
+    'cover_id' => 68088,
+    'music_title_url' => 'goshintai-e-futatabi~radwimps',
+    'music_title' => 'Goshintai e Futatabi (御神体へ再び)',
+    'music_artist' => 'RADWIMPS',
+    'music_artist_id' => '18652',
+    'music_album_id' => 'UPCH-20423',
+    'music_listen' => 12277,
+    'music_bitrate' => 1000,
+    'music_filename' => '1715551-1706d66d.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 143,
+    'music_artist_html' => '<a href="/ca-si/RADWIMPS~Y3NuX2FydGlzdH4xODY1Mg==.html">RADWIMPS</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  177 => 
+  array (
+    'music_id' => 1715547,
+    'cat_id' => 2,
+    'cat_level' => 5,
+    'cover_id' => 68088,
+    'music_title_url' => 'hida-tanbou~radwimps',
+    'music_title' => 'Hida Tanbou (飛騨探訪)',
+    'music_artist' => 'RADWIMPS',
+    'music_artist_id' => '18652',
+    'music_album_id' => 'UPCH-20423',
+    'music_listen' => 13784,
+    'music_bitrate' => 1000,
+    'music_filename' => '1715547-a911db5d.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 92,
+    'music_artist_html' => '<a href="/ca-si/RADWIMPS~Y3NuX2FydGlzdH4xODY1Mg==.html">RADWIMPS</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  178 => 
+  array (
+    'music_id' => 1761524,
+    'cat_id' => 2,
+    'cat_level' => 5,
+    'cover_id' => 68314,
+    'music_title_url' => 'sandalleap~orangestar',
+    'music_title' => 'Sandalleap',
+    'music_artist' => 'Orangestar',
+    'music_artist_id' => '79938',
+    'music_album_id' => 'DUED-1206',
+    'music_listen' => 4242,
+    'music_bitrate' => 1000,
+    'music_filename' => '1761524-507d522a.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 214,
+    'music_artist_html' => '<a href="/ca-si/Orangestar~Y3NuX2FydGlzdH43OTkzOA==.html">Orangestar</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  179 => 
+  array (
+    'music_id' => 1569784,
+    'cat_id' => 2,
+    'cat_level' => 5,
+    'cover_id' => 47862,
+    'music_title_url' => 'kujikesou-ni-naru-watashi-wo-sasaete-kudasai~masaru-yokoyama',
+    'music_title' => 'Kujikesou Ni Naru Watashi Wo Sasaete Kudasai (挫けそうになる私を支えてください)',
+    'music_artist' => 'Masaru Yokoyama',
+    'music_artist_id' => '16399',
+    'music_album_id' => '',
+    'music_listen' => 21407,
+    'music_bitrate' => 1000,
+    'music_filename' => '1569784-3f8d656c.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 132,
+    'music_artist_html' => '<a href="/ca-si/Masaru-Yokoyama~Y3NuX2FydGlzdH4xNjM5OQ==.html">Masaru Yokoyama</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  180 => 
+  array (
+    'music_id' => 1715548,
+    'cat_id' => 2,
+    'cat_level' => 5,
+    'cover_id' => 68088,
+    'music_title_url' => 'kieta-machi~radwimps',
+    'music_title' => 'Kieta Machi (消えた町)',
+    'music_artist' => 'RADWIMPS',
+    'music_artist_id' => '18652',
+    'music_album_id' => 'UPCH-20423',
+    'music_listen' => 9824,
+    'music_bitrate' => 1000,
+    'music_filename' => '1715548-8923b2a3.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 115,
+    'music_artist_html' => '<a href="/ca-si/RADWIMPS~Y3NuX2FydGlzdH4xODY1Mg==.html">RADWIMPS</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  181 => 
+  array (
+    'music_id' => 1258748,
+    'cat_id' => 2,
+    'cat_level' => 5,
+    'cover_id' => 19544,
+    'music_title_url' => 'aqua~kitaro',
+    'music_title' => 'Aqua',
+    'music_artist' => 'Kitaro',
+    'music_artist_id' => '17557',
+    'music_album_id' => '',
+    'music_listen' => 23986,
+    'music_bitrate' => 1000,
+    'music_filename' => '1258748-20dcb323.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 381,
+    'music_artist_html' => '<a href="/ca-si/Kitaro~Y3NuX2FydGlzdH4xNzU1Nw==.html">Kitaro</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  182 => 
+  array (
+    'music_id' => 1773348,
+    'cat_id' => 2,
+    'cat_level' => 5,
+    'cover_id' => 69764,
+    'music_title_url' => 'oozora-dreamer~penguins-performance-project',
+    'music_title' => 'Oozora Dreamer (大空ドリーマー)',
+    'music_artist' => 'Penguins Performance Project',
+    'music_artist_id' => '95361',
+    'music_album_id' => 'VIZL-1108',
+    'music_listen' => 11028,
+    'music_bitrate' => 1000,
+    'music_filename' => '1773348-9b88c099.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 189,
+    'music_artist_html' => '<a href="/ca-si/Penguins-Performance-Project~Y3NuX2FydGlzdH45NTM2MQ==.html">Penguins Performance Project</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  183 => 
+  array (
+    'music_id' => 1744171,
+    'cat_id' => 2,
+    'cat_level' => 5,
+    'cover_id' => 66214,
+    'music_title_url' => 'mata-anata-no-koto-wo-kangaeteta~akb48',
+    'music_title' => 'Mata Anata no Koto wo Kangaeteta',
+    'music_artist' => 'AKB48',
+    'music_artist_id' => '723',
+    'music_album_id' => 'NMAX-1254',
+    'music_listen' => 8865,
+    'music_bitrate' => 1000,
+    'music_filename' => '1744171-937d9e29.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 300,
+    'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  184 => 
+  array (
+    'music_id' => 1715556,
+    'cat_id' => 2,
+    'cat_level' => 5,
+    'cover_id' => 68088,
+    'music_title_url' => 'mienai-futari~radwimps',
+    'music_title' => 'Mienai Futari (見えないふたり)',
+    'music_artist' => 'RADWIMPS',
+    'music_artist_id' => '18652',
+    'music_album_id' => 'UPCH-20423',
+    'music_listen' => 8645,
+    'music_bitrate' => 1000,
+    'music_filename' => '1715556-3df182c0.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 53,
+    'music_artist_html' => '<a href="/ca-si/RADWIMPS~Y3NuX2FydGlzdH4xODY1Mg==.html">RADWIMPS</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  185 => 
+  array (
+    'music_id' => 1569779,
+    'cat_id' => 2,
+    'cat_level' => 5,
+    'cover_id' => 47862,
+    'music_title_url' => 'yuujin-a-kun-wo-watashi-no-bansousha-ni-ninmeishimasu-a~masaru-yokoyama',
+    'music_title' => 'Yuujin A-kun Wo Watashi No Bansousha Ni Ninmeishimasu (友人A君を私の伴奏者に任命します)',
+    'music_artist' => 'Masaru Yokoyama',
+    'music_artist_id' => '16399',
+    'music_album_id' => '',
+    'music_listen' => 16793,
+    'music_bitrate' => 1000,
+    'music_filename' => '1569779-087761e4.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 146,
+    'music_artist_html' => '<a href="/ca-si/Masaru-Yokoyama~Y3NuX2FydGlzdH4xNjM5OQ==.html">Masaru Yokoyama</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  186 => 
+  array (
+    'music_id' => 1258846,
+    'cat_id' => 2,
+    'cat_level' => 5,
+    'cover_id' => 19555,
+    'music_title_url' => 'orochi~kitaro',
+    'music_title' => 'Orochi',
+    'music_artist' => 'Kitaro',
+    'music_artist_id' => '17557',
+    'music_album_id' => '',
+    'music_listen' => 24899,
+    'music_bitrate' => 1000,
+    'music_filename' => '1258846-618e4e9f.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 428,
+    'music_artist_html' => '<a href="/ca-si/Kitaro~Y3NuX2FydGlzdH4xNzU1Nw==.html">Kitaro</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  187 => 
+  array (
+    'music_id' => 1594304,
+    'cat_id' => 2,
+    'cat_level' => 5,
+    'cover_id' => 50182,
+    'music_title_url' => '365-nichi-no-kamihikouki~akb48',
+    'music_title' => '365 Nichi no Kamihikouki',
+    'music_artist' => 'AKB48',
+    'music_artist_id' => '723',
+    'music_album_id' => 'KIZM-9040X',
+    'music_listen' => 14181,
+    'music_bitrate' => 1000,
+    'music_filename' => '1594304-e8984224.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 282,
+    'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  188 => 
+  array (
+    'music_id' => 1778362,
+    'cat_id' => 2,
+    'cat_level' => 5,
+    'cover_id' => 70367,
+    'music_title_url' => 'eccentric~keyakizaka46',
+    'music_title' => 'Eccentric',
+    'music_artist' => 'Keyakizaka46',
+    'music_artist_id' => '15964',
+    'music_album_id' => 'SRCL-9402',
+    'music_listen' => 9605,
+    'music_bitrate' => 1000,
+    'music_filename' => '1778362-780bcc9e.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 271,
+    'music_artist_html' => '<a href="/ca-si/Keyakizaka46~Y3NuX2FydGlzdH4xNTk2NA==.html">Keyakizaka46</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  189 => 
+  array (
+    'music_id' => 1764115,
+    'cat_id' => 2,
+    'cat_level' => 5,
+    'cover_id' => 68622,
+    'music_title_url' => 'ishukan-communication~choro-gonzu-kuwahara-yuuki-nag',
+    'music_title' => 'Ishukan Communication (イシュカン・コミュニケーション)',
+    'music_artist' => 'Choro-gonzu: Kuwahara Yuuki;Naganawa Maria;Takada Yuuki;Takahashi Minami',
+    'music_artist_id' => '94307;94308;92099;30697',
+    'music_album_id' => 'LACM-14566',
+    'music_listen' => 7855,
+    'music_bitrate' => 1000,
+    'music_filename' => '1764115-2046ef02.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 242,
+    'music_artist_html' => '<a href="/ca-si/Choro-gonzu-Kuwahara-Yuuki~Y3NuX2FydGlzdH45NDMwNw==.html">Choro-gonzu: Kuwahara Yuuki</a>, <a href="/ca-si/Naganawa-Maria~Y3NuX2FydGlzdH45NDMwOA==.html">Naganawa Maria</a>, <a href="/ca-si/Takada-Yuuki~Y3NuX2FydGlzdH45MjA5OQ==.html">Takada Yuuki</a>, <a href="/ca-si/Takahashi-Minami~Y3NuX2FydGlzdH4zMDY5Nw==.html">Takahashi Minami</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  190 => 
+  array (
+    'music_id' => 1772919,
+    'cat_id' => 2,
+    'cat_level' => 5,
+    'cover_id' => 69702,
+    'music_title_url' => 'kanashii-uta-wo-kikitaku-natta~akb48',
+    'music_title' => 'Kanashii Uta wo Kikitaku Natta',
+    'music_artist' => 'AKB48',
+    'music_artist_id' => '723',
+    'music_album_id' => '',
+    'music_listen' => 8955,
+    'music_bitrate' => 276,
+    'music_filename' => '1772919-e59c2a86.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 270,
+    'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkblue">276kbps</span>',
+  ),
+  191 => 
+  array (
+    'music_id' => 1783126,
+    'cat_id' => 2,
+    'cat_level' => 5,
+    'cover_id' => 70970,
+    'music_title_url' => 'junjo-yoroshiku~ngt48',
+    'music_title' => 'Junjo Yoroshiku (純情よろしく)',
+    'music_artist' => 'NGT48',
+    'music_artist_id' => '13635',
+    'music_album_id' => 'BVCL-798',
+    'music_listen' => 5945,
+    'music_bitrate' => 1000,
+    'music_filename' => '1783126-985462f4.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 293,
+    'music_artist_html' => '<a href="/ca-si/NGT48~Y3NuX2FydGlzdH4xMzYzNQ==.html">NGT48</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  192 => 
+  array (
+    'music_id' => 1765533,
+    'cat_id' => 2,
+    'cat_level' => 5,
+    'cover_id' => 68803,
+    'music_title_url' => 'aozora-no-rhapsody~fhana',
+    'music_title' => 'Aozora no Rhapsody (青空のラプソディ)',
+    'music_artist' => 'fhána',
+    'music_artist_id' => '70008',
+    'music_album_id' => 'LACM-14565',
+    'music_listen' => 6554,
+    'music_bitrate' => 1000,
+    'music_filename' => '1765533-81074f58.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 276,
+    'music_artist_html' => '<a href="/ca-si/fhana~Y3NuX2FydGlzdH43MDAwOA==.html">fhána</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   193 => 
   array (
-    'music_id' => 457332,
+    'music_id' => 1432661,
     'cat_id' => 2,
     'cat_level' => 5,
-    'cover_id' => 0,
-    'music_title_url' => 'kyoto-no-koi~sam-taylor',
-    'music_title' => 'Kyoto No Koi',
-    'music_artist' => 'Sam Taylor',
-    'music_artist_id' => '117271',
-    'music_album_id' => '',
-    'music_listen' => 542,
-    'music_bitrate' => 128,
-    'music_filename' => '457332-7f6f63e2.mp3',
+    'cover_id' => 35985,
+    'music_title_url' => 'error~vixx',
+    'music_title' => 'ERROR',
+    'music_artist' => 'Vixx',
+    'music_artist_id' => '60445',
+    'music_album_id' => 'VUCJ-30005',
+    'music_listen' => 5192,
+    'music_bitrate' => 1000,
+    'music_filename' => '1432661-f85ea980.mp3',
     'music_width' => 0,
     'music_height' => 0,
-    'music_length' => 177,
-    'music_artist_html' => '<a href="/ca-si/Sam-Taylor~Y3NuX2FydGlzdH4xMTcyNzE=.html">Sam Taylor</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">128kbps</span>',
+    'music_length' => 227,
+    'music_artist_html' => '<a href="/ca-si/Vixx~Y3NuX2FydGlzdH42MDQ0NQ==.html">Vixx</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   194 => 
   array (
-    'music_id' => 1845381,
+    'music_id' => 1703568,
     'cat_id' => 2,
     'cat_level' => 5,
-    'cover_id' => 79420,
-    'music_title_url' => 'ikiru-koto-ni-nekkyou-wo~akb48',
-    'music_title' => 'Ikiru Koto ni Nekkyou wo! (生きることに熱狂を！)',
-    'music_artist' => 'AKB48',
-    'music_artist_id' => '723',
-    'music_album_id' => 'KIZM-90513',
-    'music_listen' => 831,
+    'cover_id' => 61655,
+    'music_title_url' => 'aozora-ga-chigau~keyakizaka46',
+    'music_title' => 'Aozora ga Chigau',
+    'music_artist' => 'Keyakizaka46',
+    'music_artist_id' => '15964',
+    'music_album_id' => 'SRCL-9151',
+    'music_listen' => 10987,
     'music_bitrate' => 1000,
-    'music_filename' => '1845381-d14d71f9.mp3',
+    'music_filename' => '1703568-a3e37ab3.mp3',
     'music_width' => 0,
     'music_height' => 0,
-    'music_length' => 222,
-    'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
+    'music_length' => 290,
+    'music_artist_html' => '<a href="/ca-si/Keyakizaka46~Y3NuX2FydGlzdH4xNTk2NA==.html">Keyakizaka46</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   195 => 
   array (
-    'music_id' => 1845604,
+    'music_id' => 1715553,
     'cat_id' => 2,
     'cat_level' => 5,
-    'cover_id' => 79436,
-    'music_title_url' => 'pathway~various-artists',
-    'music_title' => 'Pathway',
-    'music_artist' => 'Various Artists',
-    'music_artist_id' => '97',
-    'music_album_id' => 'ZMCZ-11622',
-    'music_listen' => 674,
+    'cover_id' => 68088,
+    'music_title_url' => 'sakusen-kaigi~radwimps',
+    'music_title' => 'Sakusen Kaigi (作戦会議)',
+    'music_artist' => 'RADWIMPS',
+    'music_artist_id' => '18652',
+    'music_album_id' => 'UPCH-20423',
+    'music_listen' => 8028,
     'music_bitrate' => 1000,
-    'music_filename' => '1845604-2ef9a4a5.mp3',
+    'music_filename' => '1715553-6ac9c871.mp3',
     'music_width' => 0,
     'music_height' => 0,
-    'music_length' => 177,
-    'music_artist_html' => '<a href="/ca-si/Various-Artists~Y3NuX2FydGlzdH45Nw==.html">Various Artists</a>',
+    'music_length' => 144,
+    'music_artist_html' => '<a href="/ca-si/RADWIMPS~Y3NuX2FydGlzdH4xODY1Mg==.html">RADWIMPS</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   196 => 
   array (
-    'music_id' => 1850937,
+    'music_id' => 1766299,
     'cat_id' => 2,
     'cat_level' => 5,
-    'cover_id' => 80134,
-    'music_title_url' => 'my-maitonight-mytonight~aqours',
-    'music_title' => 'MY MAI☆TONIGHT (MY舞☆TONIGHT)',
-    'music_artist' => 'Aqours',
-    'music_artist_id' => '19768',
-    'music_album_id' => 'LACM-14691',
-    'music_listen' => 1391,
-    'music_bitrate' => 1000,
-    'music_filename' => '1850937-4c3c0c78.mp3',
+    'cover_id' => 68881,
+    'music_title_url' => 'baguette-iijan~hkt48',
+    'music_title' => 'Baguette Iijan',
+    'music_artist' => 'HKT48',
+    'music_artist_id' => '14603',
+    'music_album_id' => '',
+    'music_listen' => 7984,
+    'music_bitrate' => 275,
+    'music_filename' => '1766299-b0b4fa09.mp3',
     'music_width' => 0,
     'music_height' => 0,
-    'music_length' => 262,
-    'music_artist_html' => '<a href="/ca-si/Aqours~Y3NuX2FydGlzdH4xOTc2OA==.html">Aqours</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_length' => 224,
+    'music_artist_html' => '<a href="/ca-si/HKT48~Y3NuX2FydGlzdH4xNDYwMw==.html">HKT48</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkblue">275kbps</span>',
   ),
   197 => 
   array (
-    'music_id' => 1814700,
+    'music_id' => 1206747,
     'cat_id' => 2,
     'cat_level' => 5,
-    'cover_id' => 75105,
-    'music_title_url' => 'nigemizu~nogizaka46',
-    'music_title' => 'Nigemizu (逃げ水)',
-    'music_artist' => 'Nogizaka46',
-    'music_artist_id' => '13557',
-    'music_album_id' => 'SRCL-9495',
-    'music_listen' => 758,
+    'cover_id' => 15454,
+    'music_title_url' => 'sakuras-theme~toshiro-masuda',
+    'music_title' => 'Sakura\'s Theme',
+    'music_artist' => 'Toshiro Masuda',
+    'music_artist_id' => '1135',
+    'music_album_id' => '',
+    'music_listen' => 14466,
     'music_bitrate' => 1000,
-    'music_filename' => '1814700-e1bf575d.mp3',
+    'music_filename' => '1206747-2584eb2d.mp3',
     'music_width' => 0,
     'music_height' => 0,
-    'music_length' => 308,
-    'music_artist_html' => '<a href="/ca-si/Nogizaka46~Y3NuX2FydGlzdH4xMzU1Nw==.html">Nogizaka46</a>',
+    'music_length' => 116,
+    'music_artist_html' => '<a href="/ca-si/Toshiro-Masuda~Y3NuX2FydGlzdH4xMTM1.html">Toshiro Masuda</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   198 => 
   array (
-    'music_id' => 1588418,
+    'music_id' => 1765550,
     'cat_id' => 2,
     'cat_level' => 5,
-    'cover_id' => 49732,
-    'music_title_url' => 'boredom-taikutsu~yoshihisa-hirano-hideki-taniuchi',
-    'music_title' => 'Boredom (Taikutsu; 退屈)',
-    'music_artist' => 'Yoshihisa Hirano;Hideki Taniuchi',
-    'music_artist_id' => '75605;75606',
+    'cover_id' => 69508,
+    'music_title_url' => 'tokyo-girl~perfume',
+    'music_title' => 'Tokyo Girl',
+    'music_artist' => 'Perfume',
+    'music_artist_id' => '11906',
     'music_album_id' => '',
-    'music_listen' => 433,
-    'music_bitrate' => 320,
-    'music_filename' => '1588418-832dcd7f.mp3',
+    'music_listen' => 5446,
+    'music_bitrate' => 1000,
+    'music_filename' => '1765550-9c451b47.mp3',
     'music_width' => 0,
     'music_height' => 0,
-    'music_length' => 126,
-    'music_artist_html' => '<a href="/ca-si/Yoshihisa-Hirano~Y3NuX2FydGlzdH43NTYwNQ==.html">Yoshihisa Hirano</a>, <a href="/ca-si/Hideki-Taniuchi~Y3NuX2FydGlzdH43NTYwNg==.html">Hideki Taniuchi</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+    'music_length' => 267,
+    'music_artist_html' => '<a href="/ca-si/Perfume~Y3NuX2FydGlzdH4xMTkwNg==.html">Perfume</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
   199 => 
   array (
-    'music_id' => 1671805,
+    'music_id' => 1766307,
     'cat_id' => 2,
     'cat_level' => 5,
-    'cover_id' => 57945,
-    'music_title_url' => 'nigashita-sakana-wa-okiizo~tsuri-bit',
-    'music_title' => 'Nigashita Sakana Wa Okiizo (ニガシタサカナハオオキイゾ)',
-    'music_artist' => 'Tsuri Bit',
-    'music_artist_id' => '85097',
-    'music_album_id' => 'RPK-1038',
-    'music_listen' => 314,
-    'music_bitrate' => 1000,
-    'music_filename' => '1671805-51ad776a.mp3',
+    'cover_id' => 68882,
+    'music_title_url' => 'boku-dake-no-hakujitsumu~hkt48',
+    'music_title' => 'Boku Dake no Hakujitsumu',
+    'music_artist' => 'HKT48',
+    'music_artist_id' => '14603',
+    'music_album_id' => '',
+    'music_listen' => 4164,
+    'music_bitrate' => 275,
+    'music_filename' => '1766307-c15f5512.mp3',
     'music_width' => 0,
     'music_height' => 0,
-    'music_length' => 281,
-    'music_artist_html' => '<a href="/ca-si/Tsuri-Bit~Y3NuX2FydGlzdH44NTA5Nw==.html">Tsuri Bit</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_length' => 237,
+    'music_artist_html' => '<a href="/ca-si/HKT48~Y3NuX2FydGlzdH4xNDYwMw==.html">HKT48</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkblue">275kbps</span>',
   ),
 );
 ?>

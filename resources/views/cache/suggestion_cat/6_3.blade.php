@@ -1508,46 +1508,6 @@ $typeDup = array (
   ),
   75 => 
   array (
-    'music_id' => 1961022,
-    'cat_id' => 6,
-    'cat_level' => 3,
-    'cover_id' => 95573,
-    'music_title_url' => 'starry-winter-night~snuper',
-    'music_title' => 'Starry Winter Night',
-    'music_artist' => 'Snuper',
-    'music_artist_id' => '13927',
-    'music_album_id' => 'INT-0166',
-    'music_listen' => 0,
-    'music_bitrate' => 1000,
-    'music_filename' => '1961022-a0b08366.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 219,
-    'music_artist_html' => '<a href="/ca-si/Snuper~Y3NuX2FydGlzdH4xMzkyNw==.html">Snuper</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  76 => 
-  array (
-    'music_id' => 1961023,
-    'cat_id' => 6,
-    'cat_level' => 3,
-    'cover_id' => 95573,
-    'music_title_url' => 'nanairo-days-korean-version~snuper',
-    'music_title' => 'Nanairo days (Korean Version)',
-    'music_artist' => 'Snuper',
-    'music_artist_id' => '13927',
-    'music_album_id' => 'INT-0166',
-    'music_listen' => 0,
-    'music_bitrate' => 1000,
-    'music_filename' => '1961023-3cb01426.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 275,
-    'music_artist_html' => '<a href="/ca-si/Snuper~Y3NuX2FydGlzdH4xMzkyNw==.html">Snuper</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  77 => 
-  array (
     'music_id' => 1919144,
     'cat_id' => 6,
     'cat_level' => 3,
@@ -1566,7 +1526,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/BlackPink~Y3NuX2FydGlzdH4xNDY3Mw==.html">BlackPink</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  78 => 
+  76 => 
   array (
     'music_id' => 1908095,
     'cat_id' => 6,
@@ -1586,7 +1546,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Seventeen~Y3NuX2FydGlzdH4xNDY1NQ==.html">Seventeen</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">256kbps</span>',
   ),
-  79 => 
+  77 => 
   array (
     'music_id' => 1905989,
     'cat_id' => 6,
@@ -1606,7 +1566,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Produce-48~Y3NuX2FydGlzdH4xNDk4NA==.html">Produce 48</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  80 => 
+  78 => 
   array (
     'music_id' => 1897277,
     'cat_id' => 6,
@@ -1626,7 +1586,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/EXO-CBX~Y3NuX2FydGlzdH4xMzU3Mw==.html">EXO-CBX</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  81 => 
+  79 => 
   array (
     'music_id' => 1921425,
     'cat_id' => 6,
@@ -1646,7 +1606,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/NUEST-W~Y3NuX2FydGlzdH4xODMzMw==.html">NU\'EST W</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  82 => 
+  80 => 
   array (
     'music_id' => 1949962,
     'cat_id' => 6,
@@ -1666,7 +1626,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Produce-48~Y3NuX2FydGlzdH4xNDk4NA==.html">Produce 48</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  83 => 
+  81 => 
   array (
     'music_id' => 1923440,
     'cat_id' => 6,
@@ -1686,7 +1646,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/BlackPink~Y3NuX2FydGlzdH4xNDY3Mw==.html">BlackPink</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  84 => 
+  82 => 
   array (
     'music_id' => 1748565,
     'cat_id' => 6,
@@ -1706,7 +1666,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Seventeen~Y3NuX2FydGlzdH4xNDY1NQ==.html">Seventeen</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  85 => 
+  83 => 
   array (
     'music_id' => 1720316,
     'cat_id' => 6,
@@ -1726,7 +1686,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Got7~Y3NuX2FydGlzdH40MTU3.html">Got7</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  86 => 
+  84 => 
   array (
     'music_id' => 1726504,
     'cat_id' => 6,
@@ -1746,7 +1706,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Pentagon~Y3NuX2FydGlzdH4xNDA5NQ==.html">Pentagon</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
-  87 => 
+  85 => 
   array (
     'music_id' => 1785928,
     'cat_id' => 6,
@@ -1766,7 +1726,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Momoland~Y3NuX2FydGlzdH4xMzM5MQ==.html">Momoland</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  88 => 
+  86 => 
   array (
     'music_id' => 1947126,
     'cat_id' => 6,
@@ -1786,7 +1746,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/BTS~Y3NuX2FydGlzdH40NzQ4.html">BTS</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  89 => 
+  87 => 
   array (
     'music_id' => 1316516,
     'cat_id' => 6,
@@ -1806,7 +1766,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Fx~Y3NuX2FydGlzdH4xNTQ0.html">F(x)</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  90 => 
+  88 => 
   array (
     'music_id' => 1427456,
     'cat_id' => 6,
@@ -1826,7 +1786,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Skrillex~Y3NuX2FydGlzdH40NTE2.html">Skrillex</a>, <a href="/ca-si/Diplo~Y3NuX2FydGlzdH44ODM1.html">Diplo</a>, <a href="/ca-si/G-Dragon~Y3NuX2FydGlzdH4xNjgy.html">G-Dragon</a>, <a href="/ca-si/CL~Y3NuX2FydGlzdH4xMDA3.html">CL</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  91 => 
+  89 => 
   array (
     'music_id' => 1720310,
     'cat_id' => 6,
@@ -1846,7 +1806,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Got7~Y3NuX2FydGlzdH40MTU3.html">Got7</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  92 => 
+  90 => 
   array (
     'music_id' => 1917321,
     'cat_id' => 6,
@@ -1866,7 +1826,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/SHINee~Y3NuX2FydGlzdH4xODIx.html">SHINee</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  93 => 
+  91 => 
   array (
     'music_id' => 1807697,
     'cat_id' => 6,
@@ -1886,7 +1846,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/KARD~Y3NuX2FydGlzdH4yMDM5Mw==.html">KARD</a>, <a href="/ca-si/Heo-Youngji~Y3NuX2FydGlzdH42OTA4MA==.html">Heo Youngji</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
-  94 => 
+  92 => 
   array (
     'music_id' => 1937713,
     'cat_id' => 6,
@@ -1906,7 +1866,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/iKON~Y3NuX2FydGlzdH4xNDM1OQ==.html">iKON</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  95 => 
+  93 => 
   array (
     'music_id' => 1921335,
     'cat_id' => 6,
@@ -1926,7 +1886,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Taemin~Y3NuX2FydGlzdH4yOTYy.html">Taemin</a>, <a href="/ca-si/Bewhy~Y3NuX2FydGlzdH4xODMwOA==.html">Bewhy</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  96 => 
+  94 => 
   array (
     'music_id' => 1950734,
     'cat_id' => 6,
@@ -1946,7 +1906,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Sunmi~Y3NuX2FydGlzdH40Mjg0.html">Sunmi</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  97 => 
+  95 => 
   array (
     'music_id' => 1591628,
     'cat_id' => 6,
@@ -1966,7 +1926,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/PSY~Y3NuX2FydGlzdH4yNjQ1.html">PSY</a>, <a href="/ca-si/CL~Y3NuX2FydGlzdH4xMDA3.html">CL</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
-  98 => 
+  96 => 
   array (
     'music_id' => 1325795,
     'cat_id' => 6,
@@ -1986,7 +1946,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Ingram-Jones~Y3NuX2FydGlzdH41MDg4MA==.html">Ingram Jones</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
   ),
-  99 => 
+  97 => 
   array (
     'music_id' => 1807264,
     'cat_id' => 6,
@@ -2006,7 +1966,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/EXO~Y3NuX2FydGlzdH4yNTcy.html">EXO</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
-  100 => 
+  98 => 
   array (
     'music_id' => 1748568,
     'cat_id' => 6,
@@ -2026,7 +1986,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Seventeen~Y3NuX2FydGlzdH4xNDY1NQ==.html">Seventeen</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  101 => 
+  99 => 
   array (
     'music_id' => 1931819,
     'cat_id' => 6,
@@ -2046,7 +2006,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/BI~Y3NuX2FydGlzdH4xMTU2OA==.html">B.I</a>, <a href="/ca-si/Seungri~Y3NuX2FydGlzdH4xMjcwOQ==.html">Seungri</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  102 => 
+  100 => 
   array (
     'music_id' => 1895208,
     'cat_id' => 6,
@@ -2066,7 +2026,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Winner~Y3NuX2FydGlzdH40NzQ3.html">Winner</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  103 => 
+  101 => 
   array (
     'music_id' => 1910861,
     'cat_id' => 6,
@@ -2086,7 +2046,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/SEVENTEEN~Y3NuX2FydGlzdH4xNjA3OQ==.html">SEVENTEEN</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">256kbps</span>',
   ),
-  104 => 
+  102 => 
   array (
     'music_id' => 1912972,
     'cat_id' => 6,
@@ -2106,7 +2066,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Samuel~Y3NuX2FydGlzdH4xMzUxNA==.html">Samuel</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  105 => 
+  103 => 
   array (
     'music_id' => 1918856,
     'cat_id' => 6,
@@ -2126,7 +2086,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Kim-Hyun-Soo~Y3NuX2FydGlzdH4xNzc2MA==.html">Kim Hyun Soo</a>, <a href="/ca-si/Woo-Jin-Young~Y3NuX2FydGlzdH4xNzc2MQ==.html">Woo Jin Young</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  106 => 
+  104 => 
   array (
     'music_id' => 1902872,
     'cat_id' => 6,
@@ -2146,7 +2106,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/BTOB~Y3NuX2FydGlzdH4zMjk2.html">BTOB</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  107 => 
+  105 => 
   array (
     'music_id' => 1720303,
     'cat_id' => 6,
@@ -2166,7 +2126,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Got7~Y3NuX2FydGlzdH40MTU3.html">Got7</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  108 => 
+  106 => 
   array (
     'music_id' => 1723836,
     'cat_id' => 6,
@@ -2186,7 +2146,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Chen~Y3NuX2FydGlzdH40MjQ5.html">Chen</a>, <a href="/ca-si/Alesso~Y3NuX2FydGlzdH4yMjkzNQ==.html">Alesso</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  109 => 
+  107 => 
   array (
     'music_id' => 1902900,
     'cat_id' => 6,
@@ -2206,7 +2166,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/GFriend~Y3NuX2FydGlzdH4xMzM5MA==.html">GFriend</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  110 => 
+  108 => 
   array (
     'music_id' => 1950733,
     'cat_id' => 6,
@@ -2226,7 +2186,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Sunmi~Y3NuX2FydGlzdH40Mjg0.html">Sunmi</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  111 => 
+  109 => 
   array (
     'music_id' => 1807290,
     'cat_id' => 6,
@@ -2246,7 +2206,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/EXO~Y3NuX2FydGlzdH4yNTcy.html">EXO</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  112 => 
+  110 => 
   array (
     'music_id' => 1960498,
     'cat_id' => 6,
@@ -2266,7 +2226,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Seven-OClock~Y3NuX2FydGlzdH4xMjI3NjE=.html">Seven O\'Clock</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  113 => 
+  111 => 
   array (
     'music_id' => 1960497,
     'cat_id' => 6,
@@ -2286,7 +2246,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Seven-OClock~Y3NuX2FydGlzdH4xMjI3NjE=.html">Seven O\'Clock</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  114 => 
+  112 => 
   array (
     'music_id' => 1959417,
     'cat_id' => 6,
@@ -2306,7 +2266,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Maniac~Y3NuX2FydGlzdH4xMDAyNTk=.html">Maniac</a>, <a href="/ca-si/Solbi~Y3NuX2FydGlzdH4xMDY2MzE=.html">Solbi</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  115 => 
+  113 => 
   array (
     'music_id' => 1765202,
     'cat_id' => 6,
@@ -2326,7 +2286,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/BTS~Y3NuX2FydGlzdH40NzQ4.html">BTS</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
-  116 => 
+  114 => 
   array (
     'music_id' => 1383045,
     'cat_id' => 6,
@@ -2346,7 +2306,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Song-Ji-Eun~Y3NuX2FydGlzdH4zOTI3.html">Song Ji Eun</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  117 => 
+  115 => 
   array (
     'music_id' => 1717063,
     'cat_id' => 6,
@@ -2366,7 +2326,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Yoo-Jae-Suk~Y3NuX2FydGlzdH4zNDU4Nw==.html">Yoo Jae Suk</a>, <a href="/ca-si/EXO~Y3NuX2FydGlzdH4yNTcy.html">EXO</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">266kbps</span>',
   ),
-  118 => 
+  116 => 
   array (
     'music_id' => 1920588,
     'cat_id' => 6,
@@ -2386,7 +2346,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Seventeen~Y3NuX2FydGlzdH4xNDY1NQ==.html">Seventeen</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  119 => 
+  117 => 
   array (
     'music_id' => 1383044,
     'cat_id' => 6,
@@ -2406,7 +2366,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Song-Ji-Eun~Y3NuX2FydGlzdH4zOTI3.html">Song Ji Eun</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  120 => 
+  118 => 
   array (
     'music_id' => 1904699,
     'cat_id' => 6,
@@ -2426,7 +2386,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/EXID~Y3NuX2FydGlzdH4xMzIwOQ==.html">EXID</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  121 => 
+  119 => 
   array (
     'music_id' => 1904697,
     'cat_id' => 6,
@@ -2446,7 +2406,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/EXID~Y3NuX2FydGlzdH4xMzIwOQ==.html">EXID</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  122 => 
+  120 => 
   array (
     'music_id' => 1151769,
     'cat_id' => 6,
@@ -2466,7 +2426,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Nine-Muses~Y3NuX2FydGlzdH4xODQ0.html">Nine Muses</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  123 => 
+  121 => 
   array (
     'music_id' => 1316520,
     'cat_id' => 6,
@@ -2486,7 +2446,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Fx~Y3NuX2FydGlzdH4xNTQ0.html">F(x)</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  124 => 
+  122 => 
   array (
     'music_id' => 1316526,
     'cat_id' => 6,
@@ -2506,7 +2466,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Fx~Y3NuX2FydGlzdH4xNTQ0.html">F(x)</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  125 => 
+  123 => 
   array (
     'music_id' => 1720307,
     'cat_id' => 6,
@@ -2526,7 +2486,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Got7~Y3NuX2FydGlzdH40MTU3.html">Got7</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  126 => 
+  124 => 
   array (
     'music_id' => 1380758,
     'cat_id' => 6,
@@ -2546,7 +2506,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Yiruma~Y3NuX2FydGlzdH4xMDc1.html">Yiruma</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
-  127 => 
+  125 => 
   array (
     'music_id' => 1750634,
     'cat_id' => 6,
@@ -2566,7 +2526,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/KARD~Y3NuX2FydGlzdH4yMDQwMw==.html">K.A.R.D</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
-  128 => 
+  126 => 
   array (
     'music_id' => 1542948,
     'cat_id' => 6,
@@ -2586,7 +2546,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/GD-X-Teayang~Y3NuX2FydGlzdH43MTI4Nw==.html">GD X Teayang</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
-  129 => 
+  127 => 
   array (
     'music_id' => 1720300,
     'cat_id' => 6,
@@ -2606,7 +2566,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Got7~Y3NuX2FydGlzdH40MTU3.html">Got7</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  130 => 
+  128 => 
   array (
     'music_id' => 1193582,
     'cat_id' => 6,
@@ -2626,7 +2586,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/T-Ara~Y3NuX2FydGlzdH4xNDEz.html">T-Ara</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  131 => 
+  129 => 
   array (
     'music_id' => 1720308,
     'cat_id' => 6,
@@ -2646,7 +2606,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Got7~Y3NuX2FydGlzdH40MTU3.html">Got7</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  132 => 
+  130 => 
   array (
     'music_id' => 1437074,
     'cat_id' => 6,
@@ -2666,7 +2626,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/EXID~Y3NuX2FydGlzdH4xMzIwOQ==.html">EXID</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
-  133 => 
+  131 => 
   array (
     'music_id' => 1720315,
     'cat_id' => 6,
@@ -2686,7 +2646,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Got7~Y3NuX2FydGlzdH40MTU3.html">Got7</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  134 => 
+  132 => 
   array (
     'music_id' => 1720302,
     'cat_id' => 6,
@@ -2706,7 +2666,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Got7~Y3NuX2FydGlzdH40MTU3.html">Got7</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  135 => 
+  133 => 
   array (
     'music_id' => 1720309,
     'cat_id' => 6,
@@ -2726,7 +2686,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Got7~Y3NuX2FydGlzdH40MTU3.html">Got7</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  136 => 
+  134 => 
   array (
     'music_id' => 1090959,
     'cat_id' => 6,
@@ -2746,27 +2706,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Kara~Y3NuX2FydGlzdH4yNzkz.html">Kara</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  137 => 
-  array (
-    'music_id' => 1895380,
-    'cat_id' => 6,
-    'cat_level' => 3,
-    'cover_id' => 86115,
-    'music_title_url' => 'the-ghost-of-wind~zea',
-    'music_title' => 'The Ghost Of Wind',
-    'music_artist' => 'ZE:A',
-    'music_artist_id' => '2068',
-    'music_album_id' => 'KTMCD-027',
-    'music_listen' => 16087,
-    'music_bitrate' => 1000,
-    'music_filename' => '1895380-1bb54eec.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 211,
-    'music_artist_html' => '<a href="/ca-si/ZEA~Y3NuX2FydGlzdH4yMDY4.html">ZE:A</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  138 => 
+  135 => 
   array (
     'music_id' => 1054787,
     'cat_id' => 6,
@@ -2786,7 +2726,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Koyote~Y3NuX2FydGlzdH4xMDE3MQ==.html">Koyote</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  139 => 
+  136 => 
   array (
     'music_id' => 1807700,
     'cat_id' => 6,
@@ -2806,7 +2746,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/KARD~Y3NuX2FydGlzdH4yMDM5Mw==.html">KARD</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
-  140 => 
+  137 => 
   array (
     'music_id' => 1735172,
     'cat_id' => 6,
@@ -2826,7 +2766,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/BASTARZ~Y3NuX2FydGlzdH42NDg2OQ==.html">BASTARZ</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
-  141 => 
+  138 => 
   array (
     'music_id' => 1937715,
     'cat_id' => 6,
@@ -2846,7 +2786,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/iKON~Y3NuX2FydGlzdH4xNDM1OQ==.html">iKON</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  142 => 
+  139 => 
   array (
     'music_id' => 1756841,
     'cat_id' => 6,
@@ -2866,7 +2806,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/NCT-127~Y3NuX2FydGlzdH4xNTYxOA==.html">NCT 127</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
-  143 => 
+  140 => 
   array (
     'music_id' => 1797887,
     'cat_id' => 6,
@@ -2886,7 +2826,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/MOMOLAND~Y3NuX2FydGlzdH4xNTU1Nw==.html">MOMOLAND</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
-  144 => 
+  141 => 
   array (
     'music_id' => 1920451,
     'cat_id' => 6,
@@ -2906,7 +2846,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Akdong-Musician~Y3NuX2FydGlzdH40NDQw.html">Akdong Musician</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  145 => 
+  142 => 
   array (
     'music_id' => 1732298,
     'cat_id' => 6,
@@ -2926,7 +2866,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/BASTARZ~Y3NuX2FydGlzdH42NDg2OQ==.html">BASTARZ</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
-  146 => 
+  143 => 
   array (
     'music_id' => 1934170,
     'cat_id' => 6,
@@ -2946,7 +2886,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/KARD~Y3NuX2FydGlzdH4yMDM5Mw==.html">KARD</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  147 => 
+  144 => 
   array (
     'music_id' => 1923768,
     'cat_id' => 6,
@@ -2966,7 +2906,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Lovelyz~Y3NuX2FydGlzdH4xMzYzOA==.html">Lovelyz</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  148 => 
+  145 => 
   array (
     'music_id' => 1810630,
     'cat_id' => 6,
@@ -2986,7 +2926,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/BIG~Y3NuX2FydGlzdH41NjYyMw==.html">B.I.G</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  149 => 
+  146 => 
   array (
     'music_id' => 1917325,
     'cat_id' => 6,
@@ -3006,7 +2946,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/SHINee~Y3NuX2FydGlzdH4xODIx.html">SHINee</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  150 => 
+  147 => 
   array (
     'music_id' => 1756839,
     'cat_id' => 6,
@@ -3026,7 +2966,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/NCT-127~Y3NuX2FydGlzdH4xNTYxOA==.html">NCT 127</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
-  151 => 
+  148 => 
   array (
     'music_id' => 1462388,
     'cat_id' => 6,
@@ -3046,7 +2986,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Rain~Y3NuX2FydGlzdH45NjQ=.html">Rain</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
-  152 => 
+  149 => 
   array (
     'music_id' => 1800393,
     'cat_id' => 6,
@@ -3066,7 +3006,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Jay-Park~Y3NuX2FydGlzdH4zMzU4.html">Jay Park</a>, <a href="/ca-si/Crush~Y3NuX2FydGlzdH40NTg0.html">Crush</a>, <a href="/ca-si/Simon-Dominic~Y3NuX2FydGlzdH40NDQx.html">Simon Dominic</a>, <a href="/ca-si/Honey-Cocaine~Y3NuX2FydGlzdH42MjMwMg==.html">Honey Cocaine</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  153 => 
+  150 => 
   array (
     'music_id' => 1807271,
     'cat_id' => 6,
@@ -3086,7 +3026,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/EXO~Y3NuX2FydGlzdH4yNTcy.html">EXO</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
-  154 => 
+  151 => 
   array (
     'music_id' => 1663166,
     'cat_id' => 6,
@@ -3106,7 +3046,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Lee-Jung-Hyun~Y3NuX2FydGlzdH4xMDUyNQ==.html">Lee Jung Hyun</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  155 => 
+  152 => 
   array (
     'music_id' => 441938,
     'cat_id' => 6,
@@ -3126,7 +3066,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Psy~Y3NuX2FydGlzdH4xMjY3Nw==.html">Psy</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">128kbps</span>',
   ),
-  156 => 
+  153 => 
   array (
     'music_id' => 1663163,
     'cat_id' => 6,
@@ -3146,7 +3086,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Lee-Jung-Hyun~Y3NuX2FydGlzdH4xMDUyNQ==.html">Lee Jung Hyun</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  157 => 
+  154 => 
   array (
     'music_id' => 1616975,
     'cat_id' => 6,
@@ -3166,7 +3106,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Shim-Mixes~Y3NuX2FydGlzdH43ODQ1MQ==.html">Shim Mixes</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
   ),
-  158 => 
+  155 => 
   array (
     'music_id' => 1857096,
     'cat_id' => 6,
@@ -3186,7 +3126,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Big-Mama~Y3NuX2FydGlzdH4xMTA5NA==.html">Big Mama</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  159 => 
+  156 => 
   array (
     'music_id' => 1950639,
     'cat_id' => 6,
@@ -3206,27 +3146,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Basick~Y3NuX2FydGlzdH4xODQwMQ==.html">Basick</a>, <a href="/ca-si/Sori~Y3NuX2FydGlzdH4xMTI0Nw==.html">Sori</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  160 => 
-  array (
-    'music_id' => 1910749,
-    'cat_id' => 6,
-    'cat_level' => 3,
-    'cover_id' => 88454,
-    'music_title_url' => 'princess~samuel',
-    'music_title' => 'Princess',
-    'music_artist' => 'Samuel',
-    'music_artist_id' => '13514',
-    'music_album_id' => 'L200001548',
-    'music_listen' => 1019,
-    'music_bitrate' => 1000,
-    'music_filename' => '1910749-00187be5.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 206,
-    'music_artist_html' => '<a href="/ca-si/Samuel~Y3NuX2FydGlzdH4xMzUxNA==.html">Samuel</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  161 => 
+  157 => 
   array (
     'music_id' => 1900050,
     'cat_id' => 6,
@@ -3246,7 +3166,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/DJ-HYO~Y3NuX2FydGlzdH4xMzI5NA==.html">DJ HYO</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
-  162 => 
+  158 => 
   array (
     'music_id' => 1931853,
     'cat_id' => 6,
@@ -3266,7 +3186,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/HYOLYN~Y3NuX2FydGlzdH4yMDEwMw==.html">HYOLYN</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
-  163 => 
+  159 => 
   array (
     'music_id' => 1945652,
     'cat_id' => 6,
@@ -3286,7 +3206,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/UP10TION~Y3NuX2FydGlzdH4xNDk3MA==.html">UP10TION</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  164 => 
+  160 => 
   array (
     'music_id' => 1897402,
     'cat_id' => 6,
@@ -3306,7 +3226,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/4Minute~Y3NuX2FydGlzdH4xNTcx.html">4Minute</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  165 => 
+  161 => 
   array (
     'music_id' => 1910830,
     'cat_id' => 6,
@@ -3326,7 +3246,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Bagagee-Viphex13~Y3NuX2FydGlzdH4xNjA2MQ==.html">Bagagee Viphex13</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  166 => 
+  162 => 
   array (
     'music_id' => 1952596,
     'cat_id' => 6,
@@ -3346,67 +3266,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Thai-Quynh~Y3NuX2FydGlzdH4yMzYxMA==.html">Thái Quỳnh</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
-  167 => 
-  array (
-    'music_id' => 1953171,
-    'cat_id' => 6,
-    'cat_level' => 3,
-    'cover_id' => 94511,
-    'music_title_url' => 'game-over~humming-urban-stereo',
-    'music_title' => 'Game Over',
-    'music_artist' => 'Humming Urban Stereo',
-    'music_artist_id' => '23703',
-    'music_album_id' => '',
-    'music_listen' => 244,
-    'music_bitrate' => 1000,
-    'music_filename' => '1953171-7a416b47.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 196,
-    'music_artist_html' => '<a href="/ca-si/Humming-Urban-Stereo~Y3NuX2FydGlzdH4yMzcwMw==.html">Humming Urban Stereo</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  168 => 
-  array (
-    'music_id' => 1920405,
-    'cat_id' => 6,
-    'cat_level' => 3,
-    'cover_id' => 89928,
-    'music_title_url' => 'ktbs-kong-tteok-bing-su-radio-edit~akdong-musician',
-    'music_title' => 'KTBS (Kong Tteok Bing Su) (Radio Edit)',
-    'music_artist' => 'Akdong Musician',
-    'music_artist_id' => '4440',
-    'music_album_id' => '',
-    'music_listen' => 240,
-    'music_bitrate' => 1000,
-    'music_filename' => '1920405-fc57903b.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 176,
-    'music_artist_html' => '<a href="/ca-si/Akdong-Musician~Y3NuX2FydGlzdH40NDQw.html">Akdong Musician</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  169 => 
-  array (
-    'music_id' => 1905610,
-    'cat_id' => 6,
-    'cat_level' => 3,
-    'cover_id' => 0,
-    'music_title_url' => 'best-of-2015-k-pop-mega-mash-up~shimmixes',
-    'music_title' => 'Best Of 2015 K-Pop Mega Mash-Up',
-    'music_artist' => 'SHIMMixes',
-    'music_artist_id' => '14804',
-    'music_album_id' => '',
-    'music_listen' => 149,
-    'music_bitrate' => 256,
-    'music_filename' => '1905610-797c7a13.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 591,
-    'music_artist_html' => '<a href="/ca-si/SHIMMixes~Y3NuX2FydGlzdH4xNDgwNA==.html">SHIMMixes</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: darkblue">256kbps</span>',
-  ),
-  170 => 
+  163 => 
   array (
     'music_id' => 1766380,
     'cat_id' => 6,
@@ -3426,7 +3286,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/KARD~Y3NuX2FydGlzdH4yMDQwMw==.html">K.A.R.D</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  171 => 
+  164 => 
   array (
     'music_id' => 1920597,
     'cat_id' => 6,
@@ -3446,7 +3306,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Seventeen~Y3NuX2FydGlzdH4xNDY1NQ==.html">Seventeen</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  172 => 
+  165 => 
   array (
     'music_id' => 1246648,
     'cat_id' => 6,
@@ -3466,7 +3326,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/BigBang~Y3NuX2FydGlzdH40NDEyNg==.html">BigBang</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  173 => 
+  166 => 
   array (
     'music_id' => 1313459,
     'cat_id' => 6,
@@ -3486,7 +3346,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Fiestar~Y3NuX2FydGlzdH40MTM0.html">Fiestar</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
-  174 => 
+  167 => 
   array (
     'music_id' => 1904698,
     'cat_id' => 6,
@@ -3506,7 +3366,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/EXID~Y3NuX2FydGlzdH4xMzIwOQ==.html">EXID</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  175 => 
+  168 => 
   array (
     'music_id' => 1399793,
     'cat_id' => 6,
@@ -3526,7 +3386,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Chen~Y3NuX2FydGlzdH40MjQ5.html">Chen</a>, <a href="/ca-si/SM-Rookies~Y3NuX2FydGlzdH41MzQ1OQ==.html">SM Rookies</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">128kbps</span>',
   ),
-  176 => 
+  169 => 
   array (
     'music_id' => 1895200,
     'cat_id' => 6,
@@ -3546,7 +3406,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Winner~Y3NuX2FydGlzdH40NzQ3.html">Winner</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  177 => 
+  170 => 
   array (
     'music_id' => 1731807,
     'cat_id' => 6,
@@ -3566,7 +3426,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/24K~Y3NuX2FydGlzdH4xNjMzOA==.html">24K</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
-  178 => 
+  171 => 
   array (
     'music_id' => 1708524,
     'cat_id' => 6,
@@ -3586,7 +3446,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/TripleT-Hyoyeon-Min-Jo-Kwon~Y3NuX2FydGlzdH44ODgwNw==.html">TripleT (Hyoyeon, Min, Jo Kwon)</a>, <a href="/ca-si/JY-Park~Y3NuX2FydGlzdH44ODgwOA==.html">J.Y. Park</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
-  179 => 
+  172 => 
   array (
     'music_id' => 1667463,
     'cat_id' => 6,
@@ -3606,7 +3466,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/R3hab~Y3NuX2FydGlzdH4xNDUwMQ==.html">R3hab</a>, <a href="/ca-si/Amber~Y3NuX2FydGlzdH43Nzcz.html">Amber</a>, <a href="/ca-si/Luna~Y3NuX2FydGlzdH40NTA4.html">Luna</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">128kbps</span>',
   ),
-  180 => 
+  173 => 
   array (
     'music_id' => 1140739,
     'cat_id' => 6,
@@ -3626,7 +3486,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Kara~Y3NuX2FydGlzdH4yNzkz.html">Kara</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  181 => 
+  174 => 
   array (
     'music_id' => 1748566,
     'cat_id' => 6,
@@ -3646,7 +3506,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Seventeen~Y3NuX2FydGlzdH4xNDY1NQ==.html">Seventeen</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  182 => 
+  175 => 
   array (
     'music_id' => 1152600,
     'cat_id' => 6,
@@ -3666,7 +3526,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Nine-Muses~Y3NuX2FydGlzdH4xODQ0.html">Nine Muses</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  183 => 
+  176 => 
   array (
     'music_id' => 1524302,
     'cat_id' => 6,
@@ -3686,7 +3546,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/STELLAR~Y3NuX2FydGlzdH42OTU3NA==.html">STELLAR</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
-  184 => 
+  177 => 
   array (
     'music_id' => 1947125,
     'cat_id' => 6,
@@ -3706,7 +3566,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/BTS~Y3NuX2FydGlzdH40NzQ4.html">BTS</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  185 => 
+  178 => 
   array (
     'music_id' => 1735545,
     'cat_id' => 6,
@@ -3726,7 +3586,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Block-B-Bastarz~Y3NuX2FydGlzdH4xNTg1Mg==.html">Block B Bastarz</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
-  186 => 
+  179 => 
   array (
     'music_id' => 1101120,
     'cat_id' => 6,
@@ -3746,7 +3606,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/T-Ara~Y3NuX2FydGlzdH4xNDEz.html">T-Ara</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  187 => 
+  180 => 
   array (
     'music_id' => 1054456,
     'cat_id' => 6,
@@ -3766,7 +3626,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Sistar~Y3NuX2FydGlzdH4xOTE2.html">Sistar</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  188 => 
+  181 => 
   array (
     'music_id' => 1663164,
     'cat_id' => 6,
@@ -3786,7 +3646,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Lee-Jung-Hyun~Y3NuX2FydGlzdH4xMDUyNQ==.html">Lee Jung Hyun</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  189 => 
+  182 => 
   array (
     'music_id' => 1912970,
     'cat_id' => 6,
@@ -3806,7 +3666,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Lee-Rohan~Y3NuX2FydGlzdH4xNjUyMw==.html">Lee Rohan</a>, <a href="/ca-si/Samuel~Y3NuX2FydGlzdH4xMzUxNA==.html">Samuel</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  190 => 
+  183 => 
   array (
     'music_id' => 1894779,
     'cat_id' => 6,
@@ -3826,7 +3686,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/The-Boyz~Y3NuX2FydGlzdH4xOTM4MA==.html">The Boyz</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  191 => 
+  184 => 
   array (
     'music_id' => 1018944,
     'cat_id' => 6,
@@ -3846,7 +3706,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Koyote~Y3NuX2FydGlzdH4xMDE3MQ==.html">Koyote</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
   ),
-  192 => 
+  185 => 
   array (
     'music_id' => 1741241,
     'cat_id' => 6,
@@ -3866,7 +3726,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Snuper~Y3NuX2FydGlzdH4xMzkyNw==.html">Snuper</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
-  193 => 
+  186 => 
   array (
     'music_id' => 1181242,
     'cat_id' => 6,
@@ -3886,7 +3746,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/After-School~Y3NuX2FydGlzdH4xNTcy.html">After School</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
-  194 => 
+  187 => 
   array (
     'music_id' => 1763725,
     'cat_id' => 6,
@@ -3906,47 +3766,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Block-B~Y3NuX2FydGlzdH4yNjQ2.html">Block B</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
-  195 => 
-  array (
-    'music_id' => 1333984,
-    'cat_id' => 6,
-    'cat_level' => 3,
-    'cover_id' => 26881,
-    'music_title_url' => 'as-time-goes-by~team-h',
-    'music_title' => 'As Time Goes By',
-    'music_artist' => 'Team H',
-    'music_artist_id' => '48257',
-    'music_album_id' => '',
-    'music_listen' => 1564,
-    'music_bitrate' => 1000,
-    'music_filename' => '1333984-04f0d2fe.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 213,
-    'music_artist_html' => '<a href="/ca-si/Team-H~Y3NuX2FydGlzdH40ODI1Nw==.html">Team H</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  196 => 
-  array (
-    'music_id' => 1018940,
-    'cat_id' => 6,
-    'cat_level' => 3,
-    'cover_id' => 340,
-    'music_title_url' => 'white-fairy~koyote',
-    'music_title' => 'White Fairy (하얀동화)',
-    'music_artist' => 'Koyote',
-    'music_artist_id' => '10171',
-    'music_album_id' => '',
-    'music_listen' => 3732,
-    'music_bitrate' => 192,
-    'music_filename' => '1018940-c3f2eb48.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 247,
-    'music_artist_html' => '<a href="/ca-si/Koyote~Y3NuX2FydGlzdH4xMDE3MQ==.html">Koyote</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
-  ),
-  197 => 
+  188 => 
   array (
     'music_id' => 1934169,
     'cat_id' => 6,
@@ -3966,7 +3786,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/KARD~Y3NuX2FydGlzdH4yMDM5Mw==.html">KARD</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  198 => 
+  189 => 
   array (
     'music_id' => 1917784,
     'cat_id' => 6,
@@ -3986,7 +3806,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/BTOB~Y3NuX2FydGlzdH4zMjk2.html">BTOB</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  199 => 
+  190 => 
   array (
     'music_id' => 1690299,
     'cat_id' => 6,
@@ -4005,6 +3825,186 @@ $typeDup = array (
     'music_length' => 185,
     'music_artist_html' => '<a href="/ca-si/Stellar~Y3NuX2FydGlzdH40NTU0.html">Stellar</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+  ),
+  191 => 
+  array (
+    'music_id' => 1807265,
+    'cat_id' => 6,
+    'cat_level' => 3,
+    'cover_id' => 74128,
+    'music_title_url' => 'what-u-do~exo',
+    'music_title' => 'What U do?',
+    'music_artist' => 'EXO',
+    'music_artist_id' => '2572',
+    'music_album_id' => '',
+    'music_listen' => 3745,
+    'music_bitrate' => 320,
+    'music_filename' => '1807265-f0e41bfa.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 221,
+    'music_artist_html' => '<a href="/ca-si/EXO~Y3NuX2FydGlzdH4yNTcy.html">EXO</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+  ),
+  192 => 
+  array (
+    'music_id' => 1917322,
+    'cat_id' => 6,
+    'cat_level' => 3,
+    'cover_id' => 89476,
+    'music_title_url' => 'chemistry~shinee',
+    'music_title' => 'Chemistry',
+    'music_artist' => 'SHINee',
+    'music_artist_id' => '1821',
+    'music_album_id' => 'SMK-1014',
+    'music_listen' => 2231,
+    'music_bitrate' => 1000,
+    'music_filename' => '1917322-87bb5fbc.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 216,
+    'music_artist_html' => '<a href="/ca-si/SHINee~Y3NuX2FydGlzdH4xODIx.html">SHINee</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  193 => 
+  array (
+    'music_id' => 1836334,
+    'cat_id' => 6,
+    'cat_level' => 3,
+    'cover_id' => 78168,
+    'music_title_url' => 'power-imlay-remix~exo',
+    'music_title' => 'Power (IMLAY Remix)',
+    'music_artist' => 'EXO',
+    'music_artist_id' => '2572',
+    'music_album_id' => '',
+    'music_listen' => 1994,
+    'music_bitrate' => 1000,
+    'music_filename' => '1836334-20b74d07.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 198,
+    'music_artist_html' => '<a href="/ca-si/EXO~Y3NuX2FydGlzdH4yNTcy.html">EXO</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  194 => 
+  array (
+    'music_id' => 1937758,
+    'cat_id' => 6,
+    'cat_level' => 3,
+    'cover_id' => 92440,
+    'music_title_url' => 'unlimited~sf9',
+    'music_title' => 'Unlimited',
+    'music_artist' => 'SF9',
+    'music_artist_id' => '14098',
+    'music_album_id' => 'L200001601',
+    'music_listen' => 1976,
+    'music_bitrate' => 1000,
+    'music_filename' => '1937758-a32175a4.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 224,
+    'music_artist_html' => '<a href="/ca-si/SF9~Y3NuX2FydGlzdH4xNDA5OA==.html">SF9</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  195 => 
+  array (
+    'music_id' => 1921573,
+    'cat_id' => 6,
+    'cat_level' => 3,
+    'cover_id' => 90170,
+    'music_title_url' => 'i-wanna-be-a-celeb~celeb-five',
+    'music_title' => 'I Wanna Be A Celeb',
+    'music_artist' => 'Celeb Five',
+    'music_artist_id' => '18372',
+    'music_album_id' => '',
+    'music_listen' => 3471,
+    'music_bitrate' => 1000,
+    'music_filename' => '1921573-f6f15f83.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 148,
+    'music_artist_html' => '<a href="/ca-si/Celeb-Five~Y3NuX2FydGlzdH4xODM3Mg==.html">Celeb Five</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  196 => 
+  array (
+    'music_id' => 1942927,
+    'cat_id' => 6,
+    'cat_level' => 3,
+    'cover_id' => 93165,
+    'music_title_url' => 'rollin-new-version~brave-girls',
+    'music_title' => 'Rollin\' (New Version)',
+    'music_artist' => 'Brave Girls',
+    'music_artist_id' => '12960',
+    'music_album_id' => '',
+    'music_listen' => 3576,
+    'music_bitrate' => 1000,
+    'music_filename' => '1942927-ee5f054e.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 201,
+    'music_artist_html' => '<a href="/ca-si/Brave-Girls~Y3NuX2FydGlzdH4xMjk2MA==.html">Brave Girls</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  197 => 
+  array (
+    'music_id' => 1939476,
+    'cat_id' => 6,
+    'cat_level' => 3,
+    'cover_id' => 92690,
+    'music_title_url' => 'y-shirt-deep-inside~hee-do-soya',
+    'music_title' => 'Y-Shirt (Deep Inside)',
+    'music_artist' => 'Hee Do;Soya',
+    'music_artist_id' => '21154;12813',
+    'music_album_id' => '',
+    'music_listen' => 3060,
+    'music_bitrate' => 1000,
+    'music_filename' => '1939476-6742ecb2.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 247,
+    'music_artist_html' => '<a href="/ca-si/Hee-Do~Y3NuX2FydGlzdH4yMTE1NA==.html">Hee Do</a>, <a href="/ca-si/Soya~Y3NuX2FydGlzdH4xMjgxMw==.html">Soya</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  198 => 
+  array (
+    'music_id' => 1937249,
+    'cat_id' => 6,
+    'cat_level' => 3,
+    'cover_id' => 92373,
+    'music_title_url' => 'bring-the-beat-joeysuki-re-edit~arikama-juncoco-shaun',
+    'music_title' => 'Bring The Beat (Joeysuki Re-Edit)',
+    'music_artist' => 'Arikama;Juncoco;Shaun',
+    'music_artist_id' => '20887;16063;19209',
+    'music_album_id' => '',
+    'music_listen' => 908,
+    'music_bitrate' => 1000,
+    'music_filename' => '1937249-e5c6a48c.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 262,
+    'music_artist_html' => '<a href="/ca-si/Arikama~Y3NuX2FydGlzdH4yMDg4Nw==.html">Arikama</a>, <a href="/ca-si/Juncoco~Y3NuX2FydGlzdH4xNjA2Mw==.html">Juncoco</a>, <a href="/ca-si/Shaun~Y3NuX2FydGlzdH4xOTIwOQ==.html">Shaun</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  199 => 
+  array (
+    'music_id' => 1950746,
+    'cat_id' => 6,
+    'cat_level' => 3,
+    'cover_id' => 94143,
+    'music_title_url' => 'star~nam-taehyun',
+    'music_title' => 'Star',
+    'music_artist' => 'Nam Taehyun',
+    'music_artist_id' => '23262',
+    'music_album_id' => '',
+    'music_listen' => 2848,
+    'music_bitrate' => 1000,
+    'music_filename' => '1950746-f56e8583.mp3',
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_length' => 173,
+    'music_artist_html' => '<a href="/ca-si/Nam-Taehyun~Y3NuX2FydGlzdH4yMzI2Mg==.html">Nam Taehyun</a>',
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
 );
 ?>

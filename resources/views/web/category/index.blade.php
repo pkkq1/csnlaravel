@@ -221,9 +221,9 @@ if($category->cat_id == 3 || $category->cat_id == 4 || $category->cat_id == 5 ||
                             <ul class="list-unstyled bxh mb-0">
                                 <?php
                                 if($category->cat_id == CAT_VIDEO){
-                                    $catMusic = array_slice($hot_video_rows[$category->cat_level == 0 ? 1 : $category->cat_level], 0, LIMIT_HOME_CAT_MUSIC);
+                                    $catMusic = $hot_video_rows ? array_slice($hot_video_rows[$category->cat_level == 0 ? 1 : $category->cat_level], 0, LIMIT_HOME_CAT_MUSIC) : [];
                                 }else{
-                                    $catMusic = array_slice($hot_music_rows[$category->cat_id], 0, LIMIT_HOME_CAT_MUSIC);
+                                    $catMusic = $hot_music_rows ? array_slice($hot_music_rows[$category->cat_id], 0, LIMIT_HOME_CAT_MUSIC) : [];
                                 }
                                 array_map(function ($i, $item) use ($category) {
                                 $musicId = Helpers::music_id($item);

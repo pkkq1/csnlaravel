@@ -33,9 +33,10 @@ $hot_music_rows = array (
       'music_listen' => 14018,
       'music_track_id' => 0,
       'music_filename' => '1757975-7042a5ee.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Hoai-Son~Y3NuX2FydGlzdH4yMTA5OA==.html">Hoài Sơn</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     1 => 
     array (
@@ -60,7 +61,7 @@ $hot_music_rows = array (
       'music_listen' => 11555,
       'music_track_id' => 2,
       'music_filename' => '1760185-fe2a1992.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'See ya never gone my way
 Better will someday
 Never far away.
@@ -72,6 +73,7 @@ Aju meollineun gajineun anheulge.
 See ya never gone my way
 Better on...',
       'music_artist_html' => '<a href="/ca-si/Heize~Y3NuX2FydGlzdH4xNTcwMA==.html">Heize</a>, <a href="/ca-si/Han-Soo-Ji~Y3NuX2FydGlzdH4xNTcwMQ==.html">Han Soo Ji</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     2 => 
     array (
@@ -96,7 +98,7 @@ Better on...',
       'music_listen' => 107246,
       'music_track_id' => 2,
       'music_filename' => '1757202-06102206.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Tôi đang ở một nơi rất xa 
 Nơi không có khói bụi thành phố 
 Ở một nơi đẹp như mơ 
@@ -106,6 +108,7 @@ Cuộc đời tôi là những chuyến đi dài.
 
 Vượt suối đá,v...',
       'music_artist_html' => '<a href="/ca-si/Soobin-Hoang-Son~Y3NuX2FydGlzdH4zMTA4.html">Soobin Hoàng Sơn</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     3 => 
     array (
@@ -130,9 +133,10 @@ Vượt suối đá,v...',
       'music_listen' => 91294,
       'music_track_id' => 1,
       'music_filename' => '1759345-d5f0393f.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Don-Diablo~Y3NuX2FydGlzdH4xMzc3Ng==.html">Don Diablo</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     4 => 
     array (
@@ -157,9 +161,10 @@ Vượt suối đá,v...',
       'music_listen' => 5939,
       'music_track_id' => 3,
       'music_filename' => '1758657-3d8c063e.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Tracey-Chattaway~Y3NuX2FydGlzdH44Mzk2Nw==.html">Tracey Chattaway</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     5 => 
     array (
@@ -184,9 +189,10 @@ Vượt suối đá,v...',
       'music_listen' => 51752,
       'music_track_id' => 1,
       'music_filename' => '1759081-20f38132.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Mike-Williams~Y3NuX2FydGlzdH4xNDk5Ng==.html">Mike Williams</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     6 => 
     array (
@@ -211,9 +217,10 @@ Vượt suối đá,v...',
       'music_listen' => 33739,
       'music_track_id' => 0,
       'music_filename' => '1759999-d1430edc.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Alan-Walker~Y3NuX2FydGlzdH4xNDk5MQ==.html">Alan Walker</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     7 => 
     array (
@@ -238,97 +245,12 @@ Vượt suối đá,v...',
       'music_listen' => 5451,
       'music_track_id' => 8,
       'music_filename' => '1759807-50d59cad.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/DJ-Okawari~Y3NuX2FydGlzdH4yNTI5OQ==.html">DJ Okawari</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     8 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1759394,
-      'music_title_url' => 'im-sorry~justin-timberlake',
-      'music_title' => 'I\'m Sorry',
-      'music_artist' => 'Justin Timberlake',
-      'music_artist_id' => '494',
-      'cat_id' => 2,
-      'cat_level' => 2,
-      'cat_sublevel' => 8,
-      'cat_custom' => 0,
-      'cover_id' => 68089,
-      'music_download_time' => 1501663778,
-      'music_last_update_time' => 1503597850,
-      'music_title_search' => 'i m xori',
-      'music_artist_search' => '; juxtin timberlake;',
-      'music_album_search' => 'the bok of love; oridnal motion picture xoundchack',
-      'music_composer' => '',
-      'music_album' => 'The Book Of Love (Original Motion Picture Soundtrack)',
-      'music_listen' => 689,
-      'music_track_id' => 11,
-      'music_filename' => '1759394-ba282532.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
-      'music_shortlyric' => '',
-      'music_artist_html' => '<a href="/ca-si/Justin-Timberlake~Y3NuX2FydGlzdH40OTQ=.html">Justin Timberlake</a>',
-    ),
-    9 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1759393,
-      'music_title_url' => 'pajamas~justin-timberlake',
-      'music_title' => 'Pajamas',
-      'music_artist' => 'Justin Timberlake',
-      'music_artist_id' => '494',
-      'cat_id' => 2,
-      'cat_level' => 2,
-      'cat_sublevel' => 8,
-      'cat_custom' => 0,
-      'cover_id' => 68089,
-      'music_download_time' => 1528912893,
-      'music_last_update_time' => 1503597838,
-      'music_title_search' => 'pajamax',
-      'music_artist_search' => '; juxtin timberlake;',
-      'music_album_search' => 'the bok of love; oridnal motion picture xoundchack',
-      'music_composer' => '',
-      'music_album' => 'The Book Of Love (Original Motion Picture Soundtrack)',
-      'music_listen' => 925,
-      'music_track_id' => 10,
-      'music_filename' => '1759393-5c0550c2.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
-      'music_shortlyric' => '',
-      'music_artist_html' => '<a href="/ca-si/Justin-Timberlake~Y3NuX2FydGlzdH40OTQ=.html">Justin Timberlake</a>',
-    ),
-    10 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1759613,
-      'music_title_url' => 'duong-tau-mua-xuan~hoan-lan',
-      'music_title' => 'Đường Tàu Mùa Xuân',
-      'music_artist' => 'Hoan;Lan',
-      'music_artist_id' => '93875;14787',
-      'cat_id' => 2,
-      'cat_level' => 1,
-      'cat_sublevel' => 2,
-      'cat_custom' => 2,
-      'cover_id' => 0,
-      'music_download_time' => 1534646255,
-      'music_last_update_time' => 1490940099,
-      'music_title_search' => 'dung tau mua xuan',
-      'music_artist_search' => '; hoan; lan;',
-      'music_album_search' => '',
-      'music_composer' => 'Phạm Minh Tuấn',
-      'music_album' => '',
-      'music_listen' => 1284,
-      'music_track_id' => 0,
-      'music_filename' => '1759613-e46c83d9.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
-      'music_shortlyric' => 'Năm xưa anh phá núi em mở đường 
-Trên đỉnh Trường Sơn đồi núi trập trùng
-Năm nay cũng những bàn tay lấp hố bom xây cuộc sống
-Tự hào nào bao cô gái
-Tự hào nào những chàng trai 
-Tuổi thanh niên sức n...',
-      'music_artist_html' => '<a href="/ca-si/Hoan~Y3NuX2FydGlzdH45Mzg3NQ==.html">Hoan</a>, <a href="/ca-si/Lan~Y3NuX2FydGlzdH4xNDc4Nw==.html">Lan</a>',
-    ),
-    11 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1762095,
@@ -351,38 +273,12 @@ Tuổi thanh niên sức n...',
       'music_listen' => 2090,
       'music_track_id' => 5,
       'music_filename' => '1762095-e6ee1840.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Cosmic-Gate~Y3NuX2FydGlzdH40ODcz.html">Cosmic Gate</a>, <a href="/ca-si/Alastor~Y3NuX2FydGlzdH43NjAxNA==.html">Alastor</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    12 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1759584,
-      'music_title_url' => 'lost-alone~defilade',
-      'music_title' => 'Lost Alone',
-      'music_artist' => 'Defilade',
-      'music_artist_id' => '93872',
-      'cat_id' => 2,
-      'cat_level' => 2,
-      'cat_sublevel' => 2,
-      'cat_custom' => 0,
-      'cover_id' => 68109,
-      'music_download_time' => 1512594280,
-      'music_last_update_time' => 1484903959,
-      'music_title_search' => 'loxt alone',
-      'music_artist_search' => '; defilade;',
-      'music_album_search' => 'loxt alone',
-      'music_composer' => '',
-      'music_album' => 'Lost Alone',
-      'music_listen' => 122,
-      'music_track_id' => 6,
-      'music_filename' => '1759584-1db75f1a.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
-      'music_shortlyric' => '',
-      'music_artist_html' => '<a href="/ca-si/Defilade~Y3NuX2FydGlzdH45Mzg3Mg==.html">Defilade</a>',
-    ),
-    13 => 
+    9 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1759586,
@@ -405,11 +301,12 @@ Tuổi thanh niên sức n...',
       'music_listen' => 655,
       'music_track_id' => 8,
       'music_filename' => '1759586-97af97af.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Defilade~Y3NuX2FydGlzdH45Mzg3Mg==.html">Defilade</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
-    14 => 
+    10 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1759582,
@@ -432,11 +329,12 @@ Tuổi thanh niên sức n...',
       'music_listen' => 535,
       'music_track_id' => 4,
       'music_filename' => '1759582-a19aa08a.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Defilade~Y3NuX2FydGlzdH45Mzg3Mg==.html">Defilade</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
-    15 => 
+    11 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1759583,
@@ -459,38 +357,12 @@ Tuổi thanh niên sức n...',
       'music_listen' => 457,
       'music_track_id' => 5,
       'music_filename' => '1759583-59c37391.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Defilade~Y3NuX2FydGlzdH45Mzg3Mg==.html">Defilade</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
-    16 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1759580,
-      'music_title_url' => 'echoes~defilade',
-      'music_title' => 'Echoes',
-      'music_artist' => 'Defilade',
-      'music_artist_id' => '93872',
-      'cat_id' => 2,
-      'cat_level' => 2,
-      'cat_sublevel' => 2,
-      'cat_custom' => 0,
-      'cover_id' => 68109,
-      'music_download_time' => 1512579408,
-      'music_last_update_time' => 1484903925,
-      'music_title_search' => 'echoex',
-      'music_artist_search' => '; defilade;',
-      'music_album_search' => 'loxt alone',
-      'music_composer' => '',
-      'music_album' => 'Lost Alone',
-      'music_listen' => 207,
-      'music_track_id' => 2,
-      'music_filename' => '1759580-275ef268.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
-      'music_shortlyric' => '',
-      'music_artist_html' => '<a href="/ca-si/Defilade~Y3NuX2FydGlzdH45Mzg3Mg==.html">Defilade</a>',
-    ),
-    17 => 
+    12 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1762101,
@@ -513,72 +385,211 @@ Tuổi thanh niên sức n...',
       'music_listen' => 5381,
       'music_track_id' => 1,
       'music_filename' => '1762101-4951933d.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Lights-amp~Y3NuX2FydGlzdH4zNjI2NA==.html">Lights &amp</a>, <a href="/ca-si/Motion~Y3NuX2FydGlzdH4zNjI2NQ==.html">Motion</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    18 => 
+    13 => 
     array (
       'music_downloads_today' => 1,
-      'music_id' => 1760459,
-      'music_title_url' => 'darling-u-inst~yesung-x-seulgi',
-      'music_title' => 'Darling U (Inst.)',
-      'music_artist' => 'YeSung x Seulgi',
-      'music_artist_id' => '93921',
-      'cat_id' => 2,
-      'cat_level' => 4,
-      'cat_sublevel' => 2,
-      'cat_custom' => 0,
-      'cover_id' => 68184,
-      'music_download_time' => 1499002727,
-      'music_last_update_time' => 1485051665,
-      'music_title_search' => 'darling u; inxt',
-      'music_artist_search' => '; ixung x xeuld;',
-      'music_album_search' => 'darling u',
-      'music_composer' => '',
-      'music_album' => 'Darling U',
-      'music_listen' => 1249,
-      'music_track_id' => 2,
-      'music_filename' => '1760459-066b8897.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
-      'music_shortlyric' => 'Darling you baby,
-I don\'t know baby baby
-hesgalligiman hae neon
-
-saranghandaneun geu mareul deutgo sipeo
-mwoga geuri eoryeowo
-jogeum neurijiman akkyeodugo sipeo ohae ma
-nega silhdaneun geon anya
-
-d...',
-      'music_artist_html' => '<a href="/ca-si/YeSung-x-Seulgi~Y3NuX2FydGlzdH45MzkyMQ==.html">YeSung x Seulgi</a>',
-    ),
-    19 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1759931,
-      'music_title_url' => 'iceberg-dances~sepultura',
-      'music_title' => 'Iceberg Dances',
-      'music_artist' => 'Sepultura',
-      'music_artist_id' => '11638',
+      'music_id' => 1762105,
+      'music_title_url' => 'pandora~lights-motion',
+      'music_title' => 'Pandora',
+      'music_artist' => 'Lights &amp;Motion',
+      'music_artist_id' => '36264;36265',
       'cat_id' => 2,
       'cat_level' => 2,
       'cat_sublevel' => 2,
       'cat_custom' => 0,
-      'cover_id' => 68133,
-      'music_download_time' => 1494205248,
-      'music_last_update_time' => 1484900203,
-      'music_title_search' => 'iceberg dancex',
-      'music_artist_search' => '; xepultura;',
-      'music_album_search' => 'machine mexiah',
+      'cover_id' => 68406,
+      'music_download_time' => 1495388495,
+      'music_last_update_time' => 1486970099,
+      'music_title_search' => 'pandora',
+      'music_artist_search' => '; lightx motion;',
+      'music_album_search' => 'dear avalanche',
       'music_composer' => '',
-      'music_album' => 'Machine Messiah',
-      'music_listen' => 120,
+      'music_album' => 'Dear Avalanche',
+      'music_listen' => 1067,
       'music_track_id' => 5,
-      'music_filename' => '1759931-f6f67808.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_filename' => '1762105-fecec1bd.mp3',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
-      'music_artist_html' => '<a href="/ca-si/Sepultura~Y3NuX2FydGlzdH4xMTYzOA==.html">Sepultura</a>',
+      'music_artist_html' => '<a href="/ca-si/Lights-amp~Y3NuX2FydGlzdH4zNjI2NA==.html">Lights &amp</a>, <a href="/ca-si/Motion~Y3NuX2FydGlzdH4zNjI2NQ==.html">Motion</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+    ),
+    14 => 
+    array (
+      'music_downloads_today' => 1,
+      'music_id' => 1759808,
+      'music_title_url' => 'be-there-feat-brittany-campbell~dj-okawari',
+      'music_title' => 'Be There feat. Brittany Campbell',
+      'music_artist' => 'DJ Okawari',
+      'music_artist_id' => '25299',
+      'cat_id' => 2,
+      'cat_level' => 5,
+      'cat_sublevel' => 2,
+      'cat_custom' => 0,
+      'cover_id' => 68118,
+      'music_download_time' => 1537194481,
+      'music_last_update_time' => 1484883422,
+      'music_title_search' => 'be there feat britani campbel',
+      'music_artist_search' => '; dj okawari;',
+      'music_album_search' => 'compax',
+      'music_composer' => '',
+      'music_album' => 'Compass',
+      'music_listen' => 2472,
+      'music_track_id' => 9,
+      'music_filename' => '1759808-17d39b73.mp3',
+      'music_bitrate' => 1000,
+      'music_shortlyric' => '',
+      'music_artist_html' => '<a href="/ca-si/DJ-Okawari~Y3NuX2FydGlzdH4yNTI5OQ==.html">DJ Okawari</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+    ),
+    15 => 
+    array (
+      'music_downloads_today' => 1,
+      'music_id' => 1759809,
+      'music_title_url' => 'sadame~dj-okawari',
+      'music_title' => 'SADAME',
+      'music_artist' => 'DJ Okawari',
+      'music_artist_id' => '25299',
+      'cat_id' => 2,
+      'cat_level' => 5,
+      'cat_sublevel' => 2,
+      'cat_custom' => 0,
+      'cover_id' => 68118,
+      'music_download_time' => 1537194485,
+      'music_last_update_time' => 1484883426,
+      'music_title_search' => 'xadame',
+      'music_artist_search' => '; dj okawari;',
+      'music_album_search' => 'compax',
+      'music_composer' => '',
+      'music_album' => 'Compass',
+      'music_listen' => 2961,
+      'music_track_id' => 10,
+      'music_filename' => '1759809-80880175.mp3',
+      'music_bitrate' => 1000,
+      'music_shortlyric' => '',
+      'music_artist_html' => '<a href="/ca-si/DJ-Okawari~Y3NuX2FydGlzdH4yNTI5OQ==.html">DJ Okawari</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+    ),
+    16 => 
+    array (
+      'music_downloads_today' => 1,
+      'music_id' => 1759810,
+      'music_title_url' => 'four-water~dj-okawari',
+      'music_title' => 'Four Water',
+      'music_artist' => 'DJ Okawari',
+      'music_artist_id' => '25299',
+      'cat_id' => 2,
+      'cat_level' => 5,
+      'cat_sublevel' => 2,
+      'cat_custom' => 0,
+      'cover_id' => 68118,
+      'music_download_time' => 1537269242,
+      'music_last_update_time' => 1484883342,
+      'music_title_search' => 'four water',
+      'music_artist_search' => '; dj okawari;',
+      'music_album_search' => 'compax',
+      'music_composer' => '',
+      'music_album' => 'Compass',
+      'music_listen' => 2471,
+      'music_track_id' => 11,
+      'music_filename' => '1759810-dc7e180e.mp3',
+      'music_bitrate' => 1000,
+      'music_shortlyric' => '',
+      'music_artist_html' => '<a href="/ca-si/DJ-Okawari~Y3NuX2FydGlzdH4yNTI5OQ==.html">DJ Okawari</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+    ),
+    17 => 
+    array (
+      'music_downloads_today' => 1,
+      'music_id' => 1759796,
+      'music_title_url' => 'midnight-train-feat-emi-meyer~dj-okawari',
+      'music_title' => 'Midnight Train feat. Emi Meyer',
+      'music_artist' => 'DJ Okawari',
+      'music_artist_id' => '25299',
+      'cat_id' => 2,
+      'cat_level' => 5,
+      'cat_sublevel' => 2,
+      'cat_custom' => 0,
+      'cover_id' => 68118,
+      'music_download_time' => 1537322783,
+      'music_last_update_time' => 1484883397,
+      'music_title_search' => 'midnight chain feat emi meir',
+      'music_artist_search' => '; dj okawari;',
+      'music_album_search' => 'compax',
+      'music_composer' => '',
+      'music_album' => 'Compass',
+      'music_listen' => 8694,
+      'music_track_id' => 3,
+      'music_filename' => '1759796-d0e9e6a4.mp3',
+      'music_bitrate' => 1000,
+      'music_shortlyric' => '',
+      'music_artist_html' => '<a href="/ca-si/DJ-Okawari~Y3NuX2FydGlzdH4yNTI5OQ==.html">DJ Okawari</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+    ),
+    18 => 
+    array (
+      'music_downloads_today' => 1,
+      'music_id' => 1759797,
+      'music_title_url' => 'keep-falling-feat-giovanca~dj-okawari',
+      'music_title' => 'Keep Falling feat. GIOVANCA',
+      'music_artist' => 'DJ Okawari',
+      'music_artist_id' => '25299',
+      'cat_id' => 2,
+      'cat_level' => 5,
+      'cat_sublevel' => 2,
+      'cat_custom' => 0,
+      'cover_id' => 68118,
+      'music_download_time' => 1537269492,
+      'music_last_update_time' => 1484883405,
+      'music_title_search' => 'kep faling feat dovanca',
+      'music_artist_search' => '; dj okawari;',
+      'music_album_search' => 'compax',
+      'music_composer' => '',
+      'music_album' => 'Compass',
+      'music_listen' => 4205,
+      'music_track_id' => 5,
+      'music_filename' => '1759797-e253c5b8.mp3',
+      'music_bitrate' => 1000,
+      'music_shortlyric' => '',
+      'music_artist_html' => '<a href="/ca-si/DJ-Okawari~Y3NuX2FydGlzdH4yNTI5OQ==.html">DJ Okawari</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+    ),
+    19 => 
+    array (
+      'music_downloads_today' => 1,
+      'music_id' => 1759707,
+      'music_title_url' => 'wagamama-mirror-heart-mirror-heart~ohashi-ayaka',
+      'music_title' => 'Wagamama MIRROR HEART (ワガママMIRROR HEART)',
+      'music_artist' => 'Ohashi Ayaka',
+      'music_artist_id' => '18417',
+      'cat_id' => 2,
+      'cat_level' => 5,
+      'cat_sublevel' => 2,
+      'cat_custom' => 0,
+      'cover_id' => 68119,
+      'music_download_time' => 1537350777,
+      'music_last_update_time' => 1501060718,
+      'music_title_search' => 'wagamama miror heart; ワガマmiror heart',
+      'music_artist_search' => '; ohathi aiaka;',
+      'music_album_search' => 'wagamama miror heart; maxamune kun no revenge op xingle',
+      'music_composer' => 'Kato Yusuke',
+      'music_album' => 'Wagamama MIRROR HEART (Masamune-kun no Revenge OP Single)',
+      'music_listen' => 13992,
+      'music_track_id' => 4,
+      'music_filename' => '1759707-6479ca87.mp3',
+      'music_bitrate' => 1000,
+      'music_shortlyric' => '01. Wagamama MIRROR HEART (ワガママMIRROR HEART)
+02. Irodori Place (彩りPlace)
+03. Lonely Sunshine (ロンリーサンシャイン)
+04. Wagamama MIRROR HEART (Off Vocal)
+05. Irodori Place (Off Vocal)
+06. Lonely Sunshine (Of...',
+      'music_artist_html' => '<a href="/ca-si/Ohashi-Ayaka~Y3NuX2FydGlzdH4xODQxNw==.html">Ohashi Ayaka</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     20 => 
     array (
@@ -603,7 +614,7 @@ d...',
       'music_listen' => 4316,
       'music_track_id' => 3,
       'music_filename' => '1766829-edd66eaf.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'TRACK 01 AUDIO
     TITLE &quot;JINGO JUNGLE&quot;
     PERFORMER &quot;MYTH &amp; ROID&quot;
@@ -612,6 +623,7 @@ TRACK 02 AUDIO
     TITLE &quot;Frozen Rain&quot;
     PERFORMER &quot;MYTH &amp; ROI...',
       'music_artist_html' => '<a href="/ca-si/MYTH-amp~Y3NuX2FydGlzdH43MTI5NA==.html">MYTH &amp</a>, <a href="/ca-si/ROID~Y3NuX2FydGlzdH4yMzM5MQ==.html">ROID</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     21 => 
     array (
@@ -636,9 +648,10 @@ TRACK 02 AUDIO
       'music_listen' => 2490,
       'music_track_id' => 24,
       'music_filename' => '1765617-73c1b9e0.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Above-amp~Y3NuX2FydGlzdH4xMDYyNg==.html">Above &amp</a>, <a href="/ca-si/Beyond~Y3NuX2FydGlzdH45Mzc=.html">Beyond</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     22 => 
     array (
@@ -663,7 +676,7 @@ TRACK 02 AUDIO
       'music_listen' => 816,
       'music_track_id' => 2,
       'music_filename' => '1765448-dcec01d8.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => 'Anh...phải đi...xa 
 Đừng khóc nữa anh sẽ sớm về 
 Hãy chờ anh 
@@ -674,6 +687,7 @@ Dù bao xa bao lâu, anh cũng sớm về thôi
 Anh hứa 
 Cùng ánh nắng mai ngập t...',
       'music_artist_html' => '<a href="/ca-si/O-Plus~Y3NuX2FydGlzdH45NDUzMg==.html">O-Plus</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     23 => 
     array (
@@ -698,45 +712,12 @@ Cùng ánh nắng mai ngập t...',
       'music_listen' => 27221,
       'music_track_id' => 2,
       'music_filename' => '1766081-9049f74a.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Zonderling~Y3NuX2FydGlzdH4xODA3Ng==.html">Zonderling</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     24 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1767540,
-      'music_title_url' => 'urara-ka-biyori-no-shijuusou~labyrinths',
-      'music_title' => 'Urara ka Biyori no Shijuusou',
-      'music_artist' => 'Labyrinths',
-      'music_artist_id' => '94745',
-      'cat_id' => 2,
-      'cat_level' => 5,
-      'cat_sublevel' => 2,
-      'cat_custom' => 0,
-      'cover_id' => 69009,
-      'music_download_time' => 1507742183,
-      'music_last_update_time' => 1529566225,
-      'music_title_search' => 'urara ka biori no thijuxou',
-      'music_artist_search' => '; labirinthx;',
-      'music_album_search' => 'iumeji labirinth; urara meirochou op',
-      'music_composer' => 'Yoshie Isogai',
-      'music_album' => 'Yumeji Labyrinth (Urara Meirochou OP)',
-      'music_listen' => 609,
-      'music_track_id' => 8,
-      'music_filename' => '1767540-4c428c12.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
-      'music_shortlyric' => 'Ran ran otome yo yume wo idaki 
-Shan shan tsudoeba ikiyouyou
-Saa sa uraura shinze mashou ka
-Oide mase mase tousen kyou.
-
-San san o-hi-sama ranman taimu
-Wai wai o-shaberi tomaranai
-Kyou mo kyou to t...',
-      'music_artist_html' => '<a href="/ca-si/Labyrinths~Y3NuX2FydGlzdH45NDc0NQ==.html">Labyrinths</a>',
-    ),
-    25 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1768460,
@@ -759,15 +740,16 @@ Kyou mo kyou to t...',
       'music_listen' => 3096,
       'music_track_id' => 4,
       'music_filename' => '1768460-d9958804.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Mou boku no kono mune wa doko ni mo nigenai kimi he to mukau yo
 Ima kakedashite yukeru koisuru basho he to nando demo
 
 Hajimete kimi wo mita shunkan no koto SUROO MOOSHON mitai ni subete ga
 Boku no...',
       'music_artist_html' => '<a href="/ca-si/Hanako-Oku~Y3NuX2FydGlzdH40NzM0.html">Hanako Oku</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    26 => 
+    25 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1767369,
@@ -790,14 +772,15 @@ Boku no...',
       'music_listen' => 3469,
       'music_track_id' => 4,
       'music_filename' => '1767369-244bde11.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. Hallelujah☆Essaim
 2. Gyakuten Devil&amp;Angel
 3. Hallelujah☆Essaim (instrumental)
 4. Gyakute Devil&amp;Angel (instrumental)',
       'music_artist_html' => '<a href="/ca-si/Ohzora-Naomi~Y3NuX2FydGlzdH40NDI4MQ==.html">Ohzora Naomi</a>, <a href="/ca-si/Hanazawa-Kana~Y3NuX2FydGlzdH4xNDc1Ng==.html">Hanazawa Kana</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    27 => 
+    26 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1767368,
@@ -820,152 +803,15 @@ Boku no...',
       'music_listen' => 2474,
       'music_track_id' => 3,
       'music_filename' => '1767368-f7fbe334.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. Hallelujah☆Essaim
 2. Gyakuten Devil&amp;Angel
 3. Hallelujah☆Essaim (instrumental)
 4. Gyakute Devil&amp;Angel (instrumental)',
       'music_artist_html' => '<a href="/ca-si/Tomita-Miyu~Y3NuX2FydGlzdH45NDczMA==.html">Tomita Miyu</a>, <a href="/ca-si/Oonishi-Saori~Y3NuX2FydGlzdH41MTA2Mg==.html">Oonishi Saori</a>, <a href="/ca-si/Ohzora-Naomi~Y3NuX2FydGlzdH40NDI4MQ==.html">Ohzora Naomi</a>, <a href="/ca-si/Hanazawa-Kana~Y3NuX2FydGlzdH4xNDc1Ng==.html">Hanazawa Kana</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    28 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1766314,
-      'music_title_url' => 'kiss-ga-tosugiru-yo~hkt48',
-      'music_title' => 'Kiss ga Tosugiru yo',
-      'music_artist' => 'HKT48',
-      'music_artist_id' => '14603',
-      'cat_id' => 2,
-      'cat_level' => 5,
-      'cat_sublevel' => 2,
-      'cat_custom' => 0,
-      'cover_id' => 68883,
-      'music_download_time' => 1525152672,
-      'music_last_update_time' => 1522859003,
-      'music_title_search' => 'kix ga toxudru io',
-      'music_artist_search' => '; hkt48;',
-      'music_album_search' => 'bagute ijan; バグっていじゃん tipe c ; ep',
-      'music_composer' => '',
-      'music_album' => 'Bagutte Iijan (バグっていいじゃん) &lt;Type-C&gt; - EP',
-      'music_listen' => 516,
-      'music_track_id' => 6,
-      'music_filename' => '1766314-c9c9e83a.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">275kbps</span>',
-      'music_shortlyric' => 'キスが遠すぎるよ
-
-七色のTシャツ着た
-
-君がロリーポップ　舐めてるのは
-
-退屈な時間のサインだね
-
-少しだけご機嫌が斜めなそういう時は
-
-たぶん　放っておく方がいいんだ
-
-やさしく
-
-言葉を掛けると手に負えなくなる
-
-このまま
-
-黙ってそばに座ってよう
-
-持久戦　覚悟の上だ
-
-ソッポ向いて
-
-無視してチラリ
-
-横顔　盗み見して
-
-心のどこかで
-
-きっかけ探し始めてる
-
-恋はいつでも
-
-二人...',
-      'music_artist_html' => '<a href="/ca-si/HKT48~Y3NuX2FydGlzdH4xNDYwMw==.html">HKT48</a>',
-    ),
-    29 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1766324,
-      'music_title_url' => 'hitsuzenteki-koibito~hkt48',
-      'music_title' => 'Hitsuzenteki Koibito',
-      'music_artist' => 'HKT48',
-      'music_artist_id' => '14603',
-      'cat_id' => 2,
-      'cat_level' => 5,
-      'cat_sublevel' => 2,
-      'cat_custom' => 0,
-      'cover_id' => 68884,
-      'music_download_time' => 1504176961,
-      'music_last_update_time' => 1522859083,
-      'music_title_search' => 'hitxuzenteki koibito',
-      'music_artist_search' => '; hkt48;',
-      'music_album_search' => 'bagute ijan; バグっていじゃん theater edition ; ep',
-      'music_composer' => '',
-      'music_album' => 'Bagutte Iijan (バグっていいじゃん) &lt;Theater Edition&gt; - EP',
-      'music_listen' => 633,
-      'music_track_id' => 5,
-      'music_filename' => '1766324-5271265e.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">268kbps</span>',
-      'music_shortlyric' => 'ああ　だから　僕は言い続けてたんだ
-从那时起我就一直说着
-絶対に運じゃないってことを…
-这绝对不是运气
-この世にはもっと確かなことが
-是知道了这个世上还有
-そう　存在するってわかっただろう
-更加切实的东西存在着吧
-君は不安そうに
-你面露不安的
-僕に何度も聞いた
-向我多次问询
-愛はいつもどうなるのか先が読めない
-爱总是会变成什么样 看不清未来
-(勝手なもの)
-真是任性啊
-必然的恋人
-必然的恋人...',
-      'music_artist_html' => '<a href="/ca-si/HKT48~Y3NuX2FydGlzdH4xNDYwMw==.html">HKT48</a>',
-    ),
-    30 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1766830,
-      'music_title_url' => 'frozen-rain~myth-roid',
-      'music_title' => 'Frozen Rain',
-      'music_artist' => 'MYTH &amp;ROID',
-      'music_artist_id' => '71294;23391',
-      'cat_id' => 2,
-      'cat_level' => 5,
-      'cat_sublevel' => 2,
-      'cat_custom' => 0,
-      'cover_id' => 68931,
-      'music_download_time' => 1535377986,
-      'music_last_update_time' => 1488649066,
-      'music_title_search' => 'frozen rain',
-      'music_artist_search' => '; mith roid;',
-      'music_album_search' => 'mith roid; jingo jungle; ioujo xenki op xingle',
-      'music_composer' => 'MYTH &amp; ROID',
-      'music_album' => 'MYTH &amp; ROID - JINGO JUNGLE (Youjo Senki OP Single)',
-      'music_listen' => 1585,
-      'music_track_id' => 4,
-      'music_filename' => '1766830-3772f009.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
-      'music_shortlyric' => 'TRACK 01 AUDIO
-    TITLE &quot;JINGO JUNGLE&quot;
-    PERFORMER &quot;MYTH &amp; ROID&quot;
-    INDEX 01 00:00:00
-TRACK 02 AUDIO
-    TITLE &quot;Frozen Rain&quot;
-    PERFORMER &quot;MYTH &amp; ROI...',
-      'music_artist_html' => '<a href="/ca-si/MYTH-amp~Y3NuX2FydGlzdH43MTI5NA==.html">MYTH &amp</a>, <a href="/ca-si/ROID~Y3NuX2FydGlzdH4yMzM5MQ==.html">ROID</a>',
-    ),
-    31 => 
+    27 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1765424,
@@ -988,182 +834,12 @@ TRACK 02 AUDIO
       'music_listen' => 1766,
       'music_track_id' => 12,
       'music_filename' => '1765424-dc3de711.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Fatum~Y3NuX2FydGlzdH43ODc5Nw==.html">Fatum</a>, <a href="/ca-si/Judah~Y3NuX2FydGlzdH4xNDAwMw==.html">Judah</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    32 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1765425,
-      'music_title_url' => 'endorphin~oliver-smith',
-      'music_title' => 'Endorphin',
-      'music_artist' => 'Oliver Smith',
-      'music_artist_id' => '24871',
-      'cat_id' => 2,
-      'cat_level' => 2,
-      'cat_sublevel' => 6,
-      'cat_custom' => 0,
-      'cover_id' => 68821,
-      'music_download_time' => 1537895052,
-      'music_last_update_time' => 1487747574,
-      'music_title_search' => 'endorphin',
-      'music_artist_search' => '; oliver xmith;',
-      'music_album_search' => 'anjunabeatx volume 13',
-      'music_composer' => '',
-      'music_album' => 'Anjunabeats Volume 13',
-      'music_listen' => 1685,
-      'music_track_id' => 13,
-      'music_filename' => '1765425-09b570f3.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
-      'music_shortlyric' => '',
-      'music_artist_html' => '<a href="/ca-si/Oliver-Smith~Y3NuX2FydGlzdH4yNDg3MQ==.html">Oliver Smith</a>',
-    ),
-    33 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1765624,
-      'music_title_url' => 'valor~jason-ross',
-      'music_title' => 'Valor',
-      'music_artist' => 'Jason Ross',
-      'music_artist_id' => '70706',
-      'cat_id' => 2,
-      'cat_level' => 2,
-      'cat_sublevel' => 6,
-      'cat_custom' => 0,
-      'cover_id' => 68821,
-      'music_download_time' => 1531293476,
-      'music_last_update_time' => 1487747833,
-      'music_title_search' => 'valor',
-      'music_artist_search' => '; jaxon rox;',
-      'music_album_search' => 'anjunabeatx volume 13',
-      'music_composer' => '',
-      'music_album' => 'Anjunabeats Volume 13',
-      'music_listen' => 267,
-      'music_track_id' => 31,
-      'music_filename' => '1765624-7b4f2a04.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
-      'music_shortlyric' => '',
-      'music_artist_html' => '<a href="/ca-si/Jason-Ross~Y3NuX2FydGlzdH43MDcwNg==.html">Jason Ross</a>',
-    ),
-    34 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1765417,
-      'music_title_url' => 'shadows~oliver-smith',
-      'music_title' => 'Shadows',
-      'music_artist' => 'Oliver Smith',
-      'music_artist_id' => '24871',
-      'cat_id' => 2,
-      'cat_level' => 2,
-      'cat_sublevel' => 6,
-      'cat_custom' => 0,
-      'cover_id' => 68821,
-      'music_download_time' => 1529995333,
-      'music_last_update_time' => 1487747526,
-      'music_title_search' => 'thadowx',
-      'music_artist_search' => '; oliver xmith;',
-      'music_album_search' => 'anjunabeatx volume 13',
-      'music_composer' => '',
-      'music_album' => 'Anjunabeats Volume 13',
-      'music_listen' => 521,
-      'music_track_id' => 5,
-      'music_filename' => '1765417-9e7747fa.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
-      'music_shortlyric' => '',
-      'music_artist_html' => '<a href="/ca-si/Oliver-Smith~Y3NuX2FydGlzdH4yNDg3MQ==.html">Oliver Smith</a>',
-    ),
-    35 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1765416,
-      'music_title_url' => 'vernal~spencer-brown',
-      'music_title' => 'Vernal',
-      'music_artist' => 'Spencer Brown',
-      'music_artist_id' => '78444',
-      'cat_id' => 2,
-      'cat_level' => 2,
-      'cat_sublevel' => 6,
-      'cat_custom' => 0,
-      'cover_id' => 68821,
-      'music_download_time' => 1529583932,
-      'music_last_update_time' => 1487747313,
-      'music_title_search' => 'vernal',
-      'music_artist_search' => '; xpencer brown;',
-      'music_album_search' => 'anjunabeatx volume 13',
-      'music_composer' => '',
-      'music_album' => 'Anjunabeats Volume 13',
-      'music_listen' => 803,
-      'music_track_id' => 4,
-      'music_filename' => '1765416-e4e6d319.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
-      'music_shortlyric' => '',
-      'music_artist_html' => '<a href="/ca-si/Spencer-Brown~Y3NuX2FydGlzdH43ODQ0NA==.html">Spencer Brown</a>',
-    ),
-    36 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1765621,
-      'music_title_url' => 'balearic-balls~above-beyond',
-      'music_title' => 'Balearic Balls',
-      'music_artist' => 'Above &amp;Beyond',
-      'music_artist_id' => '10626;937',
-      'cat_id' => 2,
-      'cat_level' => 2,
-      'cat_sublevel' => 6,
-      'cat_custom' => 0,
-      'cover_id' => 68821,
-      'music_download_time' => 1536580895,
-      'music_last_update_time' => 1487747925,
-      'music_title_search' => 'balearic balx',
-      'music_artist_search' => '; above beiond;',
-      'music_album_search' => 'anjunabeatx volume 13',
-      'music_composer' => '',
-      'music_album' => 'Anjunabeats Volume 13',
-      'music_listen' => 1014,
-      'music_track_id' => 28,
-      'music_filename' => '1765621-614b3ab4.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
-      'music_shortlyric' => 'Winter comes calling
-The temperature\'s falling
-A fear is crawling
-Don\'t quit, we\'re all in
-The ship\'s a mile out
-Don\'t blow the lights out
-They\'ll cry their eyes out, if we
-sink the light house.
-
-S...',
-      'music_artist_html' => '<a href="/ca-si/Above-amp~Y3NuX2FydGlzdH4xMDYyNg==.html">Above &amp</a>, <a href="/ca-si/Beyond~Y3NuX2FydGlzdH45Mzc=.html">Beyond</a>',
-    ),
-    37 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1765423,
-      'music_title_url' => 'elevate~ilan-bluestone',
-      'music_title' => 'Elevate',
-      'music_artist' => 'ilan Bluestone',
-      'music_artist_id' => '70647',
-      'cat_id' => 2,
-      'cat_level' => 2,
-      'cat_sublevel' => 6,
-      'cat_custom' => 0,
-      'cover_id' => 68821,
-      'music_download_time' => 1531088900,
-      'music_last_update_time' => 1487747557,
-      'music_title_search' => 'elevate',
-      'music_artist_search' => '; ilan bluextone;',
-      'music_album_search' => 'anjunabeatx volume 13',
-      'music_composer' => '',
-      'music_album' => 'Anjunabeats Volume 13',
-      'music_listen' => 1101,
-      'music_track_id' => 11,
-      'music_filename' => '1765423-b0315566.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
-      'music_shortlyric' => '',
-      'music_artist_html' => '<a href="/ca-si/ilan-Bluestone~Y3NuX2FydGlzdH43MDY0Nw==.html">ilan Bluestone</a>',
-    ),
-    38 => 
+    28 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1765421,
@@ -1186,36 +862,368 @@ S...',
       'music_listen' => 1839,
       'music_track_id' => 9,
       'music_filename' => '1765421-335b9eae.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Grum~Y3NuX2FydGlzdH4xNzY5Ng==.html">Grum</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    39 => 
+    29 => 
     array (
       'music_downloads_today' => 1,
-      'music_id' => 1765420,
-      'music_title_url' => 'inspire~jaytech',
-      'music_title' => 'Inspire',
-      'music_artist' => 'Jaytech',
-      'music_artist_id' => '24867',
+      'music_id' => 1765419,
+      'music_title_url' => 'zero-day~judah',
+      'music_title' => 'Zero Day',
+      'music_artist' => 'Judah',
+      'music_artist_id' => '14003',
       'cat_id' => 2,
       'cat_level' => 2,
       'cat_sublevel' => 6,
       'cat_custom' => 0,
       'cover_id' => 68821,
-      'music_download_time' => 1512701888,
-      'music_last_update_time' => 1487747538,
-      'music_title_search' => 'inxpire',
-      'music_artist_search' => '; jaitech;',
+      'music_download_time' => 1530079974,
+      'music_last_update_time' => 1487747534,
+      'music_title_search' => 'zero dai',
+      'music_artist_search' => '; judah;',
       'music_album_search' => 'anjunabeatx volume 13',
       'music_composer' => '',
       'music_album' => 'Anjunabeats Volume 13',
-      'music_listen' => 503,
-      'music_track_id' => 8,
-      'music_filename' => '1765420-20ada99f.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_listen' => 1801,
+      'music_track_id' => 7,
+      'music_filename' => '1765419-f8f43825.mp3',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
-      'music_artist_html' => '<a href="/ca-si/Jaytech~Y3NuX2FydGlzdH4yNDg2Nw==.html">Jaytech</a>',
+      'music_artist_html' => '<a href="/ca-si/Judah~Y3NuX2FydGlzdH4xNDAwMw==.html">Judah</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+    ),
+    30 => 
+    array (
+      'music_downloads_today' => 1,
+      'music_id' => 1765618,
+      'music_title_url' => 'olympus~genix',
+      'music_title' => 'Olympus',
+      'music_artist' => 'Genix',
+      'music_artist_id' => '37646',
+      'cat_id' => 2,
+      'cat_level' => 2,
+      'cat_sublevel' => 6,
+      'cat_custom' => 0,
+      'cover_id' => 68821,
+      'music_download_time' => 1537709233,
+      'music_last_update_time' => 1487747805,
+      'music_title_search' => 'olimpux',
+      'music_artist_search' => '; genix;',
+      'music_album_search' => 'anjunabeatx volume 13',
+      'music_composer' => '',
+      'music_album' => 'Anjunabeats Volume 13',
+      'music_listen' => 2588,
+      'music_track_id' => 25,
+      'music_filename' => '1765618-1e6f1715.mp3',
+      'music_bitrate' => 1000,
+      'music_shortlyric' => '',
+      'music_artist_html' => '<a href="/ca-si/Genix~Y3NuX2FydGlzdH4zNzY0Ng==.html">Genix</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+    ),
+    31 => 
+    array (
+      'music_downloads_today' => 1,
+      'music_id' => 1766853,
+      'music_title_url' => 'tinh-nghia-anh-em~dao-nguyen-anh',
+      'music_title' => 'Tình Nghĩa Anh Em',
+      'music_artist' => 'Đào Nguyễn Ánh',
+      'music_artist_id' => '23276',
+      'cat_id' => 2,
+      'cat_level' => 1,
+      'cat_sublevel' => 2,
+      'cat_custom' => 0,
+      'cover_id' => 68961,
+      'music_download_time' => 1520225858,
+      'music_last_update_time' => 1515915699,
+      'music_title_search' => 'tinh nghia em em',
+      'music_artist_search' => '; dao ngin em;',
+      'music_album_search' => 'tinh nghia em em; xingle',
+      'music_composer' => 'Nguyên Chấn Phong',
+      'music_album' => 'Tình Nghĩa Anh Em (Single)',
+      'music_listen' => 1280,
+      'music_track_id' => 0,
+      'music_filename' => '1766853-8756c6f6.mp3',
+      'music_bitrate' => 320,
+      'music_shortlyric' => 'Ta đã sinh ra trong cõi đời
+Tình anh em chưa hề biết sợ
+Điều duy nhất sợ sẽ làm anh em tôi
+Hiểu lầm tự chôn giấu, huynh đệ phai phôi..
+(Sống chết cũng là anh em)
+
+Hãy đến với tôi bằng tấm lòng
+Tôi...',
+      'music_artist_html' => '<a href="/ca-si/Dao-Nguyen-Anh~Y3NuX2FydGlzdH4yMzI3Ng==.html">Đào Nguyễn Ánh</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+    ),
+    32 => 
+    array (
+      'music_downloads_today' => 1,
+      'music_id' => 1766903,
+      'music_title_url' => 'saba-kaidou~iwasa-misaki',
+      'music_title' => 'Saba Kaidou (鯖街道)',
+      'music_artist' => 'Iwasa Misaki',
+      'music_artist_id' => '40397',
+      'cat_id' => 2,
+      'cat_level' => 5,
+      'cat_sublevel' => 2,
+      'cat_custom' => 0,
+      'cover_id' => 68947,
+      'music_download_time' => 1504068098,
+      'music_last_update_time' => 1522861243,
+      'music_title_search' => 'xaba kaidou; 鯖街道',
+      'music_artist_search' => '; iwaxa mixaki;',
+      'music_album_search' => 'xaba kaido; 鯖街道 ; firxt prex limited edition',
+      'music_composer' => 'Akimoto Yasushi',
+      'music_album' => 'Saba Kaido (鯖街道) (First Press Limited Edition)',
+      'music_listen' => 983,
+      'music_track_id' => 3,
+      'music_filename' => '1766903-6e9bf7d3.mp3',
+      'music_bitrate' => 1000,
+      'music_shortlyric' => 'Obama obama no minato ni saba ga agaru koro
+Afureru namida wa kareru deshou ka.
+
+Owatta koi wo shiodzuke ni shite
+Negorozaka koeru.
+
+Kyou wa toote mo juuhachi sato
+Miren seoi hitoritabi
+Anata ga it...',
+      'music_artist_html' => '<a href="/ca-si/Iwasa-Misaki~Y3NuX2FydGlzdH40MDM5Nw==.html">Iwasa Misaki</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+    ),
+    33 => 
+    array (
+      'music_downloads_today' => 1,
+      'music_id' => 1765482,
+      'music_title_url' => 'dieu-con-lai~phung-khanh-linh',
+      'music_title' => 'Điều Còn Lại',
+      'music_artist' => 'Phùng Khánh Linh',
+      'music_artist_id' => '14377',
+      'cat_id' => 2,
+      'cat_level' => 1,
+      'cat_sublevel' => 1,
+      'cat_custom' => 0,
+      'cover_id' => 68796,
+      'music_download_time' => 1536740376,
+      'music_last_update_time' => 1487037034,
+      'music_title_search' => 'diu con lai',
+      'music_artist_search' => '; phung khanh linh;',
+      'music_album_search' => 'diu con lai; xingle',
+      'music_composer' => 'Trang Chim Sâu',
+      'music_album' => 'Điều Còn Lại (Single)',
+      'music_listen' => 6648,
+      'music_track_id' => 2,
+      'music_filename' => '1765482-4585aacd.mp3',
+      'music_bitrate' => 1000,
+      'music_shortlyric' => 'Ở bên cạnh anh, ngày chỉ như chớp mắt
+Gần nhau rồi xa, đừng giận hờn em thêm nữa 
+Biết rằng anh muốn được nghe những lời yêu
+Những lời hứa hẹn của em.
+
+Để em gần anh, dù chỉ trong giây phút
+Để em n...',
+      'music_artist_html' => '<a href="/ca-si/Phung-Khanh-Linh~Y3NuX2FydGlzdH4xNDM3Nw==.html">Phùng Khánh Linh</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+    ),
+    34 => 
+    array (
+      'music_downloads_today' => 1,
+      'music_id' => 1767163,
+      'music_title_url' => 'anh-van-thay~trong-hieu',
+      'music_title' => 'Anh Vẫn Thấy',
+      'music_artist' => 'Trọng Hiếu',
+      'music_artist_id' => '6400',
+      'cat_id' => 2,
+      'cat_level' => 1,
+      'cat_sublevel' => 1,
+      'cat_custom' => 0,
+      'cover_id' => 68985,
+      'music_download_time' => 1534995025,
+      'music_last_update_time' => 1493013342,
+      'music_title_search' => 'em van thai',
+      'music_artist_search' => '; chong hiu;',
+      'music_album_search' => 'em van thai; xingle',
+      'music_composer' => 'Trọng Hiếu, Hakoota Dũng Hà',
+      'music_album' => 'Anh Vẫn Thấy (Single)',
+      'music_listen' => 20631,
+      'music_track_id' => 2,
+      'music_filename' => '1767163-44fcd408.mp3',
+      'music_bitrate' => 1000,
+      'music_shortlyric' => '1. Tựa gió lốc cuốn giữa chốn không gian
+Mình tung đôi cánh đại bàng
+Vượt bao non cao, rừng núi bạt ngàn
+Về đại dương xanh
+Rời xa đông vui nơi chốn thị thành
+Cho em được mãi sống bên anh
+Đôi mình v...',
+      'music_artist_html' => '<a href="/ca-si/Trong-Hieu~Y3NuX2FydGlzdH42NDAw.html">Trọng Hiếu</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+    ),
+    35 => 
+    array (
+      'music_downloads_today' => 1,
+      'music_id' => 1768684,
+      'music_title_url' => 'drown-the-lovers~ritual',
+      'music_title' => 'Drown The Lovers',
+      'music_artist' => 'Ritual',
+      'music_artist_id' => '91487',
+      'cat_id' => 2,
+      'cat_level' => 2,
+      'cat_sublevel' => 7,
+      'cat_custom' => 0,
+      'cover_id' => 0,
+      'music_download_time' => 1510567240,
+      'music_last_update_time' => 1490887123,
+      'music_title_search' => 'drown the loverx',
+      'music_artist_search' => '; ritual;',
+      'music_album_search' => '',
+      'music_composer' => '',
+      'music_album' => '',
+      'music_listen' => 623,
+      'music_track_id' => 0,
+      'music_filename' => '1768684-c146dc1a.mp3',
+      'music_bitrate' => 320,
+      'music_shortlyric' => '',
+      'music_artist_html' => '<a href="/ca-si/Ritual~Y3NuX2FydGlzdH45MTQ4Nw==.html">Ritual</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+    ),
+    36 => 
+    array (
+      'music_downloads_today' => 1,
+      'music_id' => 1767391,
+      'music_title_url' => 'hanten-devilangel-devilangel~tomita-miyu-oonishi-saori',
+      'music_title' => 'Hanten Devil&amp;Angel (反転Devil&amp;Angel)',
+      'music_artist' => 'Tomita Miyu;Oonishi Saori',
+      'music_artist_id' => '94730;51062',
+      'cat_id' => 2,
+      'cat_level' => 5,
+      'cat_sublevel' => 2,
+      'cat_custom' => 0,
+      'cover_id' => 68996,
+      'music_download_time' => 1533750537,
+      'music_last_update_time' => 1487783616,
+      'music_title_search' => 'hanten devil angel; 反転devil angel',
+      'music_artist_search' => '; tomita miu; onithi xaori;',
+      'music_album_search' => 'gabril dropkick; gabril dropout opening theme',
+      'music_composer' => 'Katahira Shoodai; Lời: Yoshida Shiori',
+      'music_album' => 'Gabriel DropKick (Gabriel DropOut Opening Theme)',
+      'music_listen' => 4502,
+      'music_track_id' => 4,
+      'music_filename' => '1767391-3abc5ca1.mp3',
+      'music_bitrate' => 1000,
+      'music_shortlyric' => '1. Gabriel Drop Kick
+2. Hanten Devil&amp;Angel
+3. Gabriel Drop Kick (instrumental)
+4. Hanten Devil&amp;Angel (instrumental)',
+      'music_artist_html' => '<a href="/ca-si/Tomita-Miyu~Y3NuX2FydGlzdH45NDczMA==.html">Tomita Miyu</a>, <a href="/ca-si/Oonishi-Saori~Y3NuX2FydGlzdH41MTA2Mg==.html">Oonishi Saori</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+    ),
+    37 => 
+    array (
+      'music_downloads_today' => 1,
+      'music_id' => 1766346,
+      'music_title_url' => 'aetas-nova-intro~thormesis',
+      'music_title' => 'Aetas Nova (Intro)',
+      'music_artist' => 'Thormesis',
+      'music_artist_id' => '63724',
+      'cat_id' => 2,
+      'cat_level' => 7,
+      'cat_sublevel' => 2,
+      'cat_custom' => 0,
+      'cover_id' => 68889,
+      'music_download_time' => 1512653364,
+      'music_last_update_time' => 1487836403,
+      'music_title_search' => 'aetax nova; incho',
+      'music_artist_search' => '; thormexix;',
+      'music_album_search' => 'chümerfarben',
+      'music_composer' => '',
+      'music_album' => 'Trümmerfarben',
+      'music_listen' => 1214,
+      'music_track_id' => 1,
+      'music_filename' => '1766346-0d0d4ae1.mp3',
+      'music_bitrate' => 320,
+      'music_shortlyric' => '',
+      'music_artist_html' => '<a href="/ca-si/Thormesis~Y3NuX2FydGlzdH42MzcyNA==.html">Thormesis</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+    ),
+    38 => 
+    array (
+      'music_downloads_today' => 1,
+      'music_id' => 1766605,
+      'music_title_url' => 'smile~vos',
+      'music_title' => 'Smile',
+      'music_artist' => 'V.O.S',
+      'music_artist_id' => '7704',
+      'cat_id' => 2,
+      'cat_level' => 4,
+      'cat_sublevel' => 2,
+      'cat_custom' => 0,
+      'cover_id' => 68911,
+      'music_download_time' => 1498363386,
+      'music_last_update_time' => 1523036599,
+      'music_title_search' => 'xmile',
+      'music_artist_search' => '; v o x;',
+      'music_album_search' => 'xmile',
+      'music_composer' => '',
+      'music_album' => 'Smile',
+      'music_listen' => 1166,
+      'music_track_id' => 2,
+      'music_filename' => '1766605-36da3373.mp3',
+      'music_bitrate' => 1000,
+      'music_shortlyric' => '쌀쌀하게 바람이 차
+감기에 걸릴 것 같은 그런 날이야
+커피 한잔으로 몸을 녹이며
+데이트하고픈 그런 날이야
+지난 시간을 돌리고
+너를 다시 찾고 싶어 죽겠다
+울리지 말 걸 그랬다
+
+웃어, 그래야 넌 예쁘니까
+멀리멀리 떠나도 내 맘 편하게
+웃어, 울어서 뭐가 좋겠어
+가벼운 그리움쯤으로 생각해
+잘 살아라, 잘 지내라
+
+하루 건너 하루쯤은
+그 아무도 모르게 너...',
+      'music_artist_html' => '<a href="/ca-si/VOS~Y3NuX2FydGlzdH43NzA0.html">V.O.S</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+    ),
+    39 => 
+    array (
+      'music_downloads_today' => 1,
+      'music_id' => 1767717,
+      'music_title_url' => 'mai-mai-mot-tinh-yeu-remix~various-artists',
+      'music_title' => 'Mãi Mãi Một Tình Yêu (Remix)',
+      'music_artist' => 'Various Artists',
+      'music_artist_id' => '97',
+      'cat_id' => 2,
+      'cat_level' => 1,
+      'cat_sublevel' => 2,
+      'cat_custom' => 0,
+      'cover_id' => 0,
+      'music_download_time' => 1527217047,
+      'music_last_update_time' => 1490885434,
+      'music_title_search' => 'mai mai 1 tinh iu',
+      'music_artist_search' => '; varioux artixtx;',
+      'music_album_search' => '',
+      'music_composer' => 'Hoài An',
+      'music_album' => '',
+      'music_listen' => 3954,
+      'music_track_id' => 0,
+      'music_filename' => '1767717-a4e5c32c.mp3',
+      'music_bitrate' => 320,
+      'music_shortlyric' => 'Đêm từng đêm khi màn sương buông xuống trên 
+Thênh thang bao nhiêu nẻo đường
+Anh ngồi đây nhớ em nhiều
+Và thầm mong một ngày rực rỡ tình yêu
+Anh chờ em như lúc xưa, như bây giờ và chờ đợi mai sau
+C...',
+      'music_artist_html' => '<a href="/ca-si/Various-Artists~Y3NuX2FydGlzdH45Nw==.html">Various Artists</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     40 => 
     array (
@@ -1240,7 +1248,7 @@ S...',
       'music_listen' => 81188,
       'music_track_id' => 0,
       'music_filename' => '1769920-046e3ded.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkgreen">128kbps</span>',
+      'music_bitrate' => 128,
       'music_shortlyric' => '[Verse 1:]
 The club isn\'t the best place to find a lover
 So the bar is where I go
@@ -1248,6 +1256,7 @@ Me and my friends at the table doing shots
 Drinking fast and then we talk slow
 Come over and start up a conversatio...',
       'music_artist_html' => '<a href="/ca-si/Ed-Sheeran~Y3NuX2FydGlzdH4yNjUz.html">Ed Sheeran</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">128kbps</span>',
     ),
     41 => 
     array (
@@ -1272,9 +1281,10 @@ Come over and start up a conversatio...',
       'music_listen' => 14248,
       'music_track_id' => 20,
       'music_filename' => '1772441-e7c21cb8.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Justin-Hurwitz~Y3NuX2FydGlzdH42OTE3NA==.html">Justin Hurwitz</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     42 => 
     array (
@@ -1299,9 +1309,10 @@ Come over and start up a conversatio...',
       'music_listen' => 14783,
       'music_track_id' => 8,
       'music_filename' => '1772429-8762039b.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Justin-Hurwitz~Y3NuX2FydGlzdH42OTE3NA==.html">Justin Hurwitz</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     43 => 
     array (
@@ -1326,9 +1337,10 @@ Come over and start up a conversatio...',
       'music_listen' => 41819,
       'music_track_id' => 1,
       'music_filename' => '1775307-6b54966c.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Bassjackers~Y3NuX2FydGlzdH4xNzg1NQ==.html">Bassjackers</a>, <a href="/ca-si/Brooks~Y3NuX2FydGlzdH41OTAy.html">Brooks</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     44 => 
     array (
@@ -1353,7 +1365,7 @@ Come over and start up a conversatio...',
       'music_listen' => 2812,
       'music_track_id' => 9,
       'music_filename' => '1773954-75b23610.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '忘れてしまいたい事や
 どうしようもない寂しさに
 包まれた時に男は　酒を飲むのでしょう
@@ -1372,6 +1384,7 @@ Come over and start up a conversatio...',
 
 又ひとつ　女の...',
       'music_artist_html' => '<a href="/ca-si/Inada-Tetsu~Y3NuX2FydGlzdH45NTQyOA==.html">Inada Tetsu</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     45 => 
     array (
@@ -1396,9 +1409,10 @@ Come over and start up a conversatio...',
       'music_listen' => 771,
       'music_track_id' => 10,
       'music_filename' => '1772282-d3088bcd.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Lights-amp~Y3NuX2FydGlzdH4zNjI2NA==.html">Lights &amp</a>, <a href="/ca-si/Motion~Y3NuX2FydGlzdH4zNjI2NQ==.html">Motion</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     46 => 
     array (
@@ -1423,9 +1437,10 @@ Come over and start up a conversatio...',
       'music_listen' => 4177,
       'music_track_id' => 7,
       'music_filename' => '1772428-2272c61a.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Justin-Hurwitz~Y3NuX2FydGlzdH42OTE3NA==.html">Justin Hurwitz</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     47 => 
     array (
@@ -1450,9 +1465,10 @@ Come over and start up a conversatio...',
       'music_listen' => 3298,
       'music_track_id' => 33,
       'music_filename' => '1772455-1447d2c1.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Justin-Hurwitz~Y3NuX2FydGlzdH42OTE3NA==.html">Justin Hurwitz</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     48 => 
     array (
@@ -1477,9 +1493,10 @@ Come over and start up a conversatio...',
       'music_listen' => 19639,
       'music_track_id' => 9,
       'music_filename' => '1773356-2b5b8c11.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Dong-Trinh~Y3NuX2FydGlzdH4xNzc5.html">Đổng Trinh</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     49 => 
     array (
@@ -1504,9 +1521,10 @@ Come over and start up a conversatio...',
       'music_listen' => 2520,
       'music_track_id' => 6,
       'music_filename' => '1774772-79542fa0.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Nogizaka46~Y3NuX2FydGlzdH4xMzU1Nw==.html">Nogizaka46</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     50 => 
     array (
@@ -1531,9 +1549,10 @@ Come over and start up a conversatio...',
       'music_listen' => 76892,
       'music_track_id' => 3,
       'music_filename' => '1773590-dfb3d872.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/TheFatRat~Y3NuX2FydGlzdH4xOTk4NA==.html">TheFatRat</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     51 => 
     array (
@@ -1558,9 +1577,10 @@ Come over and start up a conversatio...',
       'music_listen' => 15411,
       'music_track_id' => 1,
       'music_filename' => '1771421-2f82957c.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Maddix~Y3NuX2FydGlzdH4xNDA3Mw==.html">Maddix</a>, <a href="/ca-si/Kevu~Y3NuX2FydGlzdH4xNTc0NA==.html">Kevu</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     52 => 
     array (
@@ -1585,12 +1605,13 @@ Come over and start up a conversatio...',
       'music_listen' => 6970,
       'music_track_id' => 4,
       'music_filename' => '1774789-6d45542c.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1 Influencer (インフルエンサー) / Senbatsu
 2 Jinsei wo Kangaetakunaru (人生を考えたくなる) / Akimoto Manatsu, Sakurai Reika, Nakada Kana, Wakatsuki Yumi
 3D Sanbanme no Kaze (三番目の風) / 3rd Generation
 4 Influencer (of...',
       'music_artist_html' => '<a href="/ca-si/Nogizaka46~Y3NuX2FydGlzdH4xMzU1Nw==.html">Nogizaka46</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     53 => 
     array (
@@ -1615,9 +1636,10 @@ Come over and start up a conversatio...',
       'music_listen' => 21902,
       'music_track_id' => 0,
       'music_filename' => '1773618-52c58700.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Marshmello~Y3NuX2FydGlzdH4xMzgzNQ==.html">Marshmello</a>, <a href="/ca-si/Slushii~Y3NuX2FydGlzdH4xMzk4Ng==.html">Slushii</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     54 => 
     array (
@@ -1642,9 +1664,10 @@ Come over and start up a conversatio...',
       'music_listen' => 6165,
       'music_track_id' => 21,
       'music_filename' => '1772442-436f3b3e.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Justin-Hurwitz~Y3NuX2FydGlzdH42OTE3NA==.html">Justin Hurwitz</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     55 => 
     array (
@@ -1669,7 +1692,7 @@ Come over and start up a conversatio...',
       'music_listen' => 24171,
       'music_track_id' => 0,
       'music_filename' => '1771460-057f50b3.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Hook:]
 I met u on my way back home
 I felt in love as sky were grey 
@@ -1680,6 +1703,7 @@ I miss you so much
 Say you love me even if it lies
 Call my n...',
       'music_artist_html' => '<a href="/ca-si/B-Ray~Y3NuX2FydGlzdH4xMzQ1NA==.html">B Ray</a>, <a href="/ca-si/V~Y3NuX2FydGlzdH45NTEwNw==.html">V#</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     56 => 
     array (
@@ -1704,9 +1728,10 @@ Call my n...',
       'music_listen' => 1167,
       'music_track_id' => 23,
       'music_filename' => '1772763-4d549ba8.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Shoji-Meguro~Y3NuX2FydGlzdH4zOTA5OQ==.html">Shoji Meguro</a>, <a href="/ca-si/Lyn~Y3NuX2FydGlzdH40MTMy.html">Lyn</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     57 => 
     array (
@@ -1731,9 +1756,10 @@ Call my n...',
       'music_listen' => 8597,
       'music_track_id' => 29,
       'music_filename' => '1772770-1b5f2967.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Shoji-Meguro~Y3NuX2FydGlzdH4zOTA5OQ==.html">Shoji Meguro</a>, <a href="/ca-si/Lyn~Y3NuX2FydGlzdH40MTMy.html">Lyn</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     58 => 
     array (
@@ -1758,9 +1784,10 @@ Call my n...',
       'music_listen' => 4031,
       'music_track_id' => 8,
       'music_filename' => '1773369-6c8a8a07.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Blasterjaxx~Y3NuX2FydGlzdH4xNDgwOQ==.html">Blasterjaxx</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     59 => 
     array (
@@ -1785,9 +1812,10 @@ Call my n...',
       'music_listen' => 2392,
       'music_track_id' => 13,
       'music_filename' => '1772434-06c061b8.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Justin-Hurwitz~Y3NuX2FydGlzdH42OTE3NA==.html">Justin Hurwitz</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     60 => 
     array (
@@ -1812,9 +1840,10 @@ Call my n...',
       'music_listen' => 1010253,
       'music_track_id' => 1,
       'music_filename' => '1778529-1c960c37.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Martin-Garrix~Y3NuX2FydGlzdH4xMzM0Mw==.html">Martin Garrix</a>, <a href="/ca-si/Brooks~Y3NuX2FydGlzdH41OTAy.html">Brooks</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     61 => 
     array (
@@ -1839,9 +1868,10 @@ Call my n...',
       'music_listen' => 310645,
       'music_track_id' => 1,
       'music_filename' => '1779263-42bc2c2e.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Alan-Walker~Y3NuX2FydGlzdH4xNDk5MQ==.html">Alan Walker</a>, <a href="/ca-si/K-391~Y3NuX2FydGlzdH4xNDk5MA==.html">K-391</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     62 => 
     array (
@@ -1866,9 +1896,10 @@ Call my n...',
       'music_listen' => 45959,
       'music_track_id' => 1,
       'music_filename' => '1781230-1f148968.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Mesto~Y3NuX2FydGlzdH4xNzgyMw==.html">Mesto</a>, <a href="/ca-si/Curbi~Y3NuX2FydGlzdH4xNTQ4OQ==.html">Curbi</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     63 => 
     array (
@@ -1893,9 +1924,10 @@ Call my n...',
       'music_listen' => 44353,
       'music_track_id' => 1,
       'music_filename' => '1777675-59966694.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Lucas~Y3NuX2FydGlzdH45NjM3.html">Lucas</a>, <a href="/ca-si/Steve~Y3NuX2FydGlzdH4xNjA5Mg==.html">Steve</a>, <a href="/ca-si/Pep-amp~Y3NuX2FydGlzdH42MTQ4MA==.html">Pep &amp</a>, <a href="/ca-si/Rash~Y3NuX2FydGlzdH42MDMyMA==.html">Rash</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     64 => 
     array (
@@ -1920,7 +1952,7 @@ Call my n...',
       'music_listen' => 22384,
       'music_track_id' => 3,
       'music_filename' => '1779126-81dde3a4.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Yêu nhau cho nhau nụ cười 
 Thương nhau cho nhau cuộc đời 
 Mà đời đâu biết đợi 
@@ -1931,6 +1963,7 @@ Thương nhau thương nhau một lần
 Một lần thôi vĩnh biệt 
 Một lần thô...',
       'music_artist_html' => '<a href="/ca-si/khoiquach-amp~Y3NuX2FydGlzdH45NTk3MA==.html">khoiquach &amp</a>, <a href="/ca-si/friends~Y3NuX2FydGlzdH45NTk3MQ==.html">friends</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     65 => 
     array (
@@ -1955,7 +1988,7 @@ Một lần thô...',
       'music_listen' => 22407,
       'music_track_id' => 2,
       'music_filename' => '1777759-7c3dd3e3.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Có bao giờ em nhớ anh không 
 Đã bao giờ em thương anh dù chỉ một lần 
 Hay chỉ là một giấc mơ 
@@ -1965,6 +1998,7 @@ Em đã từng khóc vì anh chưa
 Chắc chưa từng vì anh là người thừa 
 An...',
       'music_artist_html' => '<a href="/ca-si/Chu-Bin~Y3NuX2FydGlzdH4xMDk2.html">Chu Bin</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     66 => 
     array (
@@ -1989,9 +2023,10 @@ An...',
       'music_listen' => 69322,
       'music_track_id' => 1,
       'music_filename' => '1779278-d78f5dda.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Wamp~Y3NuX2FydGlzdH4xNDcyMw==.html">W&amp</a>, <a href="/ca-si/W~Y3NuX2FydGlzdH4xNDcyNA==.html">W</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     67 => 
     array (
@@ -2016,38 +2051,12 @@ An...',
       'music_listen' => 5555,
       'music_track_id' => 2,
       'music_filename' => '1777934-c327a3cf.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Eskmo~Y3NuX2FydGlzdH45NTg2MQ==.html">Eskmo</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     68 => 
-    array (
-      'music_downloads_today' => 2,
-      'music_id' => 1777641,
-      'music_title_url' => 'be-who-you-want-to-be~brian-tyler',
-      'music_title' => 'Be Who You Want To Be',
-      'music_artist' => 'Brian Tyler',
-      'music_artist_id' => '27003',
-      'cat_id' => 2,
-      'cat_level' => 2,
-      'cat_sublevel' => 8,
-      'cat_custom' => 0,
-      'cover_id' => 70276,
-      'music_download_time' => 1538983359,
-      'music_last_update_time' => 1506014953,
-      'music_title_search' => 'be who iou want to be',
-      'music_artist_search' => '; brian tiler;',
-      'music_album_search' => 'power rangerx; oridnal motion picture xoundchack',
-      'music_composer' => 'Brian Tyler',
-      'music_album' => 'Power Rangers (Original Motion Picture Soundtrack)',
-      'music_listen' => 666,
-      'music_track_id' => 18,
-      'music_filename' => '1777641-3fab035e.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
-      'music_shortlyric' => '',
-      'music_artist_html' => '<a href="/ca-si/Brian-Tyler~Y3NuX2FydGlzdH4yNzAwMw==.html">Brian Tyler</a>',
-    ),
-    69 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1777937,
@@ -2070,11 +2079,12 @@ An...',
       'music_listen' => 1757,
       'music_track_id' => 5,
       'music_filename' => '1777937-3483d0aa.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Eskmo~Y3NuX2FydGlzdH45NTg2MQ==.html">Eskmo</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    70 => 
+    69 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1782241,
@@ -2097,11 +2107,12 @@ An...',
       'music_listen' => 4979,
       'music_track_id' => 6,
       'music_filename' => '1782241-73cdd8ae.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Yoel-Lewis~Y3NuX2FydGlzdH43MDMzOQ==.html">Yoel Lewis</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    71 => 
+    70 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1780581,
@@ -2124,7 +2135,7 @@ An...',
       'music_listen' => 6403,
       'music_track_id' => 4,
       'music_filename' => '1780581-b894cc00.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1 Seishun Dokei (青春時計) / Senbatsu
 2 Akigan Punk (空き缶パンク)
 3A Shutsujin (出陣)
@@ -2132,35 +2143,9 @@ An...',
 3C Kurayami Motomu (暗闇求む) / NGT48
 3T Shita no Na de Yobeta no wa... (下の...',
       'music_artist_html' => '<a href="/ca-si/NGT48~Y3NuX2FydGlzdH4xMzYzNQ==.html">NGT48</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    72 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1777632,
-      'music_title_url' => 'birth-of-a-legend~brian-tyler',
-      'music_title' => 'Birth Of A Legend',
-      'music_artist' => 'Brian Tyler',
-      'music_artist_id' => '27003',
-      'cat_id' => 2,
-      'cat_level' => 2,
-      'cat_sublevel' => 8,
-      'cat_custom' => 0,
-      'cover_id' => 70276,
-      'music_download_time' => 1538894485,
-      'music_last_update_time' => 1506014893,
-      'music_title_search' => 'birth of a legend',
-      'music_artist_search' => '; brian tiler;',
-      'music_album_search' => 'power rangerx; oridnal motion picture xoundchack',
-      'music_composer' => 'Brian Tyler',
-      'music_album' => 'Power Rangers (Original Motion Picture Soundtrack)',
-      'music_listen' => 379,
-      'music_track_id' => 9,
-      'music_filename' => '1777632-a5cf9b37.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
-      'music_shortlyric' => '',
-      'music_artist_html' => '<a href="/ca-si/Brian-Tyler~Y3NuX2FydGlzdH4yNzAwMw==.html">Brian Tyler</a>',
-    ),
-    73 => 
+    71 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1778274,
@@ -2183,15 +2168,16 @@ An...',
       'music_listen' => 5608,
       'music_track_id' => 4,
       'music_filename' => '1778274-f392c351.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Track List:
 01. My Toys (Intro)
 02. GOOD NIGHT
 03. Lullaby
 04. GOOD NIGHT (Inst.)',
       'music_artist_html' => '<a href="/ca-si/Dreamcatcher~Y3NuX2FydGlzdH4xNTAxNg==.html">Dreamcatcher</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    74 => 
+    72 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1778325,
@@ -2214,11 +2200,12 @@ An...',
       'music_listen' => 2989,
       'music_track_id' => 5,
       'music_filename' => '1778325-d6cef8e0.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Keyakizaka46~Y3NuX2FydGlzdH4xNTk2NA==.html">Keyakizaka46</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    75 => 
+    73 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1779127,
@@ -2241,7 +2228,7 @@ An...',
       'music_listen' => 20074,
       'music_track_id' => 4,
       'music_filename' => '1779127-2769f4b7.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Khóc cho vơi đi những nhục hình
 Nói cho quên đi những tội tình
 Ðời con gái cũng cần dĩ vãng
@@ -2251,8 +2238,9 @@ Mai về sau nước mắt có cạn
 Khi xa đời thương cho đàn con
 Triệu người quen có...',
       'music_artist_html' => '<a href="/ca-si/khoiquach-amp~Y3NuX2FydGlzdH45NTk3MA==.html">khoiquach &amp</a>, <a href="/ca-si/friends~Y3NuX2FydGlzdH45NTk3MQ==.html">friends</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    76 => 
+    74 => 
     array (
       'music_downloads_today' => 2,
       'music_id' => 1782273,
@@ -2275,11 +2263,12 @@ Triệu người quen có...',
       'music_listen' => 8161,
       'music_track_id' => 17,
       'music_filename' => '1782273-19ed9aba.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/DRYM~Y3NuX2FydGlzdH42NjEzMg==.html">DRYM</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    77 => 
+    75 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1782464,
@@ -2302,7 +2291,7 @@ Triệu người quen có...',
       'music_listen' => 68296,
       'music_track_id' => 1,
       'music_filename' => '1782464-203a8b21.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Hãy nói về cuộc đời khi tôi không còn nữa
 Sẽ lấy được những gì về bên kia thế giới
 Ngoài trống vắng mà thôi
@@ -2311,35 +2300,9 @@ Thuỵ ơi và tình ơi!
 Như loài chim bói cá trên cọc nhọn trăm năm
 Tôi tìm đời đánh mất tro...',
       'music_artist_html' => '<a href="/ca-si/Khoiquach-amp~Y3NuX2FydGlzdH45NTk2OQ==.html">Khoiquach &amp</a>, <a href="/ca-si/friends~Y3NuX2FydGlzdH45NTk3MQ==.html">friends</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    78 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1783118,
-      'music_title_url' => 'seishun-dokei~ngt48',
-      'music_title' => 'Seishun Dokei (青春時計)',
-      'music_artist' => 'NGT48',
-      'music_artist_id' => '13635',
-      'cat_id' => 2,
-      'cat_level' => 5,
-      'cat_sublevel' => 1,
-      'cat_custom' => 0,
-      'cover_id' => 70969,
-      'music_download_time' => 1538628745,
-      'music_last_update_time' => 1493176482,
-      'music_title_search' => 'xeithun dokei; 青春時計',
-      'music_artist_search' => '; ngt48;',
-      'music_album_search' => 'xeithun dokei; 青春時計 ; tipe a',
-      'music_composer' => '',
-      'music_album' => 'Seishun Dokei (青春時計) (Type A)',
-      'music_listen' => 591,
-      'music_track_id' => 4,
-      'music_filename' => '1783118-60026bd6.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
-      'music_shortlyric' => '',
-      'music_artist_html' => '<a href="/ca-si/NGT48~Y3NuX2FydGlzdH4xMzYzNQ==.html">NGT48</a>',
-    ),
-    79 => 
+    76 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1777935,
@@ -2362,9 +2325,103 @@ Tôi tìm đời đánh mất tro...',
       'music_listen' => 4711,
       'music_track_id' => 3,
       'music_filename' => '1777935-dc805bf8.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Eskmo~Y3NuX2FydGlzdH45NTg2MQ==.html">Eskmo</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+    ),
+    77 => 
+    array (
+      'music_downloads_today' => 1,
+      'music_id' => 1778324,
+      'music_title_url' => 'fukyouwaon~keyakizaka46',
+      'music_title' => 'Fukyouwaon',
+      'music_artist' => 'Keyakizaka46',
+      'music_artist_id' => '15964',
+      'cat_id' => 2,
+      'cat_level' => 5,
+      'cat_sublevel' => 1,
+      'cat_custom' => 0,
+      'cover_id' => 70358,
+      'music_download_time' => 1538501274,
+      'music_last_update_time' => 1491620405,
+      'music_title_search' => 'fukiouwaon',
+      'music_artist_search' => '; keiakizaka46;',
+      'music_album_search' => 'fukiouwaon; 不協和音 ; tipe a',
+      'music_composer' => '',
+      'music_album' => 'Fukyouwaon (不協和音) (Type-A)',
+      'music_listen' => 13130,
+      'music_track_id' => 4,
+      'music_filename' => '1778324-706db4b2.mp3',
+      'music_bitrate' => 1000,
+      'music_shortlyric' => '',
+      'music_artist_html' => '<a href="/ca-si/Keyakizaka46~Y3NuX2FydGlzdH4xNTk2NA==.html">Keyakizaka46</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+    ),
+    78 => 
+    array (
+      'music_downloads_today' => 1,
+      'music_id' => 1778821,
+      'music_title_url' => 'something-just-like-this~the-chainsmokers-coldplay',
+      'music_title' => 'Something Just Like This',
+      'music_artist' => 'The Chainsmokers;Coldplay',
+      'music_artist_id' => '13339;6805',
+      'cat_id' => 2,
+      'cat_level' => 2,
+      'cat_sublevel' => 7,
+      'cat_custom' => 0,
+      'cover_id' => 0,
+      'music_download_time' => 1538556746,
+      'music_last_update_time' => 1492206811,
+      'music_title_search' => 'xomething juxt like thix',
+      'music_artist_search' => '; the chainxmokerx; coldplai;',
+      'music_album_search' => '',
+      'music_composer' => 'Andrew Taggart; Chris Martin; Guy Berryman; Jonny Buckland; Will Champion; The Chainsmokers',
+      'music_album' => '',
+      'music_listen' => 18972,
+      'music_track_id' => 0,
+      'music_filename' => '1778821-afb5e419.mp3',
+      'music_bitrate' => 128,
+      'music_shortlyric' => '1. I\'ve been reading books of old
+[t1]Tôi vẫn luôn chìm đắm trong những cuốn sách cũ
+The legends and the myths
+[t1]Những câu truyện thần thoại và những vị thần
+Achilles and his gold
+[t1]Achilles vớ...',
+      'music_artist_html' => '<a href="/ca-si/The-Chainsmokers~Y3NuX2FydGlzdH4xMzMzOQ==.html">The Chainsmokers</a>, <a href="/ca-si/Coldplay~Y3NuX2FydGlzdH42ODA1.html">Coldplay</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">128kbps</span>',
+    ),
+    79 => 
+    array (
+      'music_downloads_today' => 1,
+      'music_id' => 1779795,
+      'music_title_url' => 'da-tung-vo-gia~mr-siro',
+      'music_title' => 'Đã Từng Vô Giá',
+      'music_artist' => 'Mr Siro',
+      'music_artist_id' => '885',
+      'cat_id' => 2,
+      'cat_level' => 1,
+      'cat_sublevel' => 1,
+      'cat_custom' => 0,
+      'cover_id' => 70549,
+      'music_download_time' => 1538830836,
+      'music_last_update_time' => 1492769969,
+      'music_title_search' => 'da tung vo da',
+      'music_artist_search' => '; mr xiro;',
+      'music_album_search' => 'da tung vo da; xingle',
+      'music_composer' => 'Mr Siro',
+      'music_album' => 'Đã Từng Vô Giá (Single)',
+      'music_listen' => 20482,
+      'music_track_id' => 2,
+      'music_filename' => '1779795-017bdc6f.mp3',
+      'music_bitrate' => 1000,
+      'music_shortlyric' => '1. Anh đã biết em nhớ thầm ai suốt một thời gian
+Người đó ở cạnh bên và kiên nhẫn đợi chờ
+Giọt nước mắt mà anh khóc
+Chẳng phải do duyên mình chấm dứt 
+Mà chính là phận mình vẫn quá sớm để lụi tàn...',
+      'music_artist_html' => '<a href="/ca-si/Mr-Siro~Y3NuX2FydGlzdH44ODU=.html">Mr Siro</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
   ),
   3 => 
@@ -2392,7 +2449,7 @@ Tôi tìm đời đánh mất tro...',
       'music_listen' => 2500643,
       'music_track_id' => 0,
       'music_filename' => '1760593-04216687.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => '[Verse:]
 Xin những bối rối này cứ thế lên ngôi 
 Xin con tim rẽ lối tìm giây phút nghẹn lời
@@ -2401,6 +2458,7 @@ Chạm nhau mang theo gọi mời.
 
 Xin cho ta tan vào những đắm đuố...',
       'music_artist_html' => '<a href="/ca-si/Rhymastic~Y3NuX2FydGlzdH4xNTQ1.html">Rhymastic</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     1 => 
     array (
@@ -2425,12 +2483,13 @@ Xin cho ta tan vào những đắm đuố...',
       'music_listen' => 2225203,
       'music_track_id' => 1,
       'music_filename' => '1758374-68ccfa58.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Thế giới bé thế nào, mình gặp nhau có phải muôn đời?
 Ngày mà người mang đến một khúc hát không thể quên
 Bài hát với những mơ mộng, bài hát với những hy vọng
 Cho đời ta chút vui, cho đời ta chút thư...',
       'music_artist_html' => '<a href="/ca-si/Erik~Y3NuX2FydGlzdH4xNDM3Ng==.html">Erik</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     2 => 
     array (
@@ -2455,7 +2514,7 @@ Cho đời ta chút vui, cho đời ta chút thư...',
       'music_listen' => 268205,
       'music_track_id' => 1,
       'music_filename' => '1758408-24b7f866.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Mẹ Việt Nam mắt ngời sáng quắt
 Nghe đâu đây tiếng vọng hoà bình
 Lệ nhạt nhoà đôi mắt long lanh
@@ -2465,6 +2524,7 @@ Một cành hoa em cài mái tóc
 Anh đưa em qua quãng đường dài
 Về thành đ...',
       'music_artist_html' => '<a href="/ca-si/Hien-Thuc~Y3NuX2FydGlzdH40Mzc=.html">Hiền Thục</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     3 => 
     array (
@@ -2489,13 +2549,14 @@ Về thành đ...',
       'music_listen' => 72976,
       'music_track_id' => 4,
       'music_filename' => '1758411-0d3b822a.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Đêm bơ vơ, thương ai đêm đợi đêm chờ
 Trời bây giờ, trời buồn nên trời hay mưa
 Từ buổi em đi mang theo hoa buớm ngày xuân
 Từng giờ chia ly, khi nào em nhớ anh không
 Đêm bơ vơ thuơng ai đêm đợi đêm c...',
       'music_artist_html' => '<a href="/ca-si/Hien-Thuc~Y3NuX2FydGlzdH40Mzc=.html">Hiền Thục</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     4 => 
     array (
@@ -2520,7 +2581,7 @@ Từng giờ chia ly, khi nào em nhớ anh không
       'music_listen' => 1336749,
       'music_track_id' => 1,
       'music_filename' => '1760579-e3a56b33.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkgreen">128kbps</span>',
+      'music_bitrate' => 128,
       'music_shortlyric' => '[Verse 1]
 Xin những bối rối này cứ thế lên ngôi 
 Xin con tim rẽ lối tìm giây phút nghẹn lời
@@ -2529,6 +2590,7 @@ Chạm nhau mang theo gọi mời
 
 Xin cho ta tan vào những đắm đu...',
       'music_artist_html' => '<a href="/ca-si/Rhymastic~Y3NuX2FydGlzdH4xNTQ1.html">Rhymastic</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">128kbps</span>',
     ),
     5 => 
     array (
@@ -2553,7 +2615,7 @@ Xin cho ta tan vào những đắm đu...',
       'music_listen' => 190799,
       'music_track_id' => 0,
       'music_filename' => '1756086-90d98ad6.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Em tựa mây lạc chân trên trời 
 Anh tựa cây vùi thân bên đời 
 Nhìn nhau! ta thầm thương thầm yêu lòng không nên lời 
@@ -2561,6 +2623,7 @@ Trông chờ nhau vài câu chân tình
 Nhưng buồn thay tình ta vẫn cứ lặng thinh 
 Khóc...',
       'music_artist_html' => '<a href="/ca-si/Karik~Y3NuX2FydGlzdH4xNzkz.html">Karik</a>, <a href="/ca-si/Windy-Quyen~Y3NuX2FydGlzdH4zNDk3.html">Windy Quyên</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     6 => 
     array (
@@ -2585,12 +2648,13 @@ Khóc...',
       'music_listen' => 751403,
       'music_track_id' => 0,
       'music_filename' => '1759550-ca4d6236.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => '1. Mỗi người mỗi số phận, không ai giống ai
 Nhưng tình yêu chỉ một kết thúc giống nhau
 Lúc ban đầu hạnh phúc thường đong đầy, rồi khi gục ngã phải tự lau nước mắt
 Hoá ra bên nhau lâu ngày thành thó...',
       'music_artist_html' => '<a href="/ca-si/Mr-Siro~Y3NuX2FydGlzdH44ODU=.html">Mr Siro</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     7 => 
     array (
@@ -2615,7 +2679,7 @@ Hoá ra bên nhau lâu ngày thành thó...',
       'music_listen' => 1485987,
       'music_track_id' => 1,
       'music_filename' => '1756456-b369abf3.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. Dẫu bao mùa đã qua
 Tình yêu trong ta chỉ là vụt qua hay sâu đậm
 Thì đau đớn kia vẫn như lần đầu.
@@ -2627,6 +2691,7 @@ Dừng quay lưng bước vội đi.
 [ĐK:]
 Đi về đâu, về...',
       'music_artist_html' => '<a href="/ca-si/Tien-Tien~Y3NuX2FydGlzdH4xNTk0NQ==.html">Tiên Tiên</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     8 => 
     array (
@@ -2651,7 +2716,7 @@ Dừng quay lưng bước vội đi.
       'music_listen' => 199031,
       'music_track_id' => 3,
       'music_filename' => '1758410-112d35af.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. Phận là con gái, chưa một lần yêu ai
 Nhìn về tương lai mà thấy như sông rộng đường dài
 Cảnh nhà neo đơn
@@ -2660,6 +2725,7 @@ Bầy em chưa lớn trĩu đôi vai gánh nhọc nhằn.
 Thầy mẹ thương em nhờ tìm người se duyên
 Lòn...',
       'music_artist_html' => '<a href="/ca-si/Hien-Thuc~Y3NuX2FydGlzdH40Mzc=.html">Hiền Thục</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     9 => 
     array (
@@ -2684,13 +2750,14 @@ Lòn...',
       'music_listen' => 376162,
       'music_track_id' => 3,
       'music_filename' => '1756252-7c82aa9a.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. Một người nào khác cho anh thêm đậm sâu
 Và cả một người nào khác cho anh thêm bền lâu, baby
 Dù đoạn đường có thêm chông gai về sau
 Mình tự mình làm khổ đau, ngày dài trôi
 Điều gì đến, cũng sẽ đế...',
       'music_artist_html' => '<a href="/ca-si/Soobin-Hoang-Son~Y3NuX2FydGlzdH4zMTA4.html">Soobin Hoàng Sơn</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     10 => 
     array (
@@ -2715,7 +2782,7 @@ Mình tự mình làm khổ đau, ngày dài trôi
       'music_listen' => 599722,
       'music_track_id' => 1,
       'music_filename' => '1758906-c71f4164.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Có những lúc vu vơ 
 Nhìn ngắm những ánh sao đêm 
 Nhớ ánh mắt môi em ngày ấy. 
@@ -2727,6 +2794,7 @@ Phố vắng tiếng chân ai buồn tênh.
 Mình vượt qua bao tháng ngày xa rời 
 C...',
       'music_artist_html' => '<a href="/ca-si/Suni-Ha-Linh~Y3NuX2FydGlzdH4xNjEzNw==.html">Suni Hạ Linh</a>, <a href="/ca-si/Erik~Y3NuX2FydGlzdH4xNDM3Ng==.html">Erik</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     11 => 
     array (
@@ -2751,13 +2819,14 @@ C...',
       'music_listen' => 178975,
       'music_track_id' => 1,
       'music_filename' => '1760423-992cdb2b.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => 'Vàng cây lá bay, đôi tay ngây buồn mang suy tư về
 Này đôi mắt nhung, kiêu sa môi mềm tìm đến cơn mê
 Niềm tin đã lạnh theo tháng năm giá băng
 Em có nghe ngoài phố đang kết hoa
 Bao nhiêu sắc hoa là b...',
       'music_artist_html' => '<a href="/ca-si/Nhu-Quynh~Y3NuX2FydGlzdH4zMg==.html">Như Quỳnh</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     12 => 
     array (
@@ -2782,7 +2851,7 @@ Bao nhiêu sắc hoa là b...',
       'music_listen' => 391833,
       'music_track_id' => 1,
       'music_filename' => '1756989-633fee3d.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. Anh đây quậy phá khắp đất trời
 Rượu chè lè nhè đi khắp nơi
 Lang thang cười hát ca với đời
@@ -2792,6 +2861,7 @@ Anh Chí Phèo, anh Chí Phèo.
 Chằng được dịu dàng lại kém duyên
 Ba mươi...',
       'music_artist_html' => '<a href="/ca-si/Bui-Cong-Nam~Y3NuX2FydGlzdH4xODEzNw==.html">Bùi Công Nam</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     13 => 
     array (
@@ -2816,9 +2886,10 @@ Ba mươi...',
       'music_listen' => 108288,
       'music_track_id' => 0,
       'music_filename' => '1761450-2acfc404.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Ron-Vinh~Y3NuX2FydGlzdH4xNDEyNQ==.html">Rôn Vinh</a>, <a href="/ca-si/Thao-Pham~Y3NuX2FydGlzdH4xOTEyMg==.html">Thảo Phạm</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     14 => 
     array (
@@ -2843,7 +2914,7 @@ Ba mươi...',
       'music_listen' => 176012,
       'music_track_id' => 1,
       'music_filename' => '1758303-d1da22b2.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. Một mình anh ngồi đây giữa đám đông
 Người đi qua đi qua thành từng dòng
 Trên sân khấu ban nhạc hát một bài tình ca
@@ -2851,6 +2922,7 @@ Nhìn xung quanh là những tay nắm tay
 Nhìn xung quanh là yêu là đong đầy
 Từng ti...',
       'music_artist_html' => '<a href="/ca-si/Kai-Dinh~Y3NuX2FydGlzdH42MTYz.html">Kai Đinh</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     15 => 
     array (
@@ -2875,7 +2947,7 @@ Từng ti...',
       'music_listen' => 107152,
       'music_track_id' => 1,
       'music_filename' => '1757169-3310ea84.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Mình gặp nhau như lúc mới quen ban đầu 
 Cớ sao anh ngập ngừng
 Nhà tôi đơn côi mời anh ở lại 
@@ -2884,6 +2956,7 @@ Kể chuyện tha hương chưa lần phai nhớ thương.
 Mang tâm sự từ thuở thiếu đôi tay mềm 
 Biết nơi nào mà tì...',
       'music_artist_html' => '<a href="/ca-si/Bao-Yen~Y3NuX2FydGlzdH41OTQ=.html">Bảo Yến</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     16 => 
     array (
@@ -2908,7 +2981,7 @@ Biết nơi nào mà tì...',
       'music_listen' => 22948,
       'music_track_id' => 2,
       'music_filename' => '1759422-8f9c2ff7.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Cứ muốn kết thúc câu chuyện của mình nơi đây
 Tay trao yêu thương mà tim đau biết mấy
 Cứ muốn níu kéo nhưng sao lòng mình buông xuôi
@@ -2916,6 +2989,7 @@ Van xin ta quên ngày yêu nhau đắm đuối.
 
 Bởi vì chợt nghĩ đến đã...',
       'music_artist_html' => '<a href="/ca-si/Trang-Phap~Y3NuX2FydGlzdH4zNjM3.html">Trang Pháp</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     17 => 
     array (
@@ -2940,7 +3014,7 @@ Bởi vì chợt nghĩ đến đã...',
       'music_listen' => 72926,
       'music_track_id' => 2,
       'music_filename' => '1758409-d16322aa.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Bạn tình ơi, dẫu gì cũng xa nhau rồi 
 Dòng sông lững lờ trôi, con thuyền sóng đưa xa bờ 
 Tại vì ai mà duyên ta lỡ, nói gì cũng thôi 
@@ -2948,6 +3022,7 @@ Ai đã quên ta, mà cớ sao ta còn thương.
 
 Trách ai quên tình bao...',
       'music_artist_html' => '<a href="/ca-si/Hien-Thuc~Y3NuX2FydGlzdH40Mzc=.html">Hiền Thục</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     18 => 
     array (
@@ -2972,7 +3047,7 @@ Trách ai quên tình bao...',
       'music_listen' => 161031,
       'music_track_id' => 1,
       'music_filename' => '1756609-fb8c13b6.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Cảm giác lần gặp đầu tiên 
 Là đã muốn yêu thương em đắm chìm 
 Cảm giác đọng lại mỗi ngày 
@@ -2981,6 +3056,7 @@ Là muốn chở che cho (đôi) bờ vai ấy.
 Cảm giác trọn cuộc đời này 
 Chỉ muốn yêu riêng thôi mình đôi mắt ấy...',
       'music_artist_html' => '<a href="/ca-si/Ung-Hoang-Phuc~Y3NuX2FydGlzdH44.html">Ưng Hoàng Phúc</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     19 => 
     array (
@@ -3005,7 +3081,7 @@ Chỉ muốn yêu riêng thôi mình đôi mắt ấy...',
       'music_listen' => 152913,
       'music_track_id' => 1,
       'music_filename' => '1758300-028673ff.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Người ta thường nói, ngày vui thì ngắn thôi 
 Ngày thức giấc bên cạnh một người 
 Ngày nguyện ước, ôm trọn vòng tay. 
@@ -3014,6 +3090,7 @@ Người ta thường nói, ngày buồn thì khó qua
 Nào đâu dễ quên một người 
 Mà mình d...',
       'music_artist_html' => '<a href="/ca-si/Trung-Quan~Y3NuX2FydGlzdH4yMDQ1.html">Trung Quân</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     20 => 
     array (
@@ -3038,7 +3115,7 @@ Mà mình d...',
       'music_listen' => 1588358,
       'music_track_id' => 0,
       'music_filename' => '1769007-c537e43b.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. Từ lâu em cũng đã nhận ra
 Với anh em không là duy nhất
 Nếu em mãi im lặng
@@ -3049,6 +3126,7 @@ Vẫn luôn quay về vẫn êm ấm
 Mà tại sao từ trong tâm trí em
 Cứ bảo...',
       'music_artist_html' => '<a href="/ca-si/Toc-Tien~Y3NuX2FydGlzdH4zNDM=.html">Tóc Tiên</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     21 => 
     array (
@@ -3073,7 +3151,7 @@ Cứ bảo...',
       'music_listen' => 874383,
       'music_track_id' => 1,
       'music_filename' => '1764516-52cd3503.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. Em ơi mình đã yêu nhau được mấy tháng rồi?
 Em ơi mình đã qua bao nhiêu sóng gió trên đời?
 Có mấy đêm anh thức khuya
@@ -3082,6 +3160,7 @@ Em ơi mình đã xa nhau hơn cả tuần rồi!
 
 [ĐK...',
       'music_artist_html' => '<a href="/ca-si/Vu-Cat-Tuong~Y3NuX2FydGlzdH4yNTU5.html">Vũ Cát Tường</a>, <a href="/ca-si/Hakoota-Dung-Ha~Y3NuX2FydGlzdH4xMzczNg==.html">Hakoota Dũng Hà</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     22 => 
     array (
@@ -3106,7 +3185,7 @@ Em ơi mình đã xa nhau hơn cả tuần rồi!
       'music_listen' => 187162,
       'music_track_id' => 0,
       'music_filename' => '1768870-8cc4cdf1.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => '1. Mưa Trong Lòng 
 2. Chỉ Bằng Cái Gật Đầu 
 3. Em Ơi Đừng Khóc
@@ -3117,6 +3196,7 @@ Em ơi mình đã xa nhau hơn cả tuần rồi!
 8. Xếp Vào Nỗi Đau Qúa Khứ 
 9. Phía...',
       'music_artist_html' => '<a href="/ca-si/Bao-Kho~Y3NuX2FydGlzdH42NzgxMQ==.html">Bảo Khờ</a>, <a href="/ca-si/Various-Artists~Y3NuX2FydGlzdH45Nw==.html">Various Artists</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     23 => 
     array (
@@ -3141,7 +3221,7 @@ Em ơi mình đã xa nhau hơn cả tuần rồi!
       'music_listen' => 217849,
       'music_track_id' => 0,
       'music_filename' => '1768455-43decde1.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Muốn được yêu ai đó cả cuộc đời
 Muốn được ngồi nhìn nhau ăn bữa cơm
 Muốn được tự nhiên khóc khi thấy đời mệt nhọc
@@ -3150,6 +3230,7 @@ Kéo tấm chăn ấm mình ôm nhau ngủ say.
 Muốn được giữ ai đó cho riêng mình
 Muốn là c...',
       'music_artist_html' => '<a href="/ca-si/Hoang-Yen-Chibi~Y3NuX2FydGlzdH40NTc4.html">Hoàng Yến Chibi</a>, <a href="/ca-si/Tino~Y3NuX2FydGlzdH4xNTU3MA==.html">Tino</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     24 => 
     array (
@@ -3174,12 +3255,13 @@ Muốn là c...',
       'music_listen' => 84189,
       'music_track_id' => 0,
       'music_filename' => '1763632-015bbd99.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => 'Giờ như một giấc mơ, vì em đang ngồi cạnh anh
 Cảm giác của trái tim, giờ anh phải nói hết như thế nào
 Vì chưa từng biết yêu, nên anh chỉ ngồi đấy
 Rồi cơn mưa ghé qua, làm anh càng thêm vấn vương lo...',
       'music_artist_html' => '<a href="/ca-si/LeeAndy~Y3NuX2FydGlzdH45NDI1NQ==.html">LeeAndy</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     25 => 
     array (
@@ -3204,13 +3286,14 @@ Rồi cơn mưa ghé qua, làm anh càng thêm vấn vương lo...',
       'music_listen' => 87728,
       'music_track_id' => 0,
       'music_filename' => '1763172-ea97e986.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => '[Cam]
 Hôm nay tao chết thì sao? Đàn bà lê lết vì tao
 Cặp loa phường gọi đúng tên mày rồi nên cố đứng lên và chào
 Mắt ghệ mày cứ đâu đâu, còn mày nó đéo thèm ngó
 giờ thì khó được giống hồi đó, bao l...',
       'music_artist_html' => '<a href="/ca-si/Hazard-Clique~Y3NuX2FydGlzdH44MTA1Mg==.html">Hazard Clique</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     26 => 
     array (
@@ -3235,13 +3318,14 @@ giờ thì khó được giống hồi đó, bao l...',
       'music_listen' => 753423,
       'music_track_id' => 0,
       'music_filename' => '1768714-d04bb4a6.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Huỳnh James
 Con phố đã lên đèn mà lên đèn phải xuống phố 
 Xuống phố để giải ngố, chứ không cái đầu bể hộp số 
 Vì công việc hàng ngày chất chứa quá nhiều toàn những vết ố 
 Nên vì thế tao dùng cỏ khô...',
       'music_artist_html' => '<a href="/ca-si/Huynh-James~Y3NuX2FydGlzdH4xMzQ1MA==.html">Huỳnh James</a>, <a href="/ca-si/Pjnboys~Y3NuX2FydGlzdH4xMzQ1MQ==.html">Pjnboys</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     27 => 
     array (
@@ -3266,7 +3350,7 @@ Nên vì thế tao dùng cỏ khô...',
       'music_listen' => 229987,
       'music_track_id' => 1,
       'music_filename' => '1763886-d37eecbe.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Tôi đã khóc như một dòng sông 
 Ngày em đi lấy chồng 
 Tôi đã thấy như vạn mùa đông 
@@ -3276,6 +3360,7 @@ Tìm đâu ra lá diêu bông bây giờ?
 Dòng sông con nước ai chia đôi bờ 
 V...',
       'music_artist_html' => '<a href="/ca-si/Hamlet-Truong~Y3NuX2FydGlzdH4yODg4.html">Hamlet Trương</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     28 => 
     array (
@@ -3300,7 +3385,7 @@ V...',
       'music_listen' => 141704,
       'music_track_id' => 1,
       'music_filename' => '1763394-7e43e521.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Những lúc anh bước ra đường vui tung tăng đi xuống phố
 Đôi khi anh cũng nhí nhố với những đứa bạn thân
 Nhiều người đẹp nhìn theo cứ muốn đến làm quen
@@ -3308,6 +3393,7 @@ Dù anh tự tin, vẫn ngại lắm nha!
 
 Không siêu nh...',
       'music_artist_html' => '<a href="/ca-si/Dam-Vinh-Hung~Y3NuX2FydGlzdH40ODM2.html">Đàm Vĩnh Hưng</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     29 => 
     array (
@@ -3332,7 +3418,7 @@ Không siêu nh...',
       'music_listen' => 55454,
       'music_track_id' => 0,
       'music_filename' => '1765507-53c09bfb.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkgreen">128kbps</span>',
+      'music_bitrate' => 128,
       'music_shortlyric' => 'Chờ người tình lỡ là tình đầu tình gặp gỡ
 Tình trong dĩ vãng nhạt nhoà
 Vào mùa trăng đó nàng từ phương xa về như giấc mơ.
@@ -3341,6 +3427,7 @@ Tình đầu gặp gỡ rồi tình trọn đời còn nhớ
 Tình tha thiết đắm say
 Ánh mắt n...',
       'music_artist_html' => '<a href="/ca-si/Chau-Dang-Khoa~Y3NuX2FydGlzdH4xODgwMQ==.html">Châu Đăng Khoa</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">128kbps</span>',
     ),
     30 => 
     array (
@@ -3365,13 +3452,14 @@ Tình tha thiết đắm say
       'music_listen' => 130708,
       'music_track_id' => 0,
       'music_filename' => '1765365-313f0a60.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => 'Em, dạo này em có thấy lẻ loi
 Lòng có mang chút đắng buồn vương
 Như anh giờ này một mình bên ly cafe đá không đường
 Và rồi anh nhớ ngày xa nhau hai tiếng &quot;nhạt phai&quot;
 Chào đón ta sau quãng...',
       'music_artist_html' => '<a href="/ca-si/The-Bao~Y3NuX2FydGlzdH41Njk4Mw==.html">Thế Bảo</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     31 => 
     array (
@@ -3396,7 +3484,7 @@ Chào đón ta sau quãng...',
       'music_listen' => 41184,
       'music_track_id' => 0,
       'music_filename' => '1768494-a0d92297.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => 'Nhìn từng giọt mưa nhẹ rơi ngoài hiên
 Nơi xa em có hay không
 Chân trời kia ngồi trong màn sương
@@ -3406,6 +3494,7 @@ Con đường xưa giờ đây ngơ ngát
 Ngập đầy tuyết rơi giá lạnh
 Tìm về đâu ngày xư...',
       'music_artist_html' => '<a href="/ca-si/Bang-Kieu~Y3NuX2FydGlzdH4xMjU4.html">Bằng Kiều</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     32 => 
     array (
@@ -3430,7 +3519,7 @@ Tìm về đâu ngày xư...',
       'music_listen' => 116267,
       'music_track_id' => 1,
       'music_filename' => '1765481-28ea053e.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Ở bên cạnh anh, ngày chỉ như chớp mắt
 Gần nhau rồi xa, đừng giận hờn em thêm nữa 
 Biết rằng anh muốn được nghe những lời yêu
@@ -3439,6 +3528,7 @@ Những lời hứa hẹn của em.
 Để em gần anh, dù chỉ trong giây phút
 Để em n...',
       'music_artist_html' => '<a href="/ca-si/Phung-Khanh-Linh~Y3NuX2FydGlzdH4xNDM3Nw==.html">Phùng Khánh Linh</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     33 => 
     array (
@@ -3463,7 +3553,7 @@ Những lời hứa hẹn của em.
       'music_listen' => 78617,
       'music_track_id' => 0,
       'music_filename' => '1763012-9cb29c4b.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. Ông bà anh yêu nhau thời chưa có TV
 Ông bà anh yêu nhau thời chưa có xe hơi
 Ông thường đưa bà anh đi dạo quanh 
@@ -3472,6 +3562,7 @@ Trên con ngựa sắt thống nhất màu xanh.
 Ông bà anh đưa nhau đi khắp phố xa
 Bà ngồi...',
       'music_artist_html' => '<a href="/ca-si/Le-Thien-Hieu~Y3NuX2FydGlzdH4yMzMzMg==.html">Lê Thiện Hiếu</a>, <a href="/ca-si/The-Phuong-VBK~Y3NuX2FydGlzdH40OTAzNw==.html">Thế Phương VBK</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     34 => 
     array (
@@ -3496,7 +3587,7 @@ Bà ngồi...',
       'music_listen' => 464862,
       'music_track_id' => 1,
       'music_filename' => '1765388-f116d938.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Bình yên giữa thêng thang trời ôm lấy gió 
 Giọt nắng nghiêng bên bờ mi 
 Chợt đánh rơi nụ cười
@@ -3507,6 +3598,7 @@ Từng phút giây nhạt nhoà.
 
 Bao năm...',
       'music_artist_html' => '<a href="/ca-si/SlimV~Y3NuX2FydGlzdH4yNzY4MA==.html">SlimV</a>, <a href="/ca-si/Minh-Nhu~Y3NuX2FydGlzdH43MzE5Mw==.html">Minh Như</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     35 => 
     array (
@@ -3531,9 +3623,10 @@ Bao năm...',
       'music_listen' => 118023,
       'music_track_id' => 0,
       'music_filename' => '1763171-10fbd03c.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkgreen">128kbps</span>',
+      'music_bitrate' => 128,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Kimmese~Y3NuX2FydGlzdH4yNjYz.html">Kimmese</a>, <a href="/ca-si/Hazard-Clique~Y3NuX2FydGlzdH44MTA1Mg==.html">Hazard Clique</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">128kbps</span>',
     ),
     36 => 
     array (
@@ -3558,12 +3651,13 @@ Bao năm...',
       'music_listen' => 128055,
       'music_track_id' => 0,
       'music_filename' => '1764636-d75eb299.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => '[Verse]
 Như là đã chứng kiến tất cả một đời sống hối hả -nhà tôi gần phố
 Trong một lần đó, do là may mắn cho tôi tìm được người bạn đồng hành dù mong manh nhưng cả hai lột tả cùng một tầng số,
 Đô t...',
       'music_artist_html' => '<a href="/ca-si/DatManiac~Y3NuX2FydGlzdH4zODM0OA==.html">DatManiac</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     37 => 
     array (
@@ -3588,7 +3682,7 @@ Trong một lần đó, do là may mắn cho tôi tìm được người bạn �
       'music_listen' => 39637,
       'music_track_id' => 0,
       'music_filename' => '1768444-98907757.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => '[Verse 1]
 Xin những bối rối này cứ thế lên ngôi 
 Xin con tim rẽ lối tìm giây phút nghẹn lời
@@ -3597,6 +3691,7 @@ Chạm nhau mang theo gọi mời
 
 Xin cho ta tan vào những đắm đu...',
       'music_artist_html' => '<a href="/ca-si/Rhymastic~Y3NuX2FydGlzdH4xNTQ1.html">Rhymastic</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     38 => 
     array (
@@ -3621,11 +3716,12 @@ Xin cho ta tan vào những đắm đu...',
       'music_listen' => 56355,
       'music_track_id' => 0,
       'music_filename' => '1764086-78eff4c4.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => 'Chơi vơi, hạt mưa nhẹ rơi xé đến tơi bời, đã.. rồi và 
 Đông ơi, lạnh thôi, đừng mưa lấp ánh mặt trời, sưởi ấm trái tim ai khi mùa
 Đông về, dù ai đến ai đi, hay nếu ai mất gì, như cách em đã từng th...',
       'music_artist_html' => '<a href="/ca-si/Hai-Sam~Y3NuX2FydGlzdH4yMzg4Nw==.html">Hải Sâm</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     39 => 
     array (
@@ -3650,9 +3746,10 @@ Xin cho ta tan vào những đắm đu...',
       'music_listen' => 56508,
       'music_track_id' => 0,
       'music_filename' => '1765228-adfe7bb4.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Ho-Quoc-Buu~Y3NuX2FydGlzdH4yMzky.html">Hồ Quốc Bửu</a>, <a href="/ca-si/Phu-Danh~Y3NuX2FydGlzdH41MDcwOQ==.html">Phú Danh</a>, <a href="/ca-si/Nguyen-Ha~Y3NuX2FydGlzdH41MTM2.html">Nguyễn Hà</a>, <a href="/ca-si/Duc-Thoa~Y3NuX2FydGlzdH41MzY4Mw==.html">Đức Thoả</a>, <a href="/ca-si/Truong-Nguyen~Y3NuX2FydGlzdH42NTI0MA==.html">Trương Nguyên</a>, <a href="/ca-si/Thanh-Ngan~Y3NuX2FydGlzdH4yMzcz.html">Thanh Ngân</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     40 => 
     array (
@@ -3677,7 +3774,7 @@ Xin cho ta tan vào những đắm đu...',
       'music_listen' => 2163917,
       'music_track_id' => 11,
       'music_filename' => '1776239-53f56652.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Vì sao anh nhớ em thế này? 
 Thương nhớ đong đầy trong lòng mắt 
 Buổi chiều còn gặp nhau đây 
@@ -3687,6 +3784,7 @@ Em hỡi em có hiểu có hay?
 Tình anh như núi cao biển rộng
 Gom bốn phương trời x...',
       'music_artist_html' => '<a href="/ca-si/Dan-Nguyen~Y3NuX2FydGlzdH4yMzQ3.html">Đan Nguyên</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     41 => 
     array (
@@ -3711,7 +3809,7 @@ Gom bốn phương trời x...',
       'music_listen' => 1467900,
       'music_track_id' => 2,
       'music_filename' => '1774347-4147d825.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Dẫu biết đôi ta đã từng trải qua
 Bao nhiêu năm thiết tha yêu như vậy mà
 Bây giờ lại xa lạ
@@ -3720,6 +3818,7 @@ Nhìn em bước về, tay cầm tay vui đùa cùng với ai.
 
 Ánh mắt,...',
       'music_artist_html' => '<a href="/ca-si/Chau-Khai-Phong~Y3NuX2FydGlzdH4yMjQ4.html">Châu Khải Phong</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     42 => 
     array (
@@ -3744,7 +3843,7 @@ Nhìn em bước về, tay cầm tay vui đùa cùng với ai.
       'music_listen' => 646327,
       'music_track_id' => 1,
       'music_filename' => '1773435-efa435fc.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Ver 1:]
 Ngày lang thang
 Trong cơn mơ không veston không cà vạt
@@ -3752,6 +3851,7 @@ Không nhiều Than Thở dẫu mình hay mơ về Đà Lạt
 Đi cho vai áo bạc màu những hành trình dài
 Để khi ta thay áo mới nhìn lại đã thành hìn...',
       'music_artist_html' => '<a href="/ca-si/Ngot~Y3NuX2FydGlzdH4xMzc5Ng==.html">Ngọt</a>, <a href="/ca-si/Den~Y3NuX2FydGlzdH4xMjQxMQ==.html">Đen</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     43 => 
     array (
@@ -3776,7 +3876,7 @@ Không nhiều Than Thở dẫu mình hay mơ về Đà Lạt
       'music_listen' => 4216738,
       'music_track_id' => 1,
       'music_filename' => '1770987-5c084f1e.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Tôi đang ở một nơi rất xa 
 Nơi không có khói bụi thành phố 
 Ở một nơi đẹp như mơ 
@@ -3786,6 +3886,7 @@ Cuộc đời tôi là những chuyến đi dài.
 
 Vượt suối đá,v...',
       'music_artist_html' => '<a href="/ca-si/Soobin-Hoang-Son~Y3NuX2FydGlzdH4zMTA4.html">Soobin Hoàng Sơn</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     44 => 
     array (
@@ -3810,7 +3911,7 @@ Vượt suối đá,v...',
       'music_listen' => 2425349,
       'music_track_id' => 1,
       'music_filename' => '1773033-d6fe0a4a.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Anh thường hay vẫn nằm mơ về một ngôi nhà 
 Ở một nơi chỉ có đôi ta 
 Nơi đã có anh và em xây từng câu chuyện 
@@ -3819,6 +3920,7 @@ Cùng sẻ chia về những ước mơ.
 Trên trời cao muôn vì sao soi từng con đường 
 Hoà làn mâ...',
       'music_artist_html' => '<a href="/ca-si/Soobin-Hoang-Son~Y3NuX2FydGlzdH4zMTA4.html">Soobin Hoàng Sơn</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     45 => 
     array (
@@ -3843,7 +3945,7 @@ Hoà làn mâ...',
       'music_listen' => 464572,
       'music_track_id' => 0,
       'music_filename' => '1774971-582e691e.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">256kbps</span>',
+      'music_bitrate' => 256,
       'music_shortlyric' => 'Xin những bối rối này cứ thế lên ngôi
 Xin con tim rẽ lối tìm giây phút nghẹn lời
 Cho thêm chơi vơi, để những ánh mắt đôi môi
@@ -3851,6 +3953,7 @@ Chạm nhau mang theo gọi mời.
 
 Xin cho ta tan vào những đắm đuối miên man...',
       'music_artist_html' => '<a href="/ca-si/Rhymastic~Y3NuX2FydGlzdH4xNTQ1.html">Rhymastic</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">256kbps</span>',
     ),
     46 => 
     array (
@@ -3875,7 +3978,7 @@ Xin cho ta tan vào những đắm đuối miên man...',
       'music_listen' => 981637,
       'music_track_id' => 0,
       'music_filename' => '1770432-d77b2768.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Chợt nhìn quanh bỗng chẳng thấy em kề cạnh
 Chạy thật nhanh tránh cơn gió đêm về lạnh
 Ùa về đây nỗi cô đơn thường trực nơi tim mình
@@ -3883,6 +3986,7 @@ Ký ức mong manh còn lại trong anh.
 
 Là cảm xúc mỗi khi gió đêm về...',
       'music_artist_html' => '<a href="/ca-si/OnlyC~Y3NuX2FydGlzdH4yNTYw.html">OnlyC</a>, <a href="/ca-si/Lou-Hoang~Y3NuX2FydGlzdH4xNDc2Nw==.html">Lou Hoàng</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     47 => 
     array (
@@ -3907,7 +4011,7 @@ Là cảm xúc mỗi khi gió đêm về...',
       'music_listen' => 554170,
       'music_track_id' => 1,
       'music_filename' => '1776595-be92805f.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Nhìn lá me bay nhớ kỷ niệm hai chúng mình
 Ngày đó quen nhau vương chút tình trên tóc mây
 Đôi mắt thơ ngây, hoa nắng ươm đầy
@@ -3915,6 +4019,7 @@ Ngày đó quen nhau vương chút tình trên tóc mây
 
 Ngày đó yêu nhau chúng ta t...',
       'music_artist_html' => '<a href="/ca-si/Duong-Hong-Loan~Y3NuX2FydGlzdH40Mjkz.html">Dương Hồng Loan</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     48 => 
     array (
@@ -3939,7 +4044,7 @@ Ngày đó yêu nhau chúng ta t...',
       'music_listen' => 131088,
       'music_track_id' => 6,
       'music_filename' => '1776234-8e5209b0.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Ngày em ra đi 
 Em chỉ mang con tim hành lý 
 Để quên mùa đông 
@@ -3952,6 +4057,7 @@ Lau ngần lệ ngàn lời biệt ly.
 
 Chiều...',
       'music_artist_html' => '<a href="/ca-si/Dan-Nguyen~Y3NuX2FydGlzdH4yMzQ3.html">Đan Nguyên</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     49 => 
     array (
@@ -3976,7 +4082,7 @@ Chiều...',
       'music_listen' => 946738,
       'music_track_id' => 1,
       'music_filename' => '1771667-f2b845ef.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. Nếu trời đã cho mình có nhau
 Thì sao phải gieo u sầu?
 Những nơi mình qua ghi từng vết dấu
@@ -3986,6 +4092,7 @@ Anh ơi, nỡ quên thật sao?
 Tình yêu sẽ thêm ưu phiền
 Muốn em từ đây yê...',
       'music_artist_html' => '<a href="/ca-si/Huong-Tram~Y3NuX2FydGlzdH4yNTM3.html">Hương Tràm</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     50 => 
     array (
@@ -4010,7 +4117,7 @@ Muốn em từ đây yê...',
       'music_listen' => 695092,
       'music_track_id' => 1,
       'music_filename' => '1773693-7e1d466e.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Thời gian trôi, từng sáng tối
 Sao quá vội, vẫn luôn là mình em thôi
 Nhìn theo anh, tim tan vỡ
@@ -4020,6 +4127,7 @@ Biết yêu riêng ai là rất buồn
 Biết yêu đơn phương là sẽ luôn
 Còn mãi...',
       'music_artist_html' => '<a href="/ca-si/Kai-Dinh~Y3NuX2FydGlzdH42MTYz.html">Kai Đinh</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     51 => 
     array (
@@ -4044,7 +4152,7 @@ Còn mãi...',
       'music_listen' => 856976,
       'music_track_id' => 1,
       'music_filename' => '1775163-7fecb96a.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. Lắng nghe em lúc này
 Thoảng hư không về đây, tuổi thơ về đây
 Thắt tim anh lúc này
@@ -4054,6 +4162,7 @@ Ngày thơ bé bên nhau
 Anh chẳng hay biết rằng mình yêu em
 C...',
       'music_artist_html' => '<a href="/ca-si/Vu-Cat-Tuong~Y3NuX2FydGlzdH4yNTU5.html">Vũ Cát Tường</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     52 => 
     array (
@@ -4078,7 +4187,7 @@ C...',
       'music_listen' => 413601,
       'music_track_id' => 3,
       'music_filename' => '1776231-19ea41c1.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. Phận là con gái, chưa một lần yêu ai
 Nhìn về tương lai mà thấy như sông rộng đường dài
 Cảnh nhà neo đơn
@@ -4087,6 +4196,7 @@ Bầy em chưa lớn trĩu đôi vai gánh nhọc nhằn.
 Thầy mẹ thương em nhờ tìm người se duyên
 Lòn...',
       'music_artist_html' => '<a href="/ca-si/Dan-Nguyen~Y3NuX2FydGlzdH4yMzQ3.html">Đan Nguyên</a>, <a href="/ca-si/Nhu-Quynh~Y3NuX2FydGlzdH4zMg==.html">Như Quỳnh</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     53 => 
     array (
@@ -4111,7 +4221,7 @@ Lòn...',
       'music_listen' => 220322,
       'music_track_id' => 0,
       'music_filename' => '1770334-ae41a98a.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => 'Lần đầu gặp em khi phố kia chưa lên đèn 
 Giờ này gặp nhau trên sân ga chiều loan nắng 
 Vụng về hỏi thăm em mấy câu đi về đâu 
@@ -4119,6 +4229,7 @@ Cớ sao đứng chờ cớ sao đứng đợi.
 
 Đường tàu mùa xuân ai biết em đang mo...',
       'music_artist_html' => '<a href="/ca-si/Giang-Tien~Y3NuX2FydGlzdH4yMzU1.html">Giáng Tiên</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     54 => 
     array (
@@ -4143,7 +4254,7 @@ Cớ sao đứng chờ cớ sao đứng đợi.
       'music_listen' => 760694,
       'music_track_id' => 1,
       'music_filename' => '1776105-ff1e0bdd.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Thì thôi anh nghĩ ta nên dừng lại
 Khi lòng em đã chia hai 
 Vì anh đã biết
@@ -4152,6 +4263,7 @@ Hãy nói anh nghe thật lòng
 Em hết yêu anh đúng không?
 Cố nắm tay anh làm chi...',
       'music_artist_html' => '<a href="/ca-si/Noo-Phuoc-Thinh~Y3NuX2FydGlzdH4xNjEx.html">Noo Phước Thịnh</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     55 => 
     array (
@@ -4176,7 +4288,7 @@ Cố nắm tay anh làm chi...',
       'music_listen' => 171701,
       'music_track_id' => 0,
       'music_filename' => '1770975-1a0b08a7.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. Điều ước lúc trước bé thơ
 Anh luôn mơ mình có sức mạnh
 Để đến lúc anh lớn lên
@@ -4186,6 +4298,7 @@ Sự tích thánh Gióng lúc xưa
 Cưỡi ngựa sắt chàng phi rất nhanh
 Dẹp quân thù đi bằng nhữ...',
       'music_artist_html' => '<a href="/ca-si/Khung~Y3NuX2FydGlzdH45NTExOQ==.html">Khùng</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     56 => 
     array (
@@ -4210,7 +4323,7 @@ Dẹp quân thù đi bằng nhữ...',
       'music_listen' => 208852,
       'music_track_id' => 1,
       'music_filename' => '1775367-9c6339f0.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. Trái tim của em rất đau
 Chỉ muốn buông tình ta ở đây
 Vì cho đến giờ chẳng có ai biết em tồn tại.
@@ -4221,6 +4334,7 @@ Lòng em lại chẳng nhẹ nhàng.
 
 [Đ...',
       'music_artist_html' => '<a href="/ca-si/Bao-Anh~Y3NuX2FydGlzdH4yODE2.html">Bảo Anh</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     57 => 
     array (
@@ -4245,7 +4359,7 @@ Lòng em lại chẳng nhẹ nhàng.
       'music_listen' => 780997,
       'music_track_id' => 1,
       'music_filename' => '1775950-9331b5c6.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. Đôi khi anh thường muốn có niềm vui
 ỗi tối rong chơi đây đó cùng bạn bè gần xa
 Khi xưa anh là thế đấy
@@ -4253,6 +4367,7 @@ Giờ đây đã có ai đó trông ngông trở về nhà thật nhanh.
 
 Một nụ hôn ấm áp, vòng tay ôm phía s...',
       'music_artist_html' => '<a href="/ca-si/Isaac~Y3NuX2FydGlzdH4yODI1.html">Isaac</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     58 => 
     array (
@@ -4277,7 +4392,7 @@ Một nụ hôn ấm áp, vòng tay ôm phía s...',
       'music_listen' => 178428,
       'music_track_id' => 7,
       'music_filename' => '1776235-5c3e75b4.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Tôi chắp tay xin lạy tôi lạy người đời 
 Lạy bạn bè lạy anh đã lừa dối 
 Tôi xin lạy cơn đau 
@@ -4286,6 +4401,7 @@ Khi chưa tỏ tình đã nói xa nhau.
 
 Tôi chắp tay xin lạy đêm ngủ thật l...',
       'music_artist_html' => '<a href="/ca-si/Dan-Nguyen~Y3NuX2FydGlzdH4yMzQ3.html">Đan Nguyên</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     59 => 
     array (
@@ -4310,7 +4426,7 @@ Tôi chắp tay xin lạy đêm ngủ thật l...',
       'music_listen' => 144595,
       'music_track_id' => 8,
       'music_filename' => '1776236-31f0acbf.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Hai bàn tay trắng, nghèo xơ xác nghèo 
 Nên em ra đi, không nói một điều 
 Ngày mai em vui duyên thắm, người ta mua em nhung gấm 
@@ -4319,6 +4435,7 @@ Anh không ngờ, em bạc như vôi
 Hai bàn tay trắng, thì lưu luyến gì
 E...',
       'music_artist_html' => '<a href="/ca-si/Dan-Nguyen~Y3NuX2FydGlzdH4yMzQ3.html">Đan Nguyên</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     60 => 
     array (
@@ -4343,7 +4460,7 @@ E...',
       'music_listen' => 3156762,
       'music_track_id' => 18,
       'music_filename' => '1780310-3e6c1bb5.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Anh là ai từ đâu bước đến nơi đây dịu dàng chân phương
 Anh là ai tựa như ánh nắng ban mai ngọt ngào trong sương
 Ngắm anh thật lâu, con tim em yếu mềm
@@ -4351,6 +4468,7 @@ Ngắm anh thật lâu, con tim em yếu mềm
 
 B...',
       'music_artist_html' => '<a href="/ca-si/Son-Tung-M-TP~Y3NuX2FydGlzdH4xOTUz.html">Sơn Tùng M-TP</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     61 => 
     array (
@@ -4375,7 +4493,7 @@ B...',
       'music_listen' => 2520480,
       'music_track_id' => 17,
       'music_filename' => '1780309-313f4529.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Người theo hương hoa mây mù giăng lối
 Làn sương khói phôi phai đưa bước ai xa rồi
 Đơn côi mình ta vấn vương 
@@ -4384,6 +4502,7 @@ Ngăn giọt lệ ngừng khiến khoé mi sầu bi.
 
 Đường xưa...',
       'music_artist_html' => '<a href="/ca-si/Son-Tung-M-TP~Y3NuX2FydGlzdH4xOTUz.html">Sơn Tùng M-TP</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     62 => 
     array (
@@ -4408,7 +4527,7 @@ Ngăn giọt lệ ngừng khiến khoé mi sầu bi.
       'music_listen' => 4189969,
       'music_track_id' => 0,
       'music_filename' => '1779676-039b3224.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Trong kí ức anh khi ấy 
 Lần đầu gặp gỡ làm tim nhớ nhung 
 Rồi từng ngày trôi qua 
@@ -4417,6 +4536,7 @@ Trong thâm tâm bỗng chốc nhận ra ấm áp tràn về mỗi lúc.
 Khi em đến ngày hôm ấy 
 Một người đang đứng gần ngay kế b...',
       'music_artist_html' => '<a href="/ca-si/OnlyC~Y3NuX2FydGlzdH4yNTYw.html">OnlyC</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     63 => 
     array (
@@ -4441,12 +4561,13 @@ Một người đang đứng gần ngay kế b...',
       'music_listen' => 1281345,
       'music_track_id' => 1,
       'music_filename' => '1781401-d75d99cf.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Ngày mai sẽ khác, sẽ lại thấy hàng cây rất xanh
 Sẽ lại thấy ngọn gió rất trong lành khẽ lướt qua tim mình 
 Ngày mai sẽ khác, sẽ lại thấy dòng người rất đông 
 Sẽ lại thấy trời xanh rất rộng, nắng kh...',
       'music_artist_html' => '<a href="/ca-si/Le-Hieu~Y3NuX2FydGlzdH4xNDM=.html">Lê Hiếu</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     64 => 
     array (
@@ -4471,12 +4592,13 @@ Sẽ lại thấy trời xanh rất rộng, nắng kh...',
       'music_listen' => 1182305,
       'music_track_id' => 1,
       'music_filename' => '1777754-ea4bc0e4.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Ở một nơi xa xôi, bao quanh là núi đồi
 Chuyện tình yêu vẫn cứ cũ như thế sinh ra là có đôi 
 Người chọn sinh ra thôi, không may bị cuốn trôi
 Vài mảnh đời sinh ra không cho nhau đặt cạnh nên biết đau...',
       'music_artist_html' => '<a href="/ca-si/Bui-Anh-Tuan~Y3NuX2FydGlzdH4yNTUy.html">Bùi Anh Tuấn</a>, <a href="/ca-si/Ai-Phuong~Y3NuX2FydGlzdH4yNjU4.html">Ái Phương</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     65 => 
     array (
@@ -4501,7 +4623,7 @@ Vài mảnh đời sinh ra không cho nhau đặt cạnh nên biết đau...',
       'music_listen' => 639985,
       'music_track_id' => 1,
       'music_filename' => '1777709-b299a2bf.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. Có bao giờ em nhớ anh không 
 Đã bao giờ em thương anh dù chỉ một lần 
 Hay chỉ là một giấc mơ 
@@ -4510,6 +4632,7 @@ Mà anh nghĩ chưa tồn tại bao giờ.
 Em đã từng khóc vì anh chưa 
 Chắc chưa từng vì anh là người thừa...',
       'music_artist_html' => '<a href="/ca-si/Chu-Bin~Y3NuX2FydGlzdH4xMDk2.html">Chu Bin</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     66 => 
     array (
@@ -4534,13 +4657,14 @@ Chắc chưa từng vì anh là người thừa...',
       'music_listen' => 988494,
       'music_track_id' => 1,
       'music_filename' => '1779791-1d785303.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. Anh đã biết em nhớ thầm ai suốt một thời gian
 Người đó ở cạnh bên và kiên nhẫn đợi chờ
 Giọt nước mắt mà anh khóc
 Chẳng phải do duyên mình chấm dứt 
 Mà chính là phận mình vẫn quá sớm để lụi tàn...',
       'music_artist_html' => '<a href="/ca-si/Mr-Siro~Y3NuX2FydGlzdH44ODU=.html">Mr Siro</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     67 => 
     array (
@@ -4565,7 +4689,7 @@ Mà chính là phận mình vẫn quá sớm để lụi tàn...',
       'music_listen' => 441977,
       'music_track_id' => 1,
       'music_filename' => '1780294-d5910590.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Intro:]
 Ladykillah uh
 Can you feel me uh
@@ -4577,6 +4701,7 @@ Cơn mưa đi ngang qua
 
 1. Còn đâu đây bao câu ca anh tặng em...',
       'music_artist_html' => '<a href="/ca-si/Son-Tung-M-TP~Y3NuX2FydGlzdH4xOTUz.html">Sơn Tùng M-TP</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     68 => 
     array (
@@ -4601,7 +4726,7 @@ Cơn mưa đi ngang qua
       'music_listen' => 1342219,
       'music_track_id' => 1,
       'music_filename' => '1783416-554020e9.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. Mình ta lê thê bước
 Ngược chiều gió đến với góc phố rất thân quen
 Tìm về đó với những nỗi nhớ không mang tên
@@ -4610,6 +4735,7 @@ Mà giờ ta vẫn cồn cào nhớ đến.
 Chiều mang mây đen tới
 Gọi màn đêm cho ta lãng quên v...',
       'music_artist_html' => '<a href="/ca-si/Will~Y3NuX2FydGlzdH4yMTMz.html">Will</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     69 => 
     array (
@@ -4634,12 +4760,13 @@ Gọi màn đêm cho ta lãng quên v...',
       'music_listen' => 1214336,
       'music_track_id' => 1,
       'music_filename' => '1781074-3db78f53.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Anh đẹp trai, em thì đẹp gái, mình đến với nhau thì có gì là sai. 
 Nhưng mà không phải ai, mình cũng bừa bãi. 
 Cặp kè nhiều quá lại hoá ra thừa thải. 
 Mặc dù em có đẹp, dù em có xinh, dù cho đôi mắ...',
       'music_artist_html' => '<a href="/ca-si/Will~Y3NuX2FydGlzdH4yMTMz.html">Will</a>, <a href="/ca-si/Lou-Hoang~Y3NuX2FydGlzdH4xNDc2Nw==.html">Lou Hoàng</a>, <a href="/ca-si/Kaity-Nguyen~Y3NuX2FydGlzdH45NjE3NQ==.html">Kaity Nguyễn</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     70 => 
     array (
@@ -4664,7 +4791,7 @@ Mặc dù em có đẹp, dù em có xinh, dù cho đôi mắ...',
       'music_listen' => 340990,
       'music_track_id' => 1,
       'music_filename' => '1779866-8b025ddb.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Con cò là cò bay lả, lả bay la 
 Bay từ là từ cửa phủ 
 Bay ra là ra cánh đồng 
@@ -4673,6 +4800,7 @@ Tình tính tang là tang tính tình
 Rằng có nhớ là nhớ hay không? 
 Rằng có biết là biết...',
       'music_artist_html' => '<a href="/ca-si/Yanbi~Y3NuX2FydGlzdH4xMjE2.html">Yanbi</a>, <a href="/ca-si/Yen-Le~Y3NuX2FydGlzdH4xNzE5Mg==.html">Yến Lê</a>, <a href="/ca-si/T-Akayz~Y3NuX2FydGlzdH4zNzMz.html">T-Akayz</a>, <a href="/ca-si/DJ-DSmall~Y3NuX2FydGlzdH4yNzg2Mw==.html">DJ DSmall</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     71 => 
     array (
@@ -4697,7 +4825,7 @@ Rằng có biết là biết...',
       'music_listen' => 155447,
       'music_track_id' => 3,
       'music_filename' => '1783081-9be90241.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. Người ra đi để sầu úa lên trăng vàng 
 Để xuân chết trên đời vắng 
 Lệ chia ly nàng còn thấm đôi vai này 
@@ -4705,6 +4833,7 @@ Tạ từ mà nụ hôn nồng đêm cuối vẫn còn tha thiết.
 
 Em hỡi mình đã không chung tình duyên xa...',
       'music_artist_html' => '<a href="/ca-si/Lan-Nha~Y3NuX2FydGlzdH4zNzgz.html">Lân Nhã</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     72 => 
     array (
@@ -4729,7 +4858,7 @@ Em hỡi mình đã không chung tình duyên xa...',
       'music_listen' => 354377,
       'music_track_id' => 3,
       'music_filename' => '1780296-28ce3cc4.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Intro:]
 Chẳng phải anh đâu
 Nắng ấm xa dần rồi
@@ -4743,6 +4872,7 @@ Nắng ấm xa dần rồi
 Nắng ấm xa dần
 Xa d...',
       'music_artist_html' => '<a href="/ca-si/Son-Tung-M-TP~Y3NuX2FydGlzdH4xOTUz.html">Sơn Tùng M-TP</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     73 => 
     array (
@@ -4767,7 +4897,7 @@ Xa d...',
       'music_listen' => 446172,
       'music_track_id' => 1,
       'music_filename' => '1782123-f4ee8eb7.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Tựa như ánh sáng bừng trong đêm dài tối tăm
 Là đôi chân ấy quyến rũ nhất nơi đây
 Làm ai bối rối từ khi em vừa ghé qua 
@@ -4775,6 +4905,7 @@ Lại gần hơn nữa, em biết anh đang nghĩ suy về em.
 
 Your heart your love is all...',
       'music_artist_html' => '<a href="/ca-si/Bao-Thy~Y3NuX2FydGlzdH40NTg=.html">Bảo Thy</a>, <a href="/ca-si/Kimmese~Y3NuX2FydGlzdH4yNjYz.html">Kimmese</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     74 => 
     array (
@@ -4799,12 +4930,13 @@ Your heart your love is all...',
       'music_listen' => 174183,
       'music_track_id' => 7,
       'music_filename' => '1780300-9b0b7dc3.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Có những ngày mùa đông lạnh thấu nhưng cha vẫn chưa về 
 Mẹ cười nhưng con biết mẹ lo lắm cha ơi 
 Xuân chỉ về khi con nghe thấy tiếng xe quen thuộc 
 Tuổi thơ ơi nhớ lắm bánh cáy theo tôi lớn khôn....',
       'music_artist_html' => '<a href="/ca-si/Son-Tung-M-TP~Y3NuX2FydGlzdH4xOTUz.html">Sơn Tùng M-TP</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     75 => 
     array (
@@ -4829,7 +4961,7 @@ Tuổi thơ ơi nhớ lắm bánh cáy theo tôi lớn khôn....',
       'music_listen' => 560240,
       'music_track_id' => 1,
       'music_filename' => '1783047-af015d9a.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1.Từ bỏ một thói quen là yêu em 
 Từ bỏ từng ngón tay hao gầy ấm áp 
 Từ bỏ từng chiếc hôn mỗi sớm thức dậy 
@@ -4838,6 +4970,7 @@ Còn riêng anh với anh ngày hôm nay.
 Từ bỏ một giấc mơ của đôi ta 
 Từ bỏ từng thiết tha cu...',
       'music_artist_html' => '<a href="/ca-si/Erik~Y3NuX2FydGlzdH4xNDM3Ng==.html">Erik</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     76 => 
     array (
@@ -4862,7 +4995,7 @@ Từ bỏ từng thiết tha cu...',
       'music_listen' => 113795,
       'music_track_id' => 0,
       'music_filename' => '1777509-82a32502.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => 'Nực nồng hơi men đêm đêm quán nhỏ say mèn 
 Giận đời điêu ngoa sao đâm nhiều quá 
 Ngày còn hưng phấn bao nhiều màu mắt long lanh 
@@ -4870,6 +5003,7 @@ Mai lan hạnh phúc vây quanh ở đâu tình yêu cũng xanh.
 
 Đời bạc như v...',
       'music_artist_html' => '<a href="/ca-si/Quang-Lap~Y3NuX2FydGlzdH4xMzY1MQ==.html">Quang Lập</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     77 => 
     array (
@@ -4894,7 +5028,7 @@ Mai lan hạnh phúc vây quanh ở đâu tình yêu cũng xanh.
       'music_listen' => 358205,
       'music_track_id' => 1,
       'music_filename' => '1778504-f492cc6b.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Lời sắp nói chắc sẽ đau lòng phải không em
 Anh vẫn còn nhiều hoang mang
 Vì chưa tin tình mình sẽ mất
@@ -4903,6 +5037,7 @@ Chiều nắng tàn theo hơi ấm khi giã từ.
 
 Ngày chia tay thiếu...',
       'music_artist_html' => '<a href="/ca-si/Trung-Quan~Y3NuX2FydGlzdH4yMDQ1.html">Trung Quân</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     78 => 
     array (
@@ -4927,7 +5062,7 @@ Ngày chia tay thiếu...',
       'music_listen' => 517166,
       'music_track_id' => 1,
       'music_filename' => '1780123-934e73eb.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. Tìm về giây phút ân cần
 Tìm về nơi ấy thật gần
 Chỉ là khoảng cách tình mình dần xa xôi 
@@ -4938,6 +5073,7 @@ Ngày tình mình chung đôi.
 
 Và người d...',
       'music_artist_html' => '<a href="/ca-si/Dong-Nhi~Y3NuX2FydGlzdH43MDY=.html">Đông Nhi</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     79 => 
     array (
@@ -4962,7 +5098,7 @@ Và người d...',
       'music_listen' => 83860,
       'music_track_id' => 0,
       'music_filename' => '1780408-442b9278.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => 'Track List:
 O1: Power Of Love
 O2: Dooh Dooh
@@ -4976,6 +5112,7 @@ O9: Vợ Tương Lai
 1O: Có Tất Cả Nhưng Mất Em
 11: Quăng...',
       'music_artist_html' => '<a href="/ca-si/Various-Artists~Y3NuX2FydGlzdH45Nw==.html">Various Artists</a>, <a href="/ca-si/DJ-Jerry-Boiz~Y3NuX2FydGlzdH45NTE5OQ==.html">DJ Jerry Boiz</a>, <a href="/ca-si/DJ-Hai-Pham~Y3NuX2FydGlzdH45NjEwNQ==.html">DJ Hải Phạm</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
   ),
   4 => 
@@ -5003,13 +5140,14 @@ O9: Vợ Tương Lai
       'music_listen' => 9939379,
       'music_track_id' => 1,
       'music_filename' => '1757811-ebb87651.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. The club isn\'t the best place to find a lover
 [t1]Club hẳn không phải nơi tốt để tìm một người tình
 So the bar is where I go
 [t1]Thế nên hôm nay tôi sẽ đi bar
 Me and my friends at the table doin...',
       'music_artist_html' => '<a href="/ca-si/Ed-Sheeran~Y3NuX2FydGlzdH4yNjUz.html">Ed Sheeran</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     1 => 
     array (
@@ -5034,7 +5172,7 @@ Me and my friends at the table doin...',
       'music_listen' => 2726939,
       'music_track_id' => 1,
       'music_filename' => '1761820-33545021.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. It was great at the very start
 [t1]Lúc mới yêu thật tuyệt biết bao
 Hands on each other
@@ -5044,6 +5182,7 @@ Couldn\'t stand to be far apart
 Closer the better.
 [t1]Tình yêu n...',
       'music_artist_html' => '<a href="/ca-si/Martin-Garrix~Y3NuX2FydGlzdH4xMzM0Mw==.html">Martin Garrix</a>, <a href="/ca-si/Dua-Lipa~Y3NuX2FydGlzdH4xNDUxOQ==.html">Dua Lipa</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     2 => 
     array (
@@ -5068,7 +5207,7 @@ Closer the better.
       'music_listen' => 1917653,
       'music_track_id' => 1,
       'music_filename' => '1758426-6f3d7506.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. We were staying in Paris
 [t1]Hai ta đã từng phải sống trong mộng tưởng
 To get away from your parents
@@ -5076,6 +5215,7 @@ To get away from your parents
 And I thought, “Wow if I could take this in a shot right now
 [t1]Và...',
       'music_artist_html' => '<a href="/ca-si/The-Chainsmokers~Y3NuX2FydGlzdH4xMzMzOQ==.html">The Chainsmokers</a>, <a href="/ca-si/Emily-Warren~Y3NuX2FydGlzdH4xNjcwMg==.html">Emily Warren</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     3 => 
     array (
@@ -5100,13 +5240,14 @@ And I thought, “Wow if I could take this in a shot right now
       'music_listen' => 1297295,
       'music_track_id' => 1,
       'music_filename' => '1757813-99947cff.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. When I was six years old I broke my leg
 [t1]Lúc lên 6 tuổi, tôi đã bị gãy chân
 I was running from my brother and his friends
 [t1]Trong lúc chạy trốn khỏi anh trai và đám bạn của anh
 And tasted t...',
       'music_artist_html' => '<a href="/ca-si/Ed-Sheeran~Y3NuX2FydGlzdH4yNjUz.html">Ed Sheeran</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     4 => 
     array (
@@ -5131,7 +5272,7 @@ And tasted t...',
       'music_listen' => 225765,
       'music_track_id' => 1,
       'music_filename' => '1757203-2b275ad8.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => '1. Poetry on your body
 [t1]Cơ thể anh đẹp như một bài thơ
 You got it in every way
@@ -5139,6 +5280,7 @@ You got it in every way
 And can\'t you see it\'s you I am watching
 [t1]Và dường như anh chẳng biết là em đa...',
       'music_artist_html' => '<a href="/ca-si/Sia~Y3NuX2FydGlzdH45MjU1.html">Sia</a>, <a href="/ca-si/Alan-Walker~Y3NuX2FydGlzdH4xNDk5MQ==.html">Alan Walker</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     5 => 
     array (
@@ -5163,7 +5305,7 @@ And can\'t you see it\'s you I am watching
       'music_listen' => 1148184,
       'music_track_id' => 1,
       'music_filename' => '1761784-c821c4ed.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'I spent the last two weeks just screaming
 I spent the last two weeks just screaming...
 Trying to work you out is killing
@@ -5171,6 +5313,7 @@ Ever since my heart\'s been screaming...
 
 I spent the last two weeks just scr...',
       'music_artist_html' => '<a href="/ca-si/Different-Heaven~Y3NuX2FydGlzdH4xNjU5OA==.html">Different Heaven</a>, <a href="/ca-si/EHDE~Y3NuX2FydGlzdH4zNzUwNg==.html">EH!DE</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     6 => 
     array (
@@ -5195,7 +5338,7 @@ I spent the last two weeks just scr...',
       'music_listen' => 353941,
       'music_track_id' => 1,
       'music_filename' => '1761783-c21691f3.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'durit
 it
 it
@@ -5237,6 +5380,7 @@ duurit
 it
 tu da...',
       'music_artist_html' => '<a href="/ca-si/Electro-Light~Y3NuX2FydGlzdH4xNTE2NA==.html">Electro-Light</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     7 => 
     array (
@@ -5261,7 +5405,7 @@ tu da...',
       'music_listen' => 466374,
       'music_track_id' => 1,
       'music_filename' => '1759011-52ede229.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Verse 1:]
 I\'ve battled demons that won\'t let me sleep
 Called to the sea but she abandoned me.
@@ -5270,6 +5414,7 @@ Called to the sea but she abandoned me.
 But I won\'t never give up, no, never give up, no, no
 No, I won\'t never give up, no, nev...',
       'music_artist_html' => '<a href="/ca-si/Sia~Y3NuX2FydGlzdH45MjU1.html">Sia</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     8 => 
     array (
@@ -5294,7 +5439,7 @@ No, I won\'t never give up, no, nev...',
       'music_listen' => 192881,
       'music_track_id' => 1,
       'music_filename' => '1758899-463ad46f.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Verse 1:]
 You always call me full of regret
 You want me to save you again
@@ -5305,6 +5450,7 @@ Everybody makes mistakes.
 
 It feels so hard to watch y...',
       'music_artist_html' => '<a href="/ca-si/One-Ok-Rock~Y3NuX2FydGlzdH4xNjIxMQ==.html">One Ok Rock</a>, <a href="/ca-si/Avril-Lavigne~Y3NuX2FydGlzdH4xMDQ4.html">Avril Lavigne</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     9 => 
     array (
@@ -5329,13 +5475,14 @@ It feels so hard to watch y...',
       'music_listen' => 403569,
       'music_track_id' => 1,
       'music_filename' => '1756749-5eee0d33.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. You know me; now and then, I\'m a mess
 [t1]Anh hiểu em mà, thỉnh thoảng, em như một mớ hỗn độn
 Please don\'t hold that against me
 [t1]Vì vậy, xin đừng trách mắng em
 I\'m a girl with a temper in hea...',
       'music_artist_html' => '<a href="/ca-si/Snakehips~Y3NuX2FydGlzdH4xMzQ4OA==.html">Snakehips</a>, <a href="/ca-si/M~Y3NuX2FydGlzdH4xNTAwMw==.html">MØ</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     10 => 
     array (
@@ -5360,7 +5507,7 @@ I\'m a girl with a temper in hea...',
       'music_listen' => 259928,
       'music_track_id' => 5,
       'music_filename' => '1762292-c54762bc.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Verse 1]
 Ya yo me cansé, no quiero ser tu amante
 Te digo de mi parte, que no aguanto más
@@ -5370,6 +5517,7 @@ Me mata el orgullo
 
 [Pre Cho...',
       'music_artist_html' => '<a href="/ca-si/Nicky-Jam~Y3NuX2FydGlzdH4xNjAxNw==.html">Nicky Jam</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     11 => 
     array (
@@ -5394,7 +5542,7 @@ Me mata el orgullo
       'music_listen' => 70449,
       'music_track_id' => 1,
       'music_filename' => '1761661-03698e02.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => '[Verse 1]
 Hoy te vi 
 Tan solita 
@@ -5406,6 +5554,7 @@ Y que a pesar del tiempo yo te esperaré
 Él nunca supo amarte como yo lo sé 
 Él no...',
       'music_artist_html' => '<a href="/ca-si/Piso-21~Y3NuX2FydGlzdH4xNTEwOQ==.html">Piso 21</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     12 => 
     array (
@@ -5430,7 +5579,7 @@ Y que a pesar del tiempo yo te esperaré
       'music_listen' => 141943,
       'music_track_id' => 1,
       'music_filename' => '1760217-ba6d8532.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. Feeling the song, party done
 Shadows walking home
 Walking with our game on
@@ -5440,6 +5589,7 @@ Mmm, mmm, mmm, mmm
 Loving the cold, smoke a roll
 See your fingers sh...',
       'music_artist_html' => '<a href="/ca-si/Illenium~Y3NuX2FydGlzdH4xNDk5OQ==.html">Illenium</a>, <a href="/ca-si/Flume~Y3NuX2FydGlzdH40ODA5Mw==.html">Flume</a>, <a href="/ca-si/Tove-Lo~Y3NuX2FydGlzdH4xNzExMw==.html">Tove Lo</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     13 => 
     array (
@@ -5464,7 +5614,7 @@ See your fingers sh...',
       'music_listen' => 27894,
       'music_track_id' => 4,
       'music_filename' => '1760388-a971348b.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Intro: Whistling]
 
 [Verse 1:]
@@ -5478,6 +5628,7 @@ I\'ll guarantee, just wait and see.
 
 [...',
       'music_artist_html' => '<a href="/ca-si/John-Mayer~Y3NuX2FydGlzdH43MjIw.html">John Mayer</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     14 => 
     array (
@@ -5502,7 +5653,7 @@ I\'ll guarantee, just wait and see.
       'music_listen' => 65974,
       'music_track_id' => 1,
       'music_filename' => '1761304-02114473.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'No no no
 
 I just can\'t take it anymore
@@ -5516,6 +5667,7 @@ When they said you\'d trouble
 (No no no)
 Then I never were or...',
       'music_artist_html' => '<a href="/ca-si/Breathe-Carolina~Y3NuX2FydGlzdH45Mzk5.html">Breathe Carolina</a>, <a href="/ca-si/Bassjackers~Y3NuX2FydGlzdH4xNzg1NQ==.html">Bassjackers</a>, <a href="/ca-si/Cade~Y3NuX2FydGlzdH4xMzU0OA==.html">Cade</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     15 => 
     array (
@@ -5540,7 +5692,7 @@ Then I never were or...',
       'music_listen' => 16134,
       'music_track_id' => 8,
       'music_filename' => '1761878-8dfa7325.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Verse 1: Laura Brehm]
 It\'s more than emotion
 I feel I\'m never gonna stop
@@ -5550,6 +5702,7 @@ With all this desire
 I\'ve been carrying around
 I\'m feeling el...',
       'music_artist_html' => '<a href="/ca-si/Feint~Y3NuX2FydGlzdH4yNzg4MQ==.html">Feint</a>, <a href="/ca-si/Laura-Brehm~Y3NuX2FydGlzdH4xODQ3OA==.html">Laura Brehm</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     16 => 
     array (
@@ -5574,9 +5727,10 @@ I\'m feeling el...',
       'music_listen' => 9280,
       'music_track_id' => 6,
       'music_filename' => '1761876-9c566b80.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Tokyo-Machine~Y3NuX2FydGlzdH4xNzI2OA==.html">Tokyo Machine</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     17 => 
     array (
@@ -5601,7 +5755,7 @@ I\'m feeling el...',
       'music_listen' => 273947,
       'music_track_id' => 1,
       'music_filename' => '1755945-2742a06f.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. Cut me through my skin
 [t1]Vết cắt ăn sâu vào da thịt
 Through the heart, yeah, you went right in
@@ -5609,6 +5763,7 @@ Through the heart, yeah, you went right in
 I fell for every word you said
 [t1]Em chìm trong nhữn...',
       'music_artist_html' => '<a href="/ca-si/Yellow-Claw~Y3NuX2FydGlzdH4xMzk4OA==.html">Yellow Claw</a>, <a href="/ca-si/Yade-Lauren~Y3NuX2FydGlzdH4xODE1Ng==.html">Yade Lauren</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     18 => 
     array (
@@ -5633,7 +5788,7 @@ I fell for every word you said
       'music_listen' => 201818,
       'music_track_id' => 1,
       'music_filename' => '1757910-f3379bf2.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. Poetry on your body
 [t1]Cơ thể anh đẹp như một bài thơ
 You got it in every way
@@ -5641,6 +5796,7 @@ You got it in every way
 And can\'t you see it\'s you I am watching
 [t1]Và dường như anh chẳng biết là em đa...',
       'music_artist_html' => '<a href="/ca-si/Sia~Y3NuX2FydGlzdH45MjU1.html">Sia</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     19 => 
     array (
@@ -5665,7 +5821,7 @@ And can\'t you see it\'s you I am watching
       'music_listen' => 111324,
       'music_track_id' => 1,
       'music_filename' => '1761556-f990f54e.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Intro: Zara Larsson]
 So good, so good, so good, so good
 You know my love is
@@ -5675,6 +5831,7 @@ You know my love is
 [Verse 1: Zara Larsson]
 My love is more potent than anything in...',
       'music_artist_html' => '<a href="/ca-si/Zara-Larsson~Y3NuX2FydGlzdH4xMzU4Ng==.html">Zara Larsson</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     20 => 
     array (
@@ -5699,7 +5856,7 @@ My love is more potent than anything in...',
       'music_listen' => 5164107,
       'music_track_id' => 1,
       'music_filename' => '1767877-78ef562d.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. I\'ve been reading books of old
 [t1]Tôi vẫn luôn chìm đắm trong những cuốn sách cũ
 The legends and the myths
@@ -5707,6 +5864,7 @@ The legends and the myths
 Achilles and his gold
 [t1]Achilles vớ...',
       'music_artist_html' => '<a href="/ca-si/The-Chainsmokers~Y3NuX2FydGlzdH4xMzMzOQ==.html">The Chainsmokers</a>, <a href="/ca-si/Coldplay~Y3NuX2FydGlzdH42ODA1.html">Coldplay</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     21 => 
     array (
@@ -5731,7 +5889,7 @@ Achilles and his gold
       'music_listen' => 6265146,
       'music_track_id' => 1,
       'music_filename' => '1767123-26dc64d3.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Intro: Luis Fonsi &amp; Daddy Yankee]
 Ay, ¡Fonsi! ¡D.Y.!
 Ohhh, oh, no, oh, no, oh
@@ -5742,6 +5900,7 @@ Dididiri Daddy, Go!
 Sí, sabes que ya llevo un rato mirándote
 Te...',
       'music_artist_html' => '<a href="/ca-si/Luis-Fonsi~Y3NuX2FydGlzdH4xMTI1Mg==.html">Luis Fonsi</a>, <a href="/ca-si/Daddy-Yankee~Y3NuX2FydGlzdH40MzM=.html">Daddy Yankee</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     22 => 
     array (
@@ -5766,7 +5925,7 @@ Te...',
       'music_listen' => 1934295,
       'music_track_id' => 1,
       'music_filename' => '1763353-3df8fa7c.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Verse 1]
 First things first
 I\'ma say all the words inside my head
@@ -5775,6 +5934,7 @@ The way that things have been, oh-ooh
 Second thing second
 Don\'t yo...',
       'music_artist_html' => '<a href="/ca-si/Imagine-Dragons~Y3NuX2FydGlzdH4zNjYw.html">Imagine Dragons</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     23 => 
     array (
@@ -5799,7 +5959,7 @@ Don\'t yo...',
       'music_listen' => 2813303,
       'music_track_id' => 1,
       'music_filename' => '1768275-eccd5100.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. Waiting for the time to pass you by
 Hope the winds of change will change your mind
 I could give a thousand reasons why
@@ -5807,6 +5967,7 @@ And I know you, and you\'ve got to.
 
 Make it on your own, but we don\'t have...',
       'music_artist_html' => '<a href="/ca-si/Zedd~Y3NuX2FydGlzdH4zNzg1.html">Zedd</a>, <a href="/ca-si/Alessia-Cara~Y3NuX2FydGlzdH4xNTY4Mg==.html">Alessia Cara</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     24 => 
     array (
@@ -5831,7 +5992,7 @@ Make it on your own, but we don\'t have...',
       'music_listen' => 2473698,
       'music_track_id' => 1,
       'music_filename' => '1766153-bc65d109.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. I had a dream
 [t1]Em từng mơ ước rằng
 We were sipping whiskey neat
@@ -5840,6 +6001,7 @@ Highest floor, The Bowery
 [t1]Trên tầng cao nhất toà nhà Bowery
 Nowhere\'s hig...',
       'music_artist_html' => '<a href="/ca-si/Kygo~Y3NuX2FydGlzdH4xNTAwNg==.html">Kygo</a>, <a href="/ca-si/Selena-Gomez~Y3NuX2FydGlzdH4xMDU0.html">Selena Gomez</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     25 => 
     array (
@@ -5864,7 +6026,7 @@ Nowhere\'s hig...',
       'music_listen' => 367319,
       'music_track_id' => 1,
       'music_filename' => '1765686-84727196.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => '1. No one love you like I love you
 I never cheated, never lied
 I never put no one above you
@@ -5873,6 +6035,7 @@ And now you\'re telling me you miss me
 And I\'m still on your mind
 We were one in...',
       'music_artist_html' => '<a href="/ca-si/Selena-Gomez~Y3NuX2FydGlzdH4xMDU0.html">Selena Gomez</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     26 => 
     array (
@@ -5897,7 +6060,7 @@ We were one in...',
       'music_listen' => 163469,
       'music_track_id' => 3,
       'music_filename' => '1767320-00fd1332.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Chorus:]
 When I heard that sound
 When the walls came down
@@ -5911,6 +6074,7 @@ About you.
 [Verse 1:]
 Secon...',
       'music_artist_html' => '<a href="/ca-si/RagnBone-Man~Y3NuX2FydGlzdH44OTk3Ng==.html">Rag\'n\'Bone Man</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     27 => 
     array (
@@ -5935,7 +6099,7 @@ Secon...',
       'music_listen' => 614381,
       'music_track_id' => 1,
       'music_filename' => '1768274-641c4329.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Verse 1:]
 Love in a thousand different flavors
 I wish that I could taste them all tonight
@@ -5943,6 +6107,7 @@ No, I ain\'t got no dinner plans
 So you should bring all your friends
 I swear that to a-all y\'all my type....',
       'music_artist_html' => '<a href="/ca-si/Jason-Derulo~Y3NuX2FydGlzdH4xMTQ4Mw==.html">Jason Derulo</a>, <a href="/ca-si/Nicki-Minaj~Y3NuX2FydGlzdH4yNjY0.html">Nicki Minaj</a>, <a href="/ca-si/Ty-Dolla-ign~Y3NuX2FydGlzdH4xMzM5NA==.html">Ty Dolla $ign</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     28 => 
     array (
@@ -5967,7 +6132,7 @@ I swear that to a-all y\'all my type....',
       'music_listen' => 203433,
       'music_track_id' => 1,
       'music_filename' => '1767318-85b975a5.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Intro:]
 I\'m only human, I\'m only, I\'m only
 I\'m only human, human.
@@ -5977,6 +6142,7 @@ Maybe I\'m foolish, maybe I\'m blind
 Thinking I can see through this and see what\'s behind
 Got no way to prove it so may...',
       'music_artist_html' => '<a href="/ca-si/RagnBone-Man~Y3NuX2FydGlzdH44OTk3Ng==.html">Rag\'n\'Bone Man</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     29 => 
     array (
@@ -6001,7 +6167,7 @@ Got no way to prove it so may...',
       'music_listen' => 651125,
       'music_track_id' => 1,
       'music_filename' => '1763354-fe91d51d.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Ariana Grande:]
 Tale as old as time
 True as it can be
@@ -6014,6 +6180,7 @@ Just a little change
 Small to say the least
 Both a li...',
       'music_artist_html' => '<a href="/ca-si/Ariana-Grande~Y3NuX2FydGlzdH4zODMx.html">Ariana Grande</a>, <a href="/ca-si/John-Legend~Y3NuX2FydGlzdH40NjYx.html">John Legend</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     30 => 
     array (
@@ -6038,7 +6205,7 @@ Both a li...',
       'music_listen' => 686730,
       'music_track_id' => 1,
       'music_filename' => '1766882-85da2511.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Verse 1]
 Look at you kids with your vintage music
 Comin\' through satellites while cruisin\'
@@ -6048,6 +6215,7 @@ Signals crossing can get confusing
 [Pre-Chorus]
 It\'s...',
       'music_artist_html' => '<a href="/ca-si/Lana-Del-Rey~Y3NuX2FydGlzdH4zMzE3.html">Lana Del Rey</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     31 => 
     array (
@@ -6072,7 +6240,7 @@ It\'s...',
       'music_listen' => 261378,
       'music_track_id' => 0,
       'music_filename' => '1762849-1b178ad1.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Intro: Offset]
 You know, young rich niggas
 You know so we ain\'t really never had no old money
@@ -6082,6 +6250,7 @@ Hey!
 
 [H...',
       'music_artist_html' => '<a href="/ca-si/Migos~Y3NuX2FydGlzdH4xNTk1MA==.html">Migos</a>, <a href="/ca-si/Lil-Uzi-Vert~Y3NuX2FydGlzdH4xNDk2OA==.html">Lil Uzi Vert</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     32 => 
     array (
@@ -6106,7 +6275,7 @@ Hey!
       'music_listen' => 937525,
       'music_track_id' => 1,
       'music_filename' => '1764612-3ea815e0.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Verse 1: Katy Perry]
 Are we crazy?
 Living our lives through a lens
@@ -6114,6 +6283,7 @@ Trapped in our white-picket fence, like ornaments
 So comfortable, we live in a bubble, a bubble
 So comfortable, we can\'t see the...',
       'music_artist_html' => '<a href="/ca-si/Katy-Perry~Y3NuX2FydGlzdH4xNDc4.html">Katy Perry</a>, <a href="/ca-si/Skip-Marley~Y3NuX2FydGlzdH45NDM4MQ==.html">Skip Marley</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     33 => 
     array (
@@ -6138,7 +6308,7 @@ So comfortable, we can\'t see the...',
       'music_listen' => 223751,
       'music_track_id' => 1,
       'music_filename' => '1765119-43e48842.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Intro]
 Yeah, yeah, yeah, yeah, yeah
 Uh
@@ -6150,6 +6320,7 @@ You say she\'s just a friend now
 Then why don\'t we call her
 So you want to go on wi...',
       'music_artist_html' => '<a href="/ca-si/Anne-Marie~Y3NuX2FydGlzdH4xMzM2OQ==.html">Anne-Marie</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     34 => 
     array (
@@ -6174,7 +6345,7 @@ So you want to go on wi...',
       'music_listen' => 494397,
       'music_track_id' => 1,
       'music_filename' => '1768273-a8b20896.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Intro:]
 I might empty my bank account
 And buy that boy a wooden pipe
@@ -6185,6 +6356,7 @@ And buy that boy a wooden pipe
 Buy that boy a wooden pipe
 I m...',
       'music_artist_html' => '<a href="/ca-si/Calvin-Harris~Y3NuX2FydGlzdH4yNDc0.html">Calvin Harris</a>, <a href="/ca-si/Frank-Ocean~Y3NuX2FydGlzdH4yMTExOQ==.html">Frank Ocean</a>, <a href="/ca-si/Migos~Y3NuX2FydGlzdH4xNTk1MA==.html">Migos</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     35 => 
     array (
@@ -6209,7 +6381,7 @@ I m...',
       'music_listen' => 105589,
       'music_track_id' => 1,
       'music_filename' => '1769017-48cbd27c.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => 'We don\'t talk anymore
 We don\'t talk anymore
 We don\'t talk anymore
@@ -6221,6 +6393,7 @@ Like we used to do...
 
 I just heard you...',
       'music_artist_html' => '<a href="/ca-si/Jungkook~Y3NuX2FydGlzdH4xNTUxMw==.html">Jungkook</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     36 => 
     array (
@@ -6245,7 +6418,7 @@ I just heard you...',
       'music_listen' => 81229,
       'music_track_id' => 4,
       'music_filename' => '1766925-00a847b5.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'I can\'t count the times
 I almost said what\'s on my mind
 But I didn\'t.
@@ -6257,6 +6430,7 @@ I just couldn\'t.
 
 Baby I know that you\'ve been wondering...',
       'music_artist_html' => '<a href="/ca-si/Brett-Young~Y3NuX2FydGlzdH45MDEzMQ==.html">Brett Young</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     37 => 
     array (
@@ -6281,7 +6455,7 @@ Baby I know that you\'ve been wondering...',
       'music_listen' => 16854,
       'music_track_id' => 7,
       'music_filename' => '1765160-a726a2ff.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: orange">354kbps</span>',
+      'music_bitrate' => 354,
       'music_shortlyric' => 'Why do birds suddenly appear
 Everytime you are near
 Just like me, they long to be
@@ -6292,6 +6466,7 @@ Every time you walk by
 Just like me, they long to be
 Close to yo...',
       'music_artist_html' => '<a href="/ca-si/Carpenters~Y3NuX2FydGlzdH41MjA1.html">Carpenters</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: orange">354kbps</span>',
     ),
     38 => 
     array (
@@ -6316,7 +6491,7 @@ Close to yo...',
       'music_listen' => 254629,
       'music_track_id' => 1,
       'music_filename' => '1766419-c9146074.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. I don\'t need a rich boy
 I don\'t want your money
 No, you don\'t gotta spend nothing on me
@@ -6326,6 +6501,7 @@ I don\'t need a rich boy
 I don\'t want dollars
 No you...',
       'music_artist_html' => '<a href="/ca-si/Galantis~Y3NuX2FydGlzdH4xNTU4Mw==.html">Galantis</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     39 => 
     array (
@@ -6350,7 +6526,7 @@ No you...',
       'music_listen' => 78916,
       'music_track_id' => 1,
       'music_filename' => '1768424-bf2402b3.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Verse 1]
 I talk with a mouth full (uh-huh)
 But I couldn\'t be sweeter
@@ -6360,6 +6536,7 @@ I won\'t play, follow the leader
 [Pre-Chorus]
 And I don\'t look like them (But I ain\'t worried ab...',
       'music_artist_html' => '<a href="/ca-si/Meghan-Trainor~Y3NuX2FydGlzdH4xNDk4Mw==.html">Meghan Trainor</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     40 => 
     array (
@@ -6384,7 +6561,7 @@ And I don\'t look like them (But I ain\'t worried ab...',
       'music_listen' => 3683872,
       'music_track_id' => 5,
       'music_filename' => '1769847-b984856c.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Verse 1:]
 I found a love for me
 [t1]Anh đã tìm được cho mình một tình yêu
@@ -6392,6 +6569,7 @@ Darling, just dive right in and follow my lead
 [t1]Em yêu, chớ ngại ngùng và cứ để anh dẫn
 Well, I found a girl, beautiful...',
       'music_artist_html' => '<a href="/ca-si/Ed-Sheeran~Y3NuX2FydGlzdH4yNjUz.html">Ed Sheeran</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     41 => 
     array (
@@ -6416,7 +6594,7 @@ Well, I found a girl, beautiful...',
       'music_listen' => 3616720,
       'music_track_id' => 15,
       'music_filename' => '1773553-3943093f.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. I\'ve been hearing symphonies
 [t1]Em đã nghe thấy những giai điệu
 Before all I heard was silence
@@ -6424,6 +6602,7 @@ Before all I heard was silence
 A rhapsody for you and me
 [t1]Như một bài thơ dành cho anh...',
       'music_artist_html' => '<a href="/ca-si/Clean-Bandit~Y3NuX2FydGlzdH4xMzgzNg==.html">Clean Bandit</a>, <a href="/ca-si/Zara-Larsson~Y3NuX2FydGlzdH4xMzU4Ng==.html">Zara Larsson</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     42 => 
     array (
@@ -6448,7 +6627,7 @@ A rhapsody for you and me
       'music_listen' => 749774,
       'music_track_id' => 7,
       'music_filename' => '1769849-27d119b3.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Walking down 29th and park
 [t1]Độc bước trên giao lộ giữa đường 29 và đại lộ Park
 I saw you in another\'s arms
@@ -6456,6 +6635,7 @@ I saw you in another\'s arms
 Only a month we\'ve been apart
 [t1]...',
       'music_artist_html' => '<a href="/ca-si/Ed-Sheeran~Y3NuX2FydGlzdH4yNjUz.html">Ed Sheeran</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     43 => 
     array (
@@ -6480,7 +6660,7 @@ Only a month we\'ve been apart
       'music_listen' => 872756,
       'music_track_id' => 6,
       'music_filename' => '1769848-fb2fb4db.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Chorus:]
 She played the fiddle in an Irish band
 But she fell in love with an English man
@@ -6489,6 +6669,7 @@ Said, &quot;Baby, I just want to dance&quot;.
 
 [Vers...',
       'music_artist_html' => '<a href="/ca-si/Ed-Sheeran~Y3NuX2FydGlzdH4yNjUz.html">Ed Sheeran</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     44 => 
     array (
@@ -6513,9 +6694,10 @@ Said, &quot;Baby, I just want to dance&quot;.
       'music_listen' => 116443,
       'music_track_id' => 1,
       'music_filename' => '1770088-c9bf0a50.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
+      'music_bitrate' => 192,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Tonyz~Y3NuX2FydGlzdH45NTAyMw==.html">Tonyz</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
     ),
     45 => 
     array (
@@ -6540,12 +6722,13 @@ Said, &quot;Baby, I just want to dance&quot;.
       'music_listen' => 258726,
       'music_track_id' => 1,
       'music_filename' => '1773588-452435cb.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Bez textu, pouze hudba!
 Bez textu, pouze hudba!
 Bez textu, pouze hudba!
 Bez textu, pouze hudba!',
       'music_artist_html' => '<a href="/ca-si/TheFatRat~Y3NuX2FydGlzdH4xOTk4NA==.html">TheFatRat</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     46 => 
     array (
@@ -6570,7 +6753,7 @@ Bez textu, pouze hudba!',
       'music_listen' => 285441,
       'music_track_id' => 12,
       'music_filename' => '1769854-7afa25c8.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Verse 1:]
 I took the supermarket flowers from the windowsill
 [t1]Con gom lại những chậu hoa bên bậu cửa sổ
@@ -6578,6 +6761,7 @@ I threw the day old tea from the cup
 [t1]Vứt những gói trà đã pha từ hôm qua
 Packed up th...',
       'music_artist_html' => '<a href="/ca-si/Ed-Sheeran~Y3NuX2FydGlzdH4yNjUz.html">Ed Sheeran</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     47 => 
     array (
@@ -6602,7 +6786,7 @@ Packed up th...',
       'music_listen' => 517506,
       'music_track_id' => 3,
       'music_filename' => '1769845-6684ed58.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Verse 1:]
 Oh, maybe I came on too strong
 Maybe I waited too long
@@ -6614,6 +6798,7 @@ Baby I apologize for it.
 I could fall or I could fly
 Here...',
       'music_artist_html' => '<a href="/ca-si/Ed-Sheeran~Y3NuX2FydGlzdH4yNjUz.html">Ed Sheeran</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     48 => 
     array (
@@ -6638,7 +6823,7 @@ Here...',
       'music_listen' => 775902,
       'music_track_id' => 1,
       'music_filename' => '1774068-ae4ebf51.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Pre-Hook: Kehlani]
 Raise up a cup up for all my day ones
 Two middle fingers for the haters
@@ -6647,6 +6832,7 @@ Straight up from nothing we go up
 Higher than the highest skyscraper
 No Littl...',
       'music_artist_html' => '<a href="/ca-si/G-Eazy~Y3NuX2FydGlzdH4xMzk0Ng==.html">G-Eazy</a>, <a href="/ca-si/Kehlani~Y3NuX2FydGlzdH4xMzU2OQ==.html">Kehlani</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     49 => 
     array (
@@ -6671,7 +6857,7 @@ No Littl...',
       'music_listen' => 392764,
       'music_track_id' => 1,
       'music_filename' => '1770608-fbae38d4.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Verse 1]
 Yeah, I doubt, I doubt myself
 And I\'m too proud to ask for help
@@ -6680,41 +6866,9 @@ I don\'t have to explain it, baby
 Yeah, I\'m over picking fights
 And trying to mend it with the...',
       'music_artist_html' => '<a href="/ca-si/Gryffin~Y3NuX2FydGlzdH4xMzM2Mw==.html">Gryffin</a>, <a href="/ca-si/Illenium~Y3NuX2FydGlzdH4xNDk5OQ==.html">Illenium</a>, <a href="/ca-si/Daya~Y3NuX2FydGlzdH4xNjY4Mw==.html">Daya</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     50 => 
-    array (
-      'music_downloads_today' => 5,
-      'music_id' => 1776836,
-      'music_title_url' => 'city-on-lockdown~yellow-claw-juicy-j-lil-debbie',
-      'music_title' => 'City On Lockdown',
-      'music_artist' => 'Yellow Claw;Juicy J;Lil Debbie',
-      'music_artist_id' => '13988;4357;16622',
-      'cat_id' => 4,
-      'cat_level' => 3,
-      'cat_sublevel' => 3,
-      'cat_custom' => 0,
-      'cover_id' => 70187,
-      'music_download_time' => 1539076582,
-      'music_last_update_time' => 1491723734,
-      'music_title_search' => 'citi on lockdown',
-      'music_artist_search' => '; ilow claw; juici j; lil debi;',
-      'music_album_search' => 'lox amxterdam',
-      'music_composer' => 'Daniel Tuparia; Jim Taihuttu; Jordan Capozzi; Jordan Michael Houston; Nils Rondhuis; Thom Van Der Bruggen',
-      'music_album' => 'Los Amsterdam',
-      'music_listen' => 102491,
-      'music_track_id' => 6,
-      'music_filename' => '1776836-6744f4da.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
-      'music_shortlyric' => '[Intro:]
-Yellow motherfucking Claw.
-
-[Verse 1: Lil Debbie]
-Roof is blazin\' for me, let that motherfucker burn now
-Tell these bitches watch it, it\'s my motherfuckin\' turn now
-We blazin\', blazin\', wh...',
-      'music_artist_html' => '<a href="/ca-si/Yellow-Claw~Y3NuX2FydGlzdH4xMzk4OA==.html">Yellow Claw</a>, <a href="/ca-si/Juicy-J~Y3NuX2FydGlzdH40MzU3.html">Juicy J</a>, <a href="/ca-si/Lil-Debbie~Y3NuX2FydGlzdH4xNjYyMg==.html">Lil Debbie</a>',
-    ),
-    51 => 
     array (
       'music_downloads_today' => 6,
       'music_id' => 1776605,
@@ -6737,7 +6891,7 @@ We blazin\', blazin\', wh...',
       'music_listen' => 705524,
       'music_track_id' => 1,
       'music_filename' => '1776605-b1cbdc57.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. You know, I\'m sorry
 [t1]Em à, anh xin lỗi
 I won\'t make it to your party
@@ -6745,8 +6899,9 @@ I won\'t make it to your party
 Got caught up in my own selfishness
 [t1]Vì quá bận bịu với sự ích kỉ của riêng...',
       'music_artist_html' => '<a href="/ca-si/The-Chainsmokers~Y3NuX2FydGlzdH4xMzMzOQ==.html">The Chainsmokers</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    52 => 
+    51 => 
     array (
       'music_downloads_today' => 3,
       'music_id' => 1771084,
@@ -6769,7 +6924,7 @@ Got caught up in my own selfishness
       'music_listen' => 405487,
       'music_track_id' => 1,
       'music_filename' => '1771084-59d276b7.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Verse 1]
 I\'m jealous, I\'m overzealous
 When I\'m down I get real down
@@ -6778,8 +6933,9 @@ But I get angry, baby, believe me
 I could love you just like that
 And I can leave you just as fa...',
       'music_artist_html' => '<a href="/ca-si/Julia-Michaels~Y3NuX2FydGlzdH4xMzgzMQ==.html">Julia Michaels</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    53 => 
+    52 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1771811,
@@ -6802,7 +6958,7 @@ And I can leave you just as fa...',
       'music_listen' => 338438,
       'music_track_id' => 1,
       'music_filename' => '1771811-74e6bd0f.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Intro:]
 One, two.
 
@@ -6814,8 +6970,9 @@ Says it was poison
 So I guess I\'ll go home
 Into the arms of...',
       'music_artist_html' => '<a href="/ca-si/Lorde~Y3NuX2FydGlzdH40MDM0.html">Lorde</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    54 => 
+    53 => 
     array (
       'music_downloads_today' => 6,
       'music_id' => 1773545,
@@ -6838,7 +6995,7 @@ Into the arms of...',
       'music_listen' => 41117,
       'music_track_id' => 7,
       'music_filename' => '1773545-784bbd34.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Verse 1: Zara Larsson]
 I used to be so happy, but without you here I feel so low
 I watched you as you left, but I can never seem to let you go.
@@ -6846,8 +7003,9 @@ I watched you as you left, but I can never seem to let you go.
 [Pre-Chorus 1: Zara Larsson]
 ‘Cause once upon a tim...',
       'music_artist_html' => '<a href="/ca-si/Zara-Larsson~Y3NuX2FydGlzdH4xMzU4Ng==.html">Zara Larsson</a>, <a href="/ca-si/MNEK~Y3NuX2FydGlzdH4xNjU5OQ==.html">MNEK</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    55 => 
+    54 => 
     array (
       'music_downloads_today' => 4,
       'music_id' => 1773717,
@@ -6870,7 +7028,7 @@ I watched you as you left, but I can never seem to let you go.
       'music_listen' => 340642,
       'music_track_id' => 7,
       'music_filename' => '1773717-39b91166.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Intro:]
 Call it how it is
 Hendrix
@@ -6883,8 +7041,9 @@ Percocets, molly, Percocets
 Rep the set, gotta rep the set
 Chase a chec...',
       'music_artist_html' => '<a href="/ca-si/Future~Y3NuX2FydGlzdH4xMzQ5NQ==.html">Future</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    56 => 
+    55 => 
     array (
       'music_downloads_today' => 3,
       'music_id' => 1769846,
@@ -6907,15 +7066,16 @@ Chase a chec...',
       'music_listen' => 300985,
       'music_track_id' => 4,
       'music_filename' => '1769846-15751296.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. The club isn\'t the best place to find a lover
 [t1]Club hẳn không phải nơi tốt để tìm một người tình
 So the bar is where I go
 [t1]Thế nên hôm nay tôi sẽ đi bar
 Me and my friends at the table doin...',
       'music_artist_html' => '<a href="/ca-si/Ed-Sheeran~Y3NuX2FydGlzdH4yNjUz.html">Ed Sheeran</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    57 => 
+    56 => 
     array (
       'music_downloads_today' => 3,
       'music_id' => 1769773,
@@ -6938,15 +7098,16 @@ Me and my friends at the table doin...',
       'music_listen' => 457875,
       'music_track_id' => 1,
       'music_filename' => '1769773-11d8c8c3.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. I do my makeup in somebody else\'s car
 [t1]Tôi đã trang điểm trong xe của một người khác
 We order different drinks at the same bars
 [t1]Vẫn là những quán bar cũ, nhưng đồ uống nay đã khác nhau
 I...',
       'music_artist_html' => '<a href="/ca-si/Lorde~Y3NuX2FydGlzdH40MDM0.html">Lorde</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    58 => 
+    57 => 
     array (
       'music_downloads_today' => 7,
       'music_id' => 1770394,
@@ -6969,7 +7130,7 @@ I...',
       'music_listen' => 344287,
       'music_track_id' => 1,
       'music_filename' => '1770394-8761788c.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Intro: Enrique Iglesias]
 Súbeme la radio
 Trá-tráeme el alcohol
@@ -6979,8 +7140,9 @@ Súbeme la radio que esta es mi canción
 Siente el bajo que va subiendo
 Tráeme el alco...',
       'music_artist_html' => '<a href="/ca-si/Enrique-Iglesias~Y3NuX2FydGlzdH42MDQ=.html">Enrique Iglesias</a>, <a href="/ca-si/Descemer-Bueno~Y3NuX2FydGlzdH40NjY5NA==.html">Descemer Bueno</a>, <a href="/ca-si/Zion-amp~Y3NuX2FydGlzdH4xNDU5Ng==.html">Zion &amp</a>, <a href="/ca-si/Lennox~Y3NuX2FydGlzdH4xNDU5Nw==.html">Lennox</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    59 => 
+    58 => 
     array (
       'music_downloads_today' => 3,
       'music_id' => 1772223,
@@ -7003,7 +7165,7 @@ Tráeme el alco...',
       'music_listen' => 127642,
       'music_track_id' => 17,
       'music_filename' => '1772223-ec9c4cfb.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Verse 1:]
 How does a moment last forever?
 How can a story never die?
@@ -7012,6 +7174,41 @@ Never easy, but we try
 Sometimes our happiness is captured
 Somehow, our time and place stand still...',
       'music_artist_html' => '<a href="/ca-si/Celine-Dion~Y3NuX2FydGlzdH4xOTI=.html">Celine Dion</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+    ),
+    59 => 
+    array (
+      'music_downloads_today' => 2,
+      'music_id' => 1769853,
+      'music_title_url' => 'how-would-you-feel-paean~ed-sheeran',
+      'music_title' => 'How Would You Feel (Paean)',
+      'music_artist' => 'Ed Sheeran',
+      'music_artist_id' => '2653',
+      'cat_id' => 4,
+      'cat_level' => 1,
+      'cat_sublevel' => 1,
+      'cat_custom' => 0,
+      'cover_id' => 69492,
+      'music_download_time' => 1538966328,
+      'music_last_update_time' => 1489053496,
+      'music_title_search' => 'how would iou fel; paean',
+      'music_artist_search' => '; ed theran;',
+      'music_album_search' => 'divide; deluxe edition',
+      'music_composer' => 'Ed Sheeran; Johnny McDaid; Benny Blanco',
+      'music_album' => 'Divide (Deluxe Edition)',
+      'music_listen' => 394635,
+      'music_track_id' => 11,
+      'music_filename' => '1769853-9faa0add.mp3',
+      'music_bitrate' => 1000,
+      'music_shortlyric' => '1. You are the one, girl
+[t1]Cô gái của tôi ơi, em chính là người duy nhất
+You know that it\'s true
+[t1]Và em cũng biết điều đó là thật
+I\'m feeling younger
+[t1]Tôi cảm thấy mình như trẻ lại
+Every ti...',
+      'music_artist_html' => '<a href="/ca-si/Ed-Sheeran~Y3NuX2FydGlzdH4yNjUz.html">Ed Sheeran</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     60 => 
     array (
@@ -7036,7 +7233,7 @@ Somehow, our time and place stand still...',
       'music_listen' => 3957741,
       'music_track_id' => 1,
       'music_filename' => '1781134-8359e4b0.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Intro:]
 Comin\' over in my direction
 [t1]Đi theo anh
@@ -7045,6 +7242,7 @@ So thankful for that, it\'s such a blessin\', yeah
 Turn every situation into Heaven, yeah
 [t1]Biến mọi thứ thành thi...',
       'music_artist_html' => '<a href="/ca-si/Luis-Fonsi~Y3NuX2FydGlzdH4xMTI1Mg==.html">Luis Fonsi</a>, <a href="/ca-si/Daddy-Yankee~Y3NuX2FydGlzdH40MzM=.html">Daddy Yankee</a>, <a href="/ca-si/Justin-Bieber~Y3NuX2FydGlzdH4xNzk4.html">Justin Bieber</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     61 => 
     array (
@@ -7069,7 +7267,7 @@ Turn every situation into Heaven, yeah
       'music_listen' => 1807033,
       'music_track_id' => 1,
       'music_filename' => '1781972-05e46fdc.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. I wanna follow her where she goes
 [t1]Tôi muốn được theo gót nàng khắp mỏi nẻo đường
 I think about her and she knows it
@@ -7077,6 +7275,7 @@ I think about her and she knows it
 I wanna let it take control
 [t...',
       'music_artist_html' => '<a href="/ca-si/Shawn-Mendes~Y3NuX2FydGlzdH4xMzcyMw==.html">Shawn Mendes</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     62 => 
     array (
@@ -7101,7 +7300,7 @@ I wanna let it take control
       'music_listen' => 352524,
       'music_track_id' => 3,
       'music_filename' => '1783719-62d8cd23.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. I\'ve been reading books of old
 Tôi vẫn luôn chìm đắm trong những cuốn sách cũ
 The legends and the myths
@@ -7109,6 +7308,7 @@ Những câu truyện thần thoại và những vị thần
 Achilles and his gold
 Achilles với bộ giáp và...',
       'music_artist_html' => '<a href="/ca-si/The-Chainsmokers~Y3NuX2FydGlzdH4xMzMzOQ==.html">The Chainsmokers</a>, <a href="/ca-si/Coldplay~Y3NuX2FydGlzdH42ODA1.html">Coldplay</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     63 => 
     array (
@@ -7133,7 +7333,7 @@ Achilles với bộ giáp và...',
       'music_listen' => 369736,
       'music_track_id' => 2,
       'music_filename' => '1780038-6b2f5461.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Verse 1:]
 So you\'re still thinking of me
 Just like I know you should
@@ -7142,6 +7342,7 @@ I\'m so high at the moment
 I\'m so caught up in this
 Yeah, we\'re just youn...',
       'music_artist_html' => '<a href="/ca-si/Khalid~Y3NuX2FydGlzdH4xMzM5Mg==.html">Khalid</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     64 => 
     array (
@@ -7166,7 +7367,7 @@ Yeah, we\'re just youn...',
       'music_listen' => 1580773,
       'music_track_id' => 1,
       'music_filename' => '1783594-a2e25d2d.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Intro: DJ Khaled]
 We The Best Music
 Another One!
@@ -7177,6 +7378,7 @@ Yeah yeah you lookin\' at the truth, the man who never lie no
 I\'m the one yeah, I\'m the one
 Earl...',
       'music_artist_html' => '<a href="/ca-si/DJ-Khaled~Y3NuX2FydGlzdH41MzM=.html">DJ Khaled</a>, <a href="/ca-si/Justin-Bieber~Y3NuX2FydGlzdH4xNzk4.html">Justin Bieber</a>, <a href="/ca-si/Quavo~Y3NuX2FydGlzdH4xNTIxNg==.html">Quavo</a>, <a href="/ca-si/Chance-The-Rapper~Y3NuX2FydGlzdH4yMDAwMA==.html">Chance The Rapper</a>, <a href="/ca-si/Lil-Wayne~Y3NuX2FydGlzdH40MTc=.html">Lil Wayne</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     65 => 
     array (
@@ -7201,7 +7403,7 @@ Earl...',
       'music_listen' => 768137,
       'music_track_id' => 8,
       'music_filename' => '1780060-dea9f6dd.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Verse 1:]
 Ayy, I remember syrup sandwiches and crime allowances
 Finesse a nigga with some counterfeits
@@ -7210,6 +7412,7 @@ Parmesan where my accountant lives
 In fact, I\'m downin\' this
 D\'USSÉ...',
       'music_artist_html' => '<a href="/ca-si/Kendrick-Lamar~Y3NuX2FydGlzdH4zMzE2.html">Kendrick Lamar</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     66 => 
     array (
@@ -7234,7 +7437,7 @@ D\'USSÉ...',
       'music_listen' => 212594,
       'music_track_id' => 3,
       'music_filename' => '1780039-a77eb3fa.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Chorus:]
 Send me your location, let\'s
 Focus on communicating
@@ -7243,6 +7446,7 @@ Send me your location
 Let\'s ride the vibrations
 I don\'t n...',
       'music_artist_html' => '<a href="/ca-si/Khalid~Y3NuX2FydGlzdH4xMzM5Mg==.html">Khalid</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     67 => 
     array (
@@ -7267,7 +7471,7 @@ I don\'t n...',
       'music_listen' => 276002,
       'music_track_id' => 1,
       'music_filename' => '1781428-c5182d4b.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. Burning everything I know
 Desperate for a change
 Crashing down the ancient roads
@@ -7278,6 +7482,7 @@ Maybe there is hunger in my blood
 Screaming out loud for what I want
 See me runni...',
       'music_artist_html' => '<a href="/ca-si/Illenium~Y3NuX2FydGlzdH4xNDk5OQ==.html">Illenium</a>, <a href="/ca-si/Nevve~Y3NuX2FydGlzdH4xNTYwOQ==.html">Nevve</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     68 => 
     array (
@@ -7302,7 +7507,7 @@ See me runni...',
       'music_listen' => 934444,
       'music_track_id' => 1,
       'music_filename' => '1777112-8df7edc8.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Verse 1: Demi Lovato]
 Cut me up like a knife
 And I feel it, deep in my bones
@@ -7313,6 +7518,7 @@ You wanna know?
 [Pre-Chorus: Demi Lovato]
 I just wanna dive in the water, with...',
       'music_artist_html' => '<a href="/ca-si/Cheat-Codes~Y3NuX2FydGlzdH4xNDQ5OQ==.html">Cheat Codes</a>, <a href="/ca-si/Demi-Lovato~Y3NuX2FydGlzdH45NjU=.html">Demi Lovato</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     69 => 
     array (
@@ -7337,13 +7543,14 @@ I just wanna dive in the water, with...',
       'music_listen' => 934714,
       'music_track_id' => 1,
       'music_filename' => '1778626-311b2b43.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. Just stop your crying, it\'s a sign of the times
 [t1]Xin hãy ngừng nức nở, đó chỉ là dấu hiệu của thời gian
 Welcome to the final show
 [t1]Và chào mừng đến buổi diễn cuối cùng đau buồn
 Hope you\'re...',
       'music_artist_html' => '<a href="/ca-si/Harry-Styles~Y3NuX2FydGlzdH43ODY3Ng==.html">Harry Styles</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     70 => 
     array (
@@ -7368,7 +7575,7 @@ Hope you\'re...',
       'music_listen' => 839686,
       'music_track_id' => 1,
       'music_filename' => '1783474-0d949904.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. We were lovers for the first time
 Running all the red lights
 The middle finger was our peace sign, yeah
@@ -7376,6 +7583,7 @@ We were sipping on emotions
 Smoking and inhaling every moment
 It was reckless and we owned...',
       'music_artist_html' => '<a href="/ca-si/Kygo~Y3NuX2FydGlzdH4xNTAwNg==.html">Kygo</a>, <a href="/ca-si/Ellie-Goulding~Y3NuX2FydGlzdH4zNzg3.html">Ellie Goulding</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     71 => 
     array (
@@ -7400,7 +7608,7 @@ It was reckless and we owned...',
       'music_listen' => 502236,
       'music_track_id' => 11,
       'music_filename' => '1778446-5f628002.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Verse 1:]
 Young
 We were so young when we thought that we knew how to love
@@ -7409,6 +7617,7 @@ But we just gotta own that shit
 Don\'t let it go like this
 Maybe we...',
       'music_artist_html' => '<a href="/ca-si/The-Chainsmokers~Y3NuX2FydGlzdH4xMzMzOQ==.html">The Chainsmokers</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     72 => 
     array (
@@ -7433,7 +7642,7 @@ Maybe we...',
       'music_listen' => 375028,
       'music_track_id' => 1,
       'music_filename' => '1777871-a4ffb8c6.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Verse 1]
 I don\'t wanna fight right now
 [t1]Em không muốn tranh cãi lúc này
@@ -7442,6 +7651,7 @@ Know you always right, now
 Know I need you \'round with me
 [t1]Vì em biết em cần anh ng...',
       'music_artist_html' => '<a href="/ca-si/Halsey~Y3NuX2FydGlzdH4xMzM1MA==.html">Halsey</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     73 => 
     array (
@@ -7466,7 +7676,7 @@ Know I need you \'round with me
       'music_listen' => 242735,
       'music_track_id' => 2,
       'music_filename' => '1780054-3375bf73.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Verse 1:]
 I got, I got, I got, I got
 Loyalty, got royalty inside my DNA
@@ -7474,6 +7684,7 @@ Cocaine quarter piece, got war and peace inside my DNA
 I got power, poison, pain and joy inside my DNA
 I got hustle though,...',
       'music_artist_html' => '<a href="/ca-si/Kendrick-Lamar~Y3NuX2FydGlzdH4zMzE2.html">Kendrick Lamar</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     74 => 
     array (
@@ -7498,7 +7709,7 @@ I got hustle though,...',
       'music_listen' => 669366,
       'music_track_id' => 1,
       'music_filename' => '1780464-5e7735d9.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. I\'ll undress you, \'cause you\'re tired
 [t1]Em sẽ cởi đồ cho anh nha, trông anh mệt mỏi quá
 Cover you as you desire
@@ -7506,6 +7717,7 @@ Cover you as you desire
 When you fall asleep inside my arms
 [t1]Khi an...',
       'music_artist_html' => '<a href="/ca-si/Lady-Gaga~Y3NuX2FydGlzdH4xMzIz.html">Lady Gaga</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     75 => 
     array (
@@ -7530,7 +7742,7 @@ When you fall asleep inside my arms
       'music_listen' => 108969,
       'music_track_id' => 12,
       'music_filename' => '1783806-79bc2b2d.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Father:]
 It\'s not time to make a change
 Just relax, take it easy
@@ -7540,6 +7752,7 @@ Find a girl, settle down
 If you want you can marry
 Look at m...',
       'music_artist_html' => '<a href="/ca-si/Cat-Stevens~Y3NuX2FydGlzdH43MTIw.html">Cat Stevens</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     76 => 
     array (
@@ -7564,7 +7777,7 @@ Look at m...',
       'music_listen' => 147335,
       'music_track_id' => 1,
       'music_filename' => '1783795-b63f925b.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Sun is shinin\' in the sky
 There ain\'t a cloud in sight
 It\'s stopped rainin\'
@@ -7575,6 +7788,7 @@ It\'s a beautiful new day.
 Runnin\' down the avenue,(Pant, Pant, Pant)
 See how th...',
       'music_artist_html' => '<a href="/ca-si/Electric-Light-Orchestra~Y3NuX2FydGlzdH4xMDY5MA==.html">Electric Light Orchestra</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     77 => 
     array (
@@ -7599,7 +7813,7 @@ See how th...',
       'music_listen' => 153062,
       'music_track_id' => 8,
       'music_filename' => '1778443-744e4ea0.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. We were staying in Paris
 [t1]Hai ta đã từng phải sống trong mộng tưởng
 To get away from your parents
@@ -7607,6 +7821,7 @@ To get away from your parents
 And I thought, “Wow if I could take this in a shot right now
 [t1]Và...',
       'music_artist_html' => '<a href="/ca-si/The-Chainsmokers~Y3NuX2FydGlzdH4xMzMzOQ==.html">The Chainsmokers</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     78 => 
     array (
@@ -7631,7 +7846,7 @@ And I thought, “Wow if I could take this in a shot right now
       'music_listen' => 134838,
       'music_track_id' => 1,
       'music_filename' => '1783717-33cd8e75.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. I\'ve been reading books of old
 Tôi vẫn luôn chìm đắm trong những cuốn sách cũ
 The legends and the myths
@@ -7639,6 +7854,7 @@ Những câu truyện thần thoại và những vị thần
 Achilles and his gold
 Achilles với bộ giáp và...',
       'music_artist_html' => '<a href="/ca-si/The-Chainsmokers~Y3NuX2FydGlzdH4xMzMzOQ==.html">The Chainsmokers</a>, <a href="/ca-si/Coldplay~Y3NuX2FydGlzdH42ODA1.html">Coldplay</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     79 => 
     array (
@@ -7663,7 +7879,7 @@ Achilles với bộ giáp và...',
       'music_listen' => 466072,
       'music_track_id' => 1,
       'music_filename' => '1777933-8acfeb0c.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. Looking from a window above
 [t1] Tớ đang nhìn cậu từ khung cửa sổ trên kia
 It\'s like a story of love
@@ -7671,6 +7887,7 @@ It\'s like a story of love
 Can you hear me?
 [t1] Cậu có nghe thấy tớ khôn...',
       'music_artist_html' => '<a href="/ca-si/Selena-Gomez~Y3NuX2FydGlzdH4xMDU0.html">Selena Gomez</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
   ),
   5 => 
@@ -7698,7 +7915,7 @@ Can you hear me?
       'music_listen' => 751112,
       'music_track_id' => 1,
       'music_filename' => '1757627-41d5d017.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. 入夜漸微涼 繁花落地成霜
 [t2]Ruỳè jiàn wēi liáng fánhuā luòdì chéng shuāng
 [t1]Đêm trở lạnh, muôn hoa rơi xuống đất thành sương
@@ -7707,6 +7924,7 @@ Can you hear me?
 [t2]nǐ zài yuǎnfāng tiàowàng hào jìn suǒyǒu mù guāng
 [t1]Người...',
       'music_artist_html' => '<a href="/ca-si/Truong-Bich-Than~Y3NuX2FydGlzdH4xNzgzMw==.html">Trương Bích Thần</a>, <a href="/ca-si/Duong-Tong-Vy~Y3NuX2FydGlzdH4xNzA4MQ==.html">Dương Tông Vỹ</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     1 => 
     array (
@@ -7731,7 +7949,7 @@ Can you hear me?
       'music_listen' => 312981,
       'music_track_id' => 2,
       'music_filename' => '1758090-84ed800d.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1.握不紧那段过往
 [t2]Wò bù jǐn nà duàn guòwǎng
 [t1]Quá khứ không thể níu chặt đó
@@ -7744,6 +7962,7 @@ Can you hear me?
 [t2]nà yīdī líbié de lèi
 [t1]Giọt lệ biệ...',
       'music_artist_html' => '<a href="/ca-si/Truong-Kiet~Y3NuX2FydGlzdH4xNjQ0.html">Trương Kiệt</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     2 => 
     array (
@@ -7768,7 +7987,7 @@ Can you hear me?
       'music_listen' => 109222,
       'music_track_id' => 3,
       'music_filename' => '1759450-8cb8588f.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. 風吹開了記憶的鎖 想起舊時的你我
 [t2]Fēngchuī kāile jìyì de suǒ xiǎngqǐ jiùshí de nǐ wǒ
 [t1]Gió mở ra xiềng xích kí ức, nhớ tới ngày xưa của hai ta
@@ -7776,6 +7995,7 @@ Can you hear me?
 曾相思許諾 曾遺憾錯過 桃花飄落暗香藏苦澀
 [t2]céng xiāngsī xǔnuò céng yíhàn cuògu...',
       'music_artist_html' => '<a href="/ca-si/Uc-Kha-Duy~Y3NuX2FydGlzdH4xNTg4Nw==.html">Úc Khả Duy</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     3 => 
     array (
@@ -7800,9 +8020,10 @@ Can you hear me?
       'music_listen' => 57539,
       'music_track_id' => 1,
       'music_filename' => '1756676-bc4ae4e8.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Dang-Tu-Ky~Y3NuX2FydGlzdH44Mjkx.html">Đặng Tử Kỳ</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     4 => 
     array (
@@ -7827,7 +8048,7 @@ Can you hear me?
       'music_listen' => 6250,
       'music_track_id' => 6,
       'music_filename' => '1758569-7dd90d0a.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Just tell me why
 Xiǎng hé nǐ mànbù xìngfú huā lù lǐ
 Tell me why
@@ -7837,6 +8058,7 @@ Hǎo xiǎng hǎo xiǎng qíjī de xiāngyù mènghuàn bān
 Destiny destiny
 Bù qī ér yù cóng...',
       'music_artist_html' => '<a href="/ca-si/Cosmic-Girls~Y3NuX2FydGlzdH4xNTA3MQ==.html">Cosmic Girls</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     5 => 
     array (
@@ -7861,38 +8083,12 @@ Bù qī ér yù cóng...',
       'music_listen' => 1067,
       'music_track_id' => 0,
       'music_filename' => '1760578-bf4d9879.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Li-Qi~Y3NuX2FydGlzdH45Mzk0Mw==.html">Li Qi</a>, <a href="/ca-si/Liu-Mei-Lin~Y3NuX2FydGlzdH45MzQ3OQ==.html">Liu Mei Lin</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     6 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1760544,
-      'music_title_url' => 'niem-may-man-nho~got7',
-      'music_title' => 'Niềm May Mắn Nhỏ (小幸運)',
-      'music_artist' => 'GOT7',
-      'music_artist_id' => '4464',
-      'cat_id' => 5,
-      'cat_level' => 1,
-      'cat_sublevel' => 1,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1518850118,
-      'music_last_update_time' => 1490884340,
-      'music_title_search' => 'nim mai man nho; 小幸運',
-      'music_artist_search' => '; got7;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 1021,
-      'music_track_id' => 0,
-      'music_filename' => '1760544-b185baf8.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
-      'music_shortlyric' => '',
-      'music_artist_html' => '<a href="/ca-si/GOT7~Y3NuX2FydGlzdH40NDY0.html">GOT7</a>',
-    ),
-    7 => 
     array (
       'music_downloads_today' => 3,
       'music_id' => 1756273,
@@ -7915,7 +8111,7 @@ Bù qī ér yù cóng...',
       'music_listen' => 9678,
       'music_track_id' => 3,
       'music_filename' => '1756273-23a31c95.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '我隐藏着目光
 [t2]Wǒ yǐncángzhe mùguāng
 [t1]Ta cất dấu ánh mắt
@@ -7927,8 +8123,9 @@ Bù qī ér yù cóng...',
 我自赏一枝孤芳
 [t2]wǒ zì shǎng yīzhī gū...',
       'music_artist_html' => '<a href="/ca-si/Chung-Han-Luong~Y3NuX2FydGlzdH4yNTQ2Mw==.html">Chung Hán Lương</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    8 => 
+    7 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1757549,
@@ -7951,11 +8148,12 @@ Bù qī ér yù cóng...',
       'music_listen' => 1519,
       'music_track_id' => 0,
       'music_filename' => '1757549-11b732b6.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
+      'music_bitrate' => 192,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
     ),
-    9 => 
+    8 => 
     array (
       'music_downloads_today' => 2,
       'music_id' => 1757626,
@@ -7978,7 +8176,7 @@ Bù qī ér yù cóng...',
       'music_listen' => 7842,
       'music_track_id' => 5,
       'music_filename' => '1757626-cd54e666.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. 奈何紛亂的喧囂
 [t2]Nàihé fēnluàn de xuānxiāo
 [t1]Ồn ào hỗn loạn làm sao
@@ -7991,8 +8189,9 @@ Bù qī ér yù cóng...',
 [t2]yuàn zhǐ néng bù gǎi chūxīn jiù hǎo
 [t1]Chỉ...',
       'music_artist_html' => '<a href="/ca-si/Chu-Pham~Y3NuX2FydGlzdH45MzY2MQ==.html">Chu Phẩm</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    10 => 
+    9 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1757785,
@@ -8015,11 +8214,12 @@ Bù qī ér yù cóng...',
       'music_listen' => 9706,
       'music_track_id' => 1,
       'music_filename' => '1757785-4c8dcafd.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Hoang-Tu-Thao~Y3NuX2FydGlzdH4xNDMxMA==.html">Hoàng Tử Thao</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
-    11 => 
+    10 => 
     array (
       'music_downloads_today' => 2,
       'music_id' => 1757982,
@@ -8042,11 +8242,12 @@ Bù qī ér yù cóng...',
       'music_listen' => 8629,
       'music_track_id' => 6,
       'music_filename' => '1757982-9cd592a1.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Phuong-Vien~Y3NuX2FydGlzdH45MzY5OQ==.html">Phương Viên</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    12 => 
+    11 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1758308,
@@ -8069,11 +8270,12 @@ Bù qī ér yù cóng...',
       'music_listen' => 1826,
       'music_track_id' => 0,
       'music_filename' => '1758308-4c9ba034.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/A-Lin~Y3NuX2FydGlzdH4yNTM5MA==.html">A-Lin</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
-    13 => 
+    12 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1760591,
@@ -8096,11 +8298,12 @@ Bù qī ér yù cóng...',
       'music_listen' => 2456,
       'music_track_id' => 0,
       'music_filename' => '1760591-1e6b2320.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/A-Lin~Y3NuX2FydGlzdH4yNTM5MA==.html">A-Lin</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
-    14 => 
+    13 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1762128,
@@ -8123,11 +8326,12 @@ Bù qī ér yù cóng...',
       'music_listen' => 2935,
       'music_track_id' => 4,
       'music_filename' => '1762128-e22680e8.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Luong-Bich-Huu~Y3NuX2FydGlzdH4yMzk=.html">Lương Bích Hữu</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    15 => 
+    14 => 
     array (
       'music_downloads_today' => 7,
       'music_id' => 1765363,
@@ -8150,7 +8354,7 @@ Bù qī ér yù cóng...',
       'music_listen' => 174625,
       'music_track_id' => 4,
       'music_filename' => '1765363-fa5e516e.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. 遇見你的眉眼
 [t2]Yùjiàn nǐ de méiyǎn
 [t1]Được gặp mặt người
@@ -8163,8 +8367,9 @@ Bù qī ér yù cóng...',
 [t2]zài sìcéngxiāngshí de fán shìjiān
 [t1]Dường như ở trần gian...',
       'music_artist_html' => '<a href="/ca-si/Dong-Trinh~Y3NuX2FydGlzdH4xNzc5.html">Đổng Trinh</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    16 => 
+    15 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1764843,
@@ -8187,11 +8392,12 @@ Bù qī ér yù cóng...',
       'music_listen' => 44775,
       'music_track_id' => 2,
       'music_filename' => '1764843-90381095.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Uong-To-Lang~Y3NuX2FydGlzdH4xMzUwNQ==.html">Uông Tô Lang</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    17 => 
+    16 => 
     array (
       'music_downloads_today' => 2,
       'music_id' => 1764844,
@@ -8214,7 +8420,7 @@ Bù qī ér yù cóng...',
       'music_listen' => 79080,
       'music_track_id' => 3,
       'music_filename' => '1764844-bb414e2b.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Feng sheng piao yu ye xiao xiao
 (Gió th?i vi vu, mưa rơi l?t ph?t)
 Yen ban hai shui bu zhao
@@ -8222,8 +8428,9 @@ Yen ban hai shui bu zhao
 You shang huai bao shui yan lei diao
 (Mu?n phi?n trong l?ng, nư?c m?t ai rơ...',
       'music_artist_html' => '<a href="/ca-si/Ly-Vy~Y3NuX2FydGlzdH45NDQ3NQ==.html">Lý Vỹ</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    18 => 
+    17 => 
     array (
       'music_downloads_today' => 4,
       'music_id' => 1765366,
@@ -8246,11 +8453,12 @@ You shang huai bao shui yan lei diao
       'music_listen' => 68954,
       'music_track_id' => 5,
       'music_filename' => '1765366-c85ec6e8.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Huong-Huong~Y3NuX2FydGlzdH40MDkwNg==.html">Hương Hương</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    19 => 
+    18 => 
     array (
       'music_downloads_today' => 2,
       'music_id' => 1768977,
@@ -8273,11 +8481,12 @@ You shang huai bao shui yan lei diao
       'music_listen' => 9125,
       'music_track_id' => 4,
       'music_filename' => '1768977-228ad27c.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Lam-Uc-Lien~Y3NuX2FydGlzdH4xMDUxOA==.html">Lâm Ức Liên</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    20 => 
+    19 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1768981,
@@ -8300,38 +8509,12 @@ You shang huai bao shui yan lei diao
       'music_listen' => 32148,
       'music_track_id' => 1,
       'music_filename' => '1768981-d7ddf573.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Dimash~Y3NuX2FydGlzdH45NDkyNg==.html">Dimash</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    21 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1768978,
-      'music_title_url' => 'lion-live~lion-band-tieu-kinh-dang',
-      'music_title' => 'Lion (Live)',
-      'music_artist' => 'Lion Band;Tiêu Kính Đằng',
-      'music_artist_id' => '94928;11412',
-      'cat_id' => 5,
-      'cat_level' => 1,
-      'cat_sublevel' => 1,
-      'cat_custom' => 0,
-      'cover_id' => 69177,
-      'music_download_time' => 1517200788,
-      'music_last_update_time' => 1489543553,
-      'music_title_search' => 'lion; live',
-      'music_artist_search' => '; lion band; tiu kinh dang;',
-      'music_album_search' => 'toi la ca xi mua 5; 歌手 2017 xeaxon 5 ; ep 1',
-      'music_composer' => '',
-      'music_album' => 'Tôi Là Ca Sĩ Mùa 5 (歌手 2017 Season 5) - Ep 1',
-      'music_listen' => 1843,
-      'music_track_id' => 5,
-      'music_filename' => '1768978-9acdf6e4.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
-      'music_shortlyric' => '',
-      'music_artist_html' => '<a href="/ca-si/Lion-Band~Y3NuX2FydGlzdH45NDkyOA==.html">Lion Band</a>, <a href="/ca-si/Tieu-Kinh-Dang~Y3NuX2FydGlzdH4xMTQxMg==.html">Tiêu Kính Đằng</a>',
-    ),
-    22 => 
+    20 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1762827,
@@ -8354,7 +8537,7 @@ You shang huai bao shui yan lei diao
       'music_listen' => 54703,
       'music_track_id' => 1,
       'music_filename' => '1762827-ac36a32f.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '祝你 生日快乐 祝你 生日快乐
 
 祝你 生日快乐 祝你 生日快乐
@@ -8383,8 +8566,9 @@ Happy birthday to you
 
 Happy birthday...',
       'music_artist_html' => '<a href="/ca-si/SNH48~Y3NuX2FydGlzdH4xNTk2Ng==.html">SNH48</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    23 => 
+    21 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1764375,
@@ -8407,7 +8591,7 @@ Happy birthday...',
       'music_listen' => 6945,
       'music_track_id' => 2,
       'music_filename' => '1764375-ce32c54f.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Oh maybe maybe
 Ai qing yi jing zhuang shang wo de tou
 Chu le ni yan qian shen me dou mei you
@@ -8416,8 +8600,9 @@ Rang ai de jian she zhong xiong kou.
 
 Lian ai xiao shuo ju qin...',
       'music_artist_html' => '<a href="/ca-si/NCT-Dream~Y3NuX2FydGlzdH4xNTgxNw==.html">NCT Dream</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    24 => 
+    22 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1764376,
@@ -8440,7 +8625,7 @@ Lian ai xiao shuo ju qin...',
       'music_listen' => 4159,
       'music_track_id' => 5,
       'music_filename' => '1764376-7db98b40.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Chew-chew-chew-chew chewing gum
 Chew-chew-chew-chew
 Chew-chew-chew-chew-chew
@@ -8450,8 +8635,9 @@ Shì shui ràng dì qiú yǎo zhù
 Wǒ de fān bù xié (jiù shì nǐ)
 Yòng lì xiǎng kuà chū jiǎo...',
       'music_artist_html' => '<a href="/ca-si/NCT-Dream~Y3NuX2FydGlzdH4xNTgxNw==.html">NCT Dream</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    25 => 
+    23 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1764845,
@@ -8474,11 +8660,12 @@ Yòng lì xiǎng kuà chū jiǎo...',
       'music_listen' => 12629,
       'music_track_id' => 4,
       'music_filename' => '1764845-302a7ff5.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Uong-To-Lang~Y3NuX2FydGlzdH4xMzUwNQ==.html">Uông Tô Lang</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    26 => 
+    24 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1764842,
@@ -8501,11 +8688,12 @@ Yòng lì xiǎng kuà chū jiǎo...',
       'music_listen' => 53856,
       'music_track_id' => 1,
       'music_filename' => '1764842-29359cc8.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Thuong-Van-Tiep~Y3NuX2FydGlzdH44NjA2.html">Thượng Văn Tiệp</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    27 => 
+    25 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1765114,
@@ -8528,11 +8716,12 @@ Yòng lì xiǎng kuà chū jiǎo...',
       'music_listen' => 6259,
       'music_track_id' => 1,
       'music_filename' => '1765114-f4657d82.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Luu-Minh-Duong~Y3NuX2FydGlzdH45NDQ4MQ==.html">Lưu Minh Dương</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
-    28 => 
+    26 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1765630,
@@ -8555,119 +8744,12 @@ Yòng lì xiǎng kuà chū jiǎo...',
       'music_listen' => 8385,
       'music_track_id' => 0,
       'music_filename' => '1765630-ae226b89.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
+      'music_bitrate' => 192,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
     ),
-    29 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1766254,
-      'music_title_url' => 'wo-bu-hou-hui~duc-thanh',
-      'music_title' => 'Wo Bu Hou Hui (我不后悔)',
-      'music_artist' => 'Đức Thành',
-      'music_artist_id' => '25618',
-      'cat_id' => 5,
-      'cat_level' => 1,
-      'cat_sublevel' => 1,
-      'cat_custom' => 8,
-      'cover_id' => 0,
-      'music_download_time' => 1536603098,
-      'music_last_update_time' => 1491050722,
-      'music_title_search' => 'wo bu hou hui; 我不后悔',
-      'music_artist_search' => '; duc thanh;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 934,
-      'music_track_id' => 0,
-      'music_filename' => '1766254-8a92c9a8.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
-      'music_shortlyric' => '说好了不回头不想承诺 
-Shuō hǎo le bù huí tóu bù xiǎng chéng nuò
-Những lời đã nói rồi anh sẽ không quay đầu lại cũng chẳng muốn hứa hẹn
-
-缘份尽了你别过头 
-Yuán fèn jìn le nǐ bié guò tóu
-Duyên phận hết rồi em đừng níu...',
-      'music_artist_html' => '<a href="/ca-si/Duc-Thanh~Y3NuX2FydGlzdH4yNTYxOA==.html">Đức Thành</a>',
-    ),
-    30 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1765155,
-      'music_title_url' => 'em-la-dieu-quy-gia-nhat~truong-hoc-huu-cao-tue-quan',
-      'music_title' => 'Em Là Điều Quý Giá Nhất (你最珍贵)',
-      'music_artist' => 'Trương Học Hữu;Cao Tuệ Quân',
-      'music_artist_id' => '4162;43371',
-      'cat_id' => 5,
-      'cat_level' => 1,
-      'cat_sublevel' => 1,
-      'cat_custom' => 0,
-      'cover_id' => 68767,
-      'music_download_time' => 1534003363,
-      'music_last_update_time' => 1522863212,
-      'music_title_search' => 'em la diu qi da nhat; 你最珍贵',
-      'music_artist_search' => '; chung hoc hu; cao tue quan;',
-      'music_album_search' => 'valentine x; love xong colection',
-      'music_composer' => '',
-      'music_album' => 'Valentine\'s (Love Song Collection)',
-      'music_listen' => 918,
-      'music_track_id' => 2,
-      'music_filename' => '1765155-5941533a.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: orange">356kbps</span>',
-      'music_shortlyric' => '(男)明年这个时间　约在这个地点
-(女)记得带着玫瑰　打上领带系上思念
-(男)动情时刻最美　真心的给不累
-(女)太多的爱怕醉　没人疼爱　再美的人　也会憔悴
-
-(男)我会送你红色玫瑰　你别拿一生眼泪相对
-(女)你知道我爱流泪
-(男)未来的日子有你才美　梦才会真一点
-(女)未来的日子是否很美　梦才会真一点
-
-(女)我学着在你爱里沉醉　你守护着我穿过黑夜
-(男)　　　　　　　　　我不撤退　　　　　...',
-      'music_artist_html' => '<a href="/ca-si/Truong-Hoc-Huu~Y3NuX2FydGlzdH40MTYy.html">Trương Học Hữu</a>, <a href="/ca-si/Cao-Tue-Quan~Y3NuX2FydGlzdH40MzM3MQ==.html">Cao Tuệ Quân</a>',
-    ),
-    31 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1765157,
-      'music_title_url' => 'thau-hieu-long-toi~tran-thuc-hoa-thanh-long',
-      'music_title' => 'Thấu Hiểu Lòng Tôi (明明白白我的心)',
-      'music_artist' => 'Trần Thục Hoa;Thành Long',
-      'music_artist_id' => '24429;4326',
-      'cat_id' => 5,
-      'cat_level' => 1,
-      'cat_sublevel' => 1,
-      'cat_custom' => 0,
-      'cover_id' => 68767,
-      'music_download_time' => 1526152242,
-      'music_last_update_time' => 1522863261,
-      'music_title_search' => 'thau hiu long toi; 明白我的心',
-      'music_artist_search' => '; chan thuc hoa; thanh long;',
-      'music_album_search' => 'valentine x; love xong colection',
-      'music_composer' => '',
-      'music_album' => 'Valentine\'s (Love Song Collection)',
-      'music_listen' => 1490,
-      'music_track_id' => 4,
-      'music_filename' => '1765157-7d7049c6.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: orange">362kbps</span>',
-      'music_shortlyric' => '(樺)明明白白我的心　渴望一份真感情
-曾經為愛傷透了心　為什麼甜蜜的夢容易醒
-(龍)妳有一雙溫柔的眼睛　妳有善解人意的心靈
-如果你願意　請讓我靠近
-我想妳會明白我的心
-(樺)星光燦爛風兒輕　最是寂寞女兒心
-告別舊日戀情　把那創傷撫平　不再流淚到天明
-
-(龍)我明明白白妳的心　渴望一份真感情
-更多更詳盡歌詞 在 ※ Mojim.com　魔鏡歌詞網 
-(樺)我曾經為愛傷透了心　為什麼甜蜜的夢容易...',
-      'music_artist_html' => '<a href="/ca-si/Tran-Thuc-Hoa~Y3NuX2FydGlzdH4yNDQyOQ==.html">Trần Thục Hoa</a>, <a href="/ca-si/Thanh-Long~Y3NuX2FydGlzdH40MzI2.html">Thành Long</a>',
-    ),
-    32 => 
+    27 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1765159,
@@ -8690,11 +8772,12 @@ Duyên phận hết rồi em đừng níu...',
       'music_listen' => 2113,
       'music_track_id' => 6,
       'music_filename' => '1765159-13ecb371.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: orange">350kbps</span>',
+      'music_bitrate' => 350,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Quach-Phu-Thanh~Y3NuX2FydGlzdH44Ng==.html">Quách Phú Thành</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: orange">350kbps</span>',
     ),
-    33 => 
+    28 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1765161,
@@ -8717,7 +8800,7 @@ Duyên phận hết rồi em đừng níu...',
       'music_listen' => 2403,
       'music_track_id' => 8,
       'music_filename' => '1765161-1c8b0759.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: orange">359kbps</span>',
+      'music_bitrate' => 359,
       'music_shortlyric' => '我听见你的声音
 有种特别的感觉
 让我不断想不敢再忘记你
@@ -8740,8 +8823,9 @@ Duyên phận hết rồi em đừng níu...',
 我听见你的声音
 有种特别...',
       'music_artist_html' => '<a href="/ca-si/Twins~Y3NuX2FydGlzdH4z.html">Twins</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: orange">359kbps</span>',
     ),
-    34 => 
+    29 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1765163,
@@ -8764,7 +8848,7 @@ Duyên phận hết rồi em đừng níu...',
       'music_listen' => 1341,
       'music_track_id' => 10,
       'music_filename' => '1765163-0950f96b.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: orange">332kbps</span>',
+      'music_bitrate' => 332,
       'music_shortlyric' => 'Chun nuan de hua kai dai zou dong tian de gan shang 
 Wei feng chui lai lang man de qi xi 
 Mei yi shou qing ge hu ran chong man yi yi 
@@ -8772,8 +8856,137 @@ Wo jiu zai ci ke tu ran jian dao ni.
 
 Chun nuan de hua xiang da...',
       'music_artist_html' => '<a href="/ca-si/Thai-Y-Lam~Y3NuX2FydGlzdH4yNzY=.html">Thái Y Lâm</a>, <a href="/ca-si/Dao-Triet~Y3NuX2FydGlzdH4xMTc0MA==.html">Đào Triết</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: orange">332kbps</span>',
     ),
-    35 => 
+    30 => 
+    array (
+      'music_downloads_today' => 1,
+      'music_id' => 1768723,
+      'music_title_url' => 'smiling-sunflower~bej48',
+      'music_title' => 'Smiling Sunflower (微笑的向日葵)',
+      'music_artist' => 'BEJ48',
+      'music_artist_id' => '88929',
+      'cat_id' => 5,
+      'cat_level' => 1,
+      'cat_sublevel' => 1,
+      'cat_custom' => 0,
+      'cover_id' => 69157,
+      'music_download_time' => 1520615913,
+      'music_last_update_time' => 1488115607,
+      'music_title_search' => 'xmiling xunflower; 微笑的向日葵',
+      'music_artist_search' => '; bej48;',
+      'music_album_search' => 'xmiling xunflower; 微笑的向日葵',
+      'music_composer' => 'BEJ48',
+      'music_album' => 'Smiling Sunflower (微笑的向日葵)',
+      'music_listen' => 4646,
+      'music_track_id' => 1,
+      'music_filename' => '1768723-b337cee4.mp3',
+      'music_bitrate' => 320,
+      'music_shortlyric' => '01. Smiling Flower (微笑的向日葵)Senbatsu
+02. Love Like Fantasy (爱似Fantasy)Team B
+03. Giai Điệu Màu Trắng Bạc ((银白色旋律)Team E
+04. Winter Love (冬季恋)Team J
+05. ước Hẹn Dưới Bầu Trời Sao',
+      'music_artist_html' => '<a href="/ca-si/BEJ48~Y3NuX2FydGlzdH44ODkyOQ==.html">BEJ48</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+    ),
+    31 => 
+    array (
+      'music_downloads_today' => 1,
+      'music_id' => 1768727,
+      'music_title_url' => 'uoc-hen-duoi-bau-troi-sao~bej48',
+      'music_title' => 'Ước Hẹn Dưới Bầu Trời Sao (星空下约定)',
+      'music_artist' => 'BEJ48',
+      'music_artist_id' => '88929',
+      'cat_id' => 5,
+      'cat_level' => 1,
+      'cat_sublevel' => 1,
+      'cat_custom' => 0,
+      'cover_id' => 69157,
+      'music_download_time' => 1534450704,
+      'music_last_update_time' => 1488115780,
+      'music_title_search' => 'uc hen dui bau choi xao; 星空下约定',
+      'music_artist_search' => '; bej48;',
+      'music_album_search' => 'xmiling xunflower; 微笑的向日葵',
+      'music_composer' => 'BEJ48',
+      'music_album' => 'Smiling Sunflower (微笑的向日葵)',
+      'music_listen' => 2489,
+      'music_track_id' => 5,
+      'music_filename' => '1768727-9e30abd8.mp3',
+      'music_bitrate' => 320,
+      'music_shortlyric' => '01. Smiling Flower (微笑的向日葵)Senbatsu
+02. Love Like Fantasy (爱似Fantasy)Team B
+03. Giai Điệu Màu Trắng Bạc ((银白色旋律)Team E
+04. Winter Love (冬季恋)Team J
+05. ước Hẹn Dưới Bầu Trời Sao',
+      'music_artist_html' => '<a href="/ca-si/BEJ48~Y3NuX2FydGlzdH44ODkyOQ==.html">BEJ48</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+    ),
+    32 => 
+    array (
+      'music_downloads_today' => 1,
+      'music_id' => 1768725,
+      'music_title_url' => 'love-like-fantasy-fantasy~bej48-team-b',
+      'music_title' => 'Love Like Fantasy (爱似fantasy)',
+      'music_artist' => 'BEJ48 (Team B)',
+      'music_artist_id' => '94898',
+      'cat_id' => 5,
+      'cat_level' => 1,
+      'cat_sublevel' => 1,
+      'cat_custom' => 0,
+      'cover_id' => 69157,
+      'music_download_time' => 1512655652,
+      'music_last_update_time' => 1488200889,
+      'music_title_search' => 'love like fantaxi; 爱似fantaxi',
+      'music_artist_search' => '; bej48; team b;',
+      'music_album_search' => 'xmiling xunflower; 微笑的向日葵',
+      'music_composer' => 'BEJ48',
+      'music_album' => 'Smiling Sunflower (微笑的向日葵)',
+      'music_listen' => 2239,
+      'music_track_id' => 3,
+      'music_filename' => '1768725-ff95e22e.mp3',
+      'music_bitrate' => 320,
+      'music_shortlyric' => '01. Smiling Flower (微笑的向日葵)Senbatsu
+02. Love Like Fantasy (爱似Fantasy)Team B
+03. Giai Điệu Màu Trắng Bạc ((银白色旋律)Team E
+04. Winter Love (冬季恋)Team J
+05. ước Hẹn Dưới Bầu Trời Sao',
+      'music_artist_html' => '<a href="/ca-si/BEJ48-Team-B~Y3NuX2FydGlzdH45NDg5OA==.html">BEJ48 (Team B)</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+    ),
+    33 => 
+    array (
+      'music_downloads_today' => 1,
+      'music_id' => 1768726,
+      'music_title_url' => 'winter-love~bej48-team-j',
+      'music_title' => 'Winter Love (冬季恋)',
+      'music_artist' => 'BEJ48 (Team J)',
+      'music_artist_id' => '94897',
+      'cat_id' => 5,
+      'cat_level' => 1,
+      'cat_sublevel' => 1,
+      'cat_custom' => 0,
+      'cover_id' => 69157,
+      'music_download_time' => 1535486520,
+      'music_last_update_time' => 1488116387,
+      'music_title_search' => 'winter love; 冬季恋',
+      'music_artist_search' => '; bej48; team j;',
+      'music_album_search' => 'xmiling xunflower; 微笑的向日葵',
+      'music_composer' => 'BEJ48',
+      'music_album' => 'Smiling Sunflower (微笑的向日葵)',
+      'music_listen' => 2586,
+      'music_track_id' => 4,
+      'music_filename' => '1768726-8e5b18d7.mp3',
+      'music_bitrate' => 320,
+      'music_shortlyric' => '01. Smiling Flower (微笑的向日葵)Senbatsu
+02. Love Like Fantasy (爱似Fantasy)Team B
+03. Giai Điệu Màu Trắng Bạc ((银白色旋律)Team E
+04. Winter Love (冬季恋)Team J
+05. ước Hẹn Dưới Bầu Trời Sao',
+      'music_artist_html' => '<a href="/ca-si/BEJ48-Team-J~Y3NuX2FydGlzdH45NDg5Nw==.html">BEJ48 (Team J)</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+    ),
+    34 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1770579,
@@ -8796,7 +9009,7 @@ Chun nuan de hua xiang da...',
       'music_listen' => 29981,
       'music_track_id' => 1,
       'music_filename' => '1770579-48d1404a.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '如果 天真有罪
 [t2]Rúguǒ tiānzhēn yǒuzuì
 [t1]Nếu ngây ngô là có tội,
@@ -8809,8 +9022,9 @@ Chun nuan de hua xiang da...',
 [t2]chéngshòu yī tiānkōng de lèi
 [t1]Hứng lấy lệ r...',
       'music_artist_html' => '<a href="/ca-si/Gian-Hoang-Diec~Y3NuX2FydGlzdH45NTA2Nw==.html">Giản Hoằng Diệc</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    36 => 
+    35 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1770600,
@@ -8833,11 +9047,12 @@ Chun nuan de hua xiang da...',
       'music_listen' => 47295,
       'music_track_id' => 1,
       'music_filename' => '1770600-ec1438a3.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Hoang-Linh~Y3NuX2FydGlzdH4xODExMQ==.html">Hoàng Linh</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    37 => 
+    36 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1770601,
@@ -8860,11 +9075,12 @@ Chun nuan de hua xiang da...',
       'music_listen' => 11847,
       'music_track_id' => 2,
       'music_filename' => '1770601-df0684f0.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Tran-Thu-Thuc~Y3NuX2FydGlzdH45NTA3NA==.html">Trần Thu Thực</a>, <a href="/ca-si/Thai-Chieu~Y3NuX2FydGlzdH45NTA3NQ==.html">Thái Chiếu</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    38 => 
+    37 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1770602,
@@ -8887,11 +9103,12 @@ Chun nuan de hua xiang da...',
       'music_listen' => 12568,
       'music_track_id' => 3,
       'music_filename' => '1770602-4ad6bf8a.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Uong-Dong-Thanh~Y3NuX2FydGlzdH4xNzQ5Ng==.html">Uông Đông Thành</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    39 => 
+    38 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1772733,
@@ -8914,11 +9131,12 @@ Chun nuan de hua xiang da...',
       'music_listen' => 859,
       'music_track_id' => 0,
       'music_filename' => '1772733-8b11d04e.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
+      'music_bitrate' => 192,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
     ),
-    40 => 
+    39 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1779400,
@@ -8941,7 +9159,7 @@ Chun nuan de hua xiang da...',
       'music_listen' => 44112,
       'music_track_id' => 2,
       'music_filename' => '1779400-5d4f44fe.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Ba ba ba ba ba ba ba
 
 Ba ba ba ba ba ba ba
@@ -8972,8 +9190,9 @@ Ba ba ba ba ba ba ba
 
 飞出城堡的围墙...',
       'music_artist_html' => '<a href="/ca-si/BEJ48-Team-B~Y3NuX2FydGlzdH45NTk5NQ==.html">BEJ48 Team B</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    41 => 
+    40 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1781202,
@@ -8996,7 +9215,7 @@ Ba ba ba ba ba ba ba
       'music_listen' => 56515,
       'music_track_id' => 1,
       'music_filename' => '1781202-5d4c628f.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '新年新年把门开
 
 恭喜大家都发财
@@ -9045,8 +9264,9 @@ Ba ba ba ba ba ba ba
 
 福星高照不用捱...',
       'music_artist_html' => '<a href="/ca-si/GNZ48~Y3NuX2FydGlzdH44OTM3Nw==.html">GNZ48</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    42 => 
+    41 => 
     array (
       'music_downloads_today' => 3,
       'music_id' => 1777568,
@@ -9069,11 +9289,12 @@ Ba ba ba ba ba ba ba
       'music_listen' => 40747,
       'music_track_id' => 1,
       'music_filename' => '1777568-85b44a38.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Hoac-Ton~Y3NuX2FydGlzdH4xOTE5NQ==.html">Hoắc Tôn</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    43 => 
+    42 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1779402,
@@ -9096,7 +9317,7 @@ Ba ba ba ba ba ba ba
       'music_listen' => 40242,
       'music_track_id' => 4,
       'music_filename' => '1779402-a4b774fd.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '手机放床边休息一天
 
 打开你给我手写的信件
@@ -9133,8 +9354,9 @@ Ba ba ba ba ba ba ba
 
 心跳好像被触电...',
       'music_artist_html' => '<a href="/ca-si/BEJ48-Team-J~Y3NuX2FydGlzdH45NTk5Nw==.html">BEJ48 Team J</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    44 => 
+    43 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1781155,
@@ -9157,7 +9379,7 @@ Ba ba ba ba ba ba ba
       'music_listen' => 21012,
       'music_track_id' => 1,
       'music_filename' => '1781155-c864815a.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '1. 如花美眷 似水流年
 [t2]Rúhuā měi juàn sì shuǐ liúnián
 [t1]Như hoa mỹ quyên, năm tháng như nước chảy.
@@ -9169,8 +9391,9 @@ Ba ba ba ba ba ba ba
 便胜过世间万千
 [t2]biàn...',
       'music_artist_html' => '<a href="/ca-si/Hoac-Ton~Y3NuX2FydGlzdH4xOTE5NQ==.html">Hoắc Tôn</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    45 => 
+    44 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1781145,
@@ -9193,7 +9416,7 @@ Ba ba ba ba ba ba ba
       'music_listen' => 19448,
       'music_track_id' => 1,
       'music_filename' => '1781145-0fb26bb9.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Yo listen baby seven senses
 修炼自我 没有什么如果
 众人爱慕party girl
@@ -9210,8 +9433,9 @@ Ohh We go party tonight
 到底你是谁
 Boom this is Girl...',
       'music_artist_html' => '<a href="/ca-si/SNH48-7SENSES~Y3NuX2FydGlzdH45NjE4NA==.html">SNH48 7SENSES</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    46 => 
+    45 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1779002,
@@ -9234,11 +9458,12 @@ Boom this is Girl...',
       'music_listen' => 6442,
       'music_track_id' => 0,
       'music_filename' => '1779002-fd0c0d41.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
+      'music_bitrate' => 192,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Vuong-Nguyen~Y3NuX2FydGlzdH4xODUyMQ==.html">Vương Nguyên</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
     ),
-    47 => 
+    46 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1777220,
@@ -9261,11 +9486,12 @@ Boom this is Girl...',
       'music_listen' => 3964,
       'music_track_id' => 0,
       'music_filename' => '1777220-61862457.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
+      'music_bitrate' => 192,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Phuong-Nhung~Y3NuX2FydGlzdH4xMzM1NA==.html">Phương Nhung</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
     ),
-    48 => 
+    47 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1779008,
@@ -9288,11 +9514,12 @@ Boom this is Girl...',
       'music_listen' => 10703,
       'music_track_id' => 2,
       'music_filename' => '1779008-a2870f67.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Dang-Sieu~Y3NuX2FydGlzdH40MTEzMw==.html">Đặng Siêu</a>, <a href="/ca-si/Han-Han~Y3NuX2FydGlzdH45NTk1NQ==.html">Hàn Hàn</a>, <a href="/ca-si/Cao-Hoa-Duong~Y3NuX2FydGlzdH45NTk1Ng==.html">Cao Hoa Dương</a>, <a href="/ca-si/Ban-Duc~Y3NuX2FydGlzdH45NTk1Nw==.html">Bản Dục</a>, <a href="/ca-si/Dong-Tu-Kien~Y3NuX2FydGlzdH45NTk1OA==.html">Đồng Tử Kiện</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    49 => 
+    48 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1779028,
@@ -9315,7 +9542,7 @@ Boom this is Girl...',
       'music_listen' => 2491,
       'music_track_id' => 3,
       'music_filename' => '1779028-ea137ea6.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '别送我 说再见吧 
 [t1]Đừng tiễn đưa anh, hãy nói tạm biệt anh
 故乡已在身后了
@@ -9327,8 +9554,9 @@ Boom this is Girl...',
 请别送我 请别送我 (x2)
 [t1]Xin em đừng tiễn đưa...',
       'music_artist_html' => '<a href="/ca-si/Han-Han~Y3NuX2FydGlzdH45NTk1NQ==.html">Hàn Hàn</a>, <a href="/ca-si/Co-Nhuan~Y3NuX2FydGlzdH45NTk1OQ==.html">Cổ Nhuận</a>, <a href="/ca-si/Chan-Hong-Vu~Y3NuX2FydGlzdH45NTk2MA==.html">Chấn Hồng Vũ</a>, <a href="/ca-si/Luu-Hao-Lam~Y3NuX2FydGlzdH45NTk2MQ==.html">Lưu Hạo Lâm</a>, <a href="/ca-si/To-Tu-Huc~Y3NuX2FydGlzdH42NjA4OA==.html">Tô Tử Húc</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    50 => 
+    49 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1779029,
@@ -9351,7 +9579,7 @@ Boom this is Girl...',
       'music_listen' => 2783,
       'music_track_id' => 4,
       'music_filename' => '1779029-38291a19.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '爱人啊
 [t1]Người yêu ơi
 我只能给你一方天地
@@ -9364,45 +9592,9 @@ Boom this is Girl...',
 [t1]Bốn phía đều không tốt bằng nơi đây
 爱人...',
       'music_artist_html' => '<a href="/ca-si/Ban-Duc~Y3NuX2FydGlzdH45NTk1Nw==.html">Bản Dục</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    51 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1779031,
-      'music_title_url' => 'trong-mua~han-han-various-artists',
-      'music_title' => 'Trong Mưa (在雨中)',
-      'music_artist' => 'Hàn Hàn;Various Artists',
-      'music_artist_id' => '95955;97',
-      'cat_id' => 5,
-      'cat_level' => 1,
-      'cat_sublevel' => 1,
-      'cat_custom' => 0,
-      'cover_id' => 70471,
-      'music_download_time' => 1510933090,
-      'music_last_update_time' => 1508112280,
-      'music_title_search' => 'chong mua; 在雨中',
-      'music_artist_search' => '; han han; varioux artixtx;',
-      'music_album_search' => 'cui do dap xong oxt; 乘风破浪 电影原声带',
-      'music_composer' => 'Lưu Gia Sương',
-      'music_album' => 'Cưỡi Gió Đạp Sóng OST (乘风破浪 电影原声带)',
-      'music_listen' => 1174,
-      'music_track_id' => 5,
-      'music_filename' => '1779031-e867911c.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
-      'music_shortlyric' => '在雨中 我送过你
-[t2]Zài yǔzhōng wǒ sòngguò nǐ
-[t1]Trong cơn mưa anh tiễn đưa em
-
-在夜里 我吻过你
-[t2]zài yèlǐ wǒ wěnguò nǐ
-[t1]Trong màn đêm anh khẽ hôn em
-
-在春天 我拥有你
-[t2]zài chūntiān wǒ yǒngyǒu nǐ
-[t1]Mùa xuân đ...',
-      'music_artist_html' => '<a href="/ca-si/Han-Han~Y3NuX2FydGlzdH45NTk1NQ==.html">Hàn Hàn</a>, <a href="/ca-si/Various-Artists~Y3NuX2FydGlzdH45Nw==.html">Various Artists</a>',
-    ),
-    52 => 
+    50 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1779138,
@@ -9425,7 +9617,7 @@ Boom this is Girl...',
       'music_listen' => 2702,
       'music_track_id' => 1,
       'music_filename' => '1779138-d8abe82a.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => '男子汉宣言 婚前版 
 [t1](Tuyên bố của người đàn ông trước hôn nhân)
 
@@ -9439,8 +9631,9 @@ Boom this is Girl...',
 让你听了不好受
 [...',
       'music_artist_html' => '<a href="/ca-si/Dang-Sieu~Y3NuX2FydGlzdH40MTEzMw==.html">Đặng Siêu</a>, <a href="/ca-si/Han-Han~Y3NuX2FydGlzdH45NTk1NQ==.html">Hàn Hàn</a>, <a href="/ca-si/Cao-Hoa-Duong~Y3NuX2FydGlzdH45NTk1Ng==.html">Cao Hoa Dương</a>, <a href="/ca-si/Ban-Duc~Y3NuX2FydGlzdH45NTk1Nw==.html">Bản Dục</a>, <a href="/ca-si/Dong-Tu-Kien~Y3NuX2FydGlzdH45NTk1OA==.html">Đồng Tử Kiện</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
-    53 => 
+    51 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1779399,
@@ -9463,7 +9656,7 @@ Boom this is Girl...',
       'music_listen' => 18947,
       'music_track_id' => 1,
       'music_filename' => '1779399-0234ab0f.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '迎接新年倒数的时钟
 [t2]Yíngjiē xīnnián dàoshǔ de shízhōng
 [t1]Đếm ngược đồng hồ đón mừng năm mới.
@@ -9474,8 +9667,9 @@ Boom this is Girl...',
 
 一年四季交替又到寒...',
       'music_artist_html' => '<a href="/ca-si/BEJ48~Y3NuX2FydGlzdH44ODkyOQ==.html">BEJ48</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    54 => 
+    52 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1779401,
@@ -9498,7 +9692,7 @@ Boom this is Girl...',
       'music_listen' => 25106,
       'music_track_id' => 3,
       'music_filename' => '1779401-6528e6d0.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Hurry hurry up
 
  
@@ -9541,8 +9735,9 @@ Hurry hurry up
 
 围绕着笑...',
       'music_artist_html' => '<a href="/ca-si/BEJ48-Team-E~Y3NuX2FydGlzdH45NTk5Ng==.html">BEJ48 Team E</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    55 => 
+    53 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1779403,
@@ -9565,7 +9760,7 @@ Hurry hurry up
       'music_listen' => 38953,
       'music_track_id' => 5,
       'music_filename' => '1779403-1142ea5f.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '安静坐在角落 轻轻翻阅相册
 
  
@@ -9606,8 +9801,9 @@ It\'s happy times
 
 星...',
       'music_artist_html' => '<a href="/ca-si/BEJ48-Top-7~Y3NuX2FydGlzdH45NTk5OA==.html">BEJ48 Top 7</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    56 => 
+    54 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1780720,
@@ -9630,11 +9826,12 @@ It\'s happy times
       'music_listen' => 9204,
       'music_track_id' => 3,
       'music_filename' => '1780720-d29d14d4.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkgreen">128kbps</span>',
+      'music_bitrate' => 128,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Lion~Y3NuX2FydGlzdH40NDk3Mw==.html">Lion</a>, <a href="/ca-si/Tu-Giai-Oanh~Y3NuX2FydGlzdH4xMTQxMw==.html">Từ Giai Oánh</a>, <a href="/ca-si/Ngo-Kien-Hao~Y3NuX2FydGlzdH4yNTUxMg==.html">Ngô Kiến Hào</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">128kbps</span>',
     ),
-    57 => 
+    55 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1780722,
@@ -9657,11 +9854,12 @@ It\'s happy times
       'music_listen' => 3842,
       'music_track_id' => 4,
       'music_filename' => '1780722-6a38cb5c.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Vien-A-Duy~Y3NuX2FydGlzdH45NDkyOQ==.html">Viên Á Duy</a>, <a href="/ca-si/Luu-Hoan~Y3NuX2FydGlzdH4zMTg1Ng==.html">Lưu Hoan</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    58 => 
+    56 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1780723,
@@ -9684,11 +9882,12 @@ It\'s happy times
       'music_listen' => 6052,
       'music_track_id' => 5,
       'music_filename' => '1780723-cab65d98.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkgreen">128kbps</span>',
+      'music_bitrate' => 128,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Ly-Kien~Y3NuX2FydGlzdH4xODM3MA==.html">Lý Kiện</a>, <a href="/ca-si/Nhac-Van-Bang~Y3NuX2FydGlzdH45NjEzNQ==.html">Nhạc Vân Bằng</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">128kbps</span>',
     ),
-    59 => 
+    57 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1780726,
@@ -9711,9 +9910,88 @@ It\'s happy times
       'music_listen' => 2001,
       'music_track_id' => 8,
       'music_filename' => '1780726-3fae3178.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkgreen">128kbps</span>',
+      'music_bitrate' => 128,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Lam-Uc-Lien~Y3NuX2FydGlzdH4xMDUxOA==.html">Lâm Ức Liên</a>, <a href="/ca-si/Truong-Hue-Muoi~Y3NuX2FydGlzdH45ODMz.html">Trương Huệ Muội</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">128kbps</span>',
+    ),
+    58 => 
+    array (
+      'music_downloads_today' => 1,
+      'music_id' => 1781203,
+      'music_title_url' => 'giai-phong-tuong-lai~gnz48-team-g',
+      'music_title' => 'Giải Phóng Tương Lai (拆封未來)',
+      'music_artist' => 'GNZ48 Team G',
+      'music_artist_id' => '96188',
+      'cat_id' => 5,
+      'cat_level' => 1,
+      'cat_sublevel' => 1,
+      'cat_custom' => 0,
+      'cover_id' => 70716,
+      'music_download_time' => 1529486600,
+      'music_last_update_time' => 1492686444,
+      'music_title_search' => 'dai phong tung lai; 拆封未來',
+      'music_artist_search' => '; gnz48 team g;',
+      'music_album_search' => 'bom bom bom ; ep',
+      'music_composer' => 'Ngô Ỷ Tuyên; Lời: Trương Bằng Bằng',
+      'music_album' => 'BOOM! BOOM! BOOM! (EP)',
+      'music_listen' => 32774,
+      'music_track_id' => 2,
+      'music_filename' => '1781203-f24f2c07.mp3',
+      'music_bitrate' => 1000,
+      'music_shortlyric' => '我背上装满微笑的行李
+
+ 
+
+每一天陪着自己在旅行
+
+ 
+
+橱房到客厅阳台摇椅
+
+ 
+
+浪漫像去过巴黎
+
+ 
+
+不去管明天安排的奇遇
+
+ 
+
+我享受所有未知的神秘
+
+ 
+
+生命不可预知才有趣
+
+ 
+
+笑和泪都是风景
+
+ 
+
+把沿途脚印细心收集
+
+ 
+
+随时和幸福偶遇
+
+ 
+
+就算会有陷阱让心生病
+
+ 
+
+笑一笑转眼又是一个天晴
+
+ 
+
+拆封未来未解的谜题
+
+像礼物好和坏都当做是惊喜...',
+      'music_artist_html' => '<a href="/ca-si/GNZ48-Team-G~Y3NuX2FydGlzdH45NjE4OA==.html">GNZ48 Team G</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
   ),
   6 => 
@@ -9741,7 +10019,7 @@ It\'s happy times
       'music_listen' => 273574,
       'music_track_id' => 1,
       'music_filename' => '1760184-0133f56a.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'See ya never gone my way
 Better will someday
 Never far away.
@@ -9753,6 +10031,7 @@ Aju meollineun gajineun anheulge.
 See ya never gone my way
 Better on...',
       'music_artist_html' => '<a href="/ca-si/Heize~Y3NuX2FydGlzdH4xNTcwMA==.html">Heize</a>, <a href="/ca-si/Han-Soo-Ji~Y3NuX2FydGlzdH4xNTcwMQ==.html">Han Soo Ji</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     1 => 
     array (
@@ -9777,7 +10056,7 @@ Better on...',
       'music_listen' => 125850,
       'music_track_id' => 1,
       'music_filename' => '1756130-2ffe423d.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Byeol hana issgo 
 Neo hana issneun 
 Geugosi nae oraen bamieosseo 
@@ -9788,6 +10067,7 @@ Cham joyonghaessdeon
 Geugosi nae oraen bamieosseo 
 Eodu...',
       'music_artist_html' => '<a href="/ca-si/Akdong-Musician~Y3NuX2FydGlzdH40NDQw.html">Akdong Musician</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     2 => 
     array (
@@ -9812,7 +10092,7 @@ Eodu...',
       'music_listen' => 160774,
       'music_track_id' => 1,
       'music_filename' => '1758976-a0960ed2.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'I\'m in the zone
 We are CLC
 Geum nawara wara nope
@@ -9827,6 +10107,7 @@ Ttukttak yes yes.
 
 Ttokttok ja naw...',
       'music_artist_html' => '<a href="/ca-si/CLC~Y3NuX2FydGlzdH4xODA0NQ==.html">CLC</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     3 => 
     array (
@@ -9851,13 +10132,14 @@ Ttokttok ja naw...',
       'music_listen' => 163928,
       'music_track_id' => 1,
       'music_filename' => '1756853-28b7fa38.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Eojetbam nae segyereul dwi heundeureotdeon kkumi
 Angmonginji hogeun na ajik kkum soginji
 Nal ikkeun bicheul ttaragan kkum sok miro
 Geu goseseo balgyeonan tto hanaui tongro
 Gonggani yeollyeo from th...',
       'music_artist_html' => '<a href="/ca-si/NCT-127~Y3NuX2FydGlzdH4xNTYxOA==.html">NCT 127</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     4 => 
     array (
@@ -9882,7 +10164,7 @@ Gonggani yeollyeo from th...',
       'music_listen' => 31339,
       'music_track_id' => 1,
       'music_filename' => '1758246-cdd17330.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '긴 꿈을 꾸다 깨어난 걸까
 내가 널 알아본 순간
 이름도 없던 내 사랑은
@@ -9905,6 +10187,7 @@ Gonggani yeollyeo from th...',
 너와 숨 쉬는 모든 게
 버릴 거...',
       'music_artist_html' => '<a href="/ca-si/Kim-Sejeong~Y3NuX2FydGlzdH4yMzg3Mg==.html">Kim Sejeong</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     5 => 
     array (
@@ -9929,7 +10212,7 @@ Gonggani yeollyeo from th...',
       'music_listen' => 68840,
       'music_track_id' => 1,
       'music_filename' => '1758707-2fae7ca9.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Inanbam nae kkumsogen nega wae issgo
 Uyeoncheoreom jakkuman majuchyeo
 Musimhaessdeon maltudo
@@ -9940,6 +10223,7 @@ Nega johaseoga anya.
 Love heojeonhaessdeon maeumi
 Yo...',
       'music_artist_html' => '<a href="/ca-si/Mamamoo~Y3NuX2FydGlzdH4xNDg5Mg==.html">Mamamoo</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     6 => 
     array (
@@ -9964,7 +10248,7 @@ Yo...',
       'music_listen' => 9596,
       'music_track_id' => 3,
       'music_filename' => '1758297-1de69d7f.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Cheoeumira manhi seotulleo
 Shigan soge gachin nalcheoreom
 Georimada sungani
@@ -9973,6 +10257,7 @@ Ajikdo nan ireoke wae babo gateunji
 Jakku saenggakna (you)
 Nan jami deuneun sungankkajido...',
       'music_artist_html' => '<a href="/ca-si/Dreamcatcher~Y3NuX2FydGlzdH4xNTAxNg==.html">Dreamcatcher</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     7 => 
     array (
@@ -9997,7 +10282,7 @@ Nan jami deuneun sungankkajido...',
       'music_listen' => 56543,
       'music_track_id' => 1,
       'music_filename' => '1758295-2a7fe4b1.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Jakku naman bomyeon an doendae
 Jjarithan geol wonhal ppuninde
 Teong bin saramdeul kkumsogeun ttabunajana
@@ -10007,6 +10292,7 @@ Eojen gandanage thriller
 Oneureun mwol haebolkka
 Balchikhan jangnaneul sijakhal...',
       'music_artist_html' => '<a href="/ca-si/Dreamcatcher~Y3NuX2FydGlzdH4xNTAxNg==.html">Dreamcatcher</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     8 => 
     array (
@@ -10031,7 +10317,7 @@ Balchikhan jangnaneul sijakhal...',
       'music_listen' => 10235,
       'music_track_id' => 3,
       'music_filename' => '1756139-a3375040.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Naega taeeonasseul ttaebuteo
 Kaemkodeoro jjigeojwo
 Taesjuri jallineun sunganeul
@@ -10043,6 +10329,7 @@ Godieo ureossji
 Na ppaegon da useossne
 Haengbokha...',
       'music_artist_html' => '<a href="/ca-si/Akdong-Musician~Y3NuX2FydGlzdH40NDQw.html">Akdong Musician</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     9 => 
     array (
@@ -10067,13 +10354,14 @@ Haengbokha...',
       'music_listen' => 9792,
       'music_track_id' => 7,
       'music_filename' => '1756150-a5fcfcec.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Beoseu gisa ajeossiui musimhan chojeom
 Kkeuti makmakhan gyedaneun ttangeul bomyeo georeo
 Kkwak makhin doro tdulhril ttaekkaji haneulsaegeul bomyeo jeomchyeo
 Huhoehaneun nae mam gamchugi wihae
 Seogy...',
       'music_artist_html' => '<a href="/ca-si/Akdong-Musician~Y3NuX2FydGlzdH40NDQw.html">Akdong Musician</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     10 => 
     array (
@@ -10098,7 +10386,7 @@ Seogy...',
       'music_listen' => 69564,
       'music_track_id' => 1,
       'music_filename' => '1757566-d3605654.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'And I\'m here just, just like
 I used to be
 We were here in old days
@@ -10111,6 +10399,7 @@ Far apart, apart.
 
 When you feel so lonely...',
       'music_artist_html' => '<a href="/ca-si/Kim-Kyung-Hee~Y3NuX2FydGlzdH4xNTcwOA==.html">Kim Kyung Hee</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     11 => 
     array (
@@ -10135,9 +10424,10 @@ When you feel so lonely...',
       'music_listen' => 47779,
       'music_track_id' => 2,
       'music_filename' => '1757567-aa575e76.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Han-Soo-Ji~Y3NuX2FydGlzdH4xNTcwMQ==.html">Han Soo Ji</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     12 => 
     array (
@@ -10162,7 +10452,7 @@ When you feel so lonely...',
       'music_listen' => 6573,
       'music_track_id' => 5,
       'music_filename' => '1758567-dbc21d28.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Wae geurae museun il isseo
 Simgakhae boine pyojeong
 Mwoya nuga goerophyeosseo
@@ -10172,6 +10462,7 @@ Neo geureogo isseul ttae
 Geokjeongdwae mam apeunde
 Neol eojjeom...',
       'music_artist_html' => '<a href="/ca-si/Cosmic-Girls~Y3NuX2FydGlzdH4xNTA3MQ==.html">Cosmic Girls</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     13 => 
     array (
@@ -10196,7 +10487,7 @@ Neol eojjeom...',
       'music_listen' => 8294,
       'music_track_id' => 0,
       'music_filename' => '1760130-9a7afab0.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => 'gaji ma
 nal beorigo gagessdaneun mareun haji ma
 gieok sok nareul dugo tteonaji ma
@@ -10206,6 +10497,7 @@ sokji ma
 gyeou ireon yuhoge neomeogaji ma
 modeun ge yeo...',
       'music_artist_html' => '<a href="/ca-si/2NE1~Y3NuX2FydGlzdH4xNTcw.html">2NE1</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     14 => 
     array (
@@ -10230,7 +10522,7 @@ modeun ge yeo...',
       'music_listen' => 2034,
       'music_track_id' => 0,
       'music_filename' => '1760548-1ad1eb3d.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => 'Read me now
 nae ipsul anin nunbicceuro
 Just feel me now
@@ -10242,6 +10534,7 @@ deo gipeun daehwaga nan piryohae
 I pray
 i bami kkeuti anigil nan...',
       'music_artist_html' => '<a href="/ca-si/Gain~Y3NuX2FydGlzdH40MTky.html">Gain</a>, <a href="/ca-si/Jeff-Bernat~Y3NuX2FydGlzdH4yODk5.html">Jeff Bernat</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     15 => 
     array (
@@ -10266,7 +10559,7 @@ i bami kkeuti anigil nan...',
       'music_listen' => 11306,
       'music_track_id' => 0,
       'music_filename' => '1760236-4d2abbe3.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => 'geum nawala wala (Nope)
 eun nawala wala (Nope)
 neo nawala wala
@@ -10280,6 +10573,7 @@ ttugttag (Yes yes)
 ttogttog ja nawabwala
 hanbeon ba...',
       'music_artist_html' => '<a href="/ca-si/CLC~Y3NuX2FydGlzdH4xODA0NQ==.html">CLC</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     16 => 
     array (
@@ -10304,7 +10598,7 @@ hanbeon ba...',
       'music_listen' => 46729,
       'music_track_id' => 1,
       'music_filename' => '1759547-80a7b5df.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Bee for the honey
 Bee bee for the
 Bee for the honey
@@ -10317,6 +10611,7 @@ Baby yeah
 
 Neon nal gatgo shipeun...',
       'music_artist_html' => '<a href="/ca-si/Luna~Y3NuX2FydGlzdH40NTA4.html">Luna</a>, <a href="/ca-si/Hani~Y3NuX2FydGlzdH4xNzI1Nw==.html">Hani</a>, <a href="/ca-si/Solar~Y3NuX2FydGlzdH4xMzk0OQ==.html">Solar</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     17 => 
     array (
@@ -10341,7 +10636,7 @@ Neon nal gatgo shipeun...',
       'music_listen' => 26891,
       'music_track_id' => 5,
       'music_filename' => '1756857-da32d525.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Baby, is it me or are you
 Doing something to me?
 Useul ttaeneun shining
@@ -10351,6 +10646,7 @@ Seoseohi on neon my dilemma
 Seupgwancheoreom
 Imi naneun eopneun ne son c...',
       'music_artist_html' => '<a href="/ca-si/NCT-127~Y3NuX2FydGlzdH4xNTYxOA==.html">NCT 127</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     18 => 
     array (
@@ -10375,7 +10671,7 @@ Imi naneun eopneun ne son c...',
       'music_listen' => 2708,
       'music_track_id' => 4,
       'music_filename' => '1756839-1d53d0a7.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => 'NCT 127 – NCT #127 Limitless – The 2nd Mini Album
 Release Date: 2017.01.06
 Genre: Dance
@@ -10387,6 +10683,7 @@ Track List:
 02. Good Thing
 03. Back...',
       'music_artist_html' => '<a href="/ca-si/NCT-127~Y3NuX2FydGlzdH4xNTYxOA==.html">NCT 127</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     19 => 
     array (
@@ -10411,7 +10708,7 @@ Track List:
       'music_listen' => 6862,
       'music_track_id' => 6,
       'music_filename' => '1756841-faefd301.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => 'NCT 127 – NCT #127 Limitless – The 2nd Mini Album
 Release Date: 2017.01.06
 Genre: Dance
@@ -10423,6 +10720,7 @@ Track List:
 02. Good Thing
 03. Back...',
       'music_artist_html' => '<a href="/ca-si/NCT-127~Y3NuX2FydGlzdH4xNTYxOA==.html">NCT 127</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     20 => 
     array (
@@ -10447,7 +10745,7 @@ Track List:
       'music_listen' => 744513,
       'music_track_id' => 1,
       'music_filename' => '1765233-29fc4103.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => 'bogo sipda ireohge
 malhanikka deo bogo sipda
 neohui sajineul
@@ -10459,6 +10757,7 @@ ijen eolgul han beon boneun geosdo
 himdeureojin uriga
 yeogin ontong gye...',
       'music_artist_html' => '<a href="/ca-si/BTS~Y3NuX2FydGlzdH40NzQ4.html">BTS</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     21 => 
     array (
@@ -10483,7 +10782,7 @@ yeogin ontong gye...',
       'music_listen' => 75412,
       'music_track_id' => 1,
       'music_filename' => '1764372-fdc0aa7e.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Oh maybe maybe
 Igeon sarangiljido molla
 Imi nae nuneneun neoman boyeo nan
@@ -10493,6 +10792,7 @@ Oh naegedo on geot gata.
 Chaege jeokhin geuljadeuri hyeonshiri dwae
 Gaseumi got teojyeo b...',
       'music_artist_html' => '<a href="/ca-si/NCT-Dream~Y3NuX2FydGlzdH4xNTgxNw==.html">NCT Dream</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     22 => 
     array (
@@ -10517,7 +10817,7 @@ Gaseumi got teojyeo b...',
       'music_listen' => 30382,
       'music_track_id' => 2,
       'music_filename' => '1766943-8390b0b3.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => 'Ireon yasimhan bam
 Geureon geokjeongeul wae hae
 Mureobol ppuniya ohaeneun wae hae
@@ -10529,6 +10829,7 @@ And me yeah
 
 Bamhaneul wi jamgin...',
       'music_artist_html' => '<a href="/ca-si/Dean~Y3NuX2FydGlzdH4xNTgzMQ==.html">Dean</a>, <a href="/ca-si/Yerin-Baek~Y3NuX2FydGlzdH4xNjEwNQ==.html">Yerin Baek</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     23 => 
     array (
@@ -10553,7 +10854,7 @@ Bamhaneul wi jamgin...',
       'music_listen' => 60793,
       'music_track_id' => 1,
       'music_filename' => '1767930-e1a9948a.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => 'Cheom maju bol ttae
 Nan arasseo
 Eonjenga ireohge
@@ -10565,6 +10866,7 @@ Dareun yeojawa dalla
 Teukbyeolhadan mal
 Neomu manhi d...',
       'music_artist_html' => '<a href="/ca-si/Junggigo~Y3NuX2FydGlzdH40MzU4.html">Junggigo</a>, <a href="/ca-si/Chanyeol~Y3NuX2FydGlzdH4xNTcwMg==.html">Chanyeol</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     24 => 
     array (
@@ -10589,7 +10891,7 @@ Neomu manhi d...',
       'music_listen' => 3887,
       'music_track_id' => 0,
       'music_filename' => '1767005-28ec72d6.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Puleun bada meolli kkeutjalag kkaji 
 Naneun bala boass-eo amu iyudo eobs-i
 Jeongmal chaghan ttal-i doego sip-eo
@@ -10598,6 +10900,7 @@ Hajiman nan ileohge badasga-e tto seoiss-eo
 Halaneun daelo galaneun daelo 
 Galyeo ha...',
       'music_artist_html' => '<a href="/ca-si/So-Hyang~Y3NuX2FydGlzdH4yMzgwNA==.html">So Hyang</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     25 => 
     array (
@@ -10622,7 +10925,7 @@ Galyeo ha...',
       'music_listen' => 20255,
       'music_track_id' => 3,
       'music_filename' => '1764373-598a5d0c.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Jumuneul oewoboja
 Yunanhi goyohadeon bam
 Haneureul barabodaga
@@ -10634,6 +10937,7 @@ Gaseumsoge sowoneul bilmyeon
 Yeonghwacheoreom
 Hyeonshiri do...',
       'music_artist_html' => '<a href="/ca-si/NCT-Dream~Y3NuX2FydGlzdH4xNTgxNw==.html">NCT Dream</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     26 => 
     array (
@@ -10658,12 +10962,13 @@ Hyeonshiri do...',
       'music_listen' => 20200,
       'music_track_id' => 1,
       'music_filename' => '1764391-80cc494a.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '01. 낮에 뜨는 별 (feat.레미)
 02. 처음 본 순간
 03. 낮에 뜨는 별 (feat.레미) (Inst.)
 04. 처음 본 순간 (Inst.)',
       'music_artist_html' => '<a href="/ca-si/Suho~Y3NuX2FydGlzdH40MTg3NQ==.html">Suho</a>, <a href="/ca-si/Remi~Y3NuX2FydGlzdH4xMjY1Mw==.html">Remi</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     27 => 
     array (
@@ -10688,12 +10993,13 @@ Hyeonshiri do...',
       'music_listen' => 58597,
       'music_track_id' => 1,
       'music_filename' => '1765202-22c91c6c.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => '1.봄날 Spring Day - BTS
 2.Not Today - BTS
 3.Outro Wings - BTS
 4.A Supplementary Story: You Never Walk Alone - BTS',
       'music_artist_html' => '<a href="/ca-si/BTS~Y3NuX2FydGlzdH40NzQ4.html">BTS</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     28 => 
     array (
@@ -10718,7 +11024,7 @@ Hyeonshiri do...',
       'music_listen' => 2426,
       'music_track_id' => 1,
       'music_filename' => '1766942-3c923b7b.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => '[Verse 1:]
 I siganeneun
 Biga omyeon andwaesseo
@@ -10731,73 +11037,9 @@ Gibun joheun mellodi
 Nal dudeurineun geu gieogeul nan mot igyeo
 Geu nal bam...',
       'music_artist_html' => '<a href="/ca-si/Dean~Y3NuX2FydGlzdH4xNTgzMQ==.html">Dean</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     29 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1768798,
-      'music_title_url' => 'anytime-anywhere~lyn',
-      'music_title' => 'Anytime, Anywhere',
-      'music_artist' => 'Lyn',
-      'music_artist_id' => '4132',
-      'cat_id' => 6,
-      'cat_level' => 1,
-      'cat_sublevel' => 1,
-      'cat_custom' => 0,
-      'cover_id' => 69165,
-      'music_download_time' => 1538668762,
-      'music_last_update_time' => 1512876823,
-      'music_title_search' => 'anitime aniwhere',
-      'music_artist_search' => '; lin;',
-      'music_album_search' => 'xaimdang light x diari oxt',
-      'music_composer' => '',
-      'music_album' => 'Saimdang Light\'s Diary OST',
-      'music_listen' => 1426,
-      'music_track_id' => 4,
-      'music_filename' => '1768798-2c4f06e1.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
-      'music_shortlyric' => 'Buneun barami keudae.in.gayo
-Heutnallineun kkot.ipdo keudaen.gayo
-Siganeul neomeo keu mu.eoseul bireo
-Gayeo.un nal dallaejuryeo watnayo
-
-Haegajigo dalbichi deuriumyeon
-Jeomanchi tto keudaega boyeo...',
-      'music_artist_html' => '<a href="/ca-si/Lyn~Y3NuX2FydGlzdH40MTMy.html">Lyn</a>',
-    ),
-    30 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1768799,
-      'music_title_url' => 'why-you~zia',
-      'music_title' => 'Why You',
-      'music_artist' => 'ZIA',
-      'music_artist_id' => '4108',
-      'cat_id' => 6,
-      'cat_level' => 1,
-      'cat_sublevel' => 1,
-      'cat_custom' => 0,
-      'cover_id' => 69165,
-      'music_download_time' => 1538668816,
-      'music_last_update_time' => 1512876911,
-      'music_title_search' => 'whi iou',
-      'music_artist_search' => '; zia;',
-      'music_album_search' => 'xaimdang light x diari oxt',
-      'music_composer' => '',
-      'music_album' => 'Saimdang Light\'s Diary OST',
-      'music_listen' => 1708,
-      'music_track_id' => 5,
-      'music_filename' => '1768799-b5596b83.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
-      'music_shortlyric' => 'Geudae naege miso jisjineun marayo
-Nareul hyanghan sarangi aniramyeon
-Oneuldo nal barabogeman hal geomyeon
-Cheoeum geuttae wae dasi dorabwassnayo
-Wae geudael saranghage haeyo
-Wae geudae gyeoteman n...',
-      'music_artist_html' => '<a href="/ca-si/ZIA~Y3NuX2FydGlzdH40MTA4.html">ZIA</a>',
-    ),
-    31 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1766380,
@@ -10820,7 +11062,7 @@ Wae geudae gyeoteman n...',
       'music_listen' => 421331,
       'music_track_id' => 1,
       'music_filename' => '1766380-2a935362.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Jiwoo] Tteoreojyeo jullae jeori gajullae
 Jjajeungnanikka bulgyeolhanikka
 Chiwo nae mome sondaeji ma
@@ -10829,8 +11071,9 @@ Chiwo nae mome sondaeji ma
 Neo yeoksido moreuncheokhae nal
 [Jiwoo] Da andaneun nunbit deoreo...',
       'music_artist_html' => '<a href="/ca-si/KARD~Y3NuX2FydGlzdH4yMDQwMw==.html">K.A.R.D</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    32 => 
+    30 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1765236,
@@ -10853,7 +11096,7 @@ Neo yeoksido moreuncheokhae nal
       'music_listen' => 292785,
       'music_track_id' => 2,
       'music_filename' => '1765236-124d6cfb.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => 'All the underdogt in the world
 A day may come when we lose
 but it is not today
@@ -10866,8 +11109,9 @@ geu ttaega oneureun aniji
 No no not today
 aj...',
       'music_artist_html' => '<a href="/ca-si/BTS~Y3NuX2FydGlzdH40NzQ4.html">BTS</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
-    33 => 
+    31 => 
     array (
       'music_downloads_today' => 2,
       'music_id' => 1765204,
@@ -10890,14 +11134,15 @@ aj...',
       'music_listen' => 20725,
       'music_track_id' => 3,
       'music_filename' => '1765204-1b5cb8e7.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => '1.봄날 Spring Day - BTS
 2.Not Today - BTS
 3.Outro Wings - BTS
 4.A Supplementary Story: You Never Walk Alone - BTS',
       'music_artist_html' => '<a href="/ca-si/BTS~Y3NuX2FydGlzdH40NzQ4.html">BTS</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
-    34 => 
+    32 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1763725,
@@ -10920,7 +11165,7 @@ aj...',
       'music_listen' => 5862,
       'music_track_id' => 0,
       'music_filename' => '1763725-d3a0d357.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => 'neo anin cheokhajima
 nune boijiman
 neomeoganeun geol
@@ -10932,8 +11177,9 @@ What did you do yesterday
 What did you do yesterday
 What did y...',
       'music_artist_html' => '<a href="/ca-si/Block-B~Y3NuX2FydGlzdH4yNjQ2.html">Block B</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
-    35 => 
+    33 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1763744,
@@ -10956,7 +11202,7 @@ What did y...',
       'music_listen' => 107672,
       'music_track_id' => 1,
       'music_filename' => '1763744-a6255a38.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => 'Neo anin cheokhajima
 Nune boijiman
 Neomeoganeun geol
@@ -10968,8 +11214,9 @@ What did you do yesterday
 What did you do yesterday
 What did y...',
       'music_artist_html' => '<a href="/ca-si/Block-B~Y3NuX2FydGlzdH4yNjQ2.html">Block B</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
-    36 => 
+    34 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1767929,
@@ -10992,7 +11239,7 @@ What did y...',
       'music_listen' => 43227,
       'music_track_id' => 5,
       'music_filename' => '1767929-7a904136.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => 'Nal manjideon neoui geu du soni
 Nal bureudeon neoui moksoriga
 Ajikdo seonmyeonghae
@@ -11002,8 +11249,9 @@ Choeseoneul dahaji motaesseulkka
 Deo ganghaetteoramyeon
 Kkeutkkaji neol bu...',
       'music_artist_html' => '<a href="/ca-si/BTOB~Y3NuX2FydGlzdH4zMjk2.html">BTOB</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
-    37 => 
+    35 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1767012,
@@ -11026,7 +11274,7 @@ Kkeutkkaji neol bu...',
       'music_listen' => 35704,
       'music_track_id' => 2,
       'music_filename' => '1767012-724b2efe.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => 'Hamkkehan sigandeuri maeil bujokhae
 Oneuldo aswiwo nae mam sumgyeosseossjyo
 Jogeum deo isseojwoyo
@@ -11035,8 +11283,9 @@ Geudaega boassdeon eotteon geosboda
 Deo jugo sipeun nae mam
 A...',
       'music_artist_html' => '<a href="/ca-si/Twice~Y3NuX2FydGlzdH4xMzM4OA==.html">Twice</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
-    38 => 
+    36 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1767010,
@@ -11059,7 +11308,7 @@ A...',
       'music_listen' => 385352,
       'music_track_id' => 1,
       'music_filename' => '1767010-59a9dc27.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => 'Yeoldushiga doemyeon dachyeoyo
 Jogeumman seodulleo jullaeyo
 Knock knock knock knock
@@ -11070,8 +11319,9 @@ Bami doemyeon nae mamsoge
 Churipmuni yeollijyo
 Nugunga...',
       'music_artist_html' => '<a href="/ca-si/Twice~Y3NuX2FydGlzdH4xMzM4OA==.html">Twice</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
-    39 => 
+    37 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1766945,
@@ -11094,7 +11344,7 @@ Nugunga...',
       'music_listen' => 2802,
       'music_track_id' => 1,
       'music_filename' => '1766945-e1bb5b73.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => 'eoseo ppalli eoreuni doego sipeun
 yunyeon.gi sijeolgwado biseuthaetdeon kibun
 jalsaneun cheok haengbokhage saneun cheok
@@ -11103,6 +11353,78 @@ machi kkeunhgo saneun cheok
 
 neoran yeojaga naege keu...',
       'music_artist_html' => '<a href="/ca-si/MC-Mong-HuhGak~Y3NuX2FydGlzdH45NDY4OQ==.html">MC Mong, HuhGak</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+    ),
+    38 => 
+    array (
+      'music_downloads_today' => 1,
+      'music_id' => 1768789,
+      'music_title_url' => 'word-up~kim-young-geun',
+      'music_title' => 'Word Up',
+      'music_artist' => 'Kim Young Geun',
+      'music_artist_id' => '94903',
+      'cat_id' => 6,
+      'cat_level' => 1,
+      'cat_sublevel' => 1,
+      'cat_custom' => 0,
+      'cover_id' => 69164,
+      'music_download_time' => 1515689573,
+      'music_last_update_time' => 1522900559,
+      'music_title_search' => 'word up',
+      'music_artist_search' => '; kim ioung geun;',
+      'music_album_search' => 'voice oxt',
+      'music_composer' => '',
+      'music_album' => 'Voice OST',
+      'music_listen' => 2160,
+      'music_track_id' => 1,
+      'music_filename' => '1768789-a44ff289.mp3',
+      'music_bitrate' => 320,
+      'music_shortlyric' => 'Angae sogeul geotneun deus
+Api boijil anha
+Eodiro ganeun geonji
+Al su eopsneun sorireul hyanghae
+Ureumeul aesseo chamneun
+Georeumi beoreusi dwaessne
+Meomchuji anhneun sigyereul tashamyeo
+Yeojeonhi...',
+      'music_artist_html' => '<a href="/ca-si/Kim-Young-Geun~Y3NuX2FydGlzdH45NDkwMw==.html">Kim Young Geun</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+    ),
+    39 => 
+    array (
+      'music_downloads_today' => 1,
+      'music_id' => 1768198,
+      'music_title_url' => 'dreaming~100',
+      'music_title' => 'Dreaming',
+      'music_artist' => '100%',
+      'music_artist_id' => '4673',
+      'cat_id' => 6,
+      'cat_level' => 3,
+      'cat_sublevel' => 2,
+      'cat_custom' => 0,
+      'cover_id' => 69110,
+      'music_download_time' => 1514310769,
+      'music_last_update_time' => 1513947287,
+      'music_title_search' => 'dreaming',
+      'music_artist_search' => '; 10;',
+      'music_album_search' => 'xketchbok',
+      'music_composer' => '',
+      'music_album' => 'SKETCHBOOK',
+      'music_listen' => 1961,
+      'music_track_id' => 3,
+      'music_filename' => '1768198-e3cd46fd.mp3',
+      'music_bitrate' => 320,
+      'music_shortlyric' => 'Beoltteok ireonan siganeun 
+Saebyeok ne sijjeum
+Uri geuman haja 
+Ijjeum haja banggeum neoui mal.
+
+Geugeo bunmyeong kkumil kkumil 
+Kkumil geoya geuchi? 
+Byeol geo anin kkumil kkumil 
+Kkumil geoya ge...',
+      'music_artist_html' => '<a href="/ca-si/100~Y3NuX2FydGlzdH40Njcz.html">100%</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     40 => 
     array (
@@ -11127,7 +11449,7 @@ neoran yeojaga naege keu...',
       'music_listen' => 573629,
       'music_track_id' => 2,
       'music_filename' => '1771360-1da4ddb3.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'All the underdogs in the world
 A day may come when we lose
 But it is not today
@@ -11138,6 +11460,7 @@ But no not today
 Geu ttaega oneureun aniji
 [SG/RM] No no not to...',
       'music_artist_html' => '<a href="/ca-si/BTS~Y3NuX2FydGlzdH40NzQ4.html">BTS</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     41 => 
     array (
@@ -11162,7 +11485,7 @@ Geu ttaega oneureun aniji
       'music_listen' => 350280,
       'music_track_id' => 3,
       'music_filename' => '1771367-72e7ca80.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Ireojido mothaneunde
 Jeorojido mothane
 Geujeo barabomyeo ba-ba-ba-baby
@@ -11173,6 +11496,7 @@ Ajik urin moreuneun sainde.
 Amugeona geolchyeodo areumdawo
 Geo...',
       'music_artist_html' => '<a href="/ca-si/Twice~Y3NuX2FydGlzdH4xMzM4OA==.html">Twice</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     42 => 
     array (
@@ -11197,7 +11521,7 @@ Geo...',
       'music_listen' => 234778,
       'music_track_id' => 1,
       'music_filename' => '1771365-e3b8ecbe.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Yeoldushiga doemyeon dachyeoyo
 Jogeumman seodulleo jullaeyo
 Knock knock knock knock
@@ -11208,6 +11532,7 @@ Bami doemyeon nae mamsoge
 Churipmuni yeollijyo
 Nugunga...',
       'music_artist_html' => '<a href="/ca-si/Twice~Y3NuX2FydGlzdH4xMzM4OA==.html">Twice</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     43 => 
     array (
@@ -11232,7 +11557,7 @@ Nugunga...',
       'music_listen' => 181523,
       'music_track_id' => 1,
       'music_filename' => '1771359-4e3e512f.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Bogo sipda ireohge
 Malhanikka deo bogo sipda
 Neohui sajineul
@@ -11244,6 +11569,7 @@ Ijen eolgul han beon boneun geosdo
 Himdeureojin uriga
 Yeogin ontong gy...',
       'music_artist_html' => '<a href="/ca-si/BTS~Y3NuX2FydGlzdH40NzQ4.html">BTS</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     44 => 
     array (
@@ -11268,7 +11594,7 @@ Yeogin ontong gy...',
       'music_listen' => 414035,
       'music_track_id' => 1,
       'music_filename' => '1769665-2ae05d3a.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Jjijeojin jongisjogage
 Damanaen naui jinsime
 Seonmyeonghaejyeo somethin\' bout you.
@@ -11279,6 +11605,7 @@ Gwaenhan gidaereul hae.
 
 Haru han dal il n...',
       'music_artist_html' => '<a href="/ca-si/Taeyeon~Y3NuX2FydGlzdH4xNjY0.html">Taeyeon</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     45 => 
     array (
@@ -11303,7 +11630,7 @@ Haru han dal il n...',
       'music_listen' => 59823,
       'music_track_id' => 1,
       'music_filename' => '1770489-5a09c4b2.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => 'Haneure daheul mankeum nopeun georyo
 Badareul pumeul mankeum neolpeun georyo
 Ireohge nae maeumeun
@@ -11312,6 +11639,7 @@ Geudaeui geu hyanggideullo
 Ireohge love u love u love u saranghae
 Ttaseuhae...',
       'music_artist_html' => '<a href="/ca-si/Jeong-Ji-Eun~Y3NuX2FydGlzdH45NTA2Mg==.html">Jeong Ji Eun</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     46 => 
     array (
@@ -11336,7 +11664,7 @@ Ttaseuhae...',
       'music_listen' => 70595,
       'music_track_id' => 3,
       'music_filename' => '1771113-5fd74016.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => 'TWICEcoaster: LANE 2
 
 01. KNOCK KNOCK
@@ -11351,6 +11679,7 @@ Ttaseuhae...',
 10. TT (TAK Remix) (CD ONLY)	
 11. OOH-AHH하게 (Inst.) (C...',
       'music_artist_html' => '<a href="/ca-si/TWICE~Y3NuX2FydGlzdH4xMzg5OA==.html">TWICE</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     47 => 
     array (
@@ -11375,7 +11704,7 @@ Ttaseuhae...',
       'music_listen' => 23643,
       'music_track_id' => 2,
       'music_filename' => '1771366-3a694fc3.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Hamkkehan sigandeuri maeil bujokhae
 Oneuldo aswiwo nae mam sumgyeosseossjyo
 Jogeum deo isseojwoyo
@@ -11384,6 +11713,7 @@ Geudaega boassdeon eotteon geosboda
 Deo jugo sipeun nae mam
 A...',
       'music_artist_html' => '<a href="/ca-si/Twice~Y3NuX2FydGlzdH4xMzM4OA==.html">Twice</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     48 => 
     array (
@@ -11408,7 +11738,7 @@ A...',
       'music_listen' => 46532,
       'music_track_id' => 3,
       'music_filename' => '1771361-b54db7e1.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Take me to the sky 
 Eoril jeogui nal gieokhae 
 Keun geokjeongi eopseossgie 
@@ -11417,6 +11747,7 @@ Geu nalgaero naraboge haejul georan
 Mideum, sinnyeom gadeuk cha isseosseo 
 Useu...',
       'music_artist_html' => '<a href="/ca-si/BTS~Y3NuX2FydGlzdH40NzQ4.html">BTS</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     49 => 
     array (
@@ -11441,7 +11772,7 @@ Useu...',
       'music_listen' => 93245,
       'music_track_id' => 1,
       'music_filename' => '1771401-bc53491e.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'I biga
 Meori wiro ssodajimyeon
 Heumppeok jeojgo malgessjyo
@@ -11456,6 +11787,7 @@ Jogeum museowo
 Geumbang geuchil georangeol
 Pp...',
       'music_artist_html' => '<a href="/ca-si/IOI~Y3NuX2FydGlzdH44MTc2Mw==.html">I.O.I</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     50 => 
     array (
@@ -11480,7 +11812,7 @@ Pp...',
       'music_listen' => 45412,
       'music_track_id' => 4,
       'music_filename' => '1771362-2cbc1033.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Ye shineun wae jakkuman
 Uril oerobge halkka oh no
 Ye sangcheotuseongiljirado
@@ -11490,6 +11822,7 @@ Mwoga itdeun bal didyeobollae
 Ttaeron jichigo apado
 Gwaenchana...',
       'music_artist_html' => '<a href="/ca-si/BTS~Y3NuX2FydGlzdH40NzQ4.html">BTS</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     51 => 
     array (
@@ -11514,7 +11847,7 @@ Gwaenchana...',
       'music_listen' => 47500,
       'music_track_id' => 2,
       'music_filename' => '1771380-3ab51cb4.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Jakku dugeundaeneun mamdeuri
 Deullilkka bwa neol pihaessneunde
 Bogo sipeun geon sumgil suga eopsne
@@ -11523,6 +11856,7 @@ Eoneu peijil pyeolchyeoboado
 Neoppunin geon naman aneun secret
 Hanassik ne mo...',
       'music_artist_html' => '<a href="/ca-si/Red-Velvet~Y3NuX2FydGlzdH40NzE5.html">Red Velvet</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     52 => 
     array (
@@ -11547,7 +11881,7 @@ Hanassik ne mo...',
       'music_listen' => 21480,
       'music_track_id' => 1,
       'music_filename' => '1774285-ddd7ae9e.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => 'La, LaLaLa, LaLaLa~
 Oh, Oh, Oh, Oh,
 La, LaLaLa, LaLaLa~
@@ -11558,6 +11892,7 @@ machi hanjulgi dalbicccheoreom
 haru haruga haengbokhae maeil maeireul gidae hagedwae
 neol alge do...',
       'music_artist_html' => '<a href="/ca-si/Kim-Chung-Ha~Y3NuX2FydGlzdH45NTQ1MA==.html">Kim Chung Ha</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     53 => 
     array (
@@ -11582,7 +11917,7 @@ neol alge do...',
       'music_listen' => 171474,
       'music_track_id' => 3,
       'music_filename' => '1774331-b035097a.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Oneulttara yunanhi usji anhneun
 Nega waenji seulpeo boyeo
 Museun iri issnyaneun naui mare
@@ -11591,6 +11926,7 @@ Neoui nunmul han bangure
 Nae haneureun muneojyeo naeryeo
 Gipge naeswineun h...',
       'music_artist_html' => '<a href="/ca-si/Highlight~Y3NuX2FydGlzdH4xNDY2NA==.html">Highlight</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     54 => 
     array (
@@ -11615,7 +11951,7 @@ Gipge naeswineun h...',
       'music_listen' => 119783,
       'music_track_id' => 1,
       'music_filename' => '1775996-43e473f7.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'jigeum mweohae? I\'ll be yours
 Baby I\'ll be yours
 gatgo shipji? I\'ll be yours
@@ -11627,6 +11963,7 @@ jom deo dagawa bwa
 jeogibuteo beolsseo nae apkkaji
 check it...',
       'music_artist_html' => '<a href="/ca-si/Girls-Day~Y3NuX2FydGlzdH4zMjYy.html">Girl\'s Day</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     55 => 
     array (
@@ -11651,7 +11988,7 @@ check it...',
       'music_listen' => 35558,
       'music_track_id' => 1,
       'music_filename' => '1771111-3d883b80.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => 'TWICEcoaster: LANE 2
 
 01. KNOCK KNOCK
@@ -11666,6 +12003,7 @@ check it...',
 10. TT (TAK Remix) (CD ONLY)	
 11. OOH-AHH하게 (Inst.) (C...',
       'music_artist_html' => '<a href="/ca-si/TWICE~Y3NuX2FydGlzdH4xMzg5OA==.html">TWICE</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     56 => 
     array (
@@ -11690,7 +12028,7 @@ check it...',
       'music_listen' => 146493,
       'music_track_id' => 2,
       'music_filename' => '1774759-37f96d98.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Wee woo Wee woo Wee
 We are Pristin
 Annyeong
@@ -11703,6 +12041,7 @@ Ayayaya
 Pang teoteuryeobomyeon mwoga isseulkka
 Na jo...',
       'music_artist_html' => '<a href="/ca-si/Pristin~Y3NuX2FydGlzdH45NTUwNg==.html">Pristin</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     57 => 
     array (
@@ -11727,7 +12066,7 @@ Na jo...',
       'music_listen' => 35145,
       'music_track_id' => 3,
       'music_filename' => '1774760-1b541210.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Black widow
 I\'m a black widow
 (ha woo)
@@ -11740,6 +12079,7 @@ Naega anin naega taeeona
 Machimnae bulkeun nuni 
 D...',
       'music_artist_html' => '<a href="/ca-si/Pristin~Y3NuX2FydGlzdH45NTUwNg==.html">Pristin</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     58 => 
     array (
@@ -11764,7 +12104,7 @@ D...',
       'music_listen' => 10238,
       'music_track_id' => 4,
       'music_filename' => '1774977-46dfb634.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => 'iite cool
 feelin good feelin better
 feelin bad feelin fed up
@@ -11774,6 +12114,7 @@ my letter to the fan
 middle finger to to the hater
 don\'t really give a...',
       'music_artist_html' => '<a href="/ca-si/DPR-LIVE~Y3NuX2FydGlzdH4xNzUwMw==.html">DPR LIVE</a>, <a href="/ca-si/DEAN~Y3NuX2FydGlzdH4yMTE1Nw==.html">DEAN</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     59 => 
     array (
@@ -11798,7 +12139,7 @@ don\'t really give a...',
       'music_listen' => 27044,
       'music_track_id' => 9,
       'music_filename' => '1771373-c1f4f445.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'You gotta know
 That you\'re one in a million
 Jjajeungi gyesokdoeneun narimyeon
@@ -11808,6 +12149,7 @@ Nareul chajawajwoyo
 Geudae goerophineun modeun geosdeul
 Geudaereul apeug...',
       'music_artist_html' => '<a href="/ca-si/Twice~Y3NuX2FydGlzdH4xMzM4OA==.html">Twice</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     60 => 
     array (
@@ -11832,7 +12174,7 @@ Geudaereul apeug...',
       'music_listen' => 640566,
       'music_track_id' => 1,
       'music_filename' => '1777785-e7064a5f.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'REALLY REALLY REALLY REALLY
 OH WAH
 REALLY REALLY REALLY REALLY
@@ -11843,6 +12185,7 @@ igeol eotteoke mareul kkeonaeya
 haljin moreugetjiman
 isa...',
       'music_artist_html' => '<a href="/ca-si/Winner~Y3NuX2FydGlzdH40NzQ3.html">Winner</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     61 => 
     array (
@@ -11867,7 +12210,7 @@ isa...',
       'music_listen' => 22361,
       'music_track_id' => 8,
       'music_filename' => '1781709-7440565f.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => 'Track List:
 01. 이 지금
 02. 팔레트 (Palette) (Feat. G-DRAGON) *Title
@@ -11880,6 +12223,7 @@ isa...',
 09. 그렇게 사랑은
 10....',
       'music_artist_html' => '<a href="/ca-si/IU~Y3NuX2FydGlzdH4yMDU5.html">IU</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     62 => 
     array (
@@ -11904,7 +12248,7 @@ isa...',
       'music_listen' => 345783,
       'music_track_id' => 2,
       'music_filename' => '1777786-92d9c2cc.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'nae nunapeseo sarajyeo
 dokhago mojin maldeuldo
 seoseumeopshi naejilleotdeon
@@ -11916,6 +12260,7 @@ I know
 yogirado gwaenchanha
 geumaje...',
       'music_artist_html' => '<a href="/ca-si/Winner~Y3NuX2FydGlzdH40NzQ3.html">Winner</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     63 => 
     array (
@@ -11940,7 +12285,7 @@ geumaje...',
       'music_listen' => 196614,
       'music_track_id' => 1,
       'music_filename' => '1782790-468a7f0d.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Mianhae nae tasiya gomawo deokbuniya
 Tukhamyeon naebaetdeon ne geu malbeoreus
 Neodo himdeun geol nan da aneunde
@@ -11949,6 +12294,7 @@ Ama neon naega babon jul ana bwa.
 Uneun eolgullo na himdeulda hamyeon
 Jeongmal naaji...',
       'music_artist_html' => '<a href="/ca-si/Jonghyun~Y3NuX2FydGlzdH40MjUy.html">Jonghyun</a>, <a href="/ca-si/Taeyeon~Y3NuX2FydGlzdH4xNjY0.html">Taeyeon</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     64 => 
     array (
@@ -11973,7 +12319,7 @@ Jeongmal naaji...',
       'music_listen' => 51634,
       'music_track_id' => 5,
       'music_filename' => '1781847-71c0b6e3.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Chorus:]
 Al manhan saramkkiri i jeongdo geojismaren
 Sogajuneun ge yeui aningayo
@@ -11983,6 +12329,7 @@ Saenggakhal gyeoreuljocha juji mayo.
 [Verse 1:]
 Seoltangi piryoha...',
       'music_artist_html' => '<a href="/ca-si/IU~Y3NuX2FydGlzdH4yMDU5.html">IU</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     65 => 
     array (
@@ -12007,7 +12354,7 @@ Seoltangi piryoha...',
       'music_listen' => 209255,
       'music_track_id' => 1,
       'music_filename' => '1777922-82b44e3a.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Make me love you
 Make me love you
 eodum soge naerin bit geurimja
@@ -12016,6 +12363,7 @@ josimseure naemin nun apui son
 japji moshago mangseoryeo wassjiman
 imi tteollin mami jakku geobi n...',
       'music_artist_html' => '<a href="/ca-si/Taeyeon~Y3NuX2FydGlzdH4xNjY0.html">Taeyeon</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     66 => 
     array (
@@ -12040,7 +12388,7 @@ imi tteollin mami jakku geobi n...',
       'music_listen' => 294122,
       'music_track_id' => 1,
       'music_filename' => '1782561-7d9b70d7.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Intro: J. Seph]
 Uh, you for real
 
@@ -12052,6 +12400,7 @@ Himi ppajideora
 Nan nega bulhaenghagil baraessna bwa
 Be...',
       'music_artist_html' => '<a href="/ca-si/KARD~Y3NuX2FydGlzdH4yMDM5Mw==.html">KARD</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     67 => 
     array (
@@ -12076,7 +12425,7 @@ Be...',
       'music_listen' => 88133,
       'music_track_id' => 1,
       'music_filename' => '1780175-058d4a28.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Verse 1:]
 알아, 아무렇지도 않은 척 해봐도
 기다린단 걸 애써 웃어 보는
@@ -12093,6 +12442,7 @@ Be...',
 네 남자 아니지만 날 좀 지켜봐줘 (I need you girl)
 너의...',
       'music_artist_html' => '<a href="/ca-si/Baekhyun~Y3NuX2FydGlzdH4yMzAwNA==.html">Baekhyun</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     68 => 
     array (
@@ -12117,7 +12467,7 @@ Be...',
       'music_listen' => 9061,
       'music_track_id' => 0,
       'music_filename' => '1778514-14b7bfa1.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => 'miri malhalge sagwaneun an hae
 amu mal eopsi neo huhoe an hae
 da gwansim eopsjanha chinguya mwoya
@@ -12126,6 +12476,7 @@ pigonhae geuman oneureun nwa jwo
 deo isang banbokhagin silheo
 tto da naega n...',
       'music_artist_html' => '<a href="/ca-si/IU~Y3NuX2FydGlzdH4yMDU5.html">IU</a>, <a href="/ca-si/OhHyuk~Y3NuX2FydGlzdH45NTkwNA==.html">OhHyuk</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     69 => 
     array (
@@ -12150,7 +12501,7 @@ tto da naega n...',
       'music_listen' => 94123,
       'music_track_id' => 3,
       'music_filename' => '1781846-e7658454.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Annyeong olaenman-iya
 Mul-eumpyo eobs-i cham neodaun mogsoli
 Jeonghaejin gyuchigcheoleom
@@ -12159,6 +12510,7 @@ Chuun munga-e neul ttoggat-eun ne jali.
 Jedaelo jal meog-eo da jinaganikka
 Yejeoncheoleom jamdo jal jage do...',
       'music_artist_html' => '<a href="/ca-si/IU~Y3NuX2FydGlzdH4yMDU5.html">IU</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     70 => 
     array (
@@ -12183,7 +12535,7 @@ Yejeoncheoleom jamdo jal jage do...',
       'music_listen' => 96846,
       'music_track_id' => 1,
       'music_filename' => '1783402-2e99fd17.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => 'Ajik ijji moshago
 Aju dalkomhi maemdora
 Na kkumin jul moreugo star
@@ -12196,6 +12548,7 @@ Imi iksukhaejin uri miro (sai)
 Chameul su eopseo
 H...',
       'music_artist_html' => '<a href="/ca-si/Suran~Y3NuX2FydGlzdH4xNDE5NA==.html">Suran</a>, <a href="/ca-si/Changmo~Y3NuX2FydGlzdH4xNzQxNw==.html">Changmo</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     71 => 
     array (
@@ -12220,13 +12573,14 @@ H...',
       'music_listen' => 45313,
       'music_track_id' => 2,
       'music_filename' => '1778272-4a34e9b8.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Track List:
 01. My Toys (Intro)
 02. GOOD NIGHT
 03. Lullaby
 04. GOOD NIGHT (Inst.)',
       'music_artist_html' => '<a href="/ca-si/Dreamcatcher~Y3NuX2FydGlzdH4xNTAxNg==.html">Dreamcatcher</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     72 => 
     array (
@@ -12251,13 +12605,14 @@ H...',
       'music_listen' => 11447,
       'music_track_id' => 3,
       'music_filename' => '1778273-d69f6647.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Track List:
 01. My Toys (Intro)
 02. GOOD NIGHT
 03. Lullaby
 04. GOOD NIGHT (Inst.)',
       'music_artist_html' => '<a href="/ca-si/Dreamcatcher~Y3NuX2FydGlzdH4xNTAxNg==.html">Dreamcatcher</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     73 => 
     array (
@@ -12282,7 +12637,7 @@ H...',
       'music_listen' => 32660,
       'music_track_id' => 2,
       'music_filename' => '1780894-34fafffc.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => 'Byeonhangeonji aningeonji nega jom eosaeghae
 Ppeonhan geonde aneun geonde naega jom isanghae
 Ib-eulo anila anila hae
@@ -12290,6 +12645,7 @@ Ne pyojeong-eun gamyeon-eul sseo
 (galago galago hae dol-aseo galago hae)
 Honja n...',
       'music_artist_html' => '<a href="/ca-si/SF9~Y3NuX2FydGlzdH4xNDA5OA==.html">SF9</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     74 => 
     array (
@@ -12314,7 +12670,7 @@ Honja n...',
       'music_listen' => 26356,
       'music_track_id' => 1,
       'music_filename' => '1781189-f916c3a0.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => 'neoreul bodeon geu sungan
 (Pick me Pick me Pick me)
 shiseon gojeong neoege
@@ -12324,6 +12680,7 @@ jebal nae mameul Pick me Pick me
 (Pick me Pick me Pick me)
 neowa inneu...',
       'music_artist_html' => '<a href="/ca-si/101-Trainee-Boys~Y3NuX2FydGlzdH45NjE4Nw==.html">101 Trainee Boys</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     75 => 
     array (
@@ -12348,7 +12705,7 @@ neowa inneu...',
       'music_listen' => 38676,
       'music_track_id' => 10,
       'music_filename' => '1781851-e0dc4640.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Kkumeseodo geuriun moksorineun
 Ireum bulleodo daedabeul haji anha
 Geulsseongineun geu meariman dorawa
@@ -12357,6 +12714,7 @@ Kkaeeojil deusi chagawodo
 Ibeoneneun gyeolko nohji anheulge
 Ade...',
       'music_artist_html' => '<a href="/ca-si/IU~Y3NuX2FydGlzdH4yMDU5.html">IU</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     76 => 
     array (
@@ -12381,10 +12739,11 @@ Ade...',
       'music_listen' => 3663,
       'music_track_id' => 2,
       'music_filename' => '1778460-5d8430b6.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => '01. 夢中夢 (몽중몽; Dream In A Dream)
 02. 夢中夢 (몽중몽; Dream In A Dream) (Inst.)',
       'music_artist_html' => '<a href="/ca-si/TEN-NCT~Y3NuX2FydGlzdH45NTkwMA==.html">TEN (NCT)</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     77 => 
     array (
@@ -12409,7 +12768,7 @@ Ade...',
       'music_listen' => 26296,
       'music_track_id' => 0,
       'music_filename' => '1779116-1133ffc0.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Beolsseo dusi naje kkaessji
 Mam mugeounji chimdae mukkyeoissne
 Tteollin mame phone yeoreobwassneunde
@@ -12418,6 +12777,7 @@ Jeonhwa ongeon du gae 070ppunine
 Ireonajamaja pyeonuijeom ganeun iyu
 Nae mam chaeureo nae uyu y...',
       'music_artist_html' => '<a href="/ca-si/Hani~Y3NuX2FydGlzdH4xNzI1Nw==.html">Hani</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     78 => 
     array (
@@ -12442,7 +12802,7 @@ Nae mam chaeureo nae uyu y...',
       'music_listen' => 33736,
       'music_track_id' => 1,
       'music_filename' => '1781192-2f2b60fd.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Nega tteonan geu sungan
 On sesang-i naegeseo deung-eul dollideola
 Michin salamgat-i bogo sip-eo hemaeneunde
@@ -12450,6 +12810,7 @@ Neoneun jigeum eodini
 Seotuleuge salanghan geoscheoleom
 Heeojimkkaji tto seotulleoseo mia...',
       'music_artist_html' => '<a href="/ca-si/Yesung~Y3NuX2FydGlzdH4xNDQxMg==.html">Yesung</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     79 => 
     array (
@@ -12474,7 +12835,7 @@ Heeojimkkaji tto seotulleoseo mia...',
       'music_listen' => 48811,
       'music_track_id' => 1,
       'music_filename' => '1781844-d53175f4.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '이건 비밀이야 
 아무에게도 고백하지 않았던
 이야기를 들려주면
@@ -12494,6 +12855,7 @@ How wow wow, Whatever
 
 이 하루, 이 지금, 우리,...',
       'music_artist_html' => '<a href="/ca-si/IU~Y3NuX2FydGlzdH4yMDU5.html">IU</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
   ),
   7 => 
@@ -12521,7 +12883,7 @@ How wow wow, Whatever
       'music_listen' => 6553,
       'music_track_id' => 2,
       'music_filename' => '1761587-4bb018e8.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Asa no sora wo miagete
 Kyou to iu ichinichi ga
 Egao de irareru you ni
@@ -12534,6 +12896,7 @@ Ashita ganbarou.
 
 Zutto miteru y...',
       'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     1 => 
     array (
@@ -12558,7 +12921,7 @@ Zutto miteru y...',
       'music_listen' => 60454,
       'music_track_id' => 4,
       'music_filename' => '1758790-8b4a79e5.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'We are...
 
 They think that we\'re no one
@@ -12575,6 +12938,7 @@ Not going back.
 
 When...',
       'music_artist_html' => '<a href="/ca-si/One-Ok-Rock~Y3NuX2FydGlzdH4xNjIxMQ==.html">One Ok Rock</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     2 => 
     array (
@@ -12599,7 +12963,7 @@ When...',
       'music_listen' => 21880,
       'music_track_id' => 11,
       'music_filename' => '1758797-2230d1df.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Remember that night
 I had to leave you
 You said it\'s alright
@@ -12612,6 +12976,7 @@ Better by your side.
 Wish I could be there with you
 I\'m...',
       'music_artist_html' => '<a href="/ca-si/One-Ok-Rock~Y3NuX2FydGlzdH4xNjIxMQ==.html">One Ok Rock</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     3 => 
     array (
@@ -12636,7 +13001,7 @@ I\'m...',
       'music_listen' => 4281,
       'music_track_id' => 13,
       'music_filename' => '1761278-484f17ef.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">268kbps</span>',
+      'music_bitrate' => 268,
       'music_shortlyric' => 'Yasashii kotoba wa
 Zutto oboeteru
 Toki ga dore dake sugite mo...
@@ -12649,6 +13014,7 @@ Hibiwareta sono kagami onaji you ni
 Nozoite mo
 Gizagiza to hashitte...',
       'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">268kbps</span>',
     ),
     4 => 
     array (
@@ -12673,7 +13039,7 @@ Gizagiza to hashitte...',
       'music_listen' => 5023,
       'music_track_id' => 12,
       'music_filename' => '1761290-5e51302f.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">269kbps</span>',
+      'music_bitrate' => 269,
       'music_shortlyric' => 'Hana wa nani wo omoi
 Shizuka ni saku no darou
 Kataru koto mo naku
@@ -12685,6 +13051,7 @@ Sabishiku wa nakatta ka?
 
 Kimi no...',
       'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">269kbps</span>',
     ),
     5 => 
     array (
@@ -12709,7 +13076,7 @@ Kimi no...',
       'music_listen' => 2209,
       'music_track_id' => 9,
       'music_filename' => '1761275-ce2a7a45.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">258kbps</span>',
+      'music_bitrate' => 258,
       'music_shortlyric' => 'Ano koro no jibun ni
 Moshimo aetara
 Nani mo iwazu omoikkiri
@@ -12721,6 +13088,7 @@ Anata wa sonna ni yowakunai
 Kanashimi no kawa watareru hazu
 Donna ni kizutsuki mayotte...',
       'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">258kbps</span>',
     ),
     6 => 
     array (
@@ -12745,7 +13113,7 @@ Donna ni kizutsuki mayotte...',
       'music_listen' => 12479,
       'music_track_id' => 10,
       'music_filename' => '1761288-3a56eb53.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">263kbps</span>',
+      'music_bitrate' => 263,
       'music_shortlyric' => 'Aru hi kidzuita genjitsu wa
 Boku wa wakakunai tte koto
 Hasu ni kamaete sunetete mo
@@ -12755,6 +13123,7 @@ Mado garasu seki wo nageta tte
 Hito mo shakai mo kawaranakatta
 Muryoku na jibun ni h...',
       'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">263kbps</span>',
     ),
     7 => 
     array (
@@ -12779,7 +13148,7 @@ Muryoku na jibun ni h...',
       'music_listen' => 5555,
       'music_track_id' => 12,
       'music_filename' => '1761277-48b5d021.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">259kbps</span>',
+      'music_bitrate' => 259,
       'music_shortlyric' => 'Dou omotteru? Mune no oku made nozokikonde mo
 Machigaetetara watashi tachinaorenai.
 
@@ -12790,6 +13159,7 @@ Chigau dareka to ichaicha.
 
 Ik...',
       'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">259kbps</span>',
     ),
     8 => 
     array (
@@ -12814,7 +13184,7 @@ Ik...',
       'music_listen' => 22721,
       'music_track_id' => 10,
       'music_filename' => '1758796-82a320d9.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[One Ok Rock:]
 You always call me full of regret
 You want me to save you again.
@@ -12826,6 +13196,7 @@ Everybody makes mistakes.
 [Avril Lavigne:]
 It fe...',
       'music_artist_html' => '<a href="/ca-si/One-Ok-Rock~Y3NuX2FydGlzdH4xNjIxMQ==.html">One Ok Rock</a>, <a href="/ca-si/Avril-Lavigne~Y3NuX2FydGlzdH4xMDQ4.html">Avril Lavigne</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     9 => 
     array (
@@ -12850,7 +13221,7 @@ It fe...',
       'music_listen' => 8812,
       'music_track_id' => 12,
       'music_filename' => '1758798-f9a64e37.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'It took some time to realize
 That things are not getting better
 We should know, we should know
@@ -12860,6 +13231,7 @@ You\'re seeing the other side of me
 We tried to weather the weather
 We should know, we shou...',
       'music_artist_html' => '<a href="/ca-si/One-Ok-Rock~Y3NuX2FydGlzdH4xNjIxMQ==.html">One Ok Rock</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     10 => 
     array (
@@ -12884,7 +13256,7 @@ We should know, we shou...',
       'music_listen' => 16506,
       'music_track_id' => 10,
       'music_filename' => '1761595-b7aee25f.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Get you!
 
 Ikigurushii no wa
@@ -12901,6 +13273,7 @@ Oogoe de sakenda.
 
 Ge...',
       'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     11 => 
     array (
@@ -12925,7 +13298,7 @@ Ge...',
       'music_listen' => 4848,
       'music_track_id' => 8,
       'music_filename' => '1761607-b7c0bcf4.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Oh yeah!
 Oh yeah!
 
@@ -12939,6 +13312,7 @@ Odore!
 
 Tenshon...',
       'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     12 => 
     array (
@@ -12963,12 +13337,13 @@ Tenshon...',
       'music_listen' => 4471,
       'music_track_id' => 11,
       'music_filename' => '1761289-e690674e.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">273kbps</span>',
+      'music_bitrate' => 273,
       'music_shortlyric' => 'Imi nanka wa nai keredo totsuzen hashiritakunaru you ni
 Me no mae no dareka wo suki ni natte shimau koto tte aru yo ne
 Kikkake ga nani datta no ka nante omoidasenai kurai
 Itsu no ma ni ka watashi w...',
       'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">273kbps</span>',
     ),
     13 => 
     array (
@@ -12993,13 +13368,14 @@ Itsu no ma ni ka watashi w...',
       'music_listen' => 8217,
       'music_track_id' => 11,
       'music_filename' => '1761266-b52e3978.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">278kbps</span>',
+      'music_bitrate' => 278,
       'music_shortlyric' => 'Mada koujichuu no biru no okujou de
 Se no takai kureen dake ga shiruetto ni naru
 Yoake wa shizuka ni (higashi no sora)
 Sotto chikadzuite (machi no hashi ni)
 Atarashii kibou to [shi/fur] yuuki wo ku...',
       'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">278kbps</span>',
     ),
     14 => 
     array (
@@ -13024,7 +13400,7 @@ Atarashii kibou to [shi/fur] yuuki wo ku...',
       'music_listen' => 9465,
       'music_track_id' => 13,
       'music_filename' => '1758799-dd8090aa.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'This is where I draw the line
 Seen this war a million times
 Looking for a peace of mind.
@@ -13035,6 +13411,7 @@ There is something in the way.
 
 I\'m not always pe...',
       'music_artist_html' => '<a href="/ca-si/One-Ok-Rock~Y3NuX2FydGlzdH4xNjIxMQ==.html">One Ok Rock</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     15 => 
     array (
@@ -13059,7 +13436,7 @@ I\'m not always pe...',
       'music_listen' => 15023,
       'music_track_id' => 10,
       'music_filename' => '1761265-f9046232.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">263kbps</span>',
+      'music_bitrate' => 263,
       'music_shortlyric' => 'Tokei no hari-tachi ga
 Kasanatte nigeteku
 Mayonaka sugita tte
@@ -13072,6 +13449,7 @@ KAOSU no hitonami ni
 Nomikomare nagara
 Kodoku wo magiraseta....',
       'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">263kbps</span>',
     ),
     16 => 
     array (
@@ -13096,7 +13474,7 @@ Kodoku wo magiraseta....',
       'music_listen' => 6050,
       'music_track_id' => 11,
       'music_filename' => '1761596-5d8df2e7.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Sou umareta hi wa
 Imi nai deshou
 Mou go wa shiorete
@@ -13112,6 +13490,7 @@ Watashi wo minaide.
 
 Utsuku...',
       'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     17 => 
     array (
@@ -13136,7 +13515,7 @@ Utsuku...',
       'music_listen' => 21519,
       'music_track_id' => 14,
       'music_filename' => '1761599-ffbfc811.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'WOKKA no SHOTTOGURASU
 Akeru made wa mattete
 Kotoba wa samete ite mo
@@ -13150,6 +13529,7 @@ Ano koro ni
 Modorinasai
 Ito...',
       'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     18 => 
     array (
@@ -13174,7 +13554,7 @@ Ito...',
       'music_listen' => 4971,
       'music_track_id' => 10,
       'music_filename' => '1761609-9b0607d6.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Aru hi kidzuita genjitsu wa
 Boku wa wakakunai tte koto
 Hasu ni kamaete sunetete mo
@@ -13184,43 +13564,53 @@ Mado garasu seki wo nageta tte
 Hito mo shakai mo kawaranakatta
 Muryoku na jibun ni h...',
       'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     19 => 
     array (
-      'music_downloads_today' => 0,
-      'music_id' => 1759938,
-      'music_title_url' => 'ultraseven-no-uta~sepultura',
-      'music_title' => 'Ultraseven No Uta',
-      'music_artist' => 'Sepultura',
-      'music_artist_id' => '11638',
+      'music_downloads_today' => 1,
+      'music_id' => 1759706,
+      'music_title_url' => 'lonely-sunshine~ohashi-ayaka',
+      'music_title' => 'Lonely Sunshine (ロンリーサンシャイン)',
+      'music_artist' => 'Ohashi Ayaka',
+      'music_artist_id' => '18417',
       'cat_id' => 7,
       'cat_level' => 1,
       'cat_sublevel' => 1,
-      'cat_custom' => 9,
-      'cover_id' => 68133,
-      'music_download_time' => 0,
-      'music_last_update_time' => 1501064629,
-      'music_title_search' => 'ulchaxeven no uta',
-      'music_artist_search' => '; xepultura;',
-      'music_album_search' => 'machine mexiah',
-      'music_composer' => '',
-      'music_album' => 'Machine Messiah',
-      'music_listen' => 129,
-      'music_track_id' => 12,
-      'music_filename' => '1759938-1bb5d3dc.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
-      'music_shortlyric' => 'Sebun sebun sebun sebun
+      'cat_custom' => 0,
+      'cover_id' => 68119,
+      'music_download_time' => 1538180551,
+      'music_last_update_time' => 1501060710,
+      'music_title_search' => 'loneli xunthine; ロンリーサンシャイン',
+      'music_artist_search' => '; ohathi aiaka;',
+      'music_album_search' => 'wagamama miror heart; maxamune kun no revenge op xingle',
+      'music_composer' => 'Koyama Hisashi; Lời: Hata Aki',
+      'music_album' => 'Wagamama MIRROR HEART (Masamune-kun no Revenge OP Single)',
+      'music_listen' => 2217,
+      'music_track_id' => 3,
+      'music_filename' => '1759706-fdd16de6.mp3',
+      'music_bitrate' => 1000,
+      'music_shortlyric' => 'Ah, 見た目どおりの人じゃないねって
+怒りだすの　ヤメテ　ヤメテ
+迷惑なんだよ
 
-Sebun sebun sebun!
-Sebun sebun sebun!
-Haruka na hoshi ga furusato ga
-Urutorasebun faitaa sebun
-Urutorasebun sebun sebun
-Susume! gniga no hatemademo
-Urutora ai de spaaku!
+もう気づいちゃったんだ
+誤魔化しだけのごほうびは　イラナイ　イラナイ
+バカにしないで
 
-S...',
-      'music_artist_html' => '<a href="/ca-si/Sepultura~Y3NuX2FydGlzdH4xMTYzOA==.html">Sepultura</a>',
+ちゃんと話して欲しいの
+私はずっと飛び出したくて
+群れる日々が不自然
+そんなヤツがいていいんじゃない？
+この広いセカイ
+
+一人で真っ赤な太陽が
+沈んでゆくところ眺めたいな
+…ってさ
+いまの願い分かる人がいないんだ
+一人でな...',
+      'music_artist_html' => '<a href="/ca-si/Ohashi-Ayaka~Y3NuX2FydGlzdH4xODQxNw==.html">Ohashi Ayaka</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     20 => 
     array (
@@ -13245,15 +13635,46 @@ S...',
       'music_listen' => 135003,
       'music_track_id' => 1,
       'music_filename' => '1765606-803fc551.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Anime Film &quot;Sword Art Online the Movie -Ordinal Scale-&quot; Theme Song
 
 そっと 吐き出す ため息を吸い込んだ 後悔は苦い味残して
 [t2]Sotto hakidasu tameiki o suikonda koukai wa nigai aji nokoshite
 [t1]Em nhẹ nhàng hít m...',
       'music_artist_html' => '<a href="/ca-si/LiSA~Y3NuX2FydGlzdH4xNDk5NQ==.html">LiSA</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     21 => 
+    array (
+      'music_downloads_today' => 1,
+      'music_id' => 1762679,
+      'music_title_url' => 'core-pride~uverworld',
+      'music_title' => 'CORE PRIDE',
+      'music_artist' => 'UVERworld',
+      'music_artist_id' => '11903',
+      'cat_id' => 7,
+      'cat_level' => 1,
+      'cat_sublevel' => 1,
+      'cat_custom' => 0,
+      'cover_id' => 68461,
+      'music_download_time' => 1538763983,
+      'music_last_update_time' => 1485890592,
+      'music_title_search' => 'core pride',
+      'music_artist_search' => '; uverworld;',
+      'music_album_search' => 'iteki no eikiou; limited edition',
+      'music_composer' => 'TAKUYA∞',
+      'music_album' => 'Itteki no Eikyou [Limited Edition]',
+      'music_listen' => 13640,
+      'music_track_id' => 3,
+      'music_filename' => '1762679-ab832813.mp3',
+      'music_bitrate' => 1000,
+      'music_shortlyric' => 'M-01 - TV Anime &quot;Ao no Exorcist: Kyoto Fujouou Hen&quot; Opening Theme
+M-02 - Live Action Movie &quot;Shinjuku Swan II&quot; Insert Song
+M-03 - TV Anime &quot;Blue Exorcist&quot; 1st Opening T...',
+      'music_artist_html' => '<a href="/ca-si/UVERworld~Y3NuX2FydGlzdH4xMTkwMw==.html">UVERworld</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+    ),
+    22 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1767003,
@@ -13276,11 +13697,74 @@ S...',
       'music_listen' => 4915,
       'music_track_id' => 12,
       'music_filename' => '1767003-438ba38d.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Mai-Kuraki~Y3NuX2FydGlzdH40MzA4.html">Mai Kuraki</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    22 => 
+    23 => 
+    array (
+      'music_downloads_today' => 1,
+      'music_id' => 1762672,
+      'music_title_url' => 'wanna-go-home~sora-amamiya-rie-takahashi-ai-kayano',
+      'music_title' => 'Wanna Go Home',
+      'music_artist' => 'Sora Amamiya, Rie Takahashi, Ai Kayano',
+      'music_artist_id' => '94164',
+      'cat_id' => 7,
+      'cat_level' => 1,
+      'cat_sublevel' => 1,
+      'cat_custom' => 0,
+      'cover_id' => 68460,
+      'music_download_time' => 1538757021,
+      'music_last_update_time' => 1485889550,
+      'music_title_search' => 'wana go home',
+      'music_artist_search' => '; xora amamia ri takahathi ai kaiano;',
+      'music_album_search' => 'wana go home; kono xubarathi xekai ni xiukufuku wo 2 ed',
+      'music_composer' => 'Ryosei Sato',
+      'music_album' => 'Wanna Go Home (Kono Subarashii Sekai ni Syukufuku wo! 2 ED)',
+      'music_listen' => 36861,
+      'music_track_id' => 1,
+      'music_filename' => '1762672-868cf224.mp3',
+      'music_bitrate' => 1000,
+      'music_shortlyric' => '01 Wanna Go Home 
+02 Wanna Go Home -Aqua ver.-
+03 Wanna Go Home -Megumin ver.-
+04 Wanna Go Home -Darkness ver.- 
+05 Wanna Go Home (off vocal ver.)',
+      'music_artist_html' => '<a href="/ca-si/Sora-Amamiya-Rie-Takahashi-Ai-Kayano~Y3NuX2FydGlzdH45NDE2NA==.html">Sora Amamiya, Rie Takahashi, Ai Kayano</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+    ),
+    24 => 
+    array (
+      'music_downloads_today' => 1,
+      'music_id' => 1762677,
+      'music_title_url' => 'itteki-no-eikyou~uverworld',
+      'music_title' => 'Itteki no Eikyou',
+      'music_artist' => 'UVERworld',
+      'music_artist_id' => '11903',
+      'cat_id' => 7,
+      'cat_level' => 1,
+      'cat_sublevel' => 1,
+      'cat_custom' => 0,
+      'cover_id' => 68461,
+      'music_download_time' => 1538655315,
+      'music_last_update_time' => 1485890572,
+      'music_title_search' => 'iteki no eikiou',
+      'music_artist_search' => '; uverworld;',
+      'music_album_search' => 'iteki no eikiou; limited edition',
+      'music_composer' => 'TAKUYA∞',
+      'music_album' => 'Itteki no Eikyou [Limited Edition]',
+      'music_listen' => 25287,
+      'music_track_id' => 1,
+      'music_filename' => '1762677-013f251c.mp3',
+      'music_bitrate' => 1000,
+      'music_shortlyric' => 'M-01 - TV Anime &quot;Ao no Exorcist: Kyoto Fujouou Hen&quot; Opening Theme
+M-02 - Live Action Movie &quot;Shinjuku Swan II&quot; Insert Song
+M-03 - TV Anime &quot;Blue Exorcist&quot; 1st Opening T...',
+      'music_artist_html' => '<a href="/ca-si/UVERworld~Y3NuX2FydGlzdH4xMTkwMw==.html">UVERworld</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+    ),
+    25 => 
     array (
       'music_downloads_today' => 2,
       'music_id' => 1764131,
@@ -13303,7 +13787,7 @@ S...',
       'music_listen' => 13309,
       'music_track_id' => 2,
       'music_filename' => '1764131-6262bb93.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'kawazoi o hashiru densha no oto 
 utsumuite saku himawari no iro 
 yuuyake ga shimashima no BOODAA ni naru 
@@ -13311,8 +13795,9 @@ yuuyake ga shimashima no BOODAA ni naru
 nakisou na kimochi ni naru no wa nande da 
 kodom...',
       'music_artist_html' => '<a href="/ca-si/YUKI~Y3NuX2FydGlzdH45MzYzMw==.html">YUKI</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    23 => 
+    26 => 
     array (
       'music_downloads_today' => 2,
       'music_id' => 1765548,
@@ -13335,7 +13820,7 @@ kodom...',
       'music_listen' => 27461,
       'music_track_id' => 1,
       'music_filename' => '1765548-e0b199d1.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Taiyou ga sashikomu machi de me wo samasu 
 Jouhou wo kakiwakeru nettaigyo 
 Heibon wo yurushi te kure nai suisou de 
@@ -13344,8 +13829,9 @@ Donna fuu ni kimochiyoku oyoge tara.
 Lighting lighting terashi te 
 Singing kyou...',
       'music_artist_html' => '<a href="/ca-si/Perfume~Y3NuX2FydGlzdH4xMTkwNg==.html">Perfume</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    24 => 
+    27 => 
     array (
       'music_downloads_today' => 2,
       'music_id' => 1765607,
@@ -13368,13 +13854,14 @@ Singing kyou...',
       'music_listen' => 22839,
       'music_track_id' => 2,
       'music_filename' => '1765607-7d4dc0d3.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '01. Catch the Moment
 02. Ring a Bell (リングアベル)
 03. Catch the Moment (Instrumental)',
       'music_artist_html' => '<a href="/ca-si/LiSA~Y3NuX2FydGlzdH4xNDk5NQ==.html">LiSA</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    25 => 
+    28 => 
     array (
       'music_downloads_today' => 2,
       'music_id' => 1767688,
@@ -13397,7 +13884,7 @@ Singing kyou...',
       'music_listen' => 4739,
       'music_track_id' => 2,
       'music_filename' => '1767688-6f6ad2b3.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '四角い窓の向こう側に
 [t1]Shikakui mado no mukougawa ni
 地球サイズの奥行きがある
@@ -13410,8 +13897,9 @@ Singing kyou...',
 白地図の夢　カラフルになる
 [t1]Hakuchizu no yume KARAFU...',
       'music_artist_html' => '<a href="/ca-si/MAO~Y3NuX2FydGlzdH43MTQ3Mw==.html">M・A・O</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    26 => 
+    29 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1767817,
@@ -13434,7 +13922,7 @@ Singing kyou...',
       'music_listen' => 6034,
       'music_track_id' => 8,
       'music_filename' => '1767817-66be64a1.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => 'Wakaregiwa no te no furikata de
 Anata ni wa sabishisa ga bareteru
 Suki datte koto wa kokoro no zawameki wo
@@ -13443,8 +13931,9 @@ Nan to naku kanjiau koto.
 Ashita mo futari wa aeru no ni
 Dakedo sore made ga machidooshii...',
       'music_artist_html' => '<a href="/ca-si/SKE48~Y3NuX2FydGlzdH4xMzY5NQ==.html">SKE48</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
-    27 => 
+    30 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1768050,
@@ -13467,7 +13956,7 @@ Dakedo sore made ga machidooshii...',
       'music_listen' => 957,
       'music_track_id' => 3,
       'music_filename' => '1768050-61291dc7.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Kareha wa kaze ni hira hira
 Watashi no namida no you ni
 Kareha ga kaze ni hira hira
@@ -13479,8 +13968,9 @@ Kyuu ni anata ga yukenai to
 Kyanseru sareta ryokou
 To...',
       'music_artist_html' => '<a href="/ca-si/SKE48~Y3NuX2FydGlzdH4xMzY5NQ==.html">SKE48</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    28 => 
+    31 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1767807,
@@ -13503,7 +13993,7 @@ To...',
       'music_listen' => 20842,
       'music_track_id' => 1,
       'music_filename' => '1767807-581441dc.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => 'Mada nani mo nai
 Shiroi sunahama
 Nami ga shizuka ni
@@ -13516,8 +14006,9 @@ Ega kou to shiteru.
 Honegumi no dekita umi no ie
 Kansei suru k...',
       'music_artist_html' => '<a href="/ca-si/SKE48~Y3NuX2FydGlzdH4xMzY5NQ==.html">SKE48</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
-    29 => 
+    32 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1764153,
@@ -13540,7 +14031,7 @@ Kansei suru k...',
       'music_listen' => 8267,
       'music_track_id' => 10,
       'music_filename' => '1764153-d106e4dc.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Tokei no hari-tachi ga
 Kasanatte nigeteku
 Mayonaka sugita tte
@@ -13553,8 +14044,9 @@ KAOSU no hitonami ni
 Nomikomare nagara
 Kodoku wo magiraseta....',
       'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    30 => 
+    33 => 
     array (
       'music_downloads_today' => 3,
       'music_id' => 1764108,
@@ -13577,7 +14069,7 @@ Kodoku wo magiraseta....',
       'music_listen' => 11258,
       'music_track_id' => 1,
       'music_filename' => '1764108-7f6f9e93.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'TV Anime &quot;Demi-chan wa Kataritai&quot; Opening Theme
 
 語りたいよ君の素敵オリジナル
@@ -13596,44 +14088,9 @@ Kodoku wo magiraseta....',
 水たまり跳ねて光散らす
 笑顔の...',
       'music_artist_html' => '<a href="/ca-si/TrySail-Asakura-Momo~Y3NuX2FydGlzdH45NDMwNg==.html">TrySail: Asakura Momo</a>, <a href="/ca-si/Amamiya-Sora~Y3NuX2FydGlzdH40Nzk2OQ==.html">Amamiya Sora</a>, <a href="/ca-si/Natsukawa-Shiina~Y3NuX2FydGlzdH4yMTQ1Ng==.html">Natsukawa Shiina</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    31 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1769052,
-      'music_title_url' => 'skyfall~one-ok-rock-koie-mah-masato',
-      'music_title' => 'Skyfall',
-      'music_artist' => 'One Ok Rock;Koie;MAH;Masato',
-      'music_artist_id' => '16211;94933;94934;94935',
-      'cat_id' => 7,
-      'cat_level' => 1,
-      'cat_sublevel' => 2,
-      'cat_custom' => 0,
-      'cover_id' => 69190,
-      'music_download_time' => 1538558964,
-      'music_last_update_time' => 1488898830,
-      'music_title_search' => 'xkifal',
-      'music_artist_search' => '; 1 ok rock; koi; mah; maxato;',
-      'music_album_search' => 'xkifal; xingle',
-      'music_composer' => '',
-      'music_album' => 'Skyfall (Single)',
-      'music_listen' => 14768,
-      'music_track_id' => 1,
-      'music_filename' => '1769052-481deef6.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
-      'music_shortlyric' => '(You got 2 new messages)
-(First message)
-
-The time is come for this special collaboration
-With SiM, coldrain, and Crossfaith
-The Japanese Dream Team
-Let\'s do it, Taka.
-
-Look at all of this shame
-No...',
-      'music_artist_html' => '<a href="/ca-si/One-Ok-Rock~Y3NuX2FydGlzdH4xNjIxMQ==.html">One Ok Rock</a>, <a href="/ca-si/Koie~Y3NuX2FydGlzdH45NDkzMw==.html">Koie</a>, <a href="/ca-si/MAH~Y3NuX2FydGlzdH45NDkzNA==.html">MAH</a>, <a href="/ca-si/Masato~Y3NuX2FydGlzdH45NDkzNQ==.html">Masato</a>',
-    ),
-    32 => 
+    34 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1767687,
@@ -13656,7 +14113,7 @@ No...',
       'music_listen' => 7090,
       'music_track_id' => 1,
       'music_filename' => '1767687-09c55797.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '四角い窓の向こう側に
 [t1]Shikakui mado no mukougawa ni
 地球サイズの奥行きがある
@@ -13669,8 +14126,9 @@ No...',
 白地図の夢　カラフルになる
 [t1]Hakuchizu no yume KARAFU...',
       'music_artist_html' => '<a href="/ca-si/MAO~Y3NuX2FydGlzdH43MTQ3Mw==.html">M・A・O</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    33 => 
+    35 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1768013,
@@ -13693,7 +14151,7 @@ No...',
       'music_listen' => 1305,
       'music_track_id' => 2,
       'music_filename' => '1768013-ea92d626.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Ai ga areba oki doki
 Donna tsurai koto demo
 Kitto nanto kanaru yo
@@ -13705,8 +14163,9 @@ Shinji youze
 Kono sekai ni wa
 Konna ni hito ga irunda...',
       'music_artist_html' => '<a href="/ca-si/SKE48~Y3NuX2FydGlzdH4xMzY5NQ==.html">SKE48</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    34 => 
+    36 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1768048,
@@ -13729,7 +14188,7 @@ Konna ni hito ga irunda...',
       'music_listen' => 4482,
       'music_track_id' => 1,
       'music_filename' => '1768048-92aea0b3.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Sakura saku mon wo kinchou shinagara
 Shunpuu ni osare nyuugaku shita hi
 Mawari no minna ga kagayaite miete
@@ -13738,8 +14197,9 @@ Watashi hitori dake jishin ga nakatta.
 Kibishii jugyou no nochi de naita
 nan domo koko ka...',
       'music_artist_html' => '<a href="/ca-si/SKE48~Y3NuX2FydGlzdH4xMzY5NQ==.html">SKE48</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    35 => 
+    37 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1768053,
@@ -13762,7 +14222,7 @@ nan domo koko ka...',
       'music_listen' => 1641,
       'music_track_id' => 6,
       'music_filename' => '1768053-6984ef54.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Aruite kaeru gakkou no kaerimichi
 Kyou mo hakken!
 Anata wo miru to mune ga tokime iteru
@@ -13771,8 +14231,9 @@ Yumemigachi na watashi ni douka chansu kudasai
 Senpai no koto dake wo kenkyuu ne!
 Kocchi m...',
       'music_artist_html' => '<a href="/ca-si/SKE48~Y3NuX2FydGlzdH4xMzY5NQ==.html">SKE48</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    36 => 
+    38 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1768746,
@@ -13795,84 +14256,13 @@ Kocchi m...',
       'music_listen' => 8302,
       'music_track_id' => 1,
       'music_filename' => '1768746-2bba57ce.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Natsuiro ni kagayaku sora mo kusunderu ki ga shitetanda
 Itsunomanika taisetsu na mono sae shimaikonderu
 Kizukanai furi shiteru koto mou misukaserete itanda
 Kimi no kotoba irozuki hajimeteku watashi...',
       'music_artist_html' => '<a href="/ca-si/Nakajima-Megumi~Y3NuX2FydGlzdH4yMDM2Mw==.html">Nakajima Megumi</a>',
-    ),
-    37 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1764148,
-      'music_title_url' => 'love-trip~akb48',
-      'music_title' => 'LOVE TRIP',
-      'music_artist' => 'AKB48',
-      'music_artist_id' => '723',
-      'cat_id' => 7,
-      'cat_level' => 1,
-      'cat_sublevel' => 1,
-      'cat_custom' => 0,
-      'cover_id' => 68626,
-      'music_download_time' => 1537916554,
-      'music_last_update_time' => 1519722258,
-      'music_title_search' => 'love chip',
-      'music_artist_search' => '; akb48;',
-      'music_album_search' => 'thumbnail; サムネイル ; theater edition',
-      'music_composer' => '',
-      'music_album' => 'Thumbnail (サムネイル) (Theater Edition)',
-      'music_listen' => 595,
-      'music_track_id' => 5,
-      'music_filename' => '1764148-3562e541.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
-      'music_shortlyric' => 'Bokura no shitteru machi wa
-Doko e itte shimatta no darou? 
-Akichi mo oka mo kieteta
-Mita koto nai keshiki ga hirogaru.
-
-Kioku wo shuusei shinagara
-Itsushika otona ni natte shimatta
-Kako ka mirai k...',
-      'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
-    ),
-    38 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1764149,
-      'music_title_url' => 'shiawase-wo-wakenasai~akb48',
-      'music_title' => 'Shiawase wo Wakenasai (しあわせを分けなさい)',
-      'music_artist' => 'AKB48',
-      'music_artist_id' => '723',
-      'cat_id' => 7,
-      'cat_level' => 1,
-      'cat_sublevel' => 1,
-      'cat_custom' => 0,
-      'cover_id' => 68626,
-      'music_download_time' => 1532302639,
-      'music_last_update_time' => 1519722282,
-      'music_title_search' => 'thiawaxe wo wakenaxai; しあわせを分けなさい',
-      'music_artist_search' => '; akb48;',
-      'music_album_search' => 'thumbnail; サムネイル ; theater edition',
-      'music_composer' => '',
-      'music_album' => 'Thumbnail (サムネイル) (Theater Edition)',
-      'music_listen' => 387,
-      'music_track_id' => 6,
-      'music_filename' => '1764149-1c562f94.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
-      'music_shortlyric' => 'Kyou no kimi wa
-Ima made de ichiban utsukushii ne
-Sono junpaku no
-Wedingu doresu
-Egao ni niatteru.
-
-Nagai michi de
-Meguriai ai shiatta hito to
-Musubareru hi wa
-Gooru janakute
-Sutaato nanda
-Futari k...',
-      'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     39 => 
     array (
@@ -13897,7 +14287,7 @@ Futari k...',
       'music_listen' => 4067,
       'music_track_id' => 3,
       'music_filename' => '1768459-eee9520d.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '2人が一緒にいるとなんだか嬉しかった
 「2人で食べるとおいしいね」って言ってたね
 
@@ -13913,6 +14303,7 @@ Futari k...',
 あの頃の私達を　天秤に掛けてみよう
 きっと釣り合ってたね　2人はいつも...',
       'music_artist_html' => '<a href="/ca-si/Hanako-Oku~Y3NuX2FydGlzdH40NzM0.html">Hanako Oku</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     40 => 
     array (
@@ -13937,7 +14328,7 @@ Futari k...',
       'music_listen' => 44845,
       'music_track_id' => 1,
       'music_filename' => '1770684-00c0ec18.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Feuer！ Sperrfeuer！ Los！
 Achtung！ Deckung！ Hinlegen！ Halt！
 
@@ -13948,6 +14339,7 @@ Achtung！ Deckung！ Hinlegen！ Halt！
 
 Feuer！ Sperrf...',
       'music_artist_html' => '<a href="/ca-si/Yuuki-Aoi~Y3NuX2FydGlzdH43MjQ0Ng==.html">Yuuki Aoi</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     41 => 
     array (
@@ -13972,7 +14364,7 @@ Feuer！ Sperrf...',
       'music_listen' => 1927,
       'music_track_id' => 14,
       'music_filename' => '1771478-dde77c7b.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Aruki tsukareta yoru ni tatazumu
 Nagareru namida o kioku ni kasanete
 Deai no kazu dake wakare wa arukedo
@@ -13980,6 +14372,7 @@ Kagirinai toki ga tuduku to shinjiteta
 Kizutsuke atta kotoba sae ima ha dakishime
 Furikaerud...',
       'music_artist_html' => '<a href="/ca-si/X-Japan~Y3NuX2FydGlzdH4yODI5Mg==.html">X Japan</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     42 => 
     array (
@@ -14004,7 +14397,7 @@ Furikaerud...',
       'music_listen' => 1897,
       'music_track_id' => 3,
       'music_filename' => '1770328-01d31acb.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Everywhere, all the time, I keep my cool
 Nande konnani ki ni natte shimau
 I just don ‘ t get it! Get it! Get it! Yeah
@@ -14014,6 +14407,7 @@ Tatta ichido hanashi ta dake.
 Do you have a nick name?
 When ‘ s your birthday...',
       'music_artist_html' => '<a href="/ca-si/Uru~Y3NuX2FydGlzdH45NDk2Nw==.html">Uru</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     43 => 
     array (
@@ -14038,7 +14432,7 @@ When ‘ s your birthday...',
       'music_listen' => 57997,
       'music_track_id' => 3,
       'music_filename' => '1772716-7f75e4a0.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">214kbps</span>',
+      'music_bitrate' => 214,
       'music_shortlyric' => 'Konna ni kurushii omoi
 Umarete kara hajimete da
 Ai ga shizuka ni kuruwaseru.
@@ -14052,6 +14446,7 @@ Sasu no darou.
 
 So...',
       'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">214kbps</span>',
     ),
     44 => 
     array (
@@ -14076,7 +14471,7 @@ So...',
       'music_listen' => 2126,
       'music_track_id' => 4,
       'music_filename' => '1771906-451b6a28.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Kimi no egaita mirai no naka ni
 Boku wa inai sono jidai mo nai
 Mada sukoshi dake kizu o kakaeta futari wa
@@ -14085,6 +14480,7 @@ Yume no tsuzuki sagashiteta
 Omou mama ni irozuiteku to omotteta
 Kotae nanka mitsukerarezu...',
       'music_artist_html' => '<a href="/ca-si/Ieiri-Leo~Y3NuX2FydGlzdH4yNTkzMQ==.html">Ieiri Leo</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     45 => 
     array (
@@ -14109,7 +14505,7 @@ Kotae nanka mitsukerarezu...',
       'music_listen' => 1265,
       'music_track_id' => 15,
       'music_filename' => '1771924-2a5c9b76.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Yoake wo machi tsudzuketa
 Kokoro ga furueru yoru
 Naki tsukareta ato wa
@@ -14120,40 +14516,9 @@ Kawaranai mono wa
 Itsumo koko ni atte
 Mou nakusanai de kanjiru chik...',
       'music_artist_html' => '<a href="/ca-si/Ieiri-Leo~Y3NuX2FydGlzdH4yNTkzMQ==.html">Ieiri Leo</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     46 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1771916,
-      'music_title_url' => 'junjou~ieiri-leo',
-      'music_title' => 'Junjou',
-      'music_artist' => 'Ieiri Leo',
-      'music_artist_id' => '25931',
-      'cat_id' => 7,
-      'cat_level' => 1,
-      'cat_sublevel' => 1,
-      'cat_custom' => 0,
-      'cover_id' => 69602,
-      'music_download_time' => 1538908041,
-      'music_last_update_time' => 1507150250,
-      'music_title_search' => 'junjou',
-      'music_artist_search' => '; iri leo;',
-      'music_album_search' => '5th aniverxari bext',
-      'music_composer' => '',
-      'music_album' => '5th Anniversary Best',
-      'music_listen' => 847,
-      'music_track_id' => 8,
-      'music_filename' => '1771916-fd6ca461.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
-      'music_shortlyric' => 'Aisaretakute naitatte kako wa kaerarenai sa
-Seiippai sakendatte yami kieteku junjou
-Keishou narasu otona tte nani o kowagatteru no?
-Kanjou no mama shitagatte kokoro no koe o kiita 
-
-Wow koushite mi...',
-      'music_artist_html' => '<a href="/ca-si/Ieiri-Leo~Y3NuX2FydGlzdH4yNTkzMQ==.html">Ieiri Leo</a>',
-    ),
-    47 => 
     array (
       'music_downloads_today' => 2,
       'music_id' => 1773151,
@@ -14176,7 +14541,7 @@ Wow koushite mi...',
       'music_listen' => 19734,
       'music_track_id' => 3,
       'music_filename' => '1773151-d08c9011.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'komorebi no shita no ha no kage wa (ha no kage wa)
 tokiori no kaze ni yurenagara (yurenagara)
 chikadzuku kisetsu no sono kehai (sono kehai)
@@ -14184,8 +14549,9 @@ hitoashi hayaku sora wo mekutta KARENDAA
 
 koko de aou tte...',
       'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    48 => 
+    47 => 
     array (
       'music_downloads_today' => 2,
       'music_id' => 1776160,
@@ -14208,7 +14574,7 @@ koko de aou tte...',
       'music_listen' => 4557,
       'music_track_id' => 2,
       'music_filename' => '1776160-da3b67db.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Uh-huh, uh-huh, uh-huh
 Whatchu wanna do?
 Uh-huh, uh-huh, uh-huh
@@ -14217,8 +14583,9 @@ One, two, three, four!
 agattemo sagattemo We got the junbi Alright (Hey! Yeah yeah yeah...)
 IME-JI mo SUTE-JI mo SUKI nai PO-ZU In m...',
       'music_artist_html' => '<a href="/ca-si/SudannaYuzuYully~Y3NuX2FydGlzdH45NTY2MQ==.html">SudannaYuzuYully</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    49 => 
+    48 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1769912,
@@ -14241,7 +14608,7 @@ IME-JI mo SUTE-JI mo SUKI nai PO-ZU In m...',
       'music_listen' => 34153,
       'music_track_id' => 1,
       'music_filename' => '1769912-2f2a3471.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Anime Film &quot;Sword Art Online the Movie -Ordinal Scale-&quot; Insert Song
 
 Aimai na boryuumu ja mada tarinai na 
@@ -14250,8 +14617,9 @@ Sekai wa toumei da
 Kyoukaisen wa mou doko ni mo nai 
 Kanjou no...',
       'music_artist_html' => '<a href="/ca-si/Yuna-CV-Kanda-Sayaka~Y3NuX2FydGlzdH45NDcyNA==.html">Yuna (CV: Kanda Sayaka)</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    50 => 
+    49 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1770326,
@@ -14274,7 +14642,7 @@ Kanjou no...',
       'music_listen' => 43681,
       'music_track_id' => 1,
       'music_filename' => '1770326-06edef21.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Tadayou sora no dokoka tooku
 Inori tsuuzuru hoshi ga aru to shitara
 Bokura wa soko e mukau darou ka
@@ -14284,8 +14652,9 @@ Hatasenakatta yakusoku ya
 Gisei ni natta kouketsu no hikari
 Nokor...',
       'music_artist_html' => '<a href="/ca-si/Uru~Y3NuX2FydGlzdH45NDk2Nw==.html">Uru</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    51 => 
+    50 => 
     array (
       'music_downloads_today' => 2,
       'music_id' => 1770685,
@@ -14308,7 +14677,7 @@ Nokor...',
       'music_listen' => 31021,
       'music_track_id' => 2,
       'music_filename' => '1770685-372c2d25.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '凍えるように　細い躯を震わせる
 [t2]Kogoeru yō ni hosoi mukuro o furuwaseru 
 恐怖からではなく　静かな熱情
@@ -14318,41 +14687,9 @@ Nokor...',
 [t2]Todoroku tsuyoi kaze ni himei sae kakikiete wa 
 硝煙舞う空に　...',
       'music_artist_html' => '<a href="/ca-si/Niina-Mako~Y3NuX2FydGlzdH45NTA4OA==.html">Niina Mako</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    52 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1775355,
-      'music_title_url' => 'angel-dream-riina-tada-solo-remix~tada-riina-cv-aoki-ruriko',
-      'music_title' => 'Angel Dream (エンジェル　ドリーム) ～Riina Tada Solo Remix～',
-      'music_artist' => 'Tada Riina (CV: Aoki Ruriko)',
-      'music_artist_id' => '95580',
-      'cat_id' => 7,
-      'cat_level' => 1,
-      'cat_sublevel' => 1,
-      'cat_custom' => 0,
-      'cover_id' => 70004,
-      'music_download_time' => 1538657875,
-      'music_last_update_time' => 1524339019,
-      'music_title_search' => 'angel dream; エンジェル　ドリーム ～rina tada xolo remix～',
-      'music_artist_search' => '; tada rina; cv; aoki ruriko;',
-      'music_album_search' => 'the idolm xter cinderela maxter cheaxure☆',
-      'music_composer' => 'Okabe Keiichi',
-      'music_album' => 'THE IDOLM@STER CINDERELLA MASTER Treasure☆',
-      'music_listen' => 1250,
-      'music_track_id' => 8,
-      'music_filename' => '1775355-ab360441.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
-      'music_shortlyric' => 'Hare no hi no sora kimochi o utsushite
-Tenshi ga orite kitara hane o wakete moraou
-
-Kaze no yukusaki o oikakete mitara
-Kimi ga oshiete kureta himitsu no basho
-
-Yakusoku no jikan made sono mama de i...',
-      'music_artist_html' => '<a href="/ca-si/Tada-Riina-CV-Aoki-Ruriko~Y3NuX2FydGlzdH45NTU4MA==.html">Tada Riina (CV: Aoki Ruriko)</a>',
-    ),
-    53 => 
+    51 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1776328,
@@ -14375,7 +14712,7 @@ Yakusoku no jikan made sono mama de i...',
       'music_listen' => 14034,
       'music_track_id' => 0,
       'music_filename' => '1776328-bacc1e32.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => 'Guilty Eyes de koi ni ochite
 (shutdown shutdown) Guilty Fever
 Dare ni mo agenai no
@@ -14385,8 +14722,9 @@ yes no hakkiri to kimenai no ne
 Warai nagara gomakasu no wa warui kuse
 Erabina y...',
       'music_artist_html' => '<a href="/ca-si/Gulty-Kiss~Y3NuX2FydGlzdH45NTY3Mw==.html">Gulty Kiss</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
-    54 => 
+    52 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1771907,
@@ -14409,7 +14747,7 @@ Erabina y...',
       'music_listen' => 1757,
       'music_track_id' => 5,
       'music_filename' => '1771907-f07178bd.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Just wait for you… for you
 I\'m still in love with you
 
@@ -14419,42 +14757,9 @@ Fui ni munashiku naru yoru
 
 Kizukanai furi de tsumiageta jikan w...',
       'music_artist_html' => '<a href="/ca-si/Ieiri-Leo~Y3NuX2FydGlzdH4yNTkzMQ==.html">Ieiri Leo</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    55 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1771925,
-      'music_title_url' => 'sabrina~ieiri-leo',
-      'music_title' => 'Sabrina',
-      'music_artist' => 'Ieiri Leo',
-      'music_artist_id' => '25931',
-      'cat_id' => 7,
-      'cat_level' => 1,
-      'cat_sublevel' => 1,
-      'cat_custom' => 0,
-      'cover_id' => 69602,
-      'music_download_time' => 1538635726,
-      'music_last_update_time' => 1507149936,
-      'music_title_search' => 'xabrina',
-      'music_artist_search' => '; iri leo;',
-      'music_album_search' => '5th aniverxari bext',
-      'music_composer' => '',
-      'music_album' => '5th Anniversary Best',
-      'music_listen' => 1447,
-      'music_track_id' => 16,
-      'music_filename' => '1771925-0191c35b.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
-      'music_shortlyric' => 'Rainy Day Yoru no machi Mai orita
-Makka na kuchibeni tsuketa kimi
-
-Mote ASOBU you ni AJIWAU you ni
-GARASU koshi ni miru Kodoku na kage
-
-Itsudatte Itsudatte Hontou no ai wo motomete
-Machijuu no uso...',
-      'music_artist_html' => '<a href="/ca-si/Ieiri-Leo~Y3NuX2FydGlzdH4yNTkzMQ==.html">Ieiri Leo</a>',
-    ),
-    56 => 
+    53 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1771914,
@@ -14477,7 +14782,7 @@ Machijuu no uso...',
       'music_listen' => 4351,
       'music_track_id' => 6,
       'music_filename' => '1771914-78030fc7.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Muzukashii koto ga oosugiru ai
 Kyou mo kawarazu furitsuzuite iru ame ga
 Toiki no sukima de namae wo yobare
@@ -14487,8 +14792,9 @@ Kishimu hadou ni nomarete
 
 Oh...',
       'music_artist_html' => '<a href="/ca-si/Ieiri-Leo~Y3NuX2FydGlzdH4yNTkzMQ==.html">Ieiri Leo</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    57 => 
+    54 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1774793,
@@ -14511,7 +14817,7 @@ Oh...',
       'music_listen' => 36573,
       'music_track_id' => 1,
       'music_filename' => '1774793-be06df18.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'BUNBUNBUN BUNBUNBUN
 BUNBUNBUN BUNBUNBUN
 INFURUENSAA
@@ -14524,8 +14830,9 @@ INFURUENSAA
 itsu datte shiranai uchi ni
 boku wa mimawashite iru (nando...',
       'music_artist_html' => '<a href="/ca-si/Nogizaka46~Y3NuX2FydGlzdH4xMzU1Nw==.html">Nogizaka46</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    58 => 
+    55 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1769495,
@@ -14548,7 +14855,7 @@ boku wa mimawashite iru (nando...',
       'music_listen' => 6258,
       'music_track_id' => 11,
       'music_filename' => '1769495-090f134c.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Tsuki hi mizuki kin hatarai ta
 mada wakara nai koto darake da kara
 fuan ga boku o shime te shimau
@@ -14556,8 +14863,9 @@ tokidoki dame ni natte shimautsuki hi mizuki kin hatarai ta
 
 dame demo mainichi ganbaru shika naku...',
       'music_artist_html' => '<a href="/ca-si/Shishamo~Y3NuX2FydGlzdH4xODU4MQ==.html">Shishamo</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    59 => 
+    56 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1770395,
@@ -14580,7 +14888,7 @@ dame demo mainichi ganbaru shika naku...',
       'music_listen' => 4260,
       'music_track_id' => 1,
       'music_filename' => '1770395-be21fd50.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Shitai koto itte mite yo ne Please!
 Sawagitai kibun dakara sa
 Tondemo nandemo kanaechau
@@ -14592,6 +14900,105 @@ Oshiete oshiete don\'na koto?
 Otto meian kamo!?
 Doresu ki...',
       'music_artist_html' => '<a href="/ca-si/Matsuura-Kanan-CV-Suwa-Nanaka~Y3NuX2FydGlzdH45NTA0Ng==.html">Matsuura Kanan (CV: Suwa Nanaka)</a>, <a href="/ca-si/Kurosawa-Dia-CV-Komiya-Arisa~Y3NuX2FydGlzdH45NTA0Nw==.html">Kurosawa Dia (CV: Komiya Arisa)</a>, <a href="/ca-si/Ohara-Mari-CV-Suzuki-Aina~Y3NuX2FydGlzdH45NTA0OA==.html">Ohara Mari (CV: Suzuki Aina)</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+    ),
+    57 => 
+    array (
+      'music_downloads_today' => 1,
+      'music_id' => 1771032,
+      'music_title_url' => 'shiny-ray~yurika',
+      'music_title' => 'Shiny Ray',
+      'music_artist' => 'YURiKA',
+      'music_artist_id' => '95125',
+      'cat_id' => 7,
+      'cat_level' => 1,
+      'cat_sublevel' => 1,
+      'cat_custom' => 0,
+      'cover_id' => 69446,
+      'music_download_time' => 1539014573,
+      'music_last_update_time' => 1499540492,
+      'music_title_search' => 'thini rai',
+      'music_artist_search' => '; iurika;',
+      'music_album_search' => 'thini rai; litle witch academia opening theme',
+      'music_composer' => 'uz',
+      'music_album' => 'Shiny Ray (Little Witch Academia Opening Theme)',
+      'music_listen' => 5183,
+      'music_track_id' => 1,
+      'music_filename' => '1771032-4f8a25dc.mp3',
+      'music_bitrate' => 1000,
+      'music_shortlyric' => 'TV Anime &quot;Little Witch Academia&quot; Opening Theme
+
+駈け出した日々に行(ゆ)き着いたこの場所
+触れた扉開いて
+星空の彼方(かなた)　夢の足跡
+拾い集め歌うよ
+
+夢が駆けてく場所
+今も心に秘めて
+夜を包み込む
+魔法(まほお)掛けて踊りだす
+
+焼きついたように色づいた風景は
+転んだくらいじゃ融(と)けないから　世界は続くよ
+儚(はか...',
+      'music_artist_html' => '<a href="/ca-si/YURiKA~Y3NuX2FydGlzdH45NTEyNQ==.html">YURiKA</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+    ),
+    58 => 
+    array (
+      'music_downloads_today' => 1,
+      'music_id' => 1772883,
+      'music_title_url' => 'sanbanme-no-kaze-3rd-generation~nogizaka46',
+      'music_title' => 'Sanbanme no Kaze (三番目の風) / 3rd Generation',
+      'music_artist' => 'Nogizaka46',
+      'music_artist_id' => '13557',
+      'cat_id' => 7,
+      'cat_level' => 1,
+      'cat_sublevel' => 1,
+      'cat_custom' => 0,
+      'cover_id' => 69696,
+      'music_download_time' => 1513315941,
+      'music_last_update_time' => 1489640454,
+      'music_title_search' => 'xanbanme no kaze; 三番目の風 ; 3rd generation',
+      'music_artist_search' => '; novaka46;',
+      'music_album_search' => 'influencer; インフルエンサー ; xpecial edition',
+      'music_composer' => '',
+      'music_album' => 'Influencer (インフルエンサー) (Special Edition)',
+      'music_listen' => 6540,
+      'music_track_id' => 3,
+      'music_filename' => '1772883-30e78fc3.mp3',
+      'music_bitrate' => 266,
+      'music_shortlyric' => '',
+      'music_artist_html' => '<a href="/ca-si/Nogizaka46~Y3NuX2FydGlzdH4xMzU1Nw==.html">Nogizaka46</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">266kbps</span>',
+    ),
+    59 => 
+    array (
+      'music_downloads_today' => 1,
+      'music_id' => 1772882,
+      'music_title_url' => 'fuusen-wa-ikiteiru-under-members~nogizaka46',
+      'music_title' => 'Fuusen wa Ikiteiru (風船は生きている) / Under Members',
+      'music_artist' => 'Nogizaka46',
+      'music_artist_id' => '13557',
+      'cat_id' => 7,
+      'cat_level' => 1,
+      'cat_sublevel' => 1,
+      'cat_custom' => 0,
+      'cover_id' => 69696,
+      'music_download_time' => 1530058245,
+      'music_last_update_time' => 1489640447,
+      'music_title_search' => 'fuxen wa ikiteiru; 風船は生きている ; under memberx',
+      'music_artist_search' => '; novaka46;',
+      'music_album_search' => 'influencer; インフルエンサー ; xpecial edition',
+      'music_composer' => '',
+      'music_album' => 'Influencer (インフルエンサー) (Special Edition)',
+      'music_listen' => 8489,
+      'music_track_id' => 3,
+      'music_filename' => '1772882-b1380fe7.mp3',
+      'music_bitrate' => 271,
+      'music_shortlyric' => '',
+      'music_artist_html' => '<a href="/ca-si/Nogizaka46~Y3NuX2FydGlzdH4xMzU1Nw==.html">Nogizaka46</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">271kbps</span>',
     ),
     60 => 
     array (
@@ -14616,7 +15023,7 @@ Doresu ki...',
       'music_listen' => 7620,
       'music_track_id' => 10,
       'music_filename' => '1778260-3f4ca1f1.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'あたたたたた ずっきゅん!
 わたたたたた どっきゅん!
 ずきゅん! どきゅん!
@@ -14632,6 +15039,7 @@ C! I! O! チョコレート
 チョ!チョ!チョ! いいかな?
 でもね ち...',
       'music_artist_html' => '<a href="/ca-si/BABYMETAL~Y3NuX2FydGlzdH4xNTQyOQ==.html">BABYMETAL</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     61 => 
     array (
@@ -14656,7 +15064,7 @@ C! I! O! チョコレート
       'music_listen' => 13438,
       'music_track_id' => 1,
       'music_filename' => '1778321-8b8d2e89.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'boku wa Yes to iwanai
 kubi wo tate ni furanai
 mawari no dare mo ga unazuita to shite mo
@@ -14666,6 +15074,7 @@ saigo no saigo made teikou shitsudzukeru
 
 sakebi wo oshikorosu (...',
       'music_artist_html' => '<a href="/ca-si/Keyakizaka46~Y3NuX2FydGlzdH4xNTk2NA==.html">Keyakizaka46</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     62 => 
     array (
@@ -14690,12 +15099,13 @@ sakebi wo oshikorosu (...',
       'music_listen' => 60943,
       'music_track_id' => 0,
       'music_filename' => '1783048-25e295d2.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => 'Futari no aida tourisugi to kaze wa doko kara sabishia o hakon dekitano 
 Naitarishita sono ato no sora wa yake ni sukitoutte itarishitanda. 
 
 Itsumo wa togatte ta chichi no kotoba ga kyou wa atatak...',
       'music_artist_html' => '<a href="/ca-si/Kamishiraishi-Mone~Y3NuX2FydGlzdH45MDIxOA==.html">Kamishiraishi Mone</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     63 => 
     array (
@@ -14720,7 +15130,7 @@ Itsumo wa togatte ta chichi no kotoba ga kyou wa atatak...',
       'music_listen' => 6068,
       'music_track_id' => 2,
       'music_filename' => '1778901-1a6d99fd.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '信じきっていた世界の形だって
 君の周りを廻り出して
 右の方に傾いた
@@ -14747,6 +15157,7 @@ Itsumo wa togatte ta chichi no kotoba ga kyou wa atatak...',
 口を閉ざせないぼくたちが
 語り継...',
       'music_artist_html' => '<a href="/ca-si/Kalafina~Y3NuX2FydGlzdH4yNTg5OQ==.html">Kalafina</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     64 => 
     array (
@@ -14771,11 +15182,12 @@ Itsumo wa togatte ta chichi no kotoba ga kyou wa atatak...',
       'music_listen' => 58975,
       'music_track_id' => 1,
       'music_filename' => '1781630-0bc5d832.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '01 Togetsukyou ~Kimi Omofu~ (渡月橋 ～君 想ふ～)
 02 Togetsukyou ~Kimi Omofu~ -Instrumental- (渡月橋 ～君 想ふ～)
 03 Time after Time ~Hana Mau Machi de~ Time Travel Paradox Remix (Time after time ～花舞う街で～)',
       'music_artist_html' => '<a href="/ca-si/Mai-Kuraki~Y3NuX2FydGlzdH40MzA4.html">Mai Kuraki</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     65 => 
     array (
@@ -14800,13 +15212,14 @@ Itsumo wa togatte ta chichi no kotoba ga kyou wa atatak...',
       'music_listen' => 113947,
       'music_track_id' => 1,
       'music_filename' => '1782967-d4bc8fcd.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'ヒトリゴトだよ　恥ずかしいこと聞かないでよね 
 [t2]Hitorigotoda yo hazukashī koto kikanaide yo ne 
 [t1]Những điều em tự nhủ với bản thân… anh đừng hỏi em về những thứ xấu hổ đó! 
 君のことだよ　でもその先は言わないけどね 
 [t2]Kimi no kotoda...',
       'music_artist_html' => '<a href="/ca-si/ClariS~Y3NuX2FydGlzdH4xNDc2OA==.html">ClariS</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     66 => 
     array (
@@ -14831,7 +15244,7 @@ Itsumo wa togatte ta chichi no kotoba ga kyou wa atatak...',
       'music_listen' => 9336,
       'music_track_id' => 2,
       'music_filename' => '1783845-3258d0df.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Every time I sleep here in this white room
 Seems like I have a bad dream
 When I open up my eyes I can\'t recall
@@ -14841,6 +15254,7 @@ Everyday, at the end of the day
 I feel like I\'m all dried up
 I k...',
       'music_artist_html' => '<a href="/ca-si/Myth-amp~Y3NuX2FydGlzdH4yMjMwOA==.html">Myth &amp</a>, <a href="/ca-si/Roid~Y3NuX2FydGlzdH4yMjMwOQ==.html">Roid</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     67 => 
     array (
@@ -14865,7 +15279,7 @@ I k...',
       'music_listen' => 3986,
       'music_track_id' => 15,
       'music_filename' => '1778797-f09480ce.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Gomen ne, yasashiku dekinakute
 Gomen ne, jouzu ni ienakute
 Gomen ne, shinpai wo kakete
@@ -14875,6 +15289,7 @@ Arigatou, tsuite kite kurete
 Arigatou, yasashisa wo kurete
 Arigatou, soba ni ite...',
       'music_artist_html' => '<a href="/ca-si/Wagakki-Band~Y3NuX2FydGlzdH4xNTEyOQ==.html">Wagakki Band</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     68 => 
     array (
@@ -14899,7 +15314,7 @@ Arigatou, soba ni ite...',
       'music_listen' => 3808,
       'music_track_id' => 10,
       'music_filename' => '1778791-3a46d779.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Futatsu boshi wa matataku
 Yume no tochuu de katto au to sa
 Kanashi i yumemi teta you na
@@ -14909,6 +15324,7 @@ Fukaku iki wo suikonda nara
 Saa, ikanakya teki ga matteru
 Nee, kimi wa doko ni...',
       'music_artist_html' => '<a href="/ca-si/Wagakki-Band~Y3NuX2FydGlzdH4xNTEyOQ==.html">Wagakki Band</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     69 => 
     array (
@@ -14933,13 +15349,14 @@ Nee, kimi wa doko ni...',
       'music_listen' => 6012,
       'music_track_id' => 3,
       'music_filename' => '1778777-417c7d88.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'hitotsu futatsu kako mekuri tsunagu
 ten to ten ga sen ni sore wa shi wo yobu koe
 owarinaki kono basho de rinne wo matsu
 todomaru koto wo shirazu yomitokeba wana
 shinobiyoru kotodama mimi fusagi kon...',
       'music_artist_html' => '<a href="/ca-si/Wagakki-Band~Y3NuX2FydGlzdH4xNTEyOQ==.html">Wagakki Band</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     70 => 
     array (
@@ -14964,7 +15381,7 @@ shinobiyoru kotodama mimi fusagi kon...',
       'music_listen' => 7025,
       'music_track_id' => 5,
       'music_filename' => '1778779-c4bdab13.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Haruhamada tohku samuzora wa
 Kumorinochi yuki he kawaru
 Haiiro no sorami agete mo
@@ -14973,6 +15390,7 @@ Anata ni wa todokanai no ne
 Aa, tonari ni ita koro wa shirazu ni ita monogatari
 Haku iki wa shiroku tada netsu woh...',
       'music_artist_html' => '<a href="/ca-si/Wagakki-Band~Y3NuX2FydGlzdH4xNTEyOQ==.html">Wagakki Band</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     71 => 
     array (
@@ -14997,7 +15415,7 @@ Haku iki wa shiroku tada netsu woh...',
       'music_listen' => 18227,
       'music_track_id' => 3,
       'music_filename' => '1778359-c936b546.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'aitsu ga aa datte itteta
 koitsu ga kou darou tte itteta
 sashidashinin no nai uwasa no tagui
@@ -15007,6 +15425,7 @@ igai ni aa miete kou da to ka
 yappari sou nanda nante ne
 honnin mo shiran...',
       'music_artist_html' => '<a href="/ca-si/Keyakizaka46~Y3NuX2FydGlzdH4xNTk2NA==.html">Keyakizaka46</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     72 => 
     array (
@@ -15031,7 +15450,7 @@ honnin mo shiran...',
       'music_listen' => 7734,
       'music_track_id' => 9,
       'music_filename' => '1778790-84b87672.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Shikakui mado no soto aki fukashi
 Kotoshi saisho no shimo ga furu
 Chikutaku narihibiku heya no naka
@@ -15042,6 +15461,7 @@ Kakedasu watashitachi ga ita
 
 Nam...',
       'music_artist_html' => '<a href="/ca-si/Wagakki-Band~Y3NuX2FydGlzdH4xNTEyOQ==.html">Wagakki Band</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     73 => 
     array (
@@ -15066,7 +15486,7 @@ Nam...',
       'music_listen' => 17918,
       'music_track_id' => 1,
       'music_filename' => '1778775-50f13dfa.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Fight! Katsu! Go!
 
 Dare datte kowakunatte
@@ -15079,6 +15499,7 @@ Ochita namida kawakanai
 
 Fukaku hisomasu akiramenai i...',
       'music_artist_html' => '<a href="/ca-si/Wagakki-Band~Y3NuX2FydGlzdH4xNTEyOQ==.html">Wagakki Band</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     74 => 
     array (
@@ -15103,7 +15524,7 @@ Fukaku hisomasu akiramenai i...',
       'music_listen' => 26620,
       'music_track_id' => 1,
       'music_filename' => '1779270-d25d9fc4.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">270kbps</span>',
+      'music_bitrate' => 270,
       'music_shortlyric' => 'haru no seifuku SUKAATO yurashi
 GAADOREERU wo pyon to tonde
 kimi wa zenryoku hashitte iku yo
@@ -15114,6 +15535,7 @@ doushite konna ni setsunaindarou?
 
 b...',
       'music_artist_html' => '<a href="/ca-si/NGT48~Y3NuX2FydGlzdH4xMzYzNQ==.html">NGT48</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">270kbps</span>',
     ),
     75 => 
     array (
@@ -15138,7 +15560,7 @@ b...',
       'music_listen' => 1592,
       'music_track_id' => 14,
       'music_filename' => '1782423-a26bd2ec.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">269kbps</span>',
+      'music_bitrate' => 269,
       'music_shortlyric' => 'We back again 堂々ロックする on the floor
 Win 掲げ 早々颯爽と to the top
 黄金のクルー 栄光のループ
@@ -15154,51 +15576,9 @@ Step in the arena
 そう現実が夢を超えてく未来
 魂を...',
       'music_artist_html' => '<a href="/ca-si/EXILE-THE-SECOND~Y3NuX2FydGlzdH44NTk3Mw==.html">EXILE THE SECOND</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">269kbps</span>',
     ),
     76 => 
-    array (
-      'music_downloads_today' => 2,
-      'music_id' => 1782415,
-      'music_title_url' => 'dirty-secret-remix~exile-the-second-aklo',
-      'music_title' => 'Dirty Secret (Remix) ',
-      'music_artist' => 'EXILE THE SECOND;AKLO',
-      'music_artist_id' => '85973;93924',
-      'cat_id' => 7,
-      'cat_level' => 3,
-      'cat_sublevel' => 2,
-      'cat_custom' => 0,
-      'cover_id' => 70894,
-      'music_download_time' => 1539008977,
-      'music_last_update_time' => 1512655278,
-      'music_title_search' => 'dirti xecret',
-      'music_artist_search' => '; exile the xecond; aklo;',
-      'music_album_search' => 'born to be wild',
-      'music_composer' => '',
-      'music_album' => 'Born To Be Wild',
-      'music_listen' => 460,
-      'music_track_id' => 6,
-      'music_filename' => '1782415-5b2763c0.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">268kbps</span>',
-      'music_shortlyric' => '誰にも知られぬように
-君にすら見られぬように
-もしかしてもう気づいてる？
-
-二人だけの Frequency で Yeah
-
-肌に残る君の余韻で
-心 雁字搦(がんじがら)めになる…
-
-I wanna make you feel so good
-抗(あらが)えない愛の法則
-止まらない背徳は恍惚(こうこつ)
-始まる Secret
-Dirty, dirty secret
-
-焦(じ)らされて…
-曝(さ...',
-      'music_artist_html' => '<a href="/ca-si/EXILE-THE-SECOND~Y3NuX2FydGlzdH44NTk3Mw==.html">EXILE THE SECOND</a>, <a href="/ca-si/AKLO~Y3NuX2FydGlzdH45MzkyNA==.html">AKLO</a>',
-    ),
-    77 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1783912,
@@ -15221,11 +15601,12 @@ Dirty, dirty secret
       'music_listen' => 4118,
       'music_track_id' => 1,
       'music_filename' => '1783912-55b9bb17.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Tsunku-Hario-Arisa~Y3NuX2FydGlzdH45NjQ2MA==.html">Tsunku♂: Hario Arisa</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    78 => 
+    77 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1783669,
@@ -15248,11 +15629,12 @@ Dirty, dirty secret
       'music_listen' => 2786,
       'music_track_id' => 2,
       'music_filename' => '1783669-93f96f46.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/fhana~Y3NuX2FydGlzdH43MDAwOA==.html">fhána</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    79 => 
+    78 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1778800,
@@ -15275,12 +15657,46 @@ Dirty, dirty secret
       'music_listen' => 5521,
       'music_track_id' => 17,
       'music_filename' => '1778800-389557c3.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Shiroi EARPHONE wo mimi ni ate sukoshi nya tto shite aizu suru
 Shimikonda kono ondo ga doa wo KNOCK shita shunkan ni
 Afure sou ni naru yo “mada mienai?”
 Me wo korashite nozomu soudatsusen ano hi ch...',
       'music_artist_html' => '<a href="/ca-si/Wagakki-Band~Y3NuX2FydGlzdH4xNTEyOQ==.html">Wagakki Band</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+    ),
+    79 => 
+    array (
+      'music_downloads_today' => 1,
+      'music_id' => 1783010,
+      'music_title_url' => 'dearest-drop~tadokoro-azusa',
+      'music_title' => 'Dearest Drop',
+      'music_artist' => 'Tadokoro Azusa',
+      'music_artist_id' => '54632',
+      'cat_id' => 7,
+      'cat_level' => 1,
+      'cat_sublevel' => 1,
+      'cat_custom' => 0,
+      'cover_id' => 70958,
+      'music_download_time' => 1538551188,
+      'music_last_update_time' => 1493135871,
+      'music_title_search' => 'dearext drop',
+      'music_artist_search' => '; tadokoro azuxa;',
+      'music_album_search' => 'dearext drop; xukaxuka opening theme',
+      'music_composer' => 'Q-MHz',
+      'music_album' => 'Dearest Drop (SukaSuka Opening Theme)',
+      'music_listen' => 21117,
+      'music_track_id' => 1,
+      'music_filename' => '1783010-33c28ebe.mp3',
+      'music_bitrate' => 1000,
+      'music_shortlyric' => '01 DEAREST DROP 	
+02 残存エレジー 	
+03 DEAREST DROP (off vocal) 	
+04 残存エレジー (off vocal)
+
+TV Anime &quot;What do you do at the end of the world? Are you busy? Will you save us?&quot; Opening Theme',
+      'music_artist_html' => '<a href="/ca-si/Tadokoro-Azusa~Y3NuX2FydGlzdH41NDYzMg==.html">Tadokoro Azusa</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
   ),
   9 => 
@@ -15308,7 +15724,7 @@ Me wo korashite nozomu soudatsusen ano hi ch...',
       'music_listen' => 19288,
       'music_track_id' => 7,
       'music_filename' => '1760436-18d3c6a8.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => '[Chorus x2]
 Y si tú la ves
 Ve y dile vine a buscar
@@ -15320,6 +15736,7 @@ Necesito de su amor
 Pa\' que sane este dolor
 Pa\' que s...',
       'music_artist_html' => '<a href="/ca-si/Nicky-Jam~Y3NuX2FydGlzdH4xNjAxNw==.html">Nicky Jam</a>, <a href="/ca-si/Wisin~Y3NuX2FydGlzdH45NTk=.html">Wisin</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     1 => 
     array (
@@ -15344,7 +15761,7 @@ Pa\' que s...',
       'music_listen' => 87096,
       'music_track_id' => 22,
       'music_filename' => '1762309-81976425.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Chorus]
 Como tú te llamas, yo no sé
 De donde llegaste, ni pregunté
@@ -15354,6 +15771,7 @@ Quedarme contigo hasta el amanecer.
 Como tú te llamas, yo no sé
 De donde llegaste, ni p...',
       'music_artist_html' => '<a href="/ca-si/Nicky-Jam~Y3NuX2FydGlzdH4xNjAxNw==.html">Nicky Jam</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     2 => 
     array (
@@ -15378,7 +15796,7 @@ De donde llegaste, ni p...',
       'music_listen' => 19663,
       'music_track_id' => 23,
       'music_filename' => '1762310-49034c89.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Chorus: Nicky Jam]
 Como tú te llamas, yo no sé
 De donde llegaste, ni pregunté (we run the world)
@@ -15387,6 +15805,7 @@ Quedarme contigo hasta el amanecer.
 
 (This is the remix)...',
       'music_artist_html' => '<a href="/ca-si/Nicky-Jam~Y3NuX2FydGlzdH4xNjAxNw==.html">Nicky Jam</a>, <a href="/ca-si/Daddy-Yankee~Y3NuX2FydGlzdH40MzM=.html">Daddy Yankee</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     3 => 
     array (
@@ -15411,7 +15830,7 @@ Quedarme contigo hasta el amanecer.
       'music_listen' => 17442,
       'music_track_id' => 11,
       'music_filename' => '1762298-bd85e6f1.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Dicen que ha cambiado mi suerte
 El día que yo te encontré
 Dicen que yo soy un loco
@@ -15423,6 +15842,7 @@ Pero yo nunca juzgaré el tuyo.
 
 Aho...',
       'music_artist_html' => '<a href="/ca-si/Nicky-Jam~Y3NuX2FydGlzdH4xNjAxNw==.html">Nicky Jam</a>, <a href="/ca-si/Cosculluela~Y3NuX2FydGlzdH4xMzUwOA==.html">Cosculluela</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     4 => 
     array (
@@ -15447,7 +15867,7 @@ Aho...',
       'music_listen' => 24793,
       'music_track_id' => 21,
       'music_filename' => '1762308-3104a40d.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Dime si es verdad...
 Me dijeron que te estas casando
 Tú no sabes lo que estoy sufriendo
@@ -15458,6 +15878,7 @@ Tu despedida para mi fue dura
 Será que te llevo a la luna
 Y yo no supe...',
       'music_artist_html' => '<a href="/ca-si/Nicky-Jam~Y3NuX2FydGlzdH4xNjAxNw==.html">Nicky Jam</a>, <a href="/ca-si/Enrique-Iglesias~Y3NuX2FydGlzdH42MDQ=.html">Enrique Iglesias</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     5 => 
     array (
@@ -15482,7 +15903,7 @@ Y yo no supe...',
       'music_listen' => 30357,
       'music_track_id' => 3,
       'music_filename' => '1762290-bc9b229f.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'No sabes cuánto me gustaría
 Tocarte y poderme acercar
 Decirte todo lo que te haría
@@ -15495,6 +15916,7 @@ No pierdas más el tiempo
 Sólo quiero conocerte
 Mientras te voy...',
       'music_artist_html' => '<a href="/ca-si/Nicky-Jam~Y3NuX2FydGlzdH4xNjAxNw==.html">Nicky Jam</a>, <a href="/ca-si/Plan-B~Y3NuX2FydGlzdH45NTMz.html">Plan B</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     6 => 
     array (
@@ -15519,7 +15941,7 @@ Mientras te voy...',
       'music_listen' => 86466,
       'music_track_id' => 7,
       'music_filename' => '1762294-100471f2.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Chorus]
 Y si tú la ves
 Ve y dile vine a buscar
@@ -15532,6 +15954,7 @@ Pa\' que sane este dolor.
 
 Y si tú la...',
       'music_artist_html' => '<a href="/ca-si/Nicky-Jam~Y3NuX2FydGlzdH4xNjAxNw==.html">Nicky Jam</a>, <a href="/ca-si/Wisin~Y3NuX2FydGlzdH45NTk=.html">Wisin</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     7 => 
     array (
@@ -15556,7 +15979,7 @@ Y si tú la...',
       'music_listen' => 20035,
       'music_track_id' => 17,
       'music_filename' => '1762304-a9f8e4b2.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Nicky Jam]
 Tal vez no te vuelva a ver, yo sé
 Y nunca más pueda tenerte
@@ -15568,224 +15991,9 @@ Pero el dolor no se quitará
 Aún siento tu olor
 Que s...',
       'music_artist_html' => '<a href="/ca-si/Nicky-Jam~Y3NuX2FydGlzdH4xNjAxNw==.html">Nicky Jam</a>, <a href="/ca-si/Valentino~Y3NuX2FydGlzdH4yMDY5Mg==.html">Valentino</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     8 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1759949,
-      'music_title_url' => 'am-schlachtfeld~wolfchant',
-      'music_title' => 'Am Schlachtfeld',
-      'music_artist' => 'Wolfchant',
-      'music_artist_id' => '29092',
-      'cat_id' => 9,
-      'cat_level' => 1,
-      'cat_sublevel' => 2,
-      'cat_custom' => 0,
-      'cover_id' => 68134,
-      'music_download_time' => 1504367490,
-      'music_last_update_time' => 1504363941,
-      'music_title_search' => 'am xchlachtfeld',
-      'music_artist_search' => '; wolfchant;',
-      'music_album_search' => 'blodwinter',
-      'music_composer' => '',
-      'music_album' => 'Bloodwinter',
-      'music_listen' => 570,
-      'music_track_id' => 10,
-      'music_filename' => '1759949-7442308f.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
-      'music_shortlyric' => '',
-      'music_artist_html' => '<a href="/ca-si/Wolfchant~Y3NuX2FydGlzdH4yOTA5Mg==.html">Wolfchant</a>',
-    ),
-    9 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1759946,
-      'music_title_url' => 'sehnsucht~wolfchant',
-      'music_title' => 'Sehnsucht',
-      'music_artist' => 'Wolfchant',
-      'music_artist_id' => '29092',
-      'cat_id' => 9,
-      'cat_level' => 1,
-      'cat_sublevel' => 2,
-      'cat_custom' => 0,
-      'cover_id' => 68134,
-      'music_download_time' => 1504367747,
-      'music_last_update_time' => 1504363925,
-      'music_title_search' => 'xehnxucht',
-      'music_artist_search' => '; wolfchant;',
-      'music_album_search' => 'blodwinter',
-      'music_composer' => '',
-      'music_album' => 'Bloodwinter',
-      'music_listen' => 150,
-      'music_track_id' => 7,
-      'music_filename' => '1759946-ac0e8ca1.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
-      'music_shortlyric' => '',
-      'music_artist_html' => '<a href="/ca-si/Wolfchant~Y3NuX2FydGlzdH4yOTA5Mg==.html">Wolfchant</a>',
-    ),
-    10 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1759944,
-      'music_title_url' => 'bloodwinter~wolfchant',
-      'music_title' => 'Bloodwinter',
-      'music_artist' => 'Wolfchant',
-      'music_artist_id' => '29092',
-      'cat_id' => 9,
-      'cat_level' => 1,
-      'cat_sublevel' => 2,
-      'cat_custom' => 0,
-      'cover_id' => 68134,
-      'music_download_time' => 1497004583,
-      'music_last_update_time' => 1504363912,
-      'music_title_search' => 'blodwinter',
-      'music_artist_search' => '; wolfchant;',
-      'music_album_search' => 'blodwinter',
-      'music_composer' => '',
-      'music_album' => 'Bloodwinter',
-      'music_listen' => 368,
-      'music_track_id' => 5,
-      'music_filename' => '1759944-f46e3a7c.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
-      'music_shortlyric' => '',
-      'music_artist_html' => '<a href="/ca-si/Wolfchant~Y3NuX2FydGlzdH4yOTA5Mg==.html">Wolfchant</a>',
-    ),
-    11 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1759940,
-      'music_title_url' => 'nornensang~wolfchant',
-      'music_title' => 'Nornensang',
-      'music_artist' => 'Wolfchant',
-      'music_artist_id' => '29092',
-      'cat_id' => 9,
-      'cat_level' => 1,
-      'cat_sublevel' => 2,
-      'cat_custom' => 0,
-      'cover_id' => 68134,
-      'music_download_time' => 1498331623,
-      'music_last_update_time' => 1504363882,
-      'music_title_search' => 'nornenxang',
-      'music_artist_search' => '; wolfchant;',
-      'music_album_search' => 'blodwinter',
-      'music_composer' => '',
-      'music_album' => 'Bloodwinter',
-      'music_listen' => 291,
-      'music_track_id' => 1,
-      'music_filename' => '1759940-5f738589.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
-      'music_shortlyric' => '',
-      'music_artist_html' => '<a href="/ca-si/Wolfchant~Y3NuX2FydGlzdH4yOTA5Mg==.html">Wolfchant</a>',
-    ),
-    12 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1759943,
-      'music_title_url' => 'das-bollwerk~wolfchant',
-      'music_title' => 'Das Bollwerk',
-      'music_artist' => 'Wolfchant',
-      'music_artist_id' => '29092',
-      'cat_id' => 9,
-      'cat_level' => 1,
-      'cat_sublevel' => 2,
-      'cat_custom' => 0,
-      'cover_id' => 68134,
-      'music_download_time' => 1493832767,
-      'music_last_update_time' => 1504363907,
-      'music_title_search' => 'dax bolwerk',
-      'music_artist_search' => '; wolfchant;',
-      'music_album_search' => 'blodwinter',
-      'music_composer' => '',
-      'music_album' => 'Bloodwinter',
-      'music_listen' => 126,
-      'music_track_id' => 4,
-      'music_filename' => '1759943-5c7067ed.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
-      'music_shortlyric' => '',
-      'music_artist_html' => '<a href="/ca-si/Wolfchant~Y3NuX2FydGlzdH4yOTA5Mg==.html">Wolfchant</a>',
-    ),
-    13 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1759941,
-      'music_title_url' => 'schicksalsmacht~wolfchant',
-      'music_title' => 'Schicksalsmacht',
-      'music_artist' => 'Wolfchant',
-      'music_artist_id' => '29092',
-      'cat_id' => 9,
-      'cat_level' => 1,
-      'cat_sublevel' => 2,
-      'cat_custom' => 0,
-      'cover_id' => 68134,
-      'music_download_time' => 1498312393,
-      'music_last_update_time' => 1504363889,
-      'music_title_search' => 'xchickxalxmacht',
-      'music_artist_search' => '; wolfchant;',
-      'music_album_search' => 'blodwinter',
-      'music_composer' => '',
-      'music_album' => 'Bloodwinter',
-      'music_listen' => 542,
-      'music_track_id' => 2,
-      'music_filename' => '1759941-1cdaaada.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
-      'music_shortlyric' => '',
-      'music_artist_html' => '<a href="/ca-si/Wolfchant~Y3NuX2FydGlzdH4yOTA5Mg==.html">Wolfchant</a>',
-    ),
-    14 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1759942,
-      'music_title_url' => 'wolfchant-a-wolf-to-man~wolfchant',
-      'music_title' => 'Wolfchant (A Wolf To Man)',
-      'music_artist' => 'Wolfchant',
-      'music_artist_id' => '29092',
-      'cat_id' => 9,
-      'cat_level' => 1,
-      'cat_sublevel' => 2,
-      'cat_custom' => 0,
-      'cover_id' => 68134,
-      'music_download_time' => 1498360753,
-      'music_last_update_time' => 1504363896,
-      'music_title_search' => 'wolfchant; a wolf to man',
-      'music_artist_search' => '; wolfchant;',
-      'music_album_search' => 'blodwinter',
-      'music_composer' => '',
-      'music_album' => 'Bloodwinter',
-      'music_listen' => 212,
-      'music_track_id' => 3,
-      'music_filename' => '1759942-d2bf77ef.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
-      'music_shortlyric' => '',
-      'music_artist_html' => '<a href="/ca-si/Wolfchant~Y3NuX2FydGlzdH4yOTA5Mg==.html">Wolfchant</a>',
-    ),
-    15 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1761478,
-      'music_title_url' => 'gece-glgenin-rahatna-bak~aatay-akman',
-      'music_title' => 'Gece Gölgenin Rahatına Bak',
-      'music_artist' => 'Çağatay Akman',
-      'music_artist_id' => '94038',
-      'cat_id' => 9,
-      'cat_level' => 1,
-      'cat_sublevel' => 11,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1492826995,
-      'music_last_update_time' => 1490791463,
-      'music_title_search' => 'gece gölgenin rahatına bak',
-      'music_artist_search' => '; Çağatai akman;',
-      'music_album_search' => '',
-      'music_composer' => 'Çağatay Akman',
-      'music_album' => '',
-      'music_listen' => 573,
-      'music_track_id' => 0,
-      'music_filename' => '1761478-a0ffe0e3.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
-      'music_shortlyric' => '',
-      'music_artist_html' => '<a href="/ca-si/aatay-Akman~Y3NuX2FydGlzdH45NDAzOA==.html">Çağatay Akman</a>',
-    ),
-    16 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1760427,
@@ -15808,7 +16016,7 @@ Que s...',
       'music_listen' => 3015,
       'music_track_id' => 1,
       'music_filename' => '1760427-d5801b9c.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => '[Verse 1:]
 Yo sé que ya estás con otro
 Y que no quieres a este loco
@@ -15817,8 +16025,9 @@ Y también sé que diste todo
 Pero me sale por los poros
 Este amor que estoy sintiendo y much...',
       'music_artist_html' => '<a href="/ca-si/Nicky-Jam~Y3NuX2FydGlzdH4xNjAxNw==.html">Nicky Jam</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
-    17 => 
+    9 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1760431,
@@ -15841,7 +16050,7 @@ Este amor que estoy sintiendo y much...',
       'music_listen' => 3826,
       'music_track_id' => 12,
       'music_filename' => '1760431-74500cac.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => '[Chorus x2]
 Mami, si ese man no te corresponde
 Tranquila, me llamas y yo soy tu hombre
@@ -15852,8 +16061,9 @@ Sigo esperando, sólo dime dónde.
 D.Y
 Para visitarte...',
       'music_artist_html' => '<a href="/ca-si/Nicky-Jam~Y3NuX2FydGlzdH4xNjAxNw==.html">Nicky Jam</a>, <a href="/ca-si/Daddy-Yankee~Y3NuX2FydGlzdH40MzM=.html">Daddy Yankee</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
-    18 => 
+    10 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1760430,
@@ -15876,7 +16086,7 @@ Para visitarte...',
       'music_listen' => 3457,
       'music_track_id' => 4,
       'music_filename' => '1760430-c04b8a1c.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => 'Du-Dutty eh
 Siridirili dirili woh
 Bara bang bang bang bang, baby girl
@@ -15890,8 +16100,9 @@ Girl like you [?] eye and eye
 This love couldn\'t never ever die, yayai
 Nic...',
       'music_artist_html' => '<a href="/ca-si/Nicky-Jam~Y3NuX2FydGlzdH4xNjAxNw==.html">Nicky Jam</a>, <a href="/ca-si/Sean-Paul~Y3NuX2FydGlzdH4yNTc=.html">Sean Paul</a>, <a href="/ca-si/Konshens~Y3NuX2FydGlzdH4yMDAyNA==.html">Konshens</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
-    19 => 
+    11 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1761941,
@@ -15914,7 +16125,7 @@ Nic...',
       'music_listen' => 12098,
       'music_track_id' => 1,
       'music_filename' => '1761941-b7c39bf3.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">267kbps</span>',
+      'music_bitrate' => 267,
       'music_shortlyric' => '[Intro:]
 Pa\'dentro.
 
@@ -15927,6 +16138,294 @@ El culpable fui yo por querer tu amor.
 [Pre-Chorus:]
 Si yo...',
       'music_artist_html' => '<a href="/ca-si/Juanes~Y3NuX2FydGlzdH41MjI4.html">Juanes</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">267kbps</span>',
+    ),
+    12 => 
+    array (
+      'music_downloads_today' => 1,
+      'music_id' => 1760432,
+      'music_title_url' => 'superheroe~nicky-jam-j-balvin',
+      'music_title' => 'Superheroe',
+      'music_artist' => 'Nicky Jam;J Balvin',
+      'music_artist_id' => '16017;13436',
+      'cat_id' => 9,
+      'cat_level' => 1,
+      'cat_sublevel' => 1,
+      'cat_custom' => 0,
+      'cover_id' => 68172,
+      'music_download_time' => 1532775630,
+      'music_last_update_time' => 1528701438,
+      'music_title_search' => 'xuperheroe',
+      'music_artist_search' => '; nicki jam; j balvin;',
+      'music_album_search' => 'fenix; album',
+      'music_composer' => '',
+      'music_album' => 'Fénix (Album)',
+      'music_listen' => 11151,
+      'music_track_id' => 6,
+      'music_filename' => '1760432-2807c789.mp3',
+      'music_bitrate' => 320,
+      'music_shortlyric' => '(Dice, dice
+Leggo)
+
+[Intro: Nicky Jam]
+Tú sabes claramente lo que puede pasar
+Si alguno de los villanos se te quiere acercar
+Que la cojan suave, que ellos no saben
+Las locuras que tú y yo hacemos e...',
+      'music_artist_html' => '<a href="/ca-si/Nicky-Jam~Y3NuX2FydGlzdH4xNjAxNw==.html">Nicky Jam</a>, <a href="/ca-si/J-Balvin~Y3NuX2FydGlzdH4xMzQzNg==.html">J Balvin</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+    ),
+    13 => 
+    array (
+      'music_downloads_today' => 1,
+      'music_id' => 1760433,
+      'music_title_url' => 'mi-maldicion~nicky-jam-cosculluela',
+      'music_title' => 'Mi Maldición',
+      'music_artist' => 'Nicky Jam;Cosculluela',
+      'music_artist_id' => '16017;13508',
+      'cat_id' => 9,
+      'cat_level' => 1,
+      'cat_sublevel' => 1,
+      'cat_custom' => 0,
+      'cover_id' => 68172,
+      'music_download_time' => 1538336650,
+      'music_last_update_time' => 1528701474,
+      'music_title_search' => 'mi maldicion',
+      'music_artist_search' => '; nicki jam; coxculuela;',
+      'music_album_search' => 'fenix; album',
+      'music_composer' => '',
+      'music_album' => 'Fénix (Album)',
+      'music_listen' => 4924,
+      'music_track_id' => 11,
+      'music_filename' => '1760433-636e354d.mp3',
+      'music_bitrate' => 320,
+      'music_shortlyric' => 'Dicen que ha cambiado mi suerte
+El día que yo te encontré
+Dicen que yo soy un loco
+Pero no les doy la razón.
+
+Yo hice mucho en mi pasado
+Y todo el mundo me juzgó
+Pero yo nunca juzgaré el tuyo.
+
+Aho...',
+      'music_artist_html' => '<a href="/ca-si/Nicky-Jam~Y3NuX2FydGlzdH4xNjAxNw==.html">Nicky Jam</a>, <a href="/ca-si/Cosculluela~Y3NuX2FydGlzdH4xMzUwOA==.html">Cosculluela</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+    ),
+    14 => 
+    array (
+      'music_downloads_today' => 1,
+      'music_id' => 1760434,
+      'music_title_url' => 'estrella~nicky-jam',
+      'music_title' => 'Estrella',
+      'music_artist' => 'Nicky Jam',
+      'music_artist_id' => '16017',
+      'cat_id' => 9,
+      'cat_level' => 1,
+      'cat_sublevel' => 1,
+      'cat_custom' => 0,
+      'cover_id' => 68172,
+      'music_download_time' => 1531944503,
+      'music_last_update_time' => 1528701824,
+      'music_title_search' => 'exchela',
+      'music_artist_search' => '; nicki jam;',
+      'music_album_search' => 'fenix; album',
+      'music_composer' => 'Nicky Jam; Jorge Luis Romero &quot;Rome&quot;; Urbani Mota; Juan Diego Medina Vélez',
+      'music_album' => 'Fénix (Album)',
+      'music_listen' => 7450,
+      'music_track_id' => 2,
+      'music_filename' => '1760434-f4394332.mp3',
+      'music_bitrate' => 320,
+      'music_shortlyric' => 'Ser un cantante, ir a viajar
+Dinero y fama, sin ti no es na
+Mil mujeres me buscarán
+Pero te amo y nadie ocupa tu lugar.
+
+Contigo es que me siento bien
+No importa qué deba enfrentar
+Si tú quieres un...',
+      'music_artist_html' => '<a href="/ca-si/Nicky-Jam~Y3NuX2FydGlzdH4xNjAxNw==.html">Nicky Jam</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+    ),
+    15 => 
+    array (
+      'music_downloads_today' => 1,
+      'music_id' => 1760435,
+      'music_title_url' => 'cuando-quieras~nicky-jam-valentino',
+      'music_title' => 'Cuando Quieras',
+      'music_artist' => 'Nicky Jam;Valentino',
+      'music_artist_id' => '16017;20692',
+      'cat_id' => 9,
+      'cat_level' => 1,
+      'cat_sublevel' => 1,
+      'cat_custom' => 0,
+      'cover_id' => 68172,
+      'music_download_time' => 1532202308,
+      'music_last_update_time' => 1528701506,
+      'music_title_search' => 'cuando quirax',
+      'music_artist_search' => '; nicki jam; valentino;',
+      'music_album_search' => 'fenix; album',
+      'music_composer' => '',
+      'music_album' => 'Fénix (Album)',
+      'music_listen' => 4127,
+      'music_track_id' => 17,
+      'music_filename' => '1760435-665ebec2.mp3',
+      'music_bitrate' => 320,
+      'music_shortlyric' => '[Nicky Jam]
+Tal vez no te vuelva a ver, yo sé
+Y nunca más pueda tenerte
+Yo buscaré entre la gente
+A ver si encuentro a alguien más.
+
+[Valentino]
+Pero el dolor no se quitará
+Aún siento tu olor
+Que s...',
+      'music_artist_html' => '<a href="/ca-si/Nicky-Jam~Y3NuX2FydGlzdH4xNjAxNw==.html">Nicky Jam</a>, <a href="/ca-si/Valentino~Y3NuX2FydGlzdH4yMDY5Mg==.html">Valentino</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+    ),
+    16 => 
+    array (
+      'music_downloads_today' => 1,
+      'music_id' => 1762288,
+      'music_title_url' => 'el-ganador~nicky-jam',
+      'music_title' => 'El Ganador',
+      'music_artist' => 'Nicky Jam',
+      'music_artist_id' => '16017',
+      'cat_id' => 9,
+      'cat_level' => 1,
+      'cat_sublevel' => 1,
+      'cat_custom' => 0,
+      'cover_id' => 68421,
+      'music_download_time' => 1537117016,
+      'music_last_update_time' => 1487667031,
+      'music_title_search' => 'el ganador',
+      'music_artist_search' => '; nicki jam;',
+      'music_album_search' => 'fenix',
+      'music_composer' => 'Nicky Jam; Juan Diego Medina Vélez; Johnattan Gaviria; Yhoan Manuel Jiméne',
+      'music_album' => 'Fénix',
+      'music_listen' => 24641,
+      'music_track_id' => 1,
+      'music_filename' => '1762288-7755badb.mp3',
+      'music_bitrate' => 1000,
+      'music_shortlyric' => 'Yeah!
+Parece un sueño, un Lambo y un Grammy
+Cinco casas en Colombia, otra más en PR
+Y tengo mansión en Miami.
+
+La música mía tomando el planeta
+Con fuerza de tsunami
+Ahora me llaman, me tiran DM
+To...',
+      'music_artist_html' => '<a href="/ca-si/Nicky-Jam~Y3NuX2FydGlzdH4xNjAxNw==.html">Nicky Jam</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+    ),
+    17 => 
+    array (
+      'music_downloads_today' => 1,
+      'music_id' => 1762289,
+      'music_title_url' => 'estrella~nicky-jam',
+      'music_title' => 'Estrella',
+      'music_artist' => 'Nicky Jam',
+      'music_artist_id' => '16017',
+      'cat_id' => 9,
+      'cat_level' => 1,
+      'cat_sublevel' => 1,
+      'cat_custom' => 0,
+      'cover_id' => 68421,
+      'music_download_time' => 1537820743,
+      'music_last_update_time' => 1487667034,
+      'music_title_search' => 'exchela',
+      'music_artist_search' => '; nicki jam;',
+      'music_album_search' => 'fenix',
+      'music_composer' => 'Nicky Jam; Jorge Luis Romero &quot;Rome&quot;; Urbani Mota; Juan Diego Medina Vélez',
+      'music_album' => 'Fénix',
+      'music_listen' => 31645,
+      'music_track_id' => 2,
+      'music_filename' => '1762289-71ca1d00.mp3',
+      'music_bitrate' => 1000,
+      'music_shortlyric' => 'Ser un cantante, ir a viajar
+Dinero y fama, sin ti no es na
+Mil mujeres me buscarán
+Pero te amo y nadie ocupa tu lugar.
+
+Contigo es que me siento bien
+No importa qué deba enfrentar
+Si tú quieres un...',
+      'music_artist_html' => '<a href="/ca-si/Nicky-Jam~Y3NuX2FydGlzdH4xNjAxNw==.html">Nicky Jam</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+    ),
+    18 => 
+    array (
+      'music_downloads_today' => 1,
+      'music_id' => 1762295,
+      'music_title_url' => 'no-te-puedo-olvidar~nicky-jam',
+      'music_title' => 'No Te Puedo Olvidar',
+      'music_artist' => 'Nicky Jam',
+      'music_artist_id' => '16017',
+      'cat_id' => 9,
+      'cat_level' => 1,
+      'cat_sublevel' => 1,
+      'cat_custom' => 0,
+      'cover_id' => 68421,
+      'music_download_time' => 1536448779,
+      'music_last_update_time' => 1487667044,
+      'music_title_search' => 'no te puedo olvidar',
+      'music_artist_search' => '; nicki jam;',
+      'music_album_search' => 'fenix',
+      'music_composer' => 'Nicky Jam; Dwayne Chin-quee; Juan Diego Medina Vélez',
+      'music_album' => 'Fénix',
+      'music_listen' => 10174,
+      'music_track_id' => 8,
+      'music_filename' => '1762295-63f83b92.mp3',
+      'music_bitrate' => 1000,
+      'music_shortlyric' => 'Yo sé que ya estás con otro
+Y que no quieres a este loco
+Y soy culpable de esta triste soledad
+Y también sé que diste todo
+Pero me sale por los poros
+Este amor que estoy sintiendo y mucho más.
+
+Si...',
+      'music_artist_html' => '<a href="/ca-si/Nicky-Jam~Y3NuX2FydGlzdH4xNjAxNw==.html">Nicky Jam</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+    ),
+    19 => 
+    array (
+      'music_downloads_today' => 1,
+      'music_id' => 1762296,
+      'music_title_url' => 'nadie-como-tu~nicky-jam-el-alfa',
+      'music_title' => 'Nadie Como Tu',
+      'music_artist' => 'Nicky Jam;El Alfa',
+      'music_artist_id' => '16017;94120',
+      'cat_id' => 9,
+      'cat_level' => 1,
+      'cat_sublevel' => 1,
+      'cat_custom' => 0,
+      'cover_id' => 68421,
+      'music_download_time' => 1537561944,
+      'music_last_update_time' => 1487749185,
+      'music_title_search' => 'nadi como tu',
+      'music_artist_search' => '; nicki jam; el alfa;',
+      'music_album_search' => 'fenix',
+      'music_composer' => 'Nicky Jam; Juan Diego Medina Vélez; El alfa',
+      'music_album' => 'Fénix',
+      'music_listen' => 9185,
+      'music_track_id' => 9,
+      'music_filename' => '1762296-ff505f0b.mp3',
+      'music_bitrate' => 1000,
+      'music_shortlyric' => '[Intro: Nicky Jam]
+Yo no puedo olvidarme de ti
+De tu cara y tu figura
+Mami, yo te monto la pura
+Como tú no hay ninguna.
+
+[Estribillo]
+Nadie como tú, tú, tú
+Te juro como tú, tú, tú
+Te pienso, te ext...',
+      'music_artist_html' => '<a href="/ca-si/Nicky-Jam~Y3NuX2FydGlzdH4xNjAxNw==.html">Nicky Jam</a>, <a href="/ca-si/El-Alfa~Y3NuX2FydGlzdH45NDEyMA==.html">El Alfa</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     20 => 
     array (
@@ -15951,7 +16450,7 @@ Si yo...',
       'music_listen' => 121914,
       'music_track_id' => 6,
       'music_filename' => '1768819-68d791d4.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Ayayayayayayai
 Ayayayayayayai.
 
@@ -15963,6 +16462,7 @@ Una historia repetida
 Solamente un déjà vu
 Que nun...',
       'music_artist_html' => '<a href="/ca-si/Prince-Royce~Y3NuX2FydGlzdH4xNTYxMA==.html">Prince Royce</a>, <a href="/ca-si/Shakira~Y3NuX2FydGlzdH4xMTI=.html">Shakira</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     21 => 
     array (
@@ -15987,7 +16487,7 @@ Que nun...',
       'music_listen' => 23547,
       'music_track_id' => 1,
       'music_filename' => '1764644-7c4b93d5.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => 'Empieza la emoción
 Noble como un león
 Hoy sentirás, recordarás
@@ -16000,6 +16500,7 @@ Amarrada por mi calma
 Mi calma eres tú
 Co...',
       'music_artist_html' => '<a href="/ca-si/Alvaro-Soler~Y3NuX2FydGlzdH4yMzE4NQ==.html">Alvaro Soler</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     22 => 
     array (
@@ -16024,7 +16525,7 @@ Co...',
       'music_listen' => 11846,
       'music_track_id' => 12,
       'music_filename' => '1768825-cde5d6e5.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Arturo Sandoval
 Gente de Zona
 Prince Royce.
@@ -16037,6 +16538,7 @@ Voy a conquistarte.
 
 Y tú despiertas mis gan...',
       'music_artist_html' => '<a href="/ca-si/Prince-Royce~Y3NuX2FydGlzdH4xNTYxMA==.html">Prince Royce</a>, <a href="/ca-si/Gente-De-Zona~Y3NuX2FydGlzdH4xMzM2OA==.html">Gente De Zona</a>, <a href="/ca-si/Arturo-Sandoval~Y3NuX2FydGlzdH4xNjYyNQ==.html">Arturo Sandoval</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     23 => 
     array (
@@ -16061,7 +16563,7 @@ Y tú despiertas mis gan...',
       'music_listen' => 6556,
       'music_track_id' => 17,
       'music_filename' => '1768830-b3c16f72.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Mírame aunque tú ya no me quieras mirar
 Si todavía un poco queda de ese amor
 Que me tenías, niña linda
@@ -16069,6 +16571,7 @@ Dame un chance tú me tienes que escuchar
 Y yo entiendo que no me quieres perdonar
 Pero al meno...',
       'music_artist_html' => '<a href="/ca-si/Prince-Royce~Y3NuX2FydGlzdH4xNTYxMA==.html">Prince Royce</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     24 => 
     array (
@@ -16093,7 +16596,7 @@ Pero al meno...',
       'music_listen' => 5410,
       'music_track_id' => 18,
       'music_filename' => '1768831-827ca44c.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Después que jugaste con mi corazón
 Y echaste hacia un lado esta relación
 Ahora esta pensando en tu situación.
@@ -16102,6 +16605,7 @@ Y ahora quieres venir con una explicación
 Pero yo no estoy para esa ocasión
 Mataste to...',
       'music_artist_html' => '<a href="/ca-si/Prince-Royce~Y3NuX2FydGlzdH4xNTYxMA==.html">Prince Royce</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     25 => 
     array (
@@ -16126,7 +16630,7 @@ Mataste to...',
       'music_listen' => 16960,
       'music_track_id' => 2,
       'music_filename' => '1768815-f1017689.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '¿Qué culpa tengo yo mi amor
 De enamorarme de ti?
 De pasarme tantas noches
@@ -16137,6 +16641,7 @@ Te confirmo que es así
 Es el brillo de tus ojos, mami
 Lo que me pone...',
       'music_artist_html' => '<a href="/ca-si/Prince-Royce~Y3NuX2FydGlzdH4xNTYxMA==.html">Prince Royce</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     26 => 
     array (
@@ -16161,7 +16666,7 @@ Lo que me pone...',
       'music_listen' => 8331,
       'music_track_id' => 7,
       'music_filename' => '1768820-f70681d5.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Arriba las manos
 Entrégame todo
 No vas a escaparte
@@ -16172,6 +16677,7 @@ Y no digas nada
 Ten mucho cuidado
 No bajes las manos que hoy vengo a...',
       'music_artist_html' => '<a href="/ca-si/Prince-Royce~Y3NuX2FydGlzdH4xNTYxMA==.html">Prince Royce</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     27 => 
     array (
@@ -16196,7 +16702,7 @@ No bajes las manos que hoy vengo a...',
       'music_listen' => 24712,
       'music_track_id' => 5,
       'music_filename' => '1768818-cdf2a7fb.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Bastó con una palabra
 Se apagaron mis sentidos
 Como por arte de magia
@@ -16206,8 +16712,65 @@ Y ya no pude hacer nada
 Pisé en el lugar preciso
 Para cambiar mi vida de una vez sin...',
       'music_artist_html' => '<a href="/ca-si/Prince-Royce~Y3NuX2FydGlzdH4xNTYxMA==.html">Prince Royce</a>, <a href="/ca-si/Farruko~Y3NuX2FydGlzdH4yMDAxMA==.html">Farruko</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     28 => 
+    array (
+      'music_downloads_today' => 1,
+      'music_id' => 1762749,
+      'music_title_url' => 'love-story',
+      'music_title' => 'Love Story',
+      'music_artist' => 'Пророчество Вёльвы',
+      'music_artist_id' => '36794',
+      'cat_id' => 9,
+      'cat_level' => 1,
+      'cat_sublevel' => 2,
+      'cat_custom' => 0,
+      'cover_id' => 68469,
+      'music_download_time' => 1512546098,
+      'music_last_update_time' => 1508322455,
+      'music_title_search' => 'love xtori',
+      'music_artist_search' => '; Пророчество Вёльвы;',
+      'music_album_search' => 'nordic xaga',
+      'music_composer' => '',
+      'music_album' => 'Nordic Saga',
+      'music_listen' => 923,
+      'music_track_id' => 5,
+      'music_filename' => '1762749-7d303962.mp3',
+      'music_bitrate' => 320,
+      'music_shortlyric' => '',
+      'music_artist_html' => '<a href="/ca-si/~Y3NuX2FydGlzdH4zNjc5NA==.html">Пророчество Вёльвы</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+    ),
+    29 => 
+    array (
+      'music_downloads_today' => 1,
+      'music_id' => 1762751,
+      'music_title_url' => 'bowls-to-the-bottom',
+      'music_title' => 'Bowls To The Bottom',
+      'music_artist' => 'Пророчество Вёльвы',
+      'music_artist_id' => '36794',
+      'cat_id' => 9,
+      'cat_level' => 1,
+      'cat_sublevel' => 2,
+      'cat_custom' => 0,
+      'cover_id' => 68469,
+      'music_download_time' => 1512573563,
+      'music_last_update_time' => 1508322468,
+      'music_title_search' => 'bowlx to the botom',
+      'music_artist_search' => '; Пророчество Вёльвы;',
+      'music_album_search' => 'nordic xaga',
+      'music_composer' => '',
+      'music_album' => 'Nordic Saga',
+      'music_listen' => 433,
+      'music_track_id' => 7,
+      'music_filename' => '1762751-70ececfe.mp3',
+      'music_bitrate' => 320,
+      'music_shortlyric' => '',
+      'music_artist_html' => '<a href="/ca-si/~Y3NuX2FydGlzdH4zNjc5NA==.html">Пророчество Вёльвы</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+    ),
+    30 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1768828,
@@ -16230,7 +16793,7 @@ Para cambiar mi vida de una vez sin...',
       'music_listen' => 6322,
       'music_track_id' => 15,
       'music_filename' => '1768828-303c2b3c.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Ya ves, no es cierto
 Por más que te creías nadie muere por amor
 Me cansé, no pierdo mi tiempo
@@ -16239,8 +16802,9 @@ No soy aquel ingenuo que en tus labios se perdió.
 Tiras la piedra, escondes la mano
 Siempre te haces l...',
       'music_artist_html' => '<a href="/ca-si/Prince-Royce~Y3NuX2FydGlzdH4xNTYxMA==.html">Prince Royce</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    29 => 
+    31 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1768822,
@@ -16263,7 +16827,7 @@ Siempre te haces l...',
       'music_listen' => 10455,
       'music_track_id' => 9,
       'music_filename' => '1768822-45e829a7.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Sabes bien que lo nuestro no puede ser
 Que esto es más que una fantasía
 Espero que lo puedas entender.
@@ -16273,8 +16837,9 @@ Que borras cuando te escribo
 Tus negras guardado en tu pecho
 No quie...',
       'music_artist_html' => '<a href="/ca-si/Prince-Royce~Y3NuX2FydGlzdH4xNTYxMA==.html">Prince Royce</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    30 => 
+    32 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1768827,
@@ -16297,7 +16862,7 @@ No quie...',
       'music_listen' => 4035,
       'music_track_id' => 14,
       'music_filename' => '1768827-d997f083.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Royce!
 
 Cada madrugada acariciando tu piel
@@ -16309,8 +16874,37 @@ Ay, mami, si te encantaba
 Cuando tu me llamabas
 A las...',
       'music_artist_html' => '<a href="/ca-si/Prince-Royce~Y3NuX2FydGlzdH4xNTYxMA==.html">Prince Royce</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    31 => 
+    33 => 
+    array (
+      'music_downloads_today' => 1,
+      'music_id' => 1762746,
+      'music_title_url' => 'wolves-of-odin',
+      'music_title' => 'Wolves of Odin',
+      'music_artist' => 'Пророчество Вёльвы',
+      'music_artist_id' => '36794',
+      'cat_id' => 9,
+      'cat_level' => 1,
+      'cat_sublevel' => 2,
+      'cat_custom' => 0,
+      'cover_id' => 68469,
+      'music_download_time' => 1512501476,
+      'music_last_update_time' => 1508322442,
+      'music_title_search' => 'wolvex of odin',
+      'music_artist_search' => '; Пророчество Вёльвы;',
+      'music_album_search' => 'nordic xaga',
+      'music_composer' => '',
+      'music_album' => 'Nordic Saga',
+      'music_listen' => 1304,
+      'music_track_id' => 2,
+      'music_filename' => '1762746-fd243b97.mp3',
+      'music_bitrate' => 320,
+      'music_shortlyric' => '',
+      'music_artist_html' => '<a href="/ca-si/~Y3NuX2FydGlzdH4zNjc5NA==.html">Пророчество Вёльвы</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+    ),
+    34 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1768823,
@@ -16333,7 +16927,7 @@ A las...',
       'music_listen' => 12801,
       'music_track_id' => 10,
       'music_filename' => '1768823-54a7c1bc.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '¡Llora, guitarra!
 Sentimiento.
 
@@ -16344,35 +16938,37 @@ Acordamos alejarnos por un tiempo
 Y poner en pausa el amor, el sentimiento
 Para ver quién podría resistirse a los r...',
       'music_artist_html' => '<a href="/ca-si/Prince-Royce~Y3NuX2FydGlzdH4xNTYxMA==.html">Prince Royce</a>, <a href="/ca-si/Gerardo-Ortiz~Y3NuX2FydGlzdH45NDkwNw==.html">Gerardo Ortiz</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    32 => 
+    35 => 
     array (
       'music_downloads_today' => 1,
-      'music_id' => 1763237,
-      'music_title_url' => 'q3-dj-q-connection~various-artists',
-      'music_title' => 'Q3 - DJ Q Connection',
-      'music_artist' => 'Various Artists',
-      'music_artist_id' => '97',
+      'music_id' => 1762745,
+      'music_title_url' => 'auspex',
+      'music_title' => 'Auspex',
+      'music_artist' => 'Пророчество Вёльвы',
+      'music_artist_id' => '36794',
       'cat_id' => 9,
-      'cat_level' => 3,
-      'cat_sublevel' => 4,
-      'cat_custom' => 2,
-      'cover_id' => 68515,
-      'music_download_time' => 1513162020,
-      'music_last_update_time' => 1486809267,
-      'music_title_search' => 'q3; dj q conection',
-      'music_artist_search' => '; varioux artixtx;',
-      'music_album_search' => 'conection',
-      'music_composer' => 'Various Artists',
-      'music_album' => 'Connection',
-      'music_listen' => 485,
-      'music_track_id' => 8,
-      'music_filename' => '1763237-d9d1adfa.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
-      'music_shortlyric' => 'Loading...',
-      'music_artist_html' => '<a href="/ca-si/Various-Artists~Y3NuX2FydGlzdH45Nw==.html">Various Artists</a>',
+      'cat_level' => 1,
+      'cat_sublevel' => 2,
+      'cat_custom' => 0,
+      'cover_id' => 68469,
+      'music_download_time' => 1512705821,
+      'music_last_update_time' => 1508322421,
+      'music_title_search' => 'auxpex',
+      'music_artist_search' => '; Пророчество Вёльвы;',
+      'music_album_search' => 'nordic xaga',
+      'music_composer' => '',
+      'music_album' => 'Nordic Saga',
+      'music_listen' => 1011,
+      'music_track_id' => 1,
+      'music_filename' => '1762745-195ff550.mp3',
+      'music_bitrate' => 320,
+      'music_shortlyric' => '',
+      'music_artist_html' => '<a href="/ca-si/~Y3NuX2FydGlzdH4zNjc5NA==.html">Пророчество Вёльвы</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
-    33 => 
+    36 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1764300,
@@ -16395,7 +16991,7 @@ Para ver quién podría resistirse a los r...',
       'music_listen' => 1788,
       'music_track_id' => 2,
       'music_filename' => '1764300-357f1da8.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
+      'music_bitrate' => 192,
       'music_shortlyric' => 'นื้อเพลง: ขอบคุณ
 ศิลปิน: โตโน่ ภาคิน &amp; The Dust
 อัลบั้ม: เพลงประกอบละคร บัลลังก์ดอกไม้
@@ -16404,8 +17000,9 @@ Para ver quién podría resistirse a los r...',
 จะดีจะเลวได้ซักแค่ไหน เหมือนเป็นได้แค่ตัวปัญหา
 จะมีใครใส่ใจตัว...',
       'music_artist_html' => '<a href="/ca-si/Tono~Y3NuX2FydGlzdH45NDMzMA==.html">Tono</a>, <a href="/ca-si/The-Dust~Y3NuX2FydGlzdH40MTI4Mw==.html">The Dust</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
     ),
-    34 => 
+    37 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1764304,
@@ -16428,11 +17025,12 @@ Para ver quién podría resistirse a los r...',
       'music_listen' => 5560,
       'music_track_id' => 2,
       'music_filename' => '1764304-a27e784f.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/One-Wanwan~Y3NuX2FydGlzdH45NDMzMg==.html">One Wanwan</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    35 => 
+    38 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1764441,
@@ -16455,7 +17053,7 @@ Para ver quién podría resistirse a los r...',
       'music_listen' => 44335,
       'music_track_id' => 1,
       'music_filename' => '1764441-55ceb422.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">271kbps</span>',
+      'music_bitrate' => 271,
       'music_shortlyric' => '[Intro:]
 Alguien robó (Alguien robó)
 Es un junte histórico
@@ -16469,114 +17067,42 @@ Dime si te dio lo que no te di
 Dime cómo fue que te enamoro
 Dime si...',
       'music_artist_html' => '<a href="/ca-si/Sebastian-Yatra~Y3NuX2FydGlzdH4xNDUxNw==.html">Sebastián Yatra</a>, <a href="/ca-si/Wisin~Y3NuX2FydGlzdH45NTk=.html">Wisin</a>, <a href="/ca-si/Nacho~Y3NuX2FydGlzdH4xNTA5Mw==.html">Nacho</a>',
-    ),
-    36 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1763435,
-      'music_title_url' => 'maldito-entre-tinieblas~aphangak',
-      'music_title' => 'Maldito Entre Tinieblas',
-      'music_artist' => 'Aphangak',
-      'music_artist_id' => '94229',
-      'cat_id' => 9,
-      'cat_level' => 1,
-      'cat_sublevel' => 2,
-      'cat_custom' => 0,
-      'cover_id' => 68545,
-      'music_download_time' => 1494353991,
-      'music_last_update_time' => 1486973786,
-      'music_title_search' => 'maldito enche tiniblax',
-      'music_artist_search' => '; aphangak;',
-      'music_album_search' => 'en el vale de lagrimax negrax',
-      'music_composer' => '',
-      'music_album' => 'En El Valle De Lagrimas Negras',
-      'music_listen' => 486,
-      'music_track_id' => 1,
-      'music_filename' => '1763435-3962ee1f.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
-      'music_shortlyric' => '',
-      'music_artist_html' => '<a href="/ca-si/Aphangak~Y3NuX2FydGlzdH45NDIyOQ==.html">Aphangak</a>',
-    ),
-    37 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1763436,
-      'music_title_url' => 'oculta-abominacion~aphangak',
-      'music_title' => 'Oculta Abominacion',
-      'music_artist' => 'Aphangak',
-      'music_artist_id' => '94229',
-      'cat_id' => 9,
-      'cat_level' => 1,
-      'cat_sublevel' => 2,
-      'cat_custom' => 0,
-      'cover_id' => 68545,
-      'music_download_time' => 1494353941,
-      'music_last_update_time' => 1486973807,
-      'music_title_search' => 'oculta abominacion',
-      'music_artist_search' => '; aphangak;',
-      'music_album_search' => 'en el vale de lagrimax negrax',
-      'music_composer' => '',
-      'music_album' => 'En El Valle De Lagrimas Negras',
-      'music_listen' => 178,
-      'music_track_id' => 2,
-      'music_filename' => '1763436-a52cc7db.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
-      'music_shortlyric' => '',
-      'music_artist_html' => '<a href="/ca-si/Aphangak~Y3NuX2FydGlzdH45NDIyOQ==.html">Aphangak</a>',
-    ),
-    38 => 
-    array (
-      'music_downloads_today' => 0,
-      'music_id' => 1763437,
-      'music_title_url' => 'en-el-valle-de-las-lagrimas-negra~aphangak',
-      'music_title' => 'En El Valle De Las Lágrimas Negra',
-      'music_artist' => 'Aphangak',
-      'music_artist_id' => '94229',
-      'cat_id' => 9,
-      'cat_level' => 1,
-      'cat_sublevel' => 2,
-      'cat_custom' => 0,
-      'cover_id' => 68545,
-      'music_download_time' => 0,
-      'music_last_update_time' => 1486973822,
-      'music_title_search' => 'en el vale de lax lagrimax negra',
-      'music_artist_search' => '; aphangak;',
-      'music_album_search' => 'en el vale de lagrimax negrax',
-      'music_composer' => '',
-      'music_album' => 'En El Valle De Lagrimas Negras',
-      'music_listen' => 404,
-      'music_track_id' => 3,
-      'music_filename' => '1763437-74304944.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
-      'music_shortlyric' => '',
-      'music_artist_html' => '<a href="/ca-si/Aphangak~Y3NuX2FydGlzdH45NDIyOQ==.html">Aphangak</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">271kbps</span>',
     ),
     39 => 
     array (
-      'music_downloads_today' => 0,
-      'music_id' => 1763438,
-      'music_title_url' => 'de-barro-y-fuego~aphangak',
-      'music_title' => 'De Barro Y Fuego',
-      'music_artist' => 'Aphangak',
-      'music_artist_id' => '94229',
+      'music_downloads_today' => 1,
+      'music_id' => 1768814,
+      'music_title_url' => 'no-te-olvides~prince-royce',
+      'music_title' => 'No Te Olvides',
+      'music_artist' => 'Prince Royce',
+      'music_artist_id' => '15610',
       'cat_id' => 9,
       'cat_level' => 1,
-      'cat_sublevel' => 2,
+      'cat_sublevel' => 1,
       'cat_custom' => 0,
-      'cover_id' => 68545,
-      'music_download_time' => 0,
-      'music_last_update_time' => 1486973844,
-      'music_title_search' => 'de baro i fuego',
-      'music_artist_search' => '; aphangak;',
-      'music_album_search' => 'en el vale de lagrimax negrax',
-      'music_composer' => '',
-      'music_album' => 'En El Valle De Lagrimas Negras',
-      'music_listen' => 215,
-      'music_track_id' => 4,
-      'music_filename' => '1763438-e43e561f.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
-      'music_shortlyric' => '',
-      'music_artist_html' => '<a href="/ca-si/Aphangak~Y3NuX2FydGlzdH45NDIyOQ==.html">Aphangak</a>',
+      'cover_id' => 69167,
+      'music_download_time' => 1537227734,
+      'music_last_update_time' => 1488184699,
+      'music_title_search' => 'no te olvidex',
+      'music_artist_search' => '; prince roice;',
+      'music_album_search' => 'five; deluxe edition',
+      'music_composer' => 'Prince Royce; Shanelli Rojas; D\'Lesly “Dice” Lora',
+      'music_album' => 'FIVE (Deluxe Edition)',
+      'music_listen' => 8663,
+      'music_track_id' => 1,
+      'music_filename' => '1768814-4e1faed4.mp3',
+      'music_bitrate' => 1000,
+      'music_shortlyric' => 'Algo me dice que sí
+Que aún permaneceré en tu, tu corazón
+Por una razón estamos aquí
+Ahora mi niña, no, no me digas que no
+
+Sé que tal vez no crees en mí
+Y que tal vez es rápido
+Te ruego cree en mí...',
+      'music_artist_html' => '<a href="/ca-si/Prince-Royce~Y3NuX2FydGlzdH4xNTYxMA==.html">Prince Royce</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     40 => 
     array (
@@ -16601,12 +17127,13 @@ Dime si...',
       'music_listen' => 99351,
       'music_track_id' => 2,
       'music_filename' => '1773589-498b8ad5.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Bez textu, pouze hudba
 Bez textu, pouze hudba!
 Bez textu, pouze hudba!
 Bez textu, pouze hudba!',
       'music_artist_html' => '<a href="/ca-si/TheFatRat~Y3NuX2FydGlzdH4xOTk4NA==.html">TheFatRat</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     41 => 
     array (
@@ -16631,7 +17158,7 @@ Bez textu, pouze hudba!',
       'music_listen' => 133820,
       'music_track_id' => 0,
       'music_filename' => '1773982-11b576aa.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => 'J Balvin
 Ba-Bad Bunny
 Leggo, leggo, leggo..
@@ -16644,6 +17171,7 @@ Dime dónde estás que yo te quiero ver.
 Si tu novio te deja sola
 Dímelo y...',
       'music_artist_html' => '<a href="/ca-si/J-Balvin~Y3NuX2FydGlzdH4xMzQzNg==.html">J Balvin</a>, <a href="/ca-si/Bad-Bunny~Y3NuX2FydGlzdH4xMzUwOQ==.html">Bad Bunny</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     42 => 
     array (
@@ -16668,7 +17196,7 @@ Dímelo y...',
       'music_listen' => 8326,
       'music_track_id' => 1,
       'music_filename' => '1774954-15956c0a.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Tu tienes algo que me gusta
 Me tienes pensando en maldad
 Yo quiero hacerte una pregunta
@@ -16677,62 +17205,9 @@ Dime si tu eres mayor de edad
 Vos sos más de 18, dime si son 18
 (Dime si son, dime si son,...',
       'music_artist_html' => '<a href="/ca-si/Afro-Bros~Y3NuX2FydGlzdH4yMzQwNQ==.html">Afro Bros</a>, <a href="/ca-si/Ghetto-Flow~Y3NuX2FydGlzdH45NTUzMg==.html">Ghetto Flow</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     43 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1774871,
-      'music_title_url' => 'besnovataya~rvi-mekha',
-      'music_title' => 'Besnovataya',
-      'music_artist' => 'Rvi Mekha',
-      'music_artist_id' => '95527',
-      'cat_id' => 9,
-      'cat_level' => 1,
-      'cat_sublevel' => 2,
-      'cat_custom' => 0,
-      'cover_id' => 69948,
-      'music_download_time' => 1496902905,
-      'music_last_update_time' => 1503600594,
-      'music_title_search' => 'bexnovataia',
-      'music_artist_search' => '; rvi mekha;',
-      'music_album_search' => 'xkilark',
-      'music_composer' => '',
-      'music_album' => 'Skylark',
-      'music_listen' => 225,
-      'music_track_id' => 5,
-      'music_filename' => '1774871-b597bb3b.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
-      'music_shortlyric' => '',
-      'music_artist_html' => '<a href="/ca-si/Rvi-Mekha~Y3NuX2FydGlzdH45NTUyNw==.html">Rvi Mekha</a>',
-    ),
-    44 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1774870,
-      'music_title_url' => 'rvi-mekha~rvi-mekha',
-      'music_title' => 'Rvi Mekha!',
-      'music_artist' => 'Rvi Mekha',
-      'music_artist_id' => '95527',
-      'cat_id' => 9,
-      'cat_level' => 1,
-      'cat_sublevel' => 2,
-      'cat_custom' => 0,
-      'cover_id' => 69948,
-      'music_download_time' => 1497100063,
-      'music_last_update_time' => 1503600589,
-      'music_title_search' => 'rvi mekha',
-      'music_artist_search' => '; rvi mekha;',
-      'music_album_search' => 'xkilark',
-      'music_composer' => '',
-      'music_album' => 'Skylark',
-      'music_listen' => 371,
-      'music_track_id' => 4,
-      'music_filename' => '1774870-95a95a81.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
-      'music_shortlyric' => '',
-      'music_artist_html' => '<a href="/ca-si/Rvi-Mekha~Y3NuX2FydGlzdH45NTUyNw==.html">Rvi Mekha</a>',
-    ),
-    45 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1769698,
@@ -16755,7 +17230,7 @@ Vos sos más de 18, dime si son 18
       'music_listen' => 2668,
       'music_track_id' => 8,
       'music_filename' => '1769698-7f6c40c6.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Revi auki ja irti raasta
 Iholta arvet haavoiski
 Valuta multaan veri ja saasta
@@ -16767,8 +17242,9 @@ Tuli pimeän
 Nyt kättäni vailla
 Tyhjyys odo...',
       'music_artist_html' => '<a href="/ca-si/Wolfheart~Y3NuX2FydGlzdH4zNTU2OQ==.html">Wolfheart</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    46 => 
+    44 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1771780,
@@ -16791,38 +17267,12 @@ Tyhjyys odo...',
       'music_listen' => 5722,
       'music_track_id' => 0,
       'music_filename' => '1771780-eee7162e.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Namcha-Cheranut~Y3NuX2FydGlzdH45NTIwNw==.html">Namcha Cheranut</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
-    47 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1774875,
-      'music_title_url' => 'baba-yaga~rvi-mekha',
-      'music_title' => 'Baba-Yaga',
-      'music_artist' => 'Rvi Mekha',
-      'music_artist_id' => '95527',
-      'cat_id' => 9,
-      'cat_level' => 1,
-      'cat_sublevel' => 2,
-      'cat_custom' => 0,
-      'cover_id' => 69948,
-      'music_download_time' => 1521468046,
-      'music_last_update_time' => 1506306720,
-      'music_title_search' => 'baba iaga',
-      'music_artist_search' => '; rvi mekha;',
-      'music_album_search' => 'xkilark',
-      'music_composer' => '',
-      'music_album' => 'Skylark',
-      'music_listen' => 236,
-      'music_track_id' => 9,
-      'music_filename' => '1774875-0526bd7f.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
-      'music_shortlyric' => '',
-      'music_artist_html' => '<a href="/ca-si/Rvi-Mekha~Y3NuX2FydGlzdH45NTUyNw==.html">Rvi Mekha</a>',
-    ),
-    48 => 
+    45 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1770721,
@@ -16845,200 +17295,12 @@ Tyhjyys odo...',
       'music_listen' => 1236,
       'music_track_id' => 2,
       'music_filename' => '1770721-e5066332.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Varmia~Y3NuX2FydGlzdH45NTA4OQ==.html">Varmia</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
-    49 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1770722,
-      'music_title_url' => 'wcieko~varmia',
-      'music_title' => 'Wściekłość',
-      'music_artist' => 'Varmia',
-      'music_artist_id' => '95089',
-      'cat_id' => 9,
-      'cat_level' => 1,
-      'cat_sublevel' => 2,
-      'cat_custom' => 0,
-      'cover_id' => 69399,
-      'music_download_time' => 1512684344,
-      'music_last_update_time' => 1489378757,
-      'music_title_search' => 'wścikłość',
-      'music_artist_search' => '; varmia;',
-      'music_album_search' => 'z mar twich',
-      'music_composer' => '',
-      'music_album' => 'Z Mar Twych',
-      'music_listen' => 814,
-      'music_track_id' => 3,
-      'music_filename' => '1770722-ad6cd74e.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
-      'music_shortlyric' => '',
-      'music_artist_html' => '<a href="/ca-si/Varmia~Y3NuX2FydGlzdH45NTA4OQ==.html">Varmia</a>',
-    ),
-    50 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1770723,
-      'music_title_url' => 'ptak~varmia',
-      'music_title' => 'Ptak',
-      'music_artist' => 'Varmia',
-      'music_artist_id' => '95089',
-      'cat_id' => 9,
-      'cat_level' => 1,
-      'cat_sublevel' => 2,
-      'cat_custom' => 0,
-      'cover_id' => 69399,
-      'music_download_time' => 1512684058,
-      'music_last_update_time' => 1489378765,
-      'music_title_search' => 'ptak',
-      'music_artist_search' => '; varmia;',
-      'music_album_search' => 'z mar twich',
-      'music_composer' => '',
-      'music_album' => 'Z Mar Twych',
-      'music_listen' => 633,
-      'music_track_id' => 4,
-      'music_filename' => '1770723-b80e263b.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
-      'music_shortlyric' => '',
-      'music_artist_html' => '<a href="/ca-si/Varmia~Y3NuX2FydGlzdH45NTA4OQ==.html">Varmia</a>',
-    ),
-    51 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1770724,
-      'music_title_url' => 'gorej~varmia',
-      'music_title' => 'Gorej',
-      'music_artist' => 'Varmia',
-      'music_artist_id' => '95089',
-      'cat_id' => 9,
-      'cat_level' => 1,
-      'cat_sublevel' => 2,
-      'cat_custom' => 0,
-      'cover_id' => 69399,
-      'music_download_time' => 1512683395,
-      'music_last_update_time' => 1489378773,
-      'music_title_search' => 'gorej',
-      'music_artist_search' => '; varmia;',
-      'music_album_search' => 'z mar twich',
-      'music_composer' => '',
-      'music_album' => 'Z Mar Twych',
-      'music_listen' => 611,
-      'music_track_id' => 5,
-      'music_filename' => '1770724-b097b7fa.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
-      'music_shortlyric' => '',
-      'music_artist_html' => '<a href="/ca-si/Varmia~Y3NuX2FydGlzdH45NTA4OQ==.html">Varmia</a>',
-    ),
-    52 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1770725,
-      'music_title_url' => 'omnikorona~varmia',
-      'music_title' => 'Omnikorona',
-      'music_artist' => 'Varmia',
-      'music_artist_id' => '95089',
-      'cat_id' => 9,
-      'cat_level' => 1,
-      'cat_sublevel' => 2,
-      'cat_custom' => 0,
-      'cover_id' => 69399,
-      'music_download_time' => 1512683724,
-      'music_last_update_time' => 1489378781,
-      'music_title_search' => 'omnikorona',
-      'music_artist_search' => '; varmia;',
-      'music_album_search' => 'z mar twich',
-      'music_composer' => '',
-      'music_album' => 'Z Mar Twych',
-      'music_listen' => 259,
-      'music_track_id' => 6,
-      'music_filename' => '1770725-77237ac1.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
-      'music_shortlyric' => '',
-      'music_artist_html' => '<a href="/ca-si/Varmia~Y3NuX2FydGlzdH45NTA4OQ==.html">Varmia</a>',
-    ),
-    53 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1770726,
-      'music_title_url' => 'warmia~varmia',
-      'music_title' => 'Warmia',
-      'music_artist' => 'Varmia',
-      'music_artist_id' => '95089',
-      'cat_id' => 9,
-      'cat_level' => 1,
-      'cat_sublevel' => 2,
-      'cat_custom' => 0,
-      'cover_id' => 69399,
-      'music_download_time' => 1512684330,
-      'music_last_update_time' => 1489378803,
-      'music_title_search' => 'warmia',
-      'music_artist_search' => '; varmia;',
-      'music_album_search' => 'z mar twich',
-      'music_composer' => '',
-      'music_album' => 'Z Mar Twych',
-      'music_listen' => 175,
-      'music_track_id' => 7,
-      'music_filename' => '1770726-d13b3c17.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
-      'music_shortlyric' => '',
-      'music_artist_html' => '<a href="/ca-si/Varmia~Y3NuX2FydGlzdH45NTA4OQ==.html">Varmia</a>',
-    ),
-    54 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1770727,
-      'music_title_url' => 'gali~varmia',
-      'music_title' => 'Gali',
-      'music_artist' => 'Varmia',
-      'music_artist_id' => '95089',
-      'cat_id' => 9,
-      'cat_level' => 1,
-      'cat_sublevel' => 2,
-      'cat_custom' => 0,
-      'cover_id' => 69399,
-      'music_download_time' => 1512683389,
-      'music_last_update_time' => 1489378812,
-      'music_title_search' => 'gali',
-      'music_artist_search' => '; varmia;',
-      'music_album_search' => 'z mar twich',
-      'music_composer' => '',
-      'music_album' => 'Z Mar Twych',
-      'music_listen' => 327,
-      'music_track_id' => 8,
-      'music_filename' => '1770727-d5004cb1.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
-      'music_shortlyric' => '',
-      'music_artist_html' => '<a href="/ca-si/Varmia~Y3NuX2FydGlzdH45NTA4OQ==.html">Varmia</a>',
-    ),
-    55 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1770728,
-      'music_title_url' => 'in-tenebris~varmia',
-      'music_title' => 'In Tenebris',
-      'music_artist' => 'Varmia',
-      'music_artist_id' => '95089',
-      'cat_id' => 9,
-      'cat_level' => 1,
-      'cat_sublevel' => 2,
-      'cat_custom' => 0,
-      'cover_id' => 69399,
-      'music_download_time' => 1512683420,
-      'music_last_update_time' => 1489378822,
-      'music_title_search' => 'in tenebrix',
-      'music_artist_search' => '; varmia;',
-      'music_album_search' => 'z mar twich',
-      'music_composer' => '',
-      'music_album' => 'Z Mar Twych',
-      'music_listen' => 231,
-      'music_track_id' => 9,
-      'music_filename' => '1770728-1f1639a2.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
-      'music_shortlyric' => '',
-      'music_artist_html' => '<a href="/ca-si/Varmia~Y3NuX2FydGlzdH45NTA4OQ==.html">Varmia</a>',
-    ),
-    56 => 
+    46 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1772417,
@@ -17061,7 +17323,7 @@ Tyhjyys odo...',
       'music_listen' => 14271,
       'music_track_id' => 0,
       'music_filename' => '1772417-89505f9b.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => 'I\'m feeling lucky
 Right here, right now, with you
 Want you to want me
@@ -17072,67 +17334,14 @@ On the good vibrations
 Take a dip into the unknown
 Cause I\'ve been savi...',
       'music_artist_html' => '<a href="/ca-si/Rossa~Y3NuX2FydGlzdH45NTI0Nw==.html">Rossa</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
-    57 => 
+    47 => 
     array (
       'music_downloads_today' => 1,
-      'music_id' => 1772824,
-      'music_title_url' => 'korangar~yggdrassil',
-      'music_title' => 'Körangar',
-      'music_artist' => 'Yggdrassil',
-      'music_artist_id' => '95274',
-      'cat_id' => 9,
-      'cat_level' => 1,
-      'cat_sublevel' => 2,
-      'cat_custom' => 0,
-      'cover_id' => 69693,
-      'music_download_time' => 1497741796,
-      'music_last_update_time' => 1503599818,
-      'music_title_search' => 'körangar',
-      'music_artist_search' => '; igdraxil;',
-      'music_album_search' => 'al thal burn',
-      'music_composer' => '',
-      'music_album' => 'All Shall Burn',
-      'music_listen' => 244,
-      'music_track_id' => 1,
-      'music_filename' => '1772824-22660122.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
-      'music_shortlyric' => '',
-      'music_artist_html' => '<a href="/ca-si/Yggdrassil~Y3NuX2FydGlzdH45NTI3NA==.html">Yggdrassil</a>',
-    ),
-    58 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1774872,
-      'music_title_url' => 'tropy~rvi-mekha',
-      'music_title' => 'Tropy',
-      'music_artist' => 'Rvi Mekha',
-      'music_artist_id' => '95527',
-      'cat_id' => 9,
-      'cat_level' => 1,
-      'cat_sublevel' => 2,
-      'cat_custom' => 0,
-      'cover_id' => 69948,
-      'music_download_time' => 1496955989,
-      'music_last_update_time' => 1503600599,
-      'music_title_search' => 'chopi',
-      'music_artist_search' => '; rvi mekha;',
-      'music_album_search' => 'xkilark',
-      'music_composer' => '',
-      'music_album' => 'Skylark',
-      'music_listen' => 504,
-      'music_track_id' => 6,
-      'music_filename' => '1774872-a818ab47.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
-      'music_shortlyric' => '',
-      'music_artist_html' => '<a href="/ca-si/Rvi-Mekha~Y3NuX2FydGlzdH45NTUyNw==.html">Rvi Mekha</a>',
-    ),
-    59 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1773184,
-      'music_title_url' => 'pa-oa-aet-an-avel-kornog~dur-dabla',
-      'music_title' => 'Pa Oa Aet An Avel Kornôg',
+      'music_id' => 1773186,
+      'music_title_url' => 'ar-channerezed-noz~dur-dabla',
+      'music_title' => 'Ar C\'hannerezed Noz',
       'music_artist' => 'Dur Dabla',
       'music_artist_id' => '95339',
       'cat_id' => 9,
@@ -17140,21 +17349,88 @@ Cause I\'ve been savi...',
       'cat_sublevel' => 2,
       'cat_custom' => 0,
       'cover_id' => 69731,
-      'music_download_time' => 1514254039,
-      'music_last_update_time' => 1503600277,
-      'music_title_search' => 'pa oa aet an avel kornog',
+      'music_download_time' => 1498071097,
+      'music_last_update_time' => 1503600344,
+      'music_title_search' => 'ar c hanerezed noz',
       'music_artist_search' => '; dur dabla;',
       'music_album_search' => 'eñvor an avel',
       'music_composer' => '',
       'music_album' => 'Eñvor An Avel',
-      'music_listen' => 590,
-      'music_track_id' => 1,
-      'music_filename' => '1773184-f950de50.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_listen' => 1128,
+      'music_track_id' => 3,
+      'music_filename' => '1773186-97845db9.mp3',
+      'music_bitrate' => 320,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Dur-Dabla~Y3NuX2FydGlzdH45NTMzOQ==.html">Dur Dabla</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
-    60 => 
+    48 => 
+    array (
+      'music_downloads_today' => 1,
+      'music_id' => 1776175,
+      'music_title_url' => 'una-lady-como-tu~manuel-turizo',
+      'music_title' => 'Una Lady Como Tu',
+      'music_artist' => 'Manuel Turizo',
+      'music_artist_id' => '18547',
+      'cat_id' => 9,
+      'cat_level' => 1,
+      'cat_sublevel' => 1,
+      'cat_custom' => 0,
+      'cover_id' => 0,
+      'music_download_time' => 1537806885,
+      'music_last_update_time' => 1502677959,
+      'music_title_search' => 'una ladi como tu',
+      'music_artist_search' => '; manuel turizo;',
+      'music_album_search' => '',
+      'music_composer' => '',
+      'music_album' => '',
+      'music_listen' => 62319,
+      'music_track_id' => 0,
+      'music_filename' => '1776175-13cadd99.mp3',
+      'music_bitrate' => 128,
+      'music_shortlyric' => 'Sé que buscas a alguien que 
+Te vuelva a enamorar 
+Que no te haga sentir mal 
+Sé que hubo otro que 
+No supo valorar 
+Lo que tenías para dar. 
+
+Sé que tal vez 
+Te hizo sufrir 
+Te hizo llorar 
+Te sup...',
+      'music_artist_html' => '<a href="/ca-si/Manuel-Turizo~Y3NuX2FydGlzdH4xODU0Nw==.html">Manuel Turizo</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">128kbps</span>',
+    ),
+    49 => 
+    array (
+      'music_downloads_today' => 1,
+      'music_id' => 1774876,
+      'music_title_url' => 'skylark~rvi-mekha',
+      'music_title' => 'Skylark',
+      'music_artist' => 'Rvi Mekha',
+      'music_artist_id' => '95527',
+      'cat_id' => 9,
+      'cat_level' => 1,
+      'cat_sublevel' => 2,
+      'cat_custom' => 0,
+      'cover_id' => 69948,
+      'music_download_time' => 1497099735,
+      'music_last_update_time' => 1503600618,
+      'music_title_search' => 'xkilark',
+      'music_artist_search' => '; rvi mekha;',
+      'music_album_search' => 'xkilark',
+      'music_composer' => '',
+      'music_album' => 'Skylark',
+      'music_listen' => 562,
+      'music_track_id' => 10,
+      'music_filename' => '1774876-50f2a1c4.mp3',
+      'music_bitrate' => 320,
+      'music_shortlyric' => '',
+      'music_artist_html' => '<a href="/ca-si/Rvi-Mekha~Y3NuX2FydGlzdH45NTUyNw==.html">Rvi Mekha</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+    ),
+    50 => 
     array (
       'music_downloads_today' => 2,
       'music_id' => 1779860,
@@ -17177,7 +17453,7 @@ Cause I\'ve been savi...',
       'music_listen' => 71224,
       'music_track_id' => 12,
       'music_filename' => '1779860-b5bb28fb.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Verse 1: J Balvin]
 Dale, sin miedo
 Arriésgate y sígueme el juego
@@ -17187,8 +17463,9 @@ No des explicaciones, solo vente
 Que tu mente es malvada, eso yo lo sé
 En tu mirada yo lo pu...',
       'music_artist_html' => '<a href="/ca-si/Pitbull~Y3NuX2FydGlzdH4xODE0.html">Pitbull</a>, <a href="/ca-si/J-Balvin~Y3NuX2FydGlzdH4xMzQzNg==.html">J Balvin</a>, <a href="/ca-si/Camila-Cabello~Y3NuX2FydGlzdH4xMzk1OQ==.html">Camila Cabello</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    61 => 
+    51 => 
     array (
       'music_downloads_today' => 2,
       'music_id' => 1778766,
@@ -17211,7 +17488,7 @@ En tu mirada yo lo pu...',
       'music_listen' => 1472,
       'music_track_id' => 5,
       'music_filename' => '1778766-681ab302.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Verse 1:]
 Cuando el amor llega así de esta manera
 El Carutal reverdece
@@ -17226,8 +17503,9 @@ No sabe llorar.
 
 [Out...',
       'music_artist_html' => '<a href="/ca-si/Arca~Y3NuX2FydGlzdH43NjA4Ng==.html">Arca</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    62 => 
+    52 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1778765,
@@ -17250,11 +17528,12 @@ No sabe llorar.
       'music_listen' => 933,
       'music_track_id' => 4,
       'music_filename' => '1778765-ccef0b3c.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '',
       'music_artist_html' => '<a href="/ca-si/Arca~Y3NuX2FydGlzdH43NjA4Ng==.html">Arca</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    63 => 
+    53 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1778763,
@@ -17277,7 +17556,7 @@ No sabe llorar.
       'music_listen' => 2835,
       'music_track_id' => 2,
       'music_filename' => '1778763-2e62e047.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Chorus 1:]
 Anoche te soñé
 Tu figura y tus brazos
@@ -17290,114 +17569,9 @@ Las heridas de las guerras que has luchado
 Anoche yo te amé
 Y tú me dejas...',
       'music_artist_html' => '<a href="/ca-si/Arca~Y3NuX2FydGlzdH43NjA4Ng==.html">Arca</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    64 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1778764,
-      'music_title_url' => 'saunter~arca',
-      'music_title' => 'Saunter',
-      'music_artist' => 'Arca',
-      'music_artist_id' => '76086',
-      'cat_id' => 9,
-      'cat_level' => 3,
-      'cat_sublevel' => 3,
-      'cat_custom' => 0,
-      'cover_id' => 70436,
-      'music_download_time' => 1531055502,
-      'music_last_update_time' => 1507742847,
-      'music_title_search' => 'xaunter',
-      'music_artist_search' => '; arca;',
-      'music_album_search' => 'arca',
-      'music_composer' => 'Alejandro Ghersi',
-      'music_album' => 'Arca',
-      'music_listen' => 987,
-      'music_track_id' => 3,
-      'music_filename' => '1778764-a50206c0.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
-      'music_shortlyric' => 'Quítame la piel de ayer
-Quítame la piel de ayer.',
-      'music_artist_html' => '<a href="/ca-si/Arca~Y3NuX2FydGlzdH43NjA4Ng==.html">Arca</a>',
-    ),
-    65 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1778769,
-      'music_title_url' => 'coraje~arca',
-      'music_title' => 'Coraje',
-      'music_artist' => 'Arca',
-      'music_artist_id' => '76086',
-      'cat_id' => 9,
-      'cat_level' => 3,
-      'cat_sublevel' => 3,
-      'cat_custom' => 0,
-      'cover_id' => 70436,
-      'music_download_time' => 1531062659,
-      'music_last_update_time' => 1507743122,
-      'music_title_search' => 'coraje',
-      'music_artist_search' => '; arca;',
-      'music_album_search' => 'arca',
-      'music_composer' => 'Alejandro Ghersi',
-      'music_album' => 'Arca',
-      'music_listen' => 473,
-      'music_track_id' => 8,
-      'music_filename' => '1778769-6f7e9f22.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
-      'music_shortlyric' => '[Verse 1:]
-Amor de mis amores
-Me da dolor escribirte así
-Pero ya no queda más sino silencio y
-¿Cómo?
-¿Cómo amor desde lejos?
-¿Cómo amor?
-
-[Verse 2:]
-Hay una puerta
-Hay una puerta abierta
-Huer... hu...',
-      'music_artist_html' => '<a href="/ca-si/Arca~Y3NuX2FydGlzdH43NjA4Ng==.html">Arca</a>',
-    ),
-    66 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1778768,
-      'music_title_url' => 'sin-rumbo~arca',
-      'music_title' => 'Sin Rumbo',
-      'music_artist' => 'Arca',
-      'music_artist_id' => '76086',
-      'cat_id' => 9,
-      'cat_level' => 3,
-      'cat_sublevel' => 3,
-      'cat_custom' => 0,
-      'cover_id' => 70436,
-      'music_download_time' => 1530896482,
-      'music_last_update_time' => 1507743102,
-      'music_title_search' => 'xin rumbo',
-      'music_artist_search' => '; arca;',
-      'music_album_search' => 'arca',
-      'music_composer' => 'Alejandro Ghersi',
-      'music_album' => 'Arca',
-      'music_listen' => 864,
-      'music_track_id' => 7,
-      'music_filename' => '1778768-2d30bd99.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
-      'music_shortlyric' => '[Intro]
-Girando en torno al sol
-Te pierdo otra vez más
-
-[Verse 1:]
-No hubo advertencia esta vez
-Y qué dolor
-Qué amargura
-No saber... no poder
-Sentirte
-Poder besarte.
-
-[Verse 2:]
-Te veo cambiar a lo...',
-      'music_artist_html' => '<a href="/ca-si/Arca~Y3NuX2FydGlzdH43NjA4Ng==.html">Arca</a>',
-    ),
-    67 => 
+    54 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1778771,
@@ -17420,7 +17594,7 @@ Te veo cambiar a lo...',
       'music_listen' => 3327,
       'music_track_id' => 10,
       'music_filename' => '1778771-2b9e5ed3.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => '[Verse 1:]
 Tócame de primera vez
 Mátame una y otra vez
@@ -17434,184 +17608,9 @@ Mira que reviento por dentro.
 [Chorus:]
 List...',
       'music_artist_html' => '<a href="/ca-si/Arca~Y3NuX2FydGlzdH43NjA4Ng==.html">Arca</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    68 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1778773,
-      'music_title_url' => 'miel~arca',
-      'music_title' => 'Miel',
-      'music_artist' => 'Arca',
-      'music_artist_id' => '76086',
-      'cat_id' => 9,
-      'cat_level' => 3,
-      'cat_sublevel' => 3,
-      'cat_custom' => 0,
-      'cover_id' => 70436,
-      'music_download_time' => 1529946007,
-      'music_last_update_time' => 1507743222,
-      'music_title_search' => 'mil',
-      'music_artist_search' => '; arca;',
-      'music_album_search' => 'arca',
-      'music_composer' => 'Alejandro Ghersi',
-      'music_album' => 'Arca',
-      'music_listen' => 696,
-      'music_track_id' => 12,
-      'music_filename' => '1778773-abb107e4.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
-      'music_shortlyric' => '[Verse 1:]
-Tú sabrás qué comer
-Tú sabrás dónde hay miel
-Y yo no se cómo encontrar la miel sin ti
-Yo solo sin ti.
-
-[Verse 2:]
-Tú sabrás donde hay miel
-Mírame a los ojos bien
-Que ya no sé
-Desnúdame....',
-      'music_artist_html' => '<a href="/ca-si/Arca~Y3NuX2FydGlzdH43NjA4Ng==.html">Arca</a>',
-    ),
-    69 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1777242,
-      'music_title_url' => 'under-hennes-vingslag~wormwood',
-      'music_title' => 'Under Hennes Vingslag',
-      'music_artist' => 'Wormwood',
-      'music_artist_id' => '95762',
-      'cat_id' => 9,
-      'cat_level' => 1,
-      'cat_sublevel' => 2,
-      'cat_custom' => 0,
-      'cover_id' => 70241,
-      'music_download_time' => 1493811107,
-      'music_last_update_time' => 1529482198,
-      'music_title_search' => 'under henex vingxlag',
-      'music_artist_search' => '; wormwod;',
-      'music_album_search' => 'ghoxtlandx; woundx from a bleding earth',
-      'music_composer' => '',
-      'music_album' => 'Ghostlands: Wounds From A Bleeding Earth',
-      'music_listen' => 144,
-      'music_track_id' => 3,
-      'music_filename' => '1777242-0b1ec3fb.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
-      'music_shortlyric' => 'Ur evig sömn, där tid och rum ej fanns 
-Jag vaknar, bryter mig ur valvet 
-Ur evig sömn, där tid och rum ej fanns 
-I mitten av bergets hjärta. 
-
-Jag är kallad ännu en gång 
-Att rycka bort, jordens t...',
-      'music_artist_html' => '<a href="/ca-si/Wormwood~Y3NuX2FydGlzdH45NTc2Mg==.html">Wormwood</a>',
-    ),
-    70 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1778772,
-      'music_title_url' => 'fugaces~arca',
-      'music_title' => 'Fugaces',
-      'music_artist' => 'Arca',
-      'music_artist_id' => '76086',
-      'cat_id' => 9,
-      'cat_level' => 3,
-      'cat_sublevel' => 3,
-      'cat_custom' => 0,
-      'cover_id' => 70436,
-      'music_download_time' => 1529546033,
-      'music_last_update_time' => 1507743182,
-      'music_title_search' => 'fugacex',
-      'music_artist_search' => '; arca;',
-      'music_album_search' => 'arca',
-      'music_composer' => 'Alejandro Ghersi',
-      'music_album' => 'Arca',
-      'music_listen' => 659,
-      'music_track_id' => 11,
-      'music_filename' => '1778772-d16c03f4.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
-      'music_shortlyric' => '[Verse 1:]
-Que desilusión
-Que solo me quedan
-Recuerdos fugaces
-Tus ojos de luto.
-
-[Verse 2:]
-Tú me buscaste
-Y yo te encontré
-Tu sabor en mi boca.
-
-[Chorus:]
-No, no quiero vivir preso de la melancol...',
-      'music_artist_html' => '<a href="/ca-si/Arca~Y3NuX2FydGlzdH43NjA4Ng==.html">Arca</a>',
-    ),
-    71 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1777245,
-      'music_title_url' => 'silverdimmans-tersken~wormwood',
-      'music_title' => 'Silverdimmans Återsken',
-      'music_artist' => 'Wormwood',
-      'music_artist_id' => '95762',
-      'cat_id' => 9,
-      'cat_level' => 1,
-      'cat_sublevel' => 2,
-      'cat_custom' => 0,
-      'cover_id' => 70241,
-      'music_download_time' => 1498716788,
-      'music_last_update_time' => 1529482234,
-      'music_title_search' => 'xilverdimanx Återxken',
-      'music_artist_search' => '; wormwod;',
-      'music_album_search' => 'ghoxtlandx; woundx from a bleding earth',
-      'music_composer' => '',
-      'music_album' => 'Ghostlands: Wounds From A Bleeding Earth',
-      'music_listen' => 196,
-      'music_track_id' => 6,
-      'music_filename' => '1777245-06ff77d7.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
-      'music_shortlyric' => 'Jag sfvävar längst med silverdimmans vatten 
-I månljus väntar där en drömgestalt 
-En evighetens gåta 
-Skymningportens vakt 
-Träd in i mörkrets pakt. 
-
-Kom, slukas utav natten 
-Sjönko ner i silverdi...',
-      'music_artist_html' => '<a href="/ca-si/Wormwood~Y3NuX2FydGlzdH45NTc2Mg==.html">Wormwood</a>',
-    ),
-    72 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1777246,
-      'music_title_url' => 'tidh-ok-dhe~wormwood',
-      'music_title' => 'Tidh Ok Ödhe',
-      'music_artist' => 'Wormwood',
-      'music_artist_id' => '95762',
-      'cat_id' => 9,
-      'cat_level' => 1,
-      'cat_sublevel' => 2,
-      'cat_custom' => 0,
-      'cover_id' => 70241,
-      'music_download_time' => 1497112290,
-      'music_last_update_time' => 1529482254,
-      'music_title_search' => 'tidh ok Ödhe',
-      'music_artist_search' => '; wormwod;',
-      'music_album_search' => 'ghoxtlandx; woundx from a bleding earth',
-      'music_composer' => '',
-      'music_album' => 'Ghostlands: Wounds From A Bleeding Earth',
-      'music_listen' => 92,
-      'music_track_id' => 7,
-      'music_filename' => '1777246-8e919922.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
-      'music_shortlyric' => 'I minne cenotaphe af root ok bladh 
-Bleckar jach nedh å dhet såm een gång var 
-dimmekläddt fjell ok diupa daalar 
-Som om hiorden drömpde i tung dwala.
-
-Näär elwen rööt, bjöd siönn opp til danz 
-Tid...',
-      'music_artist_html' => '<a href="/ca-si/Wormwood~Y3NuX2FydGlzdH45NTc2Mg==.html">Wormwood</a>',
-    ),
-    73 => 
+    55 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1777958,
@@ -17634,7 +17633,7 @@ Tid...',
       'music_listen' => 4001,
       'music_track_id' => 2,
       'music_filename' => '1777958-a3b59b92.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Am gresit, mi-e greu sa recunosc dar
 Am gresit, fata de tine, fata de noi
 As da orice sa schimb trecutul
@@ -17644,8 +17643,9 @@ Intelege nimeni nu e perfect.
 
 Si poate-i greu sa ma ierti ce se inta...',
       'music_artist_html' => '<a href="/ca-si/Andra~Y3NuX2FydGlzdH44ODcyOQ==.html">Andra</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    74 => 
+    56 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1777959,
@@ -17668,15 +17668,16 @@ Si poate-i greu sa ma ierti ce se inta...',
       'music_listen' => 2725,
       'music_track_id' => 3,
       'music_filename' => '1777959-8d1a1b92.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Cand esti trist si nu stii nu stii ce mai vrei
 Pune-ti castile-n urechi si apasa play
 Eu cand nu mai am putere nici un gram
 Ma uit pe cer can\'t si le cer ingerilor
 Sa ma-nvete din nou cum sa merg c...',
       'music_artist_html' => '<a href="/ca-si/Andra~Y3NuX2FydGlzdH44ODcyOQ==.html">Andra</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    75 => 
+    57 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1777960,
@@ -17699,7 +17700,7 @@ Sa ma-nvete din nou cum sa merg c...',
       'music_listen' => 2613,
       'music_track_id' => 4,
       'music_filename' => '1777960-e4f5fb15.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Cu tine-n casa casa e mai goala
 De parca am fii intr-un muzeu de ceara
 Nici o expresie pe fata ta imaculata
@@ -17708,8 +17709,9 @@ Imi reprosezi doar ca mereu am chef de cearta.
 As prefera sa ma ranesti
 Sa strangi din d...',
       'music_artist_html' => '<a href="/ca-si/Andra~Y3NuX2FydGlzdH44ODcyOQ==.html">Andra</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    76 => 
+    58 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1777961,
@@ -17732,7 +17734,7 @@ Sa strangi din d...',
       'music_listen' => 2124,
       'music_track_id' => 5,
       'music_filename' => '1777961-43a7b082.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Spune-mi cum poti
 Din zidurile mele sa faci porti
 Sa ma convingi.
@@ -17744,8 +17746,9 @@ Cand ma atingi.
 Candela s-a stins ca lumina din noi
 Jur ca nu mi-e frig dar tu...',
       'music_artist_html' => '<a href="/ca-si/Andra~Y3NuX2FydGlzdH44ODcyOQ==.html">Andra</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    77 => 
+    59 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1777964,
@@ -17768,7 +17771,7 @@ Jur ca nu mi-e frig dar tu...',
       'music_listen' => 2185,
       'music_track_id' => 8,
       'music_filename' => '1777964-03afd4ea.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Unde-s doi, puterea creste, dragostea vorbeste
 Ne iubim orbeste, cand suntem doar noi
 Unde-s doi, puterea creste, dragostea vorbeste
@@ -17776,8 +17779,9 @@ Ne iubim orbeste, cand suntem doar noi.
 
 Dintre toti te-am ales...',
       'music_artist_html' => '<a href="/ca-si/Andra~Y3NuX2FydGlzdH44ODcyOQ==.html">Andra</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    78 => 
+    60 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1777965,
@@ -17800,7 +17804,7 @@ Dintre toti te-am ales...',
       'music_listen' => 3393,
       'music_track_id' => 9,
       'music_filename' => '1777965-cd69bad0.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Pentru tine cred ca as face orice
 As inota toate oceanele
 As trece muntii ca norii de pe cer
@@ -17810,8 +17814,9 @@ Si, daca plec, imi e dor
 Incerc s-ascund, ca-i mai usor
 Dar uneori zic sa o mai...',
       'music_artist_html' => '<a href="/ca-si/Andra~Y3NuX2FydGlzdH44ODcyOQ==.html">Andra</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
-    79 => 
+    61 => 
     array (
       'music_downloads_today' => 1,
       'music_id' => 1777966,
@@ -17834,7 +17839,7 @@ Dar uneori zic sa o mai...',
       'music_listen' => 2450,
       'music_track_id' => 10,
       'music_filename' => '1777966-84d33fdf.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Ai grija ce-ti doresti de la viata
 Cand te intalnesti cu
 Destinul de care vorbesti tu
@@ -17843,6 +17848,289 @@ Stii viata e ciudata
 Tot ce nu credeai ti se intampla o data
 Si inca o data si...',
       'music_artist_html' => '<a href="/ca-si/Andra~Y3NuX2FydGlzdH44ODcyOQ==.html">Andra</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+    ),
+    62 => 
+    array (
+      'music_downloads_today' => 1,
+      'music_id' => 1777967,
+      'music_title_url' => 'iubirea-schimba-tot~andra',
+      'music_title' => 'Iubirea Schimbă Tot',
+      'music_artist' => 'Andra',
+      'music_artist_id' => '88729',
+      'cat_id' => 9,
+      'cat_level' => 1,
+      'cat_sublevel' => 1,
+      'cat_custom' => 0,
+      'cover_id' => 70336,
+      'music_download_time' => 1531658267,
+      'music_last_update_time' => 1491655490,
+      'music_title_search' => 'iubirea xchimba tot',
+      'music_artist_search' => '; andra;',
+      'music_album_search' => 'iubirea xchimba tot',
+      'music_composer' => 'Dorian Micu, Bodea Constantin, Șerban Cazan, Diana Moraru, Elena Moroșanu',
+      'music_album' => 'Iubirea Schimbă Tot',
+      'music_listen' => 1934,
+      'music_track_id' => 11,
+      'music_filename' => '1777967-63b418e6.mp3',
+      'music_bitrate' => 1000,
+      'music_shortlyric' => 'As vrea s-auzi ce nu auzi, cand iti vorbesc
+Sa simti ce nu simti, cand te iubesc
+As vrea s-auzi chiar si-atunci cand iti soptesc
+Si-ti spun ce-mi doresc
+Cand tacerea e prea grea.
+
+Orice s-a intampl...',
+      'music_artist_html' => '<a href="/ca-si/Andra~Y3NuX2FydGlzdH44ODcyOQ==.html">Andra</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+    ),
+    63 => 
+    array (
+      'music_downloads_today' => 1,
+      'music_id' => 1777970,
+      'music_title_url' => 'floare-de-nu-ma-uita~andra',
+      'music_title' => 'Floare De Nu-Ma-Uita',
+      'music_artist' => 'Andra',
+      'music_artist_id' => '88729',
+      'cat_id' => 9,
+      'cat_level' => 1,
+      'cat_sublevel' => 1,
+      'cat_custom' => 0,
+      'cover_id' => 70336,
+      'music_download_time' => 1520407721,
+      'music_last_update_time' => 1491655548,
+      'music_title_search' => 'floare de nu ma uita',
+      'music_artist_search' => '; andra;',
+      'music_album_search' => 'iubirea xchimba tot',
+      'music_composer' => 'Dorian Micu, Andrei Mihai, Lucian Nagy, Șerban Cazan, Andrei Maria',
+      'music_album' => 'Iubirea Schimbă Tot',
+      'music_listen' => 1773,
+      'music_track_id' => 14,
+      'music_filename' => '1777970-4ece2b81.mp3',
+      'music_bitrate' => 1000,
+      'music_shortlyric' => 'In lipsa mea iti las o floare de nu ma uita
+Promite-mi c-o sa ai grija de ea
+Dar nu asa cum ai avut de inima mea
+In lipsa ta, am ramas cu amintiri
+Si daca floarea se va ofili
+Sa nu uiti te-am iubit...',
+      'music_artist_html' => '<a href="/ca-si/Andra~Y3NuX2FydGlzdH44ODcyOQ==.html">Andra</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+    ),
+    64 => 
+    array (
+      'music_downloads_today' => 1,
+      'music_id' => 1777974,
+      'music_title_url' => 'ntre-noi-nu-mai-e-nimic~andra-freestay',
+      'music_title' => 'Între Noi Nu Mai E Nimic',
+      'music_artist' => 'Andra;Freestay',
+      'music_artist_id' => '88729;95865',
+      'cat_id' => 9,
+      'cat_level' => 1,
+      'cat_sublevel' => 1,
+      'cat_custom' => 0,
+      'cover_id' => 70336,
+      'music_download_time' => 1531124590,
+      'music_last_update_time' => 1491655625,
+      'music_title_search' => 'Înche noi nu mai e nimic',
+      'music_artist_search' => '; andra; frextai;',
+      'music_album_search' => 'iubirea xchimba tot',
+      'music_composer' => '',
+      'music_album' => 'Iubirea Schimbă Tot',
+      'music_listen' => 2348,
+      'music_track_id' => 18,
+      'music_filename' => '1777974-4c9c151d.mp3',
+      'music_bitrate' => 1000,
+      'music_shortlyric' => 'Ma simt lipsit de aprare
+De frumusetea ta ametitoare
+De ochii tai ce m-au gasit pierdut
+De primul tau sarut.
+
+Ma simt lipsita de aparare
+N-as fi crezut ca pot iubi atat de tare
+Te pot privi asa la...',
+      'music_artist_html' => '<a href="/ca-si/Andra~Y3NuX2FydGlzdH44ODcyOQ==.html">Andra</a>, <a href="/ca-si/Freestay~Y3NuX2FydGlzdH45NTg2NQ==.html">Freestay</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+    ),
+    65 => 
+    array (
+      'music_downloads_today' => 1,
+      'music_id' => 1779861,
+      'music_title_url' => 'la-habana~pinto-wahin-dj-ricky-luna-el-taiger',
+      'music_title' => 'La Habana',
+      'music_artist' => 'Pinto \'\'Wahin\'\';DJ Ricky Luna;El Taiger',
+      'music_artist_id' => '96052;96053;96054',
+      'cat_id' => 9,
+      'cat_level' => 1,
+      'cat_sublevel' => 1,
+      'cat_custom' => 0,
+      'cover_id' => 70557,
+      'music_download_time' => 1537349372,
+      'music_last_update_time' => 1529412284,
+      'music_title_search' => 'la habana',
+      'music_artist_search' => '; pinto wahin ; dj ricki luna; el taiger;',
+      'music_album_search' => 'the fate of the furioux; the album',
+      'music_composer' => 'DJ Ricky Luna; Wahin; José Colorado; Jose Zaldivar',
+      'music_album' => 'The Fate Of The Furious: The Album',
+      'music_listen' => 29574,
+      'music_track_id' => 13,
+      'music_filename' => '1779861-3c00f061.mp3',
+      'music_bitrate' => 1000,
+      'music_shortlyric' => '(La Habana tiene su cosa
+Es aquí donde se vacila y se goza, oh)
+
+Rumba, son, lo tengo y sol
+Mulatas, tabaco y ron
+Donde quiera hay un rumbón
+Y si no pa\'l malecón.
+
+Nos fuimos a la carga en la desca...',
+      'music_artist_html' => '<a href="/ca-si/Pinto-Wahin~Y3NuX2FydGlzdH45NjA1Mg==.html">Pinto \'\'Wahin\'\'</a>, <a href="/ca-si/DJ-Ricky-Luna~Y3NuX2FydGlzdH45NjA1Mw==.html">DJ Ricky Luna</a>, <a href="/ca-si/El-Taiger~Y3NuX2FydGlzdH45NjA1NA==.html">El Taiger</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+    ),
+    66 => 
+    array (
+      'music_downloads_today' => 1,
+      'music_id' => 1778762,
+      'music_title_url' => 'piel~arca',
+      'music_title' => 'Piel',
+      'music_artist' => 'Arca',
+      'music_artist_id' => '76086',
+      'cat_id' => 9,
+      'cat_level' => 3,
+      'cat_sublevel' => 3,
+      'cat_custom' => 0,
+      'cover_id' => 70436,
+      'music_download_time' => 1529752600,
+      'music_last_update_time' => 1510559167,
+      'music_title_search' => 'pil',
+      'music_artist_search' => '; arca;',
+      'music_album_search' => 'arca',
+      'music_composer' => 'Alejandro Ghersi',
+      'music_album' => 'Arca',
+      'music_listen' => 4000,
+      'music_track_id' => 1,
+      'music_filename' => '1778762-6a8f864d.mp3',
+      'music_bitrate' => 1000,
+      'music_shortlyric' => '[Verse 1]iel de ayer
+No sabes 
+Quítame la pmás de distancia.
+
+[Verse 2]
+Quítame la piel de ayer
+No sé caer
+Los árboles mueren de pie
+
+[Verse 3]
+Quítame la piel de ayer
+No sé caerme
+
+[Verse 4]
+Quíta...',
+      'music_artist_html' => '<a href="/ca-si/Arca~Y3NuX2FydGlzdH43NjA4Ng==.html">Arca</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+    ),
+    67 => 
+    array (
+      'music_downloads_today' => 1,
+      'music_id' => 1779992,
+      'music_title_url' => '~room-39',
+      'music_title' => 'เป็นทุกอย่าง',
+      'music_artist' => 'Room 39',
+      'music_artist_id' => '96066',
+      'cat_id' => 9,
+      'cat_level' => 1,
+      'cat_sublevel' => 1,
+      'cat_custom' => 0,
+      'cover_id' => 70581,
+      'music_download_time' => 1532758120,
+      'music_last_update_time' => 1492165566,
+      'music_title_search' => 'เป็นทุกอย่าง',
+      'music_artist_search' => '; rom 39;',
+      'music_album_search' => 'เป็นทุกอย่าง; xingle',
+      'music_composer' => '',
+      'music_album' => 'เป็นทุกอย่าง (Single)',
+      'music_listen' => 5558,
+      'music_track_id' => 1,
+      'music_filename' => '1779992-98bbe829.mp3',
+      'music_bitrate' => 1000,
+      'music_shortlyric' => 'เป็นเพื่อนเธอไปดูหนัง
+อยู่ด้วยกันตอนเธอเหงา
+ฟังทุกเรื่องราวที่เธอระบาย
+ยาวจนเช้าฉันก็ยังยินดี
+แม้ไม่ใช่คนพิเศษ
+ไม่ได้สำคัญสำหรับเธอ
+
+เป็นคนโทรปลุกตอนเช้า
+คอยเฝ้าถามและห่วงใย
+อยากที่จะรู้ว่าเธอเป็นไ...',
+      'music_artist_html' => '<a href="/ca-si/Room-39~Y3NuX2FydGlzdH45NjA2Ng==.html">Room 39</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+    ),
+    68 => 
+    array (
+      'music_downloads_today' => 1,
+      'music_id' => 1779994,
+      'music_title_url' => 'rutonkantaja~noituma',
+      'music_title' => 'Rutonkantaja',
+      'music_artist' => 'Noituma',
+      'music_artist_id' => '96068',
+      'cat_id' => 9,
+      'cat_level' => 1,
+      'cat_sublevel' => 2,
+      'cat_custom' => 0,
+      'cover_id' => 70582,
+      'music_download_time' => 1497984524,
+      'music_last_update_time' => 1529464440,
+      'music_title_search' => 'rutonkantaja',
+      'music_artist_search' => '; noituma;',
+      'music_album_search' => 'ruto',
+      'music_composer' => '',
+      'music_album' => 'Ruoto',
+      'music_listen' => 779,
+      'music_track_id' => 1,
+      'music_filename' => '1779994-d13927f6.mp3',
+      'music_bitrate' => 320,
+      'music_shortlyric' => 'Löyhkäävän, mätäisen lihan keskellä sykkii sydän kuihtuva 
+Kerran parantaja kylän suuren, kunnes karkoituksen kirouksen 
+Päällensä langettivat sielun vaihtokaupasta 
+Nimeä synkkien jumalten toistaa...',
+      'music_artist_html' => '<a href="/ca-si/Noituma~Y3NuX2FydGlzdH45NjA2OA==.html">Noituma</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+    ),
+    69 => 
+    array (
+      'music_downloads_today' => 1,
+      'music_id' => 1779996,
+      'music_title_url' => 'ruoto~noituma',
+      'music_title' => 'Ruoto',
+      'music_artist' => 'Noituma',
+      'music_artist_id' => '96068',
+      'cat_id' => 9,
+      'cat_level' => 1,
+      'cat_sublevel' => 2,
+      'cat_custom' => 0,
+      'cover_id' => 70582,
+      'music_download_time' => 1494600989,
+      'music_last_update_time' => 1529464499,
+      'music_title_search' => 'ruto',
+      'music_artist_search' => '; noituma;',
+      'music_album_search' => 'ruto',
+      'music_composer' => '',
+      'music_album' => 'Ruoto',
+      'music_listen' => 456,
+      'music_track_id' => 3,
+      'music_filename' => '1779996-6c313e9a.mp3',
+      'music_bitrate' => 320,
+      'music_shortlyric' => 'Morsioni iholta värin ryösti 
+Routa jäinen ja pureva 
+Viimeisen hengenvedon käsivarsillain päästi 
+Ruumiinsa kaivettuna jään alta. 
+
+En hautausta rakkaani ruumiille suonut 
+Kun äänet kaipauksen käs...',
+      'music_artist_html' => '<a href="/ca-si/Noituma~Y3NuX2FydGlzdH45NjA2OA==.html">Noituma</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
   ),
   8 => 
@@ -17870,7 +18158,7 @@ Si inca o data si...',
       'music_listen' => 30164,
       'music_track_id' => 1,
       'music_filename' => '1768974-17872902.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Pourquoi je vis, pourquoi je meurs
 Pourquoi je ris, pourquoi je pleure
 Voici le S.O.S. d\'un terrien en détresse
@@ -17879,6 +18167,7 @@ J\'ai jamais eu les pieds sur terre
 J\'aim\'rais mieux être un oiseau
 J\'suis mal dans...',
       'music_artist_html' => '<a href="/ca-si/Dimash~Y3NuX2FydGlzdH45NDkyNg==.html">Dimash</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
     1 => 
     array (
@@ -17903,7 +18192,7 @@ J\'suis mal dans...',
       'music_listen' => 3331,
       'music_track_id' => 9,
       'music_filename' => '1775266-21589f64.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+      'music_bitrate' => 320,
       'music_shortlyric' => 'Une aube affaiblie 
 Verse par les champs 
 La mélancolie 
@@ -17916,6 +18205,7 @@ Aux soleils couchants
 Et d\'étranges rêves 
 Comme des...',
       'music_artist_html' => '<a href="/ca-si/Heretoir~Y3NuX2FydGlzdH45NTU2Nw==.html">Heretoir</a>, <a href="/ca-si/Neige~Y3NuX2FydGlzdH45NTU2OA==.html">Neige</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     ),
     2 => 
     array (
@@ -17940,7 +18230,7 @@ Comme des...',
       'music_listen' => 13191,
       'music_track_id' => 1,
       'music_filename' => '1777957-99e28e36.mp3',
-      'music_bitrate' => '<span class="card-text" style="color: red">Lossless</span>',
+      'music_bitrate' => 1000,
       'music_shortlyric' => 'Cerul meu e intunecat
 Curand se-anunta ploi
 De cand nu suntem noi.
@@ -17955,11995 +18245,10 @@ Pana la inima ta.
 
 Furtuna in largul...',
       'music_artist_html' => '<a href="/ca-si/Andra~Y3NuX2FydGlzdH44ODcyOQ==.html">Andra</a>',
+      'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     ),
   ),
 );
 $hot_video_rows = array (
-  1 => 
-  array (
-    0 => 
-    array (
-      'music_downloads_today' => 2,
-      'music_id' => 1756055,
-      'music_title_url' => 'di-de-tro-ve~soobin-hoang-son',
-      'music_title' => 'Đi Để Trở Về',
-      'music_artist' => 'Soobin Hoàng Sơn',
-      'music_artist_id' => '3108',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1539060154,
-      'music_last_update_time' => 1519899132,
-      'music_title_search' => 'di de cho ve',
-      'music_artist_search' => '; xobin hoang xon;',
-      'music_album_search' => '',
-      'music_composer' => 'Tiên Cookie',
-      'music_album' => '',
-      'music_listen' => 98828,
-      'music_track_id' => 0,
-      'music_filename' => '1756055-888e2d91.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Tôi đang ở một nơi rất xa 
-Nơi không có khói bụi thành phố 
-Ở một nơi đẹp như mơ 
-Trên cao êm êm mây trắng bay 
-lặng nhìn biển rộng sóng vỗ...ô 
-Cuộc đời tôi là những chuyến đi dài.
-
-Vượt suối đá,v...',
-      'music_length' => 230,
-      'music_width' => 1920,
-      'music_height' => 822,
-      'music_artist_html' => '<a href="/ca-si/Soobin-Hoang-Son~Y3NuX2FydGlzdH4zMTA4.html">Soobin Hoàng Sơn</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    1 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1758834,
-      'music_title_url' => 'bo-que~phi-nhung-ho-van-cuong',
-      'music_title' => 'Bỏ Quê',
-      'music_artist' => 'Phi Nhung;Hồ Văn Cường',
-      'music_artist_id' => '1347;85247',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538819512,
-      'music_last_update_time' => 1484557089,
-      'music_title_search' => 'bo que',
-      'music_artist_search' => '; phi nhung; ho van cung;',
-      'music_album_search' => '',
-      'music_composer' => 'Sơn Hạ',
-      'music_album' => '',
-      'music_listen' => 15687,
-      'music_track_id' => 0,
-      'music_filename' => '1758834-3a25061c.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '',
-      'music_length' => 441,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Phi-Nhung~Y3NuX2FydGlzdH4xMzQ3.html">Phi Nhung</a>, <a href="/ca-si/Ho-Van-Cuong~Y3NuX2FydGlzdH44NTI0Nw==.html">Hồ Văn Cường</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    2 => 
-    array (
-      'music_downloads_today' => 2,
-      'music_id' => 1760834,
-      'music_title_url' => 'co-bao-gio-anh-nho-live~vo-e-vo',
-      'music_title' => 'Có Bao Giờ Anh Nhớ (Live)',
-      'music_artist' => 'Võ Ê Vo',
-      'music_artist_id' => '22490',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1539008040,
-      'music_last_update_time' => 1485171232,
-      'music_title_search' => 'co bao do em nho; live',
-      'music_artist_search' => '; vo e vo;',
-      'music_album_search' => '',
-      'music_composer' => 'Bảo Thạch',
-      'music_album' => '',
-      'music_listen' => 2682,
-      'music_track_id' => 0,
-      'music_filename' => '1760834-228a8539.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Nếu những yêu thương trao mà em đã quên đi 
-Nếu cánh tay em buông lơi không còn chi 
-Nếu phía sau lưng anh không còn ai dõi trông theo 
-Chẳng còn ai níu đôi tay ấy.
-
-Thì thôi quên giấc mơ ngày mình...',
-      'music_length' => 82,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Vo-E-Vo~Y3NuX2FydGlzdH4yMjQ5MA==.html">Võ Ê Vo</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    3 => 
-    array (
-      'music_downloads_today' => 3,
-      'music_id' => 1758648,
-      'music_title_url' => 'lien-khuc-bolero-dac-biet~luu-chi-vy-ngu-long-cong-chua',
-      'music_title' => 'Liên Khúc: Bolero Đặc Biệt',
-      'music_artist' => 'Lưu Chí Vỹ;Ngũ Long Công Chúa',
-      'music_artist_id' => '120;6174',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1539054801,
-      'music_last_update_time' => 1486612241,
-      'music_title_search' => 'lin khuc; bolero dac bit',
-      'music_artist_search' => '; lu chi vi; ngu long cong chua;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 115900,
-      'music_track_id' => 0,
-      'music_filename' => '1758648-97e315b5.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '',
-      'music_length' => 1878,
-      'music_width' => 854,
-      'music_height' => 480,
-      'music_artist_html' => '<a href="/ca-si/Luu-Chi-Vy~Y3NuX2FydGlzdH4xMjA=.html">Lưu Chí Vỹ</a>, <a href="/ca-si/Ngu-Long-Cong-Chua~Y3NuX2FydGlzdH42MTc0.html">Ngũ Long Công Chúa</a>',
-      'music_bitrate_html' => '<span style="color: darkblue">MV 480p</span>',
-    ),
-    4 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1759601,
-      'music_title_url' => 'tinh-lo-lam~saka-truong-tuyen',
-      'music_title' => 'Tình Lỡ Lầm',
-      'music_artist' => 'Saka Trương Tuyền',
-      'music_artist_id' => '2292',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538058697,
-      'music_last_update_time' => 1484835351,
-      'music_title_search' => 'tinh lo lam',
-      'music_artist_search' => '; xaka chung tin;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 31563,
-      'music_track_id' => 0,
-      'music_filename' => '1759601-46501f78.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '',
-      'music_length' => 260,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Saka-Truong-Tuyen~Y3NuX2FydGlzdH4yMjky.html">Saka Trương Tuyền</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    5 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1760750,
-      'music_title_url' => 'hay-quen-anh~truong-tam',
-      'music_title' => 'Hãy Quên Anh',
-      'music_artist' => 'Trường Tam',
-      'music_artist_id' => '93958',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1537965631,
-      'music_last_update_time' => 1486454077,
-      'music_title_search' => 'hai quen em',
-      'music_artist_search' => '; chung tam;',
-      'music_album_search' => '',
-      'music_composer' => 'Phương Kim',
-      'music_album' => '',
-      'music_listen' => 10782,
-      'music_track_id' => 0,
-      'music_filename' => '1760750-95b96736.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Đếm bao lá vàng đốt thư tình cũ
-Với mây trời xa dìu bước em đi
-Nước mắt chìm theo sóng rượu phân ly
-Lỡ mê lụa gấm đành quên ước thề.
-
-Áo hồng nâng nhẹ xin đừng ngại bước
-Kết ngàn vì sao đường sáng...',
-      'music_length' => 286,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Truong-Tam~Y3NuX2FydGlzdH45Mzk1OA==.html">Trường Tam</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    6 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1760749,
-      'music_title_url' => 'lien-khuc-han-mac-tu~le-sang-duong-hong-loan',
-      'music_title' => 'Liên Khúc: Hàn Mặc Tử',
-      'music_artist' => 'Lê Sang;Dương Hồng Loan',
-      'music_artist_id' => '18430;4293',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538018161,
-      'music_last_update_time' => 1489043393,
-      'music_title_search' => 'lin khuc; han mac tu',
-      'music_artist_search' => '; le xang; dung hong loan;',
-      'music_album_search' => '',
-      'music_composer' => 'Trần Thiện Thanh; Anh Việt Thu; Thanh Sơn; Hoài Linh; Anh Việt Thu; Huỳnh Anh; Hoàng Ngọc Ấn;',
-      'music_album' => '',
-      'music_listen' => 7913,
-      'music_track_id' => 0,
-      'music_filename' => '1760749-83c40adc.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '1. Hàn Mặc Tử
-2. Người Đi Ngoài Phố
-3. Nhật Ký Đời Tôi
-4. Chuyện Đêm Mưa
-5. Nhớ Nhau Hoài
-6. Rừng Chưa Thay Lá',
-      'music_length' => 540,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Le-Sang~Y3NuX2FydGlzdH4xODQzMA==.html">Lê Sang</a>, <a href="/ca-si/Duong-Hong-Loan~Y3NuX2FydGlzdH40Mjkz.html">Dương Hồng Loan</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    7 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1760747,
-      'music_title_url' => 'nguoi-tinh-khong-den~luu-truc-ly',
-      'music_title' => 'Người Tình Không Đến',
-      'music_artist' => 'Lưu Trúc Ly',
-      'music_artist_id' => '14181',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1537808368,
-      'music_last_update_time' => 1486454064,
-      'music_title_search' => 'ngui tinh khong den',
-      'music_artist_search' => '; lu chuc li;',
-      'music_album_search' => '',
-      'music_composer' => 'Thương Ngân',
-      'music_album' => '',
-      'music_listen' => 19711,
-      'music_track_id' => 0,
-      'music_filename' => '1760747-da1c398c.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '1. Tôi quen biết anh giữa một đêm thật tình cờ
-Sân ga vắng thưa người và ngoài kia vẫn mưa rơi
-Tình chưa thành lời vì còn ngại tình gian dối
-Rồi ta đã quen nhau và cho nhau phút hẹn hò.
-
-Còi tàu va...',
-      'music_length' => 314,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Luu-Truc-Ly~Y3NuX2FydGlzdH4xNDE4MQ==.html">Lưu Trúc Ly</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    8 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1760746,
-      'music_title_url' => 'tinh-yeu-cach-tro~thien-quang-luu-truc-ly',
-      'music_title' => 'Tình Yêu Cách Trở',
-      'music_artist' => 'Thiên Quang;Lưu Trúc Ly',
-      'music_artist_id' => '4784;14181',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1537954789,
-      'music_last_update_time' => 1486454048,
-      'music_title_search' => 'tinh iu cach cho',
-      'music_artist_search' => '; thin quang; lu chuc li;',
-      'music_album_search' => '',
-      'music_composer' => 'Lưu Trần Lê',
-      'music_album' => '',
-      'music_listen' => 14580,
-      'music_track_id' => 0,
-      'music_filename' => '1760746-0e92326f.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Anh biết tại sao em luôn u buồn
-Và thường suy tư trong những chiều buông
-Em muốn xa anh phải không?
-Ôi đời ai hiểu tình yêu, mới yêu thì hứa một lòng.
-
-Anh biết tại sao em anh hay buồn
-Vì sợ mai đâ...',
-      'music_length' => 276,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Thien-Quang~Y3NuX2FydGlzdH40Nzg0.html">Thiên Quang</a>, <a href="/ca-si/Luu-Truc-Ly~Y3NuX2FydGlzdH4xNDE4MQ==.html">Lưu Trúc Ly</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    9 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1760741,
-      'music_title_url' => 'duyen-phan-remix~mai-the-phong',
-      'music_title' => 'Duyên Phận (Remix)',
-      'music_artist' => 'Mai Thế Phong',
-      'music_artist_id' => '74093',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1537775967,
-      'music_last_update_time' => 1486454015,
-      'music_title_search' => 'din phan',
-      'music_artist_search' => '; mai the phong;',
-      'music_album_search' => '',
-      'music_composer' => 'Thái Thịnh',
-      'music_album' => '',
-      'music_listen' => 2360,
-      'music_track_id' => 0,
-      'music_filename' => '1760741-113ab447.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '1. Phận là con gái, chưa một lần yêu ai
-Nhìn về tương lai mà thấy như sông rộng đường dài
-Cảnh nhà neo đơn
-Bầy em chưa lớn trĩu đôi vai gánh nhọc nhằn.
-
-Thầy mẹ thương em nhờ tìm người se duyên
-Lòn...',
-      'music_length' => 256,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Mai-The-Phong~Y3NuX2FydGlzdH43NDA5Mw==.html">Mai Thế Phong</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    10 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1760739,
-      'music_title_url' => 'tam-su-nang-xuan~nguyen-thanh-vien-phuong-kieu',
-      'music_title' => 'Tâm Sự Nàng Xuân',
-      'music_artist' => 'Nguyễn Thành Viên;Phương Kiều',
-      'music_artist_id' => '77883;93957',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 2,
-      'cover_id' => 0,
-      'music_download_time' => 1537759597,
-      'music_last_update_time' => 1486453959,
-      'music_title_search' => 'tam xu nang xuan',
-      'music_artist_search' => '; ngin thanh vin; phung kiu;',
-      'music_album_search' => '',
-      'music_composer' => 'Hoài Linh',
-      'music_album' => '',
-      'music_listen' => 3184,
-      'music_track_id' => 0,
-      'music_filename' => '1760739-7c121fd9.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Trông thế gian đang vui mừng đón xuân
-Chắc nàng xuân năm nay đẹp bội phần
-Ngắm rừng hoa mai đua nở tuyệt trần
-Đồi hương thay phấn giữa đêm chờ tin báo xuân.
-
-Tôi đón xuân giữa lúc còn chiến chinh
-C...',
-      'music_length' => 293,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Nguyen-Thanh-Vien~Y3NuX2FydGlzdH43Nzg4Mw==.html">Nguyễn Thành Viên</a>, <a href="/ca-si/Phuong-Kieu~Y3NuX2FydGlzdH45Mzk1Nw==.html">Phương Kiều</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    11 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1760738,
-      'music_title_url' => 'tam-su-nang-xuan~minh-tien',
-      'music_title' => 'Tâm Sự Nàng Xuân',
-      'music_artist' => 'Minh Tiến',
-      'music_artist_id' => '3749',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 2,
-      'cover_id' => 0,
-      'music_download_time' => 1512424274,
-      'music_last_update_time' => 1486453903,
-      'music_title_search' => 'tam xu nang xuan',
-      'music_artist_search' => '; minh tin;',
-      'music_album_search' => '',
-      'music_composer' => 'Hoài Linh',
-      'music_album' => '',
-      'music_listen' => 955,
-      'music_track_id' => 0,
-      'music_filename' => '1760738-2668fbe3.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Trông thế gian đang vui mừng đón xuân
-Chắc nàng xuân năm nay đẹp bội phần
-Ngắm rừng hoa mai đua nở tuyệt trần
-Đồi hương thay phấn giữa đêm chờ tin báo xuân.
-
-Tôi đón xuân giữa lúc còn chiến chinh
-C...',
-      'music_length' => 273,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Minh-Tien~Y3NuX2FydGlzdH4zNzQ5.html">Minh Tiến</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    12 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1760737,
-      'music_title_url' => 'tam-su-nang-xuan~duong-kim-anh',
-      'music_title' => 'Tâm Sự Nàng Xuân',
-      'music_artist' => 'Dương Kim Ánh',
-      'music_artist_id' => '93956',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 2,
-      'cover_id' => 0,
-      'music_download_time' => 1517489659,
-      'music_last_update_time' => 1485170854,
-      'music_title_search' => 'tam xu nang xuan',
-      'music_artist_search' => '; dung kim em;',
-      'music_album_search' => '',
-      'music_composer' => 'Hoài Linh',
-      'music_album' => '',
-      'music_listen' => 2357,
-      'music_track_id' => 0,
-      'music_filename' => '1760737-654853ac.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Trông thế gian đang vui mừng đón xuân
-Chắc nàng xuân năm nay đẹp bội phần
-Ngắm rừng hoa mai đua nở tuyệt trần
-Đồi hương thay phấn giữa đêm chờ tin báo xuân.
-
-Tôi đón xuân giữa lúc còn chiến chinh
-C...',
-      'music_length' => 227,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Duong-Kim-Anh~Y3NuX2FydGlzdH45Mzk1Ng==.html">Dương Kim Ánh</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    13 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1759669,
-      'music_title_url' => 'phan-xa-cha-me~luong-bich-huu',
-      'music_title' => 'Phận Xa Cha Mẹ',
-      'music_artist' => 'Lương Bích Hữu',
-      'music_artist_id' => '239',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1500113882,
-      'music_last_update_time' => 1484882952,
-      'music_title_search' => 'phan xa cha me',
-      'music_artist_search' => '; lung bich hu;',
-      'music_album_search' => '',
-      'music_composer' => 'Khánh Đơn',
-      'music_album' => '',
-      'music_listen' => 2939,
-      'music_track_id' => 0,
-      'music_filename' => '1759669-d31b4215.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Nghe tiếng chuông chùa 
-Vang vộng chiều nay
-Con nhớ cha già 
-Nhớ mẹ hiền ở nơi quê xa.
-
-Lạy phật Quan Âm từ bi 
-Ban cho cha mẹ của con 
-Được nhiều sức khoẻ 
-Để cho con trẻ xa quê yên lòng.
-
-Ba nén...',
-      'music_length' => 262,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Luong-Bich-Huu~Y3NuX2FydGlzdH4yMzk=.html">Lương Bích Hữu</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    14 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1759663,
-      'music_title_url' => 'chuc-tet-moi-nha~ho-ngoc-ha-noo-phuoc-thinh',
-      'music_title' => 'Chúc Tết Mọi Nhà',
-      'music_artist' => 'Hồ Ngọc Hà;Noo Phước Thịnh',
-      'music_artist_id' => '1468;1611',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 2,
-      'cover_id' => 0,
-      'music_download_time' => 1536639629,
-      'music_last_update_time' => 1484882967,
-      'music_title_search' => 'chuc tet moi nha',
-      'music_artist_search' => '; ho ngoc ha; no phuc thinh;',
-      'music_album_search' => '',
-      'music_composer' => 'Châu Đăng Khoa',
-      'music_album' => '',
-      'music_listen' => 4864,
-      'music_track_id' => 0,
-      'music_filename' => '1759663-482103c8.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Kìa ngoài sân tung bay cánh én, đón Tết bao người vui chúc mừng 
-Nụ tầm xuân đơm bông xanh biếc đón Tết sang rộn ràng lâng lâng 
-Cành đào phai đung đưa trong gió bánh tét dưa hành bên bếp lò 
-Từng...',
-      'music_length' => 338,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Ho-Ngoc-Ha~Y3NuX2FydGlzdH4xNDY4.html">Hồ Ngọc Hà</a>, <a href="/ca-si/Noo-Phuoc-Thinh~Y3NuX2FydGlzdH4xNjEx.html">Noo Phước Thịnh</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    15 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1759633,
-      'music_title_url' => 'mua-roi-vao-phong~vo-e-vo',
-      'music_title' => 'Mưa Rơi Vào Phòng',
-      'music_artist' => 'Võ Ê Vo',
-      'music_artist_id' => '22490',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1525957430,
-      'music_last_update_time' => 1484830870,
-      'music_title_search' => 'mua roi vao phong',
-      'music_artist_search' => '; vo e vo;',
-      'music_album_search' => '',
-      'music_composer' => 'Bảo Thạch',
-      'music_album' => '',
-      'music_listen' => 5879,
-      'music_track_id' => 0,
-      'music_filename' => '1759633-22074036.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Cơn gió lùa qua ô cửa sổ
-Giọt nắng chiều sa trên mái hiên
-Em viết tình ca trên trang giấy
-Ôm chiếc đàn ghi ta, la là.
-
-Mưa bỗng ùa về trên căn gác vắng 
-Tí tách rơi từng giọt, từng giọt lăn tăn 
-Ph...',
-      'music_length' => 136,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Vo-E-Vo~Y3NuX2FydGlzdH4yMjQ5MA==.html">Võ Ê Vo</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    16 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1759659,
-      'music_title_url' => 'xoa-het-ky-uc~lam-thien-bao',
-      'music_title' => 'Xoá Hết Ký Ức',
-      'music_artist' => 'Lâm Thiên Bảo',
-      'music_artist_id' => '23106',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 8,
-      'cover_id' => 0,
-      'music_download_time' => 1529912880,
-      'music_last_update_time' => 1484883006,
-      'music_title_search' => 'xoa het ki uc',
-      'music_artist_search' => '; lam thin bao;',
-      'music_album_search' => '',
-      'music_composer' => 'Trần Ánh Huy',
-      'music_album' => '',
-      'music_listen' => 1550,
-      'music_track_id' => 0,
-      'music_filename' => '1759659-580f5574.mp4',
-      'music_bitrate' => 192,
-      'music_shortlyric' => 'Làm sao để xoá hết kí ức hôm qua
-Vì anh thấy em đang môi trong môi
-Không thể nào tin những gì trong đôi mắt anh
-Là một ai khác không phai la anh
-Anh có thể làm gì khi trông thấy em như thế?
-Đổi tha...',
-      'music_length' => 316,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Lam-Thien-Bao~Y3NuX2FydGlzdH4yMzEwNg==.html">Lâm Thiên Bảo</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    17 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1759531,
-      'music_title_url' => 'duong-ve-que~bui-anh-tuan-pham-hong-phuoc',
-      'music_title' => 'Đường Về Quê',
-      'music_artist' => 'Bùi Anh Tuấn;Phạm Hồng Phước',
-      'music_artist_id' => '2552;2786',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1522115598,
-      'music_last_update_time' => 1484799876,
-      'music_title_search' => 'dung ve que',
-      'music_artist_search' => '; bui em tuan; pham hong phuc;',
-      'music_album_search' => '',
-      'music_composer' => 'Kai Đinh',
-      'music_album' => '',
-      'music_listen' => 1794,
-      'music_track_id' => 0,
-      'music_filename' => '1759531-f0038a01.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Đừơng về quê thấy sao trong lòng vui ghê
-Ngồi trong gió, ngó ra phố
-Đường về quê thấy ôi hoa toàn là hoa
-Một năm mới đang về
-Thấy vui trong lòng, dáng xuân mơ mộng
-Cánh chim bay về tổ ấm
-Tết nay co...',
-      'music_length' => 260,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Bui-Anh-Tuan~Y3NuX2FydGlzdH4yNTUy.html">Bùi Anh Tuấn</a>, <a href="/ca-si/Pham-Hong-Phuoc~Y3NuX2FydGlzdH4yNzg2.html">Phạm Hồng Phước</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    18 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1759070,
-      'music_title_url' => 'hoa-co-mua-xuan~bao-anh-tra-my',
-      'music_title' => 'Hoa Cỏ Mùa Xuân',
-      'music_artist' => 'Bảo Anh;Trà My',
-      'music_artist_id' => '2816;1466',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 2,
-      'cover_id' => 0,
-      'music_download_time' => 1519465966,
-      'music_last_update_time' => 1484704958,
-      'music_title_search' => 'hoa co mua xuan',
-      'music_artist_search' => '; bao em; cha mi;',
-      'music_album_search' => '',
-      'music_composer' => 'Bảo Chấn',
-      'music_album' => '',
-      'music_listen' => 5813,
-      'music_track_id' => 0,
-      'music_filename' => '1759070-8cf06e5e.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Này là cỏ non rất mềm
-Này mùa xuân rất hiền
-Này là hoa rất thơm
-Này là giọt sương trĩu nặng
-Hạt ngọc trên lá cỏ
-Trên bông tầng xuân trước hiên nhà.
-
-Vì em đã biết anh chiều qua
-Người em vẫn thấy kh...',
-      'music_length' => 226,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Bao-Anh~Y3NuX2FydGlzdH4yODE2.html">Bảo Anh</a>, <a href="/ca-si/Tra-My~Y3NuX2FydGlzdH4xNDY2.html">Trà My</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    19 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1759067,
-      'music_title_url' => 'don-xuan-nay-nho-xuan-xua~quach-tuan-du-lam-khanh-chi',
-      'music_title' => 'Đón Xuân Này Nhớ Xuân Xưa',
-      'music_artist' => 'Quách Tuấn Du;Lâm Khánh Chi',
-      'music_artist_id' => '1228;93338',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 2,
-      'cover_id' => 0,
-      'music_download_time' => 1511707776,
-      'music_last_update_time' => 1484704953,
-      'music_title_search' => 'don xuan nai nho xuan xua',
-      'music_artist_search' => '; quach tuan du; lam khanh chi;',
-      'music_album_search' => '',
-      'music_composer' => 'Châu Kỳ',
-      'music_album' => '',
-      'music_listen' => 1083,
-      'music_track_id' => 0,
-      'music_filename' => '1759067-a664aa65.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '1. Đón Xuân này tôi nhớ Xuân xưa
-Một chiều xuân em đã hẹn hò
-Như ươm tình trong cánh hoa mơ
-Đưa hương theo chiều gió
-Em nói rằng em viết thành thơ.
-
-Đón Xuân này tôi nhớ Xuân xưa
-Hẹn gặp nhau khi p...',
-      'music_length' => 189,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Quach-Tuan-Du~Y3NuX2FydGlzdH4xMjI4.html">Quách Tuấn Du</a>, <a href="/ca-si/Lam-Khanh-Chi~Y3NuX2FydGlzdH45MzMzOA==.html">Lâm Khánh Chi</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    20 => 
-    array (
-      'music_downloads_today' => 7,
-      'music_id' => 1767409,
-      'music_title_url' => 'em-thi-khong~my-tam-karik',
-      'music_title' => 'Em Thì Không',
-      'music_artist' => 'Mỹ Tâm;Karik',
-      'music_artist_id' => '4812;1793',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1539069571,
-      'music_last_update_time' => 1487823563,
-      'music_title_search' => 'em thi khong',
-      'music_artist_search' => '; mi tam; karik;',
-      'music_album_search' => '',
-      'music_composer' => 'Lời: Châu Đăng Khoa',
-      'music_album' => '',
-      'music_listen' => 124105,
-      'music_track_id' => 0,
-      'music_filename' => '1767409-07bdeae1.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '1.Anh lung linh, cao sang như mỹ nam 
-Nên bao cô luôn đeo theo bước anh, em thì không! 
-Cô khen anh ga lăng, không nếp nhăn 
-Đưa đi ăn, đi chơi đi khắp nơi, em thì không!
-
-Cô ta đi bên anh trông rấ...',
-      'music_length' => 337,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/My-Tam~Y3NuX2FydGlzdH40ODEy.html">Mỹ Tâm</a>, <a href="/ca-si/Karik~Y3NuX2FydGlzdH4xNzkz.html">Karik</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    21 => 
-    array (
-      'music_downloads_today' => 7,
-      'music_id' => 1765773,
-      'music_title_url' => 'chieu-san-ga~giang-tien',
-      'music_title' => 'Chiều Sân Ga',
-      'music_artist' => 'Giáng Tiên',
-      'music_artist_id' => '2355',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1539068078,
-      'music_last_update_time' => 1487146924,
-      'music_title_search' => 'chiu xan ga',
-      'music_artist_search' => '; dang tin;',
-      'music_album_search' => '',
-      'music_composer' => 'Sông Trà',
-      'music_album' => '',
-      'music_listen' => 71967,
-      'music_track_id' => 0,
-      'music_filename' => '1765773-0df32933.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Lần đầu gặp em khi phố kia chưa lên đèn 
-Giờ này gặp nhau trên sân ga chiều loan nắng 
-Vụng về hỏi thăm em mấy câu đi về đâu 
-Cớ sao đứng chờ cớ sao đứng đợi.
-
-Đường tàu mùa xuân ai biết em đang mo...',
-      'music_length' => 310,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Giang-Tien~Y3NuX2FydGlzdH4yMzU1.html">Giáng Tiên</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    22 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1766189,
-      'music_title_url' => 'vung-la-me-bay~phuong-anh',
-      'music_title' => 'Vùng Lá Me Bay',
-      'music_artist' => 'Phương Anh',
-      'music_artist_id' => '1430',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538730768,
-      'music_last_update_time' => 1487297386,
-      'music_title_search' => 'vung la me bai',
-      'music_artist_search' => '; phung em;',
-      'music_album_search' => '',
-      'music_composer' => 'Anh Việt Thanh',
-      'music_album' => '',
-      'music_listen' => 180535,
-      'music_track_id' => 0,
-      'music_filename' => '1766189-3389c9e6.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Nhìn lá me bay nhớ kỷ niệm hai chúng mình
-Ngày đó quen nhau vương chút tình trên tóc mây
-Đôi mắt thơ ngây, hoa nắng ươm đầy
-Đẹp tựa như lá me bay nên tình anh trót vay.
-
-Ngày đó yêu nhau chúng ta t...',
-      'music_length' => 302,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Phuong-Anh~Y3NuX2FydGlzdH4xNDMw.html">Phương Anh</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    23 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1763236,
-      'music_title_url' => 'duong-nhu-ta-da-live~trong-tan-quang-dung-my-tam',
-      'music_title' => 'Dường Như Ta Đã (Live)',
-      'music_artist' => 'Trọng Tấn;Quang Dũng;Mỹ Tâm',
-      'music_artist_id' => '164;28;4812',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538986245,
-      'music_last_update_time' => 1486460276,
-      'music_title_search' => 'dung nhu ta da; live',
-      'music_artist_search' => '; chong tan; quang dung; mi tam;',
-      'music_album_search' => '',
-      'music_composer' => 'Mỹ Tâm',
-      'music_album' => '',
-      'music_listen' => 99057,
-      'music_track_id' => 0,
-      'music_filename' => '1763236-c4a3e133.mp4',
-      'music_bitrate' => 192,
-      'music_shortlyric' => 'Mây buồn trôi mãi, trôi về nơi xa
-Mây cũng tiếc nuối tình chúng ta những ngày qua
-Mây buồn tha thiết, áng mây trôi đi lặng lẽ
-Cuộc tình ngày nào nay cũng thôi trôi xa mãi.
-
-Còn yêu nhau nữa không,...',
-      'music_length' => 371,
-      'music_width' => 720,
-      'music_height' => 576,
-      'music_artist_html' => '<a href="/ca-si/Trong-Tan~Y3NuX2FydGlzdH4xNjQ=.html">Trọng Tấn</a>, <a href="/ca-si/Quang-Dung~Y3NuX2FydGlzdH4yOA==.html">Quang Dũng</a>, <a href="/ca-si/My-Tam~Y3NuX2FydGlzdH40ODEy.html">Mỹ Tâm</a>',
-      'music_bitrate_html' => '<span style="color: darkgreen">720x576</span>',
-    ),
-    24 => 
-    array (
-      'music_downloads_today' => 2,
-      'music_id' => 1766174,
-      'music_title_url' => 'nguoi-tinh-khong-den~giang-tien',
-      'music_title' => 'Người Tình Không Đến',
-      'music_artist' => 'Giáng Tiên',
-      'music_artist_id' => '2355',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538990745,
-      'music_last_update_time' => 1487294481,
-      'music_title_search' => 'ngui tinh khong den',
-      'music_artist_search' => '; dang tin;',
-      'music_album_search' => '',
-      'music_composer' => 'Thương Ngân',
-      'music_album' => '',
-      'music_listen' => 35867,
-      'music_track_id' => 0,
-      'music_filename' => '1766174-dbd498fc.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '1. Tôi quen biết anh giữa một đêm thật tình cờ
-Sân ga vắng thưa người và ngoài kia vẫn mưa rơi
-Tình chưa thành lời vì còn ngại tình gian dối
-Rồi ta đã quen nhau và cho nhau phút hẹn hò.
-
-Còi tàu va...',
-      'music_length' => 333,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Giang-Tien~Y3NuX2FydGlzdH4yMzU1.html">Giáng Tiên</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    25 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1764487,
-      'music_title_url' => 'phut-cuoi~quang-le-le-quyen',
-      'music_title' => 'Phút Cuối',
-      'music_artist' => 'Quang Lê;Lệ Quyên',
-      'music_artist_id' => '1770;1662',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538743995,
-      'music_last_update_time' => 1486717246,
-      'music_title_search' => 'phut cui',
-      'music_artist_search' => '; quang le; le qin;',
-      'music_album_search' => '',
-      'music_composer' => 'Lam Phương',
-      'music_album' => '',
-      'music_listen' => 100385,
-      'music_track_id' => 0,
-      'music_filename' => '1764487-54157bd8.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '1. Chỉ còn gần em một giây phút thôi
-Một giây nữa thôi là xa nhau rồi
-Người theo cánh chim về vui với đời
-Để lại thương nhớ cho kiếp đơn côi.
-
-Núi đồi lồng lộng chiều mưa nhớ ai
-Biển xanh vẫn xanh...',
-      'music_length' => 311,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Quang-Le~Y3NuX2FydGlzdH4xNzcw.html">Quang Lê</a>, <a href="/ca-si/Le-Quyen~Y3NuX2FydGlzdH4xNjYy.html">Lệ Quyên</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    26 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1768280,
-      'music_title_url' => 'yeu-khong-hoi-han~hari-won',
-      'music_title' => 'Yêu Không Hối Hận',
-      'music_artist' => 'Hari Won',
-      'music_artist_id' => '3971',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538770971,
-      'music_last_update_time' => 1488081665,
-      'music_title_search' => 'iu khong hoi han',
-      'music_artist_search' => '; hari won;',
-      'music_album_search' => '',
-      'music_composer' => 'Võ Hoài Phúc',
-      'music_album' => '',
-      'music_listen' => 2039,
-      'music_track_id' => 0,
-      'music_filename' => '1768280-caf8d7ce.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Người đâu hay trái tim em đang từng giây nhói đau
-Người đâu hay ngày qua đi mình càng xa cách nhau
-Giờ mỗi đứa mỗi nơi, chẳng nói nên lời
-Mình em nghe tiếng mưa buồn rơi.
-
-Lời yêu đó giấu trong em,...',
-      'music_length' => 254,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Hari-Won~Y3NuX2FydGlzdH4zOTcx.html">Hari Won</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    27 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1766226,
-      'music_title_url' => 'hai-hoa-rung-cho-em~son-ha-phuong-anh',
-      'music_title' => 'Hái Hoa Rừng Cho Em',
-      'music_artist' => 'Sơn Hạ;Phương Anh',
-      'music_artist_id' => '2276;1430',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538572393,
-      'music_last_update_time' => 1487467107,
-      'music_title_search' => '2 hoa rung cho em',
-      'music_artist_search' => '; xon ha; phung em;',
-      'music_album_search' => '',
-      'music_composer' => 'Đài Phương Trang',
-      'music_album' => '',
-      'music_listen' => 41087,
-      'music_track_id' => 0,
-      'music_filename' => '1766226-2a500a27.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Hái trộm hoa rừng về trao một người ngày xưa anh đã hứa
-Màu hoa kỷ niệm tuy đã tàn úa, tâm tư vẫn dạt dào
-Năm xưa lối này vẫn thường dìu em đi
-Tàn cây năm trước anh viết tên em
-Còn xanh lá cành, gh...',
-      'music_length' => 329,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Son-Ha~Y3NuX2FydGlzdH4yMjc2.html">Sơn Hạ</a>, <a href="/ca-si/Phuong-Anh~Y3NuX2FydGlzdH4xNDMw.html">Phương Anh</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    28 => 
-    array (
-      'music_downloads_today' => 2,
-      'music_id' => 1766182,
-      'music_title_url' => 'giot-le-dai-trang~ho-viet-trung',
-      'music_title' => 'Giọt Lệ Đài Trang',
-      'music_artist' => 'Hồ Việt Trung',
-      'music_artist_id' => '2811',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1539016921,
-      'music_last_update_time' => 1487294539,
-      'music_title_search' => 'dot le dai chang',
-      'music_artist_search' => '; ho vit chung;',
-      'music_album_search' => '',
-      'music_composer' => 'Châu Kỳ',
-      'music_album' => '',
-      'music_listen' => 7455,
-      'music_track_id' => 0,
-      'music_filename' => '1766182-cd9ef2cf.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Ngày xưa ai lá ngọc cành vàng
-Ngày xưa ai quyền quý cao sang
-Em chính em ngày xưa đó
-Ước xây đời lên tột đỉnh nhân gian.
-
-Ngày xưa ai mến nhạc yêu đàn
-Ngày xưa ai nghệ sĩ lang thang
-Tôi chính tôi n...',
-      'music_length' => 310,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Ho-Viet-Trung~Y3NuX2FydGlzdH4yODEx.html">Hồ Việt Trung</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    29 => 
-    array (
-      'music_downloads_today' => 2,
-      'music_id' => 1766187,
-      'music_title_url' => 'con-duong-xua-em-di~ngoc-han',
-      'music_title' => 'Con Đường Xưa Em Đi',
-      'music_artist' => 'Ngọc Hân',
-      'music_artist_id' => '4023',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1539009219,
-      'music_last_update_time' => 1487804242,
-      'music_title_search' => 'con dung xua em di',
-      'music_artist_search' => '; ngoc han;',
-      'music_album_search' => '',
-      'music_composer' => 'Châu Kỳ',
-      'music_album' => '',
-      'music_listen' => 3864,
-      'music_track_id' => 0,
-      'music_filename' => '1766187-335a1e5e.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Con đường xưa em đi
-Vàng lên mái tóc thề
-Ngõ hồn dâng tái tê.
- 
-Anh làm thơ vu quy
-Khách qua đường lắng nghe 
-Chuyện tình ta đã ghi.
-
-Những mùa trăng vu quy
-Vì mưa gió không về 
-Chiến trường anh bư...',
-      'music_length' => 304,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Ngoc-Han~Y3NuX2FydGlzdH40MDIz.html">Ngọc Hân</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    30 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1766682,
-      'music_title_url' => 'chiec-thuyen-nan-live~bao-thy',
-      'music_title' => 'Chiếc Thuyền Nan (Live)',
-      'music_artist' => 'Bảo Thy',
-      'music_artist_id' => '458',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538839968,
-      'music_last_update_time' => 1487555302,
-      'music_title_search' => 'chic thin nan; live',
-      'music_artist_search' => '; bao thi;',
-      'music_album_search' => '',
-      'music_composer' => 'Minh Lương; Hồ Tấn Vinh',
-      'music_album' => '',
-      'music_listen' => 2110,
-      'music_track_id' => 0,
-      'music_filename' => '1766682-ce1e5dec.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'ĐK:
-Tính tính tính tình tang tang tang
-Cuộc đời mình như chiếc thuyền nan
-Trôi nó trôi bềnh bồng.
-
-1.
-Ði tới Tô-Ky-Ô
-Mình xách tay chiếc dù
-Mặc áo ki-mô-nô
-Tô-Ky-Ô Tô-Ky-Ô
-Dù là dù với ki-mô-nô.
-
-2...',
-      'music_length' => 248,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Bao-Thy~Y3NuX2FydGlzdH40NTg=.html">Bảo Thy</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    31 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1768405,
-      'music_title_url' => 'tam-anh-khong-hon~thuy-huyen',
-      'music_title' => 'Tấm Ảnh Không Hồn',
-      'music_artist' => 'Thuý Huyền',
-      'music_artist_id' => '16950',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538798778,
-      'music_last_update_time' => 1488158001,
-      'music_title_search' => 'tam em khong hon',
-      'music_artist_search' => '; thi hin;',
-      'music_album_search' => '',
-      'music_composer' => 'Hoài An',
-      'music_album' => '',
-      'music_listen' => 4627,
-      'music_track_id' => 0,
-      'music_filename' => '1768405-1da7572f.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Tôi ngó về cuối trời
-Tay ôm kỷ vật tình yêu giữa tôi với người
-Chỉ còn xót lại tấm hình gìn giữ được thôi
-Hình hài này giết dần tôi
-Cũng bởi lời thề non hẹn suối.
-
-Trông nét mặt nhớ người
-Hôm đi cò...',
-      'music_length' => 324,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Thuy-Huyen~Y3NuX2FydGlzdH4xNjk1MA==.html">Thuý Huyền</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    32 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1767339,
-      'music_title_url' => 'loi-lam-noi-con~phan-duy-anh',
-      'music_title' => 'Lỗi Lầm Nơi Con',
-      'music_artist' => 'Phan Duy Anh',
-      'music_artist_id' => '3165',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 8,
-      'cover_id' => 0,
-      'music_download_time' => 1538759230,
-      'music_last_update_time' => 1487750740,
-      'music_title_search' => 'loi lam noi con',
-      'music_artist_search' => '; phan di em;',
-      'music_album_search' => '',
-      'music_composer' => 'Duy Anh',
-      'music_album' => '',
-      'music_listen' => 1702,
-      'music_track_id' => 0,
-      'music_filename' => '1767339-1bdc88e5.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Cuộc sống quê nghèo bao khó khăn
-Mẹ cha mòn mỏi từng canh dài
-Lệ đắng âm thầm đêm thức trắng 
-Cố mong con được vui
-Chẳng thua đám bạn cùng lứa.
-
-Dành hết cơm gạo nuôi chúng con
-Chỉ mong ngày tháng...',
-      'music_length' => 306,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Phan-Duy-Anh~Y3NuX2FydGlzdH4zMTY1.html">Phan Duy Anh</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    33 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1768412,
-      'music_title_url' => 'chuyen-dem-mua~truong-quan-bao',
-      'music_title' => 'Chuyện Đêm Mưa',
-      'music_artist' => 'Trương Quân Bảo',
-      'music_artist_id' => '94608',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538572471,
-      'music_last_update_time' => 1488158142,
-      'music_title_search' => 'chin dem mua',
-      'music_artist_search' => '; chung quan bao;',
-      'music_album_search' => '',
-      'music_composer' => 'Hoài Linh; Nguyễn Hiền',
-      'music_album' => '',
-      'music_listen' => 2260,
-      'music_track_id' => 0,
-      'music_filename' => '1768412-dc996f46.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Ngoài trời không sao thưa
-Đường lầy ướt ngõ tối
-Mưa khuya về hiu hắt đi vào hồn
-Chuyện đời quên đi thôi
-Dĩ vãng xa lắm rồi
-Gợi lại để làm chi nữa người ơi.
-
-Chiều nào nâng ly bôi
-Tình vừa mới chấp...',
-      'music_length' => 270,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Truong-Quan-Bao~Y3NuX2FydGlzdH45NDYwOA==.html">Trương Quân Bảo</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    34 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1764500,
-      'music_title_url' => 'xuan-dep-lam-sao~to-my',
-      'music_title' => 'Xuân Đẹp Làm Sao',
-      'music_artist' => 'Tố My',
-      'music_artist_id' => '18402',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 2,
-      'cover_id' => 0,
-      'music_download_time' => 1538743138,
-      'music_last_update_time' => 1486717204,
-      'music_title_search' => 'xuan dep lam xao',
-      'music_artist_search' => '; to mi;',
-      'music_album_search' => '',
-      'music_composer' => 'Thanh Sơn',
-      'music_album' => '',
-      'music_listen' => 2905,
-      'music_track_id' => 0,
-      'music_filename' => '1764500-dffdf8e6.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Đẹp làm sao gió Xuân mơn man cành đào 
-Đẹp làm sao bướm hoa trao tình với nhau 
-Xuân đến đem vui về mọi nhà 
-Duyên lứa tôi ta thật đậm đà 
-Bước bôn ba gợi lòng lữ khách xa nhà. 
-
-Ngoài trời Xuân há...',
-      'music_length' => 377,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/To-My~Y3NuX2FydGlzdH4xODQwMg==.html">Tố My</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    35 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1766184,
-      'music_title_url' => 'em-di-tren-co-non~truong-quan-bao-quynh-trang',
-      'music_title' => 'Em Đi Trên Cỏ Non',
-      'music_artist' => 'Trương Quân Bảo;Quỳnh Trang',
-      'music_artist_id' => '94608;14182',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538572099,
-      'music_last_update_time' => 1487294679,
-      'music_title_search' => 'em di chen co non',
-      'music_artist_search' => '; chung quan bao; qinh chang;',
-      'music_album_search' => '',
-      'music_composer' => 'Bắc Sơn',
-      'music_album' => '',
-      'music_listen' => 10118,
-      'music_track_id' => 0,
-      'music_filename' => '1766184-fbf6fb7e.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Em đi trên cỏ non mọc ôm đôi bờ đường đê
-Em che nghiêng nón lá chân rụt rè qua nhịp cầu tre
-Quê hương em ở ngoại thành, xóm nhà tranh
-Em đi qua mấy sông vượt mấy đèo
-Dẫu trèo lên đỉnh cao mấy núi c...',
-      'music_length' => 308,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Truong-Quan-Bao~Y3NuX2FydGlzdH45NDYwOA==.html">Trương Quân Bảo</a>, <a href="/ca-si/Quynh-Trang~Y3NuX2FydGlzdH4xNDE4Mg==.html">Quỳnh Trang</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    36 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1768398,
-      'music_title_url' => 'chuyen-dem-mua~giang-tien',
-      'music_title' => 'Chuyện Đêm Mưa',
-      'music_artist' => 'Giáng Tiên',
-      'music_artist_id' => '2355',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538473592,
-      'music_last_update_time' => 1488157875,
-      'music_title_search' => 'chin dem mua',
-      'music_artist_search' => '; dang tin;',
-      'music_album_search' => '',
-      'music_composer' => 'Hoài Linh; Nguyễn Hiền',
-      'music_album' => '',
-      'music_listen' => 6700,
-      'music_track_id' => 0,
-      'music_filename' => '1768398-06ef9d57.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Ngoài trời không sao thưa
-Đường lầy ướt ngõ tối
-Mưa khuya về hiu hắt đi vào hồn
-Chuyện đời quên đi thôi
-Dĩ vãng xa lắm rồi
-Gợi lại để làm chi nữa người ơi.
-
-Chiều nào nâng ly bôi
-Tình vừa mới chấp...',
-      'music_length' => 258,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Giang-Tien~Y3NuX2FydGlzdH4yMzU1.html">Giáng Tiên</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    37 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1768396,
-      'music_title_url' => 'cho-nguoi~saka-truong-tuyen',
-      'music_title' => 'Chờ Người',
-      'music_artist' => 'Saka Trương Tuyền',
-      'music_artist_id' => '2292',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538458715,
-      'music_last_update_time' => 1488157857,
-      'music_title_search' => 'cho ngui',
-      'music_artist_search' => '; xaka chung tin;',
-      'music_album_search' => '',
-      'music_composer' => 'Khánh Băng',
-      'music_album' => '',
-      'music_listen' => 40903,
-      'music_track_id' => 0,
-      'music_filename' => '1768396-ea5af412.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Một người con gái đứng nghiêng nghiêng vành nón lá
-Đường chiều bờ đê lối xưa kỷ niệm thiết tha 
-Lòng nàng sao lưu luyến quá
-Hẹn hò một người đi xa
-Mà năm tháng đã dần qua.
-
-Chuyện tình chung thuỷ c...',
-      'music_length' => 285,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Saka-Truong-Tuyen~Y3NuX2FydGlzdH4yMjky.html">Saka Trương Tuyền</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    38 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1768375,
-      'music_title_url' => 'vung-la-me-bay~duong-hong-loan',
-      'music_title' => 'Vùng Lá Me Bay',
-      'music_artist' => 'Dương Hồng Loan',
-      'music_artist_id' => '4293',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538553500,
-      'music_last_update_time' => 1488157797,
-      'music_title_search' => 'vung la me bai',
-      'music_artist_search' => '; dung hong loan;',
-      'music_album_search' => '',
-      'music_composer' => 'Anh Việt Thanh',
-      'music_album' => '',
-      'music_listen' => 102403,
-      'music_track_id' => 0,
-      'music_filename' => '1768375-5fe25caf.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Nhìn lá me bay nhớ kỷ niệm hai chúng mình
-Ngày đó quen nhau vương chút tình trên tóc mây
-Đôi mắt thơ ngây, hoa nắng ươm đầy
-Đẹp tựa như lá me bay nên tình anh trót vay.
-
-Ngày đó yêu nhau chúng ta t...',
-      'music_length' => 260,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Duong-Hong-Loan~Y3NuX2FydGlzdH40Mjkz.html">Dương Hồng Loan</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    39 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1766185,
-      'music_title_url' => 'tinh-dai-kho~truong-quan-bao',
-      'music_title' => 'Tình Dại Khờ',
-      'music_artist' => 'Trương Quân Bảo',
-      'music_artist_id' => '94608',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538571942,
-      'music_last_update_time' => 1487294717,
-      'music_title_search' => 'tinh dai kho',
-      'music_artist_search' => '; chung quan bao;',
-      'music_album_search' => '',
-      'music_composer' => 'Ngọc Sơn',
-      'music_album' => '',
-      'music_listen' => 3731,
-      'music_track_id' => 0,
-      'music_filename' => '1766185-76712e7e.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Anh ơi thức trọn đêm này
-Mình trông giây phút biệt ly nghẹn ngào
-Nghẹn ngào cho lệ hoen mi
-Cho lòng thêm khổ khi đã yêu rồi
-Mai đây xa cách phương trời
-Tình chia hai lối anh có buồn không.
-
-Yêu em...',
-      'music_length' => 266,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Truong-Quan-Bao~Y3NuX2FydGlzdH45NDYwOA==.html">Trương Quân Bảo</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    40 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1775257,
-      'music_title_url' => 'quang-tao-cai-boong~huynh-james-pjnboys',
-      'music_title' => 'Quăng Tao Cái Boong',
-      'music_artist' => 'Huỳnh James;Pjnboys',
-      'music_artist_id' => '13450;13451',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538652492,
-      'music_last_update_time' => 1490505930,
-      'music_title_search' => 'quang tao cai bong',
-      'music_artist_search' => '; hinh jamex; pjnboix;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 80853,
-      'music_track_id' => 0,
-      'music_filename' => '1775257-328448e7.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '[Ver 1:]
-Con phố đã lên đèn mà lên đèn phải xuống phố 
-Xuống phố để giải ngố, chứ không cái đầu bể hộp số 
-Vì công việc hàng ngày chất chứa quá nhiều toàn những vết ố 
-Nên vì thế tao dùng cỏ khô tẩ...',
-      'music_length' => 249,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Huynh-James~Y3NuX2FydGlzdH4xMzQ1MA==.html">Huỳnh James</a>, <a href="/ca-si/Pjnboys~Y3NuX2FydGlzdH4xMzQ1MQ==.html">Pjnboys</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    41 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1776097,
-      'music_title_url' => 'hai-mua-mua~khuu-huy-vu-duong-hong-loan',
-      'music_title' => 'Hai Mùa Mưa',
-      'music_artist' => 'Khưu Huy Vũ;Dương Hồng Loan',
-      'music_artist_id' => '3166;4293',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538620225,
-      'music_last_update_time' => 1490668014,
-      'music_title_search' => '2 mua mua',
-      'music_artist_search' => '; khu hi vu; dung hong loan;',
-      'music_album_search' => '',
-      'music_composer' => 'Anh Bằng',
-      'music_album' => '',
-      'music_listen' => 70724,
-      'music_track_id' => 0,
-      'music_filename' => '1776097-6eaa5275.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Mùa mưa lần trước anh về đây ghé thăm tôi
-Tình xưa bạn cũ gặp nhau đêm ấy mưa rơi
-Tách cà phê ấm môi
-Mình ngồi ôn lại những phút vui trôi qua mất rồi.
-
-Này cây phượng vĩ bên đường che nắng ban trưa...',
-      'music_length' => 309,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Khuu-Huy-Vu~Y3NuX2FydGlzdH4zMTY2.html">Khưu Huy Vũ</a>, <a href="/ca-si/Duong-Hong-Loan~Y3NuX2FydGlzdH40Mjkz.html">Dương Hồng Loan</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    42 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1773989,
-      'music_title_url' => 'yeu-5-rhymastic-remix~rhymastic',
-      'music_title' => 'Yêu 5 (Rhymastic Remix)',
-      'music_artist' => 'Rhymastic',
-      'music_artist_id' => '1545',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538812394,
-      'music_last_update_time' => 1489984983,
-      'music_title_search' => 'iu 5; rhimaxtic remix',
-      'music_artist_search' => '; rhimaxtic;',
-      'music_album_search' => '',
-      'music_composer' => 'Rhymastic',
-      'music_album' => '',
-      'music_listen' => 14880,
-      'music_track_id' => 0,
-      'music_filename' => '1773989-25f764b2.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '[Verse:] 
-Xin những bối rối này cứ thế lên ngôi 
-Xin con tim rẽ lối tìm giây phút nghẹn lời 
-Cho thêm chơi vơi, để những ánh mắt đôi môi 
-Chạm nhau mang theo gọi mời. 
-
-Xin cho ta tan vào những đắm...',
-      'music_length' => 208,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Rhymastic~Y3NuX2FydGlzdH4xNTQ1.html">Rhymastic</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    43 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1772480,
-      'music_title_url' => 'loi-dang-cho-cuoc-tinh~truong-tam',
-      'music_title' => 'Lời Đắng Cho Cuộc Tình',
-      'music_artist' => 'Trương Tam',
-      'music_artist_id' => '94851',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538758747,
-      'music_last_update_time' => 1489456540,
-      'music_title_search' => 'loi dang cho cuc tinh',
-      'music_artist_search' => '; chung tam;',
-      'music_album_search' => '',
-      'music_composer' => 'Nhật Ngân',
-      'music_album' => '',
-      'music_listen' => 4677,
-      'music_track_id' => 0,
-      'music_filename' => '1772480-b25817d7.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Cuối cùng rồi mình vẫn thế
-Có sao đâu khóc chi em
-Cho phai mà hồng được gì.
-
-Giọt lệ này dành để mai đây
-Về cùng người khóc giữa đêm vui
-Hỡi đâu, hỡi đâu mà tiếc thương thân anh.
-
-Những ngày còn nồ...',
-      'music_length' => 299,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Truong-Tam~Y3NuX2FydGlzdH45NDg1MQ==.html">Trương Tam</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    44 => 
-    array (
-      'music_downloads_today' => 3,
-      'music_id' => 1773401,
-      'music_title_url' => 'de-cho-em-khoc~vy-oanh',
-      'music_title' => 'Để Cho Em Khóc',
-      'music_artist' => 'Vy Oanh',
-      'music_artist_id' => '962',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1539046275,
-      'music_last_update_time' => 1489714265,
-      'music_title_search' => 'de cho em khoc',
-      'music_artist_search' => '; vi oanh;',
-      'music_album_search' => '',
-      'music_composer' => 'Phúc Trường',
-      'music_album' => '',
-      'music_listen' => 56733,
-      'music_track_id' => 0,
-      'music_filename' => '1773401-49062af1.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Chỉ là em muốn ôm chặt anh lúc này 
-Giữ chặt anh lúc này không buông tay
-Để cho em khóc, thêm một lần nữa thôi
-Thêm một lần cuối cùng, rồi ta sẽ rời xa.
- 
-Vậy là kết thúc sau nhiều năm nói cười
-Ta...',
-      'music_length' => 270,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Vy-Oanh~Y3NuX2FydGlzdH45NjI=.html">Vy Oanh</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    45 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1770409,
-      'music_title_url' => 'anh-khong-biet-dau-official-mv-prod-by-max-benderz-beebb~andree-right-hand',
-      'music_title' => 'Anh Không Biết Đâu (Official MV) Prod. by Max Benderz / BeeBB',
-      'music_artist' => 'Andree Right Hand',
-      'music_artist_id' => '1851',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538914253,
-      'music_last_update_time' => 1488849818,
-      'music_title_search' => 'em khong bit dau; oficial mv prod bi max benderz ; beb',
-      'music_artist_search' => '; andre right hand;',
-      'music_album_search' => '',
-      'music_composer' => 'Andree Right Hand',
-      'music_album' => '',
-      'music_listen' => 3109,
-      'music_track_id' => 0,
-      'music_filename' => '1770409-08765ba3.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Đưa anh số fone thằng bán hàng đây
-Gọi thêm mấy chấm để xào thêm mấy đường K
-Thư giãn với anh, vì hôm nay là thứ 7 
-Work hard play hard cách sống anh như vậy, ahh
-Yves Saint Laurent, Dior Paradise...',
-      'music_length' => 210,
-      'music_width' => 1280,
-      'music_height' => 720,
-      'music_artist_html' => '<a href="/ca-si/Andree-Right-Hand~Y3NuX2FydGlzdH4xODUx.html">Andree Right Hand</a>',
-      'music_bitrate_html' => '<span style="color: orange">HD 720p</span>',
-    ),
-    46 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1770009,
-      'music_title_url' => 'dep-long-nguoi-yeu~manh-quynh-ha-thanh-xuan',
-      'music_title' => 'Đẹp Lòng Người Yêu',
-      'music_artist' => 'Mạnh Quỳnh;Hà Thanh Xuân',
-      'music_artist_id' => '1583;7393',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538663184,
-      'music_last_update_time' => 1488686779,
-      'music_title_search' => 'dep long ngui iu',
-      'music_artist_search' => '; manh qinh; ha thanh xuan;',
-      'music_album_search' => '',
-      'music_composer' => 'Ngọc Sơn; Tuấn Hải',
-      'music_album' => '',
-      'music_listen' => 89764,
-      'music_track_id' => 0,
-      'music_filename' => '1770009-7b7f67cc.mp4',
-      'music_bitrate' => 320,
-      'music_shortlyric' => 'Vài lời về thăm người yêu bé nhỏ 
-Mượn trang giấy trắng gói ghém tâm tư 
-Đồn xa chẳng có một ánh sao 
-Giờ đây khoé mắt xanh tìm đâu 
-Từ bao lâu cách xa nhau. 
-
-Đừng buồn đừng cho nhạt phai má hồng...',
-      'music_length' => 332,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Manh-Quynh~Y3NuX2FydGlzdH4xNTgz.html">Mạnh Quỳnh</a>, <a href="/ca-si/Ha-Thanh-Xuan~Y3NuX2FydGlzdH43Mzkz.html">Hà Thanh Xuân</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    47 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1770052,
-      'music_title_url' => 'toi-chua-co-mua-xuan~huynh-phi-tien',
-      'music_title' => 'Tôi Chưa Có Mùa Xuân',
-      'music_artist' => 'Huỳnh Phi Tiễn',
-      'music_artist_id' => '26545',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538672907,
-      'music_last_update_time' => 1488778192,
-      'music_title_search' => 'toi chua co mua xuan',
-      'music_artist_search' => '; hinh phi tin;',
-      'music_album_search' => '',
-      'music_composer' => 'Châu Kỳ',
-      'music_album' => '',
-      'music_listen' => 6074,
-      'music_track_id' => 0,
-      'music_filename' => '1770052-c3ee6212.mp4',
-      'music_bitrate' => 128,
-      'music_shortlyric' => 'Đợi hai ba năm nữa, quê mình thôi khói lửa
-Mời xuân đến với tôi, giờ này còn nổi trôi
-Riêng tôi xin từ chối, mà xuân chán gì nơi.
-
-Nàng xuân chán gì nơi, xuân là của muôn người
-Mặc tình xuân lả lơi...',
-      'music_length' => 297,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Huynh-Phi-Tien~Y3NuX2FydGlzdH4yNjU0NQ==.html">Huỳnh Phi Tiễn</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    48 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1771446,
-      'music_title_url' => 'tu-giay-phut-dau~hari-won-tran-thanh',
-      'music_title' => 'Từ Giây Phút Đầu',
-      'music_artist' => 'Hari Won;Trấn Thành',
-      'music_artist_id' => '3971;2773',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538531557,
-      'music_last_update_time' => 1489108798,
-      'music_title_search' => 'tu dai phut dau',
-      'music_artist_search' => '; hari won; chan thanh;',
-      'music_album_search' => '',
-      'music_composer' => 'Châu Đăng Khoa',
-      'music_album' => '',
-      'music_listen' => 36337,
-      'music_track_id' => 0,
-      'music_filename' => '1771446-a18f8518.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Từ giây đầu tiên thấy anh trái đất kia dường như đứng lại
-Từ giây đầu tiên thấy em anh biết tim mình trao về ai
-Từ giây đầu tiên thấy nhau em chỉ mong ngày mai kéo dài
-Từ giây đầu tiên thấy nhau an...',
-      'music_length' => 255,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Hari-Won~Y3NuX2FydGlzdH4zOTcx.html">Hari Won</a>, <a href="/ca-si/Tran-Thanh~Y3NuX2FydGlzdH4yNzcz.html">Trấn Thành</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    49 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1772795,
-      'music_title_url' => 'anh-da-quen-voi-co-don~soobin-hoang-son',
-      'music_title' => 'Anh Đã Quen Với Cô Đơn',
-      'music_artist' => 'Soobin Hoàng Sơn',
-      'music_artist_id' => '3108',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538795374,
-      'music_last_update_time' => 1489547477,
-      'music_title_search' => 'em da quen voi co don',
-      'music_artist_search' => '; xobin hoang xon;',
-      'music_album_search' => '',
-      'music_composer' => 'Soobin Hoàng Sơn',
-      'music_album' => '',
-      'music_listen' => 37125,
-      'music_track_id' => 0,
-      'music_filename' => '1772795-20e5cead.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Anh thường hay vẫn nằm mơ
-Về một ngôi nhà, ở một nơi chỉ có đôi ta
-Nơi đã có anh và em xây từng câu chuyện
-Cùng sẻ chia về những ước mơ.
-
-Trên trời cao, muôn vì sao, soi từng con đường
-Hoà làn mây...',
-      'music_length' => 268,
-      'music_width' => 1920,
-      'music_height' => 1012,
-      'music_artist_html' => '<a href="/ca-si/Soobin-Hoang-Son~Y3NuX2FydGlzdH4zMTA4.html">Soobin Hoàng Sơn</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    50 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1773835,
-      'music_title_url' => 'chuyen-tinh-tho-xay-noi-nay-co-anh-parody~vanh-leg',
-      'music_title' => 'Chuyện Tình Thợ Xây (Nơi Này Có Anh Parody)',
-      'music_artist' => 'Vanh Leg',
-      'music_artist_id' => '21580',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538993621,
-      'music_last_update_time' => 1489989138,
-      'music_title_search' => 'chin tinh tho xai; noi nai co em parodi',
-      'music_artist_search' => '; vanh leg;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 82729,
-      'music_track_id' => 0,
-      'music_filename' => '1773835-4cfb6c36.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Bao ngày ngóng trông đêm dài vẫn 1 mình ta cô đơn 
-Chiếc giường vẫn ở nơi này nhưng chỉ có ta nằm thôi 
-Đời vẫn như …Tiền thì chẳng có mà tiêu 
-Thương xót thân mình, mang kiếp nhà nghèo 
-Tiền không...',
-      'music_length' => 249,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Vanh-Leg~Y3NuX2FydGlzdH4yMTU4MA==.html">Vanh Leg</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    51 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1774639,
-      'music_title_url' => 've-mien-vy-dam-gian-thuong~thanh-tai-linh-tuyet',
-      'music_title' => 'Về Miền Vỹ Dặm Giận Thương',
-      'music_artist' => 'Thanh Tài;Linh Tuyết',
-      'music_artist_id' => '14199;95501',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538987636,
-      'music_last_update_time' => 1490242606,
-      'music_title_search' => 've min vi dam dan thung',
-      'music_artist_search' => '; thanh tai; linh tit;',
-      'music_album_search' => '',
-      'music_composer' => 'Trịnh Ngọc Châu; Thơ: Đậu Hoài Thanh',
-      'music_album' => '',
-      'music_listen' => 6099,
-      'music_track_id' => 0,
-      'music_filename' => '1774639-39ae0f4d.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Hà Tĩnh mình ơi! chan chứa yêu thương nghĩa tình sâu lắng 
-Giọng hò vang vọng Sông La níu chân người 
-Nỏ muốn chia xa, nặng lòng câu ví đi xa cũng nhớ về.
- 
-Ngày chia xa nơi bến Giang Đình Ngàn Hốn...',
-      'music_length' => 348,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Thanh-Tai~Y3NuX2FydGlzdH4xNDE5OQ==.html">Thanh Tài</a>, <a href="/ca-si/Linh-Tuyet~Y3NuX2FydGlzdH45NTUwMQ==.html">Linh Tuyết</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    52 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1770434,
-      'music_title_url' => 'cau-chuyen-dau-nam~to-my',
-      'music_title' => 'Câu Chuyện Đầu Năm',
-      'music_artist' => 'Tố My',
-      'music_artist_id' => '18402',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538742876,
-      'music_last_update_time' => 1488769798,
-      'music_title_search' => 'cau chin dau 5',
-      'music_artist_search' => '; to mi;',
-      'music_album_search' => '',
-      'music_composer' => 'Hoài An',
-      'music_album' => '',
-      'music_listen' => 10035,
-      'music_track_id' => 0,
-      'music_filename' => '1770434-35d22bb2.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '1. Trên đường đi lễ Xuân đầu năm 
-Qua một năm ruột rối tơ tằm 
-Năm mới nhiều ước vọng chờ mong 
-May nhiều rủi ít ngóng trông
-Vui cùng pháo nổ rượu hồng.
-
-2. Ta cùng nhau đón thêm mùa xuân 
-Xuân dù...',
-      'music_length' => 320,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/To-My~Y3NuX2FydGlzdH4xODQwMg==.html">Tố My</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    53 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1770006,
-      'music_title_url' => 'xa-nguoi-minh-yeu~dan-nguyen-mai-thien-van',
-      'music_title' => 'Xa Người Mình Yêu',
-      'music_artist' => 'Đan Nguyên;Mai Thiên Vân',
-      'music_artist_id' => '2347;2316',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1538486942,
-      'music_last_update_time' => 1488686638,
-      'music_title_search' => 'xa ngui minh iu',
-      'music_artist_search' => '; dan ngin; mai thin van;',
-      'music_album_search' => '',
-      'music_composer' => 'Đoàn Bổng',
-      'music_album' => '',
-      'music_listen' => 78447,
-      'music_track_id' => 0,
-      'music_filename' => '1770006-8912e9f4.mp4',
-      'music_bitrate' => 320,
-      'music_shortlyric' => '1. Chiều nay vắng anh lòng em thấy buồn
-Nhớ gì cho bằng em nhớ người yêu
-Người yêu em vẫn mong chờ
-Trọn đời trọn kiếp yêu nhau
-Xin anh hãy nhớ đừng quên.
-
-Đường đông phố vui lòng sao vẫn buồn
-Nhớ g...',
-      'music_length' => 349,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Dan-Nguyen~Y3NuX2FydGlzdH4yMzQ3.html">Đan Nguyên</a>, <a href="/ca-si/Mai-Thien-Van~Y3NuX2FydGlzdH4yMzE2.html">Mai Thiên Vân</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    54 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1775345,
-      'music_title_url' => 'nhung-anh-van-yeu~pham-dinh-thai-ngan',
-      'music_title' => 'Nhưng Anh Vẫn Yêu',
-      'music_artist' => 'Phạm Đình Thái Ngân',
-      'music_artist_id' => '16582',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538935561,
-      'music_last_update_time' => 1491361737,
-      'music_title_search' => 'nhung em van iu',
-      'music_artist_search' => '; pham dinh thai ngan;',
-      'music_album_search' => '',
-      'music_composer' => 'Phạm Đình Thái Ngân',
-      'music_album' => '',
-      'music_listen' => 1016,
-      'music_track_id' => 0,
-      'music_filename' => '1775345-614b5245.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Khi đôi ta biết nhau ngày đầu tiên
-Cảm xúc lúc ấy rất ngay ngô hồn nhiên
-Chẳng nghĩ đến những điều xa xôi
-Chỉ cần hai ta luôn có nhau mà thôi.
-
-Sau bao năm tháng ta vai kề vai
-Mình tay trong tay mỗ...',
-      'music_length' => 278,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Pham-Dinh-Thai-Ngan~Y3NuX2FydGlzdH4xNjU4Mg==.html">Phạm Đình Thái Ngân</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    55 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1770703,
-      'music_title_url' => 'nguoi-yeu-cua-em~truong-thao-nhi',
-      'music_title' => 'Người Yêu Của Em',
-      'music_artist' => 'Trương Thảo Nhi',
-      'music_artist_id' => '3782',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538469698,
-      'music_last_update_time' => 1488981026,
-      'music_title_search' => 'ngui iu cua em',
-      'music_artist_search' => '; chung thao nhi;',
-      'music_album_search' => '',
-      'music_composer' => 'Trương Thảo Nhi',
-      'music_album' => '',
-      'music_listen' => 1898,
-      'music_track_id' => 0,
-      'music_filename' => '1770703-dbc4b8de.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '1. Người yêu ơi anh có nghe bài ca em đang hát này 
-Nhạc du dương vang khắp nơi đèn lấp lánh ánh sáng màu 
-Người yêu ơi em muốn anh nhìn em khi em hát này 
-Rằng trong tim đã đóng đinh anh là người...',
-      'music_length' => 241,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Truong-Thao-Nhi~Y3NuX2FydGlzdH4zNzgy.html">Trương Thảo Nhi</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    56 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1769322,
-      'music_title_url' => 'lac-nhau-co-phai-muon-doi~an-coong',
-      'music_title' => 'Lạc Nhau Có Phải Muôn Đời',
-      'music_artist' => 'An Coong',
-      'music_artist_id' => '4211',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538642848,
-      'music_last_update_time' => 1488431547,
-      'music_title_search' => 'lac nhau co phai mun doi',
-      'music_artist_search' => '; an cong;',
-      'music_album_search' => '',
-      'music_composer' => 'Triết Phạm',
-      'music_album' => '',
-      'music_listen' => 1878,
-      'music_track_id' => 0,
-      'music_filename' => '1769322-a5493c18.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Thế giới bé thế nào, mình gặp nhau có phải muôn đời?
-Ngày mà người mang đến một khúc hát không thể quên
-Bài hát với những mơ mộng, bài hát với những hy vọng
-Cho đời ta chút vui, cho đời ta chút thư...',
-      'music_length' => 289,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/An-Coong~Y3NuX2FydGlzdH40MjEx.html">An Coong</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    57 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1770431,
-      'music_title_url' => 'buc-hoa-ngay-xuan~to-my',
-      'music_title' => 'Bức Hoạ Ngày Xuân',
-      'music_artist' => 'Tố My',
-      'music_artist_id' => '18402',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 2,
-      'cover_id' => 0,
-      'music_download_time' => 1538743476,
-      'music_last_update_time' => 1488769773,
-      'music_title_search' => 'buc hoa ngai xuan',
-      'music_artist_search' => '; to mi;',
-      'music_album_search' => '',
-      'music_composer' => 'Trương Phi Hùng',
-      'music_album' => '',
-      'music_listen' => 2714,
-      'music_track_id' => 0,
-      'music_filename' => '1770431-cb0c3a3d.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Thấm thoát một năm xuân lại trở về
-Đào mai khoe sắc hương toả khắp nơi
-Đàn em thơ bé khoe mặc áo đẹp
-Vui tung tăng trên phố chiều bay
-Mừng xuân sang hát ca rộn ràng.
- 
-Bao lớp người tha phương nay...',
-      'music_length' => 278,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/To-My~Y3NuX2FydGlzdH4xODQwMg==.html">Tố My</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    58 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1770049,
-      'music_title_url' => 'mai-tim-nhau~luu-chi-vy-duong-hong-loan',
-      'music_title' => 'Mãi Tìm Nhau',
-      'music_artist' => 'Lưu Chí Vỹ;Dương Hồng Loan',
-      'music_artist_id' => '120;4293',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538630261,
-      'music_last_update_time' => 1488778377,
-      'music_title_search' => 'mai tim nhau',
-      'music_artist_search' => '; lu chi vi; dung hong loan;',
-      'music_album_search' => '',
-      'music_composer' => 'Hàn Châu',
-      'music_album' => '',
-      'music_listen' => 5087,
-      'music_track_id' => 0,
-      'music_filename' => '1770049-c420486b.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Biết nhớ em nhiều cũng thế thôi
-Nhớ em em có nhớ gì tôi
-Từ nay vui với đời sương gió
-Vui với rượu nồng với chính tôi.
-
-1. Hôm nay chúng mình không còn gặp nhau
-Bao đêm ngồi nhớ nhung ôi là sầu
-Tình...',
-      'music_length' => 276,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Luu-Chi-Vy~Y3NuX2FydGlzdH4xMjA=.html">Lưu Chí Vỹ</a>, <a href="/ca-si/Duong-Hong-Loan~Y3NuX2FydGlzdH40Mjkz.html">Dương Hồng Loan</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    59 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1772721,
-      'music_title_url' => 'cam-on-nhe-tinh-yeu~bao-thy',
-      'music_title' => 'Cảm Ơn Nhé Tình Yêu',
-      'music_artist' => 'Bảo Thy',
-      'music_artist_id' => '458',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538646497,
-      'music_last_update_time' => 1489508418,
-      'music_title_search' => 'cam on nhe tinh iu',
-      'music_artist_search' => '; bao thi;',
-      'music_album_search' => '',
-      'music_composer' => 'Mạnh Quân',
-      'music_album' => '',
-      'music_listen' => 790,
-      'music_track_id' => 0,
-      'music_filename' => '1772721-93fb5451.mp4',
-      'music_bitrate' => 192,
-      'music_shortlyric' => 'Không gian nơi đây thật bình yên
-Một bờ cỏ xanh tươi mơn man rợp bóng cây
-Mặt hồ yên ả lấp lánh những ánh nắng mai nhẹ nhàng
-Chạy theo con đường trong sương lãng mạn.
-
-Em đi bên anh một ngày mới
-Ch...',
-      'music_length' => 220,
-      'music_width' => 1280,
-      'music_height' => 720,
-      'music_artist_html' => '<a href="/ca-si/Bao-Thy~Y3NuX2FydGlzdH40NTg=.html">Bảo Thy</a>',
-      'music_bitrate_html' => '<span style="color: orange">HD 720p</span>',
-    ),
-    60 => 
-    array (
-      'music_downloads_today' => 4,
-      'music_id' => 1779589,
-      'music_title_url' => 'neu-duoc-lam-nguoi-tinh~quynh-trang',
-      'music_title' => 'Nếu Được Làm Người Tình',
-      'music_artist' => 'Quỳnh Trang',
-      'music_artist_id' => '14182',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1539011385,
-      'music_last_update_time' => 1492046020,
-      'music_title_search' => 'neu duc lam ngui tinh',
-      'music_artist_search' => '; qinh chang;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 239051,
-      'music_track_id' => 0,
-      'music_filename' => '1779589-c8b3b5b7.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Nếu được làm người tình
-Lạc vào mắt nai tơ 
-Cho hồn bớt dại khờ.
-
-Nếu được làm người tình 
-Đùa tóc trong chiều vắng 
-Làm gió thoáng môi hôn.
-
-Ngàn vì sao trên trời
-Nhìn người yêu tôi cười
-Thẹn thùn...',
-      'music_length' => 340,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Quynh-Trang~Y3NuX2FydGlzdH4xNDE4Mg==.html">Quỳnh Trang</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    61 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1780520,
-      'music_title_url' => 'hoa-no-ve-dem~phuong-anh',
-      'music_title' => 'Hoa Nở Về Đêm',
-      'music_artist' => 'Phương Anh',
-      'music_artist_id' => '1430',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1539023541,
-      'music_last_update_time' => 1492415353,
-      'music_title_search' => 'hoa no ve dem',
-      'music_artist_search' => '; phung em;',
-      'music_album_search' => '',
-      'music_composer' => 'Mạnh Phát',
-      'music_album' => '',
-      'music_listen' => 322122,
-      'music_track_id' => 0,
-      'music_filename' => '1780520-cd0f345f.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Chuyện từ một đêm cuối nẻo một người tiễn một người đi
-Đẹp tựa bài thơ nở giữa đêm sương nở tận tâm hồn
-Chuyện một mình tôi chép dòng tâm tình tặng người chưa biết một lần
-Vì giây phút ấy tôi tình...',
-      'music_length' => 354,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Phuong-Anh~Y3NuX2FydGlzdH4xNDMw.html">Phương Anh</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    62 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1777301,
-      'music_title_url' => 'duong-tim-bang-lang~thien-quang-quynh-trang',
-      'music_title' => 'Đường Tím Bằng Lăng',
-      'music_artist' => 'Thiên Quang;Quỳnh Trang',
-      'music_artist_id' => '4784;14182',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538661876,
-      'music_last_update_time' => 1491191012,
-      'music_title_search' => 'dung tim bang lang',
-      'music_artist_search' => '; thin quang; qinh chang;',
-      'music_album_search' => '',
-      'music_composer' => 'Hoài Yên',
-      'music_album' => '',
-      'music_listen' => 96801,
-      'music_track_id' => 0,
-      'music_filename' => '1777301-514e1dc2.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Hàng cây xanh thắm màu trên con đường ngày xưa hai ta chung lối mộng 
-Em thương sắc tím bằng lăng, anh thương màu áo trắng tan trường hoa, áo tung tăng
-Tình bao năm thắm nồng nhưng chưa một lời yêu...',
-      'music_length' => 331,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Thien-Quang~Y3NuX2FydGlzdH40Nzg0.html">Thiên Quang</a>, <a href="/ca-si/Quynh-Trang~Y3NuX2FydGlzdH4xNDE4Mg==.html">Quỳnh Trang</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    63 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1779609,
-      'music_title_url' => 'yeu-la-tha-thu~onlyc',
-      'music_title' => 'Yêu Là &quot;Tha Thu&quot;',
-      'music_artist' => 'OnlyC',
-      'music_artist_id' => '2560',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538488934,
-      'music_last_update_time' => 1492134693,
-      'music_title_search' => 'iu la &qut;tha thu&qut;',
-      'music_artist_search' => '; onlic;',
-      'music_album_search' => '',
-      'music_composer' => 'Nguyễn Phúc Thiện',
-      'music_album' => '',
-      'music_listen' => 64213,
-      'music_track_id' => 0,
-      'music_filename' => '1779609-421058a7.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Trong kí ức anh khi ấy 
-Lần đầu gặp gỡ làm tim nhớ nhung 
-Rồi từng ngày trôi qua 
-Trong thâm tâm bỗng chốc nhận ra 
-Ấm áp tràn về mỗi lúc.
- 
-Khi em đến ngày hôm ấy 
-Một người đang đứng gần ngay kế...',
-      'music_length' => 337,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/OnlyC~Y3NuX2FydGlzdH4yNTYw.html">OnlyC</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    64 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1777691,
-      'music_title_url' => 'xin-anh-giu-tron-tinh-que~duy-khanh',
-      'music_title' => 'Xin Anh Giữ Trọn Tình Quê',
-      'music_artist' => 'Duy Khánh',
-      'music_artist_id' => '1082',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538662869,
-      'music_last_update_time' => 1491300495,
-      'music_title_search' => 'xin em du chon tinh que',
-      'music_artist_search' => '; di khanh;',
-      'music_album_search' => '',
-      'music_composer' => 'Duy Khánh',
-      'music_album' => '',
-      'music_listen' => 21823,
-      'music_track_id' => 0,
-      'music_filename' => '1777691-1dd55ae1.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Chung vui đêm này cho trọn tình yêu thương 
-Đẹp tình quê hương mai tôi về chúng mình đôi đường 
-Giờ phút phân kỳ ai lên đường ai vấn vương 
-Mình thương, thương nhau trong đời 
-Thương nhau trong lời...',
-      'music_length' => 360,
-      'music_width' => 1440,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Duy-Khanh~Y3NuX2FydGlzdH4xMDgy.html">Duy Khánh</a>',
-      'music_bitrate_html' => '<span style="color: orange">1440x1080</span>',
-    ),
-    65 => 
-    array (
-      'music_downloads_today' => 2,
-      'music_id' => 1778690,
-      'music_title_url' => 'noi-co-se-kho-nhung-vui~vu-phan-duong-ninh',
-      'music_title' => 'Nói Có Sẽ Khó Nhưng Vui',
-      'music_artist' => 'Vũ Phan Dương Ninh',
-      'music_artist_id' => '14076',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 8,
-      'cover_id' => 0,
-      'music_download_time' => 1538972155,
-      'music_last_update_time' => 1491793985,
-      'music_title_search' => 'noi co xe kho nhung vui',
-      'music_artist_search' => '; vu phan dung ninh;',
-      'music_album_search' => '',
-      'music_composer' => 'Yan Nguyễn',
-      'music_album' => '',
-      'music_listen' => 1518,
-      'music_track_id' => 0,
-      'music_filename' => '1778690-48e98e09.mp4',
-      'music_bitrate' => 192,
-      'music_shortlyric' => 'Chào làn tóc mây trong nắng sớm
-Tình cờ lướt qua con phố quen
-Quyện hơi ấm thu hoài, hoà giá băng ngàn năm
-Làm trái tim thôi ngủ yên.
-
-Nụ cười đã lâu anh mới thấy
-Từ ngày đắng cay tim ngủ say
-Chờ đ...',
-      'music_length' => 232,
-      'music_width' => 1280,
-      'music_height' => 720,
-      'music_artist_html' => '<a href="/ca-si/Vu-Phan-Duong-Ninh~Y3NuX2FydGlzdH4xNDA3Ng==.html">Vũ Phan Dương Ninh</a>',
-      'music_bitrate_html' => '<span style="color: orange">HD 720p</span>',
-    ),
-    66 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1780697,
-      'music_title_url' => 'say-tinh~ho-ngoc-ha',
-      'music_title' => 'Say Tình',
-      'music_artist' => 'Hồ Ngọc Hà',
-      'music_artist_id' => '1468',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538851374,
-      'music_last_update_time' => 1529039236,
-      'music_title_search' => 'xai tinh',
-      'music_artist_search' => '; ho ngoc ha;',
-      'music_album_search' => '',
-      'music_composer' => 'Nhạc Ngoại; Lời: Quốc Tuấn',
-      'music_album' => '',
-      'music_listen' => 10233,
-      'music_track_id' => 0,
-      'music_filename' => '1780697-4c3c15f6.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Buồn nào đưa ta qua những nỗi đau thương này
-Dặn lòng ta say cho quên đi đôi mắt u tình
-Ánh mắt đắm đuối, đôi môi đam mê, đôi tay buông lơi
-Em yêu đã giết ta trong một đêm gây mê buồn.
-
-Vì yêu em n...',
-      'music_length' => 290,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Ho-Ngoc-Ha~Y3NuX2FydGlzdH4xNDY4.html">Hồ Ngọc Hà</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    67 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1780450,
-      'music_title_url' => 'yeu-5-remix~hieu-kenbyz',
-      'music_title' => 'Yêu 5 (Remix)',
-      'music_artist' => 'Hiếu KenByz',
-      'music_artist_id' => '95761',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 8,
-      'cover_id' => 0,
-      'music_download_time' => 1538858654,
-      'music_last_update_time' => 1492396412,
-      'music_title_search' => 'iu 5',
-      'music_artist_search' => '; hiu kenbiz;',
-      'music_album_search' => '',
-      'music_composer' => 'Rhymastic',
-      'music_album' => '',
-      'music_listen' => 4752,
-      'music_track_id' => 0,
-      'music_filename' => '1780450-03de92b3.mp4',
-      'music_bitrate' => 128,
-      'music_shortlyric' => 'Xin những bối rối này cứ thế lên ngôi
-Xin con tim rẽ lối tìm giây phút nghẹn lời
-Cho thêm chơi vơi, để những ánh mắt đôi môi
-Chạm nhau mang theo gọi mời.
-
-Xin cho ta tan vào những đắm đuối miên man...',
-      'music_length' => 197,
-      'music_width' => 854,
-      'music_height' => 480,
-      'music_artist_html' => '<a href="/ca-si/Hieu-KenByz~Y3NuX2FydGlzdH45NTc2MQ==.html">Hiếu KenByz</a>',
-      'music_bitrate_html' => '<span style="color: darkblue">MV 480p</span>',
-    ),
-    68 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1778031,
-      'music_title_url' => 'co-sao-noi-vay-nguoi-oi~mai-le-quyen',
-      'music_title' => 'Có Sao Nói Vậy Người Ơi',
-      'music_artist' => 'Mai Lệ Quyên',
-      'music_artist_id' => '73085',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538830133,
-      'music_last_update_time' => 1491897832,
-      'music_title_search' => 'co xao noi vai ngui oi',
-      'music_artist_search' => '; mai le qin;',
-      'music_album_search' => '',
-      'music_composer' => 'Hoài An',
-      'music_album' => '',
-      'music_listen' => 2020,
-      'music_track_id' => 0,
-      'music_filename' => '1778031-7ada3440.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Mộng về ngày nào mình quen biết nhau 
-Con sông dài dập dìu xuồng ghe sớm hôm 
-Đi bên nhau những nẻo đường quê trong vắng 
-Gió lao xao trăng vàng soi bóng ước thề.
-
-Rồi ngày họ hàng trầu cau đón dâu...',
-      'music_length' => 452,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Mai-Le-Quyen~Y3NuX2FydGlzdH43MzA4NQ==.html">Mai Lệ Quyên</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    69 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1781281,
-      'music_title_url' => 'con-duong-xua-em-di~khuu-huy-vu-ngoc-han',
-      'music_title' => 'Con Đường Xưa Em Đi',
-      'music_artist' => 'Khưu Huy Vũ;Ngọc Hân',
-      'music_artist_id' => '3166;4023',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538642766,
-      'music_last_update_time' => 1492655881,
-      'music_title_search' => 'con dung xua em di',
-      'music_artist_search' => '; khu hi vu; ngoc han;',
-      'music_album_search' => '',
-      'music_composer' => 'Châu Kỳ',
-      'music_album' => '',
-      'music_listen' => 3298,
-      'music_track_id' => 0,
-      'music_filename' => '1781281-b202c025.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Con đường xưa em đi
-Vàng lên mái tóc thề
-Ngõ hồn dâng tái tê.
- 
-Anh làm thơ vu quy
-Khách qua đường lắng nghe 
-Chuyện tình ta đã ghi.
-
-Những mùa trăng vu quy
-Vì mưa gió không về 
-Chiến trường anh bư...',
-      'music_length' => 288,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Khuu-Huy-Vu~Y3NuX2FydGlzdH4zMTY2.html">Khưu Huy Vũ</a>, <a href="/ca-si/Ngoc-Han~Y3NuX2FydGlzdH40MDIz.html">Ngọc Hân</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    70 => 
-    array (
-      'music_downloads_today' => 3,
-      'music_id' => 1778566,
-      'music_title_url' => 'lien-khuc-bai-thanh-ca-buon-nho-mot-chieu-xuan~anh-tuan-bich-van',
-      'music_title' => 'Liên Khúc: Bài Thánh Ca Buồn; Nhớ Một Chiều Xuân',
-      'music_artist' => 'Anh Tuấn;Bích Vân',
-      'music_artist_id' => '3434;18769',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 2,
-      'cover_id' => 0,
-      'music_download_time' => 1539035368,
-      'music_last_update_time' => 1491796531,
-      'music_title_search' => 'lin khuc; bai thanh ca bun; nho 1 chiu xuan',
-      'music_artist_search' => '; em tuan; bich van;',
-      'music_album_search' => '',
-      'music_composer' => 'Nguyễn Vũ; Nguyễn Văn Đông',
-      'music_album' => '',
-      'music_listen' => 2819,
-      'music_track_id' => 0,
-      'music_filename' => '1778566-0dcc5c9e.mp4',
-      'music_bitrate' => 128,
-      'music_shortlyric' => '[Bài Thánh Ca Buồn]
-
-1. Bài thánh ca đó còn nhớ không em
-Noel năm nào chúng mình có nhau
-Long lanh sao trời đẹp thêm đôi mắt
-Áo trắng em bay như cánh thiên thần
-Giọt môi hôn dưới tháp chuông ngân....',
-      'music_length' => 348,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Anh-Tuan~Y3NuX2FydGlzdH4zNDM0.html">Anh Tuấn</a>, <a href="/ca-si/Bich-Van~Y3NuX2FydGlzdH4xODc2OQ==.html">Bích Vân</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    71 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1778648,
-      'music_title_url' => 'gan-lam-truong-sa-live~mai-tran-lam',
-      'music_title' => 'Gần Lắm Trường Sa (Live)',
-      'music_artist' => 'Mai Trần Lâm',
-      'music_artist_id' => '21917',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538662828,
-      'music_last_update_time' => 1491794186,
-      'music_title_search' => 'gan lam chung xa; live',
-      'music_artist_search' => '; mai chan lam;',
-      'music_album_search' => '',
-      'music_composer' => 'Hình Phước Long',
-      'music_album' => '',
-      'music_listen' => 3356,
-      'music_track_id' => 0,
-      'music_filename' => '1778648-924d58c8.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '1. Mỗi cánh thư về từ đảo xa 
-Anh thường nói rằng Trường Sa lắm xa xôi
-Nơi anh đóng quân là một vùng đảo nhỏ 
-Bên đồng đội yêu thương. 
-
-Chỉ có loài chim biển, sóng vỗ điệp trùng 
-Quanh ghềnh trúc...',
-      'music_length' => 316,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Mai-Tran-Lam~Y3NuX2FydGlzdH4yMTkxNw==.html">Mai Trần Lâm</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    72 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1780214,
-      'music_title_url' => 'tu-bo~khac-viet',
-      'music_title' => 'Từ Bỏ',
-      'music_artist' => 'Khắc Việt',
-      'music_artist_id' => '2128',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538921543,
-      'music_last_update_time' => 1493198289,
-      'music_title_search' => 'tu bo',
-      'music_artist_search' => '; khac vit;',
-      'music_album_search' => '',
-      'music_composer' => 'Khắc Hưng',
-      'music_album' => '',
-      'music_listen' => 3417,
-      'music_track_id' => 0,
-      'music_filename' => '1780214-0d9af65c.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '1.Từ bỏ một thói quen là yêu em 
-Từ bỏ từng ngón tay hao gầy ấm áp 
-Từ bỏ từng chiếc hôn mỗi sớm thức dậy 
-Còn riêng anh với anh ngày hôm nay.
-
-Từ bỏ một giấc mơ của đôi ta 
-Từ bỏ từng thiết tha cu...',
-      'music_length' => 293,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Khac-Viet~Y3NuX2FydGlzdH4yMTI4.html">Khắc Việt</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    73 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1781277,
-      'music_title_url' => 'nhin-lai-dau-chan~ho-quang-hieu-du-thien',
-      'music_title' => 'Nhìn Lại Dấu Chân',
-      'music_artist' => 'Hồ Quang Hiếu;Du Thiên',
-      'music_artist_id' => '1991;2784',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1503198862,
-      'music_last_update_time' => 1492655834,
-      'music_title_search' => 'nhin lai dau chan',
-      'music_artist_search' => '; ho quang hiu; du thin;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 1520,
-      'music_track_id' => 0,
-      'music_filename' => '1781277-6f1c2462.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '1. Bao ngày qua dường như thời gian đã xoá mờ 
-Quay về nơi ngày xưa để thấy bình yên 
-Xin đừng gieo niềm đau để thêm những lỗi lầm 
-Quay lại nhìn những bước chân sao thật nặng nề. 
-
-[ĐK:]
-Nhìn trời...',
-      'music_length' => 258,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Ho-Quang-Hieu~Y3NuX2FydGlzdH4xOTkx.html">Hồ Quang Hiếu</a>, <a href="/ca-si/Du-Thien~Y3NuX2FydGlzdH4yNzg0.html">Du Thiên</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    74 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1779410,
-      'music_title_url' => 'how-are-you-today~dinh-kien-hao-tran-hang',
-      'music_title' => 'How Are You ToDay',
-      'music_artist' => 'Đinh Kiến Hào;Trần Hằng',
-      'music_artist_id' => '96000;89000',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1532708758,
-      'music_last_update_time' => 1493000254,
-      'music_title_search' => 'how are iou todai',
-      'music_artist_search' => '; dinh kin hao; chan hang;',
-      'music_album_search' => '',
-      'music_composer' => 'Đinh Kiến Hào',
-      'music_album' => '',
-      'music_listen' => 1170,
-      'music_track_id' => 0,
-      'music_filename' => '1779410-6c503c92.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Hôm nay anh thế nào?
-Nơi đây nắng hạ vấn vương ở lại
-Cây nghiêng mình sang thu trút lá
-Nhuốm vàng phố em đợi anh.
- 
-Em nơi đây lại thẫn thờ, bước qua yêu thương đã phai mờ
-Sao em vẫn chờ mi ướt cay...',
-      'music_length' => 237,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Dinh-Kien-Hao~Y3NuX2FydGlzdH45NjAwMA==.html">Đinh Kiến Hào</a>, <a href="/ca-si/Tran-Hang~Y3NuX2FydGlzdH44OTAwMA==.html">Trần Hằng</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    75 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1778542,
-      'music_title_url' => 'tam-anh-khong-hon~nguyen-thanh-vien',
-      'music_title' => 'Tấm Ảnh Không Hồn',
-      'music_artist' => 'Nguyễn Thành Viên',
-      'music_artist_id' => '77883',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1523262683,
-      'music_last_update_time' => 1491616506,
-      'music_title_search' => 'tam em khong hon',
-      'music_artist_search' => '; ngin thanh vin;',
-      'music_album_search' => '',
-      'music_composer' => 'Hoài An',
-      'music_album' => '',
-      'music_listen' => 2538,
-      'music_track_id' => 0,
-      'music_filename' => '1778542-4c4de6b2.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Tôi ngó về cuối trời
-Tay ôm kỷ vật tình yêu giữa tôi với người
-Chỉ còn xót lại tấm hình gìn giữ được thôi
-Hình hài này giết dần tôi
-Cũng bởi lời thề non hẹn suối.
-
-Trông nét mặt nhớ người
-Hôm đi cò...',
-      'music_length' => 279,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Nguyen-Thanh-Vien~Y3NuX2FydGlzdH43Nzg4Mw==.html">Nguyễn Thành Viên</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    76 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1777429,
-      'music_title_url' => 'em-di-chua-huong~be-tu-anh',
-      'music_title' => 'Em Đi Chùa Hương',
-      'music_artist' => 'Bé Tú Anh',
-      'music_artist_id' => '77778',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1532659630,
-      'music_last_update_time' => 1491189792,
-      'music_title_search' => 'em di chua hung',
-      'music_artist_search' => '; be tu em;',
-      'music_album_search' => '',
-      'music_composer' => 'Trung Đức',
-      'music_album' => '',
-      'music_listen' => 634,
-      'music_track_id' => 0,
-      'music_filename' => '1777429-4637d6e8.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Hôm nay em đi chùa Hương
-Hoa cỏ còn mờ hơi sương
-Cùng thầy mẹ em quấn đầu soi gương.
-
-Nho nhỏ cái đuôi gà cao
-Em đeo dải yếm đào
-Quần lĩnh, áo the mới
-Tay em cầm chiếc nón quai thao
-Chân em đi đôi...',
-      'music_length' => 225,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Be-Tu-Anh~Y3NuX2FydGlzdH43Nzc3OA==.html">Bé Tú Anh</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    77 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1779413,
-      'music_title_url' => 'vo-oi-anh-xin-loi~du-thien',
-      'music_title' => 'Vợ Ơi Anh Xin Lỗi',
-      'music_artist' => 'Du Thiên',
-      'music_artist_id' => '2784',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1514942568,
-      'music_last_update_time' => 1491972777,
-      'music_title_search' => 'vo oi em xin loi',
-      'music_artist_search' => '; du thin;',
-      'music_album_search' => '',
-      'music_composer' => 'Tài Nguyễn',
-      'music_album' => '',
-      'music_listen' => 5257,
-      'music_track_id' => 0,
-      'music_filename' => '1779413-2e90772a.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Khi ta gần bên anh không cho em được gì
-Ngoài những sầu lo bôn ba ngày đêm
-Ngày em phải thức mỗi lúc trăng mờ
-Khi ánh bình minh đang dần lên tận đến đêm em mới về.
-
-Vợ yêu ơi anh xin lỗi người nhé!...',
-      'music_length' => 348,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Du-Thien~Y3NuX2FydGlzdH4yNzg0.html">Du Thiên</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    78 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1779412,
-      'music_title_url' => 'vo-oi-em-o-dau~tuong-quan',
-      'music_title' => 'Vợ Ơi Em Ở Đâu',
-      'music_artist' => 'Tường Quân',
-      'music_artist_id' => '2852',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1527350448,
-      'music_last_update_time' => 1523590795,
-      'music_title_search' => 'vo oi em o dau',
-      'music_artist_search' => '; tung quan;',
-      'music_album_search' => '',
-      'music_composer' => 'Tường Quân',
-      'music_album' => '',
-      'music_listen' => 2939,
-      'music_track_id' => 0,
-      'music_filename' => '1779412-4568a794.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Có những lúc anh một mình cô đơn
-Đã quen rồi Sài Gòn một mình phóng xe thôi
-Chẳng biết quan tâm cũng chẳng hề yêu một ai
-Vì quen rồi với cảm giác không cần ai.
-
-Đến hôm nay khi anh vô tình gặp em m...',
-      'music_length' => 335,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Tuong-Quan~Y3NuX2FydGlzdH4yODUy.html">Tường Quân</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    79 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1781044,
-      'music_title_url' => 'tinh-don-phuong~noo-phuoc-thinh',
-      'music_title' => 'Tình Đơn Phương',
-      'music_artist' => 'Noo Phước Thịnh',
-      'music_artist_id' => '1611',
-      'cat_id' => 1,
-      'cat_level' => 1,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1532600485,
-      'music_last_update_time' => 1492569959,
-      'music_title_search' => 'tinh don phung',
-      'music_artist_search' => '; no phuc thinh;',
-      'music_album_search' => '',
-      'music_composer' => 'Lời: Minh Tâm',
-      'music_album' => '',
-      'music_listen' => 3173,
-      'music_track_id' => 0,
-      'music_filename' => '1781044-547bd113.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Nhiều lần ngập ngừng muốn ngỏ ý
-Tiếng yêu đương sao không thành câu
-Sợ rằng đường về không còn xa
-Để bên em anh đưa lối về.
-
-Nhiều lần trộm nhìn em thầm lắng
-Nét thơ ngây chưa vương sầu lắng
-Nàng đ...',
-      'music_length' => 240,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Noo-Phuoc-Thinh~Y3NuX2FydGlzdH4xNjEx.html">Noo Phước Thịnh</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-  ),
-  2 => 
-  array (
-    0 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1761737,
-      'music_title_url' => 'scared-to-be-lonely~martin-garrix-dua-lipa',
-      'music_title' => 'Scared To Be Lonely',
-      'music_artist' => 'Martin Garrix;Dua Lipa',
-      'music_artist_id' => '13343;14519',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538822366,
-      'music_last_update_time' => 1486523574,
-      'music_title_search' => 'xcared to be loneli',
-      'music_artist_search' => '; martin garix; dua lipa;',
-      'music_album_search' => '',
-      'music_composer' => 'Martin Garrix',
-      'music_album' => '',
-      'music_listen' => 35785,
-      'music_track_id' => 0,
-      'music_filename' => '1761737-54d80acd.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '1. It was great at the very start
-Hands on each other
-Couldn\'t stand to be far apart
-Closer the better.
-
-[Pre-Chorus:]
-Now we\'re picking fights
-And slamming doors
-Magnifying all our flaws
-And I won...',
-      'music_length' => 230,
-      'music_width' => 1920,
-      'music_height' => 1012,
-      'music_artist_html' => '<a href="/ca-si/Martin-Garrix~Y3NuX2FydGlzdH4xMzM0Mw==.html">Martin Garrix</a>, <a href="/ca-si/Dua-Lipa~Y3NuX2FydGlzdH4xNDUxOQ==.html">Dua Lipa</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    1 => 
-    array (
-      'music_downloads_today' => 5,
-      'music_id' => 1762389,
-      'music_title_url' => 'shape-of-you~ed-sheeran',
-      'music_title' => 'Shape Of You',
-      'music_artist' => 'Ed Sheeran',
-      'music_artist_id' => '2653',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1539062152,
-      'music_last_update_time' => 1486475602,
-      'music_title_search' => 'thape of iou',
-      'music_artist_search' => '; ed theran;',
-      'music_album_search' => '',
-      'music_composer' => 'Steve Mac',
-      'music_album' => '',
-      'music_listen' => 124185,
-      'music_track_id' => 0,
-      'music_filename' => '1762389-2d7cb57b.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '[Verse 1:]
-The club isn\'t the best place to find a lover
-So the bar is where I go
-Me and my friends at the table doing shots
-Drinking fast and then we talk slow
-Come over and start up a conversatio...',
-      'music_length' => 263,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Ed-Sheeran~Y3NuX2FydGlzdH4yNjUz.html">Ed Sheeran</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    2 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1761731,
-      'music_title_url' => 'party-monster~the-weeknd',
-      'music_title' => 'Party Monster',
-      'music_artist' => 'The Weeknd',
-      'music_artist_id' => '14618',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538505042,
-      'music_last_update_time' => 1486523779,
-      'music_title_search' => 'parti monxter',
-      'music_artist_search' => '; the weknd;',
-      'music_album_search' => '',
-      'music_composer' => 'The Weeknd; Ben Billions; Doc McKinney; Belly; Lana Del Rey',
-      'music_album' => '',
-      'music_listen' => 6107,
-      'music_track_id' => 0,
-      'music_filename' => '1761731-e3a06827.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '[Refrain: The Weeknd]
-I\'m good, I\'m good, I\'m great
-Know it\'s been a while, now I\'m mixing up the drank
-I just need a girl who gon\' really understand
-I just need a girl who gon\' really understand
-I...',
-      'music_length' => 257,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/The-Weeknd~Y3NuX2FydGlzdH4xNDYxOA==.html">The Weeknd</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    3 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1761753,
-      'music_title_url' => 'i-need-you~armin-van-buuren-garibay-olaf-blackwood',
-      'music_title' => 'I Need You',
-      'music_artist' => 'Armin Van Buuren;Garibay;Olaf Blackwood',
-      'music_artist_id' => '5945;20984;94073',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538503863,
-      'music_last_update_time' => 1486454653,
-      'music_title_search' => 'i ned iou',
-      'music_artist_search' => '; armin van buren; garibai; olaf blackwod;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 3985,
-      'music_track_id' => 0,
-      'music_filename' => '1761753-b95397ee.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '[Verse 1: Olaf Blackwood]
-She walks all late at night
-As she says her goodbyes
-She\'s close to sacrifice
-She knows how thin it were.
-
-[Pre-Hook: Olaf Blackwood]
-It ain\'t easy
-And it ain\'t pleasing
-S...',
-      'music_length' => 219,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Armin-Van-Buuren~Y3NuX2FydGlzdH41OTQ1.html">Armin Van Buuren</a>, <a href="/ca-si/Garibay~Y3NuX2FydGlzdH4yMDk4NA==.html">Garibay</a>, <a href="/ca-si/Olaf-Blackwood~Y3NuX2FydGlzdH45NDA3Mw==.html">Olaf Blackwood</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    4 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1757085,
-      'music_title_url' => 'thats-my-girl-live-on-dick-clarks-new-years-rockin-eve~fifth-harmony',
-      'music_title' => 'That\'s My Girl (Live On Dick Clark\'s New Year\'s Rockin\' Eve)',
-      'music_artist' => 'Fifth Harmony',
-      'music_artist_id' => '15680',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1538528437,
-      'music_last_update_time' => 1483880656,
-      'music_title_search' => 'that x mi drl; live on dick clark x new iar x rockin eve',
-      'music_artist_search' => '; fifth harmoni;',
-      'music_album_search' => '',
-      'music_composer' => 'Alexander Kronlund; LULOU',
-      'music_album' => '',
-      'music_listen' => 472,
-      'music_track_id' => 0,
-      'music_filename' => '1757085-724f7f23.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '[Intro:]
-That\'s my girl
-
-[Verse 1:]
-Who\'s been working so damn hard?
-You got that head on overload?
-Got yourself this flawless body
-Aching now from head to toe
-Ain\'t nothing, ain\'t nothing
-All my l...',
-      'music_length' => 210,
-      'music_width' => 1280,
-      'music_height' => 720,
-      'music_artist_html' => '<a href="/ca-si/Fifth-Harmony~Y3NuX2FydGlzdH4xNTY4MA==.html">Fifth Harmony</a>',
-      'music_bitrate_html' => '<span style="color: orange">HD 720p</span>',
-    ),
-    5 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1757986,
-      'music_title_url' => 'summer~marshmello-lele-pons',
-      'music_title' => 'Summer',
-      'music_artist' => 'Marshmello;Lele Pons',
-      'music_artist_id' => '13835;22051',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538838306,
-      'music_last_update_time' => 1484190745,
-      'music_title_search' => 'xumer',
-      'music_artist_search' => '; marthmelo; lele ponx;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 7689,
-      'music_track_id' => 0,
-      'music_filename' => '1757986-5e6f90e9.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'When I met you in the summer
-Took my heart a beat sound
-We fell in love
-As they leaves turned brown
-And we could be together baby
-As long as skies are blue
-You act so innocent now
-But you like so s...',
-      'music_length' => 170,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Marshmello~Y3NuX2FydGlzdH4xMzgzNQ==.html">Marshmello</a>, <a href="/ca-si/Lele-Pons~Y3NuX2FydGlzdH4yMjA1MQ==.html">Lele Pons</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    6 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1760204,
-      'music_title_url' => 'home~schwarz',
-      'music_title' => 'Home',
-      'music_artist' => 'Schwarz',
-      'music_artist_id' => '49775',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1506946532,
-      'music_last_update_time' => 1484961331,
-      'music_title_search' => 'home',
-      'music_artist_search' => '; xchwarz;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 557,
-      'music_track_id' => 0,
-      'music_filename' => '1760204-c922f878.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '[Verse 1:]
-We keep asking for a better place
-Somewhere far away on an island
-We keep rushing day by day
-No time to share some silence.
-
-[Pre-Chorus:]
-Let me show
-Brick by brick, stone by stone
-As l...',
-      'music_length' => 279,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Schwarz~Y3NuX2FydGlzdH40OTc3NQ==.html">Schwarz</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    7 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1760208,
-      'music_title_url' => 'heaven~troye-sivan-betty-who',
-      'music_title' => 'Heaven',
-      'music_artist' => 'Troye Sivan;Betty Who',
-      'music_artist_id' => '14459;15027',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1536957243,
-      'music_last_update_time' => 1485136149,
-      'music_title_search' => 'heaven',
-      'music_artist_search' => '; choi xivan; beti who;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 2820,
-      'music_track_id' => 0,
-      'music_filename' => '1760208-b69d4807.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'The truth runs wild
-Like a tear down a cheek
-Trying to save face, and daddy heart break
-I\'m lying through my teeth.
-
-This voice inside
-Has been eating at me
-Trying to replace the love that I fake
-W...',
-      'music_length' => 261,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Troye-Sivan~Y3NuX2FydGlzdH4xNDQ1OQ==.html">Troye Sivan</a>, <a href="/ca-si/Betty-Who~Y3NuX2FydGlzdH4xNTAyNw==.html">Betty Who</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    8 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1759632,
-      'music_title_url' => 'dont-leave~snakehips-m',
-      'music_title' => 'Don\'t Leave',
-      'music_artist' => 'Snakehips;MØ',
-      'music_artist_id' => '13488;15003',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1537860880,
-      'music_last_update_time' => 1484835446,
-      'music_title_search' => 'don t leave',
-      'music_artist_search' => '; xnakehipx; mØ;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 2590,
-      'music_track_id' => 0,
-      'music_filename' => '1759632-001dd98b.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '1. You know me; now and then, I\'m a mess
-[t1]Anh hiểu em mà, thỉnh thoảng, em như một mớ hỗn độn
-Please don\'t hold that against me
-[t1]Vì vậy, xin đừng trách mắng em
-I\'m a girl with a temper in hea...',
-      'music_length' => 230,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Snakehips~Y3NuX2FydGlzdH4xMzQ4OA==.html">Snakehips</a>, <a href="/ca-si/M~Y3NuX2FydGlzdH4xNTAwMw==.html">MØ</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    9 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1760203,
-      'music_title_url' => 'stay-high~we-are-loud-ida',
-      'music_title' => 'Stay High',
-      'music_artist' => 'We Are Loud;Ida',
-      'music_artist_id' => '35000;20045',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1506965169,
-      'music_last_update_time' => 1484961065,
-      'music_title_search' => 'xtai high',
-      'music_artist_search' => '; we are loud; ida;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 567,
-      'music_track_id' => 0,
-      'music_filename' => '1760203-6e33e023.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Slow motion got me hypnotized
-Let me tell you something boy
-You better be sure I ain\'t gonna\' get hard on lie
-Fast forward passing angry vine
-We gonna\' stay up all night long
-You better be sure I a...',
-      'music_length' => 205,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/We-Are-Loud~Y3NuX2FydGlzdH4zNTAwMA==.html">We Are Loud</a>, <a href="/ca-si/Ida~Y3NuX2FydGlzdH4yMDA0NQ==.html">Ida</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    10 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1760038,
-      'music_title_url' => 'juice~kris-wu',
-      'music_title' => 'Juice',
-      'music_artist' => 'Kris Wu',
-      'music_artist_id' => '15837',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1529572482,
-      'music_last_update_time' => 1484960962,
-      'music_title_search' => 'juice',
-      'music_artist_search' => '; krix wu;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 7872,
-      'music_track_id' => 0,
-      'music_filename' => '1760038-e7e1673b.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'This shit jump in ears active
-Heard your ass called last, but that bitch passed it
-Beezies are more menages
-Got my foot on the gas with the gassed out cars.
-
-\'Cause y\'all nowadays make me nervous
-G...',
-      'music_length' => 222,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Kris-Wu~Y3NuX2FydGlzdH4xNTgzNw==.html">Kris Wu</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    11 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1757506,
-      'music_title_url' => 'castle-on-the-hill-live~ed-sheeran',
-      'music_title' => 'Castle On The Hill (Live)',
-      'music_artist' => 'Ed Sheeran',
-      'music_artist_id' => '2653',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1537514210,
-      'music_last_update_time' => 1484032634,
-      'music_title_search' => 'caxtle on the hil; live',
-      'music_artist_search' => '; ed theran;',
-      'music_album_search' => '',
-      'music_composer' => 'Ed Sheeran, Benjamin Franklin',
-      'music_album' => '',
-      'music_listen' => 1102,
-      'music_track_id' => 0,
-      'music_filename' => '1757506-105d74d1.mp4',
-      'music_bitrate' => 320,
-      'music_shortlyric' => 'When I was six years old I broke my leg
-I was running from my brother and his friends
-And tasted the sweet perfume of the mountain grass I rolled down
-I was younger then, take me back to when I.
-
-F...',
-      'music_length' => 231,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Ed-Sheeran~Y3NuX2FydGlzdH4yNjUz.html">Ed Sheeran</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    12 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1760205,
-      'music_title_url' => 'the-blues~niklas-ibach-dan-reeder',
-      'music_title' => 'The Blues',
-      'music_artist' => 'Niklas Ibach;Dan Reeder',
-      'music_artist_id' => '75046;93901',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1496288705,
-      'music_last_update_time' => 1484961457,
-      'music_title_search' => 'the bluex',
-      'music_artist_search' => '; niklax ibach; dan reder;',
-      'music_album_search' => '',
-      'music_composer' => 'Switchfoot',
-      'music_album' => '',
-      'music_listen' => 621,
-      'music_track_id' => 0,
-      'music_filename' => '1760205-2cef1c0d.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Ladies and gentlemen the blues
-Is my life and legal
-And yes as a matter fact I do.
-
-Jambling daily.
-
-Ladies and gentlemen the blues
-Is my life and legal
-And yes as a matter fact I do.
-
-Jambling dai...',
-      'music_length' => 184,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Niklas-Ibach~Y3NuX2FydGlzdH43NTA0Ng==.html">Niklas Ibach</a>, <a href="/ca-si/Dan-Reeder~Y3NuX2FydGlzdH45MzkwMQ==.html">Dan Reeder</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    13 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1760207,
-      'music_title_url' => 'touch~little-mix',
-      'music_title' => 'Touch',
-      'music_artist' => 'Little Mix',
-      'music_artist_id' => '18147',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1517315911,
-      'music_last_update_time' => 1485136164,
-      'music_title_search' => 'touch',
-      'music_artist_search' => '; litle mix;',
-      'music_album_search' => '',
-      'music_composer' => 'Ariana Grande; Leigh-Anne Pinnock; P. Plested; Youthonix; Shungudzo Kuyimba',
-      'music_album' => '',
-      'music_listen' => 7107,
-      'music_track_id' => 0,
-      'music_filename' => '1760207-3738d1c5.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '[Verse 1: Leigh-Anne]
-You and I and nobody else
-Feeling feelings I never felt
-The way you got me under your spell
-Don\'t you keep it all to yourself.
-
-[Pre-Chorus: Perrie]
-So won\'t you take it?
-I fe...',
-      'music_length' => 217,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Little-Mix~Y3NuX2FydGlzdH4xODE0Nw==.html">Little Mix</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    14 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1757473,
-      'music_title_url' => 'i-got-you~bebe-rexha',
-      'music_title' => 'I Got You',
-      'music_artist' => 'Bebe Rexha',
-      'music_artist_id' => '14088',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1537729370,
-      'music_last_update_time' => 1484023963,
-      'music_title_search' => 'i got iou',
-      'music_artist_search' => '; bebe rexha;',
-      'music_album_search' => '',
-      'music_composer' => 'Benjamin Berger; Bleta Rexha; Jacob Kasher Hindlin; Lauren Christy; Ryan McMahon; Ryan Rabin',
-      'music_album' => '',
-      'music_listen' => 23599,
-      'music_track_id' => 0,
-      'music_filename' => '1757473-db0509d9.mp4',
-      'music_bitrate' => 320,
-      'music_shortlyric' => '1. I can see you hurtin\'
-I\'ve been through the same thing
-Baby don\'t you worry
-I got you
-I just wanna know you
-Tell me all your secrets
-Lookin\' like you need it.
-
-[Chorus:]
-Cause I got you, you, oh...',
-      'music_length' => 196,
-      'music_width' => 1920,
-      'music_height' => 796,
-      'music_artist_html' => '<a href="/ca-si/Bebe-Rexha~Y3NuX2FydGlzdH4xNDA4OA==.html">Bebe Rexha</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    15 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1757504,
-      'music_title_url' => 'castle-on-the-hill-lyric-video~ed-sheeran',
-      'music_title' => 'Castle On The Hill (Lyric Video)',
-      'music_artist' => 'Ed Sheeran',
-      'music_artist_id' => '2653',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1530028017,
-      'music_last_update_time' => 1484035057,
-      'music_title_search' => 'caxtle on the hil; liric video',
-      'music_artist_search' => '; ed theran;',
-      'music_album_search' => '',
-      'music_composer' => 'Ed Sheeran; Benny Blanco',
-      'music_album' => '',
-      'music_listen' => 2092,
-      'music_track_id' => 0,
-      'music_filename' => '1757504-393c02b0.mp4',
-      'music_bitrate' => 320,
-      'music_shortlyric' => '1. When I was six years old I broke my leg
-[t1]Lúc lên 6 tuổi, tôi đã bị gãy chân
-I was running from my brother and his friends
-[t1]Trong lúc chạy trốn khỏi anh trai và đám bạn của anh
-And tasted t...',
-      'music_length' => 260,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Ed-Sheeran~Y3NuX2FydGlzdH4yNjUz.html">Ed Sheeran</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    16 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1757477,
-      'music_title_url' => 'shape-of-you-lyric-video~ed-sheeran',
-      'music_title' => 'Shape Of You (Lyric Video)',
-      'music_artist' => 'Ed Sheeran',
-      'music_artist_id' => '2653',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538418904,
-      'music_last_update_time' => 1484027099,
-      'music_title_search' => 'thape of iou; liric video',
-      'music_artist_search' => '; ed theran;',
-      'music_album_search' => '',
-      'music_composer' => 'Ed Sheeran, Johnny McDaid, Steve Mac',
-      'music_album' => '',
-      'music_listen' => 11615,
-      'music_track_id' => 0,
-      'music_filename' => '1757477-421cf081.mp4',
-      'music_bitrate' => 320,
-      'music_shortlyric' => '[Verse 1:]
-The club isn\'t the best place to find a lover
-So the bar is where I go
-Me and my friends at the table doing shots
-Drinking faster and then we talk slow
-Come over and start up a conversat...',
-      'music_length' => 235,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Ed-Sheeran~Y3NuX2FydGlzdH4yNjUz.html">Ed Sheeran</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    17 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1757088,
-      'music_title_url' => 'treat-you-better-live-from-dick-clarks-new-years-rockin-eve-2017~shawn-mendes',
-      'music_title' => 'Treat You Better (Live From Dick Clark\'s New Year\'s Rockin\' Eve 2017)',
-      'music_artist' => 'Shawn Mendes',
-      'music_artist_id' => '13723',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1496235557,
-      'music_last_update_time' => 1495428568,
-      'music_title_search' => 'cheat iou beter; live from dick clark x new iar x rockin eve 2017',
-      'music_artist_search' => '; thawn mendex;',
-      'music_album_search' => '',
-      'music_composer' => 'Shawn Mendes; Scott Harris; Teddy Geiger',
-      'music_album' => '',
-      'music_listen' => 344,
-      'music_track_id' => 0,
-      'music_filename' => '1757088-355515fc.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '[Verse 1:]
-I won\'t lie to you
-[t1]Anh sẽ thật lòng nói cho em biết điều này
-I know he\'s just not right for you...
-[t1]Người ấy không xứng đáng với tình yêu của em đâu...
-
-And you can tell me if I\'m...',
-      'music_length' => 193,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Shawn-Mendes~Y3NuX2FydGlzdH4xMzcyMw==.html">Shawn Mendes</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    18 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1757508,
-      'music_title_url' => 'company~tinashe',
-      'music_title' => 'Company',
-      'music_artist' => 'Tinashe',
-      'music_artist_id' => '19021',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1502123061,
-      'music_last_update_time' => 1484032638,
-      'music_title_search' => 'compani',
-      'music_artist_search' => '; tinathe;',
-      'music_album_search' => '',
-      'music_composer' => 'Tinashe; Terius &quot;The-Dream&quot; Nash',
-      'music_album' => '',
-      'music_listen' => 1027,
-      'music_track_id' => 0,
-      'music_filename' => '1757508-14a93032.mp4',
-      'music_bitrate' => 320,
-      'music_shortlyric' => '[Hook:]
-I don\'t need the lovin\'
-So don\'t make this something, see
-I\'m nothing like a girlfriend
-I\'m not like someone I\'m supposed to be
-And I just want some company, company
-I just need some compan...',
-      'music_length' => 267,
-      'music_width' => 1920,
-      'music_height' => 816,
-      'music_artist_html' => '<a href="/ca-si/Tinashe~Y3NuX2FydGlzdH4xOTAyMQ==.html">Tinashe</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    19 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1757987,
-      'music_title_url' => 'one-fine-day~sting',
-      'music_title' => 'One Fine Day',
-      'music_artist' => 'Sting',
-      'music_artist_id' => '5161',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1497089051,
-      'music_last_update_time' => 1484190945,
-      'music_title_search' => '1 fine dai',
-      'music_artist_search' => '; xting;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 345,
-      'music_track_id' => 0,
-      'music_filename' => '1757987-867c5b57.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Optimists say
-The future\'s just a place we\'ve never been
-Histories say
-We\'re doomed to make the same mistakes again.
-
-Between the two I can\'t decide
-Really I must choose a side
-I guess I\'ll wake up...',
-      'music_length' => 194,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Sting~Y3NuX2FydGlzdH41MTYx.html">Sting</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    20 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1768319,
-      'music_title_url' => 'bad-things-i-dont-wanna-live-forever~jfla',
-      'music_title' => 'Bad Things; I Don\'t Wanna Live Forever',
-      'music_artist' => 'J.Fla',
-      'music_artist_id' => '14116',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538873441,
-      'music_last_update_time' => 1488154981,
-      'music_title_search' => 'bad thingx; i don t wana live forever',
-      'music_artist_search' => '; j fla;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 8665,
-      'music_track_id' => 0,
-      'music_filename' => '1768319-bcf157fa.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '[Bad Things]
-
-[Chorus:]
-
-1. Nothing\'s that bad
-[t1]Bấy nhiêu đấy đã là gì đâu em
-If it feels good
-[t1]Chỉ cần em cảm thấy hài lòng
-So you come back
-[t1]Rồi em lại về đây thôi
-Like I knew you would...',
-      'music_length' => 148,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/JFla~Y3NuX2FydGlzdH4xNDExNg==.html">J.Fla</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    21 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1766417,
-      'music_title_url' => 'see-you-again~jfla',
-      'music_title' => 'See You Again',
-      'music_artist' => 'J.Fla',
-      'music_artist_id' => '14116',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538577792,
-      'music_last_update_time' => 1487466472,
-      'music_title_search' => 'xe iou again',
-      'music_artist_search' => '; j fla;',
-      'music_album_search' => '',
-      'music_composer' => 'Charlie Puth',
-      'music_album' => '',
-      'music_listen' => 59354,
-      'music_track_id' => 0,
-      'music_filename' => '1766417-5424287d.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '[Hook: Charlie Puth] 
-It\'s been a long day, without you my friend
-And I\'ll tell you all about it when I see you again
-We\'ve come a long way from where we began
-Oh I\'ll tell you all about it when I...',
-      'music_length' => 173,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/JFla~Y3NuX2FydGlzdH4xNDExNg==.html">J.Fla</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    22 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1765300,
-      'music_title_url' => 'shape-of-you~jfla',
-      'music_title' => 'Shape Of You',
-      'music_artist' => 'J.Fla',
-      'music_artist_id' => '14116',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538484947,
-      'music_last_update_time' => 1487147012,
-      'music_title_search' => 'thape of iou',
-      'music_artist_search' => '; j fla;',
-      'music_album_search' => '',
-      'music_composer' => 'Steve Mac',
-      'music_album' => '',
-      'music_listen' => 199022,
-      'music_track_id' => 0,
-      'music_filename' => '1765300-08bfa792.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '[Verse 1:]
-The club isn\'t the best place to find a lover
-So the bar is where I go
-Me and my friends at the table doing shots
-Drinking fast and then we talk slow
-Come over and start up a conversatio...',
-      'music_length' => 173,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/JFla~Y3NuX2FydGlzdH4xNDExNg==.html">J.Fla</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    23 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1768879,
-      'music_title_url' => 'it-aint-me~jfla',
-      'music_title' => 'It Ain\'t Me',
-      'music_artist' => 'J.Fla',
-      'music_artist_id' => '14116',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538902989,
-      'music_last_update_time' => 1488332701,
-      'music_title_search' => 'it ain t me',
-      'music_artist_search' => '; j fla;',
-      'music_album_search' => '',
-      'music_composer' => 'Kygo; Selena Gomez; Andrew Wotman; Brian Lee; Ali Tamposi',
-      'music_album' => '',
-      'music_listen' => 12587,
-      'music_track_id' => 0,
-      'music_filename' => '1768879-6cdc7559.mp4',
-      'music_bitrate' => 320,
-      'music_shortlyric' => '1. I had a dream
-[t1]Em từng mơ ước rằng
-We were sipping whiskey neat
-[t1]Hai ta được nhâm nhi chai whiskey nguyên chất
-Highest floor, The Bowery
-[t1]Trên tầng cao nhất toà nhà Bowery
-Nowhere\'s hig...',
-      'music_length' => 148,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/JFla~Y3NuX2FydGlzdH4xNDExNg==.html">J.Fla</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    24 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1766289,
-      'music_title_url' => 'reminder~the-weeknd',
-      'music_title' => 'Reminder',
-      'music_artist' => 'The Weeknd',
-      'music_artist_id' => '14618',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538504961,
-      'music_last_update_time' => 1487466096,
-      'music_title_search' => 'reminder',
-      'music_artist_search' => '; the weknd;',
-      'music_album_search' => '',
-      'music_composer' => 'The Weeknd; Emmanuel Nickerson; Doc McKinney; Sir Dylan; Cirkut; DaHeala',
-      'music_album' => '',
-      'music_listen' => 4411,
-      'music_track_id' => 0,
-      'music_filename' => '1766289-10b0089f.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '[Verse 1:]
-Recommend play my song on the radio
-You too busy trying to find that blue SO
-I let my black hair grow and my weed smoke
-And I sweat too much on the regular
-We gone let them hits fly, we...',
-      'music_length' => 230,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/The-Weeknd~Y3NuX2FydGlzdH4xNDYxOA==.html">The Weeknd</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    25 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1767080,
-      'music_title_url' => 'this-is-what-you-came-for-how-deep-is-your-love-mashup~jfla',
-      'music_title' => 'This Is What You Came For &amp; How Deep Is Your Love (Mashup)',
-      'music_artist' => 'J.Fla',
-      'music_artist_id' => '14116',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538506724,
-      'music_last_update_time' => 1487673006,
-      'music_title_search' => 'thix ix what iou came for how dep ix iour love; mathup',
-      'music_artist_search' => '; j fla;',
-      'music_album_search' => '',
-      'music_composer' => 'Calvin Harris; Nils Sjöberg',
-      'music_album' => '',
-      'music_listen' => 42544,
-      'music_track_id' => 0,
-      'music_filename' => '1767080-9d7f826e.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '1. Baby, this is what you came for
-Lightning strikes every time she moves
-And everybody\'s watching her
-But she\'s looking at you.
-
-[Chorus:]
-Lightning, this is what you came for
-Lightning strikes ev...',
-      'music_length' => 152,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/JFla~Y3NuX2FydGlzdH4xNDExNg==.html">J.Fla</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    26 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1764548,
-      'music_title_url' => 'in-my-foreign~the-americanos-ty-dolla-ign-lil-yachty-nicky-jam-french-montana',
-      'music_title' => 'In My Foreign',
-      'music_artist' => 'The Americanos;Ty Dolla $ign;Lil Yachty;Nicky Jam;French Montana',
-      'music_artist_id' => '71140;13394;15598;16017;15217',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538843471,
-      'music_last_update_time' => 1486804842,
-      'music_title_search' => 'in mi foreign',
-      'music_artist_search' => '; the americanox; ti dola $ign; lil iachti; nicki jam; french montana;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 16104,
-      'music_track_id' => 0,
-      'music_filename' => '1764548-8cf46eae.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '[Intro:]
-The Americanos.
-
-[Chorus: Ty Dolla $ign]
-Do you wanna ride, ride, ride in my foreign? (In my foreign?)
-Lift the top back all the way, rolling through the streets of LA
-Girl, do you wanna r...',
-      'music_length' => 230,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/The-Americanos~Y3NuX2FydGlzdH43MTE0MA==.html">The Americanos</a>, <a href="/ca-si/Ty-Dolla-ign~Y3NuX2FydGlzdH4xMzM5NA==.html">Ty Dolla $ign</a>, <a href="/ca-si/Lil-Yachty~Y3NuX2FydGlzdH4xNTU5OA==.html">Lil Yachty</a>, <a href="/ca-si/Nicky-Jam~Y3NuX2FydGlzdH4xNjAxNw==.html">Nicky Jam</a>, <a href="/ca-si/French-Montana~Y3NuX2FydGlzdH4xNTIxNw==.html">French Montana</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    27 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1768059,
-      'music_title_url' => 'are-you-sure-lyric~kris-kross-amsterdam-conor-maynard-ty-dolla-ign',
-      'music_title' => 'Are You Sure? (Lyric)',
-      'music_artist' => 'Kris Kross Amsterdam;Conor Maynard;Ty Dolla $ign',
-      'music_artist_id' => '18161;14502;13394',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538985380,
-      'music_last_update_time' => 1487994179,
-      'music_title_search' => 'are iou xure ; liric',
-      'music_artist_search' => '; krix krox amxterdam; conor mainard; ti dola $ign;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 1132,
-      'music_track_id' => 0,
-      'music_filename' => '1768059-0dc34b85.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '1. Let\'s not play
-You told me to go and then you put your hands on me
-(Hands on me)
-Let\'s not play
-I can feel your body, baby he remembers me
-(Remembers me).
-
-Is he all that you, all that you need?...',
-      'music_length' => 206,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Kris-Kross-Amsterdam~Y3NuX2FydGlzdH4xODE2MQ==.html">Kris Kross Amsterdam</a>, <a href="/ca-si/Conor-Maynard~Y3NuX2FydGlzdH4xNDUwMg==.html">Conor Maynard</a>, <a href="/ca-si/Ty-Dolla-ign~Y3NuX2FydGlzdH4xMzM5NA==.html">Ty Dolla $ign</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    28 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1768271,
-      'music_title_url' => 'open-your-eyes~sam-feldt-hook-n-sling',
-      'music_title' => 'Open Your Eyes',
-      'music_artist' => 'Sam Feldt;Hook N Sling',
-      'music_artist_id' => '13855;25046',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1507003707,
-      'music_last_update_time' => 1488155896,
-      'music_title_search' => 'open iour eix',
-      'music_artist_search' => '; xam feldt; hok n xling;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 643,
-      'music_track_id' => 0,
-      'music_filename' => '1768271-93141fe9.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '[Verse:]
-Hard to house, let them go
-Two turntables and a microphone
-It\'s the only way that I know, baby
-Could be dug down, but let it out
-Don\'t be scared to hit the crown
-Remember, you are never al...',
-      'music_length' => 190,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Sam-Feldt~Y3NuX2FydGlzdH4xMzg1NQ==.html">Sam Feldt</a>, <a href="/ca-si/Hook-N-Sling~Y3NuX2FydGlzdH4yNTA0Ng==.html">Hook N Sling</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    29 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1767558,
-      'music_title_url' => 'let-it-out~kaskade-haley',
-      'music_title' => 'Let It Out',
-      'music_artist' => 'Kaskade;Haley',
-      'music_artist_id' => '7649;50856',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1506671203,
-      'music_last_update_time' => 1487750422,
-      'music_title_search' => 'let it out',
-      'music_artist_search' => '; kaxkade; halei;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 505,
-      'music_track_id' => 0,
-      'music_filename' => '1767558-324a9e71.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '[Verse 1:]
-Why\'d you run and hide
-Don\'t you wanna feel
-So much there inside
-Let\'s just keep it real
-It\'s worth it
-It\'s worth.
-
-[Chorus:]
-I would love to fall back in your arms again
-I could be an a...',
-      'music_length' => 233,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Kaskade~Y3NuX2FydGlzdH43NjQ5.html">Kaskade</a>, <a href="/ca-si/Haley~Y3NuX2FydGlzdH41MDg1Ng==.html">Haley</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    30 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1767667,
-      'music_title_url' => 'thinkin-bout-you~dua-lipa',
-      'music_title' => 'Thinkin \'Bout You',
-      'music_artist' => 'Dua Lipa',
-      'music_artist_id' => '14519',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1536369868,
-      'music_last_update_time' => 1487835870,
-      'music_title_search' => 'thinkin bout iou',
-      'music_artist_search' => '; dua lipa;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 4198,
-      'music_track_id' => 0,
-      'music_filename' => '1767667-7ae2c57a.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '3 A.M. and my neighbors hate me
-Music blasting, shaking these walls
-This time Mary Jane won\'t save me
-I\'ve been working later, I\'ve been drinking stronger
-I\'ve been smoking deeper but the memories...',
-      'music_length' => 172,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Dua-Lipa~Y3NuX2FydGlzdH4xNDUxOQ==.html">Dua Lipa</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    31 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1767068,
-      'music_title_url' => 'back-to-beautiful~sofia-carson-alan-walker',
-      'music_title' => 'Back To Beautiful',
-      'music_artist' => 'Sofia Carson;Alan Walker',
-      'music_artist_id' => '22493;14991',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538392937,
-      'music_last_update_time' => 1487672516,
-      'music_title_search' => 'back to beautiful',
-      'music_artist_search' => '; xofia carxon; alan walker;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 9499,
-      'music_track_id' => 0,
-      'music_filename' => '1767068-4b7767ee.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '[Verse 1:]
-They say
-You\'re not good enough, you\'re not brave enough
-You should cover up your body
-Tell me, watch my weight
-Gotta paint my face
-Or else no one\'s gonna want me.
-
-[Pre-Chorus:]
-Why do...',
-      'music_length' => 220,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Sofia-Carson~Y3NuX2FydGlzdH4yMjQ5Mw==.html">Sofia Carson</a>, <a href="/ca-si/Alan-Walker~Y3NuX2FydGlzdH4xNDk5MQ==.html">Alan Walker</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    32 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1766944,
-      'music_title_url' => 'empty~olivia-obrien',
-      'music_title' => 'Empty',
-      'music_artist' => 'Olivia O\'Brien',
-      'music_artist_id' => '17372',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1537131524,
-      'music_last_update_time' => 1487554573,
-      'music_title_search' => 'empti',
-      'music_artist_search' => '; olivia o brin;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 26594,
-      'music_track_id' => 0,
-      'music_filename' => '1766944-000b6c80.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'I can\'t handle these pressures
-All I can say is this stress hurts
-Things are supposed to get better
-I just need to put myself first
-I\'m always trying my hardest
-Not to pick myself apart, this
-Energ...',
-      'music_length' => 216,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Olivia-OBrien~Y3NuX2FydGlzdH4xNzM3Mg==.html">Olivia O\'Brien</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    33 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1766288,
-      'music_title_url' => 'alone-restrung~alan-walker',
-      'music_title' => 'Alone (Restrung)',
-      'music_artist' => 'Alan Walker',
-      'music_artist_id' => '14991',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1537410158,
-      'music_last_update_time' => 1503292620,
-      'music_title_search' => 'alone; rexchung',
-      'music_artist_search' => '; alan walker;',
-      'music_album_search' => '',
-      'music_composer' => 'Fredrik Borch Olsen; Jonnali Parmenius; Alan Walker; Jesper Borgen Anders Froen; Mood Melodies; Gunnar Greve',
-      'music_album' => '',
-      'music_listen' => 13091,
-      'music_track_id' => 0,
-      'music_filename' => '1766288-b12adb0a.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '1. Lost in your mind
-[t1]Lạc lối giữa tâm trí anh
-I wanna know
-[t1]Và em muốn biết
-Am I losing my mind?
-[t1]Phải chăng em đang đánh mất chính mình?
-Never let me go
-[t1]Xin đừng để em rời xa.
-
-If th...',
-      'music_length' => 195,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Alan-Walker~Y3NuX2FydGlzdH4xNDk5MQ==.html">Alan Walker</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    34 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1766284,
-      'music_title_url' => 'heavy~linkin-park-kiiara',
-      'music_title' => 'Heavy',
-      'music_artist' => 'Linkin Park;Kiiara',
-      'music_artist_id' => '156;15010',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1535839922,
-      'music_last_update_time' => 1487466066,
-      'music_title_search' => 'heavi',
-      'music_artist_search' => '; linkin park; kiara;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 8263,
-      'music_track_id' => 0,
-      'music_filename' => '1766284-0dd68571.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '[Verse 1: Chester Bennington]
-I don\'t like my mind right now
-Stacking up problems that are so unnecessary
-Wish that I could slow things down
-I wanna let go but there\'s comfort in the panic
-And I dr...',
-      'music_length' => 169,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Linkin-Park~Y3NuX2FydGlzdH4xNTY=.html">Linkin Park</a>, <a href="/ca-si/Kiiara~Y3NuX2FydGlzdH4xNTAxMA==.html">Kiiara</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    35 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1766255,
-      'music_title_url' => 'falling~alesso',
-      'music_title' => 'Falling',
-      'music_artist' => 'Alesso',
-      'music_artist_id' => '22935',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1520912110,
-      'music_last_update_time' => 1487465964,
-      'music_title_search' => 'faling',
-      'music_artist_search' => '; alexo;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 1179,
-      'music_track_id' => 0,
-      'music_filename' => '1766255-14faaa65.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '[Verse:]
-Right here, right now, it\'s all we need
-Relax your mind and set it free
-Be all you got, be all I see
-The way you move, the way you feel.
-
-[Chorus:]
-Look at me, I\'m falling, falling
-Feeling...',
-      'music_length' => 212,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Alesso~Y3NuX2FydGlzdH4yMjkzNQ==.html">Alesso</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    36 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1766613,
-      'music_title_url' => 'rich-boy-official-lyric-video~galantis',
-      'music_title' => 'Rich Boy (Official Lyric Video)',
-      'music_artist' => 'Galantis',
-      'music_artist_id' => '15583',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1535985443,
-      'music_last_update_time' => 1487466601,
-      'music_title_search' => 'rich boi; oficial liric video',
-      'music_artist_search' => '; galantix;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 947,
-      'music_track_id' => 0,
-      'music_filename' => '1766613-fafb734a.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '1. I don\'t need a rich boy
-I don\'t want your money
-No, you don\'t gotta spend nothing on me
-All I want is sweet sweet love, sweet sweet love
-Hey!
-I don\'t need a rich boy
-I don\'t want dollars
-No you...',
-      'music_length' => 201,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Galantis~Y3NuX2FydGlzdH4xNTU4Mw==.html">Galantis</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    37 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1764481,
-      'music_title_url' => 'chained-to-the-rhythm-lyric-video~katy-perry-skip-marley',
-      'music_title' => 'Chained To The Rhythm (Lyric Video)',
-      'music_artist' => 'Katy Perry;Skip Marley',
-      'music_artist_id' => '1478;94381',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1498663366,
-      'music_last_update_time' => 1486717453,
-      'music_title_search' => 'chained to the rhithm; liric video',
-      'music_artist_search' => '; kati peri; xkip marlei;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 3272,
-      'music_track_id' => 0,
-      'music_filename' => '1764481-47783c72.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '[Verse 1: Katy Perry]
-Are we crazy?
-Living our lives through a lens
-Trapped in our white-picket fence
-Like ornaments
-So comfortable, we live in a bubble, a bubble
-So comfortable, we cannot see the...',
-      'music_length' => 235,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Katy-Perry~Y3NuX2FydGlzdH4xNDc4.html">Katy Perry</a>, <a href="/ca-si/Skip-Marley~Y3NuX2FydGlzdH45NDM4MQ==.html">Skip Marley</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    38 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1768298,
-      'music_title_url' => 'look-the-other-way~evan-blum-loren-north',
-      'music_title' => 'Look The Other Way',
-      'music_artist' => 'Evan Blum;Loren North',
-      'music_artist_id' => '94827;94828',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1499281738,
-      'music_last_update_time' => 1488156127,
-      'music_title_search' => 'lok the other wai',
-      'music_artist_search' => '; evan blum; loren north;',
-      'music_album_search' => '',
-      'music_composer' => 'Evan Blum',
-      'music_album' => '',
-      'music_listen' => 420,
-      'music_track_id' => 0,
-      'music_filename' => '1768298-90bc29bc.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'We broke apart
-I broke your heart
-And through the pain.
-
-I looked the other way.
-
-Things didn\'t last
-You turned your back
-I wasn\'t ok
-But i looked the other way.
-
-I looked the other way...
-
-We didn...',
-      'music_length' => 152,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Evan-Blum~Y3NuX2FydGlzdH45NDgyNw==.html">Evan Blum</a>, <a href="/ca-si/Loren-North~Y3NuX2FydGlzdH45NDgyOA==.html">Loren North</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    39 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1768265,
-      'music_title_url' => 'chasing-colors-lyric~marshmello-ookay-noah-cyrus',
-      'music_title' => 'Chasing Colors (Lyric)',
-      'music_artist' => 'Marshmello;Ookay;Noah Cyrus',
-      'music_artist_id' => '13835;14988;15221',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1526849366,
-      'music_last_update_time' => 1488155872,
-      'music_title_search' => 'chaxing colorx; liric',
-      'music_artist_search' => '; marthmelo; okai; noah cirux;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 4002,
-      'music_track_id' => 0,
-      'music_filename' => '1768265-bcb83dc3.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '[Verse 1:]
-We\'re dreaming on and on, we\'re dreaming on and on
-We got the windows down, we got the windows down.
-
-[Pre-Drop:]
-I\'m chasing all of the colors in my head, I wanna feel alive
-I\'m living...',
-      'music_length' => 193,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Marshmello~Y3NuX2FydGlzdH4xMzgzNQ==.html">Marshmello</a>, <a href="/ca-si/Ookay~Y3NuX2FydGlzdH4xNDk4OA==.html">Ookay</a>, <a href="/ca-si/Noah-Cyrus~Y3NuX2FydGlzdH4xNTIyMQ==.html">Noah Cyrus</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    40 => 
-    array (
-      'music_downloads_today' => 6,
-      'music_id' => 1773769,
-      'music_title_url' => 'symphony~clean-bandit-zara-larsson',
-      'music_title' => 'Symphony',
-      'music_artist' => 'Clean Bandit;Zara Larsson',
-      'music_artist_id' => '13836;13586',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1539069677,
-      'music_last_update_time' => 1499404648,
-      'music_title_search' => 'ximphoni',
-      'music_artist_search' => '; clean bandit; zara larxon;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 57005,
-      'music_track_id' => 0,
-      'music_filename' => '1773769-1f5294e6.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '[Verse 1: Zara Larsson]
-I\'ve been hearing symphonies
-Before all I heard was silence
-A rhapsody for you and me
-And every melody is timeless
-Life was stringing me along
-Then you came and you cut me l...',
-      'music_length' => 246,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Clean-Bandit~Y3NuX2FydGlzdH4xMzgzNg==.html">Clean Bandit</a>, <a href="/ca-si/Zara-Larsson~Y3NuX2FydGlzdH4xMzU4Ng==.html">Zara Larsson</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    41 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1770544,
-      'music_title_url' => 'something-just-like-this~jfla',
-      'music_title' => 'Something Just Like This',
-      'music_artist' => 'J.Fla',
-      'music_artist_id' => '14116',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538924187,
-      'music_last_update_time' => 1488849629,
-      'music_title_search' => 'xomething juxt like thix',
-      'music_artist_search' => '; j fla;',
-      'music_album_search' => '',
-      'music_composer' => 'Andrew Taggart; Chris Martin; Guy Berryman; Jonny Buckland; Will Champion; The Chainsmokers',
-      'music_album' => '',
-      'music_listen' => 62523,
-      'music_track_id' => 0,
-      'music_filename' => '1770544-41e85055.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '1. I\'ve been reading books of old
-[t1]Tôi vẫn luôn chìm đắm trong những cuốn sách cũ
-The legends and the myths
-[t1]Những câu truyện thần thoại và những vị thần
-Achilles and his gold
-[t1]Achilles vớ...',
-      'music_length' => 154,
-      'music_width' => 1280,
-      'music_height' => 720,
-      'music_artist_html' => '<a href="/ca-si/JFla~Y3NuX2FydGlzdH4xNDExNg==.html">J.Fla</a>',
-      'music_bitrate_html' => '<span style="color: orange">HD 720p</span>',
-    ),
-    42 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1774598,
-      'music_title_url' => 'rockabye~madilyn-bailey',
-      'music_title' => 'Rockabye',
-      'music_artist' => 'Madilyn Bailey',
-      'music_artist_id' => '17906',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538895855,
-      'music_last_update_time' => 1490145832,
-      'music_title_search' => 'rockabi',
-      'music_artist_search' => '; madilin bailei;',
-      'music_album_search' => '',
-      'music_composer' => 'Clean Bandit; Sean Paul; Anne-Marie',
-      'music_album' => '',
-      'music_listen' => 6131,
-      'music_track_id' => 0,
-      'music_filename' => '1774598-944b1bee.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'She works the nights by the water
-She\'s gone astray so far away
-From her father\'s daughter
-She just wants a life all for her baby
-All on her own, no one will come
-She\'s got to save him.
-
-She tells...',
-      'music_length' => 165,
-      'music_width' => 854,
-      'music_height' => 480,
-      'music_artist_html' => '<a href="/ca-si/Madilyn-Bailey~Y3NuX2FydGlzdH4xNzkwNg==.html">Madilyn Bailey</a>',
-      'music_bitrate_html' => '<span style="color: darkblue">MV 480p</span>',
-    ),
-    43 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1769614,
-      'music_title_url' => 'thats-what-i-like~bruno-mars',
-      'music_title' => 'That\'s What I Like',
-      'music_artist' => 'Bruno Mars',
-      'music_artist_id' => '2001',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538937551,
-      'music_last_update_time' => 1488512823,
-      'music_title_search' => 'that x what i like',
-      'music_artist_search' => '; bruno marx;',
-      'music_album_search' => '',
-      'music_composer' => 'Bruno Mars',
-      'music_album' => '',
-      'music_listen' => 61014,
-      'music_track_id' => 0,
-      'music_filename' => '1769614-8bf145c6.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '1. I got a condo in Manhattan
-Baby girl, what\'s hatnin\'?
-You and your ass invited
-So gon\' and get to clappin\'
-So pop it for a pimp
-Pop, pop it for me
-Turn around and drop it for a pimp
-Drop, drop i...',
-      'music_length' => 210,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Bruno-Mars~Y3NuX2FydGlzdH4yMDAx.html">Bruno Mars</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    44 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1771603,
-      'music_title_url' => 'i-feel-it-coming~the-weeknd-daft-punk',
-      'music_title' => 'I Feel It Coming',
-      'music_artist' => 'The Weeknd;Daft Punk',
-      'music_artist_id' => '14618;6288',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538505175,
-      'music_last_update_time' => 1489206170,
-      'music_title_search' => 'i fel it coming',
-      'music_artist_search' => '; the weknd; daft punk;',
-      'music_album_search' => '',
-      'music_composer' => 'Eric Chedeville; Henry Russell Walter, Martin McKinney, Guy-Manuel de Homem-Christo, Thomas Bangalter &amp; The Weeknd',
-      'music_album' => '',
-      'music_listen' => 18203,
-      'music_track_id' => 0,
-      'music_filename' => '1771603-a7667030.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '1. Tell me what you really like
-[t1]Cho anh biết em thích điều gì
-Baby I can take my time
-[t1]Anh sẵn lòng làm tất cả
-We don\'t ever have to fight
-[t1]Chúng ta đâu cần phải tranh đấu
-Just take it st...',
-      'music_length' => 297,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/The-Weeknd~Y3NuX2FydGlzdH4xNDYxOA==.html">The Weeknd</a>, <a href="/ca-si/Daft-Punk~Y3NuX2FydGlzdH42Mjg4.html">Daft Punk</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    45 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1770878,
-      'music_title_url' => 'believer~imagine-dragons',
-      'music_title' => 'Believer',
-      'music_artist' => 'Imagine Dragons',
-      'music_artist_id' => '3660',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538583636,
-      'music_last_update_time' => 1489043706,
-      'music_title_search' => 'beliver',
-      'music_artist_search' => '; imadne dragonx;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 23524,
-      'music_track_id' => 0,
-      'music_filename' => '1770878-be283c46.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '[Verse 1:]
-First things first
-I\'ma say all the words inside my head
-I\'m fired up and tired of the way that things have been, oh-ooh
-The way that things have been, oh-ooh
-Second thing second
-Don\'t y...',
-      'music_length' => 216,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Imagine-Dragons~Y3NuX2FydGlzdH4zNjYw.html">Imagine Dragons</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    46 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1771824,
-      'music_title_url' => 'you-dont-know~katelyn-tarver',
-      'music_title' => 'You Don\'t Know',
-      'music_artist' => 'Katelyn Tarver',
-      'music_artist_id' => '1467',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538442445,
-      'music_last_update_time' => 1489654034,
-      'music_title_search' => 'iou don t know',
-      'music_artist_search' => '; katelin tarver;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 30881,
-      'music_track_id' => 0,
-      'music_filename' => '1771824-3ef51249.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'I know you\'ve got the best intentions
-Just trying to find the right words to say
-I promise I already learned my lesson
-But right now, I want to be not okay.
-
-I\'m so tired, sitting here waiting
-If I...',
-      'music_length' => 263,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Katelyn-Tarver~Y3NuX2FydGlzdH4xNDY3.html">Katelyn Tarver</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    47 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1773832,
-      'music_title_url' => 'swalla~jason-derulo-nicki-minaj-ty-dolla-ign',
-      'music_title' => 'Swalla',
-      'music_artist' => 'Jason Derulo;Nicki Minaj;Ty Dolla $ign',
-      'music_artist_id' => '11483;2664;13394',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538992115,
-      'music_last_update_time' => 1489989729,
-      'music_title_search' => 'xwala',
-      'music_artist_search' => '; jaxon derulo; nicki minaj; ti dola $ign;',
-      'music_album_search' => '',
-      'music_composer' => 'Jason Derulo; Nicki Minaj; Ty Dolla $ign; Eric Frederic; LunchMoney Lewis; Jacob Kasher; RZA; Ol\' Dirty Bastard',
-      'music_album' => '',
-      'music_listen' => 11545,
-      'music_track_id' => 0,
-      'music_filename' => '1773832-1a99b55c.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '[Verse 1:]
-Love in a thousand different flavors
-I wish that I could taste them all tonight
-No, I ain\'t got no dinner plans
-So you should bring all your friends
-I swear that to a-all y\'all my type....',
-      'music_length' => 235,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Jason-Derulo~Y3NuX2FydGlzdH4xMTQ4Mw==.html">Jason Derulo</a>, <a href="/ca-si/Nicki-Minaj~Y3NuX2FydGlzdH4yNjY0.html">Nicki Minaj</a>, <a href="/ca-si/Ty-Dolla-ign~Y3NuX2FydGlzdH4xMzM5NA==.html">Ty Dolla $ign</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    48 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1771458,
-      'music_title_url' => 'beautiful-birds~passenger-birdy',
-      'music_title' => 'Beautiful Birds',
-      'music_artist' => 'Passenger;Birdy',
-      'music_artist_id' => '3711;24381',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1522170185,
-      'music_last_update_time' => 1489108694,
-      'music_title_search' => 'beautiful birdx',
-      'music_artist_search' => '; paxenger; birdi;',
-      'music_album_search' => '',
-      'music_composer' => 'Michael David Rosenberg',
-      'music_album' => '',
-      'music_listen' => 667,
-      'music_track_id' => 0,
-      'music_filename' => '1771458-b53eed68.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '1. You remember when we were two beautiful birds
-[t1]Nhớ không em, một thuở là cánh chim xinh đẹp chấp chới
-We would light up the sky, when we\'d fly
-[t1]Rạng rỡ cả miền trời mỗi lần liệng cánh bay...',
-      'music_length' => 213,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Passenger~Y3NuX2FydGlzdH4zNzEx.html">Passenger</a>, <a href="/ca-si/Birdy~Y3NuX2FydGlzdH4yNDM4MQ==.html">Birdy</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    49 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1773554,
-      'music_title_url' => 'you-dont-know-me~jax-jones-raye',
-      'music_title' => 'You Don\'t Know Me',
-      'music_artist' => 'Jax Jones;RAYE',
-      'music_artist_id' => '18165;14546',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1536693954,
-      'music_last_update_time' => 1489976153,
-      'music_title_search' => 'iou don t know me',
-      'music_artist_search' => '; jax jonex; rai;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 10105,
-      'music_track_id' => 0,
-      'music_filename' => '1773554-9b4ed63f.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '[Chorus:]
-Ooh, na na yeah
-Don\'t act like you know me, like you know me, na na yeah
-I am not your homie, not your, hoo, na na yeah
-Don\'t act like you know me, like you know me, na na yeah
-You don\'t...',
-      'music_length' => 211,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Jax-Jones~Y3NuX2FydGlzdH4xODE2NQ==.html">Jax Jones</a>, <a href="/ca-si/RAYE~Y3NuX2FydGlzdH4xNDU0Ng==.html">RAYE</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    50 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1773557,
-      'music_title_url' => 'one-more-night~new-kids-on-the-block',
-      'music_title' => 'One More Night',
-      'music_artist' => 'New Kids On The Block',
-      'music_artist_id' => '5442',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1527691368,
-      'music_last_update_time' => 1489976091,
-      'music_title_search' => '1 more night',
-      'music_artist_search' => '; new kidx on the block;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 857,
-      'music_track_id' => 0,
-      'music_filename' => '1773557-6338fd49.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '[Verse 1: Jordan Knight]
-She gets me high
-Lying on my bed with that look in her eye
-Reading the signs
-I\'m riding every curve with her into the light, oh oh.
-
-[Pre-Chorus: Donnie Wahlberg and Jordan...',
-      'music_length' => 249,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/New-Kids-On-The-Block~Y3NuX2FydGlzdH41NDQy.html">New Kids On The Block</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    51 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1773562,
-      'music_title_url' => 'ciao-adios~anne-marie',
-      'music_title' => 'Ciao Adios',
-      'music_artist' => 'Anne-Marie',
-      'music_artist_id' => '13369',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1536430836,
-      'music_last_update_time' => 1489975956,
-      'music_title_search' => 'ciao adiox',
-      'music_artist_search' => '; ane mari;',
-      'music_album_search' => '',
-      'music_composer' => 'Anne-Marie; Jennifer Decilveo; Tom Meredith; Mason Levy',
-      'music_album' => '',
-      'music_listen' => 3753,
-      'music_track_id' => 0,
-      'music_filename' => '1773562-cb38bc5f.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '[Intro:]
-Yeah, yeah, yeah, yeah, yeah
-Uh.
-
-[Verse 1:]
-Ask you once, ask you twice now
-There\'s lipstick on your collar
-You say she\'s just a friend now
-Then why don\'t we call her
-So you want to go on...',
-      'music_length' => 209,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Anne-Marie~Y3NuX2FydGlzdH4xMzM2OQ==.html">Anne-Marie</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    52 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1773204,
-      'music_title_url' => 'giants~take-that',
-      'music_title' => 'Giants',
-      'music_artist' => 'Take That',
-      'music_artist_id' => '5030',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1500601971,
-      'music_last_update_time' => 1489654234,
-      'music_title_search' => 'dantx',
-      'music_artist_search' => '; take that;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 202,
-      'music_track_id' => 0,
-      'music_filename' => '1773204-db915650.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'We\'re all giants, I can\'t believe it
-We were giants all along
-On the surface and all around us
-We are giants, we are strong
-I see you standing, see you dancing
-On the pavement, in the park
-We are g...',
-      'music_length' => 235,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Take-That~Y3NuX2FydGlzdH41MDMw.html">Take That</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    53 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1771737,
-      'music_title_url' => 'bartender~james-blunt',
-      'music_title' => 'Bartender',
-      'music_artist' => 'James Blunt',
-      'music_artist_id' => '345',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1531424648,
-      'music_last_update_time' => 1489207306,
-      'music_title_search' => 'bartender',
-      'music_artist_search' => '; jamex blunt;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 1252,
-      'music_track_id' => 0,
-      'music_filename' => '1771737-5f8da955.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '[Verse 1:]
-It\'s a little after midnight
-There\'s a couple in the corner
-And I wonder what he said because she\'s crying
-And I guess they won\'t remember
-When they wake up in the morning
-When they\'re h...',
-      'music_length' => 209,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/James-Blunt~Y3NuX2FydGlzdH4zNDU=.html">James Blunt</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    54 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1771735,
-      'music_title_url' => 'turn-out-the-light~cris-cab-j-balvin',
-      'music_title' => 'Turn Out The Light',
-      'music_artist' => 'Cris Cab;J Balvin',
-      'music_artist_id' => '23671;13436',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1527073190,
-      'music_last_update_time' => 1489206284,
-      'music_title_search' => 'turn out the light',
-      'music_artist_search' => '; crix cab; j balvin;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 4465,
-      'music_track_id' => 0,
-      'music_filename' => '1771735-288286cd.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '[Verse 1: Cris Cab]
-I\'ve got a clear mind and a guilty conscious
-I don\'t, I don\'t hesitate
-Blaze up, little skeleton inside my closet
-Gotta, I got to demonstrate
-There must be something inside of t...',
-      'music_length' => 241,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Cris-Cab~Y3NuX2FydGlzdH4yMzY3MQ==.html">Cris Cab</a>, <a href="/ca-si/J-Balvin~Y3NuX2FydGlzdH4xMzQzNg==.html">J Balvin</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    55 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1771530,
-      'music_title_url' => 'something~gnash',
-      'music_title' => 'Something',
-      'music_artist' => 'Gnash',
-      'music_artist_id' => '17161',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1532220324,
-      'music_last_update_time' => 1489199263,
-      'music_title_search' => 'xomething',
-      'music_artist_search' => '; gnath;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 1024,
-      'music_track_id' => 0,
-      'music_filename' => '1771530-533dae73.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Whoa oh oh oh, don\'t you know I could buy you a rose
-Or maybe a daisy \'cause lately you seem into those
-Whoa oh oh oh, I guess that works for them, I suppose
-But wouldn\'t you rather have something...',
-      'music_length' => 214,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Gnash~Y3NuX2FydGlzdH4xNzE2MQ==.html">Gnash</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    56 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1771490,
-      'music_title_url' => 'fff~bebe-rexha-g-eazy',
-      'music_title' => 'F.F.F.',
-      'music_artist' => 'Bebe Rexha;G-Eazy',
-      'music_artist_id' => '14088;13946',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1535494260,
-      'music_last_update_time' => 1489108716,
-      'music_title_search' => 'f f f',
-      'music_artist_search' => '; bebe rexha; g eazi;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 12364,
-      'music_track_id' => 0,
-      'music_filename' => '1771490-45125ba0.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '[Intro: G-Eazy]
-G, Bebe I got you.
-
-[Verse 1:]
-Friends come and go, friends come and go
-Go like the seasons
-I never know, I never know
-What to believe in
-And It\'s getting old, it\'s getting old
-But...',
-      'music_length' => 209,
-      'music_width' => 1920,
-      'music_height' => 720,
-      'music_artist_html' => '<a href="/ca-si/Bebe-Rexha~Y3NuX2FydGlzdH4xNDA4OA==.html">Bebe Rexha</a>, <a href="/ca-si/G-Eazy~Y3NuX2FydGlzdH4xMzk0Ng==.html">G-Eazy</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    57 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1771486,
-      'music_title_url' => 'heavy~linkin-park-kiiara',
-      'music_title' => 'Heavy',
-      'music_artist' => 'Linkin Park;Kiiara',
-      'music_artist_id' => '156;15010',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1537302508,
-      'music_last_update_time' => 1489199274,
-      'music_title_search' => 'heavi',
-      'music_artist_search' => '; linkin park; kiara;',
-      'music_album_search' => '',
-      'music_composer' => 'Justin Tranter; Julia Michaels; Brad Delson; Chester Bennington; Mike Shinoda',
-      'music_album' => '',
-      'music_listen' => 7590,
-      'music_track_id' => 0,
-      'music_filename' => '1771486-1c10636a.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '[Verse 1: Chester Bennington]
-I don\'t like my mind right now
-Stacking up problems that are so unnecessary
-Wish that I could slow things down
-I wanna let go but there\'s comfort in the panic
-And I dr...',
-      'music_length' => 168,
-      'music_width' => 1920,
-      'music_height' => 724,
-      'music_artist_html' => '<a href="/ca-si/Linkin-Park~Y3NuX2FydGlzdH4xNTY=.html">Linkin Park</a>, <a href="/ca-si/Kiiara~Y3NuX2FydGlzdH4xNTAxMA==.html">Kiiara</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    58 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1776360,
-      'music_title_url' => 'living-out-loud~brooke-candy-sia',
-      'music_title' => 'Living Out Loud',
-      'music_artist' => 'Brooke Candy;Sia',
-      'music_artist_id' => '38788;9255',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1509679250,
-      'music_last_update_time' => 1490749863,
-      'music_title_search' => 'living out loud',
-      'music_artist_search' => '; broke candi; xia;',
-      'music_album_search' => '',
-      'music_composer' => 'Brooke Candy; Sia; Priscilla Renea',
-      'music_album' => '',
-      'music_listen' => 1274,
-      'music_track_id' => 0,
-      'music_filename' => '1776360-0dfecbb1.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '[Verse 1: Brooke &amp; Sia]
-Twenty-five ounces in a bottle of wine
-Twenty-four hours it\'s a day at a time
-Twenty-three lived a hell of a life
-Twenty-two such a blur, it\'s passing me by
-Twenty-one I...',
-      'music_length' => 258,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Brooke-Candy~Y3NuX2FydGlzdH4zODc4OA==.html">Brooke Candy</a>, <a href="/ca-si/Sia~Y3NuX2FydGlzdH45MjU1.html">Sia</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    59 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1776674,
-      'music_title_url' => 'no-more-sad-songs~little-mix-machine-gun-kelly',
-      'music_title' => 'No More Sad Songs',
-      'music_artist' => 'Little Mix;Machine Gun Kelly',
-      'music_artist_id' => '18147;2510',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1530847605,
-      'music_last_update_time' => 1490855177,
-      'music_title_search' => 'no more xad xongx',
-      'music_artist_search' => '; litle mix; machine gun keli;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 11054,
-      'music_track_id' => 0,
-      'music_filename' => '1776674-7864a1d8.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '[Verse 1:]
-I keep trying, nothing\'s working
-I still wanna know, if you\'re alone
-I keep trying to put this behind me
-I still wanna know who\'s taking you home.
-
-[Pre-Chorus:]
-For tonight, I\'m going t...',
-      'music_length' => 248,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Little-Mix~Y3NuX2FydGlzdH4xODE0Nw==.html">Little Mix</a>, <a href="/ca-si/Machine-Gun-Kelly~Y3NuX2FydGlzdH4yNTEw.html">Machine Gun Kelly</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    60 => 
-    array (
-      'music_downloads_today' => 3,
-      'music_id' => 1783304,
-      'music_title_url' => 'boom~tisto-sevenn',
-      'music_title' => 'Boom',
-      'music_artist' => 'Tiësto;Sevenn',
-      'music_artist_id' => '15594;80772',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1539029895,
-      'music_last_update_time' => 1494470782,
-      'music_title_search' => 'bom',
-      'music_artist_search' => '; tiëxto; xeven;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 71147,
-      'music_track_id' => 0,
-      'music_filename' => '1783304-f81906df.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '',
-      'music_length' => 154,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Tisto~Y3NuX2FydGlzdH4xNTU5NA==.html">Tiësto</a>, <a href="/ca-si/Sevenn~Y3NuX2FydGlzdH44MDc3Mg==.html">Sevenn</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    61 => 
-    array (
-      'music_downloads_today' => 3,
-      'music_id' => 1783089,
-      'music_title_url' => 'ignite~alan-walker-k-391',
-      'music_title' => 'Ignite',
-      'music_artist' => 'Alan Walker;K-391',
-      'music_artist_id' => '14991;14990',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1539070816,
-      'music_last_update_time' => 1493525769,
-      'music_title_search' => 'ignite',
-      'music_artist_search' => '; alan walker; k 391;',
-      'music_album_search' => '',
-      'music_composer' => 'Alan Walker; K-391',
-      'music_album' => '',
-      'music_listen' => 18987,
-      'music_track_id' => 0,
-      'music_filename' => '1783089-e2fcd52f.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '',
-      'music_length' => 227,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Alan-Walker~Y3NuX2FydGlzdH4xNDk5MQ==.html">Alan Walker</a>, <a href="/ca-si/K-391~Y3NuX2FydGlzdH4xNDk5MA==.html">K-391</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    62 => 
-    array (
-      'music_downloads_today' => 2,
-      'music_id' => 1782961,
-      'music_title_url' => 'young-lyric-video~the-chainsmokers',
-      'music_title' => 'Young (Lyric Video)',
-      'music_artist' => 'The Chainsmokers',
-      'music_artist_id' => '13339',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538986073,
-      'music_last_update_time' => 1493172476,
-      'music_title_search' => 'ioung; liric video',
-      'music_artist_search' => '; the chainxmokerx;',
-      'music_album_search' => '',
-      'music_composer' => 'CVBZ; Peter Hannah; Andrew Taggart',
-      'music_album' => '',
-      'music_listen' => 2054,
-      'music_track_id' => 0,
-      'music_filename' => '1782961-d1159058.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '[Verse 1:]
-Young
-We were so young when we thought that we knew how to love
-Fought about anything, everything that did is function
-But we just gotta own that shit
-Don\'t let it go like this
-Maybe we...',
-      'music_length' => 231,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/The-Chainsmokers~Y3NuX2FydGlzdH4xMzMzOQ==.html">The Chainsmokers</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    63 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1783614,
-      'music_title_url' => 'im-the-one~dj-khaled-ft-justin-bieber-quavo-chance-the-rapper-lil-wayne',
-      'music_title' => 'I\'m The One',
-      'music_artist' => 'DJ Khaled ft. Justin Bieber, Quavo, Chance the Rapper, Lil Wayne',
-      'music_artist_id' => '96423',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538433275,
-      'music_last_update_time' => 1493862792,
-      'music_title_search' => 'i m the 1',
-      'music_artist_search' => '; dj khaled ft juxtin biber quavo chance the raper lil waine;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 26846,
-      'music_track_id' => 0,
-      'music_filename' => '1783614-104a9b97.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '[Intro: DJ Khaled]
-We The Best Music
-Another one!
-DJ Khaled.
-
-[Pre-Chorus: Justin Bieber &amp; DJ Khaled]
-Yeah, you\'re lookin\' at the truth, the money never lie no
-I\'m the one, yeah, I\'m the one
-Ea...',
-      'music_length' => 321,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/DJ-Khaled-ft-Justin-Bieber-Quavo-Chance-the-Rapper-Lil-Wayne~Y3NuX2FydGlzdH45NjQyMw==.html">DJ Khaled ft. Justin Bieber, Quavo, Chance the Rapper, Lil Wayne</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    64 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1783740,
-      'music_title_url' => 'another-life~afrojack-david-guetta-ester-dean',
-      'music_title' => 'Another Life',
-      'music_artist' => 'Afrojack;David Guetta;Ester Dean',
-      'music_artist_id' => '11796;651;1519',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538425229,
-      'music_last_update_time' => 1493781445,
-      'music_title_search' => 'another life',
-      'music_artist_search' => '; afrojack; david gueta; exter dean;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 73861,
-      'music_track_id' => 0,
-      'music_filename' => '1783740-77768dbf.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '[Verse 1:]
-I\'m waking up, thinking how we used to be
-I still hang on to our tired dreams
-I wish we could turn back the hands of time
-Replace the poison that you left onto my mind.
-
-[Chorus:]
-Maybe...',
-      'music_length' => 210,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Afrojack~Y3NuX2FydGlzdH4xMTc5Ng==.html">Afrojack</a>, <a href="/ca-si/David-Guetta~Y3NuX2FydGlzdH42NTE=.html">David Guetta</a>, <a href="/ca-si/Ester-Dean~Y3NuX2FydGlzdH4xNTE5.html">Ester Dean</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    65 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1782871,
-      'music_title_url' => 'attention~charlie-puth',
-      'music_title' => 'Attention',
-      'music_artist' => 'Charlie Puth',
-      'music_artist_id' => '13568',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538752455,
-      'music_last_update_time' => 1508905619,
-      'music_title_search' => 'atention',
-      'music_artist_search' => '; charli puth;',
-      'music_album_search' => '',
-      'music_composer' => 'Jacob Kasher; Charlie Puth; Manny Marroquin; Dave Kutch; Fender Stratocaster',
-      'music_album' => '',
-      'music_listen' => 122170,
-      'music_track_id' => 0,
-      'music_filename' => '1782871-8393a022.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '1. You\'ve been runnin\' round, runnin\' round, runnin\' round throwin\' that dirt all on my name
-[t1]Em vẫn đi lung tung, hết nơi này đến chỗ khác, vấy bẩn lên tên tôi
-\'Cause you knew that I, knew that...',
-      'music_length' => 231,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Charlie-Puth~Y3NuX2FydGlzdH4xMzU2OA==.html">Charlie Puth</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    66 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1782955,
-      'music_title_url' => 'something-just-like-this-mashup~the-chainsmokers-kygo-selena-gomez',
-      'music_title' => 'Something Just Like This (Mashup)',
-      'music_artist' => 'The Chainsmokers;Kygo;Selena Gomez',
-      'music_artist_id' => '13339;15006;1054',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538553705,
-      'music_last_update_time' => 1493779128,
-      'music_title_search' => 'xomething juxt like thix; mathup',
-      'music_artist_search' => '; the chainxmokerx; kigo; xelena gomez;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 8875,
-      'music_track_id' => 0,
-      'music_filename' => '1782955-0cd97b29.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '',
-      'music_length' => 264,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/The-Chainsmokers~Y3NuX2FydGlzdH4xMzMzOQ==.html">The Chainsmokers</a>, <a href="/ca-si/Kygo~Y3NuX2FydGlzdH4xNTAwNg==.html">Kygo</a>, <a href="/ca-si/Selena-Gomez~Y3NuX2FydGlzdH4xMDU0.html">Selena Gomez</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    67 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1781119,
-      'music_title_url' => 'bruh~curbi-mesto',
-      'music_title' => 'BRUH',
-      'music_artist' => 'Curbi;Mesto',
-      'music_artist_id' => '15489;17823',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538834265,
-      'music_last_update_time' => 1492569796,
-      'music_title_search' => 'bruh',
-      'music_artist_search' => '; curbi; mexto;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 1967,
-      'music_track_id' => 0,
-      'music_filename' => '1781119-10c63932.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '',
-      'music_length' => 186,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Curbi~Y3NuX2FydGlzdH4xNTQ4OQ==.html">Curbi</a>, <a href="/ca-si/Mesto~Y3NuX2FydGlzdH4xNzgyMw==.html">Mesto</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    68 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1782966,
-      'music_title_url' => 'life~remady-manu-l',
-      'music_title' => 'L.I.F.E.',
-      'music_artist' => 'Remady;Manu-L',
-      'music_artist_id' => '12643;12644',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538907845,
-      'music_last_update_time' => 1493172126,
-      'music_title_search' => 'l i f e',
-      'music_artist_search' => '; remadi; manu l;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 3563,
-      'music_track_id' => 0,
-      'music_filename' => '1782966-3d247f34.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '[Verse 1: Manu-L]
-I\'ve been walking a thousand miles
-To many places
-And I know there\'s a reason why
-Whatever I do
-And the day that I met you
-I would always find the way to make it right
-Anyplace, a...',
-      'music_length' => 180,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Remady~Y3NuX2FydGlzdH4xMjY0Mw==.html">Remady</a>, <a href="/ca-si/Manu-L~Y3NuX2FydGlzdH4xMjY0NA==.html">Manu-L</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    69 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1779664,
-      'music_title_url' => 'run-up~major-lazer-partynextdoor-nicki-minaj',
-      'music_title' => 'Run Up',
-      'music_artist' => 'Major Lazer;PARTYNEXTDOOR;Nicki Minaj',
-      'music_artist_id' => '13367;14613;2664',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1501975924,
-      'music_last_update_time' => 1492133570,
-      'music_title_search' => 'run up',
-      'music_artist_search' => '; major lazer; partinextdor; nicki minaj;',
-      'music_album_search' => '',
-      'music_composer' => 'Diplo; Jr. Blender; Stargate',
-      'music_album' => '',
-      'music_listen' => 1861,
-      'music_track_id' => 0,
-      'music_filename' => '1779664-14e7e30e.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '[Intro: Nicki Minaj]
-Barbie.
-
-[Verse 1: PARTYNEXTDOOR]
-Yeah
-They thought that you was a shy girl
-Until I made you my girl
-Girl you pushed me like a big button
-\'Til I cuffed you like you did somethi...',
-      'music_length' => 228,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Major-Lazer~Y3NuX2FydGlzdH4xMzM2Nw==.html">Major Lazer</a>, <a href="/ca-si/PARTYNEXTDOOR~Y3NuX2FydGlzdH4xNDYxMw==.html">PARTYNEXTDOOR</a>, <a href="/ca-si/Nicki-Minaj~Y3NuX2FydGlzdH4yNjY0.html">Nicki Minaj</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    70 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1781256,
-      'music_title_url' => 'lady~austin-mahone-pitbull',
-      'music_title' => 'Lady',
-      'music_artist' => 'Austin Mahone;Pitbull',
-      'music_artist_id' => '4439;1814',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1534958681,
-      'music_last_update_time' => 1492655839,
-      'music_title_search' => 'ladi',
-      'music_artist_search' => '; auxtin mahone; pitbul;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 2752,
-      'music_track_id' => 0,
-      'music_filename' => '1781256-1ee97d63.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'This is for the beautiful girls around the world
-Mr. Worldwide
-This is for the beautiful girls around the world
-Austin M., talk to \'em.
-
-[Chorus:]
-Lady, hear me tonight
-\'Cause my feeling, is just s...',
-      'music_length' => 285,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Austin-Mahone~Y3NuX2FydGlzdH40NDM5.html">Austin Mahone</a>, <a href="/ca-si/Pitbull~Y3NuX2FydGlzdH4xODE0.html">Pitbull</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    71 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1777117,
-      'music_title_url' => 'superficial-love~ruth-b',
-      'music_title' => 'Superficial Love',
-      'music_artist' => 'Ruth B.',
-      'music_artist_id' => '94824',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1533539848,
-      'music_last_update_time' => 1491190817,
-      'music_title_search' => 'xuperficial love',
-      'music_artist_search' => '; ruth b;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 2206,
-      'music_track_id' => 0,
-      'music_filename' => '1777117-7e4eca4e.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'You\'re really cute, I must admit
-But I need something deeper than this
-I wanna know when I\'m looking at you
-That you don\'t only see the things you want to.
-
-\'Cause I\'m not perfect, I\'m flawed
-And i...',
-      'music_length' => 218,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Ruth-B~Y3NuX2FydGlzdH45NDgyNA==.html">Ruth B.</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    72 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1783774,
-      'music_title_url' => 'catch-me-if-you-can~john-dahlbck-melanie-fontana',
-      'music_title' => 'Catch Me If You Can',
-      'music_artist' => 'John Dahlbäck;Melanie Fontana',
-      'music_artist_id' => '53336;57727',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1501492745,
-      'music_last_update_time' => 1493781359,
-      'music_title_search' => 'catch me if iou can',
-      'music_artist_search' => '; john dahlbäck; melani fontana;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 1202,
-      'music_track_id' => 0,
-      'music_filename' => '1783774-c68120b0.mp4',
-      'music_bitrate' => 128,
-      'music_shortlyric' => '[Verse 1:]
-Looking down from the ledge on you and me 
-Hope you know how to catch i\'m tumblin\' 
-And now my heart\'s in your hands 
-That means you\'ve gotten the change 
-To not break me. 
-
-[Pre-Chorus:...',
-      'music_length' => 188,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/John-Dahlbck~Y3NuX2FydGlzdH41MzMzNg==.html">John Dahlbäck</a>, <a href="/ca-si/Melanie-Fontana~Y3NuX2FydGlzdH41NzcyNw==.html">Melanie Fontana</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    73 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1782129,
-      'music_title_url' => 'call-on-me-ryan-riback-remix~starley',
-      'music_title' => 'Call On Me (Ryan Riback Remix)',
-      'music_artist' => 'Starley',
-      'music_artist_id' => '17193',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1500838777,
-      'music_last_update_time' => 1492963011,
-      'music_title_search' => 'cal on me; rian riback remix',
-      'music_artist_search' => '; xtarlei;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 885,
-      'music_track_id' => 0,
-      'music_filename' => '1782129-5ae26151.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'When you\'re low
-And your knees can\'t rise
-You feel helpless
-And you\'re looking to the sky
-Some people would say
-To accept their fate
-Well, if this is fate
-Then we\'ll find a way to cheat.
-
-Cause, oh...',
-      'music_length' => 197,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Starley~Y3NuX2FydGlzdH4xNzE5Mw==.html">Starley</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    74 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1782943,
-      'music_title_url' => 'cant-help-falling-in-love~pentatonix',
-      'music_title' => 'Can\'t Help Falling In Love',
-      'music_artist' => 'Pentatonix',
-      'music_artist_id' => '3659',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1537397584,
-      'music_last_update_time' => 1493170434,
-      'music_title_search' => 'can t help faling in love',
-      'music_artist_search' => '; pentatonix;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 1410,
-      'music_track_id' => 0,
-      'music_filename' => '1782943-dd5ec2e3.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Wise men say, only fools rush in
-But I can\'t help falling in love with you
-Shall I stay, would it be a sin?
-If I can\'t help falling in love with you.
-
-Like a river flows, surely to the sea
-Darling...',
-      'music_length' => 200,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Pentatonix~Y3NuX2FydGlzdH4zNjU5.html">Pentatonix</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    75 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1783665,
-      'music_title_url' => '9-after-coachella~cashmere-cat-m-sophie',
-      'music_title' => '9 (After Coachella)',
-      'music_artist' => 'Cashmere Cat;MØ, SOPHIE',
-      'music_artist_id' => '52725;96429',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1504689580,
-      'music_last_update_time' => 1493862862,
-      'music_title_search' => '9; after coachela',
-      'music_artist_search' => '; cathmere cat; mØ xophi;',
-      'music_album_search' => '',
-      'music_composer' => 'Cashmere Cat; MØ; Benny Blanco; SOPHIE',
-      'music_album' => '',
-      'music_listen' => 644,
-      'music_track_id' => 0,
-      'music_filename' => '1783665-9a97e5e3.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '[Pre-Chorus: MØ]
-I know, I know
-I know, I know
-You\'ll never be mine
-I know, I know
-I know, I know, yeah
-You\'ll never be mine.
-
-[Chorus: MØ]
-I like the way your body moving
-I like the way you spread...',
-      'music_length' => 277,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Cashmere-Cat~Y3NuX2FydGlzdH41MjcyNQ==.html">Cashmere Cat</a>, <a href="/ca-si/M-SOPHIE~Y3NuX2FydGlzdH45NjQyOQ==.html">MØ, SOPHIE</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    76 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1783291,
-      'music_title_url' => 'city-on-lockdown~yellow-claw-juicy-j-lil-debbie',
-      'music_title' => 'City On Lockdown',
-      'music_artist' => 'Yellow Claw;Juicy J;Lil Debbie',
-      'music_artist_id' => '13988;4357;16622',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1536115676,
-      'music_last_update_time' => 1494407623,
-      'music_title_search' => 'citi on lockdown',
-      'music_artist_search' => '; ilow claw; juici j; lil debi;',
-      'music_album_search' => '',
-      'music_composer' => 'Daniel Tuparia; Jim Taihuttu; Jordan Capozzi; Jordan Michael Houston; Nils Rondhuis; Thom Van Der Bruggen',
-      'music_album' => '',
-      'music_listen' => 2813,
-      'music_track_id' => 0,
-      'music_filename' => '1783291-bb12c6e9.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '[Intro:]
-Yellow motherfucking Claw.
-
-[Verse 1: Lil Debbie]
-Roof is blazin\' for me, let that motherfucker burn now
-Tell these bitches watch it, it\'s my motherfuckin\' turn now
-We blazin\', blazin\', wh...',
-      'music_length' => 195,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Yellow-Claw~Y3NuX2FydGlzdH4xMzk4OA==.html">Yellow Claw</a>, <a href="/ca-si/Juicy-J~Y3NuX2FydGlzdH40MzU3.html">Juicy J</a>, <a href="/ca-si/Lil-Debbie~Y3NuX2FydGlzdH4xNjYyMg==.html">Lil Debbie</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    77 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1783156,
-      'music_title_url' => 'if-this-is-love-live~ruth-b',
-      'music_title' => 'If This Is Love (Live)',
-      'music_artist' => 'Ruth B.',
-      'music_artist_id' => '94824',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1512242544,
-      'music_last_update_time' => 1493253195,
-      'music_title_search' => 'if thix ix love; live',
-      'music_artist_search' => '; ruth b;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 1581,
-      'music_track_id' => 0,
-      'music_filename' => '1783156-5494a452.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'It\'s been a long day and I\'m trying to figure it out
-The way those words left your mouth
-I feel broken, shattered, and blue
-And it\'s all because of you
-And I\'m trying, trying to figure it out.
-
-If...',
-      'music_length' => 299,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Ruth-B~Y3NuX2FydGlzdH45NDgyNA==.html">Ruth B.</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    78 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1783666,
-      'music_title_url' => 'quit-lyric-video~cashmere-cat-ariana-grande',
-      'music_title' => 'Quit (Lyric Video)',
-      'music_artist' => 'Cashmere Cat;Ariana Grande',
-      'music_artist_id' => '52725;3831',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1507778930,
-      'music_last_update_time' => 1494213681,
-      'music_title_search' => 'quit; liric video',
-      'music_artist_search' => '; cathmere cat; ariana grande;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 1503,
-      'music_track_id' => 0,
-      'music_filename' => '1783666-e85d5856.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '[Verse 1: Ariana Grande]
-And you say that I\'m the devil you know
-And I don\'t disagree, no, I don\'t see the harm
-They say, &quot;You crazy, just leave him, he\'ll suffocate you&quot;
-But I wanna be i...',
-      'music_length' => 267,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Cashmere-Cat~Y3NuX2FydGlzdH41MjcyNQ==.html">Cashmere Cat</a>, <a href="/ca-si/Ariana-Grande~Y3NuX2FydGlzdH4zODMx.html">Ariana Grande</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    79 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1781684,
-      'music_title_url' => 'no-saint~consoul-trainin-eneli',
-      'music_title' => 'No Saint',
-      'music_artist' => 'Consoul Trainin;Eneli',
-      'music_artist_id' => '55214;84305',
-      'cat_id' => 1,
-      'cat_level' => 2,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1522056369,
-      'music_last_update_time' => 1492872352,
-      'music_title_search' => 'no xaint',
-      'music_artist_search' => '; conxoul chainin; eneli;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 805,
-      'music_track_id' => 0,
-      'music_filename' => '1781684-c71206a1.mp4',
-      'music_bitrate' => 128,
-      'music_shortlyric' => 'I ain\'t no saint, I could be sayin\'
-But I just need a helping hand
-I\'ll need a friend
-I ain\'t no saint, I ain\'t no saint.
-
-I ain\'t no saint, these wicked hands
-They get so violent on demand
-I\'ll ne...',
-      'music_length' => 182,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Consoul-Trainin~Y3NuX2FydGlzdH41NTIxNA==.html">Consoul Trainin</a>, <a href="/ca-si/Eneli~Y3NuX2FydGlzdH44NDMwNQ==.html">Eneli</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-  ),
-  3 => 
-  array (
-    0 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1758548,
-      'music_title_url' => 'up-down-chinese-version~exid',
-      'music_title' => 'Up &amp; Down (Chinese Version)',
-      'music_artist' => 'EXID',
-      'music_artist_id' => '13209',
-      'cat_id' => 1,
-      'cat_level' => 3,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538961499,
-      'music_last_update_time' => 1484457132,
-      'music_title_search' => 'up down; chinexe verxion',
-      'music_artist_search' => '; exid;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 12984,
-      'music_track_id' => 0,
-      'music_filename' => '1758548-11665b7e.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Wi arae wi wi arae wi arae wi wi arae
-Wi arae wi wi arae up~
-Wi arae wi wi arae wi arae wi wi arae
-Wi arae wi wi arae down~.
-
-Nan molla sunjinhan cheok haneun ne donggong
-Nal ne mamdaero deureotdag...',
-      'music_length' => 195,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/EXID~Y3NuX2FydGlzdH4xMzIwOQ==.html">EXID</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    1 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1760039,
-      'music_title_url' => 'skin-to-skin~luhan',
-      'music_title' => 'Skin To Skin',
-      'music_artist' => 'Luhan',
-      'music_artist_id' => '17771',
-      'cat_id' => 1,
-      'cat_level' => 3,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1532880640,
-      'music_last_update_time' => 1484960919,
-      'music_title_search' => 'xkin to xkin',
-      'music_artist_search' => '; luhan;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 10668,
-      'music_track_id' => 0,
-      'music_filename' => '1760039-7ae2caa5.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Take your time
-Love me in the middle of your lowest night
-I\'ll be sure to lift you if you promise me
-Give me your affection
-And your honesty
-If I could feel your touch
-If I could be your love
-I wan...',
-      'music_length' => 221,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Luhan~Y3NuX2FydGlzdH4xNzc3MQ==.html">Luhan</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    2 => 
-    array (
-      'music_downloads_today' => 3,
-      'music_id' => 1756299,
-      'music_title_url' => 'whos-that-girl~meng-jia',
-      'music_title' => 'Who\'s That Girl (她是谁)',
-      'music_artist' => 'Meng Jia',
-      'music_artist_id' => '92182',
-      'cat_id' => 1,
-      'cat_level' => 3,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1539037295,
-      'music_last_update_time' => 1483500709,
-      'music_title_search' => 'who x that drl; 她是谁',
-      'music_artist_search' => '; meng jia;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 3569,
-      'music_track_id' => 0,
-      'music_filename' => '1756299-77e71670.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '',
-      'music_length' => 249,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Meng-Jia~Y3NuX2FydGlzdH45MjE4Mg==.html">Meng Jia</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    3 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1764380,
-      'music_title_url' => 'my-first-and-last-chinese-version~nct-dream',
-      'music_title' => 'My First And Last (Chinese Version)',
-      'music_artist' => 'NCT Dream',
-      'music_artist_id' => '15817',
-      'cat_id' => 1,
-      'cat_level' => 3,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1536218038,
-      'music_last_update_time' => 1486695166,
-      'music_title_search' => 'mi firxt and laxt; chinexe verxion',
-      'music_artist_search' => '; nct dream;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 2116,
-      'music_track_id' => 0,
-      'music_filename' => '1764380-64f8eb8d.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '[ Verse 1: Haechan ]
-Oh maybe maybe
-ài qíng yǐ jīng zhuàng shàng wǒ dí tóu
-Chú liǎo nǐ yǎn qián shí me dū méi yǒu
-Dào dǐ xiàn zài shì bù shì duì dí shí hòu
-Ràng ài dí jiàn shè zhōng xiōng kǒu
-
-[ Ve...',
-      'music_length' => 206,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/NCT-Dream~Y3NuX2FydGlzdH4xNTgxNw==.html">NCT Dream</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    4 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1764576,
-      'music_title_url' => 'left-ear~jane',
-      'music_title' => 'Left Ear (左耳)',
-      'music_artist' => 'Jane',
-      'music_artist_id' => '57761',
-      'cat_id' => 1,
-      'cat_level' => 3,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1531820009,
-      'music_last_update_time' => 1486804952,
-      'music_title_search' => 'left ear; 左耳',
-      'music_artist_search' => '; jane;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 3709,
-      'music_track_id' => 0,
-      'music_filename' => '1764576-35c2a013.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '',
-      'music_length' => 291,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Jane~Y3NuX2FydGlzdH41Nzc2MQ==.html">Jane</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    5 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1764577,
-      'music_title_url' => 'in-your-eyes~jane',
-      'music_title' => 'In Your Eyes (在你眼裡)',
-      'music_artist' => 'Jane',
-      'music_artist_id' => '57761',
-      'cat_id' => 1,
-      'cat_level' => 3,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1537685807,
-      'music_last_update_time' => 1486804963,
-      'music_title_search' => 'in iour eix; 在你眼裡',
-      'music_artist_search' => '; jane;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 2418,
-      'music_track_id' => 0,
-      'music_filename' => '1764577-dc60f2ba.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '',
-      'music_length' => 271,
-      'music_width' => 1280,
-      'music_height' => 720,
-      'music_artist_html' => '<a href="/ca-si/Jane~Y3NuX2FydGlzdH41Nzc2MQ==.html">Jane</a>',
-      'music_bitrate_html' => '<span style="color: orange">HD 720p</span>',
-    ),
-    6 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1764579,
-      'music_title_url' => 'so-i-can-be-happy~jane',
-      'music_title' => 'So I Can Be Happy (原來我也可以幸福)',
-      'music_artist' => 'Jane',
-      'music_artist_id' => '57761',
-      'cat_id' => 1,
-      'cat_level' => 3,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1525397493,
-      'music_last_update_time' => 1502250679,
-      'music_title_search' => 'xo i can be hapi; 原來我也可以幸福',
-      'music_artist_search' => '; jane;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 1873,
-      'music_track_id' => 0,
-      'music_filename' => '1764579-d83a3958.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '',
-      'music_length' => 323,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Jane~Y3NuX2FydGlzdH41Nzc2MQ==.html">Jane</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    7 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1764580,
-      'music_title_url' => 'thanks-for-your-love~r-chord',
-      'music_title' => 'Thanks For Your Love (謝謝妳愛我)',
-      'music_artist' => 'R-chord',
-      'music_artist_id' => '94399',
-      'cat_id' => 1,
-      'cat_level' => 3,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1535997270,
-      'music_last_update_time' => 1486806157,
-      'music_title_search' => 'thankx for iour love; 謝妳愛我',
-      'music_artist_search' => '; r chord;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 2910,
-      'music_track_id' => 0,
-      'music_filename' => '1764580-7dbe0705.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '',
-      'music_length' => 227,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/R-chord~Y3NuX2FydGlzdH45NDM5OQ==.html">R-chord</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    8 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1764581,
-      'music_title_url' => 'starring~vu-mong-lung',
-      'music_title' => 'Starring (凝视 官方)',
-      'music_artist' => 'Vu Mong Lung',
-      'music_artist_id' => '94400',
-      'cat_id' => 1,
-      'cat_level' => 3,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1536850381,
-      'music_last_update_time' => 1486804806,
-      'music_title_search' => 'xtaring; 凝视 官方',
-      'music_artist_search' => '; vu mong lung;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 2488,
-      'music_track_id' => 0,
-      'music_filename' => '1764581-9d35f04c.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '',
-      'music_length' => 277,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Vu-Mong-Lung~Y3NuX2FydGlzdH45NDQwMA==.html">Vu Mong Lung</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    9 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1764582,
-      'music_title_url' => 'a-person-had~vu-mong-lung',
-      'music_title' => 'A Person Had (个人过 官方版)',
-      'music_artist' => 'Vu Mong Lung',
-      'music_artist_id' => '94400',
-      'cat_id' => 1,
-      'cat_level' => 3,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1498425912,
-      'music_last_update_time' => 1486805176,
-      'music_title_search' => 'a perxon had; 个人过 官方版',
-      'music_artist_search' => '; vu mong lung;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 1593,
-      'music_track_id' => 0,
-      'music_filename' => '1764582-0476628f.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '',
-      'music_length' => 295,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Vu-Mong-Lung~Y3NuX2FydGlzdH45NDQwMA==.html">Vu Mong Lung</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    10 => 
-    array (
-      'music_downloads_today' => 2,
-      'music_id' => 1764585,
-      'music_title_url' => 'self-directed~vu-mong-lung',
-      'music_title' => 'Self-Directed (自導自演)',
-      'music_artist' => 'Vu Mong Lung',
-      'music_artist_id' => '94400',
-      'cat_id' => 1,
-      'cat_level' => 3,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1539036305,
-      'music_last_update_time' => 1486805135,
-      'music_title_search' => 'xelf directed; 自導自演',
-      'music_artist_search' => '; vu mong lung;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 1680,
-      'music_track_id' => 0,
-      'music_filename' => '1764585-a5f952e0.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '',
-      'music_length' => 203,
-      'music_width' => 1920,
-      'music_height' => 804,
-      'music_artist_html' => '<a href="/ca-si/Vu-Mong-Lung~Y3NuX2FydGlzdH45NDQwMA==.html">Vu Mong Lung</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    11 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1764587,
-      'music_title_url' => 'drip~meng-jia',
-      'music_title' => 'Drip (给我乖)',
-      'music_artist' => 'Meng Jia',
-      'music_artist_id' => '92182',
-      'cat_id' => 1,
-      'cat_level' => 3,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1529482999,
-      'music_last_update_time' => 1486805083,
-      'music_title_search' => 'drip; 给我乖',
-      'music_artist_search' => '; meng jia;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 2256,
-      'music_track_id' => 0,
-      'music_filename' => '1764587-35105624.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '',
-      'music_length' => 172,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Meng-Jia~Y3NuX2FydGlzdH45MjE4Mg==.html">Meng Jia</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    12 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1764591,
-      'music_title_url' => 'cat-and-mouse~by2',
-      'music_title' => 'Cat and Mouse',
-      'music_artist' => 'By2',
-      'music_artist_id' => '45154',
-      'cat_id' => 1,
-      'cat_level' => 3,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1531664252,
-      'music_last_update_time' => 1486804100,
-      'music_title_search' => 'cat and mouxe',
-      'music_artist_search' => '; bi2;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 1635,
-      'music_track_id' => 0,
-      'music_filename' => '1764591-a95c736c.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '',
-      'music_length' => 249,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/By2~Y3NuX2FydGlzdH40NTE1NA==.html">By2</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    13 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1764590,
-      'music_title_url' => 'peach-blossom-cheongsam~by2',
-      'music_title' => 'Peach Blossom Cheongsam (高清官方完整版)',
-      'music_artist' => 'By2',
-      'music_artist_id' => '45154',
-      'cat_id' => 1,
-      'cat_level' => 3,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538227041,
-      'music_last_update_time' => 1486804531,
-      'music_title_search' => 'peach bloxom cheongxam; 高清官方完整版',
-      'music_artist_search' => '; bi2;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 2841,
-      'music_track_id' => 0,
-      'music_filename' => '1764590-d1c38905.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '',
-      'music_length' => 225,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/By2~Y3NuX2FydGlzdH40NTE1NA==.html">By2</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    14 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1783271,
-      'music_title_url' => '7senses~snh48-7senses',
-      'music_title' => '7Senses',
-      'music_artist' => 'SNH48 7SENSES',
-      'music_artist_id' => '96184',
-      'cat_id' => 1,
-      'cat_level' => 3,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538173715,
-      'music_last_update_time' => 1494470799,
-      'music_title_search' => '7xenxex',
-      'music_artist_search' => '; xnh48 7xenxex;',
-      'music_album_search' => '',
-      'music_composer' => 'Tiger; Lời: Tiểu7',
-      'music_album' => '',
-      'music_listen' => 32180,
-      'music_track_id' => 2,
-      'music_filename' => '1783271-f6e34945.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '平行空间视觉一闪而过
-
-发光的轨道
-
-触发听觉加速跳动
-
-谁在舞蹈
-
-嗅觉寻找那条线索
-
-Lucky Seven耀眼的闪烁
-
-若隐若现神秘面孔
-
-准备着降临的时刻
-
-第七感的讯号
-
-一轮星月划过等待揭晓
-
-第七感在闪耀
-
-金木水火土也会将我们围绕
-
-我解开假面 众人眼前 小宇宙燃烧
-
-在新的世界 七种感觉 独特的符号 hey
-
-解开假面 众人眼前 小宇宙燃烧
-
-在新的世界 七种感觉
-
-Luc...',
-      'music_length' => 248,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/SNH48-7SENSES~Y3NuX2FydGlzdH45NjE4NA==.html">SNH48 7SENSES</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    15 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1781146,
-      'music_title_url' => 'girl-crush-7senses~snh48',
-      'music_title' => 'Girl Crush / 7SENSES',
-      'music_artist' => 'SNH48',
-      'music_artist_id' => '15966',
-      'cat_id' => 1,
-      'cat_level' => 3,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1535818865,
-      'music_last_update_time' => 1492590540,
-      'music_title_search' => 'drl cruth ; 7xenxex',
-      'music_artist_search' => '; xnh48;',
-      'music_album_search' => '',
-      'music_composer' => 'Maruja Retana; Lời: Tiểu7',
-      'music_album' => '',
-      'music_listen' => 3085,
-      'music_track_id' => 1,
-      'music_filename' => '1781146-93f933ec.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Yo listen baby seven senses
-
- 
-
-修炼自我 没有什么如果
-
-众人爱慕party girl
-
-基因sexy 带点冷的笑容
-
-素颜的上镜 抢风头
-
-Ohh 撩起马甲动作
-
-耍帅还是诱惑
-
-Ohh We go party tonight
-
- 
-
-穿上黑西装 stand by
-
-高跟say goodbye
-
- 
-
-聚光灯包围
-
- 
-
-让心跳加快 熟悉的节拍
-
- 
-
-收起...',
-      'music_length' => 209,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/SNH48~Y3NuX2FydGlzdH4xNTk2Ng==.html">SNH48</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-  ),
-  4 => 
-  array (
-    0 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1757313,
-      'music_title_url' => 'bing-bing-excuse-me-inkigayo-comeback-stage~aoa',
-      'music_title' => 'Bing Bing; Excuse Me (Inkigayo Comeback Stage)',
-      'music_artist' => 'AOA',
-      'music_artist_id' => '4133',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1538927147,
-      'music_last_update_time' => 1483951384,
-      'music_title_search' => 'bing bing; excuxe me; inkigaio comeback xtage',
-      'music_artist_search' => '; aoa;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 1813,
-      'music_track_id' => 0,
-      'music_filename' => '1757313-0a022f70.mp4',
-      'music_bitrate' => 320,
-      'music_shortlyric' => '[Bing Bing]
-
-Hey I know what you want
-Look look at me now AOA come on
-Ol deut mal deut
-Like a little boy mangseoriji ma
-Gal deut mal deut
-Meomchithage dwae geureon neol bomyeon
-Jom soljikhaejyeo bw...',
-      'music_length' => 432,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/AOA~Y3NuX2FydGlzdH40MTMz.html">AOA</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    1 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1759800,
-      'music_title_url' => 'magic-dont-say-no-m-countdown-debut-stage-live~seohyun',
-      'music_title' => 'Magic; Don\'t Say No (M Countdown Debut Stage Live)',
-      'music_artist' => 'Seohyun',
-      'music_artist_id' => '13094',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1498558447,
-      'music_last_update_time' => 1484920514,
-      'music_title_search' => 'madc; don t xai no; m countdown debut xtage live',
-      'music_artist_search' => '; xeohiun;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 2228,
-      'music_track_id' => 0,
-      'music_filename' => '1759800-66d1d789.mp4',
-      'music_bitrate' => 320,
-      'music_shortlyric' => '[Magic]
-
-Magic magic magic uhm
-Magic magic uhm
-
-Neon naege dagawa
-Tto nareul chyeodabwa
-Neoui du nuneuro
-Naege jumuneul georeo
-Deo gipi ppajyeoga
-Neoui geu mabeobe
-Onmomi eoreobuteo
-Sumdo mot swige...',
-      'music_length' => 351,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Seohyun~Y3NuX2FydGlzdH4xMzA5NA==.html">Seohyun</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    2 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1760004,
-      'music_title_url' => 'limitless-music-bank-live~nct-127',
-      'music_title' => 'Limitless (Music Bank Live)',
-      'music_artist' => 'NCT 127',
-      'music_artist_id' => '15618',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1536133283,
-      'music_last_update_time' => 1484963896,
-      'music_title_search' => 'limitlex; muxic bank live',
-      'music_artist_search' => '; nct 127;',
-      'music_album_search' => '',
-      'music_composer' => 'Kenzie; Harvey Mason Jr.',
-      'music_album' => '',
-      'music_listen' => 1391,
-      'music_track_id' => 0,
-      'music_filename' => '1760004-c0fb24fc.mp4',
-      'music_bitrate' => 256,
-      'music_shortlyric' => 'Eojetbam nae segyereul dwi heundeureotdeon kkumi
-Angmonginji hogeun na ajik kkum soginji
-Nal ikkeun bicheul ttaragan kkum sok miro
-Geu goseseo balgyeonhan tto hanaui tongno.
-
-Gonggani yeollyeo from...',
-      'music_length' => 191,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/NCT-127~Y3NuX2FydGlzdH4xNTYxOA==.html">NCT 127</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    3 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1759824,
-      'music_title_url' => 'lucky-one-monster-26th-seoul-music-awards~exo',
-      'music_title' => 'Lucky One; Monster (26th Seoul Music Awards)',
-      'music_artist' => 'EXO',
-      'music_artist_id' => '2572',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1526952200,
-      'music_last_update_time' => 1484888181,
-      'music_title_search' => 'lucki one; monxter; 26th xeoul muxic awardx',
-      'music_artist_search' => '; exo;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 2893,
-      'music_track_id' => 0,
-      'music_filename' => '1759824-30dc2371.mp4',
-      'music_bitrate' => 192,
-      'music_shortlyric' => '[Lucky One]
-
-Oh taeyangi tteunda
-Neol chajajul jidoreul deulgo
-Jwapyoreul ttara naseoneun hangro
-No matter jeo eunbit nachimbaneun neoreul hyanghal teni.
-
-Neoreul talmeun haneureun areumdawo
-Oneuld...',
-      'music_length' => 365,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/EXO~Y3NuX2FydGlzdH4yNTcy.html">EXO</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    4 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1759798,
-      'music_title_url' => 'hobgoblin-m-countdown-comeback-stage~clc',
-      'music_title' => 'Hobgoblin (M Countdown Comeback Stage)',
-      'music_artist' => 'CLC',
-      'music_artist_id' => '18045',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1512559488,
-      'music_last_update_time' => 1484888114,
-      'music_title_search' => 'hobgoblin; m countdown comeback xtage',
-      'music_artist_search' => '; clc;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 1139,
-      'music_track_id' => 0,
-      'music_filename' => '1759798-16599723.mp4',
-      'music_bitrate' => 256,
-      'music_shortlyric' => 'I\'m in the zone
-We are CLC
-Geum nawara wara nope
-Eun nawara wara nope
-Neo nawara wara
-Ttukttak nice.
-
-Geum nawara wara nope
-Eun nawara wara nope
-Eolleun nawabwara
-Ttukttak yes yes.
-
-Ttokttok ja naw...',
-      'music_length' => 237,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/CLC~Y3NuX2FydGlzdH4xODA0NQ==.html">CLC</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    5 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1759792,
-      'music_title_url' => 'hard-carry-26th-seoul-music-awards~got7',
-      'music_title' => 'Hard Carry (26th Seoul Music Awards)',
-      'music_artist' => 'Got7',
-      'music_artist_id' => '4157',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1524067564,
-      'music_last_update_time' => 1486515227,
-      'music_title_search' => 'hard cari; 26th xeoul muxic awardx',
-      'music_artist_search' => '; got7;',
-      'music_album_search' => '',
-      'music_composer' => 'Ear Attack; Yu Geun; Lish',
-      'music_album' => '',
-      'music_listen' => 1135,
-      'music_track_id' => 0,
-      'music_filename' => '1759792-e3d0f041.mp4',
-      'music_bitrate' => 256,
-      'music_shortlyric' => 'Hadeukaerihae WOH hadeukaerihae
-Welcome to my world let\'s do this
-Isyujejogira bulleo I\'m so ill
-Eodilgado bunwigi Go higher
-Bihaenggi bakkeun neomu sikkeureowo gwayeol
-Nae anbuneun Everybody knows...',
-      'music_length' => 263,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Got7~Y3NuX2FydGlzdH40MTU3.html">Got7</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    6 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1760169,
-      'music_title_url' => 'goodbye~2ne1',
-      'music_title' => 'Goodbye',
-      'music_artist' => '2NE1',
-      'music_artist_id' => '1570',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1508795042,
-      'music_last_update_time' => 1484960785,
-      'music_title_search' => 'godbi',
-      'music_artist_search' => '; 2ne1;',
-      'music_album_search' => '',
-      'music_composer' => 'CL; J Gramm; Rook Monroe',
-      'music_album' => '',
-      'music_listen' => 482,
-      'music_track_id' => 0,
-      'music_filename' => '1760169-6b28cadd.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Gaji ma
-Nal beorigo gagessdaneun mareun haji ma
-Gieok sok nareul dugo tteonaji ma
-Neol jabeul su eopsneun nae nuneul boji ma
-Geunyang gaji ma
-Sokji ma
-Gyeou ireon yuhoge neomeogaji ma
-Modeun ge yeo...',
-      'music_length' => 242,
-      'music_width' => 1280,
-      'music_height' => 720,
-      'music_artist_html' => '<a href="/ca-si/2NE1~Y3NuX2FydGlzdH4xNTcw.html">2NE1</a>',
-      'music_bitrate_html' => '<span style="color: orange">HD 720p</span>',
-    ),
-    7 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1760005,
-      'music_title_url' => 'touch-music-bank-live~shinhwa',
-      'music_title' => 'Touch (Music Bank Live)',
-      'music_artist' => 'Shinhwa',
-      'music_artist_id' => '451',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1507763016,
-      'music_last_update_time' => 1484963892,
-      'music_title_search' => 'touch; muxic bank live',
-      'music_artist_search' => '; thinhwa;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 479,
-      'music_track_id' => 0,
-      'music_filename' => '1760005-3b0dd7cf.mp4',
-      'music_bitrate' => 192,
-      'music_shortlyric' => 'Amu maleopsi nareul bol ttae
-Naui pal kkeuti neoreul seuchyeo daheul ttae
-Geu modeun sungandeuri tteooreul ttae
-Nan michyeo chagaun mallo hwareul nael ttae
-Naege japhiji anhneun saega doel ttae
-Nar...',
-      'music_length' => 230,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Shinhwa~Y3NuX2FydGlzdH40NTE=.html">Shinhwa</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    8 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1760123,
-      'music_title_url' => 'goodbye~2ne1',
-      'music_title' => 'Goodbye',
-      'music_artist' => '2NE1',
-      'music_artist_id' => '1570',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1529888721,
-      'music_last_update_time' => 1484984199,
-      'music_title_search' => 'godbi',
-      'music_artist_search' => '; 2ne1;',
-      'music_album_search' => '',
-      'music_composer' => 'CL; J Gramm; Rook Monroe',
-      'music_album' => '',
-      'music_listen' => 7426,
-      'music_track_id' => 0,
-      'music_filename' => '1760123-9774524d.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Gaji ma
-Nal beorigo gagessdaneun mareun haji ma
-Gieok sok nareul dugo tteonaji ma
-Neol jabeul su eopsneun nae nuneul boji ma
-Geunyang gaji ma
-Sokji ma
-Gyeou ireon yuhoge neomeogaji ma
-Modeun ge yeo...',
-      'music_length' => 242,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/2NE1~Y3NuX2FydGlzdH4xNTcw.html">2NE1</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    9 => 
-    array (
-      'music_downloads_today' => 0,
-      'music_id' => 1758972,
-      'music_title_url' => 'hobgoblin~clc',
-      'music_title' => 'Hobgoblin',
-      'music_artist' => 'CLC',
-      'music_artist_id' => '18045',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 0,
-      'music_last_update_time' => 1484581936,
-      'music_title_search' => 'hobgoblin',
-      'music_artist_search' => '; clc;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 56,
-      'music_track_id' => 0,
-      'music_filename' => '1758972-10a2d135.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '',
-      'music_length' => 216,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/CLC~Y3NuX2FydGlzdH4xODA0NQ==.html">CLC</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    10 => 
-    array (
-      'music_downloads_today' => 0,
-      'music_id' => 1760007,
-      'music_title_url' => 'excuse-me-music-bank-live~aoa',
-      'music_title' => 'Excuse Me (Music Bank Live)',
-      'music_artist' => 'AOA',
-      'music_artist_id' => '4133',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 0,
-      'music_last_update_time' => 1484963921,
-      'music_title_search' => 'excuxe me; muxic bank live',
-      'music_artist_search' => '; aoa;',
-      'music_album_search' => '',
-      'music_composer' => 'Brave Brothers; ChaKun; Han Sung Ho; Kim Chang Rak; Erik Lidbom',
-      'music_album' => '',
-      'music_listen' => 95,
-      'music_track_id' => 0,
-      'music_filename' => '1760007-867d99e0.mp4',
-      'music_bitrate' => 256,
-      'music_shortlyric' => 'Excuse me, cuse me baby
-Cuse me, cuse me
-Jamkkan shillehalkkeyo
-Excuse me, cuse me baby
-Cuse me, cuse me
-Nal jom bwayo geudael weonhaeyo
-Excuse me, cuse me baby
-Cuse me, cuse me
-Jamkkan shillehalkk...',
-      'music_length' => 220,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/AOA~Y3NuX2FydGlzdH40MTMz.html">AOA</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    11 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1759826,
-      'music_title_url' => 'playing-with-fire-boombayah-26th-seoul-music-awards~blackpink',
-      'music_title' => 'Playing With Fire; Boombayah (26th Seoul Music Awards)',
-      'music_artist' => 'BlackPink',
-      'music_artist_id' => '14673',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1525704640,
-      'music_last_update_time' => 1484888188,
-      'music_title_search' => 'plaing with fire; bombaiah; 26th xeoul muxic awardx',
-      'music_artist_search' => '; blackpink;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 4825,
-      'music_track_id' => 0,
-      'music_filename' => '1759826-aac4ea1f.mp4',
-      'music_bitrate' => 192,
-      'music_shortlyric' => '[Playing With Fire]
-
-Uri eomman maeil naege malhaesseo
-Eonjena namja joshimharago
-Sarangeun machi buljangnan gataseo
-Dachinikka eh
-Eomma mari kkok majeuljjido molla
-Neol bomyeon nae mami tteugeopge...',
-      'music_length' => 277,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/BlackPink~Y3NuX2FydGlzdH4xNDY3Mw==.html">BlackPink</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    12 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1760576,
-      'music_title_url' => 'hobgoblin-inkigayo-comeback-stage~clc',
-      'music_title' => 'Hobgoblin (Inkigayo Comeback Stage)',
-      'music_artist' => 'CLC',
-      'music_artist_id' => '18045',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1512559478,
-      'music_last_update_time' => 1486454561,
-      'music_title_search' => 'hobgoblin; inkigaio comeback xtage',
-      'music_artist_search' => '; clc;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 1979,
-      'music_track_id' => 0,
-      'music_filename' => '1760576-90742668.mp4',
-      'music_bitrate' => 320,
-      'music_shortlyric' => 'I\'m in the zone
-We are CLC
-Geum nawara wara nope
-Eun nawara wara nope
-Neo nawara wara
-Ttukttak nice.
-
-Geum nawara wara nope
-Eun nawara wara nope
-Eolleun nawabwara
-Ttukttak yes yes.
-
-Ttokttok ja naw...',
-      'music_length' => 220,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/CLC~Y3NuX2FydGlzdH4xODA0NQ==.html">CLC</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    13 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1760006,
-      'music_title_url' => 'hobgoblin-music-bank-comeback-stage~clc',
-      'music_title' => 'Hobgoblin (Music Bank Comeback Stage)',
-      'music_artist' => 'CLC',
-      'music_artist_id' => '18045',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1498320732,
-      'music_last_update_time' => 1484963889,
-      'music_title_search' => 'hobgoblin; muxic bank comeback xtage',
-      'music_artist_search' => '; clc;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 872,
-      'music_track_id' => 0,
-      'music_filename' => '1760006-d5ad9296.mp4',
-      'music_bitrate' => 256,
-      'music_shortlyric' => 'I\'m in the zone
-We are CLC
-Geum nawara wara nope
-Eun nawara wara nope
-Neo nawara wara
-Ttukttak nice.
-
-Geum nawara wara nope
-Eun nawara wara nope
-Eolleun nawabwara
-Ttukttak yes yes.
-
-Ttokttok ja naw...',
-      'music_length' => 218,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/CLC~Y3NuX2FydGlzdH4xODA0NQ==.html">CLC</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    14 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1759794,
-      'music_title_url' => 'lucky-girl-russian-roulette-26th-seoul-music-awards-live~red-velvet',
-      'music_title' => 'Lucky Girl; Russian Roulette (26th Seoul Music Awards Live)',
-      'music_artist' => 'Red Velvet',
-      'music_artist_id' => '4719',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1498793678,
-      'music_last_update_time' => 1484882979,
-      'music_title_search' => 'lucki drl; ruxian roulete; 26th xeoul muxic awardx live',
-      'music_artist_search' => '; red velvet;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 874,
-      'music_track_id' => 0,
-      'music_filename' => '1759794-fae90e81.mp4',
-      'music_bitrate' => 256,
-      'music_shortlyric' => '[Lucky Girl]
-
-Mm-bob-bob museun yaegil halkka
-Mm-bob-bob neon muttukttukhae
-Mm-bob-bob, enjoy the show
-Na sokeuroman seeodaetji 1, 2, 3
-Tto baneung eobtneun neoreul bomyeon Down
-Jakku ireol geomyeo...',
-      'music_length' => 269,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Red-Velvet~Y3NuX2FydGlzdH40NzE5.html">Red Velvet</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    15 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1760349,
-      'music_title_url' => 'lonely-love-dont-say-no-music-core-comeback-stage-live~seohyun',
-      'music_title' => 'Lonely Love; Don\'t Say No (Music Core Comeback Stage Live)',
-      'music_artist' => 'Seohyun',
-      'music_artist_id' => '13094',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1498978894,
-      'music_last_update_time' => 1485061617,
-      'music_title_search' => 'loneli love; don t xai no; muxic core comeback xtage live',
-      'music_artist_search' => '; xeohiun;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 974,
-      'music_track_id' => 0,
-      'music_filename' => '1760349-8792dfe5.mp4',
-      'music_bitrate' => 192,
-      'music_shortlyric' => '[Lonely Love]
-
-Mianhadan mallo
-Neomu swipge nohabeorin neo
-Yeongwonhajan maldo
-Negen geujeo malppunieosseo
-Maeumi apa
-Han beon deo ne mameul
-Mideojuryeo haesseossdeon
-Nae moseubi silheosseo
-
-Ne mok...',
-      'music_length' => 359,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Seohyun~Y3NuX2FydGlzdH4xMzA5NA==.html">Seohyun</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    16 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1758777,
-      'music_title_url' => 'hold-up-very-very-very-dream-girls-i-fell-in-love-golden-disc-awards-2017-li~ioi',
-      'music_title' => 'Hold Up; Very Very Very; Dream Girls; I Fell In Love (Golden Disc Awards 2017 Live)',
-      'music_artist' => 'I.O.I',
-      'music_artist_id' => '81763',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1521013997,
-      'music_last_update_time' => 1484629153,
-      'music_title_search' => 'hold up; veri veri veri; dream drlx; i fel in love; golden dixc awardx 2017 live',
-      'music_artist_search' => '; i o i;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 1009,
-      'music_track_id' => 0,
-      'music_filename' => '1758777-fce2d5ef.mp4',
-      'music_bitrate' => 192,
-      'music_shortlyric' => '[Hold Up]
-
-Ah~ i trust you
-You, you, you.
-
-Na manhi johahaenna bwa nae bari wae tteoreojijil anhi
-Geureom neoneun eotteoni naega eopdamyeon gwaenchangenni.
-
-Naneun love you love you love you love y...',
-      'music_length' => 468,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/IOI~Y3NuX2FydGlzdH44MTc2Mw==.html">I.O.I</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    17 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1757436,
-      'music_title_url' => 'bomb~ravi-san-e',
-      'music_title' => 'Bomb',
-      'music_artist' => 'Ravi;San E',
-      'music_artist_id' => '18398;4069',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1532776171,
-      'music_last_update_time' => 1484023755,
-      'music_title_search' => 'bomb',
-      'music_artist_search' => '; ravi; xan e;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 2099,
-      'music_track_id' => 0,
-      'music_filename' => '1757436-4649bac5.mp4',
-      'music_bitrate' => 192,
-      'music_shortlyric' => 'Yeah bomb n bomb
-Feel this energy
-Bomb n bomb
-Feel this energy
-Bomb n bomb
-Feel this energy
-Bomb n bomb
-Feel this energy
-
-Ahhhwa seuteuleching kkeut
-Jal bwala nae nanli buleuseu
-I meongseog kkaneun...',
-      'music_length' => 229,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Ravi~Y3NuX2FydGlzdH4xODM5OA==.html">Ravi</a>, <a href="/ca-si/San-E~Y3NuX2FydGlzdH40MDY5.html">San E</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    18 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1758769,
-      'music_title_url' => 'last-dance-inkigayo-live~big-bang',
-      'music_title' => 'Last Dance (Inkigayo Live)',
-      'music_artist' => 'Big Bang',
-      'music_artist_id' => '982',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1521855863,
-      'music_last_update_time' => 1484546540,
-      'music_title_search' => 'laxt dance; inkigaio live',
-      'music_artist_search' => '; big bang;',
-      'music_album_search' => '',
-      'music_composer' => 'G-Dragon; T.O.P; Taeyang; Jun Yong Joon; Seo Won Jin',
-      'music_album' => '',
-      'music_listen' => 1440,
-      'music_track_id' => 0,
-      'music_filename' => '1758769-99959074.mp4',
-      'music_bitrate' => 192,
-      'music_shortlyric' => 'Yeongwonhal jul aradeon
-Sarangdo jeomulgo
-Ijen geu heunhan chingumajeo
-Tteonaganeyo
-Naiga deureoseo na
-Eoreuni doena bwayo
-Wae ireohge buranhalkka
-
-Saramdeureun oneuldo
-Gwageoe meomulgo
-Sesangeun n...',
-      'music_length' => 283,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Big-Bang~Y3NuX2FydGlzdH45ODI=.html">Big Bang</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    19 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1759817,
-      'music_title_url' => 'rough-navillera-26th-seoul-music-awards~gfriend',
-      'music_title' => 'Rough; Navillera (26th Seoul Music Awards)',
-      'music_artist' => 'GFriend',
-      'music_artist_id' => '13390',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1498925039,
-      'music_last_update_time' => 1484888179,
-      'music_title_search' => 'rough; navilera; 26th xeoul muxic awardx',
-      'music_artist_search' => '; gfrind;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 835,
-      'music_track_id' => 0,
-      'music_filename' => '1759817-8bfc9a9b.mp4',
-      'music_bitrate' => 320,
-      'music_shortlyric' => '[Rough]
-
-Dagaseoji motago hemaeigo isseo
-Johahajiman dareun goseul bogo isseo
-Gakkawo jiryeogo hamyeon halsurok
-Meoreojyeo ganeun uri durui maeumcheoreom 
-Mannaji motae maemdolgo isseo
-Urin machi p...',
-      'music_length' => 282,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/GFriend~Y3NuX2FydGlzdH4xMzM5MA==.html">GFriend</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    20 => 
-    array (
-      'music_downloads_today' => 2,
-      'music_id' => 1767051,
-      'music_title_url' => 'not-today~bts',
-      'music_title' => 'Not Today',
-      'music_artist' => 'BTS',
-      'music_artist_id' => '4748',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1539028243,
-      'music_last_update_time' => 1487672557,
-      'music_title_search' => 'not todai',
-      'music_artist_search' => '; btx;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 99493,
-      'music_track_id' => 0,
-      'music_filename' => '1767051-54548536.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'All the underdogt in the world
-A day may come when we lose
-but it is not today
-Today we fight!
-
-No not today
-eonjenga kkocceun jigessji
-but no not today
-geu ttaega oneureun aniji
-No no not today
-aj...',
-      'music_length' => 290,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/BTS~Y3NuX2FydGlzdH40NzQ4.html">BTS</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    21 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1764378,
-      'music_title_url' => 'my-first-and-last~nct-dream',
-      'music_title' => 'My First And Last',
-      'music_artist' => 'NCT Dream',
-      'music_artist_id' => '15817',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538825640,
-      'music_last_update_time' => 1486906763,
-      'music_title_search' => 'mi firxt and laxt',
-      'music_artist_search' => '; nct dream;',
-      'music_album_search' => '',
-      'music_composer' => 'August Rigo; Justin Davey; Ryan S.Jhun; Jeon Gan Di; Mark',
-      'music_album' => '',
-      'music_listen' => 6959,
-      'music_track_id' => 0,
-      'music_filename' => '1764378-ca07cfcd.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Oh maybe maybe
-Igeon sarangiljido molla
-Imi nae nuneneun neoman boyeo nan
-Ajik anil geora geopeul meogeodo
-Oh naegedo on geot gata.
-
-Chaege jeokhin geuljadeuri hyeonshiri dwae
-Gaseumi got teojyeo b...',
-      'music_length' => 206,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/NCT-Dream~Y3NuX2FydGlzdH4xNTgxNw==.html">NCT Dream</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    22 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1767728,
-      'music_title_url' => 'monster-lotto-6th-gaon-chart-music-awards-live~exo',
-      'music_title' => 'Monster; Lotto (6th Gaon Chart Music Awards Live)',
-      'music_artist' => 'EXO',
-      'music_artist_id' => '2572',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1538453279,
-      'music_last_update_time' => 1487855348,
-      'music_title_search' => 'monxter; loto; 6th gaon chart muxic awardx live',
-      'music_artist_search' => '; exo;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 2966,
-      'music_track_id' => 0,
-      'music_filename' => '1767728-570668ca.mp4',
-      'music_bitrate' => 192,
-      'music_shortlyric' => '[Monster]
-
-She got me gone crazy
-Wae simjangi ttwini.
-
-Neon areumdawo naui goddess
-Dathyeoissji Yeah yeah 
-Dudeuril teni nal deuryeobonaellae? 
-Gamchwojin seurireul julge.
-
-Nundongjaui hogisime imi...',
-      'music_length' => 375,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/EXO~Y3NuX2FydGlzdH4yNTcy.html">EXO</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    23 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1768193,
-      'music_title_url' => 'not-today-spring-day-music-bank-comeback-stage-live~bts',
-      'music_title' => 'Not Today; Spring Day (Music Bank Comeback Stage Live)',
-      'music_artist' => 'BTS',
-      'music_artist_id' => '4748',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1538926276,
-      'music_last_update_time' => 1487993262,
-      'music_title_search' => 'not todai; xpring dai; muxic bank comeback xtage live',
-      'music_artist_search' => '; btx;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 12123,
-      'music_track_id' => 0,
-      'music_filename' => '1768193-efb63eb5.mp4',
-      'music_bitrate' => 320,
-      'music_shortlyric' => '[Not Today]
-
-All the underdogt in the world
-A day may come when we lose
-but it is not today
-Today we fight!
-
-No not today
-eonjenga kkocceun jigessji
-but no not today
-geu ttaega oneureun aniji
-No no...',
-      'music_length' => 539,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/BTS~Y3NuX2FydGlzdH40NzQ4.html">BTS</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    24 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1767665,
-      'music_title_url' => 'save-me-blood-sweat-tears-6th-gaon-chart-k-pop-awards-live~bts',
-      'music_title' => 'Save Me; Blood Sweat &amp; Tears (6th Gaon Chart K-Pop Awards Live)',
-      'music_artist' => 'BTS',
-      'music_artist_id' => '4748',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1538926497,
-      'music_last_update_time' => 1487835849,
-      'music_title_search' => 'xave me; blod xweat tearx; 6th gaon chart k pop awardx live',
-      'music_artist_search' => '; btx;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 2614,
-      'music_track_id' => 0,
-      'music_filename' => '1767665-49f6b053.mp4',
-      'music_bitrate' => 320,
-      'music_shortlyric' => '[Save Me]
-
-Nan sumswigo sipeo i bami silheo
-Ijen kkaego sipeo kkumsogi silheo
-Nae ane gathyeoseo nan jugeoisseo
-Don\'t wanna be lonely
-Just wanna be yours.
-
-Wae iri kkamkkamhan geonji niga eopsneun...',
-      'music_length' => 431,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/BTS~Y3NuX2FydGlzdH40NzQ4.html">BTS</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    25 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1765377,
-      'music_title_url' => 'rain~baekhyun-soyou',
-      'music_title' => 'Rain',
-      'music_artist' => 'Baekhyun;Soyou',
-      'music_artist_id' => '23004;15704',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538892663,
-      'music_last_update_time' => 1487066251,
-      'music_title_search' => 'rain',
-      'music_artist_search' => '; baekhiun; xoiou;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 17071,
-      'music_track_id' => 0,
-      'music_filename' => '1765377-19afe3a1.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Biga odeon usan sok
-Jeojeun neoui eokkae kkeut
-Jageun tteollimdo neukkil su
-Isseossdeon neowaui geori
-
-Biga odeon jeongryujang
-Barabodeon ne nunbicc
-Neodo saenggaknalkka
-Bamsae nanudeon
-Uriui yaegi...',
-      'music_length' => 230,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Baekhyun~Y3NuX2FydGlzdH4yMzAwNA==.html">Baekhyun</a>, <a href="/ca-si/Soyou~Y3NuX2FydGlzdH4xNTcwNA==.html">Soyou</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    26 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1766811,
-      'music_title_url' => 'gee~golden-tambourine',
-      'music_title' => 'Gee',
-      'music_artist' => 'Golden Tambourine',
-      'music_artist_id' => '94678',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1493430539,
-      'music_last_update_time' => 1487465759,
-      'music_title_search' => 'ge',
-      'music_artist_search' => '; golden tambourine;',
-      'music_album_search' => '',
-      'music_composer' => 'E-Tribe; Harambasic; Nermin; Jenssen; Robin; Svendsen,',
-      'music_album' => '',
-      'music_listen' => 161,
-      'music_track_id' => 0,
-      'music_filename' => '1766811-c014cfa9.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '[Tiffany] Aha! Listen Boy
-My First Love Story ([All] Ooh oh-oh, Ooh oh-oh, Yeah~)
-[Jessica] My Angel ([Taeyeon] Ha~) &amp; My Girls ([Taeyeon] Ha~)
-My Sunshine
-[Tiffany] Uh! Uh! Let\'s Go! 
-
-[Seohyu...',
-      'music_length' => 202,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Golden-Tambourine~Y3NuX2FydGlzdH45NDY3OA==.html">Golden Tambourine</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    27 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1767014,
-      'music_title_url' => 'not-today~bts',
-      'music_title' => 'Not Today',
-      'music_artist' => 'BTS',
-      'music_artist_id' => '4748',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1487652521,
-      'music_last_update_time' => 1487518714,
-      'music_title_search' => 'not todai',
-      'music_artist_search' => '; btx;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 3965,
-      'music_track_id' => 0,
-      'music_filename' => '1767014-13bc8e9f.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'All the underdogt in the world
-A day may come when we lose
-but it is not today
-Today we fight!
-
-No not today
-eonjenga kkocceun jigessji
-but no not today
-geu ttaega oneureun aniji
-No no not today
-aj...',
-      'music_length' => 290,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/BTS~Y3NuX2FydGlzdH40NzQ4.html">BTS</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    28 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1766572,
-      'music_title_url' => 'my-first-and-last-music-bank-live~nct-dream',
-      'music_title' => 'My First And Last (Music Bank Live)',
-      'music_artist' => 'NCT Dream',
-      'music_artist_id' => '15817',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1513958406,
-      'music_last_update_time' => 1487466559,
-      'music_title_search' => 'mi firxt and laxt; muxic bank live',
-      'music_artist_search' => '; nct dream;',
-      'music_album_search' => '',
-      'music_composer' => 'Jun Gandi; Mark; August Rigo; Justin Davey; Ryan S. Jhun',
-      'music_album' => '',
-      'music_listen' => 836,
-      'music_track_id' => 0,
-      'music_filename' => '1766572-63ac75d1.mp4',
-      'music_bitrate' => 256,
-      'music_shortlyric' => 'Oh maybe maybe
-Igeon sarangiljido molla
-Imi nae nuneneun neoman boyeo nan
-Ajik anil geora geopeul meogeodo
-Oh naegedo on geot gata
-Chaege jeokhin geuljadeuri hyeonshiri dwae
-Gaseumi got teojyeo beo...',
-      'music_length' => 198,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/NCT-Dream~Y3NuX2FydGlzdH4xNTgxNw==.html">NCT Dream</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    29 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1768618,
-      'music_title_url' => 'not-today-spring-day-inkigayo-comeback-stage-live~bts',
-      'music_title' => 'Not Today; Spring Day (Inkigayo Comeback Stage Live)',
-      'music_artist' => 'BTS',
-      'music_artist_id' => '4748',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1523865446,
-      'music_last_update_time' => 1488158650,
-      'music_title_search' => 'not todai; xpring dai; inkigaio comeback xtage live',
-      'music_artist_search' => '; btx;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 15418,
-      'music_track_id' => 0,
-      'music_filename' => '1768618-deac1d00.mp4',
-      'music_bitrate' => 320,
-      'music_shortlyric' => '[Not Today]
-
-All the underdogt in the world
-A day may come when we lose
-But it is not today
-Today we fight!
-
-No not today
-Eonjenga kkocceun jigessji
-But no not today
-Geu ttaega oneureun aniji
-No no...',
-      'music_length' => 519,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/BTS~Y3NuX2FydGlzdH40NzQ4.html">BTS</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    30 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1768615,
-      'music_title_url' => 'rookie-inkigayo-live~red-velvet',
-      'music_title' => 'Rookie (Inkigayo Live)',
-      'music_artist' => 'Red Velvet',
-      'music_artist_id' => '4719',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1531557809,
-      'music_last_update_time' => 1488158445,
-      'music_title_search' => 'roki; inkigaio live',
-      'music_artist_search' => '; red velvet;',
-      'music_album_search' => '',
-      'music_composer' => 'Jo Yoon Kyung; Jamil &quot;Digi&quot; Chammas; Leven Kali; Sara Forsberg; Karl Powell; Harrison Johnson; MZMC; Otha &quot;Vakseen&quot; Davis III; Tay Jasper',
-      'music_album' => '',
-      'music_listen' => 457,
-      'music_track_id' => 0,
-      'music_filename' => '1768615-e05b335b.mp4',
-      'music_bitrate' => 320,
-      'music_shortlyric' => 'Yeah alright 1, 2
-
-Dangdanghi neon gogaereul deulgo nareul bwa
-Yeoksi rookie rookie
-My super rookie rookie boy
-Joha bol ttaemada jinjja neon nae type
-Yeoksi rookie rookie
-My super rookie rookie boy...',
-      'music_length' => 198,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Red-Velvet~Y3NuX2FydGlzdH40NzE5.html">Red Velvet</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    31 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1768617,
-      'music_title_url' => 'knock-knock-inkigayo-comeback-stage-live~twice',
-      'music_title' => 'Knock Knock (Inkigayo Comeback Stage Live)',
-      'music_artist' => 'Twice',
-      'music_artist_id' => '13388',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1505728793,
-      'music_last_update_time' => 1488158454,
-      'music_title_search' => 'knock knock; inkigaio comeback xtage live',
-      'music_artist_search' => '; twice;',
-      'music_album_search' => '',
-      'music_composer' => 'Shim Eun Ji; Lee Woo Min &quot;Collapsedone&quot;; Mayu Wakisaka',
-      'music_album' => '',
-      'music_listen' => 4172,
-      'music_track_id' => 0,
-      'music_filename' => '1768617-0f5556f0.mp4',
-      'music_bitrate' => 320,
-      'music_shortlyric' => 'Yeoldushiga doemyeon dachyeoyo
-Jogeumman seodulleo jullaeyo
-Knock knock knock knock
-Knock on my door
-Knock knock knock knock
-Knock on my door
-Bami doemyeon nae mamsoge
-Churipmuni yeollijyo
-Nugunga...',
-      'music_length' => 263,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Twice~Y3NuX2FydGlzdH4xMzM4OA==.html">Twice</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    32 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1768209,
-      'music_title_url' => 'rookie-music-bank-live~red-velvet',
-      'music_title' => 'Rookie (Music Bank Live)',
-      'music_artist' => 'Red Velvet',
-      'music_artist_id' => '4719',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1536404101,
-      'music_last_update_time' => 1487982982,
-      'music_title_search' => 'roki; muxic bank live',
-      'music_artist_search' => '; red velvet;',
-      'music_album_search' => '',
-      'music_composer' => 'Jo Yoon Kyung; Jamil &quot;Digi&quot; Chammas; Leven Kali; Sara Forsberg; Karl Powell; Harrison Johnson; MZMC; Otha &quot;Vakseen&quot; Davis III; Tay Jasper',
-      'music_album' => '',
-      'music_listen' => 970,
-      'music_track_id' => 0,
-      'music_filename' => '1768209-8f3f03cb.mp4',
-      'music_bitrate' => 256,
-      'music_shortlyric' => 'Yeah alright 1, 2
-
-Dangdanghi neon gogaereul deulgo nareul bwa
-Yeoksi rookie rookie
-My super rookie rookie boy
-Joha bol ttaemada jinjja neon nae type
-Yeoksi rookie rookie
-My super rookie rookie boy...',
-      'music_length' => 205,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Red-Velvet~Y3NuX2FydGlzdH40NzE5.html">Red Velvet</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    33 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1768766,
-      'music_title_url' => 'not-today-choreography-version~bts',
-      'music_title' => 'Not Today (Choreography Version)',
-      'music_artist' => 'BTS',
-      'music_artist_id' => '4748',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538231476,
-      'music_last_update_time' => 1488155085,
-      'music_title_search' => 'not todai; choreographi verxion',
-      'music_artist_search' => '; btx;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 9581,
-      'music_track_id' => 0,
-      'music_filename' => '1768766-3c1e212a.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'All the underdogt in the world
-A day may come when we lose
-But it is not today
-Today we fight!
-
-No not today
-Eonjenga kkocceun jigessji
-But no not today
-Geu ttaega oneureun aniji
-No no not today
-Aj...',
-      'music_length' => 481,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/BTS~Y3NuX2FydGlzdH40NzQ4.html">BTS</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    34 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1768401,
-      'music_title_url' => 'rookie-music-core-hot-3-live~red-velvet',
-      'music_title' => 'Rookie (Music Core Hot 3 Live)',
-      'music_artist' => 'Red Velvet',
-      'music_artist_id' => '4719',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1516354486,
-      'music_last_update_time' => 1488157937,
-      'music_title_search' => 'roki; muxic core hot 3 live',
-      'music_artist_search' => '; red velvet;',
-      'music_album_search' => '',
-      'music_composer' => 'Jo Yoon Kyung; Jamil &quot;Digi&quot; Chammas; Leven Kali; Sara Forsberg; Karl Powell; Harrison Johnson; MZMC; Otha &quot;Vakseen&quot; Davis III; Tay Jasper',
-      'music_album' => '',
-      'music_listen' => 615,
-      'music_track_id' => 0,
-      'music_filename' => '1768401-fd78260d.mp4',
-      'music_bitrate' => 320,
-      'music_shortlyric' => 'Yeah alright 1, 2
-
-Dangdanghi neon gogaereul deulgo nareul bwa
-Yeoksi rookie rookie
-My super rookie rookie boy
-Joha bol ttaemada jinjja neon nae type
-Yeoksi rookie rookie
-My super rookie rookie boy...',
-      'music_length' => 195,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Red-Velvet~Y3NuX2FydGlzdH40NzE5.html">Red Velvet</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    35 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1768397,
-      'music_title_url' => 'my-first-and-last-music-core-live~nct-dream',
-      'music_title' => 'My First And Last (Music Core Live)',
-      'music_artist' => 'NCT Dream',
-      'music_artist_id' => '15817',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1496128253,
-      'music_last_update_time' => 1488157864,
-      'music_title_search' => 'mi firxt and laxt; muxic core live',
-      'music_artist_search' => '; nct dream;',
-      'music_album_search' => '',
-      'music_composer' => 'August Rigo; Justin Davey; Ryan S.Jhun; Jeon Gan Di; Mark',
-      'music_album' => '',
-      'music_listen' => 394,
-      'music_track_id' => 0,
-      'music_filename' => '1768397-5c194ed9.mp4',
-      'music_bitrate' => 320,
-      'music_shortlyric' => 'Oh maybe maybe
-Igeon sarangiljido molla
-Imi nae nuneneun neoman boyeo nan
-Ajik anil geora geopeul meogeodo
-Oh naegedo on geot gata.
-
-Chaege jeokhin geuljadeuri hyeonshiri dwae
-Gaseumi got teojyeo b...',
-      'music_length' => 199,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/NCT-Dream~Y3NuX2FydGlzdH4xNTgxNw==.html">NCT Dream</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    36 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1766573,
-      'music_title_url' => 'loves-me-loves-me-not-music-bank-live~hong-jin-young-cao-lu',
-      'music_title' => 'Loves Me, Loves Me Not (Music Bank Live)',
-      'music_artist' => 'Hong Jin Young;Cao Lu',
-      'music_artist_id' => '50931;85941',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1518427936,
-      'music_last_update_time' => 1487466589,
-      'music_title_search' => 'lovex me lovex me not; muxic bank live',
-      'music_artist_search' => '; hong jin ioung; cao lu;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 1589,
-      'music_track_id' => 0,
-      'music_filename' => '1766573-e3a9ec11.mp4',
-      'music_bitrate' => 192,
-      'music_shortlyric' => 'Nal saranghanda anhanda
-Saranghanda anhanda
-Kkochip tteeo boneun i maeum
-
-Nal saranghanda anhanda
-Aetaneun inaegaseum
-Nan geudae eobsi mos sandabnida
-
-Barama nareul eoseo deryeo ga juryeom
-Nae nim...',
-      'music_length' => 184,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Hong-Jin-Young~Y3NuX2FydGlzdH41MDkzMQ==.html">Hong Jin Young</a>, <a href="/ca-si/Cao-Lu~Y3NuX2FydGlzdH44NTk0MQ==.html">Cao Lu</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    37 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1763250,
-      'music_title_url' => 'little-little-rookie-music-bank-comeback-stage~red-velvet',
-      'music_title' => 'Little Little; Rookie (Music Bank Comeback Stage)',
-      'music_artist' => 'Red Velvet',
-      'music_artist_id' => '4719',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1510049109,
-      'music_last_update_time' => 1486449587,
-      'music_title_search' => 'litle litle; roki; muxic bank comeback xtage',
-      'music_artist_search' => '; red velvet;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 3570,
-      'music_track_id' => 0,
-      'music_filename' => '1763250-e29a9593.mp4',
-      'music_bitrate' => 320,
-      'music_shortlyric' => '[Little Little]
-
-Jakku dugeundaeneun mamdeuli
-Deullilkka bwa neol pihaetneunde
-Bogo sipeun geon sumgil suga eobtne
-Nae meori soke diary
-Eoneu peijil pyeolchyeoboado
-Neoppunin geon naman aneun secre...',
-      'music_length' => 313,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Red-Velvet~Y3NuX2FydGlzdH40NzE5.html">Red Velvet</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    38 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1765969,
-      'music_title_url' => 'my-first-and-last-show-champion-comeback-stage-live~nct-dream',
-      'music_title' => 'My First And Last (Show Champion Comeback Stage Live)',
-      'music_artist' => 'NCT Dream',
-      'music_artist_id' => '15817',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1494501367,
-      'music_last_update_time' => 1487235432,
-      'music_title_search' => 'mi firxt and laxt; thow champion comeback xtage live',
-      'music_artist_search' => '; nct dream;',
-      'music_album_search' => '',
-      'music_composer' => 'Jun Gandi; Mark; August Rigo; Justin Davey; Ryan S. Jhun',
-      'music_album' => '',
-      'music_listen' => 263,
-      'music_track_id' => 0,
-      'music_filename' => '1765969-a097b2b7.mp4',
-      'music_bitrate' => 320,
-      'music_shortlyric' => 'Oh maybe maybe
-Igeon sarangiljido molla
-Imi nae nuneneun neoman boyeo nan
-Ajik anil geora geopeul meogeodo
-Oh naegedo on geot gata
-Chaege jeokhin geuljadeuri hyeonshiri dwae
-Gaseumi got teojyeo beo...',
-      'music_length' => 207,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/NCT-Dream~Y3NuX2FydGlzdH4xNTgxNw==.html">NCT Dream</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    39 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1765240,
-      'music_title_url' => 'haru-haru-live~hansara',
-      'music_title' => 'Haru Haru (Live)',
-      'music_artist' => 'Hansara',
-      'music_artist_id' => '94508',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1531109549,
-      'music_last_update_time' => 1487146968,
-      'music_title_search' => 'haru haru; live',
-      'music_artist_search' => '; hanxara;',
-      'music_album_search' => '',
-      'music_composer' => 'G-Dragon; Daishi Dance',
-      'music_album' => '',
-      'music_listen' => 4297,
-      'music_track_id' => 0,
-      'music_filename' => '1765240-c93c62c9.mp4',
-      'music_bitrate' => 128,
-      'music_shortlyric' => '[G-Dragon] Yeah
-Finally I realized
-That I\'m nothing without you
-I was so wrong
-Forgive me
-[Seungri] Ah ah ah ah.
-
-[T.O.P] Padocheoreom buswojin nae mam
-[G-Dragon] Baramcheoreom heundeullineun nae m...',
-      'music_length' => 180,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Hansara~Y3NuX2FydGlzdH45NDUwOA==.html">Hansara</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    40 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1774538,
-      'music_title_url' => 'cover-up~taeyeon',
-      'music_title' => 'Cover Up',
-      'music_artist' => 'Taeyeon',
-      'music_artist_id' => '1664',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538858596,
-      'music_last_update_time' => 1490056826,
-      'music_title_search' => 'cover up',
-      'music_artist_search' => '; taeion;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 7812,
-      'music_track_id' => 0,
-      'music_filename' => '1774538-ae10a1ae.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Oneuldo byeolcheoreom ne maeumeul ttara
-Tto neoye gyeoteul maemdolji
-Stop nan eojireowo seonmyeonghan ne mameul
-Ijen algo shipeojyeo
-
-Bamhaneuredo georiedo
-Jeonbu neoye moseubi gadeukhan geol
-Jom d...',
-      'music_length' => 206,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Taeyeon~Y3NuX2FydGlzdH4xNjY0.html">Taeyeon</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    41 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1776453,
-      'music_title_url' => 'its-you-between-us-music-bank-comeback-stage-live~cnblue',
-      'music_title' => 'It\'s You; Between Us (Music Bank Comeback Stage Live)',
-      'music_artist' => 'CNBlue',
-      'music_artist_id' => '2069',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1538556737,
-      'music_last_update_time' => 1490783254,
-      'music_title_search' => 'it x iou; betwen ux; muxic bank comeback xtage live',
-      'music_artist_search' => '; cnblue;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 290,
-      'music_track_id' => 0,
-      'music_filename' => '1776453-e4d148bc.mp4',
-      'music_bitrate' => 320,
-      'music_shortlyric' => '[It\'s You]
-
-Yeonghwa sog jangmyeoncheoleom 
-Neowa naui slow motion 
-Honjaman-ui chaggag-ilkka yeah. 
-
-Eojeneun kkumsog-eseo 
-Gibun joh-eun kkumkkwoss-eo
-Eojjeonji gibun johdeon nal oh.
-
-Girl the wa...',
-      'music_length' => 437,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/CNBlue~Y3NuX2FydGlzdH4yMDY5.html">CNBlue</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    42 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1775183,
-      'music_title_url' => 'its-you-between-us-m-countdown-comeback-stage~cnblue',
-      'music_title' => 'It\'s You; Between Us (M Countdown Comeback Stage)',
-      'music_artist' => 'CNBlue',
-      'music_artist_id' => '2069',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1538558203,
-      'music_last_update_time' => 1490365127,
-      'music_title_search' => 'it x iou; betwen ux; m countdown comeback xtage',
-      'music_artist_search' => '; cnblue;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 1173,
-      'music_track_id' => 0,
-      'music_filename' => '1775183-10ba4be1.mp4',
-      'music_bitrate' => 320,
-      'music_shortlyric' => '[It\'s You]
-
-Yeonghwa sog jangmyeoncheoleom 
-Neowa naui slow motion 
-Honjaman-ui chaggag-ilkka yeah. 
-
-Eojeneun kkumsog-eseo 
-Gibun joh-eun kkumkkwoss-eo
-Eojjeonji gibun johdeon nal oh.
-
-Girl the wa...',
-      'music_length' => 435,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/CNBlue~Y3NuX2FydGlzdH4yMDY5.html">CNBlue</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    43 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1773586,
-      'music_title_url' => 'hear-the-wind-sing-fingertip-music-bank-comeback-stage~gfriend',
-      'music_title' => 'Hear The Wind Sing; Fingertip (Music Bank Comeback Stage)',
-      'music_artist' => 'GFriend',
-      'music_artist_id' => '13390',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1495082574,
-      'music_last_update_time' => 1489975895,
-      'music_title_search' => 'hear the wind xing; fingertip; muxic bank comeback xtage',
-      'music_artist_search' => '; gfrind;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 344,
-      'music_track_id' => 0,
-      'music_filename' => '1773586-8b532453.mp4',
-      'music_bitrate' => 256,
-      'music_shortlyric' => '[Hear The Wind Sing]
-
-Hangsang meolgeman neukkyeojyeossneunde
-Oneureun jom deo seonmyeonghaejyeo
-Seolmyeonghal su eopsdeon
-Uriui geori majeo
-Ijen 0i doego isseo
-
-Boiji anhneun teumi isseodo
-Seorore...',
-      'music_length' => 345,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/GFriend~Y3NuX2FydGlzdH4xMzM5MA==.html">GFriend</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    44 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1773584,
-      'music_title_url' => 'a-girl-like-me-music-bank-live~gugudan',
-      'music_title' => 'A Girl Like Me (Music Bank Live)',
-      'music_artist' => 'Gugudan',
-      'music_artist_id' => '13520',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1534620107,
-      'music_last_update_time' => 1489975900,
-      'music_title_search' => 'a drl like me; muxic bank live',
-      'music_artist_search' => '; gugudan;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 790,
-      'music_track_id' => 0,
-      'music_filename' => '1773584-a1981c83.mp4',
-      'music_bitrate' => 320,
-      'music_shortlyric' => 'Na na gateun ae na na na gateun ae eottae?
-
-Hey geurae geogi uri jamkkanman yaegihagi
-Danghwangseureopgessji yeojaga ireoneun geon cheomiji
-Baby i\'m sorry geunde eojjeoni ni ni
-Niga mame deuneunde....',
-      'music_length' => 174,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Gugudan~Y3NuX2FydGlzdH4xMzUyMA==.html">Gugudan</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    45 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1774990,
-      'music_title_url' => 'livin-la-vida-loca-king-of-mask-singer-live~rose',
-      'music_title' => 'Livin\' La Vida Loca (King Of Mask Singer Live)',
-      'music_artist' => 'Rosé',
-      'music_artist_id' => '93312',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1536479004,
-      'music_last_update_time' => 1490238945,
-      'music_title_search' => 'livin la vida loca; king of maxk xinger live',
-      'music_artist_search' => '; roxe;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 1672,
-      'music_track_id' => 0,
-      'music_filename' => '1774990-e88cf6a4.mp4',
-      'music_bitrate' => 320,
-      'music_shortlyric' => '',
-      'music_length' => 275,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Rose~Y3NuX2FydGlzdH45MzMxMg==.html">Rosé</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    46 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1774991,
-      'music_title_url' => 'q-never-ever-show-champion-comeback-stage-live~got7',
-      'music_title' => 'Q; Never Ever (Show Champion Comeback Stage Live)',
-      'music_artist' => 'Got7',
-      'music_artist_id' => '4157',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1497141803,
-      'music_last_update_time' => 1490258029,
-      'music_title_search' => 'q; never ever; thow champion comeback xtage live',
-      'music_artist_search' => '; got7;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 435,
-      'music_track_id' => 0,
-      'music_filename' => '1774991-f87e2483.mp4',
-      'music_bitrate' => 320,
-      'music_shortlyric' => '[Q]
-
-Gakkawo jilman hamyeon meoreojineun neo
-Jabatta nwatta hetgallige haneun neo ara
-Swipji aneun neo aechoe gidaedo anaesseo
-Malkkeutmada saram seollege
-Nal maeil deultteuge mandeuneun geonji
-Bog...',
-      'music_length' => 345,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Got7~Y3NuX2FydGlzdH40MTU3.html">Got7</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    47 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1774234,
-      'music_title_url' => 'the-time-of-walking-on-remembrance-1111-yoo-hee-yeols-sketchbook-live~taeyeon',
-      'music_title' => 'The Time Of Walking On Remembrance; 11:11 (Yoo Hee Yeol\'s Sketchbook Live)',
-      'music_artist' => 'Taeyeon',
-      'music_artist_id' => '1664',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1527472930,
-      'music_last_update_time' => 1489996385,
-      'music_title_search' => 'the time of walking on remembrance; 1;1; io he iol x xketchbok live',
-      'music_artist_search' => '; taeion;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 1212,
-      'music_track_id' => 0,
-      'music_filename' => '1774234-42b82216.mp4',
-      'music_bitrate' => 192,
-      'music_shortlyric' => '[The Time Of Walking On Remembrance]
-
-Ajikdo neoui sorireul deutgo
-Ajikdo neoui songireul neukkyeo
-Oneuldo nan neoui heunjeok ane saratjyo
-Ajikdo neoui moseubi boyeo
-Ajikdo neoui ongireul neukkyeo...',
-      'music_length' => 525,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Taeyeon~Y3NuX2FydGlzdH4xNjY0.html">Taeyeon</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    48 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1771452,
-      'music_title_url' => 'hear-the-wind-sing-fingertip-m-coutdown-comeback-stage~gfriend',
-      'music_title' => 'Hear The Wind Sing; Fingertip (M Coutdown Comeback Stage)',
-      'music_artist' => 'GFriend',
-      'music_artist_id' => '13390',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1489181873,
-      'music_last_update_time' => 1489071113,
-      'music_title_search' => 'hear the wind xing; fingertip; m coutdown comeback xtage',
-      'music_artist_search' => '; gfrind;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 350,
-      'music_track_id' => 0,
-      'music_filename' => '1771452-5e835e0c.mp4',
-      'music_bitrate' => 320,
-      'music_shortlyric' => '[Hear The Wind Sing]
-
-hangsang meolgeman neukkyeojyeossneunde
-oneureun jom deo seonmyeonghaejyeo
-seolmyeonghal su eopsdeon
-uriui geori majeo
-ijen 0i doego isseo
-
-boiji anhneun teumi isseodo
-seorore...',
-      'music_length' => 434,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/GFriend~Y3NuX2FydGlzdH4xMzM5MA==.html">GFriend</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    49 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1772312,
-      'music_title_url' => 'dunk-shot-inkigayo-live~nct-dream',
-      'music_title' => 'Dunk Shot (Inkigayo Live)',
-      'music_artist' => 'NCT Dream',
-      'music_artist_id' => '15817',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1513642678,
-      'music_last_update_time' => 1489395232,
-      'music_title_search' => 'dunk thot; inkigaio live',
-      'music_artist_search' => '; nct dream;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 335,
-      'music_track_id' => 0,
-      'music_filename' => '1772312-cbc51756.mp4',
-      'music_bitrate' => 320,
-      'music_shortlyric' => 'Jumuneul oewoboja
-Yunanhi goyohadeon bam
-Haneureul barabodaga
-Yuseongcheoreom tteoreojineun
-Byeoreul bwatji.
-
-Tteoreojineun byeoreul bogo
-Gaseumsoge sowoneul bilmyeon
-Yeonghwacheoreom
-Hyeonshiri do...',
-      'music_length' => 200,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/NCT-Dream~Y3NuX2FydGlzdH4xNTgxNw==.html">NCT Dream</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    50 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1773643,
-      'music_title_url' => 'how-can-i-say-music-bank-live~day6',
-      'music_title' => 'How Can I Say (Music Bank Live)',
-      'music_artist' => 'Day6',
-      'music_artist_id' => '17107',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1496842776,
-      'music_last_update_time' => 1489976024,
-      'music_title_search' => 'how can i xai; muxic bank live',
-      'music_artist_search' => '; dai6;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 259,
-      'music_track_id' => 0,
-      'music_filename' => '1773643-70e3c59f.mp4',
-      'music_bitrate' => 320,
-      'music_shortlyric' => 'I hate me now
-Seolleji anneun naega shireo
-Nae maeumi eonjengabuteo
-Deoneun baneunghajil ana eh
-Hate me now
-Shigeobeoryeosseumyeon jogesseo
-Nareul boneun geu nunbiche
-Sarangi eopseumyeon jogesseo
-B...',
-      'music_length' => 202,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Day6~Y3NuX2FydGlzdH4xNzEwNw==.html">Day6</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    51 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1773507,
-      'music_title_url' => 'spring-again~cao-lu-yerin-kisum',
-      'music_title' => 'Spring Again',
-      'music_artist' => 'Cao Lu;Yerin;Kisum',
-      'music_artist_id' => '85941;64456;15928',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1537210768,
-      'music_last_update_time' => 1489976552,
-      'music_title_search' => 'xpring again',
-      'music_artist_search' => '; cao lu; irin; kixum;',
-      'music_album_search' => '',
-      'music_composer' => 'Lee Hyun Sang; Kim Chang Rak; Han Kyung Soo; Choi Han Sol; Kisum',
-      'music_album' => '',
-      'music_listen' => 9301,
-      'music_track_id' => 0,
-      'music_filename' => '1773507-68a6452b.mp4',
-      'music_bitrate' => 192,
-      'music_shortlyric' => 'Maeil masitneun geotman chatda boni
-Eoneusae 2killo neuleosseo
-Meokbangman bodaga neomna
-Chameul suga eobseoseo geuraesseo
-Yeogijeogi dadeul da jjakdo chatgo
-Keopeulluk matjib hash tag nanri
-Nan re...',
-      'music_length' => 245,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Cao-Lu~Y3NuX2FydGlzdH44NTk0MQ==.html">Cao Lu</a>, <a href="/ca-si/Yerin~Y3NuX2FydGlzdH42NDQ1Ng==.html">Yerin</a>, <a href="/ca-si/Kisum~Y3NuX2FydGlzdH4xNTkyOA==.html">Kisum</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    52 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1776416,
-      'music_title_url' => 'love-again-ill-be-yours-the-show-comeback-stage-live~girls-day',
-      'music_title' => 'Love Again; I\'ll Be Yours (The Show Comeback Stage Live)',
-      'music_artist' => 'Girl\'s Day',
-      'music_artist_id' => '3262',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1531919193,
-      'music_last_update_time' => 1490783233,
-      'music_title_search' => 'love again; i l be iourx; the thow comeback xtage live',
-      'music_artist_search' => '; drl x dai;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 2082,
-      'music_track_id' => 0,
-      'music_filename' => '1776416-71434ceb.mp4',
-      'music_bitrate' => 256,
-      'music_shortlyric' => '[Love Again]
-
-Arasseo, arasseosseo
-Chagawojin ne mameul mitgi silheosseul ppun
-Apasseo, apasseosseo
-Uril injeonghagien neomuna apasseo.
-
-Save me save me
-Johassjanha haengbokhaessjanha
-Tteollineun s...',
-      'music_length' => 348,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Girls-Day~Y3NuX2FydGlzdH4zMjYy.html">Girl\'s Day</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    53 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1771532,
-      'music_title_url' => 'pick-me-m-countdown-produce-101-special-stage~produce-101-season-2-cast',
-      'music_title' => 'Pick Me (M Countdown Produce 101 Special Stage)',
-      'music_artist' => 'Produce 101 Season 2 Cast',
-      'music_artist_id' => '95184',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1538231121,
-      'music_last_update_time' => 1489226797,
-      'music_title_search' => 'pick me; m countdown produce 101 xpecial xtage',
-      'music_artist_search' => '; produce 101 xeaxon 2 caxt;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 16497,
-      'music_track_id' => 0,
-      'music_filename' => '1771532-011e9d91.mp4',
-      'music_bitrate' => 192,
-      'music_shortlyric' => 'Neoleul bodeon geu sungan
-(pick me pick me pick me)
-Siseon gojeong neoege
-(pick me pick me pick me)
-
-Nunbusyeo shining shining
-Jebal nae mam-eul pick me pick me
-(pick me pick me pick me)
-Neowa issn...',
-      'music_length' => 307,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Produce-101-Season-2-Cast~Y3NuX2FydGlzdH45NTE4NA==.html">Produce 101 Season 2 Cast</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    54 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1771268,
-      'music_title_url' => 'movie~btob',
-      'music_title' => 'Movie',
-      'music_artist' => 'BTOB',
-      'music_artist_id' => '3296',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1531025969,
-      'music_last_update_time' => 1489039845,
-      'music_title_search' => 'movi',
-      'music_artist_search' => '; btob;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 7571,
-      'music_track_id' => 0,
-      'music_filename' => '1771268-36c6ed55.mp4',
-      'music_bitrate' => 192,
-      'music_shortlyric' => 'Cheoeumen da geurae mideulmanhan nomeun eopgo
-Ne yeope naega itgien neomu akkapdago
-Nal eotteoke malhaedo neon geunyang idaero bami saedorok
-Kkeutkkaji nawa jeulgimyeon dwae hey dj
-Yeojaneun jana k...',
-      'music_length' => 239,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/BTOB~Y3NuX2FydGlzdH4zMjk2.html">BTOB</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    55 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1771249,
-      'music_title_url' => 'dunk-shot-show-champion-live~nct-dream',
-      'music_title' => 'Dunk Shot (Show Champion Live)',
-      'music_artist' => 'NCT Dream',
-      'music_artist_id' => '15817',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1498882405,
-      'music_last_update_time' => 1489040899,
-      'music_title_search' => 'dunk thot; thow champion live',
-      'music_artist_search' => '; nct dream;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 623,
-      'music_track_id' => 0,
-      'music_filename' => '1771249-27cb4445.mp4',
-      'music_bitrate' => 320,
-      'music_shortlyric' => 'Jumuneul oewoboja
-Yunanhi goyohadeon bam
-Haneureul barabodaga
-Yuseongcheoreom tteoreojineun
-Byeoreul bwatji.
-
-Tteoreojineun byeoreul bogo
-Gaseumsoge sowoneul bilmyeon
-Yeonghwacheoreom
-Hyeonshiri do...',
-      'music_length' => 233,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/NCT-Dream~Y3NuX2FydGlzdH4xNTgxNw==.html">NCT Dream</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    56 => 
-    array (
-      'music_downloads_today' => 0,
-      'music_id' => 1772059,
-      'music_title_url' => 'knock-knock-inkigayo-goodbye-stage-live~twice',
-      'music_title' => 'Knock Knock (Inkigayo Goodbye Stage Live)',
-      'music_artist' => 'Twice',
-      'music_artist_id' => '13388',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 0,
-      'music_last_update_time' => 1489368001,
-      'music_title_search' => 'knock knock; inkigaio godbi xtage live',
-      'music_artist_search' => '; twice;',
-      'music_album_search' => '',
-      'music_composer' => 'Shim Eun Ji; Lee Woo Min &quot;Collapsedone&quot;; Mayu Wakisaka',
-      'music_album' => '',
-      'music_listen' => 96,
-      'music_track_id' => 0,
-      'music_filename' => '1772059-3b0a46ee.mp4',
-      'music_bitrate' => 320,
-      'music_shortlyric' => 'Yeoldushiga doemyeon dachyeoyo
-Jogeumman seodulleo jullaeyo
-Knock knock knock knock
-Knock on my door
-Knock knock knock knock
-Knock on my door
-Bami doemyeon nae mamsoge
-Churipmuni yeollijyo
-Nugunga...',
-      'music_length' => 197,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Twice~Y3NuX2FydGlzdH4xMzM4OA==.html">Twice</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    57 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1770105,
-      'music_title_url' => 'knock-knock-music-core-hot-3-live~twice',
-      'music_title' => 'Knock Knock (Music Core Hot 3 Live)',
-      'music_artist' => 'Twice',
-      'music_artist_id' => '13388',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1532683938,
-      'music_last_update_time' => 1488767566,
-      'music_title_search' => 'knock knock; muxic core hot 3 live',
-      'music_artist_search' => '; twice;',
-      'music_album_search' => '',
-      'music_composer' => 'Shim Eun Ji; Lee Woo Min &quot;Collapsedone&quot;; Mayu Wakisaka',
-      'music_album' => '',
-      'music_listen' => 6125,
-      'music_track_id' => 0,
-      'music_filename' => '1770105-43d3da0e.mp4',
-      'music_bitrate' => 320,
-      'music_shortlyric' => 'Yeoldushiga doemyeon dachyeoyo
-Jogeumman seodulleo jullaeyo
-Knock knock knock knock
-Knock on my door
-Knock knock knock knock
-Knock on my door
-Bami doemyeon nae mamsoge
-Churipmuni yeollijyo
-Nugunga...',
-      'music_length' => 198,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Twice~Y3NuX2FydGlzdH4xMzM4OA==.html">Twice</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    58 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1769866,
-      'music_title_url' => 'fine-music-bank-comeback-stage-live~taeyeon',
-      'music_title' => 'Fine (Music Bank Comeback Stage Live)',
-      'music_artist' => 'Taeyeon',
-      'music_artist_id' => '1664',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1507194762,
-      'music_last_update_time' => 1488686741,
-      'music_title_search' => 'fine; muxic bank comeback xtage live',
-      'music_artist_search' => '; taeion;',
-      'music_album_search' => '',
-      'music_composer' => 'Jin Ri; Michael Woods; Kevin White; Andrew Bazzi; Shaylen Carroll; MZMC; Rice n` Peas',
-      'music_album' => '',
-      'music_listen' => 3885,
-      'music_track_id' => 0,
-      'music_filename' => '1769866-a397902f.mp4',
-      'music_bitrate' => 320,
-      'music_shortlyric' => 'Jjijeojin jongisjogage
-Damanaen naui jinsime
-Seonmyeonghaejyeo somethin\' bout you
-
-Yeah nareul manhi talmeun deut dareun
-Neon hoksi nawa gateulkka jigeum
-Gwaenhan gidaereul hae
-
-Haru han dal il nye...',
-      'music_length' => 219,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Taeyeon~Y3NuX2FydGlzdH4xNjY0.html">Taeyeon</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    59 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1769864,
-      'music_title_url' => 'knock-knock-music-bank-live~twice',
-      'music_title' => 'Knock Knock (Music Bank Live)',
-      'music_artist' => 'Twice',
-      'music_artist_id' => '13388',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1534599149,
-      'music_last_update_time' => 1488594010,
-      'music_title_search' => 'knock knock; muxic bank live',
-      'music_artist_search' => '; twice;',
-      'music_album_search' => '',
-      'music_composer' => 'Shim Eun Ji; Lee Woo Min &quot;Collapsedone&quot;; Mayu Wakisaka',
-      'music_album' => '',
-      'music_listen' => 1938,
-      'music_track_id' => 0,
-      'music_filename' => '1769864-a413ff49.mp4',
-      'music_bitrate' => 320,
-      'music_shortlyric' => 'Yeoldushiga doemyeon dachyeoyo
-Jogeumman seodulleo jullaeyo
-Knock knock knock knock
-Knock on my door
-Knock knock knock knock
-Knock on my door
-Bami doemyeon nae mamsoge
-Churipmuni yeollijyo
-Nugunga...',
-      'music_length' => 206,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Twice~Y3NuX2FydGlzdH4xMzM4OA==.html">Twice</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    60 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1781680,
-      'music_title_url' => 'palette~iu-g-dragon',
-      'music_title' => 'Palette',
-      'music_artist' => 'IU;G-Dragon',
-      'music_artist_id' => '2059;1682',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538887209,
-      'music_last_update_time' => 1492963444,
-      'music_title_search' => 'palete',
-      'music_artist_search' => '; iu; g dragon;',
-      'music_album_search' => '',
-      'music_composer' => 'IU',
-      'music_album' => '',
-      'music_listen' => 56005,
-      'music_track_id' => 0,
-      'music_filename' => '1781680-7a8b1874.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Isanghagedo yojeumen
-Geunyang swiun ge joha
-Hagin geuraedo yeojeonhi
-Korin eumageun johdeora.
-
-Hot pinkboda
-Jinhan borasaegeul deo johahae
-Tto mwodeora danchu issneun
-Pajamat, lipstick
-Jom jisgujeu...',
-      'music_length' => 218,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/IU~Y3NuX2FydGlzdH4yMDU5.html">IU</a>, <a href="/ca-si/G-Dragon~Y3NuX2FydGlzdH4xNjgy.html">G-Dragon</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    61 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1782803,
-      'music_title_url' => 'lonely~jonghyun-taeyeon',
-      'music_title' => 'Lonely',
-      'music_artist' => 'Jonghyun;Taeyeon',
-      'music_artist_id' => '4252;1664',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538903038,
-      'music_last_update_time' => 1494471027,
-      'music_title_search' => 'loneli',
-      'music_artist_search' => '; jonghiun; taeion;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 6614,
-      'music_track_id' => 0,
-      'music_filename' => '1782803-c208de84.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '[Jonghyun] Mianhae nae tasiya gomawo deokbuniya
-Tukhamyeon naebaetdeon ne geu malbeoreut
-Neodo himdeun geol nan da aneunde
-Ama neon naega babon jul ana bwa.
-
-[Taeyeon] Uneun eolgullo na himdeulda h...',
-      'music_length' => 247,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Jonghyun~Y3NuX2FydGlzdH40MjUy.html">Jonghyun</a>, <a href="/ca-si/Taeyeon~Y3NuX2FydGlzdH4xNjY0.html">Taeyeon</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    62 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1777849,
-      'music_title_url' => 'ill-be-yours-the-show-no1-stage-live~girls-day',
-      'music_title' => 'I\'ll Be Yours (The Show No.1 Stage Live)',
-      'music_artist' => 'Girl\'s Day',
-      'music_artist_id' => '3262',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1491630153,
-      'music_last_update_time' => 1491906294,
-      'music_title_search' => 'i l be iourx; the thow no 1 xtage live',
-      'music_artist_search' => '; drl x dai;',
-      'music_album_search' => '',
-      'music_composer' => 'Mafly; Oh Yoo Won; Yura; Ryan S.Jhun; Emile Ghantous; Denzil Remedios; Keith Hetrick; K Nita; Alicia Stamkos',
-      'music_album' => '',
-      'music_listen' => 265,
-      'music_track_id' => 0,
-      'music_filename' => '1777849-932801d2.mp4',
-      'music_bitrate' => 320,
-      'music_shortlyric' => 'Jigeum mwohae? I\'ll be yours
-Baby I\'ll be yours
-Gajgo sipji? I\'ll be yours
-Maybe I\'ll be yours.
-
-Ooh wee baby mwoga geuri
-Geobi nani? 
-Jom deo dagawa bwa.
-
-Jeogibuteo beolsseo nae apkkaji
-Check it...',
-      'music_length' => 384,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Girls-Day~Y3NuX2FydGlzdH4zMjYy.html">Girl\'s Day</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    63 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1779619,
-      'music_title_url' => 'dont-recall-dance-practice-video~kard',
-      'music_title' => 'Don\'t Recall (Dance Practice Video)',
-      'music_artist' => 'K.A.R.D',
-      'music_artist_id' => '20403',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1512137055,
-      'music_last_update_time' => 1492046356,
-      'music_title_search' => 'don t recal; dance practice video',
-      'music_artist_search' => '; k a r d;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 4139,
-      'music_track_id' => 0,
-      'music_filename' => '1779619-89cbc87a.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '[Verse 1: Jiwoo]
-Tteoreojyeo jullae jeori gajullae
-Jjajeungnanikka bulgyeolhanikka
-Chiwo nae mome sondaeji ma.
-
-[Verse 2: Somin &amp; Somin/Jiwoo]
-Ije nan neoreul molla
-Neo yeoksido moreuncheokhae...',
-      'music_length' => 204,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/KARD~Y3NuX2FydGlzdH4yMDQwMw==.html">K.A.R.D</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    64 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1780384,
-      'music_title_url' => 'wee-woo-music-core-live~pristin',
-      'music_title' => 'Wee Woo (Music Core Live)',
-      'music_artist' => 'Pristin',
-      'music_artist_id' => '95506',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1520262605,
-      'music_last_update_time' => 1492396097,
-      'music_title_search' => 'we wo; muxic core live',
-      'music_artist_search' => '; prixtin;',
-      'music_album_search' => '',
-      'music_composer' => 'Sung Yeon; Bumzu; Sophia Pae; Gustav Karlstrom; Anchor; Park Ki Tae',
-      'music_album' => '',
-      'music_listen' => 633,
-      'music_track_id' => 0,
-      'music_filename' => '1780384-272a1eaf.mp4',
-      'music_bitrate' => 192,
-      'music_shortlyric' => 'Wee woo wee woo wee
-We are Pristin
-Annyeong
-Naneun uri jibui princet
-(ayayaya)
-Moheomeul johahae
-(ayayaya hu)
-Neoraneun pungseoneul bureobogo sipeo
-(ayayaya)
-Pang! Teoteuryeobomyeon mwoga isseulkka...',
-      'music_length' => 161,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Pristin~Y3NuX2FydGlzdH45NTUwNg==.html">Pristin</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    65 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1778534,
-      'music_title_url' => 'call-me-love-is-music-bank-comeback-stage-live~teen-top',
-      'music_title' => 'Call Me; Love Is (Music Bank Comeback Stage Live)',
-      'music_artist' => 'Teen Top',
-      'music_artist_id' => '2558',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1502594865,
-      'music_last_update_time' => 1491791427,
-      'music_title_search' => 'cal me; love ix; muxic bank comeback xtage live',
-      'music_artist_search' => '; ten top;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 895,
-      'music_track_id' => 0,
-      'music_filename' => '1778534-63045da4.mp4',
-      'music_bitrate' => 256,
-      'music_shortlyric' => '',
-      'music_length' => 351,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Teen-Top~Y3NuX2FydGlzdH4yNTU4.html">Teen Top</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    66 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1777338,
-      'music_title_url' => 'smile-flower~seventeen',
-      'music_title' => 'Smile Flower',
-      'music_artist' => 'Seventeen',
-      'music_artist_id' => '14655',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1535069506,
-      'music_last_update_time' => 1491189587,
-      'music_title_search' => 'xmile flower',
-      'music_artist_search' => '; xeventen;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 4274,
-      'music_track_id' => 0,
-      'music_filename' => '1777338-c288f7c0.mp4',
-      'music_bitrate' => 192,
-      'music_shortlyric' => 'Geunyang waeinji moreuge gakkeumsshik mundeuk
-Geureon saenggagi jakkuman deureo yojeum
-Ireokena haengbokhago areumdaun neo
-Geurigo nambureobji aneun jigeume uri
-Geureon uriga
-Jeongmal eonjenga bura...',
-      'music_length' => 327,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Seventeen~Y3NuX2FydGlzdH4xNDY1NQ==.html">Seventeen</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    67 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1781829,
-      'music_title_url' => 'night-rather-than-day-music-bank-live~exid',
-      'music_title' => 'Night Rather Than Day (Music Bank Live)',
-      'music_artist' => 'EXID',
-      'music_artist_id' => '13209',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1500867856,
-      'music_last_update_time' => 1492872419,
-      'music_title_search' => 'night rather than dai; muxic bank live',
-      'music_artist_search' => '; exid;',
-      'music_album_search' => '',
-      'music_composer' => 'Shinsadong Tiger; KeeBomb; LE',
-      'music_album' => '',
-      'music_listen' => 289,
-      'music_track_id' => 0,
-      'music_filename' => '1781829-c8c2c5ef.mp4',
-      'music_bitrate' => 256,
-      'music_shortlyric' => 'Bam-e bam-e neoneun najbodaneun bam-e
-Bam-e bam-e hwanhan najbodaneun bam-e
-Bam-e i bam-e eoduun bang-e
-Najbodaneun bam-e wa
-Uli ileohge bappeun ilsang sog dul-i uh
-Mannal sigan-eun eobsgo bakk-eun...',
-      'music_length' => 195,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/EXID~Y3NuX2FydGlzdH4xMzIwOQ==.html">EXID</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    68 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1783088,
-      'music_title_url' => 'rumor-live~kard',
-      'music_title' => 'RUMOR (Live)',
-      'music_artist' => 'K.A.R.D',
-      'music_artist_id' => '20403',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1530418836,
-      'music_last_update_time' => 1493171280,
-      'music_title_search' => 'rumor; live',
-      'music_artist_search' => '; k a r d;',
-      'music_album_search' => '',
-      'music_composer' => 'J.Seph; BM; Nassun',
-      'music_album' => '',
-      'music_listen' => 3424,
-      'music_track_id' => 0,
-      'music_filename' => '1783088-46a4baac.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '[Intro: J. Seph]
-Uh, you for real
-
-[Verse 1: J. Seph]
-Nuga geuraesseo eolma jeone
-Neol bwassdago Oh No
-Neomu haengbokhae boyeosseossdago babe
-Himi ppajideora
-Nan nega bulhaenghagil baraessna bwa
-Be...',
-      'music_length' => 226,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/KARD~Y3NuX2FydGlzdH4yMDQwMw==.html">K.A.R.D</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    69 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1777839,
-      'music_title_url' => 'coloring-book~oh-my-girl',
-      'music_title' => 'Coloring Book',
-      'music_artist' => 'Oh My Girl',
-      'music_artist_id' => '17169',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1508416091,
-      'music_last_update_time' => 1491897978,
-      'music_title_search' => 'coloring bok',
-      'music_artist_search' => '; oh mi drl;',
-      'music_album_search' => '',
-      'music_composer' => 'Seo Jung Ah; David Anthony; Valeria Del Prete; 72',
-      'music_album' => '',
-      'music_listen' => 2255,
-      'music_track_id' => 0,
-      'music_filename' => '1777839-acf6beb4.mp4',
-      'music_bitrate' => 192,
-      'music_shortlyric' => 'Hey hey yeol songarak
-Hey hey come on yeol songarak.
-
-Nan ajik mitgi himdeuleo
-Neo ttaemune geureonga bwa
-Nan machi donghwachaek ane
-Ppajin geot gateun gibuni mak deuleo.
-
-Da aneun iyagijanha
-Haeng...',
-      'music_length' => 186,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Oh-My-Girl~Y3NuX2FydGlzdH4xNzE2OQ==.html">Oh My Girl</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    70 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1780404,
-      'music_title_url' => 'love-is-music-core-live~teen-top',
-      'music_title' => 'Love Is (Music Core Live)',
-      'music_artist' => 'Teen Top',
-      'music_artist_id' => '2558',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1497016589,
-      'music_last_update_time' => 1492396122,
-      'music_title_search' => 'love ix; muxic core live',
-      'music_artist_search' => '; ten top;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 985,
-      'music_track_id' => 0,
-      'music_filename' => '1780404-57f3e91e.mp4',
-      'music_bitrate' => 256,
-      'music_shortlyric' => 'Love is gone away
-Love is gone away
-Love is gone away
-Neon usgo issneunde nan michyeoga Oh no.
-
-Myeochiljjae wae yeonragi eopsneun geoya
-Neo ttaeme nan jam hansumdo mot jan chae
-Myeochiljjae nunmul...',
-      'music_length' => 208,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Teen-Top~Y3NuX2FydGlzdH4yNTU4.html">Teen Top</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    71 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1781069,
-      'music_title_url' => 'ninano~minzy-flowsik',
-      'music_title' => 'Ninano',
-      'music_artist' => 'Minzy;Flowsik',
-      'music_artist_id' => '11812;25543',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1498898387,
-      'music_last_update_time' => 1492569869,
-      'music_title_search' => 'ninano',
-      'music_artist_search' => '; minzi; flowxik;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 1585,
-      'music_track_id' => 0,
-      'music_filename' => '1781069-2ad532f2.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '[Verse 1: Minzy]
-Eomeona na cham won
-Cheoeum deudneun mellodi
-Turn up the lights
-Siseoneun nae chaji
-Yolanhan My drum
-Saeloun Fantasy
-Nuga eojjeodeon
-Naneun Handle it.
-
-[Pre-Chorus: Minzy]
-Show me...',
-      'music_length' => 196,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Minzy~Y3NuX2FydGlzdH4xMTgxMg==.html">Minzy</a>, <a href="/ca-si/Flowsik~Y3NuX2FydGlzdH4yNTU0Mw==.html">Flowsik</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    72 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1778716,
-      'music_title_url' => 'ill-be-yours-music-core-live~girls-day',
-      'music_title' => 'I\'ll Be Yours (Music Core Live)',
-      'music_artist' => 'Girl\'s Day',
-      'music_artist_id' => '3262',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1497115804,
-      'music_last_update_time' => 1491793572,
-      'music_title_search' => 'i l be iourx; muxic core live',
-      'music_artist_search' => '; drl x dai;',
-      'music_album_search' => '',
-      'music_composer' => 'Mafly; Oh Yoo Won; Yura; Ryan S.Jhun; Emile Ghantous; Denzil Remedios; Keith Hetrick; K Nita; Alicia Stamkos',
-      'music_album' => '',
-      'music_listen' => 522,
-      'music_track_id' => 0,
-      'music_filename' => '1778716-4481eefe.mp4',
-      'music_bitrate' => 256,
-      'music_shortlyric' => 'Jigeum mwohae? I\'ll be yours
-Baby I\'ll be yours
-Gajgo sipji? I\'ll be yours
-Maybe I\'ll be yours.
-
-Ooh wee baby mwoga geuri
-Geobi nani? 
-Jom deo dagawa bwa.
-
-Jeogibuteo beolsseo nae apkkaji
-Check it...',
-      'music_length' => 189,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Girls-Day~Y3NuX2FydGlzdH4zMjYy.html">Girl\'s Day</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    73 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1780407,
-      'music_title_url' => 'boy-night-rather-than-day-music-core-comeback-stage-live~exid',
-      'music_title' => 'Boy; Night Rather Than Day (Music Core Comeback Stage Live)',
-      'music_artist' => 'EXID',
-      'music_artist_id' => '13209',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1498853248,
-      'music_last_update_time' => 1492396136,
-      'music_title_search' => 'boi; night rather than dai; muxic core comeback xtage live',
-      'music_artist_search' => '; exid;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 928,
-      'music_track_id' => 0,
-      'music_filename' => '1780407-d1a57d37.mp4',
-      'music_bitrate' => 192,
-      'music_shortlyric' => '[Boy]
-
-Na swineun nare
-Amu yaksokdo eopseul ttae
-Maybe maybe maybe
-I\'m lonely lonely lonely.
-
-Na jichin nare
-Anajul saram eopseul ttae
-Maeil maeil maeil
-I\'m lonely lonely lonely.
-
-Bame mwohae nawa...',
-      'music_length' => 329,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/EXID~Y3NuX2FydGlzdH4xMzIwOQ==.html">EXID</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    74 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1778380,
-      'music_title_url' => 'perfect-day-coloring-book-m-countdown-comeback-stage-live~oh-my-girl',
-      'music_title' => 'Perfect Day; Coloring Book (M Countdown Comeback Stage Live)',
-      'music_artist' => 'Oh My Girl',
-      'music_artist_id' => '17169',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1497004297,
-      'music_last_update_time' => 1491615893,
-      'music_title_search' => 'perfect dai; coloring bok; m countdown comeback xtage live',
-      'music_artist_search' => '; oh mi drl;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 324,
-      'music_track_id' => 0,
-      'music_filename' => '1778380-567981fd.mp4',
-      'music_bitrate' => 320,
-      'music_shortlyric' => '[Perfect Day]
-
-Haetsal nun busin haneul sok
-Hayan gureummajeodo
-Mwonga dareun teukbyeolhan i neukkim
-Simjang sorin keojigo
-Chalna bichi teojigo
-Mwonga irwojil deuthan i tteollim
-Oh mideul su eobseo...',
-      'music_length' => 328,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Oh-My-Girl~Y3NuX2FydGlzdH4xNzE2OQ==.html">Oh My Girl</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    75 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1778544,
-      'music_title_url' => 'plz-dont-be-sad-music-bank-live~highlight',
-      'music_title' => 'Plz Don\'t Be Sad (Music Bank Live)',
-      'music_artist' => 'Highlight',
-      'music_artist_id' => '14664',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1506098886,
-      'music_last_update_time' => 1491791523,
-      'music_title_search' => 'plz don t be xad; muxic bank live',
-      'music_artist_search' => '; highlight;',
-      'music_album_search' => '',
-      'music_composer' => 'Good Life',
-      'music_album' => '',
-      'music_listen' => 568,
-      'music_track_id' => 0,
-      'music_filename' => '1778544-5bfeccf6.mp4',
-      'music_bitrate' => 256,
-      'music_shortlyric' => 'Oneulttara yunanhi utji anneun
-Nega waenji seulpeo boyeo
-Museun iri itnyaneun naye mare
-Gwaenchantamyeo gogael dollyeo
-Neoye nunmul han bangure
-Nae haneureun muneojyeo naeryeo
-Gipge naeswineun hans...',
-      'music_length' => 207,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Highlight~Y3NuX2FydGlzdH4xNDY2NA==.html">Highlight</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    76 => 
-    array (
-      'music_downloads_today' => 0,
-      'music_id' => 1782220,
-      'music_title_url' => 'through-the-night-sbs-inkigayo-comeback-stage-live~iu',
-      'music_title' => 'Through The Night (SBS Inkigayo Comeback Stage Live)',
-      'music_artist' => 'IU',
-      'music_artist_id' => '2059',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 0,
-      'music_last_update_time' => 1492962265,
-      'music_title_search' => 'through the night; xbx inkigaio comeback xtage live',
-      'music_artist_search' => '; iu;',
-      'music_album_search' => '',
-      'music_composer' => 'IU',
-      'music_album' => '',
-      'music_listen' => 248,
-      'music_track_id' => 0,
-      'music_filename' => '1782220-ca739a48.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '[Romanized:]
-
-I bam geunare banditbureul
-Dangshine chang gakkai bonaelgeyo
-Eum saranghandaneun marieyo.
-
-Na uriye cheot ipmajchumeul tteoollyeo
-Geureom eonjedeun nuneul gamgo
-Eum gajang meon goseur...',
-      'music_length' => 262,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/IU~Y3NuX2FydGlzdH4yMDU5.html">IU</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    77 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1777836,
-      'music_title_url' => 'movie-dance-practice-version~btob',
-      'music_title' => 'Movie (Dance Practice Version)',
-      'music_artist' => 'BTOB',
-      'music_artist_id' => '3296',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1498389283,
-      'music_last_update_time' => 1491897967,
-      'music_title_search' => 'movi; dance practice verxion',
-      'music_artist_search' => '; btob;',
-      'music_album_search' => '',
-      'music_composer' => 'Jung Ilhoon; Il; Lee Minhyuk; Peniel',
-      'music_album' => '',
-      'music_listen' => 808,
-      'music_track_id' => 0,
-      'music_filename' => '1777836-0b4f493a.mp4',
-      'music_bitrate' => 192,
-      'music_shortlyric' => 'Cheoeumen da geurae mideulmanhan nomeun eopgo
-Ne yeope naega itgien neomu akkapdago
-Nal eotteoke malhaedo neon geunyang idaero bami saedorok
-Kkeutkkaji nawa jeulgimyeon dwae hey dj
-Yeojaneun jana k...',
-      'music_length' => 233,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/BTOB~Y3NuX2FydGlzdH4zMjk2.html">BTOB</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    78 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1778532,
-      'music_title_url' => 'ill-be-yours-music-bank-live~girls-day',
-      'music_title' => 'I\'ll Be Yours (Music Bank Live)',
-      'music_artist' => 'Girl\'s Day',
-      'music_artist_id' => '3262',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1512434513,
-      'music_last_update_time' => 1491794213,
-      'music_title_search' => 'i l be iourx; muxic bank live',
-      'music_artist_search' => '; drl x dai;',
-      'music_album_search' => '',
-      'music_composer' => 'Mafly; Oh Yoo Won; Yura; Ryan S.Jhun; Emile Ghantous; Denzil Remedios; Keith Hetrick; K Nita; Alicia Stamkos',
-      'music_album' => '',
-      'music_listen' => 771,
-      'music_track_id' => 0,
-      'music_filename' => '1778532-3db3fb0c.mp4',
-      'music_bitrate' => 256,
-      'music_shortlyric' => 'Jigeum mwohae? I\'ll be yours
-Baby I\'ll be yours
-Gajgo sipji? I\'ll be yours
-Maybe I\'ll be yours.
-
-Ooh wee baby mwoga geuri
-Geobi nani? 
-Jom deo dagawa bwa.
-
-Jeogibuteo beolsseo nae apkkaji
-Check it...',
-      'music_length' => 190,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Girls-Day~Y3NuX2FydGlzdH4zMjYy.html">Girl\'s Day</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    79 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1780403,
-      'music_title_url' => 'ill-be-yours-music-core-live~girls-day',
-      'music_title' => 'I\'ll Be Yours (Music Core Live)',
-      'music_artist' => 'Girl\'s Day',
-      'music_artist_id' => '3262',
-      'cat_id' => 1,
-      'cat_level' => 4,
-      'cat_sublevel' => 0,
-      'cat_custom' => 6,
-      'cover_id' => 0,
-      'music_download_time' => 1496683605,
-      'music_last_update_time' => 1492396105,
-      'music_title_search' => 'i l be iourx; muxic core live',
-      'music_artist_search' => '; drl x dai;',
-      'music_album_search' => '',
-      'music_composer' => 'Mafly; Oh Yoo Won; Yura; Ryan S.Jhun; Emile Ghantous; Denzil Remedios; Keith Hetrick; K Nita; Alicia Stamkos',
-      'music_album' => '',
-      'music_listen' => 267,
-      'music_track_id' => 0,
-      'music_filename' => '1780403-01a3beb6.mp4',
-      'music_bitrate' => 256,
-      'music_shortlyric' => 'Jigeum mwohae? I\'ll be yours
-Baby I\'ll be yours
-Gajgo sipji? I\'ll be yours
-Maybe I\'ll be yours.
-
-Ooh wee baby mwoga geuri
-Geobi nani? 
-Jom deo dagawa bwa.
-
-Jeogibuteo beolsseo nae apkkaji
-Check it...',
-      'music_length' => 189,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Girls-Day~Y3NuX2FydGlzdH4zMjYy.html">Girl\'s Day</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-  ),
-  5 => 
-  array (
-    0 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1757122,
-      'music_title_url' => 'pink-champagne~e-girls',
-      'music_title' => 'Pink Champagne',
-      'music_artist' => 'E-girls',
-      'music_artist_id' => '16093',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538332396,
-      'music_last_update_time' => 1483774977,
-      'music_title_search' => 'pink champagne',
-      'music_artist_search' => '; e drlx;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 2569,
-      'music_track_id' => 6,
-      'music_filename' => '1757122-9c14f93c.mp4',
-      'music_bitrate' => 128,
-      'music_shortlyric' => '',
-      'music_length' => 277,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/E-girls~Y3NuX2FydGlzdH4xNjA5Mw==.html">E-girls</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    1 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1757123,
-      'music_title_url' => 'eg-summer-rider~e-girls',
-      'music_title' => 'E.G. summer RIDER',
-      'music_artist' => 'E-girls',
-      'music_artist_id' => '16093',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1529938715,
-      'music_last_update_time' => 1483774974,
-      'music_title_search' => 'e g xumer rider',
-      'music_artist_search' => '; e drlx;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 2215,
-      'music_track_id' => 5,
-      'music_filename' => '1757123-18eeae2b.mp4',
-      'music_bitrate' => 128,
-      'music_shortlyric' => '',
-      'music_length' => 323,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/E-girls~Y3NuX2FydGlzdH4xNjA5Mw==.html">E-girls</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    2 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1757119,
-      'music_title_url' => 'all-day-long-lady~e-girls',
-      'music_title' => 'All Day Long Lady',
-      'music_artist' => 'E-girls',
-      'music_artist_id' => '16093',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1532906418,
-      'music_last_update_time' => 1483774982,
-      'music_title_search' => 'al dai long ladi',
-      'music_artist_search' => '; e drlx;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 4887,
-      'music_track_id' => 9,
-      'music_filename' => '1757119-64a5670b.mp4',
-      'music_bitrate' => 128,
-      'music_shortlyric' => '',
-      'music_length' => 336,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/E-girls~Y3NuX2FydGlzdH4xNjA5Mw==.html">E-girls</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    3 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1760697,
-      'music_title_url' => 'snow-sound~alexandros',
-      'music_title' => 'SNOW SOUND',
-      'music_artist' => '[Alexandros]',
-      'music_artist_id' => '16218',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1530279618,
-      'music_last_update_time' => 1486529569,
-      'music_title_search' => 'xnow xound',
-      'music_artist_search' => '; ; alexandrox;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 1456,
-      'music_track_id' => 1,
-      'music_filename' => '1760697-2b9d449c.mp4',
-      'music_bitrate' => 128,
-      'music_shortlyric' => '',
-      'music_length' => 287,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Alexandros~Y3NuX2FydGlzdH4xNjIxOA==.html">[Alexandros]</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    4 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1757121,
-      'music_title_url' => 'dance-with-me-now~e-girls',
-      'music_title' => 'DANCE WITH ME NOW!',
-      'music_artist' => 'E-girls',
-      'music_artist_id' => '16093',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1537889130,
-      'music_last_update_time' => 1483774980,
-      'music_title_search' => 'dance with me now',
-      'music_artist_search' => '; e drlx;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 1150,
-      'music_track_id' => 4,
-      'music_filename' => '1757121-5a2bea78.mp4',
-      'music_bitrate' => 128,
-      'music_shortlyric' => '',
-      'music_length' => 339,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/E-girls~Y3NuX2FydGlzdH4xNjA5Mw==.html">E-girls</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    5 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1758001,
-      'music_title_url' => 'we-are-japanese-version~one-ok-rock',
-      'music_title' => 'We Are (Japanese Version)',
-      'music_artist' => 'One Ok Rock',
-      'music_artist_id' => '16211',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1533691492,
-      'music_last_update_time' => 1484266938,
-      'music_title_search' => 'we are; japanexe verxion',
-      'music_artist_search' => '; 1 ok rock;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 4390,
-      'music_track_id' => 0,
-      'music_filename' => '1758001-1d104798.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'We are
-We are
-We are
-We are
-
-They think that we\'re no one
-We\'re nothing, not sorry
-They push us
-It\'s too late, It\'s too late
-Not going back.
-
-Yume wa owari me o samasu toki
-zetsubou ya kibou mo dōj...',
-      'music_length' => 260,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/One-Ok-Rock~Y3NuX2FydGlzdH4xNjIxMQ==.html">One Ok Rock</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    6 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1758356,
-      'music_title_url' => 'harajuku-iyahoi~kyary-pamyu-pamyu',
-      'music_title' => 'Harajuku Iyahoi (原宿いやほい)',
-      'music_artist' => 'Kyary Pamyu Pamyu',
-      'music_artist_id' => '13779',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538390705,
-      'music_last_update_time' => 1484465392,
-      'music_title_search' => 'harajuku iahoi; 原宿いやほい',
-      'music_artist_search' => '; kiari pamiu pamiu;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 7076,
-      'music_track_id' => 1,
-      'music_filename' => '1758356-4f6e6266.mp4',
-      'music_bitrate' => 128,
-      'music_shortlyric' => '',
-      'music_length' => 219,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Kyary-Pamyu-Pamyu~Y3NuX2FydGlzdH4xMzc3OQ==.html">Kyary Pamyu Pamyu</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    7 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1758475,
-      'music_title_url' => 'silent-majority-utacon-20170110~keyakizaka46',
-      'music_title' => 'Silent Majority (サイレントマジョリティ) @ Utacon 2017.01.10',
-      'music_artist' => 'Keyakizaka46',
-      'music_artist_id' => '15964',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1529708564,
-      'music_last_update_time' => 1484465390,
-      'music_title_search' => 'xilent majoriti; サイレントマジョリティ utacon 2017 01 10',
-      'music_artist_search' => '; keiakizaka46;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 935,
-      'music_track_id' => 1,
-      'music_filename' => '1758475-a8ee9f20.mp4',
-      'music_bitrate' => 128,
-      'music_shortlyric' => '',
-      'music_length' => 157,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Keyakizaka46~Y3NuX2FydGlzdH4xNTk2NA==.html">Keyakizaka46</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    8 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1758998,
-      'music_title_url' => '365nichi-no-kamihikouki-365-akbingo-ep423-20170110~akb48',
-      'music_title' => '365nichi no Kamihikouki (365日の紙飛行機) @ AKBINGO! Ep423 (2017.01.10)',
-      'music_artist' => 'AKB48',
-      'music_artist_id' => '723',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1498944052,
-      'music_last_update_time' => 1484704917,
-      'music_title_search' => '365nichi no kamihikouki; 365日の紙飛行機 akbingo ep423; 2017 01 10',
-      'music_artist_search' => '; akb48;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 743,
-      'music_track_id' => 1,
-      'music_filename' => '1758998-08fb737e.mp4',
-      'music_bitrate' => 128,
-      'music_shortlyric' => '',
-      'music_length' => 127,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    9 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1760543,
-      'music_title_url' => 'inochi-wa-utsukushii-3rd-generation-akb48-show-ep139-20170121~nogizaka46',
-      'music_title' => 'Inochi wa Utsukushii (命は美しい) / 3rd Generation @ AKB48 SHOW! ep139 2017.01.21',
-      'music_artist' => 'Nogizaka46',
-      'music_artist_id' => '13557',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1533404125,
-      'music_last_update_time' => 1485133709,
-      'music_title_search' => 'inochi wa utxukuthi; 命は美しい ; 3rd generation akb48 thow ep139 2017 01 21',
-      'music_artist_search' => '; novaka46;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 2274,
-      'music_track_id' => 1,
-      'music_filename' => '1760543-16f85acf.mp4',
-      'music_bitrate' => 128,
-      'music_shortlyric' => '',
-      'music_length' => 471,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Nogizaka46~Y3NuX2FydGlzdH4xMzU1Nw==.html">Nogizaka46</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    10 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1761451,
-      'music_title_url' => 'ano-hi-no-jibun~akb48',
-      'music_title' => 'Ano Hi no Jibun (あの日の自分)',
-      'music_artist' => 'AKB48',
-      'music_artist_id' => '723',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1512699707,
-      'music_last_update_time' => 1486454570,
-      'music_title_search' => 'ano hi no jibun; あの日の自分',
-      'music_artist_search' => '; akb48;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 1068,
-      'music_track_id' => 1,
-      'music_filename' => '1761451-e8716580.mp4',
-      'music_bitrate' => 128,
-      'music_shortlyric' => '',
-      'music_length' => 248,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    11 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1764239,
-      'music_title_url' => '365nichi-no-kamihikouki-365-piano-ver-yokoyama-yui-akb48-group-douji-kaisa~akb48',
-      'music_title' => '365nichi no Kamihikouki (365日の紙飛行機) -Piano ver.- / Yokoyama Yui (AKB48 Group Douji Kaisai Concert in Yokohama 2016.09.15)',
-      'music_artist' => 'AKB48',
-      'music_artist_id' => '723',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538663498,
-      'music_last_update_time' => 1510988438,
-      'music_title_search' => '365nichi no kamihikouki; 365日の紙飛行機 piano ver ; iokoiama iui; akb48 group douji kaixai concert in iokohama 2016 09 15',
-      'music_artist_search' => '; akb48;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 1273,
-      'music_track_id' => 19,
-      'music_filename' => '1764239-69d1b938.mp4',
-      'music_bitrate' => 256,
-      'music_shortlyric' => '',
-      'music_length' => 245,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    12 => 
-    array (
-      'music_downloads_today' => 2,
-      'music_id' => 1767658,
-      'music_title_url' => 'natsu-yo-isoge~ske48',
-      'music_title' => 'Natsu yo, Isoge! (夏よ、急げ！)',
-      'music_artist' => 'SKE48',
-      'music_artist_id' => '13695',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538986320,
-      'music_last_update_time' => 1487835838,
-      'music_title_search' => 'natxu io ixoge ; 夏よ、急げ！',
-      'music_artist_search' => '; xke48;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 54771,
-      'music_track_id' => 1,
-      'music_filename' => '1767658-d34dc118.mp4',
-      'music_bitrate' => 128,
-      'music_shortlyric' => 'mada nani mo nai
-shiroi sunahama
-nami ga shizuka ni
-tsugi no kisetsu wo matsu you ni...
-kimi to no kioku
-massara na mama
-atarashii sekai
-ega kou to shiteru
-
-honegumi no dekita umi no ie
-kansei suru...',
-      'music_length' => 245,
-      'music_width' => 1280,
-      'music_height' => 720,
-      'music_artist_html' => '<a href="/ca-si/SKE48~Y3NuX2FydGlzdH4xMzY5NQ==.html">SKE48</a>',
-      'music_bitrate_html' => '<span style="color: orange">HD 720p</span>',
-    ),
-    13 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1766841,
-      'music_title_url' => 'sayonara-no-imi-nogizaka46-show-akb48-show-ep142-20170218~nogizaka46',
-      'music_title' => 'Sayonara no Imi (サヨナラの意味) @ Nogizaka46 SHOW! (AKB48 SHOW! ep142 (2017.02.18)',
-      'music_artist' => 'Nogizaka46',
-      'music_artist_id' => '13557',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538499585,
-      'music_last_update_time' => 1487555131,
-      'music_title_search' => 'xaionara no imi; サヨナラの意味 novaka46 thow ; akb48 thow ep142; 2017 02 18',
-      'music_artist_search' => '; novaka46;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 4471,
-      'music_track_id' => 1,
-      'music_filename' => '1766841-1b2f03de.mp4',
-      'music_bitrate' => 128,
-      'music_shortlyric' => '',
-      'music_length' => 299,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Nogizaka46~Y3NuX2FydGlzdH4xMzU1Nw==.html">Nogizaka46</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    14 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1764273,
-      'music_title_url' => 'hitsuzenteki-koibito~hkt48',
-      'music_title' => 'Hitsuzenteki Koibito (必然的恋人)',
-      'music_artist' => 'HKT48',
-      'music_artist_id' => '14603',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538950693,
-      'music_last_update_time' => 1486611710,
-      'music_title_search' => 'hitxuzenteki koibito; 必然的恋人',
-      'music_artist_search' => '; hkt48;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 4309,
-      'music_track_id' => 2,
-      'music_filename' => '1764273-33d49a9b.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '',
-      'music_length' => 235,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/HKT48~Y3NuX2FydGlzdH4xNDYwMw==.html">HKT48</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    15 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1766840,
-      'music_title_url' => '2dome-no-kiss-kara-2-manatsu-respect-corps-nogizaka46-show-akb48-show~nogizaka46',
-      'music_title' => '2dome no Kiss Kara (2度目のキスから) / Manatsu Respect Corps @ Nogizaka46 SHOW! (AKB48 SHOW! ep142 (2017.02.18)',
-      'music_artist' => 'Nogizaka46',
-      'music_artist_id' => '13557',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538479308,
-      'music_last_update_time' => 1487465709,
-      'music_title_search' => '2dome no kix kara; 2度目のキスから ; manatxu rexpect corpx novaka46 thow ; akb48 thow ep142; 2017 02 18',
-      'music_artist_search' => '; novaka46;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 2447,
-      'music_track_id' => 2,
-      'music_filename' => '1766840-1944a949.mp4',
-      'music_bitrate' => 128,
-      'music_shortlyric' => '',
-      'music_length' => 238,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Nogizaka46~Y3NuX2FydGlzdH4xMzU1Nw==.html">Nogizaka46</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    16 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1767901,
-      'music_title_url' => 'iiwake-maybe-maybe-akb48-16th-generation-kojima-haruna-kojimatsuri-day2-20~akb48',
-      'music_title' => 'Iiwake Maybe (言い訳Maybe) / AKB48 16th Generation ｘ Kojima Haruna @ Kojimatsuri DAY2 2017.02.22',
-      'music_artist' => 'AKB48',
-      'music_artist_id' => '723',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1537027238,
-      'music_last_update_time' => 1511406180,
-      'music_title_search' => 'iwake maibe; 言い訳maibe ; akb48 16th generation ｘ kojima haruna kojimatxuri dai2 2017 02 2',
-      'music_artist_search' => '; akb48;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 3163,
-      'music_track_id' => 5,
-      'music_filename' => '1767901-2f501235.mp4',
-      'music_bitrate' => 128,
-      'music_shortlyric' => '',
-      'music_length' => 149,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    17 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1767902,
-      'music_title_url' => '47-no-suteki-na-machi-e-47-akb48-team8-kojima-haruna-kojimatsuri-day2-2017~akb48',
-      'music_title' => '47 No Suteki Na Machi e (47の素敵な街へ) / AKB48 Team8 ｘ Kojima Haruna @ Kojimatsuri DAY2 2017.02.22',
-      'music_artist' => 'AKB48',
-      'music_artist_id' => '723',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1533066497,
-      'music_last_update_time' => 1509509045,
-      'music_title_search' => '47 no xuteki na machi e; 47の素敵な街へ ; akb48 team8 ｘ kojima haruna kojimatxuri dai2 2017 02 2',
-      'music_artist_search' => '; akb48;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 8202,
-      'music_track_id' => 4,
-      'music_filename' => '1767902-abb4dff8.mp4',
-      'music_bitrate' => 128,
-      'music_shortlyric' => '',
-      'music_length' => 162,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    18 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1767791,
-      'music_title_url' => 'hayaku-aitai~dream-ami',
-      'music_title' => 'Hayaku Aitai (はやく逢いたい)',
-      'music_artist' => 'Dream Ami',
-      'music_artist_id' => '94789',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1531258704,
-      'music_last_update_time' => 1487906757,
-      'music_title_search' => 'haiaku aitai; はやく逢いたい',
-      'music_artist_search' => '; dream ami;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 26707,
-      'music_track_id' => 1,
-      'music_filename' => '1767791-d3cf050e.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '',
-      'music_length' => 209,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Dream-Ami~Y3NuX2FydGlzdH45NDc4OQ==.html">Dream Ami</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    19 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1767790,
-      'music_title_url' => 'predawn~tokyo-girls-style',
-      'music_title' => 'predawn',
-      'music_artist' => 'TOKYO GIRLS\' STYLE',
-      'music_artist_id' => '63898',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1498857547,
-      'music_last_update_time' => 1489369581,
-      'music_title_search' => 'predawn',
-      'music_artist_search' => '; tokio drlx xtile;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 1411,
-      'music_track_id' => 1,
-      'music_filename' => '1767790-548624c4.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '',
-      'music_length' => 292,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/TOKYO-GIRLS-STYLE~Y3NuX2FydGlzdH42Mzg5OA==.html">TOKYO GIRLS\' STYLE</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    20 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1765740,
-      'music_title_url' => 'bagutte-iijan-akbingo-ver~hkt48',
-      'music_title' => 'Bagutte Iijan (バグっていいじゃん) -AKBINGO! Ver.-',
-      'music_artist' => 'HKT48',
-      'music_artist_id' => '14603',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1512557347,
-      'music_last_update_time' => 1487146735,
-      'music_title_search' => 'bagute ijan; バグっていじゃん akbingo ver',
-      'music_artist_search' => '; hkt48;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 13316,
-      'music_track_id' => 1,
-      'music_filename' => '1765740-8b984140.mp4',
-      'music_bitrate' => 128,
-      'music_shortlyric' => '',
-      'music_length' => 145,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/HKT48~Y3NuX2FydGlzdH4xNDYwMw==.html">HKT48</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    21 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1766839,
-      'music_title_url' => 'naimononedari-hashimoto-nanami-nogizaka46-show-akb48-show-ep142-20170~nogizaka46',
-      'music_title' => 'Naimononedari (ないものねだり) / Hashimoto Nanami @ Nogizaka46 SHOW! (AKB48 SHOW! ep142 (2017.02.18)',
-      'music_artist' => 'Nogizaka46',
-      'music_artist_id' => '13557',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1533049908,
-      'music_last_update_time' => 1487465712,
-      'music_title_search' => 'naimononedari; ないものねだり ; hathimoto nanami novaka46 thow ; akb48 thow ep142; 2017 02 18',
-      'music_artist_search' => '; novaka46;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 2310,
-      'music_track_id' => 3,
-      'music_filename' => '1766839-76502560.mp4',
-      'music_bitrate' => 128,
-      'music_shortlyric' => '',
-      'music_length' => 232,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Nogizaka46~Y3NuX2FydGlzdH4xMzU1Nw==.html">Nogizaka46</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    22 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1764956,
-      'music_title_url' => 'river-16th-generation-akb48-show-ep141-20170211~akb48',
-      'music_title' => 'RIVER / 16th Generation @ AKB48 SHOW! ep141 2017.02.11',
-      'music_artist' => 'AKB48',
-      'music_artist_id' => '723',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1516160533,
-      'music_last_update_time' => 1486950353,
-      'music_title_search' => 'river ; 16th generation akb48 thow ep141 2017 02 1',
-      'music_artist_search' => '; akb48;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 2058,
-      'music_track_id' => 3,
-      'music_filename' => '1764956-d83e1f77.mp4',
-      'music_bitrate' => 128,
-      'music_shortlyric' => '',
-      'music_length' => 140,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    23 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1766612,
-      'music_title_url' => 'bagutte-iijan~hkt48',
-      'music_title' => 'Bagutte Iijan (バグっていいじゃん)',
-      'music_artist' => 'HKT48',
-      'music_artist_id' => '14603',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1531106721,
-      'music_last_update_time' => 1487465706,
-      'music_title_search' => 'bagute ijan; バグっていじゃん',
-      'music_artist_search' => '; hkt48;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 31147,
-      'music_track_id' => 1,
-      'music_filename' => '1766612-3a4893b2.mp4',
-      'music_bitrate' => 128,
-      'music_shortlyric' => '',
-      'music_length' => 262,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/HKT48~Y3NuX2FydGlzdH4xNDYwMw==.html">HKT48</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    24 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1762805,
-      'music_title_url' => 'shishunki-no-adrenaline-team-8-west-akbingo-ep426-20170131~akb48',
-      'music_title' => 'Shishunki no Adrenaline (思春期のアドレナリン) / Team 8 WEST @ AKBINGO! ep426 (2017.01.31)',
-      'music_artist' => 'AKB48',
-      'music_artist_id' => '723',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1504090087,
-      'music_last_update_time' => 1485939490,
-      'music_title_search' => 'thithunki no adrenaline; 思春期のアドレナリン ; team 8 wext akbingo ep426; 2017 01 31',
-      'music_artist_search' => '; akb48;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 1868,
-      'music_track_id' => 1,
-      'music_filename' => '1762805-f16f383e.mp4',
-      'music_bitrate' => 128,
-      'music_shortlyric' => 'chikagoro watashi zenzen nemurenai
-WOW WOW ENERUGII amatteru
-benkyou SUPOOTSU bukatsu dake ja tsukarenai
-WOW WOW PAWAA zenkai
-
-koi demo shitereba
-HAATO ga moete ii kamo ne
-tokoro ga mawari ni wa
-to...',
-      'music_length' => 153,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    25 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1762990,
-      'music_title_url' => 'heavy-rotation~nogizaka46-haruyama',
-      'music_title' => 'Heavy Rotation (ヘビーローテーション)',
-      'music_artist' => 'Nogizaka46;Haruyama',
-      'music_artist_id' => '13557;94199',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1532296067,
-      'music_last_update_time' => 1486460125,
-      'music_title_search' => 'heavi rotation; ヘビーローテーション',
-      'music_artist_search' => '; novaka46; hariama;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 959,
-      'music_track_id' => 0,
-      'music_filename' => '1762990-5ade6e8b.mp4',
-      'music_bitrate' => 192,
-      'music_shortlyric' => '',
-      'music_length' => 120,
-      'music_width' => 1280,
-      'music_height' => 720,
-      'music_artist_html' => '<a href="/ca-si/Nogizaka46~Y3NuX2FydGlzdH4xMzU1Nw==.html">Nogizaka46</a>, <a href="/ca-si/Haruyama~Y3NuX2FydGlzdH45NDE5OQ==.html">Haruyama</a>',
-      'music_bitrate_html' => '<span style="color: orange">HD 720p</span>',
-    ),
-    26 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1763019,
-      'music_title_url' => 'tokyo-girl~perfume',
-      'music_title' => 'TOKYO GIRL',
-      'music_artist' => 'Perfume',
-      'music_artist_id' => '11906',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1529986112,
-      'music_last_update_time' => 1487222888,
-      'music_title_search' => 'tokio drl',
-      'music_artist_search' => '; perfume;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 14842,
-      'music_track_id' => 1,
-      'music_filename' => '1763019-201dd829.mp4',
-      'music_bitrate' => 128,
-      'music_shortlyric' => '',
-      'music_length' => 264,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Perfume~Y3NuX2FydGlzdH4xMTkwNg==.html">Perfume</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    27 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1763146,
-      'music_title_url' => 'we-are~one-ok-rock',
-      'music_title' => 'We Are',
-      'music_artist' => 'One Ok Rock',
-      'music_artist_id' => '16211',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1529806710,
-      'music_last_update_time' => 1486457913,
-      'music_title_search' => 'we are',
-      'music_artist_search' => '; 1 ok rock;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 1371,
-      'music_track_id' => 0,
-      'music_filename' => '1763146-3f0203ed.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'We are...
-
-They think that we\'re no one
-We\'re nothing, not sorry
-They push us
-It\'s too late, it\'s too late
-Not going back.
-
-夢は終わり 目を覚ます時
-絶望や希望も 同時に目を覚ました
-
-鏡に映った 僕が問いかける
-自分を誤魔化し 生きることに意味はあるか
-
-When y...',
-      'music_length' => 260,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/One-Ok-Rock~Y3NuX2FydGlzdH4xNjIxMQ==.html">One Ok Rock</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    28 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1763563,
-      'music_title_url' => 'dear-my-teacher-16th-generation-akb48-show-ep140-20170204~akb48',
-      'music_title' => 'Dear my teacher / 16th Generation @ AKB48 SHOW! ep140 2017.02.04',
-      'music_artist' => 'AKB48',
-      'music_artist_id' => '723',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1518654321,
-      'music_last_update_time' => 1486546890,
-      'music_title_search' => 'dear mi teacher ; 16th generation akb48 thow ep140 2017 02 04',
-      'music_artist_search' => '; akb48;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 1051,
-      'music_track_id' => 1,
-      'music_filename' => '1763563-0b3ae6d5.mp4',
-      'music_bitrate' => 128,
-      'music_shortlyric' => 'Sonna hitomi de mitsumenaide
-Nanika ga hajimatte shimau ja nai? 
-Gutaiteki na kotoba ni shinai sasoikata ga zurui wa
-
-Sakki kara naze damatteru no?
-Anata wa ude wo kunda mama de 
-Kitto zuibun okoma...',
-      'music_length' => 264,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    29 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1763946,
-      'music_title_url' => 'yesterday-japanese-version~block-b',
-      'music_title' => 'Yesterday (Japanese Version)',
-      'music_artist' => 'Block B',
-      'music_artist_id' => '2646',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1512490540,
-      'music_last_update_time' => 1486534538,
-      'music_title_search' => 'ixterdai; japanexe verxion',
-      'music_artist_search' => '; block b;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 1964,
-      'music_track_id' => 0,
-      'music_filename' => '1763946-35152cd6.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Guess Who\'s back?
-A-yo Pop, we did it again man
-Aight do Let\'s go!
-Show time da ze sute ni HAJIke sou sa
-No doubt ima sugu ni kure yo GOOSAIN
-mou nigerenai yo shinzou megakete
-Getcha Getcha ya ya h...',
-      'music_length' => 174,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Block-B~Y3NuX2FydGlzdH4yNjQ2.html">Block B</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    30 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1764085,
-      'music_title_url' => 'ufo-southpaw-pink-lady-cover-kashiwagi-yuki-watanabe-mayu-utacon-20170207~akb48',
-      'music_title' => 'UFO + Southpaw (PINK LADY Cover) / Kashiwagi Yuki × Watanabe Mayu @ Utacon 2017.02.07',
-      'music_artist' => 'AKB48',
-      'music_artist_id' => '723',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1535042850,
-      'music_last_update_time' => 1486535080,
-      'music_title_search' => 'ufo xouthpaw; pink ladi cover ; kathiwad iuki × watanabe maiu utacon 2017 02 07',
-      'music_artist_search' => '; akb48;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 2556,
-      'music_track_id' => 1,
-      'music_filename' => '1764085-b96e5645.mp4',
-      'music_bitrate' => 128,
-      'music_shortlyric' => '',
-      'music_length' => 211,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    31 => 
-    array (
-      'music_downloads_today' => 2,
-      'music_id' => 1776490,
-      'music_title_url' => 'frontiers~the-rampage-from-exile-tribe',
-      'music_title' => 'Frontiers',
-      'music_artist' => 'THE RAMPAGE from EXILE TRIBE',
-      'music_artist_id' => '14051',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1539016715,
-      'music_last_update_time' => 1530761797,
-      'music_title_search' => 'frontirx',
-      'music_artist_search' => '; the rampage from exile chibe;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 10561,
-      'music_track_id' => 1,
-      'music_filename' => '1776490-fa6c9b25.mp4',
-      'music_bitrate' => 256,
-      'music_shortlyric' => '',
-      'music_length' => 297,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/THE-RAMPAGE-from-EXILE-TRIBE~Y3NuX2FydGlzdH4xNDA1MQ==.html">THE RAMPAGE from EXILE TRIBE</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    32 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1773246,
-      'music_title_url' => 'accident-chu-akb48-u-19-senbatsu~akb48',
-      'music_title' => 'Accident Chu (アクシデント中) / AKB48 U-19 Senbatsu',
-      'music_artist' => 'AKB48',
-      'music_artist_id' => '723',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538987188,
-      'music_last_update_time' => 1489647950,
-      'music_title_search' => 'acident chu; アクシデント中 ; akb48 u 19 xenbatxu',
-      'music_artist_search' => '; akb48;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 7273,
-      'music_track_id' => 2,
-      'music_filename' => '1773246-3316888e.mp4',
-      'music_bitrate' => 256,
-      'music_shortlyric' => 'docchi no sekinin? Ah...
-jinsei no juujiro de
-HAATO butsukatta
-
-suki ni nacchau nante
-senbita arienai to
-omotteta tenkai ni uragirareta
-
-INFURUENZA mitai ni
-tokimeite atama FURAFURA
-yobou chuusha k...',
-      'music_length' => 300,
-      'music_width' => 1280,
-      'music_height' => 720,
-      'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
-      'music_bitrate_html' => '<span style="color: orange">HD 720p</span>',
-    ),
-    33 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1773515,
-      'music_title_url' => 'seishun-dokei~ngt48',
-      'music_title' => 'Seishun Dokei (青春時計)',
-      'music_artist' => 'NGT48',
-      'music_artist_id' => '13635',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538718978,
-      'music_last_update_time' => 1491056306,
-      'music_title_search' => 'xeithun dokei; 青春時計',
-      'music_artist_search' => '; ngt48;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 10902,
-      'music_track_id' => 1,
-      'music_filename' => '1773515-23e7dcd8.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => 'Haru no seifuku sukāto yurashi
-gādorēru o pyonto ton de
-kimi wa zenryoku hashitte iku yo
-kaze wa kō (ato) kara oikake te iku yo
-
-dōshite konnani mabayu (ma bu) shiin daro u?
-dōshite konnani setsuna...',
-      'music_length' => 283,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/NGT48~Y3NuX2FydGlzdH4xMzYzNQ==.html">NGT48</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    34 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1772986,
-      'music_title_url' => 'bye-bye-short-version~apink',
-      'music_title' => 'Bye Bye (Short Version)',
-      'music_artist' => 'Apink',
-      'music_artist_id' => '4047',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1531827281,
-      'music_last_update_time' => 1489626817,
-      'music_title_search' => 'bi bi; thort verxion',
-      'music_artist_search' => '; apink;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 11484,
-      'music_track_id' => 0,
-      'music_filename' => '1772986-f2a7fd7c.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '[Yookyung] Ajigeun molla geumsogeseo
-Beodeon naui dan han saram (neo neo neo neo)
-[Naeun] Neul honja sangsanghae
-Achimhaessal cheorom nal kkaewojul han saram
-[Namjoo] Du soneul jabgo nae du nuneul...',
-      'music_length' => 80,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Apink~Y3NuX2FydGlzdH40MDQ3.html">Apink</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    35 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1771335,
-      'music_title_url' => 'yume-de-kiss-me-kiss-me-miyawaki-sakura-akb48-team-a-7th-stage-mt-ni-sasag~akb48',
-      'music_title' => 'Yume de Kiss me! (夢でKiss me!) / Miyawaki Sakura @ AKB48 Team A 7th stage M.T ni Sasagu',
-      'music_artist' => 'AKB48',
-      'music_artist_id' => '723',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1533816157,
-      'music_last_update_time' => 1489108565,
-      'music_title_search' => 'iume de kix me ; 夢でkix me ; miawaki xakura akb48 team a 7th xtage m t ni xaxagu',
-      'music_artist_search' => '; akb48;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 5175,
-      'music_track_id' => 8,
-      'music_filename' => '1771335-25afc355.mp4',
-      'music_bitrate' => 128,
-      'music_shortlyric' => '',
-      'music_length' => 288,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    36 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1771334,
-      'music_title_url' => 'risuke-kojima-harunashimazaki-haruka-akb48-team-a-7th-stage-mt-ni-sasagu~akb48',
-      'music_title' => 'Risuke (リスケ) /Kojima Haruna×Shimazaki Haruka @ AKB48 Team A 7th stage M.T ni Sasagu',
-      'music_artist' => 'AKB48',
-      'music_artist_id' => '723',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1532630553,
-      'music_last_update_time' => 1489108519,
-      'music_title_search' => 'rixuke; リスケ ;kojima haruna×thimazaki haruka akb48 team a 7th xtage m t ni xaxagu',
-      'music_artist_search' => '; akb48;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 5527,
-      'music_track_id' => 5,
-      'music_filename' => '1771334-28349f7b.mp4',
-      'music_bitrate' => 128,
-      'music_shortlyric' => '',
-      'music_length' => 267,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    37 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1771336,
-      'music_title_url' => 'mt-ni-sasagu-akb48-team-a-7th-stage-mt-ni-sasagu~akb48',
-      'music_title' => 'M.T. ni Sasagu (Ｍ.Ｔ.に捧ぐ) @ AKB48 Team A 7th stage M.T ni Sasagu',
-      'music_artist' => 'AKB48',
-      'music_artist_id' => '723',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1532302772,
-      'music_last_update_time' => 1489108568,
-      'music_title_search' => 'm t ni xaxagu; Ｍ Ｔ に捧ぐ akb48 team a 7th xtage m t ni xaxagu',
-      'music_artist_search' => '; akb48;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 15267,
-      'music_track_id' => 14,
-      'music_filename' => '1771336-093ea651.mp4',
-      'music_bitrate' => 128,
-      'music_shortlyric' => '',
-      'music_length' => 333,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    38 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1770808,
-      'music_title_url' => 'dream-fighter-utacon-20170307~perfume',
-      'music_title' => 'Dream Fighter @ Utacon 2017.03.07',
-      'music_artist' => 'Perfume',
-      'music_artist_id' => '11906',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1520857237,
-      'music_last_update_time' => 1489041669,
-      'music_title_search' => 'dream fighter utacon 2017 03 07',
-      'music_artist_search' => '; perfume;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 1552,
-      'music_track_id' => 2,
-      'music_filename' => '1770808-cfdaddfc.mp4',
-      'music_bitrate' => 128,
-      'music_shortlyric' => '',
-      'music_length' => 158,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Perfume~Y3NuX2FydGlzdH4xMTkwNg==.html">Perfume</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    39 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1770809,
-      'music_title_url' => 'yui-utacon-20170307~miwa',
-      'music_title' => 'Yui (結 -ゆい-) @ Utacon 2017.03.07',
-      'music_artist' => 'miwa',
-      'music_artist_id' => '13756',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1498374307,
-      'music_last_update_time' => 1489041662,
-      'music_title_search' => 'iui; 結 ゆい utacon 2017 03 07',
-      'music_artist_search' => '; miwa;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 717,
-      'music_track_id' => 1,
-      'music_filename' => '1770809-8c1b7429.mp4',
-      'music_bitrate' => 128,
-      'music_shortlyric' => '',
-      'music_length' => 159,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/miwa~Y3NuX2FydGlzdH4xMzc1Ng==.html">miwa</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    40 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1770819,
-      'music_title_url' => 'kidzuka-renai-you-ni-kojima-haruna~akb48',
-      'music_title' => 'Kidzuka Renai you ni... (気づかれないように...) / Kojima Haruna',
-      'music_artist' => 'AKB48',
-      'music_artist_id' => '723',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1518152041,
-      'music_last_update_time' => 1489041660,
-      'music_title_search' => 'kivuka renai iou ni ; 気づかれないように ; kojima haruna',
-      'music_artist_search' => '; akb48;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 6627,
-      'music_track_id' => 2,
-      'music_filename' => '1770819-47ffb4f8.mp4',
-      'music_bitrate' => 128,
-      'music_shortlyric' => '',
-      'music_length' => 256,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    41 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1770801,
-      'music_title_url' => 'never-say-goodbye~revfrom-dvl',
-      'music_title' => 'NEVER SAY GOODBYE',
-      'music_artist' => 'Rev.from DVL',
-      'music_artist_id' => '95097',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1529990327,
-      'music_last_update_time' => 1489041672,
-      'music_title_search' => 'never xai godbi',
-      'music_artist_search' => '; rev from dvl;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 4071,
-      'music_track_id' => 1,
-      'music_filename' => '1770801-6c8ee94b.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '',
-      'music_length' => 294,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Revfrom-DVL~Y3NuX2FydGlzdH45NTA5Nw==.html">Rev.from DVL</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    42 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1770941,
-      'music_title_url' => 'igai-break-break-eto-misa-shiraishi-mai-takayama-kazumi-matsumura-say~nogizaka46',
-      'music_title' => 'Igai BREAK (意外BREAK) / Eto Misa, Shiraishi Mai, Takayama Kazumi, Matsumura Sayuri',
-      'music_artist' => 'Nogizaka46',
-      'music_artist_id' => '13557',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1534021949,
-      'music_last_update_time' => 1489042549,
-      'music_title_search' => 'igai break; 意外break ; eto mixa thiraithi mai takaiama kazumi matxumura xaiuri',
-      'music_artist_search' => '; novaka46;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 5243,
-      'music_track_id' => 2,
-      'music_filename' => '1770941-0c3714a5.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '',
-      'music_length' => 274,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Nogizaka46~Y3NuX2FydGlzdH4xMzU1Nw==.html">Nogizaka46</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    43 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1772041,
-      'music_title_url' => 'shoot-sign~akb48',
-      'music_title' => 'Shoot Sign (シュートサイン)',
-      'music_artist' => 'AKB48',
-      'music_artist_id' => '723',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1530651536,
-      'music_last_update_time' => 1489367776,
-      'music_title_search' => 'thot xign; シュートサイン',
-      'music_artist_search' => '; akb48;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 5363,
-      'music_track_id' => 1,
-      'music_filename' => '1772041-2e8412cf.mp4',
-      'music_bitrate' => 128,
-      'music_shortlyric' => '',
-      'music_length' => 425,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    44 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1772040,
-      'music_title_url' => 'never-say-goodbye~revfrom-dvl',
-      'music_title' => 'NEVER SAY GOODBYE',
-      'music_artist' => 'Rev.from DVL',
-      'music_artist_id' => '95097',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1512629798,
-      'music_last_update_time' => 1489367712,
-      'music_title_search' => 'never xai godbi',
-      'music_artist_search' => '; rev from dvl;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 4255,
-      'music_track_id' => 1,
-      'music_filename' => '1772040-a76b09a8.mp4',
-      'music_bitrate' => 128,
-      'music_shortlyric' => '',
-      'music_length' => 293,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Revfrom-DVL~Y3NuX2FydGlzdH45NTA5Nw==.html">Rev.from DVL</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    45 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1772038,
-      'music_title_url' => 'synchronized~fairies',
-      'music_title' => 'Synchronized ～シンクロ～',
-      'music_artist' => 'Fairies',
-      'music_artist_id' => '18554',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1534536924,
-      'music_last_update_time' => 1489367708,
-      'music_title_search' => 'xinchronized ～シンクロ～',
-      'music_artist_search' => '; fairix;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 1875,
-      'music_track_id' => 1,
-      'music_filename' => '1772038-f27a37a4.mp4',
-      'music_bitrate' => 128,
-      'music_shortlyric' => '',
-      'music_length' => 216,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Fairies~Y3NuX2FydGlzdH4xODU1NA==.html">Fairies</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    46 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1772037,
-      'music_title_url' => 'predawn~tokyo-girls-style',
-      'music_title' => 'predawn',
-      'music_artist' => 'TOKYO GIRLS\' STYLE',
-      'music_artist_id' => '63898',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1498651189,
-      'music_last_update_time' => 1489367703,
-      'music_title_search' => 'predawn',
-      'music_artist_search' => '; tokio drlx xtile;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 1439,
-      'music_track_id' => 1,
-      'music_filename' => '1772037-e334d47f.mp4',
-      'music_bitrate' => 128,
-      'music_shortlyric' => '',
-      'music_length' => 291,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/TOKYO-GIRLS-STYLE~Y3NuX2FydGlzdH42Mzg5OA==.html">TOKYO GIRLS\' STYLE</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    47 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1772044,
-      'music_title_url' => 'motion~nishiuchi-mariya',
-      'music_title' => 'Motion',
-      'music_artist' => 'Nishiuchi Mariya',
-      'music_artist_id' => '76943',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1529539296,
-      'music_last_update_time' => 1489367764,
-      'music_title_search' => 'motion',
-      'music_artist_search' => '; nithiuchi maria;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 16834,
-      'music_track_id' => 1,
-      'music_filename' => '1772044-81463592.mp4',
-      'music_bitrate' => 128,
-      'music_shortlyric' => '',
-      'music_length' => 249,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Nishiuchi-Mariya~Y3NuX2FydGlzdH43Njk0Mw==.html">Nishiuchi Mariya</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    48 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1769865,
-      'music_title_url' => 'shoot-sign~akb48',
-      'music_title' => 'Shoot Sign (シュートサイン)',
-      'music_artist' => 'AKB48',
-      'music_artist_id' => '723',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1530364471,
-      'music_last_update_time' => 1488778759,
-      'music_title_search' => 'thot xign; シュートサイン',
-      'music_artist_search' => '; akb48;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 40538,
-      'music_track_id' => 1,
-      'music_filename' => '1769865-551b0c64.mp4',
-      'music_bitrate' => 128,
-      'music_shortlyric' => '',
-      'music_length' => 428,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    49 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1772683,
-      'music_title_url' => 'shoot-sign-momm-20170313~akb48',
-      'music_title' => 'Shoot Sign (シュートサイン) (Momm!! 2017.03.13)',
-      'music_artist' => 'AKB48',
-      'music_artist_id' => '723',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1516112723,
-      'music_last_update_time' => 1505705590,
-      'music_title_search' => 'thot xign; シュートサイン ; mom 2017 03 13',
-      'music_artist_search' => '; akb48;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 5745,
-      'music_track_id' => 1,
-      'music_filename' => '1772683-e64af2ec.mp4',
-      'music_bitrate' => 128,
-      'music_shortlyric' => '',
-      'music_length' => 157,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    50 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1776489,
-      'music_title_url' => 'futari-saison-ft-yokozawanatsuko46-keyabingo2-20170327~keyakizaka46',
-      'music_title' => 'Futari Saison (二人セゾン) ft. YokozawaNatsuko46 (KEYABINGO!2 2017.03.27)',
-      'music_artist' => 'Keyakizaka46',
-      'music_artist_id' => '15964',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1529608792,
-      'music_last_update_time' => 1490752611,
-      'music_title_search' => 'futari xaixon; 二人セゾン ft iokozawanatxuko46; keiabingo 2 2017 03 27',
-      'music_artist_search' => '; keiakizaka46;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 2569,
-      'music_track_id' => 1,
-      'music_filename' => '1776489-2c32a052.mp4',
-      'music_bitrate' => 256,
-      'music_shortlyric' => '',
-      'music_length' => 157,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Keyakizaka46~Y3NuX2FydGlzdH4xNTk2NA==.html">Keyakizaka46</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    51 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1781978,
-      'music_title_url' => 'mazariau-mono-nogizaka-akb-kojimatsuri-kojima-haruna-kanshasa-day-1-201702~akb48',
-      'music_title' => 'Mazariau Mono (混ざり合うもの) / Nogizaka AKB (Kojimatsuri ～Kojima Haruna Kanshasa～ DAY 1 2017.02.21)',
-      'music_artist' => 'AKB48',
-      'music_artist_id' => '723',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538986280,
-      'music_last_update_time' => 1494338847,
-      'music_title_search' => 'mazariau mono; 混ざり合うもの ; novaka akb; kojimatxuri ～kojima haruna kanthaxa～ dai 1 2017 02 21',
-      'music_artist_search' => '; akb48;',
-      'music_album_search' => '',
-      'music_composer' => 'Toyama Daisuke; Tanimura Yohei; Lời: Akimoto Yasushi',
-      'music_album' => '',
-      'music_listen' => 48688,
-      'music_track_id' => 17,
-      'music_filename' => '1781978-7dcdfd66.mp4',
-      'music_bitrate' => 256,
-      'music_shortlyric' => 'donna ni kirei na iro to iro mo
-issho ni mazatte shimaeba kitanaku naru
-kataku na ni boku wa se wo mukete
-tomodachi wa iranai to BARIA wo hatte ita
-
-hitoridatte ikite yukeru yo
-tsuyoku naritainda t...',
-      'music_length' => 520,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    52 => 
-    array (
-      'music_downloads_today' => 2,
-      'music_id' => 1780588,
-      'music_title_url' => 'bokutachi-wa-tsukiatteiru-hiragana-keyakizaka46-akb48-show-ep148-ke~keyakizaka46',
-      'music_title' => 'Bokutachi wa Tsukiatteiru (僕たちは付き合っている) / Hiragana Keyakizaka46 (AKB48 SHOW! ep148 (Keyakizaka46 SHOW!) 2017.04.15)',
-      'music_artist' => 'Keyakizaka46',
-      'music_artist_id' => '15964',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538946080,
-      'music_last_update_time' => 1492391476,
-      'music_title_search' => 'bokutachi wa txukiateiru; 僕たちは付き合っている ; hiragana keiakizaka46; akb48 thow ep148; keiakizaka46 thow 2017 04 15',
-      'music_artist_search' => '; keiakizaka46;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 1585,
-      'music_track_id' => 3,
-      'music_filename' => '1780588-954ce10c.mp4',
-      'music_bitrate' => 128,
-      'music_shortlyric' => '',
-      'music_length' => 278,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Keyakizaka46~Y3NuX2FydGlzdH4xNTk2NA==.html">Keyakizaka46</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    53 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1777619,
-      'music_title_url' => 'kurayami-motomu~ngt48',
-      'music_title' => 'Kurayami Motomu (暗闇求む)',
-      'music_artist' => 'NGT48',
-      'music_artist_id' => '13635',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1539028764,
-      'music_last_update_time' => 1491231497,
-      'music_title_search' => 'kuraiami motomu; 暗闇求む',
-      'music_artist_search' => '; ngt48;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 24843,
-      'music_track_id' => 2,
-      'music_filename' => '1777619-13d14040.mp4',
-      'music_bitrate' => 128,
-      'music_shortlyric' => '',
-      'music_length' => 260,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/NGT48~Y3NuX2FydGlzdH4xMzYzNQ==.html">NGT48</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    54 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1778525,
-      'music_title_url' => 'fukyouwaon-keyakizaka46-nhk-songs-20170406-hirate-yurina~keyakizaka46',
-      'music_title' => 'Fukyouwaon (不協和音) @ Keyakizaka46 - NHK SONGS (2017.04.06) - Hirate Yurina',
-      'music_artist' => 'Keyakizaka46',
-      'music_artist_id' => '15964',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1537802568,
-      'music_last_update_time' => 1491569175,
-      'music_title_search' => 'fukiouwaon; 不協和音 keiakizaka46; nhk xongx; 2017 04 06 ; hirate iurina',
-      'music_artist_search' => '; keiakizaka46;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 4153,
-      'music_track_id' => 4,
-      'music_filename' => '1778525-4afbed9d.mp4',
-      'music_bitrate' => 256,
-      'music_shortlyric' => '',
-      'music_length' => 194,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Keyakizaka46~Y3NuX2FydGlzdH4xNTk2NA==.html">Keyakizaka46</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    55 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1778824,
-      'music_title_url' => 'fukyouwaon-cdtv-20170409~keyakizaka46',
-      'music_title' => 'Fukyouwaon (不協和音) (CDTV 2017.04.09)',
-      'music_artist' => 'Keyakizaka46',
-      'music_artist_id' => '15964',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1537807165,
-      'music_last_update_time' => 1491702058,
-      'music_title_search' => 'fukiouwaon; 不協和音 ; cdtv 2017 04 09',
-      'music_artist_search' => '; keiakizaka46;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 3272,
-      'music_track_id' => 1,
-      'music_filename' => '1778824-25689606.mp4',
-      'music_bitrate' => 128,
-      'music_shortlyric' => '',
-      'music_length' => 196,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Keyakizaka46~Y3NuX2FydGlzdH4xNTk2NA==.html">Keyakizaka46</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    56 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1778524,
-      'music_title_url' => 'futari-saison-keyakizaka46-nhk-songs-20170406-hirate-yurina~keyakizaka46',
-      'music_title' => 'Futari Saison (二人セゾン) @ Keyakizaka46 - NHK SONGS (2017.04.06) - Hirate Yurina',
-      'music_artist' => 'Keyakizaka46',
-      'music_artist_id' => '15964',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1537800590,
-      'music_last_update_time' => 1491569190,
-      'music_title_search' => 'futari xaixon; 二人セゾン keiakizaka46; nhk xongx; 2017 04 06 ; hirate iurina',
-      'music_artist_search' => '; keiakizaka46;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 2405,
-      'music_track_id' => 3,
-      'music_filename' => '1778524-c73ecc31.mp4',
-      'music_bitrate' => 256,
-      'music_shortlyric' => '',
-      'music_length' => 160,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Keyakizaka46~Y3NuX2FydGlzdH4xNTk2NA==.html">Keyakizaka46</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    57 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1778655,
-      'music_title_url' => 'yui-love-music-present-sakura-fes-2017-kadode-20170407~miwa-nogizaka46',
-      'music_title' => 'yui (結 -ゆい-) @ Love music Present Sakura Fes 2017 Kadode (2017.04.07)',
-      'music_artist' => 'miwa;Nogizaka46',
-      'music_artist_id' => '13756;13557',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1529529372,
-      'music_last_update_time' => 1491616240,
-      'music_title_search' => 'iui; 結 ゆい love muxic prexent xakura fex 2017 kadode; 2017 04 07',
-      'music_artist_search' => '; miwa; novaka46;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 8894,
-      'music_track_id' => 1,
-      'music_filename' => '1778655-763d2520.mp4',
-      'music_bitrate' => 128,
-      'music_shortlyric' => '',
-      'music_length' => 183,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/miwa~Y3NuX2FydGlzdH4xMzc1Ng==.html">miwa</a>, <a href="/ca-si/Nogizaka46~Y3NuX2FydGlzdH4xMzU1Nw==.html">Nogizaka46</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    58 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1777693,
-      'music_title_url' => 'bokutachi-wa-tsukiatteiru-hiragana-keyakizaka46~keyakizaka46',
-      'music_title' => 'Bokutachi wa Tsukiatteiru (僕たちは付き合っている) / Hiragana Keyakizaka46',
-      'music_artist' => 'Keyakizaka46',
-      'music_artist_id' => '15964',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1533904587,
-      'music_last_update_time' => 1497927548,
-      'music_title_search' => 'bokutachi wa txukiateiru; 僕たちは付き合っている ; hiragana keiakizaka46',
-      'music_artist_search' => '; keiakizaka46;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 2235,
-      'music_track_id' => 2,
-      'music_filename' => '1777693-02de3b57.mp4',
-      'music_bitrate' => 128,
-      'music_shortlyric' => '',
-      'music_length' => 384,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Keyakizaka46~Y3NuX2FydGlzdH4xNTk2NA==.html">Keyakizaka46</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    59 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1780589,
-      'music_title_url' => 'wareta-smartphone-aozora-to-marry-akb48-show-ep148-keyakizaka46-sho~keyakizaka46',
-      'music_title' => 'Wareta Smartphone (割れたスマホ) / Aozora to MARRY (AKB48 SHOW! ep148 (Keyakizaka46 SHOW!) 2017.04.15)',
-      'music_artist' => 'Keyakizaka46',
-      'music_artist_id' => '15964',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1530363275,
-      'music_last_update_time' => 1492391465,
-      'music_title_search' => 'wareta xmartphone; 割れたスマホ ; aozora to mari; akb48 thow ep148; keiakizaka46 thow 2017 04 15',
-      'music_artist_search' => '; keiakizaka46;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 1584,
-      'music_track_id' => 2,
-      'music_filename' => '1780589-91711dd1.mp4',
-      'music_bitrate' => 128,
-      'music_shortlyric' => '',
-      'music_length' => 242,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Keyakizaka46~Y3NuX2FydGlzdH4xNTk2NA==.html">Keyakizaka46</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    60 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1783400,
-      'music_title_url' => 'tragedyeternity~myth-roid',
-      'music_title' => 'TRAGEDY:ETERNITY',
-      'music_artist' => 'Myth &amp;Roid',
-      'music_artist_id' => '22308;22309',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1531623439,
-      'music_last_update_time' => 1493779619,
-      'music_title_search' => 'chagedi;eterniti',
-      'music_artist_search' => '; mith roid;',
-      'music_album_search' => '',
-      'music_composer' => 'Myth &amp; Roid',
-      'music_album' => '',
-      'music_listen' => 4407,
-      'music_track_id' => 0,
-      'music_filename' => '1783400-09c35fdc.mp4',
-      'music_bitrate' => 128,
-      'music_shortlyric' => '',
-      'music_length' => 244,
-      'music_width' => 1440,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Myth-amp~Y3NuX2FydGlzdH4yMjMwOA==.html">Myth &amp</a>, <a href="/ca-si/Roid~Y3NuX2FydGlzdH4yMjMwOQ==.html">Roid</a>',
-      'music_bitrate_html' => '<span style="color: orange">1440x1080</span>',
-    ),
-    61 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1782174,
-      'music_title_url' => 'kurayami-motomu-akb48-show-ep149-ngt48-show-20170422~ngt48',
-      'music_title' => 'Kurayami Motomu (暗闇求む) (AKB48 SHOW! Ep149 (NGT48 SHOW!) 2017.04.22)',
-      'music_artist' => 'NGT48',
-      'music_artist_id' => '13635',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1513150672,
-      'music_last_update_time' => 1492914291,
-      'music_title_search' => 'kuraiami motomu; 暗闇求む ; akb48 thow ep149; ngt48 thow 2017 04 2',
-      'music_artist_search' => '; ngt48;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 2348,
-      'music_track_id' => 2,
-      'music_filename' => '1782174-2cb5db69.mp4',
-      'music_bitrate' => 128,
-      'music_shortlyric' => '',
-      'music_length' => 245,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/NGT48~Y3NuX2FydGlzdH4xMzYzNQ==.html">NGT48</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    62 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1782173,
-      'music_title_url' => 'seishun-dokei-akb48-show-ep149-ngt48-show-20170422~ngt48',
-      'music_title' => 'Seishun Dokei (青春時計) (AKB48 SHOW! Ep149 (NGT48 SHOW!) 2017.04.22)',
-      'music_artist' => 'NGT48',
-      'music_artist_id' => '13635',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1509607350,
-      'music_last_update_time' => 1492914280,
-      'music_title_search' => 'xeithun dokei; 青春時計 ; akb48 thow ep149; ngt48 thow 2017 04 2',
-      'music_artist_search' => '; ngt48;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 2151,
-      'music_track_id' => 1,
-      'music_filename' => '1782173-37c74be5.mp4',
-      'music_bitrate' => 128,
-      'music_shortlyric' => '',
-      'music_length' => 208,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/NGT48~Y3NuX2FydGlzdH4xMzYzNQ==.html">NGT48</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    63 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1777114,
-      'music_title_url' => 'skirt-hirari-heart-gata-virus-shoot-sign-music-station-3hours-sp-20170331~akb48',
-      'music_title' => 'Skirt, Hirari (スカート、ひらり) + Heart Gata Virus (ハート型ウイルス) + Shoot Sign (シュートサイン) (Music Station 3hours SP 2017.03.31)',
-      'music_artist' => 'AKB48',
-      'music_artist_id' => '723',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1515230580,
-      'music_last_update_time' => 1491009310,
-      'music_title_search' => 'xkirt hirari; スカート、ひらり heart gata virux; ハート型ウイルス thot xign; シュートサイン ; muxic xtation 3hourx xp 2017 03 31',
-      'music_artist_search' => '; akb48;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 8434,
-      'music_track_id' => 2,
-      'music_filename' => '1777114-10a18b76.mp4',
-      'music_bitrate' => 128,
-      'music_shortlyric' => '',
-      'music_length' => 348,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    64 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1777694,
-      'music_title_url' => 'tuning-yuichanzu~keyakizaka46',
-      'music_title' => 'Tuning (チューニング) / Yuichanzu',
-      'music_artist' => 'Keyakizaka46',
-      'music_artist_id' => '15964',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1529699927,
-      'music_last_update_time' => 1491270010,
-      'music_title_search' => 'tuning; チューニング ; iuichanzu',
-      'music_artist_search' => '; keiakizaka46;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 1642,
-      'music_track_id' => 2,
-      'music_filename' => '1777694-8504aa88.mp4',
-      'music_bitrate' => 128,
-      'music_shortlyric' => '',
-      'music_length' => 273,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Keyakizaka46~Y3NuX2FydGlzdH4xNTk2NA==.html">Keyakizaka46</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    65 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1778826,
-      'music_title_url' => 'itoshiki-natasha-3rd-generation-akb48-show-ep147-20170408~akb48',
-      'music_title' => 'Itoshiki Natasha (愛しきナターシャ) / 3rd Generation (AKB48 SHOW! Ep147 2017.04.08)',
-      'music_artist' => 'AKB48',
-      'music_artist_id' => '723',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1498836043,
-      'music_last_update_time' => 1491702043,
-      'music_title_search' => 'itothiki natatha; 愛しきナターシャ ; 3rd generation; akb48 thow ep147 2017 04 08',
-      'music_artist_search' => '; akb48;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 1244,
-      'music_track_id' => 1,
-      'music_filename' => '1778826-e0880aa7.mp4',
-      'music_bitrate' => 128,
-      'music_shortlyric' => '',
-      'music_length' => 204,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    66 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1779456,
-      'music_title_url' => '47-no-suteki-na-machi-e-47-team8-akbingo-ep436-20170411~akb48',
-      'music_title' => '47 no Suteki na Machi e (47の素敵な街へ) / Team8 (AKBINGO! ep436 2017.04.11)',
-      'music_artist' => 'AKB48',
-      'music_artist_id' => '723',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1512500244,
-      'music_last_update_time' => 1491963288,
-      'music_title_search' => '47 no xuteki na machi e; 47の素敵な街へ ; team8; akbingo ep436 2017 04 1',
-      'music_artist_search' => '; akb48;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 2137,
-      'music_track_id' => 1,
-      'music_filename' => '1779456-1ecd50e3.mp4',
-      'music_bitrate' => 128,
-      'music_shortlyric' => '',
-      'music_length' => 156,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/AKB48~Y3NuX2FydGlzdH43MjM=.html">AKB48</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    67 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1777510,
-      'music_title_url' => 'max-toki-315go-max-315-seishun-dokei-cdtv-girls-fes-2017-20170331~ngt48',
-      'music_title' => 'Max Toki 315go (Max とき315 号) + Seishun Dokei (青春時計) (CDTV GIRLS FES 2017 2017.03.31)',
-      'music_artist' => 'NGT48',
-      'music_artist_id' => '13635',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1530174660,
-      'music_last_update_time' => 1491186786,
-      'music_title_search' => 'max toki 315go; max とき315 号 xeithun dokei; 青春時計 ; cdtv drlx fex 2017 2017 03 31',
-      'music_artist_search' => '; ngt48;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 4295,
-      'music_track_id' => 1,
-      'music_filename' => '1777510-eba7e343.mp4',
-      'music_bitrate' => 256,
-      'music_shortlyric' => '',
-      'music_length' => 406,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/NGT48~Y3NuX2FydGlzdH4xMzYzNQ==.html">NGT48</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    68 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1780166,
-      'music_title_url' => 'seishun-dokei-buzz-rhythm-20170415~ngt48',
-      'music_title' => 'Seishun Dokei (青春時計) (Buzz Rhythm 2017.04.15)',
-      'music_artist' => 'NGT48',
-      'music_artist_id' => '13635',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1513382646,
-      'music_last_update_time' => 1492218294,
-      'music_title_search' => 'xeithun dokei; 青春時計 ; buz rhithm 2017 04 15',
-      'music_artist_search' => '; ngt48;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 3165,
-      'music_track_id' => 0,
-      'music_filename' => '1780166-5fdbfaf7.mp4',
-      'music_bitrate' => 128,
-      'music_shortlyric' => '',
-      'music_length' => 146,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/NGT48~Y3NuX2FydGlzdH4xMzYzNQ==.html">NGT48</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    69 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1777179,
-      'music_title_url' => 'bokutachi-wa-tsukiatteiru-hiragana-keyakizaka46~keyakizaka46',
-      'music_title' => 'Bokutachi wa Tsukiatteiru (僕たちは付き合っている) / Hiragana Keyakizaka46',
-      'music_artist' => 'Keyakizaka46',
-      'music_artist_id' => '15964',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1530024935,
-      'music_last_update_time' => 1491027126,
-      'music_title_search' => 'bokutachi wa txukiateiru; 僕たちは付き合っている ; hiragana keiakizaka46',
-      'music_artist_search' => '; keiakizaka46;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 3852,
-      'music_track_id' => 2,
-      'music_filename' => '1777179-17f1c790.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '',
-      'music_length' => 384,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Keyakizaka46~Y3NuX2FydGlzdH4xNTk2NA==.html">Keyakizaka46</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-    70 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1777219,
-      'music_title_url' => 'max-toki-315go-max-315-seishun-dokei-cdtv-girls-fes-2017-20170331~ngt48',
-      'music_title' => 'Max Toki 315go (Max とき315 号) + Seishun Dokei (青春時計) (CDTV GIRLS FES 2017 2017.03.31)',
-      'music_artist' => 'NGT48',
-      'music_artist_id' => '13635',
-      'cat_id' => 1,
-      'cat_level' => 5,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1529951487,
-      'music_last_update_time' => 1492316904,
-      'music_title_search' => 'max toki 315go; max とき315 号 xeithun dokei; 青春時計 ; cdtv drlx fex 2017 2017 03 31',
-      'music_artist_search' => '; ngt48;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 6532,
-      'music_track_id' => 1,
-      'music_filename' => '1777219-09023544.mp4',
-      'music_bitrate' => 320,
-      'music_shortlyric' => '',
-      'music_length' => 405,
-      'music_width' => 744,
-      'music_height' => 416,
-      'music_artist_html' => '<a href="/ca-si/NGT48~Y3NuX2FydGlzdH4xMzYzNQ==.html">NGT48</a>',
-      'music_bitrate_html' => '<span style="color: darkgreen">744x416</span>',
-    ),
-  ),
-  7 => 
-  array (
-    0 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1763377,
-      'music_title_url' => 'chantaje-version-salsa~shakira-maluma',
-      'music_title' => 'Chantaje (Version Salsa)',
-      'music_artist' => 'Shakira;Maluma',
-      'music_artist_id' => '112;13396',
-      'cat_id' => 1,
-      'cat_level' => 7,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538906936,
-      'music_last_update_time' => 1501030048,
-      'music_title_search' => 'chantaje; verxion xalxa',
-      'music_artist_search' => '; thakira; maluma;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 14518,
-      'music_track_id' => 0,
-      'music_filename' => '1763377-5a6ab3b6.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '[Maluma] 
-Cuando estás bien te alejas de mí 
-Te sientes sola y siempre estoy ahí 
-Es una guerra de toma y dame 
-Pues dame de eso que tiene\' ahí 
-
-Oye baby no seas mala 
-No me dejes con las ganas 
-S...',
-      'music_length' => 227,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Shakira~Y3NuX2FydGlzdH4xMTI=.html">Shakira</a>, <a href="/ca-si/Maluma~Y3NuX2FydGlzdH4xMzM5Ng==.html">Maluma</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-  ),
-  6 => 
-  array (
-    0 => 
-    array (
-      'music_downloads_today' => 1,
-      'music_id' => 1771706,
-      'music_title_url' => 'hey-ma-spanish-version~pitbull-j-balvin-camila-cabello',
-      'music_title' => 'Hey Ma (Spanish Version)',
-      'music_artist' => 'Pitbull;J Balvin;Camila Cabello',
-      'music_artist_id' => '1814;13436;13959',
-      'cat_id' => 1,
-      'cat_level' => 6,
-      'cat_sublevel' => 0,
-      'cat_custom' => 0,
-      'cover_id' => 0,
-      'music_download_time' => 1538618931,
-      'music_last_update_time' => 1489206335,
-      'music_title_search' => 'hei ma; xpanith verxion',
-      'music_artist_search' => '; pitbul; j balvin; camila cabelo;',
-      'music_album_search' => '',
-      'music_composer' => '',
-      'music_album' => '',
-      'music_listen' => 16274,
-      'music_track_id' => 0,
-      'music_filename' => '1771706-33b3190c.mp4',
-      'music_bitrate' => 96,
-      'music_shortlyric' => '[Verse 1: J Balvin]
-Dale, sin miedo
-Arriésgate y sígueme el juego
-Sola, creo
-Di a tus amigas hasta luego
-No des explicaciones, solo vente
-Que tu mente es malvada, eso yo lo sé
-En tu mirada yo lo pu...',
-      'music_length' => 223,
-      'music_width' => 1920,
-      'music_height' => 1080,
-      'music_artist_html' => '<a href="/ca-si/Pitbull~Y3NuX2FydGlzdH4xODE0.html">Pitbull</a>, <a href="/ca-si/J-Balvin~Y3NuX2FydGlzdH4xMzQzNg==.html">J Balvin</a>, <a href="/ca-si/Camila-Cabello~Y3NuX2FydGlzdH4xMzk1OQ==.html">Camila Cabello</a>',
-      'music_bitrate_html' => '<span style="color: red">HD 1080p</span>',
-    ),
-  ),
 );
 ?>

@@ -46,7 +46,13 @@ class UploadController extends Controller
     public function createMusic(Request $request, $musicId = null) {
         $typeUpload = 'music';
         if($musicId) {
-            $music = $this->uploadRepository->findMusicStatus(Auth::user()->id, $musicId, [UPLOAD_STAGE_UNCENSOR]);
+            $id = Auth::user()->id;
+            $arrStage = [UPLOAD_STAGE_DELETED, UPLOAD_STAGE_UNCENSOR, UPLOAD_STAGE_INCONVERT, UPLOAD_STAGE_FULLCONVERT];
+            if(Auth::user()->hasPermission('duyet_nhac')) {
+                $id = 'permission_duyet_csn';
+                $arrStage[] = UPLOAD_STAGE_FULLCENSOR;
+            }
+            $music = $this->uploadRepository->findMusicStatus($id, $musicId, $arrStage);
             if(!$music)
                 return view('errors.404');
         }
@@ -55,7 +61,13 @@ class UploadController extends Controller
     public function createVideo(Request $request, $musicId = null) {
         $typeUpload = 'video';
         if($musicId) {
-            $music = $this->uploadRepository->findMusicStatus(Auth::user()->id, $musicId, [UPLOAD_STAGE_UNCENSOR]);
+            $id = Auth::user()->id;
+            $arrStage = [UPLOAD_STAGE_DELETED, UPLOAD_STAGE_UNCENSOR, UPLOAD_STAGE_INCONVERT, UPLOAD_STAGE_FULLCONVERT];
+            if(Auth::user()->hasPermission('duyet_nhac')) {
+                $id = 'permission_duyet_csn';
+                $arrStage[] = UPLOAD_STAGE_FULLCENSOR;
+            }
+            $music = $this->uploadRepository->findMusicStatus($id, $musicId, $arrStage);
             if(!$music)
                 return view('errors.404');
         }
@@ -188,7 +200,15 @@ class UploadController extends Controller
         $typeUpload = $request->input('type_upload');
         $mess = $typeUpload == 'music' ? 'bài hát' : 'video';
         if($request->input('action_upload') == 'edit') {
-            $result = $this->uploadRepository->findMusicStatus(Auth::user()->id, $musicId, [UPLOAD_STAGE_UNCENSOR]);
+            $userId = Auth::user()->id;
+            $arrStage = [UPLOAD_STAGE_DELETED, UPLOAD_STAGE_UNCENSOR, UPLOAD_STAGE_INCONVERT, UPLOAD_STAGE_FULLCONVERT];
+            $per_Xet_Duyet = Auth::user()->hasPermission('duyet_nhac');
+            $per_Xet_Duyet_Chat_luong = Auth::user()->hasPermission('duyet_sua_chat_luong_nhac');
+            if($per_Xet_Duyet) {
+                $userId = 'permission_duyet_csn';
+                $arrStage[] = UPLOAD_STAGE_FULLCENSOR;
+            }
+            $result = $this->uploadRepository->findMusicStatus($userId, $musicId, $arrStage);
             if(!$result)
                 return view('errors.404');
             $result->music_title = $request->input('music_title') ?? '';
@@ -205,6 +225,13 @@ class UploadController extends Controller
             $result->music_lyric = $request->input('music_lyric') ?? '';
             $result->music_source_url = $request->input('music_source_url') ?? '';
             $result->music_note = $request->input('music_note') ?? '';
+            if($per_Xet_Duyet) {
+                $result->music_state = $request->input('music_state');
+            }
+            if($per_Xet_Duyet_Chat_luong) {
+                $result->music_bitrate_fixed = $request->input('music_bitrate_fixed');
+                $result->music_bitrate_fixed_by = Auth::user()->id;
+            }
             $result->save();
             return redirect()->route('upload.storeMusic', ['musicId' => $musicId])->with('success', 'Đã chỉnh sửa '.$mess.' ' . $result->music_title);
         }else{
@@ -227,6 +254,7 @@ class UploadController extends Controller
                 'music_filesize' => $request->input('music_filesize') ?? 0,
                 'music_source_url' => $request->input('music_source_url') ?? '',
                 'music_filename_upload' => $request->input('drop_files'),
+                'music_state' => UPLOAD_STAGE_UNCENSOR,
             ];
             $result = $this->uploadRepository->create($csnMusic);
         }

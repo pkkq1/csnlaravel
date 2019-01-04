@@ -42,7 +42,7 @@ $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
                         <li class="bai-hat"><a class="bai-hat" onclick="userTab('music', '/user/music_favourite')" href="#music"><span><i class="material-icons" style="font-size: 11px;">favorite_border</i> Bài Hát</span></a></li>
                         <li class="video"><a class="video" onclick="userTab('video', '/user/video_favourite')" href="#video"><span><i class="material-icons" style="font-size: 11px;">favorite_border</i> Video</span></a></li>
                         <li class="ca-si"><a class="ca-si" onclick="userTab('artist', '/user/artist_favourite')" href="#artist"><span><i class="material-icons" style="font-size: 11px;">favorite_border</i> Ca Sĩ</span></a></li>
-                        @if($mySelf)
+                        @if($mySelf || Auth::user()->hasPermission('duyet_sua_nhac'))
                         <li class="tu-nhac"><a class="tu-nhac" href="#uploaded" onclick="musicUserTab('musicUploaded')" ><span>Tủ nhạc</span></a></li>
                         @endif
                     </ul>
@@ -169,7 +169,8 @@ $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
             type: "POST",
             dataType: "html",
             data: {
-                'stage' : stage
+                'stage' : stage,
+                'user_id' : '<?php echo $user->id ?>'
             },
             beforeSend: function () {
                 if(loaded) return false;

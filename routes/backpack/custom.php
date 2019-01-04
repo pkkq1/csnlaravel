@@ -15,6 +15,8 @@ Route::group([
     CRUD::resource('category_playlist', 'CategoryPlaylistController');
     CRUD::resource('playlist_user', 'PlaylistUserController');
     CRUD::resource('playlist_publisher', 'PlaylistPublisherController');
+    CRUD::resource('music', 'MusicController');
+    CRUD::resource('video', 'VideoController');
     Route::get('playlist_user/{id}/approval', 'PlaylistUserController@approvalPublisher');
 
     Route::get('artist_upload/{id}/approval', 'ArtistUploadController@approvalArtistUpload');

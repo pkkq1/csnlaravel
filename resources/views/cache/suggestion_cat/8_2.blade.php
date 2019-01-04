@@ -48,26 +48,6 @@ $typeDup = array (
   ),
   2 => 
   array (
-    'music_id' => 1956354,
-    'cat_id' => 8,
-    'cat_level' => 2,
-    'cover_id' => 94978,
-    'music_title_url' => '16-novembre~rimk',
-    'music_title' => '16 Novembre',
-    'music_artist' => 'Rim\'K',
-    'music_artist_id' => '67485',
-    'music_album_id' => '',
-    'music_listen' => 510,
-    'music_bitrate' => 1000,
-    'music_filename' => '1956354-c1878c71.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 216,
-    'music_artist_html' => '<a href="/ca-si/RimK~Y3NuX2FydGlzdH42NzQ4NQ==.html">Rim\'K</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  3 => 
-  array (
     'music_id' => 1956363,
     'cat_id' => 8,
     'cat_level' => 2,
@@ -86,7 +66,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/RimK~Y3NuX2FydGlzdH42NzQ4NQ==.html">Rim\'K</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  4 => 
+  3 => 
   array (
     'music_id' => 1800053,
     'cat_id' => 8,
@@ -106,7 +86,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Wisin-amp~Y3NuX2FydGlzdH4xNjAxNg==.html">Wisin &amp</a>, <a href="/ca-si/Yandel~Y3NuX2FydGlzdH45NjA=.html">Yandel</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">267kbps</span>',
   ),
-  5 => 
+  4 => 
   array (
     'music_id' => 1800067,
     'cat_id' => 8,
@@ -126,7 +106,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Wisin-amp~Y3NuX2FydGlzdH4xNjAxNg==.html">Wisin &amp</a>, <a href="/ca-si/Yandel~Y3NuX2FydGlzdH45NjA=.html">Yandel</a>, <a href="/ca-si/Enrique-Iglesias~Y3NuX2FydGlzdH42MDQ=.html">Enrique Iglesias</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">268kbps</span>',
   ),
-  6 => 
+  5 => 
   array (
     'music_id' => 1650558,
     'cat_id' => 8,
@@ -146,7 +126,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/The-Shin-Seka~Y3NuX2FydGlzdH40NjUzMw==.html">The Shin Sekaï</a>, <a href="/ca-si/Black-M~Y3NuX2FydGlzdH40NjUzMg==.html">Black M</a>, <a href="/ca-si/Abou-Debeing~Y3NuX2FydGlzdH44MTk5NA==.html">Abou Debeing</a>, <a href="/ca-si/Spri-Noir~Y3NuX2FydGlzdH44MTk5NQ==.html">S.pri Noir</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  7 => 
+  6 => 
   array (
     'music_id' => 1730916,
     'cat_id' => 8,
@@ -166,7 +146,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Soprano~Y3NuX2FydGlzdH4xMzU3.html">Soprano</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
   ),
-  8 => 
+  7 => 
   array (
     'music_id' => 1650555,
     'cat_id' => 8,
@@ -186,7 +166,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/The-Shin-Seka~Y3NuX2FydGlzdH40NjUzMw==.html">The Shin Sekaï</a>, <a href="/ca-si/Gradur~Y3NuX2FydGlzdH44MTk5Mw==.html">Gradur</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  9 => 
+  8 => 
   array (
     'music_id' => 1730939,
     'cat_id' => 8,
@@ -206,7 +186,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Soprano~Y3NuX2FydGlzdH4xMzU3.html">Soprano</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">128kbps</span>',
   ),
-  10 => 
+  9 => 
   array (
     'music_id' => 1599542,
     'cat_id' => 8,
@@ -226,7 +206,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Booba~Y3NuX2FydGlzdH42MTU3.html">Booba</a>, <a href="/ca-si/Siboy~Y3NuX2FydGlzdH43NjY2Nw==.html">Siboy</a>, <a href="/ca-si/Benash~Y3NuX2FydGlzdH43NjY2OA==.html">Benash</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  11 => 
+  10 => 
   array (
     'music_id' => 1650567,
     'cat_id' => 8,
@@ -246,7 +226,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/The-Shin-Seka~Y3NuX2FydGlzdH40NjUzMw==.html">The Shin Sekaï</a>, <a href="/ca-si/Matre-Gims~Y3NuX2FydGlzdH40NjUzOQ==.html">Maître Gims</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  12 => 
+  11 => 
   array (
     'music_id' => 1650552,
     'cat_id' => 8,
@@ -266,7 +246,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/The-Shin-Seka~Y3NuX2FydGlzdH40NjUzMw==.html">The Shin Sekaï</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  13 => 
+  12 => 
   array (
     'music_id' => 1650566,
     'cat_id' => 8,
@@ -286,7 +266,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/The-Shin-Seka~Y3NuX2FydGlzdH40NjUzMw==.html">The Shin Sekaï</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  14 => 
+  13 => 
   array (
     'music_id' => 1650562,
     'cat_id' => 8,
@@ -306,7 +286,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/The-Shin-Seka~Y3NuX2FydGlzdH40NjUzMw==.html">The Shin Sekaï</a>, <a href="/ca-si/Soprano~Y3NuX2FydGlzdH4xMzU3.html">Soprano</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  15 => 
+  14 => 
   array (
     'music_id' => 1731377,
     'cat_id' => 8,
@@ -326,7 +306,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Matre-Gims~Y3NuX2FydGlzdH40NjUzOQ==.html">Maître Gims</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">128kbps</span>',
   ),
-  16 => 
+  15 => 
   array (
     'music_id' => 1650560,
     'cat_id' => 8,
@@ -346,7 +326,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/The-Shin-Seka~Y3NuX2FydGlzdH40NjUzMw==.html">The Shin Sekaï</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  17 => 
+  16 => 
   array (
     'music_id' => 1650559,
     'cat_id' => 8,
@@ -366,7 +346,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/The-Shin-Seka~Y3NuX2FydGlzdH40NjUzMw==.html">The Shin Sekaï</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  18 => 
+  17 => 
   array (
     'music_id' => 1650554,
     'cat_id' => 8,
@@ -386,7 +366,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/The-Shin-Seka~Y3NuX2FydGlzdH40NjUzMw==.html">The Shin Sekaï</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  19 => 
+  18 => 
   array (
     'music_id' => 1650564,
     'cat_id' => 8,
@@ -406,7 +386,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/The-Shin-Seka~Y3NuX2FydGlzdH40NjUzMw==.html">The Shin Sekaï</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  20 => 
+  19 => 
   array (
     'music_id' => 1650565,
     'cat_id' => 8,
@@ -426,7 +406,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/The-Shin-Seka~Y3NuX2FydGlzdH40NjUzMw==.html">The Shin Sekaï</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  21 => 
+  20 => 
   array (
     'music_id' => 1650561,
     'cat_id' => 8,
@@ -446,7 +426,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/The-Shin-Seka~Y3NuX2FydGlzdH40NjUzMw==.html">The Shin Sekaï</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  22 => 
+  21 => 
   array (
     'music_id' => 1805748,
     'cat_id' => 8,
@@ -466,7 +446,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Maitre-Gims~Y3NuX2FydGlzdH40MzM0OQ==.html">Maitre Gims</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  23 => 
+  22 => 
   array (
     'music_id' => 1650568,
     'cat_id' => 8,
@@ -486,7 +466,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/The-Shin-Seka~Y3NuX2FydGlzdH40NjUzMw==.html">The Shin Sekaï</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  24 => 
+  23 => 
   array (
     'music_id' => 1650569,
     'cat_id' => 8,
@@ -506,7 +486,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/The-Shin-Seka~Y3NuX2FydGlzdH40NjUzMw==.html">The Shin Sekaï</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  25 => 
+  24 => 
   array (
     'music_id' => 1650553,
     'cat_id' => 8,
@@ -526,7 +506,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/The-Shin-Seka~Y3NuX2FydGlzdH40NjUzMw==.html">The Shin Sekaï</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  26 => 
+  25 => 
   array (
     'music_id' => 1650556,
     'cat_id' => 8,
@@ -546,7 +526,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/The-Shin-Seka~Y3NuX2FydGlzdH40NjUzMw==.html">The Shin Sekaï</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  27 => 
+  26 => 
   array (
     'music_id' => 1800058,
     'cat_id' => 8,
@@ -566,7 +546,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Wisin-amp~Y3NuX2FydGlzdH4xNjAxNg==.html">Wisin &amp</a>, <a href="/ca-si/Yandel~Y3NuX2FydGlzdH45NjA=.html">Yandel</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">263kbps</span>',
   ),
-  28 => 
+  27 => 
   array (
     'music_id' => 1650557,
     'cat_id' => 8,
@@ -586,7 +566,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/The-Shin-Seka~Y3NuX2FydGlzdH40NjUzMw==.html">The Shin Sekaï</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  29 => 
+  28 => 
   array (
     'music_id' => 1506879,
     'cat_id' => 8,
@@ -606,27 +586,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Alonzo~Y3NuX2FydGlzdH42NzQ3OA==.html">Alonzo</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  30 => 
-  array (
-    'music_id' => 367188,
-    'cat_id' => 8,
-    'cat_level' => 2,
-    'cover_id' => 0,
-    'music_title_url' => 'regarde-moi~soprano',
-    'music_title' => 'Regarde-Moi',
-    'music_artist' => 'Soprano',
-    'music_artist_id' => '1357',
-    'music_album_id' => '',
-    'music_listen' => 2149,
-    'music_bitrate' => 128,
-    'music_filename' => '367188-74c9cbf7.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 241,
-    'music_artist_html' => '<a href="/ca-si/Soprano~Y3NuX2FydGlzdH4xMzU3.html">Soprano</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">128kbps</span>',
-  ),
-  31 => 
+  29 => 
   array (
     'music_id' => 1731374,
     'cat_id' => 8,
@@ -646,7 +606,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Soprano~Y3NuX2FydGlzdH4xMzU3.html">Soprano</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">128kbps</span>',
   ),
-  32 => 
+  30 => 
   array (
     'music_id' => 1650563,
     'cat_id' => 8,
@@ -666,7 +626,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/The-Shin-Seka~Y3NuX2FydGlzdH40NjUzMw==.html">The Shin Sekaï</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  33 => 
+  31 => 
   array (
     'music_id' => 1731376,
     'cat_id' => 8,
@@ -686,7 +646,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Ridsa~Y3NuX2FydGlzdH44NDAwOQ==.html">Ridsa</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">128kbps</span>',
   ),
-  34 => 
+  32 => 
   array (
     'music_id' => 1506881,
     'cat_id' => 8,
@@ -706,7 +666,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Sarah-Riano~Y3NuX2FydGlzdH42NzQ3OQ==.html">Sarah Riano</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  35 => 
+  33 => 
   array (
     'music_id' => 1800051,
     'cat_id' => 8,
@@ -726,7 +686,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Wisin-amp~Y3NuX2FydGlzdH4xNjAxNg==.html">Wisin &amp</a>, <a href="/ca-si/Yandel~Y3NuX2FydGlzdH45NjA=.html">Yandel</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">273kbps</span>',
   ),
-  36 => 
+  34 => 
   array (
     'music_id' => 1800071,
     'cat_id' => 8,
@@ -746,67 +706,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Enrique-Iglesias~Y3NuX2FydGlzdH42MDQ=.html">Enrique Iglesias</a>, <a href="/ca-si/Wisin-amp~Y3NuX2FydGlzdH4xNjAxNg==.html">Wisin &amp</a>, <a href="/ca-si/Yandel~Y3NuX2FydGlzdH45NjA=.html">Yandel</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">261kbps</span>',
   ),
-  37 => 
-  array (
-    'music_id' => 1506886,
-    'cat_id' => 8,
-    'cat_level' => 2,
-    'cover_id' => 42013,
-    'music_title_url' => 'green-money~green',
-    'music_title' => 'Green Money',
-    'music_artist' => 'Green',
-    'music_artist_id' => '67484',
-    'music_album_id' => 'Europacorp',
-    'music_listen' => 2220,
-    'music_bitrate' => 1000,
-    'music_filename' => '1506886-72391288.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 253,
-    'music_artist_html' => '<a href="/ca-si/Green~Y3NuX2FydGlzdH42NzQ4NA==.html">Green</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  38 => 
-  array (
-    'music_id' => 1506880,
-    'cat_id' => 8,
-    'cat_level' => 2,
-    'cover_id' => 42013,
-    'music_title_url' => 'rien-a-perdre~la-fouine',
-    'music_title' => 'Rien A Perdre',
-    'music_artist' => 'La Fouine',
-    'music_artist_id' => '1355',
-    'music_album_id' => 'Europacorp',
-    'music_listen' => 2825,
-    'music_bitrate' => 1000,
-    'music_filename' => '1506880-db576e44.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 264,
-    'music_artist_html' => '<a href="/ca-si/La-Fouine~Y3NuX2FydGlzdH4xMzU1.html">La Fouine</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  39 => 
-  array (
-    'music_id' => 1506888,
-    'cat_id' => 8,
-    'cat_level' => 2,
-    'cover_id' => 42013,
-    'music_title_url' => 'terrain-vague~rimk',
-    'music_title' => 'Terrain Vague',
-    'music_artist' => 'Rim\'K',
-    'music_artist_id' => '67485',
-    'music_album_id' => 'Europacorp',
-    'music_listen' => 1480,
-    'music_bitrate' => 1000,
-    'music_filename' => '1506888-0eded9d0.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 256,
-    'music_artist_html' => '<a href="/ca-si/RimK~Y3NuX2FydGlzdH42NzQ4NQ==.html">Rim\'K</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  40 => 
+  35 => 
   array (
     'music_id' => 1506890,
     'cat_id' => 8,
@@ -826,27 +726,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Brasco~Y3NuX2FydGlzdH4yNTA0Nw==.html">Brasco</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  41 => 
-  array (
-    'music_id' => 1372830,
-    'cat_id' => 8,
-    'cat_level' => 2,
-    'cover_id' => 30562,
-    'music_title_url' => 'je-taime-mon-amour~buck-65-charlotte-savary',
-    'music_title' => 'Je T\'aime Mon Amour',
-    'music_artist' => 'Buck 65;Charlotte Savary',
-    'music_artist_id' => '24237;55286',
-    'music_album_id' => '',
-    'music_listen' => 1653,
-    'music_bitrate' => 1000,
-    'music_filename' => '1372830-e275d324.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 194,
-    'music_artist_html' => '<a href="/ca-si/Buck-65~Y3NuX2FydGlzdH4yNDIzNw==.html">Buck 65</a>, <a href="/ca-si/Charlotte-Savary~Y3NuX2FydGlzdH41NTI4Ng==.html">Charlotte Savary</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  42 => 
+  36 => 
   array (
     'music_id' => 1800062,
     'cat_id' => 8,
@@ -866,7 +746,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Wisin-amp~Y3NuX2FydGlzdH4xNjAxNg==.html">Wisin &amp</a>, <a href="/ca-si/Yandel~Y3NuX2FydGlzdH45NjA=.html">Yandel</a>, <a href="/ca-si/T-Pain~Y3NuX2FydGlzdH41NzM=.html">T-Pain</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">265kbps</span>',
   ),
-  43 => 
+  37 => 
   array (
     'music_id' => 1800047,
     'cat_id' => 8,
@@ -886,7 +766,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Wisin-amp~Y3NuX2FydGlzdH4xNjAxNg==.html">Wisin &amp</a>, <a href="/ca-si/Yandel~Y3NuX2FydGlzdH45NjA=.html">Yandel</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">273kbps</span>',
   ),
-  44 => 
+  38 => 
   array (
     'music_id' => 1800045,
     'cat_id' => 8,
@@ -906,7 +786,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Wisin-amp~Y3NuX2FydGlzdH4xNjAxNg==.html">Wisin &amp</a>, <a href="/ca-si/Yandel~Y3NuX2FydGlzdH45NjA=.html">Yandel</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">262kbps</span>',
   ),
-  45 => 
+  39 => 
   array (
     'music_id' => 1506884,
     'cat_id' => 8,
@@ -926,7 +806,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/La-38eme-Donne~Y3NuX2FydGlzdH42NzQ4Mg==.html">La 38eme Donne</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  46 => 
+  40 => 
   array (
     'music_id' => 1506893,
     'cat_id' => 8,
@@ -946,7 +826,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Oxmo-Puccino~Y3NuX2FydGlzdH42NzQ4Ng==.html">Oxmo Puccino</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">192kbps</span>',
   ),
-  47 => 
+  41 => 
   array (
     'music_id' => 1506882,
     'cat_id' => 8,
@@ -966,27 +846,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Axiom~Y3NuX2FydGlzdH42NzQ4MA==.html">Axiom</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  48 => 
-  array (
-    'music_id' => 1800054,
-    'cat_id' => 8,
-    'cat_level' => 2,
-    'cover_id' => 72955,
-    'music_title_url' => 'ella-me-llama~wisin-yandel',
-    'music_title' => 'Ella Me Llama',
-    'music_artist' => 'Wisin &amp;Yandel',
-    'music_artist_id' => '16016;960',
-    'music_album_id' => '',
-    'music_listen' => 3635,
-    'music_bitrate' => 281,
-    'music_filename' => '1800054-3436075f.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 257,
-    'music_artist_html' => '<a href="/ca-si/Wisin-amp~Y3NuX2FydGlzdH4xNjAxNg==.html">Wisin &amp</a>, <a href="/ca-si/Yandel~Y3NuX2FydGlzdH45NjA=.html">Yandel</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: darkblue">281kbps</span>',
-  ),
-  49 => 
+  42 => 
   array (
     'music_id' => 1800046,
     'cat_id' => 8,
@@ -1006,7 +866,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Wisin-amp~Y3NuX2FydGlzdH4xNjAxNg==.html">Wisin &amp</a>, <a href="/ca-si/Yandel~Y3NuX2FydGlzdH45NjA=.html">Yandel</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">261kbps</span>',
   ),
-  50 => 
+  43 => 
   array (
     'music_id' => 1800050,
     'cat_id' => 8,
@@ -1026,27 +886,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Wisin-amp~Y3NuX2FydGlzdH4xNjAxNg==.html">Wisin &amp</a>, <a href="/ca-si/Yandel~Y3NuX2FydGlzdH45NjA=.html">Yandel</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">264kbps</span>',
   ),
-  51 => 
-  array (
-    'music_id' => 1800056,
-    'cat_id' => 8,
-    'cat_level' => 2,
-    'cover_id' => 72955,
-    'music_title_url' => 'como-quieres-que-te-olvide~wisin-yandel-ednita-nazario',
-    'music_title' => 'Como Quieres Que Te Olvide',
-    'music_artist' => 'Wisin &amp;Yandel;Ednita Nazario',
-    'music_artist_id' => '16016;960;98094',
-    'music_album_id' => '',
-    'music_listen' => 1385,
-    'music_bitrate' => 264,
-    'music_filename' => '1800056-867f0bcd.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 274,
-    'music_artist_html' => '<a href="/ca-si/Wisin-amp~Y3NuX2FydGlzdH4xNjAxNg==.html">Wisin &amp</a>, <a href="/ca-si/Yandel~Y3NuX2FydGlzdH45NjA=.html">Yandel</a>, <a href="/ca-si/Ednita-Nazario~Y3NuX2FydGlzdH45ODA5NA==.html">Ednita Nazario</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: darkblue">264kbps</span>',
-  ),
-  52 => 
+  44 => 
   array (
     'music_id' => 1800059,
     'cat_id' => 8,
@@ -1066,47 +906,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Wisin-amp~Y3NuX2FydGlzdH4xNjAxNg==.html">Wisin &amp</a>, <a href="/ca-si/Yandel~Y3NuX2FydGlzdH45NjA=.html">Yandel</a>, <a href="/ca-si/Yomo~Y3NuX2FydGlzdH45ODA5NQ==.html">Yomo</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">277kbps</span>',
   ),
-  53 => 
-  array (
-    'music_id' => 1800063,
-    'cat_id' => 8,
-    'cat_level' => 2,
-    'cover_id' => 72955,
-    'music_title_url' => 'all-up-to-you~wisin-yandel-aventura-akon',
-    'music_title' => 'All Up To You',
-    'music_artist' => 'Wisin &amp;Yandel;Aventura;Akon',
-    'music_artist_id' => '16016;960;6949;532',
-    'music_album_id' => '',
-    'music_listen' => 1751,
-    'music_bitrate' => 272,
-    'music_filename' => '1800063-c15c29c7.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 220,
-    'music_artist_html' => '<a href="/ca-si/Wisin-amp~Y3NuX2FydGlzdH4xNjAxNg==.html">Wisin &amp</a>, <a href="/ca-si/Yandel~Y3NuX2FydGlzdH45NjA=.html">Yandel</a>, <a href="/ca-si/Aventura~Y3NuX2FydGlzdH42OTQ5.html">Aventura</a>, <a href="/ca-si/Akon~Y3NuX2FydGlzdH41MzI=.html">Akon</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: darkblue">272kbps</span>',
-  ),
-  54 => 
-  array (
-    'music_id' => 1805747,
-    'cat_id' => 8,
-    'cat_level' => 2,
-    'cover_id' => 73860,
-    'music_title_url' => 'outsider~maitre-gims-beidjik-dadju-xgangs',
-    'music_title' => 'Outsider',
-    'music_artist' => 'Maitre Gims;Beidjik;Dadju;Xgangs',
-    'music_artist_id' => '43349;98595;98596;98597',
-    'music_album_id' => '',
-    'music_listen' => 727,
-    'music_bitrate' => 1000,
-    'music_filename' => '1805747-8173b420.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 299,
-    'music_artist_html' => '<a href="/ca-si/Maitre-Gims~Y3NuX2FydGlzdH40MzM0OQ==.html">Maitre Gims</a>, <a href="/ca-si/Beidjik~Y3NuX2FydGlzdH45ODU5NQ==.html">Beidjik</a>, <a href="/ca-si/Dadju~Y3NuX2FydGlzdH45ODU5Ng==.html">Dadju</a>, <a href="/ca-si/Xgangs~Y3NuX2FydGlzdH45ODU5Nw==.html">Xgangs</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  55 => 
+  45 => 
   array (
     'music_id' => 1800057,
     'cat_id' => 8,
@@ -1126,67 +926,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Wisin-amp~Y3NuX2FydGlzdH4xNjAxNg==.html">Wisin &amp</a>, <a href="/ca-si/Yandel~Y3NuX2FydGlzdH45NjA=.html">Yandel</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">268kbps</span>',
   ),
-  56 => 
-  array (
-    'music_id' => 1805734,
-    'cat_id' => 8,
-    'cat_level' => 2,
-    'cover_id' => 73860,
-    'music_title_url' => 'j-me-tire~maitre-gims',
-    'music_title' => 'J\' Me Tire',
-    'music_artist' => 'Maitre Gims',
-    'music_artist_id' => '43349',
-    'music_album_id' => '',
-    'music_listen' => 1236,
-    'music_bitrate' => 1000,
-    'music_filename' => '1805734-e5e4dc58.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 249,
-    'music_artist_html' => '<a href="/ca-si/Maitre-Gims~Y3NuX2FydGlzdH40MzM0OQ==.html">Maitre Gims</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  57 => 
-  array (
-    'music_id' => 1800049,
-    'cat_id' => 8,
-    'cat_level' => 2,
-    'cover_id' => 72955,
-    'music_title_url' => 'ahi-voy~wisin-yandel',
-    'music_title' => 'Ahí Voy',
-    'music_artist' => 'Wisin &amp;Yandel',
-    'music_artist_id' => '16016;960',
-    'music_album_id' => '',
-    'music_listen' => 1583,
-    'music_bitrate' => 261,
-    'music_filename' => '1800049-fecb2a8c.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 241,
-    'music_artist_html' => '<a href="/ca-si/Wisin-amp~Y3NuX2FydGlzdH4xNjAxNg==.html">Wisin &amp</a>, <a href="/ca-si/Yandel~Y3NuX2FydGlzdH45NjA=.html">Yandel</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: darkblue">261kbps</span>',
-  ),
-  58 => 
-  array (
-    'music_id' => 1805749,
-    'cat_id' => 8,
-    'cat_level' => 2,
-    'cover_id' => 73860,
-    'music_title_url' => 'changer~maitre-gims',
-    'music_title' => 'Changer',
-    'music_artist' => 'Maitre Gims',
-    'music_artist_id' => '43349',
-    'music_album_id' => '',
-    'music_listen' => 996,
-    'music_bitrate' => 1000,
-    'music_filename' => '1805749-305ba17a.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 211,
-    'music_artist_html' => '<a href="/ca-si/Maitre-Gims~Y3NuX2FydGlzdH40MzM0OQ==.html">Maitre Gims</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  59 => 
+  46 => 
   array (
     'music_id' => 1800055,
     'cat_id' => 8,
@@ -1206,47 +946,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Wisin-amp~Y3NuX2FydGlzdH4xNjAxNg==.html">Wisin &amp</a>, <a href="/ca-si/Yandel~Y3NuX2FydGlzdH45NjA=.html">Yandel</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">285kbps</span>',
   ),
-  60 => 
-  array (
-    'music_id' => 1805732,
-    'cat_id' => 8,
-    'cat_level' => 2,
-    'cover_id' => 73860,
-    'music_title_url' => 'intro~maitre-gims',
-    'music_title' => 'Intro',
-    'music_artist' => 'Maitre Gims',
-    'music_artist_id' => '43349',
-    'music_album_id' => '',
-    'music_listen' => 1062,
-    'music_bitrate' => 1000,
-    'music_filename' => '1805732-d4c52256.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 169,
-    'music_artist_html' => '<a href="/ca-si/Maitre-Gims~Y3NuX2FydGlzdH40MzM0OQ==.html">Maitre Gims</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  61 => 
-  array (
-    'music_id' => 1800060,
-    'cat_id' => 8,
-    'cat_level' => 2,
-    'cover_id' => 72955,
-    'music_title_url' => 'sandungueo~wisin-yandel-yomo-franco-el-gorila-gadiel',
-    'music_title' => 'Sandungueo',
-    'music_artist' => 'Wisin &amp;Yandel;Yomo;Franco \'El Gorila\';Gadiel',
-    'music_artist_id' => '16016;960;98095;98096;98097',
-    'music_album_id' => '',
-    'music_listen' => 1454,
-    'music_bitrate' => 262,
-    'music_filename' => '1800060-8d328b13.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 397,
-    'music_artist_html' => '<a href="/ca-si/Wisin-amp~Y3NuX2FydGlzdH4xNjAxNg==.html">Wisin &amp</a>, <a href="/ca-si/Yandel~Y3NuX2FydGlzdH45NjA=.html">Yandel</a>, <a href="/ca-si/Yomo~Y3NuX2FydGlzdH45ODA5NQ==.html">Yomo</a>, <a href="/ca-si/Franco-El-Gorila~Y3NuX2FydGlzdH45ODA5Ng==.html">Franco \'El Gorila\'</a>, <a href="/ca-si/Gadiel~Y3NuX2FydGlzdH45ODA5Nw==.html">Gadiel</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: darkblue">262kbps</span>',
-  ),
-  62 => 
+  47 => 
   array (
     'music_id' => 1805735,
     'cat_id' => 8,
@@ -1266,47 +966,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Maitre-Gims~Y3NuX2FydGlzdH40MzM0OQ==.html">Maitre Gims</a>, <a href="/ca-si/H-Magnum~Y3NuX2FydGlzdH41NjQ1Ng==.html">H-Magnum</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  63 => 
-  array (
-    'music_id' => 1805733,
-    'cat_id' => 8,
-    'cat_level' => 2,
-    'cover_id' => 73860,
-    'music_title_url' => 'meurtre-par-strangulation~maitre-gims',
-    'music_title' => 'Meurtre Par Strangulation',
-    'music_artist' => 'Maitre Gims',
-    'music_artist_id' => '43349',
-    'music_album_id' => '',
-    'music_listen' => 730,
-    'music_bitrate' => 1000,
-    'music_filename' => '1805733-0d384556.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 262,
-    'music_artist_html' => '<a href="/ca-si/Maitre-Gims~Y3NuX2FydGlzdH40MzM0OQ==.html">Maitre Gims</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  64 => 
-  array (
-    'music_id' => 1805743,
-    'cat_id' => 8,
-    'cat_level' => 2,
-    'cover_id' => 73860,
-    'music_title_url' => 'epuise~maitre-gims',
-    'music_title' => 'Épuisé',
-    'music_artist' => 'Maitre Gims',
-    'music_artist_id' => '43349',
-    'music_album_id' => '',
-    'music_listen' => 1092,
-    'music_bitrate' => 1000,
-    'music_filename' => '1805743-25c6ccfa.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 225,
-    'music_artist_html' => '<a href="/ca-si/Maitre-Gims~Y3NuX2FydGlzdH40MzM0OQ==.html">Maitre Gims</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  65 => 
+  48 => 
   array (
     'music_id' => 1805737,
     'cat_id' => 8,
@@ -1326,47 +986,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Maitre-Gims~Y3NuX2FydGlzdH40MzM0OQ==.html">Maitre Gims</a>, <a href="/ca-si/Black-M~Y3NuX2FydGlzdH40NjUzMg==.html">Black M</a>, <a href="/ca-si/JR-OCrom~Y3NuX2FydGlzdH45ODU5MA==.html">JR O\'Crom</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  66 => 
-  array (
-    'music_id' => 1805744,
-    'cat_id' => 8,
-    'cat_level' => 2,
-    'cover_id' => 73860,
-    'music_title_url' => 'laisse-tomber~maitre-gims-dr-beriz-insolent',
-    'music_title' => 'Laisse Tomber',
-    'music_artist' => 'Maitre Gims;Dr. Beriz;Insolent',
-    'music_artist_id' => '43349;98593;98594',
-    'music_album_id' => '',
-    'music_listen' => 688,
-    'music_bitrate' => 1000,
-    'music_filename' => '1805744-986490b5.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 263,
-    'music_artist_html' => '<a href="/ca-si/Maitre-Gims~Y3NuX2FydGlzdH40MzM0OQ==.html">Maitre Gims</a>, <a href="/ca-si/Dr-Beriz~Y3NuX2FydGlzdH45ODU5Mw==.html">Dr. Beriz</a>, <a href="/ca-si/Insolent~Y3NuX2FydGlzdH45ODU5NA==.html">Insolent</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  67 => 
-  array (
-    'music_id' => 1805745,
-    'cat_id' => 8,
-    'cat_level' => 2,
-    'cover_id' => 73860,
-    'music_title_url' => 'a-la-base~maitre-gims',
-    'music_title' => 'A La Base',
-    'music_artist' => 'Maitre Gims',
-    'music_artist_id' => '43349',
-    'music_album_id' => '',
-    'music_listen' => 661,
-    'music_bitrate' => 1000,
-    'music_filename' => '1805745-19660886.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 244,
-    'music_artist_html' => '<a href="/ca-si/Maitre-Gims~Y3NuX2FydGlzdH40MzM0OQ==.html">Maitre Gims</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  68 => 
+  49 => 
   array (
     'music_id' => 1800066,
     'cat_id' => 8,
@@ -1386,87 +1006,7 @@ $typeDup = array (
     'music_artist_html' => '<a href="/ca-si/Wisin-amp~Y3NuX2FydGlzdH4xNjAxNg==.html">Wisin &amp</a>, <a href="/ca-si/Yandel~Y3NuX2FydGlzdH45NjA=.html">Yandel</a>, <a href="/ca-si/Akon~Y3NuX2FydGlzdH41MzI=.html">Akon</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">277kbps</span>',
   ),
-  69 => 
-  array (
-    'music_id' => 1805736,
-    'cat_id' => 8,
-    'cat_level' => 2,
-    'cover_id' => 73860,
-    'music_title_url' => 'vq2pq~maitre-gims',
-    'music_title' => 'VQ2PQ',
-    'music_artist' => 'Maitre Gims',
-    'music_artist_id' => '43349',
-    'music_album_id' => '',
-    'music_listen' => 738,
-    'music_bitrate' => 1000,
-    'music_filename' => '1805736-4c1976a2.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 220,
-    'music_artist_html' => '<a href="/ca-si/Maitre-Gims~Y3NuX2FydGlzdH40MzM0OQ==.html">Maitre Gims</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  70 => 
-  array (
-    'music_id' => 1805738,
-    'cat_id' => 8,
-    'cat_level' => 2,
-    'cover_id' => 73860,
-    'music_title_url' => 'one-shot-feat~maitre-gims-dry',
-    'music_title' => 'One Shot Feat',
-    'music_artist' => 'Maitre Gims;Dry',
-    'music_artist_id' => '43349;98591',
-    'music_album_id' => '',
-    'music_listen' => 706,
-    'music_bitrate' => 1000,
-    'music_filename' => '1805738-9273e6f9.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 205,
-    'music_artist_html' => '<a href="/ca-si/Maitre-Gims~Y3NuX2FydGlzdH40MzM0OQ==.html">Maitre Gims</a>, <a href="/ca-si/Dry~Y3NuX2FydGlzdH45ODU5MQ==.html">Dry</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  71 => 
-  array (
-    'music_id' => 1805746,
-    'cat_id' => 8,
-    'cat_level' => 2,
-    'cover_id' => 73860,
-    'music_title_url' => 'pas-touche~maitre-gims-pitbull',
-    'music_title' => 'Pas Touché',
-    'music_artist' => 'Maitre Gims;Pitbull',
-    'music_artist_id' => '43349;1814',
-    'music_album_id' => '',
-    'music_listen' => 743,
-    'music_bitrate' => 1000,
-    'music_filename' => '1805746-75422430.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 219,
-    'music_artist_html' => '<a href="/ca-si/Maitre-Gims~Y3NuX2FydGlzdH40MzM0OQ==.html">Maitre Gims</a>, <a href="/ca-si/Pitbull~Y3NuX2FydGlzdH4xODE0.html">Pitbull</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  72 => 
-  array (
-    'music_id' => 1805741,
-    'cat_id' => 8,
-    'cat_level' => 2,
-    'cover_id' => 73860,
-    'music_title_url' => 'la-chute~maitre-gims',
-    'music_title' => 'La Chute',
-    'music_artist' => 'Maitre Gims',
-    'music_artist_id' => '43349',
-    'music_album_id' => '',
-    'music_listen' => 845,
-    'music_bitrate' => 1000,
-    'music_filename' => '1805741-53baaf0c.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 243,
-    'music_artist_html' => '<a href="/ca-si/Maitre-Gims~Y3NuX2FydGlzdH40MzM0OQ==.html">Maitre Gims</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  73 => 
+  50 => 
   array (
     'music_id' => 1800052,
     'cat_id' => 8,
@@ -1485,326 +1025,6 @@ $typeDup = array (
     'music_length' => 265,
     'music_artist_html' => '<a href="/ca-si/Wisin-amp~Y3NuX2FydGlzdH4xNjAxNg==.html">Wisin &amp</a>, <a href="/ca-si/Yandel~Y3NuX2FydGlzdH45NjA=.html">Yandel</a>, <a href="/ca-si/Blackfather-Yaviah~Y3NuX2FydGlzdH45ODA5Mg==.html">Blackfather Yaviah</a>, <a href="/ca-si/Ivi-Queen~Y3NuX2FydGlzdH45ODA5Mw==.html">Ivi Queen</a>',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">260kbps</span>',
-  ),
-  74 => 
-  array (
-    'music_id' => 1805739,
-    'cat_id' => 8,
-    'cat_level' => 2,
-    'cover_id' => 73860,
-    'music_title_url' => 'ou-est-ton-arme~maitre-gims-maska',
-    'music_title' => 'Ou Est Ton Arme',
-    'music_artist' => 'Maitre Gims;Maska',
-    'music_artist_id' => '43349;59633',
-    'music_album_id' => '',
-    'music_listen' => 802,
-    'music_bitrate' => 1000,
-    'music_filename' => '1805739-a9b7f89c.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 267,
-    'music_artist_html' => '<a href="/ca-si/Maitre-Gims~Y3NuX2FydGlzdH40MzM0OQ==.html">Maitre Gims</a>, <a href="/ca-si/Maska~Y3NuX2FydGlzdH41OTYzMw==.html">Maska</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  75 => 
-  array (
-    'music_id' => 1805742,
-    'cat_id' => 8,
-    'cat_level' => 2,
-    'cover_id' => 73860,
-    'music_title_url' => 'ca-marche~maitre-gims-the-shink-sekai',
-    'music_title' => 'Ca Marche',
-    'music_artist' => 'Maitre Gims;The Shink Sekai',
-    'music_artist_id' => '43349;98592',
-    'music_album_id' => '',
-    'music_listen' => 632,
-    'music_bitrate' => 1000,
-    'music_filename' => '1805742-abbb6f12.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 221,
-    'music_artist_html' => '<a href="/ca-si/Maitre-Gims~Y3NuX2FydGlzdH40MzM0OQ==.html">Maitre Gims</a>, <a href="/ca-si/The-Shink-Sekai~Y3NuX2FydGlzdH45ODU5Mg==.html">The Shink Sekai</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  76 => 
-  array (
-    'music_id' => 1805740,
-    'cat_id' => 8,
-    'cat_level' => 2,
-    'cover_id' => 73860,
-    'music_title_url' => 'interlude~maitre-gims',
-    'music_title' => 'Interlude',
-    'music_artist' => 'Maitre Gims',
-    'music_artist_id' => '43349',
-    'music_album_id' => '',
-    'music_listen' => 468,
-    'music_bitrate' => 1000,
-    'music_filename' => '1805740-7591854c.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 100,
-    'music_artist_html' => '<a href="/ca-si/Maitre-Gims~Y3NuX2FydGlzdH40MzM0OQ==.html">Maitre Gims</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  77 => 
-  array (
-    'music_id' => 1956350,
-    'cat_id' => 8,
-    'cat_level' => 2,
-    'cover_id' => 94978,
-    'music_title_url' => 'fratello~rimk',
-    'music_title' => 'Fratello',
-    'music_artist' => 'Rim\'K',
-    'music_artist_id' => '67485',
-    'music_album_id' => '',
-    'music_listen' => 215,
-    'music_bitrate' => 1000,
-    'music_filename' => '1956350-c2a047b8.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 203,
-    'music_artist_html' => '<a href="/ca-si/RimK~Y3NuX2FydGlzdH42NzQ4NQ==.html">Rim\'K</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  78 => 
-  array (
-    'music_id' => 1956359,
-    'cat_id' => 8,
-    'cat_level' => 2,
-    'cover_id' => 94978,
-    'music_title_url' => 'carmen~rimk',
-    'music_title' => 'Carmen',
-    'music_artist' => 'Rim\'K',
-    'music_artist_id' => '67485',
-    'music_album_id' => '',
-    'music_listen' => 167,
-    'music_bitrate' => 1000,
-    'music_filename' => '1956359-fdf517d8.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 223,
-    'music_artist_html' => '<a href="/ca-si/RimK~Y3NuX2FydGlzdH42NzQ4NQ==.html">Rim\'K</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  79 => 
-  array (
-    'music_id' => 1956360,
-    'cat_id' => 8,
-    'cat_level' => 2,
-    'cover_id' => 94978,
-    'music_title_url' => 'drugstore~rimk',
-    'music_title' => 'Drugstore',
-    'music_artist' => 'Rim\'K',
-    'music_artist_id' => '67485',
-    'music_album_id' => '',
-    'music_listen' => 130,
-    'music_bitrate' => 1000,
-    'music_filename' => '1956360-2eefd05d.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 222,
-    'music_artist_html' => '<a href="/ca-si/RimK~Y3NuX2FydGlzdH42NzQ4NQ==.html">Rim\'K</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  80 => 
-  array (
-    'music_id' => 1956349,
-    'cat_id' => 8,
-    'cat_level' => 2,
-    'cover_id' => 94978,
-    'music_title_url' => 'x-men~rimk',
-    'music_title' => 'X-Men',
-    'music_artist' => 'Rim\'K',
-    'music_artist_id' => '67485',
-    'music_album_id' => '',
-    'music_listen' => 585,
-    'music_bitrate' => 1000,
-    'music_filename' => '1956349-da5bfef2.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 175,
-    'music_artist_html' => '<a href="/ca-si/RimK~Y3NuX2FydGlzdH42NzQ4NQ==.html">Rim\'K</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  81 => 
-  array (
-    'music_id' => 1956358,
-    'cat_id' => 8,
-    'cat_level' => 2,
-    'cover_id' => 94978,
-    'music_title_url' => 'immigri~rimk-yl',
-    'music_title' => 'Immigri',
-    'music_artist' => 'Rim\'K, YL',
-    'music_artist_id' => '123472',
-    'music_album_id' => '',
-    'music_listen' => 453,
-    'music_bitrate' => 1000,
-    'music_filename' => '1956358-bef66dc1.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 218,
-    'music_artist_html' => '<a href="/ca-si/RimK-YL~Y3NuX2FydGlzdH4xMjM0NzI=.html">Rim\'K, YL</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  82 => 
-  array (
-    'music_id' => 1956353,
-    'cat_id' => 8,
-    'cat_level' => 2,
-    'cover_id' => 94978,
-    'music_title_url' => 'air-max~rimk-ninho',
-    'music_title' => 'Air Max',
-    'music_artist' => 'Rim\'K, Ninho',
-    'music_artist_id' => '123474',
-    'music_album_id' => '',
-    'music_listen' => 491,
-    'music_bitrate' => 1000,
-    'music_filename' => '1956353-8a67b7b6.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 205,
-    'music_artist_html' => '<a href="/ca-si/RimK-Ninho~Y3NuX2FydGlzdH4xMjM0NzQ=.html">Rim\'K, Ninho</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  83 => 
-  array (
-    'music_id' => 1956357,
-    'cat_id' => 8,
-    'cat_level' => 2,
-    'cover_id' => 94978,
-    'music_title_url' => 'bonhomme-de-neige~rimk',
-    'music_title' => 'Bonhomme De Neige',
-    'music_artist' => 'Rim\'K',
-    'music_artist_id' => '67485',
-    'music_album_id' => '',
-    'music_listen' => 178,
-    'music_bitrate' => 1000,
-    'music_filename' => '1956357-1e2c9f11.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 176,
-    'music_artist_html' => '<a href="/ca-si/RimK~Y3NuX2FydGlzdH42NzQ4NQ==.html">Rim\'K</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  84 => 
-  array (
-    'music_id' => 1956351,
-    'cat_id' => 8,
-    'cat_level' => 2,
-    'cover_id' => 94978,
-    'music_title_url' => 'dans-le-ciel~rimk',
-    'music_title' => 'Dans Le Ciel',
-    'music_artist' => 'Rim\'K',
-    'music_artist_id' => '67485',
-    'music_album_id' => '',
-    'music_listen' => 127,
-    'music_bitrate' => 1000,
-    'music_filename' => '1956351-07f65ce6.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 192,
-    'music_artist_html' => '<a href="/ca-si/RimK~Y3NuX2FydGlzdH42NzQ4NQ==.html">Rim\'K</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  85 => 
-  array (
-    'music_id' => 1956361,
-    'cat_id' => 8,
-    'cat_level' => 2,
-    'cover_id' => 94978,
-    'music_title_url' => 'hall-13~rimk-ap',
-    'music_title' => 'Hall 13',
-    'music_artist' => 'Rim\'K, AP',
-    'music_artist_id' => '123471',
-    'music_album_id' => '',
-    'music_listen' => 310,
-    'music_bitrate' => 1000,
-    'music_filename' => '1956361-c0b24fd9.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 185,
-    'music_artist_html' => '<a href="/ca-si/RimK-AP~Y3NuX2FydGlzdH4xMjM0NzE=.html">Rim\'K, AP</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  86 => 
-  array (
-    'music_id' => 1956352,
-    'cat_id' => 8,
-    'cat_level' => 2,
-    'cover_id' => 94978,
-    'music_title_url' => 'insomnie~rimk',
-    'music_title' => 'Insomnie',
-    'music_artist' => 'Rim\'K',
-    'music_artist_id' => '67485',
-    'music_album_id' => '',
-    'music_listen' => 94,
-    'music_bitrate' => 1000,
-    'music_filename' => '1956352-48d3acca.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 151,
-    'music_artist_html' => '<a href="/ca-si/RimK~Y3NuX2FydGlzdH42NzQ4NQ==.html">Rim\'K</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  87 => 
-  array (
-    'music_id' => 1956362,
-    'cat_id' => 8,
-    'cat_level' => 2,
-    'cover_id' => 94978,
-    'music_title_url' => 'cruel~rimk',
-    'music_title' => 'Cruel',
-    'music_artist' => 'Rim\'K',
-    'music_artist_id' => '67485',
-    'music_album_id' => '',
-    'music_listen' => 72,
-    'music_bitrate' => 1000,
-    'music_filename' => '1956362-a84ffdcb.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 212,
-    'music_artist_html' => '<a href="/ca-si/RimK~Y3NuX2FydGlzdH42NzQ4NQ==.html">Rim\'K</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  88 => 
-  array (
-    'music_id' => 1956356,
-    'cat_id' => 8,
-    'cat_level' => 2,
-    'cover_id' => 94978,
-    'music_title_url' => 'delorean~rimk-vald',
-    'music_title' => 'DeLorean',
-    'music_artist' => 'Rim\'K, Vald',
-    'music_artist_id' => '123473',
-    'music_album_id' => '',
-    'music_listen' => 328,
-    'music_bitrate' => 1000,
-    'music_filename' => '1956356-0be7ec69.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 209,
-    'music_artist_html' => '<a href="/ca-si/RimK-Vald~Y3NuX2FydGlzdH4xMjM0NzM=.html">Rim\'K, Vald</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  89 => 
-  array (
-    'music_id' => 1956355,
-    'cat_id' => 8,
-    'cat_level' => 2,
-    'cover_id' => 94978,
-    'music_title_url' => 'moonwalk~rimk',
-    'music_title' => 'Moonwalk',
-    'music_artist' => 'Rim\'K',
-    'music_artist_id' => '67485',
-    'music_album_id' => '',
-    'music_listen' => 84,
-    'music_bitrate' => 1000,
-    'music_filename' => '1956355-e57cdd01.mp3',
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_length' => 183,
-    'music_artist_html' => '<a href="/ca-si/RimK~Y3NuX2FydGlzdH42NzQ4NQ==.html">Rim\'K</a>',
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
 );
 ?>

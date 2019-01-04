@@ -20,6 +20,13 @@
         <li><a href="{{env('APP_URL').'/'.config('backpack.base.route_prefix', 'admin')}}/playlist_publisher"><i class="fa fa-align-right"></i> <span>Playlist Publisher</span></a></li>
     </ul>
 </li>
+<li class="treeview">
+    <a href="#"><i class="fa fa-play"></i> <span>Nhạc/Video</span> <i class="fa fa-angle-left pull-right"></i></a>
+    <ul class="treeview-menu">
+        <li><a href="{{env('APP_URL').'/'.config('backpack.base.route_prefix', 'admin')}}/music"><i class="fa fa-music"></i> <span>Nhạc / Karaoke</span></a></li>
+        <li><a href="{{env('APP_URL').'/'.config('backpack.base.route_prefix', 'admin')}}/video"><i class="fa fa-video-camera"></i> <span>Video</span></a></li>
+    </ul>
+</li>
 <!-- Users, Roles Permissions -->
 <li class="treeview">
     <a href="#"><i class="fa fa-group"></i> <span>Users, Roles, Permissions</span> <i class="fa fa-angle-left pull-right"></i></a>

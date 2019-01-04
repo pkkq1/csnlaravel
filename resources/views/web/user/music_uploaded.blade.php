@@ -24,7 +24,7 @@
                             </div>
                             <div class="media-left align-items-stretch mr-2">
                                 <a href="{{$url}}" title="{{$item['music_title']}}">
-                                    <img src="{{Helpers::cover_url($item['album_id'])}}" alt="{{$item['music_title']}}">
+                                    <img src="{{Helpers::cover_url($item['album_id'])}}" class="{{($item['cat_id'] == CAT_VIDEO ? 'video_thumbnail' : 'nhac_thumbnail')}}" alt="{{$item['music_title']}}">
                                     <i class="material-icons">play_circle_outline</i>
                                 </a>
                             </div>
@@ -33,7 +33,9 @@
                                     <h5 class="media-title mt-0 mb-0 title_home_tablet"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
                                     <div class="author title_home_tablet"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></div>
                                 </div>
-                                <small class="type_music"><?php echo Helpers::bitrate2str($item['music_bitrate']); ?></small>
+                                @if($item['cat_id'] != CAT_VIDEO)
+                                    <small class="type_music"><?php echo Helpers::bitrate2str($item['music_bitrate']); ?></small>
+                                @endif
                             </div>
                             <div class="media-right align-self-center">
                                 <small class="time_stt"><?php echo Helpers::timeElapsedString($item['music_last_update_time']); ?></small>
@@ -53,7 +55,7 @@
                 <?php
                 array_map(function($i, $item) use($perPage, $curentPage) {
                     if($i >= 5) {
-                    $url = '#';
+                        $url = '/dang-tai/'.($item['cat_id'] == CAT_VIDEO ? 'video' : 'nhac').'/'.$item['music_id'];
                         ?>
                             <li class="media align-items-stretch items-stretch-{{$item['music_id']}}">
                                 <div class="media_tmp align-self-center d-flex align-items-center mr-3 pl-3">
@@ -61,7 +63,7 @@
                                 </div>
                                 <div class="media-left align-items-stretch mr-2">
                                     <a href="{{$url}}" title="{{$item['music_title']}}">
-                                        <img src="{{Helpers::cover_url($item['album_id'])}}" alt="{{$item['music_title']}}">
+                                        <img src="{{Helpers::cover_url($item['album_id'])}}" class="{{($item['cat_id'] == CAT_VIDEO ? 'video_thumbnail' : 'nhac_thumbnail')}}" alt="{{$item['music_title']}}">
                                         <i class="material-icons">play_circle_outline</i>
                                     </a>
                                 </div>
@@ -70,7 +72,9 @@
                                         <h5 class="media-title mt-0 mb-0 title_home_tablet"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
                                         <div class="author title_home_tablet"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></div>
                                     </div>
-                                    <small class="type_music"><?php echo Helpers::bitrate2str($item['music_bitrate']); ?></small>
+                                    @if($item['cat_id'] != CAT_VIDEO)
+                                        <small class="type_music"><?php echo Helpers::bitrate2str($item['music_bitrate']); ?></small>
+                                    @endif
                                 </div>
                                 <div class="media-right align-self-center">
                                     <small class="time_stt"><?php echo Helpers::timeElapsedString($item['music_last_update_time']); ?></small>
@@ -113,7 +117,7 @@
                     </div>
                     <div class="media-left align-items-stretch mr-2">
                         <a href="{{$url}}" target="_blank" title="{{$item['music_title']}}">
-                            <img src="{{Helpers::cover_url($item['album_id'])}}" alt="{{$item['music_title']}}">
+                            <img src="{{Helpers::cover_url($item['album_id'])}}" class="{{($item['cat_id'] == CAT_VIDEO ? 'video_thumbnail' : 'nhac_thumbnail')}}" alt="{{$item['music_title']}}">
                             <i class="material-icons">play_circle_outline</i>
                         </a>
                     </div>
@@ -122,7 +126,9 @@
                             <h5 class="media-title mt-0 mb-0 title_home_tablet"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
                             <div class="author title_home_tablet"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></div>
                         </div>
-                        <small class="type_music"><?php echo Helpers::bitrate2str($item['music_bitrate']); ?></small>
+                        @if($item['cat_id'] != CAT_VIDEO)
+                            <small class="type_music"><?php echo Helpers::bitrate2str($item['music_bitrate']); ?></small>
+                        @endif
                     </div>
                     <div class="media-right align-self-center">
                         <small class="time_stt"><?php echo Helpers::timeElapsedString($item['music_last_update_time']); ?></small>
@@ -150,7 +156,7 @@
                     </div>
                     <div class="media-left align-items-stretch mr-2">
                         <a href="{{$url}}" target="_blank" title="{{$item['music_title']}}">
-                            <img src="{{Helpers::cover_url($item['album_id'])}}" alt="{{$item['music_title']}}">
+                            <img src="{{Helpers::cover_url($item['album_id'])}}" class="{{($item['cat_id'] == CAT_VIDEO ? 'video_thumbnail' : 'nhac_thumbnail')}}" alt="{{$item['music_title']}}">
                             <i class="material-icons">play_circle_outline</i>
                         </a>
                     </div>
@@ -159,7 +165,9 @@
                             <h5 class="media-title mt-0 mb-0 title_home_tablet"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
                             <div class="author title_home_tablet"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></div>
                         </div>
-                        <small class="type_music"><?php echo Helpers::bitrate2str($item['music_bitrate']); ?></small>
+                        @if($item['cat_id'] != CAT_VIDEO)
+                            <small class="type_music"><?php echo Helpers::bitrate2str($item['music_bitrate']); ?></small>
+                        @endif
                     </div>
                     <div class="media-right align-self-center">
                         <small class="time_stt"><?php echo Helpers::timeElapsedString($item['music_last_update_time']); ?></small>
@@ -202,7 +210,7 @@
                     </div>
                     <div class="media-left align-items-stretch mr-2">
                         <a href="{{$url}}" title="{{$item['music_title']}}">
-                            <img src="{{Helpers::cover_url($item['album_id'])}}" alt="{{$item['music_title']}}">
+                            <img src="{{Helpers::cover_url($item['album_id'])}}" class="{{($item['cat_id'] == CAT_VIDEO ? 'video_thumbnail' : 'nhac_thumbnail')}}" alt="{{$item['music_title']}}">
                             <i class="material-icons">play_circle_outline</i>
                         </a>
                     </div>
@@ -211,7 +219,9 @@
                             <h5 class="media-title mt-0 mb-0 title_home_tablet"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
                             <div class="author title_home_tablet"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></div>
                         </div>
-                        <small class="type_music"><?php echo Helpers::bitrate2str($item['music_bitrate']); ?></small>
+                        @if($item['cat_id'] != CAT_VIDEO)
+                            <small class="type_music"><?php echo Helpers::bitrate2str($item['music_bitrate']); ?></small>
+                        @endif
                     </div>
                     <div class="media-right align-self-center">
                         <small class="time_stt"><?php echo Helpers::timeElapsedString($item['music_last_update_time']); ?></small>
@@ -239,7 +249,7 @@
                     </div>
                     <div class="media-left align-items-stretch mr-2">
                         <a href="{{$url}}" title="{{$item['music_title']}}">
-                            <img src="{{Helpers::cover_url($item['album_id'])}}" alt="{{$item['music_title']}}">
+                            <img src="{{Helpers::cover_url($item['album_id'])}}" class="{{($item['cat_id'] == CAT_VIDEO ? 'video_thumbnail' : 'nhac_thumbnail')}}" alt="{{$item['music_title']}}">
                             <i class="material-icons">play_circle_outline</i>
                         </a>
                     </div>
@@ -248,7 +258,9 @@
                             <h5 class="media-title mt-0 mb-0 title_home_tablet"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
                             <div class="author title_home_tablet"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></div>
                         </div>
-                        <small class="type_music"><?php echo Helpers::bitrate2str($item['music_bitrate']); ?></small>
+                        @if($item['cat_id'] != CAT_VIDEO)
+                            <small class="type_music"><?php echo Helpers::bitrate2str($item['music_bitrate']); ?></small>
+                        @endif
                     </div>
                     <div class="media-right align-self-center">
                         <small class="time_stt"><?php echo Helpers::timeElapsedString($item['music_last_update_time']); ?></small>

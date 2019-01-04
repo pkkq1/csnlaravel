@@ -66,7 +66,7 @@ $hot_video_rows = ' . var_export($ressultVideo, true) . ';
             $result = $this->musicListenRepository->bxhWeekCategoryMusic($item->cat_id)->toArray();
             foreach($result as $item2) {
                 $item2['music_artist_html'] = Helpers::rawHtmlArtists($item2['music_artist_id'], $item2['music_artist']);
-                $item2['music_bitrate'] = Helpers::bitrate2str($item2['music_bitrate']);
+                $item2['music_bitrate_html'] = Helpers::bitrate2str($item2['music_bitrate']);
                 $ressultMusic[$item->cat_id][] = $item2;
             }
             $result = $this->musicListenRepository->bxhWeekCategoryVideo($item->cat_id)->toArray();
@@ -101,7 +101,7 @@ $hot_video_rows = ' . var_export($ressultVideo, true) . ';
                 $result = $this->musicListenRepository->bxhYearCategoryMusic($item->cat_id, $year)->toArray();
                 foreach($result as $item2) {
                     $item2['music_artist_html'] = Helpers::rawHtmlArtists($item2['music_artist_id'], $item2['music_artist']);
-                    $item2['music_bitrate'] = Helpers::bitrate2str($item2['music_bitrate']);
+                    $item2['music_bitrate_html'] = Helpers::bitrate2str($item2['music_bitrate']);
                     $ressultMusic[$item->cat_id][] = $item;
                 }
                 $result = $ressultVideo[$item->cat_id] = $this->musicListenRepository->bxhYearCategoryVideo($item->cat_id, $year)->toArray();
@@ -133,7 +133,7 @@ $hot_video_rows = ' . var_export($ressultVideo, true) . ';
                     $result = $this->musicListenRepository->bxhMonthCategoryMusic($item->cat_id, $firstDate, $lastDate, $year)->toArray();
                     foreach($result as $item2) {
                         $item2['music_artist_html'] = Helpers::rawHtmlArtists($item2['music_artist_id'], $item2['music_artist']);
-                        $item2['music_bitrate'] = Helpers::bitrate2str($item2['music_bitrate']);
+                        $item2['music_bitrate_html'] = Helpers::bitrate2str($item2['music_bitrate']);
                         $ressultMusic[$item->cat_id][] = $item2;
                     }
                     $result = $this->musicListenRepository->bxhMonthCategoryVideo($item->cat_id, $firstDate, $lastDate, $year)->toArray();

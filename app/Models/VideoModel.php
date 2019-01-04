@@ -6,11 +6,12 @@
  * Time: 4:29 PM
  */
 namespace App\Models;
-
+use Backpack\CRUD\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
 
 class VideoModel extends Model
 {
+    use CrudTrait;
     public $timestamps = false;
     protected $table = 'csn_video';
     protected $primaryKey = 'music_id';

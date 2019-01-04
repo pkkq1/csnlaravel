@@ -46,17 +46,17 @@ class CoverEloquentRepository extends EloquentRepository implements CoverReposit
      */
     public function getCoverNew()
     {
-        $result = $this->_model::where('music_year', date('Y', time()))->with('music')->orderBy('cover_id', 'desc')->limit(20)->get();
+        $result = $this->_model::where('music_year', CURRENT_YEAR)->with('music')->orderBy('cover_id', 'desc')->limit(20)->get();
         return $result;
     }
     public function getCoverNew2()
     {
-        $result = $this->_model::where('music_year', '<', date('Y', time()))->with('music')->orderBy('cover_id', 'desc')->limit(20)->get();
+        $result = $this->_model::where('music_year', '<', CURRENT_YEAR)->with('music')->orderBy('cover_id', 'desc')->limit(20)->get();
         return $result;
     }
     public function getCoverHot()
     {
-        $result = $this->_model::where('music_year', date('Y', time()))->with('music')->orderBy('cover_id', 'desc')->limit(20)->get();
+        $result = $this->_model::where('music_year', CURRENT_YEAR)->with('music')->orderBy('cover_id', 'desc')->limit(20)->get();
         return $result;
     }
     public function getCoverMusicById($id) {

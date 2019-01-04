@@ -29,6 +29,7 @@ if($musicSet['type_listen'] == 'playlist') {
 } else {
     $thumnailMeta = $thumnailMusic;
 }
+
 ?>
 @section('meta')
     <base href="{{env('APP_URL')}}">
@@ -171,7 +172,7 @@ if($musicSet['type_listen'] == 'playlist') {
                             </li>
                             @if($musicSet['type_jw'] !== 'video')
                             <li class="nav-item">
-                                <a class="nav-link add_playlist" <?php echo $musicSet['type_jw'] !== 'video' ? 'onclick="loadPlayList('.$music->music_id.')"' : '' ?> id="pills-plus-tab" data-toggle="pill" href="#pills-plus" role="tab" aria-controls="pills-plus" aria-selected="false"><i class="material-icons">control_point</i> Thêm vào</a>
+                                <a class="nav-link add_playlist" <?php echo $musicSet['type_jw'] !== 'video' ? 'onclick="loadPlayList('.$music->music_id.')"' : '' ?> id="pills-plus-tab" data-toggle="pill" href="#pills-plus" role="tab" aria-controls="pills-plus" aria-selected="false"><i class="material-icons">control_point</i> Thêm</a>
                             </li>
                             @endif
                         </ul>
@@ -248,10 +249,11 @@ if($musicSet['type_listen'] == 'playlist') {
                                         </div>
                                     </div>
                                     <div class="accordion" id="accordion">
+                                        @if($music->cat_id != CAT_VIDEO)
                                         <div class="card flex-column-reverse">
                                             <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                                                 <div class="card-body p-0">
-                                                    <img class="card-img-top" src="http://data5.chiasenhac.com/data/spectrum/1898/1897826.jpg" alt="">
+                                                    <img class="card-img-top" src="{{Helpers::getImgQuality($music->music_id)}}" alt="">
                                                 </div>
                                             </div>
                                             <div class="card-header border-0" id="headingOne">
@@ -263,6 +265,7 @@ if($musicSet['type_listen'] == 'playlist') {
                                                 </h5>
                                             </div>
                                         </div>
+                                        @endif
                                         <div class="card flex-column-reverse">
                                             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                                                 <div class="card-body p-0">

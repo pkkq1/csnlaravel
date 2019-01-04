@@ -9,18 +9,21 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request as Request;
 use App\Library\Helpers;
 use App\Http\Requests;
+use Illuminate\Support\Facades\Storage;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 // VALIDATION: change the requests to match your own file names if you need form validation
 use Backpack\CRUD\app\Http\Requests\CrudRequest as StoreRequest;
 use Backpack\CRUD\app\Http\Requests\CrudRequest as UpdateRequest;
 use Illuminate\Support\Facades\Auth;
-
+use App\Repositories\Artist\ArtistRepository;
 
 
 class ArtistController extends CrudController
 {
-    public function __construct()
+    protected $artistRepository;
+    public function __construct(ArtistRepository $artistRepository)
     {
+        $this->artistRepository = $artistRepository;
         parent::__construct();
 
         $this->crud->setModel("App\Models\ArtistModel");
@@ -31,7 +34,7 @@ class ArtistController extends CrudController
 
         $this->middleware(function ($request, $next)
         {
-            if(!backpack_user()->can('danh_sach_ca_si_(list)')) {
+            if(!backpack_user()->can('xoa_nhac')) {
                 $this->crud->denyAccess(['list']);
             }
             if(!backpack_user()->can('danh_sach_ca_si_(create)')) {
@@ -67,6 +70,8 @@ class ArtistController extends CrudController
                 'label' => 'Avatar',
                 'type' => 'closure',
                 'function' => function($entry) {
+                    if(!$entry->artist_avatar)
+                        return '-';
                     $urlImg = $entry->artist_avatar ? Helpers::file_path($entry->artist_id, PUBLIC_AVATAR_ARTIST_PATH, true) . $entry->artist_avatar : '/imgs/no_avatar.png';
                     return '<a href="'.$urlImg.'" target="_blank">
                               <img src="'.$urlImg.'" style="
@@ -81,6 +86,8 @@ class ArtistController extends CrudController
                 'label' => 'Cover',
                 'type' => 'closure',
                 'function' => function($entry) {
+                    if(!$entry->artist_cover)
+                        return '-';
                     $urlImg = $entry->artist_cover ? Helpers::file_path($entry->artist_id, PUBLIC_COVER_ARTIST_PATH, true) . $entry->artist_cover : '/imgs/no_avatar.png';
                     return '<a href="'.$urlImg.'" target="_blank">
                               <img src="'.$urlImg.'" style="
@@ -161,7 +168,17 @@ class ArtistController extends CrudController
 
         return view('vendor.backpack.artist.edit', $this->data);
     }
+    public function destroy($id)
+    {
+        $this->crud->hasAccessOrFail('delete');
 
+        // get entry ID from Request (makes sure its the last ID for nested resources)
+        $id = $this->crud->getCurrentEntryId() ?? $id;
+        $artist = $this->artistRepository->getModel()::where('artist_id', $id)->first();
+        Storage::disk('public')->delete(Helpers::file_path($artist->artist_id, AVATAR_ARTIST_CROP_PATH, true).$artist->artist_avatar);
+        Storage::disk('public')->delete(Helpers::file_path($artist->artist_id, COVER_ARTIST_CROP_PATH, true).$artist->artist_cover);
+        return $this->crud->delete($id);
+    }
     public function store(StoreRequest $request)
     {
         return parent::storeCrud($request);
@@ -203,7 +220,6 @@ class ArtistController extends CrudController
 
         // save the redirect choice for next time
         $this->setSaveAction();
-
         return $this->performSaveAction($item->getKey());
     }
 }

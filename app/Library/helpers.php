@@ -856,4 +856,7 @@ class Helpers
             return '/imgs/no_avatar.png';
         return (strpos($userAvatar, 'http') !== false) ? $userAvatar : Helpers::file_path($userId, PUBLIC_AVATAR_PATH, true) . $userAvatar;
     }
+    public static function getImgQuality($musicId) {
+        return 'http://data5.chiasenhac.com/data/spectrum'.Helpers::file_path($musicId, '/', true).$musicId.'.jpg';
+    }
 }

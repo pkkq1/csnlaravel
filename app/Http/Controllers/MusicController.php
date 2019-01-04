@@ -79,7 +79,7 @@ class MusicController extends Controller
             $music = $this->musicRepository->findOnlyMusicId($arrUrl['id']);
         }
         if(!$music)
-            return view('errors.404');
+            return view('errors.404')->with('message', 'Nhạc đang cập nhật.');
         // +1 view
         if(Helpers::sessionCountTimesMusic($arrUrl['id'])){
             $this->musicListenRepository->incrementListen($arrUrl['id']);
