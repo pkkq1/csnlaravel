@@ -687,7 +687,7 @@
 </footer>
 <script src="/js/lobiboxcsn.min.js"></script>
 
-
+@if( isset($allpage_banner) && $allpage_banner == true )
 <script type="text/javascript">
     var screenW = 640, screenH = 480;
     if (parseInt(navigator.appVersion)>3) {
@@ -775,7 +775,7 @@
         }
     });
 </script>
-
+@endif
 
 
 </section>

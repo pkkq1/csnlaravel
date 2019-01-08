@@ -22,9 +22,11 @@
     <link rel="stylesheet" href="/css/lobibox.min.css"/>
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="stylesheet" type="text/css" href="/css/jquery-ui.css">
+    @if( isset($allpage_banner) && $allpage_banner == true )
     <style>
         .container{max-width:1000px!important;width:100%}
     </style>
+    @endif
     @yield('contentCSS')
     <!-- JS -->
     <script type="text/javascript" src="/node_modules/jquery/dist/jquery.min.js"></script>

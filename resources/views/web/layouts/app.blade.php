@@ -3,6 +3,7 @@
 @include('web.layouts.header')
 <body>
 
+@if( isset($allpage_banner) && $allpage_banner == true )
 <a target="_blank" href="https://clicktrackingv2.userreport.com/?BLV5a6cbb86;https://yame.vn/?utm_source=background&utm_medium=CPD">
     <div style="text-align: center; height: 150px; position: relative; background-color: #851c1c; background-repeat: no-repeat; background-position: center; z-index: -1;">
         <div class="atag" style="position: absolute; top: 0px; left: 0; right: 0; z-index: 0;">
@@ -11,7 +12,7 @@
         </div>
     </div>
 </a>
-
+@endif
 
 <div id="fb-root"></div>
 <section class="wrapper_content">
@@ -32,22 +33,6 @@
 @yield('contentJS')
 
 <!-- PC masthead -->
-<script>
-    function pc_masthead_change() {
-        $('#pc_masthead').css("padding", "20px");
-        alert("masthead changed");
-    }
-    $( document ).ready(function() {
-        $('#pc_masthead').on('change', function () {
-            // console.log(1);
-        })
-        // console.log($('#pc_masthead').height());
-    });
-    // $('pc_masthead').contentchanged() {
-    //     alert('changed')
-    // }
-</script>
-<script src="//d3.hadarone.com/ads-sync.js?placement=1365"></script>
 
 </body>
 </html>
