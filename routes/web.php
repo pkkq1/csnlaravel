@@ -170,9 +170,20 @@ Route::group(['middlewareGroups' => ['web']], function () {
         });
 
 
-        // Comment
         Route::group(['middleware' => ['isActive']], function() {
-            Route::post('comment/post', ['as' => 'comment.create', 'uses' => 'CommentController@postComment']);
+            // Comment
+            Route::prefix('comment')->group(function () {
+                Route::post('post', ['as' => 'comment.create', 'uses' => 'CommentController@postComment']);
+                Route::post('block', ['as' => 'comment.delete', 'uses' => 'CommentController@blockComment']);
+            });
+            // Music
+            Route::prefix('music')->group(function () {
+                Route::get('store_lyric', ['as' => 'music.get_lyric', 'uses' => 'MusicController@storeLyric']);
+                Route::get('store_karaoke', ['as' => 'music.get_karaoke', 'uses' => 'MusicController@storeKaraoke']);
+                Route::post('store_lyric', ['as' => 'music.get_lyric', 'uses' => 'MusicController@storeLyric']);
+                Route::post('store_karaoke', ['as' => 'music.get_karaoke', 'uses' => 'MusicController@storeKaraoke']);
+            });
+
         });
 
         // Playlist
@@ -204,13 +215,6 @@ Route::group(['middlewareGroups' => ['web']], function () {
         Route::delete('roles/{id}',['as'=>'roles.destroy','uses'=>'RoleController@destroy']);
 
 
-        Route::get('itemCRUD2',['as'=>'itemCRUD2.index','uses'=>'ItemCRUD2Controller@index','middleware' => ['permission:item-list|item-create|item-edit|item-delete']]);
-        Route::get('itemCRUD2/create',['as'=>'itemCRUD2.create','uses'=>'ItemCRUD2Controller@create','middleware' => ['permission:item-create']]);
-        Route::post('itemCRUD2/create',['as'=>'itemCRUD2.store','uses'=>'ItemCRUD2Controller@store','middleware' => ['permission:item-create']]);
-        Route::get('itemCRUD2/{id}',['as'=>'itemCRUD2.show','uses'=>'ItemCRUD2Controller@show']);
-        Route::get('itemCRUD2/{id}/edit',['as'=>'itemCRUD2.edit','uses'=>'ItemCRUD2Controller@edit','middleware' => ['permission:item-edit']]);
-        Route::patch('itemCRUD2/{id}',['as'=>'itemCRUD2.update','uses'=>'ItemCRUD2Controller@update','middleware' => ['permission:item-edit']]);
-        Route::delete('itemCRUD2/{id}',['as'=>'itemCRUD2.destroy','uses'=>'ItemCRUD2Controller@destroy','middleware' => ['permission:item-delete']]);
     });
 
 });

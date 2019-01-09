@@ -3,6 +3,7 @@
 namespace App\Exceptions;
 
 use Exception;
+use App\Library\Helpers;
 use Jenssegers\Agent\Agent;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
@@ -59,12 +60,18 @@ class Handler extends ExceptionHandler
                 : redirect()->guest('?rq=login&back_url='.$request->getRequestUri());
         }
         if(method_exists($exception, 'getStatusCode') && $exception->getStatusCode() == 403) {
+            if($request->ajax()) {
+                if($request->format() == 'html') {
+                    return response()->make($exception->getMessage(), 403);
+                }
+                Helpers::ajaxResult(false, $exception->getMessage(), null);
+            }
             $Agent = new Agent();
             $view = 'web.';
             if ($Agent->isMobile()) {
                 $view = 'mobile.';
             }
-            return response()->view($view.'errors.403', [], 403);
+            return response()->view($view.'errors.403', ['message'=> $exception->getMessage()], 403);
         }
         return parent::render($request, $exception);
     }

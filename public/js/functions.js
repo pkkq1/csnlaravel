@@ -78,6 +78,15 @@ function alertModal(content = 'Lỗi, không thực hiện được.') {
     $("#myModal").modal();
 
 }
+function confirmModal(content = 'Lỗi, không thực hiện được.', modal_size = 'modal-lg') {
+    if(!content)
+        content = 'Lỗi, không thực hiện được';
+    $("#myConfirmModal .modal-dialog").removeClass('modal-lg').addClass(modal_size);
+    $("#myConfirmModal .modal-body").html('<div class="modal_content_csn">' + content + '</div>');
+    $("#myConfirmModal").modal();
+
+}
+
 function successModal(content = 'Lỗi, không thực hiện được') {
     if(!content)
         content = 'Lỗi, không thực hiện được.'
@@ -195,3 +204,15 @@ var waitingDialog = waitingDialog || (function ($) {
     };
 
 })(jQuery);
+function convertDateTime(timestamp) {
+    date = new Date(timestamp * 1000),
+        datevalues = [
+            date.getFullYear(),
+            date.getMonth()+1,
+            date.getDate(),
+            date.getHours(),
+            date.getMinutes(),
+            date.getSeconds(),
+        ];
+    return date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
+}

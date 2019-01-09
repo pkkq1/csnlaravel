@@ -42,5 +42,13 @@ class UserEloquentRepository extends EloquentRepository implements UserRepositor
             ->Increment($field);
         return $result;
     }
+    public function decrementCol($id, $field)
+    {
+        $result = $this
+            ->_model
+            ->where('id', $id)
+            ->decrement($field);
+        return $result;
+    }
 }
 

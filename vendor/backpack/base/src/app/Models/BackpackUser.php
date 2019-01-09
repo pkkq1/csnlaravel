@@ -7,7 +7,7 @@ use Backpack\Base\app\Notifications\ResetPasswordNotification as ResetPasswordNo
 
 class BackpackUser extends User
 {
-    protected $table = 'users';
+    protected $table = 'csn_users';
 
     /**
      * Send the password reset notification.

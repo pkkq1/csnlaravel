@@ -54,18 +54,34 @@ class MusicController extends CrudController
         $this->crud->addColumn([
             'name'  => 'music_title',
             'label' => 'Tên bài hát',
+//            'type' => 'closure',
+//            'function' => function($entry) {
+//                return '<a target="_blank" href="'.Helpers::listen_url($entry->toArray()).'" >'.$entry->music_title.'</a>';
+//            }
+        ]);
+        $this->crud->addColumn([
+            'name'  => 'music_id2',
+            'label' => 'Ảnh cover',
             'type' => 'closure',
             'function' => function($entry) {
-                return '<a target="_blank" href="'.Helpers::listen_url($entry->toArray()).'" >'.$entry->music_title.'</a>';
+                return '<a target="_blank" href="'.Helpers::listen_url($entry->toArray()).'" ><img style="
+                                  max-height: 25px;
+                                  width: auto;
+                                  border-radius: 3px;" src="'.Helpers::cover_url($entry->cover_id).'"/></a>';
             }
         ]);
         $this->crud->addColumn([
-            'name'  => 'artist_nickname',
+            'name' => 'music_listen',
+            'label' => 'lượt xem',
+            'type' =>'number'
+        ]);
+        $this->crud->addColumn([
+            'name'  => 'music_artist',
             'label' => 'Nghệ Danh',
-            'type' => 'closure',
-            'function' => function($entry) {
-                return Helpers::rawHtmlArtists($entry->music_artist_id, $entry->music_artist);
-            }
+//            'type' => 'closure',
+//            'function' => function($entry) {
+//                return Helpers::rawHtmlArtists($entry->music_artist_id, $entry->music_artist);
+//            }
         ]);
 
         $this->crud->addField([

@@ -26,7 +26,9 @@ class CheckIfAdmin
 //            if(\Auth::user()->rolesCSNRoleName() == ROLE_NAME_ADMIN || \Auth::user()->rolesCSNRoleName() == ROLE_NAME_MANAGER) {
 //
 //            }
-            return $next($request);
+            if(backpack_user()->can('admin_view')) {
+                return $next($request);
+            }
         }
         return response(view('web.errors.403'));
     }

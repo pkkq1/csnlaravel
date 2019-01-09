@@ -18,6 +18,8 @@ use App\Repositories\Album\AlbumEloquentRepository;
 use App\Repositories\Artist\ArtistRepository;
 use Illuminate\Support\Facades\Storage;
 use File;
+use Exception;
+use App\Exceptions;
 
 class UploadController extends Controller
 {
@@ -36,6 +38,13 @@ class UploadController extends Controller
         $this->uploadRepository = $uploadRepository;
         $this->albumRepository = $albumRepository;
         $this->artistRepository = $artistRepository;
+        $this->middleware(function ($request, $next)
+        {
+            if(backpack_user()->can('banned_user_upload')){
+                abort(403, 'Lỗi truy cập, tài khoản bạn bị khóa chức năng upload.');
+            }
+            return $next($request);
+        });
     }
     public function index() {
         return view('upload.index');

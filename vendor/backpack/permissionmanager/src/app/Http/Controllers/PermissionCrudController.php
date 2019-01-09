@@ -16,6 +16,7 @@ class PermissionCrudController extends CrudController
         $this->crud->setModel($permission_model);
         $this->crud->setEntityNameStrings(trans('backpack::permissionmanager.permission_singular'), trans('backpack::permissionmanager.permission_plural'));
         $this->crud->setRoute(config('backpack.base.route_prefix').'/permission');
+        $this->crud->orderBy('id', 'desc');
         if(!backpack_user()->can('role_permission_(list)')) {
             $this->crud->denyAccess(['list']);
         }

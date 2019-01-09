@@ -57,6 +57,10 @@ class PlaylistController extends Controller
         if(!Auth::check()){
             Helpers::ajaxResult(false, 'Bạn chưa đang nhập.', null);
         }
+        // check banned user
+        if(backpack_user()->can('banned_user_playlist')){
+            abort(403, 'Lỗi truy cập, tài khoản bạn bị khóa chức năng tạo playlist.');
+        }
         if(!$request->input('playlist_title')){
             Helpers::ajaxResult(false, 'Bạn chưa nhập tên playlist mới.', null);
         }
@@ -70,12 +74,17 @@ class PlaylistController extends Controller
             'playlist_status' => 1,
             'playlist_title' => trim($request->input('playlist_title'))
         ]);
-        Helpers::ajaxResult(true, 'Đã thêm vào playlist.', $result);
+        Helpers::ajaxResult(true, 'Đã tạo playlist.', $result);
     }
     public function addMusicPlayList(Request $request) {
         if(!Auth::check()){
             Helpers::ajaxResult(false, 'Bạn chưa đang nhập.', null);
         }
+        // check banned user
+        if(backpack_user()->can('banned_user_playlist')){
+            abort(403, 'Lỗi truy cập, tài khoản bạn bị khóa chức năng thêm nhạc vào playlist.');
+        }
+
         $playlistUser = $this->playlistRepository->getByUser(Auth::user()->id, $request->input('playlist_id'))->first();
         if(!$playlistUser) {
             Helpers::ajaxResult(false, 'Không tìm thấy playlist của bạn', null);
@@ -158,6 +167,10 @@ class PlaylistController extends Controller
             'playlist_title' => 'required|max:255|min:2',
             'sumbit_action' => 'required'
         ]);
+        // check banned user
+        if(backpack_user()->can('banned_user_playlist')){
+            abort(403, 'Lỗi truy cập, tài khoản bạn bị khóa chức năng chỉnh sửa playlist.');
+        }
         $id = $request->input('playlist_id');
         $action = $request->input('sumbit_action');
         $playlistData = [];
@@ -235,6 +248,10 @@ class PlaylistController extends Controller
                 'status' => false,
                 'message' => 'Bạn chưa đăng nhập',
             ]);
+        }
+        // check banned user
+        if(backpack_user()->can('banned_user_playlist')){
+            abort(403, 'Lỗi truy cập, tài khoản bạn bị khóa chức năng xóa playlist.');
         }
         $playlist = PlaylistModel::whereIn('playlist_id', $request->input('playlis_ids'))->where('user_id', Auth::user()->id);
         if(!$playlist->exists()) {

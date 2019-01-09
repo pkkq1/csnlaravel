@@ -34,7 +34,7 @@ class MyAccountController extends Controller
      */
     public function postAccountInfoForm(AccountInfoRequest $request)
     {
-        $result = $this->guard()->user()->update($request->except(['_token']));
+        $result = $this->guard()->user()->update(['name' => $request->name]);
 
         if ($result) {
             Alert::success(trans('backpack::base.account_updated'))->flash();
@@ -62,8 +62,8 @@ class MyAccountController extends Controller
     public function postChangePasswordForm(ChangePasswordRequest $request)
     {
         $user = $this->guard()->user();
-        $user->password = Hash::make($request->new_password);
-
+//        $user->password = Hash::make($request->new_password);
+        $user->password = md5($request->new_password);
         if ($user->save()) {
             Alert::success(trans('backpack::base.account_updated'))->flash();
         } else {

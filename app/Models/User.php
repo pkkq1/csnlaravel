@@ -49,8 +49,22 @@ class User extends Authenticatable
     }
     public function roleUser()
     {
-        return $this->belongsTo('App\Models\RoleUserModel', 'user_id');
+        return $this->belongsTo('App\Models\RoleUser', 'user_id');
     }
+    public function role() {
+        return $this->belongsToMany(
+            config('laravel-permission.models.role'),
+            config('laravel-permission.table_names.user_has_roles')
+        );
+    }
+    public function permissionsExtra()
+    {
+        return $this->belongsToMany(
+            config('laravel-permission.models.permission'),
+            config('laravel-permission.table_names.user_has_permissions')
+        );
+    }
+
     public function rolesCSNRoleName()
     {
         $relationship = $this->belongsToMany(Config::get('entrust.role'), Config::get('entrust.role_user_table'), Config::get('entrust.user_foreign_key'), Config::get('entrust.role_foreign_key'))->first();

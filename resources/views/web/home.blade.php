@@ -525,7 +525,9 @@ global $top_artist_rows;
     function stringItemBoxPlaylist(playlist_title, playlist_music_total, playlist_id, music_exist, playlist_time){
         return '<div onclick="addBoxMusicPlaylist(' + playlist_id + ')" class="playlist_id_' + playlist_id + ' ' + (music_exist ? 'music-exists' : '') + '"><a href="javascript:void(0)" class="list-group-item list-group-item-action d-flex title_playlist">' + playlist_title + ' (<span>' + playlist_music_total + '</span>)' + (music_exist ? '<i class="material-icons icon-box-playlist"> check </i>' : '') + '</a></div>';
     }
-
+    function stringItemPlaylist(playlist_title, playlist_music_total, playlist_id, music_exist, playlist_time){
+        return '<li onclick="addMusicPlaylist(' + playlist_id + ', false, false, false)" class="d-flex justify-content-between playlist_id_' + playlist_id + ' ' + (music_exist ? 'music-exists' : '') + '"><a class="title_playlist" href="javascript:void(0)" title="' + playlist_title + '">' + playlist_title + ' (<span>' + playlist_music_total + '</span>)</a>' + (music_exist ? '<i class="material-icons"> check </i>' : '') + '<time>' + convertDateTime(playlist_time) + '</time></li>';
+    }
     function btnCreatePlaylist(box_text_create_playlist) {
         var titlePlaylist = $('.' + box_text_create_playlist);
         <?php
@@ -541,7 +543,7 @@ global $top_artist_rows;
             return false;
         }
         $.ajax({
-            url: "/playlist/user/create-playlist",
+            url: "/user/playlist/create-playlist",
             type: "POST",
             dataType: "json",
             data: {'music_id': musicId, 'playlist_title': titlePlaylist.val()},
@@ -551,8 +553,9 @@ global $top_artist_rows;
             },
             success: function(data) {
                 if(data.success) {
-                    $('.playlist-csn .list-unstyled').append(stringItemPlaylist(data.data.playlist_title, data.data.playlist_music_total, data.data.playlist_id, false, data.data.playlist_time));
-                    $('.box_show_playlist_popup .list-group').append(stringItemBoxPlaylist(data.data.playlist_title, data.data.playlist_music_total, data.data.playlist_id, false, data.data.playlist_time));
+                    console.log(data.data);
+                    $('.playlist-csn .list-unstyled').prepend(stringItemPlaylist(data.data.playlist_title, data.data.playlist_music_total, data.data.playlist_id, false, data.data.playlist_time));
+                    $('.box_show_playlist_popup .list-group').prepend(stringItemBoxPlaylist(data.data.playlist_title, data.data.playlist_music_total, data.data.playlist_id, false, data.data.playlist_time));
                     titlePlaylist.val("");
                     $('.playlist-csn').animate({scrollTop: $('.playlist-csn .list-unstyled').height()}, 'slow');
                     $('.box_show_playlist_popup').animate({scrollTop: $('.box_show_playlist_popup .list-group').height()}, 'slow');
@@ -562,6 +565,7 @@ global $top_artist_rows;
             }
         });
     }
+
     function addMusicPlaylist(playlistId, musicAddId, artistAdd, artistIdAdd) {
         const playlistIdSelect = $('.playlist_id_' + playlistId);
         $.ajax({
@@ -594,6 +598,7 @@ global $top_artist_rows;
     var boxMusicId = '';
     var boxArtists = '';
     var boxArtistIds = '';
+    var musicId = '';
     function addPlaylistTable(musicName, setId, setArtist, setArtistId) {
         <?php
         if(!Auth::check()) {
@@ -604,6 +609,7 @@ global $top_artist_rows;
         }
         ?>
         boxMusicId = setId;
+        musicId = setId;
         boxArtists = setArtist;
         boxArtistIds = setArtistId;
         $('.box_add_playlist').html('Thêm bài hát <span class="text-pink">' + musicName + '</span> vào danh sách Playlist');

@@ -42,8 +42,8 @@ $user = Auth::user();
                             <div>
                                 <div class="form-group form-check">
                                     <input type="checkbox" value="all" class="form-check-input check-all" id="">
-                                    <a href="javascript:void(0)" onclick="deleteSelectPlaylist()" style="margin-left: 17px;" title="xoá playlist đã chọn" class="btn btn-secondary"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</a>
-                                    <a href="/user/playlist/them" title="" class="btn btn-danger"><i class="fa fa-pencil" aria-hidden="true"></i> Tạo playlist</a>
+                                    <a href="javascript:void(0)" onclick="deleteSelectPlaylist()" style="margin-left: 17px;" title="xoá playlist đã chọn" class="btn btn-secondary float-font-size-13"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</a>
+                                    <a href="/user/playlist/them" title="" class="btn btn-danger float-font-size-13"><i class="fa fa-pencil" aria-hidden="true"></i> Tạo playlist</a>
                                 </div>
                             </div>
                         </div>
@@ -62,19 +62,19 @@ $user = Auth::user();
                                         </td>
                                         <td>
                                             <div class="media">
-                                                <a class="mr-3" href="{{$user}}" title=""><img src="{{$item->playlist_cover ? Helpers::file_path($item->playlist_id, PUBLIC_MUSIC_PLAYLIST_PATH, true).$item->playlist_id . '.png?v=' . time() : '/imgs/avatar_default.png'}}" alt="{{$item->playlist_title}}"></a>
-                                                <div class="media-body">
-                                                    <h4 class="media-title"><a href="{{$user}}" title="{{$item->playlist_title}}">{{$item->playlist_title}}</a></h4>
-                                                    <ul class="list-unstyled">
-                                                        <li><i class="material-icons">mic</i> {{number_format($item->playlist_music_total)}}</li>
-                                                        <li><i class="material-icons">headset</i> {{$item->playlist_listen}}</li>
+                                                <a class="mr-3" href="{{$user}}" title="" style="display: contents;"><img style="width: 60px;" src="{{$item->playlist_cover ? Helpers::file_path($item->playlist_id, PUBLIC_MUSIC_PLAYLIST_PATH, true).$item->playlist_id . '.png?v=' . time() : '/imgs/avatar_default.png'}}" alt="{{$item->playlist_title}}"></a>
+                                                <div class="media-body" style="margin-left: 5px;">
+                                                    <h4 class="media-title" style="line-height: 12px;"><a href="{{$user}}" title="{{$item->playlist_title}}">{{$item->playlist_title}}</a></h4>
+                                                    <ul class="list-unstyled" style="margin-bottom: 0px;">
+                                                        <li><i class="material-icons float-font-size-15">mic</i> {{number_format($item->playlist_music_total)}}</li>
+                                                        <li><i class="material-icons float-font-size-15">headset</i> {{$item->playlist_listen}}</li>
                                                     </ul>
                                                 </div>
                                             </div>
                                         </td>
-                                        <td class="text-right">
-                                            <a href="/user/playlist/cap-nhat/{{$item->playlist_id}}" title="" class="btn btn-danger btn-action"><i class="fa fa-pencil" aria-hidden="true"></i> Chỉnh sửa</a>
-                                            <a href="javascript:void(0)" onclick="deletePlaylist([{{$item->playlist_id}}], 'Bạn có muốn xóa playlist {{$item->playlist_title}} này không?')" class="btn btn-secondary btn-action"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</a>
+                                        <td class="text-right" style="padding-left: 0px;">
+                                            <a href="/user/playlist/cap-nhat/{{$item->playlist_id}}" title="" class="btn btn-danger btn-action float-font-size-13"><i class="fa fa-pencil" aria-hidden="true"></i> Chỉnh sửa</a>
+                                            <a href="javascript:void(0)" onclick="deletePlaylist([{{$item->playlist_id}}], 'Bạn có muốn xóa playlist {{$item->playlist_title}} này không?')" class="btn btn-secondary btn-action float-font-size-13"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</a>
                                         </td>
                                     </tr>
                                 @endforeach

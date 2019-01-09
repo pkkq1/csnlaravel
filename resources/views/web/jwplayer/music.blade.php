@@ -179,14 +179,14 @@ if($musicSet['type_listen'] == 'playlist') {
                         <div class="tab-content" id="pills-tabContent">
                             <div class="tab-pane show active" id="pills-liric" role="tabpanel"
                                  aria-labelledby="pills-liric-tab">
-                                @if(isset($lyric_array['sub']) && $lyric_array['sub'] != false)
+                                @if((isset($lyric_array['sub']) && $lyric_array['sub'] != false) || (Auth::check() && backpack_user()->can('duyet_sua_nhac')) || (Auth::check() && backpack_user()->can('duyet_sua_karaoke')))
                                 <ul class="nav nav-tabs sub_Tab" id="myTab" role="tablist">
                                     <li class="nav-item">
                                         <div class="nav-link form-group form-check mb-0 autoplay"
                                              style="padding: 10px 20px;">
-
                                             <input type="checkbox" class="form-check-input display-sub"
                                                    id="display-sub" onclick="display_sub()">
+                                            @if((isset($lyric_array['sub']) && $lyric_array['sub'] != false))
                                             <label class="form-check-label d-flex align-items-center"
                                                    for="display-sub">
                                                 <span style="font-size: 13px; color: #4b4b4b; font-family: 'SFProDisplay-Medium';"
@@ -195,6 +195,13 @@ if($musicSet['type_listen'] == 'playlist') {
                                                     <span class="switch-inner"></span>
                                                 </span>
                                             </label>
+                                            @endif
+                                            @if(Auth::check() && backpack_user()->can('duyet_sua_nhac'))
+                                                <a href="javascript:editLyric();" >Sửa lyric</a>
+                                            @endif
+                                            @if(Auth::check() && backpack_user()->can('duyet_sua_karaoke'))
+                                                <a href="javascript:editKaraoke();" style="margin-left: 10px;">Sửa karaoke</a>
+                                            @endif
                                         </div>
                                     </li>
                                 </ul>
@@ -1140,18 +1147,6 @@ if($musicSet['type_listen'] == 'playlist') {
         function stringItemBoxPlaylist(playlist_title, playlist_music_total, playlist_id, music_exist, playlist_time){
             return '<div onclick="addBoxMusicPlaylist(' + playlist_id + ')" class="playlist_id_' + playlist_id + ' ' + (music_exist ? 'music-exists' : '') + '"><a href="javascript:void(0)" class="list-group-item list-group-item-action d-flex title_playlist">' + playlist_title + ' (<span>' + playlist_music_total + '</span>)' + (music_exist ? '<i class="material-icons icon-box-playlist"> check </i>' : '') + '</a></div>';
         }
-        function convertDateTime(timestamp) {
-            date = new Date(timestamp * 1000),
-            datevalues = [
-                date.getFullYear(),
-                date.getMonth()+1,
-                date.getDate(),
-                date.getHours(),
-                date.getMinutes(),
-                date.getSeconds(),
-            ];
-            return date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
-        }
         function btnCreatePlaylist(box_text_create_playlist) {
             var titlePlaylist = $('.' + box_text_create_playlist);
             <?php
@@ -1348,6 +1343,144 @@ if($musicSet['type_listen'] == 'playlist') {
                 $('.toggle_wishlist').toggleClass('selector');
             });
         }
+        //////////////////////////////
+        //// block comment, edit lyric, karaoke ////////
+        //////////////////////////////////
+        <?php
+        if(Auth::check()) {
+            if(backpack_user()->can('comment_(can_block)')) {
+                ?>
+                function deleteComment(type, id) {
+                    $.ajax({
+                        url: '/comment/block',
+                        type: "POST",
+                        dataType: "json",
+                        data: {
+                            'type': type,
+                            'id': id,
+                        },
+                        beforeSend: function () {
+                            if(loaded) return false;
+                            loaded = true;
+                        },
+                        success: function(response) {
+                            if(response.success) {
+                                $('#comment-' + id).find('.media-text').first().html(response.data.comment_text);
+                                $('#comment-' + id).find('.comment_delete').first().html(response.data.delete);
+                            }else {
+                                alertModal(response.message);
+                            }
+                        }
+                    });
+                }
+                <?php
+            }
+            if(backpack_user()->can('duyet_sua_nhac')) {
+                ?>
+                    function editLyric() {
+                        $.ajax({
+                            url: '/music/store_lyric',
+                            type: "GET",
+                            dataType: "json",
+                            data: {
+                                'cat_id': '<?php echo $music->cat_id ?>',
+                                'submit': 'get',
+                                'id': '<?php echo $music->music_id ?>',
+                            },
+                            beforeSend: function () {
+                                if(loaded) return false;
+                                loaded = true;
+                            },
+                            success: function(response) {
+                                if(response.success) {
+                                    confirmModal('<textarea style="width: 100%" rows="14" class="modal_lyric">' + response.data.lyric + '</textarea>');
+                                    $("#myConfirmModal .btn-ok").click( function () {
+                                        $.ajax({
+                                            url: '/music/store_lyric',
+                                            type: "POST",
+                                            dataType: "json",
+                                            data: {
+                                                'cat_id': '<?php echo $music->cat_id ?>',
+                                                'submit': 'store',
+                                                'id': '<?php echo $music->music_id ?>',
+                                                'lyric': $('#myConfirmModal .modal_lyric').val(),
+                                            },
+                                            beforeSend: function () {
+                                                if(loaded) return false;
+                                                loaded = true;
+                                            },
+                                            success: function(response) {
+                                                if(response.success) {
+                                                    location.reload();
+                                                }else {
+                                                    alertModal(response.message);
+                                                }
+                                            }
+                                        });
+                                        $('.modal').find('.close_confirm').click();
+                                    });
+                                }else {
+                                    alertModal(response.message);
+                                }
+                            }
+                        });
+                    }
+                <?php
+            }
+            if(backpack_user()->can('duyet_sua_karaoke')) {
+                ?>
+                function editKaraoke() {
+                    $.ajax({
+                        url: '/music/store_karaoke',
+                        type: "GET",
+                        dataType: "json",
+                        data: {
+                            'cat_id': '<?php echo $music->cat_id ?>',
+                            'submit': 'get',
+                            'id': '<?php echo $music->music_id ?>',
+                        },
+                        beforeSend: function () {
+                            if(loaded) return false;
+                            loaded = true;
+                        },
+                        success: function(response) {
+                            if(response.success) {
+                                confirmModal('<textarea style="width: 100%" rows="14" class="modal_kara">' + response.data.lyric + '</textarea>');
+                                $("#myConfirmModal .btn-ok").click( function () {
+                                    $.ajax({
+                                        url: '/music/store_karaoke',
+                                        type: "POST",
+                                        dataType: "json",
+                                        data: {
+                                            'cat_id': '<?php echo $music->cat_id ?>',
+                                            'submit': 'store',
+                                            'id': '<?php echo $music->music_id ?>',
+                                            'karaoke': $('#myConfirmModal .modal_kara').val(),
+                                        },
+                                        beforeSend: function () {
+                                            if(loaded) return false;
+                                            loaded = true;
+                                        },
+                                        success: function(response) {
+                                            if(response.success) {
+                                                location.reload();
+                                            }else {
+                                                alertModal(response.message);
+                                            }
+                                        }
+                                    });
+                                    $('.modal').find('.close_confirm').click();
+                                });
+                            }else {
+                                alertModal(response.message);
+                            }
+                        }
+                    });
+                }
+                <?php
+            }
+        }
+        ?>
     </script>
     @if($musicSet['type_jw'] != 'video')
         <style>

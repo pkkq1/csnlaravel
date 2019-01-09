@@ -89,6 +89,7 @@ class PlaylistUserController extends CrudController
                 'name'  => 'playlist_music_total',
                 'label' => 'Số bài hát',
             ],
+
             [
                 'name'  => 'playlist_cover',
                 'label' => 'Cover',
@@ -107,18 +108,26 @@ class PlaylistUserController extends CrudController
                             </a>';
                 },
             ],
-            [
-                'name'  => 'user_id',
-                'label' => 'User',
-                'type' => 'closure',
-                'function' => function($entry) {
-                    $user = $entry->playlist_user()->first();
-                    if($user) {
-                        return '<a href="/user/'.$user->id.'" target="_blank">'.$user->name.'</a>';
-                    }
-                    return '<a href="/user/'.$entry->id.'" target="_blank">'.$entry->name.'</a>';
-                },
+            [ // n-n relationship (with pivot table)
+                'label'     => 'User', // Table column heading
+                'type'      => 'select',
+                'name'      => 'user_id', // the method that defines the relationship in your Model
+                'entity'    => 'playlist_user', // the method that defines the relationship in your Model
+                'attribute' => 'name', // foreign key attribute that is shown to user
+                'model'     => "App\Models\RoleUser", // foreign key model
             ],
+//            [
+//                'name'  => 'user_id',
+//                'label' => 'User',
+//                'type' => 'closure',
+//                'function' => function($entry) {
+//                    $user = $entry->playlist_user()->first();
+//                    if($user) {
+//                        return '<a href="/user/'.$user->id.'" target="_blank">'.$user->name.'</a>';
+//                    }
+//                    return '<a href="/user/'.$entry->id.'" target="_blank">'.$entry->name.'</a>';
+//                },
+//            ],
             [
                 'name'  => 'playlist_artist',
                 'label' => 'Top Ca sĩ',

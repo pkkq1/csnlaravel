@@ -7,30 +7,34 @@ var swiper1 = new Swiper('.swiper1', {
     centeredSlides: false,    
     resizeReInit: true
 });
-swiper1.slides.each(function(index, val) {
-    var ele = $(this);
-    ele.on("click", function() {
-        swiper2.slideTo(index, 300, false);
-        swiper1.slideTo(index, 300, false);
+if(typeof swiper1.slides !== 'undefined') {
+    swiper1.slides.each(function(index, val) {
+        var ele = $(this);
+        ele.on("click", function() {
+            swiper2.slideTo(index, 300, false);
+            swiper1.slideTo(index, 300, false);
+        });
     });
-});
-var swiper2 = new Swiper('.swiper2', {
-    direction: 'horizontal',
-    loop: false,
-    autoHeight: true,
-    resizeReInit: true,
-    noSwiping: true,
-    noSwipingClass: 'owl-carousel',
-    thumbs: {
-        swiper: swiper1,
-    },
-    on: {
-        slideChangeTransitionEnd: function () {
-            var n = $(this)[0].activeIndex;
-            swiper1.slideTo(n, 300, false);
+
+    var swiper2 = new Swiper('.swiper2', {
+        direction: 'horizontal',
+        loop: false,
+        autoHeight: true,
+        resizeReInit: true,
+        noSwiping: true,
+        noSwipingClass: 'owl-carousel',
+        thumbs: {
+            swiper: swiper1,
         },
-    }
-});
+        on: {
+            slideChangeTransitionEnd: function () {
+                var n = $(this)[0].activeIndex;
+                swiper1.slideTo(n, 300, false);
+            },
+        }
+    });
+}
+
 
 jQuery(document).ready(function($) {
     'use strict';

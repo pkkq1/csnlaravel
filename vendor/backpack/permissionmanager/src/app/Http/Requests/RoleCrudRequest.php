@@ -26,6 +26,7 @@ class RoleCrudRequest extends FormRequest
     {
         $rules = [
             'name' => 'required',
+            'display_name' => 'required',
             ];
 
         return $rules;

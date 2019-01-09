@@ -57,14 +57,14 @@ class ArtistController extends CrudController
                 'name'  => 'artist_nickname',
                 'label' => 'Nghệ Danh',
             ],
-//            [
-//                'name'  => 'artist_nickname',
-//                'label' => 'Nghệ Danh',
-//                'type' => 'closure',
-//                'function' => function($entry) {
-//                    return Helpers::rawHtmlArtists($entry->artist_id, $entry->artist_nickname);
-//                },
-//            ],
+            [
+                'name'  => 'artist_nickname2',
+                'label' => 'Nghệ Danh2',
+                'type' => 'closure',
+                'function' => function($entry) {
+                    return Helpers::rawHtmlArtists($entry->artist_id, $entry->artist_nickname);
+                },
+            ],
             [
                 'name'  => 'artist_avatar',
                 'label' => 'Avatar',
@@ -73,7 +73,7 @@ class ArtistController extends CrudController
                     if(!$entry->artist_avatar)
                         return '-';
                     $urlImg = $entry->artist_avatar ? Helpers::file_path($entry->artist_id, PUBLIC_AVATAR_ARTIST_PATH, true) . $entry->artist_avatar : '/imgs/no_avatar.png';
-                    return '<a href="'.$urlImg.'" target="_blank">
+                    return '<a href="'.Helpers::artistUrl($entry->artist_id, $entry->artist_nickname).'" target="_blank">
                               <img src="'.$urlImg.'" style="
                                   max-height: 25px;
                                   width: auto;
@@ -89,7 +89,7 @@ class ArtistController extends CrudController
                     if(!$entry->artist_cover)
                         return '-';
                     $urlImg = $entry->artist_cover ? Helpers::file_path($entry->artist_id, PUBLIC_COVER_ARTIST_PATH, true) . $entry->artist_cover : '/imgs/no_avatar.png';
-                    return '<a href="'.$urlImg.'" target="_blank">
+                    return '<a href="'.Helpers::artistUrl($entry->artist_id, $entry->artist_nickname).'" target="_blank">
                               <img src="'.$urlImg.'" style="
                                   max-height: 25px;
                                   width: auto;

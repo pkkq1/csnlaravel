@@ -155,8 +155,8 @@ $user = Auth::user();
                                     <div class="form-group row">
                                         <div class="col-sm-8">
                                             <label for="inputPassword" class="col-sm-4 col-form-label"></label>
-                                            <button type="submit" class="btn btn-primary btn-lg">{{$playlistUser ? 'Lưu' : 'Thêm'}}</button>
-                                            <button type="button" class="btn btn-primary btn-lg" onclick="return back();" >Trở lại</button>
+                                            <button style="font-size: 18px; height: ;" type="submit" class="btn btn-gradien">{{$playlistUser ? 'Lưu' : 'Thêm'}}</button>
+                                            <button type="button" class="btn btn-secondary" onclick="return back();" >Trở lại</button>
                                         </div>
                                     </div>
                                 </div>

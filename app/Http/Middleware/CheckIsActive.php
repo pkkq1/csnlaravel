@@ -25,6 +25,12 @@ class CheckIsActive
         }else{
             $messageVerify = 'Tài khoản của bạn chưa được xác nhận bằng email để thực hiện thao tác này.';
         }
+        if($request->ajax()) {
+            if($request->format() == 'html') {
+                return response()->make($messageVerify, 403);
+            }
+            Helpers::ajaxResult(false, $messageVerify, null);
+        }
         $Agent = new Agent();
         $view = 'web.';
         if ($Agent->isMobile()) {
@@ -34,7 +40,7 @@ class CheckIsActive
             return response()->view($view.'errors.403', ['message'=> $messageVerify], 403);
         }else{
             if($request->format() == 'html') {
-                return $response = response()->make($messageVerify, 403);
+                return response()->make($messageVerify, 403);
             }
             Helpers::ajaxResult(false, $messageVerify, null);
         }

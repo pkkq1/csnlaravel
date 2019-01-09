@@ -70,7 +70,10 @@ return [
             'password' => env('FTP_PASSWORD'),
             'root' => '/home4/databeta/public_html/data/source/'
         ],
-
+        'backups' => [
+            'driver' => 'local',
+            'root'   => storage_path('backups'), // that's where your backups are stored by default: storage/backups
+        ],
     ],
 
 ];

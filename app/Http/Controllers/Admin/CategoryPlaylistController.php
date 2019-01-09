@@ -25,6 +25,7 @@ class CategoryPlaylistController extends CrudController
         $this->crud->setModel("App\Models\CategoryPlaylistModel");
         $this->crud->setEntityNameStrings('Category Playlist', 'Category Playlist');
         $this->crud->setRoute(config('backpack.base.route_prefix').'/category_playlist');
+        $this->crud->orderBy('cat_id', 'desc');
 //        $this->crud->setEntityNameStrings('menu item', 'menu items');
 
 //        $this->crud->allowAccess('reorder');

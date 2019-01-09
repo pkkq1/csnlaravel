@@ -98,6 +98,14 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
             ->Increment($field);
         return $result;
     }
+    public function decrementCol($id, $field)
+    {
+        $result = $this
+            ->_model
+            ->where('music_id', $id)
+            ->decrement($field);
+        return $result;
+    }
     public function getCategoryMusic($catId, $catLevel, $fillOrder, $typeOrder, $page)
     {
         $arrWhere[] = ['cat_id', $catId];

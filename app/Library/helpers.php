@@ -516,10 +516,10 @@ class Helpers
 
         if ($music_id <= 200000)
             $url = 'http://data02.chiasenhac.com/';
-        else if ($music_id < 1000000)
-            $url = 'http://data3.chiasenhac.com/';
-//        else if ($music_id <= 1005000)
-//            $url = 'http://data5.chiasenhac.com/';
+//        else if ($music_id < 1000000)
+//            $url = 'http://data3.chiasenhac.com/';
+        else if ($music_id <= 1005000)
+            $url = 'http://data5.chiasenhac.com/';
         else if ($music_id <= 1005000)
             $url = 'http://data4.chiasenhac.com/';
         else if ($music_id <= 1029000)
@@ -584,7 +584,8 @@ class Helpers
             $url = 'http://data31.chiasenhac.com/';
         else
             $url = 'http://data.chiasenhac.com/';
-        return $url . md5(self::getIp() . env('DATA_KEY')) . '/';
+//        return $url . md5(self::getIp() . env('DATA_KEY')) . '/';
+        return $url;
     }
 
     public static function file_url(&$music_info)

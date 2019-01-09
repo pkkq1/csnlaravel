@@ -192,9 +192,25 @@
                 <button type="button" class="close" data-dismiss="modal">×</button>
             </div>
         </div>
+    </div>
+</div>
+
+<div id="myConfirmModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-body">
+                <p>Some text in the modal.</p>
+            </div>
+            <div class="modal-footer">
+                <a class="btn btn-danger btn-ok" style="color: white;">Xác nhận</a>
+                <button type="button" class="btn btn-default close_confirm" data-dismiss="modal">Hủy</button>
+            </div>
+        </div>
 
     </div>
 </div>
+
 @if(!Auth::user())
     <!-- Login -->
     <div id="myModal_login" class="modal fade" role="dialog" style="z-index: 999999999999999">
@@ -564,7 +580,6 @@
         window.location.href = url;
     }
 </script>
-
 <footer id="footer">
     <div class="container">
         <div class="row">

@@ -36,11 +36,8 @@ class VideoController extends CrudController
         $this->crud->denyAccess(['create']);
         $this->middleware(function ($request, $next)
         {
-            if(!backpack_user()->can('nhap_nhac')) {
+            if(!backpack_user()->can('duyet_sua_nhac') && !backpack_user()->can('duyet_sua_karaoke')) {
                 $this->crud->denyAccess(['list']);
-            }
-            if(!backpack_user()->can('nhap_nhac')) {
-                $this->crud->denyAccess(['update']);
             }
             if(!backpack_user()->can('xoa_nhac')) {
                 $this->crud->denyAccess(['delete']);
@@ -56,18 +53,18 @@ class VideoController extends CrudController
         $this->crud->addColumn([
             'name'  => 'music_title',
             'label' => 'Tên video',
-            'type' => 'closure',
-            'function' => function($entry) {
-                return '<a target="_blank" href="'.Helpers::listen_url($entry->toArray()).'" >'.$entry->music_title.'</a>';
-            }
+//            'type' => 'closure',
+//            'function' => function($entry) {
+//                return '<a target="_blank" href="'.Helpers::listen_url($entry->toArray()).'" >'.$entry->music_title.'</a>';
+//            }
         ]);
         $this->crud->addColumn([
-            'name'  => 'artist_nickname',
+            'name'  => 'music_artist',
             'label' => 'Nghệ Danh',
-            'type' => 'closure',
-            'function' => function($entry) {
-                return Helpers::rawHtmlArtists($entry->music_artist_id, $entry->music_artist);
-            }
+//            'type' => 'closure',
+//            'function' => function($entry) {
+//                return Helpers::rawHtmlArtists($entry->music_artist_id, $entry->music_artist);
+//            }
         ]);
 
 
@@ -76,6 +73,17 @@ class VideoController extends CrudController
         $this->crud->addField([
             'name' => 'music_title',
             'label' => 'Tên video',
+        ]);
+        $this->crud->addColumn([
+            'name'  => 'music_id2',
+            'label' => 'Thumbnail',
+            'type' => 'closure',
+            'function' => function($entry) {
+                return '<a target="_blank" href="'.Helpers::listen_url($entry->toArray()).'" ><img style="
+                                  max-height: 25px;
+                                  width: auto;
+                                  border-radius: 3px;" src="'.Helpers::thumbnail_url($entry->toArray()).'"/></a>';
+            }
         ]);
         $this->crud->addField([
             'name' => 'music_composer',

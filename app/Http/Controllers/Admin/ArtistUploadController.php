@@ -33,6 +33,7 @@ class ArtistUploadController extends CrudController
         $this->crud->setEntityNameStrings('Upload Artist', 'Artist Upload');
         $this->crud->setRoute(config('backpack.base.route_prefix').'/artist_upload');
         $this->crud->denyAccess(['create']);
+        $this->crud->orderBy('artist_id', 'desc');
 //        $this->crud->denyAccess(['create', 'delete', 'update', 'list']);
 //        $this->crud->allowAccess('reorder');
 //        $this->crud->hasAccess('update');

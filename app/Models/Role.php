@@ -13,4 +13,12 @@ class Role extends EntrustRole
             config('laravel-permission.table_names.role_has_permissions')
         );
     }
+    public function cachedPermissions()
+    {
+        $rolePrimaryKey = $this->primaryKey;
+        $cacheKey = 'entrust_permissions_for_role_'.$this->$rolePrimaryKey;
+        return Cache::tags(Config::get('entrust.permission_role_table'))->remember($cacheKey, Config::get('cache.ttl'), function () {
+            return $this->perms()->get();
+        });
+    }
 }

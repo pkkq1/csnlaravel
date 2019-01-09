@@ -33,8 +33,13 @@ class RoleCrudController extends CrudController
 
         $this->crud->setColumns([
             [
+                'name'  => 'display_name',
+                'label' => 'Tên hiển thị',
+                'type'  => 'text',
+            ],
+            [
                 'name'  => 'name',
-                'label' => trans('backpack::permissionmanager.name'),
+                'label' => 'slug',
                 'type'  => 'text',
             ],
             [
@@ -48,12 +53,17 @@ class RoleCrudController extends CrudController
                 'pivot'     => true, // on create&update, do you need to add/delete pivot table entries?
             ],
         ]);
-
+        $this->crud->addField([
+            'name'  => 'display_name',
+            'label' => 'Tên hiển thị',
+            'type'  => 'text',
+        ]);
         $this->crud->addField([
             'name'  => 'name',
             'label' => trans('backpack::permissionmanager.name'),
             'type'  => 'text',
         ]);
+
         $this->crud->addField([
             'label'     => ucfirst(trans('backpack::permissionmanager.permission_plural')),
             'type'      => 'checklist',

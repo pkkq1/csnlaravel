@@ -26,6 +26,7 @@ class CategoryCsnController extends CrudController
         $this->crud->setModel("App\Models\CategoryCsnModel");
         $this->crud->setEntityNameStrings('Category CSN', 'Category CSN');
         $this->crud->setRoute(config('backpack.base.route_prefix').'/category_csn');
+        $this->crud->orderBy('cat_id', 'desc');
 //        $this->crud->setEntityNameStrings('menu item', 'menu items');
         $this->middleware(function ($request, $next)
         {
