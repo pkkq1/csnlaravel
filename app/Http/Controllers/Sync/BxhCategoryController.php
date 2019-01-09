@@ -26,11 +26,11 @@ class BxhCategoryController extends Controller
         $this->categoryRepository = $categoryRepository;
         $this->musicListenRepository = $musicListenRepository;
     }
-    public function syncBxhCategory(Request $request) {
-
+    public function syncBxhCategory($today = true, $week = false) {
+        $catregory =$this->categoryRepository->getCategoryParent();
+        if($today) {
         $ressultMusic = [];
         $ressultVideo = [];
-        $catregory =$this->categoryRepository->getCategoryParent();
         foreach ($catregory as $item) {
             $result = $this->musicListenRepository->bxhHotTodayCategoryMusic($item->cat_id)->toArray();
             foreach($result as $item2) {
@@ -58,26 +58,26 @@ global $hot_video_rows;
 $hot_music_rows = ' . var_export($ressultMusic, true) . ';
 $hot_video_rows = ' . var_export($ressultVideo, true) . ';
 ?>');
-
-
-        $ressultMusic = [];
-        $ressultVideo = [];
-        foreach ($catregory as $item) {
-            $result = $this->musicListenRepository->bxhWeekCategoryMusic($item->cat_id)->toArray();
-            foreach($result as $item2) {
-                $item2['music_artist_html'] = Helpers::rawHtmlArtists($item2['music_artist_id'], $item2['music_artist']);
-                $item2['music_bitrate_html'] = Helpers::bitrate2str($item2['music_bitrate']);
-                $ressultMusic[$item->cat_id][] = $item2;
-            }
-            $result = $this->musicListenRepository->bxhWeekCategoryVideo($item->cat_id)->toArray();
-            foreach($result as $item2) {
-                $item2['music_artist_html'] = Helpers::rawHtmlArtists($item2['music_artist_id'], $item2['music_artist']);
-                $item2['music_bitrate_html'] = Helpers::size2str($item2['music_width'], $item2['music_height']);
-                $ressultVideo[$item->cat_id][] = $item2;
-            }
         }
-        file_put_contents(resource_path().'/views/cache/bxh/bxh_week.blade.php',
-            '<?php 
+        if($week) {
+            $ressultMusic = [];
+            $ressultVideo = [];
+            foreach ($catregory as $item) {
+                $result = $this->musicListenRepository->bxhWeekCategoryMusic($item->cat_id)->toArray();
+                foreach ($result as $item2) {
+                    $item2['music_artist_html'] = Helpers::rawHtmlArtists($item2['music_artist_id'], $item2['music_artist']);
+                    $item2['music_bitrate_html'] = Helpers::bitrate2str($item2['music_bitrate']);
+                    $ressultMusic[$item->cat_id][] = $item2;
+                }
+                $result = $this->musicListenRepository->bxhWeekCategoryVideo($item->cat_id)->toArray();
+                foreach ($result as $item2) {
+                    $item2['music_artist_html'] = Helpers::rawHtmlArtists($item2['music_artist_id'], $item2['music_artist']);
+                    $item2['music_bitrate_html'] = Helpers::size2str($item2['music_width'], $item2['music_height']);
+                    $ressultVideo[$item->cat_id][] = $item2;
+                }
+            }
+            file_put_contents(resource_path() . '/views/cache/bxh/bxh_week.blade.php',
+                '<?php 
 if ( !ENV(\'IN_PHPBB\') )
 {
     die(\'Hacking attempt\');
@@ -89,10 +89,10 @@ global $hot_video_rows;
 $hot_music_rows = ' . var_export($ressultMusic, true) . ';
 $hot_video_rows = ' . var_export($ressultVideo, true) . ';
 ?>');
-
+        }
         return response(['Ok']);
     }
-    public function syncBxhCategoryMonthYear(Request $request, $month = 'all', $year) {
+    public function syncBxhCategoryMonthYear($month = 'all', $year = CURRENT_YEAR) {
         $ressultMusic = [];
         $ressultVideo = [];
         $catregory =$this->categoryRepository->getCategoryParent();

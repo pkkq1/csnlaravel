@@ -25,7 +25,7 @@ class AlbumController extends Controller
         $this->coverRepository = $coverRepository;
         $this->videoRepository = $videoRepository;
     }
-    public function syncAlbum(Request $request) {
+    public function syncAlbum() {
         $cache = $this->coverRepository->getCoverNew();
         $album_new = [];
         foreach($cache as $key => $item) {

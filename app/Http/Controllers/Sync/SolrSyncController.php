@@ -31,8 +31,8 @@ class SolrSyncController extends Controller
         return $this->Solr->ping();
     }
 
-    public function syncMusic(Request $request) {
-        $searchMusic = MusicSolrModel::select('music_id', 'music_title_search', 'music_artist_search', 'music_composer_search', 'music_album_search', 'music_title', 'music_artist',
+    public function syncMusic() {
+        $searchMusic = MusicModel::select('music_id', 'music_title_search', 'music_artist_search', 'music_composer_search', 'music_album_search', 'music_title', 'music_artist',
         'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_title_url', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_downloads_this_week', 'music_lyric')
             ->offset(1)
             ->limit(100000)
@@ -72,7 +72,7 @@ class SolrSyncController extends Controller
         }
         return response(['Ok']);
     }
-    public function syncVideo(Request $request) {
+    public function syncVideo() {
         $searchVideo = VideoModel::select('music_id', 'music_title_search', 'music_artist_search', 'music_composer_search', 'music_album_search', 'music_title', 'music_artist',
             'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_title_url', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_width', 'music_height', 'music_last_update_time', 'music_length', 'music_time')
             ->offset(1)
@@ -109,7 +109,7 @@ class SolrSyncController extends Controller
         }
         return response(['Ok']);
     }
-    public function syncArtist(Request $request) {
+    public function syncArtist() {
         $artist = ArtistModel::offset(150000)->limit(100000)->get();
         foreach ($artist as $item) {
             $artist_nickname_charset = Helpers::rawTiengVietUrl(mb_strtolower($item->artist_nickname, 'UTF-8'), ' ');
@@ -126,7 +126,7 @@ class SolrSyncController extends Controller
         }
         return response(['Ok']);
     }
-    public function syncCover(Request $request) {
+    public function syncCover() {
         $cover = CoverModel::orderBy('cover_id', 'asc')->offset(90000)->limit(10000)->get();
         foreach ($cover as $item) {
             $music_artist = $item->album_artist_1;

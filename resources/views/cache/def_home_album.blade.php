@@ -477,26 +477,6 @@ $album_old = array (
   ),
   10 => 
   array (
-    'cover_id' => 90633,
-    'music_album' => 'Just For A While (Single)',
-    'music_artist' => 'K-ICM;T-ICM',
-    'music_artist_id' => '14491;18842',
-    'music_artist_html' => '<a href="/ca-si/K-ICM~Y3NuX2FydGlzdH4xNDQ5MQ==.html">K-ICM</a>, <a href="/ca-si/T-ICM~Y3NuX2FydGlzdH4xODg0Mg==.html">T-ICM</a>',
-    'music_bitrate' => 1000,
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  11 => 
-  array (
-    'cover_id' => 90632,
-    'music_album' => 'Journey (Single)',
-    'music_artist' => 'SaberZ',
-    'music_artist_id' => 18841,
-    'music_artist_html' => '<a href="/ca-si/SaberZ~Y3NuX2FydGlzdH4xODg0MQ==.html">SaberZ</a>',
-    'music_bitrate' => 1000,
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-  ),
-  12 => 
-  array (
     'cover_id' => 90631,
     'music_album' => 'Ultimate 2000s (CD4)',
     'music_artist' => 'John Mayer;The Ting Tings',
@@ -505,7 +485,7 @@ $album_old = array (
     'music_bitrate' => 1000,
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  13 => 
+  11 => 
   array (
     'cover_id' => 90630,
     'music_album' => 'Ultimate 2000s (CD3)',
@@ -515,7 +495,7 @@ $album_old = array (
     'music_bitrate' => 1000,
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  14 => 
+  12 => 
   array (
     'cover_id' => 90629,
     'music_album' => 'Ultimate 2000s (CD2)',
@@ -525,7 +505,7 @@ $album_old = array (
     'music_bitrate' => 1000,
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  15 => 
+  13 => 
   array (
     'cover_id' => 90628,
     'music_album' => 'Ultimate 2000s (CD1)',
@@ -535,7 +515,7 @@ $album_old = array (
     'music_bitrate' => 1000,
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  16 => 
+  14 => 
   array (
     'cover_id' => 90627,
     'music_album' => 'Omni Sight Seeing',
@@ -545,7 +525,7 @@ $album_old = array (
     'music_bitrate' => 1000,
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  17 => 
+  15 => 
   array (
     'cover_id' => 90626,
     'music_album' => 'The Tale of Genji OST',
@@ -555,7 +535,7 @@ $album_old = array (
     'music_bitrate' => 1000,
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  18 => 
+  16 => 
   array (
     'cover_id' => 90625,
     'music_album' => 'Back Again',
@@ -565,7 +545,7 @@ $album_old = array (
     'music_bitrate' => 1000,
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
-  19 => 
+  17 => 
   array (
     'cover_id' => 90624,
     'music_album' => 'Two',
@@ -575,51 +555,38 @@ $album_old = array (
     'music_bitrate' => 1000,
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
   ),
+  18 => 
+  array (
+    'cover_id' => 90623,
+    'music_album' => 'Urban Folktales',
+    'music_artist' => 'Matt Marshak',
+    'music_artist_id' => 18824,
+    'music_artist_html' => '<a href="/ca-si/Matt-Marshak~Y3NuX2FydGlzdH4xODgyNA==.html">Matt Marshak</a>',
+    'music_bitrate' => 1000,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+  ),
+  19 => 
+  array (
+    'cover_id' => 90596,
+    'music_album' => 'Chúc Tụng Mẹ La Vang',
+    'music_artist' => 'Phượng Vũ;Lê Uyên',
+    'music_artist_id' => '18773;836',
+    'music_artist_html' => '<a href="/ca-si/Phuong-Vu~Y3NuX2FydGlzdH4xODc3Mw==.html">Phượng Vũ</a>, <a href="/ca-si/Le-Uyen~Y3NuX2FydGlzdH44MzY=.html">Lê Uyên</a>',
+    'music_bitrate' => 320,
+    'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
+  ),
 );
 $music_new_uploads = array (
   0 => 
-  array (
-    'music_id' => 1961072,
-    'music_title_url' => 'i-did-it~spica',
-    'music_title' => 'I Did It',
-    'music_artist' => 'Spica',
-    'music_artist_id' => '3923',
-    'cat_id' => 4,
-    'cat_level' => 1,
-    'cat_sublevel' => 1,
-    'cat_custom' => 0,
-    'cover_id' => 95585,
-    'music_download_time' => 1539070761,
-    'music_last_update_time' => 1539069453,
-    'music_title_search' => 'i did it',
-    'music_artist_search' => '; xpica;',
-    'music_album_search' => 'i did it; xingle',
-    'music_composer' => '',
-    'music_album' => 'I Did It (Single)',
-    'music_listen' => 11124,
-    'music_track_id' => 1,
-    'music_filename' => '1961072-472edeee.mp3',
-    'music_bitrate' => 1000,
-    'music_shortlyric' => 'Where my girls at?
-Okay, Stop! I\'ll tell ya \'bout it
-It\'s been way too long since I been
-Out for a night with my girl friends
-Been a hard day\'s work So let\'s go
-We gonna celebrate tonight Oh Hey he...',
-    'music_time' => 1539069403,
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-    'music_artist_html' => '<a href="/ca-si/Spica~Y3NuX2FydGlzdH4zOTIz.html">Spica</a>',
-  ),
-  1 => 
   array (
     'music_id' => 1960833,
     'music_title_url' => 'my-memory-warehouse~yoon-hyun-sang',
     'music_title' => 'My Memory Warehouse',
     'music_artist' => 'Yoon Hyun Sang',
     'music_artist_id' => '14027',
-    'cat_id' => 6,
-    'cat_level' => 1,
-    'cat_sublevel' => 1,
+    'cat_id' => 9,
+    'cat_level' => 3,
+    'cat_sublevel' => 3,
     'cat_custom' => 0,
     'cover_id' => 95554,
     'music_download_time' => 1539060749,
@@ -627,7 +594,7 @@ We gonna celebrate tonight Oh Hey he...',
     'music_title_search' => 'mi memori warehouxe',
     'music_artist_search' => '; ion hiun xang;',
     'music_album_search' => 'mi memori warehouxe; xingle',
-    'music_composer' => '',
+    'music_composer' => 'test 1',
     'music_album' => 'My Memory Warehouse (Single)',
     'music_listen' => 278,
     'music_track_id' => 1,
@@ -645,7 +612,7 @@ T...',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     'music_artist_html' => '<a href="/ca-si/Yoon-Hyun-Sang~Y3NuX2FydGlzdH4xNDAyNw==.html">Yoon Hyun Sang</a>',
   ),
-  2 => 
+  1 => 
   array (
     'music_id' => 1960830,
     'music_title_url' => 'it-takes-time~colde-loco',
@@ -679,7 +646,7 @@ Tto...',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     'music_artist_html' => '<a href="/ca-si/Colde~Y3NuX2FydGlzdH4xNzM5OQ==.html">Colde</a>, <a href="/ca-si/Loco~Y3NuX2FydGlzdH4xMzY2Nw==.html">Loco</a>',
   ),
-  3 => 
+  2 => 
   array (
     'music_id' => 1960801,
     'music_title_url' => 'lo-siento-play-n-skillz-remix-version~leslie-grace-super-junior',
@@ -696,7 +663,7 @@ Tto...',
     'music_title_search' => 'lo xinto; plai n xkilz remix verxion',
     'music_artist_search' => '; lexli grace; xuper junior;',
     'music_album_search' => '1 more time; ep',
-    'music_composer' => 'Kenzie; Heechul; Eunhyuk; Mario Caceres; Yasmil Marrufo; Leslie Grace; Daniel Obi Klein; Charli Taft; Andreas Oberg; Juan \'Play\' Salinas; Oscar &quot;Skillz&quot; Salinas; Play-N-Skillz',
+    'music_composer' => 'Kenzie; Heechul; Eunhyuk; Mario Caceres; Yasmil Marrufo; Leslie Grace; Daniel Obi Klein; Charli Taft; Andreas Oberg; Juan \'Play\' Salinas; Oscar "Skillz" Salinas; Play-N-Skillz',
     'music_album' => 'One More Time (EP)',
     'music_listen' => 169,
     'music_track_id' => 5,
@@ -713,7 +680,7 @@ Nae gamhi geuda...',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     'music_artist_html' => '<a href="/ca-si/Leslie-Grace~Y3NuX2FydGlzdH43MjY2MA==.html">Leslie Grace</a>, <a href="/ca-si/Super-Junior~Y3NuX2FydGlzdH4yMTM=.html">Super Junior</a>',
   ),
-  4 => 
+  3 => 
   array (
     'music_id' => 1960799,
     'music_title_url' => 'animals~super-junior',
@@ -749,7 +716,7 @@ In t...',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     'music_artist_html' => '<a href="/ca-si/Super-Junior~Y3NuX2FydGlzdH4yMTM=.html">Super Junior</a>',
   ),
-  5 => 
+  4 => 
   array (
     'music_id' => 1960798,
     'music_title_url' => 'one-more-time-otra-vez-sj-version~super-junior',
@@ -783,7 +750,7 @@ Tteuge...',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     'music_artist_html' => '<a href="/ca-si/Super-Junior~Y3NuX2FydGlzdH4yMTM=.html">Super Junior</a>',
   ),
-  6 => 
+  5 => 
   array (
     'music_id' => 1960797,
     'music_title_url' => 'one-more-time-otra-vez~reik-super-junior',
@@ -816,7 +783,7 @@ Tteuge...',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     'music_artist_html' => '<a href="/ca-si/Reik~Y3NuX2FydGlzdH4yMzQyMw==.html">Reik</a>, <a href="/ca-si/Super-Junior~Y3NuX2FydGlzdH4yMTM=.html">Super Junior</a>',
   ),
-  7 => 
+  6 => 
   array (
     'music_id' => 1960792,
     'music_title_url' => 'yeu-la-dau~dan-kim',
@@ -846,7 +813,7 @@ Tình yêu sẽ không chia lìa người biết không sầu nhớ vy oanh...',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     'music_artist_html' => '<a href="/ca-si/Dan-Kim~Y3NuX2FydGlzdH41Nzg5.html">Đan Kim</a>',
   ),
-  8 => 
+  7 => 
   array (
     'music_id' => 1960788,
     'music_title_url' => 'minh-la-gi-cua-nhau~dan-kim',
@@ -879,7 +846,7 @@ Vì em không muốn anh thấy em...',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     'music_artist_html' => '<a href="/ca-si/Dan-Kim~Y3NuX2FydGlzdH41Nzg5.html">Đan Kim</a>',
   ),
-  9 => 
+  8 => 
   array (
     'music_id' => 1960786,
     'music_title_url' => 'dung-co-yeu-khi-khong-con-cam-giac~dan-kim',
@@ -907,7 +874,7 @@ Vì em không muốn anh thấy em...',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     'music_artist_html' => '<a href="/ca-si/Dan-Kim~Y3NuX2FydGlzdH41Nzg5.html">Đan Kim</a>',
   ),
-  10 => 
+  9 => 
   array (
     'music_id' => 1960785,
     'music_title_url' => 'duoc-tin-em-lay-chong~juun-dang-dung',
@@ -942,7 +909,7 @@ Chúc em...',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     'music_artist_html' => '<a href="/ca-si/Juun-Dang-Dung~Y3NuX2FydGlzdH4xNTk5OA==.html">Juun Đăng Dũng</a>',
   ),
-  11 => 
+  10 => 
   array (
     'music_id' => 1960783,
     'music_title_url' => 'smileysmile~smileysmile',
@@ -976,7 +943,7 @@ Uureul beoseo d...',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     'music_artist_html' => '<a href="/ca-si/SmileySmile~Y3NuX2FydGlzdH4xMjI2ODI=.html">SmileySmile</a>',
   ),
-  12 => 
+  11 => 
   array (
     'music_id' => 1960750,
     'music_title_url' => 'forgotten~the-ade',
@@ -1011,7 +978,7 @@ Naeireul hyangha...',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     'music_artist_html' => '<a href="/ca-si/The-Ade~Y3NuX2FydGlzdH4xMzMwMg==.html">The Ade</a>',
   ),
-  13 => 
+  12 => 
   array (
     'music_id' => 1960748,
     'music_title_url' => 'its-you~chung-ha',
@@ -1046,7 +1013,7 @@ Ttuleojil deut neoman bwas...',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     'music_artist_html' => '<a href="/ca-si/Chung-Ha~Y3NuX2FydGlzdH4xMzUxMw==.html">Chung Ha</a>',
   ),
-  14 => 
+  13 => 
   array (
     'music_id' => 1960745,
     'music_title_url' => 'on-the-floor-remix~jennifer-lopez-pitbull',
@@ -1084,7 +1051,7 @@ And everybody knows I get off the train...',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     'music_artist_html' => '<a href="/ca-si/Jennifer-Lopez-Pitbull~Y3NuX2FydGlzdH4xMjI2ODY=.html">Jennifer Lopez, Pitbull</a>',
   ),
-  15 => 
+  14 => 
   array (
     'music_id' => 1960730,
     'music_title_url' => 'numa-numa-2~dan-balan-marley-waters',
@@ -1123,7 +1090,7 @@ That new nu...',
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     'music_artist_html' => '<a href="/ca-si/Dan-Balan~Y3NuX2FydGlzdH4xNjg2MA==.html">Dan Balan</a>, <a href="/ca-si/Marley-Waters~Y3NuX2FydGlzdH4xMjI2ODg=.html">Marley Waters</a>',
   ),
-  16 => 
+  15 => 
   array (
     'music_id' => 1960728,
     'music_title_url' => 'way-back-home-cover~jang-mi',
@@ -1156,7 +1123,7 @@ Amuri himkkeot dadado...',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     'music_artist_html' => '<a href="/ca-si/Jang-Mi~Y3NuX2FydGlzdH4xMzc3NQ==.html">Jang Mi</a>',
   ),
-  17 => 
+  16 => 
   array (
     'music_id' => 1960726,
     'music_title_url' => 'em-khong-con~truong-luong-dinh',
@@ -1204,7 +1171,7 @@ Amuri himkkeot dadado...',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     'music_artist_html' => '<a href="/ca-si/Truong-Luong-Dinh~Y3NuX2FydGlzdH40MTQ4.html">Trương Lương Dĩnh</a>',
   ),
-  18 => 
+  17 => 
   array (
     'music_id' => 1960721,
     'music_title_url' => 'jackie-chan-mandy-remix~tisto-dzeko-preme-post-malone',
@@ -1239,7 +1206,7 @@ Drop top,...',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     'music_artist_html' => '<a href="/ca-si/Tisto~Y3NuX2FydGlzdH4xNTU5NA==.html">Tiësto</a>, <a href="/ca-si/Dzeko~Y3NuX2FydGlzdH4xNTU5NQ==.html">Dzeko</a>, <a href="/ca-si/Preme~Y3NuX2FydGlzdH4xNDYxMg==.html">Preme</a>, <a href="/ca-si/Post-Malone~Y3NuX2FydGlzdH4xMzk0NA==.html">Post Malone</a>',
   ),
-  19 => 
+  18 => 
   array (
     'music_id' => 1960720,
     'music_title_url' => 'jackie-chan-daijo-remix~tisto-dzeko-preme-post-malone',
@@ -1274,47 +1241,51 @@ Drop top,...',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     'music_artist_html' => '<a href="/ca-si/Tisto~Y3NuX2FydGlzdH4xNTU5NA==.html">Tiësto</a>, <a href="/ca-si/Dzeko~Y3NuX2FydGlzdH4xNTU5NQ==.html">Dzeko</a>, <a href="/ca-si/Preme~Y3NuX2FydGlzdH4xNDYxMg==.html">Preme</a>, <a href="/ca-si/Post-Malone~Y3NuX2FydGlzdH4xMzk0NA==.html">Post Malone</a>',
   ),
+  19 => 
+  array (
+    'music_id' => 1960719,
+    'music_title_url' => 'jackie-chan-david-puentez-remix~tisto-dzeko-preme-post-malone',
+    'music_title' => 'Jackie Chan (David Puentez Remix)',
+    'music_artist' => 'Tiësto;Dzeko;Preme;Post Malone',
+    'music_artist_id' => '15594;15595;14612;13944',
+    'cat_id' => 4,
+    'cat_level' => 3,
+    'cat_sublevel' => 1,
+    'cat_custom' => 0,
+    'cover_id' => 95538,
+    'music_download_time' => 1539012150,
+    'music_last_update_time' => 1538961554,
+    'music_title_search' => 'jacki chan; david puentez remix',
+    'music_artist_search' => '; tiëxto; veko; preme; poxt malone;',
+    'music_album_search' => 'jacki chan; remixex vol 2',
+    'music_composer' => 'Tiësto; Dzeko; Preme; Post Malone',
+    'music_album' => 'Jackie Chan (Remixes, Vol. 2)',
+    'music_listen' => 254,
+    'music_track_id' => 4,
+    'music_filename' => '1960719-e3c96678.mp3',
+    'music_bitrate' => 1000,
+    'music_shortlyric' => '[Intro:]
+She said she too young, don\'t want no man
+So she gon\' call her friends, now that\'s a plan
+I just ordered sushi from Japan
+Know your bitch wanna kick it, Jackie Chan.
+
+[Verse 1:]
+Drop top,...',
+    'music_time' => 1538931992,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_artist_html' => '<a href="/ca-si/Tisto~Y3NuX2FydGlzdH4xNTU5NA==.html">Tiësto</a>, <a href="/ca-si/Dzeko~Y3NuX2FydGlzdH4xNTU5NQ==.html">Dzeko</a>, <a href="/ca-si/Preme~Y3NuX2FydGlzdH4xNDYxMg==.html">Preme</a>, <a href="/ca-si/Post-Malone~Y3NuX2FydGlzdH4xMzk0NA==.html">Post Malone</a>',
+  ),
 );   
 $video_new_uploads = array (
   0 => 
-  array (
-    'music_id' => 1924541,
-    'music_title_url' => 'dream-journey~bob-james',
-    'music_title' => 'Dream Journey',
-    'music_artist' => 'Bob James',
-    'music_artist_id' => NULL,
-    'cat_id' => 2,
-    'cat_level' => 2,
-    'cat_sublevel' => 1,
-    'cat_custom' => 0,
-    'cover_id' => 90624,
-    'music_download_time' => 0,
-    'music_last_update_time' => 1530621165,
-    'music_title_search' => 'dream journei',
-    'music_artist_search' => '; bob jamex;',
-    'music_album_search' => '2',
-    'music_composer' => '',
-    'music_album' => 'Two',
-    'music_listen' => 0,
-    'music_track_id' => 6,
-    'music_filename' => '1924541-855724be.mp3',
-    'music_bitrate' => 1000,
-    'music_shortlyric' => '',
-    'music_length' => 352,
-    'music_time' => 1530620908,
-    'music_width' => 0,
-    'music_height' => 0,
-    'music_bitrate_html' => '0x0',
-    'music_artist_html' => '<a href="/tim-kiem?q=Bob James&mode=ca-si">Bob James</a>',
-  ),
-  1 => 
   array (
     'music_id' => 1924540,
     'music_title_url' => 'youre-as-right-as-rain~bob-james',
     'music_title' => 'You\'re As Right As Rain',
     'music_artist' => 'Bob James',
     'music_artist_id' => NULL,
-    'cat_id' => 2,
+    'cat_id' => 1,
     'cat_level' => 2,
     'cat_sublevel' => 1,
     'cat_custom' => 0,
@@ -1338,14 +1309,14 @@ $video_new_uploads = array (
     'music_bitrate_html' => '0x0',
     'music_artist_html' => '<a href="/tim-kiem?q=Bob James&mode=ca-si">Bob James</a>',
   ),
-  2 => 
+  1 => 
   array (
     'music_id' => 1924539,
     'music_title_url' => 'farandole-larlesienne-suite-2~bob-james',
     'music_title' => 'Farandole (L\'Arlesienne Suite #2)',
     'music_artist' => 'Bob James',
     'music_artist_id' => NULL,
-    'cat_id' => 2,
+    'cat_id' => 1,
     'cat_level' => 2,
     'cat_sublevel' => 1,
     'cat_custom' => 0,
@@ -1369,14 +1340,14 @@ $video_new_uploads = array (
     'music_bitrate_html' => '0x0',
     'music_artist_html' => '<a href="/tim-kiem?q=Bob James&mode=ca-si">Bob James</a>',
   ),
-  3 => 
+  2 => 
   array (
     'music_id' => 1924538,
     'music_title_url' => 'the-golden-apple~bob-james',
     'music_title' => 'The Golden Apple',
     'music_artist' => 'Bob James',
     'music_artist_id' => NULL,
-    'cat_id' => 2,
+    'cat_id' => 1,
     'cat_level' => 2,
     'cat_sublevel' => 1,
     'cat_custom' => 0,
@@ -1400,14 +1371,14 @@ $video_new_uploads = array (
     'music_bitrate_html' => '0x0',
     'music_artist_html' => '<a href="/tim-kiem?q=Bob James&mode=ca-si">Bob James</a>',
   ),
-  4 => 
+  3 => 
   array (
     'music_id' => 1924536,
     'music_title_url' => 'take-me-to-the-mardi-gras~bob-james',
     'music_title' => 'Take Me To The Mardi Gras',
     'music_artist' => 'Bob James',
     'music_artist_id' => NULL,
-    'cat_id' => 2,
+    'cat_id' => 1,
     'cat_level' => 2,
     'cat_sublevel' => 1,
     'cat_custom' => 0,
@@ -1431,14 +1402,14 @@ $video_new_uploads = array (
     'music_bitrate_html' => '0x0',
     'music_artist_html' => '<a href="/tim-kiem?q=Bob James&mode=ca-si">Bob James</a>',
   ),
-  5 => 
+  4 => 
   array (
     'music_id' => 1924477,
     'music_title_url' => 'heart~2bic',
     'music_title' => 'Heart',
     'music_artist' => '2BIC',
     'music_artist_id' => NULL,
-    'cat_id' => 2,
+    'cat_id' => 1,
     'cat_level' => 4,
     'cat_sublevel' => 8,
     'cat_custom' => 0,
@@ -1468,14 +1439,14 @@ I\'m looking for m...',
     'music_bitrate_html' => '0x0',
     'music_artist_html' => '<a href="/tim-kiem?q=2BIC&mode=ca-si">2BIC</a>',
   ),
-  6 => 
+  5 => 
   array (
     'music_id' => 1924473,
     'music_title_url' => 'lover~teen-top',
     'music_title' => 'Lover',
     'music_artist' => 'Teen Top',
     'music_artist_id' => NULL,
-    'cat_id' => 2,
+    'cat_id' => 1,
     'cat_level' => 4,
     'cat_sublevel' => 1,
     'cat_custom' => 0,
@@ -1504,14 +1475,14 @@ Tteugeoun natgwa ba...',
     'music_bitrate_html' => '0x0',
     'music_artist_html' => '<a href="/tim-kiem?q=Teen Top&mode=ca-si">Teen Top</a>',
   ),
-  7 => 
+  6 => 
   array (
     'music_id' => 1924472,
     'music_title_url' => 'seoul-night~teen-top',
     'music_title' => 'Seoul Night',
     'music_artist' => 'Teen Top',
     'music_artist_id' => NULL,
-    'cat_id' => 2,
+    'cat_id' => 1,
     'cat_level' => 1,
     'cat_sublevel' => 1,
     'cat_custom' => 0,
@@ -1541,14 +1512,14 @@ Ha...',
     'music_bitrate_html' => '0x0',
     'music_artist_html' => '<a href="/tim-kiem?q=Teen Top&mode=ca-si">Teen Top</a>',
   ),
-  8 => 
+  7 => 
   array (
     'music_id' => 1924441,
     'music_title_url' => 'everything-changes~miyao',
     'music_title' => 'Everything Changes',
     'music_artist' => 'Miyao',
     'music_artist_id' => NULL,
-    'cat_id' => 2,
+    'cat_id' => 1,
     'cat_level' => 4,
     'cat_sublevel' => 1,
     'cat_custom' => 0,
@@ -1577,14 +1548,14 @@ Malhaji mothan bimireul deur...',
     'music_bitrate_html' => '0x0',
     'music_artist_html' => '<a href="/tim-kiem?q=Miyao&mode=ca-si">Miyao</a>',
   ),
-  9 => 
+  8 => 
   array (
     'music_id' => 1924435,
     'music_title_url' => 'oh-my-god~baba',
     'music_title' => 'Oh! My God!',
     'music_artist' => 'BaBa',
     'music_artist_id' => NULL,
-    'cat_id' => 2,
+    'cat_id' => 1,
     'cat_level' => 4,
     'cat_sublevel' => 1,
     'cat_custom' => 0,
@@ -1613,14 +1584,14 @@ Amu maldo mot hae honja aet...',
     'music_bitrate_html' => '0x0',
     'music_artist_html' => '<a href="/tim-kiem?q=BaBa&mode=ca-si">BaBa</a>',
   ),
-  10 => 
+  9 => 
   array (
     'music_id' => 1924422,
     'music_title_url' => 'lawless-lawyer-main-title~ma-sang-woo',
     'music_title' => 'Lawless Lawyer (Main Title)',
     'music_artist' => 'Ma Sang Woo',
     'music_artist_id' => NULL,
-    'cat_id' => 2,
+    'cat_id' => 1,
     'cat_level' => 4,
     'cat_sublevel' => 8,
     'cat_custom' => 0,
@@ -1644,14 +1615,14 @@ Amu maldo mot hae honja aet...',
     'music_bitrate_html' => '0x0',
     'music_artist_html' => '<a href="/tim-kiem?q=Ma Sang Woo&mode=ca-si">Ma Sang Woo</a>',
   ),
-  11 => 
+  10 => 
   array (
     'music_id' => 1924421,
     'music_title_url' => 'judgement-not-revenge~lee-tae-hyeon',
     'music_title' => 'Judgement, Not Revenge',
     'music_artist' => 'Lee Tae Hyeon',
     'music_artist_id' => NULL,
-    'cat_id' => 2,
+    'cat_id' => 1,
     'cat_level' => 4,
     'cat_sublevel' => 8,
     'cat_custom' => 0,
@@ -1675,14 +1646,14 @@ Amu maldo mot hae honja aet...',
     'music_bitrate_html' => '0x0',
     'music_artist_html' => '<a href="/tim-kiem?q=Lee Tae Hyeon&mode=ca-si">Lee Tae Hyeon</a>',
   ),
-  12 => 
+  11 => 
   array (
     'music_id' => 1924420,
     'music_title_url' => 'squabbling-first-assignment~lee-ah-ram',
     'music_title' => 'Squabbling First Assignment',
     'music_artist' => 'Lee Ah Ram',
     'music_artist_id' => NULL,
-    'cat_id' => 2,
+    'cat_id' => 1,
     'cat_level' => 4,
     'cat_sublevel' => 8,
     'cat_custom' => 0,
@@ -1706,14 +1677,14 @@ Amu maldo mot hae honja aet...',
     'music_bitrate_html' => '0x0',
     'music_artist_html' => '<a href="/tim-kiem?q=Lee Ah Ram&mode=ca-si">Lee Ah Ram</a>',
   ),
-  13 => 
+  12 => 
   array (
     'music_id' => 1924419,
     'music_title_url' => 'facing-evil~noh-hyeong-woo',
     'music_title' => 'Facing Evil',
     'music_artist' => 'Noh Hyeong Woo',
     'music_artist_id' => NULL,
-    'cat_id' => 2,
+    'cat_id' => 1,
     'cat_level' => 4,
     'cat_sublevel' => 8,
     'cat_custom' => 0,
@@ -1737,14 +1708,14 @@ Amu maldo mot hae honja aet...',
     'music_bitrate_html' => '0x0',
     'music_artist_html' => '<a href="/tim-kiem?q=Noh Hyeong Woo&mode=ca-si">Noh Hyeong Woo</a>',
   ),
-  14 => 
+  13 => 
   array (
     'music_id' => 1924418,
     'music_title_url' => '7-member~ma-sang-woo',
     'music_title' => '7 Member',
     'music_artist' => 'Ma Sang Woo',
     'music_artist_id' => NULL,
-    'cat_id' => 2,
+    'cat_id' => 1,
     'cat_level' => 4,
     'cat_sublevel' => 8,
     'cat_custom' => 0,
@@ -1768,14 +1739,14 @@ Amu maldo mot hae honja aet...',
     'music_bitrate_html' => '0x0',
     'music_artist_html' => '<a href="/tim-kiem?q=Ma Sang Woo&mode=ca-si">Ma Sang Woo</a>',
   ),
-  15 => 
+  14 => 
   array (
     'music_id' => 1924417,
     'music_title_url' => 'lawless-family~park-eun-ji',
     'music_title' => 'Lawless Family',
     'music_artist' => 'Park Eun Ji',
     'music_artist_id' => NULL,
-    'cat_id' => 2,
+    'cat_id' => 1,
     'cat_level' => 4,
     'cat_sublevel' => 8,
     'cat_custom' => 0,
@@ -1799,14 +1770,14 @@ Amu maldo mot hae honja aet...',
     'music_bitrate_html' => '0x0',
     'music_artist_html' => '<a href="/tim-kiem?q=Park Eun Ji&mode=ca-si">Park Eun Ji</a>',
   ),
-  16 => 
+  15 => 
   array (
     'music_id' => 1924416,
     'music_title_url' => 'your-hurt~o-hui-jun',
     'music_title' => 'Your Hurt',
     'music_artist' => 'O Hui Jun',
     'music_artist_id' => NULL,
-    'cat_id' => 2,
+    'cat_id' => 1,
     'cat_level' => 4,
     'cat_sublevel' => 8,
     'cat_custom' => 0,
@@ -1830,14 +1801,14 @@ Amu maldo mot hae honja aet...',
     'music_bitrate_html' => '0x0',
     'music_artist_html' => '<a href="/tim-kiem?q=O Hui Jun&mode=ca-si">O Hui Jun</a>',
   ),
-  17 => 
+  16 => 
   array (
     'music_id' => 1924415,
     'music_title_url' => 'lawless-law-firm~ma-sang-woo',
     'music_title' => 'Lawless Law Firm',
     'music_artist' => 'Ma Sang Woo',
     'music_artist_id' => NULL,
-    'cat_id' => 2,
+    'cat_id' => 1,
     'cat_level' => 4,
     'cat_sublevel' => 8,
     'cat_custom' => 0,
@@ -1861,14 +1832,14 @@ Amu maldo mot hae honja aet...',
     'music_bitrate_html' => '0x0',
     'music_artist_html' => '<a href="/tim-kiem?q=Ma Sang Woo&mode=ca-si">Ma Sang Woo</a>',
   ),
-  18 => 
+  17 => 
   array (
     'music_id' => 1924414,
     'music_title_url' => 'ill-protect-you~ma-sang-woo',
     'music_title' => 'I\'ll Protect You',
     'music_artist' => 'Ma Sang Woo',
     'music_artist_id' => NULL,
-    'cat_id' => 2,
+    'cat_id' => 1,
     'cat_level' => 4,
     'cat_sublevel' => 8,
     'cat_custom' => 0,
@@ -1892,14 +1863,14 @@ Amu maldo mot hae honja aet...',
     'music_bitrate_html' => '0x0',
     'music_artist_html' => '<a href="/tim-kiem?q=Ma Sang Woo&mode=ca-si">Ma Sang Woo</a>',
   ),
-  19 => 
+  18 => 
   array (
     'music_id' => 1924413,
     'music_title_url' => 'golden-city~lee-ah-ram',
     'music_title' => 'Golden City',
     'music_artist' => 'Lee Ah Ram',
     'music_artist_id' => NULL,
-    'cat_id' => 2,
+    'cat_id' => 1,
     'cat_level' => 4,
     'cat_sublevel' => 8,
     'cat_custom' => 0,
@@ -1923,14 +1894,14 @@ Amu maldo mot hae honja aet...',
     'music_bitrate_html' => '0x0',
     'music_artist_html' => '<a href="/tim-kiem?q=Lee Ah Ram&mode=ca-si">Lee Ah Ram</a>',
   ),
-  20 => 
+  19 => 
   array (
     'music_id' => 1924412,
     'music_title_url' => 'muvengers~hwang-in-gyu',
     'music_title' => 'Muvengers',
     'music_artist' => 'Hwang In Gyu',
     'music_artist_id' => NULL,
-    'cat_id' => 2,
+    'cat_id' => 1,
     'cat_level' => 4,
     'cat_sublevel' => 8,
     'cat_custom' => 0,
@@ -1954,14 +1925,14 @@ Amu maldo mot hae honja aet...',
     'music_bitrate_html' => '0x0',
     'music_artist_html' => '<a href="/tim-kiem?q=Hwang In Gyu&mode=ca-si">Hwang In Gyu</a>',
   ),
-  21 => 
+  20 => 
   array (
     'music_id' => 1924411,
     'music_title_url' => 'their-past~park-eun-ji',
     'music_title' => 'Their Past',
     'music_artist' => 'Park Eun Ji',
     'music_artist_id' => NULL,
-    'cat_id' => 2,
+    'cat_id' => 1,
     'cat_level' => 4,
     'cat_sublevel' => 8,
     'cat_custom' => 0,
@@ -1985,14 +1956,14 @@ Amu maldo mot hae honja aet...',
     'music_bitrate_html' => '0x0',
     'music_artist_html' => '<a href="/tim-kiem?q=Park Eun Ji&mode=ca-si">Park Eun Ji</a>',
   ),
-  22 => 
+  21 => 
   array (
     'music_id' => 1924410,
     'music_title_url' => 'lets-go-bong-sang-pil~ma-sang-woo',
     'music_title' => 'Let\'s Go Bong Sang-pil',
     'music_artist' => 'Ma Sang Woo',
     'music_artist_id' => NULL,
-    'cat_id' => 2,
+    'cat_id' => 1,
     'cat_level' => 4,
     'cat_sublevel' => 8,
     'cat_custom' => 0,
@@ -2016,14 +1987,14 @@ Amu maldo mot hae honja aet...',
     'music_bitrate_html' => '0x0',
     'music_artist_html' => '<a href="/tim-kiem?q=Ma Sang Woo&mode=ca-si">Ma Sang Woo</a>',
   ),
-  23 => 
+  22 => 
   array (
     'music_id' => 1924409,
     'music_title_url' => 'lawless-city-ki-sung~lee-tae-hyeon',
     'music_title' => 'Lawless City Ki-sung',
     'music_artist' => 'Lee Tae Hyeon',
     'music_artist_id' => NULL,
-    'cat_id' => 2,
+    'cat_id' => 1,
     'cat_level' => 4,
     'cat_sublevel' => 8,
     'cat_custom' => 0,
@@ -2047,14 +2018,14 @@ Amu maldo mot hae honja aet...',
     'music_bitrate_html' => '0x0',
     'music_artist_html' => '<a href="/tim-kiem?q=Lee Tae Hyeon&mode=ca-si">Lee Tae Hyeon</a>',
   ),
-  24 => 
+  23 => 
   array (
     'music_id' => 1924408,
     'music_title_url' => 'ohju-i-aint-a-gang-no-more~hwang-in-gyu',
     'music_title' => 'Ohju: I Ain\'t A Gang, No More',
     'music_artist' => 'Hwang In Gyu',
     'music_artist_id' => NULL,
-    'cat_id' => 2,
+    'cat_id' => 1,
     'cat_level' => 4,
     'cat_sublevel' => 8,
     'cat_custom' => 0,
@@ -2078,14 +2049,14 @@ Amu maldo mot hae honja aet...',
     'music_bitrate_html' => '0x0',
     'music_artist_html' => '<a href="/tim-kiem?q=Hwang In Gyu&mode=ca-si">Hwang In Gyu</a>',
   ),
-  25 => 
+  24 => 
   array (
     'music_id' => 1924407,
     'music_title_url' => 'big-picture~ma-sang-woo',
     'music_title' => 'Big Picture',
     'music_artist' => 'Ma Sang Woo',
     'music_artist_id' => NULL,
-    'cat_id' => 2,
+    'cat_id' => 1,
     'cat_level' => 4,
     'cat_sublevel' => 8,
     'cat_custom' => 0,
@@ -2109,14 +2080,14 @@ Amu maldo mot hae honja aet...',
     'music_bitrate_html' => '0x0',
     'music_artist_html' => '<a href="/tim-kiem?q=Ma Sang Woo&mode=ca-si">Ma Sang Woo</a>',
   ),
-  26 => 
+  25 => 
   array (
     'music_id' => 1924397,
     'music_title_url' => 'white-rain~hangzoo-stella-jang',
     'music_title' => 'White Rain',
     'music_artist' => 'Hangzoo; Stella Jang',
     'music_artist_id' => NULL,
-    'cat_id' => 2,
+    'cat_id' => 1,
     'cat_level' => 4,
     'cat_sublevel' => 8,
     'cat_custom' => 0,
@@ -2144,14 +2115,14 @@ Nan maeil gateun gose jeo miro gate...',
     'music_bitrate_html' => '0x0',
     'music_artist_html' => '<a href="/tim-kiem?q=Hangzoo&mode=ca-si">Hangzoo</a>, <a href="/tim-kiem?q=Stella Jang&mode=ca-si"> Stella Jang</a>',
   ),
-  27 => 
+  26 => 
   array (
     'music_id' => 1924383,
     'music_title_url' => 'one-summer~yang-da-il-wendy',
     'music_title' => 'One Summer',
     'music_artist' => 'Yang Da Il; Wendy',
     'music_artist_id' => NULL,
-    'cat_id' => 2,
+    'cat_id' => 1,
     'cat_level' => 4,
     'cat_sublevel' => 1,
     'cat_custom' => 0,
@@ -2180,14 +2151,14 @@ I deoun yeoreumboda gyeouri jotadeon neo...',
     'music_bitrate_html' => '0x0',
     'music_artist_html' => '<a href="/tim-kiem?q=Yang Da Il&mode=ca-si">Yang Da Il</a>, <a href="/tim-kiem?q=Wendy&mode=ca-si"> Wendy</a>',
   ),
-  28 => 
+  27 => 
   array (
     'music_id' => 1924209,
     'music_title_url' => '~tran-tuyet-nhien',
     'music_title' => '默守',
     'music_artist' => 'Trần Tuyết Nhiên',
     'music_artist_id' => NULL,
-    'cat_id' => 2,
+    'cat_id' => 1,
     'cat_level' => 3,
     'cat_sublevel' => 8,
     'cat_custom' => 0,
@@ -2211,14 +2182,14 @@ I deoun yeoreumboda gyeouri jotadeon neo...',
     'music_bitrate_html' => '0x0',
     'music_artist_html' => '<a href="/tim-kiem?q=Trần Tuyết Nhiên&mode=ca-si">Trần Tuyết Nhiên</a>',
   ),
-  29 => 
+  28 => 
   array (
     'music_id' => 1924208,
     'music_title_url' => '',
     'music_title' => '一点真心',
     'music_artist' => '罗锟',
     'music_artist_id' => NULL,
-    'cat_id' => 2,
+    'cat_id' => 1,
     'cat_level' => 3,
     'cat_sublevel' => 8,
     'cat_custom' => 0,
@@ -2242,14 +2213,14 @@ I deoun yeoreumboda gyeouri jotadeon neo...',
     'music_bitrate_html' => '0x0',
     'music_artist_html' => '<a href="/tim-kiem?q=罗锟&mode=ca-si">罗锟</a>',
   ),
-  30 => 
+  29 => 
   array (
     'music_id' => 1924207,
     'music_title_url' => '~tran-tuyet-nhien',
     'music_title' => '染灵',
     'music_artist' => 'Trần Tuyết Nhiên',
     'music_artist_id' => NULL,
-    'cat_id' => 2,
+    'cat_id' => 1,
     'cat_level' => 3,
     'cat_sublevel' => 8,
     'cat_custom' => 0,
@@ -2273,14 +2244,14 @@ I deoun yeoreumboda gyeouri jotadeon neo...',
     'music_bitrate_html' => '0x0',
     'music_artist_html' => '<a href="/tim-kiem?q=Trần Tuyết Nhiên&mode=ca-si">Trần Tuyết Nhiên</a>',
   ),
-  31 => 
+  30 => 
   array (
     'music_id' => 1924206,
     'music_title_url' => '',
     'music_title' => '万年不负',
     'music_artist' => '罗锟',
     'music_artist_id' => NULL,
-    'cat_id' => 2,
+    'cat_id' => 1,
     'cat_level' => 3,
     'cat_sublevel' => 8,
     'cat_custom' => 0,
@@ -2304,14 +2275,14 @@ I deoun yeoreumboda gyeouri jotadeon neo...',
     'music_bitrate_html' => '0x0',
     'music_artist_html' => '<a href="/tim-kiem?q=罗锟&mode=ca-si">罗锟</a>',
   ),
-  32 => 
+  31 => 
   array (
     'music_id' => 1924205,
     'music_title_url' => 'tran-hon~tran-tuyet-nhien',
     'music_title' => 'Trấn Hồn (镇魂)',
     'music_artist' => '罗锟; Trần Tuyết Nhiên',
     'music_artist_id' => NULL,
-    'cat_id' => 2,
+    'cat_id' => 1,
     'cat_level' => 3,
     'cat_sublevel' => 8,
     'cat_custom' => 0,
@@ -2335,14 +2306,14 @@ I deoun yeoreumboda gyeouri jotadeon neo...',
     'music_bitrate_html' => '0x0',
     'music_artist_html' => '<a href="/tim-kiem?q=罗锟&mode=ca-si">罗锟</a>, <a href="/tim-kiem?q=Trần Tuyết Nhiên&mode=ca-si"> Trần Tuyết Nhiên</a>',
   ),
-  33 => 
+  32 => 
   array (
     'music_id' => 1924204,
     'music_title_url' => '~tran-tuyet-nhien',
     'music_title' => '云开日落',
     'music_artist' => 'Trần Tuyết Nhiên',
     'music_artist_id' => NULL,
-    'cat_id' => 2,
+    'cat_id' => 1,
     'cat_level' => 3,
     'cat_sublevel' => 8,
     'cat_custom' => 0,
@@ -2366,14 +2337,14 @@ I deoun yeoreumboda gyeouri jotadeon neo...',
     'music_bitrate_html' => '0x0',
     'music_artist_html' => '<a href="/tim-kiem?q=Trần Tuyết Nhiên&mode=ca-si">Trần Tuyết Nhiên</a>',
   ),
-  34 => 
+  33 => 
   array (
     'music_id' => 1924203,
     'music_title_url' => 'quy',
     'music_title' => 'Quy (归)',
     'music_artist' => '罗锟',
     'music_artist_id' => NULL,
-    'cat_id' => 2,
+    'cat_id' => 1,
     'cat_level' => 3,
     'cat_sublevel' => 8,
     'cat_custom' => 0,
@@ -2397,14 +2368,14 @@ I deoun yeoreumboda gyeouri jotadeon neo...',
     'music_bitrate_html' => '0x0',
     'music_artist_html' => '<a href="/tim-kiem?q=罗锟&mode=ca-si">罗锟</a>',
   ),
-  35 => 
+  34 => 
   array (
     'music_id' => 1924202,
     'music_title_url' => 'tim-lai-trai-tim-nay',
     'music_title' => 'Tìm Lại Trái Tim Này (重燃这一颗心)',
     'music_artist' => '罗锟',
     'music_artist_id' => NULL,
-    'cat_id' => 2,
+    'cat_id' => 1,
     'cat_level' => 3,
     'cat_sublevel' => 8,
     'cat_custom' => 0,
@@ -2428,14 +2399,14 @@ I deoun yeoreumboda gyeouri jotadeon neo...',
     'music_bitrate_html' => '0x0',
     'music_artist_html' => '<a href="/tim-kiem?q=罗锟&mode=ca-si">罗锟</a>',
   ),
-  36 => 
+  35 => 
   array (
     'music_id' => 1924201,
     'music_title_url' => 'mot-anh-nhin-khac~tran-tuyet-nhien',
     'music_title' => 'Một Ánh Nhìn Khác (再多一眼)',
     'music_artist' => 'Trần Tuyết Nhiên',
     'music_artist_id' => NULL,
-    'cat_id' => 2,
+    'cat_id' => 1,
     'cat_level' => 3,
     'cat_sublevel' => 8,
     'cat_custom' => 0,
@@ -2459,14 +2430,14 @@ I deoun yeoreumboda gyeouri jotadeon neo...',
     'music_bitrate_html' => '0x0',
     'music_artist_html' => '<a href="/tim-kiem?q=Trần Tuyết Nhiên&mode=ca-si">Trần Tuyết Nhiên</a>',
   ),
-  37 => 
+  36 => 
   array (
     'music_id' => 1924200,
     'music_title_url' => '~tran-tuyet-nhien',
     'music_title' => '诀焰',
     'music_artist' => 'Trần Tuyết Nhiên',
     'music_artist_id' => NULL,
-    'cat_id' => 2,
+    'cat_id' => 1,
     'cat_level' => 3,
     'cat_sublevel' => 8,
     'cat_custom' => 0,
@@ -2490,14 +2461,14 @@ I deoun yeoreumboda gyeouri jotadeon neo...',
     'music_bitrate_html' => '0x0',
     'music_artist_html' => '<a href="/tim-kiem?q=Trần Tuyết Nhiên&mode=ca-si">Trần Tuyết Nhiên</a>',
   ),
-  38 => 
+  37 => 
   array (
     'music_id' => 1924199,
     'music_title_url' => '',
     'music_title' => '沈巍',
     'music_artist' => '罗锟',
     'music_artist_id' => NULL,
-    'cat_id' => 2,
+    'cat_id' => 1,
     'cat_level' => 3,
     'cat_sublevel' => 8,
     'cat_custom' => 0,
@@ -2521,14 +2492,14 @@ I deoun yeoreumboda gyeouri jotadeon neo...',
     'music_bitrate_html' => '0x0',
     'music_artist_html' => '<a href="/tim-kiem?q=罗锟&mode=ca-si">罗锟</a>',
   ),
-  39 => 
+  38 => 
   array (
     'music_id' => 1924198,
     'music_title_url' => 'con-luan~tran-tuyet-nhien',
     'music_title' => 'Côn Luân (昆仑)',
     'music_artist' => 'Trần Tuyết Nhiên',
     'music_artist_id' => NULL,
-    'cat_id' => 2,
+    'cat_id' => 1,
     'cat_level' => 3,
     'cat_sublevel' => 8,
     'cat_custom' => 0,
@@ -2552,14 +2523,14 @@ I deoun yeoreumboda gyeouri jotadeon neo...',
     'music_bitrate_html' => '0x0',
     'music_artist_html' => '<a href="/tim-kiem?q=Trần Tuyết Nhiên&mode=ca-si">Trần Tuyết Nhiên</a>',
   ),
-  40 => 
+  39 => 
   array (
     'music_id' => 1924197,
     'music_title_url' => '',
     'music_title' => '笃念力',
     'music_artist' => '罗锟',
     'music_artist_id' => NULL,
-    'cat_id' => 2,
+    'cat_id' => 1,
     'cat_level' => 3,
     'cat_sublevel' => 1,
     'cat_custom' => 9,
@@ -2583,14 +2554,14 @@ I deoun yeoreumboda gyeouri jotadeon neo...',
     'music_bitrate_html' => '0x0',
     'music_artist_html' => '<a href="/tim-kiem?q=罗锟&mode=ca-si">罗锟</a>',
   ),
-  41 => 
+  40 => 
   array (
     'music_id' => 1924196,
     'music_title_url' => 'hon-loan~tran-tuyet-nhien',
     'music_title' => 'Hỗn Loạn (乱心曲)',
     'music_artist' => 'Trần Tuyết Nhiên',
     'music_artist_id' => NULL,
-    'cat_id' => 2,
+    'cat_id' => 1,
     'cat_level' => 3,
     'cat_sublevel' => 8,
     'cat_custom' => 0,
@@ -2614,14 +2585,14 @@ I deoun yeoreumboda gyeouri jotadeon neo...',
     'music_bitrate_html' => '0x0',
     'music_artist_html' => '<a href="/tim-kiem?q=Trần Tuyết Nhiên&mode=ca-si">Trần Tuyết Nhiên</a>',
   ),
-  42 => 
+  41 => 
   array (
     'music_id' => 1924195,
     'music_title_url' => 'linh-hon-cuoc-song',
     'music_title' => 'Linh Hồn Cuộc Sống (生者之魂)',
     'music_artist' => '罗锟',
     'music_artist_id' => NULL,
-    'cat_id' => 2,
+    'cat_id' => 1,
     'cat_level' => 3,
     'cat_sublevel' => 8,
     'cat_custom' => 0,
@@ -2645,14 +2616,14 @@ I deoun yeoreumboda gyeouri jotadeon neo...',
     'music_bitrate_html' => '0x0',
     'music_artist_html' => '<a href="/tim-kiem?q=罗锟&mode=ca-si">罗锟</a>',
   ),
-  43 => 
+  42 => 
   array (
     'music_id' => 1924190,
     'music_title_url' => 'co-hieu~ly-kien',
     'music_title' => 'Có Hiểu (懂得)',
     'music_artist' => 'Lý Kiện',
     'music_artist_id' => NULL,
-    'cat_id' => 2,
+    'cat_id' => 1,
     'cat_level' => 3,
     'cat_sublevel' => 2,
     'cat_custom' => 0,
@@ -2700,14 +2671,14 @@ I deoun yeoreumboda gyeouri jotadeon neo...',
     'music_bitrate_html' => '0x0',
     'music_artist_html' => '<a href="/tim-kiem?q=Lý Kiện&mode=ca-si">Lý Kiện</a>',
   ),
-  44 => 
+  43 => 
   array (
     'music_id' => 1924186,
     'music_title_url' => 'chung-ta-da-qua-nong-noi~vu-tong-lam',
     'music_title' => 'Chúng Ta Đã Quá Nông Nỗi (我们都太冲动)',
     'music_artist' => 'Vũ Tông Lâm',
     'music_artist_id' => NULL,
-    'cat_id' => 2,
+    'cat_id' => 1,
     'cat_level' => 3,
     'cat_sublevel' => 2,
     'cat_custom' => 0,
@@ -2760,14 +2731,14 @@ I deoun yeoreumboda gyeouri jotadeon neo...',
     'music_bitrate_html' => '0x0',
     'music_artist_html' => '<a href="/tim-kiem?q=Vũ Tông Lâm&mode=ca-si">Vũ Tông Lâm</a>',
   ),
-  45 => 
+  44 => 
   array (
     'music_id' => 1924109,
     'music_title_url' => 'elements~aether',
     'music_title' => 'Elements',
     'music_artist' => 'Aether',
     'music_artist_id' => NULL,
-    'cat_id' => 2,
+    'cat_id' => 1,
     'cat_level' => 2,
     'cat_sublevel' => 2,
     'cat_custom' => 0,
@@ -2791,14 +2762,14 @@ I deoun yeoreumboda gyeouri jotadeon neo...',
     'music_bitrate_html' => '0x0',
     'music_artist_html' => '<a href="/tim-kiem?q=Aether&mode=ca-si">Aether</a>',
   ),
-  46 => 
+  45 => 
   array (
     'music_id' => 1923950,
     'music_title_url' => 'duyen-minh-lo~huong-tram',
     'music_title' => 'Duyên Mình Lỡ',
     'music_artist' => 'Hương Tràm',
     'music_artist_id' => NULL,
-    'cat_id' => 2,
+    'cat_id' => 1,
     'cat_level' => 1,
     'cat_sublevel' => 1,
     'cat_custom' => 0,
@@ -2831,14 +2802,14 @@ Nghĩ vậy cho nhẹ lòng hơn.
     'music_bitrate_html' => '0x0',
     'music_artist_html' => '<a href="/tim-kiem?q=Hương Tràm&mode=ca-si">Hương Tràm</a>',
   ),
-  47 => 
+  46 => 
   array (
     'music_id' => 1923689,
     'music_title_url' => 'do-you-know-how-i-feel-mr~406-project',
     'music_title' => 'Do You Know How I Feel? (MR)',
     'music_artist' => '406 Project',
     'music_artist_id' => NULL,
-    'cat_id' => 2,
+    'cat_id' => 1,
     'cat_level' => 4,
     'cat_sublevel' => 8,
     'cat_custom' => 0,
@@ -2867,14 +2838,14 @@ Sangsangmaneurodo beols...',
     'music_bitrate_html' => '0x0',
     'music_artist_html' => '<a href="/tim-kiem?q=406 Project&mode=ca-si">406 Project</a>',
   ),
-  48 => 
+  47 => 
   array (
     'music_id' => 1923688,
     'music_title_url' => 'do-you-know-how-i-feel~406-project',
     'music_title' => 'Do You Know How I Feel?',
     'music_artist' => '406 Project',
     'music_artist_id' => NULL,
-    'cat_id' => 2,
+    'cat_id' => 1,
     'cat_level' => 4,
     'cat_sublevel' => 8,
     'cat_custom' => 0,
@@ -2903,14 +2874,14 @@ Sangsangmaneurodo beols...',
     'music_bitrate_html' => '0x0',
     'music_artist_html' => '<a href="/tim-kiem?q=406 Project&mode=ca-si">406 Project</a>',
   ),
-  49 => 
+  48 => 
   array (
     'music_id' => 1923686,
     'music_title_url' => 'the-night-you-get-off~yunpa',
     'music_title' => 'The Night You Get Off',
     'music_artist' => 'Yunpa',
     'music_artist_id' => NULL,
-    'cat_id' => 2,
+    'cat_id' => 1,
     'cat_level' => 4,
     'cat_sublevel' => 8,
     'cat_custom' => 0,
@@ -2939,6 +2910,44 @@ Neowa hamkke...',
     'music_height' => 0,
     'music_bitrate_html' => '0x0',
     'music_artist_html' => '<a href="/tim-kiem?q=Yunpa&mode=ca-si">Yunpa</a>',
+  ),
+  49 => 
+  array (
+    'music_id' => 1923660,
+    'music_title_url' => 'i-am-also-like-you~lee-byung-chul',
+    'music_title' => 'I Am Also Like You',
+    'music_artist' => 'Lee Byung Chul',
+    'music_artist_id' => NULL,
+    'cat_id' => 1,
+    'cat_level' => 4,
+    'cat_sublevel' => 8,
+    'cat_custom' => 0,
+    'cover_id' => 90496,
+    'music_download_time' => 0,
+    'music_last_update_time' => 1530439169,
+    'music_title_search' => 'i am alxo like iou',
+    'music_artist_search' => '; le biung chul;',
+    'music_album_search' => 'rich man oxt; part 8; xingle',
+    'music_composer' => '',
+    'music_album' => 'Rich Man OST - Part.8 (Single)',
+    'music_listen' => 12,
+    'music_track_id' => 2,
+    'music_filename' => '1923660-8998cf41.mp3',
+    'music_bitrate' => 1000,
+    'music_shortlyric' => 'Adeukae
+Neowa hamkkeyeotdeon geunal
+Nega tteonan geunaldo
+Modu chueogeuro bakkwieoseo
+Sigeun jipchageuro namatdaneun ge
+Ijen aswipjiga ana
+Gieokaneunji nega naege haetdeon mal mariya
+Ibyeoreul bada...',
+    'music_length' => 282,
+    'music_time' => 1530439101,
+    'music_width' => 0,
+    'music_height' => 0,
+    'music_bitrate_html' => '0x0',
+    'music_artist_html' => '<a href="/tim-kiem?q=Lee Byung Chul&mode=ca-si">Lee Byung Chul</a>',
   ),
 );     
 ?>

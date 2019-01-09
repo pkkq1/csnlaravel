@@ -25,7 +25,7 @@ class AlbumCatController extends Controller
         $this->coverRepository = $coverRepository;
         $this->videoRepository = $videoRepository;
     }
-    public function syncAlbum(Request $request) {
+    public function syncAlbum() {
         $arrCat = [3, 4, 5, 6 ,7];
         $album_cat_new = [];
         foreach($arrCat as $cat) {

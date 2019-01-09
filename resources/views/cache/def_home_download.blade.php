@@ -9,39 +9,6 @@ global $download_rows;
 $download_rows = array (
   0 => 
   array (
-    'music_id' => 1961072,
-    'music_title_url' => 'i-did-it~spica',
-    'music_title' => 'I Did It',
-    'music_artist' => 'Spica',
-    'music_artist_id' => '3923',
-    'cat_id' => 4,
-    'cat_level' => 1,
-    'cat_sublevel' => 1,
-    'cat_custom' => 0,
-    'cover_id' => 95585,
-    'music_download_time' => 1539070761,
-    'music_last_update_time' => 1539069453,
-    'music_title_search' => 'i did it',
-    'music_artist_search' => '; xpica;',
-    'music_album_search' => 'i did it; xingle',
-    'music_composer' => '',
-    'music_album' => 'I Did It (Single)',
-    'music_listen' => 11124,
-    'music_track_id' => 1,
-    'music_filename' => '1961072-472edeee.mp3',
-    'music_bitrate' => 1000,
-    'music_shortlyric' => 'Where my girls at?
-Okay, Stop! I\'ll tell ya \'bout it
-It\'s been way too long since I been
-Out for a night with my girl friends
-Been a hard day\'s work So let\'s go
-We gonna celebrate tonight Oh Hey he...',
-    'music_time' => 1539069403,
-    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
-    'music_artist_html' => '<a href="/ca-si/Spica~Y3NuX2FydGlzdH4zOTIz.html">Spica</a>',
-  ),
-  1 => 
-  array (
     'music_id' => 1275666,
     'music_title_url' => 'russian-roulette~spica',
     'music_title' => 'Russian Roulette',
@@ -73,7 +40,7 @@ Duryeob-ji anhdamyeon ge...',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     'music_artist_html' => '<a href="/ca-si/Spica~Y3NuX2FydGlzdH4zOTIz.html">Spica</a>',
   ),
-  2 => 
+  1 => 
   array (
     'music_id' => 1181390,
     'music_title_url' => 'diary~spica',
@@ -108,7 +75,7 @@ Ke...',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     'music_artist_html' => '<a href="/ca-si/Spica~Y3NuX2FydGlzdH4zOTIz.html">Spica</a>',
   ),
-  3 => 
+  2 => 
   array (
     'music_id' => 1181388,
     'music_title_url' => 'russian-roulette~spica',
@@ -141,7 +108,7 @@ Duryeob-ji anhdamyeon ge...',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     'music_artist_html' => '<a href="/ca-si/Spica~Y3NuX2FydGlzdH4zOTIz.html">Spica</a>',
   ),
-  4 => 
+  3 => 
   array (
     'music_id' => 1181386,
     'music_title_url' => 'fire~spica',
@@ -175,7 +142,7 @@ Yejeon ne moseubi geuri wo ba...',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     'music_artist_html' => '<a href="/ca-si/Spica~Y3NuX2FydGlzdH4zOTIz.html">Spica</a>',
   ),
-  5 => 
+  4 => 
   array (
     'music_id' => 1926569,
     'music_title_url' => 'tell-me-you-love-me~bolbbalgan4',
@@ -211,7 +178,7 @@ G...',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     'music_artist_html' => '<a href="/ca-si/Bolbbalgan4~Y3NuX2FydGlzdH4xNDAzOQ==.html">Bolbbalgan4</a>',
   ),
-  6 => 
+  5 => 
   array (
     'music_id' => 1960060,
     'music_title_url' => 'say-open~toc-tien-diplo-m',
@@ -246,7 +213,7 @@ Ngày sẽ sáng, đường...',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     'music_artist_html' => '<a href="/ca-si/Toc-Tien~Y3NuX2FydGlzdH4zNDM=.html">Tóc Tiên</a>, <a href="/ca-si/Diplo~Y3NuX2FydGlzdH44ODM1.html">Diplo</a>, <a href="/ca-si/M~Y3NuX2FydGlzdH4xNTAwMw==.html">MØ</a>',
   ),
-  7 => 
+  6 => 
   array (
     'music_id' => 1357331,
     'music_title_url' => 'noi-tinh-yeu-bat-dau-remix~thuy-khanh',
@@ -279,7 +246,7 @@ Ta quen nhau đã bao lâu rồi, hỡi đêm sao vẫn mãi đêm dài
     'music_bitrate_html' => '<span class="card-text" style="color: darkblue">320kbps</span>',
     'music_artist_html' => '<a href="/ca-si/Thuy-Khanh~Y3NuX2FydGlzdH4zNjI1Nw==.html">Thuy Khanh</a>',
   ),
-  8 => 
+  7 => 
   array (
     'music_id' => 1958318,
     'music_title_url' => 'dai-tieu-giang-ho-viet-ver~thai-quynh',
@@ -314,7 +281,7 @@ Anh thì đ...',
     'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">128kbps</span>',
     'music_artist_html' => '<a href="/ca-si/Thai-Quynh~Y3NuX2FydGlzdH4yMzYxMA==.html">Thái Quỳnh</a>',
   ),
-  9 => 
+  8 => 
   array (
     'music_id' => 1959864,
     'music_title_url' => 'send-it-x-reality-mashup~austin-mashone-ft-lost-frequenciest',
@@ -347,7 +314,7 @@ Baby, you...',
     'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">128kbps</span>',
     'music_artist_html' => '<a href="/ca-si/Austin-Mashone-Ft-Lost-Frequenciest~Y3NuX2FydGlzdH4xMjI4NjA=.html">Austin Mashone Ft. Lost Frequenciest</a>',
   ),
-  10 => 
+  9 => 
   array (
     'music_id' => 1957709,
     'music_title_url' => 'om-em-roi-xa-remix~truong-bac-bac',
@@ -379,7 +346,7 @@ Shu zhe yi hang hang de lei di Đếm từng dòng lệ chảy hoen mi...',
     'music_bitrate_html' => '<span class="card-text" style="color: darkgreen">128kbps</span>',
     'music_artist_html' => '<a href="/ca-si/Truong-Bac-Bac~Y3NuX2FydGlzdH4xMDI1MzU=.html">Trương Bắc Bắc</a>',
   ),
-  11 => 
+  10 => 
   array (
     'music_id' => 1960726,
     'music_title_url' => 'em-khong-con~truong-luong-dinh',
@@ -427,16 +394,16 @@ Shu zhe yi hang hang de lei di Đếm từng dòng lệ chảy hoen mi...',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     'music_artist_html' => '<a href="/ca-si/Truong-Luong-Dinh~Y3NuX2FydGlzdH40MTQ4.html">Trương Lương Dĩnh</a>',
   ),
-  12 => 
+  11 => 
   array (
     'music_id' => 1960833,
     'music_title_url' => 'my-memory-warehouse~yoon-hyun-sang',
     'music_title' => 'My Memory Warehouse',
     'music_artist' => 'Yoon Hyun Sang',
     'music_artist_id' => '14027',
-    'cat_id' => 6,
-    'cat_level' => 1,
-    'cat_sublevel' => 1,
+    'cat_id' => 9,
+    'cat_level' => 3,
+    'cat_sublevel' => 3,
     'cat_custom' => 0,
     'cover_id' => 95554,
     'music_download_time' => 1539060749,
@@ -444,7 +411,7 @@ Shu zhe yi hang hang de lei di Đếm từng dòng lệ chảy hoen mi...',
     'music_title_search' => 'mi memori warehouxe',
     'music_artist_search' => '; ion hiun xang;',
     'music_album_search' => 'mi memori warehouxe; xingle',
-    'music_composer' => '',
+    'music_composer' => 'test 1',
     'music_album' => 'My Memory Warehouse (Single)',
     'music_listen' => 278,
     'music_track_id' => 1,
@@ -462,7 +429,7 @@ T...',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     'music_artist_html' => '<a href="/ca-si/Yoon-Hyun-Sang~Y3NuX2FydGlzdH4xNDAyNw==.html">Yoon Hyun Sang</a>',
   ),
-  13 => 
+  12 => 
   array (
     'music_id' => 1960830,
     'music_title_url' => 'it-takes-time~colde-loco',
@@ -496,7 +463,7 @@ Tto...',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     'music_artist_html' => '<a href="/ca-si/Colde~Y3NuX2FydGlzdH4xNzM5OQ==.html">Colde</a>, <a href="/ca-si/Loco~Y3NuX2FydGlzdH4xMzY2Nw==.html">Loco</a>',
   ),
-  14 => 
+  13 => 
   array (
     'music_id' => 1960785,
     'music_title_url' => 'duoc-tin-em-lay-chong~juun-dang-dung',
@@ -531,7 +498,7 @@ Chúc em...',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     'music_artist_html' => '<a href="/ca-si/Juun-Dang-Dung~Y3NuX2FydGlzdH4xNTk5OA==.html">Juun Đăng Dũng</a>',
   ),
-  15 => 
+  14 => 
   array (
     'music_id' => 1960798,
     'music_title_url' => 'one-more-time-otra-vez-sj-version~super-junior',
@@ -565,7 +532,7 @@ Tteuge...',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     'music_artist_html' => '<a href="/ca-si/Super-Junior~Y3NuX2FydGlzdH4yMTM=.html">Super Junior</a>',
   ),
-  16 => 
+  15 => 
   array (
     'music_id' => 1960801,
     'music_title_url' => 'lo-siento-play-n-skillz-remix-version~leslie-grace-super-junior',
@@ -582,7 +549,7 @@ Tteuge...',
     'music_title_search' => 'lo xinto; plai n xkilz remix verxion',
     'music_artist_search' => '; lexli grace; xuper junior;',
     'music_album_search' => '1 more time; ep',
-    'music_composer' => 'Kenzie; Heechul; Eunhyuk; Mario Caceres; Yasmil Marrufo; Leslie Grace; Daniel Obi Klein; Charli Taft; Andreas Oberg; Juan \'Play\' Salinas; Oscar &quot;Skillz&quot; Salinas; Play-N-Skillz',
+    'music_composer' => 'Kenzie; Heechul; Eunhyuk; Mario Caceres; Yasmil Marrufo; Leslie Grace; Daniel Obi Klein; Charli Taft; Andreas Oberg; Juan \'Play\' Salinas; Oscar "Skillz" Salinas; Play-N-Skillz',
     'music_album' => 'One More Time (EP)',
     'music_listen' => 169,
     'music_track_id' => 5,
@@ -599,7 +566,7 @@ Nae gamhi geuda...',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     'music_artist_html' => '<a href="/ca-si/Leslie-Grace~Y3NuX2FydGlzdH43MjY2MA==.html">Leslie Grace</a>, <a href="/ca-si/Super-Junior~Y3NuX2FydGlzdH4yMTM=.html">Super Junior</a>',
   ),
-  17 => 
+  16 => 
   array (
     'music_id' => 1960799,
     'music_title_url' => 'animals~super-junior',
@@ -635,7 +602,7 @@ In t...',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     'music_artist_html' => '<a href="/ca-si/Super-Junior~Y3NuX2FydGlzdH4yMTM=.html">Super Junior</a>',
   ),
-  18 => 
+  17 => 
   array (
     'music_id' => 1960797,
     'music_title_url' => 'one-more-time-otra-vez~reik-super-junior',
@@ -668,7 +635,7 @@ Tteuge...',
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     'music_artist_html' => '<a href="/ca-si/Reik~Y3NuX2FydGlzdH4yMzQyMw==.html">Reik</a>, <a href="/ca-si/Super-Junior~Y3NuX2FydGlzdH4yMTM=.html">Super Junior</a>',
   ),
-  19 => 
+  18 => 
   array (
     'music_id' => 1465763,
     'music_title_url' => 'kiyohime-doujouji~hatsune-miku',
@@ -705,6 +672,36 @@ Tteuge...',
     'music_time' => 1425865241,
     'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
     'music_artist_html' => '<a href="/ca-si/Hatsune-Miku~Y3NuX2FydGlzdH4yMDIx.html">Hatsune Miku</a>',
+  ),
+  19 => 
+  array (
+    'music_id' => 1960792,
+    'music_title_url' => 'yeu-la-dau~dan-kim',
+    'music_title' => 'Yêu Là Đau',
+    'music_artist' => 'Đan Kim',
+    'music_artist_id' => '5789',
+    'cat_id' => 3,
+    'cat_level' => 1,
+    'cat_sublevel' => 1,
+    'cat_custom' => 0,
+    'cover_id' => 95550,
+    'music_download_time' => 1539038637,
+    'music_last_update_time' => 1538990253,
+    'music_title_search' => 'iu la dau',
+    'music_artist_search' => '; dan kim;',
+    'music_album_search' => 'ki nim khong ten',
+    'music_composer' => 'Bảo Nam',
+    'music_album' => 'Kỷ Niệm Không Tên',
+    'music_listen' => 184,
+    'music_track_id' => 7,
+    'music_filename' => '1960792-4b8e9072.mp3',
+    'music_bitrate' => 1000,
+    'music_shortlyric' => 'Ước muốn bên người giờ tân thành khỏi trong đêm hoang lạnh. 
+Còn lại nơi đây kỷ niệm dấu yêu cho em sầu đau.làm sao giữ trái tim người. 
+Tình yêu sẽ không chia lìa người biết không sầu nhớ vy oanh...',
+    'music_time' => 1538988134,
+    'music_bitrate_html' => '<span class="card-text" style="color: red">Lossless</span>',
+    'music_artist_html' => '<a href="/ca-si/Dan-Kim~Y3NuX2FydGlzdH41Nzg5.html">Đan Kim</a>',
   ),
 );
 ?>

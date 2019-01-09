@@ -28,7 +28,7 @@ class SuggestionCatController extends Controller
         $this->videoRepository = $videoRepository;
         $this->categoryRepository = $categoryRepository;
     }
-    public function suggestion($music, $type = 'music') {
+    public function suggestion() {
         $catregory = $this->categoryRepository->getCategoryParent();
         foreach ($catregory as $item) {
             $childrenCat = $this->categoryRepository->getAllCatId($item->cat_id);

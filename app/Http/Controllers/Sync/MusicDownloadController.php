@@ -24,7 +24,7 @@ class MusicDownloadController extends Controller
     public function __construct(MusicEloquentRepository $musicRepository) {
         $this->musicRepository = $musicRepository;
     }
-    public function syncMusicDownload(Request $request) {
+    public function syncMusicDownload() {
 
         $cache = $this->musicRepository->getModel()::orderBy('music_last_update_time', 'desc')
             ->select('music_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'cat_id', 'cat_level', 'cat_sublevel', 'cat_custom', 'cover_id', 'music_download_time', 'music_last_update_time', 'music_title_url',
