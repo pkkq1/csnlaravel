@@ -228,7 +228,7 @@ global $top_artist_rows;
                     </div>
                 </div>
             </div>
-            <div style="margin-bottom: 30px;" class="box_header justify-content-between align-items-end">
+            <div style="margin-bottom: 20px;" class="box_header justify-content-between align-items-end">
                 <a class="link_more" style="float: right;" href="/nhac-hot.html" title="Bài hát mới nhất 2018">Xem tất cả</a>
             </div>
             <div class="box_catalog owl-carousel owl-theme">

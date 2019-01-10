@@ -69,6 +69,7 @@ class MusicListenEloquentRepository extends EloquentRepository implements MusicL
     {
 //        $result = $this->_model->join('csn_music', 'csn_music_listen.music_id', 'csn_music.music_id')
         $result = \App\Models\MusicModel::where('csn_music.cat_id', $idCategory)
+            ->where('cat_id', '!=', CAT_VIDEO)
             ->orderBy('csn_music.music_downloads_today', 'desc')
             ->orderBy('csn_music.music_downloads_this_week', 'desc')
             ->select($this->_selectMusic)
@@ -90,6 +91,7 @@ class MusicListenEloquentRepository extends EloquentRepository implements MusicL
     public function bxhWeekCategoryMusic($idCategory)
     {
         $result = \App\Models\MusicModel::where('csn_music.cat_id', $idCategory)
+            ->where('cat_id', '!=', CAT_VIDEO)
             ->orderBy('csn_music.music_downloads_this_week', 'desc')
             ->orderBy('csn_music.music_downloads_max_week', 'desc')
             ->select($this->_selectMusic)
@@ -111,6 +113,7 @@ class MusicListenEloquentRepository extends EloquentRepository implements MusicL
     public function bxhYearCategoryMusic($idCategory, $year)
     {
         $result = \App\Models\MusicModel::where('csn_music.cat_id', $idCategory)
+            ->where('cat_id', '!=', CAT_VIDEO)
             ->where('csn_music.music_year', $year)
             ->orderBy('csn_music.music_downloads_this_week', 'desc')
             ->select($this->_selectMusic)
@@ -133,6 +136,7 @@ class MusicListenEloquentRepository extends EloquentRepository implements MusicL
     public function bxhMonthCategoryMusic($idCategory, $firstDate, $lastDate, $year)
     {
         $result = \App\Models\MusicModel::where('csn_music.cat_id', $idCategory)
+            ->where('cat_id', '!=', CAT_VIDEO)
             ->where('csn_music.music_year', $year)
             ->where('csn_music.music_time', '>=', $firstDate)
             ->where('csn_music.music_time', '<=', $lastDate)
