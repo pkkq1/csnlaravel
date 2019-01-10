@@ -228,6 +228,9 @@ global $top_artist_rows;
                     </div>
                 </div>
             </div>
+            <div style="margin-bottom: 30px;" class="box_header justify-content-between align-items-end">
+                <a class="link_more" style="float: right;" href="/nhac-hot.html" title="Bài hát mới nhất 2018">Xem tất cả</a>
+            </div>
             <div class="box_catalog owl-carousel owl-theme">
                 <a href="/nhac-hot/vietnam.html" title="" class="item img-thumbnail swiper-slide" style="background: url('/imgs/bxh/BXH Nhạc Việt Nam _ 345 x 110.png') no-repeat;"><span>BXH Việt Nam</span></a>
                 <a href="/nhac-hot/video/v-video.html" title="" class="item img-thumbnail swiper-slide" style="background: url('/imgs/bxh/BXH Video _ 345 x 110.png') no-repeat;"><span>BXH Việt Video</span></a>
