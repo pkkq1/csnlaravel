@@ -7,4 +7,4 @@
 /.idea
 /.env
 /.env.beta
-/resources/views/cache/suggestion
+/resources/views/cache
