@@ -33,7 +33,7 @@ class SuggestionCatController extends Controller
         $catregory = $this->categoryRepository->getCategoryParent();
         foreach ($catregory as $item) {
             $childrenCat = $this->categoryRepository->getAllCatId($item->cat_id);
-            $model = $this->musicRepository->getModel()::distinct('music_title');
+            $model = $this->musicRepository->getModel();
             if($item->cat_id == 1) {
                 $model = $this->videoRepository->getModel();
             }

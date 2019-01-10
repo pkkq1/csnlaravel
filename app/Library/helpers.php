@@ -589,7 +589,7 @@ class Helpers
         return $url . md5(self::getIp() . env('DATA_KEY')) . '/';
 
 
-        
+
         return $url;
     }
 
