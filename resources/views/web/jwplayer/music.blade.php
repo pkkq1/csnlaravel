@@ -567,9 +567,9 @@ if($musicSet['type_listen'] == 'playlist') {
 
                 </ul>
                 @endif
-                <div class="card mb-3 cardads">
-                    <a class="card-img-top" href="#" title=""><img class="" src="https://magiamgia.com/wp-content/uploads/2015/08/lazada-banner-con-mua-deals_336x280.jpg" alt=""></a>
-                </div>
+                {{--<div class="card mb-3 cardads">--}}
+                    {{--<a class="card-img-top" href="#" title=""><img class="" src="https://magiamgia.com/wp-content/uploads/2015/08/lazada-banner-con-mua-deals_336x280.jpg" alt=""></a>--}}
+                {{--</div>--}}
             </div>
         </div>
     </div>

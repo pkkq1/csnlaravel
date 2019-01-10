@@ -110,14 +110,14 @@ global $top_artist_rows;
                 ?>
             </div>
             <div class="box_catalog owl-carousel owl-theme">
-                <a href="/chu-de/romance.html" title="" class="item img-thumbnail swiper-slide top_share" style="background: url('https://avatar-nct.nixcdn.com/topic/thumb/2018/04/12/e/d/6/8/1523498904907_org.jpg') no-repeat;"><span>Lãng Mạn</span></a>
-                <a href="/chu-de/sleep.html" title="" class="item img-thumbnail swiper-slide top_hitvpop" style="background: url('https://avatar-nct.nixcdn.com/topic/thumb/2017/04/11/8/c/d/c/1491886414148_org.jpg') no-repeat;"><span>Giấc Ngủ</span></a>
-                <a href="/chu-de/gym.html" title="" class="item img-thumbnail swiper-slide hitvpop_new" style="background: url('https://avatar-nct.nixcdn.com/topic/thumb/2016/09/30/e/5/7/8/1475229833731_org.jpg') no-repeat;"><span>Gym</span></a>
-                <a href="/chu-de/dance.html" title="" class="item img-thumbnail swiper-slide top_share" style="background: url('https://avatar-nct.nixcdn.com/topic/thumb/2016/11/09/9/1/7/f/1478679979642_org.jpg') no-repeat;"><span>Dance</span></a>
-                <a href="/chu-de/work.html" title="" class="item img-thumbnail swiper-slide top_share" style="background: url('https://avatar-nct.nixcdn.com/topic/thumb/2018/04/12/e/d/6/8/1523498904907_org.jpg') no-repeat;"><span>Work</span></a>
-                <a href="/chu-de/coffee.html" title="" class="item img-thumbnail swiper-slide top_hitvpop" style="background: url('https://avatar-nct.nixcdn.com/topic/thumb/2017/04/11/8/c/d/c/1491886414148_org.jpg') no-repeat;"><span>Coffee</span></a>
-                <a href="/chu-de/game.html" title="" class="item img-thumbnail swiper-slide hitvpop_new" style="background: url('https://avatar-nct.nixcdn.com/topic/thumb/2016/09/30/e/5/7/8/1475229833731_org.jpg') no-repeat;"><span>Game</span></a>
-                <a href="/chu-de/travel.html" title="" class="item img-thumbnail swiper-slide top_share" style="background: url('https://avatar-nct.nixcdn.com/topic/thumb/2016/11/09/9/1/7/f/1478679979642_org.jpg') no-repeat;"><span>Travel</span></a>
+                <a href="/chu-de/romance.html" title="" class="item img-thumbnail swiper-slide" style="background: url('/imgs/chude/Romance _ 345 x 110.png') no-repeat;"><span>Lãng Mạn</span></a>
+                <a href="/chu-de/sleep.html" title="" class="item img-thumbnail swiper-slide" style="background: url('/imgs/chude/Sleep _ 345 x 110.png') no-repeat;"><span>Giấc Ngủ</span></a>
+                <a href="/chu-de/gym.html" title="" class="item img-thumbnail swiper-slide" style="background: url('/imgs/chude/Gym _ 345 x 110.png') no-repeat;"><span>Gym</span></a>
+                <a href="/chu-de/dance.html" title="" class="item img-thumbnail swiper-slide" style="background: url('/imgs/chude/Dance _ 345 x 110.png') no-repeat;"><span>Dance</span></a>
+                <a href="/chu-de/work.html" title="" class="item img-thumbnail swiper-slide" style="background: url('/imgs/chude/Work _ 345 x 110.png') no-repeat;"><span>Work</span></a>
+                <a href="/chu-de/coffee.html" title="" class="item img-thumbnail swiper-slide" style="background: url('/imgs/chude/Coffee _ 345 x 110.png') no-repeat;"><span>Coffee</span></a>
+                <a href="/chu-de/game.html" title="" class="item img-thumbnail swiper-slide" style="background: url('/imgs/chude/Game _ 345 x 110.png') no-repeat;"><span>Game</span></a>
+                <a href="/chu-de/travel.html" title="" class="item img-thumbnail swiper-slide" style="background: url('/imgs/chude/Travel _ 345 x 110.png') no-repeat;"><span>Travel</span></a>
             </div>
             <!-- Initialize Carousel -->
             <script>
@@ -229,14 +229,14 @@ global $top_artist_rows;
                 </div>
             </div>
             <div class="box_catalog owl-carousel owl-theme">
-                <a href="/chu-de/romance.html" title="" class="item img-thumbnail swiper-slide top_share" style="background: url('https://avatar-nct.nixcdn.com/topic/thumb/2018/04/12/e/d/6/8/1523498904907_org.jpg') no-repeat;"><span>lãng mạn</span></a>
-                <a href="/chu-de/sleep.html" title="" class="item img-thumbnail swiper-slide top_hitvpop" style="background: url('https://avatar-nct.nixcdn.com/topic/thumb/2017/04/11/8/c/d/c/1491886414148_org.jpg') no-repeat;"><span>giấc ngủ</span></a>
-                <a href="/chu-de/gym.html" title="" class="item img-thumbnail swiper-slide hitvpop_new" style="background: url('https://avatar-nct.nixcdn.com/topic/thumb/2016/09/30/e/5/7/8/1475229833731_org.jpg') no-repeat;"><span>gym</span></a>
-                <a href="/chu-de/dace.html" title="" class="item img-thumbnail swiper-slide top_share" style="background: url('https://avatar-nct.nixcdn.com/topic/thumb/2016/11/09/9/1/7/f/1478679979642_org.jpg') no-repeat;"><span>dance</span></a>
-                <a href="/chu-de/work.html" title="" class="item img-thumbnail swiper-slide top_share" style="background: url('https://avatar-nct.nixcdn.com/topic/thumb/2018/04/12/e/d/6/8/1523498904907_org.jpg') no-repeat;"><span>work</span></a>
-                <a href="/chu-de/coffee.html" title="" class="item img-thumbnail swiper-slide top_hitvpop" style="background: url('https://avatar-nct.nixcdn.com/topic/thumb/2017/04/11/8/c/d/c/1491886414148_org.jpg') no-repeat;"><span>coffee</span></a>
-                <a href="/chu-de/game.html" title="" class="item img-thumbnail swiper-slide hitvpop_new" style="background: url('https://avatar-nct.nixcdn.com/topic/thumb/2016/09/30/e/5/7/8/1475229833731_org.jpg') no-repeat;"><span>game</span></a>
-                <a href="/chu-de/travel.html" title="" class="item img-thumbnail swiper-slide top_share" style="background: url('https://avatar-nct.nixcdn.com/topic/thumb/2016/11/09/9/1/7/f/1478679979642_org.jpg') no-repeat;"><span>travel</span></a>
+                <a href="/nhac-hot/vietnam.html" title="" class="item img-thumbnail swiper-slide" style="background: url('/imgs/bxh/BXH Nhạc Việt Nam _ 345 x 110.png') no-repeat;"><span>BXH Việt Nam</span></a>
+                <a href="/nhac-hot/video/v-video.html" title="" class="item img-thumbnail swiper-slide" style="background: url('/imgs/bxh/BXH Video _ 345 x 110.png') no-repeat;"><span>BXH Việt Video</span></a>
+                <a href="/nhac-hot/us-uk.html" title="" class="item img-thumbnail swiper-slide" style="background: url('/imgs/bxh/BXH Nhạc Us- UK _ 345 x 110.png') no-repeat;"><span>BXH US - UK</span></a>
+                <a href="/nhac-hot/chinese.html" title="" class="item img-thumbnail swiper-slide" style="background: url('/imgs/bxh/BXH Nhạc Hoa _ 345 x 110.png') no-repeat;"><span>BXH Nhạc Hoa</span></a>
+                <a href="/nhac-hot/korea.html" title="" class="item img-thumbnail swiper-slide" style="background: url('/imgs/bxh/BXH Nhạc Hàn  _ 345 x 110.png') no-repeat;"><span>BXH Nhạc Hàn</span></a>
+                <a href="/nhac-hot/japan.html" title="" class="item img-thumbnail swiper-slide" style="background: url('/imgs/bxh/BXH Nhạc Nhật _ 345 x 110.png') no-repeat;"><span>BXH Nhạc Nhật</span></a>
+                <a href="/nhac-hot/other.html" title="" class="item img-thumbnail swiper-slide" style="background: url('/imgs/bxh/BXH Nhạc Nước Khác _ 345 x 110.png') no-repeat;"><span>BXH nhạc nước khác</span></a>
+                <a href="/nhac-hot/beat-playback.html" title="" class="item img-thumbnail swiper-slide" style="background: url('/imgs/bxh/BXH Beat Playback_345x110.png') no-repeat;"><span>BXH Beat Playback</span></a>
             </div>
             <!-- Initialize Carousel -->
             <script>

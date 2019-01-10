@@ -89,25 +89,25 @@ global $album_cat_new;
                                     </div>
                                     <div class="row">
                                         <div class="col-6">
-                                            <a href="/nhac-hot.html"><div class="element rounded w-100 mb-2 d-flex flex-column justify-content-center text-center" style="background: url(/mobile/assets/images/img_bxh_vn.png) no-repeat center;background-size: cover;">
-                                                    <!-- <h5 class="text-white">VIỆT NAM</h5> -->
+                                            <a href="/nhac-hot/vietnam.html"><div class="element rounded w-100 mb-2 d-flex flex-column justify-content-center text-center" style="background: url('/imgs/bxh/BXH Nhạc Việt Nam_ 245 x 140.png') no-repeat center;background-size: cover;">
+                                                    <h5 class="text-white">VIỆT NAM</h5>
                                                 </div></a>
                                         </div>
                                         <div class="col-6">
-                                            <a href="/nhac-hot.html?tab=us-uk"><div class="element rounded w-100 mb-2 d-flex flex-column justify-content-center text-center" style="background: url(/mobile/assets/images/img_bxh_us.png) no-repeat center;background-size: cover;">
-                                                    <!-- <h5 class="text-white">US-UK</h5> -->
+                                            <a href="/nhac-hot/us-uk.html"><div class="element rounded w-100 mb-2 d-flex flex-column justify-content-center text-center" style="background: url('/imgs/bxh/BXH Nhạc Us- UK _ 245 x 140.png') no-repeat center;background-size: cover;">
+                                                    <h5 class="text-white">US-UK</h5>
                                                 </div></a>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-6">
-                                            <a href="/nhac-hot.html?tab=korea"><div class="element rounded w-100 mb-2 d-flex flex-column justify-content-center text-center" style="background: url(/mobile/assets/images/img_bxh_korea.png) no-repeat center;background-size: cover;">
-                                                    <!-- <h5 class="text-white">K-POP</h5> -->
+                                            <a href="/nhac-hot/korea.html"><div class="element rounded w-100 mb-2 d-flex flex-column justify-content-center text-center" style="background: url('/imgs/bxh/BXH Nhạc Hàn _ 245 x 140.png') no-repeat center;background-size: cover;">
+                                                    <h5 class="text-white">K-POP</h5>
                                                 </div></a>
                                         </div>
                                         <div class="col-6">
-                                            <a href="/nhac-hot.html?tab=japan"><div class="element rounded w-100 mb-2 d-flex flex-column justify-content-center text-center" style="background: url(/mobile/assets/images/img_bxh_japan.png) no-repeat center;background-size: cover;">
-                                                    <!-- <h5 class="text-white">J-POP</h5> -->
+                                            <a href="/nhac-hot/japan.html"><div class="element rounded w-100 mb-2 d-flex flex-column justify-content-center text-center" style="background: url('/imgs/bxh/BXH Nhạc Nhật _ 245 x 140.png') no-repeat center;background-size: cover;">
+                                                    <h5 class="text-white">J-POP</h5>
                                                 </div></a>
                                         </div>
                                     </div>
@@ -164,22 +164,22 @@ global $album_cat_new;
                                     </div>
                                     <div class="slide-chude owl-carousel owl-theme">
                                         <div class="item">
-                                            <a href="/chu-de/romance.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url(/mobile/assets/images/img_category_weekend.png) no-repeat center;background-size: cover;">
+                                            <a href="/chu-de/romance.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url('/imgs/chude/Romance _ 345 x 110.png') no-repeat center;background-size: cover;">
                                                     <h5 class="text-white">Lãng mạn</h5>
                                                 </div></a>
                                         </div>
                                         <div class="item">
-                                            <a href="/chu-de/sleep.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url(/mobile/assets/images/img_category_edm.png) no-repeat center;background-size: cover;">
+                                            <a href="/chu-de/sleep.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url('/imgs/chude/Sleep _ 345 x 110.png') no-repeat center;background-size: cover;">
                                                     <h5 class="text-white">Giấc ngủ</h5>
                                                 </div></a>
                                         </div>
                                         <div class="item">
-                                            <a href="/chu-de/gym.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url(/mobile/assets/images/img_category_love.png) no-repeat center;background-size: cover;">
+                                            <a href="/chu-de/gym.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url('/imgs/chude/Gym _ 345 x 110.png') no-repeat center;background-size: cover;">
                                                     <h5 class="text-white">Gym</h5>
                                                 </div></a>
                                         </div>
                                         <div class="item">
-                                            <a href="/chu-de/dance.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url(/mobile/assets/images/img_category_topshare.png) no-repeat center;background-size: cover;">
+                                            <a href="/chu-de/dance.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url('/imgs/chude/Dance _ 345 x 110.png') no-repeat center;background-size: cover;">
                                                     <h5 class="text-white">Dance</h5>
                                                 </div></a>
                                         </div>
@@ -217,28 +217,28 @@ global $album_cat_new;
                     <div class="swiper-slide">
                         <div class="container">
                             <div class="block block_detail_chude">
-                                <a href="/chu-de/romance.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url(/mobile/assets/images/img_category_weekend.png) no-repeat center;background-size: cover;">
+                                <a href="/chu-de/romance.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url('/imgs/chude/Romance _ 345 x 110.png') no-repeat center;background-size: cover;">
                                         <h5 class="text-white">Lãng mạn</h5>
                                     </div></a>
-                                <a href="/chu-de/sleep.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url(/mobile/assets/images/img_category_edm.png) no-repeat center;background-size: cover;">
+                                <a href="/chu-de/sleep.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url('/imgs/chude/Sleep _ 345 x 110.png') no-repeat center;background-size: cover;">
                                         <h5 class="text-white">Giấc ngủ</h5>
                                     </div></a>
-                                <a href="/chu-de/gym.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url(/mobile/assets/images/img_category_love.png) no-repeat center;background-size: cover;">
+                                <a href="/chu-de/gym.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url('/imgs/chude/Gym _ 345 x 110.png') no-repeat center;background-size: cover;">
                                         <h5 class="text-white">Gym</h5>
                                     </div></a>
-                                <a href="/chu-de/dance.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url(/mobile/assets/images/img_category_topshare.png) no-repeat center;background-size: cover;">
+                                <a href="/chu-de/dance.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url('/imgs/chude/Dance _ 345 x 110.png') no-repeat center;background-size: cover;">
                                         <h5 class="text-white">Dance</h5>
                                     </div></a>
-                                <a href="/chu-de/work.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url(/mobile/assets/images/img_category_hit_vpop.png) no-repeat center;background-size: cover;">
+                                <a href="/chu-de/work.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url('/imgs/chude/Work _ 345 x 110.png') no-repeat center;background-size: cover;">
                                         <h5 class="text-white">Work</h5>
                                     </div></a>
-                                <a href="/chu-de/coffee.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url(/mobile/assets/images/img_category_hit_vpop.png) no-repeat center;background-size: cover;">
+                                <a href="/chu-de/coffee.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url('/imgs/chude/Coffee _ 345 x 110.png') no-repeat center;background-size: cover;">
                                         <h5 class="text-white">Coffee</h5>
                                     </div></a>
-                                <a href="/chu-de/game.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url(/mobile/assets/images/img_category_hit_vpop.png) no-repeat center;background-size: cover;">
+                                <a href="/chu-de/game.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url('/imgs/chude/Game _ 345 x 110.png') no-repeat center;background-size: cover;">
                                         <h5 class="text-white">Game</h5>
                                     </div></a>
-                                <a href="/chu-de/travel.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url(/mobile/assets/images/img_category_hit_vpop.png) no-repeat center;background-size: cover;">
+                                <a href="/chu-de/travel.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url('/imgs/chude/Travel _ 345 x 110.png') no-repeat center;background-size: cover;">
                                         <h5 class="text-white">Travel</h5>
                                     </div></a>
                             </div>

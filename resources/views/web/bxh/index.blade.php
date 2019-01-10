@@ -60,10 +60,10 @@ global $hot_video_rows;
                     <nav class="nav_sub_bxh d-flex justify-content-between align-items-center">
                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
                             @if($musicList)
-                            <a class="nav-item nav_bxh nav-link active" id="nav-home-tab" data-toggle="tab" href="#cat-{{$itemCategory['cat_id']}}-music" role="tab" aria-controls="nav-home" aria-selected="true">bài hát</a>
+                            <a class="nav-item nav_bxh nav-link active {{$itemCategory['cat_url']}}-music" id="nav-home-tab" data-toggle="tab" href="#cat-{{$itemCategory['cat_id']}}-music" role="tab" aria-controls="nav-home" aria-selected="true">bài hát</a>
                             @endif
                             @if($videoList)
-                            <a class="nav-item nav_bxh nav-link" id="nav-profile-tab" data-toggle="tab" href="#cat-{{$itemCategory['cat_id']}}-video" role="tab" aria-controls="nav-profile" aria-selected="false">video</a>
+                            <a class="nav-item nav_bxh nav-link {{$itemCategory['cat_url']}}-video" id="nav-profile-tab" data-toggle="tab" href="#cat-{{$itemCategory['cat_id']}}-video" role="tab" aria-controls="nav-profile" aria-selected="false">video</a>
                             @endif
                         </div>
                         <div>
@@ -197,7 +197,16 @@ global $hot_video_rows;
     $( document ).ready(function() {
         setTimeout(function(){
             $('.<?php echo $_GET['tab'] ?>').click();
-        }, 2000);
+        }, 100);
+        <?php
+        if(isset($_GET['type'])) {
+            ?>
+            setTimeout(function(){
+                $('.<?php echo $_GET['tab'] ?>-<?php echo $_GET['type'] ?>').click();
+            }, 150);
+            <?php
+        }
+        ?>
     });
     <?php
     }
