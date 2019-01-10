@@ -32,7 +32,6 @@ class CategoryController extends Controller
         $category = $this->categoryRepository->getCategoryParentByUrl($sub);
         if(!$category)
             return view('errors.404');
-
         if($category->cat_id != CATEGORY_ID_VIDEO) {
             $cover = $this->coverRepository->getCategoryCover($category->cat_id, $category->cat_level, ['music_year', CURRENT_YEAR], MAX_LOSTLESS, 'cover_id', 'desc', LIMIT_PAGE_CATEGORY);
             $firstTab = view('category.cover_item', compact('cover'));

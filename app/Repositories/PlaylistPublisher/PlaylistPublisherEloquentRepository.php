@@ -61,7 +61,7 @@ class PlaylistPublisherEloquentRepository extends EloquentRepository implements 
     public function getMusicVideo($playlisMusicVideoIds) {
         if($playlisMusicVideoIds){
             $q1 = \App\Models\MusicModel::WhereIn('music_id', $playlisMusicVideoIds)->select('music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'music_album_id', 'music_listen', 'music_bitrate', 'music_filename');
-            $q2 = \App\Models\videoModel::WhereIn('music_id', $playlisMusicVideoIds)->select('music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'music_album_id', 'music_listen', 'music_bitrate', 'music_filename');
+            $q2 = \App\Models\VideoModel::WhereIn('music_id', $playlisMusicVideoIds)->select('music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'music_album_id', 'music_listen', 'music_bitrate', 'music_filename');
             return $q2->union($q1)->orderBy(\DB::raw("FIELD(music_id, ".implode(',', $playlisMusicVideoIds).")"))->get();
         }
         return [];
