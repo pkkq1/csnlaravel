@@ -5,6 +5,6 @@
 !vendor/backpack
 /vendor
 /.idea
-/.env
-/.env.beta
+.env
+.env.beta
 /resources/views/cache/suggestion
