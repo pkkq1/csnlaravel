@@ -4,7 +4,7 @@
 /storage/*.key
 !vendor/backpack
 /vendor
+/resources/views/cache
 /.idea
 /.env
 /.env.beta
-/resources/views/cache/*
