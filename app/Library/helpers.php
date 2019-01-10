@@ -585,9 +585,9 @@ class Helpers
 
 
         ///// demo url hidden link
-        $url = 'http://data4.chiasenhac.com/';
-        return $url . md5(self::getIp() . env('DATA_KEY')) . '/';
-
+//        $url = 'http://data4.chiasenhac.com/';
+//        return $url . md5(self::getIp() . env('DATA_KEY')) . '/';
+//
 
 
         return $url;
