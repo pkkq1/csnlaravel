@@ -142,7 +142,7 @@ global $hot_video_rows;
                                     <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
                                         <div>
                                             <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_title']}}">{{$item['music_title']}}</a></h5>
-                                            <div class="author"><?php echo $item['music_artist_html'] ?></div>
+                                            <div class="author"><?php echo $item['music_artist_html'] ?? '' ?></div>
                                         </div>
                                     </div>
                                     <div class="media-right align-self-center">
