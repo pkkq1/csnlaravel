@@ -652,7 +652,7 @@ class Helpers
                 $file_url[] = array(
                     'url' => $url . 'downloads/' . ceil($music_id / 1000) . '/' . date('w') . '/' . rawurlencode($music_info['music_filename_noext']) . "/flac/" . rawurlencode($music_info['music_file_cache']) . "." . $music_info['music_extension'],
                     'label' => '1080p',
-                    'size' => self::filesize2str($music_info['music_flac_filesize']),
+                    'size' => self::filesize2str($music_info['music_lossless_filesize']),
                     'type' => 'mp4'
                 );
             }
