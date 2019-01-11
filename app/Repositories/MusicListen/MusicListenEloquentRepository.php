@@ -80,7 +80,7 @@ class MusicListenEloquentRepository extends EloquentRepository implements MusicL
     public function bxhHotTodayCategoryVideo($idCategory)
     {
         $result = \App\Models\VideoModel::where('csn_video.cat_id', CATEGORY_ID_VIDEO)
-            ->where('csn_video.cat_level', 7)
+            ->where('csn_video.cat_level', $idCategory)
 //            ->orderBy('csn_video.music_downloads_today', 'desc')
 //            ->orderBy('csn_video.music_downloads_this_week', 'desc')
             ->select($this->_selectVideo)
