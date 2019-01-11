@@ -69,7 +69,7 @@ class CategoryController extends Controller
                 return view('category.cover_item', compact('cover'));
                 break;
             case "album-moi":
-                $cover = $this->coverRepository->getCategoryCover($request->cat_id, $request->cat_level, ['music_year', '!=', CURRENT_YEAR], MAX_LOSTLESS, 'cover_id', 'desc', LIMIT_PAGE_CATEGORY);
+                $cover = $this->coverRepository->getCategoryCover($request->cat_id, $request->cat_level, null, MAX_LOSTLESS, 'cover_id', 'desc', LIMIT_PAGE_CATEGORY);
                 return view('category.cover_item', compact('cover'));
                 break;
             case "bai-hat-moi":
@@ -81,7 +81,7 @@ class CategoryController extends Controller
                 return view('category.video_item', compact('video'));
                 break;
             case "video-moi":
-                $video = $this->videoRepository->getCategoryVideo($request->cat_id, $request->cat_level, ['music_year', '!=', CURRENT_YEAR], 'music_last_update_time', 'desc', LIMIT_PAGE_CATEGORY);
+                $video = $this->videoRepository->getCategoryVideo($request->cat_id, $request->cat_level, null, 'music_last_update_time', 'desc', LIMIT_PAGE_CATEGORY);
                 return view('category.video_item', compact('video'));
                 break;
             case "video-vua-download":
