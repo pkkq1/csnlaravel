@@ -1,3 +1,10 @@
+/resources/views/cache
+/resources/views/mobile/cache
+/resources/views/web/cache
+/public/storage
+/storage/app
+
+
 /node_modules
 /public/storage
 /resources/views/cache
