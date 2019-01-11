@@ -76,7 +76,7 @@ class CategoryController extends Controller
                 $music = $this->musicRepository->getCategoryMusic($request->cat_id, $request->cat_level, 'music_last_update_time', 'desc', LIMIT_MUSIC_PAGE_CATEGORY);
                 return view('category.music_item', compact('music'));
                 break;
-            case "video_2018":
+            case "video-".CURRENT_YEAR:
                 $video = $this->videoRepository->getCategoryVideo($request->cat_id, $request->cat_level, ['music_year', CURRENT_YEAR], 'music_last_update_time', 'desc', LIMIT_PAGE_CATEGORY);
                 return view('category.video_item', compact('video'));
                 break;
