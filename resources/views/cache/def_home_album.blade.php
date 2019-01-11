@@ -14,7 +14,7 @@ $album_hot = array (
   0 => 
   array (
     'cover_id' => 90633,
-    'music_album' => 'Just For A While (Single)',
+    'music_album' => 'Just For A While (Single)1',
     'music_artist' => 'K-ICM;T-ICM',
     'music_artist_html' => '<a href="/ca-si/K-ICM~Y3NuX2FydGlzdH4xNDQ5MQ==.html">K-ICM</a>, <a href="/ca-si/T-ICM~Y3NuX2FydGlzdH4xODg0Mg==.html">T-ICM</a>',
     'music_bitrate' => 1000,
