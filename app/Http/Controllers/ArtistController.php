@@ -52,7 +52,7 @@ class ArtistController extends Controller
         $artist = $this->artistRepository->find($arrUrl['id']);
         if(!$artist)
             return view('errors.404');
-        $music =  $this->musicRepository->findMusicByArtist($artist->artist_nickname, 'music_id', 'desc', LIMIT_MUSIC_PAGE_ARTIST);
+        $music =  $this->musicRepository->findMusicByArtist($artist->artist_nickname, 'music_last_update_time', 'desc', LIMIT_MUSIC_PAGE_ARTIST);
             $musicHtml =  view('artist.music_item', compact('music'));
         $artistFavourite = false;
         if(Auth::check())
@@ -62,11 +62,11 @@ class ArtistController extends Controller
     public function getTabArtist(Request $request) {
         switch ($request->tab) {
             case "music":
-                $music = $this->musicRepository->findMusicByArtist($request->artist, 'music_id', 'desc', LIMIT_MUSIC_PAGE_ARTIST);
+                $music = $this->musicRepository->findMusicByArtist($request->artist, 'music_last_update_time', 'desc', LIMIT_MUSIC_PAGE_ARTIST);
                 return view('artist.music_item', compact('music'));
                 break;
             case "video":
-                $video = $this->videoRepository->findVideoByArtist($request->artist, 'music_id', 'desc', LIMIT_MUSIC_PAGE_ARTIST);
+                $video = $this->videoRepository->findVideoByArtist($request->artist, 'music_last_update_time', 'desc', LIMIT_MUSIC_PAGE_ARTIST);
                 return view('artist.video_item', compact('video'));
                 break;
             case "album":

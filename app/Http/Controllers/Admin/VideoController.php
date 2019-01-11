@@ -32,7 +32,7 @@ class VideoController extends CrudController
         $this->crud->setEntityNameStrings('Video CSN', 'Video CSN');
         $this->crud->setRoute(config('backpack.base.route_prefix').'/video');
 //        $this->crud->setEntityNameStrings('menu item', 'menu items');
-        $this->crud->orderBy('music_id', 'desc');
+        $this->crud->orderBy('music_last_update_time', 'desc');
         $this->crud->denyAccess(['create']);
         $this->middleware(function ($request, $next)
         {

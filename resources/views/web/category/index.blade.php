@@ -76,15 +76,7 @@ if($category->cat_id == 3 || $category->cat_id == 4 || $category->cat_id == 5 ||
                 </div>
             </div>
             <div class="col-md-3">
-                <a class="catalog1 weekend" style="background-image: url(https://i.scdn.co/image/6a6098cd1369420b9b6ff941ff41ded1b1dceb06);" href="#" title="">
-                    <span>weekend</span>
-                </a>
-                <a class="catalog1 edm" style="background-image: url(https://i.scdn.co/image/c8ffd7bd0df17c05fd8a1efef33ad793eea0e47d);" href="#" title="">
-                    <span>EDM</span>
-                </a>
-                <a class="catalog1 love" style="background-image: url(https://i.scdn.co/image/56228f9353b23405516a6ea8af1c22083f450b57);" href="#" title="">
-                    <span>love</span>
-                </a>
+                @include('web.layouts.right_banner')
                 <div class="box_space"></div>
                 <div class="box_header d-flex justify-content-between align-items-end">
                     <a class="view_all" href="/nhac-hot.html"><h5 class="title m-0">Bảng xếp hạng</h5></a>
