@@ -1,8 +1,8 @@
-    <a class="catalog1 weekend" style="background-image: url('/imgs/chude/Romance _ 245 x 140.png')" href="/chu-de/romance.html" title="Lãng Mạn">
-        <span>Lãng Mạn</span>
+    <a class="catalog1 weekend" style="background-image: url('/imgs/chude/Romance _ 245 x 140.png')" href="/chu-de/romance.html" title="Romance">
+        <span>Romance</span>
     </a>
-    <a class="catalog1 weekend" style="background-image: url('/imgs/chude/Sleep _ 245 x 140.png')" href="/chu-de/sleep.html" title="Giấc Ngủ">
-        <span>Giấc Ngủ</span>
+    <a class="catalog1 weekend" style="background-image: url('/imgs/chude/Sleep _ 245 x 140.png')" href="/chu-de/sleep.html" title="Sleep">
+        <span>Sleep</span>
     </a>
     <a class="catalog1 weekend" style="background-image: url('/imgs/chude/Gym _ 245 x 140.png')" href="/chu-de/gym.html" title="Gym">
         <span>Gym</span>

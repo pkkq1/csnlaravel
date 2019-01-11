@@ -516,28 +516,28 @@ class Helpers
 
         if ($music_id <= 200000)
             $url = 'http://data02.chiasenhac.com/';
-//        else if ($music_id < 1000000)
-//            $url = 'http://data3.chiasenhac.com/';
-        else if ($music_id <= 1005000)
-            $url = 'http://data5.chiasenhac.com/';
-        else if ($music_id <= 1029000)
-            $url = 'http://data16.chiasenhac.com/';
-        else if ($music_id <= 1059000)
-            $url = 'http://data17.chiasenhac.com/';
-        else if ($music_id <= 1089000)
-            $url = 'http://data18.chiasenhac.com/';
-        else if ($music_id <= 1119000)
-            $url = 'http://data19.chiasenhac.com/';
-        else if ($music_id <= 1149000)
-            $url = 'http://data20.chiasenhac.com/';
-        else if ($music_id <= 1179000)
-            $url = 'http://data21.chiasenhac.com/';
-        else if ($music_id <= 1209000)
-            $url = 'http://data22.chiasenhac.com/';
-        else if ($music_id <= 1239000)
-            $url = 'http://data23.chiasenhac.com/';
+        else if ($music_id < 1000000)
+            $url = 'http://data3.chiasenhac.com/';
+//        else if ($music_id <= 1005000)
+//            $url = 'http://data5.chiasenhac.com/';
+//        else if ($music_id <= 1029000)
+//            $url = 'http://data16.chiasenhac.com/';
+//        else if ($music_id <= 1059000)
+//            $url = 'http://data17.chiasenhac.com/';
+//        else if ($music_id <= 1089000)
+//            $url = 'http://data18.chiasenhac.com/';
+//        else if ($music_id <= 1119000)
+//            $url = 'http://data19.chiasenhac.com/';
+//        else if ($music_id <= 1149000)
+//            $url = 'http://data20.chiasenhac.com/';
+//        else if ($music_id <= 1179000)
+//            $url = 'http://data21.chiasenhac.com/';
+//        else if ($music_id <= 1209000)
+//            $url = 'http://data22.chiasenhac.com/';
+//        else if ($music_id <= 1239000)
+//            $url = 'http://data23.chiasenhac.com/';
         else if ($music_id <= 1269000)
-            $url = 'http://data24.chiasenhac.com/';
+            $url = 'http://data4.chiasenhac.com/';
         else if ($music_id <= 1299000)
             $url = 'http://data00.chiasenhac.com/';
         else if ($music_id <= 1319000)
@@ -585,11 +585,10 @@ class Helpers
 
 
         ///// demo url hidden link
-        $url = 'http://data4.chiasenhac.com/';
-        $exp = strtotime("+" . TIME_EXPIRED_LINK . "  minutes");
-        return $url . md5(self::getIp() . env('DATA_KEY')) . '@' . $exp . '/';
-
-
+        if($url == 'http://data4.chiasenhac.com/' ) {
+            $exp = strtotime("+" . TIME_EXPIRED_LINK . "  minutes");
+            return $url . md5(self::getIp() . env('DATA_KEY')) . '@' . $exp . '/';
+        }
         return $url;
     }
 
