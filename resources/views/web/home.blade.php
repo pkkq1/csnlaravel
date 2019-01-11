@@ -232,8 +232,8 @@ global $top_artist_rows;
                 </div>
             </div>
             <div class="box_catalog owl-carousel owl-theme">
-                <a href="/chu-de/romance.html" title="" class="item img-thumbnail swiper-slide" style="background: url('/imgs/chude/Romance _ 345 x 110.png') no-repeat;"><span>Lãng Mạn</span></a>
-                <a href="/chu-de/sleep.html" title="" class="item img-thumbnail swiper-slide" style="background: url('/imgs/chude/Sleep _ 345 x 110.png') no-repeat;"><span>Giấc Ngủ</span></a>
+                <a href="/chu-de/romance.html" title="" class="item img-thumbnail swiper-slide" style="background: url('/imgs/chude/Romance _ 345 x 110.png') no-repeat;"><span>Romance</span></a>
+                <a href="/chu-de/sleep.html" title="" class="item img-thumbnail swiper-slide" style="background: url('/imgs/chude/Sleep _ 345 x 110.png') no-repeat;"><span>Sleep</span></a>
                 <a href="/chu-de/gym.html" title="" class="item img-thumbnail swiper-slide" style="background: url('/imgs/chude/Gym _ 345 x 110.png') no-repeat;"><span>Gym</span></a>
                 <a href="/chu-de/dance.html" title="" class="item img-thumbnail swiper-slide" style="background: url('/imgs/chude/Dance _ 345 x 110.png') no-repeat;"><span>Dance</span></a>
                 <a href="/chu-de/work.html" title="" class="item img-thumbnail swiper-slide" style="background: url('/imgs/chude/Work _ 345 x 110.png') no-repeat;"><span>Work</span></a>
