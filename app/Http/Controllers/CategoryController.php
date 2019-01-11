@@ -73,15 +73,15 @@ class CategoryController extends Controller
                 return view('category.cover_item', compact('cover'));
                 break;
             case "bai-hat-moi":
-                $music = $this->musicRepository->getCategoryMusic($request->cat_id, $request->cat_level, 'music_id', 'desc', LIMIT_MUSIC_PAGE_CATEGORY);
+                $music = $this->musicRepository->getCategoryMusic($request->cat_id, $request->cat_level, 'music_last_update_time', 'desc', LIMIT_MUSIC_PAGE_CATEGORY);
                 return view('category.music_item', compact('music'));
                 break;
             case "video_2018":
-                $video = $this->videoRepository->getCategoryVideo($request->cat_id, $request->cat_level, ['music_year', CURRENT_YEAR], 'music_id', 'desc', LIMIT_PAGE_CATEGORY);
+                $video = $this->videoRepository->getCategoryVideo($request->cat_id, $request->cat_level, ['music_year', CURRENT_YEAR], 'music_last_update_time', 'desc', LIMIT_PAGE_CATEGORY);
                 return view('category.video_item', compact('video'));
                 break;
             case "video-moi":
-                $video = $this->videoRepository->getCategoryVideo($request->cat_id, $request->cat_level, ['music_year', '!=', CURRENT_YEAR], 'music_id', 'desc', LIMIT_PAGE_CATEGORY);
+                $video = $this->videoRepository->getCategoryVideo($request->cat_id, $request->cat_level, ['music_year', '!=', CURRENT_YEAR], 'music_last_update_time', 'desc', LIMIT_PAGE_CATEGORY);
                 return view('category.video_item', compact('video'));
                 break;
             case "video-vua-download":

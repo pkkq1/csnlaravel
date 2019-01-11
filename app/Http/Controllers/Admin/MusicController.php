@@ -33,7 +33,7 @@ class MusicController extends CrudController
         $this->crud->setEntityNameStrings('Nhạc CSN', 'Nhạc CSN');
         $this->crud->setRoute(config('backpack.base.route_prefix').'/music');
 //        $this->crud->setEntityNameStrings('menu item', 'menu items');
-        $this->crud->orderBy('music_id', 'desc');
+        $this->crud->orderBy('music_last_update_time', 'desc');
         $this->crud->denyAccess(['create']);
         $this->middleware(function ($request, $next)
         {
