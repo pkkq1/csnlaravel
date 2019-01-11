@@ -5,10 +5,11 @@
  * @package  Laravel
  * @author   Taylor Otwell <taylor@laravel.com>
  */
-global $timeStart;
+global $timeStart, $allpage_banner;
 $timeStart = microtime(true);
 define('LARAVEL_START', microtime(true));
 
+$allpage_banner = true;
 /*
 |--------------------------------------------------------------------------
 | Register The Auto Loader
