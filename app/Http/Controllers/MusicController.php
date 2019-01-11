@@ -131,6 +131,7 @@ class MusicController extends Controller
             if(($playlist->music)) {
                 $playlistMusic = $playlist->music->toArray();
             }
+            $playlist->playlist_cover = $playlist->playlist_cover ? env('APP_URL').Helpers::file_path($playlist->playlist_id, PUBLIC_MUSIC_PLAYLIST_PATH, true).$playlist->playlist_id . '.png' : env('APP_URL').'/imgs/no_cover.jpg';
         }elseif($arrUrl['type'] == 'nghe-bat-hat-ca-si'){
             $arrUrl = Helpers::splitArtistUrl($musicUrl);
             $artist = $this->artistRepository->find($arrUrl['id']);
@@ -141,6 +142,9 @@ class MusicController extends Controller
                 return view('errors.text_error')->with('message', 'Ca sĩ chưa có bài hát nào phát hành.');
             $playlistMusic = $music['data'];
             $typeListen = 'playlist';
+            $playlist = new \stdClass();
+            $playlist->playlist_cover = $artist->artist_avatar ? env('APP_URL').Helpers::file_path($artist->artist_id, PUBLIC_COVER_ARTIST_PATH, true).$artist->artist_avatar . '.png' : env('APP_URL').'/imgs/no_cover_artist2.jpg';
+            $playlist->playlist_title = 'Tất cả bài hát ca sĩ '.$artist->artist_nickname;
         }
         if($playlistMusic) {
             $offsetPl = $playlistMusic[$request->playlist ? $request->playlist - 1 : 0];
