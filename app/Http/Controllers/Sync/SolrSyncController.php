@@ -128,7 +128,7 @@ class SolrSyncController extends Controller
         return response(['Ok']);
     }
     public function syncCover() {
-        $cover = CoverModel::orderBy('cover_id', 'asc')->offset(90000)->limit(10000)->get();
+        $cover = CoverModel::orderBy('cover_id', 'asc')->offset(0)->limit(10000)->get();
         foreach ($cover as $item) {
             $music_artist = $item->album_artist_1;
             $music_artist_id = $item->album_artist_id_1;
@@ -144,6 +144,7 @@ class SolrSyncController extends Controller
             }
             $titleSearch = Helpers::relaceKeySearch($item->music_album);
             $titleCharset = Helpers::rawTiengVietUrl($item->music_album, ' ');
+
             $data = [
                 'id' => 'cover_'.$item->cover_id,
                 'music_album' => $item->music_album,
@@ -155,9 +156,23 @@ class SolrSyncController extends Controller
                 'album_cat' => !empty($album_cat) ? $album_cat : '',
                 'music_year' => $item->music_year,
                 'album_link' => Helpers::album_url($item->toArray()),
-                'music_artist' => $music_artist ? Helpers::rawHtmlArtists($music_artist_id, $music_artist) : '',
-                'album_bitrate' => $item->music_bitrate ? Helpers::bitrate2str($item->music_bitrate) : '',
+                'music_artist' => '',
+                'music_artist_search' => '',
+                'music_artist_charset' => '',
+                'music_artist_nospace' => '',
+                'album_bitrate' => $item->music_bitrate,
+                'music_artist_html' => '',
+                'album_bitrate_html' => $item->music_bitrate ? Helpers::bitrate2str($item->music_bitrate) : '',
             ];
+            if($music_artist) {
+                $artistSearch = Helpers::relaceKeySearch($music_artist);
+                $artistCharset = Helpers::rawTiengVietUrl($music_artist, ' ');
+                $data['music_artist'] = $music_artist;
+                $data['music_artist_search'] = $artistSearch;
+                $data['music_artist_charset'] = $artistCharset;
+                $data['music_artist_nospace'] = tr_replace(' ', '', $artistCharset);
+                $data['music_artist_html'] = Helpers::rawHtmlArtists($music_artist_id, $music_artist);
+            }
             $this->Solr->addDocuments($data);
         }
         return response(['Ok']);

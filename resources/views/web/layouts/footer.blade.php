@@ -44,7 +44,7 @@
         if(musics.length > 0) {
             $.each( musics, function( key, value ) {
                 song = song +
-                    '  <a class="search-line" href="' + value.music_link + '" title="' + value.music_title + ' - ' + $(value.music_artist).text() +'">' +
+                    '  <a class="search-line" href="' + value.music_link + '" title="' + value.music_title + ' - ' + value.music_artist +'">' +
                     '  <li class="media align-items-stretch">' +
                     // '      <div class="media-left align-items-stretch mr-2">' +
                     // '              <img src="' + value.music_cover + '" alt="' + value.music_title + '">' +
@@ -52,7 +52,7 @@
                     // '      </div>' +
                     '      <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">' +
                     '          <h5 class="media-title mt-0 mb-0 span_h5">' + searchHighlight(q, value.music_title) + '</h5>' +
-                    '          <div class="author">' + $(value.music_artist).text() + '</div>' +
+                    '          <div class="author">' + value.music_artist + '</div>' +
                     '          <small class="type_music c1">' + value.music_bitrate + '</small>' +
                     '      </div>' +
                     '  </li>' +
@@ -95,12 +95,12 @@
             var song = '';
             $.each( musics, function( key, value ) {
                 song = song +
-                    '<a class="search-line parent-line" href="' + value.music_link + '" title="' + value.music_title + ' - ' + $(value.music_artist).text() + '">' +
+                    '<a class="search-line parent-line" href="' + value.music_link + '" title="' + value.music_title + ' - ' + value.music_artist + '">' +
                     '  <li class="media align-items-stretch">' +
                     '      <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">' +
                     '          <div>' +
-                    '              <h5 class="media-title mt-0 mb-0 span_h5" title="' + value.music_title + ' - ' + $(value.music_artist).text() + '">' + searchHighlight(q, value.music_title) + '</h5>' +
-                    '              <div class="author">' + $(value.music_artist).text() + '</div>' +
+                    '              <h5 class="media-title mt-0 mb-0 span_h5" title="' + value.music_title + ' - ' + value.music_artist + '">' + searchHighlight(q, value.music_title) + '</h5>' +
+                    '              <div class="author">' + value.music_artist + '</div>' +
                     '          </div>' +
                     '          <small class="type_music c1">' + value.music_bitrate + '</small>' +
                     '      </div>' +
@@ -133,7 +133,7 @@
                     '              <h5 class="media-title mt-0 mb-0 span_h5">' + searchHighlight(q, value.music_album) + '</h5>' +
                     '              <div class="author">' + textArtist + '</div>' +
                     '          </div>' +
-                    '          <small class="type_music c1">' + (value.album_bitrate ? value.album_bitrate : '') + '</small>' +
+                    '          <small class="type_music c1">' + (value.album_bitrate_html ? value.album_bitrate_html : '') + '</small>' +
                     '      </div>' +
                     '       </a>' +
                     '  </li>';

@@ -632,11 +632,11 @@ $titleMeta = (isset($music) ? 'Chỉnh sửa '.$music->music_title : 'Cập nh�
                         '              <i class="material-icons">play_circle_outline</i>' +
                         '          </a>' +
                         '      </div>' +
-                        '      <a class="search-line" title="' + value.music_title + ' - ' + $(value.music_artist).text() + '"  href="' + value.music_link + '" >' +
+                        '      <a class="search-line" title="' + value.music_title + ' - ' + value.music_artist + '"  href="' + value.music_link + '" >' +
                         '      <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">' +
                         '          <div>' +
-                        '              <h5 class="media-title mt-0 mb-0 span_h5" title="' + value.music_title + ' - ' + $(value.music_artist).text() + '">' + searchHighlight(q, value.music_title) + '</h5>' +
-                        '              <div class="author">' + $(value.music_artist).text() + '</div>' +
+                        '              <h5 class="media-title mt-0 mb-0 span_h5" title="' + value.music_title + ' - ' + value.music_artist + '">' + searchHighlight(q, value.music_title) + '</h5>' +
+                        '              <div class="author">' + value.music_artist + '</div>' +
                         '          </div>' +
                         '          <small class="type_music c1">' + value.music_bitrate + '</small>' +
                         '      </div>' +
