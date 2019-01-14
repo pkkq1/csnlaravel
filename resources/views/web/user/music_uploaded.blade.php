@@ -289,18 +289,18 @@
     <div class="row row10px float-col-width">
         <?php
         array_map(function ($i, $item) {
-        $url = '/dang-tai/album/'.$item['album_id'];
+        $url = '/dang-tai/album/'.$item['cover_id'];
         ?>
         <div class="col">
             <div class="card card1">
-                <div class="card-header" style="background-image: url({{Helpers::cover_url($item['album_id'])}});">
+                <div class="card-header" style="background-image: url({{Helpers::cover_url($item['cover_id'])}});">
 
-                    <a href="{{$url}}" title="{{$item['album_name']}}">
+                    <a href="{{$url}}" title="{{$item['music_album']}}">
                         <span class="icon-play"></span>
                     </a>
                 </div>
                 <div class="card-body">
-                    <h3 class="card-title"><a href="{{$url}}" title="{{$item['album_name']}}">{{$item['album_name']}}</a></h3>
+                    <h3 class="card-title"><a href="{{$url}}" title="{{$item['music_album']}}">{{$item['music_album']}}</a></h3>
                 </div>
             </div>
         </div>

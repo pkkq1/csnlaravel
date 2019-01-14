@@ -34,14 +34,16 @@ class MusicDownloadEloquentRepository extends EloquentRepository implements Musi
                 ->_model
                 ->create([
                     'music_id' => $id,
-//                'music_listen_total' => 1,
+                    'music_downloads' => 1,
                     'music_downloads_today' => 1,
+                    'music_downloads_today_0' => 1,
                     'music_downloads_time' => time(),
                 ]);
         }else{
             $result->update([
-//                    'music_listen_total' => DB::raw('music_listen_total + 1'),
+                'music_downloads' => DB::raw('music_downloads + 1'),
                 'music_downloads_today' => DB::raw('music_downloads_today + 1'),
+                'music_downloads_today_0' => DB::raw('music_downloads_today_0 + 1'),
                 'music_downloads_time' => time(),
             ]);
         }

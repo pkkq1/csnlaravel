@@ -1349,5 +1349,14 @@ form#login-form {
 .body_commnet_replay:hover .comment_delete{
     opacity: 1;
 }
-
+.wapper-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 18px;
+    text-align: right;
+    width: 60px;
+    height: 20px;
+    margin-bottom: -6px;
+}
 

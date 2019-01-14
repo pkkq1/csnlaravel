@@ -21,6 +21,7 @@ use App\Repositories\Upload\UploadEloquentRepository;
 use App\Repositories\ArtistFavourite\ArtistFavouriteRepository;
 use App\Repositories\MusicFavourite\MusicFavouriteRepository;
 use App\Repositories\VideoFavourite\VideoFavouriteRepository;
+use App\Repositories\Cover\CoverEloquentRepository;
 
 class UserMusicController extends Controller
 {
@@ -37,10 +38,11 @@ class UserMusicController extends Controller
     protected $artistFavouriteRepository;
     protected $musicFavouriteRepository;
     protected $videoFavouriteRepository;
+    protected $coverRepository;
 
     public function __construct(UserEloquentRepository $userRepository, PlaylistEloquentRepository $playlistRepository, MusicEloquentRepository $musicRepository,
                                 UploadEloquentRepository $uploadRepository, AlbumEloquentRepository $albumRepository, ArtistFavouriteRepository $artistFavouriteRepository, MusicFavouriteRepository $musicFavouriteRepository,
-                                VideoFavouriteRepository $videoFavouriteRepository)
+                                VideoFavouriteRepository $videoFavouriteRepository, CoverEloquentRepository $coverRepository)
     {
         $this->userRepository = $userRepository;
         $this->playlistRepository = $playlistRepository;
@@ -50,6 +52,7 @@ class UserMusicController extends Controller
         $this->artistFavouriteRepository = $artistFavouriteRepository;
         $this->musicFavouriteRepository = $musicFavouriteRepository;
         $this->videoFavouriteRepository = $videoFavouriteRepository;
+        $this->coverRepository = $coverRepository;
     }
 
     /**
@@ -84,7 +87,7 @@ class UserMusicController extends Controller
         }
         if($stage == 'all' || $stage == 'album') {
             // album
-            $music['album'] = $this->albumRepository->findAlbumByUser($id, 'album_id', 'desc', LIMIT_PAGE_MUSIC_UPLOADED);
+            $music['album'] = $this->coverRepository->findCoverByUser($id, 'cover_id', 'desc', LIMIT_PAGE_MUSIC_UPLOADED);
         }
         return view('user.music_uploaded', compact('music', 'stage'));
     }

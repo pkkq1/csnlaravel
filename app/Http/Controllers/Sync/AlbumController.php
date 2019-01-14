@@ -26,7 +26,8 @@ class AlbumController extends Controller
         $this->videoRepository = $videoRepository;
     }
     public function syncAlbum() {
-        $cache = $this->coverRepository->getCoverNew();
+        $cache = $this->coverRepository->getCoverNew('album_last_updated');
+        DB::disconnect('mysql');
         $album_new = [];
         foreach($cache as $key => $item) {
             $album_artist_id = $item->album_artist_id_1;
@@ -45,6 +46,7 @@ class AlbumController extends Controller
             ];
         }
         $cache = $this->coverRepository->getCoverNew2();
+        DB::disconnect('mysql');
         $album_old = [];
         foreach($cache as $item) {
             $album_artist_id = $item->album_artist_id_1;

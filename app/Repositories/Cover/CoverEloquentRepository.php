@@ -44,9 +44,21 @@ class CoverEloquentRepository extends EloquentRepository implements CoverReposit
      * Create
      * @return mixed
      */
-    public function getCoverNew()
+    public function getCoverNew($orderBy = 'album_last_updated')
     {
-        $result = $this->_model::where('music_year', CURRENT_YEAR)->with('music')->orderBy('cover_id', 'desc')->limit(20)->get();
+        $result = $this->_model::where('music_year', CURRENT_YEAR)
+            ->where('album_music_total', '>', 0)
+            ->with('music')->orderBy($orderBy, 'desc')->limit(20)->get();
+        return $result;
+    }
+    public function findCover($userId, $id)
+    {
+        $result = $this
+            ->_model
+            ->where('cover_id', $id)
+            ->where('user_id', $userId)
+            ->first();
+
         return $result;
     }
     public function getCoverNew2()
@@ -95,6 +107,13 @@ class CoverEloquentRepository extends EloquentRepository implements CoverReposit
                 $q->where('album_artist_1', 'like', '%'.$artist.'%')
                     ->orWhere('album_artist_2', 'like', '%'.$artist.'%');
             })
+            ->orderBy($fillOrder, $typeOrder)
+            ->paginate($page);
+        return $result;
+    }
+    public function findCoverByUser($userId, $fillOrder, $typeOrder, $page)
+    {
+        $result = $this->_model::where('user_id', $userId)
             ->orderBy($fillOrder, $typeOrder)
             ->paginate($page);
         return $result;

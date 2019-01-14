@@ -290,7 +290,7 @@ class Helpers
     public static function copySourceImage($data, $path, $fileName = null, $type = 'png')
     {
         $data->storeAs(
-            'public' . $path, $fileName . '.' .$type
+            'public' . $path, $fileName . ($type ? '.'.$type : '')
         );
         return $fileName;
     }

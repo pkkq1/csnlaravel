@@ -17,6 +17,7 @@ use App\Models\CoverModel;
 use App\Solr\Solarium;
 use App\Models\ArtistModel;
 use App\Repositories\Music\MusicEloquentRepository;
+use DB;
 
 class SolrSyncController extends Controller
 {
@@ -38,6 +39,7 @@ class SolrSyncController extends Controller
             ->offset(1)
             ->limit(100000)
             ->get();
+        DB::disconnect('mysql');
         foreach ($searchMusic as $item) {
             $titleSearch = Helpers::relaceKeySearch($item->music_title);
             $artistSearch = Helpers::relaceKeySearch($item->music_artist);
@@ -79,6 +81,7 @@ class SolrSyncController extends Controller
             ->offset(1)
             ->limit(100000)
             ->get();
+        DB::disconnect('mysql');
         foreach ($searchVideo as $item) {
             $titleSearch = Helpers::relaceKeySearch($item->music_title);
             $artistSearch = Helpers::relaceKeySearch($item->music_artist);
@@ -112,6 +115,7 @@ class SolrSyncController extends Controller
     }
     public function syncArtist() {
         $artist = ArtistModel::offset(150000)->limit(100000)->get();
+        DB::disconnect('mysql');
         foreach ($artist as $item) {
             $artist_nickname_charset = Helpers::rawTiengVietUrl(mb_strtolower($item->artist_nickname, 'UTF-8'), ' ');
             $data = [
@@ -128,7 +132,8 @@ class SolrSyncController extends Controller
         return response(['Ok']);
     }
     public function syncCover() {
-        $cover = CoverModel::orderBy('cover_id', 'asc')->offset(0)->limit(10000)->get();
+        $cover = CoverModel::orderBy('cover_id', 'asc')->offset(21445)->limit(20000)->get();
+        DB::disconnect('mysql');
         foreach ($cover as $item) {
             $music_artist = $item->album_artist_1;
             $music_artist_id = $item->album_artist_id_1;

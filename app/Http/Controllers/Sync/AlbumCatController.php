@@ -30,6 +30,7 @@ class AlbumCatController extends Controller
         $album_cat_new = [];
         foreach($arrCat as $cat) {
             $cache = $this->coverRepository->getCategoryCover($cat, 0, ['music_year', CURRENT_YEAR], MAX_LOSTLESS, 'cover_id', 'desc', LIMIT_PAGE_CATEGORY);
+            DB::disconnect('mysql');
             $cache = $cache->toArray();
             $album_cat_new[$cat] = [];
             foreach($cache['data'] as $key => $item) {

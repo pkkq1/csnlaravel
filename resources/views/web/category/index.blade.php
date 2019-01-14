@@ -76,7 +76,7 @@ if($category->cat_id == 3 || $category->cat_id == 4 || $category->cat_id == 5 ||
                 </div>
             </div>
             <div class="col-md-3">
-                @include('web.layouts.right_banner')
+                @include('web.layouts.right_banner', ['short' => true])
                 <div class="box_space"></div>
                 <div class="box_header d-flex justify-content-between align-items-end">
                     <a class="view_all" href="/nhac-hot.html"><h5 class="title m-0">Bảng xếp hạng</h5></a>

@@ -45,7 +45,7 @@ $titleMeta = 'Cập nhật album - ' . Config::get('constants.app.title');
                                 @else
                                     @if(isset($album))
                                         <?php
-                                        $uploadFile = $album->uploadFIle();
+                                        $uploadFile = $album->uploadFile();
                                         ?>
                                         <h5 class="count_file_music title" style="text-align: left;">Đang tải lên {{count($uploadFile)}} mục</h5>
                                         @foreach($uploadFile as $item)
@@ -94,7 +94,7 @@ $titleMeta = 'Cập nhật album - ' . Config::get('constants.app.title');
                                     <div class="card cover_upload form-group" <?php echo isset($album) ? 'style="padding-top: 0px; font-size: 200%;"' : '' ?>>
                                         @if(isset($album))
                                         <label for="choose_album_cover" class="card-body d-flex align-items-center justify-content-center" style="z-index: 9999;cursor: pointer;"></label>
-                                        <img class="mr-3" {{isset($album) ? '' : 'hidden'}} id="album_cover_uploaded" src="{{isset($album) ? Helpers::file_path($album->album_id, PUBLIC_COVER_ALBUM_CROP_PATH, true).$album->cover_filename : '/imgs/avatar_default.png?v='.time()}}" alt="" style="z-index: 999; width: 177px;">
+                                        <img class="mr-3" {{isset($album) ? '' : 'hidden'}} id="album_cover_uploaded" src="{{isset($album) ? Helpers::file_path($album->cover_id, PUBLIC_COVER_ALBUM_CROP_PATH, true).$album->cover_filename : '/imgs/avatar_default.png?v='.time()}}" alt="" style="z-index: 999; width: 147px;">
                                         @else
                                         <label for="choose_album_cover" class="card-body d-flex align-items-center justify-content-center" style="z-index: 9999">
                                             <div class="form-group text-center m-0 icon_camera_cover">
@@ -104,7 +104,7 @@ $titleMeta = 'Cập nhật album - ' . Config::get('constants.app.title');
                                                 </label>
                                             </div>
                                         </label>
-                                        <img class="mr-3" hidden id="album_cover_uploaded" src="{{isset($album) ? COVER_ALBUM_SOURCE_PATH.$album->cover_filename : '/imgs/avatar_default.png'}}?time={{time()}}" alt="" style="z-index: 999; width: 177px;">
+                                        <img class="mr-3" hidden id="album_cover_uploaded" src="{{isset($album) ? COVER_ALBUM_SOURCE_PATH.$album->cover_filename : '/imgs/avatar_default.png'}}?time={{time()}}" alt="" style="z-index: 999; width: 147px;">
                                         @endif
 
                                         <div class="media-body">
@@ -117,7 +117,7 @@ $titleMeta = 'Cập nhật album - ' . Config::get('constants.app.title');
                                     <div class="box_right_upload form-row">
                                         <div class="form-group col-12{{ $errors->has('music_album') ? ' has-error' : '' }}">
                                             <label for="music_title">Tên album</label>
-                                            <input type="text" class="form-control" id="music_album" value="{{ old('music_album') ?? $album->album_name ?? '' }}" name="music_album" placeholder="Nhập tên album">
+                                            <input type="text" class="form-control" id="music_album" value="{{ old('music_album') ?? $album->music_album ?? '' }}" name="music_album" placeholder="Nhập tên album">
                                             @if ($errors->has('music_album'))
                                                 <span class="help-block">
                                                     <strong>{{str_replace('music album', 'tên album', $errors->first('music_album')) }}</strong>
@@ -145,7 +145,7 @@ $titleMeta = 'Cập nhật album - ' . Config::get('constants.app.title');
                                         </div>
                                         <div class="form-group col-4{{ $errors->has('music_production') ? ' has-error' : '' }}">
                                             <label for="music_production">Hãng sản xuất</label>
-                                            <input type="text" class="form-control" value="{{ old('music_production') ?? $album->album_production ?? '' }}" name="music_production" id="music_production" placeholder="">
+                                            <input type="text" class="form-control" value="{{ old('music_production') ?? $album->music_production ?? '' }}" name="music_production" id="music_production" placeholder="">
                                             @if ($errors->has('music_production'))
                                                 <span class="help-block">
                                                     <strong>{{ str_replace('music production', 'hãng sản xuất', $errors->first('music_production')) }}</strong>
@@ -163,7 +163,7 @@ $titleMeta = 'Cập nhật album - ' . Config::get('constants.app.title');
                                         </div>
                                         <div class="form-group col-4{{ $errors->has('music_year') ? ' has-error' : '' }}">
                                             <label for="music_year">Năm phát hành</label>
-                                            <input type="text" class="form-control" name="music_year" value="{{ old('music_year') ?? $album->album_year ?? '' }}" id="music_year" placeholder="">
+                                            <input type="text" class="form-control" name="music_year" value="{{ old('music_year') ?? $album->music_year ?? '' }}" id="music_year" placeholder="">
                                             @if ($errors->has('music_year'))
                                                 <span class="help-block">
                                                     <strong>{{ str_replace('music year', 'năm phát hành', $errors->first('music_year')) }}</strong>

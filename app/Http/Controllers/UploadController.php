@@ -15,6 +15,7 @@ use App\Repositories\Music\MusicEloquentRepository;
 use App\Repositories\Video\VideoEloquentRepository;
 use App\Repositories\Upload\UploadEloquentRepository;
 use App\Repositories\Album\AlbumEloquentRepository;
+use App\Repositories\Cover\CoverEloquentRepository;
 use App\Repositories\Artist\ArtistRepository;
 use Illuminate\Support\Facades\Storage;
 use File;
@@ -29,15 +30,17 @@ class UploadController extends Controller
     protected $videoRepository;
     protected $uploadRepository;
     protected $albumRepository;
+    protected $coverRepository;
 
     public function __construct(ArtistUploadEloquentRepository $artistUploadRepository, MusicEloquentRepository $musicRepository, ArtistRepository $artistRepository,
-                                UploadEloquentRepository $uploadRepository, AlbumEloquentRepository $albumRepository, VideoEloquentRepository $videoRepository) {
+                                UploadEloquentRepository $uploadRepository, AlbumEloquentRepository $albumRepository, VideoEloquentRepository $videoRepository, CoverEloquentRepository $coverRepository) {
         $this->artistUploadRepository = $artistUploadRepository;
         $this->musicRepository = $musicRepository;
         $this->videoRepository = $videoRepository;
         $this->uploadRepository = $uploadRepository;
         $this->albumRepository = $albumRepository;
         $this->artistRepository = $artistRepository;
+        $this->coverRepository = $coverRepository;
         $this->middleware(function ($request, $next)
         {
             if(backpack_user()->can('banned_user_upload')){
@@ -82,9 +85,9 @@ class UploadController extends Controller
         }
         return view('upload.upload_music', compact('typeUpload', 'music'));
     }
-    public function createAlbum(Request $request, $albumId = null) {
-        if($albumId) {
-            $album = $this->albumRepository->findAlbum(Auth::user()->id, $albumId);
+    public function createAlbum(Request $request, $coverId = null) {
+        if($coverId) {
+            $album = $this->coverRepository->findCover(Auth::user()->id, $coverId);
             if(!$album)
                 return view('errors.404');
         }
@@ -276,28 +279,28 @@ class UploadController extends Controller
         return redirect()->route($typeUpload == 'music' ? 'upload.createMusic' : 'upload.createVideo')->with('success', 'Đã tạo '.$mess.' ' . $csnMusic['music_title'] . '<a href="/dang-tai/'.($typeUpload == 'music' ? 'nhac' : 'video').'/'.$result->music_id.'"> quay lại chỉnh sửa</a>');
     }
 
-    public function storeAlbum(Request $request, $albumId = null) {
+    public function storeAlbum(Request $request, $coverId = null) {
         if($request->input('action_upload') == 'edit') {
             $this->validate($request, [
                 'music_album' => 'required',
-                'music_production' => 'required',
-                'music_album_id' => 'required',
+//                'music_product`ion' => 'required',
+//                'music_album_id' => 'required',
                 'music_year' => 'required|max:5',
             ]);
-            $album = $this->albumRepository->findAlbum(Auth::user()->id, $albumId);
+            $album = $this->coverRepository->findCover(Auth::user()->id, $coverId);
             if(!$album)
                 return view('errors.404');
-            $album->album_name = $request->input('music_album');
-            $album->album_production = $request->input('music_production');
-            $album->album_code = $request->input('music_album_id');
-            $album->album_year = $request->input('music_year');
+            $album->music_album = $request->input('music_album');
+            $album->music_production = $request->input('music_production');
+//            $album->album_code = $request->input('music_album_id');
+            $album->music_year = $request->input('music_year');
             $album->save();
             if($request->input('album_cover')) {
                 $typeImageCover = array_last(explode('.', $_FILES['choose_album_cover']['name']));
-                $fileNameCovert = Helpers::saveBase64Image($request->input('album_cover'), Helpers::file_path($album->album_id, AVATAR_ALBUM_CROP_PATH, true), $album->album_id, $typeImageCover);
-                Helpers::copySourceImage($request->file('choose_album_cover'), Helpers::file_path($album->album_id, COVER_ALBUM_SOURCE_PATH, true), $album->artist_id, $fileNameCovert);
+                $fileNameCovert = Helpers::saveBase64Image($request->input('album_cover'), Helpers::file_path($album->cover_id, AVATAR_ALBUM_CROP_PATH, true), $album->album_id, $typeImageCover);
+                Helpers::copySourceImage($request->file('choose_album_cover'), Helpers::file_path($album->cover_id, COVER_ALBUM_SOURCE_PATH, true), $album->artist_id, $fileNameCovert);
             }
-            return redirect()->route('upload.storeAlbum', ['musicId' => $albumId])->with('success', 'Đã chỉnh sửa album ' . $album->album_name);;
+            return redirect()->route('upload.storeAlbum', ['musicId' => $coverId])->with('success', 'Đã chỉnh sửa album ' . $album->album_name);;
         }
         $this->validate($request, [
             'music_album' => 'required',
@@ -309,33 +312,44 @@ class UploadController extends Controller
         ]);
         $fileUploads = explode(';', $request->input('drop_files'));
         $fileSize = explode(';', $request->input('music_filesize'));
-        $album = $this->albumRepository->create([
-            'album_name' => $request->input('music_album'),
-            'album_production' => $request->input('music_production'),
-            'album_code' => $request->input('music_album_id'),
-            'album_year' => $request->input('music_year'),
+        $album = $this->coverRepository->getmodel()::create([
+            'music_album' => $request->input('music_album') ?? '',
+            'music_production' => $request->input('music_production') ?? '',
+            'music_year' => $request->input('music_year') ?? '',
+            'album_cat_id_1' => $request->input('cat_id') ?? 0,
+            'album_cat_level_1' => $request->input('cat_level') ?? 0,
             'cover_filename' => '',
+            'album_last_updated' => time(),
+            'album_listen' => 0,
+            'album_avg' => 0,
             'album_music_total' => count($fileUploads),
             'user_id' => Auth::user()->id,
+            'last_user_id' => Auth::user()->id,
         ]);
+        foreach(explode(';', $request->input('music_artist')) as $key => $item) {
+            $album['album_artist_' . ++ $key] = $item;
+        }
+        foreach(explode(';', $request->input('music_artist_id')) as $key => $item) {
+            $album['album_artist_id_' . ++ $key] = $item;
+        }
         if(!$album)
             return redirect()->route('upload.upload_album')->with('error', 'tạo album thất bại');
         $typeImageCover = array_last(explode('.', $_FILES['choose_album_cover']['name']));
-        $fileNameCovert = Helpers::saveBase64Image($request->input('album_cover'), Helpers::file_path($album->album_id, AVATAR_ALBUM_CROP_PATH, true), $album->album_id, $typeImageCover);
-        Helpers::copySourceImage($request->file('choose_album_cover'), Helpers::file_path($album->album_id, COVER_ALBUM_SOURCE_PATH, true), $album->artist_id, $fileNameCovert);
+        $fileNameCovert = Helpers::saveBase64Image($request->input('album_cover'), Helpers::file_path($album->cover_id, AVATAR_ALBUM_CROP_PATH, true), $album->album_id, $typeImageCover);
+        Helpers::copySourceImage($request->file('choose_album_cover'), Helpers::file_path($album->cover_id, COVER_ALBUM_SOURCE_PATH, true), $fileNameCovert, null);
         $album->cover_filename = $fileNameCovert;
         $album->save();
         $csnMusic = [
             'music_title' => '',
-            'album_id' => $album->album_id,
-            'music_album' => $album->album_name,
+            'album_id' => $album->cover_id,
+            'music_album' => $album->music_album,
             'music_artist' => $request->input('music_artist'),
             'music_artist_id' => $request->input('music_artist_id'),
             'music_user_id' => Auth::user()->id,
             'music_username' => Auth::user()->name,
             'music_production' => $request->input('music_production') ?? '',
             'music_composer' => $request->input('music_composer') ?? '',
-            'music_album_id' => $request->input('music_album_id'),
+            'music_album_id' => $request->input('music_album_id') ?? '',
             'music_year' => $request->input('music_year') ?? 0,
             'cat_id' => $request->input('cat_id') ?? 0,
             'cat_level' => $request->input('cat_level') ?? 0,

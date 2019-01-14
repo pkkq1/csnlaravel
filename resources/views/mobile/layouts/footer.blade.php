@@ -21,8 +21,8 @@ use App\Library\Helpers;
             <div class="profile">
                 <a href="{{env('APP_URL')}}/user/{{Auth::user()->id}}"><div style="background: url(<?php echo Helpers::pathAvatar(Auth::user()->user_avatar, Auth::user()->id) ?>?time={{time()}}) no-repeat center;background-size: cover;" id="nav-avatar" class="image mr-3 d-inline-block align-middle rounded-circle"></div>
                     <div class="content d-inline-block align-middle">
-                        <h5 class="text-white">{{Auth::user()->name}}</h5>
-                        <p class="text-gray m-0">{{Auth::user()->email}}</p>
+                        <h5 class="text-white wapper-name">{{Auth::user()->name}}</h5>
+                        <p class="text-gray m-0 wapper-name">{{Auth::user()->email}}</p>
                     </div></a>
             </div>
             @endif

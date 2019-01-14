@@ -28,6 +28,7 @@ class BxhCategoryController extends Controller
     }
     public function syncBxhCategory($today = true, $week = false) {
         $catregory =$this->categoryRepository->getCategoryParent();
+        DB::disconnect('mysql');
         if($today) {
         $ressultMusic = [];
         $ressultVideo = [];
@@ -64,12 +65,14 @@ $hot_video_rows = ' . var_export($ressultVideo, true) . ';
             $ressultVideo = [];
             foreach ($catregory as $item) {
                 $result = $this->musicListenRepository->bxhWeekCategoryMusic($item->cat_id)->toArray();
+                DB::disconnect('mysql');
                 foreach ($result as $item2) {
                     $item2['music_artist_html'] = Helpers::rawHtmlArtists($item2['music_artist_id'], $item2['music_artist']);
                     $item2['music_bitrate_html'] = Helpers::bitrate2str($item2['music_bitrate']);
                     $ressultMusic[$item->cat_id][] = $item2;
                 }
                 $result = $this->musicListenRepository->bxhWeekCategoryVideo($item->cat_id)->toArray();
+                DB::disconnect('mysql');
                 foreach ($result as $item2) {
                     $item2['music_artist_html'] = Helpers::rawHtmlArtists($item2['music_artist_id'], $item2['music_artist']);
                     $item2['music_bitrate_html'] = Helpers::size2str($item2['music_width'], $item2['music_height']);
@@ -99,12 +102,14 @@ $hot_video_rows = ' . var_export($ressultVideo, true) . ';
         if($month == 'all') {
             foreach ($catregory as $item) {
                 $result = $this->musicListenRepository->bxhYearCategoryMusic($item->cat_id, $year)->toArray();
+                DB::disconnect('mysql');
                 foreach($result as $item2) {
                     $item2['music_artist_html'] = Helpers::rawHtmlArtists($item2['music_artist_id'], $item2['music_artist']);
                     $item2['music_bitrate_html'] = Helpers::bitrate2str($item2['music_bitrate']);
                     $ressultMusic[$item->cat_id][] = $item2;
                 }
                 $result = $ressultVideo[$item->cat_id] = $this->musicListenRepository->bxhYearCategoryVideo($item->cat_id, $year)->toArray();
+                DB::disconnect('mysql');
                 foreach($result as $item2) {
                     $item2['music_artist_html'] = Helpers::rawHtmlArtists($item2['music_artist_id'], $item2['music_artist']);
                     $item2['music_bitrate_html'] = Helpers::size2str($item2['music_width'], $item2['music_height']);
@@ -131,12 +136,14 @@ $hot_video_rows = ' . var_export($ressultVideo, true) . ';
                 $lastDate = strtotime(date('t-m-Y', $firstDate));
                 foreach ($catregory as $item) {
                     $result = $this->musicListenRepository->bxhMonthCategoryMusic($item->cat_id, $firstDate, $lastDate, $year)->toArray();
+                    DB::disconnect('mysql');
                     foreach($result as $item2) {
                         $item2['music_artist_html'] = Helpers::rawHtmlArtists($item2['music_artist_id'], $item2['music_artist']);
                         $item2['music_bitrate_html'] = Helpers::bitrate2str($item2['music_bitrate']);
                         $ressultMusic[$item->cat_id][] = $item2;
                     }
                     $result = $this->musicListenRepository->bxhMonthCategoryVideo($item->cat_id, $firstDate, $lastDate, $year)->toArray();
+                    DB::disconnect('mysql');
                     foreach($result as $item2) {
                         $item2['music_artist_html'] = Helpers::rawHtmlArtists($item2['music_artist_id'], $item2['music_artist']);
                         $item2['music_bitrate_html'] = Helpers::size2str($item2['music_width'], $item2['music_height']);

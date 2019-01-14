@@ -47,6 +47,7 @@ class SuggestionCatController extends Controller
                     ->orderBy('music_downloads_this_week', 'desc')
                     ->orderBy('music_downloads', 'desc')
                     ->get()->toArray();
+                DB::disconnect('mysql');
                 foreach ($typeDup as $key => $item2) {
                     $typeDup[$key]['music_artist_html'] = Helpers::rawHtmlArtists($item2['music_artist_id'], $item2['music_artist']);
                     if($item->cat_id == 1) {
