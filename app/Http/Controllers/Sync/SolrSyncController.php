@@ -170,7 +170,7 @@ class SolrSyncController extends Controller
                 $data['music_artist'] = $music_artist;
                 $data['music_artist_search'] = $artistSearch;
                 $data['music_artist_charset'] = $artistCharset;
-                $data['music_artist_nospace'] = tr_replace(' ', '', $artistCharset);
+                $data['music_artist_nospace'] = str_replace(' ', '', $artistCharset);
                 $data['music_artist_html'] = Helpers::rawHtmlArtists($music_artist_id, $music_artist);
             }
             $this->Solr->addDocuments($data);
