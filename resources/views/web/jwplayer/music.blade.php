@@ -242,7 +242,7 @@ if($musicSet['type_listen'] == 'playlist') {
                                                         echo '<li><a class="download_item" href="'. $file_url[3]['url'] .'" title="Click vào đây để tải bài hát '. $music->music_title .'"><i class="material-icons">file_download</i> Link tải nhạc <span class="c3">'. strtoupper($file_url[3]['type']) .' '. $file_url[3]['label'] .'</span> '. $file_url[3]['size'] .'</a></li>' . "\n";
                                                     }
                                                     if ( isset($file_url[4]['url']) ){
-                                                        echo '<li><a class="download_item" href="'. $file_url[4]['url'] .'" title="Click vào đây để tải bài hát '. $music->music_title .'"><i class="material-icons">file_download</i> Link tải nhạc <span class="c4">'. strtoupper($file_url[4]['type']) .' '. $file_url[4]['label'] .'</span> '. $file_url[4]['size'] .'</a></li>' . "\n";
+                                                        echo '<li><a class="download_item" href="javascript:downLossLessMusic();" title="Click vào đây để tải bài hát '. $music->music_title .'"><i class="material-icons">file_download</i> Link tải nhạc <span class="c4">'. strtoupper($file_url[4]['type']) .' '. $file_url[4]['label'] .'</span> '. $file_url[4]['size'] .'</a></li>' . "\n";
                                                     }
                                                     if ( isset($file_url[0]['url']) ){
                                                         echo '<li><a class="download_item" href="'. $file_url[0]['url'] .'" title="Click vào đây để tải bài hát '. $music->music_title .'"><i class="material-icons">file_download</i> Link tải nhạc chất lượng thấp: '. strtoupper($file_url[0]['type']) .' '. $file_url[0]['label'] .' '. $file_url[0]['size'] .'</a></li>' . "\n";
@@ -920,22 +920,28 @@ if($musicSet['type_listen'] == 'playlist') {
             if(isset($file_url[4]['url'])) {
                 ?>
                 function downLossLessMusic() {
-                    FB.ui({
-                            method: 'share',
-                            name: 'Chia Sẻ Nhạc',
-                            href: window.location.href,
-                            picture: $('link[rel=image_src]').attr("href"),
-                            caption: $('meta[name=title]').attr("content"),
-                            description: $('meta[name=description]').attr("content"),
-                        },
-                        function(response) {
-                            if (response && !response.error_message) {
-                                window.open("<?php echo $file_url[4]['url'] ?>", '_blank');
-                            } else {
-                                alertModal('Bạn phải chia sẻ bài hát này để được download nhạc Lossless.');
+                    confirmModal('Bạn cần phải chia sẻ bài này lên FB thì mới được download!', 'modal-mg');
+                    $("#myConfirmModal .btn-ok").one('click', function () {
+                        FB.ui({
+                                method: 'share',
+                                name: 'Chia Sẻ Nhạc',
+                                href: window.location.href,
+                                picture: $('link[rel=image_src]').attr("href"),
+                                caption: $('meta[name=title]').attr("content"),
+                                description: $('meta[name=description]').attr("content"),
+                            },
+                            function(response) {
+                                if (response && !response.error_message) {
+                                    window.open("<?php echo $file_url[4]['url'] ?>", '_blank');
+                                } else {
+                                    alertModal('Bạn phải chia sẻ bài hát này để được download nhạc Lossless.');
+                                }
                             }
-                        }
-                    );
+                        );
+
+
+                        $('.modal').find('.close_confirm').click();
+                    });
                 }
                 <?php
             }
@@ -1394,7 +1400,7 @@ if($musicSet['type_listen'] == 'playlist') {
                             success: function(response) {
                                 if(response.success) {
                                     confirmModal('<textarea style="width: 100%" rows="14" class="modal_lyric">' + response.data.lyric + '</textarea>');
-                                    $("#myConfirmModal .btn-ok").click( function () {
+                                    $("#myConfirmModal .btn-ok").one('click', function () {
                                         $.ajax({
                                             url: '/music/store_lyric',
                                             type: "POST",
@@ -1446,7 +1452,8 @@ if($musicSet['type_listen'] == 'playlist') {
                         success: function(response) {
                             if(response.success) {
                                 confirmModal('<textarea style="width: 100%" rows="14" class="modal_kara">' + response.data.lyric + '</textarea>');
-                                $("#myConfirmModal .btn-ok").click( function () {
+                                $("#myConfirmModal .btn-ok").one('click', function () {
+                                    e.preventDefault();
                                     $.ajax({
                                         url: '/music/store_karaoke',
                                         type: "POST",

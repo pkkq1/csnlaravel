@@ -78,7 +78,7 @@ class SolrSyncController extends Controller
     public function syncVideo() {
         $searchVideo = VideoModel::select('music_id', 'music_title_search', 'music_artist_search', 'music_composer_search', 'music_album_search', 'music_title', 'music_artist',
             'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_title_url', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_width', 'music_height', 'music_last_update_time', 'music_length', 'music_time')
-            ->offset(1)
+            ->offset(0)
             ->limit(100000)
             ->get();
         DB::disconnect('mysql');
@@ -92,15 +92,20 @@ class SolrSyncController extends Controller
                 'video_title' => $item->music_title,
                 'video_title_search' => $titleSearch,
                 'video_artist_search' => $artistSearch,
+                'video_title_artist_search' => $titleSearch .' '. $artistSearch,
                 'video_title_charset_nospace' => str_replace(' ', '', $titleCharset),
                 'video_artist_charset_nospace' => str_replace(' ', '', $artistCharset),
+                'video_title_artist_charset_nospace' => str_replace(' ', '', $titleCharset) .' '. str_replace(' ', '', $artistCharset),
                 'video_title_charset' => $titleCharset,
                 'video_artist_charset' => $artistCharset,
+                'video_title_artist_charset' => $titleCharset .' '. $artistCharset,
                 'video_bitrate' => Helpers::size2str($item->music_width, $item->music_height),
                 'video_cover' => Helpers::thumbnail_url($item->toArray()),
                 'video_link' => '/'.Helpers::listen_url($item->toArray(), false),
                 'video_filename' => $item->music_filename,
-                'video_artist' => Helpers::rawHtmlArtists($item->music_artist_id, $item->music_artist),
+                'video_artist' => $item->music_artist,
+                'video_artist_id' => $item->music_artist_id,
+                'video_artist_html' => Helpers::rawHtmlArtists($item->music_artist_id, $item->music_artist),
                 'video_listen' => $item->music_listen,
                 'music_length' => $item->music_length >= 3600 ? gmdate("H:i:s", $item->music_length) : gmdate("i:s", $item->music_length),
                 'video_download' => $item->music_downloads,
