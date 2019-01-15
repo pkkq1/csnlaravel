@@ -79,7 +79,7 @@ class SolrSyncController extends Controller
         $searchVideo = VideoModel::select('music_id', 'music_title_search', 'music_artist_search', 'music_composer_search', 'music_album_search', 'music_title', 'music_artist',
             'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_title_url', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_width', 'music_height', 'music_last_update_time', 'music_length', 'music_time')
             ->offset(0)
-            ->limit(100000)
+            ->limit(40000)
             ->get();
         DB::disconnect('mysql');
         foreach ($searchVideo as $item) {
@@ -99,12 +99,14 @@ class SolrSyncController extends Controller
                 'video_title_charset' => $titleCharset,
                 'video_artist_charset' => $artistCharset,
                 'video_title_artist_charset' => $titleCharset .' '. $artistCharset,
-                'video_bitrate' => Helpers::size2str($item->music_width, $item->music_height),
+                'video_bitrate' => Helpers::size2str($item->music_width, $item->music_height, false, true),
+                'video_width' => $item->music_width,
+                'video_height' => $item->music_height,
                 'video_cover' => Helpers::thumbnail_url($item->toArray()),
                 'video_link' => '/'.Helpers::listen_url($item->toArray(), false),
                 'video_filename' => $item->music_filename,
                 'video_artist' => $item->music_artist,
-                'video_artist_id' => $item->music_artist_id,
+                'video_artist_id' => str_replace(';', ',', $item->music_artist_id),
                 'video_artist_html' => Helpers::rawHtmlArtists($item->music_artist_id, $item->music_artist),
                 'video_listen' => $item->music_listen,
                 'music_length' => $item->music_length >= 3600 ? gmdate("H:i:s", $item->music_length) : gmdate("i:s", $item->music_length),

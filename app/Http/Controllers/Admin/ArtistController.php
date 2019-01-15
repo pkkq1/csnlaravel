@@ -29,7 +29,7 @@ class ArtistController extends CrudController
         $this->crud->setModel("App\Models\ArtistModel");
         $this->crud->setEntityNameStrings('Ca sĩ', 'Ca Sĩ');
         $this->crud->setRoute(config('backpack.base.route_prefix').'/artist');
-        $this->crud->orderBy('artist_id', 'desc');
+        $this->crud->orderBy('updated_at', 'desc');
 //        $this->crud->setEntityNameStrings('menu item', 'menu items');
 
         $this->middleware(function ($request, $next)

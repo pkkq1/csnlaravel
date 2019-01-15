@@ -280,18 +280,22 @@ class ArtistUploadController extends CrudController
             return redirect()->back();
         }
         if($artistUpload->artist_avatar){
-            $file = Helpers::file_path($artistExist->artist_id, AVATAR_ARTIST_CROP_PATH, true).$artistExist->artist_avatar;
-            if (Storage::disk('public')->exists($file)) {
-                Storage::disk('public')->delete($file);
+            $filePath = Helpers::file_path($artistExist->artist_id, AVATAR_ARTIST_CROP_PATH, true);
+            if ($artistExist->artist_avatar && Storage::disk('public')->exists($filePath.$artistExist->artist_avatar)) {
+                Storage::disk('public')->delete($filePath.$artistExist->artist_avatar);
             }
-            Storage::disk('public')->move(Helpers::file_path($artistUpload->artist_id, CACHE_AVATAR_ARTIST_CROP_PATH, true).$artistUpload->artist_avatar, $file);
+            $fileName = $artistExist->artist_id.'.'.last(explode('.', $artistUpload->artist_avatar));
+            Storage::disk('public')->move(Helpers::file_path($artistUpload->artist_id, CACHE_AVATAR_ARTIST_CROP_PATH, true).$artistUpload->artist_avatar, $filePath.$fileName);
+            $artistExist->artist_avatar = $fileName;
         }
         if($artistUpload->artist_cover){
-            $file = Helpers::file_path($artistExist->artist_id, COVER_ARTIST_CROP_PATH, true).$artistExist->artist_cover;
-            if (Storage::disk('public')->exists($file)) {
-                Storage::disk('public')->delete($file);
+            $filePath = Helpers::file_path($artistExist->artist_id, COVER_ARTIST_CROP_PATH, true).$artistExist->artist_cover;
+            if ($artistExist->artist_cover && Storage::disk('public')->exists($filePath.$artistExist->artist_cover)) {
+                Storage::disk('public')->delete($filePath.$artistExist->artist_cover);
             }
-            Storage::disk('public')->move(Helpers::file_path($artistUpload->artist_id, CACHE_COVER_ARTIST_CROP_PATH, true).$artistUpload->artist_cover, $file);
+            $fileName = $artistExist->artist_id.'.'.last(explode('.', $artistUpload->artist_cover));
+            Storage::disk('public')->move(Helpers::file_path($artistUpload->artist_id, CACHE_COVER_ARTIST_CROP_PATH, true).$artistUpload->artist_cover, $filePath.$fileName);
+            $artistExist->artist_cover = $fileName;
         }
         $artistExist->artist_id_source = $artistUpload->artist_id;
         if( $artistUpload->artist_birthday)

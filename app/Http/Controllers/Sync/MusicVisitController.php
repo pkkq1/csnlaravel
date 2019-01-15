@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Library\Helpers;
 use App\Repositories\Cover\CoverEloquentRepository;
 use App\Repositories\Music\MusicEloquentRepository;
+use App\Repositories\Video\VideoEloquentRepository;
 use App\Repositories\MusicListen\MusicListenEloquentRepository;
 use App\Repositories\MusicDownload\MusicDownloadEloquentRepository;
 use DB;
@@ -19,32 +20,18 @@ use DB;
 class MusicVisitController extends Controller
 {
     protected $musicRepository;
+    protected $videoRepository;
+    protected $musicListenRepository;
+    protected $musicDownloadRepository;
 
-    public function __construct(MusicEloquentRepository $musicRepository) {
+    public function __construct(MusicEloquentRepository $musicRepository, MusicListenEloquentRepository $musicListenRepository, MusicDownloadEloquentRepository $musicDownloadRepository, VideoEloquentRepository $videoRepository) {
         $this->musicRepository = $musicRepository;
+        $this->videoRepository = $videoRepository;
+        $this->musicListenRepository = $musicListenRepository;
+        $this->musicDownloadRepository = $musicDownloadRepository;
     }
     public function syncMusicDownload() {
+        $this->musicListenRepository->getModel()::where('');
 
-        $cache = $this->musicRepository->getModel()::where('cat_id', '!=', CAT_VIDEO)->orderBy('music_last_update_time', 'desc')
-            ->select('music_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'cat_id', 'cat_level', 'cat_sublevel', 'cat_custom', 'cover_id', 'music_download_time', 'music_last_update_time', 'music_title_url',
-                'music_title_search', 'music_artist_search', 'music_album_search', 'music_composer', 'music_album', 'music_listen', 'music_track_id', 'music_track_id', 'music_filename', 'music_bitrate', 'music_shortlyric', 'music_last_update_time', 'music_time')
-            ->limit(20)->get();
-        $download_rows = $cache->toArray();
-        foreach ($download_rows as $key => $item) {
-            $download_rows[$key]['music_bitrate_html'] = Helpers::bitrate2str($item['music_bitrate']);
-            $download_rows[$key]['music_artist_html'] = Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']);
-        }
-        file_put_contents(resource_path().'/views/cache/def_home_download.blade.php',
-            '<?php 
-if ( !ENV(\'IN_PHPBB\') )
-{
-    die(\'Hacking attempt\');
-    exit;
-}
-global $download_rows;
-    
-$download_rows = ' . var_export($download_rows, true) . ';
-?>');
-        return response(['Ok']);
     }
 }
