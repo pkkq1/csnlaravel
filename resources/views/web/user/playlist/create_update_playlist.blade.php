@@ -150,30 +150,7 @@ $titleMeta = $playlistUser ? 'Cập nhật playlist - ' . $playlistUser->playlis
                 </div>
             </div>
             <div class="col-md-3">
-                <a class="catalog1 weekend" style="background-image: url('/imgs/chude/Romance _ 345 x 110.png') no-repeat;" href="/chu-de/romance.html" title="Lãng Mạn">
-                    <span>Lãng Mạn</span>
-                </a>
-                <a class="catalog1 weekend" style="background-image: url('/imgs/chude/Sleep _ 345 x 110.png') no-repeat;" href="/chu-de/sleep.html" title="Giấc Ngủ">
-                    <span>Giấc Ngủ</span>
-                </a>
-                <a class="catalog1 weekend" style="background-image: url('/imgs/chude/Gym _ 345 x 110.png') no-repeat;" href="/chu-de/gym.html" title="Gym">
-                    <span>Gym</span>
-                </a>
-                <a class="catalog1 weekend" style="background-image: url('/imgs/chude/Dance _ 345 x 110.png') no-repeat;" href="/chu-de/dance.html" title="Dance">
-                    <span>Dance</span>
-                </a>
-                <a class="catalog1 weekend" style="background-image: url('/imgs/chude/Work _ 345 x 110.png') no-repeat;" href="/chu-de/work.html" title="Work">
-                    <span>Work</span>
-                </a>
-                <a class="catalog1 weekend" style="background-image: url('/imgs/chude/Coffee _ 345 x 110.png') no-repeat;" href="/chu-de/coffee.html" title="Coffee">
-                    <span>Coffee</span>
-                </a>
-                <a class="catalog1 weekend" style="background-image: url('/imgs/chude/Game _ 345 x 110.png') no-repeat;" href="/chu-de/game.html" title="Game">
-                    <span>Game</span>
-                </a>
-                <a class="catalog1 weekend" style="background-image: url('/imgs/chude/Travel _ 345 x 110.png') no-repeat;" href="/chu-de/travel.html" title="Travel">
-                    <span>Travel</span>
-                </a>
+                @include('web.layouts.right_banner')
             </div>
         </div>
     </div>
