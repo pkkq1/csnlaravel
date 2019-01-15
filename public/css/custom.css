@@ -366,7 +366,8 @@
     opacity: 1;
 }
 .modal_content_csn {
-    padding-left: 30px;
+    text-align: center;
+    padding-left: 0px;
     padding-top: 1px;
 }
 
@@ -1359,4 +1360,5 @@ form#login-form {
     height: 20px;
     margin-bottom: -6px;
 }
+
 
