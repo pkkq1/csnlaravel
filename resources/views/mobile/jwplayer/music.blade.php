@@ -1,4 +1,4 @@
-@include('cache.suggestion.'.ceil($music->music_id / 1000).'.'.$music->music_id)
+l@include('cache.suggestion.'.ceil($music->music_id / 1000).'.'.$music->music_id)
 @include('cache.suggestion_cat.'.$music->cat_id.'_'.$music->cat_level)
 @include('cache.def_main_cat')
 <?php
@@ -791,24 +791,7 @@ if($musicSet['type_listen'] == 'playlist') {
                 $('.wrap-bottom-sheet').hide();
                 $('.bottom-sheet').slideUp();
                 if(i == 3) {
-                    FB.ui({
-                            method: 'share',
-                            name: 'Chia Sẻ Nhạc',
-                            href: window.location.href,
-                            mobile_iframe: true,
-                            picture: $('link[rel=image_src]').attr("href"),
-                            caption: $('meta[name=title]').attr("content"),
-                            description: $('meta[name=description]').attr("content"),
-                        },
-                        function(response) {
-
-                            if (response && !response.error_message) {
-                                window.open(radios[i].value, '_blank');
-                            } else {
-                                alertModal('Bạn phải chia sẻ bài hát này để được download nhạc Lossless.');
-                            }
-                        }
-                    );
+                    window.open(radios[i].value, '_blank');
                 }else{
                     window.open(radios[i].value, '_blank');
                     break;
