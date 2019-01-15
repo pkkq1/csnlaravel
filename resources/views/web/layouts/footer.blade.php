@@ -70,7 +70,7 @@
             var artist = '';
             $.each( artists, function( key, value ) {
                 artist = artist +
-                    ' <a class="search-line" href="/ca-si/' + value.artist_link + '" title="' + value.artist_nickname + '">' +
+                    ' <a class="search-line" href="' + value.artist_link + '" title="' + value.artist_nickname + '">' +
                     '  <li class="media align-items-stretch">' +
                     '      <div class="media-left align-items-stretch mr-2">' +
                     '         <img src="' + value.artist_cover + '" alt="' + value.artist_nickname + '">' +
