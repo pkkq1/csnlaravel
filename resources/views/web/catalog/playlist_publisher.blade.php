@@ -13,6 +13,7 @@ $titleMeta = $caption . ' - '. Config::get('constants.app.title');
     <link rel="canonical" href="{{url()->current()}}" />
     <link rel="image_src" href="{{env('APP_URL')}}/imgs/cover_bxh.png" />
     <meta name="title" content="{{$caption}}" />
+    <meta property="fb:app_id" content="419934814770318" />
     <meta property="og:image" content="{{env('APP_URL')}}/imgs/cover_bxh.png" />
     <meta property="og:url" content="{{url()->current()}}" />
     <meta property="og:title" content="{{$caption}}" />
