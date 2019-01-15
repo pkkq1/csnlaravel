@@ -6,12 +6,12 @@ global $allpage_banner;
 @include('web.layouts.header')
 <body>
 @if( isset($allpage_banner) && $allpage_banner == true )
-<a target="_blank" href="https://clicktrackingv2.userreport.com/?BLV5a6cbb86;https://yame.vn/?utm_source=background&utm_medium=CPD">
-    <div style="text-align: center; height: 150px; position: relative; background-color: #ff4747; background-repeat: no-repeat; background-position: center; z-index: -1;">
+<a target="_blank" href="https://clicktrackingv2.userreport.com/?BLV5a6cbb86;https://yame.vn/shop/ao-thun?s=2&utm_source=background_CSN&utm_medium=CPD">
+    <div style="text-align: center; height: 150px; position: relative; background-color: #e8ce79; background-repeat: no-repeat; background-position: center; z-index: -1;">
         <div class="atag" style="position: absolute; top: 0px; left: 0; right: 0; z-index: 0;">
-            <img src="http://chiasenhac.vn/banner/yame2/Top.jpg" border="0" width="1000" height="150" />
-            <img src="https://visitanalytics.userreport.com/hit.gif?t=BLV5a6cbb86">
+            <img src="https://data.chiasenhac.com/banner/yame2/Top_2.jpg" border="0" width="1000" height="150" />
         </div>
+        <img src="https://visitanalytics.userreport.com/hit.gif?t=BLV5a6cbb86">
     </div>
 </a>
 @endif
