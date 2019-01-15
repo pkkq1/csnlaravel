@@ -2,8 +2,9 @@
 global $allpage_banner;
 ?>
 <head>
-    <base href="<?php echo e(env('APP_URL')); ?>">
-    <meta charset="utf-8">
+    <base href="{{env('APP_URL')}}">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Style-Type" content="text/css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>{{ $titleMeta or Config::get('constants.app.title') }}</title>
     @yield('meta')

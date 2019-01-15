@@ -6,9 +6,6 @@ $mySelf = (Auth::check() && Auth::user()->id == $user->id);
 $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
 ?>
 @section('meta')
-    <base href="{{env('APP_URL')}}">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta http-equiv="Content-Style-Type" content="text/css">
     <meta name="copyright" content="{{env('APP_DOMAIN')}}" />
     <meta name="revisit-after" content="7 Days">
     <meta name="keywords" content="bang xep hang, music, mp3, m4a, flac, lossless, video, mv, hd, mp4, csn, nghe nhạc, tải nhạc, lời bài hát, lyrics">

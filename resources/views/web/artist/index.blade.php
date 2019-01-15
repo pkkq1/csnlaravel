@@ -5,9 +5,6 @@ $titleMeta = $artist->artist_nickname . ' - '. Config::get('constants.app.title'
 $avtArtist = $artist->artist_avatar ? Helpers::file_path($artist->artist_id, PUBLIC_AVATAR_ARTIST_PATH, true) . $artist->artist_avatar : env('APP_URL').'/imgs/no_avatar.png';
 ?>
 @section('meta')
-    <base href="{{env('APP_URL')}}">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta http-equiv="Content-Style-Type" content="text/css">
     <meta name="author" content="{{$artist->artist_nickname}}">
     <meta name="copyright" content="{{env('APP_DOMAIN')}}" />
     <meta name="revisit-after" content="7 Days">
