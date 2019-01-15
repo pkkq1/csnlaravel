@@ -121,7 +121,7 @@ class SolrSyncController extends Controller
         return response(['Ok']);
     }
     public function syncArtist() {
-        $artist = ArtistModel::offset(100000)->limit(100000)->get();
+        $artist = ArtistModel::offset(0)->limit(100000)->get();
         DB::disconnect('mysql');
         foreach ($artist as $item) {
             $artist_nickname_charset = Helpers::rawTiengVietUrl(mb_strtolower($item->artist_nickname, 'UTF-8'), ' ');
@@ -139,7 +139,7 @@ class SolrSyncController extends Controller
         return response(['Ok']);
     }
     public function syncCover() {
-        $cover = CoverModel::orderBy('cover_id', 'asc')->offset(90665)->limit(10000)->get();
+        $cover = CoverModel::orderBy('cover_id', 'asc')->offset(0)->limit(100000)->get();
         DB::disconnect('mysql');
         foreach ($cover as $item) {
             $music_artist = $item->album_artist_1;

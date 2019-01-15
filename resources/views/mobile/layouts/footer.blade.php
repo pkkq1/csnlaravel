@@ -153,7 +153,7 @@ use App\Library\Helpers;
                     '   <a class="search-line" href="' + value.music_link + '"><div class="element mb-2">' +
                     '       <div class="content d-inline-block align-middle">' +
                     '           <h6 class="name_song text-black mb-1">' + searchHighlight(q, value.music_title) + '</h6>' +
-                    '           <p class="name_singer text-gray mb-1">' + $(value.music_artist).text() + '</p>' +
+                    '           <p class="name_singer text-gray mb-1">' + value.music_artist + '</p>' +
                     '           <p class="loss text-pink mb-0">' + value.music_bitrate + '</p>' +
                     '       </div>' +
                     '   </div></a>';
@@ -177,7 +177,7 @@ use App\Library\Helpers;
                     '   <div style="background : url(' + value.album_cover + ') no-repeat center;background-size: cover;" class="image100 mr-2 d-inline-block align-middle"></div>' +
                     '       <div class="content d-inline-block align-middle">' +
                     '           <h6 class="name_song text-black mb-1">' + searchHighlight(q, value.music_album) + '</h6>' +
-                    '           <p class="name_singer text-gray mb-1">' + $(value.album_artist).text() + '</p>' +
+                    '           <p class="name_singer text-gray mb-1">' + value.album_artist + '</p>' +
                     '           <p class="loss text-pink mb-0">' + (value.album_bitrate ? value.album_bitrate : '') + '</p>' +
                     '       </div>' +
                     '   </div></a>';
@@ -204,7 +204,7 @@ use App\Library\Helpers;
                     '   </div>' +
                     '   <div class="content d-inline-block align-middle">' +
                     '       <h6 class="name_song text-black mb-1">' + searchHighlight(q, value.video_title) + '</h6>' +
-                    '       <p class="name_singer text-gray mb-1">' + $(value.video_artist).text() + '</p>' +
+                    '       <p class="name_singer text-gray mb-1">' + value.video_artist + '</p>' +
                     '   </div>' +
                     '</div></a>';
             });
