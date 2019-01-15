@@ -242,7 +242,7 @@ if($musicSet['type_listen'] == 'playlist') {
                                                         echo '<li><a class="download_item" href="'. $file_url[3]['url'] .'" title="Click vào đây để tải bài hát '. $music->music_title .'"><i class="material-icons">file_download</i> Link tải nhạc <span class="c3">'. strtoupper($file_url[3]['type']) .' '. $file_url[3]['label'] .'</span> '. $file_url[3]['size'] .'</a></li>' . "\n";
                                                     }
                                                     if ( isset($file_url[4]['url']) ){
-                                                        echo '<li><a class="download_item" href="javascript:downLossLessMusic();" title="Click vào đây để tải bài hát '. $music->music_title .'"><i class="material-icons">file_download</i> Link tải nhạc <span class="c4">'. strtoupper($file_url[4]['type']) .' '. $file_url[4]['label'] .'</span> '. $file_url[4]['size'] .'</a></li>' . "\n";
+                                                        echo '<li><a class="download_item" href="'. $file_url[4]['url'] .'" title="Click vào đây để tải bài hát '. $music->music_title .'"><i class="material-icons">file_download</i> Link tải nhạc <span class="c4">'. strtoupper($file_url[4]['type']) .' '. $file_url[4]['label'] .'</span> '. $file_url[4]['size'] .'</a></li>' . "\n";
                                                     }
                                                     if ( isset($file_url[0]['url']) ){
                                                         echo '<li><a class="download_item" href="'. $file_url[0]['url'] .'" title="Click vào đây để tải bài hát '. $music->music_title .'"><i class="material-icons">file_download</i> Link tải nhạc chất lượng thấp: '. strtoupper($file_url[0]['type']) .' '. $file_url[0]['label'] .' '. $file_url[0]['size'] .'</a></li>' . "\n";
@@ -930,7 +930,7 @@ if($musicSet['type_listen'] == 'playlist') {
                         },
                         function(response) {
                             if (response && !response.error_message) {
-                                window.open("<?php echo $file_url[4]['url'] ?>");
+                                window.open("<?php echo $file_url[4]['url'] ?>", '_blank');
                             } else {
                                 alertModal('Bạn phải chia sẻ bài hát này để được download nhạc Lossless.');
                             }

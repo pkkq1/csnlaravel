@@ -114,25 +114,25 @@ class SolrSyncController extends Controller
         return response(['Ok']);
     }
     public function syncArtist() {
-        $artist = ArtistModel::offset(150000)->limit(100000)->get();
+        $artist = ArtistModel::offset(100000)->limit(100000)->get();
         DB::disconnect('mysql');
         foreach ($artist as $item) {
             $artist_nickname_charset = Helpers::rawTiengVietUrl(mb_strtolower($item->artist_nickname, 'UTF-8'), ' ');
             $data = [
                 'id' => 'artist_'.$item->artist_id,
                 'artist_nickname' => $item->artist_nickname,
+                'artist_nickname_search' => Helpers::relaceKeySearch($item->artist_nickname),
                 'artist_nickname_charset' => $artist_nickname_charset,
                 'artist_nickname_charset_nospace' => str_replace(' ', '', $artist_nickname_charset),
                 'artist_link' => Helpers::artistUrl($item->artist_id, $item->artist_nickname),
                 'artist_cover' => '/imgs/no_cover.jpg',
-                'type' => 'artist',
             ];
             $this->Solr->addDocuments($data);
         }
         return response(['Ok']);
     }
     public function syncCover() {
-        $cover = CoverModel::orderBy('cover_id', 'asc')->offset(21445)->limit(20000)->get();
+        $cover = CoverModel::orderBy('cover_id', 'asc')->offset(90665)->limit(10000)->get();
         DB::disconnect('mysql');
         foreach ($cover as $item) {
             $music_artist = $item->album_artist_1;
