@@ -43,6 +43,7 @@ if($musicSet['type_listen'] == 'playlist') {
     <link rel="canonical" href="{{url()->current()}}" />
     <link rel="image_src" href="{{$thumnailMeta}}" />
     <meta name="title" content="<?php echo $titleExMeta?>" />
+    <meta property="fb:app_id" content="419934814770318" />
     <meta property="og:image" content="{{$thumnailMeta}}" />
     <meta property="og:url" content="{{url()->current()}}" />
     <meta property="og:title" content="<?php echo $titleExMeta?>" />

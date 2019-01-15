@@ -15,6 +15,7 @@ $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
     <link rel="canonical" href="{{url()->current()}}" />
     <link rel="image_src" href="<?php echo $avatar ?>" />
     <meta name="title" content="{{$titleMeta}}" />
+    <meta property="fb:app_id" content="419934814770318" />
     <meta property="og:image" content="<?php echo $avatar ?>" />
     <meta property="og:url" content="{{url()->current()}}" />
     <meta property="og:title" content="{{$titleMeta}}" />
