@@ -3,9 +3,6 @@ use App\Library\Helpers;
 $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
 ?>
 @section('meta')
-    <base href="{{env('APP_URL')}}">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta http-equiv="Content-Style-Type" content="text/css">
     <meta name="copyright" content="{{env('APP_DOMAIN')}}" />
     <meta name="revisit-after" content="7 Days">
     <meta name="keywords" content="bang xep hang, music, mp3, m4a, flac, lossless, video, mv, hd, mp4, csn, nghe nhạc, tải nhạc, lời bài hát, lyrics">

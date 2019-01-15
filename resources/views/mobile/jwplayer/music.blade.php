@@ -31,9 +31,6 @@ if($musicSet['type_listen'] == 'playlist') {
 }
 ?>
 @section('meta')
-    <base href="{{env('APP_URL')}}">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta http-equiv="Content-Style-Type" content="text/css">
     <meta name="author" content="{{$music->music_username}}">
     <meta name="copyright" content="{{env('APP_DOMAIN')}}" />
     <meta name="revisit-after" content="7 Days">

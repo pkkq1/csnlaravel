@@ -569,20 +569,21 @@ class Helpers
         else if ($music_id <= 1859000)
             $url = 'http://data00.chiasenhac.com/';
         else if ($music_id <= 1919000)
-            $url = (rand(1, 2) == 1) ? 'http://data38.chiasenhac.com/' : 'http://data37.chiasenhac.com/';
+            $url = (rand(1,2) == 1) ? 'http://data38.chiasenhac.com/' : 'http://data37.chiasenhac.com/';
         else if ($music_id <= 1934000)
             $url = 'http://data32.chiasenhac.com/';
         else if ($music_id <= 1949000)
             $url = 'http://data34.chiasenhac.com/';
         else if ($music_id <= 1962000)
             $url = 'http://data35.chiasenhac.com/';
-        else if ($music_id <= 1968000)
-            $url = 'http://data36.chiasenhac.com/';
         else if ($music_id <= 1969000)
+            $url = 'http://data36.chiasenhac.com/';
+        else if ($music_id <= 1979000)
             $url = 'http://data31.chiasenhac.com/';
+        else if ($music_id <= 1988000)
+            $url = 'http://data25.chiasenhac.com/';
         else
             $url = 'http://data.chiasenhac.com/';
-
 
         ///// demo url hidden link
         if($url == 'http://data4.chiasenhac.com/' ) {
