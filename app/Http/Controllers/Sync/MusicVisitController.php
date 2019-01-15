@@ -14,6 +14,7 @@ use App\Repositories\Cover\CoverEloquentRepository;
 use App\Repositories\Music\MusicEloquentRepository;
 use App\Repositories\MusicListen\MusicListenEloquentRepository;
 use App\Repositories\MusicDownload\MusicDownloadEloquentRepository;
+use DB;
 
 class MusicVisitController extends Controller
 {

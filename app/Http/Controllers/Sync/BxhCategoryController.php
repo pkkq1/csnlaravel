@@ -14,6 +14,7 @@ use App\Models\CategoryCsnModel;
 use App\Repositories\Music\MusicEloquentRepository;
 use App\Repositories\Category\CategoryEloquentRepository;
 use App\Repositories\MusicListen\MusicListenEloquentRepository;
+use DB;
 
 class BxhCategoryController extends Controller
 {

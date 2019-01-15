@@ -13,6 +13,7 @@ use App\Library\Helpers;
 use App\Repositories\Cover\CoverEloquentRepository;
 use App\Repositories\Music\MusicEloquentRepository;
 use App\Repositories\Video\VideoEloquentRepository;
+use DB;
 
 class AlbumCatController extends Controller
 {

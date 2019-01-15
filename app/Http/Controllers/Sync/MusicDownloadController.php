@@ -16,6 +16,7 @@ use App\Models\CoverModel;
 use App\Repositories\Cover\CoverEloquentRepository;
 use App\Models\ArtistModel;
 use App\Repositories\Music\MusicEloquentRepository;
+use DB;
 
 class MusicDownloadController extends Controller
 {
