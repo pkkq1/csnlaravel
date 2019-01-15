@@ -96,6 +96,7 @@ class CoverEloquentRepository extends EloquentRepository implements CoverReposit
                     ->orWhere($arrWhereCat2);
             })
             ->where($arrWhere)
+            ->where('album_music_total', '>', 0)
             ->orderBy($fillOrder, $typeOrder)
             ->paginate($page);
         return $result;
