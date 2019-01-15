@@ -921,6 +921,23 @@ if($musicSet['type_listen'] == 'playlist') {
             if(isset($file_url[4]['url'])) {
                 ?>
                 function downLossLessMusic() {
+                    data = sessionStorage.getItem('share_down_lossless');
+                    if(data) {
+                        data = JSON.parse(data);
+                        now = new Date();
+                        expiration = new Date(data.timestamp);
+                        expiration.setMinutes(expiration.getMinutes() + 1440); // 24h
+                        if (now.getTime() > expiration.getTime()) {
+                            sessionStorage.removeItem('share_down_lossless');
+                            openShare();
+                        }else{
+                            window.open("<?php echo $file_url[4]['url'] ?>", '_blank');
+                        }
+                    }else{
+                        openShare();
+                    }
+                }
+                function openShare() {
                     confirmModal('Bạn cần phải chia sẻ bài này lên FB thì mới được download!', 'modal-mg');
                     $("#myConfirmModal .btn-ok").one('click', function () {
                         FB.ui({
@@ -933,14 +950,16 @@ if($musicSet['type_listen'] == 'playlist') {
                             },
                             function(response) {
                                 if (response && !response.error_message) {
+                                    sessionStorage.setItem("share_down_lossless", JSON.stringify({
+                                        timestamp: new Date(),
+                                        content: 'share_down_lossless'
+                                    }));
                                     window.open("<?php echo $file_url[4]['url'] ?>", '_blank');
                                 } else {
                                     alertModal('Bạn phải chia sẻ bài hát này để được download nhạc Lossless.');
                                 }
                             }
                         );
-
-
                         $('.modal').find('.close_confirm').click();
                     });
                 }
@@ -1454,7 +1473,6 @@ if($musicSet['type_listen'] == 'playlist') {
                             if(response.success) {
                                 confirmModal('<textarea style="width: 100%" rows="14" class="modal_kara">' + response.data.lyric + '</textarea>');
                                 $("#myConfirmModal .btn-ok").one('click', function () {
-                                    e.preventDefault();
                                     $.ajax({
                                         url: '/music/store_karaoke',
                                         type: "POST",

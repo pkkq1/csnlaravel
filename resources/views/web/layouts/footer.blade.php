@@ -118,20 +118,19 @@
         if(albums.length > 0) {
             var album = '';
             $.each(albums, function( key, value ) {
-                let textArtist = $(value.album_artist).text();
                 album = album +
                     '  <li class="media align-items-stretch">' +
                     '      <div class="media-left align-items-stretch mr-2">' +
-                    '          <a href="' + value.album_link + '" title="' + value.music_album + ' - ' + textArtist + '">' +
+                    '          <a href="' + value.album_link + '" title="' + value.music_album + ' - ' + value.music_artist + '">' +
                     '              <img src="' + value.album_cover + '" alt="' + value.music_album + '">' +
                     '              <i class="material-icons">play_circle_outline</i>' +
                     '          </a>' +
                     '      </div>' +
-                    '      <a class="search-line" href="' + value.album_link + '" title="' + value.music_album + ' - ' + textArtist + '">' +
+                    '      <a class="search-line" href="' + value.album_link + '" title="' + value.music_album + ' - ' + value.music_artist + '">' +
                     '      <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">' +
                     '          <div>' +
                     '              <h5 class="media-title mt-0 mb-0 span_h5">' + searchHighlight(q, value.music_album) + '</h5>' +
-                    '              <div class="author">' + textArtist + '</div>' +
+                    '              <div class="author">' + value.music_artist + '</div>' +
                     '          </div>' +
                     '          <small class="type_music c1">' + (value.album_bitrate_html ? value.album_bitrate_html : '') + '</small>' +
                     '      </div>' +
