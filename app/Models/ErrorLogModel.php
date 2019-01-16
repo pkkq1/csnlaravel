@@ -10,5 +10,5 @@ class ErrorLogModel extends Model
     public $timestamps = false;
     protected $table = 'csn_error_log';
     protected $primaryKey = 'id';
-    protected $fillable = ['request', 'type', 'url', 'view', 'message', 'parameter'];
+    protected $fillable = ['request', 'type', 'url', 'view', 'message', 'parameter', 'note'];
 }

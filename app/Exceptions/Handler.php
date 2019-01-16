@@ -5,6 +5,7 @@ namespace App\Exceptions;
 use Exception;
 use App\Library\Helpers;
 use Jenssegers\Agent\Agent;
+use App\Models\ErrorLogModel;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
@@ -72,6 +73,19 @@ class Handler extends ExceptionHandler
                 $view = 'mobile.';
             }
             return response()->view($view.'errors.403', ['message'=> $exception->getMessage()], 403);
+        }
+        if(!env('APP_DEBUG')) {
+            $error = ErrorLogModel::create([
+                'request' => json_encode(app('request')->route()->getAction()),
+                'type' => 'exception',
+                'url' => $_SERVER['REQUEST_URI'],
+                'view' => '',
+                'note' => 'file: '.$exception->getFile().'; ',
+                'message' => $exception->getMessage(),
+                'parameter' => json_encode(Request()->all())
+            ]);
+            return view('errors.text_error')->with('message', 'Mã lỗi '.$error->id.' đang cập nhật, vui lòng gửi thông báo đến quan trị để khắc phục sớm nhất.');
+            exit();
         }
         return parent::render($request, $exception);
     }

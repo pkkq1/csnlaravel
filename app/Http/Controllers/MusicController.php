@@ -230,6 +230,8 @@ class MusicController extends Controller
             include(app_path() . '/../resources/views/cache/bxh/bxh_'.$month.'_'.$year.'.blade.php');
         }
         $category = $this->categoryListenRepository->getCategoryUrl($catUrl == CAT_VIDEO_URL ? $catLevel : $catUrl);
+        if(!$category)
+            return view('errors.text_error')->with('message', 'Danh mục không tìm thấy.');
         if($catUrl == CAT_VIDEO_URL) {
             // video (sub category videoclip)
             $type = 'video';

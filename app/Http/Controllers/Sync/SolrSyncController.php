@@ -34,8 +34,8 @@ class SolrSyncController extends Controller
         $searchMusic = MusicModel::select('music_id', 'music_title_search', 'music_artist_search', 'music_composer_search', 'music_album_search', 'music_title', 'music_artist',
         'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_title_url', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_downloads_this_week', 'music_lyric')
             ->where('cat_id', '!=', CAT_VIDEO)
-            ->offset(1)
-            ->limit(100000)
+            ->offset(0)
+            ->limit(50000)
             ->get();
         DB::disconnect('mysql');
         foreach ($searchMusic as $item) {
@@ -49,11 +49,14 @@ class SolrSyncController extends Controller
                 'id' => 'music_'.$item->music_id,
                 'music_title' => $item->music_title,
                 'music_title_search' => $titleSearch,
-                'music_artist_search' => $artistSearch,
+                'music_title_artist_search' => $titleSearch,
+                'music_artist_search' => $artistSearch .' '. $artistSearch,
                 'music_title_charset_nospace' => str_replace(' ', '', $titleCharset),
                 'music_artist_charset_nospace' => str_replace(' ', '', $artistCharset),
+                'music_title_artist_charset_nospace' => str_replace(' ', '', $titleCharset) . ' ' . str_replace(' ', '', $artistCharset),
                 'music_title_charset' => $titleCharset,
                 'music_artist_charset' => $artistCharset,
+                'music_title_artist_charset' => $titleCharset . ' '. $artistCharset,
                 'music_lyric' => $item->music_lyric,
                 'music_lyric_search' => $lyricSearch,
                 'music_lyric_charset' => $lyricCharset,
