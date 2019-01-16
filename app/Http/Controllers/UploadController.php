@@ -60,7 +60,7 @@ class UploadController extends Controller
         if($musicId) {
             $id = Auth::user()->id;
             $arrStage = [UPLOAD_STAGE_DELETED, UPLOAD_STAGE_UNCENSOR, UPLOAD_STAGE_INCONVERT, UPLOAD_STAGE_FULLCONVERT];
-            if(Auth::user()->hasPermission('duyet_nhac')) {
+            if(Auth::user()->hasPermission('duyet_sua_nhac')) {
                 $id = 'permission_duyet_csn';
                 $arrStage[] = UPLOAD_STAGE_FULLCENSOR;
             }
@@ -75,7 +75,7 @@ class UploadController extends Controller
         if($musicId) {
             $id = Auth::user()->id;
             $arrStage = [UPLOAD_STAGE_DELETED, UPLOAD_STAGE_UNCENSOR, UPLOAD_STAGE_INCONVERT, UPLOAD_STAGE_FULLCONVERT];
-            if(Auth::user()->hasPermission('duyet_nhac')) {
+            if(Auth::user()->hasPermission('duyet_sua_nhac')) {
                 $id = 'permission_duyet_csn';
                 $arrStage[] = UPLOAD_STAGE_FULLCENSOR;
             }
@@ -87,7 +87,11 @@ class UploadController extends Controller
     }
     public function createAlbum(Request $request, $coverId = null) {
         if($coverId) {
-            $album = $this->coverRepository->findCover(Auth::user()->id, $coverId);
+            if(Auth::user()->hasPermission('duyet_sua_nhac')) {
+                $album = $this->coverRepository->findCover($coverId);
+            }else{
+                $album = $this->coverRepository->findCover($coverId, Auth::user()->id);
+            }
             if(!$album)
                 return view('errors.404');
         }
@@ -214,7 +218,7 @@ class UploadController extends Controller
         if($request->input('action_upload') == 'edit') {
             $userId = Auth::user()->id;
             $arrStage = [UPLOAD_STAGE_DELETED, UPLOAD_STAGE_UNCENSOR, UPLOAD_STAGE_INCONVERT, UPLOAD_STAGE_FULLCONVERT];
-            $per_Xet_Duyet = Auth::user()->hasPermission('duyet_nhac');
+            $per_Xet_Duyet = Auth::user()->hasPermission('duyet_sua_nhac');
             $per_Xet_Duyet_Chat_luong = Auth::user()->hasPermission('duyet_sua_chat_luong_nhac');
             if($per_Xet_Duyet) {
                 $userId = 'permission_duyet_csn';

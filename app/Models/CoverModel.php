@@ -21,7 +21,7 @@ class CoverModel extends Model
             'music_title_search', 'music_artist_search', 'music_album_search', 'music_composer', 'music_album', 'music_listen', 'music_track_id', 'music_track_id', 'music_filename', 'music_bitrate', 'music_length', 'music_time', 'music_width', 'music_height')->orderBy('music_id', 'desc');
     }
     public function uploadFile() {
-        return $this->hasMany('App\Models\UploadModel', 'album_id', 'cover_id')->get();
+        return $this->hasMany('App\Models\UploadModel', 'cover_id', 'cover_id')->get();
     }
 
 }

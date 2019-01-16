@@ -66,7 +66,7 @@ class UserMusicController extends Controller
             return 'Lỗi User';
         }else{
             $id = $request->user_id;
-            if(Auth::user()->hasPermission('duyet_nhac')) {
+            if(Auth::user()->hasPermission('duyet_sua_nhac')) {
                 $id = $request->user_id;
             }
         }

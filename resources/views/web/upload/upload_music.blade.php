@@ -138,7 +138,7 @@ $titleMeta = (isset($music) ? 'Chỉnh sửa '.$music->music_title : 'Cập nh�
                                         </div>
                                         <div class="form-group col-4{{ $errors->has('music_year') ? ' has-error' : '' }}">
                                             <label for="music_year">Năm phát hành</label>
-                                            <input {{ isset($music) ? 'disabled' : '' }} type="text" class="form-control" {{isset($music) ? ($music->album_id > 0 ? 'disabled' : '') : ''}} name="music_year" value="{{ old('music_year') ?? $music->music_year ?? '' }}" id="music_year" placeholder="">
+                                            <input {{ isset($music) ? 'disabled' : '' }} type="text" class="form-control" {{isset($music) ? ($music->cover_id > 0 ? 'disabled' : '') : ''}} name="music_year" value="{{ old('music_year') ?? $music->music_year ?? '' }}" id="music_year" placeholder="">
                                             @if(isset($music))
                                                 <input type="hidden" name="music_year" value="{{ old('music_year') ?? $music->music_year ?? '' }}">
                                             @endif
@@ -240,10 +240,10 @@ $titleMeta = (isset($music) ? 'Chỉnh sửa '.$music->music_title : 'Cập nh�
                                                 </span>
                                             @endif
                                         </div>
-                                        @if(isset($music) && $music->album_id > 0)
+                                        @if(isset($music) && $music->cover_id > 0)
                                             <div class="form-group col-12">
                                                 <div class="d-flex align-items-center justify-content-between mb-2">
-                                                    <a href="/dang-tai/album/{{$music->album_id}}">Chỉnh sửa album</a>
+                                                    <a href="/dang-tai/album/{{$music->cover_id}}">Chỉnh sửa album</a>
                                                 </div>
                                             </div>
                                         @endif
