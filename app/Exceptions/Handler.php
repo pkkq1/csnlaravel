@@ -91,7 +91,7 @@ class Handler extends ExceptionHandler
                     'parameter' => json_encode(Request()->all())
                 ]);
             }
-            abort(403, 'Lỗi '.$error->id.' <br/>Bạn vui lòng gửi mã lỗi này đến quan trị để khắc phục sớm nhất.');
+            abort(403, 'Lỗi '.$error->id.' Bạn vui lòng gửi mã lỗi này đến quan trị để khắc phục sớm nhất.');
         }
         return parent::render($request, $exception);
     }
