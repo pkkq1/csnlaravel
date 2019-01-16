@@ -1,5 +1,6 @@
 <?php
 global $allpage_banner;
+$allpage_banner = false;
 ?>
 <!DOCTYPE html>
 <html>
