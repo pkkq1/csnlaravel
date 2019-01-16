@@ -75,17 +75,19 @@ class Handler extends ExceptionHandler
             return response()->view($view.'errors.403', ['message'=> $exception->getMessage()], 403);
         }
         if(!env('APP_DEBUG')) {
-            $error = ErrorLogModel::create([
-                'request' => json_encode(app('request')->route()->getAction()),
-                'type' => 'exception',
-                'url' => $_SERVER['REQUEST_URI'],
-                'view' => '',
-                'note' => 'file: '.$exception->getFile().'; ',
-                'message' => $exception->getMessage(),
-                'parameter' => json_encode(Request()->all())
-            ]);
-            return view('errors.text_error')->with('message', 'Mã lỗi '.$error->id.' đang cập nhật, vui lòng gửi thông báo đến quan trị để khắc phục sớm nhất.');
-            exit();
+            $error = ErrorLogModel::where('type', 'exception')->where('url', $_SERVER['REQUEST_URI'])->where('message', $exception->getMessage())->first();
+            if(!$error) {
+                $error = ErrorLogModel::create([
+                    'request' => json_encode(app('request')->route()->getAction()),
+                    'type' => 'exception',
+                    'url' => $_SERVER['REQUEST_URI'],
+                    'view' => '',
+                    'note' => 'file: '.$exception->getFile().'; ',
+                    'message' => $exception->getMessage(),
+                    'parameter' => json_encode(Request()->all())
+                ]);
+            }
+            abort(403, 'Mã lỗi '.$error->id.' đang cập nhật, vui lòng gửi thông báo đến quan trị để khắc phục sớm nhất.');
         }
         return parent::render($request, $exception);
     }
