@@ -55,29 +55,30 @@ class Handler extends ExceptionHandler
 //    }
     public function render($request, Exception $exception)
     {
-        $statusCode = $exception->getStatusCode() ?? 0;
         if (method_exists($exception, 'getMessage') && $exception->getMessage() == 'Unauthenticated.'){
             return $request->expectsJson()
                 ? response()->json(['status' => false, 'message' => $exception->getMessage(), 'data' => null], 401)
                 : redirect()->guest('?rq=login&back_url='.$request->getRequestUri());
         }
-        if($statusCode == 403) {
-            if($request->ajax()) {
-                if($request->format() == 'html') {
-                    return response()->make($exception->getMessage(), 403);
+        if(method_exists($exception, 'getStatusCode')) {
+            if($exception->getStatusCode() == 403){
+                if($request->ajax()) {
+                    if($request->format() == 'html') {
+                        return response()->make($exception->getMessage(), 403);
+                    }
+                    Helpers::ajaxResult(false, $exception->getMessage(), null);
                 }
-                Helpers::ajaxResult(false, $exception->getMessage(), null);
+                $Agent = new Agent();
+                $view = 'web.';
+                if ($Agent->isMobile()) {
+                    $view = 'mobile.';
+                }
+                return response()->view($view.'errors.403', ['message'=> $exception->getMessage()], 403);
+            }elseif ($exception->getStatusCode() == 404) {
+                redirect()->guest('/');
             }
-            $Agent = new Agent();
-            $view = 'web.';
-            if ($Agent->isMobile()) {
-                $view = 'mobile.';
-            }
-            return response()->view($view.'errors.403', ['message'=> $exception->getMessage()], 403);
-        }elseif($statusCode == 404) {
-            return redirect()->guest('/');
         }
-        if(!env('APP_DEBUG')) {
+        if(env('APP_DEBUG') && env('APP_ENV') != 'local') {
             $error = ErrorLogModel::where('type', 'exception')->where('url', $_SERVER['REQUEST_URI'])->where('message', $exception->getMessage())->first();
             if(!$error) {
                 $error = ErrorLogModel::create([
@@ -85,7 +86,7 @@ class Handler extends ExceptionHandler
                     'type' => 'exception',
                     'url' => $_SERVER['REQUEST_URI'],
                     'view' => '',
-                    'note' => 'file: '.$exception->getFile().'; statusCode:'.$statusCode,
+                    'note' => 'file: '.$exception->getFile().'; ',
                     'message' => $exception->getMessage(),
                     'parameter' => json_encode(Request()->all())
                 ]);
