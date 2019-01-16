@@ -16,12 +16,15 @@ use Backpack\CRUD\app\Http\Requests\CrudRequest as StoreRequest;
 use Backpack\CRUD\app\Http\Requests\CrudRequest as UpdateRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Repositories\Artist\ArtistRepository;
-
+use App\Solr\Solarium;
+use App\Http\Controllers\Sync\SolrSyncController;
 
 class ArtistController extends CrudController
 {
     protected $artistRepository;
-    public function __construct(ArtistRepository $artistRepository)
+    protected $Solr;
+
+    public function __construct(ArtistRepository $artistRepository, Solarium $Solr)
     {
         $this->artistRepository = $artistRepository;
         parent::__construct();
@@ -30,6 +33,9 @@ class ArtistController extends CrudController
         $this->crud->setEntityNameStrings('Ca sĩ', 'Ca Sĩ');
         $this->crud->setRoute(config('backpack.base.route_prefix').'/artist');
         $this->crud->orderBy('updated_at', 'desc');
+
+        $this->Solr = $Solr;
+
 //        $this->crud->setEntityNameStrings('menu item', 'menu items');
 
         $this->middleware(function ($request, $next)
@@ -214,6 +220,10 @@ class ArtistController extends CrudController
         $item = $this->crud->update($request->get($this->crud->model->getKeyName()),
             $request->except('save_action', '_token', '_method', 'current_tab'));
         $this->data['entry'] = $this->crud->entry = $item;
+
+        // update solr
+        $Solr = new SolrSyncController($this->Solr);
+        $Solr->syncArtist(null, $item);
 
         // show a success message
         \Alert::success(trans('backpack::crud.update_success'))->flash();

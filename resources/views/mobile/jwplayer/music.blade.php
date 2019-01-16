@@ -805,6 +805,7 @@ if($musicSet['type_listen'] == 'playlist') {
                 dataType: "json",
                 data: {
                     'music_id' : '<?php echo $music->music_id; ?>',
+                    'cat_id' : '<?php echo $music->cat_id; ?>',
                 },
                 beforeSend: function () {
                     if(loaded) return false;

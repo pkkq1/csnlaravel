@@ -13,13 +13,15 @@ use App\Library\Helpers;
 use App\Repositories\Music\MusicEloquentRepository;
 use App\Repositories\Playlist\PlaylistEloquentRepository;
 use App\Repositories\MusicListen\MusicListenEloquentRepository;
+use App\Repositories\VideoListen\VideoListenEloquentRepository;
+use App\Repositories\MusicDownload\MusicDownloadEloquentRepository;
+use App\Repositories\VideoDownload\VideoDownloadEloquentRepository;
 use App\Repositories\Video\VideoEloquentRepository;
 use App\Repositories\Category\CategoryEloquentRepository;
 use App\Repositories\Cover\CoverEloquentRepository;
 use App\Repositories\Artist\ArtistRepository;
 use App\Repositories\MusicFavourite\MusicFavouriteRepository;
 use App\Repositories\VideoFavourite\VideoFavouriteRepository;
-use App\Repositories\MusicDownload\MusicDownloadEloquentRepository;
 use Illuminate\Support\Facades\Auth;
 use App\Models\PlaylistMusicModel;
 use App\Repositories\Karaoke\KaraokeEloquentRepository;
@@ -36,28 +38,34 @@ class MusicController extends Controller
     protected $videoRepository;
     protected $playlistRepository;
     protected $musicListenRepository;
+    protected $musicDownloadRepository;
+    protected $videoListenRepository;
+    protected $videoDownloadRepository;
     protected $categoryListenRepository;
     protected $coverRepository;
     protected $artistRepository;
     protected $musicFavouriteRepository;
     protected $videoFavouriteRepository;
-    protected $musicDownloadRepository;
     protected $karaokeRepository;
 
     public function __construct(MusicEloquentRepository $musicRepository, PlaylistEloquentRepository $playlistRepository, MusicListenEloquentRepository $musicListenRepository,
                                 CategoryEloquentRepository $categoryListenRepository, CoverEloquentRepository $coverRepository, VideoEloquentRepository $videoRepository, ArtistRepository $artistRepository,
-                                MusicFavouriteRepository $musicFavouriteRepository, VideoFavouriteRepository $videoFavouriteRepository, MusicDownloadEloquentRepository $musicDownloadRepository, KaraokeEloquentRepository $karaokeRepository)
+                                MusicFavouriteRepository $musicFavouriteRepository, VideoFavouriteRepository $videoFavouriteRepository, MusicDownloadEloquentRepository $musicDownloadRepository, KaraokeEloquentRepository $karaokeRepository,
+                                VideoListenEloquentRepository $videoListenRepository, VideoDownloadEloquentRepository $videoDownloadRepository)
     {
         $this->musicRepository = $musicRepository;
         $this->videoRepository = $videoRepository;
         $this->playlistRepository = $playlistRepository;
         $this->musicListenRepository = $musicListenRepository;
+        $this->musicDownloadRepository = $musicDownloadRepository;
+        $this->videoListenRepository = $videoListenRepository;
+        $this->videoDownloadRepository = $videoDownloadRepository;
         $this->categoryListenRepository = $categoryListenRepository;
         $this->coverRepository = $coverRepository;
         $this->artistRepository = $artistRepository;
         $this->musicFavouriteRepository = $musicFavouriteRepository;
         $this->videoFavouriteRepository = $videoFavouriteRepository;
-        $this->musicDownloadRepository = $musicDownloadRepository;
+
         $this->karaokeRepository = $karaokeRepository;
     }
 
@@ -85,7 +93,11 @@ class MusicController extends Controller
             return view('errors.404')->with('message', 'Nhạc đang cập nhật.');
         // +1 view
         if(Helpers::sessionCountTimesMusic($arrUrl['id'])){
-            $this->musicListenRepository->incrementListen($arrUrl['id']);
+            if($cat == CAT_VIDEO_URL) {
+                $this->videoListenRepository->incrementListen($arrUrl['id']);
+            }else{
+                $this->musicListenRepository->incrementListen($arrUrl['id']);
+            }
         }
         $type = 'music';
         if($music->cat_id == CAT_VIDEO)
@@ -160,7 +172,11 @@ class MusicController extends Controller
             return view('errors.404');
         // +1 view
         if(Helpers::sessionCountTimesMusic($arrUrl['id'])){
-            $this->musicListenRepository->incrementListen($music->music_id);
+            if($music->cat_id == CAT_VIDEO_URL) {
+                $this->videoListenRepository->incrementListen($music->music_id);
+            }else{
+                $this->musicListenRepository->incrementListen($music->music_id);
+            }
         }
         $type = 'music';
         if($music->cat_id == CAT_VIDEO)
@@ -235,7 +251,11 @@ class MusicController extends Controller
             return view('errors.404');
         // +1 view
         if(Helpers::sessionCountTimesMusic($id)){
-            $this->musicListenRepository->incrementListen($id);
+            if($catUrl == CAT_VIDEO_URL) {
+                $this->videoListenRepository->incrementListen($id);
+            }else{
+                $this->musicListenRepository->incrementListen($id);
+            }
         }
         // update cookie music history
         $cookie = Helpers::MusicCookie($request, $music);
@@ -306,7 +326,11 @@ class MusicController extends Controller
         // +1 download
         if($request->music_id) {
             if(Helpers::sessionCountTimesMusic($request->music_id, 'download')){
-                $this->musicDownloadRepository->incrementDownload($request->music_id);
+                if($request->cat_id == CAT_VIDEO_URL) {
+                    $this->videoDownloadRepository->incrementListen($request->music_id);
+                }else{
+                    $this->musicDownloadRepository->incrementListen($request->music_id);
+                }
             }
         }
         Helpers::ajaxResult(true, '', null);

@@ -13,14 +13,12 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        Commands\SolrCover::class,
-
         Commands\Album::class,
         Commands\AlbumCat::class,
         Commands\BxhCategory::class,
         Commands\MusicDownload::class,
         Commands\SuggestionCat::class,
-        Commands\SolrCover::class,
+        Commands\Solr::class,
     ];
 
     /**
@@ -33,7 +31,7 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
-        $schedule->call('\App\Http\Controllers\Sync\SolrSyncController@syncCover');
+        $schedule->call('\App\Http\Controllers\Sync\SolrSyncController@syncVideo');
 
 //        $schedule->command('album')->hourlyAt(10);
 //        $schedule->command('album_cat')->hourlyAt(15);

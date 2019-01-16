@@ -1,9 +1,9 @@
 <?php
-namespace App\Repositories\MusicListen;
+namespace App\Repositories\VideoListen;
 
 use App\Repositories\EloquentRepository;
 use DB;
-class VideoListen extends EloquentRepository implements MusicListenRepositoryInterface
+class VideoListenEloquentRepository extends EloquentRepository implements VideoListenRepositoryInterface
 {
     /**
      * get model
@@ -15,7 +15,7 @@ class VideoListen extends EloquentRepository implements MusicListenRepositoryInt
         'csn_video.music_title_search', 'csn_video.music_artist_search', 'csn_video.music_album_search', 'csn_video.music_composer', 'csn_video.music_album', 'csn_video.music_listen', 'csn_video.music_track_id', 'csn_video.music_track_id', 'csn_video.music_filename', 'csn_video.music_bitrate', 'csn_video.music_shortlyric', 'csn_video.music_last_update_time', 'csn_video.music_length', 'csn_video.music_width', 'csn_video.music_height'];
     public function getModel()
     {
-        return \App\Models\MusicListenModel::class;
+        return \App\Models\VideoListenModel::class;
     }
     /**
      * Get all posts only published
@@ -39,14 +39,12 @@ class VideoListen extends EloquentRepository implements MusicListenRepositoryInt
                 ->create([
                 'music_id' => $id,
                 'music_listen' => 1,
-                'music_listen_today' => 1,
                 'music_listen_today_0' => 1,
                 'music_listen_time' => time(),
             ]);
         }else{
             $result->update([
                     'music_listen' => DB::raw('music_listen + 1'),
-                    'music_listen_today' => DB::raw('music_listen_today + 1'),
                     'music_listen_today_0' => DB::raw('music_listen_today_0 + 1'),
                     'music_listen_time' => time(),
                 ]);

@@ -22,11 +22,9 @@ use DB;
 class SolrSyncController extends Controller
 {
     protected $Solr;
-    protected $musicRepository;
 
-    public function __construct(Solarium $Solr, MusicEloquentRepository $musicRepository) {
+    public function __construct(Solarium $Solr) {
         $this->Solr = $Solr;
-        $this->musicRepository = $musicRepository;
     }
     public function ping() {
         return $this->Solr->ping();
@@ -78,7 +76,7 @@ class SolrSyncController extends Controller
     public function syncVideo() {
         $searchVideo = VideoModel::select('music_id', 'music_title_search', 'music_artist_search', 'music_composer_search', 'music_album_search', 'music_title', 'music_artist',
             'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_title_url', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_width', 'music_height', 'music_last_update_time', 'music_length', 'music_time')
-            ->offset(0)
+            ->offset(36238)
             ->limit(40000)
             ->get();
         DB::disconnect('mysql');
@@ -120,8 +118,14 @@ class SolrSyncController extends Controller
         }
         return response(['Ok']);
     }
-    public function syncArtist() {
-        $artist = ArtistModel::offset(0)->limit(100000)->get();
+    public function syncArtist($id = null, $artistItem = null) {
+        if($id) {
+            $artist = ArtistModel::where('artist_id', $id)->offset(0)->limit(100000)->get();
+        }elseif($artistItem){
+            $artist[] = $artistItem;
+        }else {
+            $artist = ArtistModel::offset(0)->limit(100000)->get();
+        }
         DB::disconnect('mysql');
         foreach ($artist as $item) {
             $artist_nickname_charset = Helpers::rawTiengVietUrl(mb_strtolower($item->artist_nickname, 'UTF-8'), ' ');
@@ -139,7 +143,7 @@ class SolrSyncController extends Controller
         return response(['Ok']);
     }
     public function syncCover() {
-        $cover = CoverModel::orderBy('cover_id', 'asc')->offset(0)->limit(100000)->get();
+        $cover = CoverModel::orderBy('cover_id', 'asc')->offset(74769)->limit(100000)->get();
         DB::disconnect('mysql');
         foreach ($cover as $item) {
             $music_artist = $item->album_artist_1;

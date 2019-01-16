@@ -7,7 +7,7 @@ use App\Http\Controllers\Sync\SolrSyncController;
 use App\Solr\Solarium;
 use App\Repositories\Music\MusicEloquentRepository;
 
-class SolrCover extends Command
+class Solr extends Command
 {
     /**
      * The name and signature of the console command.
@@ -29,12 +29,10 @@ class SolrCover extends Command
      * @return void
      */
     protected $Solr;
-    protected $musicRepository;
 
-    public function __construct(Solarium $Solr, MusicEloquentRepository $musicRepository)
+    public function __construct(Solarium $Solr)
     {
         $this->Solr = $Solr;
-        $this->musicRepository = $musicRepository;
         parent::__construct();
     }
 
@@ -45,7 +43,7 @@ class SolrCover extends Command
      */
     public function handle()
     {
-        $Solr = new SolrSyncController($this->Solr, $this->musicRepository);
+        $Solr = new SolrSyncController($this->Solr);
         if($this->argument('type') == 'music') {
             $Solr->syncMusic();
         }elseif($this->argument('type') == 'video') {

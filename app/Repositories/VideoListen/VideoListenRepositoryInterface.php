@@ -1,7 +1,7 @@
 <?php
-namespace App\Repositories\MusicListen;
+namespace App\Repositories\VideoListen;
 
-interface MusicListenRepositoryInterface
+interface VideoListenRepositoryInterface
 {
     /**
      * Get all posts only published

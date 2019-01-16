@@ -1,9 +1,9 @@
 <?php
-namespace App\Repositories\MusicDownload;
+namespace App\Repositories\VideoDownload;
 
 use App\Repositories\EloquentRepository;
 use DB;
-class MusicDownloadEloquentRepository extends EloquentRepository implements MusicDownloadRepositoryInterface
+class VideoDownloadEloquentRepository extends EloquentRepository implements VideoDownloadRepositoryInterface
 {
     /**
      * get model
@@ -11,7 +11,7 @@ class MusicDownloadEloquentRepository extends EloquentRepository implements Musi
      */
     public function getModel()
     {
-        return \App\Models\MusicDownloadModel::class;
+        return \App\Models\VideoDownloadModel::class;
     }
     /**
      * Get all posts only published
