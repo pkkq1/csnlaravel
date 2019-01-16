@@ -53,7 +53,7 @@ global $allpage_banner;
     <link rel="stylesheet" type="text/css" href="/css/custom.css">
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-27050676-16"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-27050676-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
