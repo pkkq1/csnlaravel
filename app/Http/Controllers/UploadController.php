@@ -161,12 +161,12 @@ class UploadController extends Controller
         //save image
         if($request->input('artist_avatar') && $request->file('choose_artist_avatar')) {
             $typeImageAvatar = array_last(explode('.', $_FILES['choose_artist_avatar']['name']));
-            $typeImageCover = array_last(explode('.', $_FILES['choose_artist_cover']['name']));
             $fileNameAvt = Helpers::saveBase64Image($request->input('artist_avatar'), Helpers::file_path($result->artist_id, CACHE_AVATAR_ARTIST_CROP_PATH, true), $result->artist_id, $typeImageAvatar);
             Helpers::copySourceImage($request->file('choose_artist_avatar'), Helpers::file_path($result->artist_id, AVATAR_ARTIST_SOURCE_PATH, true), $result->artist_id, $typeImageAvatar);
             $result->artist_avatar = $fileNameAvt;
         }
         if($request->input('artist_cover') && $request->file('choose_artist_cover')) {
+            $typeImageCover = array_last(explode('.', $_FILES['choose_artist_cover']['name']));
             $fileNameCover = Helpers::saveBase64Image($request->input('artist_cover'), Helpers::file_path($result->artist_id, CACHE_COVER_ARTIST_CROP_PATH, true), $result->artist_id, $typeImageCover);
             Helpers::copySourceImage($request->file('choose_artist_cover'), Helpers::file_path($result->artist_id, COVER_ARTIST_SOURCE_PATH, true), $result->artist_id, $typeImageCover);
             $result->artist_cover = $fileNameCover;

@@ -356,12 +356,12 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                             </div>
                         </div>
                     </div>
-                    @if($result['music']['data'])
+                    @if($result['artist']['data'])
                         <ul class="list-unstyled list_music music_kq">
                             <?php
                             array_map(function ($item) {
                             ?>
-                            <a class="search-line" href="/ca-si/{{$item['artist_link']}}" title="{{$item['artist_nickname']}}">
+                            <a class="search-line" href="{{$item['artist_link']}}" title="{{$item['artist_nickname']}}">
                             <li class="media align-items-stretch">
                                 <div class="media-left align-items-stretch mr-2">
                                         <img src="{{$item['artist_cover']}}" alt="{{$item['artist_nickname']}}">

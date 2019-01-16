@@ -22,4 +22,14 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
+
+    <Files .env>
+        order allow,deny
+        Deny from all
+    </Files>
+    <Files .env.beta>
+        order allow,deny
+        Deny from all
+    </Files>
+
 </IfModule>

@@ -18,13 +18,16 @@ use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Http\Requests\CrudRequest as StoreRequest;
 use Backpack\CRUD\app\Http\Requests\CrudRequest as UpdateRequest;
 use Illuminate\Support\Facades\Auth;
+use App\Solr\Solarium;
+use App\Http\Controllers\Sync\SolrSyncController;
 
 class ArtistUploadController extends CrudController
 {
     protected $artistRepository;
     protected $artistUploadRepository;
+    protected $Solr;
 
-    public function __construct(ArtistRepository $artistRepository, ArtistUploadEloquentRepository $artistUploadRepository)
+    public function __construct(ArtistRepository $artistRepository, ArtistUploadEloquentRepository $artistUploadRepository, Solarium $Solr)
     {
         $this->artistRepository = $artistRepository;
         $this->artistUploadRepository = $artistUploadRepository;
@@ -34,6 +37,7 @@ class ArtistUploadController extends CrudController
         $this->crud->setRoute(config('backpack.base.route_prefix').'/artist_upload');
         $this->crud->denyAccess(['create']);
         $this->crud->orderBy('artist_id', 'desc');
+        $this->Solr = $Solr;
 //        $this->crud->denyAccess(['create', 'delete', 'update', 'list']);
 //        $this->crud->allowAccess('reorder');
 //        $this->crud->hasAccess('update');
@@ -259,6 +263,10 @@ class ArtistUploadController extends CrudController
         if($artistUpload->artist_cover){
             Storage::disk('public')->move(Helpers::file_path($artistUpload->artist_id, CACHE_COVER_ARTIST_CROP_PATH, true).$artistUpload->artist_cover, Helpers::file_path($result->artist_id, COVER_ARTIST_CROP_PATH, true).$result->artist_cover);
         }
+        // update search solr
+        $Solr = new SolrSyncController($this->Solr);
+        $Solr->syncArtist(null, $result);
+
         $this->artistUploadRepository->delete($id);
         \Alert::success('Xác nhận ca sĩ thành công.')->flash();
         return \Redirect::to($this->crud->route);
@@ -289,7 +297,7 @@ class ArtistUploadController extends CrudController
             $artistExist->artist_avatar = $fileName;
         }
         if($artistUpload->artist_cover){
-            $filePath = Helpers::file_path($artistExist->artist_id, COVER_ARTIST_CROP_PATH, true).$artistExist->artist_cover;
+            $filePath = Helpers::file_path($artistExist->artist_id, COVER_ARTIST_CROP_PATH, true);
             if ($artistExist->artist_cover && Storage::disk('public')->exists($filePath.$artistExist->artist_cover)) {
                 Storage::disk('public')->delete($filePath.$artistExist->artist_cover);
             }
@@ -305,6 +313,10 @@ class ArtistUploadController extends CrudController
         if($artistUpload->artist_country)
             $artistExist->artist_country = $artistUpload->artist_country;
         $artistExist->save();
+
+        $Solr = new SolrSyncController($this->Solr);
+        $Solr->syncArtist(null, $artistExist);
+
         $this->artistUploadRepository->delete($id);
         \Alert::success('Chỉnh sửa ca sĩ thành công.')->flash();
         return \Redirect::to($this->crud->route);

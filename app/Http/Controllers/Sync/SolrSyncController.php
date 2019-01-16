@@ -136,7 +136,8 @@ class SolrSyncController extends Controller
                 'artist_nickname_charset' => $artist_nickname_charset,
                 'artist_nickname_charset_nospace' => str_replace(' ', '', $artist_nickname_charset),
                 'artist_link' => Helpers::artistUrl($item->artist_id, $item->artist_nickname),
-                'artist_cover' => '/imgs/no_cover.jpg',
+                'artist_cover' => $item->artist_cover ? Helpers::file_path($item->artist_id, PUBLIC_COVER_ARTIST_PATH, true).$item->artist_cover : '/imgs/no_cover_artist.jpg',
+                'artist_avatar' => $item->artist_avatar ? Helpers::file_path($item->artist_id, PUBLIC_AVATAR_ARTIST_PATH, true).$item->artist_avatar : '/imgs/no_cover.jpg',
             ];
             $this->Solr->addDocuments($data);
         }

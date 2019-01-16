@@ -33,6 +33,7 @@ class ArtistController extends CrudController
         $this->crud->setEntityNameStrings('Ca sĩ', 'Ca Sĩ');
         $this->crud->setRoute(config('backpack.base.route_prefix').'/artist');
         $this->crud->orderBy('updated_at', 'desc');
+        $this->crud->denyAccess(['create']);
 
         $this->Solr = $Solr;
 
@@ -183,6 +184,7 @@ class ArtistController extends CrudController
         $artist = $this->artistRepository->getModel()::where('artist_id', $id)->first();
         Storage::disk('public')->delete(Helpers::file_path($artist->artist_id, AVATAR_ARTIST_CROP_PATH, true).$artist->artist_avatar);
         Storage::disk('public')->delete(Helpers::file_path($artist->artist_id, COVER_ARTIST_CROP_PATH, true).$artist->artist_cover);
+        $this->Solr->solrDeleteById('artist_'.$id);
         return $this->crud->delete($id);
     }
     public function store(StoreRequest $request)
