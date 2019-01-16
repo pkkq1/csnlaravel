@@ -62,7 +62,7 @@ class UploadEloquentRepository extends EloquentRepository implements UploadRepos
     }
     public function musicByUser($userId, $stageArr, $fillOrder, $typeOrder, $page)
     {
-        $result = $this->_model::select('music_id', 'cat_id', 'cat_level', 'album_id', 'music_title', 'music_artist', 'music_artist_id', 'music_album_id', 'music_bitrate', 'music_filename', 'music_updated', 'music_last_update_time')
+        $result = $this->_model::select('music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title', 'music_artist', 'music_artist_id', 'music_album_id', 'music_bitrate', 'music_filename', 'music_updated', 'music_last_update_time')
             ->where('music_user_id', $userId)
             ->whereIn('music_state', $stageArr)
             ->orderBy($fillOrder, $typeOrder)

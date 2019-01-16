@@ -24,7 +24,7 @@
                             </div>
                             <div class="media-left align-items-stretch mr-2">
                                 <a href="{{$url}}" title="{{$item['music_title']}}">
-                                    <img src="{{Helpers::cover_url($item['album_id'])}}" class="{{($item['cat_id'] == CAT_VIDEO ? 'video_thumbnail' : 'nhac_thumbnail')}}" alt="{{$item['music_title']}}">
+                                    <img src="{{Helpers::cover_url($item['cover_id'])}}" class="{{($item['cat_id'] == CAT_VIDEO ? 'video_thumbnail' : 'nhac_thumbnail')}}" alt="{{$item['music_title']}}">
                                     <i class="material-icons">play_circle_outline</i>
                                 </a>
                             </div>
@@ -63,7 +63,7 @@
                                 </div>
                                 <div class="media-left align-items-stretch mr-2">
                                     <a href="{{$url}}" title="{{$item['music_title']}}">
-                                        <img src="{{Helpers::cover_url($item['album_id'])}}" class="{{($item['cat_id'] == CAT_VIDEO ? 'video_thumbnail' : 'nhac_thumbnail')}}" alt="{{$item['music_title']}}">
+                                        <img src="{{Helpers::cover_url($item['cover_id'])}}" class="{{($item['cat_id'] == CAT_VIDEO ? 'video_thumbnail' : 'nhac_thumbnail')}}" alt="{{$item['music_title']}}">
                                         <i class="material-icons">play_circle_outline</i>
                                     </a>
                                 </div>
@@ -109,7 +109,7 @@
                 $curentPage = $music['stage_fullcensor']->toArray()['current_page'];
                 array_map(function($i, $item) use($perPage, $curentPage) {
                 if($i < 5) {
-                $url = url()->current().'/../redirect/'.$item['music_id'];
+                $url = url()->current().'/redirect/'.$item['music_id'];
                 ?>
                 <li class="media align-items-stretch items-stretch-{{$item['music_id']}}">
                     <div class="media_tmp align-self-center d-flex align-items-center mr-3 pl-3">
@@ -117,7 +117,7 @@
                     </div>
                     <div class="media-left align-items-stretch mr-2">
                         <a href="{{$url}}" target="_blank" title="{{$item['music_title']}}">
-                            <img src="{{Helpers::cover_url($item['album_id'])}}" class="{{($item['cat_id'] == CAT_VIDEO ? 'video_thumbnail' : 'nhac_thumbnail')}}" alt="{{$item['music_title']}}">
+                            <img src="{{Helpers::cover_url($item['cover_id'])}}" class="{{($item['cat_id'] == CAT_VIDEO ? 'video_thumbnail' : 'nhac_thumbnail')}}" alt="{{$item['music_title']}}">
                             <i class="material-icons">play_circle_outline</i>
                         </a>
                     </div>
@@ -148,7 +148,7 @@
                 <?php
                 array_map(function($i, $item) use($perPage, $curentPage) {
                 if($i >= 5) {
-                $url = url()->current().'/../redirect/'.$item['music_id'];
+                $url = url()->current().'/redirect/'.$item['music_id'];
                 ?>
                 <li class="media align-items-stretch items-stretch-{{$item['music_id']}}">
                     <div class="media_tmp align-self-center d-flex align-items-center mr-3 pl-3">
@@ -156,7 +156,7 @@
                     </div>
                     <div class="media-left align-items-stretch mr-2">
                         <a href="{{$url}}" target="_blank" title="{{$item['music_title']}}">
-                            <img src="{{Helpers::cover_url($item['album_id'])}}" class="{{($item['cat_id'] == CAT_VIDEO ? 'video_thumbnail' : 'nhac_thumbnail')}}" alt="{{$item['music_title']}}">
+                            <img src="{{Helpers::cover_url($item['cover_id'])}}" class="{{($item['cat_id'] == CAT_VIDEO ? 'video_thumbnail' : 'nhac_thumbnail')}}" alt="{{$item['music_title']}}">
                             <i class="material-icons">play_circle_outline</i>
                         </a>
                     </div>
@@ -210,7 +210,7 @@
                     </div>
                     <div class="media-left align-items-stretch mr-2">
                         <a href="{{$url}}" title="{{$item['music_title']}}">
-                            <img src="{{Helpers::cover_url($item['album_id'])}}" class="{{($item['cat_id'] == CAT_VIDEO ? 'video_thumbnail' : 'nhac_thumbnail')}}" alt="{{$item['music_title']}}">
+                            <img src="{{Helpers::cover_url($item['cover_id'])}}" class="{{($item['cat_id'] == CAT_VIDEO ? 'video_thumbnail' : 'nhac_thumbnail')}}" alt="{{$item['music_title']}}">
                             <i class="material-icons">play_circle_outline</i>
                         </a>
                     </div>
@@ -249,7 +249,7 @@
                     </div>
                     <div class="media-left align-items-stretch mr-2">
                         <a href="{{$url}}" title="{{$item['music_title']}}">
-                            <img src="{{Helpers::cover_url($item['album_id'])}}" class="{{($item['cat_id'] == CAT_VIDEO ? 'video_thumbnail' : 'nhac_thumbnail')}}" alt="{{$item['music_title']}}">
+                            <img src="{{Helpers::cover_url($item['cover_id'])}}" class="{{($item['cat_id'] == CAT_VIDEO ? 'video_thumbnail' : 'nhac_thumbnail')}}" alt="{{$item['music_title']}}">
                             <i class="material-icons">play_circle_outline</i>
                         </a>
                     </div>

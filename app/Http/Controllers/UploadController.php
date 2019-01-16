@@ -297,7 +297,7 @@ class UploadController extends Controller
             $album->save();
             if($request->input('album_cover')) {
                 $typeImageCover = array_last(explode('.', $_FILES['choose_album_cover']['name']));
-                $fileNameCovert = Helpers::saveBase64Image($request->input('album_cover'), Helpers::file_path($album->cover_id, AVATAR_ALBUM_CROP_PATH, true), $album->album_id, $typeImageCover);
+                $fileNameCovert = Helpers::saveBase64Image($request->input('album_cover'), Helpers::file_path($album->cover_id, AVATAR_ALBUM_CROP_PATH, true), $album->cover_id, $typeImageCover);
                 Helpers::copySourceImage($request->file('choose_album_cover'), Helpers::file_path($album->cover_id, COVER_ALBUM_SOURCE_PATH, true), $album->artist_id, $fileNameCovert);
             }
             return redirect()->route('upload.storeAlbum', ['musicId' => $coverId])->with('success', 'Đã chỉnh sửa album ' . $album->album_name);;
@@ -335,13 +335,13 @@ class UploadController extends Controller
         if(!$album)
             return redirect()->route('upload.upload_album')->with('error', 'tạo album thất bại');
         $typeImageCover = array_last(explode('.', $_FILES['choose_album_cover']['name']));
-        $fileNameCovert = Helpers::saveBase64Image($request->input('album_cover'), Helpers::file_path($album->cover_id, AVATAR_ALBUM_CROP_PATH, true), $album->album_id, $typeImageCover);
+        $fileNameCovert = Helpers::saveBase64Image($request->input('album_cover'), Helpers::file_path($album->cover_id, AVATAR_ALBUM_CROP_PATH, true), $album->cover_id, $typeImageCover);
         Helpers::copySourceImage($request->file('choose_album_cover'), Helpers::file_path($album->cover_id, COVER_ALBUM_SOURCE_PATH, true), $fileNameCovert, null);
         $album->cover_filename = $fileNameCovert;
         $album->save();
         $csnMusic = [
             'music_title' => '',
-            'album_id' => $album->cover_id,
+            'cover_id' => $album->cover_id,
             'music_album' => $album->music_album,
             'music_artist' => $request->input('music_artist'),
             'music_artist_id' => $request->input('music_artist_id'),
