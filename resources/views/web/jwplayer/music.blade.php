@@ -606,23 +606,23 @@ if($musicSet['type_listen'] == 'playlist') {
                 "adschedule": {
                     "myPreroll": {
                         "offset": "pre",
-                        "tag": ["https://d2.hadarone.com/vast3?plm=1179&t=1538133576","https://d2.hadarone.com/vast3?plm=1641&t=1538133576","http://delivery.yomedia.vn/vast?pid=945a082befd44edfba7e7d0b702fa674&ec=0","https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/192930568/chiasenhac.vn-Preroll&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&url=[referrer_url]&description_url=[description_url]&correlator=1538133576","http://tag.gammaplatform.com/adx/request/?wid=1508317885&zid=1508318418&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"]
+                        "tag": ["https://d2.blueseed.tv/vast3?plm=1179&t=1547622701","https://d2.blueseed.tv/vast3?plm=1641&t=1547622701","http://delivery.yomedia.vn/vast?pid=945a082befd44edfba7e7d0b702fa674&ec=0","https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/192930568/chiasenhac.vn-Preroll&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&url=[referrer_url]&description_url=[description_url]&correlator=1547622701","https://tag.gammaplatform.com/adx/request/?wid=1508317885&zid=1508318418&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"]
                     },
                     "myPreroll2": {
                         "offset": 1,
-                        "tag": ["https://d2.hadarone.com/vast3?plm=1179&t=1538133576","https://d2.hadarone.com/vast3?plm=1641&t=1538133576","http://delivery.yomedia.vn/vast?pid=945a082befd44edfba7e7d0b702fa674&ec=0","https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/192930568/chiasenhac.vn-Preroll&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&url=[referrer_url]&description_url=[description_url]&correlator=1538133576","http://tag.gammaplatform.com/adx/request/?wid=1508317885&zid=1508318418&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"]
+                        "tag": ["https://d2.blueseed.tv/vast3?plm=1179&t=1547622701","https://d2.blueseed.tv/vast3?plm=1641&t=1547622701","http://delivery.yomedia.vn/vast?pid=945a082befd44edfba7e7d0b702fa674&ec=0","https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/192930568/chiasenhac.vn-Preroll&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&url=[referrer_url]&description_url=[description_url]&correlator=1547622701","https://tag.gammaplatform.com/adx/request/?wid=1508317885&zid=1508318418&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"]
                     },
                     "myPreroll3": {
                         "offset": 2,
-                        "tag": ["http://tag.gammaplatform.com/adx/request/?wid=1508317885&zid=1508318418&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"]
+                        "tag": ["https://tag.gammaplatform.com/adx/request/?wid=1508317885&zid=1508318418&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"]
                     },
                     "myMidroll": {
                         "offset": 3,
-                        "tag": "http://tag.gammaplatform.com/adx/request/?wid=1508317885&zid=1508318800&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"
+                        "tag": "https://tag.gammaplatform.com/adx/request/?wid=1508317885&zid=1508318800&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"
                     },
                     "myMidroll2": {
                         "offset": 4,
-                        "tag": "http://tag.gammaplatform.com/adx/request/?wid=1508317885&zid=1508318800&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"
+                        "tag": "https://tag.gammaplatform.com/adx/request/?wid=1508317885&zid=1508318800&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"
                     }
                 }
             },
