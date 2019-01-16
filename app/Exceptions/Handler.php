@@ -55,12 +55,13 @@ class Handler extends ExceptionHandler
 //    }
     public function render($request, Exception $exception)
     {
+        $statusCode = $exception->getStatusCode() ?? 0;
         if (method_exists($exception, 'getMessage') && $exception->getMessage() == 'Unauthenticated.'){
             return $request->expectsJson()
                 ? response()->json(['status' => false, 'message' => $exception->getMessage(), 'data' => null], 401)
                 : redirect()->guest('?rq=login&back_url='.$request->getRequestUri());
         }
-        if(method_exists($exception, 'getStatusCode') && $exception->getStatusCode() == 403) {
+        if($statusCode == 403) {
             if($request->ajax()) {
                 if($request->format() == 'html') {
                     return response()->make($exception->getMessage(), 403);
@@ -73,6 +74,8 @@ class Handler extends ExceptionHandler
                 $view = 'mobile.';
             }
             return response()->view($view.'errors.403', ['message'=> $exception->getMessage()], 403);
+        }elseif($statusCode == 404) {
+            return redirect()->guest('/');
         }
         if(!env('APP_DEBUG')) {
             $error = ErrorLogModel::where('type', 'exception')->where('url', $_SERVER['REQUEST_URI'])->where('message', $exception->getMessage())->first();
@@ -82,7 +85,7 @@ class Handler extends ExceptionHandler
                     'type' => 'exception',
                     'url' => $_SERVER['REQUEST_URI'],
                     'view' => '',
-                    'note' => 'file: '.$exception->getFile().'; ',
+                    'note' => 'file: '.$exception->getFile().'; statusCode:'.$statusCode,
                     'message' => $exception->getMessage(),
                     'parameter' => json_encode(Request()->all())
                 ]);
