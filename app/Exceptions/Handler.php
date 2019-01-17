@@ -82,7 +82,7 @@ class Handler extends ExceptionHandler
                 }
                 return response()->view($view.'errors.403', ['message'=> $exception->getMessage()], 403);
             }elseif ($exception->getStatusCode() == 404) {
-                redirect()->guest('/');
+                return redirect()->guest('/');
             }
         }
         if(env('APP_DEBUG') && env('APP_ENV') != 'local') {

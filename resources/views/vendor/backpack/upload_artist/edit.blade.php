@@ -39,7 +39,8 @@ use App\Library\Helpers;
                 {!! method_field('PUT') !!}
                 <div class="box">
                     <div class="box-header with-border">
-                    @if ($crud->model->translationEnabled())
+                        <div class="form-group col-xs-6">
+                        @if ($crud->model->translationEnabled())
                         <!-- Single button -->
                             <div class="btn-group pull-right">
                                 <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -55,6 +56,10 @@ use App\Library\Helpers;
                         @else
                             <h3 class="box-title">{{ trans('backpack::crud.edit') }}</h3>
                         @endif
+                        </div>
+                        <div class="form-group col-xs-6">
+                            <h3 class="box-title">Thông tin ca sĩ cũ</h3>
+                        </div>
                     </div>
                     <div class="box-body row display-flex-wrap" style="display: flex;flex-wrap: wrap;">
                         <div class="form-group col-xs-6">
