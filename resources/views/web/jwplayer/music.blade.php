@@ -1284,12 +1284,12 @@ if($musicSet['type_listen'] == 'playlist') {
         {
             if ( $('#morelyric').html() == lyric_expand )
             {
-                $('#fulllyric').attr('style', "font-size: 13px; overflow: auto;");
+                $('#fulllyric').attr('style', "font-size: 14px; overflow: auto;");
                 $('#morelyric').html(lyric_collapse);
             }
             else if ($('#fulllyric').outerHeight() > 300)
             {
-                $('#fulllyric').attr('style', "font-size: 13px; max-height: 270px; overflow: hidden;");
+                $('#fulllyric').attr('style', "font-size: 14px; max-height: 270px; overflow: hidden;");
                 $('#morelyric').html(lyric_expand);
             }
         }
