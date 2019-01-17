@@ -277,7 +277,7 @@
                                     <input class="email" name="email" type="email" placeholder="Địa chỉ email" required="email" />
                                     <input class="password" name="password" type="password" placeholder="Mật khẩu" name="password" />
                                     <input class="confirm_password" name="confirm_password" type="password" placeholder="Xác nhận lại mật khẩu" name="password" />
-                                    <div class="g-recaptcha captcha" data-sitekey="{{env('NOCAPTCHA_SECRET')}}" style="z-index: 99999999;"></div>
+                                    <div class="g-recaptcha captcha" data-sitekey="{{env('NOCAPTCHA_SITEKEY')}}" style="z-index: 99999999;"></div>
                                     <div class="login_action">
                                         <input class="contact_csn" type="checkbox" id="contact_csn" checked name="contact_csn">
                                         <label style="cursor: pointer; font-size: 13px; display: inline;" for="contact_csn">Tôi đã đọc và đồng ý các điều kiện<a href="#" > Thỏa thuận sử dụng</a></label>
