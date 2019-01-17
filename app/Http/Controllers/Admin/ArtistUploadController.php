@@ -158,6 +158,10 @@ class ArtistUploadController extends CrudController
             'name'  => 'type',
             'type'  => 'hidden',
         ]);
+        $this->crud->addField([
+            'name'  => 'artist_id_suggest',
+            'type'  => 'hidden',
+        ]);
 
 //        $this->crud->addField([
 //            'label' => "Avatar",
@@ -195,6 +199,8 @@ class ArtistUploadController extends CrudController
         $this->data['fields'] = $this->crud->getUpdateFields($id);
         $this->data['title'] = trans('backpack::crud.edit').' '.$this->crud->entity_name;
         $this->data['id'] = $id;
+        $this->data['artist_exists'] = $this->artistRepository->getModel()::where('artist_id', $this->data['fields']['artist_id_suggest']['value'])->first();
+        //
 
         // load the view from /resources/views/vendor/backpack/crud/ if it exists, otherwise load the one in the package
         return view('vendor.backpack.upload_artist.edit', $this->data);

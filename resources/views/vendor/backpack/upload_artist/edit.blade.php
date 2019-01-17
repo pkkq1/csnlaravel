@@ -57,29 +57,53 @@ use App\Library\Helpers;
                         @endif
                     </div>
                     <div class="box-body row display-flex-wrap" style="display: flex;flex-wrap: wrap;">
-                        <!-- load the view from the application if it exists, otherwise load the one in the package -->
-                        @if(view()->exists('vendor.backpack.crud.form_content'))
-                            @include('vendor.backpack.crud.form_content', ['fields' => $fields, 'action' => 'edit'])
-                        @else
-                            @include('crud::form_content', ['fields' => $fields, 'action' => 'edit'])
-                        @endif
-                        <div class="form-group col-xs-12">
-                            <label style="display: -webkit-box;">Avatar</label>
-                            <img class="mr-3" id="artist_avatar_uploaded" src="{{$fields['artist_avatar']['value'] ? Helpers::file_path($fields['id']['value'], PUBLIC_CACHE_AVATAR_ARTIST_PATH, true).$fields['artist_avatar']['value'].'?time='.time() : '/imgs/avatar_default.png'}}" alt="">
-                            <div class="media-body">
-                                <div class="form-group" style="margin-top: 10px;">
-                                    <input type="file" class="form-control-file" name="choose_artist_avatar" id="choose_artist_avatar">
+                        <div class="form-group col-xs-6">
+                            <!-- load the view from the application if it exists, otherwise load the one in the package -->
+                            @if(view()->exists('vendor.backpack.crud.form_content'))
+                                @include('vendor.backpack.crud.form_content', ['fields' => $fields, 'action' => 'edit'])
+                            @else
+                                @include('crud::form_content', ['fields' => $fields, 'action' => 'edit'])
+                            @endif
+                            <div class="form-group col-xs-12">
+                                <label style="display: -webkit-box;">Avatar</label>
+                                <img class="mr-3" id="artist_avatar_uploaded" src="{{$fields['artist_avatar']['value'] ? Helpers::file_path($fields['id']['value'], PUBLIC_CACHE_AVATAR_ARTIST_PATH, true).$fields['artist_avatar']['value'].'?time='.time() : '/imgs/avatar_default.png'}}" alt="">
+                                <div class="media-body">
+                                    <div class="form-group" style="margin-top: 10px;">
+                                        <input type="file" class="form-control-file" name="choose_artist_avatar" id="choose_artist_avatar">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-xs-12">
+                                <label style="display: -webkit-box;">Cover</label>
+                                <img class="mr-3" width="350px" id="artist_cover_uploaded" src="{{$fields['artist_cover']['value'] ? Helpers::file_path($fields['id']['value'], PUBLIC_CACHE_COVER_ARTIST_PATH, true).$fields['artist_cover']['value'].'?time='.time() : '/imgs/avatar_default.png'}}" alt="">
+                                <div class="media-body">
+                                    <div class="form-group" style="margin-top: 10px;">
+                                        <input type="file" class="form-control-file" name="choose_artist_cover" id="choose_artist_cover">
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="form-group col-xs-12">
-                            <label style="display: -webkit-box;">Cover</label>
-                            <img class="mr-3" width="300px" id="artist_cover_uploaded" src="{{$fields['artist_cover']['value'] ? Helpers::file_path($fields['id']['value'], PUBLIC_CACHE_COVER_ARTIST_PATH, true).$fields['artist_cover']['value'].'?time='.time() : '/imgs/avatar_default.png'}}" alt="">
-                            <div class="media-body">
-                                <div class="form-group" style="margin-top: 10px;">
-                                    <input type="file" class="form-control-file" name="choose_artist_cover" id="choose_artist_cover">
-                                </div>
+                        <div class="form-group col-xs-6">
+                            <div class="form-group col-xs-12">
+                                <label>Nghệ Danh</label>
+                                <input disabled type="text" value="{{$artist_exists['artist_nickname']}}" class="form-control">
+                            </div>
+                            <div class="form-group col-xs-12">
+                                <label>Giới Tính</label>
+                                <input disabled type="text" value="{{$artist_exists['artist_gender'] == 0 ? 'Nam' : 'Nữ'}}" class="form-control">
+                            </div>
+                            <div class="form-group col-xs-12">
+                                <label>Ngày sinh</label>
+                                <input disabled type="text" value="{{$artist_exists['artist_birthday']}}" class="form-control">
+                            </div>
+                            <div class="form-group col-xs-12">
+                                <label style="display: -webkit-box;">Avatar</label>
+                                <img class="mr-3" id="artist_avatar_uploaded" src="{{$artist_exists['artist_avatar'] ? Helpers::file_path($artist_exists['artist_id'], PUBLIC_AVATAR_ARTIST_PATH, true).$artist_exists['artist_avatar'].'?time='.time() : '/imgs/avatar_default.png'}}" alt="">
+                            </div>
+                            <div class="form-group col-xs-12">
+                                <label style="display: -webkit-box;">Cover</label>
+                                <img class="mr-3" width="350px" height="150px" id="artist_cover_uploaded" src="{{$artist_exists['artist_cover'] ? Helpers::file_path($artist_exists['artist_id'], PUBLIC_COVER_ARTIST_PATH, true).$artist_exists['artist_cover'].'?time='.time() : '/imgs/avatar_default.png'}}" alt="">
                             </div>
                         </div>
                     </div><!-- /.box-body -->
