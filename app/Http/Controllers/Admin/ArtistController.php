@@ -64,13 +64,13 @@ class ArtistController extends CrudController
                 'name'  => 'artist_nickname',
                 'label' => 'Nghệ Danh',
             ],
-            [
-                'name'  => 'artist_nickname2',
-                'label' => 'Nghệ Danh2',
-                'type' => 'closure',
-                'function' => function($entry) {
-                    return Helpers::rawHtmlArtists($entry->artist_id, $entry->artist_nickname);
-                },
+            [ // n-n relationship (with pivot table)
+                'label'     => 'User', // Table column heading
+                'type'      => 'select',
+                'name'      => 'last_update_user_id', // the method that defines the relationship in your Model
+                'entity'    => 'user', // the method that defines the relationship in your Model
+                'attribute' => 'name', // foreign key attribute that is shown to user
+                'model'     => "App\Models\UserModel", // foreign key model
             ],
             [
                 'name'  => 'artist_avatar',
@@ -217,7 +217,7 @@ class ArtistController extends CrudController
             $fileNameCover = Helpers::saveBase64Image($request->input('artist_cover'), Helpers::file_path($request->input('artist_id'), COVER_ARTIST_CROP_PATH, true), $request->input('artist_id'));
             $request->request->set('artist_cover', $fileNameCover);
         }
-
+        $request->request->set('last_update_user_id', Auth::user()->id);
         // update the row in the db
         $item = $this->crud->update($request->get($this->crud->model->getKeyName()),
             $request->except('save_action', '_token', '_method', 'current_tab'));

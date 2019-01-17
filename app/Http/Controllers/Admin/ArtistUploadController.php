@@ -69,6 +69,14 @@ class ArtistUploadController extends CrudController
                 'name'  => 'artist_nickname',
                 'label' => 'Nghệ Danh',
             ],
+            [ // n-n relationship (with pivot table)
+                'label'     => 'User', // Table column heading
+                'type'      => 'select',
+                'name'      => 'last_update_user_id', // the method that defines the relationship in your Model
+                'entity'    => 'user', // the method that defines the relationship in your Model
+                'attribute' => 'name', // foreign key attribute that is shown to user
+                'model'     => "App\Models\UserModel", // foreign key model
+            ],
             [
                 'name'  => 'type',
                 'label' => 'Thể loại',
@@ -85,7 +93,7 @@ class ArtistUploadController extends CrudController
                     if(!$entry->artist_avatar)
                         return '-';
                     $urlImg = Helpers::file_path($entry->artist_id, PUBLIC_CACHE_AVATAR_ARTIST_PATH, true) . $entry->artist_avatar;
-                    return '<a href="'.$urlImg.'" target="_blank">
+                    return '<a href="'.Helpers::artistUrl($entry->artist_id, $entry->artist_nickname).'" target="_blank">
                               <img src="'.$urlImg.'" style="
                                   max-height: 25px;
                                   width: auto;
@@ -108,7 +116,7 @@ class ArtistUploadController extends CrudController
                     if(!$entry->artist_cover)
                         return '-';
                     $urlImg = Helpers::file_path($entry->artist_id, PUBLIC_CACHE_COVER_ARTIST_PATH, true) . $entry->artist_cover;
-                    return '<a href="'.$urlImg.'" target="_blank">
+                    return '<a href="/user/'.$entry->last_update_user_id.'" target="_blank">
                               <img src="'.$urlImg.'" style="
                                   max-height: 25px;
                                   width: auto;
@@ -306,6 +314,7 @@ class ArtistUploadController extends CrudController
             $artistExist->artist_cover = $fileName;
         }
         $artistExist->artist_id_source = $artistUpload->artist_id;
+        $artistExist->last_update_user_id = $artistUpload->last_update_user_id;
         if( $artistUpload->artist_birthday)
             $artistExist->artist_birthday = $artistUpload->artist_birthday;
         if($artistUpload->artist_gender)

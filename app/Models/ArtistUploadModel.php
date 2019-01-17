@@ -25,4 +25,7 @@ class ArtistUploadModel extends Model
                       border-radius: 3px;">
                 </a>';
     }
+    public function user() {
+        return $this->belongsTo('App\Models\UserModel', 'last_update_user_id', 'user_id');
+    }
 }
