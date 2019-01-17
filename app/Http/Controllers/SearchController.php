@@ -61,11 +61,12 @@ class SearchController extends Controller
             ],
         ];
         if($search) {
-            $searchTool = Helpers::relaceKeySearch($search);
+//            $searchTool = Helpers::replaceKeySearch($search);
+            $searchTool = $search;
             $rawTiengViet = Helpers::rawTiengVietUrl($searchTool, ' ');
             $charsetNoSapce = str_replace(' ', '', $rawTiengViet);
             $titleCharset = str_replace(' ', '+', $rawTiengViet) . '^2';
-            $titleSearch = Helpers::relaceKeySearch($searchNotUtf8);
+            $titleSearch = Helpers::replaceKeySearch($searchNotUtf8);
             // search key
             if(isset($request->view_all) || isset($request->view_music)) {
                 $searchSolarium = [];
@@ -94,11 +95,11 @@ class SearchController extends Controller
             }
             if(isset($request->view_all) || isset($request->view_artist)) {
                 $searchSolarium = [];
-                if($quickSearch) {
-                    $searchSolarium['artist_nickname_charset_nospace'] =  $charsetNoSapce . '^100 | music_title_charset_nospace:'.$charsetNoSapce.'*^50';
-                }
+                if($quickSearch)
+                    $searchSolarium['artist_nickname_charset_nospace'] =  $charsetNoSapce . '^100 | artist_nickname_charset_nospace:'.$charsetNoSapce.'*^50';
                 $searchSolarium['artist_nickname_charset'] = $titleCharset;
-                $searchSolarium['artist_nickname_search'] = $titleSearch;
+                if($titleSearch)
+                    $searchSolarium['artist_nickname_search'] = $titleSearch;
                 $resultArtist = $this->Solr->search($searchSolarium, ($request->page_artist ?? 1), $request->rows ?? ROWS_ARTIST_SEARCH_PAGING, array('score' => 'desc'));
                 if($resultArtist['data']) {
                     foreach ($resultArtist['data'] as $item) {

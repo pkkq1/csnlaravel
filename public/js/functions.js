@@ -134,17 +134,21 @@ function xoa_dau(str) {
     return str;
 }
 function searchHighlight(key, string) {
-    var keyReplace = xoa_dau(key).toLowerCase();
-    var stringReplace = xoa_dau(string).toLowerCase();
-    n = stringReplace.indexOf(keyReplace);
-    var stringPos = string.substring(n, n + key.length);
-    if(n === -1) {
-        // console.log(key);
-        // console.log(string);
-        // searchHighlight(key.substring(0, key.length - 1), string);
-        return string;
+    if(string) {
+        var keyReplace = xoa_dau(key).toLowerCase();
+        var stringReplace = xoa_dau(string).toLowerCase();
+        n = stringReplace.indexOf(keyReplace);
+        var stringPos = string.substring(n, n + key.length);
+        if(n === -1) {
+            // console.log(key);
+            // console.log(string);
+            // searchHighlight(key.substring(0, key.length - 1), string);
+            return string;
+        }
+        return string.replace(stringPos, '<span class="search_highlight">' + stringPos + '</span>');
     }
-    return string.replace(stringPos, '<span class="search_highlight">' + stringPos + '</span>');
+    return string;
+
 }
 var waitingDialog = waitingDialog || (function ($) {
     'use strict';

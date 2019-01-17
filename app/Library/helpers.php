@@ -432,7 +432,7 @@ class Helpers
         return preg_replace(array('/[^a-zA-Z0-9 -]/', '/[ -]+/', '/^-|-$/'), array('', $spaceReplace, ''), self::khongdau($str));
     }
 
-    public static function relaceKeySearch($str) {
+    public static function replaceKeySearch($str) {
         return preg_replace(['/y/', '/ý/', '/ỳ/', '/ỷ/', '/ỵ/', '/ỹ/', '/s/'], ['i', 'í', 'ì', 'ỉ', 'ị', 'ĩ', 'x'], mb_strtolower($str, 'UTF-8'));
     }
 

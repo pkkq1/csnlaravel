@@ -39,11 +39,11 @@ class SolrSyncController extends Controller
             ->get();
         DB::disconnect('mysql');
         foreach ($searchMusic as $item) {
-            $titleSearch = Helpers::relaceKeySearch($item->music_title);
-            $artistSearch = Helpers::relaceKeySearch($item->music_artist);
+            $titleSearch = Helpers::replaceKeySearch($item->music_title);
+            $artistSearch = Helpers::replaceKeySearch($item->music_artist);
             $titleCharset = Helpers::rawTiengVietUrl($titleSearch, ' ');
             $artistCharset = Helpers::rawTiengVietUrl($artistSearch, ' ');
-            $lyricSearch = Helpers::relaceKeySearch($item->music_lyric);
+            $lyricSearch = Helpers::replaceKeySearch($item->music_lyric);
             $lyricCharset = Helpers::rawTiengVietUrl(str_replace("\n", ' ', $lyricSearch), ' ');
             $data = [
                 'id' => 'music_'.$item->music_id,
@@ -86,8 +86,8 @@ class SolrSyncController extends Controller
             ->get();
         DB::disconnect('mysql');
         foreach ($searchVideo as $item) {
-            $titleSearch = Helpers::relaceKeySearch($item->music_title);
-            $artistSearch = Helpers::relaceKeySearch($item->music_artist);
+            $titleSearch = Helpers::replaceKeySearch($item->music_title);
+            $artistSearch = Helpers::replaceKeySearch($item->music_artist);
             $titleCharset = Helpers::rawTiengVietUrl($titleSearch, ' ');
             $artistCharset = Helpers::rawTiengVietUrl($artistSearch, ' ');
             $data = [
@@ -137,7 +137,7 @@ class SolrSyncController extends Controller
             $data = [
                 'id' => 'artist_'.$item->artist_id,
                 'artist_nickname' => $item->artist_nickname,
-                'artist_nickname_search' => Helpers::relaceKeySearch($item->artist_nickname),
+                'artist_nickname_search' => Helpers::replaceKeySearch($item->artist_nickname),
                 'artist_nickname_charset' => $artist_nickname_charset,
                 'artist_nickname_charset_nospace' => str_replace(' ', '', $artist_nickname_charset),
                 'artist_link' => Helpers::artistUrl($item->artist_id, $item->artist_nickname),
@@ -164,7 +164,7 @@ class SolrSyncController extends Controller
                 if($item->album_cat_id_2)
                     $album_cat = $album_cat.';'.$item->album_cat_id_2.'_'.$item->album_cat_level_1;
             }
-            $titleSearch = Helpers::relaceKeySearch($item->music_album);
+            $titleSearch = Helpers::replaceKeySearch($item->music_album);
             $titleCharset = Helpers::rawTiengVietUrl($item->music_album, ' ');
 
             $data = [
@@ -187,7 +187,7 @@ class SolrSyncController extends Controller
                 'album_bitrate_html' => $item->music_bitrate ? Helpers::bitrate2str($item->music_bitrate) : '',
             ];
             if($music_artist) {
-                $artistSearch = Helpers::relaceKeySearch($music_artist);
+                $artistSearch = Helpers::replaceKeySearch($music_artist);
                 $artistCharset = Helpers::rawTiengVietUrl($music_artist, ' ');
                 $data['music_artist'] = $music_artist;
                 $data['music_artist_search'] = $artistSearch;
