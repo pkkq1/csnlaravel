@@ -55,13 +55,20 @@ class Handler extends ExceptionHandler
 //    }
     public function render($request, Exception $exception)
     {
-        if (method_exists($exception, 'getMessage') && $exception->getMessage() == 'Unauthenticated.'){
-            return $request->expectsJson()
-                ? response()->json(['status' => false, 'message' => $exception->getMessage(), 'data' => null], 401)
-                : redirect()->guest('?rq=login&back_url='.$request->getRequestUri());
+        if (method_exists($exception, 'getMessage')){
+            if($exception->getMessage() == 'Unauthenticated.') {
+                return $request->expectsJson()
+                    ? response()->json(['status' => false, 'message' => $exception->getMessage(), 'data' => null], 401)
+                    : redirect()->guest('?rq=login&back_url='.$request->getRequestUri());
+            }elseif ($exception->getMessage() == 'The given data was invalid.') {
+                return parent::render($request, $exception);
+            }
         }
         if(method_exists($exception, 'getStatusCode')) {
-            if($exception->getStatusCode() == 403){
+            if($exception->getStatusCode() == 422) {
+                // Validation
+                return parent::render($request, $exception);
+            }elseif($exception->getStatusCode() == 403){
                 if($request->ajax()) {
                     if($request->format() == 'html') {
                         return response()->make($exception->getMessage(), 403);
