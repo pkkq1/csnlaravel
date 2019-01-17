@@ -133,7 +133,7 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                                     <?php
                                     }, $result['artist']['data'])
                                     ?>
-                                    <center><?php Helpers::pagingCustom($result['artist']['page'], $result['artist']['rows'], $result['artist']['row_total'], '<a href="?q='.$search.'&page_artist=%d">%d</a>') ?></center>
+                                    <center><?php Helpers::pagingCustom($result['artist']['page'], $result['artist']['rows'], $result['artist']['row_total'], '<a href="/tim-kiem?q='.$search.'&page_artist=%d">%d</a>') ?></center>
                                 </div>
                             </div>
                         </div>
