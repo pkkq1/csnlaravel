@@ -17,12 +17,12 @@ $titleMeta = isset($artistExist) ? 'Cập nhật nghệ sĩ '.$artistExist->arti
                 </div>
                 @if ($message = Session::get('success'))
                     <div class="alert alert-success">
-                        <strong>Thành công!</strong> {{ $message }}
+                        <strong>Thành công!</strong> <?php echo $message ?>
                     </div>
                 @endif
                 @if ($message = Session::get('error'))
                     <div class="alert alert-danger">
-                        <strong>Lỗi!</strong> {{ $message }}
+                        <strong>Lỗi!</strong> <?php echo $message ?>
                     </div>
                 @endif
                 <div class="card card_playlist">
