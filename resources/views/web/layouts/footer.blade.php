@@ -20,7 +20,7 @@
                 } );
             }
         }).autocomplete( "instance" )._renderItem = function( ul, item ) {
-            var theHtml = rawBodySearch(rawTopMusic(item.music['data'], item.q), rawArtist(item.artist['data'], item.q), rawMusic(item.music['data'], item.q),
+            var theHtml = rawBodySearch(rawArtist(item.artist['data'], item.q), rawMusic(item.music['data'], item.q),
                 rawAlbum(item.album['data'], item.q), rawVideo(item.video['data'], item.q));
             if(theHtml.length != 29) {
                 theHtml = '<span style="float: right;margin-right: 7px;margin-top: 1px;"><a onclick="redirectSearch()" href="javascript:void(0)">Xem tất cả</a></span>' + theHtml;
@@ -30,11 +30,10 @@
                 .appendTo( ul );
         };
     });
-    function rawBodySearch(topMusic, artist, music, album, video) {
+    function rawBodySearch(artist, music, album, video) {
         return '<div class="card-body">' +
-            topMusic +
-            artist +
             music +
+            artist +
             album +
             video +
             '</div>';
