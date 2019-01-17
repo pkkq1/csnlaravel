@@ -33,7 +33,7 @@ $titleMeta = isset($artistExist) ? 'Cập nhật nghệ sĩ '.$artistExist->arti
                                     <div class="form-group row{{ $errors->has('artist_nickname') ? ' has-error' : '' }}">
                                         <label for="artist_nickname" class="col-sm-4 col-form-label">Nghệ Danh</label>
                                         <div class="col-sm-8">
-                                            <input {{isset($artistExist) ? 'disabled' : ''}} type="text" class="form-control" value="{{ old('artist_nickname') ?? (isset($artistExist->artist_nickname) ? $artistExist->artist_nickname : '') }}" id="artist_nickname" name="artist_nickname" placeholder="Blooming Days - The 2nd Mini Album">
+                                            <input {{isset($artistExist) ? 'disabled' : ''}} type="text" class="form-control" value="{{ old('artist_nickname') ?? (isset($artistExist->artist_nickname) ? $artistExist->artist_nickname : '') }}" id="artist_nickname" name="artist_nickname" placeholder="Nhập tên ca sĩ mới">
                                             @if ($errors->has('artist_nickname'))
                                                 <span class="help-block">
                                                     <strong>{{ str_replace('artist nickname', 'Nghệ Danh', $errors->first('artist_nickname')) }}</strong>
@@ -44,7 +44,7 @@ $titleMeta = isset($artistExist) ? 'Cập nhật nghệ sĩ '.$artistExist->arti
                                     <div class="form-group row {{ $errors->has('artist_birthday') ? ' has-error' : '' }}">
                                         <label for="artist_birthday" class="col-sm-4 col-form-label">Ngày Sinh</label>
                                         <div class="col-sm-8">
-                                            <input type="text" name="artist_birthday" maxlength="10" class="form-control" value="{{ old('artist_birthday') ?? (isset($artistExist->artist_birthday) ? $artistExist->artist_birthday : '') }}" id="artist_birthday">
+                                            <input type="date" name="artist_birthday" maxlength="10" class="form-control" value="{{ old('artist_birthday') ?? (isset($artistExist->artist_birthday) ? $artistExist->artist_birthday : '') }}" id="artist_birthday">
                                             @if ($errors->has('artist_birthday'))
                                                 <span class="help-block">
                                                     <strong>{{ str_replace('artist birthday', 'Ngày Sinh', $errors->first('artist_birthday')) }}</strong>
@@ -271,6 +271,5 @@ $titleMeta = isset($artistExist) ? 'Cập nhật nghệ sĩ '.$artistExist->arti
             $('#artist_avatar_uploaded').attr("src", '/imgs/avatar_default.png');
             $('#artist_cover_uploaded').attr("src", '/imgs/avatar_default.png');
         }
-        $('#artist_birthday').mask('##/##/####',{placeholder:"mm/dd/yyyy", reverse: true});
     </script>
 @endsection

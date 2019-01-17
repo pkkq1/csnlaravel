@@ -92,13 +92,13 @@ class MusicController extends Controller
         if(!$music)
             return view('errors.404')->with('message', 'Nhạc đang cập nhật.');
         // +1 view
-        if(Helpers::sessionCountTimesMusic($arrUrl['id'])){
+//        if(Helpers::sessionCountTimesMusic($arrUrl['id'])){
             if($cat == CAT_VIDEO_URL) {
                 $this->videoListenRepository->incrementListen($arrUrl['id']);
             }else{
                 $this->musicListenRepository->incrementListen($arrUrl['id']);
             }
-        }
+//        }
         $type = 'music';
         if($music->cat_id == CAT_VIDEO)
             $type = 'video';
@@ -172,7 +172,7 @@ class MusicController extends Controller
             return view('errors.404');
         // +1 view
         if(Helpers::sessionCountTimesMusic($arrUrl['id'])){
-            if($music->cat_id == CAT_VIDEO_URL) {
+            if($music->cat_id == CAT_VIDEO) {
                 $this->videoListenRepository->incrementListen($music->music_id);
             }else{
                 $this->musicListenRepository->incrementListen($music->music_id);
@@ -253,7 +253,7 @@ class MusicController extends Controller
             return view('errors.404');
         // +1 view
         if(Helpers::sessionCountTimesMusic($id)){
-            if($catUrl == CAT_VIDEO_URL) {
+            if($catUrl == CAT_VIDEO) {
                 $this->videoListenRepository->incrementListen($id);
             }else{
                 $this->musicListenRepository->incrementListen($id);

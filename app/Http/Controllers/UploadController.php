@@ -129,7 +129,6 @@ class UploadController extends Controller
         //save image
         $typeImageAvatar = array_last(explode('.', $_FILES['choose_artist_avatar']['name']));
         $typeImageCover = array_last(explode('.', $_FILES['choose_artist_cover']['name']));
-//        dd($request->input('artist_avatar'));
         $fileNameAvt = Helpers::saveBase64Image($request->input('artist_avatar'), Helpers::file_path($result->artist_id, CACHE_AVATAR_ARTIST_CROP_PATH, true), $result->artist_id, $typeImageAvatar);
         Helpers::copySourceImage($request->file('choose_artist_avatar'), Helpers::file_path($result->artist_id, AVATAR_ARTIST_SOURCE_PATH, true), $result->artist_id, $typeImageAvatar);
         $fileNameCover = Helpers::saveBase64Image($request->input('artist_cover'), Helpers::file_path($result->artist_id, CACHE_COVER_ARTIST_CROP_PATH, true), $result->artist_id, $typeImageCover);
@@ -159,7 +158,6 @@ class UploadController extends Controller
             'artist_id_suggest' => $request->input('artist_id'),
             'type' => 0,
         ];
-        dd($artist);
         $result = $this->artistUploadRepository->create($artist);
         if(!$result)
             return redirect()->route('upload.createArtist')->with('error', 'cập nhật ca sĩ thất bại');
@@ -177,7 +175,7 @@ class UploadController extends Controller
             $result->artist_cover = $fileNameCover;
         }
         $result->save();
-        return redirect()->route('upload.createArtist')->with('success', 'Đã gửi gợi ý ca sĩ ' . $result->artist_nickname);
+        return redirect()->route('upload.createArtist')->with('success', 'Cám ơn bạn đã đóng góp thông tin ca sĩ '.$result->artist_nickname.'.<br/>Thông tin ca sĩ đã được gửi thành công lên hệ thống và đang chờ mod kiểm duyệt.<br/>Click <a href="/">vào đây</a> để trở về trang chủ.');
 
     }
     function suggestArtist(Request $request, $urlArtist) {
