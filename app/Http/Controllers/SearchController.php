@@ -104,7 +104,9 @@ class SearchController extends Controller
                         $result[0]['artist']['data'][] = [
                             'artist_nickname' => $item['artist_nickname'][0],
                             'artist_link' =>  $item['artist_link'][0],
-                            'artist_cover' => isset($item['artist_cover']) ? $item['artist_cover'][0] : 'https://zmp3-photo.zadn.vn/thumb/240_240/covers/c/5/c57f754298fb51e7afa9802433166db0_1508817474.jpg'
+                            'artist_link' =>  $item['artist_link'][0],
+                            'artist_cover' => $item['artist_cover'][0],
+                            'artist_avatar' => $item['artist_avatar'][0],
                         ];
                     }
                 }
