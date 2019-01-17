@@ -100,7 +100,7 @@ use App\Library\Helpers;
                             </div>
                             <div class="form-group col-xs-12">
                                 <label>Ngày sinh</label>
-                                <input disabled type="text" value="{{$artist_exists['artist_birthday']}}" class="form-control">
+                                <input disabled type="text" value="{{date("d/m/Y", strtotime($artist_exists['artist_birthday']))}}" class="form-control">
                             </div>
                             <div class="form-group col-xs-12">
                                 <label style="display: -webkit-box;">Avatar</label>
