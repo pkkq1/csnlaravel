@@ -286,7 +286,8 @@ class ArtistUploadController extends CrudController
         $musicHtml = '';
         $artistFavourite = '';
         $artistUrl = '';
-        return view('web.artist.index', compact('artist', 'musicHtml', 'artistFavourite', 'artistUrl'));
+        $previewArtist = true;
+        return view('web.artist.index', compact('artist', 'musicHtml', 'artistFavourite', 'artistUrl', 'previewArtist'));
     }
     public function suggest(StoreRequest $request, $id) {
         $artistUpload = $this->artistUploadRepository->findOnlyPublished($id);

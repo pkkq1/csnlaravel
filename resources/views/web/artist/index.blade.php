@@ -27,7 +27,7 @@ $avtArtist = $artist->artist_avatar ? Helpers::file_path($artist->artist_id, PUB
 @endsection
 @extends('web.layouts.app')
 @section('content')
-    @include('web.artist.box_artist', ['artist' => $artist])
+    @include('web.artist.box_artist', ['artist' => $artist, 'previewArtist' => $previewArtist ?? false])
     <div class="container">
         <div class="row row_wrapper">
             <div class="col-md-9">
