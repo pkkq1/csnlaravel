@@ -101,7 +101,7 @@ use App\Library\Helpers;
                                 <label style="display: -webkit-box;">Avatar</label>
                                 <img class="mr-3" width="152px" height="152px" id="artist_avatar_uploaded" src="{{$artist_exists['artist_avatar'] ? Helpers::file_path($artist_exists['artist_id'], PUBLIC_AVATAR_ARTIST_PATH, true).$artist_exists['artist_avatar'].'?time='.time() : '/imgs/avatar_default.png'}}" alt="">
                             </div>
-                            <div class="form-group col-xs-12">
+                            <div class="form-group col-xs-12" style="margin-top: 50px;">
                                 <label style="display: -webkit-box;">Cover</label>
                                 <img class="mr-3" width="350px" height="90x" id="artist_cover_uploaded" src="{{$artist_exists['artist_cover'] ? Helpers::file_path($artist_exists['artist_id'], PUBLIC_COVER_ARTIST_PATH, true).$artist_exists['artist_cover'].'?time='.time() : '/imgs/avatar_default.png'}}" alt="">
                             </div>
