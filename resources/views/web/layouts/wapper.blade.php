@@ -129,7 +129,7 @@
                     </ul>
                 </li>
                 <li class="nav-item this_more">
-                    <a class="nav-link iconmenu" href="#"><i class="material-icons">more_horiz</i></a>
+                    <a class="nav-link iconmenu" href="javascript:void(0)"><i class="material-icons">more_horiz</i></a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
