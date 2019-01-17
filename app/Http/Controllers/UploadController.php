@@ -159,6 +159,7 @@ class UploadController extends Controller
             'artist_id_suggest' => $request->input('artist_id'),
             'type' => 0,
         ];
+        dd($artist);
         $result = $this->artistUploadRepository->create($artist);
         if(!$result)
             return redirect()->route('upload.createArtist')->with('error', 'cập nhật ca sĩ thất bại');

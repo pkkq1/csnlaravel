@@ -73,7 +73,7 @@
                     ' <a class="search-line" href="' + value.artist_link + '" title="' + value.artist_nickname + '">' +
                     '  <li class="media align-items-stretch">' +
                     '      <div class="media-left align-items-stretch mr-2">' +
-                    '         <img src="' + value.artist_cover + '" alt="' + value.artist_nickname + '">' +
+                    '         <img src="' + value.artist_avatar + '" alt="' + value.artist_nickname + '">' +
                     '      </div>' +
                     '      <div class="media-body align-self-center d-flex flex-column justify-content-between p-0">' +
                     '          <div>' +

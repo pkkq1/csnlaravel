@@ -2,6 +2,7 @@
 use Illuminate\Contracts\View\Factory as ViewFactory;
 use Jenssegers\Agent\Agent;
 use App\Models\ErrorLogModel;
+use Illuminate\Support\Facades\Auth;
 
 function view($view = null, $data = [], $mergeData = [])
 {
@@ -31,6 +32,7 @@ function view($view = null, $data = [], $mergeData = [])
             'url' => $_SERVER['REQUEST_URI'],
             'view' => '',
             'message' => '',
+            'user_id' => Auth::check() ? Auth::user()->id : '',
             'parameter' => json_encode(Request()->all())
         ]);
     }

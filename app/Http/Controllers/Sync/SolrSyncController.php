@@ -34,8 +34,8 @@ class SolrSyncController extends Controller
         $searchMusic = MusicModel::select('music_id', 'music_title_search', 'music_artist_search', 'music_composer_search', 'music_album_search', 'music_title', 'music_artist',
         'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_title_url', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_downloads_this_week', 'music_lyric')
             ->where('cat_id', '!=', CAT_VIDEO)
-            ->offset(0)
-            ->limit(50000)
+            ->offset(100000)
+            ->limit(100000)
             ->get();
         DB::disconnect('mysql');
         foreach ($searchMusic as $item) {
@@ -64,7 +64,9 @@ class SolrSyncController extends Controller
                 'music_cover' => Helpers::cover_url($item->cover_id),
                 'music_link' => '/'.Helpers::listen_url($item->toArray(), false),
                 'music_filename' => $item->music_filename,
-                'music_artist' => Helpers::rawHtmlArtists($item->music_artist_id, $item->music_artist),
+                'music_artist' => $item->music_artist,
+                'music_artist_id' => str_replace(';', ',', $item->music_artist_id),
+                'music_artist_html' => Helpers::rawHtmlArtists($item->music_artist_id, $item->music_artist),
                 'music_listen' => $item->music_listen,
                 'music_download' => $item->music_downloads,
                 'music_downloads_today' => $item->music_downloads_today,

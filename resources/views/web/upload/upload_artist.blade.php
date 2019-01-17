@@ -44,7 +44,7 @@ $titleMeta = isset($artistExist) ? 'Cập nhật nghệ sĩ '.$artistExist->arti
                                     <div class="form-group row {{ $errors->has('artist_birthday') ? ' has-error' : '' }}">
                                         <label for="artist_birthday" class="col-sm-4 col-form-label">Ngày Sinh</label>
                                         <div class="col-sm-8">
-                                            <input type="date" name="artist_birthday" class="form-control" value="{{ old('artist_birthday') ?? (isset($artistExist->artist_birthday) ? $artistExist->artist_birthday : '') }}" id="artist_birthday">
+                                            <input type="text" name="artist_birthday" maxlength="10" class="form-control" value="{{ old('artist_birthday') ?? (isset($artistExist->artist_birthday) ? $artistExist->artist_birthday : '') }}" id="artist_birthday">
                                             @if ($errors->has('artist_birthday'))
                                                 <span class="help-block">
                                                     <strong>{{ str_replace('artist birthday', 'Ngày Sinh', $errors->first('artist_birthday')) }}</strong>
@@ -166,6 +166,7 @@ $titleMeta = isset($artistExist) ? 'Cập nhật nghệ sĩ '.$artistExist->arti
         </div>
     </div>
     <script type="text/javascript" src="/js/croppie.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
     <script>
         $(document).ready(function(){
             var selectImage;
@@ -270,5 +271,6 @@ $titleMeta = isset($artistExist) ? 'Cập nhật nghệ sĩ '.$artistExist->arti
             $('#artist_avatar_uploaded').attr("src", '/imgs/avatar_default.png');
             $('#artist_cover_uploaded').attr("src", '/imgs/avatar_default.png');
         }
+        $('#artist_birthday').mask('##/##/####',{placeholder:"mm/dd/yyyy", reverse: true});
     </script>
 @endsection

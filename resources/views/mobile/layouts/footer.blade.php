@@ -129,7 +129,7 @@ use App\Library\Helpers;
             $.each( artists, function( key, value ) {
                 artist = artist +
                     '   <a class="search-line" href="' + value.artist_link + '"><div class="element mb-2">' +
-                    '   <div style="background : url(' + value.artist_cover + ') no-repeat center;background-size: cover;" class="image100 mr-2 d-inline-block align-middle"></div>' +
+                    '   <div style="background : url(' + value.artist_avatar + ') no-repeat center;background-size: cover;" class="image100 mr-2 d-inline-block align-middle"></div>' +
                     '       <div class="content d-inline-block align-middle">' +
                     '           <h6 class="name_song text-black mb-1">' + searchHighlight(q, value.artist_nickname) + '</h6>' +
                     '       </div>' +
