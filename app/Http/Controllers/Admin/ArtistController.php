@@ -96,7 +96,7 @@ class ArtistController extends CrudController
                     if(!$entry->artist_cover)
                         return '-';
                     $urlImg = $entry->artist_cover ? Helpers::file_path($entry->artist_id, PUBLIC_COVER_ARTIST_PATH, true) . $entry->artist_cover : '/imgs/no_avatar.png';
-                    return '<a href="'.Helpers::artistUrl($entry->artist_id, $entry->artist_nickname).'" target="_blank">
+                    return '<a href="/user/'.$entry->last_update_user_id.'" target="_blank">
                               <img src="'.$urlImg.'" style="
                                   max-height: 25px;
                                   width: auto;
