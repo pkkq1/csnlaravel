@@ -19,7 +19,7 @@ class UserCrudController extends CrudController
         $this->crud->setModel(config('backpack.permissionmanager.user_model'));
         $this->crud->setEntityNameStrings(trans('backpack::permissionmanager.user'), trans('backpack::permissionmanager.users'));
         $this->crud->setRoute(config('backpack.base.route_prefix').'/user');
-        $this->crud->orderBy('user_id', 'desc');
+        $this->crud->orderBy('created_at', 'desc');
         $this->crud->enableAjaxTable();
         // Columns.
         if(!backpack_user()->can('user_(list)')) {
@@ -35,6 +35,11 @@ class UserCrudController extends CrudController
             $this->crud->denyAccess(['delete']);
         }
         $this->crud->setColumns([
+            [
+                'name'  => 'created_at',
+                'label' => 'Ngày tạo',
+                'type'  => 'date',
+            ],
             [
                 'name'  => 'name',
                 'label' => trans('backpack::permissionmanager.name'),

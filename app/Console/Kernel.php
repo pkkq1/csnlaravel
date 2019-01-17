@@ -18,6 +18,7 @@ class Kernel extends ConsoleKernel
         Commands\BxhCategory::class,
         Commands\MusicDownload::class,
         Commands\SuggestionCat::class,
+        Commands\MusicListenDownload::class,
         Commands\Solr::class,
     ];
 
@@ -31,7 +32,7 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
-        $schedule->call('\App\Http\Controllers\Sync\SolrSyncController@syncVideo');
+//        $schedule->call('\App\Http\Controllers\Sync\SolrSyncController@syncMusic');
 
 //        $schedule->command('album')->hourlyAt(10);
 //        $schedule->command('album_cat')->hourlyAt(15);

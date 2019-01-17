@@ -129,7 +129,7 @@
                     '      <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">' +
                     '          <div>' +
                     '              <h5 class="media-title mt-0 mb-0 span_h5">' + searchHighlight(q, value.music_album) + '</h5>' +
-                    '              <div class="author">' + value.music_artist + '</div>' +
+                    '              <div class="author">' + value.album_artist + '</div>' +
                     '          </div>' +
                     '          <small class="type_music c1">' + (value.album_bitrate_html ? value.album_bitrate_html : '') + '</small>' +
                     '      </div>' +
