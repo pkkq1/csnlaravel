@@ -38,7 +38,7 @@ class SolrSyncController extends Controller
             ->where('music_id', '>', intval($req->m_start))
             ->orderBy('music_id', 'asc')
 //            ->offset(0)
-            ->limit(500)
+            ->limit(200)
             ->get();
         DB::disconnect('mysql');
         $datas = array();
