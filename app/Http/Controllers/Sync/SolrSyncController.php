@@ -38,10 +38,11 @@ class SolrSyncController extends Controller
             ->where('music_id', '>', intval($req->m_start))
             ->orderBy('music_id', 'asc')
 //            ->offset(0)
-            ->limit(200)
+            ->limit(150)
             ->get();
         DB::disconnect('mysql');
         $datas = array();
+        $n = 0;
         foreach ($searchMusic as $item) {
             $titleSearch = Helpers::replaceKeySearch($item->music_title);
             $artistSearch = Helpers::replaceKeySearch($item->music_artist);
@@ -82,7 +83,7 @@ class SolrSyncController extends Controller
             $datas[] = $data;
             //$this->Solr->addDocuments($data);
 
-            echo $item->music_id . "\n <br>";
+            echo (++$n) . '/ ' . $item->music_id . "\n <br>";
         }
         $this->Solr->addMultiDocuments($datas);
 
