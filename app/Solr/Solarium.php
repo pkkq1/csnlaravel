@@ -147,6 +147,35 @@ class Solarium
         }
 
     }
+
+    public function addMultiDocuments(array $datas = array(), $overWrite = true)
+    {
+        $update = $this->client->createUpdate();
+
+        for ($i = 0; $i < sizeof($datas); $i++) {
+            $data = $datas[$i];
+            $doc = $update->createDocument();
+            foreach ($data as $key => $val) {
+                $doc->$key = $val;
+            }
+
+            try {
+                $update->addDocument($doc, $overWrite);
+            } catch (Exception $e) {
+                return [
+                    'status' => false,
+                    'message' => $e->getMessage()
+//            'time' => $result->getQueryTime(),
+                ];
+            }
+        }
+
+        $update->addCommit();
+        $result = $this->client->update($update);
+        return ['status' => true,
+            'message' => ''];
+    }
+
 }
 
 ?>

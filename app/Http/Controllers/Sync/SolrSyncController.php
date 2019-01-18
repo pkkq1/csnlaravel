@@ -38,9 +38,10 @@ class SolrSyncController extends Controller
             ->where('music_id', '>', intval($req->m_start))
             ->orderBy('music_id', 'asc')
 //            ->offset(0)
-            ->limit(100)
+            ->limit(10000)
             ->get();
         DB::disconnect('mysql');
+        $datas = array();
         foreach ($searchMusic as $item) {
             $titleSearch = Helpers::replaceKeySearch($item->music_title);
             $artistSearch = Helpers::replaceKeySearch($item->music_artist);
@@ -49,7 +50,7 @@ class SolrSyncController extends Controller
             $lyricSearch = Helpers::replaceKeySearch($item->music_lyric);
             $lyricCharset = Helpers::rawTiengVietUrl(str_replace("\n", ' ', $lyricSearch), ' ');
             $data = [
-                'id' => 'music_'.$item->music_id,
+                'id' => 'musicz_'.$item->music_id,
                 'music_title' => $item->music_title,
                 'music_title_search' => $titleSearch,
                 'music_title_artist_search' => $titleSearch,
@@ -77,10 +78,13 @@ class SolrSyncController extends Controller
                 'music_downloads_this_week' => $item->music_downloads_this_week,
 
             ];
-            $this->Solr->addDocuments($data);
+
+            $datas[] = $data;
+            //$this->Solr->addDocuments($data);
 
             echo $item->music_id . "\n <br>";
         }
+        $this->Solr->addMultiDocuments($datas);
 
         if (sizeof($searchMusic) > 0)
         {
