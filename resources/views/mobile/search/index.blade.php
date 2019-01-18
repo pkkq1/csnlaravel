@@ -60,7 +60,7 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                                     <?php
                                     }, $result['music']['data'])
                                     ?>
-                                    <center><?php Helpers::pagingCustom($result['music']['page'], $result['music']['rows'], $result['music']['row_total'], '<a href="?q='.$search.'&page_music=%d">%d</a>') ?></center>
+                                    <center><?php Helpers::pagingCustom($result['music']['page'], $result['music']['rows'], $result['music']['row_total'], '<a href="/tim-kiem?q='.$search.'&page_music=%d">%d</a>') ?></center>
                                 </div>
                             </div>
                         </div>
@@ -85,7 +85,7 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                                     <?php
                                     }, $result['album']['data'])
                                     ?>
-                                    <center><?php Helpers::pagingCustom($result['album']['page'], $result['album']['rows'], $result['album']['row_total'], '<a href="?q='.$search.'&page_album=%d">%d</a>') ?></center>
+                                    <center><?php Helpers::pagingCustom($result['album']['page'], $result['album']['rows'], $result['album']['row_total'], '<a href="/tim-kiem?q='.$search.'&page_album=%d">%d</a>') ?></center>
                                 </div>
                             </div>
                         </div>
@@ -112,7 +112,7 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                                     <?php
                                     }, $result['video']['data'])
                                     ?>
-                                    <center><?php Helpers::pagingCustom($result['video']['page'], $result['video']['rows'], $result['video']['row_total'], '<a href="?q='.$search.'&page_video=%d">%d</a>') ?></center>
+                                    <center><?php Helpers::pagingCustom($result['video']['page'], $result['video']['rows'], $result['video']['row_total'], '<a href="/tim-kiem?q='.$search.'&page_video=%d">%d</a>') ?></center>
                                 </div>
                             </div>
                         </div>

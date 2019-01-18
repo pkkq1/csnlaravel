@@ -153,6 +153,7 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                     @if($result['music']['data'])
                         <div class="box_header d-flex justify-content-between align-items-end">
                             <h5 class="title m-0">Bài hát</h5>
+                            <a class="link_more" href="javascript:void(0)" onclick="return reDirectTab('nav-music-tab')" title="">Xem tất cả</a>
                         </div>
                         <ul class="list-unstyled list_music music_kq">
                             <?php
@@ -187,7 +188,7 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                     @if($result['album']['data'])
                     <div class="box_header d-flex justify-content-between align-items-end">
                         <h5 class="title m-0">Album</h5>
-                        <a class="link_more" href="#" title="">Xem tất cả</a>
+                        <a class="link_more" href="javascript:void(0)" onclick="return reDirectTab('nav-album-tab')" title="">Xem tất cả</a>
                     </div>
                     <div class="row row10px float-col-width">
                         <?php
@@ -215,7 +216,7 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                     @if($result['video']['data'])
                     <div class="box_header d-flex justify-content-between align-items-end">
                         <h5 class="title m-0">Video</h5>
-                        <a class="link_more" href="#" title="">Xem tất cả</a>
+                        <a class="link_more" href="javascript:void(0)" onclick="return reDirectTab('nav-video-tab')" title="">Xem tất cả</a>
                     </div>
                     <div class="row row10px float-col-width-video">
                         <?php
@@ -278,7 +279,7 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                             }, $result['music']['data'])
                             ?>
                         </ul>
-                        <center><?php Helpers::pagingCustom($result['music']['page'], $result['music']['rows'], $result['music']['row_total'], '<a href="?q='.$search.'&page_music=%d">%d</a>') ?></center>
+                        <center><?php Helpers::pagingCustom($result['music']['page'], $result['music']['rows'], $result['music']['row_total'], '<a href="/tim-kiem?q='.$search.'&page_music=%d">%d</a>') ?></center>
                     @endif
                 </div>
                 <div class="tab-pane fade {{isset($_GET['page_album']) ? 'show active' : ''}}" id="nav-album" role="tabpanel" aria-labelledby="nav-album-tab">
@@ -312,7 +313,7 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                         }, $result['album']['data'])
                         ?>
                     </div>
-                    <center><?php Helpers::pagingCustom($result['album']['page'], $result['album']['rows'], $result['album']['row_total'], '<a href="?q='.$search.'&page_album=%d">%d</a>') ?></center>
+                    <center><?php Helpers::pagingCustom($result['album']['page'], $result['album']['rows'], $result['album']['row_total'], '<a href="/tim-kiem?q='.$search.'&page_album=%d">%d</a>') ?></center>
                     @endif
                 </div>
                 <div class="tab-pane fade {{isset($_GET['page_video']) ? ' show active' : ''}}" id="nav-video" role="tabpanel" aria-labelledby="nav-video-tab">
@@ -345,7 +346,7 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                             }, $result['video']['data'])
                             ?>
                         </div>
-                        <center><?php Helpers::pagingCustom($result['video']['page'], $result['video']['rows'], $result['video']['row_total'], '<a href="?q='.$search.'&page_video=%d">%d</a>') ?></center>
+                        <center><?php Helpers::pagingCustom($result['video']['page'], $result['video']['rows'], $result['video']['row_total'], '<a href="/tim-kiem?q='.$search.'&page_video=%d">%d</a>') ?></center>
                     @endif
                 </div>
                 <div class="tab-pane fade {{isset($_GET['page_artist']) ? ' show active' : ''}}" id="nav-artist" role="tabpanel" aria-labelledby="nav-artist-tab">
@@ -392,6 +393,10 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
         $('.search_title').each( function () {
             $(this).html(searchHighlight('<?php echo $search; ?>', $(this).text()));
         })
+    }
+    function reDirectTab(tab) {
+        $('#' + tab).click();
+        $('html,body').animate({ scrollTop: 0 }, 400);
     }
 </script>
 @endsection

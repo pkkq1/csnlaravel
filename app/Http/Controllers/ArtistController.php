@@ -71,7 +71,7 @@ class ArtistController extends Controller
                 return view('artist.video_item', compact('video'));
                 break;
             case "album":
-                $cover = $this->coverRepository->findAlbumByArtist($request->artist, 'cover_id', 'desc', LIMIT_MUSIC_PAGE_ARTIST);
+                $cover = $this->coverRepository->findAlbumByArtist($request->artist_id, 'cover_id', 'desc', LIMIT_MUSIC_PAGE_ARTIST);
                 return view('artist.cover_item', compact('cover'));
                 break;
             case "playlist":

@@ -32,7 +32,7 @@ function view($view = null, $data = [], $mergeData = [])
             'url' => $_SERVER['REQUEST_URI'],
             'view' => '',
             'message' => '',
-            'user_id' => Auth::check() ? Auth::user()->id : '',
+            'user_id' => Auth::check() ? Auth::user()->id : null,
             'parameter' => json_encode(Request()->all())
         ]);
     }

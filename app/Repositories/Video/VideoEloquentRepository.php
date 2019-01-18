@@ -101,15 +101,15 @@ class VideoEloquentRepository extends EloquentRepository implements VideoReposit
             ->paginate($page);
         return $result;
     }
-    public function findVideoByArtist($artist, $fillOrder, $typeOrder, $page)
+    public function findVideoByArtist($artist_id, $fillOrder, $typeOrder, $page)
     {
         $result = $this
             ->_model
             ->select('music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'music_album_id', 'music_listen', 'music_bitrate', 'music_filename', 'music_length', 'music_width', 'music_height')
-            ->where('music_artist_id', 'like', $artist)
-            ->orWhere('music_artist_id', 'like', $artist.';%')
-            ->orWhere('music_artist_id', 'like', '%;'.$artist)
-            ->orWhere('music_artist_id', 'like', '%;'.$artist.';%')
+            ->where('music_artist_id', 'like', $artist_id)
+            ->orWhere('music_artist_id', 'like', $artist_id.';%')
+            ->orWhere('music_artist_id', 'like', '%;'.$artist_id)
+            ->orWhere('music_artist_id', 'like', '%;'.$artist_id.';%')
             ->orderBy($fillOrder, $typeOrder)
             ->paginate($page);
         return $result;

@@ -106,8 +106,8 @@ class CoverEloquentRepository extends EloquentRepository implements CoverReposit
     {
         $result = $this
             ->_model::where(function($q) use ($artist) {
-                $q->where('album_artist_1', 'like', '%'.$artist.'%')
-                    ->orWhere('album_artist_2', 'like', '%'.$artist.'%');
+                $q->where('album_artist_id_1', 'like', '%'.$artist.'%')
+                    ->orWhere('album_artist_id_2', 'like', '%'.$artist.'%');
             })
             ->orderBy($fillOrder, $typeOrder)
             ->paginate($page);
