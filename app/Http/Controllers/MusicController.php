@@ -149,7 +149,7 @@ class MusicController extends Controller
             $artist = $this->artistRepository->find($arrUrl['id']);
             if(!$artist)
                 return view('errors.text_error')->with('message', 'Ca sĩ chưa được phát hành.');
-            $music = $this->musicRepository->findMusicByArtist($artist->artist_nickname, 'music_last_update_time', 'desc', LIMIT_MUSIC_PAGE_ARTIST)->toArray();
+            $music = $this->musicRepository->findMusicByArtist($artist->artist_id, 'music_last_update_time', 'desc', LIMIT_LISTEN_MUSIC_ARTIST)->toArray();
             if(!$music['data'])
                 return view('errors.text_error')->with('message', 'Ca sĩ chưa có bài hát nào phát hành.');
             $playlistMusic = $music['data'];

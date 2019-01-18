@@ -69,15 +69,15 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
 
         return $result;
     }
-    public function findMusicByArtist($artist, $fillOrder, $typeOrder, $page)
+    public function findMusicByArtist($artist_id, $fillOrder, $typeOrder, $page)
     {
         $result = $this
             ->_model
             ->select('music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'music_album_id', 'music_listen', 'music_bitrate', 'music_filename', 'music_length')
-            ->where('music_artist_id', 'like', $artist)
-            ->orWhere('music_artist_id', 'like', $artist.';%')
-            ->orWhere('music_artist_id', 'like', '%;'.$artist)
-            ->orWhere('music_artist_id', 'like', '%;'.$artist.';%')
+            ->where('music_artist_id', 'like', $artist_id)
+            ->orWhere('music_artist_id', 'like', $artist_id.';%')
+            ->orWhere('music_artist_id', 'like', '%,'.$artist_id)
+            ->orWhere('music_artist_id', 'like', '%;'.$artist_id.';%')
             ->orderBy($fillOrder, $typeOrder)
             ->paginate($page);
         return $result;
@@ -138,45 +138,53 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
             }
         }
         $select = ['music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'music_album_id', 'music_listen', 'music_bitrate', 'music_filename', 'music_width', 'music_height', 'music_length']; //, 'music_shortlyric'
-        $artists = explode(';', $music->music_artist);
+        $artistIds = explode(';', $music->music_artist_id);
         // nhạc cùng ca sĩ
-        $MusicSameArtist = \App\Models\MusicModel::where(function($q) use ($artists) {
-            foreach ($artists as $key => $artist) {
-                if($key == 0)
-                    $q->where('music_artist', 'like', '%'.$artist.'%');
-                $q->orWhere('music_artist', 'like', '%'.$artist.'%');
+        $MusicSameArtistEloquent = \App\Models\MusicModel::where(function($q) use ($artistIds) {
+            foreach ($artistIds as $key => $id) {
+                if($key == 0){
+                    $q->where('music_artist_id', 'like', $id)
+                    ->orWhere('music_artist_id', 'like', $id.';%')
+                    ->orWhere('music_artist_id', 'like', '%,'.$id)
+                    ->orWhere('music_artist_id', 'like', '%;'.$id.';%');
+                }else{
+                    $q->orWhere('music_artist_id', 'like', $id)
+                    ->orWhere('music_artist_id', 'like', $id.';%')
+                    ->orWhere('music_artist_id', 'like', '%,'.$id)
+                    ->orWhere('music_artist_id', 'like', '%;'.$id.';%');
+                }
             }
-        })->where('music_id', '!=', $music->music_id)
-            ->where('cover_id', '>', 0)
-            ->select($select)
+        })->select($select)
+            ->where('music_id', '!=', $music->music_id)
             ->distinct('music_title')
+            ->orderBy('music_id', 'desc');
+
+        $MusicSameArtist = $MusicSameArtistEloquent->where('cover_id', '>', 0)
+            ->select($select)
             ->limit(5)
-            ->orderBy('music_id', 'desc')
 //            ->orderBy('music_downloads_today', 'desc')
 //            ->orderBy('music_downloads_this_week', 'desc')
 //            ->orderBy('music_downloads', 'desc')
             ->get()->toArray();
         if($MusicSameArtist <= 5) {
-            $MusicSameArtist = \App\Models\MusicModel::where(function($q) use ($artists) {
-                foreach ($artists as $key => $artist) {
-                    if($key == 0)
-                        $q->where('music_artist', 'like', '%'.$artist.'%');
-                    $q->orWhere('music_artist', 'like', '%'.$artist.'%');
-                }
-            })->where('music_id', '!=', $music->music_id)
-                ->where('cover_id', '<=', 0)
-                ->select($select)
-                ->distinct('music_title')
+            $MusicSameArtist = $MusicSameArtistEloquent
                 ->limit(5 - count($MusicSameArtist))
-                ->orderBy('music_id', 'desc')
                 ->get()->toArray();
         }
         // video cùng ca sĩ
-        $VideoSameArtist = \App\Models\VideoModel::where(function($q) use ($artists) {
-            foreach ($artists as $key => $artist) {
-                if($key == 0)
-                    $q->where('music_artist', 'like', '%'.$artist.'%');
-                $q->orWhere('music_artist', 'like', '%'.$artist.'%');
+        $VideoSameArtist = \App\Models\VideoModel::where(function($q) use ($artistIds) {
+            foreach ($artistIds as $key => $id) {
+                if($key == 0){
+                    $q->where('music_artist_id', 'like', $id)
+                        ->orWhere('music_artist_id', 'like', $id.';%')
+                        ->orWhere('music_artist_id', 'like', '%,'.$id)
+                        ->orWhere('music_artist_id', 'like', '%;'.$id.';%');
+                }else{
+                    $q->orWhere('music_artist_id', 'like', $id)
+                        ->orWhere('music_artist_id', 'like', $id.';%')
+                        ->orWhere('music_artist_id', 'like', '%,'.$id)
+                        ->orWhere('music_artist_id', 'like', '%;'.$id.';%');
+                }
             }
         })->where('music_id', '!=', $music->music_id)
             ->select($select)

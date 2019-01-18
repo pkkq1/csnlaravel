@@ -94,6 +94,7 @@ class Handler extends ExceptionHandler
                     'url' => $_SERVER['REQUEST_URI'],
                     'view' => '',
                     'note' => 'file: '.$exception->getFile().'; ',
+                    'user_id' => Auth::check() ? Auth::user()->id : null,
                     'message' => $exception->getMessage(),
                     'parameter' => json_encode(Request()->all())
                 ]);
