@@ -50,7 +50,7 @@ class SolrSyncController extends Controller
             $lyricSearch = Helpers::replaceKeySearch($item->music_lyric);
             $lyricCharset = Helpers::rawTiengVietUrl(str_replace("\n", ' ', $lyricSearch), ' ');
             $data = [
-                'id' => 'musicz_'.$item->music_id,
+                'id' => 'music_'.$item->music_id,
                 'music_title' => $item->music_title,
                 'music_title_search' => $titleSearch,
                 'music_title_artist_search' => $titleSearch,
