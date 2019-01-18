@@ -1,11 +1,15 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: admin
  * Date: 8/17/2018
  * Time: 3:38 PM
  */
+
 namespace App\Http\Controllers\Sync;
+ini_set('memory_limit', '-1');
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request as Request;
 use Illuminate\Support\Facades\Auth;
@@ -30,6 +34,7 @@ class SolrSyncController extends Controller
         return $this->Solr->ping();
     }
 
+
     public function syncMusic($id = null, $musicItem = null) {
         if($id) {
             $searchMusic = MusicModel::select('music_id', 'music_title_search', 'music_artist_search', 'music_composer_search', 'music_album_search', 'music_title', 'music_artist',
@@ -47,12 +52,15 @@ class SolrSyncController extends Controller
             $searchMusic = MusicModel::select('music_id', 'music_title_search', 'music_artist_search', 'music_composer_search', 'music_album_search', 'music_title', 'music_artist',
                 'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_title_url', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_downloads_this_week', 'music_lyric')
                 ->where('cat_id', '!=', CAT_VIDEO)
-                ->offset(627000)
-                ->limit(100000)
+                ->offset(0)
+                ->limit(200)
                 ->get();
         }
         DB::disconnect('mysql');
-        foreach ($searchMusic as $item) {
+        if($searchMusic->isEmpty())
+            return response(['Ok']);
+        $datas = [];
+        foreach ($searchMusic as $key => $item) {
             $titleSearch = Helpers::replaceKeySearch($item->music_title);
             $artistSearch = Helpers::replaceKeySearch($item->music_artist);
             $titleCharset = Helpers::rawTiengVietUrl($titleSearch, ' ');
@@ -79,7 +87,7 @@ class SolrSyncController extends Controller
                 'music_link' => '/'.Helpers::listen_url($item->toArray(), false),
                 'music_filename' => $item->music_filename,
                 'music_artist' => $item->music_artist,
-                'music_artist_id' => str_replace(';', ',', $item->music_artist_id),
+                'music_artist_id' => explode(';', $item->music_artist_id),
                 'music_artist_html' => Helpers::rawHtmlArtists($item->music_artist_id, $item->music_artist),
                 'music_listen' => $item->music_listen,
                 'music_download' => $item->music_downloads,
@@ -88,8 +96,21 @@ class SolrSyncController extends Controller
                 'music_downloads_this_week' => $item->music_downloads_this_week,
 
             ];
-            $this->Solr->addDocuments($data);
+
+            $datas[] = $data;
+            //$this->Solr->addDocuments($data);
+
+            echo ($key) . '/ ' . $item->music_id . "\n <br>";
         }
+        $this->Solr->addMultiDocuments($datas);
+
+//        if (sizeof($searchMusic) > 0)
+//        {
+//            die('<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html><head><script type="text/javascript">window.location = "?m_start='. $item->music_id .'"; </script></head><body></body></html>');
+//        }
+//        else{
+//            die('Done! Full Data!');
+//        }
         return response(['Ok']);
     }
     public function syncVideo($id = null, $videoItem = null) {
@@ -113,6 +134,9 @@ class SolrSyncController extends Controller
                 ->get();
         }
         DB::disconnect('mysql');
+        if($searchVideo->isEmpty())
+            return response(['Ok']);
+        $datas = [];
         foreach ($searchVideo as $item) {
             $titleSearch = Helpers::replaceKeySearch($item->music_title);
             $artistSearch = Helpers::replaceKeySearch($item->music_artist);
@@ -147,8 +171,10 @@ class SolrSyncController extends Controller
                 'video_downloads_this_week' => $item->music_downloads_this_week,
 
             ];
-            $this->Solr->addDocuments($data);
+            $datas[] = $data;
+//            $this->Solr->addDocuments($data);
         }
+        $this->Solr->addMultiDocuments($datas);
         return response(['Ok']);
     }
     public function syncArtist($id = null, $artistItem = null) {
@@ -164,6 +190,9 @@ class SolrSyncController extends Controller
             $artist = ArtistModel::offset(0)->limit(100000)->get();
         }
         DB::disconnect('mysql');
+        if($artist->isEmpty())
+            return response(['Ok']);
+        $datas = [];
         foreach ($artist as $item) {
             $artist_nickname_charset = Helpers::rawTiengVietUrl(mb_strtolower($item->artist_nickname, 'UTF-8'), ' ');
             $data = [
@@ -176,8 +205,10 @@ class SolrSyncController extends Controller
                 'artist_cover' => $item->artist_cover ? Helpers::file_path($item->artist_id, PUBLIC_COVER_ARTIST_PATH, true).$item->artist_cover : '/imgs/no_cover_artist.jpg',
                 'artist_avatar' => $item->artist_avatar ? Helpers::file_path($item->artist_id, PUBLIC_AVATAR_ARTIST_PATH, true).$item->artist_avatar : '/imgs/no_cover.jpg',
             ];
-            $this->Solr->addDocuments($data);
+            $datas[] = $data;
+//            $this->Solr->addDocuments($data);
         }
+        $this->Solr->addMultiDocuments($datas);
         return response(['Ok']);
     }
     public function syncCover($id = null, $coverItem = null) {
@@ -193,6 +224,9 @@ class SolrSyncController extends Controller
             $cover = CoverModel::orderBy('cover_id', 'asc')->offset(74769)->limit(100000)->get();
         }
         DB::disconnect('mysql');
+        if($cover->isEmpty())
+            return response(['Ok']);
+        $datas = [];
         foreach ($cover as $item) {
             $music_artist = $item->album_artist_1;
             $music_artist_id = $item->album_artist_id_1;
@@ -237,8 +271,10 @@ class SolrSyncController extends Controller
                 $data['music_artist_nospace'] = str_replace(' ', '', $artistCharset);
                 $data['music_artist_html'] = Helpers::rawHtmlArtists($music_artist_id, $music_artist);
             }
-            $this->Solr->addDocuments($data);
+            $datas[] = $data;
+//            $this->Solr->addDocuments($data);
         }
+        $this->Solr->addMultiDocuments($datas);
         return response(['Ok']);
     }
 
