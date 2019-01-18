@@ -57,8 +57,6 @@ class SolrSyncController extends Controller
                 ->get();
         }
         DB::disconnect('mysql');
-        if($searchMusic->isEmpty())
-            return response(['Ok']);
         $datas = [];
         foreach ($searchMusic as $key => $item) {
             $titleSearch = Helpers::replaceKeySearch($item->music_title);
@@ -100,7 +98,7 @@ class SolrSyncController extends Controller
             $datas[] = $data;
             //$this->Solr->addDocuments($data);
 
-            echo ($key) . '/ ' . $item->music_id . "\n <br>";
+//            echo ($key) . '/ ' . $item->music_id . "\n <br>";
         }
         $this->Solr->addMultiDocuments($datas);
 
@@ -134,8 +132,6 @@ class SolrSyncController extends Controller
                 ->get();
         }
         DB::disconnect('mysql');
-        if($searchVideo->isEmpty())
-            return response(['Ok']);
         $datas = [];
         foreach ($searchVideo as $item) {
             $titleSearch = Helpers::replaceKeySearch($item->music_title);
@@ -190,8 +186,6 @@ class SolrSyncController extends Controller
             $artist = ArtistModel::offset(0)->limit(100000)->get();
         }
         DB::disconnect('mysql');
-        if($artist->isEmpty())
-            return response(['Ok']);
         $datas = [];
         foreach ($artist as $item) {
             $artist_nickname_charset = Helpers::rawTiengVietUrl(mb_strtolower($item->artist_nickname, 'UTF-8'), ' ');
@@ -224,8 +218,6 @@ class SolrSyncController extends Controller
             $cover = CoverModel::orderBy('cover_id', 'asc')->offset(74769)->limit(100000)->get();
         }
         DB::disconnect('mysql');
-        if($cover->isEmpty())
-            return response(['Ok']);
         $datas = [];
         foreach ($cover as $item) {
             $music_artist = $item->album_artist_1;
