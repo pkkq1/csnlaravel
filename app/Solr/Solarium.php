@@ -159,15 +159,15 @@ class Solarium
                 $doc->$key = $val;
             }
 
-            try {
+//            try {
                 $update->addDocument($doc, $overWrite);
-            } catch (Exception $e) {
-                return [
-                    'status' => false,
-                    'message' => $e->getMessage()
+  //          } catch (Exception $e) {
+    //            return [
+      //              'status' => false,
+        //            'message' => $e->getMessage()
 //            'time' => $result->getQueryTime(),
-                ];
-            }
+          //      ];
+            //}
         }
 
         $update->addCommit();
