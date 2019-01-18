@@ -30,13 +30,27 @@ class SolrSyncController extends Controller
         return $this->Solr->ping();
     }
 
-    public function syncMusic() {
-        $searchMusic = MusicModel::select('music_id', 'music_title_search', 'music_artist_search', 'music_composer_search', 'music_album_search', 'music_title', 'music_artist',
-        'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_title_url', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_downloads_this_week', 'music_lyric')
-            ->where('cat_id', '!=', CAT_VIDEO)
-            ->offset(527000)
-            ->limit(100000)
-            ->get();
+    public function syncMusic($id = null, $musicItem = null) {
+        if($id) {
+            $searchMusic = MusicModel::select('music_id', 'music_title_search', 'music_artist_search', 'music_composer_search', 'music_album_search', 'music_title', 'music_artist',
+                'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_title_url', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_downloads_this_week', 'music_lyric')
+                ->where('cat_id', '!=', CAT_VIDEO)
+                ->where('music_id', $id)
+                ->get();
+        }elseif($musicItem){
+            if(is_array($musicItem)){
+                $searchMusic = $musicItem;
+            }else{
+                $searchMusic[] = $musicItem;
+            }
+        }else {
+            $searchMusic = MusicModel::select('music_id', 'music_title_search', 'music_artist_search', 'music_composer_search', 'music_album_search', 'music_title', 'music_artist',
+                'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_title_url', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_downloads_this_week', 'music_lyric')
+                ->where('cat_id', '!=', CAT_VIDEO)
+                ->offset(627000)
+                ->limit(100000)
+                ->get();
+        }
         DB::disconnect('mysql');
         foreach ($searchMusic as $item) {
             $titleSearch = Helpers::replaceKeySearch($item->music_title);
@@ -78,12 +92,26 @@ class SolrSyncController extends Controller
         }
         return response(['Ok']);
     }
-    public function syncVideo() {
-        $searchVideo = VideoModel::select('music_id', 'music_title_search', 'music_artist_search', 'music_composer_search', 'music_album_search', 'music_title', 'music_artist',
-            'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_title_url', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_width', 'music_height', 'music_last_update_time', 'music_length', 'music_time')
-            ->offset(36238)
-            ->limit(40000)
-            ->get();
+    public function syncVideo($id = null, $videoItem = null) {
+        if($id) {
+            $searchVideo = VideoModel::select('music_id', 'music_title_search', 'music_artist_search', 'music_composer_search', 'music_album_search', 'music_title', 'music_artist',
+                'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_title_url', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_width', 'music_height', 'music_last_update_time', 'music_length', 'music_time')
+                ->where('cat_id', '!=', CAT_VIDEO)
+                ->where('music_id', $id)
+                ->get();
+        }elseif($videoItem){
+            if(is_array($videoItem)){
+                $searchVideo = $videoItem;
+            }else{
+                $searchVideo[] = $videoItem;
+            }
+        }else {
+            $searchVideo = VideoModel::select('music_id', 'music_title_search', 'music_artist_search', 'music_composer_search', 'music_album_search', 'music_title', 'music_artist',
+                'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_title_url', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_width', 'music_height', 'music_last_update_time', 'music_length', 'music_time')
+                ->offset(0)
+                ->limit(40000)
+                ->get();
+        }
         DB::disconnect('mysql');
         foreach ($searchVideo as $item) {
             $titleSearch = Helpers::replaceKeySearch($item->music_title);
@@ -125,9 +153,13 @@ class SolrSyncController extends Controller
     }
     public function syncArtist($id = null, $artistItem = null) {
         if($id) {
-            $artist = ArtistModel::where('artist_id', $id)->offset(0)->limit(100000)->get();
+            $artist = ArtistModel::where('artist_id', $id)->get();
         }elseif($artistItem){
-            $artist[] = $artistItem;
+            if(is_array($artistItem)){
+                $artist = $artistItem;
+            }else{
+                $artist[] = $artistItem;
+            }
         }else {
             $artist = ArtistModel::offset(0)->limit(100000)->get();
         }
@@ -148,8 +180,18 @@ class SolrSyncController extends Controller
         }
         return response(['Ok']);
     }
-    public function syncCover() {
-        $cover = CoverModel::orderBy('cover_id', 'asc')->offset(74769)->limit(100000)->get();
+    public function syncCover($id = null, $coverItem = null) {
+        if($id) {
+            $cover = CoverModel::where('cover_id', $id)->orderBy('cover_id', 'asc')->get();
+        }elseif($coverItem){
+            if(is_array($coverItem)){
+                $cover = $coverItem;
+            }else{
+                $cover[] = $coverItem;
+            }
+        }else {
+            $cover = CoverModel::orderBy('cover_id', 'asc')->offset(74769)->limit(100000)->get();
+        }
         DB::disconnect('mysql');
         foreach ($cover as $item) {
             $music_artist = $item->album_artist_1;

@@ -133,7 +133,7 @@
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
-                {{--<a href="javascript:void(0)" onclick="redirectUpload('{{env('APP_URL')}}/dang-tai')" style="text-decoration: none;" title=""><button id="btn_cloud_up" class="btn btn-outline-success my-2 my-sm-0 waves-effect waves-light" type="button"><i class="material-icons">cloud_upload</i> Upload</button></a>--}}
+                <a href="javascript:void(0)" onclick="redirectUpload('{{env('APP_URL')}}/dang-tai')" style="text-decoration: none;" title=""><button id="btn_cloud_up" class="btn btn-outline-success my-2 my-sm-0 waves-effect waves-light" type="button"><i class="material-icons">cloud_upload</i> Upload</button></a>
             </form>
         </div>
         <div id="menu-expand" class="menu-expand-wrapper">

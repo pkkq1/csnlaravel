@@ -17,6 +17,8 @@ use App\Repositories\MusicListen\MusicListenEloquentRepository;
 use App\Repositories\VideoListen\VideoListenEloquentRepository;
 use App\Repositories\MusicDownload\MusicDownloadEloquentRepository;
 use App\Repositories\VideoDownload\VideoDownloadEloquentRepository;
+use App\Solr\Solarium;
+use App\Http\Controllers\Sync\SolrSyncController;
 use DB;
 
 class MusicListenDownloadController extends Controller
@@ -27,15 +29,17 @@ class MusicListenDownloadController extends Controller
     protected $musicDownloadRepository;
     protected $videoListenRepository;
     protected $videoDownloadRepository;
+    protected $Solr;
 
     public function __construct(MusicEloquentRepository $musicRepository, MusicListenEloquentRepository $musicListenRepository, MusicDownloadEloquentRepository $musicDownloadRepository, VideoEloquentRepository $videoRepository,
-                                VideoListenEloquentRepository $videoListenRepository, VideoDownloadEloquentRepository $videoDownloadRepository) {
+                                VideoListenEloquentRepository $videoListenRepository, VideoDownloadEloquentRepository $videoDownloadRepository, Solarium $Solr) {
         $this->musicRepository = $musicRepository;
         $this->videoRepository = $videoRepository;
         $this->musicListenRepository = $musicListenRepository;
         $this->musicDownloadRepository = $musicDownloadRepository;
         $this->videoListenRepository = $videoListenRepository;
         $this->videoDownloadRepository = $videoDownloadRepository;
+        $this->Solr = $Solr;
     }
     public function syncMusicListen() {
         $query  = "UPDATE csn_music_listen SET music_listen_this_week = (music_listen_today_7 + music_listen_today_6 + music_listen_today_5 + music_listen_today_4 + music_listen_today_3 + music_listen_today_2 + music_listen_today_1), music_listen_today_7 = music_listen_today_6,
@@ -69,38 +73,70 @@ class MusicListenDownloadController extends Controller
 
     public function realMusicListen(){
         $result = $this->musicListenRepository->getModel()::where('music_listen_time', '>',  strtotime(TIME_EXPIRED_UPLOAD_LISTEN_DOWNLOAD))->get();
+        $Solr = new SolrSyncController($this->Solr);
+        $musicArr = [];
         foreach ($result as $item) {
-            $this->musicRepository->getModel()::where('music_id', $item->music_id)->update([
-                'music_listen' => $item->music_listen
-            ]);
+            $music = $this->musicRepository->getModel()::where('music_id', $item->music_id)->first();
+            if($music) {
+                $music->update([
+                    'music_listen' => $item->music_listen
+                ]);
+                $musicArr[] = $music;
+            }
         }
+        if($musicArr)
+            $Solr->syncMusic(null, $musicArr);
         return response(['Ok']);
     }
     public function realMusicDownload(){
         $result = $this->musicDownloadRepository->getModel()::where('music_downloads_time', '>',  strtotime(TIME_EXPIRED_UPLOAD_LISTEN_DOWNLOAD))->get();
+        $Solr = new SolrSyncController($this->Solr);
+        $musicArr = [];
         foreach ($result as $item) {
-            $this->musicRepository->getModel()::where('music_id', $item->music_id)->update([
-                'music_downloads' => $item->music_downloads
-            ]);
+            $music = $this->musicRepository->getModel()::where('music_id', $item->music_id);
+            if($music) {
+                $music->update([
+                    'music_downloads' => $item->music_downloads
+                ]);
+                $musicArr[] = $musicArr;
+            }
         }
+        if($musicArr)
+            $Solr->syncMusic(null, $musicArr);
         return response(['Ok']);
     }
     public function realVideoListen(){
         $result = $this->videoListenRepository->getModel()::where('music_listen_time', '>',  strtotime(TIME_EXPIRED_UPLOAD_LISTEN_DOWNLOAD))->get();
+        $Solr = new SolrSyncController($this->Solr);
+        $videoArr = [];
         foreach ($result as $item) {
-            $this->videoRepository->getModel()::where('music_id', $item->music_id)->update([
-                'music_listen' => $item->music_listen
-            ]);
+            $video = $this->videoRepository->getModel()::where('music_id', $item->music_id);
+            if($video) {
+                $video->update([
+                    'music_listen' => $item->music_listen
+                ]);
+                $videoArr[] = $video;
+            }
         }
+        if($videoArr)
+            $Solr->syncVideo(null, $videoArr);
         return response(['Ok']);
     }
     public function realVideoDownload(){
         $result = $this->videoDownloadRepository->getModel()::where('music_downloads_time', '>',  strtotime(TIME_EXPIRED_UPLOAD_LISTEN_DOWNLOAD))->get();
+        $Solr = new SolrSyncController($this->Solr);
+        $videoArr = [];
         foreach ($result as $item) {
-            $this->videoRepository->getModel()::where('music_id', $item->music_id)->update([
-                'music_downloads' => $item->music_downloads
-            ]);
+            $video = $this->videoRepository->getModel()::where('music_id', $item->music_id);
+            if($video) {
+                $video->update([
+                    'music_downloads' => $item->music_downloads
+                ]);
+                $videoArr[] = $video;
+            }
         }
+        if($videoArr)
+            $Solr->syncVideo(null, $videoArr);
         return response(['Ok']);
     }
 }

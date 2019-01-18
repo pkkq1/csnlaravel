@@ -14,7 +14,7 @@ $titleMeta = (isset($music) ? 'Chỉnh sửa '.$music->music_title : 'Cập nh�
 @endsection
 @extends('web.layouts.app')
 @section('content')
-    @include('web.user.box_profile', ['user' =>  Auth::user(), 'float_edit' => false, 'float_edit' => false])
+{{--    @include('web.user.box_profile', ['user' =>  Auth::user(), 'float_edit' => false, 'float_edit' => false])--}}
     <div class="container">
         <div class="row row_wrapper">
             <div class="col-md-9">

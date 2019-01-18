@@ -14,10 +14,11 @@ $titleMeta = 'Cập nhật album - ' . Config::get('constants.app.title');
 @endsection
 @extends('web.layouts.app')
 @section('content')
-    @include('web.user.box_profile', ['user' =>  Auth::user(), 'float_edit' => false])
+{{--    @include('web.user.box_profile', ['user' =>  Auth::user(), 'float_edit' => false])--}}
     <div class="container">
         <div class="row row_wrapper">
             <div class="col-md-9">
+                @if(!isset($album))
                 <ul class="nav nav-tabs nav-upload" id="myTab" role="tablist">
                     <li class="nav-item">
                         <a class="nav-link" id="upload_lyric-tab" href="/dang-tai/nhac" >Upload bài hát</a>
@@ -26,6 +27,7 @@ $titleMeta = 'Cập nhật album - ' . Config::get('constants.app.title');
                         <a class="nav-link active" id="upload_album-tab" href="/dang-tai/album" >upload album</a>
                     </li>
                 </ul>
+                @endif
                 @if ($message = Session::get('success'))
                     <div class="alert alert-success">
                         <strong>Thành công!</strong> <?php echo $message ?>
@@ -39,7 +41,7 @@ $titleMeta = 'Cập nhật album - ' . Config::get('constants.app.title');
                 <div class="tab-content upload-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="upload_lyric" role="tabpanel" aria-labelledby="upload_lyric-tab">
                         <div class="box_upload_file d-flex align-items-center justify-content-center{{ $errors->has('drop_files') ? ' has-error-drop-file' : '' }}" >
-                            <form action="/dang-tai/file-nhac" class="box_process{{ ($errors->has('drop_html') || isset($album)) ? '' : ' dropzone' }}" enctype="multipart/form-data">
+                            <form action="/dang-tai/file-nhac" class="box_process dropzone" enctype="multipart/form-data">
                                 @if(old('drop_html'))
                                     <?php echo old('drop_html'); ?>
                                 @else
@@ -49,24 +51,26 @@ $titleMeta = 'Cập nhật album - ' . Config::get('constants.app.title');
                                         ?>
                                         <h5 class="count_file_music title" style="text-align: left;">Đang tải lên {{count($uploadFile)}} mục</h5>
                                         @foreach($uploadFile as $item)
-                                            <div class="media dz-processing"><img class="mr-3 align-self-center" src="/imgs/document.png" alt="">
-                                                <div class="media-body align-self-center">
-                                                    <div class="d-flex align-items-center justify-content-between mb-1">
-                                                        <h4 class="media-title"><a href="#" data-dz-name="" title="">{{$item->music_filename_upload}}</a>
-                                                            <small data-dz-size="" class="text-danger"><strong>{{Helpers::formatBytes($item->music_filesize)}}</strong>
-                                                            </small>
-                                                            <small data-progress-present="" class="text-danger data-progress-present"
-                                                                   style=" color: #8c959a!important;">100%
-                                                            </small>
-                                                        </h4>
-                                                    </div>
-                                                    <div class="progress">
-                                                        <div class="progress-bar dz-upload" role="progressbar"
-                                                             data-dz-uploadprogress="" style="width: 100%;"
-                                                             aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                            <a target="_blank" href="/dang-tai/nhac/{{$item->music_id}}">
+                                                <div class="media dz-processing"><img class="mr-3 align-self-center" src="/imgs/document.png" alt="">
+                                                    <div class="media-body align-self-center">
+                                                        <div class="d-flex align-items-center justify-content-between mb-1">
+                                                            <h4 class="media-title"><span style="color: #36464F;">{{$item->music_title}}</span>
+                                                                <small data-dz-size="" class="text-danger"><strong>{{Helpers::formatBytes($item->music_filesize)}}</strong>
+                                                                </small>
+                                                                <small data-progress-present="" class="text-danger data-progress-present"
+                                                                       style=" color: #8c959a!important;">100%
+                                                                </small>
+                                                            </h4>
+                                                        </div>
+                                                        <div class="progress">
+                                                            <div class="progress-bar dz-upload" role="progressbar"
+                                                                 data-dz-uploadprogress="" style="width: 100%;"
+                                                                 aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </a>
                                         @endforeach
                                     @else
                                         <h5 class="count_file_music" style="text-align: left;"></h5>
@@ -310,7 +314,49 @@ $titleMeta = 'Cập nhật album - ' . Config::get('constants.app.title');
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="/js/dropzone.js"></script>
+
+    @if($errors->has('drop_html') || isset($album))
+        <style>
+            .dropzone.dz-clickable * {
+                cursor: pointer;
+            }
+            <?php if(count($uploadFile) > 2) {
+            ?>
+                .dropzone{
+                    overflow-y: scroll; height: 220px;
+                }
+            <?php
+            } ?>
+        </style>
+    @else
+        <script type="text/javascript" src="/js/dropzone.js"></script>
+        <script>
+            // Dropzone.prototype.defaultOptions.acceptedFiles = '';
+            Dropzone.prototype.defaultOptions.headers = {
+                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+            };
+            Dropzone.prototype.defaultOptions.callResponseSuccess = function(result) {
+                if(result.status === true) {
+                    var oldFileDrops = $('.drop_files').val();
+                    var oldFileSize = $('.music_filesize').val();
+                    $('.drop_files').val(oldFileDrops ? oldFileDrops + ';' + result.file_name : result.file_name);
+                    $('.music_filesize').val(oldFileSize ? oldFileSize + ';' + result.file_size : result.file_size);
+                    $('.dz-message').remove();
+                    $('.drop_html').val($('.dropzone').html());
+                }else{
+                    alertModal(result.message);
+                    $('#myModal').on('hidden.bs.modal', function () {
+                        location.reload();
+                    })
+                }
+            };
+            <?php
+            if(old('drop_html'))
+                echo 'Dropzone.prototype.defaultOptions.disableDropZone = true;
+                  Dropzone.prototype.defaultOptions.maxFiles = 0;';
+            ?>
+        </script>
+    @endif
     <script type="text/javascript" src="/js/croppie.js"></script>
     <script type="text/javascript" src="/js/bootstrap-tagsinput.js"></script>
     <script type="text/javascript" src="/js/typeahead.bundle.js"></script>
@@ -322,31 +368,6 @@ $titleMeta = 'Cập nhật album - ' . Config::get('constants.app.title');
                 return false;
             }
         });
-        // Dropzone.prototype.defaultOptions.acceptedFiles = '';
-        Dropzone.prototype.defaultOptions.headers = {
-            'X-CSRF-TOKEN': '{{ csrf_token() }}'
-        };
-        Dropzone.prototype.defaultOptions.callResponseSuccess = function(result) {
-            if(result.status === true) {
-                var oldFileDrops = $('.drop_files').val();
-                var oldFileSize = $('.music_filesize').val();
-                $('.drop_files').val(oldFileDrops ? oldFileDrops + ';' + result.file_name : result.file_name);
-                $('.music_filesize').val(oldFileSize ? oldFileSize + ';' + result.file_size : result.file_size);
-                $('.dz-message').remove();
-                $('.drop_html').val($('.dropzone').html());
-            }else{
-                alertModal(result.message);
-                $('#myModal').on('hidden.bs.modal', function () {
-                    location.reload();
-                })
-            }
-        };
-        <?php
-        if(old('drop_html'))
-            echo 'Dropzone.prototype.defaultOptions.disableDropZone = true;
-                  Dropzone.prototype.defaultOptions.maxFiles = 0;';
-        ?>
-
         $(document).ready(function() {
             $("#music_artist_id").tokenInput("/dang-tai/ca-si/tim-kiem", {
                 theme: "facebook",

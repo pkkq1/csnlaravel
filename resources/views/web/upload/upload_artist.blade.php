@@ -8,7 +8,7 @@ $titleMeta = isset($artistExist) ? 'Cập nhật nghệ sĩ '.$artistExist->arti
     <link rel="stylesheet" type="text/css" href="/css/croppie.css">
 @endsection
 @section('content')
-    @include('web.user.box_profile', ['user' =>  Auth::user(), 'float_edit' => false])
+    {{--@include('web.user.box_profile', ['user' =>  Auth::user(), 'float_edit' => false])--}}
     <div class="container">
         <div class="row row_wrapper">
             <div class="col-md-9">

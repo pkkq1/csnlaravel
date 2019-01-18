@@ -10,6 +10,7 @@ use App\Repositories\MusicListen\MusicListenEloquentRepository;
 use App\Repositories\VideoListen\VideoListenEloquentRepository;
 use App\Repositories\MusicDownload\MusicDownloadEloquentRepository;
 use App\Repositories\VideoDownload\VideoDownloadEloquentRepository;
+use App\Solr\Solarium;
 
 class MusicListenDownload extends Command
 {
@@ -38,10 +39,11 @@ class MusicListenDownload extends Command
     protected $musicDownloadRepository;
     protected $videoListenRepository;
     protected $videoDownloadRepository;
+    protected $Solr;
 
 
     public function __construct(MusicEloquentRepository $musicRepository, MusicListenEloquentRepository $musicListenRepository, MusicDownloadEloquentRepository $musicDownloadRepository, VideoEloquentRepository $videoRepository,
-                                VideoListenEloquentRepository $videoListenRepository, VideoDownloadEloquentRepository $videoDownloadRepository)
+                                VideoListenEloquentRepository $videoListenRepository, VideoDownloadEloquentRepository $videoDownloadRepository, Solarium $Solr)
     {
         $this->musicRepository = $musicRepository;
         $this->videoRepository = $videoRepository;
@@ -49,6 +51,7 @@ class MusicListenDownload extends Command
         $this->musicDownloadRepository = $musicDownloadRepository;
         $this->videoListenRepository = $videoListenRepository;
         $this->videoDownloadRepository = $videoDownloadRepository;
+        $this->Solr = $Solr;
         parent::__construct();
     }
 
@@ -59,7 +62,7 @@ class MusicListenDownload extends Command
      */
     public function handle()
     {
-        $listenDownload = new MusicListenDownloadController($this->musicRepository, $this->musicListenRepository, $this->musicDownloadRepository, $this->videoRepository, $this->videoListenRepository, $this->videoDownloadRepository );
+        $listenDownload = new MusicListenDownloadController($this->musicRepository, $this->musicListenRepository, $this->musicDownloadRepository, $this->videoRepository, $this->videoListenRepository, $this->videoDownloadRepository, $this->Solr);
         if($this->argument('type') == 'real') {
             $listenDownload->realMusicListen();
             $listenDownload->realMusicDownload();

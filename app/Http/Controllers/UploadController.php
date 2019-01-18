@@ -205,12 +205,12 @@ class UploadController extends Controller
     }
     public function storeMusic(Request $request, $musicId = null) {
         $this->validate($request, [
-            'music_title' => 'required',
-            'music_composer' => 'required',
+            'music_title' => 'required|max:255',
+            'music_composer' => 'required|max:255',
             'music_artist' => 'required',
             'drop_files' => 'required',
-            'music_year' => 'required',
-            'music_source_url' => 'required',
+            'music_year' => 'required|max:6',
+            'music_source_url' => 'required|max:255',
         ]);
         $typeUpload = $request->input('type_upload');
         $mess = $typeUpload == 'music' ? 'bài hát' : 'video';
@@ -285,7 +285,7 @@ class UploadController extends Controller
     public function storeAlbum(Request $request, $coverId = null) {
         if($request->input('action_upload') == 'edit') {
             $this->validate($request, [
-                'music_album' => 'required',
+                'music_album' => 'required|max:255',
 //                'music_product`ion' => 'required',
 //                'music_album_id' => 'required',
                 'music_year' => 'required|max:5',
@@ -306,8 +306,8 @@ class UploadController extends Controller
             return redirect()->route('upload.storeAlbum', ['musicId' => $coverId])->with('success', 'Đã chỉnh sửa album ' . $album->album_name);;
         }
         $this->validate($request, [
-            'music_album' => 'required',
-            'music_composer' => 'required',
+            'music_album' => 'required|max:255',
+            'music_composer' => 'required|max:255',
             'music_artist' => 'required',
             'drop_files' => 'required',
             'album_cover' => 'required',
