@@ -30,12 +30,15 @@ class SolrSyncController extends Controller
         return $this->Solr->ping();
     }
 
-    public function syncMusic() {
+    public function syncMusic(Request $req) {
         $searchMusic = MusicModel::select('music_id', 'music_title_search', 'music_artist_search', 'music_composer_search', 'music_album_search', 'music_title', 'music_artist',
         'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_title_url', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_downloads_this_week', 'music_lyric')
             ->where('cat_id', '!=', CAT_VIDEO)
-            ->offset(345427)
-            ->limit(100000)
+            ->where('music_deleted', '<', 1)
+            ->where('music_id', '>', intval($req->m_start))
+            ->orderBy('music_id', 'asc')
+//            ->offset(0)
+            ->limit(100)
             ->get();
         DB::disconnect('mysql');
         foreach ($searchMusic as $item) {
@@ -75,14 +78,21 @@ class SolrSyncController extends Controller
 
             ];
             $this->Solr->addDocuments($data);
+
+            echo $item->music_id . "\n <br>";
+        }
+
+        if (sizeof($searchMusic) > 0)
+        {
+            dd('<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html><head><script type="text/javascript">window.location = "?m_start='. $item->music_id .'"; </script></head><body></body></html>');
         }
         return response(['Ok']);
     }
-    public function syncVideo() {
+    public function syncVideo(Request $req) {
         $searchVideo = VideoModel::select('music_id', 'music_title_search', 'music_artist_search', 'music_composer_search', 'music_album_search', 'music_title', 'music_artist',
             'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_title_url', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_width', 'music_height', 'music_last_update_time', 'music_length', 'music_time')
-            ->offset(36238)
-            ->limit(40000)
+            ->offset(0)
+            ->limit(10)
             ->get();
         DB::disconnect('mysql');
         foreach ($searchVideo as $item) {
