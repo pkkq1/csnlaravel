@@ -38,7 +38,7 @@ class SolrSyncController extends Controller
             ->where('music_id', '>', intval($req->m_start))
             ->orderBy('music_id', 'asc')
 //            ->offset(0)
-            ->limit(150)
+            ->limit(200)
             ->get();
         DB::disconnect('mysql');
         $datas = array();
@@ -70,7 +70,7 @@ class SolrSyncController extends Controller
                 'music_link' => '/'.Helpers::listen_url($item->toArray(), false),
                 'music_filename' => $item->music_filename,
                 'music_artist' => $item->music_artist,
-                'music_artist_id' => str_replace(';', ',', $item->music_artist_id),
+                'music_artist_id' => explode(';', $item->music_artist_id),
                 'music_artist_html' => Helpers::rawHtmlArtists($item->music_artist_id, $item->music_artist),
                 'music_listen' => $item->music_listen,
                 'music_download' => $item->music_downloads,
