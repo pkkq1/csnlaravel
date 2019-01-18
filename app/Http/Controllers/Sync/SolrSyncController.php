@@ -1,11 +1,15 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: admin
  * Date: 8/17/2018
  * Time: 3:38 PM
  */
+
 namespace App\Http\Controllers\Sync;
+ini_set('memory_limit', '-1');
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request as Request;
 use Illuminate\Support\Facades\Auth;
@@ -38,7 +42,7 @@ class SolrSyncController extends Controller
             ->where('music_id', '>', intval($req->m_start))
             ->orderBy('music_id', 'asc')
 //            ->offset(0)
-            ->limit(5000)
+            ->limit(2000)
             ->get();
         DB::disconnect('mysql');
         $datas = array();
