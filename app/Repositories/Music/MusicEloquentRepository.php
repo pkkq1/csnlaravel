@@ -74,9 +74,10 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
         $result = $this
             ->_model
             ->select('music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'music_album_id', 'music_listen', 'music_bitrate', 'music_filename', 'music_length')
-            ->where('music_artist', 'like', $artist)
-            ->orWhere('music_artist', 'like', $artist.',%')
-            ->orWhere('music_artist', 'like', '%,'.$artist)
+            ->where('music_artist_id', 'like', $artist)
+            ->orWhere('music_artist_id', 'like', $artist.';%')
+            ->orWhere('music_artist_id', 'like', '%;'.$artist)
+            ->orWhere('music_artist_id', 'like', '%;'.$artist.';%')
             ->orderBy($fillOrder, $typeOrder)
             ->paginate($page);
         return $result;
