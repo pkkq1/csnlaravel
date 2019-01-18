@@ -200,7 +200,7 @@
                 <p>Some text in the modal.</p>
             </div>
             <div class="modal-footer">
-                <a class="btn btn-danger btn-ok" style="color: white;">Xác nhận</a>
+                <a class="btn btn-danger btn-ok" style="color: white;">Đồng ý</a>
                 <button type="button" class="btn btn-default close_confirm" data-dismiss="modal">Hủy</button>
             </div>
         </div>

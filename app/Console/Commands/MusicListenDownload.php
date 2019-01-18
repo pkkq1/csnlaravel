@@ -4,9 +4,12 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use App\Http\Controllers\Sync\MusicListenDownloadController;
-use App\Repositories\Cover\CoverEloquentRepository;
 use App\Repositories\Music\MusicEloquentRepository;
 use App\Repositories\Video\VideoEloquentRepository;
+use App\Repositories\MusicListen\MusicListenEloquentRepository;
+use App\Repositories\VideoListen\VideoListenEloquentRepository;
+use App\Repositories\MusicDownload\MusicDownloadEloquentRepository;
+use App\Repositories\VideoDownload\VideoDownloadEloquentRepository;
 
 class MusicListenDownload extends Command
 {
@@ -15,7 +18,7 @@ class MusicListenDownload extends Command
      *
      * @var string
      */
-    protected $signature = 'music_listen_download';
+    protected $signature = 'music_listen_download:type {type?}';
 
     /**
      * The console command description.
@@ -29,9 +32,23 @@ class MusicListenDownload extends Command
      *
      * @return void
      */
+    protected $musicRepository;
+    protected $videoRepository;
+    protected $musicListenRepository;
+    protected $musicDownloadRepository;
+    protected $videoListenRepository;
+    protected $videoDownloadRepository;
 
-    public function __construct()
+
+    public function __construct(MusicEloquentRepository $musicRepository, MusicListenEloquentRepository $musicListenRepository, MusicDownloadEloquentRepository $musicDownloadRepository, VideoEloquentRepository $videoRepository,
+                                VideoListenEloquentRepository $videoListenRepository, VideoDownloadEloquentRepository $videoDownloadRepository)
     {
+        $this->musicRepository = $musicRepository;
+        $this->videoRepository = $videoRepository;
+        $this->musicListenRepository = $musicListenRepository;
+        $this->musicDownloadRepository = $musicDownloadRepository;
+        $this->videoListenRepository = $videoListenRepository;
+        $this->videoDownloadRepository = $videoDownloadRepository;
         parent::__construct();
     }
 
@@ -42,10 +59,17 @@ class MusicListenDownload extends Command
      */
     public function handle()
     {
-        $albumCat = new MusicListenDownloadController();
-        $albumCat->syncMusicListen();
-        $albumCat->syncMusicDownload();
-        $albumCat->syncVideoListen();
-        $albumCat->syncVideoDownload();
+        $listenDownload = new MusicListenDownloadController($this->musicRepository, $this->musicListenRepository, $this->musicDownloadRepository, $this->videoRepository, $this->videoListenRepository, $this->videoDownloadRepository );
+        if($this->argument('type') == 'real') {
+            $listenDownload->realMusicListen();
+            $listenDownload->realMusicDownload();
+            $listenDownload->realVideoListen();
+            $listenDownload->realVideoDownload();
+        }elseif($this->argument('type') == 'today') {
+            $listenDownload->syncMusicListen();
+            $listenDownload->syncMusicDownload();
+            $listenDownload->syncVideoListen();
+            $listenDownload->syncVideoDownload();
+        }
     }
 }
