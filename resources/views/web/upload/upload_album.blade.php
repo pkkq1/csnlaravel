@@ -98,7 +98,7 @@ $titleMeta = 'Cập nhật album - ' . Config::get('constants.app.title');
                                     <div class="card cover_upload form-group" <?php echo isset($album) ? 'style="padding-top: 0px; font-size: 200%;"' : '' ?>>
                                         @if(isset($album))
                                         <label for="choose_album_cover" class="card-body d-flex align-items-center justify-content-center" style="z-index: 9999;cursor: pointer;"></label>
-                                        <img class="mr-3" {{isset($album) ? '' : 'hidden'}} id="album_cover_uploaded" src="{{isset($album) ? Helpers::cover_url($album->cover_id) : '/imgs/avatar_default.png?v='.time()}}" alt="" style="z-index: 999; width: 147px;">
+                                        <img class="mr-3" {{isset($album) ? '' : 'hidden'}} id="album_cover_uploaded" src="{{isset($album) ? Helpers::cover_url($album->cover_id) : '/imgs/avatar_default.png?v='.time()}}" alt="" style="z-index: 999; width: 175px;">
                                         @else
                                         <label for="choose_album_cover" class="card-body d-flex align-items-center justify-content-center" style="z-index: 9999">
                                             <div class="form-group text-center m-0 icon_camera_cover">
