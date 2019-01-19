@@ -1392,6 +1392,8 @@ a.boxclose{
     padding-top: 0px!important;
     width: 98.8%;
 }
-
+.cover_upload {
+    cursor: pointer;
+}
 
 
