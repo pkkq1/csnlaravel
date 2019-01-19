@@ -55,7 +55,7 @@ class SolrSyncController extends Controller
                 ->where('music_deleted', '<', 1)
                 ->where('music_id', '>', intval($req->m_start))
                 ->offset(0)
-                ->limit(200)
+                ->limit(2000)
                 ->get();
         }
         DB::disconnect('mysql');
