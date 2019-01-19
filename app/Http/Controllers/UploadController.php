@@ -67,8 +67,10 @@ class UploadController extends Controller
             $music = $this->uploadRepository->findMusicStatus($id, $musicId, $arrStage);
             if(!$music)
                 return view('errors.404');
+            if($music->cover_id)
+                $album = $this->coverRepository->findCover($music->cover_id);
         }
-        return view('upload.upload_music', compact('typeUpload', 'music'));
+        return view('upload.upload_music', compact('typeUpload', 'music', 'album'));
     }
     public function createVideo(Request $request, $musicId = null) {
         $typeUpload = 'video';
@@ -240,9 +242,14 @@ class UploadController extends Controller
             $result->music_lyric = $request->input('music_lyric') ?? '';
             $result->music_source_url = $request->input('music_source_url') ?? '';
             $result->music_note = $request->input('music_note') ?? '';
-            if($per_Xet_Duyet) {
-                $result->music_state = $request->input('music_state');
+            if(!$request->input('cover_id')) {
+                $result->cover_id = 0;
+            }else{
+                if($per_Xet_Duyet)
+                    $result->cover_id = str_replace('cover_', '', $request->input('cover_id'));
             }
+            if($per_Xet_Duyet)
+                $result->music_state = $request->input('music_state');
             if($per_Xet_Duyet_Chat_luong) {
                 $result->music_bitrate_fixed = $request->input('music_bitrate_fixed');
                 $result->music_bitrate_fixed_by = Auth::user()->id;

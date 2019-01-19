@@ -167,7 +167,7 @@
                     '  </li>';
             });
             return '<h4 class="card-title">Video</h4>' +
-                '<ul class="list-unstyled list_music">' +
+                '<ul class="list-unstyled list_music suggest_video">' +
                 video +
                 '</ul>';
         }

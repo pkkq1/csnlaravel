@@ -1244,7 +1244,7 @@ form#login-form {
     float: none;
 }
 .list_music .media .media-left .video_thumbnail {
-    width: 90px;
+    width: 98px;
     height: 55px;
     -o-object-fit: cover;
     object-fit: cover;
@@ -1314,6 +1314,9 @@ form#login-form {
 .choose_music_search .media {
     border-top: none;
 }
+.choose_album_search .media {
+    border-top: none;
+}
 .search_layout_upload {
     width: 98%;
     position: absolute!important;
@@ -1321,6 +1324,10 @@ form#login-form {
     display: none;
 }
 .choose_music_search {
+    padding-left: 10px;
+    width: 100%;
+}
+.choose_album_search {
     padding-left: 10px;
     width: 100%;
 }
@@ -1359,5 +1366,32 @@ form#login-form {
     height: 20px;
     margin-bottom: -6px;
 }
+a.boxclose{
+    float: right;
+    margin-top: 24px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    color: #fff!important;
+    border: 1px solid #AEAEAE;
+    border-radius: 30px;
+    background: #585454;
+    font-size: 27px;
+    font-weight: bold;
+    display: inline-block;
+    line-height: 2px;
+    padding: 13px 3px;
+}
+
+.boxclose:before {
+    content: "×";
+    margin-right: 0px;
+    float: left;
+    margin-top: -4px;
+}
+.choose_album_search li, .choose_music_search li {
+    padding-top: 0px!important;
+    width: 98.8%;
+}
+
 
 

@@ -1,5 +1,6 @@
 $( document ).ready(function() {
     $(".this_more").click(function (a) {
+        $(".suggest_search").fadeOut("fast")
         a.stopPropagation();
         if ($(".iconmenu").hasClass("active")) {
             $(".iconmenu").removeClass("active");
@@ -13,6 +14,7 @@ $( document ).ready(function() {
     });
     var b;
     $(".this_more").on("mouseenter", function (a) {
+        $(".suggest_search").fadeOut("fast")
         b = setTimeout(function () {
             a.stopPropagation();
             $(".iconmenu").addClass("active");
@@ -38,7 +40,13 @@ $( document ).ready(function() {
     });
     $('#music_search').click(function(a){
         a.stopPropagation();
-        $(".suggest_search").fadeIn("fast")
+        $(".suggest_search").fadeOut("fast")
+        $(".search_layout_upload_music").fadeIn("fast")
+    });
+    $('#album_search').click(function(a){
+        a.stopPropagation();
+        $(".suggest_search").fadeOut("fast")
+        $(".search_layout_upload_album").fadeIn("fast")
     });
     $('body').click(function(){
         $(".suggest").fadeOut("fast")

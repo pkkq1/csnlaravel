@@ -3,6 +3,7 @@
 use App\Library\Helpers;
 $mess = $typeUpload == 'music' ? 'bài hát' : 'video';
 $titleMeta = (isset($music) ? 'Chỉnh sửa '.$music->music_title : 'Cập nhật '.$mess.' mới').' - ' . Config::get('constants.app.title');
+$perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
 ?>
 @section('contentCSS')
     <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/dropzone.css">
@@ -81,14 +82,51 @@ $titleMeta = (isset($music) ? 'Chỉnh sửa '.$music->music_title : 'Cập nh�
                             <div class="row row10px">
                                 <div class="col-12">
                                     <div class="box_right_upload form-row">
-
                                         <div class="form-group col-12">
-                                            <label for="exampleInputEmail1" style="font-style: italic;">Bài hát gốc</label>
-                                            <input type="text" class="form-control" name="music_search" value="" style="font-style: italic;" id="music_search"  placeholder="Nhập tên bài hát bạn cần tìm">
-                                            <div class="search_layout_upload card suggest_search"></div>
+                                            <div for="exampleInputEmail1" style="font-style: italic; margin-bottom: .5rem">Bài hát gốc</div>
+                                            <input type="text" class="form-control" name="music_search" value="" style="font-style: italic; font-family: inherit" id="music_search"  placeholder="Nhập tên bài hát bạn cần tìm">
+                                            <div class="search_layout_upload_music card suggest_search search_layout_upload"></div>
                                             <input type="hidden" class="form-control" name="music_original_id" value="" id="music_original_id">
                                         </div>
                                         <div class="choose_music_search list_music"></div>
+                                        @if(isset($music) && isset($album) || $perMission_Duyet_Sua_Nhac)
+
+                                        <div class="form-group col-12" style="margin-bottom: 0px;">
+                                            <label for="music_title">Album</label>
+                                            @if($perMission_Duyet_Sua_Nhac)
+                                            <input type="text" class="form-control" name="album_search" value="" style="font-style: italic; font-family: inherit; margin-bottom: 15px" id="album_search"  placeholder="Nhập tên album bạn cần tìm">
+                                            <div class="search_layout_upload_album card suggest_search search_layout_upload"></div>
+                                            <input type="hidden" class="form-control" name="album_original_id" value="" id="album_original_id">
+                                            @endif
+                                        </div>
+                                        <div class="choose_album_search list_music">
+                                            @if($music->cover_id)
+                                            <?php
+                                                $url = Helpers::album_url($album->toArray());
+                                            ?>
+                                            <li class="media align-items-stretch parent-line">
+                                                <div class="media-left align-items-stretch mr-2">
+                                                    <a target="_blank"href="{{$url}}"title="{{$album->music_album}} {{$album->album_artist_1}} {{$album->album_artist_2 ? '; '.$album->album_artist_2 : ''}}">
+                                                        <img src="{{Helpers::cover_url($album->cover_id)}}" alt="{{$album->music_album}} {{$album->album_artist_1}} {{$album->album_artist_2 ? '; '.$album->album_artist_2 : ''}}">
+                                                        <i class="material-icons">play_circle_outline</i>
+                                                    </a>
+                                                </div>
+                                                <a target="_blank" class="search-line" title="{{$album->music_album}}" href="{{$url}}">
+                                                    <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
+                                                        <div><h5 class="media-title mt-0 mb-0 span_h5" title="{{$album->music_album}} {{$album->album_artist_1}} {{$album->album_artist_2 ? '; '.$album->album_artist_2 : ''}}"><span class="search_highlight">{{$album->music_album}}{{$album->album_artist_1}} {{$album->album_artist_2 ? '; '.$album->album_artist_2 : ''}}</span>
+                                                            </h5>
+                                                            <div class="author">{{$album->album_artist_1}} {{$album->album_artist_2 ? '; '.$album->album_artist_2 : ''}}</div>
+                                                        </div>
+                                                        <small class="type_music c1"></small>
+                                                    </div>
+                                                </a>
+                                                <a class="boxclose" href="javascript:void(0)" onclick="deleteAlbum()" title="Xóa khỏi Album"></a>
+                                            </li>
+                                            @endif
+                                        </div>
+                                        @endif
+
+
                                         <div class="form-group col-12{{ $errors->has('music_title') ? ' has-error' : '' }}">
                                             <label for="music_title">Tên {{$mess}}</label>
                                             <input type="text" class="form-control" id="music_title" value="{{ old('music_title') ?? $music->music_title ?? '' }}" name="music_title" placeholder="Nhập tên {{$mess}}">
@@ -250,11 +288,12 @@ $titleMeta = (isset($music) ? 'Chỉnh sửa '.$music->music_title : 'Cập nh�
                                         <input type="hidden" name="type_upload" value="{{$typeUpload}}">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <input type="hidden" name="suggest_music" class="suggest_music" value="{{old('suggest_music')}}">
+                                        <input type="hidden" name="cover_id" class="cover_id" value="{{ old('drop_files') ?? (isset($music) ? $music->cover_id : '') }}">
                                         <input type="hidden" name="drop_files" class="drop_files" value="{{ old('drop_files') ?? (isset($music) ? 'true' : '') }}">
                                         <input type="hidden" name="drop_html" class="drop_html" value="{{old('drop_html')}}">
                                         <input type="hidden" name="music_filesize" class="music_filesize" value="{{old('music_filesize')}}">
                                         <input type="hidden" name="action_upload" class="action_upload" value="{{ isset($music) ? 'edit' : 'create' }}">
-                                        @if(Auth::user()->hasPermission('duyet_sua_nhac') && isset($music) && $music)
+                                        @if($perMission_Duyet_Sua_Nhac && isset($music) && $music)
                                         <div class="form-group col-4{{ $errors->has('music_state') ? ' has-error' : '' }}">
                                             <label for="cat_id">Tình trạng xét duyệt</label>
                                             <select class="form-control" name="music_state" id="music_state">
@@ -263,7 +302,11 @@ $titleMeta = (isset($music) ? 'Chỉnh sửa '.$music->music_title : 'Cập nh�
                                                     <option value="{{UPLOAD_STAGE_DELETED}}">Đã xóa</option>
                                             </select>
                                         </div>
-                                            @if($typeUpload != 'video' &&  Auth::user()->hasPermission('duyet_sua_chat_luong_nhac'))
+                                        <script>
+                                            document.getElementById('music_state').value = <?php echo old('music_state') ?? $music->music_state ?? 0 ?>;
+                                        </script>
+                                        @endif
+                                        @if($typeUpload != 'video' &&  Auth::user()->hasPermission('duyet_sua_chat_luong_nhac'))
                                             <div class="form-group col-4{{ $errors->has('cat_id') ? ' has-error' : '' }}">
                                                 <label for="cat_id">Chất lượng nhạc</label>
                                                 <select class="form-control" name="music_bitrate_fixed" id="music_bitrate_fixed">
@@ -277,9 +320,7 @@ $titleMeta = (isset($music) ? 'Chỉnh sửa '.$music->music_title : 'Cập nh�
                                             <div class="form-group col-8">
                                                 <img class="card-img-top" src="{{Helpers::getImgQuality($music->music_id)}}" alt="">
                                             </div>
-                                            @endif
                                             <script>
-                                                document.getElementById('music_state').value = <?php echo old('music_state') ?? $music->music_state ?? 0 ?>;
                                                 document.getElementById('music_bitrate_fixed').value = <?php echo old('music_bitrate_fixed') ?? $music->music_bitrate_fixed ?? 0 ?>;
                                             </script>
                                         @endif
@@ -556,7 +597,7 @@ $titleMeta = (isset($music) ? 'Chỉnh sửa '.$music->music_title : 'Cập nh�
             }
         ?>
 
-
+        // search music
         var dataSearch = [];
         $( document ).ready(function() {
             $( "#music_search" ).autocomplete({
@@ -578,13 +619,14 @@ $titleMeta = (isset($music) ? 'Chỉnh sửa '.$music->music_title : 'Cập nh�
                 }
             }).autocomplete( "instance" )._renderItem = function( ul, item ) {
                 var theHtml = rawBodySearchUpload(rawUploadMusic(item.music['data'], item.q), item.q);
-                $('.search_layout_upload').html(theHtml);
-                $('.search_layout_upload').find('.parent-line').each(function( index ) {
+                $('.search_layout_upload_music').html(theHtml);
+                $('#music_search').removeClass('ui-autocomplete-loading');
+                $('.search_layout_upload_music').find('.parent-line').each(function( index ) {
                     $(this).click(function (event) {
+                        event.preventDefault();
                         let title = $( this ).find('.media-title').attr('title');
-                        $('#music_search').removeClass('ui-autocomplete-loading');
-                        $('#music_search').val(title);
                         $('.choose_music_search').html($( this )[0].outerHTML);
+                        $('.choose_music_search').find('li').append('<a class="boxclose" href="javascript:void(0)" onclick="deleteSuggestMusic()" title="Xóa gợi ý nhạc"></a>');
                         $('.choose_music_search').find('.media-title').html('<span class="search_highlight">' + title + '</span>');
                         $('.suggest_music').val($( this ).attr('href') || $( this ).find('a').attr('href'));
                         $.ajax({
@@ -610,7 +652,6 @@ $titleMeta = (isset($music) ? 'Chỉnh sửa '.$music->music_title : 'Cập nh�
                                 document.getElementById('cat_custom').value = response.data.cat_custom;
                             }
                         });
-                        event.preventDefault();
                     })
                 });
             };
@@ -625,14 +666,14 @@ $titleMeta = (isset($music) ? 'Chỉnh sửa '.$music->music_title : 'Cập nh�
                 var song = '';
                 $.each( musics, function( key, value ) {
                     song = song +
-                        '  <li class="media align-items-stretch parent-line">' +
+                        '  <li class="media align-items-stretch parent-line" ' + (key == 0 ? 'style="border-top: none;"' : '') +'>' +
                         '      <div class="media-left align-items-stretch mr-2">' +
-                        '          <a href="' + value.music_link + '" title="' + value.music_title + ' - ' + $(value.music_artist).text() + '">' +
+                        '          <a target="_blank" href="' + value.music_link + '" title="' + value.music_title + ' - ' + value.music_artist + '">' +
                         '              <img src="' + value.music_cover + '" alt="' + value.music_title + '">' +
                         '              <i class="material-icons">play_circle_outline</i>' +
                         '          </a>' +
                         '      </div>' +
-                        '      <a class="search-line" title="' + value.music_title + ' - ' + value.music_artist + '"  href="' + value.music_link + '" >' +
+                        '      <a class="search-line" target="_blank" title="' + value.music_title + ' - ' + value.music_artist + '"  href="' + value.music_link + '" >' +
                         '      <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">' +
                         '          <div>' +
                         '              <h5 class="media-title mt-0 mb-0 span_h5" title="' + value.music_title + ' - ' + value.music_artist + '">' + searchHighlight(q, value.music_title) + '</h5>' +
@@ -643,18 +684,91 @@ $titleMeta = (isset($music) ? 'Chỉnh sửa '.$music->music_title : 'Cập nh�
                         '      </a>' +
                         '  </li>';
                 });
-                return '<h4 class="card-title">Bài hát</h4>' +
-                    '<ul class="list-unstyled list_music">' +
+                return '<ul class="list-unstyled list_music">' +
                     song +
                     '</ul><hr>';
             }
             return '';
         }
-        $('.choose_music_search').click(function (event) {
-            event.preventDefault();
-            $('#music_search').val('');
+        function deleteSuggestMusic() {
             $('.choose_music_search').html('');
             $('.suggest_music').val('');
-        })
+        }
+
+        <?php if($perMission_Duyet_Sua_Nhac) {
+        ?>
+        // search album
+        $( document ).ready(function() {
+            $( "#album_search" ).autocomplete({
+                minLength: 1,
+                source: function( request, response ) {
+                    $.ajax( {
+                        url: "/search/real",
+                        dataType: "json",
+                        data: {
+                            q: request.term,
+                            type: 'json',
+                            rows: 10,
+                            view_album: true
+                        },
+                        success: function( data ) {
+                            dataSearch = response( data );
+                        }
+                    } );
+                }
+            }).autocomplete( "instance" )._renderItem = function( ul, item ) {
+                var theHtml = rawBodySearchUpload(rawUploadAlbum(item.album['data'], item.q), item.q);
+                $('#album_search').removeClass('ui-autocomplete-loading');
+                $('.search_layout_upload_album').html(theHtml);
+                $('.search_layout_upload_album').find('.parent-line').each(function( index ) {
+                    $(this).click(function (event) {
+                        event.preventDefault();
+                        let title = $( this ).find('.media-title').attr('title');
+                        $('.choose_album_search').html($( this )[0].outerHTML);
+                        $('.choose_album_search').find('li').append('<a class="boxclose" href="javascript:void(0)" onclick="deleteAlbum()" title="Xóa khỏi Album"></a>');
+                        $('.choose_album_search').find('.media-title').html('<span class="search_highlight">' + title + '</span>');
+                        $('.cover_id').val($('.choose_album_search').find('li').data('id'));
+                    })
+                });
+            };
+        });
+
+        function rawUploadAlbum(albums, q) {
+            if(albums.length > 0) {
+                var album = '';
+                $.each( albums, function( key, value ) {
+                    album = album +
+                        '  <li class="media align-items-stretch parent-line" ' + (key == 0 ? 'style="border-top: none;"' : '') +' data-id="' + value.album_id + '">' +
+                        '      <div class="media-left align-items-stretch mr-2">' +
+                        '          <a target="_blank" href="' + value.album_link + '" title="' + value.music_album + ' - ' + value.album_artist + '">' +
+                        '              <img src="' + value.album_cover + '" alt="' + value.music_album + '">' +
+                        '              <i class="material-icons">play_circle_outline</i>' +
+                        '          </a>' +
+                        '      </div>' +
+                        '      <a target="_blank" class="search-line" title="' + value.music_album + ' - ' + value.album_artist + '"  href="' + value.album_link + '" >' +
+                        '      <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">' +
+                        '          <div>' +
+                        '              <h5 class="media-title mt-0 mb-0 span_h5" title="' + value.music_album + ' - ' + value.album_artist + '">' + searchHighlight(q, value.music_album) + '</h5>' +
+                        '              <div class="author">' + value.album_artist + '</div>' +
+                        '          </div>' +
+                        '          <small class="type_music c1">' + (value.album_bitrate_html ? value.album_bitrate_html : '') + '</small>' +
+                        '      </div>' +
+                        '      </a>' +
+                        '  </li>';
+                });
+                return '<ul class="list-unstyled list_music">' +
+                    album +
+                    '</ul><hr>';
+            }
+            return '';
+        }
+
+
+        <?php
+        } ?>
+        function deleteAlbum() {
+            $('.choose_album_search').html('');
+            $('.cover_id').val(0);
+        }
     </script>
 @endsection

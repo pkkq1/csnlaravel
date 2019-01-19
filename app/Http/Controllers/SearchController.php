@@ -131,6 +131,7 @@ class SearchController extends Controller
                         $result[0]['album']['data'][] = [
                             'music_album' => $item['music_album'][0],
                             'album_link' => $item['album_link'][0],
+                            'album_id' => $request->view_album ? $item['id'] : '',
                             'album_bitrate' => $item['music_bitrate'][0],
                             'album_artist' => isset($item['music_artist']) ? $item['music_artist'][0] : '',
                             'album_cover' => isset($item['album_cover']) ? $item['album_cover'][0] : '',
