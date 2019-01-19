@@ -297,7 +297,10 @@ class UploadController extends Controller
 //                'music_album_id' => 'required',
                 'music_year' => 'required|max:5',
             ]);
-            $album = $this->coverRepository->findCover(Auth::user()->id, $coverId);
+            $userId = Auth::user()->id;
+            if(Auth::user()->hasPermission('duyet_sua_nhac'))
+                $userId = null;
+            $album = $this->coverRepository->findCover($coverId, $userId);
             if(!$album)
                 return view('errors.404');
             $album->music_album = $request->input('music_album');
