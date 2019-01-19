@@ -303,10 +303,10 @@ class UploadController extends Controller
             $album = $this->coverRepository->findCover($coverId, $userId);
             if(!$album)
                 return view('errors.404');
-            $album->music_album = $request->input('music_album');
-            $album->music_production = $request->input('music_production');
+            $album->music_album = $request->input('music_album') ?? '';
+            $album->music_production = $request->input('music_production') ?? '';
 //            $album->album_code = $request->input('music_album_id');
-            $album->music_year = $request->input('music_year');
+            $album->music_year = $request->input('music_year') ?? '';
             $album->save();
             if($request->input('album_cover')) {
                 $typeImageCover = array_last(explode('.', $_FILES['choose_album_cover']['name']));
