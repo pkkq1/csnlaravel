@@ -48,7 +48,9 @@ class CoverEloquentRepository extends EloquentRepository implements CoverReposit
     {
         $result = $this->_model::where('music_year', CURRENT_YEAR)
             ->where('album_music_total', '>', 0)
-            ->with('music')->orderBy($orderBy, 'desc')->limit(20)->get();
+            ->leftJoin('csn_music', 'csn_music.cover_id', 'csn_cover.cover_id')
+//            ->with('music')
+            ->orderBy($orderBy, 'desc')->limit(20)->get();
         return $result;
     }
     public function findCover($id, $userId = null)
@@ -64,7 +66,10 @@ class CoverEloquentRepository extends EloquentRepository implements CoverReposit
     }
     public function getCoverNew2()
     {
-        $result = $this->_model::where('music_year', '<', CURRENT_YEAR)->with('music')->orderBy('cover_id', 'desc')->limit(20)->get();
+        $result = $this->_model::where('music_year', '<', CURRENT_YEAR)
+            ->leftJoin('csn_music', 'csn_music.cover_id', 'csn_cover.cover_id')
+//            ->with('music')
+            ->orderBy('cover_id', 'desc')->limit(20)->get();
         return $result;
     }
     public function getCoverHot()
@@ -98,6 +103,7 @@ class CoverEloquentRepository extends EloquentRepository implements CoverReposit
             })
             ->where($arrWhere)
             ->where('album_music_total', '>', 0)
+            ->leftJoin('csn_music', 'csn_music.cover_id', 'csn_cover.cover_id')
             ->orderBy($fillOrder, $typeOrder)
             ->paginate($page);
         return $result;

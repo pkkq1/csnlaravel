@@ -18,6 +18,8 @@ use App\Repositories\Album\AlbumEloquentRepository;
 use App\Repositories\Cover\CoverEloquentRepository;
 use App\Repositories\Artist\ArtistRepository;
 use Illuminate\Support\Facades\Storage;
+use App\Solr\Solarium;
+use App\Http\Controllers\Sync\SolrSyncController;
 use File;
 use Exception;
 use App\Exceptions;
@@ -31,9 +33,10 @@ class UploadController extends Controller
     protected $uploadRepository;
     protected $albumRepository;
     protected $coverRepository;
+    protected $Solr;
 
     public function __construct(ArtistUploadEloquentRepository $artistUploadRepository, MusicEloquentRepository $musicRepository, ArtistRepository $artistRepository,
-                                UploadEloquentRepository $uploadRepository, AlbumEloquentRepository $albumRepository, VideoEloquentRepository $videoRepository, CoverEloquentRepository $coverRepository) {
+                                UploadEloquentRepository $uploadRepository, AlbumEloquentRepository $albumRepository, VideoEloquentRepository $videoRepository, CoverEloquentRepository $coverRepository, Solarium $Solr) {
         $this->artistUploadRepository = $artistUploadRepository;
         $this->musicRepository = $musicRepository;
         $this->videoRepository = $videoRepository;
@@ -41,6 +44,7 @@ class UploadController extends Controller
         $this->albumRepository = $albumRepository;
         $this->artistRepository = $artistRepository;
         $this->coverRepository = $coverRepository;
+        $this->Solr = $Solr;
         $this->middleware(function ($request, $next)
         {
             if(backpack_user()->can('banned_user_upload')){
@@ -189,7 +193,7 @@ class UploadController extends Controller
 //        $this->artistSuggestRepository
     }
     function uploadFileMusic(Request $request) {
-        $fileU = $request->file('file');
+//        $fileU = $request->file('file');
         $type = substr($_FILES['file']['type'], 0, 5);
         if($type != 'audio' && $type != 'video') {
             return response()->json([
@@ -255,6 +259,9 @@ class UploadController extends Controller
                 $result->music_bitrate_fixed_by = Auth::user()->id;
             }
             $result->save();
+            // update solr
+            $Solr = new SolrSyncController($this->Solr);
+            $Solr->syncMusic(null, $result);
             return redirect()->route('upload.storeMusic', ['musicId' => $musicId])->with('success', 'Đã chỉnh sửa '.$mess.' ' . $result->music_title);
         }else{
             $csnMusic = [
@@ -313,6 +320,9 @@ class UploadController extends Controller
                 $fileNameCovert = Helpers::saveBase64Image($request->input('album_cover'), Helpers::file_path($album->cover_id, AVATAR_ALBUM_CROP_PATH, true), $album->cover_id, $typeImageCover);
                 Helpers::copySourceImage($request->file('choose_album_cover'), Helpers::file_path($album->cover_id, COVER_ALBUM_SOURCE_PATH, true), $album->artist_id, $fileNameCovert);
             }
+            // update solr
+            $Solr = new SolrSyncController($this->Solr);
+            $Solr->syncCover(null, $album);
             return redirect()->route('upload.storeAlbum', ['musicId' => $coverId])->with('success', 'Đã chỉnh sửa album ' . $album->album_name);;
         }
         $this->validate($request, [
@@ -352,6 +362,9 @@ class UploadController extends Controller
         Helpers::copySourceImage($request->file('choose_album_cover'), Helpers::file_path($album->cover_id, COVER_ALBUM_SOURCE_PATH, true), $fileNameCovert, null);
         $album->cover_filename = $fileNameCovert;
         $album->save();
+        // update solr
+        $Solr = new SolrSyncController($this->Solr);
+        $Solr->syncCover(null, $album);
         $csnMusic = [
             'music_title' => '',
             'cover_id' => $album->cover_id,
