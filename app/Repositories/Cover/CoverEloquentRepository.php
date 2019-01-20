@@ -46,10 +46,12 @@ class CoverEloquentRepository extends EloquentRepository implements CoverReposit
      */
     public function getCoverNew($orderBy = 'album_last_updated')
     {
-        $result = $this->_model::where('music_year', CURRENT_YEAR)
-            ->where('album_music_total', '>', 0)
+        $result = $this->_model::select('csn_cover.cover_id', 'csn_cover.music_album', 'csn_cover.album_artist_id_1', 'csn_cover.album_artist_1', 'csn_cover.album_artist_id_2', 'csn_cover.album_artist_2', 'csn_cover.music_year')
+            ->where('csn_cover.music_year', CURRENT_YEAR)
+            ->where('csn_cover.album_music_total', '>', 0)
             ->join('csn_music', 'csn_music.cover_id', 'csn_cover.cover_id')
 //            ->with('music')
+            ->groupBy('csn_cover.cover_id', 'csn_cover.music_album', 'csn_cover.album_artist_id_1', 'csn_cover.album_artist_1', 'csn_cover.album_artist_id_2', 'csn_cover.album_artist_2', 'csn_cover.music_year')
             ->orderBy($orderBy, 'desc')->limit(20)->get();
         return $result;
     }
@@ -66,10 +68,12 @@ class CoverEloquentRepository extends EloquentRepository implements CoverReposit
     }
     public function getCoverNew2()
     {
-        $result = $this->_model::where('music_year', '<', CURRENT_YEAR)
+        $result = $this->_model::select('csn_cover.cover_id', 'csn_cover.music_album', 'csn_cover.album_artist_id_1', 'csn_cover.album_artist_1', 'csn_cover.album_artist_id_2', 'csn_cover.album_artist_2', 'csn_cover.music_year')
+            ->where('csn_cover.music_year', '<', CURRENT_YEAR)
             ->join('csn_music', 'csn_music.cover_id', 'csn_cover.cover_id')
 //            ->with('music')
-            ->orderBy('cover_id', 'desc')->limit(20)->get();
+            ->groupBy('csn_cover.cover_id', 'csn_cover.music_album', 'csn_cover.album_artist_id_1', 'csn_cover.album_artist_1', 'csn_cover.album_artist_id_2', 'csn_cover.album_artist_2', 'csn_cover.music_year')
+            ->orderBy('csn_cover.cover_id', 'desc')->limit(20)->get();
         return $result;
     }
     public function getCoverHot()
@@ -84,26 +88,28 @@ class CoverEloquentRepository extends EloquentRepository implements CoverReposit
     }
     public function getCategoryCover($catId, $catLevel, $year = null, $bitrate = null, $fillOrder, $typeOrder, $page)
     {
-        $arrWhereCat[] = ['album_cat_id_1', $catId];
-        $arrWhereCat2[] = ['album_cat_id_2', $catId];
+        $arrWhereCat[] = ['csn_cover.album_cat_id_1', $catId];
+        $arrWhereCat2[] = ['csn_cover.album_cat_id_2', $catId];
         if($catLevel != 0) {
-            $arrWhereCat[] = ['album_cat_level_1', $catLevel];
-            $arrWhereCat2[] = ['album_cat_level_2', $catLevel];
+            $arrWhereCat[] = ['csn_cover.album_cat_level_1', $catLevel];
+            $arrWhereCat2[] = ['csn_cover.album_cat_level_2', $catLevel];
         }
-        $arrWhere[] = ['cover_id',  '!=', 0];
+        $arrWhere[] = ['csn_cover.cover_id',  '!=', 0];
         if($year) {
             $arrWhere[] = $year;
         }
         if($bitrate) {
-            $arrWhere[] = ['music_bitrate', $bitrate];
+            $arrWhere[] = ['csn_cover.music_bitrate', $bitrate];
         }
-        $result = $this->_model::where(function($q) use ($arrWhereCat, $arrWhereCat2) {
+        $result = $this->_model::select('csn_cover.cover_id', 'csn_cover.music_album', 'csn_cover.album_artist_id_1', 'csn_cover.album_artist_1', 'csn_cover.album_artist_id_2', 'csn_cover.album_artist_2', 'csn_cover.music_year', 'csn_cover.music_bitrate')
+            ->where(function($q) use ($arrWhereCat, $arrWhereCat2) {
                 $q->where($arrWhereCat)
                     ->orWhere($arrWhereCat2);
             })
             ->where($arrWhere)
-            ->where('album_music_total', '>', 0)
+            ->where('csn_cover.album_music_total', '>', 0)
             ->join('csn_music', 'csn_music.cover_id', 'csn_cover.cover_id')
+            ->groupBy('csn_cover.cover_id', 'csn_cover.music_album', 'csn_cover.album_artist_id_1', 'csn_cover.album_artist_1', 'csn_cover.album_artist_id_2', 'csn_cover.album_artist_2', 'csn_cover.music_year', 'csn_cover.music_bitrate')
             ->orderBy($fillOrder, $typeOrder)
             ->paginate($page);
         return $result;
