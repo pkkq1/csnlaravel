@@ -33,10 +33,10 @@ class CategoryController extends Controller
         if(!$category)
             return view('errors.404');
         if($category->cat_id != CATEGORY_ID_VIDEO) {
-            $cover = $this->coverRepository->getCategoryCover($category->cat_id, $category->cat_level, ['music_year', CURRENT_YEAR], MAX_LOSTLESS, 'cover_id', 'desc', LIMIT_PAGE_CATEGORY);
+            $cover = $this->coverRepository->getCategoryCover($category->cat_id, $category->cat_level, ['csn_cover.music_year', CURRENT_YEAR], MAX_LOSTLESS, 'cover_id', 'desc', LIMIT_PAGE_CATEGORY);
             $firstTab = view('category.cover_item', compact('cover'));
         }else{
-            $video = $this->videoRepository->getCategoryVideo($category->cat_id, $category->cat_level, ['music_year', CURRENT_YEAR], 'music_last_update_time', 'desc', LIMIT_PAGE_CATEGORY);
+            $video = $this->videoRepository->getCategoryVideo($category->cat_id, $category->cat_level, ['csn_cover.music_year', CURRENT_YEAR], 'music_last_update_time', 'desc', LIMIT_PAGE_CATEGORY);
             $firstTab = view('category.video_item', compact('video'));
         }
         $caption = $category->cat_title;
@@ -49,12 +49,12 @@ class CategoryController extends Controller
         if(!$category)
             return view('errors.404');
         if($category->cat_id != CATEGORY_ID_VIDEO) {
-            $cover = $this->coverRepository->getCategoryCover($category->cat_id, $category->cat_level, ['music_year', CURRENT_YEAR], MAX_LOSTLESS, 'cover_id', 'desc', LIMIT_PAGE_CATEGORY);
+            $cover = $this->coverRepository->getCategoryCover($category->cat_id, $category->cat_level, ['csn_cover.music_year', CURRENT_YEAR], MAX_LOSTLESS, 'cover_id', 'desc', LIMIT_PAGE_CATEGORY);
             $firstTab = view('category.cover_item', compact('cover'));
             $caption = $title .' > '. str_replace('Nhạc', '', $category->cat_title);
             $caption = str_replace('Playback', ' ', $caption);
         }else {
-            $video = $this->videoRepository->getCategoryVideo($category->cat_id, $category->cat_level, ['music_year', CURRENT_YEAR], 'music_last_update_time', 'desc', LIMIT_PAGE_CATEGORY);
+            $video = $this->videoRepository->getCategoryVideo($category->cat_id, $category->cat_level, ['csn_cover.music_year', CURRENT_YEAR], 'music_last_update_time', 'desc', LIMIT_PAGE_CATEGORY);
             $firstTab = view('category.video_item', compact('video'));
             $caption = $title .' > '. str_replace('Video', ' ', $category->cat_title);
         }
@@ -65,7 +65,7 @@ class CategoryController extends Controller
     public function getTabCategory(Request $request) {
         switch ($request->tab) {
             case "album-2018":
-                $cover = $this->coverRepository->getCategoryCover($request->cat_id, $request->cat_level, ['music_year', CURRENT_YEAR], MAX_LOSTLESS, 'cover_id', 'desc', LIMIT_PAGE_CATEGORY);
+                $cover = $this->coverRepository->getCategoryCover($request->cat_id, $request->cat_level, ['csn_cover.music_year', CURRENT_YEAR], MAX_LOSTLESS, 'cover_id', 'desc', LIMIT_PAGE_CATEGORY);
                 return view('category.cover_item', compact('cover'));
                 break;
             case "album-moi":
@@ -77,7 +77,7 @@ class CategoryController extends Controller
                 return view('category.music_item', compact('music'));
                 break;
             case "video-".CURRENT_YEAR:
-                $video = $this->videoRepository->getCategoryVideo($request->cat_id, $request->cat_level, ['music_year', CURRENT_YEAR], 'music_last_update_time', 'desc', LIMIT_PAGE_CATEGORY);
+                $video = $this->videoRepository->getCategoryVideo($request->cat_id, $request->cat_level, ['csn_cover.music_year', CURRENT_YEAR], 'music_last_update_time', 'desc', LIMIT_PAGE_CATEGORY);
                 return view('category.video_item', compact('video'));
                 break;
             case "video-moi":
