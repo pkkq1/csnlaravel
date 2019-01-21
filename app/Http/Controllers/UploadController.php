@@ -201,6 +201,12 @@ class UploadController extends Controller
                 'message' => 'Định dạng file "'.$_FILES['file']['name'].'" bị sai, chỉ chấp nhận file nhạc hoặc video',
             ]);
         }
+        if($_FILES['file']['size'] > MAXIMUM_FILE_SIZE_UPLOAD_VIDEO) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Dung lượng file bạn upload quá cao, chỉ chấp nhận tối đa 5Gb file upload',
+            ]);
+        }
         $fileName = Helpers::moveFile($request->file('file'), $_SERVER['DOCUMENT_ROOT'].DEFAULT_ROOT_CACHE_MUSIC_PATH, $_FILES['file']['name']);
         return response()->json([
             'status' => true,
