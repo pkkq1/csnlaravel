@@ -151,6 +151,8 @@ $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
         }
     }
     function musicUploaded(url, stage) {
+        let urlCurrent = window.location.origin + window.location.pathname;
+        history.pushState({urlPath: urlCurrent + '?tab=tu-nhac'},"", urlCurrent + '?tab=tu-nhac')
         var uploaded = $('#uploaded');
         $.ajax({
             url: url,

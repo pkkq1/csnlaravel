@@ -1396,14 +1396,22 @@ a.boxclose{
     cursor: pointer;
 }
 .btn-album-remove {
-    color: #007bff;
+    color: #ffffff;
     z-index: 99;
     position: absolute;
-    display: none;
-    margin-left: 2px;
+    opacity: 0;
+    height: 32px;
+    line-height: 15px;
+    width: 100px;
+    background-image: linear-gradient(-243deg, #FB6B60 0%, #FF2E55 100%);
+    -webkit-transition: opacity 0.3s ease-in-out;
+    -moz-transition: opacity 0.3s ease-in-out;
+    -ms-transition: opacity 0.3s ease-in-out;
+    -o-transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
 }
 .stage_album .card-header:hover .btn-album-remove{
-    display: block;
+    opacity: 1;
 }
 
 

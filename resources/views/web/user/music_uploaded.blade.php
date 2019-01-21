@@ -294,13 +294,13 @@
         <div class="col">
             <div class="card card1">
                 <div class="card-header" style="background-image: url({{Helpers::cover_url($item['cover_id'])}});">
-                    <a class="btn-album-remove" href="{{'/dang-tai/album/'.$item['cover_id']}}" >Chỉnh sửa</a>
+                    <a class="btn-album-remove btn btn-danger" href="{{'/dang-tai/album/'.$item['cover_id']}}" title="Chỉnh sửa {{$item['music_album']}}" >Chỉnh sửa</a>
                     <a href="{{$url}}" title="{{$item['music_album']}}">
                         <span class="icon-play"></span>
                     </a>
                 </div>
                 <div class="card-body">
-                    <h3 class="card-title"><a href="{{$url}}" title="{{$item['music_album']}}">{{$item['music_album']}}</a></h3>
+                    <h3 class="card-title"><a href="{{$url}}" title="Nghe {{$item['music_album']}}">{{$item['music_album']}}</a></h3>
                 </div>
             </div>
         </div>
