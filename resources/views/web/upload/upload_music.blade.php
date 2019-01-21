@@ -318,7 +318,7 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                                                 </select>
                                             </div>
                                             <div class="form-group col-8">
-                                                <img class="card-img-top" src="{{Helpers::getImgQuality($music->music_id)}}" alt="">
+                                                <img class="card-img-top" src="{{Helpers::getImgQuality($music->music_id)}}?v={{time()}}" alt="">
                                             </div>
                                             <script>
                                                 document.getElementById('music_bitrate_fixed').value = <?php echo old('music_bitrate_fixed') ?? $music->music_bitrate_fixed ?? 0 ?>;
