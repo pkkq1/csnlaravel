@@ -1395,5 +1395,15 @@ a.boxclose{
 .cover_upload {
     cursor: pointer;
 }
+.btn-album-remove {
+    color: #007bff;
+    z-index: 99;
+    position: absolute;
+    display: none;
+    margin-left: 2px;
+}
+.stage_album .card-header:hover .btn-album-remove{
+    display: block;
+}
 
 

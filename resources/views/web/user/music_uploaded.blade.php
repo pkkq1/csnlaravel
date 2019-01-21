@@ -289,12 +289,12 @@
     <div class="row row10px float-col-width">
         <?php
         array_map(function ($i, $item) {
-        $url = '/dang-tai/album/'.$item['cover_id'];
+        $url = Helpers::album_url($item);
         ?>
         <div class="col">
             <div class="card card1">
                 <div class="card-header" style="background-image: url({{Helpers::cover_url($item['cover_id'])}});">
-
+                    <a class="btn-album-remove" href="{{'/dang-tai/album/'.$item['cover_id']}}" >Chỉnh sửa</a>
                     <a href="{{$url}}" title="{{$item['music_album']}}">
                         <span class="icon-play"></span>
                     </a>
