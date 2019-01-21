@@ -51,26 +51,28 @@ $titleMeta = 'Cập nhật album - ' . Config::get('constants.app.title');
                                         ?>
                                         <h5 class="count_file_music title" style="text-align: left;">Đang tải lên {{count($uploadFile)}} mục</h5>
                                         @foreach($uploadFile as $item)
-                                            <a target="_blank" href="/dang-tai/nhac/{{$item->music_id}}">
-                                                <div class="media dz-processing"><img class="mr-3 align-self-center" src="/imgs/document.png" alt="">
-                                                    <div class="media-body align-self-center">
-                                                        <div class="d-flex align-items-center justify-content-between mb-1">
-                                                            <h4 class="media-title"><span style="color: #36464F;">{{$item->music_title}}</span>
-                                                                <small data-dz-size="" class="text-danger"><strong>{{Helpers::formatBytes($item->music_filesize)}}</strong>
-                                                                </small>
-                                                                <small data-progress-present="" class="text-danger data-progress-present"
-                                                                       style=" color: #8c959a!important;">100%
-                                                                </small>
-                                                            </h4>
-                                                        </div>
-                                                        <div class="progress">
-                                                            <div class="progress-bar dz-upload" role="progressbar"
-                                                                 data-dz-uploadprogress="" style="width: 100%;"
-                                                                 aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                                        </div>
+                                            <?php $url = Helpers::listen_url($item); ?>
+                                            <div class="media dz-processing"><a target="_blank" href="{{$url}}"><img class="mr-3 align-self-center" src="/imgs/document.png" alt=""></a>
+                                                <div class="media-body align-self-center">
+                                                    <div class="d-flex align-items-center justify-content-between mb-1">
+                                                        <h4 class="media-title"><span style="color: #36464F;"><a target="_blank" href="{{$url}}">{{$item->music_title}}</a></span>
+                                                            <small data-dz-size="" class="text-danger"><strong>{{Helpers::formatBytes($item->music_filesize)}}</strong>
+                                                            </small>
+                                                            <small data-progress-present="" class="text-danger data-progress-present"
+                                                                   style=" color: #8c959a!important;">100%
+                                                            </small>
+                                                            <small data-progress-present="" class="text-danger data-progress-present"
+                                                                   style=" color: #8c959a!important;"><a target="_blank" href="/dang-tai/nhac/{{$item->music_id}}">chỉnh sửa</a>
+                                                            </small>
+                                                        </h4>
+                                                    </div>
+                                                    <div class="progress">
+                                                        <div class="progress-bar dz-upload" role="progressbar"
+                                                             data-dz-uploadprogress="" style="width: 100%;"
+                                                             aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                                                     </div>
                                                 </div>
-                                            </a>
+                                            </div>
                                         @endforeach
                                     @else
                                         <h5 class="count_file_music" style="text-align: left;"></h5>
