@@ -52,17 +52,17 @@ $titleMeta = 'Cập nhật album - ' . Config::get('constants.app.title');
                                         <h5 class="count_file_music title" style="text-align: left;">Đang tải lên {{count($uploadFile)}} mục</h5>
                                         @foreach($uploadFile as $item)
                                             <?php $url = Helpers::listen_url($item); ?>
-                                            <div class="media dz-processing"><a target="_blank" href="{{$url}}"><img class="mr-3 align-self-center" src="/imgs/document.png" alt=""></a>
+                                            <div class="media dz-processing"><a target="_blank" title="Nghe {{$item->music_title}}" href="{{$url}}"><img class="mr-3 align-self-center" src="/imgs/document.png" alt=""></a>
                                                 <div class="media-body align-self-center">
                                                     <div class="d-flex align-items-center justify-content-between mb-1">
-                                                        <h4 class="media-title"><span style="color: #36464F;"><a target="_blank" href="{{$url}}">{{$item->music_title}}</a></span>
+                                                        <h4 class="media-title"><span style="color: #36464F;"><a target="_blank" title="Nghe {{$item->music_title}}" href="{{$url}}">{{$item->music_title}}</a></span>
                                                             <small data-dz-size="" class="text-danger"><strong>{{Helpers::formatBytes($item->music_filesize)}}</strong>
                                                             </small>
                                                             <small data-progress-present="" class="text-danger data-progress-present"
                                                                    style=" color: #8c959a!important;">100%
                                                             </small>
                                                             <small data-progress-present="" class="text-danger data-progress-present"
-                                                                   style=" color: #8c959a!important;"><a target="_blank" href="/dang-tai/nhac/{{$item->music_id}}">chỉnh sửa</a>
+                                                                   style=" color: #8c959a!important;"><a target="_blank" href="/dang-tai/nhac/{{$item->music_id}}" title="Chỉnh sửa {{$item->music_title}}">Chỉnh sửa</a>
                                                             </small>
                                                         </h4>
                                                     </div>
