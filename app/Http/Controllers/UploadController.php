@@ -359,7 +359,7 @@ class UploadController extends Controller
             return redirect()->route('upload.upload_album')->with('error', 'tạo album thất bại');
         $typeImageCover = array_last(explode('.', $_FILES['choose_album_cover']['name']));
         $fileNameCovert = Helpers::saveBase64Image($request->input('album_cover'), Helpers::file_path($album->cover_id, AVATAR_ALBUM_CROP_PATH, true), $album->cover_id, $typeImageCover);
-        Helpers::copySourceImage($request->file('choose_album_cover'), Helpers::file_path($album->cover_id, COVER_ALBUM_SOURCE_PATH, true), $fileNameCovert, null);
+        Helpers::copySourceImage($request->file('choose_album_cover'), Helpers::file_path($album->cover_id, COVER_ALBUM_SOURCE_PATH, true), $fileNameCovert, $typeImageCover);
         $album->cover_filename = $fileNameCovert;
         $album->save();
         // update solr
