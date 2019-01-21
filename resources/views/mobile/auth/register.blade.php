@@ -20,7 +20,7 @@ use App\Library\Helpers;
                 <input type="email" placeholder="Địa chỉ email" required="email" class="input_type_mobile login_button mb-3 email">
                 <input type="password" placeholder="Mật khẩu" class="input_type_mobile login_button password mb-3">
                 <input type="password" placeholder="Xác nhận lại mật khẩu" class="input_type_mobile login_button confirm_password mb-3">
-                <div class="g-recaptcha captcha mb-3" data-sitekey="{{env('NOCAPTCHA_SECRET')}}"></div>
+                <div class="g-recaptcha captcha mb-3" data-sitekey="{{env('NOCAPTCHA_SITEKEY')}}"></div>
                 <a href="javascript:void(0)" onclick="authRegister()" class="login_button google text-gray mb-3 btn-gradien">Đăng Ký</a>
                 <div class="checkbox_remember">
                     <label for="remember" class="input-checkbox">
