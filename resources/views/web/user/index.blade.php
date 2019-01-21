@@ -35,7 +35,7 @@ $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
             <div class="tabs tabs-style-line tab-category">
                 <nav>
                     <ul>
-                        <li class="tab-current"><a href="#playlist"><span>Playlist</span></a></li>
+                        <li class="tab-current"><a onclick="userTab('playlist', '/user/music_playlist')" href="#playlist"><span>Playlist</span></a></li>
                         <li class="bai-hat"><a class="music" onclick="userTab('music', '/user/music_favourite')" href="#music"><span><i class="material-icons" style="font-size: 11px;">favorite_border</i> Bài Hát</span></a></li>
                         <li class="video"><a class="video" onclick="userTab('video', '/user/video_favourite')" href="#video"><span><i class="material-icons" style="font-size: 11px;">favorite_border</i> Video</span></a></li>
                         <li class="ca-si"><a class="artist" onclick="userTab('artist', '/user/artist_favourite')" href="#artist"><span><i class="material-icons" style="font-size: 11px;">favorite_border</i> Ca Sĩ</span></a></li>
@@ -145,14 +145,14 @@ $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
     var firstUploaded = true;
     var firstUploaded = true;
     function musicUserTab(tab) {
+        let urlCurrent = window.location.origin + window.location.pathname;
+        history.pushState({urlPath: urlCurrent + '?tab=tu-nhac'},"", urlCurrent + '?tab=tu-nhac')
         if(tab == 'musicUploaded' && firstUploaded) {
             firstUploaded = false;
             musicUploaded('/user/music_uploaded', 'all');
         }
     }
     function musicUploaded(url, stage) {
-        let urlCurrent = window.location.origin + window.location.pathname;
-        history.pushState({urlPath: urlCurrent + '?tab=tu-nhac'},"", urlCurrent + '?tab=tu-nhac')
         var uploaded = $('#uploaded');
         $.ajax({
             url: url,
