@@ -113,7 +113,7 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                                                 </div>
                                                 <a target="_blank" class="search-line" title="{{$album->music_album}}" href="{{$url}}">
                                                     <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
-                                                        <div><h5 class="media-title mt-0 mb-0 span_h5" title="{{$album->music_album}} {{$album->album_artist_1}} {{$album->album_artist_2 ? '; '.$album->album_artist_2 : ''}}"><span class="search_highlight">{{$album->music_album}}{{$album->album_artist_1}} {{$album->album_artist_2 ? '; '.$album->album_artist_2 : ''}}</span>
+                                                        <div><h5 class="media-title mt-0 mb-0 span_h5" title="{{$album->music_album}} - {{$album->album_artist_1}} {{$album->album_artist_2 ? '; '.$album->album_artist_2 : ''}}"><span class="search_highlight">{{$album->music_album}} - {{$album->album_artist_1}} {{$album->album_artist_2 ? '; '.$album->album_artist_2 : ''}}</span>
                                                             </h5>
                                                             <div class="author">{{$album->album_artist_1}} {{$album->album_artist_2 ? '; '.$album->album_artist_2 : ''}}</div>
                                                         </div>

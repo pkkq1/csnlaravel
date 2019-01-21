@@ -3,14 +3,16 @@ use App\Library\Helpers;
 $perPage = $musicFavourite->toArray()['per_page'];
 $curentPage = $musicFavourite->toArray()['current_page'];
 $data = $musicFavourite->toArray()['data'];
+$idAuth = Auth::check() ? Auth::user()->id : 0;
 ?>
 @if($data)
     <div class="row row10px">
         <div class="col">
             <ul class="list-unstyled list_music">
                 <?php
-                array_map(function($i, $item) use($perPage, $curentPage) {
+                array_map(function($i, $item) use($perPage, $curentPage, $idAuth) {
                 if($i < 5) {
+                $userFav = $item['user_id'];
                 $item = $item['music'];
                 $url = Helpers::listen_url($item);
                 ?>
@@ -30,6 +32,13 @@ $data = $musicFavourite->toArray()['data'];
                             <div class="author title_home_tablet"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></div>
                         </div>
                         <small class="type_music"><?php echo Helpers::bitrate2str($item['music_bitrate']); ?></small>
+                    </div>
+                    <div class="media-right align-self-center">
+                        <ul class="list-inline" style="margin-right:0px">
+                            <li class="list-inline-item">
+                                <a href="javascript:void(0)" data-type_jw="music" data-music_title="{{$item['music_title']}}" data-music_id="{{$item['music_id']}}" class="wishlist toggle_wishlist {{$userFav == $idAuth ? 'selector' : ''}} px-3"><i aria-hidden="true" class="fa fa-heart-o"></i></a>
+                            </li>
+                        </ul>
                     </div>
                 </li>
                 <?php
@@ -41,8 +50,9 @@ $data = $musicFavourite->toArray()['data'];
         <div class="col">
             <ul class="list-unstyled list_music">
                 <?php
-                array_map(function($i, $item) use($perPage, $curentPage) {
+                array_map(function($i, $item) use($perPage, $curentPage, $idAuth) {
                 if($i >= 5) {
+                $userFav = $item['user_id'];
                 $item = $item['music'];
                 $url = Helpers::listen_url($item);
                 ?>
@@ -62,6 +72,13 @@ $data = $musicFavourite->toArray()['data'];
                             <div class="author title_home_tablet"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></div>
                         </div>
                         <small class="type_music"><?php echo Helpers::bitrate2str($item['music_bitrate']); ?></small>
+                    </div>
+                    <div class="media-right align-self-center">
+                        <ul class="list-inline" style="margin-right:0px">
+                            <li class="list-inline-item">
+                                <a href="javascript:void(0)" data-type_jw="music" data-music_title="{{$item['music_title']}}" data-music_id="{{$item['music_id']}}" class="wishlist toggle_wishlist toggle_wishlist_music {{$userFav == $idAuth ? 'selector' : ''}} px-3"><i aria-hidden="true" class="fa fa-heart-o"></i></a>
+                            </li>
+                        </ul>
                     </div>
                 </li>
                 <?php
@@ -72,6 +89,42 @@ $data = $musicFavourite->toArray()['data'];
         </div>
     </div>
     <center>{{$musicFavourite->links()}}</center>
+    <script>
+        $('.toggle_wishlist').click(function(e) {
+            <?php
+            if(!Auth::check()) {
+            ?>
+            switchAuth('myModal_login');
+            return false;
+            <?php
+            }
+            ?>
+            e.preventDefault();
+            let falgFav = $(this).hasClass('selector');
+            $.ajax({
+                url: '/music/favourite',
+                type: "POST",
+                dataType: "json",
+                data: {
+                    'type': falgFav,
+                    'type_of': $(this).data('type_jw'),
+                    'name': $(this).data('music_title'),
+                    'music_id' : $(this).data('music_id'),
+                },
+                beforeSend: function () {
+                    if(loaded) return false;
+                    loaded = true;
+                },
+                success: function(response) {
+                    if(response.success) {
+                    }else {
+                        alertModal(data.message);
+                    }
+                }
+            });
+            $(this).toggleClass('selector');
+        });
+    </script>
 @else
     <div class="center-text-mes"><span>Chưa có bài nhạc nào</span></div>
 @endif

@@ -55,7 +55,7 @@ $titleMeta = 'Cập nhật album - ' . Config::get('constants.app.title');
                                             <div class="media dz-processing"><a target="_blank" title="Nghe {{$item->music_title}}" href="{{$url}}"><img class="mr-3 align-self-center" src="/imgs/document.png" alt=""></a>
                                                 <div class="media-body align-self-center">
                                                     <div class="d-flex align-items-center justify-content-between mb-1">
-                                                        <h4 class="media-title"><span style="color: #36464F;"><a target="_blank" title="Nghe {{$item->music_title}}" href="{{$url}}">{{$item->music_title}}</a></span>
+                                                        <h4 class="media-title"><span style="color: #36464F;"><a target="_blank" title="{{$item->music_title}}" href="{{$url}}">{{$item->music_title}}</a></span>
                                                             <small data-dz-size="" class="text-danger"><strong>{{Helpers::formatBytes($item->music_filesize)}}</strong>
                                                             </small>
                                                             <small data-progress-present="" class="text-danger data-progress-present"
