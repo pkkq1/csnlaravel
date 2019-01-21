@@ -35,7 +35,7 @@ class SolrSyncController extends Controller
     }
 
 
-    public function syncMusic($id = null, $musicItem = null, Request $req) {
+    public function syncMusic($id = null, $musicItem = null) {
         if($id) {
             $searchMusic = MusicModel::select('music_id', 'music_title_search', 'music_artist_search', 'music_composer_search', 'music_album_search', 'music_title', 'music_artist',
                 'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_title_url', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_downloads_this_week', 'music_lyric')
@@ -53,7 +53,7 @@ class SolrSyncController extends Controller
                 'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_title_url', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_downloads_this_week', 'music_lyric')
                 ->where('cat_id', '!=', CAT_VIDEO)
                 ->where('music_deleted', '<', 1)
-                ->where('music_id', '>', intval($req->m_start))
+                ->where('music_id', '>', intval($_GET['m_start']))
                 ->offset(0)
                 ->limit(2000)
                 ->get();
