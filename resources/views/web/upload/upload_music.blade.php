@@ -128,7 +128,7 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
 
 
                                         <div class="form-group col-12{{ $errors->has('music_title') ? ' has-error' : '' }}">
-                                            <label for="music_title">Tên {{$mess}}</label>
+                                            <label for="music_title">Tên {{$mess}} <small>(*)</small></label>
                                             <input type="text" class="form-control" id="music_title" value="{{ old('music_title') ?? $music->music_title ?? '' }}" name="music_title" placeholder="Nhập tên {{$mess}}">
                                             @if ($errors->has('music_title'))
                                                 <span class="help-block">
@@ -137,7 +137,7 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                                             @endif
                                         </div>
                                         <div class="form-group music_artist col-12{{ $errors->has('music_artist') ? ' has-error' : '' }}">
-                                            <label for="music_artist">Ca sĩ</label>
+                                            <label for="music_artist">Ca sĩ <small>(*)</small></label>
                                             <input type="text" class="form-control" name="music_artist_id" value="{{ old('music_artist_id') }}" id="music_artist_id">
                                             <input type="hidden" class="form-control" name="music_artist" value="{{ old('music_artist') }}" id="music_artist" placeholder="Nhập tên ca sĩ">
                                             @if ($errors->has('music_artist'))
@@ -147,7 +147,7 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                                             @endif
                                         </div>
                                         <div class="form-group col-12{{ $errors->has('music_composer') ? ' has-error' : '' }}">
-                                            <label for="music_composer">Sáng tác</label>
+                                            <label for="music_composer">Sáng tác <small>(*)</small></label>
                                             <input type="text" class="form-control" value="{{ old('music_composer') ?? $music->music_composer ?? '' }}" name="music_composer" id="music_composer" placeholder="">
                                             @if ($errors->has('music_composer'))
                                                 <span class="help-block">
@@ -175,7 +175,7 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                                             @endif
                                         </div>
                                         <div class="form-group col-4{{ $errors->has('music_year') ? ' has-error' : '' }}">
-                                            <label for="music_year">Năm phát hành</label>
+                                            <label for="music_year">Năm phát hành <small>(*)</small></label>
                                             <input {{ isset($music) ? 'disabled' : '' }} type="text" class="form-control" {{isset($music) ? ($music->cover_id > 0 ? 'disabled' : '') : ''}} name="music_year" value="{{ old('music_year') ?? $music->music_year ?? '' }}" id="music_year" placeholder="">
                                             @if(isset($music))
                                                 <input type="hidden" name="music_year" value="{{ old('music_year') ?? $music->music_year ?? '' }}">
@@ -268,7 +268,7 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                                         </div>
                                         <div class="form-group col-12{{ $errors->has('music_source_url') ? ' has-error' : '' }}">
                                             <div class="d-flex align-items-center justify-content-between mb-2">
-                                                <label for="music_source_url" class="m-0">Full link nguồn download</label>
+                                                <label for="music_source_url" class="m-0">Full link nguồn download <small>(*)</small></label>
                                                 <small>Yêu cầu bắt buộc khi upload nhạc lossless</small>
                                             </div>
                                             <input type="text" class="form-control"  value="{{ old('music_source_url') ?? $music->music_source_url ?? '' }}" name="music_source_url" id="music_source_url" placeholder="">

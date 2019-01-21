@@ -104,7 +104,7 @@ $titleMeta = 'Cập nhật album - ' . Config::get('constants.app.title');
                                             <div class="form-group text-center m-0 icon_camera_cover">
                                                 <label for="choose_album_cover">
                                                     <i class="material-icons">camera_alt</i>
-                                                    <div class="txt">Upload Cover</div>
+                                                    <div class="txt">Upload Cover <small style="color: #f47336">(*)</small></div>
                                                 </label>
                                             </div>
                                         </label>
@@ -120,7 +120,7 @@ $titleMeta = 'Cập nhật album - ' . Config::get('constants.app.title');
                                 <div class="col-9">
                                     <div class="box_right_upload form-row">
                                         <div class="form-group col-12{{ $errors->has('music_album') ? ' has-error' : '' }}">
-                                            <label for="music_title">Tên album</label>
+                                            <label for="music_title">Tên album <small>(*)</small></label>
                                             <input type="text" class="form-control" id="music_album" value="{{ old('music_album') ?? $album->music_album ?? '' }}" name="music_album" placeholder="Nhập tên album">
                                             @if ($errors->has('music_album'))
                                                 <span class="help-block">
@@ -129,7 +129,7 @@ $titleMeta = 'Cập nhật album - ' . Config::get('constants.app.title');
                                             @endif
                                         </div>
                                         <div {{isset($album) ? 'hidden' : ''}} class="form-group music_artist col-12{{ $errors->has('music_artist') ? ' has-error' : '' }}">
-                                            <label for="music_artist">Ca sĩ</label>
+                                            <label for="music_artist">Ca sĩ <small>(*)</small></label>
                                             <input type="text" {{isset($album) ? 'disabled' : ''}} class="form-control" name="music_artist_id" value="{{ old('music_artist_id') }}" placeholder="Nhập tên ca sĩ" id="music_artist_id">
                                             <input type="hidden" {{isset($album) ? 'disabled' : ''}} class="form-control" name="music_artist" value="{{ old('music_artist') }}" id="music_artist" placeholder="Nhập tên ca sĩ">
                                             @if ($errors->has('music_artist'))
@@ -139,7 +139,7 @@ $titleMeta = 'Cập nhật album - ' . Config::get('constants.app.title');
                                             @endif
                                         </div>
                                         <div {{isset($album) ? 'hidden' : ''}} class="form-group col-12{{ $errors->has('music_composer') ? ' has-error' : '' }}">
-                                            <label for="music_composer">Sáng tác</label>
+                                            <label for="music_composer">Sáng tác <small>(*)</small></label>
                                             <input type="text" class="form-control" {{isset($album) ? 'disabled' : ''}} name="music_composer" value="{{ old('music_composer')}}" id="music_composer" placeholder="">
                                             @if ($errors->has('music_composer'))
                                                 <span class="help-block">
@@ -166,7 +166,7 @@ $titleMeta = 'Cập nhật album - ' . Config::get('constants.app.title');
                                             @endif
                                         </div>
                                         <div class="form-group col-4{{ $errors->has('music_year') ? ' has-error' : '' }}">
-                                            <label for="music_year">Năm phát hành</label>
+                                            <label for="music_year">Năm phát hành <small>(*)</small></label>
                                             <input type="text" class="form-control" name="music_year" value="{{ old('music_year') ?? $album->music_year ?? '' }}" id="music_year" placeholder="">
                                             @if ($errors->has('music_year'))
                                                 <span class="help-block">
@@ -242,7 +242,7 @@ $titleMeta = 'Cập nhật album - ' . Config::get('constants.app.title');
                                         </div>
                                         <div {{isset($album) ? 'hidden' : ''}} class="form-group col-12{{ $errors->has('music_source_url') ? ' has-error' : '' }}">
                                             <div class="d-flex align-items-center justify-content-between mb-2">
-                                                <label for="music_source_url" class="m-0">Full link nguồn download</label>
+                                                <label for="music_source_url" class="m-0">Full link nguồn download <small>(*)</small></label>
                                                 <small>Yêu cầu bắt buộc khi upload nhạc lossless</small>
                                             </div>
                                             <input {{isset($album) ? 'disabled' : ''}} type="text" class="form-control" value="{{ old('music_source_url')}}" name="music_source_url" id="music_source_url" placeholder="">
