@@ -319,12 +319,11 @@ class UploadController extends Controller
                 $typeImageCover = array_last(explode('.', $_FILES['choose_album_cover']['name']));
                 $fileNameCovert = Helpers::saveBase64Image($request->input('album_cover'), Helpers::file_path($album->cover_id, AVATAR_ALBUM_CROP_PATH, true), $album->cover_id, $typeImageCover);
                 Helpers::copySourceImage($request->file('choose_album_cover'), Helpers::file_path($album->cover_id, COVER_ALBUM_SOURCE_PATH, true), $album->cover_id, $typeImageCover);
-                sleep(2);
             }
             // update solr
             $Solr = new SolrSyncController($this->Solr);
             $Solr->syncCover(null, $album);
-            return redirect()->route('upload.storeAlbum', ['musicId' => $coverId])->with('success', 'Đã chỉnh sửa album ' . $album->album_name);;
+            return redirect()->route('upload.storeAlbum', ['musicId' => $coverId])->with('success', 'Đã chỉnh sửa album ' . $album->album_name. ', Vui lòng xóa cache (F5) để cập nhật hình ảnh mới');
         }
         $this->validate($request, [
             'music_album' => 'required|max:255',
