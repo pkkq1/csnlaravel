@@ -81,10 +81,11 @@ $avtArtist = $artist->artist_avatar ? Helpers::file_path($artist->artist_id, PUB
                         if(loaded) return false;
                         loaded = true;
                         waitingDialog.show();
-                        $('html,body').animate({ scrollTop: 100 }, 400);
                     },
                     success: function(response) {
+                        $('html,body').animate({ scrollTop: 100 }, 400);
                         waitingDialog.hide();
+                        setTimeout(function(){  waitingDialog.hide(); }, 500);
                         $('#'+tab).html(response);
                         $('#'+tab).find('.pagination li a').on('click', function (e) {
                             e.preventDefault();
