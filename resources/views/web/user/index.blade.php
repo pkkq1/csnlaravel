@@ -207,7 +207,39 @@ $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
         }
 
     }
-
+    function favourite(title, type, music_id) {
+        <?php
+        if(!Auth::check()) {
+        ?>
+        switchAuth('myModal_login');
+        return false;
+        <?php
+        }
+        ?>
+        let falgFav = $('.wishlist-' + music_id).hasClass('selector');
+        $.ajax({
+            url: '/music/favourite',
+            type: "POST",
+            dataType: "json",
+            data: {
+                'type': falgFav,
+                'type_of': type,
+                'name': title,
+                'music_id' : music_id,
+            },
+            beforeSend: function () {
+                if(loaded) return false;
+                loaded = true;
+            },
+            success: function(response) {
+                if(response.success) {
+                }else {
+                    alertModal(data.message);
+                }
+            }
+        });
+        $('.wishlist-' + music_id).toggleClass('selector');
+    }
     <?php
     if(isset($_GET['tab'])) {
     ?>

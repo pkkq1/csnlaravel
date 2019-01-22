@@ -19,7 +19,7 @@ use App\Library\Helpers;
                 <div class="number_wrap text-center text-orange_ d-inline-block align-middle mx-3">
                     <p class="number m-0">{{sprintf("%02d", (($curentPage - 1) * $perPage) + ++$i)}}</p>
                 </div>
-                <a href="{{$url}}"><div style="background : url({{Helpers::cover_url($item['album_id'])}}) no-repeat center;background-size: cover;" class="image100 mr-2 d-inline-block align-middle"></div></a>
+                <a href="{{$url}}"><div style="background : url({{Helpers::cover_url($item['cover_id'])}}) no-repeat center;background-size: cover;" class="image100 mr-2 d-inline-block align-middle"></div></a>
                 <div class="content d-inline-block align-middle">
                     <a href="{{$url}}"><h6 class="name_song text-black mb-1 card-title">{{$item['music_title']}}</h6></a>
                     <p class="name_singer text-gray mb-1 author"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></p>
@@ -54,7 +54,7 @@ use App\Library\Helpers;
                     <div class="number_wrap text-center text-orange_ d-inline-block align-middle mx-3">
                         <p class="number m-0">{{sprintf("%02d", (($curentPage - 1) * $perPage) + ++$i)}}</p>
                     </div>
-                    <a href="{{$url}}"><div style="background : url({{Helpers::cover_url($item['album_id'])}}) no-repeat center;background-size: cover;" class="image100 mr-2 d-inline-block align-middle"></div></a>
+                    <a href="{{$url}}"><div style="background : url({{Helpers::cover_url($item['cover_id'])}}) no-repeat center;background-size: cover;" class="image100 mr-2 d-inline-block align-middle"></div></a>
                     <div class="content d-inline-block align-middle">
                         <a href="{{$url}}"><h6 class="name_song text-black mb-1 card-title">{{$item['music_title']}}</h6></a>
                         <p class="name_singer text-gray mb-1 author"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></p>
@@ -88,7 +88,7 @@ use App\Library\Helpers;
                     <div class="number_wrap text-center text-orange_ d-inline-block align-middle mx-3">
                         <p class="number m-0">{{sprintf("%02d", (($curentPage - 1) * $perPage) + ++$i)}}</p>
                     </div>
-                    <a href="{{$url}}"><div style="background : url({{Helpers::cover_url($item['album_id'])}}) no-repeat center;background-size: cover;" class="image100 mr-2 d-inline-block align-middle"></div></a>
+                    <a href="{{$url}}"><div style="background : url({{Helpers::cover_url($item['cover_id'])}}) no-repeat center;background-size: cover;" class="image100 mr-2 d-inline-block align-middle"></div></a>
                     <div class="content d-inline-block align-middle">
                         <a href="{{$url}}"><h6 class="name_song text-black mb-1 card-title">{{$item['music_title']}}</h6></a>
                         <p class="name_singer text-gray mb-1 author"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></p>
@@ -115,11 +115,11 @@ use App\Library\Helpers;
                 <div class="row row-sm">
                     <?php
                     array_map(function ($i, $item) {
-                    $url = '/dang-tai/album/'.$item['album_id'];
+                    $url = '/dang-tai/album/'.$item['cover_id'];
                     ?>
                     <div class="col-6">
                         <div class="item element">
-                            <a href="{{$url}}"><div style="background: url({{Helpers::cover_url($item['album_id'])}}) no-repeat center;background-size: cover;" class="image rounded"></div></a>
+                            <a href="{{$url}}"><div style="background: url({{Helpers::cover_url($item['cover_id'])}}) no-repeat center;background-size: cover;" class="image rounded"></div></a>
                             <div class="content mt-3">
                                 <a href="{{$url}}"><h6 class="name_song mb-1 card-title">{{$item['album_name']}}</h6></a>
                             </div>

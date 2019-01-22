@@ -36,7 +36,7 @@ $idAuth = Auth::check() ? Auth::user()->id : 0;
                     <div class="media-right align-self-center">
                         <ul class="list-inline" style="margin-right:0px">
                             <li class="list-inline-item">
-                                <a href="javascript:void(0)" data-type_jw="music" data-music_title="{{$item['music_title']}}" data-music_id="{{$item['music_id']}}" class="wishlist toggle_wishlist {{$userFav == $idAuth ? 'selector' : ''}} px-3"><i aria-hidden="true" class="fa fa-heart-o"></i></a>
+                                <a href="javascript:void(0)" onclick="return favourite('{{str_replace("'", "\'", $item['music_title'])}}', 'music', '{{$item['music_id']}}')" class="wishlist wishlist-{{$item['music_id']}} toggle_wishlist {{$userFav == $idAuth ? 'selector' : ''}} px-3"><i aria-hidden="true" class="fa fa-heart-o"></i></a>
                             </li>
                         </ul>
                     </div>
@@ -76,7 +76,7 @@ $idAuth = Auth::check() ? Auth::user()->id : 0;
                     <div class="media-right align-self-center">
                         <ul class="list-inline" style="margin-right:0px">
                             <li class="list-inline-item">
-                                <a href="javascript:void(0)" data-type_jw="music" data-music_title="{{$item['music_title']}}" data-music_id="{{$item['music_id']}}" class="wishlist toggle_wishlist toggle_wishlist_music {{$userFav == $idAuth ? 'selector' : ''}} px-3"><i aria-hidden="true" class="fa fa-heart-o"></i></a>
+                                <a href="javascript:void(0)" onclick="return favourite('{{str_replace("'", "\'", $item['music_title'])}}', 'music', '{{$item['music_id']}}')" class="wishlist toggle_wishlist toggle_wishlist_music {{$userFav == $idAuth ? 'selector' : ''}} px-3"><i aria-hidden="true" class="fa fa-heart-o"></i></a>
                             </li>
                         </ul>
                     </div>
@@ -89,42 +89,6 @@ $idAuth = Auth::check() ? Auth::user()->id : 0;
         </div>
     </div>
     <center>{{$musicFavourite->links()}}</center>
-    <script>
-        $('.toggle_wishlist').click(function(e) {
-            <?php
-            if(!Auth::check()) {
-            ?>
-            switchAuth('myModal_login');
-            return false;
-            <?php
-            }
-            ?>
-            e.preventDefault();
-            let falgFav = $(this).hasClass('selector');
-            $.ajax({
-                url: '/music/favourite',
-                type: "POST",
-                dataType: "json",
-                data: {
-                    'type': falgFav,
-                    'type_of': $(this).data('type_jw'),
-                    'name': $(this).data('music_title'),
-                    'music_id' : $(this).data('music_id'),
-                },
-                beforeSend: function () {
-                    if(loaded) return false;
-                    loaded = true;
-                },
-                success: function(response) {
-                    if(response.success) {
-                    }else {
-                        alertModal(data.message);
-                    }
-                }
-            });
-            $(this).toggleClass('selector');
-        });
-    </script>
 @else
     <div class="center-text-mes"><span>Chưa có bài nhạc nào</span></div>
 @endif
