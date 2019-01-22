@@ -7,9 +7,9 @@
     @if($data)
     <?php
     array_map(function ($item) use($idAuth) {
+    $userFav = $item['user_id'];
     $item = $item['video'];
     $url = Helpers::listen_url($item);
-    $userFav = $item['user_id'];
     ?>
     <div class="col">
         <div class="card card1 video">
