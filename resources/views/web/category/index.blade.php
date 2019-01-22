@@ -294,6 +294,10 @@ if($category->cat_id == 3 || $category->cat_id == 4 || $category->cat_id == 5 ||
             <?php
         }
     ?>
+    if(!$('.tab-content-category').find('section').first().html()) {
+        $('.tab-category').find('li:nth-child(2)').click();
+        $('.tab-category').find('li:nth-child(2)').find('a').click();
+    }
 </script>
 @endsection
 
