@@ -160,7 +160,7 @@ $titleMeta = 'Cập nhật album - ' . Config::get('constants.app.title');
                                         </div>
                                         <div class="form-group col-4{{ $errors->has('music_album_id') ? ' has-error' : '' }}">
                                             <label for="music_album_id">Hãng đĩa</label>
-                                            <input type="text" class="form-control" value="{{ old('music_album_id') ?? $album->album_code ?? '' }}" name="music_album_id" id="music_album_id" placeholder="">
+                                            <input type="text" class="form-control" value="{{ old('music_album_id') ?? $album->music_album_id ?? '' }}" name="music_album_id" id="music_album_id" placeholder="">
                                             @if ($errors->has('music_album_id'))
                                                 <span class="help-block">
                                                     <strong>{{ str_replace('music album id', 'hãng đĩa', $errors->first('music_album_id')) }}</strong>

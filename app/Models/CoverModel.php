@@ -16,9 +16,12 @@ class CoverModel extends Model
         return $this->hasMany('App\Models\MusicModel', 'cover_id', 'cover_id')->select('music_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'cat_id', 'cat_level', 'cat_sublevel', 'cat_custom', 'cover_id', 'music_download_time', 'music_last_update_time', 'music_title_url',
             'music_title_search', 'music_artist_search', 'music_album_search', 'music_composer', 'music_album', 'music_listen', 'music_track_id', 'music_track_id', 'music_filename', 'music_bitrate', 'music_length', 'music_time', 'music_width', 'music_height')->orderBy('music_track_id', 'asc')->orderBy('music_id', 'asc');
     }
+    public function upload() {
+        return $this->hasMany('App\Models\UploadModel', 'cover_id', 'cover_id');
+    }
     public function video() {
         return $this->hasMany('App\Models\VideoModel', 'cover_id', 'cover_id')->select('music_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'cat_id', 'cat_level', 'cat_sublevel', 'cat_custom', 'cover_id', 'music_download_time', 'music_last_update_time', 'music_title_url',
-            'music_title_search', 'music_artist_search', 'music_album_search', 'music_composer', 'music_album', 'music_listen', 'music_track_id', 'music_track_id', 'music_filename', 'music_bitrate', 'music_length', 'music_time', 'music_width', 'music_height')->orderBy('music_id', 'desc');
+            'music_title_search', 'music_artist_search', 'music_album_search', 'music_composer', 'music_album', 'music_listen', 'music_track_id', 'music_track_id', 'music_filename', 'music_bitrate', 'music_length', 'music_time', 'music_width', 'music_height')->orderBy('music_track_id', 'asc')->orderBy('music_id', 'asc');
     }
     public function uploadFile() {
         return $this->hasMany('App\Models\UploadModel', 'cover_id', 'cover_id')->get();

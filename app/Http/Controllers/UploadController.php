@@ -252,6 +252,7 @@ class UploadController extends Controller
             $result->music_lyric = $request->input('music_lyric') ?? '';
             $result->music_source_url = $request->input('music_source_url') ?? '';
             $result->music_note = $request->input('music_note') ?? '';
+            $result->music_updated = 0;
             if(!$request->input('cover_id')) {
                 $result->cover_id = 0;
             }else{
@@ -318,13 +319,31 @@ class UploadController extends Controller
                 return view('errors.404');
             $album->music_album = $request->input('music_album') ?? '';
             $album->music_production = $request->input('music_production') ?? '';
-//            $album->album_code = $request->input('music_album_id');
+            $album->music_album_id = $request->input('music_album_id') ?? '';
             $album->music_year = $request->input('music_year') ?? '';
             $album->save();
             if($request->input('album_cover')) {
                 $typeImageCover = array_last(explode('.', $_FILES['choose_album_cover']['name']));
                 $fileNameCovert = Helpers::saveBase64Image($request->input('album_cover'), Helpers::file_path($album->cover_id, AVATAR_ALBUM_CROP_PATH, true), $album->cover_id, $typeImageCover);
                 Helpers::copySourceImage($request->file('choose_album_cover'), Helpers::file_path($album->cover_id, COVER_ALBUM_SOURCE_PATH, true), $album->cover_id, $typeImageCover);
+            }
+            // update upload
+            $upload = $album->upload;
+            foreach($upload as $item) {
+                $item->music_album = $album->music_album ?? '';
+                $item->music_year = $album->music_year ?? '';
+                $item->music_album_id = $album->music_album_id ?? '';
+                $item->music_production = $album->music_production ?? '';
+                $item->save();
+            }
+            // update upload
+            $musics = $album->music;
+            foreach($musics as $item) {
+                $item->music_album = $album->music_album ?? '';
+                $item->music_year = $album->music_year ?? '';
+                $item->music_album_id = $album->music_album_id ?? '';
+                $item->music_production = $album->music_production ?? '';
+                $item->save();
             }
             // update solr
             $Solr = new SolrSyncController($this->Solr);

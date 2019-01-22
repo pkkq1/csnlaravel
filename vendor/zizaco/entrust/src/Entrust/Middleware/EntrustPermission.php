@@ -35,7 +35,6 @@ class EntrustPermission
 	 */
 	public function handle($request, Closure $next, $permissions)
 	{
-	    dd(1);
 		if ($this->auth->guest() || !$request->user()->can(explode('|', $permissions))) {
 			abort(403);
 		}

@@ -197,9 +197,6 @@ if($musicSet['type_listen'] == 'playlist') {
                                             @if(Auth::check() && backpack_user()->can('duyet_sua_nhac'))
                                                 <a href="javascript:editLyric();" >Sửa lyric</a>
                                                 <a href="javascript:editKaraoke();" style="margin-left: 10px;">Sửa karaoke</a>
-                                                @if($music->cover_id)
-                                                <a href="/dang-tai/album/{{$music->cover_id}}" style="margin-left: 10px;">Sửa album</a>
-                                                @endif
                                                 <a href="/dang-tai/nhac/{{$music->music_id}}" style="margin-left: 10px;">Sửa nhạc</a>
                                             @endif
                                         </div>
