@@ -1413,5 +1413,8 @@ a.boxclose{
 .stage_album .card-header:hover .btn-album-remove{
     opacity: 1;
 }
+#header .top .form-group .form-control {
+    color: #495057;
+}
 
 
