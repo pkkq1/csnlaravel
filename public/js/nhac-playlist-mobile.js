@@ -7,10 +7,10 @@
                     void 0 != a && (D = document.createElement("div"), D.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-auto-next jw-icon-auto-next-on hidden",  a.parentNode.insertBefore(D, a))
                 }
                 var a = E.getElementsByClassName("jw-icon-playback")[0];
-                void 0 != a && (void 0 == P && (P = document.createElement("div"), P.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-backsong", P.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path class="zp-svg-fill" fill="#BEBEBE" fill-rule="nonzero" d="M2 2v12h1.98V2H2zm3.48 6L14 14V2L5.48 8z"></path></svg>', $(P).bind('touchstart click', function(){
+                void 0 != a && (void 0 == P && (P = document.createElement("div"), P.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-backsong", P.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path class="zp-svg-fill" fill="#BEBEBE" fill-rule="nonzero" d="M2 2v12h1.98V2H2zm3.48 6L14 14V2L5.48 8z"></path></svg>', $(P).bind('touchstart', function(){
                     "function" === typeof onPlayerAutoBack &&
                     onPlayerAutoBack()
-                }), a.parentNode.insertBefore(P, a)), void 0 == Q && (Q = document.createElement("div"), Q.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-nextsong", Q.innerHTML = "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 16 16\"><path class=\"zp-svg-fill\" fill=\"#BEBEBE\" fill-rule=\"nonzero\" d=\"M14 2v12h-1.98V2H14zm-3.48 6L2 14V2l8.52 6z\"></path></svg>", $(Q).bind('touchstart click', function(){
+                }), a.parentNode.insertBefore(P, a)), void 0 == Q && (Q = document.createElement("div"), Q.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-nextsong", Q.innerHTML = "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 16 16\"><path class=\"zp-svg-fill\" fill=\"#BEBEBE\" fill-rule=\"nonzero\" d=\"M14 2v12h-1.98V2H14zm-3.48 6L2 14V2l8.52 6z\"></path></svg>", $(Q).bind('touchstart', function(){
                     "function" === typeof onPlayerAutoNext &&
                     onPlayerAutoNext()
                 }), a.parentNode.insertBefore(Q, a.nextSibling)));
@@ -24,13 +24,13 @@
                 var repeatClassAll = "jw-icon csn-repeat-btn jw-icon-inline jw-button-color jw-reset jw-icon-repeat-all";
                 var sequence = '<span class="csn-title-repeat">Ngẫu nhiên</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path class="zp-svg-fill" fill="#BEBEBE" fill-rule="nonzero" d="M4.065 3.492H1v1.491h3.692l1.323 2.034.905-1.424-.418-.61-.975-1.491H4.065zm4.11 6.915l.417.61.975 1.491h3.065V14l2.298-2.237-2.298-2.238v1.492h-2.229L9.08 8.983l-.906 1.424zM12.631 2v1.492H9.567l-.975 1.491-1.045 1.56-.905 1.423-1.95 3.05H1v1.492H5.597l.975-1.491L7.617 9.39l.905-1.424 1.95-2.983h2.23v1.492L15 4.237 12.632 2z"></path></svg>';
                 var shuffle = '<span class="csn-title-repeat">Không Ngẫu nhiên</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path class="zp-svg-fill" fill="#ff3456" fill-rule="nonzero" d="M4.065 3.492H1v1.491h3.692l1.323 2.034.905-1.424-.418-.61-.975-1.491H4.065zm4.11 6.915l.417.61.975 1.491h3.065V14l2.298-2.237-2.298-2.238v1.492h-2.229L9.08 8.983l-.906 1.424zM12.631 2v1.492H9.567l-.975 1.491-1.045 1.56-.905 1.423-1.95 3.05H1v1.492H5.597l.975-1.491L7.617 9.39l.905-1.424 1.95-2.983h2.23v1.492L15 4.237 12.632 2z"></path></svg>';
-                void 0 != a && (void 0 == PP && (PP = document.createElement("div"), PP.className = notClassRepeat, PP.innerHTML = notRepeat, $(PP).bind('touchstart click', function(){
+                void 0 != a && (void 0 == PP && (PP = document.createElement("div"), PP.className = notClassRepeat, PP.innerHTML = notRepeat, $(PP).bind('touchstart', function(){
                     notClassRepeat == PP.className ?
                         (PP.className = repeatClassOne, TT = !0, PP.innerHTML = repeatOne,autoRepeat('one')) :
                         repeatClassOne == PP.className ?
                             (PP.className = repeatClassAll, TT = !1, PP.innerHTML = repeatAll, autoRepeat('all')) :
                             (PP.className = notClassRepeat, TT = !2, PP.innerHTML = notRepeat, autoRepeat('none'))
-                }), a.parentNode.insertBefore(PP, a)), void 0 == PPP && (PPP = document.createElement("div"), PPP.className = "jw-icon csn-random-btn jw-icon-inline jw-button-color jw-reset jw-icon-sequence", PPP.innerHTML = sequence, PPP.title = "Ngẫu nhiên", $(PPP).bind('touchstart click', function(){
+                }), a.parentNode.insertBefore(PP, a)), void 0 == PPP && (PPP = document.createElement("div"), PPP.className = "jw-icon csn-random-btn jw-icon-inline jw-button-color jw-reset jw-icon-sequence", PPP.innerHTML = sequence, PPP.title = "Ngẫu nhiên", $(PPP).bind('touchstart', function(){
                     "jw-icon csn-random-btn jw-icon-inline jw-button-color jw-reset jw-icon-sequence" == PPP.className ? (PPP.className = "jw-icon csn-random-btn jw-icon-inline jw-button-color jw-reset jw-icon-shuffle",
                         TTT = !1, PPP.innerHTML = shuffle, autoRandom(true)) : (PPP.className = "jw-icon csn-random-btn jw-icon-inline jw-button-color jw-reset jw-icon-sequence", TTT = !0, PPP.innerHTML = sequence, autoRandom(false))
                 }), V = document.createElement("div"), V.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-favourite",V.style = 'line-height: 38px;', V.innerHTML = '<span class="csn-title-favourite">Yêu thích bài hát này</span><span class="wishlist toggle_wishlist"><i aria-hidden="true" style="font-size: 18px"  class="fa fa-heart-o"></i></span>',
@@ -72,7 +72,7 @@
         function Y() {
             if (void 0 == F) {
                 var a = E.getElementsByClassName("jw-icon-hd")[0];
-                void 0 != a && (F = document.createElement("div"), F.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-lyric", $(F).bind('touchstart click', function(){
+                void 0 != a && (F = document.createElement("div"), F.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-lyric", $(F).bind('touchstart', function(){
                     "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-lyric" == F.className ? (F.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-lyric jw-toggle jw-off", p.style.visibility = "hidden") : (F.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-lyric",
                         p.style.visibility = "visible")
                 }), a.parentNode.insertBefore(F, a.nextSibling))
@@ -166,7 +166,7 @@
             var b = document.createElement("li");
             b.className = "jw-text jw-option jw-item-1 jw-reset";
             b.innerHTML = a;
-            $(b).bind('touchstart click', function(){
+            $(b).bind('touchstart', function(){
                 S = !0;
                 "function" === typeof onPlayerLoginVip && onPlayerLoginVip(d)
             });

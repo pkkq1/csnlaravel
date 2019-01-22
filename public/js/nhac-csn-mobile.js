@@ -5,7 +5,7 @@
                 if (void 0 == D) {
                     var a = E.getElementsByClassName("jw-icon-hd")[0];
                     void 0 != a && (D = document.createElement("div"), D.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-auto-next jw-icon-auto-next-on jw-auto-play", D.title = "Tự động chuyển bài gợi ý", D.innerHTML = '<span class="csn-title-auto">Tự động chuyển bài gợi ý</span>',
-                        $(D).bind('touchstart click', function(){
+                        $(D).bind('touchstart', function(){
                             "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-auto-next jw-icon-auto-next-on" == D.className ? (D.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-auto-next jw-icon-auto-next-off",
                             "function" === typeof onPlayerAutoNextOff && onPlayerAutoNextOff()) : (D.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-auto-next jw-icon-auto-next-on", "function" === typeof onPlayerAutoNextOn && onPlayerAutoNextOn())
                         }), V = document.createElement("div"), V.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-favourite jw-icon-show-title", V.style = 'margin-right: 14px!important; line-height: 40px;' ,V.innerHTML = '<span class="csn-title-favourite">Yêu thích bài hát này</span><span class="wishlist toggle_wishlist"><i aria-hidden="true" style="font-size: 20px" class="fa fa-heart-o"></i></span>',
@@ -13,7 +13,7 @@
                     D.parentNode.insertBefore(V, D);
                 }
                 var a = E.getElementsByClassName("jw-icon-playback")[0];
-                void 0 != a && (void 0 == Q && (Q = document.createElement("div"), Q.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-nextsong", Q.innerHTML = "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 16 16\"><path class=\"zp-svg-fill\" fill=\"#BEBEBE\" fill-rule=\"nonzero\" d=\"M14 2v12h-1.98V2H14zm-3.48 6L2 14V2l8.52 6z\"></path></svg>",  $(Q).bind('touchstart click', function(){
+                void 0 != a && (void 0 == Q && (Q = document.createElement("div"), Q.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-nextsong", Q.innerHTML = "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 16 16\"><path class=\"zp-svg-fill\" fill=\"#BEBEBE\" fill-rule=\"nonzero\" d=\"M14 2v12h-1.98V2H14zm-3.48 6L2 14V2l8.52 6z\"></path></svg>",  $(Q).bind('touchstart', function(){
                     "function" === typeof onPlayerAutoNext &&
                     onPlayerAutoNext()
                 }), a.parentNode.insertBefore(Q, a.nextSibling)));
@@ -24,7 +24,7 @@
         function Y() {
             if (void 0 == F) {
                 var a = E.getElementsByClassName("jw-icon-hd")[0];
-                void 0 != a && (F = document.createElement("div"), F.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-lyric", $(F).bind('touchstart click', function(){
+                void 0 != a && (F = document.createElement("div"), F.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-lyric", $(F).bind('touchstart', function(){
                     "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-lyric" == F.className ? (F.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-lyric jw-toggle jw-off", p.style.visibility = "hidden") : (F.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-lyric",
                         p.style.visibility = "visible")
                 }), a.parentNode.insertBefore(F, a.nextSibling))
@@ -118,7 +118,7 @@
             var b = document.createElement("li");
             b.className = "jw-text jw-option jw-item-1 jw-reset";
             b.innerHTML = a;
-            $(b).bind('touchstart click', function(){
+            $(b).bind('touchstart', function(){
                 S = !0;
                 "function" === typeof onPlayerLoginVip && onPlayerLoginVip(d)
             });
