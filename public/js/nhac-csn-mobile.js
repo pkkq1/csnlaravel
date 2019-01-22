@@ -4,19 +4,19 @@
             if (void 0 == w.showAutoNext || w.showAutoNext) {
                 if (void 0 == D) {
                     var a = E.getElementsByClassName("jw-icon-hd")[0];
-                    void 0 != a && (D = document.createElement("div"), D.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-auto-next jw-icon-auto-next-on", D.title = "Tự động chuyển bài gợi ý", D.innerHTML = '<span class="csn-title-auto">Tự động chuyển bài gợi ý</span>',
-                        D.onclick = function() {
-                        "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-auto-next jw-icon-auto-next-on" == D.className ? (D.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-auto-next jw-icon-auto-next-off",
-                        "function" === typeof onPlayerAutoNextOff && onPlayerAutoNextOff()) : (D.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-auto-next jw-icon-auto-next-on", "function" === typeof onPlayerAutoNextOn && onPlayerAutoNextOn())
-                        }, V = document.createElement("div"), V.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-favourite jw-icon-show-title", V.style = 'margin-right: 14px!important; line-height: 40px;' ,V.innerHTML = '<span class="csn-title-favourite">Yêu thích bài hát này</span><span class="wishlist toggle_wishlist"><i aria-hidden="true" style="font-size: 20px" class="fa fa-heart-o"></i></span>',
+                    void 0 != a && (D = document.createElement("div"), D.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-auto-next jw-icon-auto-next-on jw-auto-play", D.title = "Tự động chuyển bài gợi ý", D.innerHTML = '<span class="csn-title-auto">Tự động chuyển bài gợi ý</span>',
+                        $(D).bind('touchstart click', function(){
+                            "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-auto-next jw-icon-auto-next-on" == D.className ? (D.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-auto-next jw-icon-auto-next-off",
+                            "function" === typeof onPlayerAutoNextOff && onPlayerAutoNextOff()) : (D.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-auto-next jw-icon-auto-next-on", "function" === typeof onPlayerAutoNextOn && onPlayerAutoNextOn())
+                        }), V = document.createElement("div"), V.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-favourite jw-icon-show-title", V.style = 'margin-right: 14px!important; line-height: 40px;' ,V.innerHTML = '<span class="csn-title-favourite">Yêu thích bài hát này</span><span class="wishlist toggle_wishlist"><i aria-hidden="true" style="font-size: 20px" class="fa fa-heart-o"></i></span>',
                         a.parentNode.insertBefore(D, a));
                     D.parentNode.insertBefore(V, D);
                 }
                 var a = E.getElementsByClassName("jw-icon-playback")[0];
-                void 0 != a && (void 0 == Q && (Q = document.createElement("div"), Q.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-nextsong", Q.innerHTML = "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 16 16\"><path class=\"zp-svg-fill\" fill=\"#BEBEBE\" fill-rule=\"nonzero\" d=\"M14 2v12h-1.98V2H14zm-3.48 6L2 14V2l8.52 6z\"></path></svg>", Q.onclick = function () {
+                void 0 != a && (void 0 == Q && (Q = document.createElement("div"), Q.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-nextsong", Q.innerHTML = "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 16 16\"><path class=\"zp-svg-fill\" fill=\"#BEBEBE\" fill-rule=\"nonzero\" d=\"M14 2v12h-1.98V2H14zm-3.48 6L2 14V2l8.52 6z\"></path></svg>",  $(Q).bind('touchstart click', function(){
                     "function" === typeof onPlayerAutoNext &&
                     onPlayerAutoNext()
-                }, a.parentNode.insertBefore(Q, a.nextSibling)));
+                }), a.parentNode.insertBefore(Q, a.nextSibling)));
                 var a = E.getElementsByClassName("jw-icon-auto-next-on")[0];
             }
         }
@@ -24,10 +24,10 @@
         function Y() {
             if (void 0 == F) {
                 var a = E.getElementsByClassName("jw-icon-hd")[0];
-                void 0 != a && (F = document.createElement("div"), F.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-lyric", F.onclick = function() {
+                void 0 != a && (F = document.createElement("div"), F.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-lyric", $(F).bind('touchstart click', function(){
                     "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-lyric" == F.className ? (F.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-lyric jw-toggle jw-off", p.style.visibility = "hidden") : (F.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-lyric",
                         p.style.visibility = "visible")
-                }, a.parentNode.insertBefore(F, a.nextSibling))
+                }), a.parentNode.insertBefore(F, a.nextSibling))
             }
         }
 
@@ -118,10 +118,10 @@
             var b = document.createElement("li");
             b.className = "jw-text jw-option jw-item-1 jw-reset";
             b.innerHTML = a;
-            b.onclick = function() {
+            $(b).bind('touchstart click', function(){
                 S = !0;
                 "function" === typeof onPlayerLoginVip && onPlayerLoginVip(d)
-            };
+            });
             var c = v[v.length - 1];
             c.parentNode.insertBefore(b, c.nextSibling)
         }
