@@ -388,7 +388,7 @@ global $top_artist_rows;
                 <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
                     <ul class="list-unstyled bxh mb-0">
                     <?php
-                    $catMusic = array_slice($hot_music_rows[5], 0, LIMIT_HOME_CAT_MUSIC);
+                    $catMusic = array_slice($hot_music_rows[6], 0, LIMIT_HOME_CAT_MUSIC);
                     array_map(function ($i, $item) {
                     $musicId = Helpers::music_id($item);
                     $url = SUB_BXH_NOW_MUSIC.'chinese.html?playlist='.++$i;
