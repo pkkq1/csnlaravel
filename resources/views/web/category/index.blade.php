@@ -6,7 +6,7 @@ if($category->cat_id == CAT_VIDEO)
     global $hot_video_rows;
 $bxhCatExists = false;
 $parentTitle = str_replace('Nhạc ', '', explode(" >", $caption)[0]);
-if($category->cat_id == 3 || $category->cat_id == 4 || $category->cat_id == 5 || $category->cat_id == 7)
+if($category->cat_id == 3 || $category->cat_id == 4 || $category->cat_id == 6 || $category->cat_id == 7)
     $bxhCatExists = true;
 ?>
 @section('meta')
@@ -87,7 +87,7 @@ if($category->cat_id == 3 || $category->cat_id == 4 || $category->cat_id == 5 ||
                         <a class="nav-link {{$category->cat_id == 4 ? 'active' : ''}}" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">us-uk</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{$category->cat_id == 5 ? 'active' : ''}}" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">k-pop</a>
+                        <a class="nav-link {{$category->cat_id == 6 ? 'active' : ''}}" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">k-pop</a>
                     </li>
                     @if($bxhCatExists)
                     <li class="nav-item">
@@ -152,7 +152,7 @@ if($category->cat_id == 3 || $category->cat_id == 4 || $category->cat_id == 5 ||
                             ?>
                         </ul>
                     </div>
-                    <div class="tab-pane fade {{$category->cat_id == 5 ? 'show active' : ''}}" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                    <div class="tab-pane fade {{$category->cat_id == 6 ? 'show active' : ''}}" id="contact" role="tabpanel" aria-labelledby="contact-tab">
                         <ul class="list-unstyled bxh mb-0">
                             <?php
                             $catMusic = array_slice($hot_music_rows[6], 0, LIMIT_HOME_CAT_MUSIC);
