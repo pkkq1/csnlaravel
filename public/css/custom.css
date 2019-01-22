@@ -1428,4 +1428,24 @@ a.boxclose{
     color: #B6B6B6;
 }
 
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: #B6B6B6;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #B6B6B6;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #B6B6B6;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #B6B6B6;
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: #B6B6B6;
+}
+
+::placeholder { /* Most modern browsers support this now. */
+    color: #B6B6B6;
+}
+
 
