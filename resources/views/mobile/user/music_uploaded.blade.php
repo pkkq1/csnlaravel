@@ -48,7 +48,7 @@ use App\Library\Helpers;
             $perPage = $music['stage_fullcensor']->toArray()['per_page'];
             $curentPage = $music['stage_fullcensor']->toArray()['current_page'];
             array_map(function($i, $item) use($perPage, $curentPage) {
-            $url = url()->current().'/../redirect/'.$item['music_id'];
+            $url = '/user/redirect/'.$item['music_id'];
             ?>
                 <div class="element py-3 border-bottom">
                     <div class="number_wrap text-center text-orange_ d-inline-block align-middle mx-3">
@@ -115,13 +115,13 @@ use App\Library\Helpers;
                 <div class="row row-sm">
                     <?php
                     array_map(function ($i, $item) {
-                    $url = '/dang-tai/album/'.$item['cover_id'];
+                    $url = Helpers::album_url($item);
                     ?>
                     <div class="col-6">
                         <div class="item element">
                             <a href="{{$url}}"><div style="background: url({{Helpers::cover_url($item['cover_id'])}}) no-repeat center;background-size: cover;" class="image rounded"></div></a>
                             <div class="content mt-3">
-                                <a href="{{$url}}"><h6 class="name_song mb-1 card-title">{{$item['album_name']}}</h6></a>
+                                <a href="{{$url}}"><h6 class="name_song mb-1 card-title">{{$item['music_album']}}</h6></a>
                             </div>
                         </div>
                     </div>
