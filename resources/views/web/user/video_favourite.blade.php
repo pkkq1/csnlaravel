@@ -2,16 +2,19 @@
     <?php
     use App\Library\Helpers;
     $data = $videoFavourite->toArray()['data'];
+    $idAuth = Auth::check() ? Auth::user()->id : 0;
     ?>
     @if($data)
     <?php
-    array_map(function ($item) {
+    array_map(function ($item) use($idAuth) {
     $item = $item['video'];
     $url = Helpers::listen_url($item);
+    $userFav = $item['user_id'];
     ?>
     <div class="col">
         <div class="card card1 video">
             <div class="card-header" style="background-image: url({{Helpers::thumbnail_url($item)}});">
+                <a href="javascript:void(0)" onclick="return favourite('{{str_replace("'", "\'", $item['music_title'])}}', 'music', '{{$item['music_id']}}')" class="btn-video-favourite wishlist wishlist-{{$item['music_id']}} toggle_wishlist {{$userFav == $idAuth ? 'selector' : ''}} px-1"><i aria-hidden="true" class="fa fa-heart-o"></i></a>
                 <a href="{{$url}}" title="{{$item['music_title']}}">
                     <span class="icon-play"></span>
                 </a>
