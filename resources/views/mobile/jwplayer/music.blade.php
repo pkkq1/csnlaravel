@@ -487,7 +487,7 @@ if($musicSet['type_listen'] == 'playlist') {
         autostart: false,
         controlbar: "bottom",
         plugins: {
-            '<?php echo $musicSet['type_listen'] == 'single' ? '/js/nhac-csn.js' : '/js/nhac-playlist.js' ?>': {
+            '<?php echo $musicSet['type_listen'] == 'single' ? '/js/nhac-csn-mobile.js' : '/js/nhac-playlist-mobile.js' ?>': {
                 duration: 20,
                 msisdn: '',
                 package_id: 0,

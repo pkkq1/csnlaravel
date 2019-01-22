@@ -218,11 +218,11 @@ class UploadController extends Controller
     public function storeMusic(Request $request, $musicId = null) {
         $this->validate($request, [
             'music_title' => 'required|max:255',
-            'music_composer' => 'required|max:255',
+            'music_composer' => 'max:255',
             'music_artist' => 'required',
             'drop_files' => 'required',
-            'music_year' => 'required|max:6',
-            'music_source_url' => 'required|max:255',
+            'music_year' => 'max:4',
+            'music_source_url' => 'max:255',
         ]);
         $typeUpload = $request->input('type_upload');
         $mess = $typeUpload == 'music' ? 'bài hát' : 'video';
@@ -333,11 +333,11 @@ class UploadController extends Controller
         }
         $this->validate($request, [
             'music_album' => 'required|max:255',
-            'music_composer' => 'required|max:255',
+            'music_composer' => 'max:255',
             'music_artist' => 'required',
             'drop_files' => 'required',
             'album_cover' => 'required',
-            'music_year' => 'required|max:5',
+            'music_year' => 'max:4',
         ]);
         $fileUploads = explode(';', $request->input('drop_files'));
         $fileSize = explode(';', $request->input('music_filesize'));
