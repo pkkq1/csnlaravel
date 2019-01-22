@@ -61,12 +61,12 @@ class SearchController extends Controller
             ],
         ];
         if($search) {
-//            $searchTool = Helpers::replaceKeySearch($search);
-            $searchTool = $search;
+            $searchTool = Helpers::replaceKeySearch($search);
+            //$searchTool = $search;
             $rawTiengViet = Helpers::rawTiengVietUrl($searchTool, ' ');
             $charsetNoSapce = str_replace(' ', '', $rawTiengViet);
             $titleCharset = str_replace(' ', '+', $rawTiengViet) . '^2';
-            $titleSearch = Helpers::replaceKeySearch($searchNotUtf8);
+            $titleSearch = $searchTool;//Helpers::replaceKeySearch($searchNotUtf8);
             // search key
             if(isset($request->view_all) || isset($request->view_music)) {
                 $searchSolarium = [];
@@ -75,7 +75,7 @@ class SearchController extends Controller
                 $searchSolarium['music_title_artist_charset'] = $titleCharset;
                 if($titleSearch)
                     $searchSolarium['music_title_artist_search'] = $titleSearch;
-                $resultMusic = $this->Solr->search($searchSolarium, ($request->page_music ?? 1), $request->rows ?? ROWS_MUSIC_SEARCH_PAGING, array('score' => 'desc','music_listen' => 'desc'));
+                $resultMusic = $this->Solr->search($searchSolarium, ($request->page_music ?? 1), $request->rows ?? ROWS_MUSIC_SEARCH_PAGING, array('score' => 'desc', 'music_downloads_today' => 'desc', 'music_downloads_this_week' => 'desc', 'music_listen' => 'desc'));
                 if($resultMusic['data']) {
                     foreach ($resultMusic['data'] as $item) {
                         $result[0]['music']['data'][] = [

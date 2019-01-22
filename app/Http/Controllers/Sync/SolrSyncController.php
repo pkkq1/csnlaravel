@@ -185,7 +185,7 @@ class SolrSyncController extends Controller
                 $artist[] = $artistItem;
             }
         }else {
-            $artist = ArtistModel::offset(0)->limit(100000)->get();
+            $artist = ArtistModel::offset(0)->limit(130000)->get();
         }
         DB::disconnect('mysql');
         $datas = [];
@@ -195,8 +195,8 @@ class SolrSyncController extends Controller
                 'id' => 'artist_'.$item->artist_id,
                 'artist_nickname' => $item->artist_nickname,
                 'artist_nickname_search' => Helpers::replaceKeySearch($item->artist_nickname),
-                'artist_nickname_charset' => $artist_nickname_charset,
-                'artist_nickname_charset_nospace' => str_replace(' ', '', $artist_nickname_charset),
+                'artist_nickname_charset' => Helpers::replaceKeySearch($artist_nickname_charset),
+                'artist_nickname_charset_nospace' => Helpers::replaceKeySearch(str_replace(' ', '', $artist_nickname_charset)),
                 'artist_link' => Helpers::artistUrl($item->artist_id, $item->artist_nickname),
                 'artist_cover' => $item->artist_cover ? Helpers::file_path($item->artist_id, PUBLIC_COVER_ARTIST_PATH, true).$item->artist_cover : '/imgs/no_cover_artist.jpg',
                 'artist_avatar' => $item->artist_avatar ? Helpers::file_path($item->artist_id, PUBLIC_AVATAR_ARTIST_PATH, true).$item->artist_avatar : '/imgs/no_cover.jpg',
@@ -217,7 +217,7 @@ class SolrSyncController extends Controller
                 $cover[] = $coverItem;
             }
         }else {
-            $cover = CoverModel::orderBy('cover_id', 'asc')->offset(74769)->limit(100000)->get();
+            $cover = CoverModel::orderBy('cover_id', 'asc')->offset(0)->limit(100000)->get();
         }
         DB::disconnect('mysql');
         $datas = [];
@@ -240,9 +240,9 @@ class SolrSyncController extends Controller
             $data = [
                 'id' => 'cover_'.$item->cover_id,
                 'music_album' => $item->music_album,
-                'music_album_search' => $titleSearch,
-                'music_album_charset' =>$titleCharset,
-                'music_album_charset_nospace' => str_replace(' ', '', $titleCharset),
+                'music_album_search' => Helpers::replaceKeySearch($titleSearch),
+                'music_album_charset' => Helpers::replaceKeySearch($titleCharset),
+                'music_album_charset_nospace' => Helpers::replaceKeySearch(str_replace(' ', '', $titleCharset)),
                 'album_cover' => Helpers::cover_url($item->cover_id),
                 'cover_filename' => $item->cover_filename,
                 'album_cat' => !empty($album_cat) ? $album_cat : '',
