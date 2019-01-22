@@ -32,7 +32,7 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
-//        $schedule->call('\App\Http\Controllers\Sync\SolrSyncController@syncMusic');
+//        $schedule->call('\App\Http\Controllers\Sync\SolrSyncController@syncCover');
 
 //        $schedule->command('music_listen_download:type real')->hourly(5);
 //        $schedule->command('music_listen_download:type today');
