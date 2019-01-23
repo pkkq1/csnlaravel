@@ -154,11 +154,18 @@ class SearchController extends Controller
             if(isset($request->view_all) || isset($request->view_video)) {
                 $searchSolarium = [];
                 if($quickSearch)
-                    $searchSolarium['video_title_artist_charset_nospace'] =  $charsetNoSapce . '^100 | video_title_charset_nospace:'.$charsetNoSapce.'*^50';
-                $searchSolarium['video_title_artist_charset'] = $titleCharset;
-                if($titleSearch)
-                    $searchSolarium['video_title_artist_search'] = $titleSearch;
-                $resultVideo = $this->Solr->search($searchSolarium, ($request->page_video ?? 1), $request->rows ?? ROWS_VIDEO_SEARCH_PAGING, array('score' => 'desc','video_listen' => 'desc'));
+                    $searchSolarium['video_title_artist_charset_nospace'] =  $charsetNoSapce . '^100 | video_title_artist_charset_nospace:'.$charsetNoSapce.'*^50';
+                if($titleSearch) {
+                    $searchSolarium['video_title_charset'] = $titleCharset . '^2';
+                    $searchSolarium['video_artist_charset'] = $titleCharset;
+
+                    if ($titleSearch != $titleCharset) {
+                        $searchSolarium['video_title_search'] = $titleSearch . '^2';
+                        $searchSolarium['video_artist_search'] = $titleSearch;
+                    }
+                }
+
+                $resultVideo = $this->Solr->search($searchSolarium, ($request->page_video ?? 1), $request->rows ?? ROWS_VIDEO_SEARCH_PAGING, array('score' => 'desc', 'video_downloads_this_week' => 'desc', 'video_downloads_today' => 'desc', 'video_listen' => 'desc'));
                 if($resultVideo['data']) {
                     foreach ($resultVideo['data'] as $item) {
                         $result[0]['video']['data'][] = [
@@ -168,7 +175,7 @@ class SearchController extends Controller
                             'video_link' => $item['video_link'][0],
                             'video_cover' => isset($item['video_cover']) ? $item['video_cover'][0] : '',
                             'video_listen' => $item['video_listen_total'][0],
-                            'music_length' => '03:45',
+                            //'music_length' => '03:45',
                         ];
                     }
                 }
