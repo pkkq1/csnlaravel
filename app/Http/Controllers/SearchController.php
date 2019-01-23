@@ -88,7 +88,7 @@ class SearchController extends Controller
                 if($resultMusic['data']) {
                     foreach ($resultMusic['data'] as $item) {
                         $result[0]['music']['data'][] = [
-                            'music_title' => $item['music_title'][0],// . ' | ' . $titleCharset . $item['score'] . ' { ' . $item['music_downloads_this_week'][0],
+                            'music_title' => $item['music_title'][0] . ' | ' . $titleCharset . $item['score'] . ' { ' . $item['music_downloads_this_week'][0],
                             'music_artist' => $item['music_artist'][0],
                             'music_bitrate' => $item['music_bitrate'][0],
                             'music_link' => $item['music_link'][0],

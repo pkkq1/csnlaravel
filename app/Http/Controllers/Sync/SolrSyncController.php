@@ -15,6 +15,7 @@ use Illuminate\Http\Request as Request;
 use Illuminate\Support\Facades\Auth;
 use App\Library\Helpers;
 use App\Models\MusicModel;
+use App\Models\UploadModel;
 use App\Models\MusicSolrModel;
 use App\Models\VideoModel;
 use App\Models\CoverModel;
@@ -54,11 +55,15 @@ class SolrSyncController extends Controller
                 ->where('cat_id', '!=', CAT_VIDEO)
                 ->where('music_deleted', '<', 1)
                 ->where('music_id', '>', intval($_GET['m_start']))
+//                ->whereIn('music_id', [1603231,1602966,1603110])
                 ->offset(0)
-                ->limit(10000)
+                ->limit(5000)
+                ->orderBy('music_id', 'asc')
                 ->get();
         }
         DB::disconnect('mysql');
+
+        //dd($searchMusic);
         $datas = [];
         foreach ($searchMusic as $key => $item) {
             $titleSearch = Helpers::replaceKeySearch($item->music_title);
@@ -98,11 +103,14 @@ class SolrSyncController extends Controller
             ];
 
             $datas[] = $data;
+            //$datas[] = $data['id'];
             //$this->Solr->addDocuments($data);
+            //$this->Solr->solrDeleteById($data['id']);
 
             echo ($key) . '/ ' . $item->music_id . "\n <br>";
         }
         $this->Solr->addMultiDocuments($datas);
+        //$this->Solr->solrMultiDeleteById($datas);
 
 //        if (sizeof($searchMusic) > 0)
 //        {
@@ -113,11 +121,63 @@ class SolrSyncController extends Controller
 //        }
         return response(['Ok']);
     }
+    public function syncDeleteMusic($id = null, $musicItem = null) {
+        if($id) {
+            $searchMusic = MusicModel::select('music_id', 'music_title_search', 'music_artist_search', 'music_composer_search', 'music_album_search', 'music_title', 'music_artist',
+                'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_title_url', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_downloads_this_week', 'music_lyric')
+                ->where('cat_id', '!=', CAT_VIDEO)
+                ->where('music_id', $id)
+                ->get();
+        }elseif($musicItem){
+            if(is_array($musicItem)){
+                $searchMusic = $musicItem;
+            }else{
+                $searchMusic[] = $musicItem;
+            }
+        }else {
+            $searchMusic = UploadModel::select('music_id')
+                ->where('cat_id', '!=', CAT_VIDEO)
+                ->where('music_state', '=', -1)
+                ->where('music_id', '>', intval($_GET['m_start']))
+//                ->whereIn('music_id', [1603231,1602966,1603110])
+                ->offset(0)
+                ->limit(5000)
+                ->orderBy('music_id', 'asc')
+                ->get();
+        }
+        DB::disconnect('mysql');
+
+        //dd($searchMusic);
+        $datas = [];
+        foreach ($searchMusic as $key => $item) {
+            $data = [
+                'id' => 'music_'.$item->music_id,
+            ];
+
+            //$datas[] = $data;
+            $datas[] = $data['id'];
+            //$this->Solr->addDocuments($data);
+            //$this->Solr->solrDeleteById($data['id']);
+
+            echo ($key) . '/ ' . $item->music_id . "\n <br>";
+        }
+        //$this->Solr->addMultiDocuments($datas);
+        $this->Solr->solrMultiDeleteById($datas);
+
+        if (sizeof($searchMusic) > 0)
+        {
+            die('<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html><head><script type="text/javascript">window.location = "?m_start='. $item->music_id .'"; </script></head><body></body></html>');
+        }
+        else{
+            die('Done! Full Data!');
+        }
+        return response(['Ok']);
+    }
     public function syncVideo($id = null, $videoItem = null) {
         if($id) {
             $searchVideo = VideoModel::select('music_id', 'music_title_search', 'music_artist_search', 'music_composer_search', 'music_album_search', 'music_title', 'music_artist',
                 'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_title_url', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_width', 'music_height', 'music_last_update_time', 'music_length', 'music_time')
-                ->where('cat_id', '!=', CAT_VIDEO)
+                ->where('cat_id', '=', CAT_VIDEO)
                 ->where('music_id', $id)
                 ->get();
         }elseif($videoItem){
@@ -129,8 +189,13 @@ class SolrSyncController extends Controller
         }else {
             $searchVideo = VideoModel::select('music_id', 'music_title_search', 'music_artist_search', 'music_composer_search', 'music_album_search', 'music_title', 'music_artist',
                 'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_title_url', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_width', 'music_height', 'music_last_update_time', 'music_length', 'music_time')
+                ->where('cat_id', '=', CAT_VIDEO)
+                ->where('music_deleted', '<', 1)
+                ->where('music_id', '>', intval($_GET['v_start']))
+//                ->whereIn('music_id', [1603231,1602966,1603110])
                 ->offset(0)
-                ->limit(40000)
+                ->limit(5000)
+                ->orderBy('music_id', 'asc')
                 ->get();
         }
         DB::disconnect('mysql');
@@ -152,7 +217,7 @@ class SolrSyncController extends Controller
                 'video_title_charset' => $titleCharset,
                 'video_artist_charset' => $artistCharset,
                 'video_title_artist_charset' => $titleCharset .' '. $artistCharset,
-                'video_bitrate' => Helpers::size2str($item->music_width, $item->music_height, false, true),
+                'video_bitrate' => Helpers::size2str($item->music_width, $item->music_height),//, false, true),
                 'video_width' => $item->music_width,
                 'video_height' => $item->music_height,
                 'video_cover' => Helpers::thumbnail_url($item->toArray()),
@@ -173,6 +238,65 @@ class SolrSyncController extends Controller
 //            $this->Solr->addDocuments($data);
         }
         $this->Solr->addMultiDocuments($datas);
+
+//        if (sizeof($searchVideo) > 0)
+//        {
+//            die('<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html><head><script type="text/javascript">window.location = "?v_start='. $item->music_id .'"; </script></head><body></body></html>');
+//        }
+//        else{
+//            die('Done! Full Data!');
+//        }
+        return response(['Ok']);
+    }
+    public function syncDeleteVideo($id = null, $videoItem = null) {
+        if($id) {
+            $searchVideo = VideoModel::select('music_id')
+                ->where('cat_id', '=', CAT_VIDEO)
+                ->where('music_id', $id)
+                ->get();
+        }elseif($videoItem){
+            if(is_array($videoItem)){
+                $searchVideo = $videoItem;
+            }else{
+                $searchVideo[] = $videoItem;
+            }
+        }else {
+            $searchVideo = UploadModel::select('music_id')
+                ->where('cat_id', '=', CAT_VIDEO)
+                ->where('music_state', '=', -1)
+                ->where('music_id', '>', intval($_GET['v_start']))
+//                ->whereIn('music_id', [1603231,1602966,1603110])
+                ->offset(0)
+                ->limit(5000)
+                ->orderBy('music_id', 'asc')
+                ->get();
+        }
+        DB::disconnect('mysql');
+
+        //dd($searchMusic);
+        $datas = [];
+        foreach ($searchVideo as $key => $item) {
+            $data = [
+                'id' => 'video_'.$item->music_id,
+            ];
+
+            //$datas[] = $data;
+            $datas[] = $data['id'];
+            //$this->Solr->addDocuments($data);
+            //$this->Solr->solrDeleteById($data['id']);
+
+            echo ($key) . '/ ' . $item->music_id . "\n <br>";
+        }
+        //$this->Solr->addMultiDocuments($datas);
+        $this->Solr->solrMultiDeleteById($datas);
+
+        if (sizeof($searchVideo) > 0)
+        {
+            die('<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html><head><script type="text/javascript">window.location = "?v_start='. $item->music_id .'"; </script></head><body></body></html>');
+        }
+        else{
+            die('Done! Full Data!');
+        }
         return response(['Ok']);
     }
     public function syncArtist($id = null, $artistItem = null) {
