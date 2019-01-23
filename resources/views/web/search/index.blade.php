@@ -162,7 +162,7 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                             <li class="media align-items-stretch">
                                 <div class="media-left align-items-stretch mr-2">
                                     <a href="{{$item['music_link']}}" title="{{$item['music_title']}}">
-                                        <img src="{{$item['artist_avatar']}}" alt="{{$item['music_title']}}">
+                                        <img src="{{$item['music_cover']}}" alt="{{$item['music_title']}}">
                                         <i class="material-icons">play_circle_outline</i>
                                     </a>
                                 </div>
@@ -365,7 +365,7 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                             <a class="search-line" href="{{$item['artist_link']}}" title="{{$item['artist_nickname']}}">
                             <li class="media align-items-stretch">
                                 <div class="media-left align-items-stretch mr-2">
-                                        <img src="{{$item['artist_cover']}}" alt="{{$item['artist_nickname']}}">
+                                        <img src="{{$item['artist_avatar']}}" alt="{{$item['artist_nickname']}}">
                                 </div>
                                 <div class="media-body align-self-center d-flex flex-column justify-content-between p-0">
                                     <div><h5 class="media-title mt-0 mb-0 span_h5">{{$item['artist_nickname']}}</h5></div>
