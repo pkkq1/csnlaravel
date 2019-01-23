@@ -209,14 +209,17 @@ if($category->cat_id == 3 || $category->cat_id == 4 || $category->cat_id == 6 ||
                         <div class="tab-pane fade show active" id="jpop" role="tabpanel" aria-labelledby="jpop-tab">
                             <ul class="list-unstyled bxh mb-0">
                                 <?php
+                                $preFixUrl = $category->cat_url;
                                 if($category->cat_id == CAT_VIDEO){
-                                    $catMusic = $hot_video_rows ? array_slice($hot_video_rows[$category->cat_level == 0 ? 1 : $category->cat_level], 0, LIMIT_HOME_CAT_MUSIC) : [];
+                                    $preFixUrl = 'video/'.$preFixUrl;
+                                    $bxhVideo = $hot_video_rows[$category->cat_level == 0 ? 1 : $category->cat_level] ?? $hot_video_rows[1];
+                                    $catMusic = $hot_video_rows ? array_slice($bxhVideo, 0, LIMIT_HOME_CAT_MUSIC) : [];
                                 }else{
                                     $catMusic = $hot_music_rows ? array_slice($hot_music_rows[$category->cat_id], 0, LIMIT_HOME_CAT_MUSIC) : [];
                                 }
-                                array_map(function ($i, $item) use ($category) {
+                                array_map(function ($i, $item) use ($category, $preFixUrl) {
                                 $musicId = Helpers::music_id($item);
-                                $url = SUB_BXH_NOW_MUSIC.'japan.html?playlist='.++$i;
+                                $url = SUB_BXH_NOW_MUSIC.$preFixUrl.'.html?playlist='.++$i;
                                 ?>
                                 <li class="media {{($i == 1 ? 'first stand' : ($i == 2 ? 'now up' : ($i == 3 ? 'now down' : 'now')))}} align-items-stretch">
                                     <div class="media-left mr-3">

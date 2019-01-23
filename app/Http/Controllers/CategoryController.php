@@ -54,7 +54,7 @@ class CategoryController extends Controller
             $caption = $title .' > '. str_replace('Nhạc', '', $category->cat_title);
             $caption = str_replace('Playback', ' ', $caption);
         }else {
-            $video = $this->videoRepository->getCategoryVideo($category->cat_id, $category->cat_level, ['csn_cover.music_year', CURRENT_YEAR], 'music_last_update_time', 'desc', LIMIT_PAGE_CATEGORY);
+            $video = $this->videoRepository->getCategoryVideo($category->cat_id, $category->cat_level, ['csn_video.music_year', CURRENT_YEAR], 'music_last_update_time', 'desc', LIMIT_PAGE_CATEGORY);
             $firstTab = view('category.video_item', compact('video'));
             $caption = $title .' > '. str_replace('Video', ' ', $category->cat_title);
         }
@@ -81,7 +81,11 @@ class CategoryController extends Controller
                 return view('category.music_item', compact('music'));
                 break;
             case "video-".CURRENT_YEAR:
-                $video = $this->videoRepository->getCategoryVideo($request->cat_id, $request->cat_level, ['csn_cover.music_year', CURRENT_YEAR], 'music_last_update_time', 'desc', LIMIT_PAGE_CATEGORY);
+                $video = $this->videoRepository->getCategoryVideo($request->cat_id, $request->cat_level, ['csn_video.music_year', CURRENT_YEAR], 'music_last_update_time', 'desc', LIMIT_PAGE_CATEGORY);
+                return view('category.video_item', compact('video'));
+                break;
+            case "video-2018":
+                $video = $this->videoRepository->getCategoryVideo($request->cat_id, $request->cat_level, ['csn_video.music_year', 2018], 'music_last_update_time', 'desc', LIMIT_PAGE_CATEGORY);
                 return view('category.video_item', compact('video'));
                 break;
             case "video-moi":

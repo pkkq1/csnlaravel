@@ -961,7 +961,7 @@ if($musicSet['type_listen'] == 'playlist') {
                                         timestamp: new Date(),
                                         content: 'share_down_lossless'
                                     }));
-                                    window.open("<?php echo $file_url[4]['url'] ?>", '_blank');
+                                    window.location = '<?php echo $file_url[4]['url'] ?>';
                                 } else {
                                     alertModal('Bạn phải chia sẻ bài hát này để được download nhạc Lossless.');
                                 }
