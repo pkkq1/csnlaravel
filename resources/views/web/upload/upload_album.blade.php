@@ -141,7 +141,7 @@ $titleMeta = 'Cập nhật album - ' . Config::get('constants.app.title');
                                             @endif
                                         </div>
                                         <div {{isset($album) ? 'hidden' : ''}} class="form-group col-12{{ $errors->has('music_composer') ? ' has-error' : '' }}">
-                                            <label for="music_composer">Sáng tác <small>(*)</small></label>
+                                            <label for="music_composer">Sáng tác</label>
                                             <input type="text" class="form-control" {{isset($album) ? 'disabled' : ''}} name="music_composer" value="{{ old('music_composer')}}" id="music_composer" placeholder="">
                                             @if ($errors->has('music_composer'))
                                                 <span class="help-block">

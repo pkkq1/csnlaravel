@@ -363,7 +363,7 @@ class UploadController extends Controller
         $album = $this->coverRepository->getmodel()::create([
             'music_album' => $request->input('music_album') ?? '',
             'music_production' => $request->input('music_production') ?? '',
-            'music_year' => $request->input('music_year') ?? '',
+            'music_year' => $request->input('music_year') ?? 0,
             'album_cat_id_1' => $request->input('cat_id') ?? 0,
             'album_cat_level_1' => $request->input('cat_level') ?? 0,
             'cover_filename' => '',

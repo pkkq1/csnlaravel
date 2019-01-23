@@ -6,6 +6,7 @@ use Exception;
 use App\Library\Helpers;
 use Jenssegers\Agent\Agent;
 use App\Models\ErrorLogModel;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
@@ -96,7 +97,7 @@ class Handler extends ExceptionHandler
                     'note' => 'file: '.$exception->getFile().'; ',
                     'user_id' => Auth::check() ? Auth::user()->id : null,
                     'message' => $exception->getMessage(),
-                    'parameter' => json_encode(Request()->all())
+                    'parameter' => strlen(json_encode(Request()->all())) < 500 ? json_encode(Request()->all()) : ' '
                 ]);
             }
             abort(403, 'Lỗi '.$error->id.' Bạn vui lòng gửi mã lỗi này đến quan trị để khắc phục sớm nhất.');
