@@ -938,7 +938,7 @@ if($musicSet['type_listen'] == 'playlist') {
                             sessionStorage.removeItem('share_down_lossless');
                             openShare();
                         }else{
-                            window.location.replace(<?php echo $file_url[4]['url'] ?>);
+                            window.location.replace('<?php echo $file_url[4]['url'] ?>');
                         }
                     }else{
                         openShare();
