@@ -165,7 +165,7 @@ class SearchController extends Controller
                     }
                 }
 
-                $resultVideo = $this->Solr->search($searchSolarium, ($request->page_video ?? 1), $request->rows ?? ROWS_VIDEO_SEARCH_PAGING, array('score' => 'desc', 'video_downloads_this_week' => 'desc', 'video_downloads_today' => 'desc', 'video_listen' => 'desc'));
+                $resultVideo = $this->Solr->search($searchSolarium, ($request->page_video ?? 1), $request->rows ?? ROWS_VIDEO_SEARCH_PAGING, array('score' => 'desc', 'video_downloads_max_week' => 'desc', 'video_downloads_today' => 'desc', 'video_listen' => 'desc'));
                 if($resultVideo['data']) {
                     foreach ($resultVideo['data'] as $item) {
                         $result[0]['video']['data'][] = [
