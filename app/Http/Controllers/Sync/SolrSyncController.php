@@ -74,6 +74,7 @@ class SolrSyncController extends Controller
             $lyricCharset = Helpers::rawTiengVietUrl(str_replace("\n", ' ', $lyricSearch), ' ');
             $data = [
                 'id' => 'music_'.$item->music_id,
+                'music_id' => $item->music_id,
                 'music_title' => $item->music_title,
                 'music_title_search' => $titleSearch,
                 'music_title_artist_search' => $titleSearch .' '. $artistSearch,
@@ -122,6 +123,7 @@ class SolrSyncController extends Controller
         return response(['Ok']);
     }
     public function syncDeleteMusic($id = null, $musicItem = null) {
+        //<delete><query>_id:12345323211</query></delete>
         if($id) {
             $searchMusic = MusicModel::select('music_id', 'music_title_search', 'music_artist_search', 'music_composer_search', 'music_album_search', 'music_title', 'music_artist',
                 'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_title_url', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_downloads_this_week', 'music_lyric')
@@ -200,13 +202,14 @@ class SolrSyncController extends Controller
         }
         DB::disconnect('mysql');
         $datas = [];
-        foreach ($searchVideo as $item) {
+        foreach ($searchVideo as $key => $item) {
             $titleSearch = Helpers::replaceKeySearch($item->music_title);
             $artistSearch = Helpers::replaceKeySearch($item->music_artist);
             $titleCharset = Helpers::rawTiengVietUrl($titleSearch, ' ');
             $artistCharset = Helpers::rawTiengVietUrl($artistSearch, ' ');
             $data = [
                 'id' => 'video_'.$item->music_id,
+                'video_id' => $item->music_id,
                 'video_title' => $item->music_title,
                 'video_title_search' => $titleSearch,
                 'video_artist_search' => $artistSearch,
@@ -230,12 +233,13 @@ class SolrSyncController extends Controller
                 'music_length' => $item->music_length >= 3600 ? gmdate("H:i:s", $item->music_length) : gmdate("i:s", $item->music_length),
                 'video_download' => $item->music_downloads,
                 'video_downloads_today' => $item->music_downloads_today,
-                'video_downloads_max_week' => $item->music_downloads_max_week,
                 'video_downloads_this_week' => $item->music_downloads_this_week,
-
+                'video_downloads_max_week' => $item->music_downloads_max_week,
             ];
             $datas[] = $data;
 //            $this->Solr->addDocuments($data);
+
+            echo ($key) . '/ ' . $item->music_id . "\n <br>";
         }
         $this->Solr->addMultiDocuments($datas);
 
