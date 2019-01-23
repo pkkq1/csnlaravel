@@ -73,14 +73,22 @@ class SearchController extends Controller
                 //$searchSolarium['music_title_charset_nospace'] = $charsetNoSapce .'^1000';
                 if($quickSearch)
                     $searchSolarium['music_title_artist_charset_nospace'] =  $charsetNoSapce . '^100 | music_title_artist_charset_nospace:'.$charsetNoSapce.'*^50';
-                $searchSolarium['music_title_artist_charset'] = $titleCharset;
-                if($titleSearch)
-                    $searchSolarium['music_title_artist_search'] = $titleSearch;
+    //            $searchSolarium['music_title_artist_charset'] = $titleCharset;
+                if($titleSearch) {
+                    //$searchSolarium['music_title_artist_search'] = $titleSearch;
+                    $searchSolarium['music_title_charset'] = $titleCharset . '^2';
+                    $searchSolarium['music_artist_charset'] = $titleCharset;
+
+                    if ($titleSearch != $titleCharset) {
+                        $searchSolarium['music_title_search'] = $titleSearch . '^2';
+                        $searchSolarium['music_artist_search'] = $titleSearch;
+                    }
+                }
                 $resultMusic = $this->Solr->search($searchSolarium, ($request->page_music ?? 1), $request->rows ?? ROWS_MUSIC_SEARCH_PAGING, array('score' => 'desc', 'music_downloads_this_week' => 'desc', 'music_downloads_today' => 'desc', 'music_listen' => 'desc'));
                 if($resultMusic['data']) {
                     foreach ($resultMusic['data'] as $item) {
                         $result[0]['music']['data'][] = [
-                            'music_title' => $item['music_title'][0],// . ' | ' . $titleCharset,
+                            'music_title' => $item['music_title'][0],// . ' | ' . $titleCharset . $item['score'] . ' { ' . $item['music_downloads_this_week'][0],
                             'music_artist' => $item['music_artist'][0],
                             'music_bitrate' => $item['music_bitrate'][0],
                             'music_link' => $item['music_link'][0],

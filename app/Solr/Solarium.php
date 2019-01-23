@@ -119,6 +119,27 @@ class Solarium
             ];
         }
     }
+
+    public function solrMultiDeleteById($ids = ''){
+        $update = $this->client->createUpdate();
+        for ($i = 0; $i < sizeof($ids); $i++) {
+            $id = $ids[$i];
+            try {
+                $update->addDeleteById($id);
+            } catch (Exception $e) {
+                return [
+                    'status' => false,
+                    'message' => $e->getMessage()
+                ];
+            }
+        }
+        $update->addCommit();
+        $result = $this->client->update($update);
+        return [
+            'status' => true,
+            'message' => ''
+        ];
+    }
     public function addDocuments(array $data = array(), $overWrite = true) {
         $update = $this->client->createUpdate();
 
@@ -173,8 +194,10 @@ class Solarium
 
         $update->addCommit();
         $result = $this->client->update($update);
-        return ['status' => true,
-            'message' => ''];
+        return [
+            'status' => true,
+            'message' => ''
+        ];
     }
 
 }
