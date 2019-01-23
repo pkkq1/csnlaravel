@@ -108,7 +108,7 @@ class SearchController extends Controller
                             'artist_nickname' => $item['artist_nickname'][0],
                             'artist_link' =>  $item['artist_link'][0],
                             'artist_cover' => $item['artist_cover'][0],
-                            'artist_avatar' => isset($item['artist_avatar']) ? $item['artist_avatar'][0] : '/imgs/no_cover.jpg',
+                            'artist_avatar' => $item['artist_avatar'][0],
                         ];
                     }
                 }
