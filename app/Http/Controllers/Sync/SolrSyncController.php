@@ -71,8 +71,8 @@ class SolrSyncController extends Controller
                 'id' => 'music_'.$item->music_id,
                 'music_title' => $item->music_title,
                 'music_title_search' => $titleSearch,
-                'music_title_artist_search' => $titleSearch,
-                'music_artist_search' => $artistSearch .' '. $artistSearch,
+                'music_title_artist_search' => $titleSearch .' '. $artistSearch,
+                'music_artist_search' => $artistSearch,
                 'music_title_charset_nospace' => str_replace(' ', '', $titleCharset),
                 'music_artist_charset_nospace' => str_replace(' ', '', $artistCharset),
                 'music_title_artist_charset_nospace' => str_replace(' ', '', $titleCharset) . ' ' . str_replace(' ', '', $artistCharset),
@@ -86,7 +86,7 @@ class SolrSyncController extends Controller
                 'music_cover' => Helpers::cover_url($item->cover_id),
                 'music_link' => '/'.Helpers::listen_url($item->toArray(), false),
                 'music_filename' => $item->music_filename,
-                'music_artist' => $item->music_artist,
+                'music_artist' => str_replace(';', ',', $item->music_artist),
                 'music_artist_id' => explode(';', $item->music_artist_id),
                 'music_artist_html' => Helpers::rawHtmlArtists($item->music_artist_id, $item->music_artist),
                 'music_listen' => $item->music_listen,
@@ -158,7 +158,7 @@ class SolrSyncController extends Controller
                 'video_cover' => Helpers::thumbnail_url($item->toArray()),
                 'video_link' => '/'.Helpers::listen_url($item->toArray(), false),
                 'video_filename' => $item->music_filename,
-                'video_artist' => $item->music_artist,
+                'video_artist' => str_replace(';', ',', $item->music_artist),
                 'video_artist_id' => str_replace(';', ',', $item->music_artist_id),
                 'video_artist_html' => Helpers::rawHtmlArtists($item->music_artist_id, $item->music_artist),
                 'video_listen' => $item->music_listen,
@@ -226,6 +226,7 @@ class SolrSyncController extends Controller
             $music_artist_id = $item->album_artist_id_1;
             if($item->album_artist_2) {
                 $music_artist = $music_artist.';'.$item->album_artist_2;
+                $music_artist_ = $music_artist.','.$item->album_artist_2;
                 $music_artist_id = $music_artist_id.';'.$item->album_artist_id_2;
             }
             $album_cat = $item->album_cat_id_1;
@@ -235,14 +236,19 @@ class SolrSyncController extends Controller
                     $album_cat = $album_cat.';'.$item->album_cat_id_2.'_'.$item->album_cat_level_1;
             }
             $titleSearch = Helpers::replaceKeySearch($item->music_album);
-            $titleCharset = Helpers::rawTiengVietUrl($item->music_album, ' ');
+            $titleCharset = Helpers::rawTiengVietUrl($titleSearch, ' ');
+            $artistSearch = Helpers::replaceKeySearch($music_artist_);
+            $artistCharset = Helpers::rawTiengVietUrl($artistSearch, ' ');
 
             $data = [
                 'id' => 'cover_'.$item->cover_id,
                 'music_album' => $item->music_album,
-                'music_album_search' => Helpers::replaceKeySearch($titleSearch),
-                'music_album_charset' => Helpers::replaceKeySearch($titleCharset),
+                'music_album_search' => $titleSearch,
+                'music_album_artist_search' => $titleSearch .' '. $artistSearch,
+                'music_album_charset' => $titleCharset,
+                'music_album_artist_charset' => $titleCharset.' '. $artistCharset,
                 'music_album_charset_nospace' => Helpers::replaceKeySearch(str_replace(' ', '', $titleCharset)),
+                'music_album_artist_charset_nospace' => str_replace(' ', '', $titleCharset) .' '.str_replace(' ', '', $artistCharset),
                 'album_cover' => Helpers::cover_url($item->cover_id),
                 'cover_filename' => $item->cover_filename,
                 'album_cat' => !empty($album_cat) ? $album_cat : '',
@@ -251,15 +257,15 @@ class SolrSyncController extends Controller
                 'music_artist' => '',
                 'music_artist_search' => '',
                 'music_artist_charset' => '',
-                'music_artist_nospace' => '',
+                'music_artist_nospace' => '123',
                 'album_bitrate' => $item->music_bitrate,
                 'music_artist_html' => '',
                 'album_bitrate_html' => $item->music_bitrate ? Helpers::bitrate2str($item->music_bitrate) : '',
             ];
-            if($music_artist) {
-                $artistSearch = Helpers::replaceKeySearch($music_artist);
-                $artistCharset = Helpers::rawTiengVietUrl($music_artist, ' ');
-                $data['music_artist'] = $music_artist;
+            if($music_artist_) {
+                $artistSearch = Helpers::replaceKeySearch($music_artist_);
+                $artistCharset = Helpers::rawTiengVietUrl($music_artist_, ' ');
+                $data['music_artist'] = $music_artist_;
                 $data['music_artist_search'] = $artistSearch;
                 $data['music_artist_charset'] = $artistCharset;
                 $data['music_artist_nospace'] = str_replace(' ', '', $artistCharset);
