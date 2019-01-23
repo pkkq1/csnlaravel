@@ -223,6 +223,7 @@ class SolrSyncController extends Controller
         $datas = [];
         foreach ($cover as $item) {
             $music_artist = $item->album_artist_1;
+            $music_artist_ = $item->album_artist_1;
             $music_artist_id = $item->album_artist_id_1;
             if($item->album_artist_2) {
                 $music_artist = $music_artist.';'.$item->album_artist_2;
