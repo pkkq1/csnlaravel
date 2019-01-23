@@ -70,7 +70,7 @@ use App\Library\Helpers;
     <div class="wrap-search">
         <form  method="GET" action="/tim-kiem">
             <div class="block_search_fixed">
-                <input type="search" placeholder="Search" class="input_search" name="q" id="search_autocomplete" autofocus>
+                <input type="search" placeholder="Search" class="input_search" value="{{$_GET['q'] ?? ''}}" name="q" id="search_autocomplete" autofocus>
                 <div class="button_close"><span>Hủy</span></div>
             </div>
         </form>

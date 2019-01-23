@@ -37,6 +37,7 @@ class Solarium
 //                $query->addFilterQuery(array('key' => $key, 'query' => $key . ':' . $item ));
             }
             $query->setQuery(substr($temp, 0, strlen($temp) - 3));
+            $query->createFilterQuery('*,score');
             $rows = $perPage;
 
             $query->setStart(($page == 1 ? 0 : $page - 1) * $rows)->setRows($rows); // perpage, rows
