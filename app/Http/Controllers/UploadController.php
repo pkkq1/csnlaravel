@@ -376,9 +376,13 @@ class UploadController extends Controller
         ]);
         foreach(explode(';', $request->input('music_artist')) as $key => $item) {
             $album['album_artist_' . ++ $key] = $item;
+            if($key == 1)
+                break;
         }
         foreach(explode(';', $request->input('music_artist_id')) as $key => $item) {
             $album['album_artist_id_' . ++ $key] = $item;
+            if($key == 1)
+                break;
         }
         if(!$album)
             return redirect()->route('upload.upload_album')->with('error', 'tạo album thất bại');
