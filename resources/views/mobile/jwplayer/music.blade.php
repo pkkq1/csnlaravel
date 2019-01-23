@@ -512,6 +512,16 @@ if($musicSet['type_listen'] == 'playlist') {
             }
         }
     });
+    var error_count =0;
+    player.onError(function(e) {
+        if (error_count < jwplayer().getQualityLevels().length - 1) {
+            jwplayer().setCurrentQuality(1);
+        } else {
+            alertModal('Xin lỗi video này đã bị lỗi! Vui lòng trải nghiệm video khác');
+            // location.href = "/";
+        }
+        error_count++;
+    });
     var device_type = 'mobile';
     var listPlayed =Array();
     var logPlayAudioFlag = false;

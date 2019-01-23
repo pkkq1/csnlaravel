@@ -575,6 +575,7 @@ if($musicSet['type_listen'] == 'playlist') {
 @endsection
 @section('contentJS')
     <script src="/assets/jwplayer-7.12.0/jwplayer.js"></script>
+    {{--<script src="/js/m17.js"></script>--}}
     <script>
         var musicId = '<?php echo $music->music_id ?>';
         var artists = "<?php echo $music->music_artist  ?>";
@@ -682,7 +683,17 @@ if($musicSet['type_listen'] == 'playlist') {
                     expired_time: 0,
                     version: '1.0'
                 }
+            },
+        });
+        var error_count =0;
+        player.onError(function(e) {
+            if (error_count < jwplayer().getQualityLevels().length - 1) {
+                jwplayer().setCurrentQuality(1);
+            } else {
+                alertModal('Xin lỗi video này đã bị lỗi! Vui lòng trải nghiệm video khác');
+                // location.href = "/";
             }
+            error_count++;
         });
         var device_type = 'desktop';
         var listPlayed =Array();
