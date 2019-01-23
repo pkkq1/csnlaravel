@@ -16,7 +16,9 @@ Route::get('/sync/solr_music', 'Sync\SolrSyncController@syncMusic');
 Route::get('/sync/solr_video', 'Sync\SolrSyncController@syncVideo');
 Route::get('/sync/solr_artist', 'Sync\SolrSyncController@syncArtist');
 Route::get('/sync/solr_cover', 'Sync\SolrSyncController@syncCover');
-Route::get('/sync/demo', 'Sync\SyncTableController@user');
+Route::get('/sync/demo', 'Sync\MusicListenDownloadController@realVideoDownload');
+Route::get('/sync/solr_music_delete', 'Sync\SolrSyncController@syncDeleteMusic');
+Route::get('/sync/solr_video_delete', 'Sync\SolrSyncController@syncDeleteVideo');
 
 
 
