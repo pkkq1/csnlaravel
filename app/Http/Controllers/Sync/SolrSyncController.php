@@ -55,7 +55,7 @@ class SolrSyncController extends Controller
                 ->where('music_deleted', '<', 1)
                 ->where('music_id', '>', intval($_GET['m_start']))
                 ->offset(0)
-                ->limit(2000)
+                ->limit(10000)
                 ->get();
         }
         DB::disconnect('mysql');
@@ -75,7 +75,7 @@ class SolrSyncController extends Controller
                 'music_artist_search' => $artistSearch,
                 'music_title_charset_nospace' => str_replace(' ', '', $titleCharset),
                 'music_artist_charset_nospace' => str_replace(' ', '', $artistCharset),
-                'music_title_artist_charset_nospace' => str_replace(' ', '', $titleCharset) . ' ' . str_replace(' ', '', $artistCharset),
+                'music_title_artist_charset_nospace' => str_replace(' ', '', $titleCharset) . '' . str_replace(' ', '', $artistCharset),
                 'music_title_charset' => $titleCharset,
                 'music_artist_charset' => $artistCharset,
                 'music_title_artist_charset' => $titleCharset . ' '. $artistCharset,
@@ -148,7 +148,7 @@ class SolrSyncController extends Controller
                 'video_title_artist_search' => $titleSearch .' '. $artistSearch,
                 'video_title_charset_nospace' => str_replace(' ', '', $titleCharset),
                 'video_artist_charset_nospace' => str_replace(' ', '', $artistCharset),
-                'video_title_artist_charset_nospace' => str_replace(' ', '', $titleCharset) .' '. str_replace(' ', '', $artistCharset),
+                'video_title_artist_charset_nospace' => str_replace(' ', '', $titleCharset) .''. str_replace(' ', '', $artistCharset),
                 'video_title_charset' => $titleCharset,
                 'video_artist_charset' => $artistCharset,
                 'video_title_artist_charset' => $titleCharset .' '. $artistCharset,
