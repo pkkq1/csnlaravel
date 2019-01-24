@@ -941,6 +941,7 @@ if($musicSet['type_listen'] == 'playlist') {
         }
     });
     //// display Sub
+    var displaySub = $('.sub_line');
     if(sessionStorage.getItem("display_sub") == 'true') {
         displaySub.css('display', 'block');
         $('#display-sub').attr("checked", "checked");
