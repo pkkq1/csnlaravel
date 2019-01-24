@@ -941,11 +941,14 @@ if($musicSet['type_listen'] == 'playlist') {
         }
     });
     //// display Sub
-    var displaySub = $('.sub_line');
-    displaySub.css('display', 'block');
     if(sessionStorage.getItem("display_sub") == 'true') {
         displaySub.css('display', 'block');
         $('#display-sub').attr("checked", "checked");
+    }else {
+        if(sessionStorage.getItem("display_sub") == null) {
+            sessionStorage.setItem("display_sub", true);
+            display_sub();
+        }
     }
     function display_sub() {
         if(sessionStorage.getItem("display_sub") == 'true') {
