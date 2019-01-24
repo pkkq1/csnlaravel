@@ -1,10 +1,18 @@
-<div class="row row10px float-col-width-video">
+
     <?php
     use App\Library\Helpers;
     $data = $videoFavourite->toArray()['data'];
     $idAuth = Auth::check() ? Auth::user()->id : 0;
+    $mySelf = (Auth::check() && Auth::user()->id == $user_id);
     ?>
     @if($data)
+        @if($mySelf)
+            <div class="d-flex align-items-center justify-content-between" id="header_playlist">
+                <span class="title"></span>
+                <span><a class="btn btn-danger" href="/nghe-bat-hat-yeu-thich/video" title="Tạo playlist"><i class="fa fa-play-circle" aria-hidden="true"></i> Nghe tất cả</a></span>
+            </div>
+        @endif
+    <div class="row row10px float-col-width-video">
     <?php
     array_map(function ($item) use($idAuth) {
     $userFav = $item['user_id'];
@@ -30,6 +38,7 @@
     ?>
     <center>{{$videoFavourite->links()}}</center>
     @else
+    <div class="row row10px float-col-width-video">
         <div class="center-text-mes"><span>Chưa có video nào</span></div>
     @endif
 </div>

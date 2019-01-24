@@ -166,12 +166,12 @@ class MusicController extends Controller
             if($type == 'music') {
                 $musicFavourite = $this->musicFavouriteRepository->getModel()::where('user_id', Auth::user()->id)->with('music')->orderBy('id', 'desc')->limit(LIMIT_LISTEN_MUSIC_FAVOURITE)->get();
             }else{
-                $musicFavourite = $this->videoFavouriteRepository->getModel()::where('user_id', Auth::user()->id)->with('music')->orderBy('id', 'desc')->limit(LIMIT_LISTEN_MUSIC_FAVOURITE)->get();
+                $musicFavourite = $this->videoFavouriteRepository->getModel()::where('user_id', Auth::user()->id)->with('video')->orderBy('id', 'desc')->limit(LIMIT_LISTEN_MUSIC_FAVOURITE)->get();
             }
             if(!count($musicFavourite))
                 return view('errors.text_error')->with('message', 'Bạn chưa có bài hát nào yêu thích');
             foreach ($musicFavourite->toArray() as $item) {
-                $playlistMusic[] = $item['music'];
+                $playlistMusic[] = $item[$type];
             }
             $typeListen = 'album';
         }
