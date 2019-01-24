@@ -67,7 +67,7 @@ $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
                                             </div>
                                             <div class="card-body">
                                                 <h3 class="card-title">
-                                                    @if($item->playlist_music_total)
+                                                    @if($item->playlist_music_total > 0)
                                                         <a href="{{$url}}" title="{{$item->playlist_title}}">{{$item->playlist_title}}</a>
                                                     @else
                                                         <a href="javascript:void(0)" onclick="alertModal('Playlist vẫn chưa có bài hát nào.');" title="{{$item->playlist_title}}">{{$item->playlist_title}}</a>
