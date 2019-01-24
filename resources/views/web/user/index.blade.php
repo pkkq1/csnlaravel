@@ -66,7 +66,13 @@ $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
                                                 </a>
                                             </div>
                                             <div class="card-body">
-                                                <h3 class="card-title"><a href="{{$url}}" title="{{$item->playlist_title}}">{{$item->playlist_title}}</a></h3>
+                                                <h3 class="card-title">
+                                                    @if($item->playlist_music_total)
+                                                        <a href="{{$url}}" title="{{$item->playlist_title}}">{{$item->playlist_title}}</a>
+                                                    @else
+                                                        <a href="javascript:void(0)" onclick="alertModal('Playlist vẫn chưa có bài hát nào.');" title="{{$item->playlist_title}}">{{$item->playlist_title}}</a>
+                                                    @endif
+                                                </h3>
                                                 @if($item->playlist_artist)
                                                     <p class="card-text" style="padding: 0px;">
                                                         <?php
