@@ -105,7 +105,7 @@ class UploadController extends Controller
     }
     function storeArtist(Request $request) {
         $this->validate($request, [
-            'artist_nickname' => 'required|max:255',
+            'artist_nickname' => 'required|max:255|unique:csn_artist',
             'artist_birthday' => 'required|max:15|date',
             'artist_gender' => 'required|max:1',
             'artist_avatar' => 'required',
