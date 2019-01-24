@@ -602,9 +602,11 @@ if($musicSet['type_listen'] == 'playlist') {
             viewMode: 'mini',
             onUpdateTimeJw: true
         });
-    })
+    });
+    var setQualityCookie = true;
     jwplayer().onQualityLevels(function(callback){
         if(Cookies.get('label_quality') == 'Lossless') {
+            setQualityCookie = false;
             jwplayer().setCurrentQuality(callback.levels.length - 1);
         }
         updateQuality(callback);
@@ -616,7 +618,9 @@ if($musicSet['type_listen'] == 'playlist') {
         }
     });
     jwplayer().onQualityChange(function(callback){
-        Cookies.set('label_quality', callback.levels[callback.currentQuality].label);
+        if(setQualityCookie)
+            Cookies.set('label_quality', callback.levels[callback.currentQuality].label);
+        setQualityCookie = true;
         updateQuality(callback);
     })
     jwplayer().on('userInactive', function () {
