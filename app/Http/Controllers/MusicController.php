@@ -158,6 +158,23 @@ class MusicController extends Controller
             $playlist->playlist_cover = $artist->artist_avatar ? env('APP_URL').Helpers::file_path($artist->artist_id, PUBLIC_COVER_ARTIST_PATH, true).$artist->artist_avatar . '.png' : env('APP_URL').'/imgs/no_cover_artist2.jpg';
             $playlist->playlist_title = 'Tất cả bài hát ca sĩ '.$artist->artist_nickname;
         }
+        elseif($arrUrl['type'] == 'nghe-bat-hat-yeu-thich'){
+            $arrUrl = Helpers::splitArtistUrl($musicUrl);
+            $type = last(explode('/', $request->path()));
+            if(!Auth::check())
+                return view('errors.text_error')->with('message', 'Bạn cần phải đăng nhập để hiển thị bài hát.');
+            if($type == 'music') {
+                $musicFavourite = $this->musicFavouriteRepository->getModel()::where('user_id', Auth::user()->id)->with('music')->orderBy('id', 'desc')->limit(LIMIT_LISTEN_MUSIC_FAVOURITE)->get();
+            }else{
+                $musicFavourite = $this->videoFavouriteRepository->getModel()::where('user_id', Auth::user()->id)->with('music')->orderBy('id', 'desc')->limit(LIMIT_LISTEN_MUSIC_FAVOURITE)->get();
+            }
+            if(!count($musicFavourite))
+                return view('errors.text_error')->with('message', 'Bạn chưa có bài hát nào yêu thích');
+            foreach ($musicFavourite->toArray() as $item) {
+                $playlistMusic[] = $item['music'];
+            }
+            $typeListen = 'album';
+        }
         if($playlistMusic) {
             $offsetPl = $playlistMusic[$request->playlist ? $request->playlist - 1 : 0];
             if($offsetPl['cat_id'] == CAT_VIDEO) {

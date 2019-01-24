@@ -112,16 +112,19 @@ class UserMusicController extends Controller
         return view('user.music_recents', compact('musics'));
     }
     public function artistFavourite(Request $request) {
-        $artistFavourite = $this->artistFavouriteRepository->getModel()::where('user_id', $request->user_id)->with('artist')->orderBy('id', 'desc')->paginate(LIMIT_PAGE_ARTIST_FAVOURITE);
-        return view('user.artist_favourite', compact('artistFavourite'));
+        $user_id = $request->user_id;
+        $artistFavourite = $this->artistFavouriteRepository->getModel()::where('user_id', $user_id)->with('artist')->orderBy('id', 'desc')->paginate(LIMIT_PAGE_ARTIST_FAVOURITE);
+        return view('user.artist_favourite', compact('artistFavourite', 'user_id'));
     }
     public function videoFavourite(Request $request) {
-        $videoFavourite = $this->videoFavouriteRepository->getModel()::where('user_id', $request->user_id)->with('video')->orderBy('id', 'desc')->paginate(LIMIT_PAGE_MUSIC_FAVOURITE);
-        return view('user.video_favourite', compact('videoFavourite'));
+        $user_id = $request->user_id;
+        $videoFavourite = $this->videoFavouriteRepository->getModel()::where('user_id', $user_id)->with('video')->orderBy('id', 'desc')->paginate(LIMIT_PAGE_MUSIC_FAVOURITE);
+        return view('user.video_favourite', compact('videoFavourite', 'user_id'));
     }
     public function musicFavourite(Request $request) {
-        $musicFavourite = $this->musicFavouriteRepository->getModel()::where('user_id', $request->user_id)->with('music')->orderBy('id', 'desc')->paginate(LIMIT_PAGE_MUSIC_FAVOURITE);
-        return view('user.music_favourite', compact('musicFavourite'));
+        $user_id = $request->user_id;
+        $musicFavourite = $this->musicFavouriteRepository->getModel()::where('user_id', $user_id)->with('music')->orderBy('id', 'desc')->paginate(LIMIT_PAGE_MUSIC_FAVOURITE);
+        return view('user.music_favourite', compact('musicFavourite', 'user_id'));
     }
 
 }

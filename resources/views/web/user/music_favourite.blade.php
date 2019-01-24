@@ -4,8 +4,15 @@ $perPage = $musicFavourite->toArray()['per_page'];
 $curentPage = $musicFavourite->toArray()['current_page'];
 $data = $musicFavourite->toArray()['data'];
 $idAuth = Auth::check() ? Auth::user()->id : 0;
+$mySelf = (Auth::check() && Auth::user()->id == $user_id);
 ?>
 @if($data)
+    @if($mySelf)
+    <div class="d-flex align-items-center justify-content-between" id="header_playlist">
+        <span class="title"></span>
+        <span><a class="btn btn-danger" href="/nghe-bat-hat-yeu-thich/music" title="Tạo playlist"><i class="fa fa-play-circle" aria-hidden="true"></i> Nghe tất cả</a></span>
+    </div>
+    @endif
     <div class="row row10px">
         <div class="col">
             <ul class="list-unstyled list_music">
