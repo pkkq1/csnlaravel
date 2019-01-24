@@ -256,7 +256,7 @@ if($musicSet['type_listen'] == 'playlist') {
                                                 @if(isset($lyric_array['lyric']))
                                                     @if(isset($lyric_array['sub']) && $lyric_array['sub'] != false)
                                                         <div class="nav-link form-group form-check mb-0 autoplay sub-text" style="padding-left: 0px;">
-                                                            <input type="checkbox" class="form-check-input display-sub" id="display-sub" onclick="display_sub()">
+                                                            <input type="checkbox" class="form-check-input display-sub" checked id="display-sub" onclick="display_sub()">
                                                             <label class="form-check-label d-flex align-items-center" for="display-sub">
                                                                 <span class="switch"><span class="switch-inner"></span></span>
                                                                 <span style="font-size: 15px; color: #4b4b4b; font-family: 'SFProDisplay-Medium'; margin-left: 10px" class="txt">Hiển Thị Sub</span>
@@ -945,6 +945,13 @@ if($musicSet['type_listen'] == 'playlist') {
     if(sessionStorage.getItem("display_sub") == 'true') {
         displaySub.css('display', 'block');
         $('#display-sub').attr("checked", "checked");
+    }else {
+        if(sessionStorage.getItem("display_sub") == null) {
+            sessionStorage.setItem("display_sub", true);
+            displaySub.css('display', 'block');
+        }else{
+            $('#display-sub').removeAttr("checked");
+        }
     }
     function display_sub() {
         if(sessionStorage.getItem("display_sub") == 'true') {
