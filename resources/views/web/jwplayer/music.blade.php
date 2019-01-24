@@ -586,7 +586,7 @@ if($musicSet['type_listen'] == 'playlist') {
         ////////////////////////
 
         <?php
-        if($musicSet['type_listen'] == 'playlist' && !empty($musicSet['playlist_music'])){
+        if(count($musicSet['playlist_music']) > 5){
             ?>
             var vtop = document.getElementById("music-listen-<?php echo $music->music_id ?>").offsetTop;
             $('.music_recommendation').animate({scrollTop: vtop - 50}, 'slow');
