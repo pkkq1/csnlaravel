@@ -64,33 +64,45 @@ class SearchController extends Controller
             $searchTool = Helpers::replaceKeySearch($search);
             //$searchTool = $search;
             $rawTiengViet = Helpers::rawTiengVietUrl($searchTool, ' ');
-            $charsetNoSapce = str_replace(' ', '', $rawTiengViet);
+            $charsetNoSpace = str_replace(' ', '', $rawTiengViet);
             $titleCharset = str_replace(' ', '+', $rawTiengViet);
             $titleSearch = str_replace(' ', '+', $searchTool);//Helpers::replaceKeySearch($searchNotUtf8);
             // search key
             if(isset($request->view_all) || isset($request->view_music)) {
                 $searchSolarium = [];
-                //$searchSolarium['music_title_charset_nospace'] = $charsetNoSapce .'^1000';
+                //$searchSolarium['music_title_charset_nospace'] = $charsetNoSpace .'^1000';
                 if ($quickSearch) {
-                    $searchSolarium['music_title_charset_nospace'] = $charsetNoSapce . '^500';
-                    $searchSolarium['music_title_artist_charset_nospace'] = $charsetNoSapce . '^100 | music_title_artist_charset_nospace:' . $charsetNoSapce . '*^50';
+                    $searchSolarium['music_title_charset_nospace'] = $charsetNoSpace . '^500';
+                    $searchSolarium['music_title_artist_charset_nospace'] = $charsetNoSpace . '^100 | music_title_artist_charset_nospace:' . $charsetNoSpace . '*^50';
                 }
     //            $searchSolarium['music_title_artist_charset'] = $titleCharset;
                 if($titleSearch) {
                     //$searchSolarium['music_title_artist_search'] = $titleSearch;
                     $searchSolarium['music_title_charset'] = $titleCharset . '^2';
-                    $searchSolarium['music_artist_charset'] = $titleCharset;
+                    //$searchSolarium['music_artist_charset'] = $titleCharset;
 
                     if ($titleSearch != $titleCharset) {
                         $searchSolarium['music_title_search'] = $titleSearch . '^2';
                         $searchSolarium['music_artist_search'] = $titleSearch;
                     }
                 }
+
+                $search_level = 1;
+
+                search_2:
+                if ($search_level == 2)
+                {
+                    $searchSolarium['music_artist_charset'] = '';
+                    if ($titleSearch != $titleCharset) {
+                        $searchSolarium['music_artist_search'] = '';
+                    }
+                }
+
                 $resultMusic = $this->Solr->search($searchSolarium, ($request->page_music ?? 1), $request->rows ?? ROWS_MUSIC_SEARCH_PAGING, array('score' => 'desc', 'music_downloads_this_week' => 'desc', 'music_downloads_today' => 'desc', 'music_listen' => 'desc'));
                 if($resultMusic['data']) {
                     foreach ($resultMusic['data'] as $item) {
                         $result[0]['music']['data'][] = [
-                            'music_title' => $item['music_title'][0],// . ' | ' . $titleCharset . $item['score'] . ' { ' . $item['music_downloads_this_week'][0],
+                            'music_title' => $item['music_title'][0],// . ' | ' . $titleCharset . $item['score'] . ' { ' . $item['music_downloads_this_week'][0] . ' }' . $search_level,
                             'music_artist' => $item['music_artist'][0],
                             'music_bitrate' => $item['music_bitrate'][0],
                             'music_link' => $item['music_link'][0],
@@ -98,6 +110,16 @@ class SearchController extends Controller
                             'music_filename' => '', //$item['music_file_name'][0]
                             'music_cover' => $item['music_cover'][0],
                         ];
+
+                        if ($search_level == 1)
+                        {
+                            if ($item['music_title_charset_nospace'][0] == $charsetNoSpace)
+                            {
+                                $search_level = 2;
+                                $result[0]['music']['data'] = [];
+                                goto search_2;
+                            }
+                        }
                     }
                 }
                 $result[0]['music']['rows'] = $resultMusic['rows'];
@@ -107,7 +129,7 @@ class SearchController extends Controller
             if(isset($request->view_all) || isset($request->view_artist)) {
                 $searchSolarium = [];
                 if($quickSearch)
-                    $searchSolarium['artist_nickname_charset_nospace'] =  $charsetNoSapce . '^100 | artist_nickname_charset_nospace:'.$charsetNoSapce.'*^50';
+                    $searchSolarium['artist_nickname_charset_nospace'] =  $charsetNoSpace . '^100 | artist_nickname_charset_nospace:'.$charsetNoSpace.'*^50';
                 $searchSolarium['artist_nickname_charset'] = $titleCharset;
                 if($titleSearch)
                     $searchSolarium['artist_nickname_search'] = $titleSearch;
@@ -129,7 +151,7 @@ class SearchController extends Controller
             if(isset($request->view_all) || isset($request->view_album)) {
 
                 if($quickSearch)
-                    $searchSolarium['music_album_charset_nospace'] =  $charsetNoSapce . '^100 | music_album_charset_nospace:'.$charsetNoSapce.'*^50';
+                    $searchSolarium['music_album_charset_nospace'] =  $charsetNoSpace . '^100 | music_album_charset_nospace:'.$charsetNoSpace.'*^50';
                 $searchSolarium['music_album_charset'] = $titleCharset;
                 if($titleSearch)
                     $searchSolarium['music_album_search'] = $titleSearch;
@@ -156,8 +178,8 @@ class SearchController extends Controller
             if(isset($request->view_all) || isset($request->view_video)) {
                 $searchSolarium = [];
                 if($quickSearch) {
-                    $searchSolarium['video_title_charset_nospace'] = $charsetNoSapce . '^500';
-                    $searchSolarium['video_title_artist_charset_nospace'] = $charsetNoSapce . '^100 | video_title_artist_charset_nospace:' . $charsetNoSapce . '*^50';
+                    $searchSolarium['video_title_charset_nospace'] = $charsetNoSpace . '^500';
+                    $searchSolarium['video_title_artist_charset_nospace'] = $charsetNoSpace . '^100 | video_title_artist_charset_nospace:' . $charsetNoSpace . '*^50';
                 }
                 if($titleSearch) {
                     $searchSolarium['video_title_charset'] = $titleCharset . '^2';

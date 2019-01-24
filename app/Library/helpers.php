@@ -164,7 +164,8 @@ class Helpers
         if($artistNickName && $artistId) {
             $html = '';
             foreach ($artistNickName as $key => $val) {
-                $html = $html.', <a href="'.self::artistUrl(isset($artistId[$key]) ? $artistId[$key] : -1, $val).'">'.$val.'</a>';
+//                $html = $html.', <a href="'.self::artistUrl(isset($artistId[$key]) ? $artistId[$key] : -1, $val).'">'.$val.'</a>';
+                $html = $html.'; <a href="'.self::artistUrl(isset($artistId[$key]) ? $artistId[$key] : -1, $val).'">'.$val.'</a>';
             }
             return substr($html, 2);
         }
