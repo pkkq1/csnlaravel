@@ -79,7 +79,7 @@ class SearchController extends Controller
                 if($titleSearch) {
                     //$searchSolarium['music_title_artist_search'] = $titleSearch;
                     $searchSolarium['music_title_charset'] = $titleCharset . '^2';
-                    //$searchSolarium['music_artist_charset'] = $titleCharset;
+                    $searchSolarium['music_artist_charset'] = $titleCharset;
 
                     if ($titleSearch != $titleCharset) {
                         $searchSolarium['music_title_search'] = $titleSearch . '^2';
@@ -89,7 +89,7 @@ class SearchController extends Controller
 
                 $search_level = 1;
 
-                search_2:
+                search_music_2:
                 if ($search_level == 2)
                 {
                     $searchSolarium['music_artist_charset'] = '';
@@ -117,7 +117,7 @@ class SearchController extends Controller
                             {
                                 $search_level = 2;
                                 $result[0]['music']['data'] = [];
-                                goto search_2;
+                                goto search_music_2;
                             }
                         }
                     }
@@ -191,6 +191,17 @@ class SearchController extends Controller
                     }
                 }
 
+                $search_level = 1;
+
+                search_video_2:
+                if ($search_level == 2)
+                {
+                    $searchSolarium['video_artist_charset'] = '';
+                    if ($titleSearch != $titleCharset) {
+                        $searchSolarium['video_artist_search'] = '';
+                    }
+                }
+
                 $resultVideo = $this->Solr->search($searchSolarium, ($request->page_video ?? 1), $request->rows ?? ROWS_VIDEO_SEARCH_PAGING, array('score' => 'desc', 'video_downloads_max_week' => 'desc', 'video_downloads_today' => 'desc', 'video_listen' => 'desc'));
                 if($resultVideo['data']) {
                     foreach ($resultVideo['data'] as $item) {
@@ -203,6 +214,16 @@ class SearchController extends Controller
                             'video_listen' => $item['video_listen_total'][0],
                             //'music_length' => '03:45',
                         ];
+
+                        if ($search_level == 1)
+                        {
+                            if ($item['video_title_charset_nospace'][0] == $charsetNoSpace)
+                            {
+                                $search_level = 2;
+                                $result[0]['video']['data'] = [];
+                                goto search_video_2;
+                            }
+                        }
                     }
                 }
                 $result[0]['video']['rows'] = $resultVideo['rows'];
