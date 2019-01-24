@@ -57,21 +57,16 @@ $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
                                 @foreach($playlist as $key2 => $item)
                                     <?php
                                         $url = Helpers::playlist_url($item->toArray());
+                                        $tagHref = $item->playlist_music_total > 0 ? '<a href="'.$url.'" title="'.$item->playlist_title.'">' : '<a href="javascript:void(0)" onclick="alertModal(\'Playlist vẫn chưa có bài hát nào.\');" title="'.$item->playlist_title.'">';
                                     ?>
                                     <div class="col">
                                         <div class="card card1">
                                             <div class="card-header" style="background-image: url({{$item->playlist_cover ? Helpers::file_path($item->playlist_id, PUBLIC_MUSIC_PLAYLIST_PATH, true).$item->playlist_id . '.png?v=' . time() : '/imgs/avatar_default.png'}});">
-                                                <a href="{{$url}}" title="{{$item->playlist_title}}">
-                                                    <span class="icon-play"></span>
-                                                </a>
+                                                <?php echo $tagHref ?><span class="icon-play"></span></a>
                                             </div>
                                             <div class="card-body">
                                                 <h3 class="card-title">
-                                                    @if($item->playlist_music_total > 0)
-                                                        <a href="{{$url}}" title="{{$item->playlist_title}}">{{$item->playlist_title}}</a>
-                                                    @else
-                                                        <a href="javascript:void(0)" onclick="alertModal('Playlist vẫn chưa có bài hát nào.');" title="{{$item->playlist_title}}">{{$item->playlist_title}}</a>
-                                                    @endif
+                                                    <?php echo $tagHref ?>{{$item->playlist_title}}</a>
                                                 </h3>
                                                 @if($item->playlist_artist)
                                                     <p class="card-text" style="padding: 0px;">
