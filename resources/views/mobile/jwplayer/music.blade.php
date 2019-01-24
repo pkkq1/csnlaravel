@@ -948,7 +948,9 @@ if($musicSet['type_listen'] == 'playlist') {
     }else {
         if(sessionStorage.getItem("display_sub") == null) {
             sessionStorage.setItem("display_sub", true);
-            display_sub();
+            displaySub.css('display', 'block');
+        }else{
+            $('#display-sub').removeAttr("checked");
         }
     }
     function display_sub() {

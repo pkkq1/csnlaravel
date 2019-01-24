@@ -182,7 +182,7 @@ if($musicSet['type_listen'] == 'playlist') {
                                     <li class="nav-item">
                                         <div class="nav-link form-group form-check mb-0 autoplay"
                                              style="padding: 10px 20px;">
-                                            <input type="checkbox" class="form-check-input display-sub"
+                                            <input type="checkbox" checked class="form-check-input display-sub"
                                                    id="display-sub" onclick="display_sub()">
                                             @if((isset($lyric_array['sub']) && $lyric_array['sub'] != false))
                                             <label class="form-check-label d-flex align-items-center"
@@ -1005,6 +1005,13 @@ if($musicSet['type_listen'] == 'playlist') {
         if(sessionStorage.getItem("display_sub") == 'true') {
             displaySub.css('display', 'block');
             $('#display-sub').attr("checked", "checked");
+        }else {
+            if(sessionStorage.getItem("display_sub") == null) {
+                sessionStorage.setItem("display_sub", true);
+                displaySub.css('display', 'block');
+            }else{
+                $('#display-sub').removeAttr("checked");
+            }
         }
         function display_sub() {
             if(sessionStorage.getItem("display_sub") == 'true') {
