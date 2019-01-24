@@ -51,6 +51,7 @@ if($musicSet['type_listen'] == 'playlist') {
 @section('contentCSS')
     <link href="{{env('APP_URL')}}/node_modules/rabbit-lyrics/dist/rabbit-lyrics.css" rel="stylesheet" type="text/css"/>
     <script src="{{env('APP_URL')}}/node_modules/rabbit-lyrics/dist/rabbit-lyrics.js" type="text/javascript"></script>
+    <script src="/js/cookie.min.js"></script>
     <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/csn-jwplayer.css">
 @endsection
 @extends('web.layouts.app')
@@ -735,12 +736,16 @@ if($musicSet['type_listen'] == 'playlist') {
             });
         })
         jwplayer().onQualityLevels(function(callback){
+            if(Cookies.get('label_quality') == 'Lossless' && callback.levels[callback.currentQuality].label != 'Lossless') {
+                jwplayer().setCurrentQuality(callback.levels.length - 1);
+            }
             updateQuality(callback);
             if(sessionStorage.getItem("auto_next") == 'true') {
                 $('.check_auto_play').prop('checked', false).change();
             }
         });
         jwplayer().onQualityChange(function(callback){
+            Cookies.set('label_quality', callback.levels[callback.currentQuality].label);
             updateQuality(callback);
         });
         jwplayer().on('userInactive', function () {

@@ -11,6 +11,10 @@ use Illuminate\Http\Request as Request;
 use Illuminate\Support\Facades\Auth;
 use App\Library\Helpers;
 use App\Models\CoverModel;
+use App\Models\MusicFavouriteModel;
+use App\Models\VideoFavouriteModel;
+use App\Models\UploadModel;
+use App\Models\UserModel;
 use App\Repositories\Cover\CoverEloquentRepository;
 use App\Repositories\Music\MusicEloquentRepository;
 use App\Repositories\Video\VideoEloquentRepository;
@@ -69,6 +73,26 @@ class SyncTableController extends Controller
         return response(['Ok']);
     }
     public function user() {
-
+        $user = UserModel::where('user_favourite', '!=', '')->offset(10000)->limit(10000)->get();
+        foreach($user as $item) {
+            $arrFav = explode(',', $item->user_favourite);
+            foreach ($arrFav as $item2) {
+                $music = UploadModel::where('music_id', $item2)->where('music_state', '>', -1)->first();
+                if($music) {
+                    if($music->cat_id == CAT_VIDEO) {
+                        VideoFavouriteModel::create([
+                            'user_id' => $item->user_id,
+                            'music_id' => $item2,
+                        ]);
+                    }else{
+                        MusicFavouriteModel::create([
+                            'user_id' => $item->user_id,
+                            'music_id' => $item2,
+                        ]);
+                    }
+                }
+            }
+        }
+        return response(['Ok']);
     }
 }

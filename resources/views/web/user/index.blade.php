@@ -143,7 +143,6 @@ $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
         });
     })();
     var firstUploaded = true;
-    var firstUploaded = true;
     function musicUserTab(tab) {
         let urlCurrent = window.location.origin + window.location.pathname;
         history.pushState({urlPath: urlCurrent + '?tab=tu-nhac'},"", urlCurrent + '?tab=tu-nhac')
@@ -165,8 +164,10 @@ $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
             beforeSend: function () {
                 if(loaded) return false;
                 loaded = true;
+                waitingDialog.show();
             },
             success: function(response) {
+                waitingDialog.hide();
                 if(stage == 'all') {
                     uploaded.html(response);
                 }else{
@@ -195,8 +196,10 @@ $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
                 beforeSend: function () {
                     if(loaded) return false;
                     loaded = true;
+                    waitingDialog.show();
                 },
                 success: function(response) {
+                    waitingDialog.hide();
                     tabContent.html(response);
                     tabContent.find('.pagination li a').on('click', function (e) {
                         e.preventDefault();

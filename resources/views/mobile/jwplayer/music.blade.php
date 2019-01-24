@@ -50,6 +50,7 @@ if($musicSet['type_listen'] == 'playlist') {
     <link href="{{env('APP_URL')}}/node_modules/rabbit-lyrics/dist/rabbit-lyrics.css" rel="stylesheet" type="text/css"/>
     <script src="{{env('APP_URL')}}/node_modules/rabbit-lyrics/dist/rabbit-lyrics.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/csn-jwplayer.css">
+    <script src="/js/cookie.min.js"></script>
 @endsection
 
 @extends('mobile.layouts.app')
@@ -603,6 +604,9 @@ if($musicSet['type_listen'] == 'playlist') {
         });
     })
     jwplayer().onQualityLevels(function(callback){
+        if(Cookies.get('label_quality') == 'Lossless' && callback.levels[callback.currentQuality].label != 'Lossless') {
+            jwplayer().setCurrentQuality(callback.levels.length - 1);
+        }
         updateQuality(callback);
         if(sessionStorage.getItem("auto_next") == 'false') {
             $('.jw-icon-auto-next-on').removeClass('jw-icon-auto-next-on').addClass('jw-icon-auto-next-off');
@@ -612,6 +616,7 @@ if($musicSet['type_listen'] == 'playlist') {
         }
     });
     jwplayer().onQualityChange(function(callback){
+        Cookies.set('label_quality', callback.levels[callback.currentQuality].label);
         updateQuality(callback);
     })
     jwplayer().on('userInactive', function () {
