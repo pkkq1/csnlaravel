@@ -20,7 +20,7 @@ $artistHtml = Helpers::rawHtmlArtists($music->music_artist_id, $music->music_art
 preg_match('/href=["\']?([^"\'>]+)["\']?/', $artistHtml, $matchArtist);
 $sug = [];
 $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3);
-$thumnailMusic = $musicSet['type_jw'] != 'video' ? Helpers::cover_url($music->cover_id) : Helpers::thumbnail_url($music->toArray());
+$thumnailMusic = $musicSet['type_jw'] != 'video' ? Helpers::cover_url($music->cover_id) : Helpers::thumbnail_url($music->toArray(), 'preview');
 $thumnailMeta = '';
 $titleExMeta = $music->music_title.'; '.$music->music_artist;
 if($musicSet['type_listen'] == 'playlist') {
