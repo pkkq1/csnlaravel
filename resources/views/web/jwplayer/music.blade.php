@@ -736,7 +736,7 @@ if($musicSet['type_listen'] == 'playlist') {
             });
         })
         jwplayer().onQualityLevels(function(callback){
-            if(Cookies.get('label_quality') == 'Lossless' && callback.levels[callback.currentQuality].label != 'Lossless') {
+            if(Cookies.get('label_quality') == 'Lossless') {
                 jwplayer().setCurrentQuality(callback.levels.length - 1);
             }
             updateQuality(callback);
