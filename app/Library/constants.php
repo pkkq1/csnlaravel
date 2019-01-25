@@ -137,5 +137,6 @@ define('ROWS_VIDEO_SEARCH_PAGING', 8);
 define('TIME_EXPIRED_LINK', 20); // minute
 define('TIME_EXPIRED_UPLOAD_LISTEN_DOWNLOAD', '-1 hour'); // hour
 define('TIME_SOLR_TO_ADD_ITEM', '-1 hour'); // hour
+define('TIME_7DAY_AGO', '-7 day'); // hour
 
 define('MAXIMUM_FILE_SIZE_UPLOAD_VIDEO', 5737418240); // maximum upload file video 5Gb

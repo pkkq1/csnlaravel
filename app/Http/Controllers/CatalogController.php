@@ -38,11 +38,11 @@ class CatalogController extends Controller
                 $playlist = $this->playlistRepository->getByUser(997940);
                 break;
             case "romance":
-                $caption = 'Chủ đề lãng mạn';
+                $caption = 'Chủ đề romance';
                 $playlist = $this->playlistRepository->getByUser(997938);
                 break;
             case "sleep":
-                $caption = 'Chủ đề giấc ngủ';
+                $caption = 'Chủ đề sleep';
                 $playlist = $this->playlistRepository->getByUser(997939);
                 break;
             case "dance":
@@ -50,7 +50,7 @@ class CatalogController extends Controller
                 $playlist = $this->playlistRepository->getByUser(997945);
                 break;
             case "work":
-                $caption = 'Chủ đề làm việc';
+                $caption = 'Chủ đề work';
                 $playlist = $this->playlistRepository->getByUser(997941);
                 break;
             case "coffee":
@@ -58,11 +58,11 @@ class CatalogController extends Controller
                 $playlist = $this->playlistRepository->getByUser(997942);
                 break;
             case "game":
-                $caption = 'Chủ đề giải trí';
+                $caption = 'Chủ đề game';
                 $playlist = $this->playlistRepository->getByUser(997944);
                 break;
             case "travel":
-                $caption = 'Chủ đề du lịch';
+                $caption = 'Chủ đề travel';
                 $playlist = $this->playlistRepository->getByUser(997943);
                 break;
             default:

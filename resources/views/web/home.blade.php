@@ -5,11 +5,11 @@ global $album_hot;
 global $album_new;
 global $album_old;
 global $download_rows;
-global $top_uploader_rows;
 global $music_new_uploads;
 global $video_new_uploads;
 global $hot_music_rows;
 
+global $top_uploader_weeks;
 global $top_artist_rows;
 ?>
 
@@ -20,7 +20,7 @@ global $top_artist_rows;
 @include('cache.def_home_album')
 @include('cache.def_home_download')
 @include('cache.bxh.bxh_today')
-
+@include('cache.uploader.uploader_week')
 @include('cache.def_home_artist')
 
 <div class="slide_home"
@@ -444,7 +444,6 @@ global $top_artist_rows;
             </div>
             <ul class="list-unstyled bxh_week mb-0">
                 <?php
-                $uploaderMusic = Helpers::getRandLimitArr($top_uploader_rows, LIMIT_HOME_UPLOADER_MUSIC);
                 array_map(function ($i, $item) {
                 ?>
                 <li class="media {{($i == 0 ? 'stand' : ($i == 1 ? 'up' : ($i == 2 ? 'down' : '')))}}">
@@ -461,7 +460,7 @@ global $top_artist_rows;
                     </div>
                 </li>
                 <?php
-                },array_keys($uploaderMusic), $uploaderMusic)
+                },array_keys($top_uploader_weeks), $top_uploader_weeks)
                 ?>
             </ul>
             <div class="box_space"></div>

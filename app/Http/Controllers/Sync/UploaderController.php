@@ -11,63 +11,62 @@ use Illuminate\Http\Request as Request;
 use Illuminate\Support\Facades\Auth;
 use App\Library\Helpers;
 use App\Repositories\Cover\CoverEloquentRepository;
+use App\Repositories\User\UserEloquentRepository;
 use App\Repositories\Music\MusicEloquentRepository;
 use App\Repositories\Video\VideoEloquentRepository;
 use App\Repositories\Category\CategoryEloquentRepository;
+use App\Repositories\Upload\UploadEloquentRepository;
+use App\Repositories\MusicDownload\MusicDownloadEloquentRepository;
+use App\Repositories\VideoDownload\VideoDownloadEloquentRepository;
 use DB;
 
 class UploaderController extends Controller
 {
     protected $musicRepository;
-    protected $coverRepository;
     protected $videoRepository;
     protected $categoryRepository;
+    protected $userRepository;
+    protected $uploadRepository;
+    protected $musicDownloadRepository;
+    protected $videoDownloadRepository;
 
-    public function __construct(MusicEloquentRepository $musicRepository, CoverEloquentRepository $coverRepository, VideoEloquentRepository $videoRepository, CategoryEloquentRepository $categoryRepository) {
+    public function __construct(MusicEloquentRepository $musicRepository, VideoEloquentRepository $videoRepository, CategoryEloquentRepository $categoryRepository, UserEloquentRepository $userRepository,
+                                UploadEloquentRepository $uploadRepository, MusicDownloadEloquentRepository $musicDownloadRepository, VideoDownloadEloquentRepository $videoDownloadRepository) {
         $this->musicRepository = $musicRepository;
         $this->videoRepository = $videoRepository;
         $this->categoryRepository = $categoryRepository;
+        $this->userRepository = $userRepository;
+        $this->uploadRepository = $uploadRepository;
+        $this->musicDownloadRepository = $musicDownloadRepository;
+        $this->videoDownloadRepository = $videoDownloadRepository;
     }
     public function uploader() {
-        $catregory = $this->categoryRepository->getCategoryParent();
-        foreach ($catregory as $item) {
-            $childrenCat = $this->categoryRepository->getAllCatId($item->cat_id);
-            $model = $this->musicRepository->getModel();
-            if($item->cat_id == 1) {
-                $model = $this->videoRepository->getModel();
-            }
-            foreach ($childrenCat as $level) {
-                $typeDup = $model::where(['cat_id' => $item->cat_id, 'cat_level' => $level->cat_level])
-                    ->select('music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'music_album_id', 'music_listen', 'music_bitrate', 'music_filename', 'music_width', 'music_height', 'music_length')
-//                    ->select( DB::raw('DISTINCT(music_title)') )
-//                    ->distinct('music_title')
-                    ->limit(200)
-                    ->orderBy('music_downloads_today', 'desc')
-                    ->orderBy('music_downloads_this_week', 'desc')
-                    ->orderBy('music_downloads', 'desc')
-                    ->get()->toArray();
-                DB::disconnect('mysql');
-                foreach ($typeDup as $key => $item2) {
-                    $typeDup[$key]['music_artist_html'] = Helpers::rawHtmlArtists($item2['music_artist_id'], $item2['music_artist']);
-                    if($item->cat_id == 1) {
-                        $typeDup[$key]['music_bitrate_html'] = Helpers::size2str($item2['music_width'], $item2['music_height']);
-                    }else{
-                        $typeDup[$key]['music_bitrate_html'] = Helpers::bitrate2str($item2['music_bitrate']);
-                    }
-                }
-                $pathDir = resource_path() . '/views/cache/suggestion_cat/';
-                file_put_contents($pathDir.$item->cat_id .'_'. $level->cat_level . '.blade.php',
-                    '<?php 
+        $top_uploader_weeks = $this->uploadRepository->getModel()::select(DB::raw('music_username, music_user_id, COUNT(*) AS music_total, SUM(music_32_filesize + music_filesize + music_320_filesize + music_m4a_filesize + music_lossless_filesize) AS size_total'))
+            ->where('music_time', '>', strtotime(TIME_7DAY_AGO))
+            ->where('music_state', '>', 0)
+            ->where('music_320_filesize', '>', 0)
+            ->groupBy('music_username', 'music_user_id')
+            ->orderBy('size_total', 'desc')
+            ->limit(10)
+            ->get()->toArray();
+        foreach($top_uploader_weeks as &$item) {
+            $music = $this->musicRepository->getModel()::select(DB::raw('SUM(music_downloads_this_week) as download_total'))->where('music_user_id', $item['music_user_id'])->first();
+            $video = $this->videoRepository->getModel()::select(DB::raw('SUM(music_downloads_this_week) as download_total'))->where('music_user_id', $item['music_user_id'])->first();
+            $item['download_total'] = $music->download_total + $video->download_total;
+        }
+        $pathDir = resource_path() . '/views/cache/uploader/';
+        file_put_contents($pathDir.'uploader_week.blade.php',
+            '<?php 
 if ( !ENV(\'IN_PHPBB\') )
 {
     die(\'Hacking attempt\');
     exit;
 }
-global $typeDup;
-$typeDup = ' . var_export($typeDup, true) . ';
+global $top_uploader_weeks;
+$top_uploader_weeks = ' . var_export($top_uploader_weeks, true) . ';
 ?>');
-            }
-        }
+
+
         return response(['Ok']);
     }
 }

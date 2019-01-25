@@ -19,6 +19,7 @@ class Kernel extends ConsoleKernel
         Commands\MusicDownload::class,
         Commands\SuggestionCat::class,
         Commands\MusicListenDownload::class,
+        Commands\Uploader::class,
         Commands\Solr::class,
     ];
 
@@ -44,11 +45,13 @@ class Kernel extends ConsoleKernel
         $schedule->command('suggestion_cat')->hourlyAt(25);
         $schedule->command('bxh_cat:type cat today')->everyFiveMinutes();  // bảng xếp hạng hôm nay
         $schedule->command('bxh_cat:type cat week')->dailyAt('00:10');   // bảng xếp hạng trong tuần
+        $schedule->command('uploader:type 7day')->dailyAt('00:15');   // bảng xếp hạng uploader
 
-        $schedule->command('bxh_cat:type cat_month 1 2019')->dailyAt('00:15');  // bảng xếp hạng tháng trong năm, (all sẽ lấy tất cả)
-        $schedule->command('bxh_cat:type cat_month all 2019')->dailyAt('00:20');   // bảng xếp hạng của năm
-        $schedule->command('bxh_cat:type cat_month all 2018')->dailyAt('00:25');   // bảng xếp hạng của năm
-        $schedule->command('bxh_cat:type cat_month all 2017')->dailyAt('00:30');   // bảng xếp hạng của năm
+
+        $schedule->command('bxh_cat:type cat_month 1 2019')->dailyAt('00:20');  // bảng xếp hạng tháng trong năm, (all sẽ lấy tất cả)
+        $schedule->command('bxh_cat:type cat_month all 2019')->dailyAt('00:25');   // bảng xếp hạng của năm
+        $schedule->command('bxh_cat:type cat_month all 2018')->dailyAt('00:30');   // bảng xếp hạng của năm
+        $schedule->command('bxh_cat:type cat_month all 2017')->dailyAt('00:35');   // bảng xếp hạng của năm
 
 
         $schedule->command('solr:type music')->hourlyAt(30); // đồng bộ search solr nhạc
