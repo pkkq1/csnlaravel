@@ -112,6 +112,7 @@ use App\Library\Helpers;
             }
         }).autocomplete( "instance" )._renderItem = function( ul, item ) {
             var theHtml = rawBodySearch(rawArtist(item.artist['data'], item.q), rawMusic(item.music['data'], item.q), rawAlbum(item.album['data'], item.q), rawVideo(item.video['data'], item.q));
+            $(".suggest").fadeIn("fast")
             $('.search_layout').html(theHtml);
             return $( "<li>" )
                 .appendTo( ul );
@@ -199,7 +200,7 @@ use App\Library\Helpers;
                 video = video +
                     '<a class="search-line" href="' + value.video_link + '">' +
                     '<div class="element mb-2">' +
-                    '   <div style="background : url(' + value.video_cover + ') no-repeat center;background-size: cover;" class="image100 mr-2 d-inline-block align-middle">' +
+                    '   <div style="background : url(' + value.video_cover + ') no-repeat center;background-size: cover;min-width: 90px; height: 63px;" class="image100 mr-2 d-inline-block align-middle">' +
                     '       <p class="time text-white mb-0 px-2 py-1"><img src="/images/ic_menu_clock.png" width="14"> ' + value.music_length + '</p>' +
                     '   </div>' +
                     '   <div class="content d-inline-block align-middle">' +
