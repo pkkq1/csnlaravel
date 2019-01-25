@@ -175,7 +175,7 @@ global $top_artist_rows;
                 </div>
                 <div class="col">
                     <div class="box_header d-flex justify-content-between align-items-end">
-                        <a class="view_all" href="/mp3/vietnam.html?tab=vua-download"> <h5 class="title m-0">Download nhiều nhất</h5></a>
+                        <a class="view_all" href="/mp3/vietnam.html?tab=vua-download"> <h5 class="title m-0">Download mới nhất</h5></a>
                         <a class="link_more" href="/mp3/vietnam.html?tab=vua-download" title="Xem tất cả download">Xem tất cả</a>
                     </div>
                     <ul class="list-unstyled list_music">
