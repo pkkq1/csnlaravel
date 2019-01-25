@@ -1461,9 +1461,7 @@ a.boxclose{
 }
 .float-col-width-video .card-header:hover .btn-video-favourite {
     opacity: 1;
-}
-.uploaded
-.time_video {
+}.time {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -1475,9 +1473,9 @@ a.boxclose{
     font-size: 10px;
     line-height: 1;
 }
-.time_video img {
-    margin-right: 3px;
-    vertical-align: bottom;
-    width: 10px;
-    height: auto;
+.time img {
+    margin-right: 3px!important;
+    vertical-align: bottom!important;
+    width: 10px!important;
+    height: auto!important;
 }
