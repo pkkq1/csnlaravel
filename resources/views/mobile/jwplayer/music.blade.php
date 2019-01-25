@@ -18,14 +18,12 @@ $lyric_array = Helpers::lyric_to_web($music->music_lyric);
 $artistHtml = Helpers::rawHtmlArtists($music->music_artist_id, $music->music_artist);
 $sug = [];
 $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup?? []) + 3);
-$thumnailMusic = $musicSet['type_jw'] != 'video' ? Helpers::cover_url($music->cover_id) : Helpers::thumbnail_url($music->toArray());
+$thumnailMusic = $musicSet['type_jw'] != 'video' ? Helpers::cover_url($music->cover_id) : Helpers::thumbnail_url($music->toArray(), 'preview');
 $thumnailMeta = '';
-$titleExMeta = '';
+$titleExMeta = $music->music_title.'; '.$music->music_artist;
 if($musicSet['type_listen'] == 'playlist') {
-    $thumnailMeta = $musicSet['playlist']->playlist_cover ? env('APP_URL').Helpers::file_path($musicSet['playlist']->playlist_id, PUBLIC_MUSIC_PLAYLIST_PATH, true).$musicSet['playlist']->playlist_id . '.png?v=' . time() : env('APP_URL').'/imgs/avatar_default.png';
-    $titleExMeta = '; '.$musicSet['playlist']->playlist_title;
-} elseif ($musicSet['type_listen'] == 'album') {
-    $thumnailMeta = Helpers::cover_url($music->cover_id);
+    $thumnailMeta = $musicSet['playlist']->playlist_cover;
+    $titleExMeta = $musicSet['playlist']->playlist_title;
 } else {
     $thumnailMeta = $thumnailMusic;
 }

@@ -267,6 +267,24 @@ class UploadController extends Controller
                 $result->music_bitrate_fixed_by = Auth::user()->id;
             }
             $result->save();
+            // update cover
+            if($result->music_state == UPLOAD_STAGE_FULLCENSOR && $result->cover_id) {
+                $album = [];
+                foreach(explode(';', $request->input('music_artist')) as $key => $item) {
+                    $album['album_artist_' . ++ $key] = $item;
+                    if($key == 1)
+                        break;
+                }
+                foreach(explode(';', $request->input('music_artist_id')) as $key => $item) {
+                    $album['album_artist_id_' . ++ $key] = $item;
+                    if($key == 1)
+                        break;
+                }
+            }
+
+
+
+
 //            // update solr
 //            $Solr = new SolrSyncController($this->Solr);
 //            $Solr->syncMusic(null, $result);

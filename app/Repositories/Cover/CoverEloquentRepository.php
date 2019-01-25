@@ -70,6 +70,7 @@ class CoverEloquentRepository extends EloquentRepository implements CoverReposit
     {
         $result = $this->_model::select('csn_cover.cover_id', 'csn_cover.music_album', 'csn_cover.album_artist_id_1', 'csn_cover.album_artist_1', 'csn_cover.album_artist_id_2', 'csn_cover.album_artist_2', 'csn_cover.music_year')
             ->where('csn_cover.music_year', '<', CURRENT_YEAR)
+            ->where('csn_cover.album_music_total', '>', 0)
             ->join('csn_music', 'csn_music.cover_id', 'csn_cover.cover_id')
 //            ->with('music')
             ->groupBy('csn_cover.cover_id', 'csn_cover.music_album', 'csn_cover.album_artist_id_1', 'csn_cover.album_artist_1', 'csn_cover.album_artist_id_2', 'csn_cover.album_artist_2', 'csn_cover.music_year')

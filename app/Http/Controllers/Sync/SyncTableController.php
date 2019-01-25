@@ -19,6 +19,7 @@ use App\Repositories\Cover\CoverEloquentRepository;
 use App\Repositories\Music\MusicEloquentRepository;
 use App\Repositories\Video\VideoEloquentRepository;
 use App\Repositories\Category\CategoryEloquentRepository;
+use DB;
 
 class SyncTableController extends Controller
 {
@@ -73,7 +74,8 @@ class SyncTableController extends Controller
         return response(['Ok']);
     }
     public function user() {
-        $user = UserModel::where('user_favourite', '!=', '')->where('user_id', '>=', 51269)->get();
+        $user = UserModel::where('user_favourite', '!=', '')->where('user_id', '>=', 268808)->get();
+        DB::disconnect('mysql');
         foreach($user as $item) {
             $arrFav = explode(',', $item->user_favourite);
             foreach ($arrFav as $item2) {
