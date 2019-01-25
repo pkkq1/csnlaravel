@@ -149,8 +149,8 @@ var waitingDialog = waitingDialog || (function ($) {
          */
         hide: function () {
             $dialog.modal('hide');
-            $('.modal-loading-waiting').remove();
-            $('.modal-backdrop').remove();
+            // $('.modal-loading-waiting').remove();
+            // $('.modal-backdrop').remove();
         }
     };
 
