@@ -25,6 +25,7 @@
             if(theHtml.length != 29) {
                 theHtml = '<span style="float: right;margin-right: 7px;margin-top: 1px;"><a onclick="redirectSearch()" href="javascript:void(0)">Xem tất cả</a></span>' + theHtml;
             }
+            $(".suggest").fadeIn("fast");
             $('.search_layout').html(theHtml);
             return $( "<li>" )
                 .appendTo( ul );
