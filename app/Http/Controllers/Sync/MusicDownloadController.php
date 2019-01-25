@@ -30,6 +30,7 @@ class MusicDownloadController extends Controller
         $cache = $this->musicRepository->getModel()::where('cat_id', '!=', CAT_VIDEO)->orderBy('music_last_update_time', 'desc')
             ->select('music_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'cat_id', 'cat_level', 'cat_sublevel', 'cat_custom', 'cover_id', 'music_download_time', 'music_last_update_time', 'music_title_url',
                 'music_title_search', 'music_artist_search', 'music_album_search', 'music_composer', 'music_album', 'music_listen', 'music_track_id', 'music_track_id', 'music_filename', 'music_bitrate', 'music_shortlyric', 'music_last_update_time', 'music_time')
+            ->where('cover_id', '>', 0)
             ->limit(20)->get();
         $download_rows = $cache->toArray();
         foreach ($download_rows as $key => $item) {
