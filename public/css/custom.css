@@ -1463,7 +1463,7 @@ a.boxclose{
     opacity: 1;
 }
 .uploaded
-.time {
+.time_video {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -1475,7 +1475,7 @@ a.boxclose{
     font-size: 10px;
     line-height: 1;
 }
-.time img {
+.time_video img {
     margin-right: 3px;
     vertical-align: bottom;
     width: 10px;

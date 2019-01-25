@@ -154,7 +154,7 @@
                     '          <a href="' + value.video_link + '" title="' + value.video_title + ' - ' + value.video_artist + '">' +
                     '              <img src="' + value.video_cover + '" alt="' + value.video_title + '">' +
                     '              <i class="material-icons">play_circle_outline</i>' +
-                    '              <p class="time text-white mb-0 px-2 py-1"><img src="/images/ic_menu_clock.png" width="14"> ' + value.music_length + '</p>' +
+                    '              <p class="time_video text-white mb-0 px-2 py-1"><img src="/images/ic_menu_clock.png" width="14"> ' + value.music_length + '</p>' +
                     '          </a>' +
                     '      </div>' +
                     '      <a class="search-line" title="' + value.video_title + ' - ' + value.video_artist + '"  href="' + value.video_link + '" >' +
