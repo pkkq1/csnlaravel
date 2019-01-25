@@ -45,13 +45,13 @@ class Solr extends Command
     {
         $Solr = new SolrSyncController($this->Solr);
         if($this->argument('type') == 'music') {
-            $Solr->syncMusic();
+            $Solr->syncMusic(null, null, strtotime(TIME_SOLR_TO_ADD_ITEM));
         }elseif($this->argument('type') == 'video') {
-            $Solr->syncVideo();
+            $Solr->syncVideo(null, null, strtotime(TIME_SOLR_TO_ADD_ITEM));
         }elseif($this->argument('type') == 'artist') {
-            $Solr->syncArtist();
+//            $Solr->syncArtist(null, null, TIME_SOLR_TO_ADD_ITEM);
         }elseif($this->argument('type') == 'cover') {
-            $Solr->syncCover();
+            $Solr->syncCover(null, null, strtotime(TIME_SOLR_TO_ADD_ITEM));
         }
     }
 }

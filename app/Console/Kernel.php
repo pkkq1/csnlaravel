@@ -51,10 +51,10 @@ class Kernel extends ConsoleKernel
         $schedule->command('bxh_cat:type cat_month all 2017')->dailyAt('00:30'); ;   // bảng xếp hạng của năm
 
 
-//        $schedule->command('solr:type music'); // đồng bộ search solr nhạc
-//        $schedule->command('solr:type video'); // đồng bộ search solr video
+        $schedule->command('solr:type music')->hourlyAt(30);; // đồng bộ search solr nhạc
+        $schedule->command('solr:type video')->hourlyAt(35);; // đồng bộ search solr video
 //        $schedule->command('solr:type artist'); // đồng bộ search solr ca sĩ
-//        $schedule->command('solr:type cover'); // đồng bộ search solr album
+        $schedule->command('solr:type cover')->hourlyAt(40);; // đồng bộ search solr album
 
     }
 

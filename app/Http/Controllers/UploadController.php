@@ -321,6 +321,7 @@ class UploadController extends Controller
             $album->music_production = $request->input('music_production') ?? '';
             $album->music_album_id = $request->input('music_album_id') ?? '';
             $album->music_year = $request->input('music_year') ?? '';
+            $album->album_last_updated = time();
             $album->save();
             if($request->input('album_cover')) {
                 $typeImageCover = array_last(explode('.', $_FILES['choose_album_cover']['name']));
