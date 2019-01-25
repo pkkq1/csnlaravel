@@ -15,6 +15,17 @@
     <link rel="stylesheet" href="/mobile/assets/css/custom.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     @yield('contentCSS')
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-27050676-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-27050676-1');
+        gtag('config', 'UA-27050676-16');
+    </script>
     <script src="/mobile/assets/js/jquery-3.3.1.min.js"></script>
     <script src='https://www.google.com/recaptcha/api.js'></script>
     <script>
