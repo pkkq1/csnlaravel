@@ -131,9 +131,10 @@ class SearchController extends Controller
                 if($quickSearch)
                     $searchSolarium['artist_nickname_charset_nospace'] =  $charsetNoSpace . '^100 | artist_nickname_charset_nospace:'.$charsetNoSpace.'*^50';
                 $searchSolarium['artist_nickname_charset'] = $titleCharset;
-                if($titleSearch)
+                if($titleSearch != $titleCharset) {
                     $searchSolarium['artist_nickname_search'] = $titleSearch;
-                $resultArtist = $this->Solr->search($searchSolarium, ($request->page_artist ?? 1), $request->rows ?? ROWS_ARTIST_SEARCH_PAGING, array('score' => 'desc'));
+                }
+                $resultArtist = $this->Solr->search($searchSolarium, ($request->page_artist ?? 1), $request->rows ?? ROWS_ARTIST_SEARCH_PAGING, array('score' => 'desc', 'music_total' => 'desc'));
                 if($resultArtist['data']) {
                     foreach ($resultArtist['data'] as $item) {
                         $result[0]['artist']['data'][] = [
@@ -212,7 +213,7 @@ class SearchController extends Controller
                             'video_link' => $item['video_link'][0],
                             'video_cover' => isset($item['video_cover']) ? $item['video_cover'][0] : '',
                             'video_listen' => $item['video_listen_total'][0],
-                            //'music_length' => '03:45',
+                            'music_length' => $item['music_length'][0],
                         ];
 
                         if ($search_level == 1)

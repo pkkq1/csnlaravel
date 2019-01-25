@@ -117,7 +117,7 @@ class SolrSyncController extends Controller
             //$this->Solr->addDocuments($data);
             //$this->Solr->solrDeleteById($data['id']);
 
-            echo ($key) . '/ ' . $item->music_id . "\n <br>";
+//            echo ($key) . '/ ' . $item->music_id . "\n <br>";
         }
         $this->Solr->addMultiDocuments($datas);
         //$this->Solr->solrMultiDeleteById($datas);
@@ -258,7 +258,7 @@ class SolrSyncController extends Controller
             $datas[] = $data;
 //            $this->Solr->addDocuments($data);
 
-            echo ($key) . '/ ' . $item->music_id . "\n <br>";
+//            echo ($key) . '/ ' . $item->music_id . "\n <br>";
         }
         $this->Solr->addMultiDocuments($datas);
 
@@ -346,6 +346,7 @@ class SolrSyncController extends Controller
                 'artist_nickname_search' => Helpers::replaceKeySearch($item->artist_nickname),
                 'artist_nickname_charset' => Helpers::replaceKeySearch($artist_nickname_charset),
                 'artist_nickname_charset_nospace' => Helpers::replaceKeySearch(str_replace(' ', '', $artist_nickname_charset)),
+                'music_total' => $item->music_total,
                 'artist_link' => Helpers::artistUrl($item->artist_id, $item->artist_nickname),
                 'artist_cover' => $item->artist_cover ? Helpers::file_path($item->artist_id, PUBLIC_COVER_ARTIST_PATH, true).$item->artist_cover : '/imgs/no_cover_artist.jpg',
                 'artist_avatar' => $item->artist_avatar ? Helpers::file_path($item->artist_id, PUBLIC_AVATAR_ARTIST_PATH, true).$item->artist_avatar : '/imgs/no_cover.jpg',
@@ -366,9 +367,11 @@ class SolrSyncController extends Controller
                 $cover[] = $coverItem;
             }
         }elseif($time){
-            $cover = CoverModel::where('album_last_updated', '>',  $time)->orderBy('cover_id', 'asc')->get();
+            $cover = CoverModel::where('album_music_total', '>', 0)
+                ->where('album_last_updated', '>',  $time)->orderBy('cover_id', 'asc')->get();
         }else {
-            $cover = CoverModel::orderBy('cover_id', 'asc')->offset(0)->limit(100000)->get();
+            $cover = CoverModel::where('album_music_total', '>', 0)
+                ->orderBy('cover_id', 'asc')->offset(0)->limit(100000)->get();
         }
         DB::disconnect('mysql');
         $datas = [];
@@ -409,7 +412,7 @@ class SolrSyncController extends Controller
                 'music_artist' => '',
                 'music_artist_search' => '',
                 'music_artist_charset' => '',
-                'music_artist_nospace' => '123',
+                'music_artist_nospace' => '',
                 'album_bitrate' => $item->music_bitrate,
                 'music_artist_html' => '',
                 'album_bitrate_html' => $item->music_bitrate ? Helpers::bitrate2str($item->music_bitrate) : '',
