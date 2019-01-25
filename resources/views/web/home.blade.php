@@ -450,7 +450,7 @@ global $top_artist_rows;
                     <div class="media-left align-self-center"><span></span></div>
                     <div class="media-body">
                         <h5 class="mt-0 mb-0 d-flex align-items-center justify-content-between">
-                            <a href="#" title="{{$item['music_username']}}">{{$item['music_username']}}</a>
+                            <a href="/user/{{$item['music_user_id']}}" title="{{$item['music_username']}}">{{$item['music_username']}}</a>
                             <div class="counter_download">{{number_format($item['download_total'])}}</div>
                         </h5>
                         <div class="d-flex align-items-center justify-content-between">
