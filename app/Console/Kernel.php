@@ -46,15 +46,15 @@ class Kernel extends ConsoleKernel
         $schedule->command('bxh_cat:type cat week')->dailyAt('00:10');   // bảng xếp hạng trong tuần
 
         $schedule->command('bxh_cat:type cat_month 1 2019')->dailyAt('00:15');  // bảng xếp hạng tháng trong năm, (all sẽ lấy tất cả)
-        $schedule->command('bxh_cat:type cat_month all 2019')->dailyAt('00:20'); ;   // bảng xếp hạng của năm
-        $schedule->command('bxh_cat:type cat_month all 2018')->dailyAt('00:25'); ;   // bảng xếp hạng của năm
-        $schedule->command('bxh_cat:type cat_month all 2017')->dailyAt('00:30'); ;   // bảng xếp hạng của năm
+        $schedule->command('bxh_cat:type cat_month all 2019')->dailyAt('00:20');   // bảng xếp hạng của năm
+        $schedule->command('bxh_cat:type cat_month all 2018')->dailyAt('00:25');   // bảng xếp hạng của năm
+        $schedule->command('bxh_cat:type cat_month all 2017')->dailyAt('00:30');   // bảng xếp hạng của năm
 
 
-        $schedule->command('solr:type music')->hourlyAt(30);; // đồng bộ search solr nhạc
-        $schedule->command('solr:type video')->hourlyAt(35);; // đồng bộ search solr video
+        $schedule->command('solr:type music')->hourlyAt(30); // đồng bộ search solr nhạc
+        $schedule->command('solr:type video')->hourlyAt(35); // đồng bộ search solr video
 //        $schedule->command('solr:type artist'); // đồng bộ search solr ca sĩ
-        $schedule->command('solr:type cover')->hourlyAt(40);; // đồng bộ search solr album
+        $schedule->command('solr:type cover')->hourlyAt(40); // đồng bộ search solr album
 
     }
 

@@ -252,6 +252,7 @@ class UploadController extends Controller
             $result->music_lyric = $request->input('music_lyric') ?? '';
             $result->music_source_url = $request->input('music_source_url') ?? '';
             $result->music_note = $request->input('music_note') ?? '';
+            $result->music_last_update_time = time();
             $result->music_updated = 0;
             if(!$request->input('cover_id')) {
                 $result->cover_id = 0;
@@ -266,9 +267,9 @@ class UploadController extends Controller
                 $result->music_bitrate_fixed_by = Auth::user()->id;
             }
             $result->save();
-            // update solr
-            $Solr = new SolrSyncController($this->Solr);
-            $Solr->syncMusic(null, $result);
+//            // update solr
+//            $Solr = new SolrSyncController($this->Solr);
+//            $Solr->syncMusic(null, $result);
             return redirect()->route('upload.storeMusic', ['musicId' => $musicId])->with('success', 'Đã chỉnh sửa '.$mess.' ' . $result->music_title);
         }else{
             $csnMusic = [
@@ -291,6 +292,7 @@ class UploadController extends Controller
                 'music_source_url' => $request->input('music_source_url') ?? '',
                 'music_filename_upload' => $request->input('drop_files'),
                 'music_state' => UPLOAD_STAGE_UNCENSOR,
+                'music_last_update_time' => time()
             ];
             $result = $this->uploadRepository->create($csnMusic);
         }
@@ -335,6 +337,7 @@ class UploadController extends Controller
                 $item->music_year = $album->music_year ?? '';
                 $item->music_album_id = $album->music_album_id ?? '';
                 $item->music_production = $album->music_production ?? '';
+                $item->music_last_update_time = time();
                 $item->save();
             }
             // update upload
@@ -344,11 +347,12 @@ class UploadController extends Controller
                 $item->music_year = $album->music_year ?? '';
                 $item->music_album_id = $album->music_album_id ?? '';
                 $item->music_production = $album->music_production ?? '';
+                $item->music_last_update_time = time();
                 $item->save();
             }
-            // update solr
-            $Solr = new SolrSyncController($this->Solr);
-            $Solr->syncCover(null, $album);
+//            // update solr
+//            $Solr = new SolrSyncController($this->Solr);
+//            $Solr->syncCover(null, $album);
             return redirect()->route('upload.storeAlbum', ['musicId' => $coverId])->with('success', 'Đã chỉnh sửa album ' . $album->album_name. ', Vui lòng xóa cache (F5) để cập nhật hình ảnh mới');
         }
         $this->validate($request, [
@@ -392,9 +396,9 @@ class UploadController extends Controller
         Helpers::copySourceImage($request->file('choose_album_cover'), Helpers::file_path($album->cover_id, COVER_ALBUM_SOURCE_PATH, true), $album->cover_id, $typeImageCover);
         $album->cover_filename = $fileNameCovert;
         $album->save();
-        // update solr
-        $Solr = new SolrSyncController($this->Solr);
-        $Solr->syncCover(null, $album);
+//        // update solr
+//        $Solr = new SolrSyncController($this->Solr);
+//        $Solr->syncCover(null, $album);
         $csnMusic = [
             'music_title' => '',
             'cover_id' => $album->cover_id,
@@ -412,6 +416,7 @@ class UploadController extends Controller
             'cat_sublevel' => $request->input('cat_sublevel') ?? 0,
             'cat_custom' => $request->input('cat_custom') ?? 0,
             'music_lyric' => '',
+            'music_last_update_time' => time(),
             'music_note' => $request->input('music_note') ?? '',
             'music_source_url' => $request->input('music_source_url') ?? '',
         ];
