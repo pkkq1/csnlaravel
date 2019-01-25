@@ -1461,7 +1461,21 @@ a.boxclose{
 }
 .float-col-width-video .card-header:hover .btn-video-favourite {
     opacity: 1;
+}.time {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #000000a1;
+    display: inline-block;
+    margin-bottom: 0;
+    color: #fff;
+    padding: 5px;
+    font-size: 10px;
+    line-height: 1;
 }
-.uploaded
-
-
+.time img {
+    margin-right: 3px!important;
+    vertical-align: bottom!important;
+    width: 10px!important;
+    height: auto!important;
+}
