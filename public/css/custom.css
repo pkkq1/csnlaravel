@@ -1362,9 +1362,10 @@ form#login-form {
     text-overflow: ellipsis;
     line-height: 18px;
     text-align: right;
-    width: 60px;
+    width: 160px;
     height: 20px;
     margin-bottom: -6px;
+    margin-left: -100px;
 }
 a.boxclose{
     float: right;
