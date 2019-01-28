@@ -50,8 +50,12 @@ class CommentController extends CrudController
             return $next($request);
         });
         $this->crud->addColumn([
-            'name' => 'comment_id',
+            'name'  => 'comment_id',
             'label' => 'ID',
+            'type' => 'closure',
+            'function' => function($entry) {
+                return '<a href="/user/music_uploaded/redirect/'.$entry->music_id.'" target="_blank">'.$entry->comment_id.'</a>';
+            },
         ]);
         $this->crud->addColumn([
             'name' => 'comment_time',

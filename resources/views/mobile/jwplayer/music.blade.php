@@ -517,7 +517,7 @@ if($musicSet['type_listen'] == 'playlist') {
             setQualityCookie = false;
             jwplayer().setCurrentQuality(error_count);
         } else {
-            alertModal('Xin lỗi video này đã bị lỗi! Vui lòng trải nghiệm video khác');
+            alertModal('Xin lỗi bài hát này đã bị lỗi! Vui lòng trải nghiệm video khác');
             // location.href = "/";
         }
         error_count++;

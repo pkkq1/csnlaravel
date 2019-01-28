@@ -74,7 +74,7 @@ class SyncTableController extends Controller
         return response(['Ok']);
     }
     public function user() {
-        $user = UserModel::where('user_favourite', '!=', '')->where('user_id', '>=', 268808)->get();
+        $user = UserModel::where('user_favourite', '!=', '')->where('user_id', '>=', 811757)->get();
         DB::disconnect('mysql');
         foreach($user as $item) {
             $arrFav = explode(',', $item->user_favourite);
