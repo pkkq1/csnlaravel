@@ -187,6 +187,7 @@ if($musicSet['type_listen'] == 'playlist') {
                                                         <div class="content d-inline-block align-middle">
                                                             <a href="{{$urlVideo}}"><h6 class="name_song text-black mb-1 card-title">{{$video['music_title']}}</h6></a>
                                                             <p class="name_singer text-gray mb-1 author"><?php echo $video['music_artist_html']; ?></p>
+                                                            <p class="loss text-pink mb-0"><?php echo Helpers::size2str($video['music_width'], $video['music_height']) ?></p>
                                                         </div>
                                                     </div>
                                                     <br/>

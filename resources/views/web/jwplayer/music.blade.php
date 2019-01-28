@@ -97,7 +97,9 @@ if($musicSet['type_listen'] == 'playlist') {
                                             <a href="{{$urlAlbum}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$i . '. ' . $item['music_title']}}</a>
                                         </div>
                                         <div class="author d-table-cell">
-                                            <?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?>
+                                            <div class="author-ellepsis">
+                                                <?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?>
+                                            </div>
                                         </div>
                                         <div class="tool d-table-cell text-right">
                                             <ul class="list-inline d-flex align-items-center justify-content-end">

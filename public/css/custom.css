@@ -1480,3 +1480,9 @@ a.boxclose{
     width: 10px!important;
     height: auto!important;
 }
+.author-ellepsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 450px;
+}
