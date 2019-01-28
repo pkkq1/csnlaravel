@@ -15,7 +15,7 @@ class PlaylistPublisherModel extends Model
     protected $fillable = ['playlist_cat_id', 'playlist_cat_level', 'playlist_artist', 'playlist_cover', 'playlist_music_total', 'user_id', 'playlist_status', 'playlist_title', 'playlist_desc', 'playlist_time', 'playlist_listen', 'approval_user_id', 'playlist_by_id', 'playlist_artist_id', 'playlist_artist_name'];
 
     public function playlist_music() {
-        return $this->hasMany('App\Models\csn_playlist_music_publisher', 'playlist_id', 'playlist_id')->with('music');
+        return $this->hasMany('App\Models\PlaylistMusicPublisherModel', 'playlist_id', 'playlist_id')->with('music');
     }
     public function playlist_arr_ids() {
         return $this->hasMany('App\Models\PlaylistMusicPublisherModel', 'playlist_id', 'playlist_id')->orderBy('playlist_order', 'asc');
@@ -23,7 +23,7 @@ class PlaylistPublisherModel extends Model
     public function music() {
         return $this->hasManyThrough(
             'App\Models\MusicModel',
-            'App\Models\csn_playlist_music_publisher',
+            'App\Models\PlaylistMusicPublisherModel',
             'playlist_id',
             'music_id',
             'playlist_id',
@@ -35,7 +35,7 @@ class PlaylistPublisherModel extends Model
     public function video() {
         return $this->hasManyThrough(
             'App\Models\VideoModel',
-            'App\Models\csn_playlist_music_publisher',
+            'App\Models\PlaylistMusicPublisherModel',
             'playlist_id',
             'music_id',
             'playlist_id',

@@ -21,6 +21,7 @@ Route::get('/sync/solr_music_delete', 'Sync\SolrSyncController@syncDeleteMusic')
 Route::get('/sync/solr_video_delete', 'Sync\SolrSyncController@syncDeleteVideo');
 
 Route::get('/sync/demo', 'Sync\SyncTableController@user');
+//Route::get('/sync/demo2', 'Sync\UploaderController@uploader');
 
 
 Route::group(['middlewareGroups' => ['web']], function () {
@@ -94,6 +95,8 @@ Route::group(['middlewareGroups' => ['web']], function () {
     // playlist
     Route::get('playlist/{playlistUrl}.html', ['as' => 'music.playlist.listen', 'uses' => 'MusicController@listenPlaylistMusic']);
     Route::get('playlist/{playlistUrl}', ['as' => 'music.playlist.listen', 'uses' => 'MusicController@listenPlaylistMusic']);
+    Route::get('playlist_publisher/{playlistUrl}.html', ['as' => 'music.playlist.listen', 'uses' => 'MusicController@listenPlaylistMusic']);
+    Route::get('playlist_publisher/{playlistUrl}', ['as' => 'music.playlist.listen', 'uses' => 'MusicController@listenPlaylistMusic']);
     Route::get('nghe-bat-hat-ca-si/{playlistUrl}', ['as' => 'music.playlist.listen', 'uses' => 'MusicController@listenPlaylistMusic']);
     Route::get('nghe-bat-hat-yeu-thich/{playlistUrl}', ['as' => 'music.playlist.listen', 'uses' => 'MusicController@listenPlaylistMusic']);
     // artist

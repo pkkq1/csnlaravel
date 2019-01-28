@@ -3,6 +3,7 @@
 define('MUSIC_DATA_PATH', 'data/128/');
 define('SUB_ALLBUM', '/nghe-album/');
 define('SUB_PLAYLIST', '/playlist/');
+define('SUB_PLAYLIST_PUBLISHER', '/playlist_publisher/');
 define('SUB_BXH_MUSIC', '/nhac-hot/');
 define('SUB_BXH_NOW_MUSIC', '/nhac-hot/');
 define('SUB_VIDEO', '/v-video/');

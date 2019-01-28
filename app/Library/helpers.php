@@ -319,7 +319,7 @@ class Helpers
         $id_encode = last(str_replace('.html', '', $arrSplit));
         $type = explode('/', url()->current())[3];
         return [
-            'id' => str_replace($type == 'playlist' ? KEY_ID_PLAYLIST_ENCODE_URL : KEY_ID_ALBUM_ENCODE_URL, "", base64_decode($id_encode)),
+            'id' => str_replace(($type == 'playlist' || $type == 'playlist_publisher') ? KEY_ID_PLAYLIST_ENCODE_URL : KEY_ID_ALBUM_ENCODE_URL, "", base64_decode($id_encode)),
             'type' => $type,
             'url' => str_replace(last($arrSplit), "", $arrSplit)
         ];
@@ -450,6 +450,13 @@ class Helpers
         $playlist_url = $playlist_title_url . '~' . base64_encode(KEY_ID_PLAYLIST_ENCODE_URL . $playlist_info['playlist_id']) . "." . HTMLEX;;
 
         return ($id == 0) ? SUB_PLAYLIST . $playlist_url : SUB_PLAYLIST . $playlist_url . '?id='. $id;
+    }
+    public static function playlist_publisher_url($playlist_info, $id = 0)
+    {
+        $playlist_title_url = self::rawTiengVietUrl(htmlspecialchars_decode($playlist_info['playlist_title']));
+        $playlist_url = $playlist_title_url . '~' . base64_encode(KEY_ID_PLAYLIST_ENCODE_URL . $playlist_info['playlist_id']) . "." . HTMLEX;;
+
+        return ($id == 0) ? SUB_PLAYLIST_PUBLISHER . $playlist_url : SUB_PLAYLIST . $playlist_url . '?id='. $id;
     }
 
     public static function pagingCustom($page, $rows, $total, $url) {

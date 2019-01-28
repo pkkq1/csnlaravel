@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use App\Library\Helpers;
 use App\Repositories\Music\MusicEloquentRepository;
 use App\Repositories\Playlist\PlaylistEloquentRepository;
+use App\Repositories\PlaylistPublisher\PlaylistPublisherEloquentRepository;
 use App\Repositories\MusicListen\MusicListenEloquentRepository;
 use App\Repositories\VideoListen\VideoListenEloquentRepository;
 use App\Repositories\MusicDownload\MusicDownloadEloquentRepository;
@@ -37,6 +38,7 @@ class MusicController extends Controller
     protected $musicRepository;
     protected $videoRepository;
     protected $playlistRepository;
+    protected $playlistPublisherRepository;
     protected $musicListenRepository;
     protected $musicDownloadRepository;
     protected $videoListenRepository;
@@ -51,11 +53,12 @@ class MusicController extends Controller
     public function __construct(MusicEloquentRepository $musicRepository, PlaylistEloquentRepository $playlistRepository, MusicListenEloquentRepository $musicListenRepository,
                                 CategoryEloquentRepository $categoryListenRepository, CoverEloquentRepository $coverRepository, VideoEloquentRepository $videoRepository, ArtistRepository $artistRepository,
                                 MusicFavouriteRepository $musicFavouriteRepository, VideoFavouriteRepository $videoFavouriteRepository, MusicDownloadEloquentRepository $musicDownloadRepository, KaraokeEloquentRepository $karaokeRepository,
-                                VideoListenEloquentRepository $videoListenRepository, VideoDownloadEloquentRepository $videoDownloadRepository)
+                                VideoListenEloquentRepository $videoListenRepository, VideoDownloadEloquentRepository $videoDownloadRepository, PlaylistPublisherEloquentRepository $playlistPublisherRepository)
     {
         $this->musicRepository = $musicRepository;
         $this->videoRepository = $videoRepository;
         $this->playlistRepository = $playlistRepository;
+        $this->playlistPublisherRepository = $playlistPublisherRepository;
         $this->musicListenRepository = $musicListenRepository;
         $this->musicDownloadRepository = $musicDownloadRepository;
         $this->videoListenRepository = $videoListenRepository;
@@ -137,6 +140,15 @@ class MusicController extends Controller
             }
         }elseif($arrUrl['type'] == 'playlist'){
             $playlist = $this->playlistRepository->getMusicByPlaylistId($arrUrl['id']);
+            if(!$playlist)
+                return view('errors.404');
+            $typeListen = 'playlist';
+            if(($playlist->music)) {
+                $playlistMusic = $playlist->music->toArray();
+            }
+            $playlist->playlist_cover = $playlist->playlist_cover ? env('APP_URL').Helpers::file_path($playlist->playlist_id, PUBLIC_MUSIC_PLAYLIST_PATH, true).$playlist->playlist_id . '.png' : env('APP_URL').'/imgs/no_cover.jpg';
+        }elseif($arrUrl['type'] == 'playlist_publisher'){
+            $playlist = $this->playlistPublisherRepository->getMusicByPlaylistId($arrUrl['id']);
             if(!$playlist)
                 return view('errors.404');
             $typeListen = 'playlist';

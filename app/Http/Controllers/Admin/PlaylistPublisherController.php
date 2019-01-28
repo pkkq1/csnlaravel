@@ -67,7 +67,7 @@ class PlaylistPublisherController extends CrudController
                 'label' => 'ID',
                 'type' => 'closure',
                 'function' => function($entry) {
-                    return '<a href="'.Helpers::playlist_url($entry->toArray()).'" target="_blank">'.$entry->playlist_id.'</a>';
+                    return '<a href="'.Helpers::playlist_publisher_url($entry->toArray()).'" target="_blank">'.$entry->playlist_id.'</a>';
                 },
             ],
 //            [
