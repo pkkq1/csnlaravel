@@ -7,6 +7,7 @@ use App\Library\Helpers;
 use Jenssegers\Agent\Agent;
 use App\Models\ErrorLogModel;
 use Illuminate\Support\Facades\Auth;
+use \Illuminate\Http\JsonResponse;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
@@ -65,11 +66,12 @@ class Handler extends ExceptionHandler
                 return parent::render($request, $exception);
             }
         }
+        // error response basic
         if(method_exists($exception, 'getStatusCode')) {
             if($exception->getStatusCode() == 422) {
                 // Validation
                 return parent::render($request, $exception);
-            }elseif($exception->getStatusCode() == 403){
+            }elseif($exception->getStatusCode() == 403 || $exception->getStatusCode() == 400){
                 if($request->ajax()) {
                     if($request->format() == 'html') {
                         return response()->make($exception->getMessage(), 403);
@@ -85,6 +87,15 @@ class Handler extends ExceptionHandler
             }elseif ($exception->getStatusCode() == 404) {
                 return redirect()->guest('/');
             }
+        }
+        // error http client
+        if($exception->getCode() == 400 || $exception->getCode() == 401) {
+            $response = $exception->getResponse();
+            $response->getBody()->rewind();
+            $response = $response->getBody()->getContents();
+            $response = (array)json_decode($response, true);
+            $response = ['message' => 'Fail', 'data' => [], 'error' => $response['error']];
+            return new JsonResponse($response, 400);
         }
         if(env('APP_DEBUG') && env('APP_ENV') != 'local') {
             $error = ErrorLogModel::where('type', 'exception')->where('url', $_SERVER['REQUEST_URI'])->where('message', $exception->getMessage())->first();

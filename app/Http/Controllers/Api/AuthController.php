@@ -27,7 +27,7 @@ class AuthController extends Controller
         ]);
         if ($validator->fails()) {
             $messages = $validator->messages();
-            return new JsonResponse($messages->all(), 500);
+            return new JsonResponse(['message' => 'Fail', 'data' => [], 'error' => $messages->all()], 400);
         }
         $user = Socialite::driver('facebook')->userFromToken($req->token);
         // Create user
@@ -54,8 +54,7 @@ class AuthController extends Controller
         }
         // create session login
         // null
-
-        return new JsonResponse($existUser, 200);
+        return new JsonResponse(['message' => 'Success', 'data' => $existUser, 'error' => []], 200);
     }
     public function loginGoogle(Request $req) {
 
@@ -65,10 +64,9 @@ class AuthController extends Controller
         ]);
         if ($validator->fails()) {
             $messages = $validator->messages();
-            return new JsonResponse($messages->all(), 500);
+            return new JsonResponse(['message' => 'Fail', 'data' => [], 'error' => $messages->all()], 400);
         }
         $user = Socialite::driver('google')->userFromToken($req->token);
-        dd($user);
         // Create user
         $email = ($user->getEmail() ? $user->getEmail() : $user->getId() . '@chiasenhac.com');
         $existUser = User::where('user_fb_identity', '=', $user->getId())->orWhere('email', '=', $email)->first();
@@ -93,8 +91,7 @@ class AuthController extends Controller
         }
         // create session login
         // null
-
-        return new JsonResponse($existUser, 200);
+        return new JsonResponse(['message' => 'Success', 'data' => $existUser, 'error' => []], 200);
     }
 
 }
