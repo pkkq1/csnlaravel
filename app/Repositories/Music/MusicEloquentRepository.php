@@ -76,7 +76,7 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
             ->select('music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'music_album_id', 'music_listen', 'music_bitrate', 'music_filename', 'music_length')
             ->where('music_artist_id', 'like', $artist_id)
             ->orWhere('music_artist_id', 'like', $artist_id.';%')
-            ->orWhere('music_artist_id', 'like', '%,'.$artist_id)
+            ->orWhere('music_artist_id', 'like', '%;'.$artist_id)
             ->orWhere('music_artist_id', 'like', '%;'.$artist_id.';%')
             ->orderBy($fillOrder, $typeOrder)
             ->paginate($page);
@@ -145,12 +145,12 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
                 if($key == 0){
                     $q->where('music_artist_id', 'like', $id)
                     ->orWhere('music_artist_id', 'like', $id.';%')
-                    ->orWhere('music_artist_id', 'like', '%,'.$id)
+                    ->orWhere('music_artist_id', 'like', '%;'.$id)
                     ->orWhere('music_artist_id', 'like', '%;'.$id.';%');
                 }else{
                     $q->orWhere('music_artist_id', 'like', $id)
                     ->orWhere('music_artist_id', 'like', $id.';%')
-                    ->orWhere('music_artist_id', 'like', '%,'.$id)
+                    ->orWhere('music_artist_id', 'like', '%;'.$id)
                     ->orWhere('music_artist_id', 'like', '%;'.$id.';%');
                 }
             }
@@ -177,12 +177,12 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
                 if($key == 0){
                     $q->where('music_artist_id', 'like', $id)
                         ->orWhere('music_artist_id', 'like', $id.';%')
-                        ->orWhere('music_artist_id', 'like', '%,'.$id)
+                        ->orWhere('music_artist_id', 'like', '%;'.$id)
                         ->orWhere('music_artist_id', 'like', '%;'.$id.';%');
                 }else{
                     $q->orWhere('music_artist_id', 'like', $id)
                         ->orWhere('music_artist_id', 'like', $id.';%')
-                        ->orWhere('music_artist_id', 'like', '%,'.$id)
+                        ->orWhere('music_artist_id', 'like', '%;'.$id)
                         ->orWhere('music_artist_id', 'like', '%;'.$id.';%');
                 }
             }
