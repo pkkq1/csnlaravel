@@ -9,11 +9,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class MusicSolrModel extends Model
+class MusicSuggestModel extends Model
 {
     public $timestamps = false;
-    protected $table = 'csn_music_solr';
+    protected $table = 'csn_music_suggest';
     protected $primaryKey = 'music_id';
+    protected $connection= 'mysql_beta';
     protected $fillable =
         [
             'music_id' ,'cat_id', 'cat_level', 'cat_sublevel', 'cat_custom', 'cover_id', 'music_download_time', 'music_last_update_time', 'music_title_url', 'music_title_search', 'music_artist_search',

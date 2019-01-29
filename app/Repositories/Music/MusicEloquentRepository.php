@@ -4,6 +4,8 @@ namespace App\Repositories\Music;
 use App\Repositories\EloquentRepository;
 use DB;
 use App\Library\Helpers;
+use App\Models\MusicSuggestModel;
+use App\Models\VideoSuggestModel;
 
 class MusicEloquentRepository extends EloquentRepository implements MusicRepositoryInterface
 {
@@ -119,10 +121,18 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
         return $result;
     }
     public function suggestion($music, $type = 'music') {
-        $model = $this->_model;
+//        $model = $this->_model;
+//        if($type == 'video') {
+//            $model = app()->make(
+//                \App\Models\VideoModel::class
+//            );
+//        }
+        $model = app()->make(
+            \App\Models\MusicSuggestModel::class
+        );
         if($type == 'video') {
             $model = app()->make(
-                \App\Models\VideoModel::class
+                \App\Models\VideoSuggestModel::class
             );
         }
         $pathDir = resource_path() . '/views/cache/suggestion/' . ceil($music->music_id / 1000) . '/';
@@ -140,7 +150,7 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
         $select = ['music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'music_album_id', 'music_listen', 'music_bitrate', 'music_filename', 'music_width', 'music_height', 'music_length']; //, 'music_shortlyric'
         $artistIds = explode(';', $music->music_artist_id);
         // nhạc cùng ca sĩ
-        $MusicSameArtistEloquent = \App\Models\MusicModel::where(function($q) use ($artistIds) {
+        $MusicSameArtistEloquent = \App\Models\MusicSuggestModel::where(function($q) use ($artistIds) {
             foreach ($artistIds as $key => $id) {
                 if($key == 0){
                     $q->where('music_artist_id', 'like', $id)
@@ -158,7 +168,6 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
             ->where('music_id', '!=', $music->music_id)
             ->distinct('music_title')
             ->orderBy('music_id', 'desc');
-
         $MusicSameArtist = $MusicSameArtistEloquent->where('cover_id', '>', 0)
             ->select($select)
             ->limit(5)
@@ -172,7 +181,7 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
                 ->get()->toArray();
         }
         // video cùng ca sĩ
-        $VideoSameArtist = \App\Models\VideoModel::where(function($q) use ($artistIds) {
+        $VideoSameArtist = \App\Models\VideoSuggestModel::where(function($q) use ($artistIds) {
             foreach ($artistIds as $key => $id) {
                 if($key == 0){
                     $q->where('music_artist_id', 'like', $id)
@@ -233,10 +242,10 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
 
         $video = [];
         if($type != 'video') {
-            $video = \App\Models\VideoModel::where('music_title', 'like', $music->music_title)
+            $video = \App\Models\VideoSuggestModel::where('music_title', 'like', $music->music_title)
                 ->where('music_artist', $music->music_artist)
                 ->select($select)
-                ->orderBy('music_listen', 'desc')->first();
+                ->first();
         }
 
         foreach ($MusicSameArtist as  $key => $item) {

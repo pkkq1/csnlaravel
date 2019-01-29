@@ -6,15 +6,15 @@
  * Time: 4:29 PM
  */
 namespace App\Models;
-use Backpack\CRUD\CrudTrait;
+
 use Illuminate\Database\Eloquent\Model;
 
-class VideoModel extends Model
+class VideoSuggestModel extends Model
 {
-    use CrudTrait;
     public $timestamps = false;
-    protected $table = 'csn_video';
+    protected $table = 'csn_video_suggest';
     protected $primaryKey = 'music_id';
+    protected $connection= 'mysql_beta';
     protected $fillable =
         [
             'music_id' ,'cat_id', 'cat_level', 'cat_sublevel', 'cat_custom', 'cover_id', 'music_download_time', 'music_last_update_time', 'music_title_url', 'music_title_search', 'music_artist_search',
@@ -24,7 +24,7 @@ class VideoModel extends Model
             'music_bitrate_fixed_by', 'music_lyric', 'music_note', 'music_deleted', 'music_dmca', 'music_download_ip', 'music_comment'
         ];
     public function musicListen() {
-        return $this->belongsTo('App\Models\VideoListenModel', 'music_id', 'music_id');
+        return $this->belongsTo('App\Models\MusicListenModel', 'music_id', 'music_id');
     }
     public function musicKara() {
         return $this->belongsTo('App\Models\MusicKaraokeModel', 'music_id', 'music_id');
