@@ -76,10 +76,10 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
         $result = $this
             ->_model
             ->select('music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'music_album_id', 'music_listen', 'music_bitrate', 'music_filename', 'music_length')
-            ->where('music_artist_id', 'like', $artist_id)
-            ->orWhere('music_artist_id', 'like', $artist_id.';%')
-            ->orWhere('music_artist_id', 'like', '%;'.$artist_id)
-            ->orWhere('music_artist_id', 'like', '%;'.$artist_id.';%')
+//            ->where('music_artist_id', 'like', $artist_id)
+//            ->orWhere('music_artist_id', 'like', $artist_id.';%')
+//            ->orWhere('music_artist_id', 'like', '%;'.$artist_id)
+            ->orWhere('music_artist_id_search', 'like', '%;'.$artist_id.';%')
             ->orderBy($fillOrder, $typeOrder)
             ->paginate($page);
         return $result;
@@ -153,15 +153,15 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
         $MusicSameArtistEloquent = \App\Models\MusicSuggestModel::where(function($q) use ($artistIds) {
             foreach ($artistIds as $key => $id) {
                 if($key == 0){
-                    $q->where('music_artist_id', 'like', $id)
-                    ->orWhere('music_artist_id', 'like', $id.';%')
-                    ->orWhere('music_artist_id', 'like', '%;'.$id)
-                    ->orWhere('music_artist_id', 'like', '%;'.$id.';%');
+//                    $q->where('music_artist_id', 'like', $id)
+//                    ->orWhere('music_artist_id', 'like', $id.';%')
+//                    ->orWhere('music_artist_id', 'like', '%;'.$id)
+                    ->orWhere('music_artist_id_search', 'like', '%;'.$id.';%');
                 }else{
-                    $q->orWhere('music_artist_id', 'like', $id)
-                    ->orWhere('music_artist_id', 'like', $id.';%')
-                    ->orWhere('music_artist_id', 'like', '%;'.$id)
-                    ->orWhere('music_artist_id', 'like', '%;'.$id.';%');
+//                    $q->orWhere('music_artist_id', 'like', $id)
+//                    ->orWhere('music_artist_id', 'like', $id.';%')
+//                    ->orWhere('music_artist_id', 'like', '%;'.$id)
+                    ->orWhere('music_artist_id_search', 'like', '%;'.$id.';%');
                 }
             }
         })->select($select)
@@ -184,15 +184,15 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
         $VideoSameArtist = \App\Models\VideoSuggestModel::where(function($q) use ($artistIds) {
             foreach ($artistIds as $key => $id) {
                 if($key == 0){
-                    $q->where('music_artist_id', 'like', $id)
-                        ->orWhere('music_artist_id', 'like', $id.';%')
-                        ->orWhere('music_artist_id', 'like', '%;'.$id)
-                        ->orWhere('music_artist_id', 'like', '%;'.$id.';%');
+                    $q->where('music_artist_id_search', 'like', '%;'.$id.';%')
+//                        ->orWhere('music_artist_id', 'like', $id.';%')
+//                        ->orWhere('music_artist_id', 'like', '%;'.$id)
+//                        ->orWhere('music_artist_id', 'like', $id);
                 }else{
-                    $q->orWhere('music_artist_id', 'like', $id)
-                        ->orWhere('music_artist_id', 'like', $id.';%')
-                        ->orWhere('music_artist_id', 'like', '%;'.$id)
-                        ->orWhere('music_artist_id', 'like', '%;'.$id.';%');
+                    $q->orWhere('music_artist_id_search', 'like', '%;'.$id.';%')
+//                        ->orWhere('music_artist_id', 'like', $id.';%')
+//                        ->orWhere('music_artist_id', 'like', '%;'.$id)
+//                        ->orWhere('music_artist_id', 'like', $id);
                 }
             }
         })->where('music_id', '!=', $music->music_id)
@@ -213,10 +213,10 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
             ->where($whereTitleDup)
             ->select($select)
             ->limit(2)
-            ->orderBy('music_bitrate', 'desc')
-            ->orderBy('music_downloads_today', 'desc')
-            ->orderBy('music_downloads_this_week', 'desc')
-            ->orderBy('music_downloads', 'desc')
+//            ->orderBy('music_bitrate', 'desc')
+//            ->orderBy('music_downloads_today', 'desc')
+//            ->orderBy('music_downloads_this_week', 'desc')
+//            ->orderBy('music_downloads', 'desc')
             ->get()->toArray();
 
         if($music->music_composer && !$titleDup) {
@@ -226,10 +226,10 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
                 ->where($whereTitleDup)
                 ->select($select)
                 ->limit(2)
-                ->orderBy('music_bitrate', 'desc')
-                ->orderBy('music_downloads_today', 'desc')
-                ->orderBy('music_downloads_this_week', 'desc')
-                ->orderBy('music_downloads', 'desc')
+//                ->orderBy('music_bitrate', 'desc')
+//                ->orderBy('music_downloads_today', 'desc')
+//                ->orderBy('music_downloads_this_week', 'desc')
+//                ->orderBy('music_downloads', 'desc')
                 ->get()->toArray();
         }
         // cùng thể loại
