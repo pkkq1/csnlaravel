@@ -152,12 +152,12 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
         $MusicSameArtistEloquent = \App\Models\MusicSuggestModel::where(function($q) use ($artistIds) {
             foreach ($artistIds as $key => $id) {
                 if($key == 0){
-                    $q->where('music_artist_id', 'like', '%;'.$id.';%');
+                    $q->where('music_artist_id_search', 'like', '%;'.$id.';%');
 //                    ->orWhere('music_artist_id', 'like', $id.';%')
 //                    ->orWhere('music_artist_id', 'like', '%;'.$id)
 //                    ->orWhere('music_artist_id_search', 'like', $id);
                 }else{
-                    $q->orWhere('music_artist_id', 'like', '%;'.$id.';%');
+                    $q->orWhere('music_artist_id_search', 'like', '%;'.$id.';%');
 //                    ->orWhere('music_artist_id', 'like', $id.';%')
 //                    ->orWhere('music_artist_id', 'like', '%;'.$id)
 //                    ->orWhere('music_artist_id_search', 'like', $id);
