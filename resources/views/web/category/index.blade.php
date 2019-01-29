@@ -77,28 +77,33 @@ if($category->cat_id == 3 || $category->cat_id == 4 || $category->cat_id == 6 ||
                 <div class="box_space"></div>
                 <div class="box_header d-flex justify-content-between align-items-end">
                     <a class="view_all" href="/nhac-hot.html"><h5 class="title m-0">Bảng xếp hạng</h5></a>
-                    <a class="link_more" href="/nhac-hot.html" title="">Nghe tất cả<span class="ion-android-arrow-dropright-circle"></span></a>
+                    <a class="link_more" href="/nhac-hot.html?tab={{$category->cat_url}}" title="">Nghe tất cả<span class="ion-android-arrow-dropright-circle"></span></a>
                 </div>
                 <ul class="nav nav-tabs" id="myTab_bxh" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link {{$category->cat_id == 3 ? 'active' : ''}}" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">việt nam</a>
+                        <a class="nav-link {{$category->cat_id == 3 ? 'active' : ''}}" data-link-bxh="/nhac-hot.html" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">việt nam</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{$category->cat_id == 4 ? 'active' : ''}}" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">us-uk</a>
+                        <a class="nav-link {{$category->cat_id == 4 ? 'active' : ''}}" data-link-bxh="/nhac-hot.html?tab=us-uk" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">us-uk</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{$category->cat_id == 6 ? 'active' : ''}}" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">k-pop</a>
+                        <a class="nav-link {{$category->cat_id == 6 ? 'active' : ''}}" data-link-bxh="/nhac-hot.html?tab=korea" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">k-pop</a>
                     </li>
                     @if($bxhCatExists)
                     <li class="nav-item">
-                        <a class="nav-link {{$category->cat_id == 7 ? 'active' : ''}}" id="jpop-tab" data-toggle="tab" href="#jpop" role="tab" aria-controls="jpop" aria-selected="false">j-pop</a>
+                        <a class="nav-link {{$category->cat_id == 7 ? 'active' : ''}}" data-link-bxh="/nhac-hot.html?tab=japan" id="jpop-tab" data-toggle="tab" href="#jpop" role="tab" aria-controls="jpop" aria-selected="false">j-pop</a>
                     </li>
                     @else
                     <li class="nav-item">
-                        <a class="nav-link active" id="jpop-tab" data-toggle="tab" href="#jpop" role="tab" aria-controls="jpop" aria-selected="false">{{$parentTitle}}</a>
+                        <a class="nav-link active" id="jpop-tab" data-toggle="tab" data-link-bxh="/nhac-hot.html?tab={{$category->cat_url}}" href="#jpop" role="tab" aria-controls="jpop" aria-selected="false">{{$parentTitle}}</a>
                     </li>
                     @endif
                 </ul>
+                <script>
+                    $('.home-bxh .nav-tabs').find('.nav-link').click(function () {
+                        $('.home-bxh .link_more').attr('href', $(this).data('link-bxh'));
+                    })
+                </script>
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade {{$category->cat_id == 3 ? 'show active' : ''}}" id="home" role="tabpanel" aria-labelledby="home-tab">
                         <ul class="list-unstyled bxh mb-0">

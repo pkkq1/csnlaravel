@@ -162,6 +162,7 @@
         }
       }
     }
+
     return new Dom7(arr);
   }
 
