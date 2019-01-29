@@ -247,7 +247,9 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
                 ->select($select)
                 ->first();
         }
-
+        // close connect database
+        DB::disconnect('mysql_beta');
+        DB::disconnect('mysql');
         foreach ($MusicSameArtist as  $key => $item) {
             $MusicSameArtist[$key]['music_bitrate_html'] = Helpers::bitrate2str($item['music_bitrate']);
             $MusicSameArtist[$key]['music_artist_html'] = Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']);
