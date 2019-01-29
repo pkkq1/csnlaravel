@@ -166,8 +166,8 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
             }
         })->select($select)
             ->where('music_id', '!=', $music->music_id)
-            ->distinct('music_title')
-            ->orderBy('music_id', 'desc');
+            ->distinct('music_title');
+//            ->orderBy('music_id', 'desc');
         $MusicSameArtist = $MusicSameArtistEloquent->where('cover_id', '>', 0)
             ->select($select)
             ->limit(5)
@@ -199,7 +199,7 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
             ->select($select)
             ->distinct('music_title')
             ->limit(5)
-            ->orderBy('music_id', 'desc')
+//            ->orderBy('music_id', 'desc')
 //            ->orderBy('music_downloads_today', 'desc')
 //            ->orderBy('music_downloads_this_week', 'desc')
 //            ->orderBy('music_downloads', 'desc')
