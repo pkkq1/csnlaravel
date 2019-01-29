@@ -136,16 +136,28 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
         }
         $pathDir = resource_path() . '/views/cache/suggestion/' . ceil($music->music_id / 1000) . '/';
         $file = $pathDir . $music->music_id . '.blade.php';
-        if (!file_exists($pathDir)) {
-            mkdir($pathDir, 0777, true);
-        }else{
-            if(file_exists($file)) {
-                // update time to file case
-                if((time() - filemtime($file)) < UPDATE_CASE_SUGGESTION_MUSIC || UPDATE_CASE_SUGGESTION_MUSIC_ONCE) {
-                    return false;
-                }
-            }
+
+        if(file_exists($file)) {
+            return false;
+            // update time to file case
+//                if((time() - filemtime($file)) < UPDATE_CASE_SUGGESTION_MUSIC || UPDATE_CASE_SUGGESTION_MUSIC_ONCE) {
+//                    return false;
+//                }
         }
+        else if (!file_exists($pathDir)) {
+            mkdir($pathDir, 0777, true);
+        }
+
+//        if (!file_exists($pathDir)) {
+//            mkdir($pathDir, 0777, true);
+//        }else{
+//            if(file_exists($file)) {
+//                // update time to file case
+//                if((time() - filemtime($file)) < UPDATE_CASE_SUGGESTION_MUSIC || UPDATE_CASE_SUGGESTION_MUSIC_ONCE) {
+//                    return false;
+//                }
+//            }
+//        }
         $select = ['music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'music_album_id', 'music_listen', 'music_bitrate', 'music_filename', 'music_width', 'music_height', 'music_length']; //, 'music_shortlyric'
         $artistIds = explode(';', $music->music_artist_id);
         // nhạc cùng ca sĩ
