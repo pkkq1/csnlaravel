@@ -13,8 +13,12 @@ if(typeof swiper1.slides !== 'undefined') {
         ele.on("click", function() {
             swiper2.slideTo(index, 300, false);
             swiper1.slideTo(index, 300, false);
+            if (typeof slideSwiperChange !== 'undefined' && typeof slideSwiperChange === 'function') {
+                slideSwiperChange(swiper1, 'click');
+            }
         });
     });
+
 
     var swiper2 = new Swiper('.swiper2', {
         direction: 'horizontal',

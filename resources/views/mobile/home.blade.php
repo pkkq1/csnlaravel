@@ -165,12 +165,12 @@ global $album_cat_new;
                                     <div class="slide-chude owl-carousel owl-theme">
                                         <div class="item">
                                             <a href="/chu-de/romance.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url('/imgs/chude/Romance _ 345 x 110.png') no-repeat center;background-size: cover;">
-                                                    <h5 class="text-white">Lãng mạn</h5>
+                                                    <h5 class="text-white">Romance</h5>
                                                 </div></a>
                                         </div>
                                         <div class="item">
                                             <a href="/chu-de/sleep.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url('/imgs/chude/Sleep _ 345 x 110.png') no-repeat center;background-size: cover;">
-                                                    <h5 class="text-white">Giấc ngủ</h5>
+                                                    <h5 class="text-white">Sleep</h5>
                                                 </div></a>
                                         </div>
                                         <div class="item">
@@ -198,7 +198,9 @@ global $album_cat_new;
                                         ?>
                                         <div class="element">
                                             <a href="{{$url}}"><div class="image" style="background: url({{Helpers::thumbnail_url($item)}}) no-repeat center;background-size: cover">
+                                                    @if($item['music_listen'] > 0 )
                                                     <p class="view text-white mb-0 px-2 py-1"><img src="/mobile/assets/images/img_camera.png" width="16" /> <?php echo Helpers::numberShorten($item['music_listen']) ?></p>
+                                                    @endif
                                                     <p class="time text-white mb-0 px-2 py-1"><img src="/mobile/assets/images/ic_menu_clock.png" width="14" /> {{$item['music_length'] >= 3600 ? gmdate("H:i:s", $item['music_length']) : gmdate("i:s", $item['music_length'])}}</p>
                                                 </div></a>
                                             <div class="content mt-3">
@@ -218,10 +220,10 @@ global $album_cat_new;
                         <div class="container">
                             <div class="block block_detail_chude">
                                 <a href="/chu-de/romance.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url('/imgs/chude/Romance _ 345 x 110.png') no-repeat center;background-size: cover;">
-                                        <h5 class="text-white">Lãng mạn</h5>
+                                        <h5 class="text-white">Romance</h5>
                                     </div></a>
                                 <a href="/chu-de/sleep.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url('/imgs/chude/Sleep _ 345 x 110.png') no-repeat center;background-size: cover;">
-                                        <h5 class="text-white">Giấc ngủ</h5>
+                                        <h5 class="text-white">Sleep</h5>
                                     </div></a>
                                 <a href="/chu-de/gym.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url('/imgs/chude/Gym _ 345 x 110.png') no-repeat center;background-size: cover;">
                                         <h5 class="text-white">Gym</h5>
