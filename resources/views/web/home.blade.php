@@ -320,13 +320,13 @@ global $top_artist_rows;
             </div>
             <ul class="nav nav-tabs" id="myTab_bxh" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link active" data-link-bxh="/nhac-hot.html" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">việt nam</a>
+                    <a class="nav-link active" data-link-bxh="/nhac-hot.html" id="vietnam-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">việt nam</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-link-bxh="/nhac-hot.html?tab=us-uk" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">us-uk</a>
+                    <a class="nav-link" data-link-bxh="/nhac-hot.html?tab=us-uk" id="us-uk-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">us-uk</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-link-bxh="/nhac-hot.html?tab=korea" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">k-pop</a>
+                    <a class="nav-link" data-link-bxh="/nhac-hot.html?tab=korea" id="korea-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">k-pop</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" data-link-bxh="/nhac-hot.html?tab=japan" id="jpop-tab" data-toggle="tab" href="#jpop" role="tab" aria-controls="jpop" aria-selected="false">j-pop</a>
@@ -338,7 +338,7 @@ global $top_artist_rows;
                 })
             </script>
             <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <div class="tab-pane fade show active" id="vietnam-tab" role="tabpanel" aria-labelledby="home-tab">
                     <ul class="list-unstyled bxh mb-0">
                         <?php
                         $catMusic = array_slice($hot_music_rows[3], 0, LIMIT_HOME_CAT_MUSIC);
@@ -364,7 +364,7 @@ global $top_artist_rows;
                         ?>
                     </ul>
                 </div>
-                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                <div class="tab-pane fade" id="us-uk-tab" role="tabpanel" aria-labelledby="profile-tab">
                     <ul class="list-unstyled bxh mb-0">
                     <?php
                     $catMusic = array_slice($hot_music_rows[4], 0, LIMIT_HOME_CAT_MUSIC);
@@ -390,13 +390,13 @@ global $top_artist_rows;
                     ?>
                     </ul>
                 </div>
-                <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                <div class="tab-pane fade" id="korea-tab" role="tabpanel" aria-labelledby="contact-tab">
                     <ul class="list-unstyled bxh mb-0">
                     <?php
                     $catMusic = array_slice($hot_music_rows[6], 0, LIMIT_HOME_CAT_MUSIC);
                     array_map(function ($i, $item) {
                     $musicId = Helpers::music_id($item);
-                    $url = SUB_BXH_NOW_MUSIC.'chinese.html?playlist='.++$i;
+                    $url = SUB_BXH_NOW_MUSIC.'korea.html?playlist='.++$i;
                     ?>
                     <li class="media {{($i == 1 ? 'first stand' : ($i == 2 ? 'now up' : ($i == 3 ? 'now down' : 'now')))}} align-items-stretch">
                         <div class="media-left mr-3">
