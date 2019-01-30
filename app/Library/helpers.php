@@ -894,6 +894,6 @@ class Helpers
     public static function strReplaceSolr($str) {
         $str = str_replace('\\', '', $str);
         return trim(preg_replace(['/\(/', '/\)/', '/\:/', '/\^/', '/\*/', '/\|/', '/\]/', '/\[/', '/"/'],
-            ['\(', '\)', '\:', '\^', '\*', '\|', '\]', '\[', '\"'], mb_strtolower($str, 'UTF-8')));
+            ['', '', '', '', '', '', '', '', ''], mb_strtolower($str, 'UTF-8')));
     }
 }
