@@ -11,3 +11,4 @@
 /.idea
 /.env
 /.env.beta
+/config/checkip.php
