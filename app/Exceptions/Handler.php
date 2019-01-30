@@ -90,12 +90,14 @@ class Handler extends ExceptionHandler
         }
         // error http client
         if($exception->getCode() == 400 || $exception->getCode() == 401) {
-            $response = $exception->getResponse();
-            $response->getBody()->rewind();
-            $response = $response->getBody()->getContents();
-            $response = (array)json_decode($response, true);
-            $response = ['message' => 'Fail', 'data' => [], 'error' => $response['error']];
-            return new JsonResponse($response, 400);
+            if(method_exists($exception, 'getResponse')) {
+                $response = $exception->getResponse();
+                $response->getBody()->rewind();
+                $response = $response->getBody()->getContents();
+                $response = (array)json_decode($response, true);
+                $response = ['message' => 'Fail', 'data' => [], 'error' => $response['error']];
+                return new JsonResponse($response, 400);
+            }
         }
         if(env('APP_DEBUG') && env('APP_ENV') != 'local') {
             $error = ErrorLogModel::where('type', 'exception')->where('url', $_SERVER['REQUEST_URI'])->where('message', $exception->getMessage())->first();
