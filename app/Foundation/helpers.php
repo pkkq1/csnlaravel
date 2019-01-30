@@ -33,7 +33,8 @@ function view($view = null, $data = [], $mergeData = [])
             'view' => '',
             'message' => '',
             'user_id' => Auth::check() ? Auth::user()->id : null,
-            'parameter' => json_encode(Request()->all())
+            'parameter' => json_encode(Request()->all()),
+            'ip_address' => Helpers::getIp()
         ]);
     }
     return $factory->make($view, $data, $mergeData);

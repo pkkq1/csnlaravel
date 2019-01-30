@@ -110,7 +110,8 @@ class Handler extends ExceptionHandler
                     'note' => 'file: '.$exception->getFile().'; ',
                     'user_id' => Auth::check() ? Auth::user()->id : null,
                     'message' => $exception->getMessage(),
-                    'parameter' => strlen(json_encode(Request()->all())) < 500 ? json_encode(Request()->all()) : ' '
+                    'parameter' => strlen(json_encode(Request()->all())) < 500 ? json_encode(Request()->all()) : ' ',
+                    'ip_address' => Helpers::getIp()
                 ]);
             }
             abort(403, 'Lỗi '.$error->id.' Bạn vui lòng gửi mã lỗi này đến quan trị để khắc phục sớm nhất.');
