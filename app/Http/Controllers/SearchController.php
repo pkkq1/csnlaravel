@@ -39,6 +39,7 @@ class SearchController extends Controller
     }
     public function ajaxSearch(Request $request, $quickSearch = true) {
         $search = Helpers::strReplaceSolr($request->q);
+//        $search = trim(mb_strtolower($request->q, 'UTF-8'));
         $searchExp = explode(' ', $search);
         foreach ($searchExp as $key => $item) {
             if(mb_detect_encoding($item) != 'UTF-8')
