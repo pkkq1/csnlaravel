@@ -12,6 +12,9 @@ class HttpsProtocol {
         if (!$request->secure() && App::environment() === 'beta') {
             return redirect()->secure($request->getRequestUri());
         }
+        if(strpos($request->url(), '_download') !== false) {
+            return redirect()->route('home');
+        }
         if(in_array($request->ip(), Config::get('checkip.deny'))){
             return redirect()->route('home');
 //            exit;
