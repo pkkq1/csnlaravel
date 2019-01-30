@@ -188,7 +188,7 @@ class MusicController extends Controller
             $typeListen = 'album';
         }
         if($playlistMusic) {
-            $offsetPl = $playlistMusic[$request->playlist ? $request->playlist - 1 : 0];
+            $offsetPl = $playlistMusic[$request->playlist ? ($request->playlist > count($playlistMusic) ? count($playlistMusic) : $request->playlist) - 1 : 0];
             if($offsetPl['cat_id'] == CAT_VIDEO) {
                 $music = $this->videoRepository->findOnlyMusicId($offsetPl['music_id']);
             }else{
