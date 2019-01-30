@@ -891,4 +891,7 @@ class Helpers
     public static function getImgQuality($musicId) {
         return 'http://data5.chiasenhac.com/data/spectrum'.Helpers::file_path($musicId, '/', true).$musicId.'.jpg';
     }
+    public static function strReplaceSolr($str) {
+        return trim(preg_replace(['/(/', '/)/', '/:/', '/^/', '/*/'], ['\(', '\)', '\:', '\^', '\*'], mb_strtolower($str, 'UTF-8')));
+    }
 }
