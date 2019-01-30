@@ -3,6 +3,7 @@ use Illuminate\Contracts\View\Factory as ViewFactory;
 use Jenssegers\Agent\Agent;
 use App\Models\ErrorLogModel;
 use Illuminate\Support\Facades\Auth;
+use App\Library\Helpers;
 
 function view($view = null, $data = [], $mergeData = [])
 {
