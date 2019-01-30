@@ -73,7 +73,7 @@ class AuthController extends Controller
         if(!$existUser) {
             $existUser = User::firstOrCreate([
                 'name' => $user->getName(),
-                'username' => '',
+//                'username' => '',
                 'email' => $email,
                 'user_active' => ACTIVE_USER,
                 'user_avatar' => $user->avatar_original,
