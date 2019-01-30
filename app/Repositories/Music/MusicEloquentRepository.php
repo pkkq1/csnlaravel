@@ -4,7 +4,6 @@ namespace App\Repositories\Music;
 use App\Repositories\EloquentRepository;
 use DB;
 use App\Library\Helpers;
-use App\Solr\Solarium;
 use App\Models\MusicSuggestModel;
 use App\Models\VideoSuggestModel;
 
@@ -14,13 +13,6 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
      * get model
      * @return string
      */
-    protected $Solr;
-
-    public function __construct(Solarium $Solr) {
-        parent::__construct();
-        $this->Solr = $Solr;
-    }
-
     public function getModel()
     {
         return \App\Models\MusicModel::class;
@@ -149,17 +141,13 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
         }else{
             if(file_exists($file)) {
                 // update time to file case
-                if((time() - filemtime($file)) < UPDATE_CASE_SUGGESTION_MUSIC || UPDATE_CASE_SUGGESTION_MUSIC_ONCE) {
-//                    return false;
-                }
+                return false;
+//                if((time() - filemtime($file)) < UPDATE_CASE_SUGGESTION_MUSIC || UPDATE_CASE_SUGGESTION_MUSIC_ONCE) {
+//                }
             }
         }
         $select = ['music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'music_album_id', 'music_listen', 'music_bitrate', 'music_filename', 'music_width', 'music_height', 'music_length']; //, 'music_shortlyric'
         $artistIds = explode(';', $music->music_artist_id);
-
-
-
-
         // nhạc cùng ca sĩ
         $MusicSameArtistEloquent = \App\Models\MusicSuggestModel::where(function($q) use ($artistIds) {
             foreach ($artistIds as $key => $id) {
@@ -191,16 +179,6 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
                 ->limit(5 - count($MusicSameArtist))
                 ->get()->toArray();
         }
-
-
-        $searchSolarium['music_artist_id'] = '('.implode(' OR ', $artistIds).')';
-        $searchSolarium['-id'] = 'music_'.$music->music_id;
-//        $searchSolarium['-music_cover_id'] = 0;
-        $MusicSameArtist= $this->Solr->search($searchSolarium, 1, 5, array('score' => 'desc', 'music_downloads_today' => 'desc', 'music_downloads_this_week' => 'desc', 'music_downloads' => 'desc'));
-
-        dd($MusicSameArtist);
-
-
         // video cùng ca sĩ
         $VideoSameArtist = \App\Models\VideoSuggestModel::where(function($q) use ($artistIds) {
             foreach ($artistIds as $key => $id) {
