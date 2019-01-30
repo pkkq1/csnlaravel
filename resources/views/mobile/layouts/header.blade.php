@@ -23,8 +23,8 @@
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
 
-        gtag('config', 'UA-27050676-1');
         gtag('config', 'UA-27050676-16');
+        gtag('config', 'UA-27050676-1');
     </script>
     <script src="/mobile/assets/js/jquery-3.3.1.min.js"></script>
     <script src='https://www.google.com/recaptcha/api.js'></script>

@@ -59,8 +59,8 @@ global $allpage_banner;
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
 
-        gtag('config', 'UA-27050676-1');
         gtag('config', 'UA-27050676-16');
+        gtag('config', 'UA-27050676-1');
     </script>
     {{--<script type="text/javascript" src="/js/jquery.autocomplete.min.js"></script>--}}
     {{--<script type="text/javascript" src="/assets/emoji-picker-master/lib/js/emoji-picker.js"></script>--}}
