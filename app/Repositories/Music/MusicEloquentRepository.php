@@ -4,6 +4,7 @@ namespace App\Repositories\Music;
 use App\Repositories\EloquentRepository;
 use DB;
 use App\Library\Helpers;
+use App\Solr\Solarium;
 use App\Models\MusicSuggestModel;
 use App\Models\VideoSuggestModel;
 
@@ -13,6 +14,13 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
      * get model
      * @return string
      */
+    protected $Solr;
+
+    public function __construct(Solarium $Solr) {
+        parent::__construct();
+        $this->Solr = $Solr;
+    }
+
     public function getModel()
     {
         return \App\Models\MusicModel::class;
@@ -136,86 +144,100 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
         }
         $pathDir = resource_path() . '/views/cache/suggestion/' . ceil($music->music_id / 1000) . '/';
         $file = $pathDir . $music->music_id . '.blade.php';
-
-        if(file_exists($file)) {
-            return false;
-            // update time to file case
-//                if((time() - filemtime($file)) < UPDATE_CASE_SUGGESTION_MUSIC || UPDATE_CASE_SUGGESTION_MUSIC_ONCE) {
-//                    return false;
-//                }
-        }
-        else if (!file_exists($pathDir)) {
+        if (!file_exists($pathDir)) {
             mkdir($pathDir, 0777, true);
-        }
-
-//        if (!file_exists($pathDir)) {
-//            mkdir($pathDir, 0777, true);
-//        }else{
-//            if(file_exists($file)) {
-//                // update time to file case
-//                if((time() - filemtime($file)) < UPDATE_CASE_SUGGESTION_MUSIC || UPDATE_CASE_SUGGESTION_MUSIC_ONCE) {
+        }else{
+            if(file_exists($file)) {
+                // update time to file case
+                if((time() - filemtime($file)) < UPDATE_CASE_SUGGESTION_MUSIC || UPDATE_CASE_SUGGESTION_MUSIC_ONCE) {
 //                    return false;
+                }
+            }
+        }
+        $select = ['music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'music_listen', 'music_bitrate', 'music_filename', 'music_width', 'music_height', 'music_length']; //, 'music_shortlyric'
+        $artistIds = explode(';', $music->music_artist_id);
+
+
+        // nhạc cùng ca sĩ
+//        $MusicSameArtistEloquent = \App\Models\MusicSuggestModel::where(function($q) use ($artistIds) {
+//            foreach ($artistIds as $key => $id) {
+//                if($key == 0){
+//                    $q->where('music_artist_id_search', 'like', '%;'.$id.';%');
+////                    ->orWhere('music_artist_id', 'like', $id.';%')
+////                    ->orWhere('music_artist_id', 'like', '%;'.$id)
+////                    ->orWhere('music_artist_id_search', 'like', $id);
+//                }else{
+//                    $q->orWhere('music_artist_id_search', 'like', '%;'.$id.';%');
+////                    ->orWhere('music_artist_id', 'like', $id.';%')
+////                    ->orWhere('music_artist_id', 'like', '%;'.$id)
+////                    ->orWhere('music_artist_id_search', 'like', $id);
 //                }
 //            }
+//        })->select($select)
+////            ->distinct('music_title')
+//            ->where('music_id', '!=', $music->music_id);
+////            ->orderBy('music_id', 'desc');
+//        $MusicSameArtist = $MusicSameArtistEloquent->where('cover_id', '>', 0)
+//            ->select($select)
+//            ->limit(5)
+////            ->orderBy('music_downloads_today', 'desc')
+////            ->orderBy('music_downloads_this_week', 'desc')
+////            ->orderBy('music_downloads', 'desc')
+//            ->get()->toArray();
+//        if($MusicSameArtist <= 5) {
+//            $MusicSameArtist = $MusicSameArtistEloquent
+//                ->limit(5 - count($MusicSameArtist))
+//                ->get()->toArray();
 //        }
-        $select = ['music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'music_album_id', 'music_listen', 'music_bitrate', 'music_filename', 'music_width', 'music_height', 'music_length']; //, 'music_shortlyric'
-        $artistIds = explode(';', $music->music_artist_id);
-        // nhạc cùng ca sĩ
-        $MusicSameArtistEloquent = \App\Models\MusicSuggestModel::where(function($q) use ($artistIds) {
-            foreach ($artistIds as $key => $id) {
-                if($key == 0){
-                    $q->where('music_artist_id_search', 'like', '%;'.$id.';%');
-//                    ->orWhere('music_artist_id', 'like', $id.';%')
-//                    ->orWhere('music_artist_id', 'like', '%;'.$id)
-//                    ->orWhere('music_artist_id_search', 'like', $id);
-                }else{
-                    $q->orWhere('music_artist_id_search', 'like', '%;'.$id.';%');
-//                    ->orWhere('music_artist_id', 'like', $id.';%')
-//                    ->orWhere('music_artist_id', 'like', '%;'.$id)
-//                    ->orWhere('music_artist_id_search', 'like', $id);
-                }
-            }
-        })->select($select)
-            ->distinct('music_title')
-            ->where('music_id', '!=', $music->music_id);
-//            ->orderBy('music_id', 'desc');
-        $MusicSameArtist = $MusicSameArtistEloquent->where('cover_id', '>', 0)
-            ->select($select)
-            ->limit(5)
-//            ->orderBy('music_downloads_today', 'desc')
-//            ->orderBy('music_downloads_this_week', 'desc')
-//            ->orderBy('music_downloads', 'desc')
-            ->get()->toArray();
-        if($MusicSameArtist <= 5) {
-            $MusicSameArtist = $MusicSameArtistEloquent
-                ->limit(5 - count($MusicSameArtist))
-                ->get()->toArray();
-        }
-        // video cùng ca sĩ
-        $VideoSameArtist = \App\Models\VideoSuggestModel::where(function($q) use ($artistIds) {
-            foreach ($artistIds as $key => $id) {
-                if($key == 0){
-                    $q->where('music_artist_id_search', 'like', '%;'.$id.';%');
-//                        ->orWhere('music_artist_id', 'like', $id.';%')
-//                        ->orWhere('music_artist_id', 'like', '%;'.$id)
-//                        ->orWhere('music_artist_id', 'like', $id);
-                }else{
-                    $q->orWhere('music_artist_id_search', 'like', '%;'.$id.';%');
-//                        ->orWhere('music_artist_id', 'like', $id.';%')
-//                        ->orWhere('music_artist_id', 'like', '%;'.$id)
-//                        ->orWhere('music_artist_id', 'like', $id);
-                }
-            }
-        })->where('music_id', '!=', $music->music_id)
-            ->select($select)
-            ->distinct('music_title')
-            ->limit(5)
-//            ->orderBy('music_id', 'desc')
-//            ->orderBy('music_downloads_today', 'desc')
-//            ->orderBy('music_downloads_this_week', 'desc')
-//            ->orderBy('music_downloads', 'desc')
-            ->get()->toArray();
-        // cùng tên khác ca sĩ
+
+
+        $searchSolarium['music_artist_id'] = '('.implode(' OR ', $artistIds).')';
+        $searchSolarium['-id'] = 'music_'.$music->music_id;
+//        $searchSolarium['-music_cover_id'] = 0;
+//        $MusicSameArtist= $this->Solr->search($searchSolarium, 1, 5, array('score' => 'desc', 'music_downloads_today' => 'desc', 'music_downloads_this_week' => 'desc', 'music_download' => 'desc'));
+        $MusicSameArtist= $this->Solr->search($searchSolarium, 1, 5, array('score' => 'desc', 'music_downloads_today' => 'desc', 'music_downloads_this_week' => 'desc', 'music_download' => 'desc'));
+
+        $MusicSameArtist = $MusicSameArtist['data'];
+
+
+        $searchSolarium['video_artist_id'] = '('.implode(' OR ', $artistIds).')';
+        $searchSolarium['-id'] = 'music_'.$music->music_id;
+//        $searchSolarium['-music_cover_id'] = 0;
+//        $MusicSameArtist= $this->Solr->search($searchSolarium, 1, 5, array('score' => 'desc', 'music_downloads_today' => 'desc', 'music_downloads_this_week' => 'desc', 'music_download' => 'desc'));
+        $VideoSameArtist= $this->Solr->search($searchSolarium, 1, 5, array('score' => 'desc', 'music_downloads_today' => 'desc', 'music_downloads_this_week' => 'desc', 'music_download' => 'desc'));
+
+        $VideoSameArtist = $VideoSameArtist['data'];
+        dd($VideoSameArtist);
+
+
+//        // video cùng ca sĩ
+//        $VideoSameArtist = \App\Models\VideoSuggestModel::where(function($q) use ($artistIds) {
+//            foreach ($artistIds as $key => $id) {
+//                if($key == 0){
+//                    $q->where('music_artist_id_search', 'like', '%;'.$id.';%');
+////                        ->orWhere('music_artist_id', 'like', $id.';%')
+////                        ->orWhere('music_artist_id', 'like', '%;'.$id)
+////                        ->orWhere('music_artist_id', 'like', $id);
+//                }else{
+//                    $q->orWhere('music_artist_id_search', 'like', '%;'.$id.';%');
+////                        ->orWhere('music_artist_id', 'like', $id.';%')
+////                        ->orWhere('music_artist_id', 'like', '%;'.$id)
+////                        ->orWhere('music_artist_id', 'like', $id);
+//                }
+//            }
+//        })->where('music_id', '!=', $music->music_id)
+//            ->select($select)
+////            ->distinct('music_title')
+//            ->limit(5)
+////            ->orderBy('music_id', 'desc')
+////            ->orderBy('music_downloads_today', 'desc')
+////            ->orderBy('music_downloads_this_week', 'desc')
+////            ->orderBy('music_downloads', 'desc')
+//            ->get()->toArray();
+
+
+
+        // cùng tên khác sáng tác
         $whereTitleDup = [['music_id', '!=',$music->music_id], ['music_downloads', '>=', MIN_DOWNLOAD_SUG_TITLE_SAME]];
         if($music->music_composer) {
             $whereTitleDup[] = ['music_composer', 'like',explode(';', $music->music_composer)[0]];
