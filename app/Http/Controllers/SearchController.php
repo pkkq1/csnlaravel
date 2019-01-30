@@ -153,16 +153,13 @@ class SearchController extends Controller
                 $result[0]['artist']['row_total'] = $resultArtist['row_total'];
             }
             if(isset($request->view_all) || isset($request->view_album)) {
-
+                $searchSolarium = [];
                 if($quickSearch)
                     $searchSolarium['music_album_charset_nospace'] =  $charsetNoSpace . '^100 | music_album_charset_nospace:'.$charsetNoSpace.'*^50';
                 $searchSolarium['music_album_charset'] = $titleCharset;
-                if($titleSearch)
+                if($titleSearch !== $titleCharset)
                     $searchSolarium['music_album_search'] = $titleSearch;
-                $resultAlbum = $this->Solr->search([
-                    'music_album_charset' => $titleCharset,
-                    'music_album' => $searchNotUtf8,
-                ], ($request->page_album ?? 1), $request->rows ?? ROWS_ALBUM_SEARCH_PAGING, array('score' => 'desc'));
+                $resultAlbum = $this->Solr->search($searchSolarium, ($request->page_album ?? 1), $request->rows ?? ROWS_ALBUM_SEARCH_PAGING, array('score' => 'desc'));
                 if($resultAlbum['data']) {
                     foreach ($resultAlbum['data'] as $item) {
                         $result[0]['album']['data'][] = [

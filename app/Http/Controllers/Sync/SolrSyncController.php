@@ -377,22 +377,20 @@ class SolrSyncController extends Controller
         $datas = [];
         foreach ($cover as $item) {
             $music_artist = $item->album_artist_1;
-            $music_artist_ = $item->album_artist_1;
             $music_artist_id = $item->album_artist_id_1;
             if($item->album_artist_2) {
-                $music_artist = $music_artist.';'.$item->album_artist_2;
-                $music_artist_ = $music_artist.','.$item->album_artist_2;
+                $music_artist = $music_artist.'; '.$item->album_artist_2;
                 $music_artist_id = $music_artist_id.';'.$item->album_artist_id_2;
             }
             $album_cat = $item->album_cat_id_1;
             if($album_cat) {
-                $album_cat = $album_cat.'_'.$item->album_cat_level_1;
+                $album_cat .= '_' . $item->album_cat_level_1;
                 if($item->album_cat_id_2)
-                    $album_cat = $album_cat.';'.$item->album_cat_id_2.'_'.$item->album_cat_level_1;
+                    $album_cat .= ';' . $item->album_cat_id_2.'_'.$item->album_cat_level_1;
             }
             $titleSearch = Helpers::replaceKeySearch($item->music_album);
             $titleCharset = Helpers::rawTiengVietUrl($titleSearch, ' ');
-            $artistSearch = Helpers::replaceKeySearch($music_artist_);
+            $artistSearch = Helpers::replaceKeySearch($music_artist);
             $artistCharset = Helpers::rawTiengVietUrl($artistSearch, ' ');
 
             $data = [
@@ -403,7 +401,7 @@ class SolrSyncController extends Controller
                 'music_album_charset' => $titleCharset,
                 'music_album_artist_charset' => $titleCharset.' '. $artistCharset,
                 'music_album_charset_nospace' => Helpers::replaceKeySearch(str_replace(' ', '', $titleCharset)),
-                'music_album_artist_charset_nospace' => str_replace(' ', '', $titleCharset) .' '.str_replace(' ', '', $artistCharset),
+                'music_album_artist_charset_nospace' => str_replace(' ', '', $titleCharset) .''.str_replace(' ', '', $artistCharset),
                 'album_cover' => Helpers::cover_url($item->cover_id),
                 'cover_filename' => $item->cover_filename,
                 'album_cat' => !empty($album_cat) ? $album_cat : '',
@@ -417,10 +415,10 @@ class SolrSyncController extends Controller
                 'music_artist_html' => '',
                 'album_bitrate_html' => $item->music_bitrate ? Helpers::bitrate2str($item->music_bitrate) : '',
             ];
-            if($music_artist_) {
-                $artistSearch = Helpers::replaceKeySearch($music_artist_);
-                $artistCharset = Helpers::rawTiengVietUrl($music_artist_, ' ');
-                $data['music_artist'] = $music_artist_;
+            if($music_artist) {
+//                $artistSearch = Helpers::replaceKeySearch($music_artist);
+//                $artistCharset = Helpers::rawTiengVietUrl($music_artist, ' ');
+                $data['music_artist'] = $music_artist;
                 $data['music_artist_search'] = $artistSearch;
                 $data['music_artist_charset'] = $artistCharset;
                 $data['music_artist_nospace'] = str_replace(' ', '', $artistCharset);
@@ -430,6 +428,7 @@ class SolrSyncController extends Controller
 //            $this->Solr->addDocuments($data);
         }
         $this->Solr->addMultiDocuments($datas);
+
         return response(['Ok']);
     }
 
