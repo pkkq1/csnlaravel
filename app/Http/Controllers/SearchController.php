@@ -25,6 +25,8 @@ class SearchController extends Controller
         $this->Solr = $Solr;
     }
     public function index(Request $request) {
+        if(!$request->q)
+            return redirect()->route('home');
         $search = mb_strtolower($request->q, 'UTF-8');
         $request->view_music = true;
         $request->view_album = true;
