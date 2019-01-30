@@ -3,6 +3,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\App;
+use Config;
 
 class HttpsProtocol {
 
@@ -10,6 +11,11 @@ class HttpsProtocol {
     {
         if (!$request->secure() && App::environment() === 'beta') {
             return redirect()->secure($request->getRequestUri());
+        }
+        if(in_array($request->ip(), Config::get('checkip.deny'))){
+            return redirect()->route('home');
+//            exit;
+//            abort(403, 'Lỗi truy cập');
         }
 
         return $next($request);
