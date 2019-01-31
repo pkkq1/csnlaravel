@@ -38,7 +38,9 @@ Route::group(['middlewareGroups' => ['web']], function () {
         Route::get('bxh_category/{month}/{year}', 'Sync\BxhCategoryController@syncBxhCategoryMonthYear'); // month = all || 1->12
         Route::get('sug_category', 'Sync\SuggestionCatController@suggestion');
         Route::get('solr_video', 'Sync\SolrSyncController@syncVideo');
+        Route::get('solr_delete_video', 'Sync\SolrSyncController@syncDeleteVideo');
         Route::get('solr_music', 'Sync\SolrSyncController@syncMusic');
+        Route::get('solr_delete_music', 'Sync\SolrSyncController@syncDeleteMusic');
     });
 
     // Api
