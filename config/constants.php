@@ -10,8 +10,8 @@ return [
             'caption' => 'Chủ đề New Year',
             'label' => 'New Year',
             'user_id' => 1018430,
-            'img_web' => 'tết _ 345 x 110.png',
-            'img_mobile' => 'tết _ 345 x 110.png'
+            'img_web' => 'Newyear _ 345 x 110.png',
+            'img_mobile' => 'Newyear _ 345 x 110.png'
         ],
         'romance' => [
             'caption' => 'Chủ đề romance',
