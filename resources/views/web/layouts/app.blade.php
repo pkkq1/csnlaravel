@@ -36,6 +36,8 @@ $allpage_banner = false;
 @yield('contentJS')
 
 <!-- PC masthead -->
+<!-- BlueSeed - asynchronous code for placement 1365 Chiasenhac Masthead Desktop -->
+<ins class="hadar-placement" data-hdpm="1365" ></ins><script id="jshd1pm_1365" src="https://static.blueseed.tv/ajs/display.js"></script>
 
 </body>
 </html>
