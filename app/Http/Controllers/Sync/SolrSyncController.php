@@ -37,7 +37,7 @@ class SolrSyncController extends Controller
 
     public function syncMusic($id = null, $musicItem = null, $time = null) {
         if($id) {
-            $searchMusic = MusicModel::select('music_id', 'music_composer', 'music_title', 'music_artist',
+            $searchMusic = MusicModel::select('music_id', 'music_composer', 'music_title', 'music_artist', 'music_downloads_this_week',
                 'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_downloads_this_week', 'music_lyric')
                 ->where('cat_id', '!=', CAT_VIDEO)
                 ->where('music_deleted', '<', 1)
@@ -51,7 +51,7 @@ class SolrSyncController extends Controller
                 $searchMusic[] = $musicItem;
             }
         }elseif($time) {
-            $searchMusic = MusicModel::select('music_id', 'music_composer', 'music_title', 'music_artist',
+            $searchMusic = MusicModel::select('music_id', 'music_composer', 'music_title', 'music_artist', 'music_downloads_this_week',
                 'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_downloads_this_week', 'music_lyric')
                 ->where('cat_id', '!=', CAT_VIDEO)
                 ->where('music_deleted', '<', 1)
@@ -59,7 +59,7 @@ class SolrSyncController extends Controller
                 ->where('music_last_update_time', '>',  $time)
                 ->get();
         }else{
-            $searchMusic = MusicModel::select('music_id', 'music_composer', 'music_title', 'music_artist',
+            $searchMusic = MusicModel::select('music_id', 'music_composer', 'music_title', 'music_artist', 'music_downloads_this_week',
                 'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_downloads_this_week', 'music_lyric')
                 ->where('cat_id', '!=', CAT_VIDEO)
                 ->where('music_deleted', '<', 1)
@@ -113,10 +113,10 @@ class SolrSyncController extends Controller
                 'music_width' => $item->music_width,
                 'music_height' => $item->music_height,
                 'music_length' => $item->music_length,
-                'music_download' => $item->music_downloads,
+                'music_downloads' => $item->music_downloads,
                 'music_downloads_today' => $item->music_downloads_today,
-                'music_downloads_max_week' => $item->music_downloads_max_week,
                 'music_downloads_this_week' => $item->music_downloads_this_week,
+                'music_downloads_max_week' => $item->music_downloads_max_week,
 
             ];
 
@@ -142,7 +142,7 @@ class SolrSyncController extends Controller
     public function syncDeleteMusic($id = null, $musicItem = null) {
         //<delete><query>_id:12345323211</query></delete>
         if($id) {
-            $searchMusic = MusicModel::select('music_id', 'music_composer', 'music_title', 'music_artist',
+            $searchMusic = MusicModel::select('music_id', 'music_composer', 'music_title', 'music_artist', 'music_downloads_this_week',
                 'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_downloads_this_week', 'music_lyric')
                 ->where('cat_id', '!=', CAT_VIDEO)
                 ->where('music_id', $id)
@@ -194,7 +194,7 @@ class SolrSyncController extends Controller
     }
     public function syncVideo($id = null, $videoItem = null, $time = null) {
         if($id) {
-            $searchVideo = VideoModel::select('music_id', 'music_title_search', 'music_artist_search', 'music_composer', 'music_album_search', 'music_title', 'music_artist',
+            $searchVideo = VideoModel::select('music_id', 'music_title_search', 'music_artist_search', 'music_composer', 'music_album_search', 'music_title', 'music_artist', 'music_downloads_this_week',
                 'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_title_url', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_width', 'music_height', 'music_last_update_time', 'music_length', 'music_time')
                 ->where('cat_id', '=', CAT_VIDEO)
                 ->where('music_deleted', '<', 1)
@@ -208,7 +208,7 @@ class SolrSyncController extends Controller
                 $searchVideo[] = $videoItem;
             }
         }elseif($time){
-            $searchVideo = VideoModel::select('music_id', 'music_title_search', 'music_artist_search', 'music_composer', 'music_album_search', 'music_title', 'music_artist',
+            $searchVideo = VideoModel::select('music_id', 'music_title_search', 'music_artist_search', 'music_composer', 'music_album_search', 'music_title', 'music_artist', 'music_downloads_this_week',
                 'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_title_url', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_width', 'music_height', 'music_last_update_time', 'music_length', 'music_time')
                 ->where('cat_id', '=', CAT_VIDEO)
                 ->where('music_deleted', '<', 1)
@@ -216,9 +216,10 @@ class SolrSyncController extends Controller
                 ->orderBy('music_id', 'asc')
                 ->get();
         }else {
-            $searchVideo = VideoModel::select('music_id', 'music_title_search', 'music_artist_search', 'music_composer', 'music_album_search', 'music_title', 'music_artist',
+            $searchVideo = VideoModel::select('music_id', 'music_title_search', 'music_artist_search', 'music_composer', 'music_album_search', 'music_title', 'music_artist', 'music_downloads_this_week',
                 'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_title_url', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_width', 'music_height', 'music_last_update_time', 'music_length', 'music_time')
                 ->where('cat_id', '=', CAT_VIDEO)
+                ->where('music_id', '=', 1988018)
                 ->where('music_deleted', '<', 1)
                 ->where('music_id', '>', intval($_GET['v_start']))
 //                ->whereIn('music_id', [1603231,1602966,1603110])
@@ -261,12 +262,10 @@ class SolrSyncController extends Controller
                 'cat_level' => $item->cat_level,
                 'video_composer' => $item->music_composer,
                 'cover_id' => $item->cover_id,
-                'music_bitrate_' => $item->music_bitrate,
-                'music_width' => $item->music_width,
-                'music_height' => $item->music_height,
-                'music_length_' => $item->music_length,
-                'music_length' => $item->music_length >= 3600 ? gmdate("H:i:s", $item->music_length) : gmdate("i:s", $item->music_length),
-                'video_download' => $item->music_downloads,
+                'video_bitrate_' => $item->music_bitrate,
+                'video_length_' => $item->music_length,
+                'video_length' => $item->music_length >= 3600 ? gmdate("H:i:s", $item->music_length) : gmdate("i:s", $item->music_length),
+                'video_downloads' => $item->music_downloads,
                 'video_downloads_today' => $item->music_downloads_today,
                 'video_downloads_this_week' => $item->music_downloads_this_week,
                 'video_downloads_max_week' => $item->music_downloads_max_week,
