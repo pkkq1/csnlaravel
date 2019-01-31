@@ -67,9 +67,6 @@ class SearchController extends Controller
             $searchTool = Helpers::replaceKeySearch($search);
             //$searchTool = $search;
             $rawTiengViet = Helpers::khongdau($searchTool, ' ');
-            // check string is 大城小愛
-            if(!$rawTiengViet)
-                $rawTiengViet = $searchTool;
             $charsetNoSpace = str_replace(' ', '', $rawTiengViet);
             $titleCharset = str_replace(' ', '+', $rawTiengViet);
             $titleSearch = str_replace(' ', '+', $searchTool);//Helpers::replaceKeySearch($searchNotUtf8);
@@ -84,17 +81,14 @@ class SearchController extends Controller
     //            $searchSolarium['music_title_artist_charset'] = $titleCharset;
                 if($titleSearch) {
                     //$searchSolarium['music_title_artist_search'] = $titleSearch;
-                    if($titleCharset) {
-                        $searchSolarium['music_title_charset'] = $titleCharset . '^2';
-                        $searchSolarium['music_artist_charset'] = $titleCharset;
-                    }
+                    $searchSolarium['music_title_charset'] = $titleCharset . '^2';
+                    $searchSolarium['music_artist_charset'] = $titleCharset;
 
                     if ($titleSearch != $titleCharset) {
                         $searchSolarium['music_title_search'] = $titleSearch . '^2';
                         $searchSolarium['music_artist_search'] = $titleSearch;
                     }
                 }
-
                 $search_level = 1;
 
                 search_music_2:
@@ -188,10 +182,8 @@ class SearchController extends Controller
                     $searchSolarium['video_title_artist_charset_nospace'] = $charsetNoSpace . '^100 | video_title_artist_charset_nospace:' . $charsetNoSpace . '*^50';
                 }
                 if($titleSearch) {
-                    if($titleCharset) {
-                        $searchSolarium['video_title_charset'] = $titleCharset . '^2';
-                        $searchSolarium['video_artist_charset'] = $titleCharset;
-                    }
+                    $searchSolarium['video_title_charset'] = $titleCharset . '^2';
+                    $searchSolarium['video_artist_charset'] = $titleCharset;
 
                     if ($titleSearch != $titleCharset) {
                         $searchSolarium['video_title_search'] = $titleSearch . '^2';
