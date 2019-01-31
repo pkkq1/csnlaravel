@@ -53,7 +53,7 @@
                     '      <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">' +
                     '          <h5 class="media-title mt-0 mb-0 span_h5">' + searchHighlight(q, value.music_title) + '</h5>' +
                     '          <div class="author">' + value.music_artist + '</div>' +
-                    '          <small class="type_music c1">' + value.music_bitrate_html + '</small>' +
+                    '          <small class="type_music c1">' + value.music_bitrate + '</small>' +
                     '      </div>' +
                     '  </li>' +
                     '  </a>';
@@ -102,7 +102,7 @@
                     '              <h5 class="media-title mt-0 mb-0 span_h5" title="' + value.music_title + ' - ' + value.music_artist + '">' + searchHighlight(q, value.music_title) + '</h5>' +
                     '              <div class="author">' + value.music_artist + '</div>' +
                     '          </div>' +
-                    '          <small class="type_music c1">' + value.music_bitrate_html + '</small>' +
+                    '          <small class="type_music c1">' + value.music_bitrate + '</small>' +
                     '      </div>' +
                     '  </li>' +
                     '</a>';
@@ -154,7 +154,7 @@
                     '          <a href="' + value.video_link + '" title="' + value.video_title + ' - ' + value.video_artist + '">' +
                     '              <img src="' + value.video_cover + '" alt="' + value.video_title + '">' +
                     '              <i class="material-icons">play_circle_outline</i>' +
-                    '              <p class="time text-white mb-0 px-2 py-1"><img src="/images/ic_menu_clock.png" width="14"> ' + value.video_length + '</p>' +
+                    '              <p class="time text-white mb-0 px-2 py-1"><img src="/images/ic_menu_clock.png" width="14"> ' + value.music_length + '</p>' +
                     '          </a>' +
                     '      </div>' +
                     '      <a class="search-line" title="' + value.video_title + ' - ' + value.video_artist + '"  href="' + value.video_link + '" >' +
@@ -163,7 +163,7 @@
                     '              <h5 class="media-title mt-0 mb-0 span_h5" title="' + value.video_title + ' - ' + value.video_artist + '">' + searchHighlight(q, value.video_title) + '</h5>' +
                     '              <div class="author">' + value.video_artist + '</div>' +
                     '          </div>' +
-                    '          <small class="type_music c1">' + value.video_bitrate_html + '</small>' +
+                    '          <small class="type_music c1">' + value.video_bitrate + '</small>' +
                     '      </div>' +
                     '      </a>' +
                     '  </li>';
