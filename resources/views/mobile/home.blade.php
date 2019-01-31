@@ -164,26 +164,16 @@ $catalog = config('constants.catalog');
                                         <a href="javascript:void(0);" onclick="tabHome('theme_all')"><span class="text-gray align-self-end">Xem tất cả</span></a>
                                     </div>
                                     <div class="slide-chude owl-carousel owl-theme">
+                                    @foreach($catalog as $key => $val)
                                         <div class="item">
-                                            <a href="/chu-de/newyear.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url('/imgs/chude/Newyear _ 345 x 110.png') no-repeat center;background-size: cover;">
-                                                    <h5 class="text-white">New Year</h5>
+                                            <a href="/chu-de/{{$key}}.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url('/imgs/chude/{{$val['img_web']}}') no-repeat center;background-size: cover;">
+                                                    <h5 class="text-white">{{$val['label']}}</h5>
                                                 </div></a>
                                         </div>
-                                        <div class="item">
-                                            <a href="/chu-de/romance.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url('/imgs/chude/Romance _ 345 x 110.png') no-repeat center;background-size: cover;">
-                                                    <h5 class="text-white">Romance</h5>
-                                                </div></a>
-                                        </div>
-                                        <div class="item">
-                                            <a href="/chu-de/sleep.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url('/imgs/chude/Sleep _ 345 x 110.png') no-repeat center;background-size: cover;">
-                                                    <h5 class="text-white">Sleep</h5>
-                                                </div></a>
-                                        </div>
-                                        <div class="item">
-                                            <a href="/chu-de/gym.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url('/imgs/chude/Gym _ 345 x 110.png') no-repeat center;background-size: cover;">
-                                                    <h5 class="text-white">Gym</h5>
-                                                </div></a>
-                                        </div>
+                                    @if($key == 3)
+                                        @break;
+                                    @endif
+                                    @endforeach
                                     </div>
                                 </div>
                                 <div class="block block_video">
