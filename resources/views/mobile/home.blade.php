@@ -508,7 +508,7 @@ global $album_cat_new;
         function musicPage(url, tab) {
             $.ajax({
                 url: url,
-                type: "POST",
+                type: "GET",
                 dataType: "html",
                 data: {
                     'tab': tab == 'music_news' ? 'music' : tab == 'video_news' ? 'video' : 'cover'

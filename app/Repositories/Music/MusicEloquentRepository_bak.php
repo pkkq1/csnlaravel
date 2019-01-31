@@ -141,9 +141,10 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
         }else{
             if(file_exists($file)) {
                 // update time to file case
-                if((time() - filemtime($file)) < UPDATE_CASE_SUGGESTION_MUSIC || UPDATE_CASE_SUGGESTION_MUSIC_ONCE) {
-                    return false;
-                }
+                return false;
+//                if((time() - filemtime($file)) < UPDATE_CASE_SUGGESTION_MUSIC || UPDATE_CASE_SUGGESTION_MUSIC_ONCE) {
+//                    return false;
+//                }
             }
         }
         $select = ['music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'music_album_id', 'music_listen', 'music_bitrate', 'music_filename', 'music_width', 'music_height', 'music_length']; //, 'music_shortlyric'
