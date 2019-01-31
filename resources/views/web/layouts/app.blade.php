@@ -25,7 +25,10 @@ $allpage_banner = false;
 @else
     <div class="ads_box" id="pc_masthead" onchange="pc_masthead_change();">
         <div class="container text-center">
-               <div id="bsmasthead-wrapper"></div>
+               <div id="bsmasthead-wrapper">
+                   <!-- BlueSeed - asynchronous code for placement 1365 Chiasenhac Masthead Desktop -->
+                   <ins class="hadar-placement" data-hdpm="1365" ></ins><script id="jshd1pm_1365" src="https://static.blueseed.tv/ajs/display.js"></script>
+               </div>
         </div>
     </div>
 @endif
@@ -34,10 +37,6 @@ $allpage_banner = false;
 @include('web.layouts.footer')
 </section>
 @yield('contentJS')
-
-<!-- PC masthead -->
-<!-- BlueSeed - asynchronous code for placement 1365 Chiasenhac Masthead Desktop -->
-<ins class="hadar-placement" data-hdpm="1365" ></ins><script id="jshd1pm_1365" src="https://static.blueseed.tv/ajs/display.js"></script>
 
 </body>
 </html>
