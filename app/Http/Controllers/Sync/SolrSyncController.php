@@ -125,18 +125,21 @@ class SolrSyncController extends Controller
             //$this->Solr->addDocuments($data);
             //$this->Solr->solrDeleteById($data['id']);
 
-//            echo ($key) . '/ ' . $item->music_id . "\n <br>";
+            if(Auth::check() && Auth::user()->id == 3) {
+                echo ($key) . '/ ' . $item->music_id . "\n <br>";
+            }
         }
         $this->Solr->addMultiDocuments($datas);
         //$this->Solr->solrMultiDeleteById($datas);
 
-//        if (sizeof($searchMusic) > 0)
-//        {
-//            die('<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html><head><script type="text/javascript">window.location = "?m_start='. $item->music_id .'"; </script></head><body></body></html>');
-//        }
-//        else{
-//            die('Done! Full Data!');
-//        }
+        if(Auth::check() && Auth::user()->id == 3) {
+            if (sizeof($searchMusic) > 0) {
+                die('<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html><head><script type="text/javascript">window.location = "?m_start=' . $item->music_id . '"; </script></head><body></body></html>');
+            } else {
+                die('Done! Full Data!');
+            }
+        }
+
         return response(['Ok']);
     }
     public function syncDeleteMusic($id = null, $musicItem = null) {
@@ -157,6 +160,16 @@ class SolrSyncController extends Controller
             $searchMusic = UploadModel::select('music_id')
                 ->where('cat_id', '!=', CAT_VIDEO)
                 ->where('music_state', '=', -1)
+                ->where('music_id', '>', intval($_GET['m_start']))
+//                ->whereIn('music_id', [1603231,1602966,1603110])
+                ->offset(0)
+                ->limit(5000)
+                ->orderBy('music_id', 'asc')
+                ->get();
+
+            $searchMusic = MusicModel::select('music_id')
+                ->where('cat_id', '!=', CAT_VIDEO)
+                ->where('music_deleted', '>', 1)
                 ->where('music_id', '>', intval($_GET['m_start']))
 //                ->whereIn('music_id', [1603231,1602966,1603110])
                 ->offset(0)
@@ -273,17 +286,20 @@ class SolrSyncController extends Controller
             $datas[] = $data;
 //            $this->Solr->addDocuments($data);
 
-//            echo ($key) . '/ ' . $item->music_id . "\n <br>";
+            if(Auth::check() && Auth::user()->id == 3) {
+                echo ($key) . '/ ' . $item->music_id . "\n <br>";
+            }
         }
         $this->Solr->addMultiDocuments($datas);
 
-//        if (sizeof($searchVideo) > 0)
-//        {
-//            die('<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html><head><script type="text/javascript">window.location = "?v_start='. $item->music_id .'"; </script></head><body></body></html>');
-//        }
-//        else{
-//            die('Done! Full Data!');
-//        }
+        if(Auth::check() && Auth::user()->id == 3) {
+            if (sizeof($searchVideo) > 0) {
+                die('<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html><head><script type="text/javascript">window.location = "?v_start=' . $item->music_id . '"; </script></head><body></body></html>');
+            } else {
+                die('Done! Full Data!');
+            }
+        }
+
         return response(['Ok']);
     }
     public function syncDeleteVideo($id = null, $videoItem = null) {
@@ -302,6 +318,16 @@ class SolrSyncController extends Controller
             $searchVideo = UploadModel::select('music_id')
                 ->where('cat_id', '=', CAT_VIDEO)
                 ->where('music_state', '=', -1)
+                ->where('music_id', '>', intval($_GET['v_start']))
+//                ->whereIn('music_id', [1603231,1602966,1603110])
+                ->offset(0)
+                ->limit(5000)
+                ->orderBy('music_id', 'asc')
+                ->get();
+
+            $searchVideo = VideoModel::select('music_id')
+                ->where('cat_id', '=', CAT_VIDEO)
+                ->where('music_deleted', '>', 1)
                 ->where('music_id', '>', intval($_GET['v_start']))
 //                ->whereIn('music_id', [1603231,1602966,1603110])
                 ->offset(0)
