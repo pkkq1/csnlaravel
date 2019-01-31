@@ -33,36 +33,40 @@ class CatalogController extends Controller
     }
     public function playlistPublisher(Request $request, $url) {
         switch ($url) {
+            case "newyear":
+                $caption = 'Playlist theo chủ đề New Year';
+                $playlist = $this->playlistRepository->getByUser(1018430);
+                break;
             case "gym":
-                $caption = 'Chủ đề gym';
+                $caption = 'Playlist theo chủ đề Gym';
                 $playlist = $this->playlistRepository->getByUser(997940);
                 break;
             case "romance":
-                $caption = 'Chủ đề romance';
+                $caption = 'Playlist theo chủ đề Romance';
                 $playlist = $this->playlistRepository->getByUser(997938);
                 break;
             case "sleep":
-                $caption = 'Chủ đề sleep';
+                $caption = 'Playlist theo chủ đề Sleep';
                 $playlist = $this->playlistRepository->getByUser(997939);
                 break;
             case "dance":
-                $caption = 'Chủ đề dance';
+                $caption = 'Playlist theo chủ đề Dance';
                 $playlist = $this->playlistRepository->getByUser(997945);
                 break;
             case "work":
-                $caption = 'Chủ đề work';
+                $caption = 'Playlist theo chủ đề Work';
                 $playlist = $this->playlistRepository->getByUser(997941);
                 break;
             case "coffee":
-                $caption = 'Chủ đề coffee';
+                $caption = 'Playlist theo chủ đề Coffee';
                 $playlist = $this->playlistRepository->getByUser(997942);
                 break;
             case "game":
-                $caption = 'Chủ đề game';
+                $caption = 'Playlist theo chủ đề Game';
                 $playlist = $this->playlistRepository->getByUser(997944);
                 break;
             case "travel":
-                $caption = 'Chủ đề travel';
+                $caption = 'Playlist theo chủ đề Travel';
                 $playlist = $this->playlistRepository->getByUser(997943);
                 break;
             default:
