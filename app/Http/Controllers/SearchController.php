@@ -81,8 +81,10 @@ class SearchController extends Controller
     //            $searchSolarium['music_title_artist_charset'] = $titleCharset;
                 if($titleSearch) {
                     //$searchSolarium['music_title_artist_search'] = $titleSearch;
-                    $searchSolarium['music_title_charset'] = $titleCharset . '^2';
-                    $searchSolarium['music_artist_charset'] = $titleCharset;
+                    if($titleCharset) {
+                        $searchSolarium['music_title_charset'] = $titleCharset . '^2';
+                        $searchSolarium['music_artist_charset'] = $titleCharset;
+                    }
 
                     if ($titleSearch != $titleCharset) {
                         $searchSolarium['music_title_search'] = $titleSearch . '^2';
@@ -183,8 +185,10 @@ class SearchController extends Controller
                     $searchSolarium['video_title_artist_charset_nospace'] = $charsetNoSpace . '^100 | video_title_artist_charset_nospace:' . $charsetNoSpace . '*^50';
                 }
                 if($titleSearch) {
-                    $searchSolarium['video_title_charset'] = $titleCharset . '^2';
-                    $searchSolarium['video_artist_charset'] = $titleCharset;
+                    if($titleCharset) {
+                        $searchSolarium['video_title_charset'] = $titleCharset . '^2';
+                        $searchSolarium['video_artist_charset'] = $titleCharset;
+                    }
 
                     if ($titleSearch != $titleCharset) {
                         $searchSolarium['video_title_search'] = $titleSearch . '^2';
