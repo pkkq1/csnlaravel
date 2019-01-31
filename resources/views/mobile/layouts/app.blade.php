@@ -5,6 +5,9 @@
 @yield('content')
 @include('mobile.layouts.footer')
 @yield('contentJS')
+
+<!-- BlueSeed - asynchronous code for placement 1849 CHIASENHAC.VN - mobile native button -->
+
 </body>
 <?php
 //global $timeStart;
