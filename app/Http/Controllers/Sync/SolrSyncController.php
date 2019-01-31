@@ -77,10 +77,10 @@ class SolrSyncController extends Controller
         foreach ($searchMusic as $key => $item) {
             $titleSearch = Helpers::replaceKeySearch($item->music_title);
             $artistSearch = Helpers::replaceKeySearch($item->music_artist);
-            $titleCharset = Helpers::rawTiengVietUrl($titleSearch, ' ');
-            $artistCharset = Helpers::rawTiengVietUrl($artistSearch, ' ');
+            $titleCharset = Helpers::khongdau($titleSearch, ' ');
+            $artistCharset = Helpers::khongdau($artistSearch, ' ');
             $lyricSearch = Helpers::replaceKeySearch($item->music_lyric);
-            $lyricCharset = Helpers::rawTiengVietUrl(str_replace("\n", ' ', $lyricSearch), ' ');
+            $lyricCharset = Helpers::khongdau(str_replace("\n", ' ', $lyricSearch), ' ');
             $data = [
                 'id' => 'music_'.$item->music_id,
                 'music_id' => $item->music_id,
@@ -246,8 +246,8 @@ class SolrSyncController extends Controller
         foreach ($searchVideo as $key => $item) {
             $titleSearch = Helpers::replaceKeySearch($item->music_title);
             $artistSearch = Helpers::replaceKeySearch($item->music_artist);
-            $titleCharset = Helpers::rawTiengVietUrl($titleSearch, ' ');
-            $artistCharset = Helpers::rawTiengVietUrl($artistSearch, ' ');
+            $titleCharset = Helpers::khongdau($titleSearch, ' ');
+            $artistCharset = Helpers::khongdau($artistSearch, ' ');
             $data = [
                 'id' => 'video_'.$item->music_id,
                 'video_id' => $item->music_id,
@@ -380,7 +380,7 @@ class SolrSyncController extends Controller
         DB::disconnect('mysql');
         $datas = [];
         foreach ($artist as $item) {
-            $artist_nickname_charset = Helpers::rawTiengVietUrl(mb_strtolower($item->artist_nickname, 'UTF-8'), ' ');
+            $artist_nickname_charset = Helpers::khongdau(mb_strtolower($item->artist_nickname, 'UTF-8'), ' ');
             $data = [
                 'id' => 'artist_'.$item->artist_id,
                 'artist_nickname' => $item->artist_nickname,
@@ -430,9 +430,9 @@ class SolrSyncController extends Controller
                     $album_cat .= ';' . $item->album_cat_id_2.'_'.$item->album_cat_level_1;
             }
             $titleSearch = Helpers::replaceKeySearch($item->music_album);
-            $titleCharset = Helpers::rawTiengVietUrl($titleSearch, ' ');
+            $titleCharset = Helpers::khongdau($titleSearch, ' ');
             $artistSearch = Helpers::replaceKeySearch($music_artist);
-            $artistCharset = Helpers::rawTiengVietUrl($artistSearch, ' ');
+            $artistCharset = Helpers::khongdau($artistSearch, ' ');
 
             $data = [
                 'id' => 'cover_'.$item->cover_id,

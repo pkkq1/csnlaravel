@@ -66,7 +66,10 @@ class SearchController extends Controller
         if($search) {
             $searchTool = Helpers::replaceKeySearch($search);
             //$searchTool = $search;
-            $rawTiengViet = Helpers::rawTiengVietUrl($searchTool, ' ');
+            $rawTiengViet = Helpers::khongdau($searchTool, ' ');
+            // check string is 大城小愛
+            if(!$rawTiengViet)
+                $rawTiengViet = $searchTool;
             $charsetNoSpace = str_replace(' ', '', $rawTiengViet);
             $titleCharset = str_replace(' ', '+', $rawTiengViet);
             $titleSearch = str_replace(' ', '+', $searchTool);//Helpers::replaceKeySearch($searchNotUtf8);
