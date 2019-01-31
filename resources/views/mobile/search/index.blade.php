@@ -100,7 +100,7 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                                     <div class="element py-3 border-bottom">
                                         <a href="{{$item['video_link']}}">
                                             <div class="image mr-2 d-inline-block align-middle" style="background : url({{$item['video_cover']}}) no-repeat center;background-size: cover;">
-                                                <p class="time"><img src="/mobile/assets/images/icon/ic_menu_clock.png" width="14"> {{$item['music_length']}}</p>
+                                                <p class="time"><img src="/mobile/assets/images/icon/ic_menu_clock.png" width="14"> {{$item['video_length']}}</p>
                                             </div>
                                         </a>
                                         <div class="content d-inline-block align-middle">
