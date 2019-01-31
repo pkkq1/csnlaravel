@@ -5,6 +5,71 @@ return [
         'title' => 'Cộng đồng chia sẻ nhạc chất lượng cao và xếp hạng âm nhạc trực tuyến',
         'image' => '/'
     ],
+    'catalog' => [
+        'newyear' => [
+            'caption' => 'Chủ đề New Year',
+            'label' => 'New Year',
+            'user_id' => 1018430,
+            'img_web' => 'tết _ 345 x 110.png',
+            'img_mobile' => 'tết _ 345 x 110.png'
+        ],
+        'romance' => [
+            'caption' => 'Chủ đề romance',
+            'label' => 'Romance',
+            'user_id' => 997938,
+            'img_web' => 'Romance _ 345 x 110.png',
+            'img_mobile' => 'Romance _ 345 x 110.png'
+        ],
+        'sleep' => [
+            'caption' => 'Chủ đề sleep',
+            'label' => 'Sleep',
+            'user_id' => 997939,
+            'img_web' => 'Sleep _ 345 x 110.png',
+            'img_mobile' => 'Sleep _ 345 x 110.png'
+        ],
+        'gym' => [
+            'caption' => 'Chủ đề gym',
+            'label' => 'Gym',
+            'user_id' => 997940,
+            'img_web' => 'Gym _ 345 x 110.png',
+            'img_mobile' => 'Gym _ 345 x 110.png'
+        ],
+        'dance' => [
+            'caption' => 'Chủ đề dance',
+            'label' => 'Dance',
+            'user_id' => 997945,
+            'img_web' => 'Dance _ 345 x 110.png',
+            'img_mobile' => 'Dance _ 345 x 110.png'
+        ],
+        'work' => [
+            'caption' => 'Chủ đề work',
+            'label' => 'Work',
+            'user_id' => 997941,
+            'img_web' => 'Work _ 345 x 110.png',
+            'img_mobile' => 'Work _ 345 x 110.png'
+        ],
+        'coffee' => [
+            'caption' => 'Chủ đề coffee',
+            'label' => 'Coffee',
+            'user_id' => 997942,
+            'img_web' => 'Coffee _ 345 x 110.png',
+            'img_mobile' => 'Coffee _ 345 x 110.png'
+        ],
+        'game' => [
+            'caption' => 'Chủ đề game',
+            'label' => 'Game',
+            'user_id' => 997944,
+            'img_web' => 'Game _ 345 x 110.png',
+            'img_mobile' => 'Game _ 345 x 110.png'
+        ],
+        'travel' => [
+            'caption' => 'Chủ đề travel',
+            'label' => 'Travel',
+            'user_id' => 997943,
+            'img_web' => 'Travel _ 345 x 110.png',
+            'img_mobile' => 'Travel _ 345 x 110.png'
+        ]
+    ],
     'lang' => [
         'UPLOAD'			=> 'Tải bài hát lên',
         'UPLOAD_ALBUM'		=> 'Tải album lên',

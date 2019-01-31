@@ -9,6 +9,7 @@ global $top_uploader_rows;
 global $music_new_uploads;
 global $video_new_uploads;
 global $album_cat_new;
+$catalog = config('constants.catalog');
 ?>
 @extends('mobile.layouts.app')
 @section('content')
@@ -164,6 +165,11 @@ global $album_cat_new;
                                     </div>
                                     <div class="slide-chude owl-carousel owl-theme">
                                         <div class="item">
+                                            <a href="/chu-de/newyear.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url('/imgs/chude/tết _ 345 x 110.png') no-repeat center;background-size: cover;">
+                                                    <h5 class="text-white">New Year</h5>
+                                                </div></a>
+                                        </div>
+                                        <div class="item">
                                             <a href="/chu-de/romance.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url('/imgs/chude/Romance _ 345 x 110.png') no-repeat center;background-size: cover;">
                                                     <h5 class="text-white">Romance</h5>
                                                 </div></a>
@@ -176,11 +182,6 @@ global $album_cat_new;
                                         <div class="item">
                                             <a href="/chu-de/gym.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url('/imgs/chude/Gym _ 345 x 110.png') no-repeat center;background-size: cover;">
                                                     <h5 class="text-white">Gym</h5>
-                                                </div></a>
-                                        </div>
-                                        <div class="item">
-                                            <a href="/chu-de/dance.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url('/imgs/chude/Dance _ 345 x 110.png') no-repeat center;background-size: cover;">
-                                                    <h5 class="text-white">Dance</h5>
                                                 </div></a>
                                         </div>
                                     </div>
@@ -219,30 +220,11 @@ global $album_cat_new;
                     <div class="swiper-slide">
                         <div class="container">
                             <div class="block block_detail_chude">
-                                <a href="/chu-de/romance.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url('/imgs/chude/Romance _ 345 x 110.png') no-repeat center;background-size: cover;">
-                                        <h5 class="text-white">Romance</h5>
-                                    </div></a>
-                                <a href="/chu-de/sleep.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url('/imgs/chude/Sleep _ 345 x 110.png') no-repeat center;background-size: cover;">
-                                        <h5 class="text-white">Sleep</h5>
-                                    </div></a>
-                                <a href="/chu-de/gym.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url('/imgs/chude/Gym _ 345 x 110.png') no-repeat center;background-size: cover;">
-                                        <h5 class="text-white">Gym</h5>
-                                    </div></a>
-                                <a href="/chu-de/dance.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url('/imgs/chude/Dance _ 345 x 110.png') no-repeat center;background-size: cover;">
-                                        <h5 class="text-white">Dance</h5>
-                                    </div></a>
-                                <a href="/chu-de/work.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url('/imgs/chude/Work _ 345 x 110.png') no-repeat center;background-size: cover;">
-                                        <h5 class="text-white">Work</h5>
-                                    </div></a>
-                                <a href="/chu-de/coffee.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url('/imgs/chude/Coffee _ 345 x 110.png') no-repeat center;background-size: cover;">
-                                        <h5 class="text-white">Coffee</h5>
-                                    </div></a>
-                                <a href="/chu-de/game.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url('/imgs/chude/Game _ 345 x 110.png') no-repeat center;background-size: cover;">
-                                        <h5 class="text-white">Game</h5>
-                                    </div></a>
-                                <a href="/chu-de/travel.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url('/imgs/chude/Travel _ 345 x 110.png') no-repeat center;background-size: cover;">
-                                        <h5 class="text-white">Travel</h5>
-                                    </div></a>
+                                @foreach($catalog as $key => $val)
+                                    <a href="/chu-de/{{$key}}.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url('/imgs/chude/{{$val['img_web']}}') no-repeat center;background-size: cover;">
+                                            <h5 class="text-white">{{$val['label']}}</h5>
+                                        </div></a>
+                                @endforeach
                             </div>
                         </div>
                     </div>

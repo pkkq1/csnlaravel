@@ -8,9 +8,9 @@ global $download_rows;
 global $music_new_uploads;
 global $video_new_uploads;
 global $hot_music_rows;
-
 global $top_uploader_weeks;
 global $top_artist_rows;
+$catalog = config('constants.catalog');
 ?>
 
 @extends('web.layouts.app')
@@ -232,14 +232,9 @@ global $top_artist_rows;
                 </div>
             </div>
             <div class="box_catalog owl-carousel owl-theme">
-                <a href="/chu-de/romance.html" title="" class="item img-thumbnail swiper-slide" style="background: url('/imgs/chude/Romance _ 345 x 110.png') no-repeat;"><span>Romance</span></a>
-                <a href="/chu-de/sleep.html" title="" class="item img-thumbnail swiper-slide" style="background: url('/imgs/chude/Sleep _ 345 x 110.png') no-repeat;"><span>Sleep</span></a>
-                <a href="/chu-de/gym.html" title="" class="item img-thumbnail swiper-slide" style="background: url('/imgs/chude/Gym _ 345 x 110.png') no-repeat;"><span>Gym</span></a>
-                <a href="/chu-de/dance.html" title="" class="item img-thumbnail swiper-slide" style="background: url('/imgs/chude/Dance _ 345 x 110.png') no-repeat;"><span>Dance</span></a>
-                <a href="/chu-de/work.html" title="" class="item img-thumbnail swiper-slide" style="background: url('/imgs/chude/Work _ 345 x 110.png') no-repeat;"><span>Work</span></a>
-                <a href="/chu-de/coffee.html" title="" class="item img-thumbnail swiper-slide" style="background: url('/imgs/chude/Coffee _ 345 x 110.png') no-repeat;"><span>Coffee</span></a>
-                <a href="/chu-de/game.html" title="" class="item img-thumbnail swiper-slide" style="background: url('/imgs/chude/Game _ 345 x 110.png') no-repeat;"><span>Game</span></a>
-                <a href="/chu-de/travel.html" title="" class="item img-thumbnail swiper-slide" style="background: url('/imgs/chude/Travel _ 345 x 110.png') no-repeat;"><span>Travel</span></a>
+                @foreach($catalog as $key => $val)
+                <a href="/chu-de/{{$key}}.html" title="" class="item img-thumbnail swiper-slide" style="background: url('/imgs/chude/{{$val['img_web']}}') no-repeat;"><span>{{$val['label']}}</span></a>
+                @endforeach
             </div>
             <!-- Initialize Carousel -->
             <script>

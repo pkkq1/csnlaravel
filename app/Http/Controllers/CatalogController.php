@@ -32,42 +32,12 @@ class CatalogController extends Controller
         $this->playlistRepository = $playlistRepository;
     }
     public function playlistPublisher(Request $request, $url) {
-        switch ($url) {
-            case "gym":
-                $caption = 'Chủ đề gym';
-                $playlist = $this->playlistRepository->getByUser(997940);
-                break;
-            case "romance":
-                $caption = 'Chủ đề romance';
-                $playlist = $this->playlistRepository->getByUser(997938);
-                break;
-            case "sleep":
-                $caption = 'Chủ đề sleep';
-                $playlist = $this->playlistRepository->getByUser(997939);
-                break;
-            case "dance":
-                $caption = 'Chủ đề dance';
-                $playlist = $this->playlistRepository->getByUser(997945);
-                break;
-            case "work":
-                $caption = 'Chủ đề work';
-                $playlist = $this->playlistRepository->getByUser(997941);
-                break;
-            case "coffee":
-                $caption = 'Chủ đề coffee';
-                $playlist = $this->playlistRepository->getByUser(997942);
-                break;
-            case "game":
-                $caption = 'Chủ đề game';
-                $playlist = $this->playlistRepository->getByUser(997944);
-                break;
-            case "travel":
-                $caption = 'Chủ đề travel';
-                $playlist = $this->playlistRepository->getByUser(997943);
-                break;
-            default:
-                return view('errors.404');
-        }
+        $catalog = config('constants.catalog');
+        $result = $catalog[$url];
+        if(!$result)
+            return view('errors.404');
+        $caption = $result['caption'];
+        $playlist = $this->playlistRepository->getByUser($result['user_id']);
         return view('catalog.playlist_publisher', compact('playlist', 'caption'));
     }
     public function musicNews(Request $request) {
