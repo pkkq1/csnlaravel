@@ -165,7 +165,7 @@ $catalog = config('constants.catalog');
                                     </div>
                                     <div class="slide-chude owl-carousel owl-theme">
                                         <div class="item">
-                                            <a href="/chu-de/newyear.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url('/imgs/chude/tết _ 345 x 110.png') no-repeat center;background-size: cover;">
+                                            <a href="/chu-de/newyear.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url('/imgs/chude/Newyear _ 345 x 110.png') no-repeat center;background-size: cover;">
                                                     <h5 class="text-white">New Year</h5>
                                                 </div></a>
                                         </div>
