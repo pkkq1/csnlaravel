@@ -213,7 +213,7 @@ class SearchController extends Controller
                             'video_link' => $item['video_link'][0],
                             'video_cover' => isset($item['video_cover']) ? $item['video_cover'][0] : '',
                             'video_listen' => $item['video_listen_total'][0],
-                            'music_length' => $item['music_length'][0],
+                            'video_length' => $item['video_length'][0],
                         ];
 
                         if ($search_level == 1)
