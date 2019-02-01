@@ -102,7 +102,7 @@
                     '              <h5 class="media-title mt-0 mb-0 span_h5" title="' + value.music_title + ' - ' + value.music_artist + '">' + searchHighlight(q, value.music_title) + '</h5>' +
                     '              <div class="author">' + value.music_artist + '</div>' +
                     '          </div>' +
-                    '          <small class="type_music c1">' + value.music_bitrate + '</small>' +
+                    '          <small class="type_music c1">' + value.music_bitrate_html + '</small>' +
                     '      </div>' +
                     '  </li>' +
                     '</a>';
