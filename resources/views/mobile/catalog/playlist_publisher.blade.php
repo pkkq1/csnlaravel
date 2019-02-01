@@ -34,7 +34,7 @@ $titleMeta = $caption . ' - '. Config::get('constants.app.title');
                 <div id="pills-thongtin" role="tabpanel" aria-labelledby="pills-thongtin-tab" class="tab-pane fade active show">
                     <div class="block_thongtin">
                         <div class="swiper-container swiper2 swiper-container-horizontal swiper-container-autoheight">
-                            <div class="swiper-wrapper" style="height: 747px;">
+                            <div class="swiper-wrapper">
                                 <div class="swiper-slide swiper-slide-active">
                                     <div class="container">
                                         <div class="block block_album block_profile_playlist">
