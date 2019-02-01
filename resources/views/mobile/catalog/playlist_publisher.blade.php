@@ -35,7 +35,7 @@ $titleMeta = $caption . ' - '. Config::get('constants.app.title');
                     <div class="block_thongtin">
                         <div class="swiper-container swiper2 swiper-container-horizontal swiper-container-autoheight">
                             <div class="swiper-wrapper" style="height: 747px;">
-                                <div class="swiper-slide swiper-slide-active" style="width: 375px;">
+                                <div class="swiper-slide swiper-slide-active">
                                     <div class="container">
                                         <div class="block block_album block_profile_playlist">
                                             <div class="block_header d-flex flex-row justify-content-between mb-2">
