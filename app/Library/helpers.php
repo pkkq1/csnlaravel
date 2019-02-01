@@ -892,8 +892,10 @@ class Helpers
         return 'http://data5.chiasenhac.com/data/spectrum'.Helpers::file_path($musicId, '/', true).$musicId.'.jpg';
     }
     public static function strReplaceSolr($str) {
+        $firstPart = preg_replace(array('/[^a-zA-Z0-9]/'), array(''), substr($str, 0, 1));
+        $str = $firstPart . substr($str, 1);
         $str = str_replace('\\', '', $str);
-        return trim(preg_replace(['/\(/', '/\)/', '/\:/', '/\^/', '/\*/', '/\|/', '/\]/', '/\[/', '/"/'],
-            ['', '', '', '', '', '', '', '', ''], mb_strtolower($str, 'UTF-8')));
+        return trim(preg_replace(['/y/', '/ý/', '/ỳ/', '/ỷ/', '/ỵ/', '/ỹ/', '/s/', '/\(/', '/\)/', '/\:/', '/\^/', '/\*/', '/\|/', '/\]/', '/\[/', '/"/'],
+            ['i', 'í', 'ì', 'ỉ', 'ị', 'ĩ', 'x', '', '', '', '', '', '', '', '', ''], mb_strtolower($str, 'UTF-8')));
     }
 }
