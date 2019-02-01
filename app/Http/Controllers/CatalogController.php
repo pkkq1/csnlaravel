@@ -35,7 +35,7 @@ class CatalogController extends Controller
         $catalog = config('constants.catalog');
         $result = $catalog[$url];
         if(!$result)
-            return view('errors.404');
+            return redirect()->guest('/');
         $caption = $result['caption'];
         $playlist = $this->playlistRepository->getByUser($result['user_id']);
         return view('catalog.playlist_publisher', compact('playlist', 'caption'));
