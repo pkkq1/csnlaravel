@@ -64,12 +64,10 @@ class SearchController extends Controller
             ],
         ];
         if($search) {
-            $searchTool = Helpers::replaceKeySearch($search);
-            //$searchTool = $search;
-            $rawTiengViet = Helpers::khongdau($searchTool, ' ');
+            $rawTiengViet = Helpers::khongdau($search, ' ');
             $charsetNoSpace = str_replace(' ', '', $rawTiengViet);
             $titleCharset = str_replace(' ', '+', $rawTiengViet);
-            $titleSearch = str_replace(' ', '+', $searchTool);//Helpers::replaceKeySearch($searchNotUtf8);
+            $titleSearch = str_replace(' ', '+', $search);//Helpers::replaceKeySearch($searchNotUtf8);
             // search key
             if(isset($request->view_all) || isset($request->view_music)) {
                 $searchSolarium = [];
