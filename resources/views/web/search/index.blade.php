@@ -171,7 +171,7 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                                         <h5 class="media-title mt-0 mb-0"><a href="{{$item['music_link']}}" title="{{$item['music_title']}}" class="search_title">{{$item['music_title']}}</a></h5>
                                         <div class="author"><?php echo $item['music_artist'] ?></div>
                                     </div>
-                                    <small class="type_music c1"><?php echo $item['music_bitrate'] ?></small>
+                                    <small class="type_music c1"><?php echo $item['music_bitrate_html'] ?></small>
                                 </div>
                                 <div class="media-right align-self-center">
                                     <small class="time_stt">{{number_format($item['music_listen'])}}</small>
@@ -266,7 +266,7 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                                         <h5 class="media-title mt-0 mb-0"><a href="{{$item['music_link']}}" title="{{$item['music_title']}}" class="search_title">{{$item['music_title']}}</a></h5>
                                         <div class="author"><?php echo $item['music_artist'] ?></div>
                                     </div>
-                                    <small class="type_music c1"><?php echo $item['music_bitrate'] ?></small>
+                                    <small class="type_music c1"><?php echo $item['music_bitrate_html'] ?></small>
                                 </div>
                                 <div class="media-right align-self-center">
                                     <small class="time_stt">{{number_format($item['music_listen'])}}</small>
