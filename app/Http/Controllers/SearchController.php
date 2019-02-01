@@ -107,6 +107,7 @@ class SearchController extends Controller
                             'music_title' => $item['music_title'][0],// . ' | ' . $titleCharset . $item['score'] . ' { ' . $item['music_downloads_this_week'][0] . ' }' . $search_level,
                             'music_artist' => $item['music_artist'][0],
                             'music_bitrate' => $item['music_bitrate'][0],
+                            'music_bitrate_html' => $item['music_bitrate_html'][0],
                             'music_link' => $item['music_link'][0],
                             'music_listen' => $item['music_listen'][0],
                             'music_filename' => '', //$item['music_file_name'][0]
@@ -213,6 +214,7 @@ class SearchController extends Controller
                             'video_cover' => isset($item['video_cover']) ? $item['video_cover'][0] : '',
                             'video_listen' => $item['video_listen_total'][0],
                             'video_length' => $item['video_length'][0],
+                            'video_length_html' => $item['video_length_html'][0],
                         ];
 
                         if ($search_level == 1)

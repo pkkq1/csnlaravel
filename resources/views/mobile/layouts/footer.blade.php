@@ -201,7 +201,7 @@ use App\Library\Helpers;
                     '<a class="search-line" href="' + value.video_link + '">' +
                     '<div class="element mb-2">' +
                     '   <div style="background : url(' + value.video_cover + ') no-repeat center;background-size: cover;min-width: 90px; height: 63px;" class="image100 mr-2 d-inline-block align-middle">' +
-                    '       <p class="time text-white mb-0 px-2 py-1"><img src="/images/ic_menu_clock.png" width="14"> ' + value.video_length + '</p>' +
+                    '       <p class="time text-white mb-0 px-2 py-1"><img src="/images/ic_menu_clock.png" width="14"> ' + value.video_length_html + '</p>' +
                     '   </div>' +
                     '   <div class="content d-inline-block align-middle">' +
                     '       <h6 class="name_song text-black mb-1">' + searchHighlight(q, value.video_title) + '</h6>' +
