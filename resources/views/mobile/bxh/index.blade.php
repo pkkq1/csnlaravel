@@ -42,7 +42,7 @@ global $hot_video_rows;
                     <div class="swiper-slide tab-music other">BXH Nhạc Nước Khác</div>
                     <div class="swiper-slide tab-music beat-playback">BXH Nhạc Playback</div>
                 @endif
-                @if(!isset($_GET['type']) || $_GET['type'] == 'video')
+                @if((!isset($_GET['type']) || $_GET['type'] == 'video') && $hot_video_rows)
                     <div class="swiper-slide tab-video {{(isset($_GET['type']) && $_GET['type'] == 'video') ? 'selected' : ''}}">BXH Video VN</div>
                     <div class="swiper-slide tab-video">BXH Video US-UK</div>
                     <div class="swiper-slide tab-video">BXH Video Hoa</div>
@@ -230,7 +230,7 @@ global $hot_video_rows;
                         ?>
                     </div>
                 @endif
-                @if(!isset($_GET['type']) || $_GET['type'] == 'video')
+                @if((!isset($_GET['type']) || $_GET['type'] == 'video') && $hot_video_rows)
                     <div class="swiper-slide tab-video block_bxhvideo">
                         <?php
                         array_map(function ($i, $item) use ($urlBxh) {
