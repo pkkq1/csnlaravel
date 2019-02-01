@@ -42,7 +42,7 @@ global $hot_video_rows;
             <div class="tab-content" id="myTabContent">
                 <?php
                 array_map(function ($itemCategory) use($hot_music_rows, $hot_video_rows, $urlBxh, $catVideo) {
-                    $musicList = $hot_music_rows[$itemCategory['cat_id']];
+                    $musicList = $hot_music_rows[$itemCategory['cat_id']] ?? [];
                     $videoList = (isset($hot_video_rows[$itemCategory['cat_id'] - 2])? $hot_video_rows[$itemCategory['cat_id'] - 2] : []);
                     ?>
                     <div class="tab-pane fade{{$itemCategory['cat_id'] == DEFAULT_CAT_ID_ACTIVE_BXH ? ' active show' : ''}}" id="cat-{{$itemCategory['cat_id']}}" role="tabpanel" aria-labelledby="home-tab">

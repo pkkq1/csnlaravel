@@ -56,7 +56,6 @@ class UploadEloquentRepository extends EloquentRepository implements UploadRepos
      */
     public function create(array $attributes)
     {
-        $attributes['music_last_update_time'] = time();
         $attributes['music_time'] = time();
         $result = $this->_model::firstOrCreate($attributes);
         return $result;

@@ -131,10 +131,12 @@ $hot_music_rows = ' . var_export($ressultMusic, true) . ';
 $hot_video_rows = ' . var_export($ressultVideo, true) . ';
 ?>');
         }else{
-            for($i = 1; $i <= 12; $i++) {
+            for($i = ($month == 'all_month' ? 1 : $month); $i <= ($month == 'all_month' ? 12 : $month); $i++) {
                 $month = sprintf('%02d', $i);
                 $firstDate = strtotime('01-'.$month.'-'.$year);
                 $lastDate = strtotime(date('t-m-Y', $firstDate));
+                $ressultMusic = [];
+                $ressultVideo = [];
                 foreach ($catregory as $item) {
                     $result = $this->musicListenRepository->bxhMonthCategoryMusic($item->cat_id, $firstDate, $lastDate, $year)->toArray();
                     DB::disconnect('mysql');

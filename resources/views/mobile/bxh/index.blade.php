@@ -74,12 +74,12 @@ global $hot_video_rows;
                             <a href="{{$url}}"><div class="image100 mr-2 d-inline-block align-middle" style="background : url('{{Helpers::cover_url($item['cover_id'])}}') no-repeat center;background-size: cover;"></div></a>
                             <div class="content d-inline-block align-middle">
                                 <a href="{{$url}}"><h6 class="name_song text-black mb-1 card-title">{{$item['music_title']}}</h6></a>
-                                <p class="name_singer text-gray mb-1 author"><?php echo $item['music_artist_html']; ?></p>
+                                <p class="name_singer text-gray mb-1 author"><?php echo $item['music_artist_html'] ?? ''; ?></p>
                                 <p class="loss text-pink mb-0"><?php echo $item['music_bitrate_html']; ?></p>
                             </div>
                         </div>
                         <?php
-                        }, array_keys($hot_music_rows[3]), $hot_music_rows[3]);
+                        }, array_keys($hot_music_rows[3] ?? []), $hot_music_rows[3] ?? []);
                         ?>
                     </div>
                     <div class="swiper-slide block_bxhbaihat block_more tab-music content-us-uk">
@@ -100,7 +100,7 @@ global $hot_video_rows;
                             </div>
                         </div>
                         <?php
-                        }, array_keys($hot_music_rows[4]), $hot_music_rows[4]);
+                        }, array_keys($hot_music_rows[4] ?? []), $hot_music_rows[4] ?? []);
                         ?>
                     </div>
                     <div class="swiper-slide block_bxhbaihat block_more tab-music content-chinese">
@@ -121,7 +121,7 @@ global $hot_video_rows;
                             </div>
                         </div>
                         <?php
-                        }, array_keys($hot_music_rows[5]), $hot_music_rows[5]);
+                        }, array_keys($hot_music_rows[5] ?? []), $hot_music_rows[5] ?? []);
                         ?>
                     </div>
                     <div class="swiper-slide block_bxhbaihat block_more tab-music content-korea">
@@ -138,11 +138,11 @@ global $hot_video_rows;
                             <div class="content d-inline-block align-middle">
                                 <a href="{{$url}}"><h6 class="name_song text-black mb-1 card-title">{{$item['music_title']}}</h6></a>
                                 <p class="name_singer text-gray mb-1 author"><?php echo $item['music_artist_html']; ?></p>
-                                <p class="loss text-pink mb-0"><?php echo $item['music_bitrate']; ?></p>
+                                <p class="loss text-pink mb-0"><?php echo $item['music_bitrate_html']; ?></p>
                             </div>
                         </div>
                         <?php
-                        }, array_keys($hot_music_rows[6]), $hot_music_rows[6]);
+                        }, array_keys($hot_music_rows[6] ?? []), $hot_music_rows[6] ?? []);
                         ?>
                     </div>
                     <div class="swiper-slide block_bxhbaihat block_more tab-music content-japan">
@@ -163,7 +163,7 @@ global $hot_video_rows;
                             </div>
                         </div>
                         <?php
-                        }, array_keys($hot_music_rows[7]), $hot_music_rows[7]);
+                        }, array_keys($hot_music_rows[7] ?? []), $hot_music_rows[7] ?? []);
                         ?>
                     </div>
                     <div class="swiper-slide block_bxhbaihat block_more tab-music content-france">
@@ -184,7 +184,7 @@ global $hot_video_rows;
                             </div>
                         </div>
                         <?php
-                        }, array_keys($hot_music_rows[8]), $hot_music_rows[8]);
+                        }, array_keys($hot_music_rows[8] ?? []), $hot_music_rows[8] ?? []);
                         ?>
                     </div>
                     <div class="swiper-slide block_bxhbaihat block_more tab-music content-other">
@@ -205,7 +205,7 @@ global $hot_video_rows;
                             </div>
                         </div>
                         <?php
-                        }, array_keys($hot_music_rows[9]), $hot_music_rows[9]);
+                        }, array_keys($hot_music_rows[9] ?? []), $hot_music_rows[9] ?? []);
                         ?>
                     </div>
                     <div class="swiper-slide block_bxhbaihat block_more tab-music content-beat-playback">
@@ -226,7 +226,7 @@ global $hot_video_rows;
                             </div>
                         </div>
                         <?php
-                        }, array_keys($hot_music_rows[2]), $hot_music_rows[2]);
+                        }, array_keys($hot_music_rows[2] ?? []), $hot_music_rows[2] ?? []);
                         ?>
                     </div>
                 @endif
@@ -248,7 +248,8 @@ global $hot_video_rows;
                             </a>
                             <div class="content d-inline-block align-middle">
                                 <a href="{{$url}}"><h6 class="name_song text-black mb-1 card-title">{{$item['music_title']}}</h6></a>
-                                <p class="name_singer text-gray mb-1 author"><?php echo $item['music_artist_html']; ?></p>
+                                <p class="name_singer text-gray mb-1 author"><?php echo $item['music_artist_html'] ?? ''; ?></p>
+                                <p class="loss text-pink mb-0"><?php echo $item['music_bitrate_html'] ?? ''; ?></p>
                             </div>
                         </div>
                         <?php
@@ -272,7 +273,8 @@ global $hot_video_rows;
                             </a>
                             <div class="content d-inline-block align-middle">
                                 <a href="{{$url}}"><h6 class="name_song text-black mb-1 card-title">{{$item['music_title']}}</h6></a>
-                                <p class="name_singer text-gray mb-1 author"><?php echo $item['music_artist_html']; ?></p>
+                                <p class="name_singer text-gray mb-1 author"><?php echo $item['music_artist_html'] ?? ''; ?></p>
+                                <p class="loss text-pink mb-0"><?php echo $item['music_bitrate_html'] ?? ''; ?></p>
                             </div>
                         </div>
                         <?php
@@ -296,7 +298,8 @@ global $hot_video_rows;
                             </a>
                             <div class="content d-inline-block align-middle">
                                 <a href="{{$url}}"><h6 class="name_song text-black mb-1 card-title">{{$item['music_title']}}</h6></a>
-                                <p class="name_singer text-gray mb-1 author"><?php echo $item['music_artist_html']; ?></p>
+                                <p class="name_singer text-gray mb-1 author"><?php echo $item['music_artist_html'] ?? ''; ?></p>
+                                <p class="loss text-pink mb-0"><?php echo $item['music_bitrate_html'] ?? ''; ?></p>
                             </div>
                         </div>
                         <?php
@@ -320,7 +323,8 @@ global $hot_video_rows;
                             </a>
                             <div class="content d-inline-block align-middle">
                                 <a href="{{$url}}"><h6 class="name_song text-black mb-1 card-title">{{$item['music_title']}}</h6></a>
-                                <p class="name_singer text-gray mb-1 author"><?php echo $item['music_artist_html']; ?></p>
+                                <p class="name_singer text-gray mb-1 author"><?php echo $item['music_artist_html'] ?? ''; ?></p>
+                                <p class="loss text-pink mb-0"><?php echo $item['music_bitrate_html'] ?? ''; ?></p>
                             </div>
                         </div>
                         <?php
@@ -344,7 +348,8 @@ global $hot_video_rows;
                             </a>
                             <div class="content d-inline-block align-middle">
                                 <a href="{{$url}}"><h6 class="name_song text-black mb-1 card-title">{{$item['music_title']}}</h6></a>
-                                <p class="name_singer text-gray mb-1 author"><?php echo $item['music_artist_html']; ?></p>
+                                <p class="name_singer text-gray mb-1 author"><?php echo $item['music_artist_html'] ?? ''; ?></p>
+                                <p class="loss text-pink mb-0"><?php echo $item['music_bitrate_html'] ?? ''; ?></p>
                             </div>
                         </div>
                         <?php
@@ -368,7 +373,8 @@ global $hot_video_rows;
                             </a>
                             <div class="content d-inline-block align-middle">
                                 <a href="{{$url}}"><h6 class="name_song text-black mb-1 card-title">{{$item['music_title']}}</h6></a>
-                                <p class="name_singer text-gray mb-1 author"><?php echo $item['music_artist_html']; ?></p>
+                                <p class="name_singer text-gray mb-1 author"><?php echo $item['music_artist_html'] ?? ''; ?></p>
+                                <p class="loss text-pink mb-0"><?php echo $item['music_bitrate_html'] ?? ''; ?></p>
                             </div>
                         </div>
                         <?php
@@ -392,7 +398,8 @@ global $hot_video_rows;
                             </a>
                             <div class="content d-inline-block align-middle">
                                 <a href="{{$url}}"><h6 class="name_song text-black mb-1 card-title">{{$item['music_title']}}</h6></a>
-                                <p class="name_singer text-gray mb-1 author"><?php echo $item['music_artist_html']; ?></p>
+                                <p class="name_singer text-gray mb-1 author"><?php echo $item['music_artist_html'] ?? ''; ?></p>
+                                <p class="loss text-pink mb-0"><?php echo $item['music_bitrate_html'] ?? ''; ?></p>
                             </div>
                         </div>
                         <?php
