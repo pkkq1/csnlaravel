@@ -38,5 +38,8 @@ $allpage_banner = false;
 </section>
 @yield('contentJS')
 
+<!-- BlueSeed - asynchronous code for placement 1468 Chiasenhac Balloon Home Page Desktop -->
+<script id="jshd1pm_1468" src="https://d2.blueseed.tv/ads-sync.js?placement=1468"></script>
+
 </body>
 </html>
