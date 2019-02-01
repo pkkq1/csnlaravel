@@ -451,7 +451,7 @@ class UploadController extends Controller
     }
     function suggest(Request $request) {
 
-        $arrUrl = Helpers::splitMusicUrl($request->url);
+        $arrUrl = Helpers::splitMusicUrl(last(explode('/', $request->url)));
         if(!$arrUrl['id'])
             Helpers::ajaxResult(false, 'Không tìm thấy id', null);
         if($arrUrl['type'] == 'music') {
