@@ -324,9 +324,9 @@ if($musicSet['type_listen'] == 'playlist') {
                                     </div>
                                 @endif
                             </div>
+                            <!-- BlueSeed - asynchronous code for placement 1658 Chiasenhac Inread Mobile -->
+                            <script id="jshd1pm_1658" src="https://d2.blueseed.tv/ads-sync.js?placement=1658"></script>
                             <div class="p-3">
-                                <!-- BlueSeed - asynchronous code for placement 1658 Chiasenhac Inread Mobile -->
-                                <script id="jshd1pm_1658" src="https://d2.blueseed.tv/ads-sync.js?placement=1658"></script>
                                 <div class="block block_comment">
                                     <div class="block_header d-flex flex-row justify-content-between mb-2 music_comment">
                                         <h3 class="main_title text-pink mb-0">Bình luận của bạn</h3><?php echo $music->music_comment ? '<span class="text-gray align-self-end"><span class="number_comment">'.number_format($music->music_comment).'</span> bình luận</span>' : '' ?>
