@@ -253,7 +253,7 @@ global $hot_video_rows;
                             </div>
                         </div>
                         <?php
-                        }, array_keys($hot_video_rows[1]), $hot_video_rows[1]);
+                        }, array_keys($hot_video_rows[1] ?? []), $hot_video_rows[1] ?? []);
                         ?>
                     </div>
                     <div class="swiper-slide tab-video block_bxhvideo">
@@ -278,7 +278,7 @@ global $hot_video_rows;
                             </div>
                         </div>
                         <?php
-                        }, array_keys($hot_video_rows[2]), $hot_video_rows[2]);
+                        }, array_keys($hot_video_rows[2] ?? []), $hot_video_rows[2] ?? []);
                         ?>
                     </div>
                     <div class="swiper-slide tab-video block_bxhvideo">
@@ -303,7 +303,7 @@ global $hot_video_rows;
                             </div>
                         </div>
                         <?php
-                        }, array_keys($hot_video_rows[3]), $hot_video_rows[3]);
+                        }, array_keys($hot_video_rows[3] ?? []), $hot_video_rows[3] ?? []);
                         ?>
                     </div>
                     <div class="swiper-slide tab-video block_bxhvideo">
@@ -328,7 +328,7 @@ global $hot_video_rows;
                             </div>
                         </div>
                         <?php
-                        }, array_keys($hot_video_rows[4]), $hot_video_rows[4]);
+                        }, array_keys($hot_video_rows[4] ?? []), $hot_video_rows[4] ?? []);
                         ?>
                     </div>
                     <div class="swiper-slide tab-video block_bxhvideo">
@@ -353,7 +353,7 @@ global $hot_video_rows;
                             </div>
                         </div>
                         <?php
-                        }, array_keys($hot_video_rows[5]), $hot_video_rows[5]);
+                        }, array_keys($hot_video_rows[5] ?? []), $hot_video_rows[5] ?? []);
                         ?>
                     </div>
                     <div class="swiper-slide tab-video block_bxhvideo">
@@ -378,7 +378,7 @@ global $hot_video_rows;
                             </div>
                         </div>
                         <?php
-                        }, array_keys($hot_video_rows[6]), $hot_video_rows[6]);
+                        }, array_keys($hot_video_rows[6] ?? []), $hot_video_rows[6] ?? []);
                         ?>
                     </div>
                     <div class="swiper-slide tab-video block_bxhvideo">
@@ -403,7 +403,7 @@ global $hot_video_rows;
                             </div>
                         </div>
                         <?php
-                        }, array_keys($hot_video_rows[7]), $hot_video_rows[7]);
+                        }, array_keys($hot_video_rows[7] ?? []), $hot_video_rows[7] ?? []);
                         ?>
                     </div>
                 @endif
