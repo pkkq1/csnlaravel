@@ -373,13 +373,13 @@ class SolrSyncController extends Controller
                 $artist[] = $artistItem;
             }
         }elseif($time){
-//            $artist = ArtistModel::where('music_last_update_time', '>',  $time)->get();
+            $artist = ArtistModel::where('music_last_update_time', '>',  $time)->get();
         }else {
             $artist = ArtistModel::offset(0)->limit(130000)->get();
         }
         DB::disconnect('mysql');
         $datas = [];
-        foreach ($artist as $item) {
+        foreach ($artist as $key => $item) {
             $artist_nickname_charset = Helpers::khongdau(mb_strtolower($item->artist_nickname, 'UTF-8'), ' ');
             $data = [
                 'id' => 'artist_'.$item->artist_id,
@@ -394,8 +394,13 @@ class SolrSyncController extends Controller
             ];
             $datas[] = $data;
 //            $this->Solr->addDocuments($data);
+
+            if(Auth::check() && Auth::user()->id == 3) {
+                echo ($key) . '/ ' . $item->artist_id . "\n <br>";
+            }
         }
         $this->Solr->addMultiDocuments($datas);
+
         return response(['Ok']);
     }
     public function syncCover($id = null, $coverItem = null, $time = null) {

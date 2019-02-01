@@ -41,6 +41,7 @@ Route::group(['middlewareGroups' => ['web']], function () {
         Route::get('solr_delete_video', 'Sync\SolrSyncController@syncDeleteVideo');
         Route::get('solr_music', 'Sync\SolrSyncController@syncMusic');
         Route::get('solr_delete_music', 'Sync\SolrSyncController@syncDeleteMusic');
+        Route::get('solr_artist', 'Sync\SolrSyncController@syncArtist');
     });
 
     // Api
