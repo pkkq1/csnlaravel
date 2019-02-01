@@ -40,6 +40,7 @@
                         </div>
                     </div>
                 </div>
+                <div style="margin-top: 20px; text-align: center;">Tham gia <a target="_blank" href="https://www.facebook.com/groups/csnuploader/">Nhóm Uploader trên Facebook</a> để trao đổi, giải đáp thắc mắc.</div>
             </div>
             <div class="col-md-3">
                 @include('web.layouts.right_banner')
