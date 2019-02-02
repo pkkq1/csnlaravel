@@ -288,7 +288,7 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                                         <input type="hidden" name="type_upload" value="{{$typeUpload}}">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <input type="hidden" name="suggest_music" class="suggest_music" value="{{old('suggest_music')}}">
-                                        <input type="hidden" name="cover_id" class="cover_id" value="{{ old('drop_files') ?? (isset($music) ? $music->cover_id : '') }}">
+                                        <input type="hidden" name="cover_id" class="cover_id" value="{{ old('cover_id') ?? (isset($music) ? $music->cover_id : '') }}">
                                         <input type="hidden" name="drop_files" class="drop_files" value="{{ old('drop_files') ?? (isset($music) ? 'true' : '') }}">
                                         <input type="hidden" name="drop_html" class="drop_html" value="{{old('drop_html')}}">
                                         <input type="hidden" name="music_filesize" class="music_filesize" value="{{old('music_filesize')}}">
