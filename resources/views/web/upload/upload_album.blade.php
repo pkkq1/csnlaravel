@@ -97,10 +97,25 @@ $titleMeta = 'Cập nhật album - ' . Config::get('constants.app.title');
                                             <strong>{{ str_replace('album cover', 'cover', $errors->first('album_cover')) }}</strong>
                                         </span>
                                     @endif
+                                    @if(isset($album))
+                                    <small>&nbsp;&nbsp;Click vào cover để thay đổi ảnh mới.</small>
+                                    @endif
                                     <div class="card cover_upload form-group" <?php echo isset($album) ? 'style="padding-top: 0px; font-size: 200%;"' : '' ?>>
                                         @if(isset($album))
-                                        <label for="choose_album_cover" class="card-body d-flex align-items-center justify-content-center" style="z-index: 9999;cursor: pointer;"></label>
-                                        <img class="mr-3" {{isset($album) ? '' : 'hidden'}} id="album_cover_uploaded" src="{{isset($album) ? Helpers::cover_url($album->cover_id) : '/imgs/avatar_default.png?v='.time()}}?v={{time()}}" alt="" style="z-index: 999; width: 175px;">
+                                        <label for="choose_album_cover" class="card-body d-flex align-items-center justify-content-center" style="z-index: 9999;cursor: pointer; width: 177px; height: 169px; background: white">
+                                            <div class="form-group text-center m-0 icon_camera_cover">
+                                                <label for="choose_album_cover">
+                                                    <i class="material-icons">camera_alt</i>
+                                                    <div class="txt">Upload Cover <small style="color: #f47336">(*)</small></div>
+                                                </label>
+                                            </div>
+                                        </label>
+                                        <img for="choose_album_cover" class="mr-3" {{isset($album) ? '' : 'hidden'}} id="album_cover_uploaded" src="{{isset($album) ? Helpers::cover_url($album->cover_id) : '/imgs/avatar_default.png?v='.time()}}?v={{time()}}" alt="" style="z-index: 99999; width: 176px;">
+                                        <script>
+                                            $('#album_cover_uploaded').click(function () {
+                                                $('#choose_album_cover').click();
+                                            })
+                                        </script>
                                         @else
                                         <label for="choose_album_cover" class="card-body d-flex align-items-center justify-content-center" style="z-index: 9999">
                                             <div class="form-group text-center m-0 icon_camera_cover">

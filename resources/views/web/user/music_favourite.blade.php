@@ -83,7 +83,7 @@ $mySelf = (Auth::check() && Auth::user()->id == $user_id);
                     <div class="media-right align-self-center">
                         <ul class="list-inline" style="margin-right:0px">
                             <li class="list-inline-item">
-                                <a href="javascript:void(0)" onclick="return favourite('{{str_replace("'", "\'", $item['music_title'])}}', 'music', '{{$item['music_id']}}')" class="wishlist toggle_wishlist toggle_wishlist_music {{$userFav == $idAuth ? 'selector' : ''}} px-3"><i aria-hidden="true" class="fa fa-heart-o"></i></a>
+                                <a href="javascript:void(0)" onclick="return favourite('{{str_replace("'", "\'", $item['music_title'])}}', 'music', '{{$item['music_id']}}')" class="wishlist wishlist-{{$item['music_id']}} toggle_wishlist {{$userFav == $idAuth ? 'selector' : ''}} px-3"><i aria-hidden="true" class="fa fa-heart-o"></i></a>
                             </li>
                         </ul>
                     </div>

@@ -282,11 +282,23 @@ class UploadController extends Controller
                 }
             }
 
+            $musicRedirectNext = $this->uploadRepository->getModel()::where('music_user_id', $result->music_user_id)
+                ->where('music_id', '>', $result->music_id)
+                ->orderBy('music_id', 'asc')
+                ->limit(1)
+                ->first();
+            $musicRedirectBack = $this->uploadRepository->getModel()::where('music_user_id', $result->music_user_id)
+                ->where('music_id', '<', $result->music_id)
+                ->orderBy('music_id', 'desc')
+                ->limit(1)
+                ->first();
+
 //            // update solr
 //            $Solr = new SolrSyncController($this->Solr);
 //            $Solr->syncMusic(null, $result);
 //            return redirect()->route('upload.storeMusic', ['musicId' => $musicId])->with('success', 'Đã chỉnh sửa '.$mess.' ' . $result->music_title);
-            return redirect()->route('upload.storeMusic', ['musicId' => $musicId])->with('success', 'Đã chỉnh sửa '.$mess.' ' . $result->music_title.'<br/><a href="/user/'.$result->music_user_id.'">Click vào đây để trở lại Tủ nhạc</a><br/><a href="/dang-tai/nhac/'.$musicId.'">Click vào đây để trở lại trang vừa chỉnh sửa</a><br/><a href="">Click vào đây để sửa bài tiếp theo</a>');
+            $mes2 = ($musicRedirectNext || $musicRedirectBack) ? '<br/><a href="/dang-tai/nhac/'.($musicRedirectNext ? $musicRedirectNext->music_id : $musicRedirectBack->music_id).'">Click vào đây để sửa bài '.($musicRedirectNext ? '<u>trước</u>' : '').'</a>'.($musicRedirectBack ? '<a href="/dang-tai/nhac/'.$musicRedirectBack->music_id.'"> | <u>sau</u></a>' : '') : '';
+            return redirect()->route('upload.storeMusic', ['musicId' => $musicId])->with('success', 'Đã chỉnh sửa '.$mess.' ' . $result->music_title.'<br/><a href="/user/'.$result->music_user_id.'">Click vào đây để trở lại Tủ nhạc</a>'.$mes2);
         }else{
             $csnMusic = [
                 'music_title' => $request->input('music_title'),
@@ -342,9 +354,9 @@ class UploadController extends Controller
             $album->album_last_updated = time();
             $album->save();
             if($request->input('album_cover')) {
-                $typeImageCover = array_last(explode('.', $_FILES['choose_album_cover']['name']));
-                $fileNameCovert = Helpers::saveBase64Image($request->input('album_cover'), Helpers::file_path($album->cover_id, AVATAR_ALBUM_CROP_PATH, true), $album->cover_id, $typeImageCover);
-                Helpers::copySourceImage($request->file('choose_album_cover'), Helpers::file_path($album->cover_id, COVER_ALBUM_SOURCE_PATH, true), $album->cover_id, $typeImageCover);
+//                $typeImageCover = array_last(explode('.', $_FILES['choose_album_cover']['name']));
+                $fileNameCovert = Helpers::saveBase64Image($request->input('album_cover'), Helpers::file_path($album->cover_id, AVATAR_ALBUM_CROP_PATH, true), $album->cover_id);
+                Helpers::copySourceImage($request->file('choose_album_cover'), Helpers::file_path($album->cover_id, COVER_ALBUM_SOURCE_PATH, true), $album->cover_id);
             }
             // update upload
             $upload = $album->upload;
@@ -407,9 +419,9 @@ class UploadController extends Controller
         }
         if(!$album)
             return redirect()->route('upload.upload_album')->with('error', 'tạo album thất bại');
-        $typeImageCover = array_last(explode('.', $_FILES['choose_album_cover']['name']));
-        $fileNameCovert = Helpers::saveBase64Image($request->input('album_cover'), Helpers::file_path($album->cover_id, AVATAR_ALBUM_CROP_PATH, true), $album->cover_id, $typeImageCover);
-        Helpers::copySourceImage($request->file('choose_album_cover'), Helpers::file_path($album->cover_id, COVER_ALBUM_SOURCE_PATH, true), $album->cover_id, $typeImageCover);
+//        $typeImageCover = array_last(explode('.', $_FILES['choose_album_cover']['name']));
+        $fileNameCovert = Helpers::saveBase64Image($request->input('album_cover'), Helpers::file_path($album->cover_id, AVATAR_ALBUM_CROP_PATH, true), $album->cover_id);
+        Helpers::copySourceImage($request->file('choose_album_cover'), Helpers::file_path($album->cover_id, COVER_ALBUM_SOURCE_PATH, true), $album->cover_id);
         $album->cover_filename = $fileNameCovert;
         $album->save();
 //        // update solr
