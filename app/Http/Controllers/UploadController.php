@@ -282,13 +282,11 @@ class UploadController extends Controller
                 }
             }
 
-
-
-
 //            // update solr
 //            $Solr = new SolrSyncController($this->Solr);
 //            $Solr->syncMusic(null, $result);
-            return redirect()->route('upload.storeMusic', ['musicId' => $musicId])->with('success', 'Đã chỉnh sửa '.$mess.' ' . $result->music_title);
+//            return redirect()->route('upload.storeMusic', ['musicId' => $musicId])->with('success', 'Đã chỉnh sửa '.$mess.' ' . $result->music_title);
+            return redirect()->route('upload.storeMusic', ['musicId' => $musicId])->with('success', 'Đã chỉnh sửa '.$mess.' ' . $result->music_title.'<br/><a href="/user/'.$result->music_user_id.'">Click vào đây để trở lại Tủ nhạc</a><br/><a href="/dang-tai/nhac/'.$musicId.'">Click vào đây để trở lại trang vừa chỉnh sửa</a><br/><a href="">Click vào đây để sửa bài tiếp theo</a>');
         }else{
             $csnMusic = [
                 'music_title' => $request->input('music_title'),
@@ -441,6 +439,7 @@ class UploadController extends Controller
         foreach ($fileUploads as $key => $item) {
             $csnMusic['music_filename_upload'] = $item;
             $csnMusic['music_filesize'] = $fileSize[$key];
+            $csnMusic['music_track_id'] = ++$key;
             $result = $this->uploadRepository->create($csnMusic);
             $fileName = $result->music_id.'.'.last(explode('.', $item));
             Storage::disk('public')->move(DEFAULT_STORAGE_CACHE_MUSIC_PATH.$item, Helpers::file_path($result->music_id, SOURCE_STORAGE_PATH, true).$fileName);
