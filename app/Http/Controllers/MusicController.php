@@ -257,6 +257,7 @@ class MusicController extends Controller
         }elseif($typeBxh == 'month') {
             include(app_path() . '/../resources/views/cache/bxh/bxh_'.$month.'_'.$year.'.blade.php');
         }elseif($typeBxh == 'year') {
+            $month = 'all';
             include(app_path() . '/../resources/views/cache/bxh/bxh_'.$month.'_'.$year.'.blade.php');
         }
         $category = $this->categoryListenRepository->getCategoryUrl($catUrl == CAT_VIDEO_URL ? $catLevel : $catUrl);
