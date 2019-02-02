@@ -249,6 +249,7 @@ class MusicController extends Controller
         // cache array
         global $hot_music_rows;
         global $hot_video_rows;
+        $month = sprintf('%02d', $month);
         if($typeBxh == 'now') {
             include(app_path() . '/../resources/views/cache/bxh/bxh_today.blade.php');
         }elseif($typeBxh == 'week') {
