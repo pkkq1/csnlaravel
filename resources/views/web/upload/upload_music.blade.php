@@ -365,12 +365,12 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
     <script type="text/javascript" src="/js/typeahead.bundle.js"></script>
     <script type="text/javascript" src="/js/jquery.tokeninput.js"></script>
     <script>
-        $(".form_music").keypress(function(e) {
-            //Enter key
-            if (e.which == 13) {
-                return false;
-            }
-        });
+        // $(".form_music").keypress(function(e) {
+        //     //Enter key
+        //     if (e.which == 13) {
+        //         return false;
+        //     }
+        // });
         Dropzone.prototype.defaultOptions.maxFiles = 1;
         // Dropzone.prototype.defaultOptions.acceptedFiles = '';
         Dropzone.prototype.defaultOptions.headers = {
