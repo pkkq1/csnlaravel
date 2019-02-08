@@ -798,8 +798,9 @@ if($musicSet['type_listen'] == 'playlist') {
     $('.ele-share .icon').click(function(e) {
         $('.wrap-bottom-sheet').hide();
         $('.bottom-sheet').slideUp();
-        copyClipboardAction(window.location.href);
-        alertModal('Đã copy địa chỉ vào bộ nhớ máy của bạn.');
+        // copyClipboardAction(window.location.href);
+        window.open('https://www.facebook.com/sharer/sharer.php?u=' + window.location.href, '_blank');
+        // alertModal('Đã copy địa chỉ vào bộ nhớ máy của bạn.');
     });
     function downloadMusic() {
         var radios = document.getElementsByName('quality');
