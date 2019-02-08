@@ -222,6 +222,7 @@ class UploadController extends Controller
             'music_artist' => 'required',
             'drop_files' => 'required',
             'music_year' => 'max:4',
+            'music_album_id' => 'max:15',
             'music_source_url' => 'max:255',
         ]);
         $typeUpload = $request->input('type_upload');
@@ -340,6 +341,7 @@ class UploadController extends Controller
 //                'music_product`ion' => 'required',
 //                'music_album_id' => 'required',
                 'music_year' => 'required|max:5',
+                'music_album_id' => 'max:15',
             ]);
             $userId = Auth::user()->id;
             if(Auth::user()->hasPermission('duyet_sua_nhac'))
