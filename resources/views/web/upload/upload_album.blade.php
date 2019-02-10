@@ -559,13 +559,13 @@ $titleMeta = 'Cập nhật album - ' . Config::get('constants.app.title');
                 $image_crop = $('#image_demo').croppie({
                     enableExif: true,
                     viewport: {
-                        width:300,
-                        height:300,
+                        width:500,
+                        height:500,
                         type:'square' //circle
                     },
                     boundary:{
-                        width:500,
-                        height:500
+                        width:300,
+                        height:300
                     },
                     showZoomer: false,
                     enableOrientation: true,
