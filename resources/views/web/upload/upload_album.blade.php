@@ -564,8 +564,8 @@ $titleMeta = 'Cập nhật album - ' . Config::get('constants.app.title');
                         type:'square' //circle
                     },
                     boundary:{
-                        width:300,
-                        height:300
+                        width:500,
+                        height:500
                     },
                     showZoomer: false,
                     enableOrientation: true,
