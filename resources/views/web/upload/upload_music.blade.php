@@ -137,7 +137,7 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                                             @endif
                                         </div>
                                         <div class="form-group music_artist col-12{{ $errors->has('music_artist') ? ' has-error' : '' }}">
-                                            <label for="music_artist">Ca sĩ <small>(*)</small><small>&nbsp;&nbsp;ấn ; để thêm ca sĩ mới không có trong tags chọn.</small></label>
+                                            <label for="music_artist">Ca sĩ <small>(*)</small><small style="columns: #b2b2b2;">&nbsp;&nbsp;ấn ; để thêm ca sĩ mới không có trong tags chọn.</small></label>
                                             <input type="text" class="form-control" name="music_artist_id" value="{{ old('music_artist_id') }}" id="music_artist_id">
                                             <input type="hidden" class="form-control" name="music_artist" value="{{ old('music_artist') }}" id="music_artist" placeholder="Nhập tên ca sĩ">
                                             @if ($errors->has('music_artist'))
