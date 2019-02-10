@@ -158,20 +158,29 @@ class Helpers
         }
         return '/ca-si/'.self::rawTiengVietUrl($artistNickName) . "~" . base64_encode(KEY_ID_ARTIST_ENCODE_URL . $artistId) . $mode . ".".HTMLEX;
     }
+    public static function undo_htmlspecialchars($input)
+    {
+        $input = preg_replace("/&gt;/i", ">", $input);
+        $input = preg_replace("/&lt;/i", "<", $input);
+        $input = preg_replace("/&quot;/i", "\"", $input);
+        $input = preg_replace("/&amp;/i", "&", $input);
+
+        return $input;
+    }
     public static function rawHtmlArtists($artistId, $artistNickName) {
         $artistId = explode(';', $artistId);
-        $artistNickName = explode(';', $artistNickName);
+        $artistNickName = explode(';', self::undo_htmlspecialchars($artistNickName));
         if($artistNickName && $artistId) {
             $html = '';
             foreach ($artistNickName as $key => $val) {
 //                $html = $html.', <a href="'.self::artistUrl(isset($artistId[$key]) ? $artistId[$key] : -1, $val).'">'.$val.'</a>';
+                $val = htmlspecialchars($val);
                 $html = $html.'; <a href="'.self::artistUrl(isset($artistId[$key]) ? $artistId[$key] : -1, $val).'">'.$val.'</a>';
             }
             return substr($html, 2);
         }
         return '';
     }
-
     public static function category_url($c_info = array(), $c_id = 0, $c_level = 0)
     {
         global $cat_id2info;
