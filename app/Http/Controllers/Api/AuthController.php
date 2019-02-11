@@ -54,10 +54,12 @@ class AuthController extends Controller
             $existUser = $existUser;
         }
         // create session login
-        SessionModel::find(session()->getId())->update([
-            'user_id' => $existUser->user_id,
-            'user_agent' => $req->driver,
-        ]);
+        Auth::login($existUser);
+        session()->save();
+//        SessionModel::find(session()->getId())->update([
+//            'user_id' => $existUser->user_id,
+//            'user_agent' => $req->driver,
+//        ]);
         $existUser->sid = session()->getId();
         // null
         return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => $existUser, 'error' => []], 200);
@@ -96,10 +98,12 @@ class AuthController extends Controller
             $existUser = $existUser;
         }
         // create session login
-        SessionModel::find(session()->getId())->update([
-            'user_id' => $existUser->user_id,
-            'user_agent' => $req->driver,
-        ]);
+        Auth::login($existUser);
+        session()->save();
+//        SessionModel::find(session()->getId())->update([
+//            'user_id' => $existUser->user_id,
+//            'user_agent' => $req->driver,
+//        ]);
         $existUser->sid = session()->getId();
         // null
         return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => $existUser, 'error' => []], 200);
