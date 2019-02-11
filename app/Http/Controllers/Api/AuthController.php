@@ -16,6 +16,7 @@ use Socialite;
 use Session;
 use \Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Validator;
+use App\Models\Session as SessionModel;
 
 class AuthController extends Controller
 {
@@ -27,7 +28,7 @@ class AuthController extends Controller
         ]);
         if ($validator->fails()) {
             $messages = $validator->messages();
-            return new JsonResponse(['message' => 'Fail', 'data' => [], 'error' => $messages->all()], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => $messages->all()], 400);
         }
         $user = Socialite::driver('facebook')->userFromToken($req->token);
         // Create user
@@ -53,8 +54,13 @@ class AuthController extends Controller
             $existUser = $existUser;
         }
         // create session login
+        SessionModel::find(session()->getId())->update([
+            'user_id' => $existUser->user_id,
+            'user_agent' => $req->driver,
+        ]);
+        $existUser->sid = session()->getId();
         // null
-        return new JsonResponse(['message' => 'Success', 'data' => $existUser, 'error' => []], 200);
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => $existUser, 'error' => []], 200);
     }
     public function loginGoogle(Request $req) {
 
@@ -64,7 +70,7 @@ class AuthController extends Controller
         ]);
         if ($validator->fails()) {
             $messages = $validator->messages();
-            return new JsonResponse(['message' => 'Fail', 'data' => [], 'error' => $messages->all()], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => $messages->all()], 400);
         }
         $user = Socialite::driver('google')->userFromToken($req->token);
         // Create user
@@ -90,8 +96,13 @@ class AuthController extends Controller
             $existUser = $existUser;
         }
         // create session login
+        SessionModel::find(session()->getId())->update([
+            'user_id' => $existUser->user_id,
+            'user_agent' => $req->driver,
+        ]);
+        $existUser->sid = session()->getId();
         // null
-        return new JsonResponse(['message' => 'Success', 'data' => $existUser, 'error' => []], 200);
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => $existUser, 'error' => []], 200);
     }
 
 }
