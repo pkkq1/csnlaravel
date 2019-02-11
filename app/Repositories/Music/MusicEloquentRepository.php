@@ -339,7 +339,7 @@ global $video;
 $MusicSameArtist = ' .str_replace('video_', 'music_',  var_export($MusicSameArtistResult, true)) . ';
 $VideoSameArtist = ' .str_replace('video_', 'music_',  var_export($VideoSameArtistResult, true)) . ';
 $titleDup = ' . str_replace('video_', 'music_',  var_export($titleDupResult, true)) . ';
-$video = ' . var_export($videoResult, true) . ';
+$video = ' . str_replace('video_', 'music_',  var_export($videoResult, true)) . ';
 ?>');
     }
     public static function getHistoryRecents($tempStr) {
