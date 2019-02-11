@@ -12,7 +12,7 @@
 
 Route::group([
             'namespace'  => 'Backpack\LogManager\app\Http\Controllers',
-            'middleware' => ['web', config('backpack.base.middleware_key', 'admin')],
+            'middleware' => ['web', backpack_middleware()],
             'prefix'     => config('backpack.base.route_prefix', 'admin'),
     ], function () {
         Route::get('log', 'LogController@index');

@@ -62,17 +62,9 @@ return [
         ],
 
         /*
-         * The database dump can be compressed to decrease diskspace usage.
-         *
-         * Out of the box Laravel-backup supplies
-         * Spatie\DbDumper\Compressors\GzipCompressor::class.
-         *
-         * You can also create custom compressor. More info on that here:
-         * https://github.com/spatie/db-dumper#using-compression
-         *
-         * If you do not want any compressor at all, set it to null.
+         * The database dump can be gzipped to decrease diskspace usage.
          */
-        'database_dump_compressor' => null,
+        'gzip_database_dump' => false,
 
         'destination' => [
 

@@ -43,7 +43,6 @@ class Sqlite extends DbDumper
             $this->dumpBinaryPath,
             $this->dbName
         );
-
         return $this->echoToFile($command, $dumpFile);
     }
 }

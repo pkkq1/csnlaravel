@@ -18,22 +18,6 @@ class SettingCrudController extends CrudController
         $this->crud->setRoute(backpack_url('setting'));
         $this->crud->addClause('where', 'active', 1);
         $this->crud->denyAccess(['create', 'delete']);
-        $this->middleware(function ($request, $next)
-        {
-            if(!backpack_user()->can('advanced_(list)')) {
-                $this->crud->denyAccess(['list']);
-            }
-            if(!backpack_user()->can('advanced_(create)')) {
-                $this->crud->denyAccess(['create']);
-            }
-            if(!backpack_user()->can('advanced_(update)')) {
-                $this->crud->denyAccess(['update']);
-            }
-            if(!backpack_user()->can('advanced_(delete)')) {
-                $this->crud->denyAccess(['delete']);
-            }
-            return $next($request);
-        });
         $this->crud->setColumns([
             [
                 'name'  => 'name',

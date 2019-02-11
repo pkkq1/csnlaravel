@@ -184,11 +184,10 @@ class LogViewer
 
     /**
      * @param bool $basename
-     * @param bool $sort_by_date Most recently modified files first
      *
      * @return array
      */
-    public static function getFiles($basename = false, $sort_by_date = false)
+    public static function getFiles($basename = false)
     {
         $files = glob(storage_path().'/logs/*.log');
         $files = array_reverse($files);
@@ -206,12 +205,6 @@ class LogViewer
                         'last_modified' => $disk->lastModified('storage/logs/'.$file_name),
                     ];
                 }
-            }
-
-            if ($sort_by_date) {
-                usort($files, function ($a, $b) {
-                    return $b['last_modified'] - $a['last_modified'];
-                });
             }
         }
 

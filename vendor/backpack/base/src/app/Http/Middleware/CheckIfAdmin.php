@@ -22,14 +22,8 @@ class CheckIfAdmin
             } else {
                 return redirect()->guest(backpack_url('login'));
             }
-        }else{
-//            if(\Auth::user()->rolesCSNRoleName() == ROLE_NAME_ADMIN || \Auth::user()->rolesCSNRoleName() == ROLE_NAME_MANAGER) {
-//
-//            }
-            if(backpack_user()->can('admin_view')) {
-                return $next($request);
-            }
         }
-        return response(view('web.errors.403'));
+
+        return $next($request);
     }
 }

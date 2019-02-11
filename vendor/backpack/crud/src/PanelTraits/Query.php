@@ -20,9 +20,7 @@ trait Query
      *     $query->activePosts();
      * });
      *
-     * @param callable $function
-     *
-     * @return mixed
+     * @param [type]
      */
     public function addClause($function)
     {
@@ -32,9 +30,10 @@ trait Query
     /**
      * Use eager loading to reduce the number of queries on the table view.
      *
-     * @param array|string $entities
+     * @param  [type]
+     * @param  string
      *
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @return [type]
      */
     public function with($entities)
     {
@@ -44,10 +43,10 @@ trait Query
     /**
      * Order the results of the query in a certain way.
      *
-     * @param string $field
-     * @param string $order
+     * @param  [type]
+     * @param  string
      *
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @return [type]
      */
     public function orderBy($field, $order = 'asc')
     {
@@ -57,9 +56,8 @@ trait Query
     /**
      * Group the results of the query in a certain way.
      *
-     * @param string $field
-     *
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @param  [type]
+     * @return [type]
      */
     public function groupBy($field)
     {
@@ -69,9 +67,8 @@ trait Query
     /**
      * Limit the number of results in the query.
      *
-     * @param int $number
-     *
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @param  [number]
+     * @return [type]
      */
     public function limit($number)
     {
@@ -81,9 +78,8 @@ trait Query
     /**
      * Take a certain number of results from the query.
      *
-     * @param int $number
-     *
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @param  [number]
+     * @return [type]
      */
     public function take($number)
     {
@@ -93,9 +89,8 @@ trait Query
     /**
      * Start the result set from a certain number.
      *
-     * @param int $number
-     *
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @param  int $number [description]
+     * @return [type]         [description]
      */
     public function skip($number)
     {
@@ -104,7 +99,6 @@ trait Query
 
     /**
      * Count the number of results.
-     * @return int
      */
     public function count()
     {

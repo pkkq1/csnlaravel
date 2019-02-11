@@ -24,11 +24,6 @@ class CrudRouter
             'uses' => $this->controller.'@search',
         ]);
 
-        Route::delete($this->name.'/bulk-delete', [
-            'as' => 'crud.'.$this->name.'.bulkDelete',
-            'uses' => $this->controller.'@bulkDelete',
-        ]);
-
         Route::get($this->name.'/reorder', [
             'as' => 'crud.'.$this->name.'.reorder',
             'uses' => $this->controller.'@reorder',

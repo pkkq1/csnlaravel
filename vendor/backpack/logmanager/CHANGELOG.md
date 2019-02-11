@@ -19,31 +19,6 @@ All Notable changes to `LogManager` will be documented in this file
 ### Security
 - Nothing
 
----
-
-## [2.3.24] - 2018-11-22
-
-- added support for Base 1.0.x
-
-## [2.3.23] - 2018-10-15
-
-### Fixed
-- #27 - only load custom views if the directory exists - this makes the ```php artisan view:cache``` command work again;
-
-
-## [2.3.22] - 2018-10-15
-
-### Added
-- log files are now ordered by date modified, descending;
-- mentioned the better logging package in the readme file;
-
-
-## [2.3.21] - 2018-09-05
-
-### Fixed
-- in routes, replaced ```backpack_middleware()``` call with its result, to prevent errors when helpers are NOT loaded before routes, and ```php artisan package:discover``` can't execute;
-
-
 ## [2.3.20] - 2018-05-02
 
 ### Removed

@@ -23,7 +23,7 @@ trait Columns
     /**
      * Add a bunch of column names and their details to the CRUD object.
      *
-     * @param array|string $columns
+     * @param [array or multi-dimensional array]
      */
     public function setColumns($columns)
     {
@@ -61,9 +61,7 @@ trait Columns
     /**
      * Add a column at the end of to the CRUD object's "columns" array.
      *
-     * @param array|string $column
-     *
-     * @return self
+     * @param [string or array]
      */
     public function addColumn($column)
     {
@@ -129,7 +127,7 @@ trait Columns
     /**
      * Add multiple columns at the end of the CRUD object's "columns" array.
      *
-     * @param array $columns
+     * @param [array of columns]
      */
     public function addColumns($columns)
     {
@@ -162,7 +160,6 @@ trait Columns
 
     /**
      * Move this column to be first in the columns list.
-     * @return bool|null
      */
     public function makeFirstColumn()
     {
@@ -178,7 +175,7 @@ trait Columns
      * Move the most recently added column before or after the given target column. Default is before.
      *
      * @param string|array $targetColumn The target column name or array.
-     * @param bool         $before       If true, the column will be moved before the target column, otherwise it will be moved after it.
+     * @param bool $before If true, the column will be moved before the target column, otherwise it will be moved after it.
      */
     private function moveColumn($targetColumn, $before = true)
     {
@@ -201,8 +198,7 @@ trait Columns
     /**
      * Add the default column type to the given Column, inferring the type from the database column type.
      *
-     * @param array $column
-     * @return array|bool
+     * @param [column array]
      */
     public function addDefaultTypeToColumn($column)
     {
@@ -219,9 +215,7 @@ trait Columns
      * If a field or column array is missing the "label" attribute, an ugly error would be show.
      * So we add the field Name as a label - it's better than nothing.
      *
-     * @param array $array
-     *
-     * @return array
+     * @param [field or column]
      */
     public function addDefaultLabel($array)
     {
@@ -262,14 +256,13 @@ trait Columns
      * Remove an entry from an array.
      *
      * @param string $entity
-     * @param array  $fields
-     *
+     * @param array $fields
      * @return array values
      *
      * @deprecated This method is no longer used by internal code and is not recommended as it does not preserve the
      *             target array keys.
-     * @see        Columns::removeColumn() to remove a column from the CRUD panel by name.
-     * @see        Columns::removeColumns() to remove multiple columns from the CRUD panel by name.
+     * @see Columns::removeColumn() to remove a column from the CRUD panel by name.
+     * @see Columns::removeColumns() to remove multiple columns from the CRUD panel by name.
      */
     public function remove($entity, $fields)
     {
@@ -281,8 +274,8 @@ trait Columns
     /**
      * Change attributes for multiple columns.
      *
-     * @param array $columns
-     * @param array $attributes
+     * @param [columns arrays]
+     * @param [attributes and values array]
      */
     public function setColumnsDetails($columns, $attributes)
     {
@@ -292,8 +285,8 @@ trait Columns
     /**
      * Change attributes for a certain column.
      *
-     * @param string $column Column name.
-     * @param array  $attributes
+     * @param [string] Column name.
+     * @param [attributes and values array]
      */
     public function setColumnDetails($column, $attributes)
     {
@@ -304,8 +297,8 @@ trait Columns
      * Alias for setColumnDetails().
      * Provides a consistent syntax with Fields, Buttons, Filters modify functionality.
      *
-     * @param string $column Column name.
-     * @param array  $attributes
+     * @param [string] Column name.
+     * @param [attributes and values array]
      */
     public function modifyColumn($column, $attributes)
     {
@@ -325,7 +318,7 @@ trait Columns
 
     /**
      * Get the relationships used in the CRUD columns.
-     * @return array Relationship names
+     * @return [array] Relationship names
      */
     public function getColumnsRelationships()
     {
@@ -365,7 +358,7 @@ trait Columns
      * @param array $columns Column order.
      *
      * @deprecated This method was not and will not be implemented since it's a duplicate of the orderColumns method.
-     * @see        Columns::orderColumns() to order the CRUD columns.
+     * @see Columns::orderColumns() to order the CRUD columns.
      */
     public function setColumnOrder($columns)
     {
@@ -378,7 +371,7 @@ trait Columns
      * @param array $columns Column order.
      *
      * @deprecated This method was not and will not be implemented since it's a duplicate of the orderColumns method.
-     * @see        Columns::orderColumns() to order the CRUD columns.
+     * @see Columns::orderColumns() to order the CRUD columns.
      */
     public function setColumnsOrder($columns)
     {
@@ -387,10 +380,8 @@ trait Columns
 
     /**
      * Get a column by the id, from the associative array.
-     *
-     * @param  int $column_number Placement inside the columns array.
-     *
-     * @return array Column details.
+     * @param  [integer] $column_number Placement inside the columns array.
+     * @return [array] Column details.
      */
     public function findColumnById($column_number)
     {
@@ -399,12 +390,6 @@ trait Columns
         return reset($result);
     }
 
-    /**
-     * @param string $table
-     * @param string $name
-     *
-     * @return bool
-     */
     protected function hasColumn($table, $name)
     {
         static $cache = [];
@@ -434,8 +419,6 @@ trait Columns
      * in the CRUD table view. Usually set to 10000 in order to hide it.
      *
      * @param int $number The priority, from 1 to infinity. Lower is better.
-     *
-     * @return self
      */
     public function setActionsColumnPriority($number)
     {

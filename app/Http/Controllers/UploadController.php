@@ -207,6 +207,28 @@ class UploadController extends Controller
                 'message' => 'Dung lượng file bạn upload quá cao, chỉ chấp nhận tối đa 5Gb file upload',
             ]);
         }
+        $getID3 = new \getID3;
+        $videoInfo = $getID3->analyze($_FILES['file']['tmp_name']);
+        if($type == 'video') {
+            if($videoInfo['video']['resolution_x'] < 650 || $videoInfo['video']['resolution_y'] < 300) {
+                return response()->json([
+                    'status' => false,
+                    'message' => 'Độ phân giải video quá thấp',
+                ]);
+            }
+            if($videoInfo['playtime_seconds'] > 3600) {
+                return response()->json([
+                    'status' => false,
+                    'message' => 'Độ dài video không vượt quá 60 phút',
+                ]);
+            }
+        }
+        if($videoInfo['playtime_seconds'] < 30) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Độ dài nhạc/video không được thấp hơn 30 giây',
+            ]);
+        }
         $fileName = Helpers::moveFile($request->file('file'), $_SERVER['DOCUMENT_ROOT'].DEFAULT_ROOT_CACHE_MUSIC_PATH, $_FILES['file']['name']);
         return response()->json([
             'status' => true,

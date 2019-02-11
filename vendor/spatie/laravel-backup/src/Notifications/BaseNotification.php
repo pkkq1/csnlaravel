@@ -39,8 +39,6 @@ abstract class BaseNotification extends Notification
             return collect();
         }
 
-        $backupDestination->fresh();
-
         $newestBackup = $backupDestination->newestBackup();
         $oldestBackup = $backupDestination->oldestBackup();
 

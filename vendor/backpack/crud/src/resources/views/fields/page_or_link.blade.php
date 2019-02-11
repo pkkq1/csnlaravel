@@ -16,7 +16,7 @@
     <div class="col-sm-3">
         <select
             id="page_or_link_select"
-            name="{{ $field['name'] ?? 'type' }}"
+            name="{{ $field['name'] or 'type' }}"
             @include('crud::inc.field_attributes')
             >
 
@@ -110,7 +110,7 @@
 {{-- ########################################## --}}
 {{-- Extra CSS and JS for this particular field --}}
 {{-- If a field type is shown multiple times on a form, the CSS and JS will only be loaded once --}}
-@if ($crud->checkIfFieldIsFirstOfItsType($field))
+@if ($crud->checkIfFieldIsFirstOfItsType($field, $fields))
 
     {{-- FIELD CSS - will be loaded in the after_styles section --}}
     @push('crud_fields_styles')

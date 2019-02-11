@@ -15,9 +15,6 @@ class BackupController extends Controller
 {
     public function index()
     {
-        if(!backpack_user()->can('advanced_(list)')) {
-            return response(view('web.errors.403'));
-        }
         if (!count(config('backup.backup.destination.disks'))) {
             dd(trans('backpack::backup.no_disks_configured'));
         }
@@ -55,7 +52,7 @@ class BackupController extends Controller
     public function create()
     {
         try {
-            ini_set('max_execution_time', 600);
+            ini_set('max_execution_time', 300);
             // start the backup process
             $flags = config('backup.backup.backpack_flags', false);
             info('Calling backup:run ', $flags);

@@ -14,6 +14,6 @@ class AccessDeniedException extends Exception
      */
     public function render($request)
     {
-        return response(view('web.errors.403', ['exception' => $this]), 403);
+        return response(view('errors.403', ['exception' => $this]), 403);
     }
 }

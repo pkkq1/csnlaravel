@@ -31,11 +31,7 @@ class LogManagerServiceProvider extends ServiceProvider
     {
         // LOAD THE VIEWS
         // - first the published/overwritten views (in case they have any changes)
-        $customViewsFolder = resource_path('views/vendor/backpack/logmanager');
-
-        if (file_exists($customViewsFolder)) {
-            $this->loadViewsFrom($customViewsFolder, 'logmanager');
-        }
+        $this->loadViewsFrom(resource_path('views/vendor/backpack/logmanager'), 'logmanager');
         // - then the stock views that come with the package, in case a published view might be missing
         $this->loadViewsFrom(realpath(__DIR__.'/resources/views'), 'logmanager');
 

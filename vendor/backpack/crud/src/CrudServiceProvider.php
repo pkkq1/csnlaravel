@@ -9,7 +9,7 @@ class CrudServiceProvider extends ServiceProvider
 {
     use CrudUsageStats;
 
-    const VERSION = '3.4.43';
+    const VERSION = '3.4.31';
 
     protected $commands = [
         \Backpack\CRUD\app\Console\Commands\Install::class,
@@ -31,14 +31,11 @@ class CrudServiceProvider extends ServiceProvider
     public function boot()
     {
         $_SERVER['BACKPACK_CRUD_VERSION'] = $this::VERSION;
-        $customViewsFolder = resource_path('views/vendor/backpack/crud');
 
         // LOAD THE VIEWS
 
         // - first the published/overwritten views (in case they have any changes)
-        if (file_exists($customViewsFolder)) {
-            $this->loadViewsFrom($customViewsFolder, 'crud');
-        }
+        $this->loadViewsFrom(resource_path('views/vendor/backpack/crud'), 'crud');
         // - then the stock views that come with the package, in case a published view might be missing
         $this->loadViewsFrom(realpath(__DIR__.'/resources/views'), 'crud');
 

@@ -6,9 +6,6 @@ trait AutoFocus
 {
     public $autoFocusOnFirstField = true;
 
-    /**
-     * @return bool
-     */
     public function getAutoFocusOnFirstField()
     {
         return $this->autoFocusOnFirstField;

@@ -27,7 +27,7 @@ trait Access
     /**
      * Check if a permission is enabled for a Crud Panel. Return false if not.
      *
-     * @param string $permission Permission.
+     * @param  [string] Permission.
      *
      * @return bool
      */
@@ -43,7 +43,7 @@ trait Access
     /**
      * Check if any permission is enabled for a Crud Panel. Return false if not.
      *
-     * @param array $permission_array Permissions.
+     * @param  [array] Permissions.
      *
      * @return bool
      */
@@ -61,7 +61,7 @@ trait Access
     /**
      * Check if all permissions are enabled for a Crud Panel. Return false if not.
      *
-     * @param array $permission_array Permissions.
+     * @param  [array] Permissions.
      *
      * @return bool
      */
@@ -80,7 +80,6 @@ trait Access
      * Check if a permission is enabled for a Crud Panel. Fail if not.
      *
      * @param string $permission Permission
-     *
      * @return bool
      *
      * @throws \Backpack\CRUD\Exception\AccessDeniedException in case the permission is not enabled

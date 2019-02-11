@@ -11,7 +11,6 @@ use Spatie\Backup\Events\BackupHasFailed;
 use Spatie\Backup\Events\BackupWasSuccessful;
 use Spatie\Backup\Events\BackupZipWasCreated;
 use Spatie\Backup\Exceptions\InvalidBackupJob;
-use Spatie\DbDumper\Compressors\GzipCompressor;
 use Spatie\TemporaryDirectory\TemporaryDirectory;
 use Spatie\Backup\Events\BackupManifestWasCreated;
 use Spatie\Backup\BackupDestination\BackupDestination;
@@ -232,13 +231,8 @@ class BackupJob
             $fileName = "{$dbType}-{$dbName}.sql";
 
             if (config('backup.backup.gzip_database_dump')) {
-                $dbDumper->useCompressor(new GzipCompressor());
-                $fileName .= '.'.$dbDumper->getCompressorExtension();
-            }
-
-            if ($compressor = config('backup.backup.database_dump_compressor')) {
-                $dbDumper->useCompressor(new $compressor());
-                $fileName .= '.'.$dbDumper->getCompressorExtension();
+                $fileName .= '.gz';
+                $dbDumper->enableCompression();
             }
 
             $temporaryFilePath = $this->temporaryDirectory->path('db-dumps'.DIRECTORY_SEPARATOR.$fileName);

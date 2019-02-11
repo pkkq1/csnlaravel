@@ -47,9 +47,11 @@ trait Create
                 $request->request->set($key, null);
             }
         }
+
         // insert item in the db
         $item = $this->crud->create($request->except(['save_action', '_token', '_method', 'current_tab']));
         $this->data['entry'] = $this->crud->entry = $item;
+
         // show a success message
         \Alert::success(trans('backpack::crud.insert_success'))->flash();
 
