@@ -149,7 +149,7 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
         }else{
             if(file_exists($file)) {
                 // update time to file case
-                if((time() - filemtime($file)) < UPDATE_CASE_SUGGESTION_MUSIC || UPDATE_CASE_SUGGESTION_MUSIC_ONCE) {
+                if(UPDATE_CASE_SUGGESTION_MUSIC_ONCE || (time() - filemtime($file)) < UPDATE_CASE_SUGGESTION_MUSIC) {
                     return false;
                 }
             }
