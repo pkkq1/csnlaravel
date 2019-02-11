@@ -27,10 +27,10 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
             <nav class="nav_kq_search d-flex align-items-center justify-content-between">
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
                     <a class="nav-item nav-link {{(isset($_GET['page_music']) || isset($_GET['page_album']) || isset($_GET['page_video']) || isset($_GET['page_artist']) ) ? '' : 'active'}}" id="nav-all-tab" data-toggle="tab" href="#nav-all" role="tab" aria-controls="nav-all" aria-selected="true">tất cả</a>
-                    <a class="nav-item nav-link {{isset($_GET['page_music']) ? 'active' : ''}}" id="nav-music-tab" data-toggle="tab" href="#nav-music" role="tab" aria-controls="nav-music" aria-selected="false">bài hát ({{number_format($result['music']['row_total'])}})</a>
-                    <a class="nav-item nav-link {{isset($_GET['page_album']) ? 'active' : ''}}" id="nav-album-tab" data-toggle="tab" href="#nav-album" role="tab" aria-controls="nav-album" aria-selected="false">album ({{number_format($result['album']['row_total'])}})</a>
-                    <a class="nav-item nav-link {{isset($_GET['page_video']) ? 'active' : ''}}" id="nav-video-tab" data-toggle="tab" href="#nav-video" role="tab" aria-controls="nav-video" aria-selected="false">video ({{number_format($result['video']['row_total'])}})</a>
-                    <a class="nav-item nav-link {{isset($_GET['page_artist']) ? 'active' : ''}}" id="nav-artist-tab" data-toggle="tab" href="#nav-artist" role="tab" aria-controls="nav-artist" aria-selected="false">ca sĩ ({{number_format($result['artist']['row_total'])}})</a>
+                    <a class="nav-item nav-link {{isset($_GET['page_music']) ? 'active' : ''}}" id="nav-music-tab" data-toggle="tab" href="#nav-music" role="tab" aria-controls="nav-music" aria-selected="false">bài hát ({{number_format($result['music']['row_total'] ?? 0)}})</a>
+                    <a class="nav-item nav-link {{isset($_GET['page_album']) ? 'active' : ''}}" id="nav-album-tab" data-toggle="tab" href="#nav-album" role="tab" aria-controls="nav-album" aria-selected="false">album ({{number_format($result['album']['row_total'] ?? 0)}})</a>
+                    <a class="nav-item nav-link {{isset($_GET['page_video']) ? 'active' : ''}}" id="nav-video-tab" data-toggle="tab" href="#nav-video" role="tab" aria-controls="nav-video" aria-selected="false">video ({{number_format($result['video']['row_total'] ?? 0)}})</a>
+                    <a class="nav-item nav-link {{isset($_GET['page_artist']) ? 'active' : ''}}" id="nav-artist-tab" data-toggle="tab" href="#nav-artist" role="tab" aria-controls="nav-artist" aria-selected="false">ca sĩ ({{number_format($result['artist']['row_total'] ?? 0)}})</a>
                 </div>
                 <div class="dropdown">
                     <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -146,7 +146,7 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                     <div class="card card-note-search">
                         <div class="card-body">
                             <div class="d-flex align-items-center justify-content-between">
-                                <span class="txt-note">Từ khoá <b>{{$search}}</b> có {{number_format($result['music']['row_total'] + $result['album']['row_total'] + $result['video']['row_total'])}} kết quả</span>
+                                <span class="txt-note">Từ khoá <b>{{$search}}</b> có {{number_format(($result['music']['row_total'] ?? 0) + ($result['album']['row_total'] ?? 0) + ($result['video']['row_total'] ?? 0))}} kết quả</span>
                             </div>
                         </div>
                     </div>
@@ -245,7 +245,7 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                     <div class="card card-note-search">
                         <div class="card-body">
                             <div class="d-flex align-items-center justify-content-between">
-                                <span class="txt-note">Từ khoá <b>{{$search}}</b> có {{number_format($result['music']['row_total'])}} kết quả</span>
+                                <span class="txt-note">Từ khoá <b>{{$search}}</b> có {{number_format($result['music']['row_total'] ?? 0)}} kết quả</span>
                             </div>
                         </div>
                     </div>
@@ -279,14 +279,14 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                             }, $result['music']['data'])
                             ?>
                         </ul>
-                        <center><?php Helpers::pagingCustom($result['music']['page'], $result['music']['rows'], $result['music']['row_total'], '<a href="/tim-kiem?q='.$search.'&page_music=%d">%d</a>') ?></center>
+                        <center><?php Helpers::pagingCustom($result['music']['page'], $result['music']['rows'], $result['music']['row_total'] ?? 0, '<a href="/tim-kiem?q='.$search.'&page_music=%d">%d</a>') ?></center>
                     @endif
                 </div>
                 <div class="tab-pane fade {{isset($_GET['page_album']) ? 'show active' : ''}}" id="nav-album" role="tabpanel" aria-labelledby="nav-album-tab">
                     <div class="card card-note-search">
                         <div class="card-body">
                             <div class="d-flex align-items-center justify-content-between">
-                                <span class="txt-note">Từ khoá <b>{{$search}}</b> có {{number_format($result['album']['row_total'])}} kết quả</span>
+                                <span class="txt-note">Từ khoá <b>{{$search}}</b> có {{number_format($result['album']['row_total'] ?? 0)}} kết quả</span>
                             </div>
                         </div>
                     </div>
@@ -313,14 +313,14 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                         }, $result['album']['data'])
                         ?>
                     </div>
-                    <center><?php Helpers::pagingCustom($result['album']['page'], $result['album']['rows'], $result['album']['row_total'], '<a href="/tim-kiem?q='.$search.'&page_album=%d">%d</a>') ?></center>
+                    <center><?php Helpers::pagingCustom($result['album']['page'], $result['album']['rows'], $result['album']['row_total'] ?? 0, '<a href="/tim-kiem?q='.$search.'&page_album=%d">%d</a>') ?></center>
                     @endif
                 </div>
                 <div class="tab-pane fade {{isset($_GET['page_video']) ? ' show active' : ''}}" id="nav-video" role="tabpanel" aria-labelledby="nav-video-tab">
                     <div class="card card-note-search">
                         <div class="card-body">
                             <div class="d-flex align-items-center justify-content-between">
-                                <span class="txt-note">Từ khoá <b>{{$search}}</b> có {{number_format($result['video']['row_total'])}} kết quả</span>
+                                <span class="txt-note">Từ khoá <b>{{$search}}</b> có {{number_format($result['video']['row_total'] ?? 0)}} kết quả</span>
                             </div>
                         </div>
                     </div>
@@ -346,14 +346,14 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                             }, $result['video']['data'])
                             ?>
                         </div>
-                        <center><?php Helpers::pagingCustom($result['video']['page'], $result['video']['rows'], $result['video']['row_total'], '<a href="/tim-kiem?q='.$search.'&page_video=%d">%d</a>') ?></center>
+                        <center><?php Helpers::pagingCustom($result['video']['page'], $result['video']['rows'], $result['video']['row_total'] ?? 0, '<a href="/tim-kiem?q='.$search.'&page_video=%d">%d</a>') ?></center>
                     @endif
                 </div>
                 <div class="tab-pane fade {{isset($_GET['page_artist']) ? ' show active' : ''}}" id="nav-artist" role="tabpanel" aria-labelledby="nav-artist-tab">
                     <div class="card card-note-search">
                         <div class="card-body">
                             <div class="d-flex align-items-center justify-content-between">
-                                <span class="txt-note">Từ khoá <b>{{$search}}</b> có {{number_format($result['artist']['row_total'])}} kết quả</span>
+                                <span class="txt-note">Từ khoá <b>{{$search}}</b> có {{number_format($result['artist']['row_total'] ?? 0)}} kết quả</span>
                             </div>
                         </div>
                     </div>
@@ -375,7 +375,7 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                             }, $result['artist']['data'])
                             ?>
                         </ul>
-                        <center><?php Helpers::pagingCustom($result['artist']['page'], $result['artist']['rows'], $result['artist']['row_total'], '<a href="/tim-kiem?q='.$search.'&page_artist=%d">%d</a>') ?></center>
+                        <center><?php Helpers::pagingCustom($result['artist']['page'], $result['artist']['rows'], $result['artist']['row_total'] ?? 0, '<a href="/tim-kiem?q='.$search.'&page_artist=%d">%d</a>') ?></center>
                     @endif
                 </div>
             </div>
