@@ -279,7 +279,7 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                             }, $result['music']['data'])
                             ?>
                         </ul>
-                        <center><?php Helpers::pagingCustom($result['music']['page'], $result['music']['rows'], $result['music']['row_total'] ?? 0, '<a href="/tim-kiem?q='.$search.'&page_music=%d">%d</a>') ?></center>
+                        <center><?php Helpers::pagingCustom($result['music']['page'], $result['music']['rows'], $result['music']['row_total'] ?? 0, '<a href="/tim-kiem?q=&page_music=%d">%d</a>', $search) ?></center>
                     @endif
                 </div>
                 <div class="tab-pane fade {{isset($_GET['page_album']) ? 'show active' : ''}}" id="nav-album" role="tabpanel" aria-labelledby="nav-album-tab">
@@ -313,7 +313,7 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                         }, $result['album']['data'])
                         ?>
                     </div>
-                    <center><?php Helpers::pagingCustom($result['album']['page'], $result['album']['rows'], $result['album']['row_total'] ?? 0, '<a href="/tim-kiem?q='.$search.'&page_album=%d">%d</a>') ?></center>
+                    <center><?php Helpers::pagingCustom($result['album']['page'], $result['album']['rows'], $result['album']['row_total'] ?? 0,  '<a href="/tim-kiem?q=&page_music=%d">%d</a>', $search) ?></center>
                     @endif
                 </div>
                 <div class="tab-pane fade {{isset($_GET['page_video']) ? ' show active' : ''}}" id="nav-video" role="tabpanel" aria-labelledby="nav-video-tab">
@@ -346,7 +346,7 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                             }, $result['video']['data'])
                             ?>
                         </div>
-                        <center><?php Helpers::pagingCustom($result['video']['page'], $result['video']['rows'], $result['video']['row_total'] ?? 0, '<a href="/tim-kiem?q='.$search.'&page_video=%d">%d</a>') ?></center>
+                        <center><?php Helpers::pagingCustom($result['video']['page'], $result['video']['rows'], $result['video']['row_total'] ?? 0,  '<a href="/tim-kiem?q=&page_music=%d">%d</a>', $search) ?></center>
                     @endif
                 </div>
                 <div class="tab-pane fade {{isset($_GET['page_artist']) ? ' show active' : ''}}" id="nav-artist" role="tabpanel" aria-labelledby="nav-artist-tab">
@@ -375,7 +375,7 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                             }, $result['artist']['data'])
                             ?>
                         </ul>
-                        <center><?php Helpers::pagingCustom($result['artist']['page'], $result['artist']['rows'], $result['artist']['row_total'] ?? 0, '<a href="/tim-kiem?q='.$search.'&page_artist=%d">%d</a>') ?></center>
+                        <center><?php Helpers::pagingCustom($result['artist']['page'], $result['artist']['rows'], $result['artist']['row_total'] ?? 0,  '<a href="/tim-kiem?q=&page_music=%d">%d</a>', $search) ?></center>
                     @endif
                 </div>
             </div>

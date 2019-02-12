@@ -41,7 +41,8 @@ class PaginationLinksCustom {
       $context    = 1,
       $linkFormat = '<a href="?page=%d">%d</a>',
       $pageFormat = '<span>%d</span>',
-      $ellipsis   = '&hellip;'){
+      $ellipsis   = '&hellip;',
+      $key = 'q'){
 
     // create the list of ranges
     $ranges = array(array(1, 1 + $context));
@@ -61,7 +62,7 @@ class PaginationLinksCustom {
       $links =
           array_merge(
               $links,
-              self::createLinks($range, $page, $linkFormat, $pageFormat));
+              self::createLinks($range, $page, $linkFormat, $pageFormat, $key));
 
     }
 
@@ -98,7 +99,7 @@ class PaginationLinksCustom {
    * $linkFormat - the format for links
    * $pageFormat - the format for the current page
    */
-  private static function createLinks($range, $page, $linkFormat, $pageFormat){
+  private static function createLinks($range, $page, $linkFormat, $pageFormat, $key){
 
     // initialise the list of links
     $links = array();
@@ -113,7 +114,7 @@ class PaginationLinksCustom {
     }
 
     // return the array of links
-    return $links;
+    return str_replace('/tim-kiem?q=', '/tim-kiem?q=' . $key, $links);
 
   }
 

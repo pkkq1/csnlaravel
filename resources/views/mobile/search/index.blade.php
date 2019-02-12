@@ -29,10 +29,10 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
         <div class="header_sub_menu">
             <div data-itemmenu="4" class="swiper-container swiper1">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide selected search-music">Bài Hát ({{number_format($result['music']['row_total'])}})</div>
-                    <div class="swiper-slide search-album" >Album ({{number_format($result['album']['row_total'])}})</div>
-                    <div class="swiper-slide search-video">Video ({{number_format($result['video']['row_total'])}})</div>
-                    <div class="swiper-slide search-artist">Ca sĩ ({{number_format($result['artist']['row_total'])}})</div>
+                    <div class="swiper-slide selected search-music">Bài Hát ({{number_format($result['music']['row_total'] ?? 0)}})</div>
+                    <div class="swiper-slide search-album" >Album ({{number_format($result['album']['row_total'] ?? 0)}})</div>
+                    <div class="swiper-slide search-video">Video ({{number_format($result['video']['row_total'] ?? 0)}})</div>
+                    <div class="swiper-slide search-artist">Ca sĩ ({{number_format($result['artist']['row_total'] ?? 0)}})</div>
                 </div>
             </div>
         </div>
@@ -60,7 +60,7 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                                     <?php
                                     }, $result['music']['data'])
                                     ?>
-                                    <center><?php Helpers::pagingCustom($result['music']['page'], $result['music']['rows'], $result['music']['row_total'], '<a href="/tim-kiem?q='.$search.'&page_music=%d">%d</a>') ?></center>
+                                    <center><?php Helpers::pagingCustom($result['music']['page'] ?? 1, $result['music']['rows'] ?? 0, $result['music']['row_total'] ?? 0, '<a href="/tim-kiem?q=&page_music=%d&tab=music">%d</a>', $search) ?></center>
                                 </div>
                             </div>
                         </div>
@@ -85,7 +85,7 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                                     <?php
                                     }, $result['album']['data'])
                                     ?>
-                                    <center><?php Helpers::pagingCustom($result['album']['page'], $result['album']['rows'], $result['album']['row_total'], '<a href="/tim-kiem?q='.$search.'&page_album=%d">%d</a>') ?></center>
+                                    <center><?php Helpers::pagingCustom($result['album']['page'] ?? 1, $result['album']['rows'] ?? 0, $result['album']['row_total'] ?? 0,  '<a href="/tim-kiem?q=&page_music=%d&tab=album">%d</a>', $search) ?></center>
                                 </div>
                             </div>
                         </div>
@@ -112,7 +112,7 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                                     <?php
                                     }, $result['video']['data'])
                                     ?>
-                                    <center><?php Helpers::pagingCustom($result['video']['page'], $result['video']['rows'], $result['video']['row_total'], '<a href="/tim-kiem?q='.$search.'&page_video=%d">%d</a>') ?></center>
+                                    <center><?php Helpers::pagingCustom($result['video']['page'] ?? 1, $result['video']['rows'] ?? 0, $result['video']['row_total'] ?? 0,  '<a href="/tim-kiem?q=&page_music=%d&tab=video">%d</a>', $search) ?></center>
                                 </div>
                             </div>
                         </div>
@@ -133,7 +133,7 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                                     <?php
                                     }, $result['artist']['data'])
                                     ?>
-                                    <center><?php Helpers::pagingCustom($result['artist']['page'], $result['artist']['rows'], $result['artist']['row_total'], '<a href="/tim-kiem?q='.$search.'&page_artist=%d">%d</a>') ?></center>
+                                    <center><?php Helpers::pagingCustom($result['artist']['page'] ?? 1, $result['artist']['rows'] ?? 0, $result['artist']['row_total'] ?? 0,  '<a href="/tim-kiem?q=&page_music=%d&tab=ca-si">%d</a>', $search) ?></center>
                                 </div>
                             </div>
                         </div>
@@ -190,5 +190,14 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                 ?>
             }, 500);
         });
+        <?php
+        if(isset($_GET['tab'])) {
+        ?>
+        $( document ).ready(function() {
+            $('.<?php echo $_GET['tab'] ?>').click();
+        });
+        <?php
+        }
+        ?>
     </script>
 @endsection
