@@ -288,8 +288,8 @@ class UploadController extends Controller
                     $result->music_state = $request->input('music_state');
                 }
             }
-            if($per_Xet_Duyet)
-                $result->music_track_id = $request->input('music_track_id');
+            if($per_Xet_Duyet && $request->music_track_id)
+                $result->music_track_id = $request->music_track_id;
             if($per_Xet_Duyet_Chat_luong) {
                 $result->music_bitrate_fixed = $request->input('music_bitrate_fixed');
                 $result->music_bitrate_fixed_by = Auth::user()->id;
