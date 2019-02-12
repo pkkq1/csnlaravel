@@ -65,6 +65,7 @@ class SearchController extends Controller
         ];
         if($search) {
             $rawTiengViet = Helpers::khongdau($search, ' ');
+            //dd($search);
             $charsetNoSpace = str_replace(' ', '', $rawTiengViet);
             $titleCharset = str_replace(' ', '+', $rawTiengViet);
             $titleSearch = str_replace(' ', '+', $search);//Helpers::replaceKeySearch($searchNotUtf8);
@@ -72,10 +73,10 @@ class SearchController extends Controller
             if(isset($request->view_all) || isset($request->view_music)) {
                 $searchSolarium = [];
                 //$searchSolarium['music_title_charset_nospace'] = $charsetNoSpace .'^1000';
-                if ($quickSearch) {
+//                if ($quickSearch) {
                     $searchSolarium['music_title_charset_nospace'] = $charsetNoSpace . '^500';
                     $searchSolarium['music_title_artist_charset_nospace'] = $charsetNoSpace . '^100 | music_title_artist_charset_nospace:' . $charsetNoSpace . '*^50';
-                }
+//                }
     //            $searchSolarium['music_title_artist_charset'] = $titleCharset;
                 if($titleSearch) {
                     //$searchSolarium['music_title_artist_search'] = $titleSearch;
