@@ -306,6 +306,12 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                                             document.getElementById('music_state').value = <?php echo old('music_state') ?? $music->music_state ?? 0 ?>;
                                         </script>
                                         @endif
+                                        @if($perMission_Duyet_Sua_Nhac && isset($music) && $music)
+                                            <div class="form-group col-4{{ $errors->has('music_state') ? ' has-error' : '' }}">
+                                                <label for="cat_id">Track id</label>
+                                                <input type="text" class="form-control" value="{{old('music_track_id') ?? $music->music_track_id ?? 0}}" name="music_track_id">
+                                            </div>
+                                        @endif
                                         @if(isset($music) && $typeUpload != 'video' &&  Auth::user()->hasPermission('duyet_sua_chat_luong_nhac'))
                                             <div class="form-group col-4{{ $errors->has('cat_id') ? ' has-error' : '' }}">
                                                 <label for="cat_id">Chất lượng nhạc</label>
@@ -317,7 +323,7 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                                                     <option value="1000">Lossless</option>
                                                 </select>
                                             </div>
-                                            <div class="form-group col-8">
+                                            <div class="form-group col-12">
                                                 <img class="card-img-top" src="{{Helpers::getImgQuality($music->music_id)}}?v={{time()}}" alt="">
                                             </div>
                                             <script>
