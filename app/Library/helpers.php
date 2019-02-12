@@ -468,9 +468,9 @@ class Helpers
         return ($id == 0) ? SUB_PLAYLIST_PUBLISHER . $playlist_url : SUB_PLAYLIST . $playlist_url . '?id='. $id;
     }
 
-    public static function pagingCustom($page, $rows, $total, $url) {
+    public static function pagingCustom($page, $rows, $total, $url, $key = 'q') {
         echo '<ul class="pagination">';
-        echo PaginationLinksCustom::create($page, intval($total / $rows), 1, '<li>'.$url.'</li>', '<li class="active"><a>%d</a></li>', '<li><a>&hellip;</a></li>');
+        echo PaginationLinksCustom::create($page, intval($total / $rows), 1, '<li>'.$url.'</li>', '<li class="active"><a>%d</a></li>', '<li><a>&hellip;</a></li>', $key);
         echo '</ul>';
     }
 
@@ -541,23 +541,23 @@ class Helpers
 
         // Large Server
         else if ($music_id <= 1029000)
-            $url = (rand(1,2) == 1) ? 'http://data16.chiasenhac.com/' : 'http://data4.chiasenhac.com/';
+            $url = (rand(1,3) != 1) ? 'http://data16.chiasenhac.com/' : 'http://data4.chiasenhac.com/';
         else if (1029000 < $music_id && $music_id <= 1059000)
-            $url = (rand(1,2) == 1) ? 'http://data17.chiasenhac.com/' : 'http://data4.chiasenhac.com/';
+            $url = (rand(1,3) != 1) ? 'http://data17.chiasenhac.com/' : 'http://data4.chiasenhac.com/';
         else if (1059000 < $music_id && $music_id <= 1089000)
-            $url = (rand(1,2) == 1) ? 'http://data18.chiasenhac.com/' : 'http://data4.chiasenhac.com/';
+            $url = (rand(1,3) != 1) ? 'http://data18.chiasenhac.com/' : 'http://data4.chiasenhac.com/';
         else if (1089000 < $music_id && $music_id <= 1119000)
-            $url = (rand(1,2) == 1) ? 'http://data19.chiasenhac.com/' : 'http://data4.chiasenhac.com/';
+            $url = (rand(1,3) != 1) ? 'http://data19.chiasenhac.com/' : 'http://data4.chiasenhac.com/';
         else if (1119000 < $music_id && $music_id <= 1149000)
-            $url = (rand(1,2) == 1) ? 'http://data20.chiasenhac.com/' : 'http://data4.chiasenhac.com/';
+            $url = (rand(1,3) != 1) ? 'http://data20.chiasenhac.com/' : 'http://data4.chiasenhac.com/';
         else if (1149000 < $music_id && $music_id <= 1179000)
-            $url = (rand(1,2) == 1) ? 'http://data21.chiasenhac.com/' : 'http://data4.chiasenhac.com/';
+            $url = (rand(1,3) != 1) ? 'http://data21.chiasenhac.com/' : 'http://data4.chiasenhac.com/';
         else if (1179000 < $music_id && $music_id <= 1209000)
-            $url = (rand(1,2) == 1) ? 'http://data22.chiasenhac.com/' : 'http://data4.chiasenhac.com/';
+            $url = (rand(1,3) != 1) ? 'http://data22.chiasenhac.com/' : 'http://data4.chiasenhac.com/';
         else if (1209000 < $music_id && $music_id <= 1239000)
-            $url = (rand(1,2) == 1) ? 'http://data23.chiasenhac.com/' : 'http://data4.chiasenhac.com/';
+            $url = (rand(1,3) != 1) ? 'http://data23.chiasenhac.com/' : 'http://data4.chiasenhac.com/';
         else if (1239000 < $music_id && $music_id <= 1269000)
-            $url = (rand(1,2) == 1) ? 'http://data24.chiasenhac.com/' : 'http://data4.chiasenhac.com/';
+            $url = (rand(1,3) != 1) ? 'http://data24.chiasenhac.com/' : 'http://data4.chiasenhac.com/';
 
         else if ($music_id <= 1269000)
             $url = 'http://data4.chiasenhac.com/';
@@ -615,7 +615,7 @@ class Helpers
             $url = 'http://data36.chiasenhac.com/';
         else if ($music_id <= 1979000)
             $url = 'http://data31.chiasenhac.com/';
-        else if ($music_id <= 1989000)
+        else if ($music_id <= 1982000)
             $url = 'http://data.chiasenhac.com/';
         else if ($music_id <= 1993000)
             $url = 'http://data25.chiasenhac.com/';
