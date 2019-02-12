@@ -468,13 +468,10 @@ class Helpers
         return ($id == 0) ? SUB_PLAYLIST_PUBLISHER . $playlist_url : SUB_PLAYLIST . $playlist_url . '?id='. $id;
     }
 
-    public static function pagingCustom($page, $rows, $total, $url, $key = '') {
-        if($rows > 0 && $total > 0) {
-            echo '<ul class="pagination">';
-            echo PaginationLinksCustom::create($page, intval($total / $rows), 1, '<li>'.$url.'</li>', '<li class="active"><a>%d</a></li>', '<li><a>&hellip;</a></li>', $key);
-            echo '</ul>';
-        }
-
+    public static function pagingCustom($page, $rows, $total, $url) {
+        echo '<ul class="pagination">';
+        echo PaginationLinksCustom::create($page, intval($total / $rows), 1, '<li>'.$url.'</li>', '<li class="active"><a>%d</a></li>', '<li><a>&hellip;</a></li>');
+        echo '</ul>';
     }
 
 
@@ -619,7 +616,7 @@ class Helpers
         else if ($music_id <= 1979000)
             $url = 'http://data31.chiasenhac.com/';
         else if ($music_id <= 1988000)
-            $url = 'http://data25.chiasenhac.com/';
+            $url = 'http://data.chiasenhac.com/';
         else
             $url = 'http://data.chiasenhac.com/';
 
