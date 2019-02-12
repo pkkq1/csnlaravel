@@ -468,9 +468,9 @@ class Helpers
         return ($id == 0) ? SUB_PLAYLIST_PUBLISHER . $playlist_url : SUB_PLAYLIST . $playlist_url . '?id='. $id;
     }
 
-    public static function pagingCustom($page, $rows, $total, $url) {
+    public static function pagingCustom($page, $rows, $total, $url, $key = 'q') {
         echo '<ul class="pagination">';
-        echo PaginationLinksCustom::create($page, intval($total / $rows), 1, '<li>'.$url.'</li>', '<li class="active"><a>%d</a></li>', '<li><a>&hellip;</a></li>');
+        echo PaginationLinksCustom::create($page, intval($total / $rows), 1, '<li>'.$url.'</li>', '<li class="active"><a>%d</a></li>', '<li><a>&hellip;</a></li>', $key);
         echo '</ul>';
     }
 
