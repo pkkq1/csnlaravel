@@ -287,7 +287,14 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
 //                ->where('music_artist', $music->music_artist)
 //                ->select($select)
 //                ->first();
-            $video = $this->Solr->search(['video_title' => '("'.$music->music_title.'")', 'video_artist' => '("'.$music->music_artist.'")'], 1, 1);
+
+            $titleSearch = Helpers::replaceKeySearch($music->music_title);
+            $artistSearch = Helpers::replaceKeySearch($music->music_artist);
+            $titleCharset = Helpers::khongdau($titleSearch, ' ');
+            $artistCharset = Helpers::khongdau($artistSearch, ' ');
+
+//            $video = $this->Solr->search(['video_title' => '("'.$music->music_title.'")', 'video_artist' => '("'.$music->music_artist.'")'], 1, 1);
+            $video = $this->Solr->search(['video_title_artist_charset_nospace' => str_replace(' ', '', $titleCharset) .''. str_replace(' ', '', $artistCharset)], 1, 1);
             $video = $video['data'];
         }
         // close connect database
