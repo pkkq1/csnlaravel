@@ -82,7 +82,7 @@ if($musicSet['type_listen'] == 'playlist') {
                             <div>
                                 <h6 class="name_song mb-2">{{$music->music_title}}</h6>
                                 <p class="text-pink mb-2"><?php echo $artistHtml ?></p>
-                                <p class="text-gray m-0">{{number_format($music->music_listen)}} lượt nghe</p>
+                                <p class="text-gray m-0"><i class="fa fa-headphones"></i> {{number_format($music->music_listen)}}&nbsp;&nbsp;<i class="fa fa-download"></i> {{number_format($music->music_downloads)}}</p>
                             </div>
                             <div class="block_button d-flex justify-content-between">
                                 <div class="element ele-playlist">

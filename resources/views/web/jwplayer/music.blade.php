@@ -70,7 +70,7 @@ if($musicSet['type_listen'] == 'playlist') {
                         <li class="breadcrumb-item"><a href="{{env('APP_URL').'/'.$prefixCatUrl.'/'.$catMusic[0]['cat_url'].'/'.$catMusic[$music->cat_level]['cat_url']}}.html">{{$catMusic[$music->cat_level]['cat_title']}}</a></li>
                     </ol>
                 </nav>
-                <div class="d-flex justify-content-between mb-3 box1 music-listen-title" style="line-height: 32px;">
+                <div class="d-flex justify-content-between mb-3 box1 music-listen-title" style="line-height: 33px;">
                     <h1 class="title">{{$music->music_title}} - <span><?php echo $artistHtml ?></span></h1>
                     <span class="d-flex listen"><i class="material-icons" style="padding-top: 3px;">headset</i> {{number_format($music->music_listen)}}&nbsp;&nbsp;<i class="material-icons" style="font-size: 28px;">cloud_download</i> {{number_format($music->music_downloads)}}</span>
                 </div>
