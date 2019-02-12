@@ -50,19 +50,27 @@ class LoginController extends Controller
         if(!filter_var($request->get($this->username()), FILTER_VALIDATE_EMAIL)) {
             $credentials = [
                 'username' => $request->email,
-                'password' => $request->password
+                'password' => md5($request->password)
+//              'password' => $request->password,
+
             ];
         }
-        if(Auth::once($credentials)) {
-            $user = Auth::getUser();
-            if($user->user_active == 0 || $user->user_active == 1) {
-                return $this->guard()->attempt(
-                    $this->credentials($request), $request->has('remember')
-                );
-            }else{
-                return false;
-            }
+//        if(Auth::once($credentials)) {
+//            $user = Auth::getUser();
+//            if($user->user_active == 0 || $user->user_active == 1) {
+//                return $this->guard()->attempt(
+//                    $this->credentials($request), $request->has('remember')
+//                );
+//            }else{
+//                return false;
+//            }
+//        }
+        $user = \App\Models\UserModel::where($credentials)->first();
+        if ($user) {
+            $this->guard()->login($user, $request->has('remember'));
+            return true;
         }
+        return false;
     }
     protected function credentials(Request $request)
     {
@@ -112,4 +120,5 @@ class LoginController extends Controller
             ->withInput($request->only($this->username(), 'remember'))
             ->withErrors($errors);
     }
+
 }
