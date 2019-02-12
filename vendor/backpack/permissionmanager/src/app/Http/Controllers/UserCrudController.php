@@ -43,11 +43,11 @@ class UserCrudController extends CrudController
                     return '<a href="/user/'.$entry->user_id.'" target="_blank">'.$entry->user_id.'</a>';
                 },
             ],
-            [
-                'name'  => 'created_at',
-                'label' => 'Ngày tạo',
-                'type'  => 'date',
-            ],
+//            [
+//                'name'  => 'created_at',
+//                'label' => 'Ngày tạo',
+//                'type'  => 'date',
+//            ],
             [
                 'name'  => 'name',
                 'label' => trans('backpack::permissionmanager.name'),

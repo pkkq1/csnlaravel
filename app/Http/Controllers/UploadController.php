@@ -283,27 +283,30 @@ class UploadController extends Controller
                 if($per_Xet_Duyet)
                     $result->cover_id = str_replace('cover_', '', $request->input('cover_id'));
             }
-            if($per_Xet_Duyet)
-                $result->music_state = $request->input('music_state');
+            if($per_Xet_Duyet) {
+                if($request->music_state) {
+                    $result->music_state = $request->input('music_state');
+                }
+            }
             if($per_Xet_Duyet_Chat_luong) {
                 $result->music_bitrate_fixed = $request->input('music_bitrate_fixed');
                 $result->music_bitrate_fixed_by = Auth::user()->id;
             }
             $result->save();
             // update cover
-            if($result->music_state == UPLOAD_STAGE_FULLCENSOR && $result->cover_id) {
-                $album = [];
-                foreach(explode(';', $request->input('music_artist')) as $key => $item) {
-                    $album['album_artist_' . ++ $key] = $item;
-                    if($key == 1)
-                        break;
-                }
-                foreach(explode(';', $request->input('music_artist_id')) as $key => $item) {
-                    $album['album_artist_id_' . ++ $key] = $item;
-                    if($key == 1)
-                        break;
-                }
-            }
+//            if($result->music_state == UPLOAD_STAGE_FULLCENSOR && $result->cover_id) {
+//                $album = [];
+//                foreach(explode(';', $request->input('music_artist')) as $key => $item) {
+//                    $album['album_artist_' . ++ $key] = $item;
+//                    if($key == 1)
+//                        break;
+//                }
+//                foreach(explode(';', $request->input('music_artist_id')) as $key => $item) {
+//                    $album['album_artist_id_' . ++ $key] = $item;
+//                    if($key == 1)
+//                        break;
+//                }
+//            }
 
             $musicRedirectNext = $this->uploadRepository->getModel()::where('music_user_id', $result->music_user_id)
                 ->where('music_id', '>', $result->music_id)
