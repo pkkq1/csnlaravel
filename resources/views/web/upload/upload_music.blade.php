@@ -91,7 +91,7 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                                         <div class="choose_music_search list_music"></div>
                                         @if(isset($music) && isset($album) || $perMission_Duyet_Sua_Nhac)
 
-                                        <div class="form-group col-12" style="margin-bottom: 0px;">
+                                        <div class="form-group col-{{($perMission_Duyet_Sua_Nhac && isset($music) && $music->cover_id) ? '10' : '12'}}" style="margin-bottom: 0px;">
                                             <label for="music_title">Album</label>
                                             @if($perMission_Duyet_Sua_Nhac)
                                             <input type="text" class="form-control" name="album_search" value="" style="font-style: italic; font-family: inherit; margin-bottom: 15px" id="album_search"  placeholder="Nhập tên album bạn cần tìm">
@@ -99,6 +99,12 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                                             <input type="hidden" class="form-control" name="album_original_id" value="" id="album_original_id">
                                             @endif
                                         </div>
+                                        @if($perMission_Duyet_Sua_Nhac && isset($music) && $music->cover_id)
+                                            <div class="form-group col-2{{ $errors->has('music_state') ? ' has-error' : '' }}">
+                                                <label for="cat_id">Track id</label>
+                                                <input type="text" class="form-control" value="{{old('music_track_id') ?? $music->music_track_id ?? 0}}" name="music_track_id">
+                                            </div>
+                                        @endif
                                         <div class="choose_album_search list_music">
                                             @if(isset($music) && $music->cover_id)
                                             <?php
@@ -305,12 +311,6 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                                         <script>
                                             document.getElementById('music_state').value = <?php echo old('music_state') ?? $music->music_state ?? 0 ?>;
                                         </script>
-                                        @endif
-                                        @if($perMission_Duyet_Sua_Nhac && isset($music) && $music)
-                                            <div class="form-group col-4{{ $errors->has('music_state') ? ' has-error' : '' }}">
-                                                <label for="cat_id">Track id</label>
-                                                <input type="text" class="form-control" value="{{old('music_track_id') ?? $music->music_track_id ?? 0}}" name="music_track_id">
-                                            </div>
                                         @endif
                                         @if(isset($music) && $typeUpload != 'video' &&  Auth::user()->hasPermission('duyet_sua_chat_luong_nhac'))
                                             <div class="form-group col-4{{ $errors->has('cat_id') ? ' has-error' : '' }}">
