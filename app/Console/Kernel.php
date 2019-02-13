@@ -21,6 +21,7 @@ class Kernel extends ConsoleKernel
         Commands\MusicListenDownload::class,
         Commands\Uploader::class,
         Commands\Solr::class,
+        Commands\TopArtist::class,
     ];
 
     /**
@@ -50,6 +51,7 @@ class Kernel extends ConsoleKernel
 
         $schedule->command('bxh_cat:type cat_month '.CURRENT_MONTH.' 2019')->dailyAt('00:20');  // bảng xếp hạng tháng trong năm, (all sẽ lấy tất cả trong năm, all_month sẽ lấy tất cả tháng, số sẽ lấy đúng tháng)
         $schedule->command('bxh_cat:type cat_month all 2019')->dailyAt('00:25');   // bảng xếp hạng của năm
+        $schedule->command('top_artist')->dailyAt('00:30');   // top ca sĩ
 
 
         $schedule->command('solr:type music')->hourlyAt(30); // đồng bộ search solr nhạc

@@ -21,7 +21,7 @@ $catalog = config('constants.catalog');
 @include('cache.def_home_download')
 @include('cache.bxh.bxh_today')
 @include('cache.uploader.uploader_week')
-@include('cache.def_home_artist')
+@include('cache.top_artist')
 
 <div class="slide_home"
      style="background: url('/imgs/Slice-1.jpg');">
@@ -469,10 +469,11 @@ $catalog = config('constants.catalog');
             </div>
             <div class="singer_grid">
                 <?php
-                $artistRows = Helpers::getRandLimitArr($top_artist_rows[3], LIMIT_HOME_ARTIST);
+//                $artistRows = Helpers::getRandLimitArr($top_artist_rows, LIMIT_HOME_ARTIST);
+                $artistRows = $top_artist_rows;
                 array_map(function ($i, $item) {
                 ?>
-                    <a href="{{$item['artist_url']}}" title="{{$item['music_artist']}}" class="img-thumbnail singer {{$i == 0 ? 'c1' : ''}}" style="background-image: url({{Helpers::cover_url($item['artist_face_id'])}});">
+                    <a href="{{$item['artist_url']}}" title="{{$item['music_artist']}}" class="img-thumbnail singer {{$i == 0 ? 'c1' : ''}}" style="background-image: url({{$item['artist_avatar']}});">
                         <span>{{$item['music_artist']}}</span>
                     </a>
                 <?php
