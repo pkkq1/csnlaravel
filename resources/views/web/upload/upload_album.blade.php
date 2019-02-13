@@ -555,26 +555,27 @@ $titleMeta = 'Cập nhật album - ' . Config::get('constants.app.title');
         $(document).ready(function(){
             $('#choose_album_cover').on('change', function(){
                 $('#image_demo').html('');
-                $('.modal-dialog').css("max-width", "500px")
+                $('.modal-dialog').css("max-width", "535px")
                 $image_crop = $('#image_demo').croppie({
                     enableExif: true,
+                    enableZoom: true,
+                    // showZoomer: false,
                     viewport: {
-                        width:500,
-                        height:500,
+                        width:300,
+                        height:300,
                         type:'square' //circle
                     },
                     boundary:{
-                        width:300,
-                        height:300
+                        width:500,
+                        height:500
                     },
-                    showZoomer: false,
                     enableOrientation: true,
                     mouseWheelZoom: '',
                 });
                 var reader = new FileReader();
                 reader.onload = function (event) {
                     $image_crop.croppie('bind', {
-                        url: event.target.result
+                        url: event.target.result,
                     }).then(function(){
                         console.log('jQuery bind complete');
                     });

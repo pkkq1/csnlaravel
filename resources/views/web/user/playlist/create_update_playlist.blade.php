@@ -185,7 +185,7 @@ $titleMeta = $playlistUser ? 'Cập nhật playlist - ' . $playlistUser->playlis
         $(document).ready(function(){
             $('#choose_playlist_cover').on('change', function(){
                 $('#image_demo').html('');
-                $('.modal-dialog').css("max-width", "500px")
+                $('.modal-dialog').css("max-width", "535px")
                 $image_crop = $('#image_demo').croppie({
                     enableExif: true,
                     viewport: {
@@ -194,10 +194,10 @@ $titleMeta = $playlistUser ? 'Cập nhật playlist - ' . $playlistUser->playlis
                         type:'square' //circle
                     },
                     boundary:{
-                        width:300,
-                        height:300
+                        width:500,
+                        height:500
                     },
-                    showZoomer: false,
+                    // showZoomer: false,
                     enableOrientation: true,
                     mouseWheelZoom: '',
                 });

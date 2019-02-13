@@ -174,7 +174,7 @@ $titleMeta = isset($artistExist) ? 'Cập nhật nghệ sĩ '.$artistExist->arti
             $('#choose_artist_avatar').on('change', function(){
                 selectImage = 'avatar';
                 $('#image_demo').html('');
-                $('.modal-dialog').css("max-width", "500px")
+                $('.modal-dialog').css("max-width", "535px")
                 $image_crop = $('#image_demo').croppie({
                     enableExif: true,
                     viewport: {
@@ -183,10 +183,10 @@ $titleMeta = isset($artistExist) ? 'Cập nhật nghệ sĩ '.$artistExist->arti
                         type:'square' //circle
                     },
                     boundary:{
-                        width:300,
-                        height:300
+                        width:500,
+                        height:500
                     },
-                    showZoomer: false,
+                    // showZoomer: false,
                     enableOrientation: true,
                     mouseWheelZoom: '',
                 });
