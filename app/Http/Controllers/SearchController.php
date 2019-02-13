@@ -158,6 +158,9 @@ class SearchController extends Controller
                 $searchSolarium['music_album_charset'] = $titleCharset;
                 if($titleSearch !== $titleCharset)
                     $searchSolarium['music_album_search'] = $titleSearch;
+                if(isset($request->only_user)){
+                    $searchSolarium['music_album_charset'] = $searchSolarium['music_album_charset'] .' AND album_user_id: ' . Auth::user()->user_id;
+                }
                 $resultAlbum = $this->Solr->search($searchSolarium, ($request->page_album ?? 1), $request->rows ?? ROWS_ALBUM_SEARCH_PAGING, array('score' => 'desc'));
                 if($resultAlbum['data']) {
                     foreach ($resultAlbum['data'] as $item) {

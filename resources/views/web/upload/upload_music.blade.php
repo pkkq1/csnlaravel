@@ -89,17 +89,13 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                                             <input type="hidden" class="form-control" name="music_original_id" value="" id="music_original_id">
                                         </div>
                                         <div class="choose_music_search list_music"></div>
-                                        @if(isset($music) && isset($album) || $perMission_Duyet_Sua_Nhac)
-
-                                        <div class="form-group col-{{($perMission_Duyet_Sua_Nhac && isset($music) && $music->cover_id) ? '10' : '12'}}" style="margin-bottom: 0px;">
+                                        <div class="form-group col-{{(isset($music) && $music->cover_id) ? '10' : '12'}}" style="margin-bottom: 0px;">
                                             <label for="music_title">Album</label>
-                                            @if($perMission_Duyet_Sua_Nhac)
                                             <input type="text" class="form-control" name="album_search" value="" style="font-style: italic; font-family: inherit; margin-bottom: 15px" id="album_search"  placeholder="Nhập tên album bạn cần tìm">
                                             <div class="search_layout_upload_album card suggest_search search_layout_upload"></div>
                                             <input type="hidden" class="form-control" name="album_original_id" value="" id="album_original_id">
-                                            @endif
                                         </div>
-                                        @if($perMission_Duyet_Sua_Nhac && isset($music) && $music->cover_id)
+                                        @if(isset($music) && $music->cover_id)
                                             <div class="form-group col-2{{ $errors->has('music_state') ? ' has-error' : '' }}">
                                                 <label for="cat_id">Track id</label>
                                                 <input type="text" class="form-control" value="{{old('music_track_id') ?? $music->music_track_id ?? 0}}" name="music_track_id">
@@ -130,8 +126,6 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                                             </li>
                                             @endif
                                         </div>
-                                        @endif
-
 
                                         <div class="form-group col-12{{ $errors->has('music_title') ? ' has-error' : '' }}">
                                             <label for="music_title">Tên {{$mess}} <small>(*)</small></label>
@@ -143,7 +137,7 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                                             @endif
                                         </div>
                                         <div class="form-group music_artist col-12{{ $errors->has('music_artist') ? ' has-error' : '' }}">
-                                            <label for="music_artist">Ca sĩ <small>(*)</small><small style="color: #b2b2b2;">&nbsp;&nbsp;ấn ; để thêm ca sĩ mới không có trong tags chọn.</small></label>
+                                            <label for="music_artist">Ca sĩ <small>(*)</small></label>
                                             <input type="text" class="form-control" name="music_artist_id" value="{{ old('music_artist_id') }}" id="music_artist_id">
                                             <input type="hidden" class="form-control" name="music_artist" value="{{ old('music_artist') }}" id="music_artist" placeholder="Nhập tên ca sĩ">
                                             @if ($errors->has('music_artist'))
@@ -701,8 +695,6 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
             $('.suggest_music').val('');
         }
 
-        <?php if($perMission_Duyet_Sua_Nhac) {
-        ?>
         // search album
         $( document ).ready(function() {
             $( "#album_search" ).autocomplete({
@@ -715,6 +707,7 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                             q: request.term,
                             type: 'json',
                             rows: 10,
+                            <?php echo (!$perMission_Duyet_Sua_Nhac ? 'only_user: true,' : '') ?>
                             view_album: true
                         },
                         success: function( data ) {
@@ -766,12 +759,8 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                     album +
                     '</ul><hr>';
             }
-            return '';
+            return 'Không tìm thấy kết quả';
         }
-
-
-        <?php
-        } ?>
         function deleteAlbum() {
             $('.choose_album_search').html('');
             $('.cover_id').val(0);
