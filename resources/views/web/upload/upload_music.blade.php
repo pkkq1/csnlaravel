@@ -759,7 +759,7 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                     album +
                     '</ul><hr>';
             }
-            return 'Không tìm thấy kết quả';
+            return 'Không tìm thấy kết quả album của bạn';
         }
         function deleteAlbum() {
             $('.choose_album_search').html('');
