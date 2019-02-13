@@ -417,11 +417,12 @@ class SolrSyncController extends Controller
                 ->where('album_last_updated', '>',  $time)->orderBy('cover_id', 'asc')->get();
         }else {
             $cover = CoverModel::where('album_music_total', '>', 0)
-                ->orderBy('cover_id', 'asc')->offset(0)->limit(100000)->get();
+                ->where('cover_id', '>', intval($_GET['c_start']))
+                ->orderBy('cover_id', 'asc')->offset(0)->limit(5000)->get();
         }
         DB::disconnect('mysql');
         $datas = [];
-        foreach ($cover as $item) {
+        foreach ($cover as $key => $item) {
             $music_artist = $item->album_artist_1;
             $music_artist_id = $item->album_artist_id_1;
             if($item->album_artist_2) {
@@ -474,6 +475,18 @@ class SolrSyncController extends Controller
             }
             $datas[] = $data;
 //            $this->Solr->addDocuments($data);
+            if(Auth::check() && Auth::user()->id == 3) {
+                echo ($key) . '/ ' . $item->cover_id . "\n <br>";
+            }
+        }
+        $this->Solr->addMultiDocuments($datas);
+
+        if(Auth::check() && Auth::user()->id == 3) {
+            if (sizeof($cover) > 0) {
+                die('<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html><head><script type="text/javascript">window.location = "?c_start=' . $item->cover_id . '"; </script></head><body></body></html>');
+            } else {
+                die('Done! Full Data!');
+            }
         }
         $this->Solr->addMultiDocuments($datas);
 
