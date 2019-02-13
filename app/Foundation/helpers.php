@@ -27,16 +27,19 @@ function view($view = null, $data = [], $mergeData = [])
 
     }
     if(strpos($view, '.errors') !== false) {
-        ErrorLogModel::create([
-            'request' => json_encode(app('request')->route()->getAction()),
-            'type' => last(explode('.', $view)),
-            'url' => $_SERVER['REQUEST_URI'],
-            'view' => '',
-            'message' => '',
-            'user_id' => Auth::check() ? Auth::user()->id : null,
-            'parameter' => json_encode(Request()->all()),
-            'ip_address' => Helpers::getIp()
-        ]);
+        $error = ErrorLogModel::where('type', last(explode('.', $view)))->where('url', $_SERVER['REQUEST_URI'])->first();
+        if(!$error) {
+            ErrorLogModel::create([
+                'request' => json_encode(app('request')->route()->getAction()),
+                'type' => last(explode('.', $view)),
+                'url' => $_SERVER['REQUEST_URI'],
+                'view' => '',
+                'message' => '',
+                'user_id' => Auth::check() ? Auth::user()->id : null,
+                'parameter' => json_encode(Request()->all()),
+                'ip_address' => Helpers::getIp()
+            ]);
+        }
     }
     return $factory->make($view, $data, $mergeData);
 }
