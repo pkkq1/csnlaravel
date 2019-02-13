@@ -461,7 +461,7 @@ class SolrSyncController extends Controller
                 'album_bitrate' => $item->music_bitrate,
                 'music_artist_html' => '',
                 'album_bitrate_html' => $item->music_bitrate ? Helpers::bitrate2str($item->music_bitrate) : '',
-                'user_id' => $item->user_id,
+                'album_user_id' => $item->user_id,
                 'album_music_total' => $item->album_music_total,
             ];
             if($music_artist) {
