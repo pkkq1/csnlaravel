@@ -35,12 +35,14 @@ class ArtistController extends Controller
         foreach($musics as $item) {
             $music_artist_id = explode(';', $item->music_artist_id);
             foreach ($music_artist_id as $ar) {
-                if(($top_artist_rows[$ar]['music_total'] ?? 0) <= 5) {
-                    $top_artist_rows[$ar] = [
-                        'music_downloads_this_week' => ($top_artist_rows[$ar]['music_downloads_this_week'] ?? 0) + $item->music_downloads_this_week,
-                        'music_total' => ($top_artist_rows[$ar]['music_total'] ?? 0) + 1,
-                        'id' => $ar
-                    ];
+                if ( $ar > 0 ) {
+                    if (($top_artist_rows[$ar]['music_total'] ?? 0) < 5) {
+                        $top_artist_rows[$ar] = [
+                            'music_downloads_this_week' => ($top_artist_rows[$ar]['music_downloads_this_week'] ?? 0) + $item->music_downloads_this_week,
+                            'music_total' => ($top_artist_rows[$ar]['music_total'] ?? 0) + 1,
+                            'id' => $ar
+                        ];
+                    }
                 }
             }
         }
