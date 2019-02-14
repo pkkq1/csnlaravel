@@ -21,25 +21,43 @@ $allpage_banner = false;
 <section class="wrapper_content">
 @include('web.layouts.wapper')
 @hasSection('hidden_wapper')
+@endif
 
+@hasSection('in_player')
+        <div class="ads_box" id="pc_masthead">
+            <div class="container text-center">
+                <div id="bsmasthead-wrapper">
+                    <!-- BlueSeed - asynchronous code for placement 1365 Chiasenhac Masthead Desktop -->
+                    <ins class="hadar-placement" data-hdpm="1365" ></ins><script id="jshd1pm_1365" src="https://static.blueseed.tv/ajs/display.js"></script>
+                </div>
+            </div>
+        </div>
 @else
-    <div class="ads_box" id="pc_masthead" onchange="pc_masthead_change();">
+    <div class="ads_box" id="pc_masthead">
         <div class="container text-center">
                <div id="bsmasthead-wrapper">
-                   <!-- BlueSeed - asynchronous code for placement 1365 Chiasenhac Masthead Desktop -->
-                   <ins class="hadar-placement" data-hdpm="1365" ></ins><script id="jshd1pm_1365" src="https://static.blueseed.tv/ajs/display.js"></script>
+                   <!-- BlueSeed - asynchronous code for placement 1643 Chiasenhac Masthead Player Desktop -->
+                   <ins class="hadar-placement" data-hdpm="1643" ></ins><script id="jshd1pm_1643" src="https://static.blueseed.tv/ajs/display.js"></script>
                </div>
         </div>
     </div>
 @endif
+
 @yield('content')
 
 @include('web.layouts.footer')
 </section>
 @yield('contentJS')
 
-<!-- BlueSeed - asynchronous code for placement 1468 Chiasenhac Balloon Home Page Desktop -->
-<script id="jshd1pm_1468" src="https://d2.blueseed.tv/ads-sync.js?placement=1468"></script>
+@hasSection('in_player')
+    <!-- BlueSeed - asynchronous code for placement 1640 Chiasenhac Balloon Music Player Desktop -->
+    <script id="jshd1pm_1640" src="https://d2.blueseed.tv/ads-sync.js?placement=1640"></script>
+@else
+    <!-- BlueSeed - asynchronous code for placement 1468 Chiasenhac Balloon Home Page Desktop -->
+    <script id="jshd1pm_1468" src="https://d2.blueseed.tv/ads-sync.js?placement=1468"></script>
+    <!-- BlueSeed - asynchronous code for placement 1883 Chiasenhac InFlow Desktop -->
+    <script id="jshd1pm_1883" src="https://d2.blueseed.tv/ads-sync.js?placement=1883"></script>
+@endif
 
 </body>
 </html>
