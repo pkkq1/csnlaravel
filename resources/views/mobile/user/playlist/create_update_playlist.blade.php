@@ -190,15 +190,19 @@ $user = Auth::user();
         }
         var $uploadCrop = $('#upload-avatar').croppie({
             enableExif: true,
+            enableZoom: true,
             viewport: {
-                width:300,
-                height:300,
+                width:220,
+                height:220,
                 type:'square' //circle
             },
             boundary:{
-                width:300,
-                height:300
+                width:220,
+                height:220
             },
+            // showZoomer: false,
+            enableOrientation: true,
+            mouseWheelZoom: '',
         });
         if ($('#upload')) {
             var inputfile = $("#upload");
@@ -218,7 +222,10 @@ $user = Auth::user();
             var action = $(this).data('action');
             $uploadCrop.croppie('result', {
                 type: 'canvas',
-                size: 'viewport'
+                size: {
+                    width: 500,
+                    height: 500
+                }
             }).then(function(resp) {
                 $('#playlist_cover').val(resp);
                 $('#playlist_cover_uploaded').attr("src", resp);

@@ -257,6 +257,7 @@ $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
         }
         var $uploadCrop = $('#upload-avatar').croppie({
             enableExif: true,
+            enableZoom: true,
             viewport: {
                 width: 220,
                 height: 220,
@@ -265,7 +266,9 @@ $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
             boundary: {
                 width: 260,
                 height: 260
-            }
+            },
+            enableOrientation: true,
+            mouseWheelZoom: '',
         });
         if ($('#upload')) {
             var inputfile = $("#upload");
@@ -286,8 +289,8 @@ $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
             $uploadCrop.croppie('result', {
                 type: 'canvas',
                 size: {
-                    width: 250,
-                    height: 250
+                    width: 500,
+                    height: 500
                 }
             }).then(function(resp) {
                 $("#upload-avatar-crop img").attr('src', resp);

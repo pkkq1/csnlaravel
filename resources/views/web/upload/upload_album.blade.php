@@ -555,7 +555,7 @@ $titleMeta = 'Cập nhật album - ' . Config::get('constants.app.title');
         $(document).ready(function(){
             $('#choose_album_cover').on('change', function(){
                 $('#image_demo').html('');
-                $('.modal-dialog').css("max-width", "535px")
+                $('.modal-dialog').css("max-width", "500px")
                 $image_crop = $('#image_demo').croppie({
                     enableExif: true,
                     enableZoom: true,
@@ -566,8 +566,8 @@ $titleMeta = 'Cập nhật album - ' . Config::get('constants.app.title');
                         type:'square' //circle
                     },
                     boundary:{
-                        width:500,
-                        height:500
+                        width:300,
+                        height:300
                     },
                     enableOrientation: true,
                     mouseWheelZoom: '',
@@ -586,7 +586,10 @@ $titleMeta = 'Cập nhật album - ' . Config::get('constants.app.title');
             $('.crop_image').click(function(event){
                 $image_crop.croppie('result', {
                     type: 'canvas',
-                    size: 'viewport'
+                    size: {
+                        width: 500,
+                        height: 500
+                    }
                 }).then(function (response) {
                     $('#uploadimageModal').modal('hide');
                     $('#album_cover').val(response);

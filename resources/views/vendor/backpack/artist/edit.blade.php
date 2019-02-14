@@ -167,6 +167,10 @@ use App\Library\Helpers;
                         width:300,
                         height:300
                     },
+                    size: {
+                        width: 500,
+                        height: 500
+                    },
                     // showZoomer: false,
                     enableOrientation: true,
                     mouseWheelZoom: '',
@@ -186,20 +190,24 @@ use App\Library\Helpers;
             $('#choose_artist_cover').on('change', function(){
                 selectImage = 'cover';
                 $('#image_demo').html('');
-                $('.modal-dialog').css("max-width", "1200px")
+                $('.modal-dialog').css("max-width", "815px")
                 $('#image_demo').html('');
                 $image_crop = $('#image_demo').croppie({
                     enableExif: true,
                     viewport: {
-                        width:1170,
-                        height:300,
+                        width:780,
+                        height:200,
                         type:'square' //circle
                     },
                     boundary:{
-                        width:1170,
-                        height:300
+                        width:780,
+                        height:200
                     },
-                    showZoomer: false,
+                    size: {
+                        width: 1170,
+                        height: 300
+                    },
+                    // showZoomer: false,
                     enableOrientation: true,
                     mouseWheelZoom: '',
                 });
@@ -217,7 +225,7 @@ use App\Library\Helpers;
             $('.crop_image').click(function(event){
                 $image_crop.croppie('result', {
                     type: 'canvas',
-                    size: 'viewport'
+                    size: 'size'
                 }).then(function (response) {
                     const info = $image_crop.croppie('get');
                     var top_left_x = info.points[0];

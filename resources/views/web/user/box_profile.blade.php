@@ -143,7 +143,7 @@ isset($float_edit) ? $float_edit = $float_edit : $float_edit = false;
             $(document).ready(function(){
                 $('#choose_user_avatar').on('change', function(){
                     $('#image_demo').html('');
-                    $('.update_avatar').css("max-width", "500px")
+                    $('.update_avatar').css("max-width", "535px")
                     $image_crop = $('#image_demo').croppie({
                         enableExif: true,
                         viewport: {
@@ -155,7 +155,7 @@ isset($float_edit) ? $float_edit = $float_edit : $float_edit = false;
                             width:300,
                             height:300
                         },
-                        showZoomer: false,
+                        // showZoomer: false,
                         enableOrientation: true,
                         mouseWheelZoom: '',
                     });
@@ -173,7 +173,10 @@ isset($float_edit) ? $float_edit = $float_edit : $float_edit = false;
                 $('.crop_image').click(function(event){
                     $image_crop.croppie('result', {
                         type: 'canvas',
-                        size: 'viewport'
+                        size: {
+                            width: 500,
+                            height: 500
+                        }
                     }).then(function (response) {
                         const info = $image_crop.croppie('get');
                         $('#uploadimageModal').modal('hide');
