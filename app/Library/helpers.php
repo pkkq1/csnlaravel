@@ -865,7 +865,7 @@ class Helpers
         }
         if(isset($musicRecent)) {
             $musicHistory = unserialize($musicRecent);
-            $musicHistory = array_diff(array_reverse($musicHistory), [$music->music_id]);
+            $musicHistory = array_diff(array_reverse($musicHistory ? $musicHistory : []), [$music->music_id]);
             array_push($musicHistory, $music->music_id);
             $musicHistory = array_slice(array_reverse($musicHistory),0, LIMIT_HISTORY_MUSIC);
         }else{
