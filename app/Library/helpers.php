@@ -859,7 +859,7 @@ class Helpers
         return $size2str;
     }
     public static function MusicCookie($request, $music) {
-        $musicRecent = $_COOKIE['music_history'];
+        $musicRecent = $_COOKIE['music_history'] ?? '';
         if(Auth::check()) {
             $musicRecent = Auth::user()->user_music_recent;
         }
