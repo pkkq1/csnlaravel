@@ -8,8 +8,8 @@
                     </a>
                     <figcaption class="d-none">explanatory caption</figcaption>
                 </figure>
-                <a href="http://old.chiasenhac.vn/" target="_blank"><img src="./imgs/csn_bancu.png"></a>
                 <form action="{{env('APP_URL')}}/tim-kiem">
+                    <a href="http://old.chiasenhac.vn/" target="_blank"><img src="./imgs/csn_bancu.png" style="float: left; margin-right: 10px;"></a>
                     <div class="form-group m-0" style="float:left">
                         <i class="material-icons">search</i>
                         <input type="search" name="q" class="form-control" value="{{$_GET['q'] ?? ''}}"  class="biginput" id="search_autocomplete" placeholder="nhập bài hát, video, tên nghệ sỹ bạn cần tìm">
