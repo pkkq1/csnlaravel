@@ -29,7 +29,6 @@ if($musicSet['type_listen'] == 'playlist') {
 } else {
     $thumnailMeta = $thumnailMusic;
 }
-
 ?>
 @section('meta')
     <meta name="author" content="{{$music->music_username}}">
@@ -200,7 +199,7 @@ if($musicSet['type_listen'] == 'playlist') {
                                             @if(Auth::check() && backpack_user()->can('duyet_sua_nhac'))
                                                 <a href="javascript:editLyric();" >Sửa lyric</a>
                                                 <a href="javascript:editKaraoke();" style="margin-left: 10px;">Sửa karaoke</a>
-                                                <a href="/dang-tai/nhac/{{$music->music_id}}" style="margin-left: 10px;">Sửa nhạc</a>
+                                                <a href="/dang-tai/{{$musicSet['type_jw'] !== 'video' ? 'nhac' : 'video'}}/{{$music->music_id}}" style="margin-left: 10px;">Sửa nhạc</a>
                                             @endif
                                         </div>
                                     </li>
@@ -432,7 +431,7 @@ if($musicSet['type_listen'] == 'playlist') {
                             </div>
                             <div class="card-body">
                                 <h3 class="card-title"><a href="{{$url}}" title="{{$item['music_title']}}">{{$item['music_title']}}</a></h3>
-                                <p class="card-text"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></p>
+                                <p class="card-text"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'] ?? '', $item['music_artist'] ?? '') ?></p>
                             </div>
                         </div>
                     </div>
