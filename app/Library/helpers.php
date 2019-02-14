@@ -5,6 +5,7 @@ use DateTime;
 use Config;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Facades\Auth;
 
 class Helpers
 {
@@ -858,8 +859,12 @@ class Helpers
         return $size2str;
     }
     public static function MusicCookie($request, $music) {
-        if(isset($_COOKIE['music_history'])) {
-            $musicHistory = unserialize($_COOKIE['music_history']);
+        $musicRecent = $_COOKIE['music_history'];
+        if(Auth::check()) {
+            $musicRecent = Auth::user()->user_music_recent;
+        }
+        if(isset($musicRecent)) {
+            $musicHistory = unserialize($musicRecent);
             $musicHistory = array_diff(array_reverse($musicHistory), [$music->music_id]);
             array_push($musicHistory, $music->music_id);
             $musicHistory = array_slice(array_reverse($musicHistory),0, LIMIT_HISTORY_MUSIC);
@@ -867,7 +872,12 @@ class Helpers
             $musicHistory[] = $music->music_id;
         }
         $musicHistorySer = serialize($musicHistory);
-        setcookie('music_history', $musicHistorySer, time()+31536000,'/');
+        setcookie('music_history', $musicHistorySer, time() + 31536000,'/');
+        if(Auth::check()) {
+            $user = Auth::user();
+            $user->user_music_recent = $musicHistorySer;
+            $user->save();
+        }
         return [
             'cookie' => $musicHistorySer,
             'value' => $musicHistory

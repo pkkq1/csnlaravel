@@ -317,7 +317,11 @@ class MusicController extends Controller
     }
     public function historyListen(Request $request) {
         $result = [];
-        if(isset($_COOKIE['music_history'])) {
+        $musicRecent = $_COOKIE['music_history'] ?? '';
+        if(Auth::check()) {
+            $musicRecent = Auth::user()->user_music_recent;
+        }
+        if($musicRecent) {
             $musicHistory = unserialize($_COOKIE['music_history']);
             $tempStr = implode(',', $musicHistory);
             $musics = $this->musicRepository->getHistoryRecents($tempStr);
