@@ -201,7 +201,7 @@ use App\Library\Helpers;
                         width:300,
                         height:300
                     },
-                    showZoomer: false,
+                    // showZoomer: false,
                     enableOrientation: true,
                     mouseWheelZoom: '',
                 });
