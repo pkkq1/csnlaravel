@@ -104,8 +104,12 @@ class UserMusicController extends Controller
     }
     public function musicRecent(Request $request) {
         $musics = [];
-        if(isset($_COOKIE['music_history'])) {
-            $musicHistory = array_reverse(unserialize($_COOKIE['music_history']));
+        $musicRecent = $_COOKIE['music_history'] ?? '';
+        if(Auth::check()) {
+            $musicRecent = Auth::user()->user_music_recent;
+        }
+        if($musicRecent) {
+            $musicHistory = array_reverse(unserialize($musicRecent));
             $tempStr = implode(',', $musicHistory);
             $musics = $this->musicRepository->getHistoryRecents($tempStr);
         }

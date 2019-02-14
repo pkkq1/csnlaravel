@@ -322,7 +322,7 @@ class MusicController extends Controller
             $musicRecent = Auth::user()->user_music_recent;
         }
         if($musicRecent) {
-            $musicHistory = unserialize($_COOKIE['music_history']);
+            $musicHistory = unserialize($musicRecent);
             $tempStr = implode(',', $musicHistory);
             $musics = $this->musicRepository->getHistoryRecents($tempStr);
             foreach ($musics as $key => $item) {
