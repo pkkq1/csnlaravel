@@ -307,7 +307,7 @@ if($musicSet['type_listen'] == 'playlist') {
                                                     <div class="element py-3 border-bottom">
                                                         <a href="{{$url}}">
                                                             <div class="image mr-2 d-inline-block align-middle" style="background : url({{Helpers::thumbnail_url($item)}}) no-repeat center;background-size: cover;">
-                                                                <p class="time"><img src="/mobile/assets/images/icon/ic_menu_clock.png" width="14">{{$item['video_length'] >= 3600 ? gmdate("H:i:s", $item['video_length']) : gmdate("i:s", $item['video_length'])}}</p>
+                                                                <p class="time"><img src="/mobile/assets/images/icon/ic_menu_clock.png" width="14"></p>
                                                             </div>
                                                         </a>
                                                         <div class="content d-inline-block align-middle">
