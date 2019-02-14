@@ -302,7 +302,6 @@ if($musicSet['type_listen'] == 'playlist') {
                                                     <?php
                                                     $VideoSameArtist = Helpers::getRandLimitArr($VideoSameArtist, LYRIC_DETAIL_NEW_ALBUM);
                                                     array_map(function ($item) {
-                                                        dd($item);
                                                     $url = Helpers::listen_url($item);
                                                     ?>
                                                     <div class="element py-3 border-bottom">
