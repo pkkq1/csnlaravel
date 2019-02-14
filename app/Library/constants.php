@@ -142,3 +142,4 @@ define('TIME_SOLR_TO_ADD_ITEM', '-1 hour'); // hour
 define('TIME_7DAY_AGO', '-7 day'); // hour
 
 define('MAXIMUM_FILE_SIZE_UPLOAD_VIDEO', 5737418240); // maximum upload file video 5Gb
+define('ID_OLD_MUSIC', 1000000);

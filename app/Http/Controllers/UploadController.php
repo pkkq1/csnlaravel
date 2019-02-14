@@ -85,6 +85,8 @@ class UploadController extends Controller
                 $id = 'permission_duyet_csn';
                 $arrStage[] = UPLOAD_STAGE_FULLCENSOR;
             }
+            if($musicId < ID_OLD_MUSIC)
+                return view('errors.text_error')->with('message', 'Bài hát không được phép sửa');;
             $music = $this->uploadRepository->findMusicStatus($id, $musicId, $arrStage);
             if(!$music)
                 return view('errors.404');
