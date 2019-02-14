@@ -9,7 +9,7 @@ return [
 
         'romance' => [
             'caption' => 'Chủ đề romance',
-            'label' => 'Romance',
+            'label' => 'Romance 14/2',
             'user_id' => 997938,
             'img_web' => 'Romance _ 345 x 110.png',
             'img_mobile' => 'Romance _ 345 x 110.png'

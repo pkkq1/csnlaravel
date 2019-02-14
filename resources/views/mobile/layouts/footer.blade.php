@@ -226,3 +226,16 @@ use App\Library\Helpers;
     //     document.getElementById("search_autocomplete").trigger('focus');
     // })
 </script>
+
+<?php
+    $cookie_name = "csn_popup";
+    $session_ads_popup = isset($_COOKIE[$cookie_name]) ? intval(unserialize(stripslashes($_COOKIE[$cookie_name]))) : 0;
+    if ( $session_ads_popup < 1 )
+    {
+        @setcookie($cookie_name, serialize($session_ads_popup + 1), time() + 10, '/', $config['cookie_domain'], 0);
+
+        // Blueseed - Mobile In flow - Popup // backup code Ambient
+        echo '<!-- BlueSeed - asynchronous code for placement 1478 Chiasenhac InFlow Mobile -->
+        <script id="jshd1pm_1478" src="https://d2.blueseed.tv/ads-sync.js?placement=1478"></script>';
+    }
+?>
