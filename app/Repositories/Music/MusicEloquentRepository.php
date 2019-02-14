@@ -197,11 +197,10 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
         $MusicSameArtist = $MusicSameArtist['data'];
 
         $searchSolarium = [];
-        $searchSolarium['-id'] = 'music_'.$music->music_id. ' AND '.$type.'_id :['.ID_OLD_MUSIC.' TO *]';
+        $searchSolarium['-id'] = 'video_'.$music->music_id. ' AND video_id :['.ID_OLD_MUSIC.' TO *]';
         $searchSolarium['video_artist_id'] = '('.implode(' OR ', $artistIds).')';
         $VideoSameArtist= $this->Solr->search($searchSolarium, 1, 5, array('score' => 'desc', 'video_downloads_today' => 'desc', 'video_downloads_this_week' => 'desc', 'video_download' => 'desc'));
         $VideoSameArtist = $VideoSameArtist['data'];
-
 //        // video cùng ca sĩ
 //        $VideoSameArtist = \App\Models\VideoSuggestModel::where(function($q) use ($artistIds) {
 //            foreach ($artistIds as $key => $id) {
