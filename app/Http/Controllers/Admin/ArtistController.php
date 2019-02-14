@@ -225,8 +225,7 @@ class ArtistController extends CrudController
 
         // update solr
         $Solr = new SolrSyncController($this->Solr);
-        $Solr->syncMusic(null, $item);
-
+        $Solr->syncArtist(null, $item);
         // show a success message
         \Alert::success(trans('backpack::crud.update_success'))->flash();
 
