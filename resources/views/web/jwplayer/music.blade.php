@@ -21,7 +21,7 @@ $artistHtml = Helpers::rawHtmlArtists($music->music_artist_id, $music->music_art
 preg_match('/href=["\']?([^"\'>]+)["\']?/', $artistHtml, $matchArtist);
 $sug = [];
 $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3);
-$thumnailMusic = env('APP_DOMAIN').($musicSet['type_jw'] != 'video' ?  Helpers::cover_url($music->cover_id) : env('APP_DOMAIN').Helpers::thumbnail_url($music->toArray(), 'preview'));
+$thumnailMusic = env('APP_URL').($musicSet['type_jw'] != 'video' ?  Helpers::cover_url($music->cover_id) : Helpers::thumbnail_url($music->toArray(), 'preview'));
 $thumnailMeta = '';
 $titleExMeta = $music->music_title.'; '.$music->music_artist;
 if($musicSet['type_listen'] == 'playlist') {
@@ -33,7 +33,7 @@ if($musicSet['type_listen'] == 'playlist') {
 ?>
 @section('meta')
     <meta name="author" content="{{$music->music_username}}">
-    <meta name="copyright" content="{{env('APP_DOMAIN')}}" />
+    <meta name="copyright" content="{{env('APP_URL')}}" />
     <meta name="revisit-after" content="7 Days">
     <meta name="keywords" content="{{$music->music_title}}, {{$music->music_artist}}, <?php echo $musicSet['type_jw'] == 'video' ? 'HD 1080p, HD 720p, MV 480p, MV 360p, video, mv, hd, mp4' : 'Lossless, 500kbps, 320kbps, music, mp3, m4a, flac, lossless' ?>, csn, nghe nhac, tai nhac, loi bai hat, lyrics">
     <meta name="description" content="<?php echo $musicSet['type_jw'] == 'video' ? 'Nghe online video '.$music->music_title.' do ca sĩ '.$music->music_artist.' thể hiện. Tải nhạc dạng hd, mp4 và xem lời bài hát '.$music->music_title.' hoàn toàn miễn phí.' : 'Nghe online bài hát '.$music->music_title.' do ca sĩ '.$music->music_artist.' thể hiện. Tải nhạc dạng mp3, m4a, lossless và xem lời bài hát '.$music->music_title.' hoàn toàn miễn phí.' ?>">
@@ -42,7 +42,6 @@ if($musicSet['type_listen'] == 'playlist') {
     <meta name="title" content="<?php echo $titleExMeta?>" />
     <meta property="fb:app_id" content="419934814770318" />
     <meta property="og:image" content="{{$thumnailMeta}}" />
-    <meta property="og:image2" content="123" />
     <meta property="og:url" content="{{url()->current()}}" />
     <meta property="og:title" content="<?php echo $titleExMeta?>" />
     <meta property="og:description" content="Sáng tác: {{$music->music_composer}} ({{$music->music_year}}); <?php echo $musicSet['type_jw'] == 'video' ? 'Chất lượng: HD 1080p, HD 720p, MV 480p, MV 360p' : 'Chất lượng: Lossless, 500kbps, 320kbps' ?>" />

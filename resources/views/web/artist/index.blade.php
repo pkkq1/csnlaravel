@@ -6,7 +6,7 @@ $avtArtist = $artist->artist_avatar ? Helpers::file_path($artist->artist_id, PUB
 ?>
 @section('meta')
     <meta name="author" content="{{$artist->artist_nickname}}">
-    <meta name="copyright" content="{{env('APP_DOMAIN')}}" />
+    <meta name="copyright" content="{{env('APP_URL')}}" />
     <meta name="revisit-after" content="7 Days">
     <meta name="keywords" content="{{$artist->artist_nickname}}, nhac {{$artist->artist_nickname}}, thong tin {{$artist->artist_nickname}}, bai hat moi, video hot, album hay nhất">
     <meta name="description" content="{{$artist->artist_nickname}}, trang thông tin chính thức về nhạc {{$artist->artist_nickname}}, toàn bộ bài hát mới, video mới nhất và album hay nhất của {{$artist->artist_nickname}}">
