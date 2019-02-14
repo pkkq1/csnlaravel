@@ -22,11 +22,7 @@ $avtArtist = $artist->artist_avatar ? Helpers::file_path($artist->artist_id, PUB
 @extends('mobile.layouts.app')
 @section('content')
     <div class="header">
-        <div class="header_top">
-            <nav class="navbar navbar-expand-lg navbar-dark flex-row-reverse"><a href="/" class="navbar-brand text-white button_search"><i aria-hidden="true" class="fa fa-search"></i></a><a href="/" class="navbar-brand logo"><img src="/images/logo-header.png" alt="logo"></a>
-                <button type="button" class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
-            </nav>
-        </div>
+        @include('mobile.layouts.header_top')
     </div>
     <main class="main main_profile">
         <section style="background: url('{{$artist->artist_cover ?  Helpers::file_path($artist->artist_id, PUBLIC_COVER_ARTIST_PATH, true).$artist->artist_cover : '/imgs/no_cover_artist.jpg'}}')" class="block_banner_singer">

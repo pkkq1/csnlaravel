@@ -54,11 +54,7 @@ if($musicSet['type_listen'] == 'playlist') {
 @extends('mobile.layouts.app')
 @section('content')
     <div class="header">
-        <div class="header_top">
-            <nav class="navbar navbar-expand-lg navbar-dark flex-row-reverse"><a href="#" class="navbar-brand text-white button_search"><i aria-hidden="true" class="fa fa-search"></i></a><a href="/" class="navbar-brand logo"><img src="/images/logo-header.png" alt="logo"></a>
-                <button type="button" class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
-            </nav>
-        </div>
+        @include('mobile.layouts.header_top')
     </div>
     <main class="main main_player">
         <div class="sidebar_top">

@@ -17,14 +17,7 @@ $catalog = config('constants.catalog');
     @include('cache.def_home_download')
     @include('cache.def_home_album_cat')
     <div class="header">
-        <div class="header_top">
-            <nav class="navbar navbar-expand-lg navbar-dark flex-row-reverse">
-                <a href="#" class="navbar-brand text-white button_search"><i aria-hidden="true" class="fa fa-search"></i></a>
-                <a href="http://chiasenhac.vn/app/csn.html" target="_blank"><img src="/imgs/csn_app.png"></a>
-                <a href="/" class="navbar-brand logo"><img src="/images/logo-header.png" alt="logo"></a>
-                <button type="button" class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
-            </nav>
-        </div>
+        @include('mobile.layouts.header_top')
         <!-- swiper1-->
         <div class="header_sub_menu">
             <div data-itemmenu="5" class="swiper-container swiper1">
