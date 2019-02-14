@@ -7,12 +7,19 @@ return [
     ],
     'catalog' => [
 
+//        'romance' => [
+//            'caption' => 'Chủ đề romance',
+//            'label' => 'Romance',
+//            'user_id' => 997938,
+//            'img_web' => 'Romance _ 345 x 110.png',
+//            'img_mobile' => 'Romance _ 345 x 110.png'
+//        ],
         'romance' => [
-            'caption' => 'Chủ đề romance',
-            'label' => 'Romance 14/2',
+            'caption' => 'Chủ đề 14/2',
+            'label' => '14/2',
             'user_id' => 997938,
-            'img_web' => 'Romance _ 345 x 110.png',
-            'img_mobile' => 'Romance _ 345 x 110.png'
+            'img_web' => '14.2 _ 345 x 110.png',
+            'img_mobile' => '14.2 _ 345 x 110.png'
         ],
         'sleep' => [
             'caption' => 'Chủ đề sleep',
