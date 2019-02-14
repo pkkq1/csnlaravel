@@ -42,6 +42,7 @@ if($musicSet['type_listen'] == 'playlist') {
     <meta name="title" content="<?php echo $titleExMeta?>" />
     <meta property="fb:app_id" content="419934814770318" />
     <meta property="og:image" content="{{$thumnailMeta}}" />
+    <meta property="og:image2" content="123" />
     <meta property="og:url" content="{{url()->current()}}" />
     <meta property="og:title" content="<?php echo $titleExMeta?>" />
     <meta property="og:description" content="Sáng tác: {{$music->music_composer}} ({{$music->music_year}}); <?php echo $musicSet['type_jw'] == 'video' ? 'Chất lượng: HD 1080p, HD 720p, MV 480p, MV 360p' : 'Chất lượng: Lossless, 500kbps, 320kbps' ?>" />
