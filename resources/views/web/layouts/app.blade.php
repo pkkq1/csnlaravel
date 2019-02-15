@@ -27,8 +27,8 @@ $allpage_banner = false;
         <div class="ads_box" id="pc_masthead">
             <div class="container text-center">
                 <div id="bsmasthead-wrapper">
-                    <!-- BlueSeed - asynchronous code for placement 1365 Chiasenhac Masthead Desktop -->
-                    <ins class="hadar-placement" data-hdpm="1365" ></ins><script id="jshd1pm_1365" src="https://static.blueseed.tv/ajs/display.js"></script>
+                    <!-- BlueSeed - asynchronous code for placement 1643 Chiasenhac Masthead Player Desktop -->
+                    <ins class="hadar-placement" data-hdpm="1643" ></ins><script id="jshd1pm_1643" src="https://static.blueseed.tv/ajs/display.js"></script>
                 </div>
             </div>
         </div>
@@ -36,8 +36,8 @@ $allpage_banner = false;
     <div class="ads_box" id="pc_masthead">
         <div class="container text-center">
                <div id="bsmasthead-wrapper">
-                   <!-- BlueSeed - asynchronous code for placement 1643 Chiasenhac Masthead Player Desktop -->
-                   <ins class="hadar-placement" data-hdpm="1643" ></ins><script id="jshd1pm_1643" src="https://static.blueseed.tv/ajs/display.js"></script>
+                   <!-- BlueSeed - asynchronous code for placement 1365 Chiasenhac Masthead Desktop -->
+                   <ins class="hadar-placement" data-hdpm="1365" ></ins><script id="jshd1pm_1365" src="https://static.blueseed.tv/ajs/display.js"></script>
                </div>
         </div>
     </div>
