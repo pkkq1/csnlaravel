@@ -51,7 +51,7 @@ global $hot_video_rows;
                             <h2 class="media-title">Bảng xếp hạng <br> {{$itemCategory['cat_short_title']}}</h2>
                         </div>
                         <div class="media-body">
-                            <p>Bảng Xếp Hạng CSN cập nhật vào thứ Hai hàng tuần dựa trên số liệu thống kê thực tế trên desktop và mobile CSN. Trong đó những trọng số quan trọng quyết định thứ hạng TOP 20 như sau: Nghe, Thích, Bình Luận, Chia sẻ, Tải v.v... Mỗi tương tác của người dùng đều tác động đến kết quả cuối cùng của BXH CSN.</p>
+                            <p>Bảng Xếp Hạng CSN cập nhật hàng ngày dựa trên số liệu thống kê thực tế trên hệ thống website CSN, dựa vào các chỉ số như: lượt nghe, lượt tải, bình luận, chia sẻ...</p>
                         </div>
                     </div>
                     <nav class="nav_sub_bxh d-flex justify-content-between align-items-center">
