@@ -633,7 +633,7 @@ if($musicSet['type_listen'] == 'playlist') {
             width: "100%",
             aspectratio: "16:9",
             autostart: true,
-            file: "http://chiasenhac.vn/images/logo/logo_csn.mp4",
+            file: "https://beta.chiasenhac.vn/video/csn-5s.mp4",
             events: { "onComplete": function() { $('#csnplayerads').remove(); } }
         });
             <?php
