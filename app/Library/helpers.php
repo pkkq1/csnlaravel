@@ -589,7 +589,7 @@ class Helpers
             $url = 'https://data.chiasenhac.com/dataxx/03/'; //'http://data03.chiasenhac.com/';
         // Large Server
         else if ($music_id <= 1649000)
-            $url = 'https://data.chiasenhac.com/dataxx/data2/'; //'http://data2.chiasenhac.com/';
+            $url = 'https://data.chiasenhac.com/dataxx/2/'; //'http://data2.chiasenhac.com/';
         // YCH's Server
         else if ($music_id <= 1689000)
             $url = 'https://data.chiasenhac.com/dataxx/05/'; //'http://data05.chiasenhac.com/';
