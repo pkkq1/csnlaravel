@@ -626,7 +626,7 @@ class Helpers
 
         ///// demo url hidden link
         if($url == 'https://data.chiasenhac.com/dataxx/4/' ) {
-            $url == 'http://data4.chiasenhac.com/'
+            $url = 'http://data4.chiasenhac.com/';
             $exp = strtotime("+" . TIME_EXPIRED_LINK . "  minutes");
             return $url . md5(self::getIp() . env('DATA_KEY')) . '@' . $exp . '/';
         }
