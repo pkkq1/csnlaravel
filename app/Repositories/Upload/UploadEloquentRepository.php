@@ -38,7 +38,7 @@ class UploadEloquentRepository extends EloquentRepository implements UploadRepos
 
         return $result;
     }
-    public function findMusicStatus($userId, $id, $stageArr)
+    public function findMusicStatus($userId, $id, $stageArr = [])
     {
         $result = $this
             ->_model
@@ -46,9 +46,10 @@ class UploadEloquentRepository extends EloquentRepository implements UploadRepos
         if($userId != 'permission_duyet_csn') {
             $result = $result->where('music_user_id', $userId);
         }
-        $result = $result->whereIn('music_state', $stageArr)
-            ->first();
-        return $result;
+        if($stageArr) {
+            $result = $result->whereIn('music_state', $stageArr);
+        }
+        return $result->first();
     }
     /**
      * Create

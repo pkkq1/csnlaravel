@@ -63,14 +63,20 @@ class UploadController extends Controller
         $typeUpload = 'music';
         if($musicId) {
             $id = Auth::user()->id;
-            $arrStage = [UPLOAD_STAGE_DELETED, UPLOAD_STAGE_UNCENSOR, UPLOAD_STAGE_INCONVERT, UPLOAD_STAGE_FULLCONVERT];
+            $arrStage = [UPLOAD_STAGE_DELETED, UPLOAD_STAGE_UNCENSOR, UPLOAD_STAGE_FULLCONVERT];
             if(Auth::user()->hasPermission('duyet_sua_nhac')) {
                 $id = 'permission_duyet_csn';
                 $arrStage[] = UPLOAD_STAGE_FULLCENSOR;
             }
-            $music = $this->uploadRepository->findMusicStatus($id, $musicId, $arrStage);
+            if($musicId < ID_OLD_MUSIC)
+                return view('errors.text_error')->with('message', 'Bài hát đã cũ không được phép sửa');
+            $music = $this->uploadRepository->findMusicStatus($id, $musicId);
             if(!$music)
                 return view('errors.404');
+            if($music->music_state == UPLOAD_STAGE_FULLCENSOR && !Auth::user()->hasPermission('duyet_sua_nhac'))
+                return view('errors.text_error')->with('message', 'Bài hát đã được duyệt, bạn không được phép sửa');
+            if(!in_array($music->music_state, $arrStage))
+                return view('errors.text_error')->with('message', 'Bài hát đang được xử lý, bạn vui lòng quay lại sau');
             if($music->cover_id)
                 $album = $this->coverRepository->findCover($music->cover_id);
         }
@@ -80,18 +86,22 @@ class UploadController extends Controller
         $typeUpload = 'video';
         if($musicId) {
             $id = Auth::user()->id;
-            $arrStage = [UPLOAD_STAGE_DELETED, UPLOAD_STAGE_UNCENSOR, UPLOAD_STAGE_INCONVERT, UPLOAD_STAGE_FULLCONVERT];
+            $arrStage = [UPLOAD_STAGE_DELETED, UPLOAD_STAGE_UNCENSOR, UPLOAD_STAGE_FULLCONVERT];
             if(Auth::user()->hasPermission('duyet_sua_nhac')) {
                 $id = 'permission_duyet_csn';
                 $arrStage[] = UPLOAD_STAGE_FULLCENSOR;
             }
             if($musicId < ID_OLD_MUSIC)
-                return view('errors.text_error')->with('message', 'Bài hát không được phép sửa');;
-            $music = $this->uploadRepository->findMusicStatus($id, $musicId, $arrStage);
+                return view('errors.text_error')->with('message', 'Bài hát đã cũ không được phép sửa');
+            $music = $this->uploadRepository->findMusicStatus($id, $musicId);
             if(!$music)
                 return view('errors.404');
+            if(!in_array($music->music_state, $arrStage))
+                return view('errors.text_error')->with('message', 'Bài hát đang được xử lý, bạn vui lòng quay lại sau');
+            if($music->cover_id)
+                $album = $this->coverRepository->findCover($music->cover_id);
         }
-        return view('upload.upload_music', compact('typeUpload', 'music'));
+        return view('upload.upload_music', compact('typeUpload', 'music', 'album'));
     }
     public function createAlbum(Request $request, $coverId = null) {
         if($coverId) {
@@ -253,14 +263,14 @@ class UploadController extends Controller
         $mess = $typeUpload == 'music' ? 'bài hát' : 'video';
         if($request->input('action_upload') == 'edit') {
             $userId = Auth::user()->id;
-            $arrStage = [UPLOAD_STAGE_DELETED, UPLOAD_STAGE_UNCENSOR, UPLOAD_STAGE_INCONVERT, UPLOAD_STAGE_FULLCONVERT];
+            $arrStage = [UPLOAD_STAGE_DELETED, UPLOAD_STAGE_UNCENSOR, UPLOAD_STAGE_FULLCONVERT];
             $per_Xet_Duyet = Auth::user()->hasPermission('duyet_sua_nhac');
             $per_Xet_Duyet_Chat_luong = Auth::user()->hasPermission('duyet_sua_chat_luong_nhac');
             if($per_Xet_Duyet) {
                 $userId = 'permission_duyet_csn';
                 $arrStage[] = UPLOAD_STAGE_FULLCENSOR;
             }
-            $result = $this->uploadRepository->findMusicStatus($userId, $musicId, $arrStage);
+            $result = $this->uploadRepository->findMusicStatus($userId, $musicId);
             if(!$result)
                 return view('errors.404');
             $result->music_title = $request->input('music_title') ?? '';
@@ -287,7 +297,22 @@ class UploadController extends Controller
             }
             if($per_Xet_Duyet) {
                 if($request->music_state) {
+                    if(!in_array($result->music_state, $arrStage))
+                        return view('errors.text_error')->with('message', 'Bài hát đang được xử lý, bạn vui lòng quay lại sau');
+                    if(!in_array($request->music_state, $arrStage))
+                        return view('errors.text_error')->with('message', 'Trạng thái gửi lên không hợp lệ');
                     $result->music_state = $request->input('music_state');
+                }
+                if($request->input('music_state') == UPLOAD_STAGE_DELETED) {
+                    $Solr = new SolrSyncController($this->Solr);
+                    if($result->cat_id == CAT_VIDEO) {
+                        $this->videoRepository->delete($result->music_id);
+                        $Solr->syncDeleteVideo(null, $result);
+                    }else {
+                        $this->musicRepository->delete($result->music_id);
+                        $Solr->syncDeleteMusic(null, $result);
+                    }
+                    // update solr
                 }
             }
             if($per_Xet_Duyet && $request->music_track_id)
