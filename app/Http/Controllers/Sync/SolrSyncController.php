@@ -459,13 +459,6 @@ class SolrSyncController extends Controller
                 'album_user_id' => $item->user_id,
                 'album_music_total' => $item->album_music_total,
 
-                'music_artist' => '',
-                'music_artist_search' => '',
-                'music_artist_charset' => '',
-                'music_artist_nospace' => '',
-                'music_year' => $item->music_year,
-
-
                 'album_music_artist' => '',
                 'album_music_artist_search' => '',
                 'album_music_artist_charset' => '',
@@ -476,11 +469,6 @@ class SolrSyncController extends Controller
             if($music_artist) {
 //                $artistSearch = Helpers::replaceKeySearch($music_artist);
 //                $artistCharset = Helpers::rawTiengVietUrl($music_artist, ' ');
-                $data['music_artist'] = $music_artist;
-                $data['music_artist_search'] = $artistSearch;
-                $data['music_artist_charset'] = $artistCharset;
-                $data['music_artist_nospace'] = str_replace(' ', '', $artistCharset);
-                $data['music_artist_html'] = Helpers::rawHtmlArtists($music_artist_id, $music_artist);
 
                 $data['album_music_artist'] = $music_artist;
                 $data['album_music_artist_search'] = $artistSearch;
