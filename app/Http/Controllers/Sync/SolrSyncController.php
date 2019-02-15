@@ -463,6 +463,12 @@ class SolrSyncController extends Controller
                 'album_bitrate_html' => $item->music_bitrate ? Helpers::bitrate2str($item->music_bitrate) : '',
                 'album_user_id' => $item->user_id,
                 'album_music_total' => $item->album_music_total,
+
+                'album_music_artist' => '',
+                'album_music_artist_search' => '',
+                'album_music_artist_charset' => '',
+                'album_music_artist_nospace' => '',
+                'album_music_artist_html' => '',
             ];
             if($music_artist) {
 //                $artistSearch = Helpers::replaceKeySearch($music_artist);
@@ -472,6 +478,13 @@ class SolrSyncController extends Controller
                 $data['music_artist_charset'] = $artistCharset;
                 $data['music_artist_nospace'] = str_replace(' ', '', $artistCharset);
                 $data['music_artist_html'] = Helpers::rawHtmlArtists($music_artist_id, $music_artist);
+
+                $data['album_music_artist'] = $music_artist;
+                $data['album_music_artist_search'] = $artistSearch;
+                $data['album_music_artist_charset'] = $artistCharset;
+                $data['album_music_artist_nospace'] = str_replace(' ', '', $artistCharset);
+                $data['album_music_artist_html'] = Helpers::rawHtmlArtists($music_artist_id, $music_artist);
+
             }
             $datas[] = $data;
 //            $this->Solr->addDocuments($data);
