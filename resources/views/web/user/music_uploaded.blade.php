@@ -188,12 +188,12 @@
 <?php echo $stage == 'all' ? '</div>' : '' ?>
 @endif
 @if(isset($music['stage_delete']))
-    <?php echo $stage == 'all' ? '<div class="stage_fullcensor">' : '' ?>
+    <?php echo $stage == 'all' ? '<div class="stage_delete">' : '' ?>
     <div class="box_header d-flex justify-content-between align-items-end">
-        <span class="title m-0">Đã Xoá</span>
+        <span class="title m-0">Đã Xóa</span>
     </div>
-    <?php $stageFullcensor = $music['stage_delete']->toArray()['data']; ?>
-    @if($stageFullcensor)
+    <?php $stageDelete = $music['stage_delete']->toArray()['data']; ?>
+    @if($stageDelete)
     <div class="row row10px">
         <div class="col">
             <ul class="list-unstyled list_music">
@@ -232,7 +232,7 @@
                 </li>
                 <?php
                 }
-                }, array_keys($stageFullcensor), $stageFullcensor);
+                }, array_keys($stageDelete), $stageDelete);
                 ?>
             </ul>
         </div>
@@ -271,12 +271,12 @@
                 </li>
                 <?php
                 }
-                }, array_keys($stageFullcensor), $stageFullcensor);
+                }, array_keys($stageDelete), $stageDelete);
                 ?>
             </ul>
         </div>
     </div>
-    <center data-page="fullcensor">{{$music['stage_delete']->links()}}</center>
+    <center data-page="delete">{{$music['stage_delete']->links()}}</center>
     @endif
 <?php echo $stage == 'all' ? '</div>' : '' ?>
 @endif

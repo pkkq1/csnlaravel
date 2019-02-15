@@ -43,7 +43,7 @@ $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
                         <li class="tu-nhac"><a class="tu-nhac" href="#uploaded" onclick="musicUserTab('musicUploaded')" ><span>Tủ nhạc</span></a></li>
                         @endif
                         @if(Auth::check() && Auth::user()->hasPermission('duyet_sua_nhac'))
-                            <li class="duyet-nhac"><a class="duyet-nhac" href="#uploaded" onclick="musicUserTab('musicUploaded')" ><span>Duyệt Nhạc</span></a></li>
+                            <li class="duyet-nhac"><a class="duyet-nhac" href="#duyet-nhac" onclick="musicUserTab('music_approval')" ><span>Duyệt Nhạc</span></a></li>
                         @endif
                     </ul>
                 </nav>
@@ -109,6 +109,7 @@ $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
                     <section id="video"></section>
                     <section id="artist"></section>
                     <section id="uploaded"></section>
+                    <section id="duyet-nhac"></section>
                 </div>
             </div>
         </div>
@@ -147,24 +148,36 @@ $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
         });
     })();
     var firstUploaded = true;
+    var firstApproval = true;
     function musicUserTab(tab) {
         let urlCurrent = window.location.origin + window.location.pathname;
-        history.pushState({urlPath: urlCurrent + '?tab=tu-nhac'},"", urlCurrent + '?tab=tu-nhac')
+        if(tab == 'music_approval') {
+            history.pushState({urlPath: urlCurrent + '?tab=duyet-nhac'},"", urlCurrent + '?tab=duyet-nhac')
+        }else{
+            history.pushState({urlPath: urlCurrent + '?tab=tu-nhac'},"", urlCurrent + '?tab=tu-nhac')
+        }
         if(tab == 'musicUploaded' && firstUploaded) {
             firstUploaded = false;
-            musicUploaded('/user/music_uploaded', 'all');
+            musicUploaded('/user/music_uploaded', 'upload', 'all');
+        }
+        if(tab == 'music_approval' && firstApproval) {
+            firstApproval = false;
+            musicUploaded('/user/music_uploaded', 'approval', 'all');
         }
     }
-    function musicUploaded(url, stage) {
+    function musicUploaded(url, page, stage) {
         var uploaded = $('#uploaded');
+        var approval = $('#duyet-nhac');
         $.ajax({
             url: url,
             type: "POST",
             dataType: "html",
             data: {
+                'page_tab' : page,
                 'stage' : stage,
                 'user_id' : '<?php echo $user->id ?>'
             },
+            async: false,
             beforeSend: function () {
                 if(loaded) return false;
                 loaded = true;
@@ -172,16 +185,29 @@ $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
             },
             success: function(response) {
                 waitingDialog.hide();
-                if(stage == 'all') {
-                    uploaded.html(response);
-                }else{
-                    uploaded = $('.stage_' + stage);
-                    $('.stage_' + stage).html(response);
+                if(page == 'upload') {
+                    if(stage == 'all') {
+                        uploaded.html(response);
+                    }else{
+                        uploaded = $('.stage_' + stage);
+                        $('.stage_' + stage).html(response);
+                    }
+                    uploaded.find('.pagination li a').on('click', function (e) {
+                        e.preventDefault();
+                        musicUploaded($(this).attr('href'), 'upload', $(this).parents().parents().parents().data('page'));
+                    });
+                }else {
+                    if(stage == 'all') {
+                        approval.html(response);
+                    }else{
+                        approval = $('.stage_' + stage);
+                        $('.stage_' + stage).html(response);
+                    }
+                    approval.find('.pagination li a').on('click', function (e) {
+                        e.preventDefault();
+                        musicUploaded($(this).attr('href'), 'approval', $(this).parents().parents().parents().data('page'));
+                    });
                 }
-                uploaded.find('.pagination li a').on('click', function (e) {
-                    e.preventDefault();
-                    musicUploaded($(this).attr('href'), $(this).parents().parents().parents().data('page'));
-                });
             }
         });
     }
