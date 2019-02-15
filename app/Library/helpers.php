@@ -568,7 +568,7 @@ class Helpers
             $url = 'http://data00.chiasenhac.com/';
         // data3 -> data
         else if ($music_id <= 1319000)
-            $url = 'http://data.chiasenhac.com/';
+            $url = 'https://data.chiasenhac.com/';
         // DDLQD's Server
         else if ($music_id <= 1349000)
             $url = 'http://data02.chiasenhac.com/';
@@ -621,7 +621,7 @@ class Helpers
         else if ($music_id <= 1993000)
             $url = 'http://data25.chiasenhac.com/';
         else
-            $url = 'http://data.chiasenhac.com/';
+            $url = 'https://data.chiasenhac.com/';
 
         ///// demo url hidden link
         if($url == 'http://data4.chiasenhac.com/' ) {
