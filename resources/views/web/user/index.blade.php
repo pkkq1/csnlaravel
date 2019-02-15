@@ -42,7 +42,7 @@ $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
                         @if($mySelf || (Auth::check() && Auth::user()->hasPermission('duyet_sua_nhac')))
                         <li class="tu-nhac"><a class="tu-nhac" href="#uploaded" onclick="musicUserTab('musicUploaded')" ><span>Tủ nhạc</span></a></li>
                         @endif
-                        @if(Auth::check() && Auth::user()->hasPermission('duyet_sua_nhac'))
+                        @if($mySelf && Auth::check() && Auth::user()->hasPermission('duyet_sua_nhac'))
                             <li class="duyet-nhac"><a class="duyet-nhac" href="#duyet-nhac" onclick="musicUserTab('music_approval')" ><span>Duyệt Nhạc</span></a></li>
                         @endif
                     </ul>

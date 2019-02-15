@@ -94,7 +94,7 @@ class UserMusicController extends Controller
             return view('user.music_uploaded', compact('music', 'stage'));
         }elseif($request->page_tab == 'approval'){
             $stage = $request->input('stage');
-            if($stage == 'all' || $stage == 'fullcensor') {
+            if($stage == 'all' || $stage == 'fullconvert') {
                 // chờ duyệt
                 $music['stage_fullconvert'] = $this->uploadRepository->musicByStage([UPLOAD_STAGE_FULLCONVERT], 'music_last_update_time', 'desc', LIMIT_PAGE_MUSIC_UPLOADED);
             }
