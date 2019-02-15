@@ -169,7 +169,8 @@ class SearchController extends Controller
                             'album_link' => $item['album_link'][0],
                             'album_id' => $request->view_album ? $item['id'] : '',
                             'album_bitrate' => $item['music_bitrate'][0],
-                            'album_artist' => isset($item['music_artist']) ? $item['music_artist'][0] : '',
+                            'album_artist' => isset($item['album_music_artist']) ? $item['album_music_artist'][0] : '',
+                            'album_artist_html' => isset($item['album_music_artist_html']) ? $item['album_music_artist_html'][0] : '',
                             'album_cover' => isset($item['album_cover']) ? $item['album_cover'][0] : '',
                         ];
                     }

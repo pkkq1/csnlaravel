@@ -308,7 +308,7 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                                 </div>
                                 <div class="card-body">
                                     <h3 class="card-title"><a href="{{$item['album_link']}}" title="{{$item['music_album']}}" class="search_title" >{{$item['music_album']}}</a></h3>
-                                    <p class="card-text"><?php echo $item['album_artist'] ?></p>
+                                    <p class="card-text"><?php echo $item['album_artist_html'] ?></p>
                                 </div>
                             </div>
                         </div>

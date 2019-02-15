@@ -73,7 +73,7 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                                             <a href="{{$item['album_link']}}"><div style="background: url({{$item['album_cover']}}) no-repeat center;background-size: cover;" class="image rounded"></div></a>
                                             <div class="content mt-3">
                                                 <a href="{{$item['album_link']}}"><h6 class="name_song mb-1 card-title">{{$item['music_album']}}</h6></a>
-                                                <p class="name_singer text-gray mb-1 author"><?php echo $item['album_artist'] ?></p>
+                                                <p class="name_singer text-gray mb-1 author"><?php echo $item['album_artist_html'] ?></p>
                                                 <p class="loss text-pink mb-0"><?php echo $item['album_bitrate'] ?></p>
                                             </div>
                                         </div>
