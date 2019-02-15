@@ -452,23 +452,26 @@ class SolrSyncController extends Controller
                 'album_cover' => Helpers::cover_url($item->cover_id),
                 'cover_filename' => $item->cover_filename,
                 'album_cat' => !empty($album_cat) ? $album_cat : '',
-                'music_year' => $item->music_year,
                 'album_link' => Helpers::album_url($item->toArray()),
-                'music_artist' => '',
-                'music_artist_search' => '',
-                'music_artist_charset' => '',
-                'music_artist_nospace' => '',
                 'album_bitrate' => $item->music_bitrate,
                 'music_artist_html' => '',
                 'album_bitrate_html' => $item->music_bitrate ? Helpers::bitrate2str($item->music_bitrate) : '',
                 'album_user_id' => $item->user_id,
                 'album_music_total' => $item->album_music_total,
 
+                'music_artist' => '',
+                'music_artist_search' => '',
+                'music_artist_charset' => '',
+                'music_artist_nospace' => '',
+                'music_year' => $item->music_year,
+
+
                 'album_music_artist' => '',
                 'album_music_artist_search' => '',
                 'album_music_artist_charset' => '',
                 'album_music_artist_nospace' => '',
                 'album_music_artist_html' => '',
+                'album_music_year' => $item->music_year,
             ];
             if($music_artist) {
 //                $artistSearch = Helpers::replaceKeySearch($music_artist);
