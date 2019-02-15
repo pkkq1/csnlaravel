@@ -39,8 +39,11 @@ $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
                         <li class="music"><a class="music" onclick="userTab('music', '/user/music_favourite')" href="#music"><span><i class="material-icons" style="font-size: 11px;">favorite_border</i> Bài Hát</span></a></li>
                         <li class="video"><a class="video" onclick="userTab('video', '/user/video_favourite')" href="#video"><span><i class="material-icons" style="font-size: 11px;">favorite_border</i> Video</span></a></li>
                         <li class="artist"><a class="artist" onclick="userTab('artist', '/user/artist_favourite')" href="#artist"><span><i class="material-icons" style="font-size: 11px;">favorite_border</i> Ca Sĩ</span></a></li>
-                        @if($mySelf || (Auth::check() && Auth::user()->hasPermission('duyet_sua_nhac')))
+                        @if($mySelf || (Auth::check() || Auth::user()->hasPermission('duyet_sua_nhac')))
                         <li class="tu-nhac"><a class="tu-nhac" href="#uploaded" onclick="musicUserTab('musicUploaded')" ><span>Tủ nhạc</span></a></li>
+                        @endif
+                        @if(Auth::user()->hasPermission('duyet_sua_nhac')))
+                            <li class="duyet-nhac"><a class="duyet-nhac" href="#uploaded" onclick="musicUserTab('musicUploaded')" ><span>Duyệt Nhạc</span></a></li>
                         @endif
                     </ul>
                 </nav>
