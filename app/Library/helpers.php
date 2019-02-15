@@ -625,10 +625,10 @@ class Helpers
             $url = 'https://data.chiasenhac.com/';
 
         ///// demo url hidden link
-        if($url == 'https://data.chiasenhac.com/dataxx/4/' ) {
-            $exp = strtotime("+" . TIME_EXPIRED_LINK . "  minutes");
-            return $url . md5(self::getIp() . env('DATA_KEY')) . '@' . $exp . '/';
-        }
+//        if($url == 'https://data.chiasenhac.com/dataxx/4/' ) {
+//            $exp = strtotime("+" . TIME_EXPIRED_LINK . "  minutes");
+//            return $url . md5(self::getIp() . env('DATA_KEY')) . '@' . $exp . '/';
+//        }
         return $url;
     }
 
