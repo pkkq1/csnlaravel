@@ -70,7 +70,7 @@ class UserMusicController extends Controller
                 $id = $request->user_id;
             }
         }
-        if(Auth::user()->id != $id || !Auth::user()->hasPermission('duyet_sua_nhac')) {
+        if(Auth::user()->id != $id && !Auth::user()->hasPermission('duyet_sua_nhac')) {
             return 'Lỗi User';
         }
         $stage = $request->input('stage');
