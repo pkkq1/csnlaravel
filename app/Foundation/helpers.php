@@ -39,6 +39,9 @@ function view($view = null, $data = [], $mergeData = [])
                 'parameter' => json_encode(Request()->all()),
                 'ip_address' => Helpers::getIp()
             ]);
+        }else{
+            $error->count_request = $error->count_request + 1;
+            $error->save();
         }
     }
     return $factory->make($view, $data, $mergeData);

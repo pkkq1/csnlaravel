@@ -113,6 +113,9 @@ class Handler extends ExceptionHandler
                     'parameter' => strlen(json_encode(Request()->all())) < 500 ? json_encode(Request()->all()) : ' ',
                     'ip_address' => Helpers::getIp()
                 ]);
+            }else{
+                $error->count_request = $error->count_request + 1;
+                $error->save();
             }
             abort(403, 'Lỗi '.$error->id.' Bạn vui lòng gửi mã lỗi này đến quản trị để khắc phục sớm nhất.');
         }
