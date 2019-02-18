@@ -9,7 +9,7 @@ use App\Library\Helpers;
     ?>
     <div class="col">
         <div class="card card1">
-            <div class="card-header" style="background-image: url({{Helpers::cover_url($item['cover_id'])}});">
+            <div class="card-header" style="background-image: url({{$item['album_cover'][0]}});">
                 <a href="{{$url}}" title="{{$item['music_album'][0]}}">
                     <span class="icon-play"></span>
                 </a>
