@@ -475,7 +475,7 @@ class SolrSyncController extends Controller
 //                $artistCharset = Helpers::rawTiengVietUrl($music_artist, ' ');
 
                 $data['album_music_artist'] = $music_artist;
-                $data['album_music_artist_id'] = $music_artist_id;
+                $data['album_music_artist_id'] = explode(';', $music_artist_id);
                 $data['album_music_artist_search'] = $artistSearch;
                 $data['album_music_artist_charset'] = $artistCharset;
                 $data['album_music_artist_nospace'] = str_replace(' ', '', $artistCharset);
