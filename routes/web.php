@@ -52,7 +52,7 @@ Route::group(['middlewareGroups' => ['web']], function () {
             Route::get('login/google', 'Api\AuthController@loginGoogle');
         });
     });
-
+    Route::get('/mp3/hot/hot-{year}', ['as' => 'bxh.month', 'uses' => 'BxhController@year']);
 
     Route::get('/logout', 'User\UserController@logout');
     Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
@@ -128,6 +128,7 @@ Route::group(['middlewareGroups' => ['web']], function () {
 
     Route::get('bang-xep-hang/nam-{year}/{catUrl}/{catLevel?}.html', ['as' => 'bxh.month', 'uses' => 'MusicController@listenBxhYear']);
     Route::get('bang-xep-hang/nam-{year}/{catUrl}/{catLevel?}', ['as' => 'bxh.month', 'uses' => 'MusicController@listenBxhYear']);
+
 
     Route::get('embed/mp3/{music}', 'MusicController@embed');
     // ajax comment
