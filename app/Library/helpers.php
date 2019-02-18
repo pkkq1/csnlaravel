@@ -544,23 +544,23 @@ class Helpers
 
         // Large Server
         else if ($music_id <= 1029000)
-            $url = (rand(1,3) != 10) ? 'https://data.chiasenhac.com/dataxx/16/' : 'https://data4.chiasenhac.com/';
+            $url = (rand(1,3) != 1) ? 'https://data.chiasenhac.com/dataxx/16/' : 'https://data4.chiasenhac.com/';
         else if (1029000 < $music_id && $music_id <= 1059000)
-            $url = (rand(1,3) != 10) ? 'https://data.chiasenhac.com/dataxx/17/' : 'https://data4.chiasenhac.com/';
+            $url = (rand(1,3) != 1) ? 'https://data.chiasenhac.com/dataxx/17/' : 'https://data4.chiasenhac.com/';
         else if (1059000 < $music_id && $music_id <= 1089000)
-            $url = (rand(1,3) != 10) ? 'https://data.chiasenhac.com/dataxx/18/' : 'https://data4.chiasenhac.com/';
+            $url = (rand(1,3) != 1) ? 'https://data.chiasenhac.com/dataxx/18/' : 'https://data4.chiasenhac.com/';
         else if (1089000 < $music_id && $music_id <= 1119000)
-            $url = (rand(1,3) != 10) ? 'https://data.chiasenhac.com/dataxx/19/' : 'https://data4.chiasenhac.com/';
+            $url = (rand(1,3) != 1) ? 'https://data.chiasenhac.com/dataxx/19/' : 'https://data4.chiasenhac.com/';
         else if (1119000 < $music_id && $music_id <= 1149000)
-            $url = (rand(1,3) != 10) ? 'https://data.chiasenhac.com/dataxx/20/' : 'https://data4.chiasenhac.com/';
+            $url = (rand(1,3) != 1) ? 'https://data.chiasenhac.com/dataxx/20/' : 'https://data4.chiasenhac.com/';
         else if (1149000 < $music_id && $music_id <= 1179000)
-            $url = (rand(1,3) != 10) ? 'https://data.chiasenhac.com/dataxx/21/' : 'https://data4.chiasenhac.com/';
+            $url = (rand(1,3) != 1) ? 'https://data.chiasenhac.com/dataxx/21/' : 'https://data4.chiasenhac.com/';
         else if (1179000 < $music_id && $music_id <= 1209000)
-            $url = (rand(1,3) != 10) ? 'https://data.chiasenhac.com/dataxx/22/' : 'https://data4.chiasenhac.com/';
+            $url = (rand(1,3) != 1) ? 'https://data.chiasenhac.com/dataxx/22/' : 'https://data4.chiasenhac.com/';
         else if (1209000 < $music_id && $music_id <= 1239000)
-            $url = (rand(1,3) != 10) ? 'https://data.chiasenhac.com/dataxx/23/' : 'https://data4.chiasenhac.com/';
+            $url = (rand(1,3) != 1) ? 'https://data.chiasenhac.com/dataxx/23/' : 'https://data4.chiasenhac.com/';
         else if (1239000 < $music_id && $music_id <= 1269000)
-            $url = (rand(1,3) != 10) ? 'https://data.chiasenhac.com/dataxx/24/' : 'https://data4.chiasenhac.com/';
+            $url = (rand(1,3) != 1) ? 'https://data.chiasenhac.com/dataxx/24/' : 'https://data4.chiasenhac.com/';
 
         else if ($music_id <= 1269000)
             $url = 'https://data4.chiasenhac.com/';
