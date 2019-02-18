@@ -28,6 +28,12 @@ Route::group([
 
     Route::get('artist_upload/preview/{id}', 'ArtistUploadController@preview');
     Route::get('artist_upload/suggest/{id}', 'ArtistUploadController@suggest');
+    CRUD::resource('comment_replay', 'CommentReplayController');
+
+    Route::put('/artist_upload/suggest/{id}', 'ArtistUploadController@suggest');
+
+
+
 
 });
 

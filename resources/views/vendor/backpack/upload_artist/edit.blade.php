@@ -32,7 +32,7 @@ use App\Library\Helpers;
 
             @include('crud::inc.grouped_errors')
 
-            <form method="post"
+            <form id="upload_article_form" method="post"
                   action="{{ url($crud->route.'/'.$entry->getKey()) }}"
                   enctype="multipart/form-data" >
                 {!! csrf_field() !!}
@@ -119,7 +119,7 @@ use App\Library\Helpers;
 
                             <input type="hidden" name="save_action" value="{{ $saveAction['active']['value'] }}">
                             @if($fields['type']['value'] == 0)
-                                <a href="{{ $crud->hasAccess('list') ? url($crud->route).'/suggest/'.$fields['id']['value'] : url()->previous() }}" class="btn btn-primary"><span class="fa fa-arrow-circle-right"></span> &nbsp;Xác Nhận Chỉnh Sửa</a>
+                                <a href="{{ $crud->hasAccess('list') ? url($crud->route).'/suggest/'.$fields['id']['value'] : url()->previous() }}" class="btn btn-primary suggest_artist"><span class="fa fa-arrow-circle-right"></span> &nbsp;Xác Nhận Chỉnh Sửa</a>
                             @else
                                 <a href="{{ $crud->hasAccess('list') ? url($crud->route).'/'.$fields['id']['value'].'/approval' : url()->previous() }}" class="btn btn-info"><span class="fa fa-arrow-circle-right"></span> &nbsp;Xác Nhận Ca Sĩ</a>
                             @endif
@@ -294,5 +294,10 @@ use App\Library\Helpers;
                 }
             });
         }
+        $('.suggest_artist').click(function (event) {
+            event.preventDefault();
+            $('form').attr('action', $(this).attr('href'));
+            document.getElementById("upload_article_form").submit();
+        })
     </script>
 @endpush

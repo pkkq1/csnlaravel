@@ -208,13 +208,13 @@ class ArtistController extends CrudController
         if(strlen($request->input('artist_avatar')) < 100) {
             $request->request->set('artist_avatar', str_replace(env('APP_URL') . Helpers::file_path($request->input('artist_id'), PUBLIC_AVATAR_ARTIST_PATH, true), '', $request->input('artist_avatar')));
         }else{
-            $fileNameAvt = Helpers::saveBase64Image($request->input('artist_avatar'), Helpers::file_path($request->input('artist_id'), AVATAR_ARTIST_CROP_PATH, true), $request->input('artist_id'));
+            $fileNameAvt = Helpers::saveBase64ImageJpg($request->input('artist_avatar'), Helpers::file_path($request->input('artist_id'), AVATAR_ARTIST_CROP_PATH, true), $request->input('artist_id'));
             $request->request->set('artist_avatar', $fileNameAvt);
         }
         if(strlen($request->input('artist_cover')) < 100) {
             $request->request->set('artist_cover', str_replace(env('APP_URL') . Helpers::file_path($request->input('artist_id'), PUBLIC_COVER_ARTIST_PATH, true), '', $request->input('artist_avatar')));
         }else{
-            $fileNameCover = Helpers::saveBase64Image($request->input('artist_cover'), Helpers::file_path($request->input('artist_id'), COVER_ARTIST_CROP_PATH, true), $request->input('artist_id'));
+            $fileNameCover = Helpers::saveBase64ImageJpg($request->input('artist_cover'), Helpers::file_path($request->input('artist_id'), COVER_ARTIST_CROP_PATH, true), $request->input('artist_id'));
             $request->request->set('artist_cover', $fileNameCover);
         }
         $request->request->set('last_update_user_id', Auth::user()->id);

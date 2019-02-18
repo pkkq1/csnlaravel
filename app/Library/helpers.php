@@ -299,6 +299,18 @@ class Helpers
         Storage::put('public' . $path . $fileName, $data);
         return $fileName;
     }
+    public static function saveBase64ImageJpg($data, $path, $fileName = null, $type = 'png')
+    {
+        $data = str_replace('data:image/png;base64,', '', $data);
+        $data = str_replace('data:image/jpeg;base64,', '', $data);
+        $data = str_replace(' ', '+', $data);
+        $data = base64_decode($data);
+        $source = imagecreatefromstring($data);
+        $fileName = ($fileName ?? rand() . '_' . time()) . '.' .$type;
+        $imageSave = imagejpeg($source, Storage::disk('public')->getAdapter()->getPathPrefix().$path . $fileName,88);
+        imagedestroy($source);
+        return $fileName;
+    }
 
     public static function copySourceImage($data, $path, $fileName = null, $type = 'png')
     {

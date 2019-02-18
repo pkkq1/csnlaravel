@@ -228,13 +228,13 @@ class ArtistUploadController extends CrudController
         }
         if(strlen($request->input('artist_avatar')) > 100) {
             $typeImageAvatar = array_last(explode('.', $_FILES['choose_artist_avatar']['name']));
-            $fileNameAvt = Helpers::saveBase64Image($request->input('artist_avatar'), Helpers::file_path($request->input('artist_id'), CACHE_AVATAR_ARTIST_CROP_PATH, true), $request->artist_id, $typeImageAvatar);
+            $fileNameAvt = Helpers::saveBase64ImageJpg($request->input('artist_avatar'), Helpers::file_path($request->input('artist_id'), CACHE_AVATAR_ARTIST_CROP_PATH, true), $request->artist_id, $typeImageAvatar);
             Helpers::copySourceImage($request->file('choose_artist_avatar'), Helpers::file_path($request->input('artist_id'), AVATAR_ARTIST_SOURCE_PATH, true), $request->artist_id, $typeImageAvatar);
             $request->request->set('artist_avatar', $fileNameAvt);
         }
         if(strlen($request->input('artist_cover')) > 100) {
             $typeImageCover = array_last(explode('.', $_FILES['choose_artist_cover']['name']));
-            $fileNameCover = Helpers::saveBase64Image($request->input('artist_cover'), Helpers::file_path($request->input('artist_id'), CACHE_COVER_ARTIST_CROP_PATH, true), $request->artist_id, $typeImageCover);
+            $fileNameCover = Helpers::saveBase64ImageJpg($request->input('artist_cover'), Helpers::file_path($request->input('artist_id'), CACHE_COVER_ARTIST_CROP_PATH, true), $request->artist_id, $typeImageCover);
             Helpers::copySourceImage($request->file('choose_artist_cover'), Helpers::file_path($request->input('artist_id'), COVER_ARTIST_SOURCE_PATH, true), $request->artist_id, $typeImageCover);
             $request->request->set('artist_cover', $fileNameCover);
         }
@@ -307,6 +307,13 @@ class ArtistUploadController extends CrudController
         $artistExist = $this->artistRepository->getModel()::where('artist_id', $artistUpload->artist_id_suggest)->first();
         if(!$artistExist) {
             \Alert::error('Ca sĩ không đã tồn tại.')->flash();
+            return redirect()->back();
+        }
+        // check save if you get approval article
+        if($artistUpload->artist_nickname != $request->artist_nickname || $artistUpload->artist_gender != $request->artist_gender || date_create_from_format("d-m-Y", $artistUpload->artist_birthday) != date_create_from_format("d-m-Y", $request->artist_birthday)
+            || strlen($request->input('artist_avatar')) > 100 || strlen($request->input('artist_cover')) > 100) {
+
+            \Alert::error('Đã có sự thay đổi, hãy chỉnh sửa lại và lưu trước khi xác nhận ca sĩ này.')->flash();
             return redirect()->back();
         }
         if($artistUpload->artist_avatar){
