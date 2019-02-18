@@ -227,7 +227,7 @@ class PlaylistController extends Controller
             $mes = 'Đã Cập nhập playlist.';
             // update cover
             if($request->input('playlist_cover')) {
-                $fileNameCover = Helpers::saveBase64ImageJpg($request->input('playlist_cover'), Helpers::file_path($id, MUSIC_PLAYLIST_PATH, true), $id, 'jpg');
+                $fileNameCover = Helpers::saveBase64ImageJpg($request->input('playlist_cover'), Helpers::file_path($id, MUSIC_PLAYLIST_PATH, true), $id);
             }
             return redirect()->route('playlist.update_playlist', $id)->with('success', $mes);
         }else{
@@ -237,7 +237,7 @@ class PlaylistController extends Controller
             $mes = 'Đã tạo playlist '.$result->playlist_title;
             // update cover
             if($request->input('playlist_cover')) {
-                $fileNameCover = Helpers::saveBase64ImageJpg($request->input('playlist_cover'), Helpers::file_path($result->playlist_id, MUSIC_PLAYLIST_PATH, true), $result->playlist_id, 'jpg');
+                $fileNameCover = Helpers::saveBase64ImageJpg($request->input('playlist_cover'), Helpers::file_path($result->playlist_id, MUSIC_PLAYLIST_PATH, true), $result->playlist_id);
             }
             return redirect('/user/playlist/chinh-sua')->with('success', $mes);
         }

@@ -43,7 +43,7 @@ use App\Library\Helpers;
                                 </td>
                                 <td>
                                     <div class="media">
-                                        <a class="mr-3" href="{{$user}}" title=""><img src="{{$item->playlist_cover ? Helpers::file_path($item->playlist_id, PUBLIC_MUSIC_PLAYLIST_PATH, true).$item->playlist_id . '.png?v=' . time() : '/imgs/avatar_default.png'}}" alt="{{$item->playlist_title}}"></a>
+                                        <a class="mr-3" href="{{$user}}" title=""><img src="{{$item->playlist_cover ? Helpers::file_path($item->playlist_id, PUBLIC_MUSIC_PLAYLIST_PATH, true).$item->playlist_id . '.jpg?v=' . time() : '/imgs/avatar_default.png'}}" alt="{{$item->playlist_title}}"></a>
                                         <div class="media-body">
                                             <h4 class="media-title"><a href="{{$user}}" title="{{$item->playlist_title}}">{{$item->playlist_title}}</a></h4>
                                             <ul class="list-unstyled">
