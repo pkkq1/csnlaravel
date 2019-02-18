@@ -9,6 +9,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request as Request;
 use Illuminate\Support\Facades\Auth;
 use App\Library\Helpers;
+use App\Solr\Solarium;
 use App\Repositories\Artist\ArtistRepository;
 use App\Models\ArtistModel;
 use App\Repositories\Music\MusicEloquentRepository;
@@ -25,15 +26,17 @@ class ArtistController extends Controller
     protected $coverRepository;
     protected $playlistPublisherRepository;
     protected $artistFavouriteRepository;
+    protected $Solr;
 
     public function __construct(ArtistRepository $artistRepository, MusicEloquentRepository $musicRepository, VideoEloquentRepository $videoRepository, CoverEloquentRepository $coverRepository,
-                                PlaylistPublisherEloquentRepository $playlistPublisherRepository, ArtistFavouriteRepository $artistFavouriteRepository) {
+                                PlaylistPublisherEloquentRepository $playlistPublisherRepository, ArtistFavouriteRepository $artistFavouriteRepository, Solarium $Solr) {
         $this->artistRepository = $artistRepository;
         $this->musicRepository = $musicRepository;
         $this->videoRepository = $videoRepository;
         $this->coverRepository = $coverRepository;
         $this->playlistPublisherRepository = $playlistPublisherRepository;
         $this->artistFavouriteRepository = $artistFavouriteRepository;
+        $this->Solr = $Solr;
     }
 
     public function getTermArtist(Request $request) {
@@ -53,8 +56,8 @@ class ArtistController extends Controller
         if(!$artist) {
             return view('errors.404');
         }
-        $music =  $this->musicRepository->findMusicByArtist($artist->artist_id, 'music_last_update_time', 'desc', LIMIT_MUSIC_PAGE_ARTIST);
-            $musicHtml =  view('artist.music_item', compact('music'));
+        $music = $this->Solr->search(['music_artist_id' => $artist->artist_id], 1, LIMIT_MUSIC_PAGE_ARTIST, ['_version_' => 'desc']);
+        $musicHtml =  view('artist.music_item', compact('music'));
         $artistFavourite = false;
         if(Auth::check())
             $artistFavourite = $this->artistFavouriteRepository->getModel()::where([['user_id', Auth::user()->id], ['artist_id', $artist->artist_id]])->first();
@@ -63,15 +66,15 @@ class ArtistController extends Controller
     public function getTabArtist(Request $request) {
         switch ($request->tab) {
             case "music":
-                $music = $this->musicRepository->findMusicByArtist($request->artist_id, 'music_last_update_time', 'desc', LIMIT_MUSIC_PAGE_ARTIST);
+                $music = $this->Solr->search(['music_artist_id' => $request->artist_id], $request->page ?? 1, LIMIT_MUSIC_PAGE_ARTIST, ['_version_' => 'desc']);
                 return view('artist.music_item', compact('music'));
                 break;
             case "video":
-                $video = $this->videoRepository->findVideoByArtist($request->artist_id, 'music_last_update_time', 'desc', LIMIT_MUSIC_PAGE_ARTIST);
+                $video = $this->Solr->search(['video_artist_id' => $request->artist_id], $request->page ?? 1, LIMIT_MUSIC_PAGE_ARTIST, ['_version_' => 'desc']);
                 return view('artist.video_item', compact('video'));
                 break;
             case "album":
-                $cover = $this->coverRepository->findAlbumByArtist($request->artist_id, 'cover_id', 'desc', LIMIT_MUSIC_PAGE_ARTIST);
+                $cover = $this->Solr->search(['album_music_artist_id' => $request->artist_id], $request->page ?? 1, LIMIT_MUSIC_PAGE_ARTIST, ['_version_' => 'desc']);
                 return view('artist.cover_item', compact('cover'));
                 break;
             case "playlist":
