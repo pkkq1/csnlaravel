@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Solr\Solarium;
 use App\Http\Controllers\Sync\SolrSyncController;
 use File;
+use Artisan;
 use Validator;
 use Exception;
 use App\Exceptions;
@@ -324,14 +325,7 @@ class UploadController extends Controller
                     $result->cover_id = str_replace('cover_', '', $request->input('cover_id'));
             }
             if($per_Xet_Duyet) {
-                if($request->music_state) {
-                    if(!in_array($result->music_state, $arrStage))
-                        return view('errors.text_error')->with('message', 'Bài hát đang được xử lý, bạn vui lòng quay lại sau');
-                    if(!in_array($request->music_state, $arrStage))
-                        return view('errors.text_error')->with('message', 'Trạng thái gửi lên không hợp lệ');
-                    $result->music_state = $request->input('music_state');
-                }
-                if($request->input('music_state') == UPLOAD_STAGE_DELETED) {
+                if($request->input('music_state') == UPLOAD_STAGE_DELETED && $result->music_state != UPLOAD_STAGE_DELETED) { //check old stage to before update stage field
                     $Solr = new SolrSyncController($this->Solr);
                     if($result->cat_id == CAT_VIDEO) {
                         $this->videoRepository->delete($result->music_id);
@@ -340,8 +334,20 @@ class UploadController extends Controller
                         $this->musicRepository->delete($result->music_id);
                         $Solr->syncDeleteMusic(null, $result);
                     }
-                    // update solr
+                    if($result->cover_id) {
+                        $cover = $this->coverRepository->findCover($result->cover_id);
+                        $cover->album_music_total = $cover->album_music_total - 1;
+                    }
+                    Artisan::call('album');
                 }
+                if($request->music_state) {
+                    if(!in_array($result->music_state, $arrStage))
+                        return view('errors.text_error')->with('message', 'Bài hát đang được xử lý, bạn vui lòng quay lại sau');
+                    if(!in_array($request->music_state, $arrStage))
+                        return view('errors.text_error')->with('message', 'Trạng thái gửi lên không hợp lệ');
+                    $result->music_state = $request->input('music_state');
+                }
+
             }
             if($per_Xet_Duyet && $request->music_track_id)
                 $result->music_track_id = $request->music_track_id;
