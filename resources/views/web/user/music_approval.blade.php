@@ -40,7 +40,7 @@ use App\Library\Helpers;
                         <div class="media-right align-self-center">
                             <small class="time_stt"><?php echo Helpers::timeElapsedString($item['music_last_update_time']); ?></small>
                             <ul class="list-inline" style="margin-right:0px">
-                                <li class="list-inline-item"><a href="/dang-tai/nhac/{{$item['music_id']}}" target="_blank" title="chỉnh sửa {{$item['music_title']}}">Chỉnh Sửa</a></li>
+                                <li class="list-inline-item"><a href="{{$url}}" target="_blank" title="chỉnh sửa {{$item['music_title']}}">Chỉnh Sửa</a></li>
                             </ul>
                         </div>
                     </li>
@@ -79,7 +79,7 @@ use App\Library\Helpers;
                         <div class="media-right align-self-center">
                             <small class="time_stt"><?php echo Helpers::timeElapsedString($item['music_last_update_time']); ?></small>
                             <ul class="list-inline" style="margin-right:0px">
-                                <li class="list-inline-item"><a href="/dang-tai/nhac/{{$item['music_id']}}" target="_blank" title="chỉnh sửa {{$item['music_title']}}">Chỉnh Sửa</a></li>
+                                <li class="list-inline-item"><a href="{{$url}}" target="_blank" title="chỉnh sửa {{$item['music_title']}}">Chỉnh Sửa</a></li>
                             </ul>
                         </div>
                     </li>
@@ -172,7 +172,7 @@ use App\Library\Helpers;
                         <div class="media-right align-self-center">
                             <small class="time_stt"><?php echo Helpers::timeElapsedString($item['music_last_update_time']); ?></small>
                             <ul class="list-inline" style="margin-right:0px">
-                                <li class="list-inline-item"><a href="/dang-tai/nhac/{{$item['music_id']}}" target="_blank">Chỉnh Sửa</a></li>
+                                <li class="list-inline-item"><a href="{{$url}}" target="_blank">Chỉnh Sửa</a></li>
                             </ul>
                         </div>
                     </li>
@@ -202,7 +202,7 @@ use App\Library\Helpers;
                     $curentPage = $music['stage_delete']->toArray()['current_page'];
                     array_map(function($i, $item) use($perPage, $curentPage) {
                     if($i < 5) {
-                    $url = '#';
+                    $url = '/dang-tai/'.($item['cat_id'] == CAT_VIDEO ? 'video' : 'nhac').'/'.$item['music_id'];
                     ?>
                     <li class="media align-items-stretch items-stretch-{{$item['music_id']}}">
                         <div class="media_tmp align-self-center d-flex align-items-center mr-3 pl-3">
@@ -226,7 +226,7 @@ use App\Library\Helpers;
                         <div class="media-right align-self-center">
                             <small class="time_stt"><?php echo Helpers::timeElapsedString($item['music_last_update_time']); ?></small>
                             <ul class="list-inline" style="margin-right:0px">
-                                <li class="list-inline-item"><a href="/dang-tai/nhac/{{$item['music_id']}}" target="_blank">Chỉnh Sửa</a></li>
+                                <li class="list-inline-item"><a href="{{$url}}" target="_blank">Chỉnh Sửa</a></li>
                             </ul>
                         </div>
                     </li>
@@ -241,7 +241,7 @@ use App\Library\Helpers;
                     <?php
                     array_map(function($i, $item) use($perPage, $curentPage) {
                     if($i >= 5) {
-                    $url = '#';
+                    $url = '/dang-tai/'.($item['cat_id'] == CAT_VIDEO ? 'video' : 'nhac').'/'.$item['music_id'];
                     ?>
                     <li class="media align-items-stretch items-stretch-{{$item['music_id']}}">
                         <div class="media_tmp align-self-center d-flex align-items-center mr-3 pl-3">
@@ -265,7 +265,7 @@ use App\Library\Helpers;
                         <div class="media-right align-self-center">
                             <small class="time_stt"><?php echo Helpers::timeElapsedString($item['music_last_update_time']); ?></small>
                             <ul class="list-inline" style="margin-right:0px">
-                                <li class="list-inline-item"><a href="/dang-tai/nhac/{{$item['music_id']}}" target="_blank">Chỉnh Sửa</a></li>
+                                <li class="list-inline-item"><a href="{{$url}}" target="_blank">Chỉnh Sửa</a></li>
                             </ul>
                         </div>
                     </li>
@@ -296,6 +296,7 @@ use App\Library\Helpers;
                     array_map(function($i, $item) use($perPage, $curentPage) {
                     if($i < 5) {
                     $url = url()->current().'/redirect/'.$item['music_id'];
+                    $urlEdit = '/dang-tai/'.($item['cat_id'] == CAT_VIDEO ? 'video' : 'nhac').'/'.$item['music_id'];
                     ?>
                     <li class="media align-items-stretch items-stretch-{{$item['music_id']}}">
                         <div class="media_tmp align-self-center d-flex align-items-center mr-3 pl-3">
@@ -319,7 +320,7 @@ use App\Library\Helpers;
                         <div class="media-right align-self-center">
                             <small class="time_stt"><?php echo Helpers::timeElapsedString($item['music_last_update_time']); ?></small>
                             <ul class="list-inline" style="margin-right:0px">
-                                <li class="list-inline-item"><a href="/dang-tai/nhac/{{$item['music_id']}}" target="_blank">Chỉnh Sửa</a></li>
+                                <li class="list-inline-item"><a href="{{$urlEdit}}" target="_blank">Chỉnh Sửa</a></li>
                             </ul>
                         </div>
                     </li>
@@ -335,6 +336,7 @@ use App\Library\Helpers;
                     array_map(function($i, $item) use($perPage, $curentPage) {
                     if($i >= 5) {
                     $url = url()->current().'/redirect/'.$item['music_id'];
+                    $urlEdit = '/dang-tai/'.($item['cat_id'] == CAT_VIDEO ? 'video' : 'nhac').'/'.$item['music_id'];
                     ?>
                     <li class="media align-items-stretch items-stretch-{{$item['music_id']}}">
                         <div class="media_tmp align-self-center d-flex align-items-center mr-3 pl-3">
@@ -358,7 +360,7 @@ use App\Library\Helpers;
                         <div class="media-right align-self-center">
                             <small class="time_stt"><?php echo Helpers::timeElapsedString($item['music_last_update_time']); ?></small>
                             <ul class="list-inline" style="margin-right:0px">
-                                <li class="list-inline-item"><a href="/dang-tai/nhac/{{$item['music_id']}}" target="_blank">Chỉnh Sửa</a></li>
+                                <li class="list-inline-item"><a href="{{$urlEdit}}" target="_blank">Chỉnh Sửa</a></li>
                             </ul>
                         </div>
                     </li>

@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Solr\Solarium;
 use App\Http\Controllers\Sync\SolrSyncController;
 use File;
+use Validator;
 use Exception;
 use App\Exceptions;
 
@@ -77,6 +78,8 @@ class UploadController extends Controller
                 return view('errors.text_error')->with('message', 'Bài hát đã được duyệt, bạn không được phép sửa');
             if(!in_array($music->music_state, $arrStage))
                 return view('errors.text_error')->with('message', 'Bài hát đang được xử lý, bạn vui lòng quay lại sau');
+            if($music->cat_id == CAT_VIDEO)
+                return view('errors.text_error')->with('message', 'Danh mục trang bạn chọn không chính xác');
             if($music->cover_id)
                 $album = $this->coverRepository->findCover($music->cover_id);
         }
@@ -98,6 +101,8 @@ class UploadController extends Controller
                 return view('errors.404');
             if(!in_array($music->music_state, $arrStage))
                 return view('errors.text_error')->with('message', 'Bài hát đang được xử lý, bạn vui lòng quay lại sau');
+            if($music->cat_id != CAT_VIDEO)
+                return view('errors.text_error')->with('message', 'Danh mục trang bạn chọn không chính xác');
             if($music->cover_id)
                 $album = $this->coverRepository->findCover($music->cover_id);
         }
@@ -222,6 +227,11 @@ class UploadController extends Controller
         $getID3 = new \getID3;
         $videoInfo = $getID3->analyze($_FILES['file']['tmp_name']);
         if($type == 'video') {
+            if($request->type == 'music')
+                return response()->json([
+                    'status' => false,
+                    'message' => 'Sai định dạng video',
+                ]);
             if($videoInfo['video']['resolution_x'] < 650 || $videoInfo['video']['resolution_y'] < 300) {
                 return response()->json([
                     'status' => false,
@@ -234,12 +244,18 @@ class UploadController extends Controller
                     'message' => 'Độ dài video không vượt quá 60 phút',
                 ]);
             }
-        }
-        if($videoInfo['playtime_seconds'] < 30) {
-            return response()->json([
-                'status' => false,
-                'message' => 'Độ dài nhạc/video không được thấp hơn 30 giây',
-            ]);
+        }else{
+            if($request->type == 'video')
+                return response()->json([
+                    'status' => false,
+                    'message' => 'Sai định dạng nhạc',
+                ]);
+            if($videoInfo['playtime_seconds'] < 30) {
+                return response()->json([
+                    'status' => false,
+                    'message' => 'Độ dài nhạc/video không được thấp hơn 30 giây',
+                ]);
+            }
         }
         $fileName = Helpers::moveFile($request->file('file'), $_SERVER['DOCUMENT_ROOT'].DEFAULT_ROOT_CACHE_MUSIC_PATH, $_FILES['file']['name']);
         return response()->json([
@@ -250,6 +266,17 @@ class UploadController extends Controller
         ]);
     }
     public function storeMusic(Request $request, $musicId = null) {
+        global $cat_id2info;
+        include(app_path() . '/../resources/views/cache/def_main_cat.blade.php');
+        if(!isset($cat_id2info[$request->cat_id][$request->cat_level]) || $request->cat_level == 0) {
+            $errorMessages = new \Illuminate\Support\MessageBag;
+            if($request->cat_level == 0) {
+                $errorMessages->merge(['cat_level' => ['Danh mục bạn chọn không phù hợp lệ.']]);
+            }else{
+                $errorMessages->merge(['cat_id' => ['Danh mục bạn chọn không phù hợp lệ.']]);
+            }
+            return redirect()->back()->withErrors($errorMessages);
+        }
         $this->validate($request, [
             'music_title' => 'required|max:255',
             'music_composer' => 'max:255',
@@ -259,6 +286,7 @@ class UploadController extends Controller
             'music_album_id' => 'max:15',
             'music_source_url' => 'max:255',
         ]);
+
         $typeUpload = $request->input('type_upload');
         $mess = $typeUpload == 'music' ? 'bài hát' : 'video';
         if($request->input('action_upload') == 'edit') {
