@@ -345,7 +345,7 @@ class UploadController extends Controller
             }
             if($per_Xet_Duyet && $request->music_track_id)
                 $result->music_track_id = $request->music_track_id;
-            if($per_Xet_Duyet_Chat_luong) {
+            if($per_Xet_Duyet_Chat_luong && $request->input('music_bitrate_fixed')) {
                 $result->music_bitrate_fixed = $request->input('music_bitrate_fixed');
                 $result->music_bitrate_fixed_by = Auth::user()->id;
             }
@@ -381,7 +381,7 @@ class UploadController extends Controller
 //            $Solr->syncMusic(null, $result);
 //            return redirect()->route('upload.storeMusic', ['musicId' => $musicId])->with('success', 'Đã chỉnh sửa '.$mess.' ' . $result->music_title);
             $mes2 = ($musicRedirectNext || $musicRedirectBack) ? '<br/><a href="/dang-tai/nhac/'.($musicRedirectNext ? $musicRedirectNext->music_id : $musicRedirectBack->music_id).'">Click vào đây để sửa bài '.($musicRedirectNext ? '<u>trước</u>' : '').'</a>'.($musicRedirectBack ? '<a href="/dang-tai/nhac/'.$musicRedirectBack->music_id.'"> | <u>sau</u></a>' : '') : '';
-            return redirect()->route('upload.storeMusic', ['musicId' => $musicId])->with('success', 'Đã chỉnh sửa '.$mess.' ' . $result->music_title.'<br/><a href="/user/'.$result->music_user_id.'">Click vào đây để trở lại Tủ nhạc</a>'.$mes2);
+            return redirect()->route(($result->cat_id == CAT_VIDEO ? 'upload.storeVideo' : 'upload.storeMusic'), ['musicId' => $musicId])->with('success', 'Đã chỉnh sửa '.$mess.' ' . $result->music_title.'<br/><a href="/user/'.$result->music_user_id.'">Click vào đây để trở lại Tủ nhạc</a>'.$mes2);
         }else{
             $csnMusic = [
                 'music_title' => $request->input('music_title'),
