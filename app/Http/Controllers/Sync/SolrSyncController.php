@@ -463,6 +463,7 @@ class SolrSyncController extends Controller
                 'album_music_total' => $item->album_music_total,
 
                 'album_music_artist' => '',
+                'album_music_artist_id' => '',
                 'album_music_artist_search' => '',
                 'album_music_artist_charset' => '',
                 'album_music_artist_nospace' => '',
