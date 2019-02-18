@@ -266,6 +266,13 @@ class ArtistUploadController extends CrudController
     public function approvalArtistUpload(StoreRequest $request, $id) {
         $artistUpload = $this->artistUploadRepository->findOnlyPublished($id);
         $nameExist = $this->artistRepository->getModel()::where('artist_nickname', $artistUpload->artist_nickname)->first();
+        // check save if you get approval article
+        if($artistUpload->artist_nickname != $request->artist_nickname || $artistUpload->artist_gender != $request->artist_gender || date_create_from_format("d-m-Y", $artistUpload->artist_birthday) != date_create_from_format("d-m-Y", $request->artist_birthday)
+            || strlen($request->input('artist_avatar')) > 100 || strlen($request->input('artist_cover')) > 100) {
+
+            \Alert::error('Đã có sự thay đổi, bạn cần lưu trước khi xác nhận ca sĩ này.')->flash();
+            return redirect()->back();
+        }
         if($nameExist) {
             \Alert::error('Tên Ca sĩ đã tồn tại.')->flash();
             return redirect()->back();
