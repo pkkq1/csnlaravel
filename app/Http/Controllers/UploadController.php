@@ -337,8 +337,9 @@ class UploadController extends Controller
                     if($result->cover_id) {
                         $cover = $this->coverRepository->findCover($result->cover_id);
                         $cover->album_music_total = $cover->album_music_total - 1;
+                        $cover->save();
                     }
-                    Artisan::call('album');
+//                    Artisan::call('album');
                 }
                 if($request->music_state) {
                     if(!in_array($result->music_state, $arrStage))
