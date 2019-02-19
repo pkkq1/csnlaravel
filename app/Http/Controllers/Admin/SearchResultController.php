@@ -47,7 +47,7 @@ class SearchResultController extends CrudController
             'label' => 'ID',
             'type' => 'closure',
             'function' => function($entry) {
-                return '<a href="/user/music_uploaded/redirect/'.$entry->music_id.'" target="_blank">'.$entry->id.'</a>';
+                return '<a href="/user/music_uploaded/redirect/'.$entry->type_id.'" target="_blank">'.$entry->id.'</a>';
             },
         ]);
         $this->crud->addColumn([
