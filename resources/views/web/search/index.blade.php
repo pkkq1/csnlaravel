@@ -157,7 +157,7 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                         </div>
                         <ul class="list-unstyled list_music music_kq">
                             <?php
-                            array_map(function ($item) {
+                            array_map(function ($item) use ($search) {
                             ?>
                             <li class="media align-items-stretch">
                                 <div class="media-left align-items-stretch mr-2">
@@ -168,7 +168,7 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                                 </div>
                                 <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
                                     <div>
-                                        <h5 class="media-title mt-0 mb-0"><a href="{{$item['music_link']}}" title="{{$item['music_title']}}" class="search_title">{{$item['music_title']}}</a></h5>
+                                        <h5 class="media-title mt-0 mb-0"><a href="{{$item['music_link']}}?ref=search&type_search=music&key_search={{$search}}" title="{{$item['music_title']}}" class="search_title">{{$item['music_title']}}</a></h5>
                                         <div class="author"><?php echo $item['music_artist'] ?></div>
                                     </div>
                                     <small class="type_music c1"><?php echo $item['music_bitrate_html'] ?></small>
@@ -194,12 +194,12 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                     <div class="row row10px float-col-width">
                         <?php
                         $countAlbum = count($result['album']['data']);
-                        array_map(function ($item) use ($countAlbum) {
+                        array_map(function ($item) use ($countAlbum, $search) {
                         ?>
                         <div class="col {{($countAlbum != 5 && $countAlbum != 10) ? 'col col-md-3' : ''}}">
                             <div class="card card1">
                                 <div class="card-header" style="background-image: url({{$item['album_cover']}});">
-                                    <a href="{{$item['album_link']}}" title="{{$item['music_album']}}">
+                                    <a href="{{$item['album_link']}}?ref=search&type_search=album&key_search={{$search}}" title="{{$item['music_album']}}">
                                         <span class="icon-play"></span>
                                     </a>
                                 </div>
@@ -222,12 +222,12 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                     </div>
                     <div class="row row10px float-col-width-video">
                         <?php
-                        array_map(function ($item) {
+                        array_map(function ($item) use ($search) {
                         ?>
                         <div class="col col col-md-3">
                             <div class="card card1 video">
                                 <div class="card-header" style="background-image: url({{$item['video_cover']}});">
-                                    <a href="{{$item['video_link']}}" title="{{$item['video_title']}}">
+                                    <a href="{{$item['video_link']}}?ref=search&type_search=video&key_search={{$search}}" title="{{$item['video_title']}}">
                                         <span class="icon-play"></span>
                                     </a>
                                 </div>
@@ -255,18 +255,18 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                     @if($result['music']['data'])
                         <ul class="list-unstyled list_music music_kq">
                             <?php
-                            array_map(function ($item) {
+                            array_map(function ($item) use ($search) {
                             ?>
                             <li class="media align-items-stretch">
                                 <div class="media-left align-items-stretch mr-2">
-                                    <a href="{{$item['music_link']}}" title="{{$item['music_title']}}">
+                                    <a href="{{$item['music_link']}}?ref=search&type_search=music&key_search={{$search}}" title="{{$item['music_title']}}">
                                         <img src="{{$item['music_cover']}}" alt="{{$item['music_title']}}">
                                         <i class="material-icons">play_circle_outline</i>
                                     </a>
                                 </div>
                                 <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
                                     <div>
-                                        <h5 class="media-title mt-0 mb-0"><a href="{{$item['music_link']}}" title="{{$item['music_title']}}" class="search_title">{{$item['music_title']}}</a></h5>
+                                        <h5 class="media-title mt-0 mb-0"><a href="{{$item['music_link']}}?ref=search&type_search=music&key_search={{$search}}" title="{{$item['music_title']}}" class="search_title">{{$item['music_title']}}</a></h5>
                                         <div class="author"><?php echo $item['music_artist'] ?></div>
                                     </div>
                                     <small class="type_music c1"><?php echo $item['music_bitrate_html'] ?></small>
@@ -297,17 +297,17 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                     <div class="row row10px float-col-width">
                         <?php
                         $countAlbum = count($result['album']['data']);
-                        array_map(function ($item) use ($countAlbum) {
+                        array_map(function ($item) use ($countAlbum, $search) {
                         ?>
                         <div class="col {{($countAlbum != 5 && $countAlbum != 10) ? 'col col-md-3' : ''}}">
                             <div class="card card1">
                                 <div class="card-header" style="background-image: url({{$item['album_cover']}});">
-                                    <a href="{{$item['album_link']}}" title="{{$item['music_album']}}">
+                                    <a href="{{$item['album_link']}}?ref=search&type_search=album&key_search={{$search}}" title="{{$item['music_album']}}">
                                         <span class="icon-play"></span>
                                     </a>
                                 </div>
                                 <div class="card-body">
-                                    <h3 class="card-title"><a href="{{$item['album_link']}}" title="{{$item['music_album']}}" class="search_title" >{{$item['music_album']}}</a></h3>
+                                    <h3 class="card-title"><a href="{{$item['album_link']}}?ref=search&type_search=album&key_search={{$search}}" title="{{$item['music_album']}}" class="search_title" >{{$item['music_album']}}</a></h3>
                                     <p class="card-text"><?php echo $item['album_artist_html'] ?></p>
                                 </div>
                             </div>
@@ -330,17 +330,17 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                     @if($result['video']['data'])
                         <div class="row row10px float-col-width-video">
                             <?php
-                            array_map(function ($item) {
+                            array_map(function ($item) use ($search) {
                             ?>
                             <div class="col col col-md-3">
                                 <div class="card card1 video">
                                     <div class="card-header" style="background-image: url({{$item['video_cover']}});">
-                                        <a href="{{$item['video_link']}}" title="{{$item['video_title']}}">
+                                        <a href="{{$item['video_link']}}?ref=search&type_search=video&key_search={{$search}}" title="{{$item['video_title']}}">
                                             <span class="icon-play"></span>
                                         </a>
                                     </div>
                                     <div class="card-body">
-                                        <h3 class="card-title"><a href="{{$item['video_link']}}" title="{{$item['video_title']}}" class="search_title" >{{$item['video_title']}}</a></h3>
+                                        <h3 class="card-title"><a href="{{$item['video_link']}}?ref=search&type_search=video&key_search={{$search}}" title="{{$item['video_title']}}" class="search_title" >{{$item['video_title']}}</a></h3>
                                         <p class="card-text"><?php echo $item['video_artist'] ?></p>
                                     </div>
                                 </div>
@@ -363,9 +363,9 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                     @if($result['artist']['data'])
                         <ul class="list-unstyled list_music music_kq">
                             <?php
-                            array_map(function ($item) {
+                            array_map(function ($item) use ($search) {
                             ?>
-                            <a class="search-line" href="{{$item['artist_link']}}" title="{{$item['artist_nickname']}}">
+                            <a class="search-line" href="{{$item['artist_link']}}?ref=search&type_search=artist&key_search={{$search}}" title="{{$item['artist_nickname']}}">
                             <li class="media align-items-stretch">
                                 <div class="media-left align-items-stretch mr-2">
                                         <img src="{{$item['artist_avatar']}}" alt="{{$item['artist_nickname']}}">

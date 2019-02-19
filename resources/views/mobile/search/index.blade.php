@@ -43,12 +43,12 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                             <div class="block block_baihat">
                                 <div class="block_bxhbaihat block_more" id="bai-hat">
                                     <?php
-                                    array_map(function ($item) {
+                                    array_map(function ($item) use ($search) {
                                     ?>
                                     <div class="element mb-2">
-                                        <a href="{{$item['music_link']}}"><div class="image100 mr-2 d-inline-block align-middle" style="background : url('{{$item['music_cover']}}') no-repeat center;background-size: cover;"></div></a>
+                                        <a href="{{$item['music_link']}}?ref=search&type_search=music&key_search={{$search}}"><div class="image100 mr-2 d-inline-block align-middle" style="background : url('{{$item['music_cover']}}') no-repeat center;background-size: cover;"></div></a>
                                         <div class="content d-inline-block align-middle">
-                                            <a href="{{$item['music_link']}}"><h6 class="name_song text-black mb-1 card-title">{{$item['music_title']}}</h6></a>
+                                            <a href="{{$item['music_link']}}?ref=search&type_search=music&key_search={{$search}}"><h6 class="name_song text-black mb-1 card-title">{{$item['music_title']}}</h6></a>
                                             <p class="name_singer text-gray mb-1 author"><?php echo $item['music_artist'] ?></p>
                                             <p class="loss text-pink mb-0"><?php echo $item['music_bitrate_html'] ?></p>
                                         </div>
@@ -66,13 +66,13 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                             <div class="block block_album block_profile_playlist">
                                 <div class="row row-sm" id="album">
                                     <?php
-                                    array_map(function ($item) {
+                                    array_map(function ($item) use ($search) {
                                     ?>
                                     <div class="col-6">
                                         <div class="item element">
-                                            <a href="{{$item['album_link']}}"><div style="background: url({{$item['album_cover']}}) no-repeat center;background-size: cover;" class="image rounded"></div></a>
+                                            <a href="{{$item['album_link']}}?ref=search&type_search=album&key_search={{$search}}"><div style="background: url({{$item['album_cover']}}) no-repeat center;background-size: cover;" class="image rounded"></div></a>
                                             <div class="content mt-3">
-                                                <a href="{{$item['album_link']}}"><h6 class="name_song mb-1 card-title">{{$item['music_album']}}</h6></a>
+                                                <a href="{{$item['album_link']}}?ref=search&type_search=album&key_search={{$search}}"><h6 class="name_song mb-1 card-title">{{$item['music_album']}}</h6></a>
                                                 <p class="name_singer text-gray mb-1 author"><?php echo $item['album_artist_html'] ?></p>
                                                 <p class="loss text-pink mb-0"><?php echo $item['album_bitrate'] ?></p>
                                             </div>
@@ -91,16 +91,16 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                             <div class="block block_bxhvideo">
                                 <div class="block_bxhbaihat block_more" id="video">
                                     <?php
-                                    array_map(function ($item) {
+                                    array_map(function ($item) use ($search) {
                                     ?>
                                     <div class="element py-3 border-bottom">
-                                        <a href="{{$item['video_link']}}">
+                                        <a href="{{$item['video_link']}}?ref=search&type_search=video&key_search={{$search}}">
                                             <div class="image mr-2 d-inline-block align-middle" style="background : url({{$item['video_cover']}}) no-repeat center;background-size: cover;">
                                                 <p class="time"><img src="/mobile/assets/images/icon/ic_menu_clock.png" width="14"> {{$item['video_length_html']}}</p>
                                             </div>
                                         </a>
                                         <div class="content d-inline-block align-middle">
-                                            <a href="{{$item['video_link']}}"><h6 class="name_song text-black mb-1 card-title">{{$item['video_title']}}</h6></a>
+                                            <a href="{{$item['video_link']}}?ref=search&type_search=video&key_search={{$search}}"><h6 class="name_song text-black mb-1 card-title">{{$item['video_title']}}</h6></a>
                                             <p class="name_singer text-gray mb-1 author"><?php echo $item['video_artist'] ?></p>
                                             <p class="loss text-pink mb-0"><?php echo $item['video_bitrate'] ?></p>
                                         </div>
@@ -118,12 +118,12 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                             <div class="block block_baihat">
                                 <div class="block_bxhbaihat block_more" id="bai-hat">
                                     <?php
-                                    array_map(function ($item) {
+                                    array_map(function ($item) use ($search) {
                                     ?>
                                     <div class="element mb-2">
-                                        <a href="/ca-si/{{$item['artist_link']}}"><div class="image100 mr-2 d-inline-block align-middle" style="background : url('{{$item['artist_avatar']}}') no-repeat center;background-size: cover;"></div></a>
+                                        <a href="/ca-si/{{$item['artist_link']}}?ref=search&type_search=artist&key_search={{$search}}"><div class="image100 mr-2 d-inline-block align-middle" style="background : url('{{$item['artist_avatar']}}') no-repeat center;background-size: cover;"></div></a>
                                         <div class="content d-inline-block align-middle">
-                                            <a href="/ca-si/{{$item['artist_link']}}"><h6 class="name_song text-black mb-1 card-title">{{$item['artist_nickname']}}</h6></a>
+                                            <a href="/ca-si/{{$item['artist_link']}}?ref=search&type_search=artist&key_search={{$search}}"><h6 class="name_song text-black mb-1 card-title">{{$item['artist_nickname']}}</h6></a>
                                         </div>
                                     </div>
                                     <?php

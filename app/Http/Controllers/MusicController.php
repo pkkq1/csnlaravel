@@ -21,6 +21,7 @@ use App\Repositories\Video\VideoEloquentRepository;
 use App\Repositories\Category\CategoryEloquentRepository;
 use App\Repositories\Cover\CoverEloquentRepository;
 use App\Repositories\Artist\ArtistRepository;
+use App\Repositories\SearchResult\SearchResultEloquentRepository;
 use App\Repositories\MusicFavourite\MusicFavouriteRepository;
 use App\Repositories\VideoFavourite\VideoFavouriteRepository;
 use Illuminate\Support\Facades\Auth;
@@ -49,11 +50,12 @@ class MusicController extends Controller
     protected $musicFavouriteRepository;
     protected $videoFavouriteRepository;
     protected $karaokeRepository;
+    protected $searchResultRepository;
 
     public function __construct(MusicEloquentRepository $musicRepository, PlaylistEloquentRepository $playlistRepository, MusicListenEloquentRepository $musicListenRepository,
                                 CategoryEloquentRepository $categoryListenRepository, CoverEloquentRepository $coverRepository, VideoEloquentRepository $videoRepository, ArtistRepository $artistRepository,
                                 MusicFavouriteRepository $musicFavouriteRepository, VideoFavouriteRepository $videoFavouriteRepository, MusicDownloadEloquentRepository $musicDownloadRepository, KaraokeEloquentRepository $karaokeRepository,
-                                VideoListenEloquentRepository $videoListenRepository, VideoDownloadEloquentRepository $videoDownloadRepository, PlaylistPublisherEloquentRepository $playlistPublisherRepository)
+                                VideoListenEloquentRepository $videoListenRepository, VideoDownloadEloquentRepository $videoDownloadRepository, PlaylistPublisherEloquentRepository $playlistPublisherRepository, SearchResultEloquentRepository $searchResultRepository)
     {
         $this->musicRepository = $musicRepository;
         $this->videoRepository = $videoRepository;
@@ -70,6 +72,7 @@ class MusicController extends Controller
         $this->videoFavouriteRepository = $videoFavouriteRepository;
 
         $this->karaokeRepository = $karaokeRepository;
+        $this->searchResultRepository = $searchResultRepository;
     }
 
     /**
@@ -115,6 +118,10 @@ class MusicController extends Controller
             'playlist_music' => [],
             'music_history' => $cookie
         ];
+        // update search analytics
+        if(isset($request->ref) && isset($request->key_search)&& isset($request->type_search) && $request->ref == 'search') {
+            $this->searchResultRepository->createAnalytics($request->ref, $request->key_search, $music->music_id, $request->type_search);
+        }
         $musicFavourite = false;
         if(Auth::check()){
             $getModelFavourite = $this->musicFavouriteRepository;
@@ -214,6 +221,10 @@ class MusicController extends Controller
         $cookie = Helpers::MusicCookie($request, $music);
         //update cache file suggestion
         $this->musicRepository->suggestion($music, $type);
+        // update search analytics
+        if(isset($request->ref) && isset($request->key_search)&& isset($request->type_search) && $request->ref == 'search') {
+            $this->searchResultRepository->createAnalytics($request->ref, $request->key_search, $music->music_id, $request->type_search);
+        }
         $musicSet = [
             'type_listen' => $typeListen, // single | playlist | album
             'type_jw' =>  $type,  // playlist | music | video

@@ -114,7 +114,7 @@ Route::group(['middlewareGroups' => ['web']], function () {
     // artist
     Route::get('ca-si/{artistUrl}', ['as' => 'artist.home', 'uses' => 'ArtistController@index']);
     Route::post('ca-si/favorite', ['as' => 'artist.home', 'uses' => 'ArtistController@favorite']);
-    Route::post('tab_artist', ['as' => 'artist.get_tab', 'uses' => 'ArtistController@getTabArtist']);
+    Route::get('tab_artist', ['as' => 'artist.get_tab', 'uses' => 'ArtistController@getTabArtist']);
 
     // nhac hot, bang xep hang
     Route::get('nhac-hot/{catUrl}/{catLevel?}.html', ['as' => 'music.nhac-hot.listen', 'uses' => 'MusicController@listenBxhNow']);

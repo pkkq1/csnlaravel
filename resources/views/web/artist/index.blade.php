@@ -70,7 +70,7 @@ $avtArtist = $artist->artist_avatar ? Helpers::file_path($artist->artist_id, PUB
             if(($('#'+tab).html()).length == 0 || floatTab) {
                 $.ajax({
                     url: url,
-                    type: "POST",
+                    type: "GET",
                     dataType: "html",
                     data: {
                         'artist': '<?php echo $artist->artist_nickname; ?>',

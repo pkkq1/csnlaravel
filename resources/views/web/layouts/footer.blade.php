@@ -44,7 +44,7 @@
         if(musics.length > 0) {
             $.each( musics, function( key, value ) {
                 song = song +
-                    '  <a class="search-line" href="' + value.music_link + '" title="' + value.music_title + ' - ' + value.music_artist +'">' +
+                    '  <a class="search-line" href="' + value.music_link + '" title="' + value.music_title + ' - ' + value.music_artist + '?ref=search&type_search=music&key_search=' + q + '">' +
                     '  <li class="media align-items-stretch">' +
                     // '      <div class="media-left align-items-stretch mr-2">' +
                     // '              <img src="' + value.music_cover + '" alt="' + value.music_title + '">' +
@@ -70,7 +70,7 @@
             var artist = '';
             $.each( artists, function( key, value ) {
                 artist = artist +
-                    ' <a class="search-line" href="' + value.artist_link + '" title="' + value.artist_nickname + '">' +
+                    ' <a class="search-line" href="' + value.artist_link + '" title="' + value.artist_nickname + '?ref=search&type_search=artist&key_search=' + q + '">' +
                     '  <li class="media align-items-stretch">' +
                     '      <div class="media-left align-items-stretch mr-2">' +
                     '         <img src="' + value.artist_avatar + '" alt="' + value.artist_nickname + '">' +
@@ -95,7 +95,7 @@
             var song = '';
             $.each( musics, function( key, value ) {
                 song = song +
-                    '<a class="search-line parent-line" href="' + value.music_link + '" title="' + value.music_title + ' - ' + value.music_artist + '">' +
+                    '<a class="search-line parent-line" href="' + value.music_link + '?ref=search&type_search=music&key_search=' + q + '" title="' + value.music_title + ' - ' + value.music_artist + '">' +
                     '  <li class="media align-items-stretch">' +
                     '      <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">' +
                     '          <div>' +
@@ -121,7 +121,7 @@
                 album = album +
                     '  <li class="media align-items-stretch">' +
                     '      <div class="media-left align-items-stretch mr-2">' +
-                    '          <a href="' + value.album_link + '" title="' + value.music_album + ' - ' + value.album_artist + '">' +
+                    '          <a href="' + value.album_link + '?ref=search&type_search=album&key_search=' + q + '" title="' + value.music_album + ' - ' + value.album_artist + '">' +
                     '              <img src="' + value.album_cover + '" alt="' + value.music_album + '">' +
                     '              <i class="material-icons">play_circle_outline</i>' +
                     '          </a>' +
@@ -151,13 +151,13 @@
                 video = video +
                     '  <li class="media align-items-stretch parent-line">' +
                     '      <div class="media-left align-items-stretch mr-2">' +
-                    '          <a href="' + value.video_link + '" title="' + value.video_title + ' - ' + value.video_artist + '">' +
+                    '          <a href="' + value.video_link + '?ref=search&type_search=video&key_search=' + q + '" title="' + value.video_title + ' - ' + value.video_artist + '">' +
                     '              <img src="' + value.video_cover + '" alt="' + value.video_title + '">' +
                     '              <i class="material-icons">play_circle_outline</i>' +
                     '              <p class="time text-white mb-0 px-2 py-1"><img src="/images/ic_menu_clock.png" width="14"> ' + value.video_length_html + '</p>' +
                     '          </a>' +
                     '      </div>' +
-                    '      <a class="search-line" title="' + value.video_title + ' - ' + value.video_artist + '"  href="' + value.video_link + '" >' +
+                    '      <a class="search-line" title="' + value.video_title + ' - ' + value.video_artist + '"  href="' + value.video_link + '?ref=search&type_search=video&key_search=' + q + '" >' +
                     '      <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">' +
                     '          <div>' +
                     '              <h5 class="media-title mt-0 mb-0 span_h5" title="' + value.video_title + ' - ' + value.video_artist + '">' + searchHighlight(q, value.video_title) + '</h5>' +
