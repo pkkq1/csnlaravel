@@ -178,7 +178,6 @@ class ArtistController extends CrudController
     public function destroy($id)
     {
         $this->crud->hasAccessOrFail('delete');
-
         // get entry ID from Request (makes sure its the last ID for nested resources)
         $id = $this->crud->getCurrentEntryId() ?? $id;
         $artist = $this->artistRepository->getModel()::where('artist_id', $id)->first();

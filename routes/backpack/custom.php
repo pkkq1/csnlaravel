@@ -21,8 +21,6 @@ Route::group([
     CRUD::resource('comment_replay', 'CommentReplayController');
     Route::get('playlist_user/{id}/approval', 'PlaylistUserController@approvalPublisher');
 
-    Route::get('artist_upload/{id}/approval', 'ArtistUploadController@approvalArtistUpload');
-    Route::get('artist_upload/{id}/approval', 'ArtistUploadController@approvalArtistUpload');
     CRUD::resource('artist_upload', 'ArtistUploadController');
     CRUD::resource('artist', 'ArtistController');
 
@@ -31,6 +29,7 @@ Route::group([
     CRUD::resource('comment_replay', 'CommentReplayController');
 
     Route::put('/artist_upload/suggest/{id}', 'ArtistUploadController@suggest');
+    Route::put('/artist_upload/approval/{id}', 'ArtistUploadController@approvalArtistUpload');
 
 
 

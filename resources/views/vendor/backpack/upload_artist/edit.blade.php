@@ -57,12 +57,14 @@ use App\Library\Helpers;
                             <h3 class="box-title">{{ trans('backpack::crud.edit') }}</h3>
                         @endif
                         </div>
+                        @if($fields['type']['value'] != 0)
                         <div class="form-group col-xs-6">
                             <h3 class="box-title">Thông tin ca sĩ cũ</h3>
                         </div>
+                        @endif
                     </div>
                     <div class="box-body row display-flex-wrap" style="display: flex;flex-wrap: wrap;">
-                        <div class="form-group col-xs-6">
+                        <div class="form-group col-xs-{{$fields['type']['value'] != 0 ? '12' : '6'}}">
                             <!-- load the view from the application if it exists, otherwise load the one in the package -->
                             @if(view()->exists('vendor.backpack.crud.form_content'))
                                 @include('vendor.backpack.crud.form_content', ['fields' => $fields, 'action' => 'edit'])
@@ -89,6 +91,7 @@ use App\Library\Helpers;
                                 </div>
                             </div>
                         </div>
+                        @if($fields['type']['value'] == 0)
                         <div class="form-group col-xs-6">
                             <div class="form-group col-xs-12">
                                 <label>Nghệ Danh</label>
@@ -111,6 +114,7 @@ use App\Library\Helpers;
                                 <img class="mr-3" style="width: 100%" id="artist_cover_uploaded" src="{{$artist_exists['artist_cover'] ? Helpers::file_path($artist_exists['artist_id'], PUBLIC_COVER_ARTIST_PATH, true).$artist_exists['artist_cover'].'?time='.time() : '/imgs/avatar_default.png'}}" alt="">
                             </div>
                         </div>
+                        @endif
                     </div><!-- /.box-body -->
 
                     <div class="box-footer">
@@ -121,7 +125,7 @@ use App\Library\Helpers;
                             @if($fields['type']['value'] == 0)
                                 <a href="{{ $crud->hasAccess('list') ? url($crud->route).'/suggest/'.$fields['id']['value'] : url()->previous() }}" class="btn btn-primary suggest_artist"><span class="fa fa-arrow-circle-right"></span> &nbsp;Xác Nhận Chỉnh Sửa</a>
                             @else
-                                <a href="{{ $crud->hasAccess('list') ? url($crud->route).'/'.$fields['id']['value'].'/approval' : url()->previous() }}" class="btn btn-info"><span class="fa fa-arrow-circle-right"></span> &nbsp;Xác Nhận Ca Sĩ</a>
+                                <a href="{{ $crud->hasAccess('list') ? url($crud->route).'/approval/'.$fields['id']['value'] : url()->previous() }}" class="btn btn-info suggest_artist"><span class="fa fa-arrow-circle-right"></span> &nbsp;Xác Nhận Ca Sĩ Mới</a>
                             @endif
                             <a href="{{ $crud->hasAccess('list') ? url($crud->route).'/preview/'.$fields['id']['value'].'' : url()->previous() }}" target="_blank" class="btn btn-warning"><span class="fa fa-align-center"></span> &nbsp;Xem Trước</a>
                             @if($crud->hasAccess('list'))
@@ -294,6 +298,11 @@ use App\Library\Helpers;
                 }
             });
         }
+        $('.suggest_artist').click(function (event) {
+            event.preventDefault();
+            $('form').attr('action', $(this).attr('href'));
+            document.getElementById("upload_article_form").submit();
+        })
         $('.suggest_artist').click(function (event) {
             event.preventDefault();
             $('form').attr('action', $(this).attr('href'));
