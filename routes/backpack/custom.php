@@ -23,6 +23,7 @@ Route::group([
 
     CRUD::resource('artist_upload', 'ArtistUploadController');
     CRUD::resource('artist', 'ArtistController');
+    CRUD::resource('search_results', 'SearchResultController');
 
     Route::get('artist_upload/preview/{id}', 'ArtistUploadController@preview');
     Route::get('artist_upload/suggest/{id}', 'ArtistUploadController@suggest');

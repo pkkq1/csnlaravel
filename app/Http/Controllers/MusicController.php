@@ -398,7 +398,7 @@ class MusicController extends Controller
         if($request->submit == 'get') {
             Helpers::ajaxResult(true, '', ['lyric' => $music->music_lyric]);
         }else{
-            $music->music_lyric = $request->lyric;
+            $music->music_lyric = htmlspecialchars(trim(stripslashes(($request->lyric))));
             $music->save();
             Helpers::ajaxResult(true, 'Sửa lyric thành công', ['lyric' => $music->music_lyric]);
         }
@@ -426,7 +426,7 @@ class MusicController extends Controller
                     'music_downloads_this_week' => $music->music_downloads_this_week,
                     'music_time' => time(),
                     'music_length' => $music->music_length,
-                    'music_lyric_karaoke' => $request->karaoke,
+                    'music_lyric_karaoke' => htmlspecialchars(trim(stripslashes(($request->karaoke)))),
                 ]);
             }else{
                 $music->musicKara->music_lyric_karaoke = $request->karaoke;

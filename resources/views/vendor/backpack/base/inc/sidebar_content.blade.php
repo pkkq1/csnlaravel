@@ -57,8 +57,9 @@
         </ul>
     </li>
 @endif
-
-
+@if(backpack_user()->can('search_results(list)'))
+    <li><a href="{{ backpack_url('search_results') }}"><i class="fa fa-search"></i> <span>Kết quả tìm kiếm</span></a></li>
+@endif
 <!-- Users, Roles Permissions -->
 @if(backpack_user()->can('user_(list)') || backpack_user()->can('role_permission_(list)'))
 <li class="treeview">

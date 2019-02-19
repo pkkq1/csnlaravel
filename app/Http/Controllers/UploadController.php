@@ -302,19 +302,19 @@ class UploadController extends Controller
             $result = $this->uploadRepository->findMusicStatus($userId, $musicId);
             if(!$result)
                 return view('errors.404');
-            $result->music_title = $request->input('music_title') ?? '';
-            $result->music_artist = $request->input('music_artist') ?? '';
-            $result->music_artist_id = $request->input('music_artist_id') ?? '';
+            $result->music_title = htmlspecialchars(trim(stripslashes($request->input('music_title') ?? '')));
+            $result->music_artist = htmlspecialchars(trim(stripslashes($request->input('music_artist') ?? '')));
+            $result->music_artist_id = htmlspecialchars(trim(stripslashes($request->input('music_artist_id') ?? '')));
 //            $result->music_production = $request->input('music_production') ?? '';
-            $result->music_composer = $request->input('music_composer') ?? '';
+            $result->music_composer = htmlspecialchars(trim(stripslashes($request->input('music_composer') ?? '')));
 //            $result->music_album_id = $request->input('music_album_id') ?? '';
 //            $result->music_year = $request->input('music_year') ?? 0;
             $result->cat_id = $request->input('cat_id') ?? 0;
             $result->cat_level = $request->input('cat_level') ?? 0;
             $result->cat_sublevel = $request->input('cat_sublevel') ?? 0;
             $result->cat_custom = $request->input('cat_custom') ?? 0;
-            $result->music_lyric = $request->input('music_lyric') ?? '';
-            $result->music_source_url = $request->input('music_source_url') ?? '';
+            $result->music_lyric = htmlspecialchars(trim(stripslashes($request->input('music_lyric') ?? '')));
+            $result->music_source_url = htmlspecialchars(trim(stripslashes($request->input('music_source_url') ?? '')));
             $result->music_note = $request->input('music_note') ?? '';
             $result->music_last_update_time = time();
             $result->music_updated = 0;

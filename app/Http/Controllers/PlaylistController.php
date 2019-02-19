@@ -72,7 +72,7 @@ class PlaylistController extends Controller
             'playlist_time' => time(),
             'playlist_music_total' => 0,
             'playlist_status' => 1,
-            'playlist_title' => trim($request->input('playlist_title'))
+            'playlist_title' => htmlspecialchars(trim(stripslashes(($request->input('playlist_title')))))
         ]);
         Helpers::ajaxResult(true, 'Đã tạo playlist.', $result);
     }
@@ -184,7 +184,7 @@ class PlaylistController extends Controller
             $playlist = new PlaylistModel();
         }
         $update = [
-            'playlist_title' => $request->input('playlist_title'),
+            'playlist_title' => htmlspecialchars(trim(stripslashes(($request->input('playlist_title'))))),
             'playlist_cat_id' => $request->input('playlist_cat_id') ?? 0,
             'playlist_cat_level' => $request->input('playlist_cat_level') ?? 0,
             'user_id' => Auth::user()->id,
