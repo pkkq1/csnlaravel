@@ -100,7 +100,7 @@ class PlaylistUserController extends CrudController
                 'type' => 'closure',
                 'function' => function($entry) {
                     if($entry->playlist_cover) {
-                        $urlImg = Helpers::file_path($entry->playlist_id, PUBLIC_MUSIC_PLAYLIST_PATH, true) . $entry->playlist_id.'.png';
+                        $urlImg = Helpers::file_path($entry->playlist_id, PUBLIC_MUSIC_PLAYLIST_PATH, true) . $entry->playlist_id.'.jpg';
                     }else{
                         return '-';
                     }
@@ -312,8 +312,8 @@ class PlaylistUserController extends CrudController
         // get entry ID from Request (makes sure its the last ID for nested resources)
         $id = $this->crud->getCurrentEntryId() ?? $id;
 
-        if(Storage::exists('public' . Helpers::file_path($id, MUSIC_PLAYLIST_PATH, true) . $id.'.png'))
-            Storage::delete('public' . Helpers::file_path($id, MUSIC_PLAYLIST_PATH, true) . $id.'.png');
+        if(Storage::exists('public' . Helpers::file_path($id, MUSIC_PLAYLIST_PATH, true) . $id.'.jpg'))
+            Storage::delete('public' . Helpers::file_path($id, MUSIC_PLAYLIST_PATH, true) . $id.'.jpg');
         return $this->crud->delete($id);
     }
     public function approvalArtistUpload($id) {
@@ -345,7 +345,7 @@ class PlaylistUserController extends CrudController
             'playlist_title' => $playlist->playlist_title
         ]);
         if($playlist->playlist_cover)
-            File::copy(Helpers::file_path($playlist->playlist_id, $_SERVER['DOCUMENT_ROOT'].PUBLIC_MUSIC_PLAYLIST_PATH, true).$playlist->playlist_id.'.png', Helpers::file_path($result->playlist_id, $_SERVER['DOCUMENT_ROOT'].PUBLIC_MUSIC_PLAYLIST_PUBLISHER_PATH, true).$result->playlist_id.'.png');
+            File::copy(Helpers::file_path($playlist->playlist_id, $_SERVER['DOCUMENT_ROOT'].PUBLIC_MUSIC_PLAYLIST_PATH, true).$playlist->playlist_id.'.jpg', Helpers::file_path($result->playlist_id, $_SERVER['DOCUMENT_ROOT'].PUBLIC_MUSIC_PLAYLIST_PUBLISHER_PATH, true).$result->playlist_id.'.jpg');
         if(!$result)
             return view('errors.404');
         foreach($playlist->playlist_arr_ids as $item) {

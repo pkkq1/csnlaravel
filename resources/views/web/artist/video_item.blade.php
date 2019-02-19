@@ -15,7 +15,7 @@ use App\Library\Helpers;
                 </a>
             </div>
             <div class="card-body">
-                <h3 class="card-title"><a href="{{$url}}" title="{{$item['music_title'][0]}}">{{$item['music_title'][0]}}</a></h3>
+                <h3 class="card-title"><a href="{{$url}}" title="{{$item['video_title'][0]}}">{{$item['video_title'][0]}}</a></h3>
                 <p class="card-text"><?php echo $item['video_artist_html'][0] ?></p>
             </div>
         </div>

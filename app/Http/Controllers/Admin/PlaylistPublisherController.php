@@ -101,7 +101,7 @@ class PlaylistPublisherController extends CrudController
                 'type' => 'closure',
                 'function' => function($entry) {
                     if($entry->playlist_cover) {
-                        $urlImg = Helpers::file_path($entry->playlist_id, PUBLIC_MUSIC_PLAYLIST_PUBLISHER_PATH, true) . $entry->playlist_id.'.png';
+                        $urlImg = Helpers::file_path($entry->playlist_id, PUBLIC_MUSIC_PLAYLIST_PUBLISHER_PATH, true) . $entry->playlist_id.'.jpg';
                     }else{
                         return '-';
                     }
@@ -328,8 +328,8 @@ class PlaylistPublisherController extends CrudController
         // get entry ID from Request (makes sure its the last ID for nested resources)
         $id = $this->crud->getCurrentEntryId() ?? $id;
 
-        if(Storage::exists('public' . Helpers::file_path($id, MUSIC_PLAYLIST_PUBLISHER_PATH, true) . $id.'.png'))
-            Storage::delete('public' . Helpers::file_path($id, MUSIC_PLAYLIST_PUBLISHER_PATH, true) . $id.'.png');
+        if(Storage::exists('public' . Helpers::file_path($id, MUSIC_PLAYLIST_PUBLISHER_PATH, true) . $id.'.jpg'))
+            Storage::delete('public' . Helpers::file_path($id, MUSIC_PLAYLIST_PUBLISHER_PATH, true) . $id.'.jpg');
         return $this->crud->delete($id);
     }
 }

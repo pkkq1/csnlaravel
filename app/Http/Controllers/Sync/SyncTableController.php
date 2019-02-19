@@ -97,4 +97,7 @@ class SyncTableController extends Controller
         }
         return response(['Ok']);
     }
+    public function demo() {
+        
+    }
 }
