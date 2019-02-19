@@ -922,7 +922,7 @@ class Helpers
     public static function pathAvatar($userAvatar, $userId) {
         if(!$userAvatar)
             return '/imgs/no_avatar.png';
-        return (strpos($userAvatar, 'http') !== false) ? $userAvatar : Helpers::file_path($userId, PUBLIC_AVATAR_PATH, true) . $userAvatar;
+        return (strpos($userAvatar, 'http') !== false) ? $userAvatar : env('APP_URL').Helpers::file_path($userId, PUBLIC_AVATAR_PATH, true) . $userAvatar;
     }
     public static function getImgQuality($musicId) {
         return 'https://data.chiasenhac.com/dataxx/5/data/spectrum'.Helpers::file_path($musicId, '/', true).$musicId.'.jpg';

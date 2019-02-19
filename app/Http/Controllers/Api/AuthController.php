@@ -12,6 +12,7 @@ use App\Http\Controllers\Controller;
 use App\Models\UserModel as User;
 use App\Models\UserSocialModel;
 use Illuminate\Support\Facades\Auth;
+use App\Library\Helpers;
 use Socialite;
 use Session;
 use \Illuminate\Http\JsonResponse;
@@ -61,6 +62,7 @@ class AuthController extends Controller
 //            'user_agent' => $req->driver,
 //        ]);
         $existUser->sid = session()->getId();
+        $existUser->user_avatar_url = Helpers::pathAvatar($existUser->user_avatar, $existUser->id);
         // null
         return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => $existUser, 'error' => []], 200);
     }
@@ -104,6 +106,7 @@ class AuthController extends Controller
 //            'user_id' => $existUser->user_id,
 //            'user_agent' => $req->driver,
 //        ]);
+        $existUser->user_avatar_url = Helpers::pathAvatar($existUser->user_avatar, $existUser->id);
         $existUser->sid = session()->getId();
         // null
         return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => $existUser, 'error' => []], 200);
