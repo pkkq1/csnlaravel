@@ -307,7 +307,11 @@ class Helpers
         $data = base64_decode($data);
         $source = imagecreatefromstring($data);
         $fileName = ($fileName ?? rand() . '_' . time()) . '.jpg';
-        $imageSave = imagejpeg($source, Storage::disk('public')->getAdapter()->getPathPrefix().$path . $fileName,88);
+        $dir = Storage::disk('public')->getAdapter()->getPathPrefix().$path;
+        if (!file_exists($dir)) {
+            mkdir($dir, 0777, true);
+        }
+        $imageSave = imagejpeg($source, $dir . $fileName,88);
         imagedestroy($source);
         return $fileName;
     }

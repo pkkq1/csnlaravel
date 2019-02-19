@@ -115,7 +115,7 @@ define('DEFAULT_APPROVAL_PUBLISHER', 0); // 0 disable 1 activite
 define('MUSIC_PLAYLIST_PUBLISHER_PATH', '/data/playlist_publisher/');
 define('PUBLIC_MUSIC_PLAYLIST_PUBLISHER_PATH', '/storage/data/playlist_publisher/');
 // User
-define('AVATAR_PATH', '/data/user_avatar/');
+define('AVATAR_PATH', 'data/user_avatar/');
 define('PUBLIC_AVATAR_PATH', '/storage/data/user_avatar/');
 define('HTMLEX', 'html');
 define('DEACTIVE_USER', 0); //  not verify
