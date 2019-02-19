@@ -58,7 +58,7 @@ $user = Auth::user();
                                         </td>
                                         <td>
                                             <div class="media">
-                                                <a class="mr-3" href="{{$user}}" title="" style="display: contents;"><img style="width: 60px;" src="{{$item->playlist_cover ? Helpers::file_path($item->playlist_id, PUBLIC_MUSIC_PLAYLIST_PATH, true).$item->playlist_id . '.png?v=' . time() : '/imgs/avatar_default.png'}}" alt="{{$item->playlist_title}}"></a>
+                                                <a class="mr-3" href="{{$user}}" title="" style="display: contents;"><img style="width: 60px;" src="{{$item->playlist_cover ? Helpers::file_path($item->playlist_id, env('DATA_URL').MUSIC_PLAYLIST_PATH, true).$item->playlist_id . '.png?v=' . time() : '/imgs/avatar_default.png'}}" alt="{{$item->playlist_title}}"></a>
                                                 <div class="media-body" style="margin-left: 5px;">
                                                     <h4 class="media-title" style="line-height: 12px;"><a href="{{$user}}" title="{{$item->playlist_title}}">{{$item->playlist_title}}</a></h4>
                                                     <ul class="list-unstyled" style="margin-bottom: 0px;">

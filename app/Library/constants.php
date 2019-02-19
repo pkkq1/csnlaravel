@@ -109,10 +109,10 @@ define('MUSIC_FACE_SOURCE_PATH', 'data/source_face/');
 // Spectrum
 define('MUSIC_SPECTRUM_PATH', 'data/spectrum/');
 // Playlist
-define('MUSIC_PLAYLIST_PATH', '/data/playlist/');
+define('MUSIC_PLAYLIST_PATH', 'data/playlist/');
 define('PUBLIC_MUSIC_PLAYLIST_PATH', '/storage/data/playlist/');
 define('DEFAULT_APPROVAL_PUBLISHER', 0); // 0 disable 1 activite
-define('MUSIC_PLAYLIST_PUBLISHER_PATH', '/data/playlist_publisher/');
+define('MUSIC_PLAYLIST_PUBLISHER_PATH', 'data/playlist_publisher/');
 define('PUBLIC_MUSIC_PLAYLIST_PUBLISHER_PATH', '/storage/data/playlist_publisher/');
 // User
 define('AVATAR_PATH', 'data/user_avatar/');

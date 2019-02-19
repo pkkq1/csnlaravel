@@ -146,7 +146,7 @@ class MusicController extends Controller
             if(($playlist->music)) {
                 $playlistMusic = $playlist->music->toArray();
             }
-            $playlist->playlist_cover = $playlist->playlist_cover ? env('APP_URL').Helpers::file_path($playlist->playlist_id, PUBLIC_MUSIC_PLAYLIST_PATH, true).$playlist->playlist_id . '.png' : env('APP_URL').'/imgs/no_cover.jpg';
+            $playlist->playlist_cover = $playlist->playlist_cover ? env('APP_URL').Helpers::file_path($playlist->playlist_id, env('DATA_URL').MUSIC_PLAYLIST_PATH, true).$playlist->playlist_id . '.png' : env('APP_URL').'/imgs/no_cover.jpg';
         }elseif($arrUrl['type'] == 'playlist_publisher'){
             $playlist = $this->playlistPublisherRepository->getMusicByPlaylistId($arrUrl['id']);
             if(!$playlist)
@@ -155,7 +155,7 @@ class MusicController extends Controller
             if(($playlist->music)) {
                 $playlistMusic = $playlist->music->toArray();
             }
-            $playlist->playlist_cover = $playlist->playlist_cover ? env('APP_URL').Helpers::file_path($playlist->playlist_id, PUBLIC_MUSIC_PLAYLIST_PATH, true).$playlist->playlist_id . '.png' : env('APP_URL').'/imgs/no_cover.jpg';
+            $playlist->playlist_cover = $playlist->playlist_cover ? env('APP_URL').Helpers::file_path($playlist->playlist_id, env('DATA_URL').MUSIC_PLAYLIST_PATH, true).$playlist->playlist_id . '.png' : env('APP_URL').'/imgs/no_cover.jpg';
         }elseif($arrUrl['type'] == 'nghe-bat-hat-ca-si'){
             $arrUrl = Helpers::splitArtistUrl($musicUrl);
             $artist = $this->artistRepository->find($arrUrl['id']);

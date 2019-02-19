@@ -100,7 +100,7 @@ class PlaylistUserController extends CrudController
                 'type' => 'closure',
                 'function' => function($entry) {
                     if($entry->playlist_cover) {
-                        $urlImg = Helpers::file_path($entry->playlist_id, PUBLIC_MUSIC_PLAYLIST_PATH, true) . $entry->playlist_id.'.jpg';
+                        $urlImg = Helpers::file_path($entry->playlist_id, env('DATA_URL').MUSIC_PLAYLIST_PATH, true) . $entry->playlist_id.'.jpg';
                     }else{
                         return '-';
                     }
@@ -345,7 +345,7 @@ class PlaylistUserController extends CrudController
             'playlist_title' => $playlist->playlist_title
         ]);
         if($playlist->playlist_cover)
-            File::copy(Helpers::file_path($playlist->playlist_id, $_SERVER['DOCUMENT_ROOT'].PUBLIC_MUSIC_PLAYLIST_PATH, true).$playlist->playlist_id.'.jpg', Helpers::file_path($result->playlist_id, $_SERVER['DOCUMENT_ROOT'].PUBLIC_MUSIC_PLAYLIST_PUBLISHER_PATH, true).$result->playlist_id.'.jpg');
+            File::copy(Helpers::file_path($playlist->playlist_id, $_SERVER['DOCUMENT_ROOT'].env('DATA_URL').MUSIC_PLAYLIST_PATH, true).$playlist->playlist_id.'.jpg', Helpers::file_path($result->playlist_id, $_SERVER['DOCUMENT_ROOT'].PUBLIC_MUSIC_PLAYLIST_PUBLISHER_PATH, true).$result->playlist_id.'.jpg');
         if(!$result)
             return view('errors.404');
         foreach($playlist->playlist_arr_ids as $item) {

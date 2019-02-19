@@ -84,7 +84,7 @@ $user = Auth::user();
                                 </div>
                                 <div class="col-sm-8">
                                     <div class="media">
-                                        <img class="mr-3" style="width: 152px" id="playlist_cover_uploaded" src="{{$playlistUser ? ($playlistUser->playlist_cover ? Helpers::file_path($playlistUser->playlist_id, PUBLIC_MUSIC_PLAYLIST_PATH, true).$playlistUser->playlist_id . '.png?v=' . time() : '/imgs/avatar_default.png') : '/imgs/avatar_default.png' }}" alt="">
+                                        <img class="mr-3" style="width: 152px" id="playlist_cover_uploaded" src="{{$playlistUser ? ($playlistUser->playlist_cover ? Helpers::file_path($playlistUser->playlist_id, env('DATA_URL').MUSIC_PLAYLIST_PATH, true).$playlistUser->playlist_id . '.png?v=' . time() : '/imgs/avatar_default.png') : '/imgs/avatar_default.png' }}" alt="">
                                         <div class="media-body">
                                             <div class="form-group">
                                                 <label data-toggle="modal" data-target="#changeAvatarModal" class="btn btn-secondary btn-gradien btn-radius changeAvatarButton"><i aria-hidden="true" class="fa fa-camera"></i> Thay đổi ảnh Cover

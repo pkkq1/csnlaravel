@@ -101,7 +101,7 @@ class PlaylistPublisherController extends CrudController
                 'type' => 'closure',
                 'function' => function($entry) {
                     if($entry->playlist_cover) {
-                        $urlImg = Helpers::file_path($entry->playlist_id, PUBLIC_MUSIC_PLAYLIST_PUBLISHER_PATH, true) . $entry->playlist_id.'.jpg';
+                        $urlImg = Helpers::file_path($entry->playlist_id, env('DATA_URL').MUSIC_PLAYLIST_PUBLISHER_PATH, true) . $entry->playlist_id.'.jpg';
                     }else{
                         return '-';
                     }
