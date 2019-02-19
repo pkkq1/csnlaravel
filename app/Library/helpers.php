@@ -919,10 +919,10 @@ class Helpers
         $f_base = floor($base);
         return round(pow(1024, $base - floor($base)), 1) . $suffix[$f_base];
     }
-    public static function pathAvatar($userAvatar, $userId) {
+    public static function pathAvatar($userAvatar, $userId, $domain = '') {
         if(!$userAvatar)
             return '/imgs/no_avatar.png';
-        return (strpos($userAvatar, 'http') !== false) ? $userAvatar : env('APP_URL').Helpers::file_path($userId, PUBLIC_AVATAR_PATH, true) . $userAvatar;
+        return (strpos($userAvatar, 'http') !== false) ? $userAvatar : $domain.Helpers::file_path($userId, PUBLIC_AVATAR_PATH, true) . $userAvatar;
     }
     public static function getImgQuality($musicId) {
         return 'https://data.chiasenhac.com/dataxx/5/data/spectrum'.Helpers::file_path($musicId, '/', true).$musicId.'.jpg';

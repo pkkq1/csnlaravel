@@ -62,7 +62,7 @@ class AuthController extends Controller
 //            'user_agent' => $req->driver,
 //        ]);
         $existUser->sid = session()->getId();
-        $existUser->user_avatar_url = Helpers::pathAvatar($existUser->user_avatar, $existUser->id);
+        $existUser->user_avatar_url = Helpers::pathAvatar($existUser->user_avatar, $existUser->id, env('APP_URL'));
         // null
         return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => $existUser, 'error' => []], 200);
     }
@@ -106,7 +106,7 @@ class AuthController extends Controller
 //            'user_id' => $existUser->user_id,
 //            'user_agent' => $req->driver,
 //        ]);
-        $existUser->user_avatar_url = Helpers::pathAvatar($existUser->user_avatar, $existUser->id);
+        $existUser->user_avatar_url = Helpers::pathAvatar($existUser->user_avatar, $existUser->id, env('APP_URL'));
         $existUser->sid = session()->getId();
         // null
         return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => $existUser, 'error' => []], 200);
