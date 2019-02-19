@@ -16,13 +16,13 @@ use App\Library\Helpers;
                 <div class="box_profile_singer">
                     <div class="box_profile__body text-center">
                         {{--<div class="count_listen mb-2"><small>12,123,111 Lượt nghe hàng tháng</small></div>--}}
-                        <h4 class="media-right align-self-center artist_name_box mb-4">{{$artist->artist_nickname}}</h4>
+                        <h4 class="media-right align-self-center artist_name_box mb-4" style="-webkit-text-stroke: 1px #fc655f;">{{$artist->artist_nickname}}</h4>
                         <ul class="list-inline navbar justify-content-center p-0 mb-4 menu_option">
                             <li class="list-inline-item"><a href="/nghe-bat-hat-ca-si/{{$artistUrl}}" class="btn btn-secondary btn-gradien btn-radius"><span>Play</span></a></li>
-                            <li class="list-inline-item"><a href="javascript:void(0)" class="wishlist toggle_wishlist {{$artistFavourite ? 'selector' : ''}} px-3"><i aria-hidden="true" class="fa fa-heart-o"></i></a></li>
+                            <li class="list-inline-item"><a href="javascript:void(0)" class="wishlist toggle_wishlist {{$artistFavourite ? 'selector' : ''}} px-3"><i aria-hidden="true" class="fa fa-heart-o" style="-webkit-text-stroke: 1px #fc655f;"></i></a></li>
                             @if ($artist->artist_cover)
                                 <li class="list-inline-item">
-                                    <div class="dropdown"><a id="dropdownMenuSinger" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i aria-hidden="true" class="fa fa-ellipsis-h"></i></a>
+                                    <div class="dropdown"><a id="dropdownMenuSinger" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i aria-hidden="true" class="fa fa-ellipsis-h" style="-webkit-text-stroke: 1px #fc655f;"></i></a>
                                         <div aria-labelledby="dropdownMenuSinger" class="dropdown-menu">
                                             <a href="/dang-tai/ca-si/{{$artistUrl}}" class="dropdown-item">Gợi ý chỉnh sửa</a>
                                             {{--<a href="#" class="dropdown-item">Bắt đầu Radio</a>--}}
