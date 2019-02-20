@@ -349,7 +349,7 @@ $catalog = config('constants.catalog');
                                 <span></span>
                                 <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{Helpers::cover_url($item['cover_id'])}}" alt="{{$item['music_title']}}">
                                     @if($item['cat_id'] == CAT_BEAT)
-                                        <p class="time text-white mb-0 py-1">Beat</p>
+                                        <p class="time time-bxh-home text-white mb-0 py-1">Beat</p>
                                     @endif
                                 </a>
                             </div>
@@ -379,7 +379,7 @@ $catalog = config('constants.catalog');
                             <span></span>
                             <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{Helpers::cover_url($item['cover_id'])}}" alt="{{$item['music_title']}}">
                             @if($item['cat_id'] == CAT_BEAT)
-                                <p class="time text-white mb-0 py-1">Beat</p>
+                                <p class="time time-bxh-home text-white mb-0 py-1">Beat</p>
                             @endif
                             </a>
                         </div>
@@ -409,7 +409,7 @@ $catalog = config('constants.catalog');
                             <span></span>
                             <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{Helpers::cover_url($item['cover_id'])}}" alt="{{$item['music_title']}}">
                             @if($item['cat_id'] == CAT_BEAT)
-                                <p class="time text-white mb-0 py-1">Beat</p>
+                                <p class="time time-bxh-home text-white mb-0 py-1">Beat</p>
                             @endif
                             </a>
                         </div>
@@ -439,7 +439,7 @@ $catalog = config('constants.catalog');
                             <span></span>
                             <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{Helpers::cover_url($item['cover_id'])}}" alt="{{$item['music_title']}}">
                             @if($item['cat_id'] == CAT_BEAT)
-                                <p class="time text-white mb-0 py-1">Beat</p>
+                                <p class="time time-bxh-home text-white mb-0 py-1">Beat</p>
                             @endif
                             </a>
                         </div>
