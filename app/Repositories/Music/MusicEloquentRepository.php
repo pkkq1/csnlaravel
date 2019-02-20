@@ -79,16 +79,30 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
 
         return $result;
     }
-    public function findMusicByArtist($artist_id, $fillOrder, $typeOrder, $page)
+    public function findMusicByArtist($artist_id, $page = 1,$fillOrder, $typeOrder, $rows)
     {
-        $result = \App\Models\MusicSuggestModel::select('music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'music_album_id', 'music_listen', 'music_bitrate', 'music_filename', 'music_length')
-            ->where('music_artist_id_search', 'like', '%;'.$artist_id.';%')
-//            ->orWhere('music_artist_id', 'like', $artist_id.';%')
-//            ->orWhere('music_artist_id', 'like', '%;'.$artist_id)
-//            ->orWhere('music_artist_id_search', 'like', $artist_id)
-            ->orderBy($fillOrder, $typeOrder)
-            ->paginate($page);
-        DB::disconnect('mysql_beta');
+//        $result = $this->_model::select('music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'music_album_id', 'music_listen', 'music_bitrate', 'music_filename', 'music_length')
+//            ->where('music_artist_id_search', 'like', '%;'.$artist_id.';%')
+////            ->orWhere('music_artist_id', 'like', $artist_id.';%')
+////            ->orWhere('music_artist_id', 'like', '%;'.$artist_id)
+////            ->orWhere('music_artist_id_search', 'like', $artist_id)
+//            ->orderBy($fillOrder, $typeOrder)
+//            ->paginate($page);
+        $music = $this->Solr->search(['music_artist_id' => $artist_id], $page, $rows, ['_version_' => 'desc']);
+        $result = [];
+        foreach ($music['data'] as $item) {
+            $result[] = [
+                'music_id' => $item['music_id'][0],
+                'cat_id' => $item['cover_id'][0],
+                'cat_level' => $item['cat_level'][0],
+                'cover_id' => $item['music_id'][0],
+                'music_title' => $item['music_title'][0],
+                'music_artist' => $item['music_artist'][0],
+                'music_artist_id' => $item['music_artist_id'][0],
+                'music_listen' => $item['music_listen'][0],
+                'music_filename' => $item['music_filename'][0],
+            ];
+        }
         return $result;
     }
     public function musicNews($fillOrder, $typeOrder, $page)
@@ -128,20 +142,20 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
         return $result;
     }
     public function suggestion($music, $type = 'music') {
-//        $model = $this->_model;
-//        if($type == 'video') {
-//            $model = app()->make(
-//                \App\Models\VideoModel::class
-//            );
-//        }
-        $model = app()->make(
-            \App\Models\MusicSuggestModel::class
-        );
+        $model = $this->_model;
         if($type == 'video') {
             $model = app()->make(
-                \App\Models\VideoSuggestModel::class
+                \App\Models\VideoModel::class
             );
         }
+//        $model = app()->make(
+//            \App\Models\MusicSuggestModel::class
+//        );
+//        if($type == 'video') {
+//            $model = app()->make(
+//                \App\Models\VideoSuggestModel::class
+//            );
+//        }
         $pathDir = resource_path() . '/views/cache/suggestion/' . ceil($music->music_id / 1000) . '/';
         $file = $pathDir . $music->music_id . '.blade.php';
         if (!file_exists($pathDir)) {

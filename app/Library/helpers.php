@@ -925,7 +925,7 @@ class Helpers
     }
     public static function pathAvatar($userAvatar, $userId, $domain = '') {
         if(!$userAvatar)
-            return '/imgs/no_avatar.png';
+            return $domain.'/imgs/no_avatar.png';
         return (strpos($userAvatar, 'http') !== false) ? $userAvatar : $domain.Helpers::file_path($userId, PUBLIC_AVATAR_PATH, true) . $userAvatar;
     }
     public static function getImgQuality($musicId) {

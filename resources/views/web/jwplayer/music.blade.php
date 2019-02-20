@@ -88,9 +88,9 @@ if($musicSet['type_listen'] == 'playlist') {
                         <div class="d-table">
                             <?php
                             if(($musicSet['type_listen'] == 'playlist' || $musicSet['type_listen'] == 'album') && !empty($musicSet['playlist_music'])){
-                                array_map(function ($i, $item) use($music) {
+                                array_map(function ($i, $item) use($music, $musicSet) {
                                 $url = Helpers::listen_url($item);
-                                $urlAlbum = url()->current() . '?playlist='.++$i;
+                                $urlAlbum = url()->current() .(isset($musicSet['page']) ? '&trang='.$musicSet['page'] . '&playlist=' . ++$i : '?playlist=' . ++$i);
                                 ?>
                                     <div id="music-listen-{{$item['music_id']}}" class="card-footer{{($music->music_id == $item['music_id'] ? ' listen' : '')}}" style="display: table-row;">
                                         <div class="name d-table-cell">

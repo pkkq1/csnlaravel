@@ -137,6 +137,7 @@ class MusicController extends Controller
         $music = [];
         $playlist = [];
         $typeListen = 'single';
+        $musicSet = [];
         if($arrUrl['type'] == 'nghe-album') {
             $album = $this->coverRepository->getCoverMusicById($arrUrl['id']);
             if(!$album)
@@ -168,10 +169,10 @@ class MusicController extends Controller
             $artist = $this->artistRepository->find($arrUrl['id']);
             if(!$artist)
                 return view('errors.text_error')->with('message', 'Ca sĩ chưa được phát hành.');
-            $music = $this->musicRepository->findMusicByArtist($artist->artist_id, 'music_last_update_time', 'desc', LIMIT_LISTEN_MUSIC_ARTIST)->toArray();
-            if(!$music['data'])
+            $musicSet['page'] = $request->trang ?? 1;
+            $playlistMusic = $this->musicRepository->findMusicByArtist($artist->artist_id, $musicSet['page'],'music_last_update_time', 'desc', LIMIT_LISTEN_MUSIC_ARTIST);
+            if(!$playlistMusic)
                 return view('errors.text_error')->with('message', 'Ca sĩ chưa có bài hát nào phát hành.');
-            $playlistMusic = $music['data'];
             $typeListen = 'playlist';
             $playlist = new \stdClass();
             $playlist->playlist_cover = $artist->artist_avatar ? env('APP_URL').Helpers::file_path($artist->artist_id, PUBLIC_COVER_ARTIST_PATH, true).$artist->artist_avatar . '.png' : env('APP_URL').'/imgs/no_cover_artist2.jpg';
@@ -225,13 +226,14 @@ class MusicController extends Controller
         if(isset($request->ref) && isset($request->key_search)&& isset($request->type_search) && $request->ref == 'search') {
             $this->searchResultRepository->createAnalytics($request->ref, $request->key_search, $music->music_id, $request->type_search);
         }
-        $musicSet = [
+        $musicSet = array_merge($musicSet, [
             'type_listen' => $typeListen, // single | playlist | album
             'type_jw' =>  $type,  // playlist | music | video
             'playlist_music' => $playlistMusic,
             'music_history' => $cookie,
-            'playlist' => $playlist
-        ];
+            'playlist' => $playlist,
+            'page' => 1
+        ]);
         $musicFavourite = false;
         if(Auth::check()){
             $getModelFavourite = $this->musicFavouriteRepository;
