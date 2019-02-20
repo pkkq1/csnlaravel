@@ -8,9 +8,6 @@ use App\Library\Helpers;
     ?>
     <div class="element mb-2">
         <a href="{{$url}}"><div class="image100 mr-2 d-inline-block align-middle" style="background : url('{{$item['music_cover'][0]}}') no-repeat center;background-size: cover;"></div>
-        @if($item['cat_id'] == CAT_BEAT)
-            <p class="time text-white mb-0 py-1">Beat</p>
-        @endif
         </a>
         <div class="content d-inline-block align-middle">
             <a href="{{$url}}"><h6 class="name_song text-black mb-1 card-title">{{$item['music_title'][0]}}</h6></a>

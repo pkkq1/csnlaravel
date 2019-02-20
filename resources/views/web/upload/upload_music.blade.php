@@ -278,7 +278,7 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                                                 </span>
                                             @endif
                                         </div>
-                                        @if(isset($music) && $music->cover_id > 0)
+                                        @if(isset($music) && $music->cover_id != 0)
                                             <div class="form-group col-12">
                                                 <div class="d-flex align-items-center justify-content-between mb-2">
                                                     <a href="/dang-tai/album/{{$music->cover_id}}">Chỉnh sửa album</a>

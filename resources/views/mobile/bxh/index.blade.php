@@ -68,9 +68,6 @@ global $hot_video_rows;
                                 <p class="number m-0">{{$i}}</p>
                             </div>
                             <a href="{{$url}}"><div class="image100 mr-2 d-inline-block align-middle" style="background : url('{{Helpers::cover_url($item['cover_id'])}}') no-repeat center;background-size: cover;">
-                                    @if($item['cat_id'] == CAT_BEAT)
-                                        <p class="time text-white mb-0 py-1">Beat</p>
-                                    @endif
                                 </div></a>
                             <div class="content d-inline-block align-middle">
                                 <a href="{{$url}}"><h6 class="name_song text-black mb-1 card-title">{{$item['music_title']}}</h6></a>
@@ -93,9 +90,6 @@ global $hot_video_rows;
                                 <p class="number m-0">{{$i}}</p>
                             </div>
                             <a href="{{$url}}"><div class="image100 mr-2 d-inline-block align-middle" style="background : url('{{Helpers::cover_url($item['cover_id'])}}') no-repeat center;background-size: cover;">
-                                    @if($item['cat_id'] == CAT_BEAT)
-                                        <p class="time text-white mb-0 py-1">Beat</p>
-                                    @endif
                                 </div></a>
                             <div class="content d-inline-block align-middle">
                                 <a href="{{$url}}"><h6 class="name_song text-black mb-1 card-title">{{$item['music_title']}}</h6></a>
@@ -118,9 +112,6 @@ global $hot_video_rows;
                                 <p class="number m-0">{{$i}}</p>
                             </div>
                             <a href="{{$url}}"><div class="image100 mr-2 d-inline-block align-middle" style="background : url('{{Helpers::cover_url($item['cover_id'])}}') no-repeat center;background-size: cover;">
-                                    @if($item['cat_id'] == CAT_BEAT)
-                                        <p class="time text-white mb-0 py-1">Beat</p>
-                                    @endif
                                 </div></a>
                             <div class="content d-inline-block align-middle">
                                 <a href="{{$url}}"><h6 class="name_song text-black mb-1 card-title">{{$item['music_title']}}</h6></a>
@@ -143,9 +134,6 @@ global $hot_video_rows;
                                 <p class="number m-0">{{$i}}</p>
                             </div>
                             <a href="{{$url}}"><div class="image100 mr-2 d-inline-block align-middle" style="background : url('{{Helpers::cover_url($item['cover_id'])}}') no-repeat center;background-size: cover;">
-                                    @if($item['cat_id'] == CAT_BEAT)
-                                        <p class="time text-white mb-0 py-1">Beat</p>
-                                    @endif
                                 </div></a>
                             <div class="content d-inline-block align-middle">
                                 <a href="{{$url}}"><h6 class="name_song text-black mb-1 card-title">{{$item['music_title']}}</h6></a>
@@ -168,9 +156,6 @@ global $hot_video_rows;
                                 <p class="number m-0">{{$i}}</p>
                             </div>
                             <a href="{{$url}}"><div class="image100 mr-2 d-inline-block align-middle" style="background : url('{{Helpers::cover_url($item['cover_id'])}}') no-repeat center;background-size: cover;">
-                                    @if($item['cat_id'] == CAT_BEAT)
-                                        <p class="time text-white mb-0 py-1">Beat</p>
-                                    @endif
                                 </div></a>
                             <div class="content d-inline-block align-middle">
                                 <a href="{{$url}}"><h6 class="name_song text-black mb-1 card-title">{{$item['music_title']}}</h6></a>
@@ -193,9 +178,6 @@ global $hot_video_rows;
                                 <p class="number m-0">{{$i}}</p>
                             </div>
                             <a href="{{$url}}"><div class="image100 mr-2 d-inline-block align-middle" style="background : url('{{Helpers::cover_url($item['cover_id'])}}') no-repeat center;background-size: cover;">
-                                    @if($item['cat_id'] == CAT_BEAT)
-                                        <p class="time text-white mb-0 py-1">Beat</p>
-                                    @endif
                                 </div></a>
                             <div class="content d-inline-block align-middle">
                                 <a href="{{$url}}"><h6 class="name_song text-black mb-1 card-title">{{$item['music_title']}}</h6></a>
@@ -218,9 +200,6 @@ global $hot_video_rows;
                                 <p class="number m-0">{{$i}}</p>
                             </div>
                             <a href="{{$url}}"><div class="image100 mr-2 d-inline-block align-middle" style="background : url('{{Helpers::cover_url($item['cover_id'])}}') no-repeat center;background-size: cover;">
-                                    @if($item['cat_id'] == CAT_BEAT)
-                                        <p class="time text-white mb-0 py-1">Beat</p>
-                                    @endif
                                 </div></a>
                             <div class="content d-inline-block align-middle">
                                 <a href="{{$url}}"><h6 class="name_song text-black mb-1 card-title">{{$item['music_title']}}</h6></a>

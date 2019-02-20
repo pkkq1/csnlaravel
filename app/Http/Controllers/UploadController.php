@@ -459,11 +459,26 @@ class UploadController extends Controller
                 'music_album_id' => 'max:15',
             ]);
             $userId = Auth::user()->id;
+            $Solr = new SolrSyncController($this->Solr);
             if(Auth::user()->hasPermission('duyet_sua_nhac'))
                 $userId = null;
             $album = $this->coverRepository->findCover($coverId, $userId);
             if(!$album)
                 return view('errors.404');
+            // update upload
+            $upload = $album->upload;
+            // update upload
+            $musics = $album->music;
+            if($album->cover_id < 0) {
+                // create new cover if cover id < 0 (not image)
+                $albumNew = $album->toArray();
+                // update solr
+                $Solr->syncCover(null, $album);
+                unset($albumNew['cover_id']);
+                $this->coverRepository->delete($album->cover_id);
+                $album = $this->coverRepository->getModel()::create($albumNew);
+                $coverId = $album->cover_id;
+            }
             $album->music_album = $request->input('music_album') ?? '';
             $album->music_production = $request->input('music_production') ?? '';
             $album->music_album_id = $request->input('music_album_id') ?? '';
@@ -475,19 +490,19 @@ class UploadController extends Controller
                 $fileNameCovert = Helpers::saveBase64ImageJpg($request->input('album_cover'), Helpers::file_path($album->cover_id, AVATAR_ALBUM_CROP_PATH, true), $album->cover_id);
                 Helpers::copySourceImage($request->file('choose_album_cover'), Helpers::file_path($album->cover_id, COVER_ALBUM_SOURCE_PATH, true), $album->cover_id);
             }
-            // update upload
-            $upload = $album->upload;
+
             foreach($upload as $item) {
                 $item->music_album = $album->music_album ?? '';
+                $item->cover_id = $album->cover_id;
                 $item->music_year = $album->music_year ?? '';
                 $item->music_album_id = $album->music_album_id ?? '';
                 $item->music_production = $album->music_production ?? '';
                 $item->music_last_update_time = time();
                 $item->save();
             }
-            // update upload
-            $musics = $album->music;
+
             foreach($musics as $item) {
+                $item->cover_id = $album->cover_id;
                 $item->music_album = $album->music_album ?? '';
                 $item->music_year = $album->music_year ?? '';
                 $item->music_album_id = $album->music_album_id ?? '';
@@ -496,8 +511,8 @@ class UploadController extends Controller
                 $item->save();
             }
 //            // update solr
-//            $Solr = new SolrSyncController($this->Solr);
-//            $Solr->syncCover(null, $album);
+            $Solr = new SolrSyncController($this->Solr);
+            $Solr->syncCover(null, $album);
             return redirect()->route('upload.storeAlbum', ['musicId' => $coverId])->with('success', 'Đã chỉnh sửa album ' . $album->album_name. ', Vui lòng xóa cache (F5) để cập nhật hình ảnh mới');
         }
         $this->validate($request, [

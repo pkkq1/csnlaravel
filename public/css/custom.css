@@ -1488,3 +1488,9 @@ a.boxclose{
     text-overflow: ellipsis;
     max-width: 450px;
 }
+.time-bxh-home {
+    position: relative;
+    float: left;
+    margin-right: -30px;
+    margin-top: -18px;
+}

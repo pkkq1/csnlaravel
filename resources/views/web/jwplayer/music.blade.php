@@ -940,14 +940,14 @@ if($musicSet['type_listen'] == 'playlist') {
             if(isset($file_url[4]['url'])) {
                 ?>
                 function downLossLessMusic() {
-                    data = sessionStorage.getItem('share_down_lossless');
+                    data = Cookies.get('share_down_lossless');
                     if(data) {
                         data = JSON.parse(data);
                         now = new Date();
                         expiration = new Date(data.timestamp);
-                        expiration.setMinutes(expiration.getMinutes() + 1440); // 24h
+                        expiration.setMinutes(expiration.getMinutes() + 4320); // 72h
                         if (now.getTime() > expiration.getTime()) {
-                            sessionStorage.removeItem('share_down_lossless');
+                            document.cookie = 'share_down_lossless=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
                             openShare();
                         }else{
                             window.location = '<?php echo $file_url[4]['url'] ?>';
@@ -957,7 +957,7 @@ if($musicSet['type_listen'] == 'playlist') {
                     }
                 }
                 function openShare() {
-                    confirmModal('Bạn cần phải chia sẻ bài này lên FB thì mới được download!', 'modal-mg');
+                    confirmModal('Bạn cần phải chia sẻ bài này lên FB thì mới được download! Mỗi lần chia sẻ, sẽ được tải lossless không giới hạn trong 3 ngày', 'modal-mg');
                     $("#myConfirmModal .btn-ok").one('click', function () {
                         FB.ui({
                                 method: 'share',
@@ -969,7 +969,7 @@ if($musicSet['type_listen'] == 'playlist') {
                             },
                             function(response) {
                                 if (response && !response.error_message) {
-                                    sessionStorage.setItem("share_down_lossless", JSON.stringify({
+                                    Cookies.set("share_down_lossless", JSON.stringify({
                                         timestamp: new Date(),
                                         content: 'share_down_lossless'
                                     }));
