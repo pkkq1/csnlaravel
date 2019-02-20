@@ -90,7 +90,8 @@ class UploadController extends Controller
                 return view('errors.text_error')->with('message', 'Danh mục trang bạn chọn không chính xác');
             if($music->cover_id) {
                 $album = $this->coverRepository->findCover($music->cover_id);
-                return view('errors.text_error')->with('message', 'Tình trạng album không tìm thấy hoặc đang được xử lý');
+                if(!$album)
+                    return view('errors.text_error')->with('message', 'Tình trạng album không tìm thấy hoặc đang được xử lý');
             }
         }
         return view('upload.upload_music', compact('typeUpload', 'music', 'album'));
