@@ -65,15 +65,15 @@ class CategoryController extends Controller
     public function getTabCategory(Request $request) {
         switch ($request->tab) {
             case "album-" . CURRENT_YEAR:
-                $cover = $this->coverRepository->getCategoryCover($request->cat_id, $request->cat_level, ['csn_cover.music_year', CURRENT_YEAR], MAX_LOSTLESS, 'cover_id', 'desc', LIMIT_PAGE_CATEGORY);
+                $cover = $this->coverRepository->getCategoryCover($request->cat_id, $request->cat_level, ['csn_cover.music_year', CURRENT_YEAR], MAX_LOSTLESS, 'album_last_updated', 'desc', LIMIT_PAGE_CATEGORY);
                 return view('category.cover_item', compact('cover'));
                 break;
             case "album-2018":
-                $cover = $this->coverRepository->getCategoryCover($request->cat_id, $request->cat_level, ['csn_cover.music_year', 2018], MAX_LOSTLESS, 'cover_id', 'desc', LIMIT_PAGE_CATEGORY);
+                $cover = $this->coverRepository->getCategoryCover($request->cat_id, $request->cat_level, ['csn_cover.music_year', 2018], MAX_LOSTLESS, 'album_last_updated', 'desc', LIMIT_PAGE_CATEGORY);
                 return view('category.cover_item', compact('cover'));
                 break;
             case "album-moi":
-                $cover = $this->coverRepository->getCategoryCover($request->cat_id, $request->cat_level, null, MAX_LOSTLESS, 'cover_id', 'desc', LIMIT_PAGE_CATEGORY);
+                $cover = $this->coverRepository->getCategoryCover($request->cat_id, $request->cat_level, null, null, 'album_last_updated', 'desc', LIMIT_PAGE_CATEGORY);
                 return view('category.cover_item', compact('cover'));
                 break;
             case "bai-hat-moi":
@@ -101,7 +101,7 @@ class CategoryController extends Controller
                 return view('category.music_item', compact('music'));
                 break;
             default:
-                $cover = $this->coverRepository->getCategoryCover($request->cat_id, $request->cat_level, ['csn_cover.music_year', CURRENT_YEAR], MAX_LOSTLESS, 'cover_id', 'desc', LIMIT_PAGE_CATEGORY);
+                $cover = $this->coverRepository->getCategoryCover($request->cat_id, $request->cat_level, ['csn_cover.music_year', CURRENT_YEAR], MAX_LOSTLESS, 'album_last_updated', 'desc', LIMIT_PAGE_CATEGORY);
                 return view('category.cover_item', compact('cover'));
                 break;
         }

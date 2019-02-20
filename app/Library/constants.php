@@ -92,6 +92,7 @@ define('SOURCE_STORAGE_PATH', '/data/source/');
 
 // URL PARAMETERS
 define('CAT_VIDEO', 1);
+define('CAT_BEAT', 2);
 define('CAT_VIDEO_URL', 'video');
 define('VIEW_VIDEO_URL', 'hd');
 define('VIEW_MUSIC_URL', 'mp3');

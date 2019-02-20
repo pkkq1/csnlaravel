@@ -108,6 +108,7 @@ class SearchController extends Controller
                             'music_bitrate' => $item['music_bitrate'][0],
                             'music_bitrate_html' => $item['music_bitrate_html'][0],
                             'music_link' => $item['music_link'][0],
+                            'cat_id' => $item['cat_id'][0],
                             'music_listen' => $item['music_listen'][0],
                             'music_filename' => '', //$item['music_file_name'][0]
                             'music_cover' => $item['music_cover'][0],

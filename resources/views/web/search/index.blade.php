@@ -161,9 +161,12 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                             ?>
                             <li class="media align-items-stretch">
                                 <div class="media-left align-items-stretch mr-2">
-                                    <a href="{{$item['music_link']}}" title="{{$item['music_title']}}">
+                                    <a href="{{$item['music_link']}}?ref=search&type_search=music&key_search={{$search}}" title="{{$item['music_title']}}">
                                         <img src="{{$item['music_cover']}}" alt="{{$item['music_title']}}">
                                         <i class="material-icons">play_circle_outline</i>
+                                        @if($item['cat_id'] == CAT_BEAT)
+                                            <p class="time text-white mb-0 py-1">Beat</p>
+                                        @endif
                                     </a>
                                 </div>
                                 <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
@@ -262,6 +265,9 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                                     <a href="{{$item['music_link']}}?ref=search&type_search=music&key_search={{$search}}" title="{{$item['music_title']}}">
                                         <img src="{{$item['music_cover']}}" alt="{{$item['music_title']}}">
                                         <i class="material-icons">play_circle_outline</i>
+                                        @if($item['cat_id'] == CAT_BEAT)
+                                            <p class="time text-white mb-0 py-1">Beat</p>
+                                        @endif
                                     </a>
                                 </div>
                                 <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">

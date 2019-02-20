@@ -18,6 +18,8 @@ use App\Repositories\Album\AlbumEloquentRepository;
 use App\Repositories\Cover\CoverEloquentRepository;
 use App\Repositories\Artist\ArtistRepository;
 use Illuminate\Support\Facades\Storage;
+use App\Repositories\DeleteMusic\DeleteMusicEloquentRepository;
+use App\Repositories\DeleteVideo\DeleteVideoEloquentRepository;
 use App\Solr\Solarium;
 use App\Http\Controllers\Sync\SolrSyncController;
 use File;
@@ -35,10 +37,13 @@ class UploadController extends Controller
     protected $uploadRepository;
     protected $albumRepository;
     protected $coverRepository;
+    protected $deleteMusicRepository;
+    protected $deleteVideoRepository;
     protected $Solr;
 
     public function __construct(ArtistUploadEloquentRepository $artistUploadRepository, MusicEloquentRepository $musicRepository, ArtistRepository $artistRepository,
-                                UploadEloquentRepository $uploadRepository, AlbumEloquentRepository $albumRepository, VideoEloquentRepository $videoRepository, CoverEloquentRepository $coverRepository, Solarium $Solr) {
+                                UploadEloquentRepository $uploadRepository, AlbumEloquentRepository $albumRepository, VideoEloquentRepository $videoRepository, CoverEloquentRepository $coverRepository, Solarium $Solr,
+                                DeleteVideoEloquentRepository $deleteVideoRepository, DeleteMusicEloquentRepository $deleteMusicRepository) {
         $this->artistUploadRepository = $artistUploadRepository;
         $this->musicRepository = $musicRepository;
         $this->videoRepository = $videoRepository;
@@ -46,6 +51,8 @@ class UploadController extends Controller
         $this->albumRepository = $albumRepository;
         $this->artistRepository = $artistRepository;
         $this->coverRepository = $coverRepository;
+        $this->deleteVideoRepository = $deleteVideoRepository;
+        $this->deleteMusicRepository = $deleteMusicRepository;
         $this->Solr = $Solr;
         $this->middleware(function ($request, $next)
         {
@@ -81,8 +88,10 @@ class UploadController extends Controller
                 return view('errors.text_error')->with('message', 'Bài hát đang được xử lý, bạn vui lòng quay lại sau');
             if($music->cat_id == CAT_VIDEO)
                 return view('errors.text_error')->with('message', 'Danh mục trang bạn chọn không chính xác');
-            if($music->cover_id)
+            if($music->cover_id) {
                 $album = $this->coverRepository->findCover($music->cover_id);
+                return view('errors.text_error')->with('message', 'Tình trạng album không tìm thấy hoặc đang được xử lý');
+            }
         }
         return view('upload.upload_music', compact('typeUpload', 'music', 'album'));
     }
@@ -222,7 +231,7 @@ class UploadController extends Controller
         if($_FILES['file']['size'] > MAXIMUM_FILE_SIZE_UPLOAD_VIDEO) {
             return response()->json([
                 'status' => false,
-                'message' => 'Dung lượng file bạn upload quá cao, chỉ chấp nhận tối đa 5Gb file upload',
+                'message' => '('.$_FILES['file']['name'].') Dung lượng file bạn upload quá cao, chỉ chấp nhận tối đa 5Gb file upload',
             ]);
         }
         $getID3 = new \getID3;
@@ -231,38 +240,50 @@ class UploadController extends Controller
             if($request->type == 'music')
                 return response()->json([
                     'status' => false,
-                    'message' => 'Sai định dạng video',
+                    'message' => '('.$_FILES['file']['name'].') Sai định dạng video',
                 ]);
             if($videoInfo['video']['resolution_x'] < 650 || $videoInfo['video']['resolution_y'] < 300) {
                 return response()->json([
                     'status' => false,
-                    'message' => 'Độ phân giải video quá thấp',
+                    'message' => '('.$_FILES['file']['name'].') Độ phân giải video quá thấp',
                 ]);
             }
             if($videoInfo['playtime_seconds'] > 3600) {
                 return response()->json([
                     'status' => false,
-                    'message' => 'Độ dài video không vượt quá 60 phút',
+                    'message' => '('.$_FILES['file']['name'].') Độ dài video không vượt quá 60 phút',
                 ]);
             }
         }else{
             if($request->type == 'video')
                 return response()->json([
                     'status' => false,
-                    'message' => 'Sai định dạng nhạc',
+                    'message' => '('.$_FILES['file']['name'].') Sai định dạng nhạc',
                 ]);
             if($videoInfo['playtime_seconds'] < 30) {
                 return response()->json([
                     'status' => false,
-                    'message' => 'Độ dài nhạc/video không được thấp hơn 30 giây',
+                    'message' => '('.$_FILES['file']['name'].') Độ dài nhạc/video không được thấp hơn 30 giây',
                 ]);
             }
+            if($request->type == 'audio')
+                return response()->json([
+                    'status' => false,
+                    'message' => '('.$_FILES['file']['name'].') Sai định dạng nhạc',
+                ]);
+            if($videoInfo['audio']['lossless'] == false && $videoInfo['audio']['lossless'] < 190000)
+                return response()->json([
+                    'status' => false,
+                    'message' => '('.$_FILES['file']['name'].') Bài nhạc không được gửi lên vì có chất lượng thấp.',
+                ]);
+
         }
         $fileName = Helpers::moveFile($request->file('file'), $_SERVER['DOCUMENT_ROOT'].DEFAULT_ROOT_CACHE_MUSIC_PATH, $_FILES['file']['name']);
         return response()->json([
             'status' => true,
             'message' => 'Upload Success',
             'file_name' => $fileName,
+            'lossless' => $videoInfo['audio']['lossless'],
             'file_size' => $_FILES['file']['size']
         ]);
     }
@@ -328,9 +349,11 @@ class UploadController extends Controller
                 if($request->input('music_state') == UPLOAD_STAGE_DELETED && $result->music_state != UPLOAD_STAGE_DELETED) { //check old stage to before update stage field
                     $Solr = new SolrSyncController($this->Solr);
                     if($result->cat_id == CAT_VIDEO) {
+                        $this->deleteMusicRepository->getModel()::create($result->toArray());
                         $this->videoRepository->delete($result->music_id);
                         $Solr->syncDeleteVideo(null, $result);
                     }else {
+                        $this->deleteVideoRepository->getModel()::create($result->toArray());
                         $this->musicRepository->delete($result->music_id);
                         $Solr->syncDeleteMusic(null, $result);
                     }
@@ -494,6 +517,7 @@ class UploadController extends Controller
             'album_last_updated' => time(),
             'album_listen' => 0,
             'album_avg' => 0,
+            'music_bitrate' => $request->input('lossless') ? true : 0,
             'album_music_total' => count($fileUploads),
             'user_id' => Auth::user()->id,
             'last_user_id' => Auth::user()->id,
@@ -546,7 +570,6 @@ class UploadController extends Controller
             $result = $this->uploadRepository->create($csnMusic);
             $fileName = $result->music_id.'.'.last(explode('.', $item));
             Storage::disk('public')->move(DEFAULT_STORAGE_CACHE_MUSIC_PATH.$item, Helpers::file_path($result->music_id, SOURCE_STORAGE_PATH, true).$fileName);
-            $result->music_filename_upload = $fileName;
             $result->save();
         }
         return redirect()->route('upload.createMusic')->with('success', 'Đã tạo album mới ' . $request->input('music_album'). '<a href="/user/'.Auth::user()->id.'?tab=tu-nhac"> vào tủ nhạc</a>');

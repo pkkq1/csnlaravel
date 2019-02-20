@@ -147,6 +147,9 @@ $catalog = config('constants.catalog');
                                     <a href="{{$url}}" title="{{$item['music_title']}}">
                                         <img src="{{Helpers::cover_url($item['cover_id'])}}" alt="{{$item['music_title']}}">
                                         <i class="material-icons">play_circle_outline</i>
+                                        @if($item['cat_id'] == CAT_BEAT)
+                                            <p class="time text-white mb-0 py-1">Beat</p>
+                                        @endif
                                     </a>
                                 </div>
                                 <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
@@ -185,6 +188,9 @@ $catalog = config('constants.catalog');
                                     <a href="{{$url}}" title="">
                                         <img src="{{Helpers::cover_url($item['cover_id'])}}" alt="{{$item['music_title']}}">
                                         <i class="material-icons">play_circle_outline</i>
+                                        @if($item['cat_id'] == CAT_BEAT)
+                                            <p class="time text-white mb-0 py-1">Beat</p>
+                                        @endif
                                     </a>
                                 </div>
                                 <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
@@ -341,7 +347,11 @@ $catalog = config('constants.catalog');
                         <li class="media {{($i == 1 ? 'first stand' : ($i == 2 ? 'now up' : ($i == 3 ? 'now down' : 'now')))}} align-items-stretch">
                             <div class="media-left mr-3">
                                 <span></span>
-                                <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{Helpers::cover_url($item['cover_id'])}}" alt="{{$item['music_title']}}"></a>
+                                <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{Helpers::cover_url($item['cover_id'])}}" alt="{{$item['music_title']}}">
+                                    @if($item['cat_id'] == CAT_BEAT)
+                                        <p class="time text-white mb-0 py-1">Beat</p>
+                                    @endif
+                                </a>
                             </div>
                             <div class="media-body d-flex flex-column {{$i == 1 ? '' : 'justify-content-between'}}">
                                 <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
@@ -367,7 +377,11 @@ $catalog = config('constants.catalog');
                     <li class="media {{($i == 1 ? 'first stand' : ($i == 2 ? 'now up' : ($i == 3 ? 'now down' : 'now')))}} align-items-stretch">
                         <div class="media-left mr-3">
                             <span></span>
-                            <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{Helpers::cover_url($item['cover_id'])}}" alt="{{$item['music_title']}}"></a>
+                            <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{Helpers::cover_url($item['cover_id'])}}" alt="{{$item['music_title']}}">
+                            @if($item['cat_id'] == CAT_BEAT)
+                                <p class="time text-white mb-0 py-1">Beat</p>
+                            @endif
+                            </a>
                         </div>
                         <div class="media-body d-flex flex-column {{$i == 1 ? '' : 'justify-content-between'}}">
                             <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
@@ -393,7 +407,11 @@ $catalog = config('constants.catalog');
                     <li class="media {{($i == 1 ? 'first stand' : ($i == 2 ? 'now up' : ($i == 3 ? 'now down' : 'now')))}} align-items-stretch">
                         <div class="media-left mr-3">
                             <span></span>
-                            <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{Helpers::cover_url($item['cover_id'])}}" alt="{{$item['music_title']}}"></a>
+                            <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{Helpers::cover_url($item['cover_id'])}}" alt="{{$item['music_title']}}">
+                            @if($item['cat_id'] == CAT_BEAT)
+                                <p class="time text-white mb-0 py-1">Beat</p>
+                            @endif
+                            </a>
                         </div>
                         <div class="media-body d-flex flex-column {{$i == 1 ? '' : 'justify-content-between'}}">
                             <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
@@ -419,7 +437,11 @@ $catalog = config('constants.catalog');
                     <li class="media {{($i == 1 ? 'first stand' : ($i == 2 ? 'now up' : ($i == 3 ? 'now down' : 'now')))}} align-items-stretch">
                         <div class="media-left mr-3">
                             <span></span>
-                            <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{Helpers::cover_url($item['cover_id'])}}" alt="{{$item['music_title']}}"></a>
+                            <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{Helpers::cover_url($item['cover_id'])}}" alt="{{$item['music_title']}}">
+                            @if($item['cat_id'] == CAT_BEAT)
+                                <p class="time text-white mb-0 py-1">Beat</p>
+                            @endif
+                            </a>
                         </div>
                         <div class="media-body d-flex flex-column {{$i == 1 ? '' : 'justify-content-between'}}">
                             <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
