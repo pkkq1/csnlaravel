@@ -56,7 +56,11 @@ $titleMeta = 'Cập nhật album - ' . Config::get('constants.app.title');
                                                 <div class="media-body align-self-center">
                                                     <div class="d-flex align-items-center justify-content-between mb-1">
                                                         <h4 class="media-title"><span style="color: #36464F;"><a target="_blank" title="{{$item->music_title}}" href="{{$url}}">{{$item->music_title}}</a></span>
-                                                            <small data-dz-size="" class="text-danger"><strong>{{Helpers::formatBytes($item->music_filesize)}}</strong>
+                                                            <small data-dz-size="" class="text-danger">Track: {{$item->music_track_id}}
+                                                            </small>
+                                                            <small data-dz-size="" class="text-danger">{{substr($item->music_filename_upload, 0, 40) . (strlen($item->music_filename_upload) > 40 ? '...' : '')}}
+                                                            </small>
+                                                            <small data-dz-size="" class="text-danger">{{Helpers::formatBytes($item->music_filesize)}}
                                                             </small>
                                                             <small data-progress-present="" class="text-danger data-progress-present"
                                                                    style=" color: #8c959a!important;">100%
@@ -270,6 +274,7 @@ $titleMeta = 'Cập nhật album - ' . Config::get('constants.app.title');
                                             @endif
                                         </div>
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                        <input type="hidden" name="lossless" class="lossless" value="false">
                                         <input type="hidden" name="drop_files" class="drop_files" value="{{old('drop_files')}}">
                                         <input type="hidden" name="drop_html" class="drop_html" value="{{old('drop_html')}}">
                                         <input type="hidden" name="music_filesize" class="music_filesize" value="{{old('music_filesize')}}">
@@ -359,6 +364,7 @@ $titleMeta = 'Cập nhật album - ' . Config::get('constants.app.title');
                     $('.drop_files').val(oldFileDrops ? oldFileDrops + ';' + result.file_name : result.file_name);
                     $('.music_filesize').val(oldFileSize ? oldFileSize + ';' + result.file_size : result.file_size);
                     $('.dz-message').remove();
+                    $('.lossless').val(result.lossless);
                     $('.drop_html').val($('.dropzone').html());
                 }else{
                     alertModal(result.message);

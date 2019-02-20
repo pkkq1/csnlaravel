@@ -49,7 +49,7 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                                         <div class="media dz-processing"><img class="mr-3 align-self-center" src="/imgs/document.png" alt="">
                                             <div class="media-body align-self-center">
                                                 <div class="d-flex align-items-center justify-content-between mb-1">
-                                                    <h4 class="media-title"><a href="#" data-dz-name="" title="">{{$music->music_filename_upload}}</a>
+                                                    <h4 class="media-title"><a href="#" data-dz-name="" title="">{{substr($music->music_filename_upload, 0, 40) . (strlen($music->music_filename_upload) > 40 ? '...' : '')}}</a>
                                                         <small data-dz-size="" class="text-danger"><strong>{{Helpers::formatBytes($music->music_filesize)}}</strong>
                                                         </small>
                                                         <small data-progress-present="" class="text-danger data-progress-present"
@@ -287,6 +287,7 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                                         @endif
                                         <input type="hidden" name="type_upload" value="{{$typeUpload}}">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                        <input type="hidden" name="lossless" class="lossless" value="false">
                                         <input type="hidden" name="suggest_music" class="suggest_music" value="{{old('suggest_music')}}">
                                         <input type="hidden" name="cover_id" class="cover_id" value="{{ old('cover_id') ?? (isset($music) ? $music->cover_id : '') }}">
                                         <input type="hidden" name="drop_files" class="drop_files" value="{{ old('drop_files') ?? (isset($music) ? 'true' : '') }}">
@@ -382,7 +383,8 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                 var oldFileDrops = $('.drop_files').val();
                 $('.drop_files').val(oldFileDrops ? oldFileDrops + ';' + result.file_name : result.file_name);
                 $('.dz-message').remove();
-                $('.drop_html').val($('.dropzone').html());
+                $('.dz-message').remove();
+                $('.lossless').val(result.lossless);
                 $('.music_filesize').val(result.file_size);
             }else{
                 alertModal(result.message);
