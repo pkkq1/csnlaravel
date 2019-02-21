@@ -485,11 +485,13 @@ class UploadController extends Controller
             $album->music_year = $request->input('music_year') ?? '';
             $album->album_last_updated = time();
             $album->last_user_id = Auth::user()->id;
+            $imgAlbum = '';
             if($request->input('album_cover')) {
 //                $typeImageCover = array_last(explode('.', $_FILES['choose_album_cover']['name']));
                 $fileNameCovert = Helpers::saveBase64ImageJpg($request->input('album_cover'), Helpers::file_path($album->cover_id, AVATAR_ALBUM_CROP_PATH, true), $album->cover_id);
                 Helpers::copySourceImage($request->file('choose_album_cover'), Helpers::file_path($album->cover_id, COVER_ALBUM_SOURCE_PATH, true), $album->cover_id);
                 $album->cover_filename = $fileNameCovert;
+                $imgAlbum = Helpers::file_path($album->cover_id, PUBLIC_COVER_ALBUM_CROP_PATH, true). $album->cover_id . '.jpg';
             }
             $album->save();
             foreach($upload as $item) {
@@ -514,7 +516,7 @@ class UploadController extends Controller
 //            // update solr
             $Solr = new SolrSyncController($this->Solr);
             $Solr->syncCover(null, $album);
-            return redirect()->route('upload.storeAlbum', ['musicId' => $coverId])->with('success', 'Đã chỉnh sửa album ' . $album->album_name. ', Vui lòng xóa cache (F5) để cập nhật hình ảnh mới');
+            return redirect()->route('upload.storeAlbum', ['musicId' => $coverId])->with(['success' => 'Đã chỉnh sửa album ' . $album->album_name, 'img_album' => $imgAlbum]);
         }
         $this->validate($request, [
             'music_album' => 'required|max:255',

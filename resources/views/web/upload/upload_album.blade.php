@@ -114,7 +114,7 @@ $titleMeta = 'Cập nhật album - ' . Config::get('constants.app.title');
                                                 </label>
                                             </div>
                                         </label>
-                                        <img for="choose_album_cover" class="mr-3" {{isset($album) ? '' : 'hidden'}} id="album_cover_uploaded" src="{{isset($album) ? Helpers::cover_url($album->cover_id) : '/imgs/avatar_default.png?v='.time()}}?v={{time()}}" alt="" style="z-index: 99999; width: 176px;">
+                                        <img for="choose_album_cover" class="mr-3" {{isset($album) ? '' : 'hidden'}} id="album_cover_uploaded" src="{{isset($album) ? (Session::get('img_album') ? Session::get('img_album') : Helpers::cover_url($album->cover_id)) : '/imgs/avatar_default.png?v='.time()}}?v={{time()}}" alt="" style="z-index: 99999; width: 176px;">
                                         <script>
                                             $('#album_cover_uploaded').click(function () {
                                                 $('#choose_album_cover').click();
