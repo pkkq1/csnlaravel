@@ -214,7 +214,7 @@ if($category->cat_id == 3 || $category->cat_id == 4 || $category->cat_id == 6 ||
                         <div class="tab-pane fade show active" id="jpop" role="tabpanel" aria-labelledby="jpop-tab">
                             <ul class="list-unstyled bxh mb-0">
                                 <?php
-                                $preFixUrl = $category->cat_url;
+                                $preFixUrl = $category->cat_url == 'video' ? 'v-video' : $category->cat_url;
                                 if($category->cat_id == CAT_VIDEO){
                                     $preFixUrl = 'video/'.$preFixUrl;
                                     $bxhVideo = $hot_video_rows[$category->cat_level == 0 ? 1 : $category->cat_level] ?? $hot_video_rows[1];

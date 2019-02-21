@@ -98,6 +98,7 @@ class SearchController extends Controller
                 if($resultMusic['data']) {
                     foreach ($resultMusic['data'] as $item) {
                         $result[0]['music']['data'][] = [
+                            'music_id' => $item['music_id'][0],
                             'music_title' => $item['music_title'][0],// . ' | ' . $titleCharset . $item['score'] . ' { ' . $item['music_downloads_this_week'][0] . ' }' . $search_level,
                             'music_artist' => $item['music_artist'][0],
                             'music_bitrate' => $item['music_bitrate'][0],
@@ -136,6 +137,7 @@ class SearchController extends Controller
                 if($resultArtist['data']) {
                     foreach ($resultArtist['data'] as $item) {
                         $result[0]['artist']['data'][] = [
+                            'artist_id' => $item['artist_id'][0],
                             'artist_nickname' => $item['artist_nickname'][0],
                             'artist_link' =>  $item['artist_link'][0],
                             'artist_cover' => $item['artist_cover'][0],
@@ -161,6 +163,7 @@ class SearchController extends Controller
                 if($resultAlbum['data']) {
                     foreach ($resultAlbum['data'] as $item) {
                         $result[0]['album']['data'][] = [
+                            'cover_id' => $item['cover_id'][0],
                             'music_album' => $item['music_album'][0],
                             'album_link' => $item['album_link'][0],
                             'album_id' => $request->view_album ? $item['id'] : '',
@@ -206,6 +209,7 @@ class SearchController extends Controller
                 if($resultVideo['data']) {
                     foreach ($resultVideo['data'] as $item) {
                         $result[0]['video']['data'][] = [
+                            'video_id' => $item['video_id'][0],
                             'video_title' => $item['video_title'][0],
                             'video_artist' => $item['video_artist'][0],
                             'video_bitrate' => $item['video_bitrate'][0],
