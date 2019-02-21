@@ -97,6 +97,7 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
                 'cat_level' => $item['cat_level'][0],
                 'cover_id' => $item['music_id'][0],
                 'music_title' => $item['music_title'][0],
+                'music_bitrate_html' => $item['music_bitrate_html'][0],
                 'music_artist' => $item['music_artist'][0],
                 'music_artist_id' => $item['music_artist_id'][0],
                 'music_listen' => $item['music_listen'][0],
