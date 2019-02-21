@@ -126,17 +126,21 @@ class SolrSyncController extends Controller
             //$this->Solr->solrDeleteById($data['id']);
 
             if(Auth::check() && Auth::user()->id == 3) {
-                echo ($key) . '/ ' . $item->music_id . "\n <br>";
+                if ( strpos($_SERVER['PHP_SELF'], 'sync/solr_') !== false ){
+                    echo ($key) . '/ ' . $item->music_id . "\n <br>";
+                }
             }
         }
         $this->Solr->addMultiDocuments($datas);
         //$this->Solr->solrMultiDeleteById($datas);
 
         if(Auth::check() && Auth::user()->id == 3) {
-            if (sizeof($searchMusic) > 0) {
-                die('<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html><head><script type="text/javascript">window.location = "?m_start=' . $item->music_id . '"; </script></head><body></body></html>');
-            } else {
-                die('Done! Full Data!');
+            if ( strpos($_SERVER['PHP_SELF'], 'sync/solr_') !== false) {
+                if (sizeof($searchMusic) > 0) {
+                    die('<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html><head><script type="text/javascript">window.location = "?m_start=' . $item->music_id . '"; </script></head><body></body></html>');
+                } else {
+                    die('Done! Full Data!');
+                }
             }
         }
 
@@ -197,12 +201,12 @@ class SolrSyncController extends Controller
         //$this->Solr->addMultiDocuments($datas);
         $this->Solr->solrMultiDeleteById($datas);
         if(Auth::check() && Auth::user()->id == 3) {
-            if (sizeof($searchMusic) > 0)
-            {
-                die('<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html><head><script type="text/javascript">window.location = "?m_start='. $item->music_id .'"; </script></head><body></body></html>');
-            }
-            else{
-                die('Done! Full Data!');
+            if ( strpos($_SERVER['PHP_SELF'], 'sync/solr_') !== false) {
+                if (sizeof($searchMusic) > 0) {
+                    die('<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html><head><script type="text/javascript">window.location = "?m_start=' . $item->music_id . '"; </script></head><body></body></html>');
+                } else {
+                    die('Done! Full Data!');
+                }
             }
         }
         return response(['Ok']);
@@ -288,17 +292,21 @@ class SolrSyncController extends Controller
             $datas[] = $data;
 //            $this->Solr->addDocuments($data);
 
-            if(Auth::check() && Auth::user()->id == 3) {
-                echo ($key) . '/ ' . $item->music_id . "\n <br>";
+            if (Auth::check() && Auth::user()->id == 3) {
+                if (strpos($_SERVER['PHP_SELF'], 'sync/solr_') !== false) {
+                    echo ($key) . '/ ' . $item->music_id . "\n <br>";
+                }
             }
         }
         $this->Solr->addMultiDocuments($datas);
 
-        if(Auth::check() && Auth::user()->id == 3) {
-            if (sizeof($searchVideo) > 0) {
-                die('<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html><head><script type="text/javascript">window.location = "?v_start=' . $item->music_id . '"; </script></head><body></body></html>');
-            } else {
-                die('Done! Full Data!');
+        if (Auth::check() && Auth::user()->id == 3) {
+            if (strpos($_SERVER['PHP_SELF'], 'sync/solr_') !== false) {
+                if (sizeof($searchVideo) > 0) {
+                    die('<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html><head><script type="text/javascript">window.location = "?v_start=' . $item->music_id . '"; </script></head><body></body></html>');
+                } else {
+                    die('Done! Full Data!');
+                }
             }
         }
 
@@ -350,19 +358,21 @@ class SolrSyncController extends Controller
             $datas[] = $data['id'];
             //$this->Solr->addDocuments($data);
             //$this->Solr->solrDeleteById($data['id']);
-            if(Auth::check() && Auth::user()->id == 3) {
-                echo ($key) . '/ ' . $item->music_id . "\n <br>";
+            if (Auth::check() && Auth::user()->id == 3) {
+                if (strpos($_SERVER['PHP_SELF'], 'sync/solr_') !== false) {
+                    echo ($key) . '/ ' . $item->music_id . "\n <br>";
+                }
             }
         }
         //$this->Solr->addMultiDocuments($datas);
         $this->Solr->solrMultiDeleteById($datas);
-        if(Auth::check() && Auth::user()->id == 3) {
-            if (sizeof($searchVideo) > 0)
-            {
-                die('<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html><head><script type="text/javascript">window.location = "?v_start='. $item->music_id .'"; </script></head><body></body></html>');
-            }
-            else{
-                die('Done! Full Data!');
+        if (Auth::check() && Auth::user()->id == 3) {
+            if (strpos($_SERVER['PHP_SELF'], 'sync/solr_') !== false) {
+                if (sizeof($searchVideo) > 0) {
+                    die('<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html><head><script type="text/javascript">window.location = "?v_start=' . $item->music_id . '"; </script></head><body></body></html>');
+                } else {
+                    die('Done! Full Data!');
+                }
             }
         }
         return response(['Ok']);
@@ -400,7 +410,9 @@ class SolrSyncController extends Controller
 //            $this->Solr->addDocuments($data);
 
             if(Auth::check() && Auth::user()->id == 3) {
-                echo ($key) . '/ ' . $item->artist_id . "\n <br>";
+                if (strpos($_SERVER['PHP_SELF'], 'sync/solr_') !== false) {
+                    echo ($key) . '/ ' . $item->artist_id . "\n <br>";
+                }
             }
         }
         $this->Solr->addMultiDocuments($datas);
@@ -486,21 +498,24 @@ class SolrSyncController extends Controller
             $datas[] = $data;
 //            $this->Solr->addDocuments($data);
             if(Auth::check() && Auth::user()->id == 3) {
-                echo ($key) . '/ ' . $item->cover_id . "\n <br>";
+                if (strpos($_SERVER['PHP_SELF'], 'sync/solr_') !== false) {
+                    echo ($key) . '/ ' . $item->cover_id . "\n <br>";
+                }
             }
         }
         $this->Solr->addMultiDocuments($datas);
 
-        if(Auth::check() && Auth::user()->id == 3) {
-            if (sizeof($cover) > 0) {
-                die('<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html><head><script type="text/javascript">window.location = "?c_start=' . $item->cover_id . '"; </script></head><body></body></html>');
-            } else {
-                die('Done! Full Data!');
+        if (Auth::check() && Auth::user()->id == 3) {
+            if (strpos($_SERVER['PHP_SELF'], 'sync/solr_') !== false) {
+                if (sizeof($cover) > 0) {
+                    die('<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html><head><script type="text/javascript">window.location = "?c_start=' . $item->cover_id . '"; </script></head><body></body></html>');
+                } else {
+                    die('Done! Full Data!');
+                }
             }
         }
         $this->Solr->addMultiDocuments($datas);
 
         return response(['Ok']);
     }
-
 }
