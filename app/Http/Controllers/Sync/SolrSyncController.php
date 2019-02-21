@@ -397,6 +397,7 @@ class SolrSyncController extends Controller
             $artist_nickname_charset = Helpers::khongdau(mb_strtolower($item->artist_nickname, 'UTF-8'), ' ');
             $data = [
                 'id' => 'artist_'.$item->artist_id,
+                'artist_id' => $item->artist_id,
                 'artist_nickname' => $item->artist_nickname,
                 'artist_nickname_search' => Helpers::replaceKeySearch($item->artist_nickname),
                 'artist_nickname_charset' => Helpers::replaceKeySearch($artist_nickname_charset),
@@ -458,6 +459,7 @@ class SolrSyncController extends Controller
 
             $data = [
                 'id' => 'cover_'.$item->cover_id,
+                'cover_id' => $item->cover_id,
                 'music_album' => $item->music_album,
                 'music_album_search' => $titleSearch,
                 'music_album_artist_search' => $titleSearch .' '. $artistSearch,
