@@ -79,7 +79,7 @@ class MusicListenDownloadController extends Controller
             $music = $this->musicRepository->getModel()::where('music_id', $item->music_id)->first();
             if($music) {
                 $music->update([
-                    'music_listen' => $item->music_listen
+                    'music_listen' => $item->music_listen + $item->music_listen_fake
                 ]);
                 $musicArr[] = $music;
             }
