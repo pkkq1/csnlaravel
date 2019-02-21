@@ -321,7 +321,7 @@ class Helpers
         $data->storeAs(
             'public' . $path, $fileName . ($type ? '.'.$type : '')
         );
-        return $fileName;
+        return $fileName . ($type ? '.'.$type : '');
     }
     public static function moveFile($source, $path, $fileName, $overWrite = false){
         if (file_exists($path . '/' . $fileName) && !$overWrite) {

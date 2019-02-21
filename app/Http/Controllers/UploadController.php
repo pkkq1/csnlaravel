@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Repositories\DeleteMusic\DeleteMusicEloquentRepository;
 use App\Repositories\DeleteVideo\DeleteVideoEloquentRepository;
 use App\Solr\Solarium;
+use Illuminate\Support\Str;
 use App\Http\Controllers\Sync\SolrSyncController;
 use File;
 use Artisan;
@@ -487,10 +488,12 @@ class UploadController extends Controller
             $album->last_user_id = Auth::user()->id;
             $imgAlbum = '';
             if($request->input('album_cover')) {
-//                $typeImageCover = array_last(explode('.', $_FILES['choose_album_cover']['name']));
+                $typeImageCover = array_last(explode('.', $_FILES['choose_album_cover']['name']));
                 $fileNameCovert = Helpers::saveBase64ImageJpg($request->input('album_cover'), Helpers::file_path($album->cover_id, AVATAR_ALBUM_CROP_PATH, true), $album->cover_id);
-                Helpers::copySourceImage($request->file('choose_album_cover'), Helpers::file_path($album->cover_id, COVER_ALBUM_SOURCE_PATH, true), $album->cover_id);
-                $album->cover_filename = $fileNameCovert;
+                if($album->cover_filename)
+                    Storage::disk('public')->delete(Helpers::file_path($album->cover_id, COVER_ALBUM_SOURCE_PATH, true).$album->cover_filename);
+                $fileNameCovertSource = Helpers::copySourceImage($request->file('choose_album_cover'), Helpers::file_path($album->cover_id, COVER_ALBUM_SOURCE_PATH, true), $album->cover_id . '-' . Str::random(8), $typeImageCover);
+                $album->cover_filename = $fileNameCovertSource;
                 $imgAlbum = Helpers::file_path($album->cover_id, PUBLIC_COVER_ALBUM_CROP_PATH, true). $album->cover_id . '.jpg';
             }
             $album->save();
@@ -555,10 +558,12 @@ class UploadController extends Controller
         }
         if(!$album)
             return redirect()->route('upload.upload_album')->with('error', 'tạo album thất bại');
-//        $typeImageCover = array_last(explode('.', $_FILES['choose_album_cover']['name']));
+        $typeImageCover = array_last(explode('.', $_FILES['choose_album_cover']['name']));
         $fileNameCovert = Helpers::saveBase64ImageJpg($request->input('album_cover'), Helpers::file_path($album->cover_id, AVATAR_ALBUM_CROP_PATH, true), $album->cover_id);
-        Helpers::copySourceImage($request->file('choose_album_cover'), Helpers::file_path($album->cover_id, COVER_ALBUM_SOURCE_PATH, true), $album->cover_id);
-        $album->cover_filename = $fileNameCovert;
+        if($album->cover_filename)
+            Storage::disk('public')->delete(Helpers::file_path($album->cover_id, COVER_ALBUM_SOURCE_PATH, true).$album->cover_filename);
+        $fileNameCovertSource = Helpers::copySourceImage($request->file('choose_album_cover'), Helpers::file_path($album->cover_id, COVER_ALBUM_SOURCE_PATH, true), $album->cover_id . '-' . Str::random(8), $typeImageCover);
+        $album->cover_filename = $fileNameCovertSource;
         $album->save();
 //        // update solr
 //        $Solr = new SolrSyncController($this->Solr);
