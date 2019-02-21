@@ -55,15 +55,10 @@ $titleMeta = 'Cập nhật album - ' . Config::get('constants.app.title');
                                             <div class="media dz-processing"><a target="_blank" title="Nghe {{$item->music_title}}" href="{{$url}}"><img class="mr-3 align-self-center" src="/imgs/document.png" alt=""></a>
                                                 <div class="media-body align-self-center">
                                                     <div class="d-flex align-items-center justify-content-between mb-1">
-                                                        <h4 class="media-title"><span style="color: #36464F;"><a target="_blank" title="{{$item->music_title}}" href="{{$url}}">{{$item->music_title}}</a></span>
-                                                            <small data-dz-size="" class="text-danger">Track: {{$item->music_track_id}}
-                                                            </small>
-                                                            <small data-dz-size="" class="text-danger">{{substr($item->music_filename_upload, 0, 40) . (strlen($item->music_filename_upload) > 40 ? '...' : '')}}
-                                                            </small>
+                                                        <h4 class="media-title">
+                                                            <span style="color: #36464F;">Track: {{$item->music_track_id}}&nbsp;&nbsp;&nbsp;</span>
+                                                            <span style="color: #36464F;"><a target="_blank" title="{{$item->music_filename_upload}}" href="{{$url}}">Music: {{substr($item->music_title, 0, 40) . (strlen($item->music_title) > 40 ? '...' : '')}}</a></span>
                                                             <small data-dz-size="" class="text-danger">{{Helpers::formatBytes($item->music_filesize)}}
-                                                            </small>
-                                                            <small data-progress-present="" class="text-danger data-progress-present"
-                                                                   style=" color: #8c959a!important;">100%
                                                             </small>
                                                             <small data-progress-present="" class="text-danger data-progress-present"
                                                                    style=" color: #8c959a!important;"><a target="_blank" href="/dang-tai/nhac/{{$item->music_id}}" title="Chỉnh sửa {{$item->music_title}}">Chỉnh sửa</a>
