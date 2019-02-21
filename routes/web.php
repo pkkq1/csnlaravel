@@ -44,14 +44,7 @@ Route::group(['middlewareGroups' => ['web']], function () {
         Route::get('solr_artist', 'Sync\SolrSyncController@syncArtist');
     });
 
-    // Api
-    Route::prefix('api')->group(function () {
-        Route::prefix('auth')->group(function () {
-            Route::get('login', 'Api\AuthController@login');
-            Route::get('login/facebook', 'Api\AuthController@loginFacebook');
-            Route::get('login/google', 'Api\AuthController@loginGoogle');
-        });
-    });
+
     Route::get('/mp3/hot/hot-{year}', ['as' => 'bxh.month', 'uses' => 'BxhController@year']);
 
     Route::get('/logout', 'User\UserController@logout');

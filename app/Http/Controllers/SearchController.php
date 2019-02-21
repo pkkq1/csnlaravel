@@ -15,13 +15,9 @@ use App\Repositories\Category\CategoryEloquentRepository;
 
 class SearchController extends Controller
 {
-    protected $categoryListenRepository;
-    protected $musicRepository;
     protected $Solr;
 
-    public function __construct(CategoryEloquentRepository $categoryListenRepository, Solarium $Solr, MusicEloquentRepository $musicRepository) {
-        $this->categoryListenRepository = $categoryListenRepository;
-        $this->musicRepository = $musicRepository;
+    public function __construct(Solarium $Solr) {
         $this->Solr = $Solr;
     }
     public function index(Request $request) {
@@ -98,7 +94,6 @@ class SearchController extends Controller
                         $searchSolarium['music_artist_search'] = '';
                     }
                 }
-
                 $resultMusic = $this->Solr->search($searchSolarium, ($request->page_music ?? 1), $request->rows ?? ROWS_MUSIC_SEARCH_PAGING, array('score' => 'desc', 'music_downloads_this_week' => 'desc', 'music_downloads_today' => 'desc', 'music_listen' => 'desc'));
                 if($resultMusic['data']) {
                     foreach ($resultMusic['data'] as $item) {

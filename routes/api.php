@@ -16,3 +16,14 @@ use Illuminate\Http\Request;
 //Route::middleware('auth:api')->get('/user', function (Request $request) {
 //    return $request->user();
 //});
+// Api
+
+Route::prefix('auth')->group(function () {
+    Route::get('login', 'AuthController@login');
+    Route::get('login/facebook', 'AuthController@loginFacebook');
+    Route::get('login/google', 'AuthController@loginGoogle');
+});
+Route::get('search', 'SearchController@index');
+
+
+
