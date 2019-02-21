@@ -484,13 +484,14 @@ class UploadController extends Controller
             $album->music_album_id = $request->input('music_album_id') ?? '';
             $album->music_year = $request->input('music_year') ?? '';
             $album->album_last_updated = time();
-            $album->save();
+            $album->last_user_id = Auth::user()->id;
             if($request->input('album_cover')) {
 //                $typeImageCover = array_last(explode('.', $_FILES['choose_album_cover']['name']));
                 $fileNameCovert = Helpers::saveBase64ImageJpg($request->input('album_cover'), Helpers::file_path($album->cover_id, AVATAR_ALBUM_CROP_PATH, true), $album->cover_id);
                 Helpers::copySourceImage($request->file('choose_album_cover'), Helpers::file_path($album->cover_id, COVER_ALBUM_SOURCE_PATH, true), $album->cover_id);
+                $album->cover_filename = $fileNameCovert;
             }
-
+            $album->save();
             foreach($upload as $item) {
                 $item->music_album = $album->music_album ?? '';
                 $item->cover_id = $album->cover_id;
