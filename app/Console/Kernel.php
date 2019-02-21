@@ -36,8 +36,8 @@ class Kernel extends ConsoleKernel
         //          ->hourly();
 //        $schedule->call('\App\Http\Controllers\Sync\SolrSyncController@syncCover');
 
-//        $schedule->command('music_listen_download:type real')->hourly(5);
-//        $schedule->command('music_listen_download:type today');
+        $schedule->command('music_listen_download:type real')->hourly(5);
+        $schedule->command('music_listen_download:type today')->dailyAt('00:01');
 
 
         $schedule->command('album')->hourlyAt(10);
