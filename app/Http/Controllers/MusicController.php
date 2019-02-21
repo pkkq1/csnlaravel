@@ -175,7 +175,7 @@ class MusicController extends Controller
                 return view('errors.text_error')->with('message', 'Ca sĩ chưa có bài hát nào phát hành.');
             $typeListen = 'playlist';
             $playlist = new \stdClass();
-            $playlist->playlist_cover = $artist->artist_avatar ? Helpers::file_path($artist->artist_id, PUBLIC_COVER_ARTIST_PATH, true).$artist->artist_avatar : env('APP_URL').'/imgs/no_cover_artist2.jpg';
+            $playlist->playlist_cover = $artist->artist_avatar ? env('APP_URL').Helpers::file_path($artist->artist_id, PUBLIC_COVER_ARTIST_PATH, true).$artist->artist_avatar : env('APP_URL').'/imgs/no_cover_artist2.jpg';
             $playlist->playlist_title = 'Tất cả bài hát ca sĩ '.$artist->artist_nickname;
         }
         elseif($arrUrl['type'] == 'nghe-bat-hat-yeu-thich'){
