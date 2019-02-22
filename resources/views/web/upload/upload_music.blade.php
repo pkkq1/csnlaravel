@@ -379,7 +379,6 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
             'X-CSRF-TOKEN': '{{ csrf_token() }}',
         };
         Dropzone.prototype.defaultOptions.callResponseSuccess = function(result) {
-            console.log(result);
             if(result.success === true) {
                 var oldFileDrops = $('.drop_files').val();
                 $('.drop_files').val(oldFileDrops ? oldFileDrops + ';' + result.file_name : result.file_name);
@@ -388,7 +387,6 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                 $('.lossless').val(result.lossless);
                 $('.music_filesize').val(result.file_size);
             }else{
-                console.log(1);
                 alertModal(result.message);
                 $('#myModal').on('hidden.bs.modal', function () {
                     location.reload();
