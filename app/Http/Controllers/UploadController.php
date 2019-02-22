@@ -252,7 +252,7 @@ class UploadController extends Controller
                     'message' => '('.$_FILES['file']['name'].') Độ phân giải video quá thấp',
                 ]);
             }
-            if(isset($videoInfo['playtime_seconds']) ?? $videoInfo['playtime_seconds'] > 3600) {
+            if(isset($videoInfo['playtime_seconds']) && $videoInfo['playtime_seconds'] > 3600) {
                 return response()->json([
                     'success' => false,
                     'message' => '('.$_FILES['file']['name'].') Độ dài video không vượt quá 60 phút',
@@ -264,13 +264,13 @@ class UploadController extends Controller
                     'success' => false,
                     'message' => '('.$_FILES['file']['name'].') Sai định dạng nhạc',
                 ]);
-            if(isset($videoInfo['playtime_seconds']) ?? $videoInfo['playtime_seconds'] < 30) {
+            if(isset($videoInfo['playtime_seconds']) && $videoInfo['playtime_seconds'] < 30) {
                 return response()->json([
                     'success' => false,
                     'message' => '('.$_FILES['file']['name'].') Độ dài nhạc/video không được thấp hơn 30 giây',
                 ]);
             }
-            if($videoInfo['audio']['lossless'] == false && $videoInfo['audio']['bitrate'] < 190000)
+            if(isset($videoInfo['audio']) && ($videoInfo['audio']['lossless'] == false && $videoInfo['audio']['bitrate'] < 190000))
                 return response()->json([
                     'success' => false,
                     'message' => '('.$_FILES['file']['name'].') Bài nhạc không được gửi lên vì có chất lượng thấp.',
@@ -282,7 +282,7 @@ class UploadController extends Controller
             'success' => true,
             'message' => 'Upload Success',
             'file_name' => $fileName,
-            'lossless' => $request->type == 'music' ? $videoInfo['audio']['lossless'] == true ? 1000 : (int)($videoInfo['audio']['bitrate'] / 1024) : '',
+            'lossless' => $request->type == 'music' ? (isset($videoInfo['audio']) ? $videoInfo['audio']['lossless'] == true ? 1000 : (int)($videoInfo['audio']['bitrate'] / 1024) : '') : '',
             'file_size' => $_FILES['file']['size']
         ]);
     }
