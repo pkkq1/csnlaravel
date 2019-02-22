@@ -407,8 +407,8 @@ class UploadController extends Controller
                 $Solr->deleteCustom('cover_' . $newAlbum->cover_id);
 
             $result->music_title = htmlspecialchars(trim(stripslashes($request->input('music_title') ?? '')));
-            $result->music_artist = htmlspecialchars(trim(stripslashes($request->input('music_artist') ?? '')));
-            $result->music_artist_id = htmlspecialchars(trim(stripslashes($request->input('music_artist_id') ?? '')));
+            $result->music_artist = trim($request->input('music_artist') ?? '');
+            $result->music_artist_id = trim($request->input('music_artist_id') ?? '');
 //            $result->music_production = $request->input('music_production') ?? '';
             $result->music_composer = htmlspecialchars(trim(stripslashes($request->input('music_composer') ?? '')));
 //            $result->music_album_id = $request->input('music_album_id') ?? '';
