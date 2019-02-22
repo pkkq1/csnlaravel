@@ -243,7 +243,7 @@ class UploadController extends Controller
         if($type == 'video') {
             if($request->type == 'music')
                 return response()->json([
-                    'status' => false,
+                    'success' => false,
                     'message' => '('.$_FILES['file']['name'].') Sai định dạng video',
                 ]);
             if($videoInfo['video']['resolution_x'] < 650 || $videoInfo['video']['resolution_y'] < 300) {
@@ -254,37 +254,37 @@ class UploadController extends Controller
             }
             if($videoInfo['playtime_seconds'] > 3600) {
                 return response()->json([
-                    'status' => false,
+                    'success' => false,
                     'message' => '('.$_FILES['file']['name'].') Độ dài video không vượt quá 60 phút',
                 ]);
             }
         }else{
             if($request->type == 'video')
                 return response()->json([
-                    'status' => false,
+                    'success' => false,
                     'message' => '('.$_FILES['file']['name'].') Sai định dạng nhạc',
                 ]);
             if($videoInfo['playtime_seconds'] < 30) {
                 return response()->json([
-                    'status' => false,
+                    'success' => false,
                     'message' => '('.$_FILES['file']['name'].') Độ dài nhạc/video không được thấp hơn 30 giây',
                 ]);
             }
             if($request->type == 'audio')
                 return response()->json([
-                    'status' => false,
+                    'success' => false,
                     'message' => '('.$_FILES['file']['name'].') Sai định dạng nhạc',
                 ]);
             if($videoInfo['audio']['lossless'] == false && $videoInfo['audio']['bitrate'] < 190000)
                 return response()->json([
-                    'status' => false,
+                    'success' => false,
                     'message' => '('.$_FILES['file']['name'].') Bài nhạc không được gửi lên vì có chất lượng thấp.',
                 ]);
 
         }
         $fileName = Helpers::moveFile($request->file('file'), $_SERVER['DOCUMENT_ROOT'].DEFAULT_ROOT_CACHE_MUSIC_PATH, $_FILES['file']['name']);
         return response()->json([
-            'status' => true,
+            'success' => true,
             'message' => 'Upload Success',
             'file_name' => $fileName,
             'lossless' => $videoInfo['audio']['lossless'] == true ? 1000 : (int)($videoInfo['audio']['bitrate'] / 1024),

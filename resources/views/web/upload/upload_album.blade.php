@@ -353,7 +353,7 @@ $titleMeta = 'Cập nhật album - ' . Config::get('constants.app.title');
                 'X-CSRF-TOKEN': '{{ csrf_token() }}'
             };
             Dropzone.prototype.defaultOptions.callResponseSuccess = function(result) {
-                if(result.status === true) {
+                if(result.success === true) {
                     var oldFileDrops = $('.drop_files').val();
                     var oldFileSize = $('.music_filesize').val();
                     $('.drop_files').val(oldFileDrops ? oldFileDrops + ';' + result.file_name : result.file_name);
