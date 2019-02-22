@@ -520,4 +520,7 @@ class SolrSyncController extends Controller
 
         return response(['Ok']);
     }
+    public function deleteCustom($id) {
+        $this->Solr->solrDeleteById($id);
+    }
 }

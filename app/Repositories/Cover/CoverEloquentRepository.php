@@ -95,7 +95,7 @@ class CoverEloquentRepository extends EloquentRepository implements CoverReposit
             $arrWhereCat[] = ['csn_cover.album_cat_level_1', $catLevel];
             $arrWhereCat2[] = ['csn_cover.album_cat_level_2', $catLevel];
         }
-        $arrWhere[] = ['csn_cover.cover_id',  '!=', 0];
+        $arrWhere[] = ['csn_cover.cover_id',  '>', 0];
         if($year) {
             $arrWhere[] = $year;
         }

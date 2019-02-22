@@ -6,6 +6,7 @@ use DB;
 use App\Library\Helpers;
 use App\Solr\Solarium;
 use App\Models\MusicSuggestModel;
+use App\Models\DeleteMusicModel;
 use App\Models\VideoSuggestModel;
 
 class MusicEloquentRepository extends EloquentRepository implements MusicRepositoryInterface
@@ -67,6 +68,16 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
             ->where('music_id', $id)
             ->with('musicKara')
             ->first();
+
+        return $result;
+    }
+    public function deleteSafe($music)
+    {
+        $result = $this
+            ->_model
+            ->delete($music->music_id);
+        if($result)
+            DeleteMusicModel::create($music);
 
         return $result;
     }

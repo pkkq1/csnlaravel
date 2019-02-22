@@ -740,7 +740,7 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                 var album = '';
                 $.each( albums, function( key, value ) {
                     album = album +
-                        '  <li class="media align-items-stretch parent-line" ' + (key == 0 ? 'style="border-top: none;"' : '') +' data-id="' + value.album_id + '">' +
+                        '  <li class="media align-items-stretch parent-line" ' + (key == 0 ? 'style="border-top: none;"' : '') +' data-id="' + value.cover_id + '">' +
                         '      <div class="media-left align-items-stretch mr-2">' +
                         '          <a target="_blank" href="' + value.album_link + '" title="' + value.music_album + ' - ' + value.album_artist + '">' +
                         '              <img src="' + value.album_cover + '" alt="' + value.music_album + '">' +

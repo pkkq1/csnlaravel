@@ -327,6 +327,90 @@ class UploadController extends Controller
             $result = $this->uploadRepository->findMusicStatus($userId, $musicId);
             if(!$result)
                 return view('errors.404');
+            // kiểm tra bài hát đang xử lý
+            $oldStage = $result->music_state;
+            if($per_Xet_Duyet) {
+                if(isset($request->music_state) && ($request->music_state != $result->music_state)) {
+                    if(!in_array($result->music_state, $arrStage))
+                        return view('errors.text_error')->with('message', 'Bài hát đang được xử lý, bạn vui lòng quay lại sau');
+                    if(!in_array($request->music_state, $arrStage))
+                        return view('errors.text_error')->with('message', 'Trạng thái gửi lên không hợp lệ');
+                    $result->music_state = $request->input('music_state');
+                }
+            }
+            // update album
+            $Solr = new SolrSyncController($this->Solr);
+            $oldCoverId = $result->cover_id;
+            $oldAlbum = [];
+            $newAlbum = [];
+            if(!$request->input('cover_id')) {
+                $result->cover_id = 0;
+            }else{
+                $newAlbum = $this->coverRepository->findCover($request->input('cover_id'));
+                if($per_Xet_Duyet || $newAlbum->user_id == Auth::user()->id) {
+                    $result->cover_id = str_replace('cover_', '', $request->input('cover_id'));
+                }else{
+                    return view('errors.text_error')->with('message', 'Bạn không có quyền với album này, kiểm tra lại quyền hoặc đăng tải của chủ sở hữu album');
+                }
+            }
+            // tách hoặc xóa khỏi album
+            if(($oldCoverId != $request->input('cover_id')) && $oldStage != UPLOAD_STAGE_DELETED) {
+                $newAlbum = $newAlbum ? $newAlbum :$this->coverRepository->findCover($request->input('cover_id'));
+                $oldAlbum = $this->coverRepository->findCover($oldCoverId);
+                if(!$newAlbum || !$oldAlbum)
+                    return view('errors.text_error')->with('message', 'Lỗi album không tìm thấy trong hệ thống');
+                if($oldCoverId != 0 && $request->input('cover_id')) {
+                    // chuyển album
+                    $oldAlbum->album_music_total = $oldAlbum->album_music_total - 1;
+                    $oldAlbum->album_last_updated = time();
+                    $newAlbum->album_music_total = $newAlbum->album_music_total + 1;
+                    $newAlbum->album_last_updated = time();
+                }elseif($request->input('cover_id')) {
+                    // thêm album
+                    $newAlbum->album_music_total = $newAlbum->album_music_total + 1;
+                    $newAlbum->album_last_updated = time();
+                }elseif(!$request->input('cover_id')) {
+                    // xóa album
+                    $oldAlbum->album_music_total = $oldAlbum->album_music_total - 1;
+                    $oldAlbum->album_last_updated = time();
+                }
+                $oldAlbum->save();
+                $newAlbum->save();
+            }
+            if($per_Xet_Duyet && $oldStage != $request->input('music_state')) {
+                // cập nhật tình trạng sẽ xóa
+                if($request->input('music_state') == UPLOAD_STAGE_DELETED && $oldStage != UPLOAD_STAGE_DELETED) { //check old stage to before update stage field
+                    if($result->cat_id == CAT_VIDEO) {
+                        $this->videoRepository->deleteSafe($result);
+                        $Solr->syncDeleteVideo(null, $result);
+                    }else {
+                        $this->musicRepository->deleteSafe($result);
+                        $Solr->syncDeleteMusic(null, $result);
+                    }
+                    // áp dụng không thay đổi cover
+                    if($result->cover_id && $oldCoverId == $request->input('cover_id')) {
+                        $oldAlbum = $this->coverRepository->findCover($result->cover_id);
+                        $oldAlbum->album_music_total = $oldAlbum->album_music_total - 1;
+                        $oldAlbum->album_last_updated = time();
+                        $oldAlbum->save();
+                    }
+                    //Artisan::call('album');
+                }else{
+                    // cập nhật tình trạng đã xóa thành xét duyệt
+                    // áp dụng không thay đổi cover
+                    if($result->cover_id && $oldCoverId == $request->input('cover_id') && $oldStage == UPLOAD_STAGE_DELETED) {
+                        $oldAlbum = $this->coverRepository->findCover($result->cover_id);
+                        $oldAlbum->album_music_total = $oldAlbum->album_music_total + 1;
+                        $oldAlbum->album_last_updated = time(); // tự động cập nhật cover ở crontab
+                        $oldAlbum->save();
+                    }
+                }
+            }
+            if($oldAlbum && $oldAlbum->album_music_total == 0)
+                $Solr->deleteCustom('cover_' . $oldAlbum->cover_id);
+            if($newAlbum && $newAlbum->album_music_total == 0)
+                $Solr->deleteCustom('cover_' . $newAlbum->cover_id);
+
             $result->music_title = htmlspecialchars(trim(stripslashes($request->input('music_title') ?? '')));
             $result->music_artist = htmlspecialchars(trim(stripslashes($request->input('music_artist') ?? '')));
             $result->music_artist_id = htmlspecialchars(trim(stripslashes($request->input('music_artist_id') ?? '')));
@@ -343,40 +427,6 @@ class UploadController extends Controller
             $result->music_note = $request->input('music_note') ?? '';
             $result->music_last_update_time = time();
             $result->music_updated = 0;
-            if(!$request->input('cover_id')) {
-                $result->cover_id = 0;
-            }else{
-                if($per_Xet_Duyet)
-                    $result->cover_id = str_replace('cover_', '', $request->input('cover_id'));
-            }
-            if($per_Xet_Duyet) {
-                if($request->input('music_state') == UPLOAD_STAGE_DELETED && $result->music_state != UPLOAD_STAGE_DELETED) { //check old stage to before update stage field
-                    $Solr = new SolrSyncController($this->Solr);
-                    if($result->cat_id == CAT_VIDEO) {
-                        $this->deleteMusicRepository->getModel()::create($result->toArray());
-                        $this->videoRepository->delete($result->music_id);
-                        $Solr->syncDeleteVideo(null, $result);
-                    }else {
-                        $this->deleteVideoRepository->getModel()::create($result->toArray());
-                        $this->musicRepository->delete($result->music_id);
-                        $Solr->syncDeleteMusic(null, $result);
-                    }
-                    if($result->cover_id) {
-                        $cover = $this->coverRepository->findCover($result->cover_id);
-                        $cover->album_music_total = $cover->album_music_total - 1;
-                        $cover->save();
-                    }
-//                    Artisan::call('album');
-                }
-                if($request->music_state) {
-                    if(!in_array($result->music_state, $arrStage))
-                        return view('errors.text_error')->with('message', 'Bài hát đang được xử lý, bạn vui lòng quay lại sau');
-                    if(!in_array($request->music_state, $arrStage))
-                        return view('errors.text_error')->with('message', 'Trạng thái gửi lên không hợp lệ');
-                    $result->music_state = $request->input('music_state');
-                }
-
-            }
             if($per_Xet_Duyet && $request->music_track_id)
                 $result->music_track_id = $request->music_track_id;
             if($per_Xet_Duyet_Chat_luong && $request->input('music_bitrate_fixed')) {
@@ -384,7 +434,7 @@ class UploadController extends Controller
                 $result->music_bitrate_fixed_by = Auth::user()->id;
             }
             $result->save();
-            // update cover
+            // update cover artist
 //            if($result->music_state == UPLOAD_STAGE_FULLCENSOR && $result->cover_id) {
 //                $album = [];
 //                foreach(explode(';', $request->input('music_artist')) as $key => $item) {
@@ -398,7 +448,6 @@ class UploadController extends Controller
 //                        break;
 //                }
 //            }
-
             $musicRedirectNext = $this->uploadRepository->getModel()::where('music_user_id', $result->music_user_id)
                 ->where('music_id', '>', $result->music_id)
                 ->orderBy('music_id', 'asc')
@@ -517,8 +566,10 @@ class UploadController extends Controller
                 $item->save();
             }
 //            // update solr
-            $Solr = new SolrSyncController($this->Solr);
-            $Solr->syncCover(null, $album);
+            if($album->album_music_total > 0) {
+                $Solr = new SolrSyncController($this->Solr);
+                $Solr->syncCover(null, $album);
+            }
             return redirect()->route('upload.storeAlbum', ['musicId' => $coverId])->with(['success' => 'Đã chỉnh sửa album ' . $album->album_name, 'img_album' => $imgAlbum]);
         }
         $this->validate($request, [

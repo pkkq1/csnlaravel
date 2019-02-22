@@ -56,7 +56,8 @@ define('LIMIT_LISTEN_MUSIC_ARTIST', 100);
 define('LIMIT_MUSIC_PAGE_CATEGORY', 20);
 define('CURRENT_YEAR', 2019);
 define('CURRENT_MONTH', 1);
-define('MAX_LOSTLESS', 1000);
+//define('MAX_LOSTLESS', 1000);
+define('MAX_LOSTLESS', null);
 
 // MUSIC ID ENCRIPT
 define('MAX_ID_CONST', 71902891);

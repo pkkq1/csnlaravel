@@ -4,6 +4,7 @@ namespace App\Repositories\Video;
 use App\Repositories\EloquentRepository;
 use DB;
 use App\Library\Helpers;
+use App\Models\DeleteVideoModel;
 
 class VideoEloquentRepository extends EloquentRepository implements VideoRepositoryInterface
 {
@@ -41,7 +42,16 @@ class VideoEloquentRepository extends EloquentRepository implements VideoReposit
 
         return $result;
     }
+    public function deleteSafe($video)
+    {
+        $result = $this
+            ->_model
+            ->delete($video->music_id);
+        if($result)
+            DeleteVideoModel::create($video);
 
+        return $result;
+    }
     public function findOnlyMusicUrl($url)
     {
         $result = $this
