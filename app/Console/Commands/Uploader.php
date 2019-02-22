@@ -66,6 +66,8 @@ class Uploader extends Command
         $upload = new UploaderController($this->musicRepository, $this->videoRepository,$this->categoryRepository, $this->userRepository, $this->uploadRepository, $this->musicDownloadRepository, $this->videoDownloadRepository);
         if($this->argument('type') == '7day') {
             $upload->uploader();
+        }elseif($this->argument('type') == 'cache_upload') {
+            $upload->scanFileCacheUpload();
         }
     }
 }

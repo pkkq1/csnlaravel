@@ -47,6 +47,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('bxh_cat:type cat today')->everyFiveMinutes();  // bảng xếp hạng hôm nay
         $schedule->command('bxh_cat:type cat week')->dailyAt('00:10');   // bảng xếp hạng trong tuần
         $schedule->command('uploader:type 7day')->dailyAt('00:15');   // bảng xếp hạng uploader
+        $schedule->command('uploader:type cache_upload')->dailyAt('00:17');   // xóa files cache upload
 
 
         $schedule->command('bxh_cat:type cat_month '.CURRENT_MONTH.' 2019')->dailyAt('00:20');  // bảng xếp hạng tháng trong năm, (all sẽ lấy tất cả trong năm, all_month sẽ lấy tất cả tháng, số sẽ lấy đúng tháng)

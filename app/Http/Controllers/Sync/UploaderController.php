@@ -18,7 +18,9 @@ use App\Repositories\Category\CategoryEloquentRepository;
 use App\Repositories\Upload\UploadEloquentRepository;
 use App\Repositories\MusicDownload\MusicDownloadEloquentRepository;
 use App\Repositories\VideoDownload\VideoDownloadEloquentRepository;
+use Illuminate\Support\Facades\Storage;
 use DB;
+use File;
 
 class UploaderController extends Controller
 {
@@ -67,6 +69,19 @@ $top_uploader_weeks = ' . var_export($top_uploader_weeks, true) . ';
 ?>');
 
 
+        return response(['Ok']);
+    }
+    public function scanFileCacheUpload() {
+        $files =  Storage::disk('public')->files(DEFAULT_STORAGE_CACHE_MUSIC_PATH);
+        if($files) {
+            foreach ($files as $item) {
+                $dir = Storage::disk('public')->getAdapter()->getPathPrefix();
+                $fileTime = filemtime($dir.$item);
+                if(time() - $fileTime >= TIMESPAN_TWO_DAY) {
+                    Storage::delete('public' . '/' . $item);
+                }
+            }
+        }
         return response(['Ok']);
     }
 }

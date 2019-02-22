@@ -10,6 +10,7 @@ define('SUB_VIDEO', '/v-video/');
 define('KBPS', 'kbps');
 define('LOSSLESS', 'Lossless');
 define('UPDATE_CASE_SUGGESTION_MUSIC', 604800); // 1 will week
+define('TIMESPAN_TWO_DAY', 172800); // 2 day
 define('UPDATE_CASE_SUGGESTION_MUSIC_ONCE', false); // only 1 render cache suggest
 define('CATEGORY_ID_VIDEO', 1);
 define('LIMIT_HISTORY_MUSIC', 20);
