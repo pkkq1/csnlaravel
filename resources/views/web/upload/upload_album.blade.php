@@ -269,7 +269,7 @@ $titleMeta = 'Cập nhật album - ' . Config::get('constants.app.title');
                                             @endif
                                         </div>
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                        <input type="hidden" name="lossless" class="lossless" value="false">
+                                        <input type="hidden" name="lossless" class="lossless" value="0">
                                         <input type="hidden" name="drop_files" class="drop_files" value="{{old('drop_files')}}">
                                         <input type="hidden" name="drop_html" class="drop_html" value="{{old('drop_html')}}">
                                         <input type="hidden" name="music_filesize" class="music_filesize" value="{{old('music_filesize')}}">
@@ -359,7 +359,7 @@ $titleMeta = 'Cập nhật album - ' . Config::get('constants.app.title');
                     $('.drop_files').val(oldFileDrops ? oldFileDrops + ';' + result.file_name : result.file_name);
                     $('.music_filesize').val(oldFileSize ? oldFileSize + ';' + result.file_size : result.file_size);
                     $('.dz-message').remove();
-                    $('.lossless').val(result.lossless);
+                    $('.lossless').val($('.lossless').val() > result.lossless ? $('.lossless').val() : result.lossless);
                     $('.drop_html').val($('.dropzone').html());
                 }else{
                     alertModal(result.message);
