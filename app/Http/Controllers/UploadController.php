@@ -275,7 +275,7 @@ class UploadController extends Controller
                     'status' => false,
                     'message' => '('.$_FILES['file']['name'].') Sai định dạng nhạc',
                 ]);
-            if($videoInfo['audio']['lossless'] == false && $videoInfo['audio']['lossless'] < 190000)
+            if($videoInfo['audio']['lossless'] == false && $videoInfo['audio']['bitrate'] < 190000)
                 return response()->json([
                     'status' => false,
                     'message' => '('.$_FILES['file']['name'].') Bài nhạc không được gửi lên vì có chất lượng thấp.',
@@ -592,7 +592,7 @@ class UploadController extends Controller
             'album_last_updated' => time(),
             'album_listen' => 0,
             'album_avg' => 0,
-            'music_bitrate' => $request->input('lossless') ? true : 0,
+            'music_bitrate' => $request->input('lossless') ? 1000 : 0,
             'album_music_total' => count($fileUploads),
             'user_id' => Auth::user()->id,
             'last_user_id' => Auth::user()->id,
