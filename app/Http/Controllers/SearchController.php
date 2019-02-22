@@ -133,7 +133,7 @@ class SearchController extends Controller
                 if($titleSearch != $titleCharset) {
                     $searchSolarium['artist_nickname_search'] = $titleSearch;
                 }
-                $resultArtist = $this->Solr->search($searchSolarium, ($request->page_artist ?? 1), $request->rows ?? ROWS_ARTIST_SEARCH_PAGING, array('score' => 'desc', 'video_bitrate' => 'desc', 'music_total' => 'desc'));
+                $resultArtist = $this->Solr->search($searchSolarium, ($request->page_artist ?? 1), $request->rows ?? ROWS_ARTIST_SEARCH_PAGING, array('score' => 'desc', 'music_total' => 'desc'));
                 if($resultArtist['data']) {
                     foreach ($resultArtist['data'] as $item) {
                         $result[0]['artist']['data'][] = [
@@ -205,7 +205,7 @@ class SearchController extends Controller
                     }
                 }
 
-                $resultVideo = $this->Solr->search($searchSolarium, ($request->page_video ?? 1), $request->rows ?? ROWS_VIDEO_SEARCH_PAGING, array('score' => 'desc', 'video_downloads_max_week' => 'desc', 'video_downloads_today' => 'desc', 'video_listen' => 'desc'));
+                $resultVideo = $this->Solr->search($searchSolarium, ($request->page_video ?? 1), $request->rows ?? ROWS_VIDEO_SEARCH_PAGING, array('score' => 'desc', 'video_bitrate' => 'desc', 'video_downloads_max_week' => 'desc', 'video_downloads_today' => 'desc', 'video_listen' => 'desc'));
                 if($resultVideo['data']) {
                     foreach ($resultVideo['data'] as $item) {
                         $result[0]['video']['data'][] = [
