@@ -108,6 +108,7 @@ class SearchController extends Controller
                             'music_listen' => $item['music_listen'][0],
                             'music_filename' => '', //$item['music_file_name'][0]
                             'music_cover' => $item['music_cover'][0],
+                            'music_title_url' => $item['music_title_url'][0],
                             'music_downloads' => $item['music_downloads'][0],
                         ];
 
