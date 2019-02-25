@@ -8,6 +8,7 @@ return [
             'path' => env('SOLR_PATH', '/solr/'),
             'username' => env('SOLR_USERNAME', 'user'),
             'password' => env('SOLR_PASSWORD', 'password'),
+            
             'timeout' => 500,
             'core' => env('SOLR_CORE', 'collection1')
         ]
