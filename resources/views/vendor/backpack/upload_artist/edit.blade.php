@@ -57,7 +57,7 @@ use App\Library\Helpers;
                             <h3 class="box-title">{{ trans('backpack::crud.edit') }}</h3>
                         @endif
                         </div>
-                        @if($fields['type']['value'] != 0)
+                        @if($fields['type']['value'] == 0)
                         <div class="form-group col-xs-6">
                             <h3 class="box-title">Thông tin ca sĩ cũ</h3>
                         </div>
