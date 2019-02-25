@@ -107,9 +107,12 @@ class SolrSyncController extends Controller
                 'music_listen' => $item->music_listen,
                 'music_title_url' => $item->music_title_url,
                 'music_cat_id' => $item->cat_id,
+                'cat_id' => $item->cat_id,
                 'music_composer' => $item->music_composer,
                 'music_cat_level' => $item->cat_level,
+                'cat_level' => $item->cat_level,
                 'music_cover_id' => $item->cover_id,
+                'cover_id' => $item->cover_id,
                 'music_bitrate' => $item->music_bitrate,
                 'music_width' => $item->music_width,
                 'music_height' => $item->music_height,
@@ -126,7 +129,7 @@ class SolrSyncController extends Controller
             //$this->Solr->addDocuments($data);
             //$this->Solr->solrDeleteById($data['id']);
 
-            if(Auth::check() && Auth::user()->id == 3) {
+            if(Auth::check() && Auth::user()->id == 997917) {
                 if ( strpos($_SERVER['REQUEST_URI'], 'sync/solr_') !== false ){
                     echo ($key) . '/ ' . $item->music_id . "\n <br>";
                 }
@@ -280,9 +283,12 @@ class SolrSyncController extends Controller
                 'video_listen' => $item->music_listen,
                 'video_title_url' => $item->music_title_url,
                 'music_cat_id' => $item->cat_id,
+                'cat_id' => $item->cat_id,
                 'music_cat_level' => $item->cat_level,
+                'cat_level' => $item->cat_level,
                 'video_composer' => $item->music_composer,
                 'music_cover_id' => $item->cover_id,
+                'cover_id' => $item->cover_id,
                 'video_bitrate' => $item->music_bitrate,
                 'video_length' => $item->music_length,
                 'video_length_html' => $item->music_length >= 3600 ? gmdate("H:i:s", $item->music_length) : gmdate("i:s", $item->music_length),
@@ -294,7 +300,7 @@ class SolrSyncController extends Controller
             $datas[] = $data;
 //            $this->Solr->addDocuments($data);
 
-            if (Auth::check() && Auth::user()->id == 3) {
+            if (Auth::check() && Auth::user()->id == 997917) {
                 if (strpos($_SERVER['REQUEST_URI'], 'sync/solr_') !== false) {
                     echo ($key) . '/ ' . $item->music_id . "\n <br>";
                 }
