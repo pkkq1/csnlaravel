@@ -282,7 +282,7 @@ class SolrSyncController extends Controller
                 'video_artist_html' => Helpers::rawHtmlArtists($item->music_artist_id, $item->music_artist),
                 'video_listen' => $item->music_listen,
                 'video_title_url' => $item->music_title_url,
-                'music_cat_id' => $item->cat_id,
+                'video_cat_id' => $item->cat_id,
                 'cat_id' => $item->cat_id,
                 'music_cat_level' => $item->cat_level,
                 'cat_level' => $item->cat_level,
