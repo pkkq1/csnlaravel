@@ -57,6 +57,12 @@ if($musicSet['type_listen'] == 'playlist') {
         @include('mobile.layouts.header_top')
     </div>
     <main class="main main_player">
+        <div style="position: relative; text-align: center;">
+            <!-- Blueseed- Asynchronous Code for Ad Placement 1813 Chiasenhac Masthead Mobile Deleted -->
+            <ins class="hadar-placement" data-hdpm="1813"></ins>
+            <script id="jshd1pm_1813" src="https://static.blueseed.tv/ajs/display.js"></script>
+            <img src="http://data.chiasenhac.com/banner/banner_beta_300x150.jpg" height="150px">
+        </div>
         <div class="sidebar_top">
             <div id="pills-tabContent" class="tab-content">
                 <div id="pills-thongtin" role="tabpanel" aria-labelledby="pills-thongtin-tab" class="tab-pane fade active show">
