@@ -76,10 +76,11 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
         $result = $this
             ->_model
             ->find($music->music_id);
-        $result->delete();
-        if($result)
-            DeleteMusicModel::create($music);
+        if($result) {
+            $result->delete();
+            DeleteMusicModel::create($music->toArray());
 
+        }
         return $result;
     }
     public function findMusicIds($ids)

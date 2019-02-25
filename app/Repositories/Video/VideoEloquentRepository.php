@@ -47,9 +47,10 @@ class VideoEloquentRepository extends EloquentRepository implements VideoReposit
         $result = $this
             ->_model
             ->find($video->music_id);
-        $result->delete();
-        if($result)
-            DeleteVideoModel::create($video);
+        if($result) {
+            $result->delete();
+            DeleteMusicModel::create($video->toArray());
+        }
 
         return $result;
     }
