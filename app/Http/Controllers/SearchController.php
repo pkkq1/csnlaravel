@@ -108,6 +108,7 @@ class SearchController extends Controller
                             'music_listen' => $item['music_listen'][0],
                             'music_filename' => '', //$item['music_file_name'][0]
                             'music_cover' => $item['music_cover'][0],
+                            'music_downloads' => $item['music_downloads'][0],
                         ];
 
                         if ($search_level == 1)
@@ -218,6 +219,8 @@ class SearchController extends Controller
                             'video_listen' => $item['video_listen_total'][0],
                             'video_length' => $item['video_length'][0],
                             'video_length_html' => $item['video_length_html'][0],
+                            'video_downloads' => $item['video_downloads'][0],
+                            'video_title_url' => $item['video_title_url'][0],
                         ];
 
                         if ($search_level == 1)
