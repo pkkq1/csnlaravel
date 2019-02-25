@@ -105,6 +105,7 @@ class SolrSyncController extends Controller
                 'music_artist_id' => explode(';', $item->music_artist_id),
                 'music_artist_html' => Helpers::rawHtmlArtists($item->music_artist_id, $item->music_artist),
                 'music_listen' => $item->music_listen,
+                'music_title_url' => $item->music_title_url,
                 'cat_id' => $item->cat_id,
                 'music_composer' => $item->music_composer,
                 'cat_level' => $item->cat_level,
@@ -277,6 +278,7 @@ class SolrSyncController extends Controller
                 'video_artist_id' => explode(';', $item->music_artist_id),//$item->music_artist_id, //str_replace(';', ',', $item->music_artist_id),
                 'video_artist_html' => Helpers::rawHtmlArtists($item->music_artist_id, $item->music_artist),
                 'video_listen' => $item->music_listen,
+                'video_title_url' => $item->music_title_url,
                 'cat_id' => $item->cat_id,
                 'cat_level' => $item->cat_level,
                 'video_composer' => $item->music_composer,
@@ -476,7 +478,6 @@ class SolrSyncController extends Controller
                 'album_bitrate_html' => $item->music_bitrate ? Helpers::bitrate2str($item->music_bitrate) : '',
                 'album_user_id' => $item->user_id,
                 'album_music_total' => $item->album_music_total,
-
                 'album_music_artist' => '',
                 'album_music_artist_id' => '',
                 'album_music_artist_search' => '',
