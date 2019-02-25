@@ -379,7 +379,7 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
             'X-CSRF-TOKEN': '{{ csrf_token() }}',
         };
         Dropzone.prototype.defaultOptions.callResponseSuccess = function(result) {
-            if(result.status === true) {
+            if(result.success === true) {
                 var oldFileDrops = $('.drop_files').val();
                 $('.drop_files').val(oldFileDrops ? oldFileDrops + ';' + result.file_name : result.file_name);
                 $('.dz-message').remove();

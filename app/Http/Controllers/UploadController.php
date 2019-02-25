@@ -115,10 +115,11 @@ class UploadController extends Controller
                 return view('errors.text_error')->with('message', 'Bài hát đang được xử lý, bạn vui lòng quay lại sau');
             if($music->cat_id != CAT_VIDEO)
                 return view('errors.text_error')->with('message', 'Danh mục trang bạn chọn không chính xác');
-            if($music->cover_id)
+            if($music->cover_id) {
                 $album = $this->coverRepository->findCover($music->cover_id);
                 if(!$album)
                     return view('errors.text_error')->with('message', 'Tình trạng album không tìm thấy hoặc đang được xử lý');
+            }
         }
         return view('upload.upload_music', compact('typeUpload', 'music', 'album'));
     }
@@ -243,7 +244,7 @@ class UploadController extends Controller
         if($type == 'video') {
             if($request->type == 'music')
                 return response()->json([
-                    'status' => false,
+                    'success' => false,
                     'message' => '('.$_FILES['file']['name'].') Sai định dạng video',
                 ]);
             if($videoInfo['video']['resolution_x'] < 650 || $videoInfo['video']['resolution_y'] < 300) {
@@ -252,42 +253,37 @@ class UploadController extends Controller
                     'message' => '('.$_FILES['file']['name'].') Độ phân giải video quá thấp',
                 ]);
             }
-            if($videoInfo['playtime_seconds'] > 3600) {
+            if(isset($videoInfo['playtime_seconds']) && $videoInfo['playtime_seconds'] > 3600) {
                 return response()->json([
-                    'status' => false,
+                    'success' => false,
                     'message' => '('.$_FILES['file']['name'].') Độ dài video không vượt quá 60 phút',
                 ]);
             }
         }else{
             if($request->type == 'video')
                 return response()->json([
-                    'status' => false,
+                    'success' => false,
                     'message' => '('.$_FILES['file']['name'].') Sai định dạng nhạc',
                 ]);
-            if($videoInfo['playtime_seconds'] < 30) {
+            if(isset($videoInfo['playtime_seconds']) && $videoInfo['playtime_seconds'] < 30) {
                 return response()->json([
-                    'status' => false,
+                    'success' => false,
                     'message' => '('.$_FILES['file']['name'].') Độ dài nhạc/video không được thấp hơn 30 giây',
                 ]);
             }
-            if($request->type == 'audio')
+            if(isset($videoInfo['audio']) && ($videoInfo['audio']['lossless'] == false && $videoInfo['audio']['bitrate'] < 190000))
                 return response()->json([
-                    'status' => false,
-                    'message' => '('.$_FILES['file']['name'].') Sai định dạng nhạc',
-                ]);
-            if($videoInfo['audio']['lossless'] == false && $videoInfo['audio']['bitrate'] < 190000)
-                return response()->json([
-                    'status' => false,
+                    'success' => false,
                     'message' => '('.$_FILES['file']['name'].') Bài nhạc không được gửi lên vì có chất lượng thấp.',
                 ]);
 
         }
         $fileName = Helpers::moveFile($request->file('file'), $_SERVER['DOCUMENT_ROOT'].DEFAULT_ROOT_CACHE_MUSIC_PATH, $_FILES['file']['name']);
         return response()->json([
-            'status' => true,
+            'success' => true,
             'message' => 'Upload Success',
             'file_name' => $fileName,
-            'lossless' => $videoInfo['audio']['lossless'] == true ? 1000 : (int)($videoInfo['audio']['bitrate'] / 1024),
+            'lossless' => $request->type == 'music' ? (isset($videoInfo['audio']) ? $videoInfo['audio']['lossless'] == true ? 1000 : (int)($videoInfo['audio']['bitrate'] / 1024) : '') : '',
             'file_size' => $_FILES['file']['size']
         ]);
     }
@@ -412,8 +408,8 @@ class UploadController extends Controller
                 $Solr->deleteCustom('cover_' . $newAlbum->cover_id);
 
             $result->music_title = htmlspecialchars(trim(stripslashes($request->input('music_title') ?? '')));
-            $result->music_artist = htmlspecialchars(trim(stripslashes($request->input('music_artist') ?? '')));
-            $result->music_artist_id = htmlspecialchars(trim(stripslashes($request->input('music_artist_id') ?? '')));
+            $result->music_artist = trim($request->input('music_artist') ?? '');
+            $result->music_artist_id = trim($request->input('music_artist_id') ?? '');
 //            $result->music_production = $request->input('music_production') ?? '';
             $result->music_composer = htmlspecialchars(trim(stripslashes($request->input('music_composer') ?? '')));
 //            $result->music_album_id = $request->input('music_album_id') ?? '';
