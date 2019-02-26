@@ -26,10 +26,11 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
         <div class="col-md-9">
             <nav class="nav_kq_search d-flex align-items-center justify-content-between">
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                    <a class="nav-item nav-link {{(isset($_GET['page_music']) || isset($_GET['page_album']) || isset($_GET['page_video']) || isset($_GET['page_artist']) ) ? '' : 'active'}}" id="nav-all-tab" data-toggle="tab" href="#nav-all" role="tab" aria-controls="nav-all" aria-selected="true">tất cả</a>
+                    <a class="nav-item nav-link {{(isset($_GET['page_music']) || isset($_GET['page_album']) || isset($_GET['page_video']) || isset($_GET['page_playback']) || isset($_GET['page_artist']) ) ? '' : 'active'}}" id="nav-all-tab" data-toggle="tab" href="#nav-all" role="tab" aria-controls="nav-all" aria-selected="true">tất cả</a>
                     <a class="nav-item nav-link {{isset($_GET['page_music']) ? 'active' : ''}}" id="nav-music-tab" data-toggle="tab" href="#nav-music" role="tab" aria-controls="nav-music" aria-selected="false">bài hát ({{number_format($result['music']['row_total'] ?? 0)}})</a>
                     <a class="nav-item nav-link {{isset($_GET['page_album']) ? 'active' : ''}}" id="nav-album-tab" data-toggle="tab" href="#nav-album" role="tab" aria-controls="nav-album" aria-selected="false">album ({{number_format($result['album']['row_total'] ?? 0)}})</a>
                     <a class="nav-item nav-link {{isset($_GET['page_video']) ? 'active' : ''}}" id="nav-video-tab" data-toggle="tab" href="#nav-video" role="tab" aria-controls="nav-video" aria-selected="false">video ({{number_format($result['video']['row_total'] ?? 0)}})</a>
+                    <a class="nav-item nav-link {{isset($_GET['page_playback']) ? 'active' : ''}}" id="nav-playback-tab" data-toggle="tab" href="#nav-playback" role="tab" aria-controls="nav-playback" aria-selected="false">Playback ({{number_format($result['music_playback']['row_total'] ?? 0)}})</a>
                     <a class="nav-item nav-link {{isset($_GET['page_artist']) ? 'active' : ''}}" id="nav-artist-tab" data-toggle="tab" href="#nav-artist" role="tab" aria-controls="nav-artist" aria-selected="false">ca sĩ ({{number_format($result['artist']['row_total'] ?? 0)}})</a>
                 </div>
                 <div class="dropdown">
@@ -142,7 +143,7 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                 </div>
             </nav>
             <div class="tab-content" id="nav-tabContent">
-                <div class="tab-pane fade {{(isset($_GET['page_music']) || isset($_GET['page_album']) || isset($_GET['page_video']) || isset($_GET['page_artist'])) ? '' : 'show active'}}" id="nav-all" role="tabpanel" aria-labelledby="nav-all-tab">
+                <div class="tab-pane fade {{(isset($_GET['page_music']) || isset($_GET['page_album']) || isset($_GET['page_video']) || isset($_GET['page_playback']) || isset($_GET['page_artist'])) ? '' : 'show active'}}" id="nav-all" role="tabpanel" aria-labelledby="nav-all-tab">
                     <div class="card card-note-search">
                         <div class="card-body">
                             <div class="d-flex align-items-center justify-content-between">
@@ -164,9 +165,6 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                                     <a href="{{$item['music_link']}}?ref=search&type_search=music&key_search={{$search}}" title="{{$item['music_title']}}">
                                         <img src="{{$item['music_cover']}}" alt="{{$item['music_title']}}">
                                         <i class="material-icons">play_circle_outline</i>
-                                        @if($item['cat_id'] == CAT_BEAT)
-                                            <p class="time text-white mb-0 py-1">Beat</p>
-                                        @endif
                                     </a>
                                 </div>
                                 <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
@@ -265,9 +263,6 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                                     <a href="{{$item['music_link']}}?ref=search&type_search=music&key_search={{$search}}" title="{{$item['music_title']}}">
                                         <img src="{{$item['music_cover']}}" alt="{{$item['music_title']}}">
                                         <i class="material-icons">play_circle_outline</i>
-                                        @if($item['cat_id'] == CAT_BEAT)
-                                            <p class="time text-white mb-0 py-1">Beat</p>
-                                        @endif
                                     </a>
                                 </div>
                                 <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
@@ -356,6 +351,47 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                             ?>
                         </div>
                         <center><?php Helpers::pagingCustom($result['video']['page'], $result['video']['rows'], $result['video']['row_total'] ?? 0,  '<a href="/tim-kiem?q=&page_video=%d">%d</a>', $search) ?></center>
+                    @endif
+                </div>
+                <div class="tab-pane fade {{isset($_GET['page_playback']) ? 'show active' : ''}}" id="nav-playback" role="tabpanel" aria-labelledby="nav-playback-tab">
+                    <div class="card card-note-search">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <span class="txt-note">Từ khoá <b>{{$search}}</b> có {{number_format($result['music_playback']['row_total'] ?? 0)}} kết quả</span>
+                            </div>
+                        </div>
+                    </div>
+                    @if($result['music_playback']['data'])
+                        <ul class="list-unstyled list_music music_kq">
+                            <?php
+                            array_map(function ($item) use ($search) {
+                            ?>
+                            <li class="media align-items-stretch">
+                                <div class="media-left align-items-stretch mr-2">
+                                    <a href="{{$item['music_link']}}?ref=search&type_search=music&key_search={{$search}}" title="{{$item['music_title']}}">
+                                        <img src="{{$item['music_cover']}}" alt="{{$item['music_title']}}">
+                                        <i class="material-icons">play_circle_outline</i>
+                                    </a>
+                                </div>
+                                <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
+                                    <div>
+                                        <h5 class="media-title mt-0 mb-0"><a href="{{$item['music_link']}}?ref=search&type_search=music&key_search={{$search}}" title="{{$item['music_title']}}" class="search_title">{{$item['music_title']}}</a></h5>
+                                        <div class="author"><?php echo $item['music_artist'] ?></div>
+                                    </div>
+                                    <small class="type_music c1"><?php echo $item['music_bitrate_html'] ?></small>
+                                </div>
+                                <div class="media-right align-self-center">
+                                    <small class="time_stt">{{number_format($item['music_listen'])}}</small>
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item"><a href="{{Helpers::fbShareLink($item['music_link'], true)}}" target="_blank" title="chia sẻ {{$item['music_title']}}"><i class="material-icons">share</i></a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <?php
+                            }, $result['music_playback']['data'])
+                            ?>
+                        </ul>
+                        <center><?php Helpers::pagingCustom($result['music_playback']['page'], $result['music_playback']['rows'], $result['music_playback']['row_total'] ?? 0, '<a href="/tim-kiem?q=&page_playback=%d">%d</a>', $search) ?></center>
                     @endif
                 </div>
                 <div class="tab-pane fade {{isset($_GET['page_artist']) ? ' show active' : ''}}" id="nav-artist" role="tabpanel" aria-labelledby="nav-artist-tab">

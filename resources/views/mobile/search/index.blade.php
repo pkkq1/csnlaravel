@@ -28,6 +28,7 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                     <div class="swiper-slide selected search-music">Bài Hát ({{number_format($result['music']['row_total'] ?? 0)}})</div>
                     <div class="swiper-slide search-album" >Album ({{number_format($result['album']['row_total'] ?? 0)}})</div>
                     <div class="swiper-slide search-video">Video ({{number_format($result['video']['row_total'] ?? 0)}})</div>
+                    <div class="swiper-slide search-playback">Playback ({{number_format($result['music_playback']['row_total'] ?? 0)}})</div>
                     <div class="swiper-slide search-artist">Ca sĩ ({{number_format($result['artist']['row_total'] ?? 0)}})</div>
                 </div>
             </div>
@@ -126,6 +127,29 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                                     array_map(function ($item) use ($search) {
                                     ?>
                                     <div class="element mb-2">
+                                        <a href="{{$item['music_link']}}?ref=search&type_search=music&key_search={{$search}}"><div class="image100 mr-2 d-inline-block align-middle" style="background : url('{{$item['music_cover']}}') no-repeat center;background-size: cover;"></div></a>
+                                        <div class="content d-inline-block align-middle">
+                                            <a href="{{$item['music_link']}}?ref=search&type_search=music&key_search={{$search}}"><h6 class="name_song text-black mb-1 card-title">{{$item['music_title']}}</h6></a>
+                                            <p class="name_singer text-gray mb-1 author"><?php echo $item['music_artist'] ?></p>
+                                            <p class="loss text-pink mb-0"><?php echo $item['music_bitrate_html'] ?></p>
+                                        </div>
+                                    </div>
+                                    <?php
+                                    }, $result['music_playback']['data'])
+                                    ?>
+                                    <center><?php Helpers::pagingCustom($result['music_playback']['page'] ?? 1, $result['music_playback']['rows'] ?? 0, $result['music_playback']['row_total'] ?? 0, '<a href="/tim-kiem?q=&page_playback=%d&tab=playback">%d</a>', $search) ?></center>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide block_bxhbaihat block_more">
+                        <div class="container">
+                            <div class="block block_baihat">
+                                <div class="block_bxhbaihat block_more" id="bai-hat">
+                                    <?php
+                                    array_map(function ($item) use ($search) {
+                                    ?>
+                                    <div class="element mb-2">
                                         <a href="/ca-si/{{$item['artist_link']}}?ref=search&type_search=artist&key_search={{$search}}"><div class="image100 mr-2 d-inline-block align-middle" style="background : url('{{$item['artist_avatar']}}') no-repeat center;background-size: cover;"></div></a>
                                         <div class="content d-inline-block align-middle">
                                             <a href="/ca-si/{{$item['artist_link']}}?ref=search&type_search=artist&key_search={{$search}}"><h6 class="name_song text-black mb-1 card-title">{{$item['artist_nickname']}}</h6></a>
@@ -183,13 +207,18 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                         $('.search-video').click();
                         <?php
                     }
+                        if(isset($_GET['page_playback'])) {
+                        ?>
+                        $('.search-playback').click();
+                <?php
+                }
                     if(isset($_GET['page_artist'])) {
                         ?>
                         $('.search-artist').click();
                      <?php
                     }
                 ?>
-            }, 500);
+            }, 200);
         });
         <?php
         if(isset($_GET['tab'])) {

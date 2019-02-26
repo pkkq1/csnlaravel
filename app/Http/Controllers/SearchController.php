@@ -28,6 +28,7 @@ class SearchController extends Controller
         $request->view_album = true;
         $request->view_video = true;
         $request->view_artist= true;
+        $request->playback = true;
         $result = $this->ajaxSearch($request, false);
         $titleSearch = $search.' | ';
         $result = $result[0];
@@ -47,16 +48,19 @@ class SearchController extends Controller
         $result[0] = [
             'q' =>  $search,
             'music' => [
-                'data' => []
+                'data' => [], 'rows' => 0, 'page' => 0, 'row_total' => 0,
+            ],
+            'music_playback' => [
+                'data' => [], 'rows' => 0, 'page' => 0, 'row_total' => 0,
             ],
             'video' => [
-                'data' => []
+                'data' => [], 'rows' => 0, 'page' => 0, 'row_total' => 0,
             ],
             'artist' => [
-                'data' => []
+                'data' => [], 'rows' => 0, 'page' => 0, 'row_total' => 0,
             ],
             'album' => [
-                'data' => []
+                'data' => [], 'rows' => 0, 'page' => 0, 'row_total' => 0,
             ],
         ];
         if($search) {
@@ -74,16 +78,24 @@ class SearchController extends Controller
                     $searchSolarium['music_title_artist_charset_nospace'] = $charsetNoSpace . '^100 | music_title_artist_charset_nospace:' . $charsetNoSpace . '*^50';
 //                }
     //            $searchSolarium['music_title_artist_charset'] = $titleCharset;
+//                if(isset($request->playback) || 1 == 1) {
+//                    foreach ($searchSolarium as $key => $item) {
+//                        $searchSolarium[$key] = $item . ' AND music_cat_id: ' . CAT_BEAT;
+//                    }
+//                }
                 if($titleSearch) {
                     //$searchSolarium['music_title_artist_search'] = $titleSearch;
-                    $searchSolarium['music_title_charset'] = $titleCharset . '^2';
+                    $searchSolarium['music_title_charset'] = $titleCharset . '^2' . (isset($request->playback) ? ' AND -music_cat_id: '.CAT_BEAT : '');
                     $searchSolarium['music_artist_charset'] = $titleCharset;
 
                     if ($titleSearch != $titleCharset) {
-                        $searchSolarium['music_title_search'] = $titleSearch . '^2';
+                        $searchSolarium['music_title_search'] = $titleSearch . '^2' . (isset($request->playback) ? ' AND -music_cat_id: '.CAT_BEAT : '');
                         $searchSolarium['music_artist_search'] = $titleSearch;
                     }
                 }
+
+                $search_level_playback = 1;
+                $keyResult = 'music';
                 $search_level = 1;
 
                 search_music_2:
@@ -94,10 +106,15 @@ class SearchController extends Controller
                         $searchSolarium['music_artist_search'] = '';
                     }
                 }
-                $resultMusic = $this->Solr->search($searchSolarium, ($request->page_music ?? 1), $request->rows ?? ROWS_MUSIC_SEARCH_PAGING, array('score' => 'desc', 'music_downloads_this_week' => 'desc', 'music_downloads_today' => 'desc', 'music_listen' => 'desc'));
+                if($search_level_playback == 2) {
+                    $keyResult = 'music_playback';
+                    $resultMusic = $this->Solr->search($searchSolarium, ($request->page_playback ?? 1), $request->rows ?? ROWS_MUSIC_SEARCH_PAGING, array('score' => 'desc', 'music_downloads_this_week' => 'desc', 'music_downloads_today' => 'desc', 'music_listen' => 'desc'));
+                }else{
+                    $resultMusic = $this->Solr->search($searchSolarium, ($request->page_playback ?? 1), $request->rows ?? ROWS_MUSIC_SEARCH_PAGING, array('score' => 'desc', 'music_downloads_this_week' => 'desc', 'music_downloads_today' => 'desc', 'music_listen' => 'desc'));
+                }
                 if($resultMusic['data']) {
                     foreach ($resultMusic['data'] as $item) {
-                        $result[0]['music']['data'][] = [
+                        $result[0][$keyResult]['data'][] = [
                             'music_id' => $item['music_id'][0],
                             'music_title' => $item['music_title'][0],// . ' | ' . $titleCharset . $item['score'] . ' { ' . $item['music_downloads_this_week'][0] . ' }' . $search_level,
                             'music_artist' => $item['music_artist'][0],
@@ -117,15 +134,22 @@ class SearchController extends Controller
                             if ($item['music_title_charset_nospace'][0] == $charsetNoSpace)
                             {
                                 $search_level = 2;
-                                $result[0]['music']['data'] = [];
+                                $result[0][$keyResult]['data'] = [];
                                 goto search_music_2;
                             }
                         }
                     }
                 }
-                $result[0]['music']['rows'] = $resultMusic['rows'];
-                $result[0]['music']['page'] = $resultMusic['page'];
-                $result[0]['music']['row_total'] = $resultMusic['row_total'];
+                $result[0][$keyResult]['rows'] = $resultMusic['rows'];
+                $result[0][$keyResult]['page'] = $resultMusic['page'];
+                $result[0][$keyResult]['row_total'] = $resultMusic['row_total'];
+                if(isset($request->playback) && $search_level_playback == 1) {
+                    $search_level_playback = 2;
+                    foreach ($searchSolarium as $key => $item) {
+                        $searchSolarium[$key] = str_replace('-music_cat_id', 'music_cat_id', $item);
+                    }
+                    goto search_music_2;
+                }
             }
             if(isset($request->view_all) || isset($request->view_artist)) {
                 $searchSolarium = [];
