@@ -52,6 +52,11 @@ global $hot_video_rows;
     </div>
 </div>
 <main class="main">
+    <div style="position: relative; text-align: center;">
+        <!-- Blueseed- Asynchronous Code for Ad Placement 1813 Chiasenhac Masthead Mobile Deleted -->
+        <ins class="hadar-placement" data-hdpm="1813"></ins>
+        <script id="jshd1pm_1813" src="https://static.blueseed.tv/ajs/display.js"></script>
+    </div>
     <div class="sidebar_top">
         <!-- swiper2-->
         <div class="swiper-container swiper2">
