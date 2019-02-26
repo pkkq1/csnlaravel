@@ -148,7 +148,7 @@ if($musicSet['type_listen'] == 'playlist') {
                                                     <div class="element py-3 border-bottom card-footer {{($music->music_id == $item['music_id'] ? (count($musicSet['playlist_music']) > 1 ? 'listen' : '') : '')}}" id="music-listen-{{$item['music_id']}}">
                                                         <a href="{{$urlAlbum}}">
                                                             <div class="image mr-2 d-inline-block align-middle" style="background : url({{Helpers::thumbnail_url($item)}}) no-repeat center;background-size: cover;">
-                                                                <p class="time"><img src="/mobile/assets/images/icon/ic_menu_clock.png" width="14"> {{$item['music_length'] >= 3600 ? gmdate("H:i:s", $item['music_length']) : gmdate("i:s", $item['music_length'])}}</p>
+                                                                <p class="time"><img src="/mobile/assets/images/icon/ic_menu_clock.png" width="14"> {{$item['video_length_html']}}</p>
                                                             </div>
                                                         </a>
                                                         <div class="content d-inline-block align-middle">

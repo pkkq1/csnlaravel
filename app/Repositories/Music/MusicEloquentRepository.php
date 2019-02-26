@@ -101,7 +101,7 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
 ////            ->orWhere('music_artist_id_search', 'like', $artist_id)
 //            ->orderBy($fillOrder, $typeOrder)
 //            ->paginate($page);
-        $music = $this->Solr->search(['music_artist_id' => $artist_id], $page, $rows, ['_version_' => 'desc']);
+        $music = $this->Solr->search(['music_artist_id' => $artist_id . ' AND -music_cat_id: ' . CAT_VIDEO], $page, $rows, ['_version_' => 'desc']);
         $result = [];
         foreach ($music['data'] as $item) {
             $result[] = [
