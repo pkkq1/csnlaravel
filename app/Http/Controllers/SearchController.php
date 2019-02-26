@@ -48,19 +48,19 @@ class SearchController extends Controller
         $result[0] = [
             'q' =>  $search,
             'music' => [
-                'data' => [], 'rows' => 0, 'page' => 0, 'row_total' => 0,
+                'data' => [], 'rows' => 10, 'page' => 1, 'row_total' => 0,
             ],
             'music_playback' => [
-                'data' => [], 'rows' => 0, 'page' => 0, 'row_total' => 0,
+                'data' => [], 'rows' => 10, 'page' => 1, 'row_total' => 0,
             ],
             'video' => [
-                'data' => [], 'rows' => 0, 'page' => 0, 'row_total' => 0,
+                'data' => [], 'rows' => 10, 'page' => 1, 'row_total' => 0,
             ],
             'artist' => [
-                'data' => [], 'rows' => 0, 'page' => 0, 'row_total' => 0,
+                'data' => [], 'rows' => 10, 'page' => 1, 'row_total' => 0,
             ],
             'album' => [
-                'data' => [], 'rows' => 0, 'page' => 0, 'row_total' => 0,
+                'data' => [], 'rows' => 10, 'page' => 1, 'row_total' => 0,
             ],
         ];
         if($search) {

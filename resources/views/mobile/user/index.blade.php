@@ -451,7 +451,8 @@ $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
                 dataType: "html",
                 data: {
                     'user_id': <?php echo $user->id; ?>,
-                    'stage' : stage
+                    'stage' : stage,
+                    'page_tab' : 'upload'
                 },
                 beforeSend: function () {
                     if(loaded) return false;
