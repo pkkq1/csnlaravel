@@ -34,6 +34,9 @@ if(typeof swiper1.slides !== 'undefined') {
             slideChangeTransitionEnd: function () {
                 var n = $(this)[0].activeIndex;
                 swiper1.slideTo(n, 300, false);
+                if (typeof slideSwiperChange !== 'undefined' && typeof slideSwiperChange === 'function') {
+                    slideSwiperChange(swiper1, 'click');
+                }
             },
         }
     });
