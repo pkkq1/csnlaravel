@@ -129,7 +129,7 @@ class SolrSyncController extends Controller
             //$this->Solr->addDocuments($data);
             //$this->Solr->solrDeleteById($data['id']);
 
-            if(Auth::check() && Auth::user()->id == 997917) {
+            if(Auth::check() && Auth::user()->id == 3) {
                 if ( strpos($_SERVER['REQUEST_URI'], 'sync/solr_') !== false ){
                     echo ($key) . '/ ' . $item->music_id . "\n <br>";
                 }
@@ -138,7 +138,7 @@ class SolrSyncController extends Controller
         $this->Solr->addMultiDocuments($datas);
         //$this->Solr->solrMultiDeleteById($datas);
 
-        if(Auth::check() && Auth::user()->id == 997917) {
+        if(Auth::check() && Auth::user()->id == 3) {
             if ( strpos($_SERVER['REQUEST_URI'], 'sync/solr_') !== false) {
                 if (sizeof($searchMusic) > 0) {
                     die('<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html><head><script type="text/javascript">window.location = "?m_start=' . $item->music_id . '"; </script></head><body></body></html>');
@@ -300,7 +300,7 @@ class SolrSyncController extends Controller
             $datas[] = $data;
 //            $this->Solr->addDocuments($data);
 
-            if (Auth::check() && Auth::user()->id == 997917) {
+            if (Auth::check() && Auth::user()->id == 3) {
                 if (strpos($_SERVER['REQUEST_URI'], 'sync/solr_') !== false) {
                     echo ($key) . '/ ' . $item->music_id . "\n <br>";
                 }
@@ -308,7 +308,7 @@ class SolrSyncController extends Controller
         }
         $this->Solr->addMultiDocuments($datas);
 
-        if (Auth::check() && Auth::user()->id == 997917) {
+        if (Auth::check() && Auth::user()->id == 3) {
             if (strpos($_SERVER['REQUEST_URI'], 'sync/solr_') !== false) {
                 if (sizeof($searchVideo) > 0) {
                     die('<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html><head><script type="text/javascript">window.location = "?v_start=' . $item->music_id . '"; </script></head><body></body></html>');
