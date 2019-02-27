@@ -451,7 +451,7 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                     setQualityCookie = false;
                     jwplayer().setCurrentQuality(error_count);
                 } else {
-                    alertModal('Xin lỗi bài hát này đã bị lỗi! Vui lòng trải nghiệm video khác');
+                    // alertModal('Xin lỗi bài hát này đã bị lỗi! Vui lòng trải nghiệm video khác');
                     // location.href = "/";
                 }
                 error_count++;
