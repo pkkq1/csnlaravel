@@ -19,13 +19,22 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
     <div class="container">
         <div class="row row_wrapper">
             <div class="col-md-9">
+
                 <ul class="nav nav-tabs nav-upload" id="myTab" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link active" id="upload_lyric-tab" href="/dang-tai/{{$mess == 'video' ? 'video' : 'nhac'}}" >Upload {{$mess}}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="upload_album-tab" href="/dang-tai/album" >upload album</a>
-                    </li>
+                    @if(isset($music))
+                        <li class="nav-item">
+                            <span class="nav-link active">Sửa {{$mess}}</span>
+                        </li>
+                    @else
+
+                        <li class="nav-item">
+                            <a class="nav-link active" id="upload_lyric-tab"
+                               href="/dang-tai/{{$mess == 'video' ? 'video' : 'nhac'}}">Upload {{$mess}}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="upload_album-tab" href="/dang-tai/album">upload album</a>
+                        </li>
+                    @endif
                 </ul>
                 @if ($message = Session::get('success'))
                     <div class="alert alert-success">
@@ -49,7 +58,7 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                                         <div class="media dz-processing"><img class="mr-3 align-self-center" src="/imgs/document.png" alt="">
                                             <div class="media-body align-self-center">
                                                 <div class="d-flex align-items-center justify-content-between mb-1">
-                                                    <h4 class="media-title"><a href="#" data-dz-name="" title="">{{substr($music->music_filename_upload, 0, 40) . (strlen($music->music_filename_upload) > 40 ? '...' : '')}}</a>
+                                                    <h4 class="media-title"><a href="{{Helpers::listen_url($music)}}" data-dz-name="" title="" target="_blank">{{substr($music->music_filename_upload, 0, 40) . (strlen($music->music_filename_upload) > 40 ? '...' : '')}}</a>
                                                         <small data-dz-size="" class="text-danger"><strong>{{Helpers::formatBytes($music->music_filesize)}}</strong>
                                                         </small>
                                                         <small data-progress-present="" class="text-danger data-progress-present"
