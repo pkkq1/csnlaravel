@@ -553,9 +553,6 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
             .jw-icon-auto-next-on, .jw-favourite, .jw-icon-rewind {
                 display: none;
             }
-            .jw-flag-time-slider-above:not(.jw-flag-ads-googleima).jwplayer .jw-group>.jw-icon, .jw-flag-time-slider-above:not(.jw-flag-ads-googleima).jwplayer .jw-group>.jw-text {
-                height: 40px!important;
-            }
             .jw-flag-time-slider-above:not(.jw-flag-ads-googleima).jwplayer:not(.jw-flag-ads):not(.jw-flag-live) .jw-controlbar-center-group {
                 padding: 0 5px;
             }
