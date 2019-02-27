@@ -322,8 +322,27 @@ class MusicController extends Controller
         }
         return view('jwplayer.music', compact('music', 'musicSet', 'musicFavourite'));
     }
-    public function embed(Request $request, $music) {
-        $music = $this->musicRepository->findOnlyMusicId($music);
+    public function embed(Request $request, $cat, $sub, $musicUrl) {
+        try {
+            $arrUrl = Helpers::splitMusicUrl($musicUrl);
+        } catch (Exception $e) {
+            return view('errors.errors')->with('e');
+        }
+        if($cat == CAT_VIDEO_URL) {
+            $music = $this->videoRepository->findOnlyMusicId($arrUrl['id']);
+        }else{
+            $music = $this->musicRepository->findOnlyMusicId($arrUrl['id']);
+        }
+        if(!$music)
+            return view('errors.404')->with('message', 'Nhạc đang cập nhật.');
+        // +1 view
+        if(Helpers::sessionCountTimesMusic($arrUrl['id'])){
+            if($cat == CAT_VIDEO_URL) {
+                $this->videoListenRepository->incrementListen($arrUrl['id']);
+            }else{
+                $this->musicListenRepository->incrementListen($arrUrl['id']);
+            }
+        }
         if(!$music)
             return view('errors.404');
         return view('jwplayer.embed_mp3', compact('music'));
