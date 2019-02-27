@@ -274,7 +274,7 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                                                 </span>
                                             @endif
                                         </div>
-                                        @if(isset($music))
+                                        @if(isset($music) && isset($music['music_filename']))
                                             <div class="form-group col-12">
                                                 <div id="csnplayer" class="<?php echo $music->cat_id == CAT_VIDEO ? 'csn_video' : 'csn_music' ?>" style="position:relative; z-index: 99999; width:100%;"> </div>
                                             </div>
@@ -388,7 +388,7 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
     <script type="text/javascript" src="/js/bootstrap-tagsinput.js"></script>
     <script type="text/javascript" src="/js/typeahead.bundle.js"></script>
     <script type="text/javascript" src="/js/jquery.tokeninput.js"></script>
-    @if(isset($music))
+    @if(isset($music) && isset($music['music_filename']))
         <?php
         $file_url = Helpers::file_url($music);
         ?>
