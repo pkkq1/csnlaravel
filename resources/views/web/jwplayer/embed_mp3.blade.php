@@ -10,7 +10,7 @@ $file_url = Helpers::file_url($music);
     <link rel="stylesheet" type="text/css" href="/css/custom.css">
     <link rel="stylesheet" type="text/css" href="/fonts/fonts.css">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
-
+    <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/csn-jwplayer.css">
     <script type="text/javascript" src="/node_modules/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 </head>
@@ -18,7 +18,7 @@ $file_url = Helpers::file_url($music);
 <body>
     <div id="csnplayer" style="position:relative; z-index: 99999; width:100%;"> </div>
 </body>
-<link rel="stylesheet" type="text/css" href="/css/csn-player.css">
+<link rel="stylesheet" type="text/css" href="/css/csn-jwplayer.css">
 <script src="/assets/jwplayer-7.12.0/jwplayer.js"></script>
 <script>
     jwplayer.key="dWwDdbLI0ul1clbtlw+4/UHPxlYmLoE9Ii9QEw==";
@@ -29,7 +29,6 @@ $file_url = Helpers::file_url($music);
         width: "100%",
         height: "100%",
         stretching: 'fill',
-        base: '/assets/jwplayer-7.12.0/',
         sources: [
             <?php
             $typeJwSource = $music->cat_id == CAT_VIDEO ? 'mp4' : 'mp3';
@@ -75,7 +74,17 @@ $file_url = Helpers::file_url($music);
             }
         }
     });
-
+    var error_count =0;
+    player.onError(function(e) {
+        if (error_count < jwplayer().getQualityLevels().length - 1) {
+            setQualityCookie = false;
+            jwplayer().setCurrentQuality(error_count);
+        } else {
+            alertModal('Xin lỗi bài hát này đã bị lỗi! Vui lòng trải nghiệm video khác');
+            // location.href = "/";
+        }
+        error_count++;
+    });
     var device_type = 'desktop';
     var listPlayed =Array();
     var logPlayAudioFlag = false;
@@ -106,6 +115,7 @@ $file_url = Helpers::file_url($music);
                 }
             }
         }
+        updateQuality(event);
     });
     jwplayer().onQualityChange(function(event){
         console.log('onQualityChange',event.currentQuality);
@@ -143,6 +153,27 @@ $file_url = Helpers::file_url($music);
             AutoPlay();
         }
     });
+    jwplayer().onQualityChange(function(callback){
+        updateQuality(callback);
+    });
+    function updateQuality(callback) {
+        var curQual = jwplayer('csnplayer').getCurrentQuality();
+        if(callback['levels'].length == 2) {
+            if(!$('.jw-icon-hd').hasClass('stringQ')) {
+                $('.jw-icon-hd').html(callback['levels'][curQual]['label']);
+            }
+            $('.jw-icon-hd').addClass('stringQ');
+            $('.jw-icon-hd').removeClass('jw-icon-hd');
+            $('.stringQ').html(callback['levels'][curQual]['label']);
+        }else{
+            if(!$('.jw-icon-hd').hasClass('stringQ')) {
+                $('.jw-icon-hd').append('<span>' + callback['levels'][curQual]['label'] + '</span>');
+            }
+            $('.jw-icon-hd').addClass('stringQ');
+            $('.jw-icon-hd').removeClass('jw-icon-hd');
+            $('.stringQ').find('span').html(callback['levels'][curQual]['label']);
+        }
+    }
 </script>
 <style>
     .jw-icon-nextsong {
@@ -150,6 +181,9 @@ $file_url = Helpers::file_url($music);
     }
     .jw-icon-auto-next-on {
         display: none;
+    }
+    .jw-flag-time-slider-above:not(.jw-flag-ads-googleima).jwplayer .jw-group>.jw-icon, .jw-flag-time-slider-above:not(.jw-flag-ads-googleima).jwplayer .jw-group>.jw-text {
+        height: 40px;
     }
 </style>
 </html>

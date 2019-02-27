@@ -91,6 +91,7 @@ define('VIDEO_PATH', '/storage/data/source_video/');
 define('VIDEO_STORAGE_PATH', '/data/source_video/');
 
 define('SOURCE_STORAGE_PATH', '/data/source/');
+define('PUBLIC_SOURCE_STORAGE_PATH', '/storage/data/source/');
 
 // URL PARAMETERS
 define('CAT_VIDEO', 1);

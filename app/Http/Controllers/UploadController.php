@@ -95,7 +95,8 @@ class UploadController extends Controller
                     return view('errors.text_error')->with('message', 'Tình trạng album không tìm thấy hoặc đang được xử lý');
             }
         }
-        return view('upload.upload_music', compact('typeUpload', 'music', 'album'));
+        $musicExist = $this->musicRepository->findOnlyPublished($musicId);
+        return view('upload.upload_music', compact('typeUpload', 'music', 'album', 'musicExist'));
     }
     public function createVideo(Request $request, $musicId = null) {
         $typeUpload = 'video';
@@ -121,7 +122,8 @@ class UploadController extends Controller
                     return view('errors.text_error')->with('message', 'Tình trạng album không tìm thấy hoặc đang được xử lý');
             }
         }
-        return view('upload.upload_music', compact('typeUpload', 'music', 'album'));
+        $musicExist = $this->videoRepository->findOnlyPublished($musicId);
+        return view('upload.upload_music', compact('typeUpload', 'music', 'album', 'musicExist'));
     }
     public function createAlbum(Request $request, $coverId = null) {
         if($coverId) {
@@ -310,7 +312,8 @@ class UploadController extends Controller
         ]);
 
         $typeUpload = $request->input('type_upload');
-        $mess = $typeUpload == 'music' ? 'bài hát' : 'video';
+        $mess = '';
+        $messType = $typeUpload == 'music' ? 'bài hát' : 'video';
         if($request->input('action_upload') == 'edit') {
             $userId = Auth::user()->id;
             $arrStage = [UPLOAD_STAGE_DELETED, UPLOAD_STAGE_UNCENSOR, UPLOAD_STAGE_FULLCONVERT];
@@ -323,8 +326,11 @@ class UploadController extends Controller
             $result = $this->uploadRepository->findMusicStatus($userId, $musicId);
             if(!$result)
                 return view('errors.404');
-            // kiểm tra bài hát đang xử lý
+            // kiểm tra và update stage music
             $oldStage = $result->music_state;
+            $isDelete = $request->delete_music;
+            $oldAlbum = [];
+            $newAlbum = [];
             if($per_Xet_Duyet) {
                 if(isset($request->music_state) && ($request->music_state != $result->music_state)) {
                     if(!in_array($result->music_state, $arrStage))
@@ -337,8 +343,6 @@ class UploadController extends Controller
             // update album
             $Solr = new SolrSyncController($this->Solr);
             $oldCoverId = $result->cover_id;
-            $oldAlbum = [];
-            $newAlbum = [];
             if(!$request->input('cover_id')) {
                 $result->cover_id = 0;
             }else{
@@ -373,9 +377,11 @@ class UploadController extends Controller
                 $oldAlbum->save();
                 $newAlbum->save();
             }
-            if($per_Xet_Duyet && $oldStage != $request->input('music_state')) {
+            if(($per_Xet_Duyet && $oldStage != $request->input('music_state')) || $isDelete) {
                 // cập nhật tình trạng sẽ xóa
-                if($request->input('music_state') == UPLOAD_STAGE_DELETED && $oldStage != UPLOAD_STAGE_DELETED) { //check old stage to before update stage field
+                if(($request->input('music_state') == UPLOAD_STAGE_DELETED && $oldStage != UPLOAD_STAGE_DELETED) || $isDelete) { //check old stage to before update stage field
+                    // xóa nhạc, video
+                    $result->music_state = UPLOAD_STAGE_DELETED;
                     if($result->cat_id == CAT_VIDEO) {
                         $this->videoRepository->deleteSafe($result);
                         $Solr->syncDeleteVideo(null, $result);
@@ -390,6 +396,7 @@ class UploadController extends Controller
                         $oldAlbum->album_last_updated = time();
                         $oldAlbum->save();
                     }
+                    $mess = 'Bạn đã xóa nhạc và ';
                     //Artisan::call('album');
                 }else{
                     // cập nhật tình trạng đã xóa thành xét duyệt
@@ -422,6 +429,7 @@ class UploadController extends Controller
             $result->music_source_url = htmlspecialchars(trim(stripslashes($request->input('music_source_url') ?? '')));
             $result->music_note = $request->input('music_note') ?? '';
             $result->music_last_update_time = time();
+            $result->music_last_update_by = Auth::user()->id;
             $result->music_updated = 0;
             if($request->music_track_id)
                 $result->music_track_id = $request->music_track_id;
@@ -458,9 +466,10 @@ class UploadController extends Controller
 //            // update solr
 //            $Solr = new SolrSyncController($this->Solr);
 //            $Solr->syncMusic(null, $result);
-//            return redirect()->route('upload.storeMusic', ['musicId' => $musicId])->with('success', 'Đã chỉnh sửa '.$mess.' ' . $result->music_title);
+//            return redirect()->route('upload.storeMusic', ['musicId' => $musicId])->with('success', 'Đã chỉnh sửa '.$messType.' ' . $result->music_title);
+            $mess = $mess . 'Đã chỉnh sửa '.$messType.' ' . $result->music_title;
             $mes2 = ($musicRedirectNext || $musicRedirectBack) ? '<br/><a href="/dang-tai/nhac/'.($musicRedirectNext ? $musicRedirectNext->music_id : $musicRedirectBack->music_id).'">Click vào đây để sửa bài '.($musicRedirectNext ? '<u>trước</u>' : '').'</a>'.($musicRedirectBack ? '<a href="/dang-tai/nhac/'.$musicRedirectBack->music_id.'"> | <u>sau</u></a>' : '') : '';
-            return redirect()->route(($result->cat_id == CAT_VIDEO ? 'upload.storeVideo' : 'upload.storeMusic'), ['musicId' => $musicId])->with('success', 'Đã chỉnh sửa '.$mess.' ' . $result->music_title.'<br/><a href="/user/'.$result->music_user_id.'">Click vào đây để trở lại Tủ nhạc</a>'.$mes2);
+            return redirect()->route(($result->cat_id == CAT_VIDEO ? 'upload.storeVideo' : 'upload.storeMusic'), ['musicId' => $musicId])->with('success', $mess.'<br/><a href="/user/'.$result->music_user_id.'">Click vào đây để trở lại Tủ nhạc</a>'.$mes2);
         }else{
             $csnMusic = [
                 'music_title' => $request->input('music_title'),
@@ -487,12 +496,12 @@ class UploadController extends Controller
             $result = $this->uploadRepository->create($csnMusic);
         }
         if(!$result)
-            return redirect()->route('upload.createMusic')->with('error', 'tạo '.$mess.' thất bại');
+            return redirect()->route('upload.createMusic')->with('error', 'tạo '.$messType.' thất bại');
         $fileName = $result->music_id.'.'.last(explode('.', $request->input('drop_files')));
         Storage::disk('public')->move(DEFAULT_STORAGE_CACHE_MUSIC_PATH.$request->input('drop_files'), Helpers::file_path($result->music_id, SOURCE_STORAGE_PATH, true).$fileName);
         $result->music_filename = $fileName;
         $result->save();
-        return redirect()->route($typeUpload == 'music' ? 'upload.createMusic' : 'upload.createVideo')->with('success', 'Đã tạo '.$mess.' ' . $csnMusic['music_title'] . '<a href="/dang-tai/'.($typeUpload == 'music' ? 'nhac' : 'video').'/'.$result->music_id.'"> quay lại chỉnh sửa</a>');
+        return redirect()->route($typeUpload == 'music' ? 'upload.createMusic' : 'upload.createVideo')->with('success', 'Đã tạo '.$messType.' ' . $csnMusic['music_title'] . '<a href="/dang-tai/'.($typeUpload == 'music' ? 'nhac' : 'video').'/'.$result->music_id.'"> quay lại chỉnh sửa</a>');
     }
 
     public function storeAlbum(Request $request, $coverId = null) {

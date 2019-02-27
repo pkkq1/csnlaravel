@@ -61,9 +61,6 @@ $titleMeta = 'Cập nhật album - ' . Config::get('constants.app.title');
                                                             <small data-dz-size="" class="text-danger">{{Helpers::formatBytes($item->music_filesize)}}
                                                             </small>
                                                             <small data-progress-present="" class="text-danger data-progress-present line-uploaded-music-small">
-                                                                <a title="Tải về {{$item->music_title}}" href="{{Helpers::file_path($item->music_id, PUBLIC_SOURCE_STORAGE_PATH, true).$item->music_filename}}"><i class="material-icons" style="font-size: 18px; line-height: 20px">cloud_download</i></a>
-                                                            </small>
-                                                            <small data-progress-present="" class="text-danger data-progress-present line-uploaded-music-small">
                                                                 <a target="_blank" href="/dang-tai/nhac/{{$item->music_id}}" title="Chỉnh sửa {{$item->music_title}}"><i class="material-icons" style="font-size: 14px; line-height: 18px">border_color</i></a>
                                                             </small>
                                                         </h4>
