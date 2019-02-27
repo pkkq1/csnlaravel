@@ -554,10 +554,18 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                 display: none;
             }
             .jw-flag-time-slider-above:not(.jw-flag-ads-googleima).jwplayer .jw-group>.jw-icon, .jw-flag-time-slider-above:not(.jw-flag-ads-googleima).jwplayer .jw-group>.jw-text {
-                height: 40px;
+                height: 40px!important;
             }
             .jw-flag-time-slider-above:not(.jw-flag-ads-googleima).jwplayer:not(.jw-flag-ads):not(.jw-flag-live) .jw-controlbar-center-group {
                 padding: 0 5px;
+            }
+            .jw-breakpoint-4 .jw-display .jw-icon:before, .jw-breakpoint-5 .jw-display .jw-icon:before, .jw-breakpoint-6 .jw-display .jw-icon:before, .jw-breakpoint-7 .jw-display .jw-icon:before {
+                font-size: 30px;
+            }
+            .jw-breakpoint-4 .jw-display .jw-icon, .jw-breakpoint-5 .jw-display .jw-icon, .jw-breakpoint-6 .jw-display .jw-icon, .jw-breakpoint-7 .jw-display .jw-icon {
+                height: 55px;
+                line-height: 56px;
+                width: 40px;
             }
         </style>
     @endif
