@@ -14,6 +14,7 @@ global $VideoSameArtist;
 global $titleDup;
 global $typeDup;
 global $video;
+$partListenFullUrl = Helpers::listen_url($music, '');
 $titleMeta = $music->music_title . ' - '. str_replace(';', ', ', $music->music_artist);
 $file_url = Helpers::file_url($music);
 $lyric_array = Helpers::lyric_to_web($music->music_lyric);
@@ -330,7 +331,7 @@ if($musicSet['type_listen'] == 'playlist') {
                                         <li class="list-inline-item"><a class="fb-share-link" href="{{url()->current()}}" title="{{$music->music_title}}"></a></li>
                                         <li class="list-inline-item"><a class="messenger-share-link" href="{{url()->current()}}" title="{{$music->music_title}}"></a></li>
                                     </ul>
-                                    <input type="email" class="form-control" id="share_link" aria-describedby="emailHelp" placeholder="" value="{{url()->current()}}">
+                                    <input type="email" class="form-control" id="share_link" aria-describedby="emailHelp" placeholder="" value="{{env('APP_URL').url()->getRequest()->getRequestUri()}}">
                                 </div>
                                 <div class="form-group" id="embed">
                                     <div class="d-flex align-items-center justify-content-between mb-2">
@@ -350,7 +351,7 @@ if($musicSet['type_listen'] == 'playlist') {
                                             </div>
                                         </div>
                                     </div>
-                                    <textarea class="form-control" id="embed_textarea" rows="3" value=""><iframe src="{{env('APP_URL').'/embed/mp3/'.$music->music_id}}?auto=true"  scrolling="no" width="640" height="180" frameborder="0" allowfullscreen="true" allow="encrypted-media" allowfullscreen></iframe></textarea>
+                                    <textarea class="form-control" id="embed_textarea" rows="3" value=""><iframe src="{{env('APP_URL').'/embed/'.$partListenFullUrl}}?auto=true"  scrolling="no" width="640" height="180" frameborder="0" allowfullscreen="true" allow="encrypted-media" allowfullscreen></iframe></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="size_embed">Kích thước</label>
@@ -997,9 +998,9 @@ if($musicSet['type_listen'] == 'playlist') {
                 width_height = $('#size_embed').val();
             }
             if($('#old_embed').is(':checked')){
-                $('#embed_textarea').text('<object ' + width_height + '><param name="movie" value="<?php echo env('APP_URL') . '/embed/mp3/' . $music->music_id; ?>' + auto + '" /><param name="quality" value="high" /><param name="wmode" value="transparent" /><param name="allowfullscreen" value="true"/><param name="allowscriptaccess" value="always"/><embed allowscriptaccess="always" allowfullscreen="true" width="640" height="180" src="https://mp3.zing.vn/embed/song/ZW9DZAO6?start=true" quality="high" wmode="transparent"></embed></object><br />');
+                $('#embed_textarea').text('<object ' + width_height + '><param name="movie" value="<?php echo env('APP_URL') . '/embed/' . $partListenFullUrl; ?>' + auto + '" /><param name="quality" value="high" /><param name="wmode" value="transparent" /><param name="allowfullscreen" value="true"/><param name="allowscriptaccess" value="always"/><embed allowscriptaccess="always" allowfullscreen="true" width="640" height="180" src="https://mp3.zing.vn/embed/song/ZW9DZAO6?start=true" quality="high" wmode="transparent"></embed></object><br />');
             } else {
-                $('#embed_textarea').text('<iframe src="<?php echo env('APP_URL').'/embed/mp3/'.$music->music_id; ?>' + auto + '"  scrolling="no" ' + width_height + ' frameborder="0" allowfullscreen="true" allow="encrypted-media" allowfullscreen></iframe>');
+                $('#embed_textarea').text('<iframe src="<?php echo env('APP_URL').'/embed/'.$partListenFullUrl; ?>' + auto + '"  scrolling="no" ' + width_height + ' frameborder="0" allowfullscreen="true" allow="encrypted-media" allowfullscreen></iframe>');
             }
         }
         $('.messenger-share-link').click(function(e) {

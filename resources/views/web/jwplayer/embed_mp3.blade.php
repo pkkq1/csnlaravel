@@ -1,6 +1,7 @@
 <?php
 use App\Library\Helpers;
 $autoPlay = isset($_GET['auto']) ? $_GET['auto'] : 'false';
+$file_url = Helpers::file_url($music);
 ?>
 <html>
 <head>
@@ -30,7 +31,12 @@ $autoPlay = isset($_GET['auto']) ? $_GET['auto'] : 'false';
         stretching: 'fill',
         base: '/assets/jwplayer-7.12.0/',
         sources: [
-            {"file":"<?php echo MUSIC_PATH.$music->music_filename ?>","label":"128K"},
+            <?php
+            $typeJwSource = $music->cat_id == CAT_VIDEO ? 'mp4' : 'mp3';
+            for ($i=0; $i<sizeof($file_url); $i++){
+                echo '{"file": "'. $file_url[$i]['url'] .'", "label": "'. $file_url[$i]['label'] .'", "type": "'.$typeJwSource.'", "default": '. (($i==1) ? 'true' : 'false') .'},';
+            }
+            ?>
         ],
         image: '<?php echo Helpers::cover_url($music->cover_id) ?>',
         title:'<?php echo $music->music_title ?>',
