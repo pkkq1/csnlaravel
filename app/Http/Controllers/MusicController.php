@@ -97,6 +97,21 @@ class MusicController extends Controller
         }
         if(!$music)
             return view('errors.404')->with('message', 'Nhạc đang cập nhật.');
+        if($music->music_deleted > 0) {
+            music_check_deleted:
+            if($cat == CAT_VIDEO_URL) {
+                $music = $this->videoRepository->findOnlyMusicId($music->music_deleted);
+            }else{
+                $music = $this->musicRepository->findOnlyMusicId($music->music_deleted);
+            }
+            if(!$music)
+                return view('errors.404')->with('message', 'Nhạc đang cập nhật.');
+            if($music->music_deleted > 0) {
+                goto music_check_deleted;
+            }
+            $musicListenUrl = Helpers::listen_url($music->toArray());
+            return redirect($musicListenUrl);
+        }
         // +1 view
         if(Helpers::sessionCountTimesMusic($arrUrl['id'])){
             if($cat == CAT_VIDEO_URL) {
