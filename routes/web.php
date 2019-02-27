@@ -91,9 +91,17 @@ Route::group(['middlewareGroups' => ['web']], function () {
     // single
     Route::get('mp3/{cat}/{sub}/{musicUrl}.html', ['as' => 'music.listen', 'uses' => 'MusicController@listenSingleMusic']);
     Route::get('mp3/{cat}/{sub}/{musicUrl}', ['as' => 'music.listen', 'uses' => 'MusicController@listenSingleMusic']);
+
     // video-clip
     Route::get('hd/{cat}/{sub}/{musicUrl}.html', ['as' => 'music.video', 'uses' => 'MusicController@listenSingleMusic']);
     Route::get('hd/{cat}/{sub}/{musicUrl}', ['as' => 'music.video', 'uses' => 'MusicController@listenSingleMusic']);
+
+    // embed
+    Route::get('embed/mp3/{cat}/{sub}/{musicUrl}.html', ['as' => 'music.listen', 'uses' => 'MusicController@embed']);
+    Route::get('embed/mp3/{cat}/{sub}/{musicUrl}', ['as' => 'music.listen', 'uses' => 'MusicController@embed']);
+    Route::get('embed/hd/{cat}/{sub}/{musicUrl}.html', ['as' => 'music.video', 'uses' => 'MusicController@embed']);
+    Route::get('embed/hd/{cat}/{sub}/{musicUrl}', ['as' => 'music.video', 'uses' => 'MusicController@embed']);
+
     // album
     Route::get('nghe-album/{musicUrl}.html', ['as' => 'music.album.listen', 'uses' => 'MusicController@listenPlaylistMusic']);
     Route::get('nghe-album/{musicUrl}', ['as' => 'music.album.listen', 'uses' => 'MusicController@listenPlaylistMusic']);
@@ -123,7 +131,6 @@ Route::group(['middlewareGroups' => ['web']], function () {
     Route::get('bang-xep-hang/nam-{year}/{catUrl}/{catLevel?}', ['as' => 'bxh.month', 'uses' => 'MusicController@listenBxhYear']);
 
 
-    Route::get('embed/mp3/{music}', 'MusicController@embed');
     // ajax comment
     Route::post('binh-luan/get_ajax', ['as' => 'comment.get_ajax', 'uses' => 'CommentController@getAjaxCommentByMusicId']);
     Route::get('music/history_listen', ['as' => 'music.history_listen', 'uses' => 'MusicController@historyListen']);
