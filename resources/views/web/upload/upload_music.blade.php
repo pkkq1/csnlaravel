@@ -49,11 +49,14 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                                         <div class="media dz-processing"><img class="mr-3 align-self-center" src="/imgs/document.png" alt="">
                                             <div class="media-body align-self-center">
                                                 <div class="d-flex align-items-center justify-content-between mb-1">
-                                                    <h4 class="media-title"><a href="#" data-dz-name="" title="">{{substr($music->music_filename_upload, 0, 40) . (strlen($music->music_filename_upload) > 40 ? '...' : '')}}</a>
+                                                    <h4 class="media-title" style="width: 100%"><a href="#" data-dz-name="" title="">{{substr($music->music_filename_upload, 0, 30) . (strlen($music->music_filename_upload) > 30 ? '...' : '')}}</a>
                                                         <small data-dz-size="" class="text-danger"><strong>{{Helpers::formatBytes($music->music_filesize)}}</strong>
                                                         </small>
                                                         <small data-progress-present="" class="text-danger data-progress-present"
                                                                style=" color: #8c959a!important;">100%
+                                                        </small>
+                                                        <small data-progress-present="" class="text-danger data-progress-present line-uploaded-music-small">
+                                                            <a title="Tải về {{$music->music_title}}" href="{{Helpers::file_path($music->music_id, PUBLIC_SOURCE_STORAGE_PATH, true).$music->music_filename}}"><i class="material-icons" style="font-size: 18px; line-height: 20px">cloud_download</i></a>
                                                         </small>
                                                     </h4>
                                                 </div>
@@ -77,8 +80,11 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                                     <strong>{{ str_replace('drop files', 'upload', $errors->first('drop_files')) }}</strong>
                                 </span>
                         @endif
+                        @if(isset($music))
+                        <div for="exampleInputEmail1" style="font-style: italic; margin-left: 5px;">Đã đăng tải vào: {{date("d/m/Y H:i", $music->music_time)}} {{$music->music_last_update_time ? ', cập nhật cuối cùng: ' . date("d/m/Y H:i", $music->music_last_update_time) : ''}} <?php echo $music->music_user_id ? ', bởi: <a target="_blank" href="/user/'.$music->music_user_id.'">'.$music->music_username.'</a>' : '' ?></div>
+                        @endif
                         <hr>
-                        <form action="" method="post" class="form_music has_drop_file" accept-charset="utf-8" enctype="multipart/form-data">
+                        <form action="" method="post" id="form_music" class="form_music has_drop_file" accept-charset="utf-8" enctype="multipart/form-data">
                             <div class="row row10px">
                                 <div class="col-12">
                                     <div class="box_right_upload form-row">
@@ -287,6 +293,7 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                                         @endif
                                         <input type="hidden" name="type_upload" value="{{$typeUpload}}">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                        <input type="hidden" name="delete_music" class="delete_music" value="">
                                         <input type="hidden" name="lossless" class="lossless" value="false">
                                         <input type="hidden" name="suggest_music" class="suggest_music" value="{{old('suggest_music')}}">
                                         <input type="hidden" name="cover_id" class="cover_id" value="{{ old('cover_id') ?? (isset($music) ? $music->cover_id : '') }}">
@@ -327,7 +334,10 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                                             </script>
                                         @endif
                                         <div class="text-center col-12">
-                                            <button type="submit" class="btn btn-danger btn-upload">{{isset($music) ? 'Cập nhật' : 'Tải lên'}}</button>
+                                            @if(isset($music) && $music->music_state != UPLOAD_STAGE_DELETED)
+                                                <button type="submit" class="btn btn-danger btn-upload btn-delete-music">{{$musicExist ? 'Xóa nhạc' : 'Dừng upload'}}</button>
+                                            @endif
+                                            <button type="submit" id="btn-upload" class="btn btn-danger btn-upload">{{isset($music) ? 'Cập nhật' : 'Tải lên'}}</button>
                                         </div>
                                     </div>
                                 </div>
@@ -768,5 +778,19 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
             $('.choose_album_search').html('');
             $('.cover_id').val(0);
         }
+        <?php
+            if(isset($music)) {
+                ?>
+                $('.btn-delete-music').click(function (event) {
+                    event.preventDefault();
+                    confirmModal('Bạn có chắc chắn muốn xóa nhạc không?', 'modal-sm');
+                    $("#myConfirmModal .btn-ok").one('click', function () {
+                        $('.delete_music').val(<?php echo $music->music_id ?>);
+                        document.getElementById("form_music").submit();
+                    })
+                })
+                <?php
+            }
+        ?>
     </script>
 @endsection

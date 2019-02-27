@@ -55,13 +55,16 @@ $titleMeta = 'Cập nhật album - ' . Config::get('constants.app.title');
                                             <div class="media dz-processing"><a target="_blank" title="Nghe {{$item->music_title}}" href="{{$url}}"><img class="mr-3 align-self-center" src="/imgs/document.png" alt=""></a>
                                                 <div class="media-body align-self-center">
                                                     <div class="d-flex align-items-center justify-content-between mb-1">
-                                                        <h4 class="media-title">
+                                                        <h4 class="media-title" style="width: 100%">
                                                             <span style="color: #36464F;">Track: {{$item->music_track_id}}&nbsp;&nbsp;&nbsp;</span>
-                                                            <span style="color: #36464F;"><a target="_blank" title="{{$item->music_filename_upload}}" href="{{$url}}">Music: {{substr($item->music_title, 0, 40) . (strlen($item->music_title) > 40 ? '...' : '')}}</a></span>
+                                                            <span style="color: #36464F;"><a target="_blank" title="{{$item->music_filename_upload}}" href="{{$url}}">Music: {{substr($item->music_title, 0, 30) . (strlen($item->music_title) > 30 ? '...' : '')}}</a></span>
                                                             <small data-dz-size="" class="text-danger">{{Helpers::formatBytes($item->music_filesize)}}
                                                             </small>
-                                                            <small data-progress-present="" class="text-danger data-progress-present"
-                                                                   style=" color: #8c959a!important;"><a target="_blank" href="/dang-tai/nhac/{{$item->music_id}}" title="Chỉnh sửa {{$item->music_title}}">Chỉnh sửa</a>
+                                                            <small data-progress-present="" class="text-danger data-progress-present line-uploaded-music-small">
+                                                                <a title="Tải về {{$item->music_title}}" href="{{Helpers::file_path($item->music_id, PUBLIC_SOURCE_STORAGE_PATH, true).$item->music_filename}}"><i class="material-icons" style="font-size: 18px; line-height: 20px">cloud_download</i></a>
+                                                            </small>
+                                                            <small data-progress-present="" class="text-danger data-progress-present line-uploaded-music-small">
+                                                                <a target="_blank" href="/dang-tai/nhac/{{$item->music_id}}" title="Chỉnh sửa {{$item->music_title}}"><i class="material-icons" style="font-size: 14px; line-height: 18px">border_color</i></a>
                                                             </small>
                                                         </h4>
                                                     </div>
