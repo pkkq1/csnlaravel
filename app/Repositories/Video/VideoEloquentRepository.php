@@ -36,8 +36,7 @@ class VideoEloquentRepository extends EloquentRepository implements VideoReposit
     {
         $result = $this
             ->_model
-            ->where('id', $id)
-            ->where('is_published', 1)
+            ->where('music_id', $id)
             ->first();
 
         return $result;
@@ -70,7 +69,6 @@ class VideoEloquentRepository extends EloquentRepository implements VideoReposit
             ->where('music_id', $id)
             ->with('musicKara')
             ->first();
-
         return $result;
     }
     public function findMusicIds($ids)
