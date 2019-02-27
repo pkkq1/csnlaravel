@@ -437,6 +437,9 @@
             if(!username.val()) {
                 return addErrorInput(username, 'Tên đăng nhập không được để trống');
             }
+            if(!name.val()) {
+                return addErrorInput(username, 'Tên hiển thị không được để trống');
+            }
             if(!email.val()) {
                 return addErrorInput(email, 'Email không được để trống');
             }

@@ -95,7 +95,7 @@ class MusicController extends Controller
         }
         if(!$music)
             return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Nội dung playlist không có.'], 400);
-
+        $music['file_url'] = Helpers::file_url($music);
         return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['music' => $music->toArray(), 'playlist' => $playlistMusic], 'error' => []], 200);
     }
 
