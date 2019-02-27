@@ -40,6 +40,11 @@ class SearchController extends Controller
         $result = $search->ajaxSearch($request, $request->quick_search ?? false);
         $result = $result[0];
         $result['q'] = $request->q;
+        if($result['album']['data']) {
+            foreach ($result['album']['data'] as $key => $item) {
+                $result['album']['data'][$key]['album_url'] = Helpers::album_url(['music_album' => $item['music_album'], 'cover_id' => $item['cover_id']]);
+            }
+        }
         return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => $result, 'error' => []], 200);
     }
 

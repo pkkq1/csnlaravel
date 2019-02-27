@@ -24,6 +24,8 @@ Route::prefix('auth')->group(function () {
     Route::get('login/google', 'AuthController@loginGoogle');
 });
 Route::get('search', 'SearchController@index');
+Route::get('nghe-album/{musicUrl}.html', ['as' => 'api.album.listen', 'uses' => 'MusicController@getMusicInfo']);
+Route::get('nghe-album/{musicUrl}', ['as' => 'api.album.listen', 'uses' => 'MusicController@getMusicInfo']);
 
 
 
