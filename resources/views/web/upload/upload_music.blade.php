@@ -346,7 +346,7 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                                         @endif
                                         <div class="text-center col-12">
                                             @if(isset($music) && $music->music_state != UPLOAD_STAGE_DELETED)
-                                                <button type="submit" class="btn btn-danger btn-upload btn-delete-music">{{$musicExist ? 'Xóa nhạc' : 'Dừng upload'}}</button>
+                                                <button type="submit" class="btn btn-danger btn-upload btn-delete-music">Xóa nhạc</button>
                                             @endif
                                             <button type="submit" id="btn-upload" class="btn btn-danger btn-upload">{{isset($music) ? 'Cập nhật' : 'Tải lên'}}</button>
                                         </div>

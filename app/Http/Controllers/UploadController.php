@@ -95,7 +95,6 @@ class UploadController extends Controller
                     return view('errors.text_error')->with('message', 'Tình trạng album không tìm thấy hoặc đang được xử lý');
             }
         }
-        $musicExist = $this->musicRepository->findOnlyPublished($musicId);
         return view('upload.upload_music', compact('typeUpload', 'music', 'album', 'musicExist'));
     }
     public function createVideo(Request $request, $musicId = null) {
@@ -122,7 +121,6 @@ class UploadController extends Controller
                     return view('errors.text_error')->with('message', 'Tình trạng album không tìm thấy hoặc đang được xử lý');
             }
         }
-        $musicExist = $this->videoRepository->findOnlyPublished($musicId);
         return view('upload.upload_music', compact('typeUpload', 'music', 'album', 'musicExist'));
     }
     public function createAlbum(Request $request, $coverId = null) {
