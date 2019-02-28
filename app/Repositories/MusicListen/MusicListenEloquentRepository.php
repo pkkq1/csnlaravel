@@ -77,7 +77,7 @@ class MusicListenEloquentRepository extends EloquentRepository implements MusicL
                 $query->select('music_id')
                     ->from('csn_music_exception');
             })
-            ->whereNotIn('artist_id', function($query) {
+            ->whereNotIn('music_artist_id', function($query) {
                 $query->select('artist_id')
                     ->from('csn_artist_exception');
             })
@@ -96,7 +96,7 @@ class MusicListenEloquentRepository extends EloquentRepository implements MusicL
                 $query->select('music_id')
                     ->from('csn_video_exception');
             })
-            ->whereNotIn('artist_id', function($query) {
+            ->whereNotIn('music_artist_id', function($query) {
                 $query->select('artist_id')
                     ->from('csn_artist_exception');
             })

@@ -24,17 +24,12 @@ class BxhCategoryController extends Controller
     protected $musicRepository;
     protected $categoryRepository;
     protected $musicListenRepository;
-    protected $musicExpRepository;
-    protected $videoExpRepository;
     protected $artistExpRepository;
 
-    public function __construct(MusicEloquentRepository $musicRepository, CategoryEloquentRepository $categoryRepository, MusicListenEloquentRepository $musicListenRepository,
-                                MusicExceptionEloquentRepository $musicExpRepository, VideoExceptionEloquentRepository $videoExpRepository, ArtistExceptionRepository $artistExpRepository) {
+    public function __construct(MusicEloquentRepository $musicRepository, CategoryEloquentRepository $categoryRepository, MusicListenEloquentRepository $musicListenRepository, ArtistExceptionRepository $artistExpRepository) {
         $this->musicRepository = $musicRepository;
         $this->categoryRepository = $categoryRepository;
         $this->musicListenRepository = $musicListenRepository;
-        $this->musicExpRepository = $musicExpRepository;
-        $this->videoExpRepository = $videoExpRepository;
         $this->artistExpRepository = $artistExpRepository;
     }
     public function syncBxhCategory($today = true, $week = false) {
