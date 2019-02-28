@@ -102,7 +102,7 @@ class SolrSyncController extends Controller
                 'music_link' => '/'.Helpers::listen_url($item->toArray(), false),
                 'music_filename' => $item->music_filename,
                 'music_artist' => $item->music_artist, //str_replace(';', ',', $item->music_artist),
-                'music_artist_id' => explode(';', $item->music_artist_id),
+                'music_artist_id' => explode(';', htmlspecialchars_decode($item->music_artist_id)),
                 'music_artist_html' => Helpers::rawHtmlArtists($item->music_artist_id, $item->music_artist),
                 'music_listen' => $item->music_listen,
                 'music_title_url' => $item->music_title_url,
@@ -278,7 +278,7 @@ class SolrSyncController extends Controller
                 'video_link' => '/'.Helpers::listen_url($item->toArray(), false),
                 'video_filename' => $item->music_filename,
                 'video_artist' => $item->music_artist, //str_replace(';', ',', $item->music_artist),
-                'video_artist_id' => explode(';', $item->music_artist_id),//$item->music_artist_id, //str_replace(';', ',', $item->music_artist_id),
+                'video_artist_id' => explode(';', htmlspecialchars_decode($item->music_artist_id)),//$item->music_artist_id, //str_replace(';', ',', $item->music_artist_id),
                 'video_artist_html' => Helpers::rawHtmlArtists($item->music_artist_id, $item->music_artist),
                 'video_listen' => $item->music_listen,
                 'video_title_url' => $item->music_title_url,
@@ -497,7 +497,7 @@ class SolrSyncController extends Controller
 //                $artistCharset = Helpers::rawTiengVietUrl($music_artist, ' ');
 
                 $data['album_music_artist'] = $music_artist;
-                $data['album_music_artist_id'] = explode(';', $music_artist_id);
+                $data['album_music_artist_id'] = explode(';', htmlspecialchars_decode($music_artist_id));
                 $data['album_music_artist_search'] = $artistSearch;
                 $data['album_music_artist_charset'] = $artistCharset;
                 $data['album_music_artist_nospace'] = str_replace(' ', '', $artistCharset);

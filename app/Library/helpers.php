@@ -939,4 +939,12 @@ class Helpers
         $str = str_replace(array('\\', '+', '-', '~', '!', '%', '/', ';', '?', '#', '`', '@', '$', '&', '_', '=', '{', '}', ',', '<', '>', '"', '[', ']', '|', '*', '^', ':', '(', ')'), ' ', $str);
         return trim(preg_replace(['/y/', '/ý/', '/ỳ/', '/ỷ/', '/ỵ/', '/ỹ/', '/s/'], ['i', 'í', 'ì', 'ỉ', 'ị', 'ĩ', 'x'], mb_strtolower($str, 'UTF-8')));
     }
+    public static function checkExitsExcepArtist($artistId, $arrExep)
+    {
+        foreach (explode(';', $artistId) as $item) {
+            if(in_array($item, $arrExep))
+                return true;
+        }
+        return false;
+    }
 }

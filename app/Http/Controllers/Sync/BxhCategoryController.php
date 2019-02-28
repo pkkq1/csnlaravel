@@ -14,6 +14,9 @@ use App\Models\CategoryCsnModel;
 use App\Repositories\Music\MusicEloquentRepository;
 use App\Repositories\Category\CategoryEloquentRepository;
 use App\Repositories\MusicListen\MusicListenEloquentRepository;
+use App\Repositories\MusicException\MusicExceptionEloquentRepository;
+use App\Repositories\VideoException\VideoExceptionEloquentRepository;
+use App\Repositories\ArtistException\ArtistExceptionRepository;
 use DB;
 
 class BxhCategoryController extends Controller
@@ -21,11 +24,18 @@ class BxhCategoryController extends Controller
     protected $musicRepository;
     protected $categoryRepository;
     protected $musicListenRepository;
+    protected $musicExpRepository;
+    protected $videoExpRepository;
+    protected $artistExpRepository;
 
-    public function __construct(MusicEloquentRepository $musicRepository, CategoryEloquentRepository $categoryRepository, MusicListenEloquentRepository $musicListenRepository) {
+    public function __construct(MusicEloquentRepository $musicRepository, CategoryEloquentRepository $categoryRepository, MusicListenEloquentRepository $musicListenRepository,
+                                MusicExceptionEloquentRepository $musicExpRepository, VideoExceptionEloquentRepository $videoExpRepository, ArtistExceptionRepository $artistExpRepository) {
         $this->musicRepository = $musicRepository;
         $this->categoryRepository = $categoryRepository;
         $this->musicListenRepository = $musicListenRepository;
+        $this->musicExpRepository = $musicExpRepository;
+        $this->videoExpRepository = $videoExpRepository;
+        $this->artistExpRepository = $artistExpRepository;
     }
     public function syncBxhCategory($today = true, $week = false) {
         $catregory =$this->categoryRepository->getCategoryParent();
@@ -33,18 +43,23 @@ class BxhCategoryController extends Controller
         if($today) {
         $ressultMusic = [];
         $ressultVideo = [];
+        $artistExp = $this->artistExpRepository->getArrIds();
         foreach ($catregory as $item) {
             $result = $this->musicListenRepository->bxhHotTodayCategoryMusic($item->cat_id)->toArray();
             foreach($result as $item2) {
-                $item2['music_artist_html'] = Helpers::rawHtmlArtists($item2['music_artist_id'], $item2['music_artist']);
-                $item2['music_bitrate_html'] = Helpers::bitrate2str($item2['music_bitrate']);
-                $ressultMusic[$item->cat_id][] = $item2;
+                if(!Helpers::checkExitsExcepArtist($item2['music_artist_id'], $artistExp)) {
+                    $item2['music_artist_html'] = Helpers::rawHtmlArtists($item2['music_artist_id'], $item2['music_artist']);
+                    $item2['music_bitrate_html'] = Helpers::bitrate2str($item2['music_bitrate']);
+                    $ressultMusic[$item->cat_id][] = $item2;
+                }
             }
             $result = $this->musicListenRepository->bxhHotTodayCategoryVideo($item->cat_id)->toArray();
             foreach($result as $item2) {
-                $item2['music_artist_html'] = Helpers::rawHtmlArtists($item2['music_artist_id'], $item2['music_artist']);
-                $item2['music_bitrate_html'] = Helpers::size2str($item2['music_width'], $item2['music_height']);
-                $ressultVideo[$item->cat_id][] = $item2;
+                if(!Helpers::checkExitsExcepArtist($item2['music_artist_id'], $artistExp)) {
+                    $item2['music_artist_html'] = Helpers::rawHtmlArtists($item2['music_artist_id'], $item2['music_artist']);
+                    $item2['music_bitrate_html'] = Helpers::size2str($item2['music_width'], $item2['music_height']);
+                    $ressultVideo[$item->cat_id][] = $item2;
+                }
             }
         }
         file_put_contents(resource_path().'/views/cache/bxh/bxh_today.blade.php',
