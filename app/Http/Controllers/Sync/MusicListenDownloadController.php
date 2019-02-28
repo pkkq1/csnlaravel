@@ -76,7 +76,7 @@ class MusicListenDownloadController extends Controller
         $Solr = new SolrSyncController($this->Solr);
         $musicArr = [];
         foreach ($result as $item) {
-            $music = $this->musicRepository->getModel()::where('music_id', $item->music_id)->where('cat_id', '!=', CAT_VIDEO)->first();
+            $music = $this->musicRepository->getQueryPublished()->where('music_id', $item->music_id)->first();
             if($music) {
                 $music->update([
                     'music_listen' => $item->music_listen + $item->music_listen_fake
@@ -93,7 +93,7 @@ class MusicListenDownloadController extends Controller
         $Solr = new SolrSyncController($this->Solr);
         $musicArr = [];
         foreach ($result as $item) {
-            $music = $this->musicRepository->getModel()::where('music_id', $item->music_id)->where('cat_id', '!=', CAT_VIDEO);
+            $music = $this->musicRepository->getQueryPublished()->where('music_id', $item->music_id)->first();
             if($music) {
                 $music->update([
                     'music_downloads' => $item->music_downloads
@@ -110,7 +110,7 @@ class MusicListenDownloadController extends Controller
         $Solr = new SolrSyncController($this->Solr);
         $videoArr = [];
         foreach ($result as $item) {
-            $video = $this->videoRepository->getModel()::where('music_id', $item->music_id);
+            $video = $this->videoRepository->getQueryPublished()->where('music_id', $item->music_id);
             if($video) {
                 $video->update([
                     'music_listen' => $item->music_listen
@@ -127,7 +127,7 @@ class MusicListenDownloadController extends Controller
         $Solr = new SolrSyncController($this->Solr);
         $videoArr = [];
         foreach ($result as $item) {
-            $video = $this->videoRepository->getModel()::where('music_id', $item->music_id);
+            $video = $this->videoRepository->getQueryPublished()->where('music_id', $item->music_id);
             if($video) {
                 $video->update([
                     'music_downloads' => $item->music_downloads

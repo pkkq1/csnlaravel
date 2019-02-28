@@ -33,12 +33,12 @@ class SuggestionCatController extends Controller
         $catregory = $this->categoryRepository->getCategoryParent();
         foreach ($catregory as $item) {
             $childrenCat = $this->categoryRepository->getAllCatId($item->cat_id);
-            $model = $this->musicRepository->getModel();
+            $model = $this->musicRepository->getQueryPublished();
             if($item->cat_id == 1) {
-                $model = $this->videoRepository->getModel();
+                $model = $this->videoRepository->getQueryPublished();
             }
             foreach ($childrenCat as $level) {
-                $typeDup = $model::where(['cat_id' => $item->cat_id, 'cat_level' => $level->cat_level])
+                $typeDup = $model->where(['cat_id' => $item->cat_id, 'cat_level' => $level->cat_level])
                     ->select('music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'music_album_id', 'music_listen', 'music_bitrate', 'music_filename', 'music_width', 'music_height', 'music_length')
 //                    ->select( DB::raw('DISTINCT(music_title)') )
 //                    ->distinct('music_title')

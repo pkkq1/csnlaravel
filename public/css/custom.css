@@ -1320,7 +1320,6 @@ form#login-form {
 }
 .search_layout_upload {
     width: 97.5%;
-    margin-top: -15px;
     position: absolute!important;
     z-index: 999;
     display: none;

@@ -36,6 +36,13 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
 
         return $result;
     }
+    public function getQueryPublished()
+    {
+        return $result = $this->_model
+            ->where('cat_id', '!=', CAT_VIDEO)
+            ->where('music_deleted', '<', 1);
+
+    }
 
     /**
      * Get post only published

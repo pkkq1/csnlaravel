@@ -24,8 +24,8 @@ Route::prefix('auth')->group(function () {
     Route::get('login/google', 'AuthController@loginGoogle');
 });
 Route::get('search', 'SearchController@index');
-Route::post('nghe-album/{musicUrl}.html', ['as' => 'api.album.listen', 'uses' => 'MusicController@getMusicInfo']);
-Route::post('nghe-album/{musicUrl}', ['as' => 'api.album.listen', 'uses' => 'MusicController@getMusicInfo']);
+Route::post('nghe-album/{musicUrl}.html', ['as' => 'api.music.listen', 'uses' => 'MusicController@getMusicInfo']);
+Route::post('nghe-album/{musicUrl}', ['as' => 'api.music.listen', 'uses' => 'MusicController@getMusicInfo']);
 
 
 

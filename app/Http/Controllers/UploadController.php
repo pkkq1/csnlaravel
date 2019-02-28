@@ -596,7 +596,8 @@ class UploadController extends Controller
             'album_listen' => 0,
             'album_avg' => 0,
             'music_bitrate' => $request->input('lossless') ? 1000 : 0,
-            'album_music_total' => count($fileUploads),
+            'album_music_total' => 0,  // update in sync -> musicController (crontab)
+//            'album_music_total' => count($fileUploads),
             'user_id' => Auth::user()->id,
             'last_user_id' => Auth::user()->id,
         ]);
