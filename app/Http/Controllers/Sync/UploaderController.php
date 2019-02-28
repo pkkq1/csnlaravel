@@ -47,13 +47,13 @@ class UploaderController extends Controller
             ->where('music_time', '>', strtotime(TIME_7DAY_AGO))
             ->where('music_state', '>', 0)
             ->where('music_320_filesize', '>', 0)
-            ->groupBy('music_username', 'music_user_id')
+            ->groupBy('music_username')
             ->orderBy('size_total', 'desc')
             ->limit(10)
             ->get()->toArray();
         foreach($top_uploader_weeks as &$item) {
-            $music = $this->musicRepository->getModel()::select(DB::raw('SUM(music_downloads_this_week) as download_total'))->where('music_user_id', $item['music_user_id'])->first();
-            $video = $this->videoRepository->getModel()::select(DB::raw('SUM(music_downloads_this_week) as download_total'))->where('music_user_id', $item['music_user_id'])->first();
+            $music = $this->musicRepository->getModel()::select(DB::raw('SUM(music_downloads_this_week + music_downloads_today_0) as download_total'))->where('music_user_id', $item['music_user_id'])->first();
+            $video = $this->videoRepository->getModel()::select(DB::raw('SUM(music_downloads_this_week + music_downloads_today_0) as download_total'))->where('music_user_id', $item['music_user_id'])->first();
             $item['download_total'] = $music->download_total + $video->download_total;
         }
         $pathDir = resource_path() . '/views/cache/uploader/';
