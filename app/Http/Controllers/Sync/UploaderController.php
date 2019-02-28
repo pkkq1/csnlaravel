@@ -47,7 +47,7 @@ class UploaderController extends Controller
             ->where('music_time', '>', strtotime(TIME_7DAY_AGO))
             ->where('music_state', '>', 0)
             ->where('music_320_filesize', '>', 0)
-            ->groupBy('music_username')
+            ->groupBy('music_username', 'music_user_id')
             ->orderBy('size_total', 'desc')
             ->limit(10)
             ->get()->toArray();
