@@ -30,7 +30,7 @@ class ArtistController extends Controller
         $this->artistRepository = $artistRepository;
     }
     public function topArtist() {
-        $musics = $this->musicRepository->getQueryPublished()->where('music_downloads_this_week', '>', 5)->select('music_artist_id', 'music_downloads_this_week')->get();
+        $musics = $this->musicRepository->getQueryPublished()->where('music_downloads_this_week', '>', 5)->select('music_artist_id', 'music_downloads_this_week')->orderBy('music_downloads_this_week', 'desc')->get();
         $top_artist_rows = [];
         foreach($musics as $item) {
             $music_artist_id = explode(';', $item->music_artist_id);
