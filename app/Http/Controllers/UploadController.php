@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Repositories\DeleteMusic\DeleteMusicEloquentRepository;
 use App\Repositories\DeleteVideo\DeleteVideoEloquentRepository;
 use App\Repositories\ArtistException\ArtistExceptionRepository;
+use App\Repositories\User\UserEloquentRepository;
 use App\Solr\Solarium;
 use Illuminate\Support\Str;
 use App\Http\Controllers\Sync\SolrSyncController;
@@ -44,11 +45,13 @@ class UploadController extends Controller
     protected $deleteMusicRepository;
     protected $deleteVideoRepository;
     protected $artistExpRepository;
+    protected $userExpRepository;
     protected $Solr;
 
     public function __construct(ArtistUploadEloquentRepository $artistUploadRepository, MusicEloquentRepository $musicRepository, ArtistRepository $artistRepository,
                                 UploadEloquentRepository $uploadRepository, AlbumEloquentRepository $albumRepository, VideoEloquentRepository $videoRepository, CoverEloquentRepository $coverRepository, Solarium $Solr,
-                                DeleteVideoEloquentRepository $deleteVideoRepository, DeleteMusicEloquentRepository $deleteMusicRepository, ArtistExceptionRepository $artistExpRepository, UploadExceptionEloquentRepository $uploadExRepository) {
+                                DeleteVideoEloquentRepository $deleteVideoRepository, DeleteMusicEloquentRepository $deleteMusicRepository, ArtistExceptionRepository $artistExpRepository, UploadExceptionEloquentRepository $uploadExRepository,
+                                UserEloquentRepository $userExpRepository) {
         $this->artistUploadRepository = $artistUploadRepository;
         $this->musicRepository = $musicRepository;
         $this->videoRepository = $videoRepository;
@@ -60,6 +63,7 @@ class UploadController extends Controller
         $this->deleteMusicRepository = $deleteMusicRepository;
         $this->uploadExRepository = $uploadExRepository;
         $this->artistExpRepository = $artistExpRepository;
+        $this->userExpRepository = $userExpRepository;
         $this->Solr = $Solr;
         $this->middleware(function ($request, $next)
         {
@@ -101,7 +105,8 @@ class UploadController extends Controller
                     return view('errors.text_error')->with('message', 'Tình trạng album không tìm thấy hoặc đang được xử lý');
             }
         }
-        return view('upload.upload_music', compact('typeUpload', 'music', 'album', 'musicExist'));
+        $userMusic = $this->userExpRepository->getModel()::whereIn('user_id', [$music->music_user_id, $music->music_last_update_by])->orderByRaw( "FIELD(user_id, ".$music->music_user_id.", ".$music->music_last_update_by.")" )->get();
+        return view('upload.upload_music', compact('typeUpload', 'music', 'album', 'userMusic'));
     }
     public function createVideo(Request $request, $musicId = null) {
         $typeUpload = 'video';
@@ -127,7 +132,8 @@ class UploadController extends Controller
                     return view('errors.text_error')->with('message', 'Tình trạng album không tìm thấy hoặc đang được xử lý');
             }
         }
-        return view('upload.upload_music', compact('typeUpload', 'music', 'album', 'musicExist'));
+        $userMusic = $this->userExpRepository->getModel()::whereIn('user_id', [$music->music_user_id, $music->music_last_update_by])->orderByRaw( "FIELD(user_id, ".$music->music_user_id.", ".$music->music_last_update_by.")" )->get();
+        return view('upload.upload_music', compact('typeUpload', 'music', 'album', 'userMusic'));
     }
     public function createAlbum(Request $request, $coverId = null) {
         if($coverId) {
@@ -328,7 +334,7 @@ class UploadController extends Controller
             $errorMessages = new \Illuminate\Support\MessageBag;
             $errorMessages->merge(['music_artist' => ['Ca sĩ không được phép upload.']]);
             $errorMessages->merge(['music_title' => ['Bài hát không được phép upload.']]);
-            return redirect()->back()->withErrors($errorMessages);
+            return redirect()->back()->withErrors($errorMessages)->withInput($request->all());
         }
         $mess = '';
         $messType = $typeUpload == 'music' ? 'bài hát' : 'video';
