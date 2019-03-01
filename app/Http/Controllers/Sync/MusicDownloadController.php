@@ -26,7 +26,6 @@ class MusicDownloadController extends Controller
         $this->musicRepository = $musicRepository;
     }
     public function syncMusicDownload() {
-
         $cache = $this->musicRepository->getQueryPublished()
             ->where('cover_id', '>', 0)
             ->select('music_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'cat_id', 'cat_level', 'cat_sublevel', 'cat_custom', 'cover_id', 'music_download_time', 'music_last_update_time', 'music_title_url',
@@ -35,6 +34,7 @@ class MusicDownloadController extends Controller
             ->limit(20)->get();
         $download_rows = $cache->toArray();
         foreach ($download_rows as $key => $item) {
+            $download_rows[$key]['cover_html'] = Helpers::cover_url($item['cover_id'], explode(';', $item['music_artist_id'])[0]);
             $download_rows[$key]['music_bitrate_html'] = Helpers::bitrate2str($item['music_bitrate']);
             $download_rows[$key]['music_artist_html'] = Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']);
         }

@@ -6,6 +6,7 @@ use Config;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Auth;
+use App\Models\ArtistModel;
 
 class Helpers
 {
@@ -425,9 +426,18 @@ class Helpers
         return self::file_path($cover_id, MUSIC_COVER_PATH);
     }
 
-    public static function cover_url($cover_id = 0)
+    public static function cover_url($cover_id = 0, $artist_id = 0)
     {
-        return ($cover_id > 0) ? self::cover_path($cover_id) . $cover_id . '.jpg' :  env('APP_URL').'/imgs/no_cover.jpg';
+        if($cover_id > 0) {
+             return self::cover_path($cover_id) . $cover_id . '.jpg';
+        }else{
+            if($artist_id > 0) {
+                $artist = ArtistModel::find($artist_id);
+                return $artist && $artist->artist_avatar ? env('APP_URL') . self::file_path($artist->artist_id, PUBLIC_AVATAR_ARTIST_PATH, true) . $artist->artist_avatar : env('APP_URL') . '/imgs/no_cover.jpg';
+            }else{
+                return env('APP_URL') . '/imgs/no_cover.jpg';
+            }
+        }
     }
     public static function artist_cover($artist_id)
     {

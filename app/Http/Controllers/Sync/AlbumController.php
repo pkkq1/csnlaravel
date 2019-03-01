@@ -72,6 +72,7 @@ class AlbumController extends Controller
             ->where('cat_id', '!=', CAT_VIDEO)
             ->limit(20)->get()->toArray();
         foreach ($music_new_uploads as $key => $item) {
+            $music_new_uploads[$key]['cover_html'] = Helpers::cover_url($item['cover_id'], explode(';', $item['music_artist_id'])[0]);
             $music_new_uploads[$key]['music_bitrate_html'] = Helpers::bitrate2str($item['music_bitrate']);
             $music_new_uploads[$key]['music_artist_html'] = Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']);
         }
@@ -80,6 +81,7 @@ class AlbumController extends Controller
                 'music_title_search', 'music_artist_search', 'music_album_search', 'music_composer', 'music_album', 'music_listen', 'music_track_id', 'music_track_id', 'music_filename', 'music_bitrate', 'music_shortlyric', 'music_last_update_time', 'music_length', 'music_time', 'music_width', 'music_height')
             ->limit(50)->get()->toArray();
         foreach ($video_new_uploads as $key => $item) {
+            $video_new_uploads[$key]['cover_html'] = Helpers::cover_url($item['cover_id'], explode(';', $item['music_artist_id'])[0]);
             $video_new_uploads[$key]['music_bitrate_html'] = Helpers::size2str($item['music_width'], $item['music_height']);
             $video_new_uploads[$key]['music_artist_html'] = Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']);
         }
