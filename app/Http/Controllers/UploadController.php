@@ -313,12 +313,6 @@ class UploadController extends Controller
         ]);
 
         $typeUpload = $request->input('type_upload');
-        $artistExp = $this->artistExpRepository->getArrIds();
-        if(Helpers::checkExitsExcepArtist($request->input('music_artist_id'), $artistExp)) {
-            $errorMessages = new \Illuminate\Support\MessageBag;
-            $errorMessages->merge(['music_artist' => ['Ca sĩ không được phép upload.']]);
-            return redirect()->back()->withErrors($errorMessages);
-        }
         $mess = '';
         $messType = $typeUpload == 'music' ? 'bài hát' : 'video';
         if($request->input('action_upload') == 'edit') {
@@ -434,7 +428,7 @@ class UploadController extends Controller
             $result->cat_custom = $request->input('cat_custom') ?? 0;
             $result->music_lyric = htmlspecialchars(trim(stripslashes($request->input('music_lyric') ?? '')));
             $result->music_source_url = htmlspecialchars(trim(stripslashes($request->input('music_source_url') ?? '')));
-            $result->music_note = $request->input('music_note') ?? '';
+            $result->music_note = htmlspecialchars(trim(stripslashes($request->input('music_note') ?? '')));
             $result->music_last_update_time = time();
             $result->music_last_update_by = Auth::user()->id;
             $result->music_updated = 0;
@@ -478,24 +472,30 @@ class UploadController extends Controller
             $mes2 = ($musicRedirectNext || $musicRedirectBack) ? '<br/><a href="/dang-tai/nhac/'.($musicRedirectNext ? $musicRedirectNext->music_id : $musicRedirectBack->music_id).'">Click vào đây để sửa bài '.($musicRedirectNext ? '<u>trước</u>' : '').'</a>'.($musicRedirectBack ? '<a href="/dang-tai/nhac/'.$musicRedirectBack->music_id.'"> | <u>sau</u></a>' : '') : '';
             return redirect()->route(($result->cat_id == CAT_VIDEO ? 'upload.storeVideo' : 'upload.storeMusic'), ['musicId' => $musicId])->with('success', $mess.'<br/><a href="/user/'.$result->music_user_id.'">Click vào đây để trở lại Tủ nhạc</a>'.$mes2);
         }else{
+            $artistExp = $this->artistExpRepository->getArrIds();
+            if(Helpers::checkExitsExcepArtist($request->input('music_artist_id'), $artistExp)) {
+                $errorMessages = new \Illuminate\Support\MessageBag;
+                $errorMessages->merge(['music_artist' => ['Ca sĩ không được phép upload.']]);
+                return redirect()->back()->withErrors($errorMessages);
+            }
             $csnMusic = [
                 'music_title' => $request->input('music_title'),
                 'music_artist' => htmlspecialchars(trim($request->input('music_artist'))),
                 'music_artist_id' => htmlspecialchars(trim($request->input('music_artist_id'))),
                 'music_user_id' => Auth::user()->id,
                 'music_username' => Auth::user()->name,
-                'music_production' => $request->input('music_production') ?? '',
-                'music_composer' => $request->input('music_composer') ?? '',
+                'music_production' => htmlspecialchars(trim(stripslashes($request->input('music_production') ?? ''))),
+                'music_composer' => htmlspecialchars(trim(stripslashes($request->input('music_composer') ?? ''))),
                 'music_album_id' => $request->input('music_album_id') ?? '',
                 'music_year' => $request->input('music_year') ?? 0,
                 'cat_id' => $request->input('cat_id'),
                 'cat_level' => $request->input('cat_level') ?? 0,
                 'cat_sublevel' => $request->input('cat_sublevel') ?? 0,
                 'cat_custom' => $request->input('cat_custom') ?? 0,
-                'music_lyric' => $request->input('music_lyric') ?? '',
-                'music_note' => $request->input('music_note') ?? '',
+                'music_lyric' => htmlspecialchars(trim(stripslashes($request->input('music_lyric') ?? ''))),
+                'music_note' => htmlspecialchars(trim(stripslashes($request->input('music_note') ?? ''))),
                 'music_filesize' => $request->input('music_filesize') ?? 0,
-                'music_source_url' => $request->input('music_source_url') ?? '',
+                'music_source_url' => htmlspecialchars(trim(stripslashes($request->input('music_source_url') ?? ''))),
                 'music_filename_upload' => $request->input('drop_files'),
                 'music_state' => UPLOAD_STAGE_UNCENSOR,
                 'music_last_update_time' => time()
@@ -541,8 +541,8 @@ class UploadController extends Controller
                 $album = $this->coverRepository->getModel()::create($albumNew);
                 $coverId = $album->cover_id;
             }
-            $album->music_album = $request->input('music_album') ?? '';
-            $album->music_production = $request->input('music_production') ?? '';
+            $album->music_album = htmlspecialchars(trim(stripslashes($request->input('music_album') ?? '')));
+            $album->music_production = htmlspecialchars(trim(stripslashes($request->input('music_production') ?? '')));
             $album->music_album_id = $request->input('music_album_id') ?? '';
             $album->music_year = $request->input('music_year') ?? '';
             $album->album_last_updated = time();
@@ -595,8 +595,8 @@ class UploadController extends Controller
         $fileUploads = explode(';', htmlspecialchars_decode($request->input('drop_files')));
         $fileSize = explode(';', htmlspecialchars_decode($request->input('music_filesize')));
         $album = $this->coverRepository->getmodel()::create([
-            'music_album' => $request->input('music_album') ?? '',
-            'music_production' => $request->input('music_production') ?? '',
+            'music_album' => htmlspecialchars(trim(stripslashes($request->input('music_album') ?? ''))),
+            'music_production' => htmlspecialchars(trim(stripslashes($request->input('music_production') ?? ''))),
             'music_year' => $request->input('music_year') ?? 0,
             'album_cat_id_1' => $request->input('cat_id') ?? 0,
             'album_cat_level_1' => $request->input('cat_level') ?? 0,
@@ -636,12 +636,12 @@ class UploadController extends Controller
             'music_title' => '',
             'cover_id' => $album->cover_id,
             'music_album' => $album->music_album,
-            'music_artist' => $request->input('music_artist'),
+            'music_artist' => htmlspecialchars(trim(stripslashes($request->input('music_artist') ?? ''))),
             'music_artist_id' => $request->input('music_artist_id'),
             'music_user_id' => Auth::user()->id,
             'music_username' => Auth::user()->name,
-            'music_production' => $request->input('music_production') ?? '',
-            'music_composer' => $request->input('music_composer') ?? '',
+            'music_production' => htmlspecialchars(trim(stripslashes($request->input('music_production') ?? ''))),
+            'music_composer' => htmlspecialchars(trim(stripslashes($request->input('music_composer') ?? ''))),
             'music_album_id' => $request->input('music_album_id') ?? '',
             'music_year' => $request->input('music_year') ?? 0,
             'cat_id' => $request->input('cat_id') ?? 0,
@@ -650,8 +650,8 @@ class UploadController extends Controller
             'cat_custom' => $request->input('cat_custom') ?? 0,
             'music_lyric' => '',
             'music_last_update_time' => time(),
-            'music_note' => $request->input('music_note') ?? '',
-            'music_source_url' => $request->input('music_source_url') ?? '',
+            'music_note' => htmlspecialchars(trim(stripslashes($request->input('music_note') ?? ''))),
+            'music_source_url' => htmlspecialchars(trim(stripslashes($request->input('music_source_url') ?? ''))),
         ];
         foreach ($fileUploads as $key => $item) {
             $csnMusic['music_filename_upload'] = $item;
