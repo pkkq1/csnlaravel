@@ -72,7 +72,7 @@ global $hot_video_rows;
                             <div class="number_wrap text-center text-orange_ d-inline-block align-middle mx-3">
                                 <p class="number m-0">{{$i}}</p>
                             </div>
-                            <a href="{{$url}}"><div class="image100 mr-2 d-inline-block align-middle" style="background : url('{{Helpers::cover_url($item['cover_id'])}}') no-repeat center;background-size: cover;">
+                            <a href="{{$url}}"><div class="image100 mr-2 d-inline-block align-middle" style="background : url('{{$item['cover_html']}}') no-repeat center;background-size: cover;">
                                 </div></a>
                             <div class="content d-inline-block align-middle">
                                 <a href="{{$url}}"><h6 class="name_song text-black mb-1 card-title">{{$item['music_title']}}</h6></a>
@@ -94,7 +94,7 @@ global $hot_video_rows;
                             <div class="number_wrap text-center text-orange_ d-inline-block align-middle mx-3">
                                 <p class="number m-0">{{$i}}</p>
                             </div>
-                            <a href="{{$url}}"><div class="image100 mr-2 d-inline-block align-middle" style="background : url('{{Helpers::cover_url($item['cover_id'])}}') no-repeat center;background-size: cover;">
+                            <a href="{{$url}}"><div class="image100 mr-2 d-inline-block align-middle" style="background : url('{{$item['cover_html']}}') no-repeat center;background-size: cover;">
                                 </div></a>
                             <div class="content d-inline-block align-middle">
                                 <a href="{{$url}}"><h6 class="name_song text-black mb-1 card-title">{{$item['music_title']}}</h6></a>
@@ -116,7 +116,7 @@ global $hot_video_rows;
                             <div class="number_wrap text-center text-orange_ d-inline-block align-middle mx-3">
                                 <p class="number m-0">{{$i}}</p>
                             </div>
-                            <a href="{{$url}}"><div class="image100 mr-2 d-inline-block align-middle" style="background : url('{{Helpers::cover_url($item['cover_id'])}}') no-repeat center;background-size: cover;">
+                            <a href="{{$url}}"><div class="image100 mr-2 d-inline-block align-middle" style="background : url('{{$item['cover_html']}}') no-repeat center;background-size: cover;">
                                 </div></a>
                             <div class="content d-inline-block align-middle">
                                 <a href="{{$url}}"><h6 class="name_song text-black mb-1 card-title">{{$item['music_title']}}</h6></a>
@@ -138,7 +138,7 @@ global $hot_video_rows;
                             <div class="number_wrap text-center text-orange_ d-inline-block align-middle mx-3">
                                 <p class="number m-0">{{$i}}</p>
                             </div>
-                            <a href="{{$url}}"><div class="image100 mr-2 d-inline-block align-middle" style="background : url('{{Helpers::cover_url($item['cover_id'])}}') no-repeat center;background-size: cover;">
+                            <a href="{{$url}}"><div class="image100 mr-2 d-inline-block align-middle" style="background : url('{{$item['cover_html']}}') no-repeat center;background-size: cover;">
                                 </div></a>
                             <div class="content d-inline-block align-middle">
                                 <a href="{{$url}}"><h6 class="name_song text-black mb-1 card-title">{{$item['music_title']}}</h6></a>
@@ -160,7 +160,7 @@ global $hot_video_rows;
                             <div class="number_wrap text-center text-orange_ d-inline-block align-middle mx-3">
                                 <p class="number m-0">{{$i}}</p>
                             </div>
-                            <a href="{{$url}}"><div class="image100 mr-2 d-inline-block align-middle" style="background : url('{{Helpers::cover_url($item['cover_id'])}}') no-repeat center;background-size: cover;">
+                            <a href="{{$url}}"><div class="image100 mr-2 d-inline-block align-middle" style="background : url('{{$item['cover_html']}}') no-repeat center;background-size: cover;">
                                 </div></a>
                             <div class="content d-inline-block align-middle">
                                 <a href="{{$url}}"><h6 class="name_song text-black mb-1 card-title">{{$item['music_title']}}</h6></a>
@@ -182,7 +182,7 @@ global $hot_video_rows;
                             <div class="number_wrap text-center text-orange_ d-inline-block align-middle mx-3">
                                 <p class="number m-0">{{$i}}</p>
                             </div>
-                            <a href="{{$url}}"><div class="image100 mr-2 d-inline-block align-middle" style="background : url('{{Helpers::cover_url($item['cover_id'])}}') no-repeat center;background-size: cover;">
+                            <a href="{{$url}}"><div class="image100 mr-2 d-inline-block align-middle" style="background : url('{{$item['cover_html']}}') no-repeat center;background-size: cover;">
                                 </div></a>
                             <div class="content d-inline-block align-middle">
                                 <a href="{{$url}}"><h6 class="name_song text-black mb-1 card-title">{{$item['music_title']}}</h6></a>
@@ -204,7 +204,7 @@ global $hot_video_rows;
                             <div class="number_wrap text-center text-orange_ d-inline-block align-middle mx-3">
                                 <p class="number m-0">{{$i}}</p>
                             </div>
-                            <a href="{{$url}}"><div class="image100 mr-2 d-inline-block align-middle" style="background : url('{{Helpers::cover_url($item['cover_id'])}}') no-repeat center;background-size: cover;">
+                            <a href="{{$url}}"><div class="image100 mr-2 d-inline-block align-middle" style="background : url('{{$item['cover_html']}}') no-repeat center;background-size: cover;">
                                 </div></a>
                             <div class="content d-inline-block align-middle">
                                 <a href="{{$url}}"><h6 class="name_song text-black mb-1 card-title">{{$item['music_title']}}</h6></a>
@@ -226,7 +226,7 @@ global $hot_video_rows;
                             <div class="number_wrap text-center text-orange_ d-inline-block align-middle mx-3">
                                 <p class="number m-0">{{$i}}</p>
                             </div>
-                            <a href="{{$url}}"><div class="image100 mr-2 d-inline-block align-middle" style="background : url('{{Helpers::cover_url($item['cover_id'])}}') no-repeat center;background-size: cover;"></div></a>
+                            <a href="{{$url}}"><div class="image100 mr-2 d-inline-block align-middle" style="background : url('{{$item['cover_html']}}') no-repeat center;background-size: cover;"></div></a>
                             <div class="content d-inline-block align-middle">
                                 <a href="{{$url}}"><h6 class="name_song text-black mb-1 card-title">{{$item['music_title']}}</h6></a>
                                 <p class="name_singer text-gray mb-1 author"><?php echo $item['music_artist_html']; ?></p>

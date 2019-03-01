@@ -72,7 +72,7 @@ $catalog = config('constants.catalog');
                                         $url = Helpers::listen_url($item);
                                         ?>
                                         <a href="{{$url}}"><div class="element mb-2">
-                                            <div class="image100 mr-2 d-inline-block align-middle" style="background : url('{{Helpers::cover_url($item['cover_id'])}}') no-repeat center;background-size: cover;">
+                                            <div class="image100 mr-2 d-inline-block align-middle" style="background : url('{{$item['cover_html']}}') no-repeat center;background-size: cover;">
                                                 @if($item['cat_id'] == CAT_BEAT)
                                                     <p class="time text-white mb-0 py-1">Beat</p>
                                                 @endif
@@ -400,7 +400,7 @@ $catalog = config('constants.catalog');
                                     $url = Helpers::listen_url($item);
                                     ?>
                                     <div class="element mb-2">
-                                        <a href="{{$url}}"><div class="image100 mr-2 d-inline-block align-middle" style="background : url('{{Helpers::cover_url($item['cover_id'])}}') no-repeat center;background-size: cover;">
+                                        <a href="{{$url}}"><div class="image100 mr-2 d-inline-block align-middle" style="background : url('{{$item['cover_html']}}') no-repeat center;background-size: cover;">
                                                 @if($item['cat_id'] == CAT_BEAT)
                                                     <p class="time text-white mb-0 py-1">Beat</p>
                                                 @endif
@@ -421,8 +421,8 @@ $catalog = config('constants.catalog');
                                             <li><a href="/bai-hat-moi.html?page=2">2</a></li>
                                             <li><a href="/bai-hat-moi.html?page=3">3</a></li>
                                             <li class="disabled"><span>...</span></li>
-                                            <li><a href="/bai-hat-moi.html?page=51425">51425</a></li>
-                                            <li><a href="/bai-hat-moi.html?page=51426">51426</a></li>
+                                            <li><a href="/bai-hat-moi.html?page=51425">63425</a></li>
+                                            <li><a href="/bai-hat-moi.html?page=51426">63426</a></li>
                                             <li><a href="/bai-hat-moi.html?page=2" rel="next">»</a></li>
                                         </ul>
                                     </center>
