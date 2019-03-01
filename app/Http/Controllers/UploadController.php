@@ -14,6 +14,7 @@ use App\Repositories\ArtistUpload\ArtistUploadEloquentRepository;
 use App\Repositories\Music\MusicEloquentRepository;
 use App\Repositories\Video\VideoEloquentRepository;
 use App\Repositories\Upload\UploadEloquentRepository;
+use App\Repositories\UploadException\UploadExceptionEloquentRepository;
 use App\Repositories\Album\AlbumEloquentRepository;
 use App\Repositories\Cover\CoverEloquentRepository;
 use App\Repositories\Artist\ArtistRepository;
@@ -37,6 +38,7 @@ class UploadController extends Controller
     protected $musicRepository;
     protected $videoRepository;
     protected $uploadRepository;
+    protected $uploadExRepository;
     protected $albumRepository;
     protected $coverRepository;
     protected $deleteMusicRepository;
@@ -46,7 +48,7 @@ class UploadController extends Controller
 
     public function __construct(ArtistUploadEloquentRepository $artistUploadRepository, MusicEloquentRepository $musicRepository, ArtistRepository $artistRepository,
                                 UploadEloquentRepository $uploadRepository, AlbumEloquentRepository $albumRepository, VideoEloquentRepository $videoRepository, CoverEloquentRepository $coverRepository, Solarium $Solr,
-                                DeleteVideoEloquentRepository $deleteVideoRepository, DeleteMusicEloquentRepository $deleteMusicRepository, ArtistExceptionRepository $artistExpRepository) {
+                                DeleteVideoEloquentRepository $deleteVideoRepository, DeleteMusicEloquentRepository $deleteMusicRepository, ArtistExceptionRepository $artistExpRepository, UploadExceptionEloquentRepository $uploadExRepository) {
         $this->artistUploadRepository = $artistUploadRepository;
         $this->musicRepository = $musicRepository;
         $this->videoRepository = $videoRepository;
@@ -56,6 +58,7 @@ class UploadController extends Controller
         $this->coverRepository = $coverRepository;
         $this->deleteVideoRepository = $deleteVideoRepository;
         $this->deleteMusicRepository = $deleteMusicRepository;
+        $this->uploadExRepository = $uploadExRepository;
         $this->artistExpRepository = $artistExpRepository;
         $this->Solr = $Solr;
         $this->middleware(function ($request, $next)
@@ -314,9 +317,17 @@ class UploadController extends Controller
 
         $typeUpload = $request->input('type_upload');
         $artistExp = $this->artistExpRepository->getArrIds();
+        $musicTitle = htmlspecialchars(trim(stripslashes($request->input('music_title') ?? '')));
+        $musicArtist = htmlspecialchars(trim(stripslashes($request->input('music_artist') ?? '')));
         if(Helpers::checkExitsExcepArtist($request->input('music_artist_id'), $artistExp) && !Auth::user()->hasPermission('duyet_sua_nhac')) {
             $errorMessages = new \Illuminate\Support\MessageBag;
             $errorMessages->merge(['music_artist' => ['Ca sĩ không được phép upload.']]);
+            return redirect()->back()->withErrors($errorMessages);
+        }
+        if($this->uploadExRepository->checkExist($musicTitle, $musicArtist) && !Auth::user()->hasPermission('duyet_sua_nhac')) {
+            $errorMessages = new \Illuminate\Support\MessageBag;
+            $errorMessages->merge(['music_artist' => ['Ca sĩ không được phép upload.']]);
+            $errorMessages->merge(['music_title' => ['Bài hát không được phép upload.']]);
             return redirect()->back()->withErrors($errorMessages);
         }
         $mess = '';
@@ -421,8 +432,8 @@ class UploadController extends Controller
             if($newAlbum && $newAlbum->album_music_total == 0)
                 $Solr->deleteCustom('cover_' . $newAlbum->cover_id);
 
-            $result->music_title = htmlspecialchars(trim(stripslashes($request->input('music_title') ?? '')));
-            $result->music_artist = htmlspecialchars(trim($request->input('music_artist') ?? ''));
+            $result->music_title = $musicTitle;
+            $result->music_artist = $musicArtist;
             $result->music_artist_id = trim($request->input('music_artist_id') ?? '');
 //            $result->music_production = $request->input('music_production') ?? '';
             $result->music_composer = htmlspecialchars(trim(stripslashes($request->input('music_composer') ?? '')));
@@ -479,8 +490,8 @@ class UploadController extends Controller
             return redirect()->route(($result->cat_id == CAT_VIDEO ? 'upload.storeVideo' : 'upload.storeMusic'), ['musicId' => $musicId])->with('success', $mess.'<br/><a href="/user/'.$result->music_user_id.'">Click vào đây để trở lại Tủ nhạc</a>'.$mes2);
         }else{
             $csnMusic = [
-                'music_title' => $request->input('music_title'),
-                'music_artist' => htmlspecialchars(trim($request->input('music_artist'))),
+                'music_title' => $musicTitle,
+                'music_artist' => $musicArtist,
                 'music_artist_id' => htmlspecialchars(trim($request->input('music_artist_id'))),
                 'music_user_id' => Auth::user()->id,
                 'music_username' => Auth::user()->name,
