@@ -313,6 +313,12 @@ class UploadController extends Controller
         ]);
 
         $typeUpload = $request->input('type_upload');
+        $artistExp = $this->artistExpRepository->getArrIds();
+        if(Helpers::checkExitsExcepArtist($request->input('music_artist_id'), $artistExp) && !Auth::user()->hasPermission('duyet_sua_nhac')) {
+            $errorMessages = new \Illuminate\Support\MessageBag;
+            $errorMessages->merge(['music_artist' => ['Ca sĩ không được phép upload.']]);
+            return redirect()->back()->withErrors($errorMessages);
+        }
         $mess = '';
         $messType = $typeUpload == 'music' ? 'bài hát' : 'video';
         if($request->input('action_upload') == 'edit') {
@@ -472,12 +478,6 @@ class UploadController extends Controller
             $mes2 = ($musicRedirectNext || $musicRedirectBack) ? '<br/><a href="/dang-tai/nhac/'.($musicRedirectNext ? $musicRedirectNext->music_id : $musicRedirectBack->music_id).'">Click vào đây để sửa bài '.($musicRedirectNext ? '<u>trước</u>' : '').'</a>'.($musicRedirectBack ? '<a href="/dang-tai/nhac/'.$musicRedirectBack->music_id.'"> | <u>sau</u></a>' : '') : '';
             return redirect()->route(($result->cat_id == CAT_VIDEO ? 'upload.storeVideo' : 'upload.storeMusic'), ['musicId' => $musicId])->with('success', $mess.'<br/><a href="/user/'.$result->music_user_id.'">Click vào đây để trở lại Tủ nhạc</a>'.$mes2);
         }else{
-            $artistExp = $this->artistExpRepository->getArrIds();
-            if(Helpers::checkExitsExcepArtist($request->input('music_artist_id'), $artistExp)) {
-                $errorMessages = new \Illuminate\Support\MessageBag;
-                $errorMessages->merge(['music_artist' => ['Ca sĩ không được phép upload.']]);
-                return redirect()->back()->withErrors($errorMessages);
-            }
             $csnMusic = [
                 'music_title' => $request->input('music_title'),
                 'music_artist' => htmlspecialchars(trim($request->input('music_artist'))),
