@@ -45,7 +45,7 @@ class SolrSyncController extends Controller
                 ->where('music_id', $id)
                 ->get();
         }elseif($musicItem){
-            if(is_array($musicItem)){
+            if(isset($musicItem[0])){
                 $searchMusic = $musicItem;
             }else{
                 $searchMusic[] = $musicItem;
@@ -123,7 +123,6 @@ class SolrSyncController extends Controller
                 'music_downloads_max_week' => $item->music_downloads_max_week,
 
             ];
-
             $datas[] = $data;
             //$datas[] = $data['id'];
             //$this->Solr->addDocuments($data);
@@ -160,7 +159,7 @@ class SolrSyncController extends Controller
                 ->where('music_id', $id)
                 ->get();
         }elseif($musicItem){
-            if(is_array($musicItem)){
+            if(isset($musicItem[0])){
                 $searchMusic = $musicItem;
             }else{
                 $searchMusic[] = $musicItem;
@@ -225,7 +224,7 @@ class SolrSyncController extends Controller
                 ->orderBy('music_id', 'asc')
                 ->get();
         }elseif($videoItem){
-            if(is_array($videoItem)){
+            if(isset($videoItem[0])){
                 $searchVideo = $videoItem;
             }else{
                 $searchVideo[] = $videoItem;
@@ -327,7 +326,7 @@ class SolrSyncController extends Controller
                 ->where('music_id', $id)
                 ->get();
         }elseif($videoItem){
-            if(is_array($videoItem)){
+            if(isset($videoItem[0])){
                 $searchVideo = $videoItem;
             }else{
                 $searchVideo[] = $videoItem;
@@ -389,7 +388,7 @@ class SolrSyncController extends Controller
         if($id) {
             $artist = ArtistModel::where('artist_id', $id)->get();
         }elseif($artistItem){
-            if(is_array($artistItem)){
+            if(isset($artistItem[0])){
                 $artist = $artistItem;
             }else{
                 $artist[] = $artistItem;
@@ -432,7 +431,7 @@ class SolrSyncController extends Controller
         if($id) {
             $cover = CoverModel::where('cover_id', $id)->orderBy('cover_id', 'asc')->get();
         }elseif($coverItem){
-            if(is_array($coverItem)){
+            if(isset($coverItem[0])){
                 $cover = $coverItem;
             }else{
                 $cover[] = $coverItem;

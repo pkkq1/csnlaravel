@@ -44,17 +44,17 @@ class MusicController extends Controller
         $this->Solr = $Solr;
     }
    public function syncNewMusicVideo() {
-       $music = $this->musicRepository->getQueryPublished()->where('music_time', '>',  strtotime(TIME_EXPIRED_UPLOAD_NEW))->select('music_id', 'cover_id', 'cat_id')->get();
-       $video = $this->musicRepository->getQueryPublished()->where('music_time', '>',  strtotime(TIME_EXPIRED_UPLOAD_NEW))->select('music_id', 'cover_id', 'cat_id')->get();
+       $music = $this->musicRepository->getQueryPublished()->where('music_time', '>',  strtotime(TIME_EXPIRED_UPLOAD_NEW))->get();
+       $video = $this->musicRepository->getQueryPublished()->where('music_time', '>',  strtotime(TIME_EXPIRED_UPLOAD_NEW))->get();
        $Solr = new SolrSyncController($this->Solr);
        $arrCover = [];
-       if($music) {
+       if(!$music->isEmpty()) {
            $Solr->syncMusic(null, $music);
            foreach ($music as $item) {
                $arrCover[$item->cover_id] = $item->cat_id;
            }
        }
-       if($video) {
+       if(!$video->isEmpty()) {
            $Solr->syncMusic(null, $video);
            foreach ($video as $item) {
                $arrCover[$item->cover_id] = $item->cat_id;
