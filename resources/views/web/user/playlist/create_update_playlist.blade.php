@@ -71,7 +71,11 @@ $titleMeta = $playlistUser ? 'Cập nhật playlist - ' . $playlistUser->playlis
                                         </div>
                                         <div class="col-sm-8">
                                             <div class="media">
-                                                <img class="mr-3" id="playlist_cover_uploaded" src="{{$playlistUser ? ($playlistUser->playlist_cover ? Helpers::file_path($playlistUser->playlist_id, env('DATA_URL').MUSIC_PLAYLIST_PATH, true).$playlistUser->playlist_id . '.jpg?v=' . time() : '/imgs/avatar_default.png') : '/imgs/avatar_default.png' }}" alt="">
+                                                @if($imgPlaylist = Session::get('imgPlaylist'))
+                                                    <img class="mr-3" id="playlist_cover_uploaded 123" src="{{$imgPlaylist}}" alt="">
+                                                @else
+                                                    <img class="mr-3" id="playlist_cover_uploaded" src="{{$playlistUser ? ($playlistUser->playlist_cover ? Helpers::file_path($playlistUser->playlist_id, env('DATA_URL').MUSIC_PLAYLIST_PATH, true).$playlistUser->playlist_id . '.jpg?v=' . time() : '/imgs/avatar_default.png') : '/imgs/avatar_default.png' }}" alt="">
+                                                @endif
                                                 <div class="media-body">
                                                     <div class="form-group">
                                                         <label for="choose_playlist_cover">Chọn file ảnh</label>

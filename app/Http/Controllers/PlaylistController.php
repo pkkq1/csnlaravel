@@ -225,11 +225,13 @@ class PlaylistController extends Controller
         if($action == 'edit') {
             $result = $playlist->update($update);
             $mes = 'Đã Cập nhập playlist.';
+            $imgPlaylist = '';
             // update cover
             if($request->input('playlist_cover')) {
                 $fileNameCover = Helpers::saveBase64ImageJpg($request->input('playlist_cover'), Helpers::file_path($id, MUSIC_PLAYLIST_PATH, true), $id);
+                $imgPlaylist = Helpers::file_path($id, PUBLIC_MUSIC_PLAYLIST_PATH, true). $fileNameCover;
             }
-            return redirect()->route('playlist.update_playlist', $id)->with('success', $mes);
+            return redirect()->route('playlist.update_playlist', $id)->with(['success' => $mes, 'imgPlaylist' => $imgPlaylist]);
         }else{
             $update['playlist_status'] = SET_ACTIVE;
 
