@@ -43,6 +43,7 @@ class BxhCategoryController extends Controller
             $result = $this->musicListenRepository->bxhHotTodayCategoryMusic($item->cat_id)->toArray();
             foreach($result as $item2) {
                 if(!Helpers::checkExitsExcepArtist($item2['music_artist_id'], $artistExp)) {
+                    $item2['cover_html'] = Helpers::cover_url($item2['cover_id'], explode(';', $item2['music_artist_id'])[0]);
                     $item2['music_artist_html'] = Helpers::rawHtmlArtists($item2['music_artist_id'], $item2['music_artist']);
                     $item2['music_bitrate_html'] = Helpers::bitrate2str($item2['music_bitrate']);
                     $ressultMusic[$item->cat_id][] = $item2;
@@ -51,6 +52,7 @@ class BxhCategoryController extends Controller
             $result = $this->musicListenRepository->bxhHotTodayCategoryVideo($item->cat_id)->toArray();
             foreach($result as $item2) {
                 if(!Helpers::checkExitsExcepArtist($item2['music_artist_id'], $artistExp)) {
+                    $item2['cover_html'] = Helpers::cover_url($item2['cover_id'], explode(';', $item2['music_artist_id'])[0]);
                     $item2['music_artist_html'] = Helpers::rawHtmlArtists($item2['music_artist_id'], $item2['music_artist']);
                     $item2['music_bitrate_html'] = Helpers::size2str($item2['music_width'], $item2['music_height']);
                     $ressultVideo[$item->cat_id][] = $item2;
@@ -78,6 +80,7 @@ $hot_video_rows = ' . var_export($ressultVideo, true) . ';
                 $result = $this->musicListenRepository->bxhWeekCategoryMusic($item->cat_id)->toArray();
                 DB::disconnect('mysql');
                 foreach ($result as $item2) {
+                    $item2['cover_html'] = Helpers::cover_url($item2['cover_id'], explode(';', $item2['music_artist_id'])[0]);
                     $item2['music_artist_html'] = Helpers::rawHtmlArtists($item2['music_artist_id'], $item2['music_artist']);
                     $item2['music_bitrate_html'] = Helpers::bitrate2str($item2['music_bitrate']);
                     $ressultMusic[$item->cat_id][] = $item2;
@@ -85,6 +88,7 @@ $hot_video_rows = ' . var_export($ressultVideo, true) . ';
                 $result = $this->musicListenRepository->bxhWeekCategoryVideo($item->cat_id)->toArray();
                 DB::disconnect('mysql');
                 foreach ($result as $item2) {
+                    $item2['cover_html'] = Helpers::cover_url($item2['cover_id'], explode(';', $item2['music_artist_id'])[0]);
                     $item2['music_artist_html'] = Helpers::rawHtmlArtists($item2['music_artist_id'], $item2['music_artist']);
                     $item2['music_bitrate_html'] = Helpers::size2str($item2['music_width'], $item2['music_height']);
                     $ressultVideo[$item->cat_id][] = $item2;
@@ -115,6 +119,7 @@ $hot_video_rows = ' . var_export($ressultVideo, true) . ';
                 $result = $this->musicListenRepository->bxhYearCategoryMusic($item->cat_id, $year)->toArray();
                 DB::disconnect('mysql');
                 foreach($result as $item2) {
+                    $item2['cover_html'] = Helpers::cover_url($item2['cover_id'], explode(';', $item2['music_artist_id'])[0]);
                     $item2['music_artist_html'] = Helpers::rawHtmlArtists($item2['music_artist_id'], $item2['music_artist']);
                     $item2['music_bitrate_html'] = Helpers::bitrate2str($item2['music_bitrate']);
                     $ressultMusic[$item->cat_id][] = $item2;
@@ -122,6 +127,7 @@ $hot_video_rows = ' . var_export($ressultVideo, true) . ';
                 $result = $ressultVideo[$item->cat_id] = $this->musicListenRepository->bxhYearCategoryVideo($item->cat_id, $year)->toArray();
                 DB::disconnect('mysql');
                 foreach($result as $item2) {
+                    $item2['cover_html'] = Helpers::cover_url($item2['cover_id'], explode(';', $item2['music_artist_id'])[0]);
                     $item2['music_artist_html'] = Helpers::rawHtmlArtists($item2['music_artist_id'], $item2['music_artist']);
                     $item2['music_bitrate_html'] = Helpers::size2str($item2['music_width'], $item2['music_height']);
                     $ressultVideo[$item->cat_id][] = $item2;
@@ -151,6 +157,7 @@ $hot_video_rows = ' . var_export($ressultVideo, true) . ';
                     $result = $this->musicListenRepository->bxhMonthCategoryMusic($item->cat_id, $firstDate, $lastDate, $year)->toArray();
                     DB::disconnect('mysql');
                     foreach($result as $item2) {
+                        $item2['cover_html'] = Helpers::cover_url($item2['cover_id'], explode(';', $item2['music_artist_id'])[0]);
                         $item2['music_artist_html'] = Helpers::rawHtmlArtists($item2['music_artist_id'], $item2['music_artist']);
                         $item2['music_bitrate_html'] = Helpers::bitrate2str($item2['music_bitrate']);
                         $ressultMusic[$item->cat_id][] = $item2;
@@ -158,6 +165,7 @@ $hot_video_rows = ' . var_export($ressultVideo, true) . ';
                     $result = $this->musicListenRepository->bxhMonthCategoryVideo($item->cat_id, $firstDate, $lastDate, $year)->toArray();
                     DB::disconnect('mysql');
                     foreach($result as $item2) {
+                        $item2['cover_html'] = Helpers::cover_url($item2['cover_id'], explode(';', $item2['music_artist_id'])[0]);
                         $item2['music_artist_html'] = Helpers::rawHtmlArtists($item2['music_artist_id'], $item2['music_artist']);
                         $item2['music_bitrate_html'] = Helpers::size2str($item2['music_width'], $item2['music_height']);
                         $ressultVideo[$item->cat_id][] = $item2;

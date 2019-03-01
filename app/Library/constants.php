@@ -55,7 +55,7 @@ define('LIMIT_MUSIC_PAGE_ARTIST', 20);
 define('LIMIT_LISTEN_MUSIC_ARTIST', 100);
 define('LIMIT_MUSIC_PAGE_CATEGORY', 20);
 define('CURRENT_YEAR', 2019);
-define('CURRENT_MONTH', 1);
+define('CURRENT_MONTH', 2);
 //define('MAX_LOSTLESS', 1000);
 define('MAX_LOSTLESS', null);
 
