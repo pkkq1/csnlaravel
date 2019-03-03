@@ -72,7 +72,7 @@ class CommentController extends Controller
                 'user_id' => Auth::user()->id,
                 'username' => Auth::user()->username ?? '',
                 'comment_jw_postion' => $request->comment_jw_postion,
-                'comment_text' => htmlspecialchars(trim(stripslashes(($request->input('comment'))))),
+                'comment_text' => htmlspecialchars_decode(trim(stripslashes(($request->input('comment'))))),
                 'comment_delete' => SET_DEACTIVE,
             ]);
             $this->musicRepository->incrementCol($request->input('music_id'), 'music_comment');
@@ -86,7 +86,7 @@ class CommentController extends Controller
                 'user_id' => Auth::user()->id,
                 'username' => Auth::user()->username ?? '',
                 'comment_jw_postion' => $request->comment_jw_postion,
-                'comment_text' => htmlspecialchars(trim(stripslashes(($request->input('comment'))))),
+                'comment_text' => htmlspecialchars_decode(trim(stripslashes(($request->input('comment'))))),
                 'comment_delete' => SET_DEACTIVE,
 
             ]);

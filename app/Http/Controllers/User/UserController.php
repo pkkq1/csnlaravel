@@ -84,7 +84,7 @@ class UserController extends Controller
             'user_gender' => $request->input('user_gender'),
             'user_birthday' => $request->input('user_birthday'),
             'user_phone_number' => $request->input('user_phone_number'),
-            'user_interests' => htmlspecialchars(trim(stripslashes($request->input('user_interests'))))
+            'user_interests' => htmlspecialchars_decode(trim(stripslashes($request->input('user_interests'))))
         ];
         if(!Auth::user()->username) {
             $update['username'] = trim(strtolower($request->input('username')));
