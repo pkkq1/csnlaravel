@@ -72,7 +72,7 @@ class PlaylistController extends Controller
             'playlist_time' => time(),
             'playlist_music_total' => 0,
             'playlist_status' => 1,
-            'playlist_title' => htmlspecialchars(trim(stripslashes(($request->input('playlist_title')))))
+            'playlist_title' => htmlspecialchars_decode(trim(stripslashes(($request->input('playlist_title')))))
         ]);
         Helpers::ajaxResult(true, 'Đã tạo playlist.', $result);
     }
@@ -108,12 +108,12 @@ class PlaylistController extends Controller
         $playlistUser->playlist_music_total = $playlistUser->playlist_music_total + $countUpdate;
         // add and sort artist
         if($request->input('artist')) {
-            $artistNew = explode(';', htmlspecialchars_decode($request->input('artist')));
+            $artistNew = explode(';', htmlspecialchars_decode_decode($request->input('artist')));
             if(!$request->input('artist_id')) {
-                $artistIdNew = urlencode(htmlspecialchars_decode($request->input('artist')));
+                $artistIdNew = urlencode(htmlspecialchars_decode_decode($request->input('artist')));
                 $artistIdNew = explode('%3B+', $artistIdNew);
             }else{
-                $artistIdNew = explode(';', htmlspecialchars_decode($request->input('artist_id')));
+                $artistIdNew = explode(';', htmlspecialchars_decode_decode($request->input('artist_id')));
             }
             $artistOld = [];
             $arrNew = [];
@@ -184,7 +184,7 @@ class PlaylistController extends Controller
             $playlist = new PlaylistModel();
         }
         $update = [
-            'playlist_title' => htmlspecialchars(trim(stripslashes(($request->input('playlist_title'))))),
+            'playlist_title' => htmlspecialchars_decode(trim(stripslashes(($request->input('playlist_title'))))),
             'playlist_cat_id' => $request->input('playlist_cat_id') ?? 0,
             'playlist_cat_level' => $request->input('playlist_cat_level') ?? 0,
             'user_id' => Auth::user()->id,
