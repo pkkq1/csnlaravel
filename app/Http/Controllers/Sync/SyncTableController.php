@@ -43,8 +43,8 @@ class SyncTableController extends Controller
                 $bitrates = [];
                 $cat = [];
                 foreach ($item->music as $music) {
-                    $artists = array_merge($artists, explode(';', htmlspecialchars_decode_decode(trim($music->music_artist))));
-                    $artist_ids = array_merge($artist_ids, explode(';', htmlspecialchars_decode_decode(trim($music->music_artist_id))));
+                    $artists = array_merge($artists, explode(';', htmlspecialchars_decode(trim($music->music_artist))));
+                    $artist_ids = array_merge($artist_ids, explode(';', htmlspecialchars_decode(trim($music->music_artist_id))));
                     $bitrates[] = $music->music_bitrate;
                     $cat[] = $music->cat_id.'_'.$music->cat_level;
                 }
