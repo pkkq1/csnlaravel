@@ -54,9 +54,11 @@ class UserController extends Controller
         $reqRefresh = false;
         $reqValid = [
             'name' => 'required|max:255|min:4',
+            'user_birthday' => 'max:10',
         ];
         $setAttr = [
             'name' => 'Tên',
+            'user_birthday' => 'Ngày sinh',
             'username' => 'Tên tài khoản',
             'password' => 'Mật khẩu',
             'repassword' => 'Nhập lại mật khẩu',
