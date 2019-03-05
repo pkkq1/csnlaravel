@@ -214,7 +214,7 @@ if($musicSet['type_listen'] == 'playlist') {
                                     <div class="tab-pane fade show active" id="home" role="tabpanel"
                                          aria-labelledby="home-tab">
                                         <!-- BlueSeed - asynchronous code for placement 1992 Chiasenhac Inread Desktop -->
-                                        <!-- script id="jshd1pm_1992" src="https://d2.blueseed.tv/ads-sync.js?placement=1992"></script -->
+                                        <script id="jshd1pm_1992" src="https://d2.blueseed.tv/ads-sync.js?placement=1992"></script>
                                         <article>
                                             <div id="fulllyric">
                                                 @if(isset($lyric_array['lyric']))
