@@ -33,12 +33,12 @@ class SuggestionCatController extends Controller
         $catregory = $this->categoryRepository->getCategoryParent();
         foreach ($catregory as $item) {
             $childrenCat = $this->categoryRepository->getAllCatId($item->cat_id);
-            $model = $this->musicRepository->getQueryPublished();
+            $model = $this->musicRepository;
             if($item->cat_id == 1) {
-                $model = $this->videoRepository->getQueryPublished();
+                $model = $this->videoRepository;
             }
             foreach ($childrenCat as $level) {
-                $typeDup = $model->where(['cat_id' => $item->cat_id, 'cat_level' => $level->cat_level])
+                $typeDup = $model->getQueryPublished()->where(['cat_id' => $item->cat_id, 'cat_level' => $level->cat_level])
                     ->select('music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'music_album_id', 'music_listen', 'music_bitrate', 'music_filename', 'music_width', 'music_height', 'music_length')
 //                    ->select( DB::raw('DISTINCT(music_title)') )
 //                    ->distinct('music_title')
@@ -58,7 +58,7 @@ class SuggestionCatController extends Controller
                 }
                 $pathDir = resource_path() . '/views/cache/suggestion_cat/';
                 file_put_contents($pathDir.$item->cat_id .'_'. $level->cat_level . '.blade.php',
-                    '<?php 
+                    '<?php
 if ( !ENV(\'IN_PHPBB\') )
 {
     die(\'Hacking attempt\');
