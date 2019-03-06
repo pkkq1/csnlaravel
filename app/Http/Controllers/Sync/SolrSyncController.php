@@ -113,7 +113,7 @@ class SolrSyncController extends Controller
                 'cat_level' => $item->cat_level,
                 'music_cover_id' => $item->cover_id,
                 'cover_id' => $item->cover_id,
-                'music_bitrate' => $item->music_bitrate,
+                'music_bitrate' => (int)$item->music_bitrate,
                 'music_width' => $item->music_width,
                 'music_height' => $item->music_height,
                 'music_length' => $item->music_length,
