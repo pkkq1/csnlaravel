@@ -185,7 +185,7 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                             }, array_slice($result['music']['data'], 0 , 5))
                             ?>
                         </ul>
-                        <center style="padding: 10px"><a style="color: #878787; font-size: 17px; font-weight: 500;" class="link_more" href="javascript:void(0)" onclick="return reDirectTab('nav-music-tab')" title="">Xem tất cả</a></center>
+                        <center style="padding-bottom: 25px"><a style="color: #878787;font-size: 14px;font-family: 'SFProDisplay-Medium';" class="link_more" href="javascript:void(0)" onclick="return reDirectTab('nav-music-tab')" title="">Xem tất cả</a></center>
                     @endif
                     @if($result['album']['data'])
                     <div class="box_header d-flex justify-content-between align-items-end">
@@ -214,7 +214,7 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                         }, $result['album']['data'])
                         ?>
                     </div>
-                    <center style="padding: 10px"><a style="color: #878787; font-size: 17px; font-weight: 500;" class="link_more" href="javascript:void(0)" onclick="return reDirectTab('nav-album-tab')" title="">Xem tất cả</a></center>
+                    <center style="padding-bottom: 25px"><a style="color: #878787;font-size: 14px;font-family: 'SFProDisplay-Medium';" class="link_more" href="javascript:void(0)" onclick="return reDirectTab('nav-album-tab')" title="">Xem tất cả</a></center>
                     @endif
                     @if($result['video']['data'])
                     <div class="box_header d-flex justify-content-between align-items-end">
@@ -242,7 +242,7 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                         }, $result['video']['data'])
                         ?>
                     </div>
-                    <center style="padding: 10px"><a style="color: #878787; font-size: 17px; font-weight: 500;" class="link_more" href="javascript:void(0)" onclick="return reDirectTab('nav-video-tab')" title="">Xem tất cả</a></center>
+                    <center style="padding-bottom: 25px"><a style="color: #878787;font-size: 14px;font-family: 'SFProDisplay-Medium';" class="link_more" href="javascript:void(0)" onclick="return reDirectTab('nav-video-tab')" title="">Xem tất cả</a></center>
                     @endif
                 </div>
                 <div class="tab-pane fade {{isset($_GET['page_music']) ? 'show active' : ''}}" id="nav-music" role="tabpanel" aria-labelledby="nav-music-tab">
