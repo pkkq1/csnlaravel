@@ -85,13 +85,11 @@ class SearchController extends Controller
 //                }
                 if($titleSearch) {
                     //$searchSolarium['music_title_artist_search'] = $titleSearch;
-//                    $searchSolarium['music_title_charset'] = $titleCharset . '^2' . (isset($request->playback) ? ' AND -music_cat_id: '.CAT_BEAT : '');
-                    $searchSolarium['music_title_charset'] = $titleCharset . '^2';
+                    $searchSolarium['music_title_charset'] = $titleCharset . '^2' . (isset($request->playback) ? ' AND -music_cat_id: '.CAT_BEAT : '');
                     $searchSolarium['music_artist_charset'] = $titleCharset;
 
                     if ($titleSearch != $titleCharset) {
-//                        $searchSolarium['music_title_search'] = $titleSearch . '^2' . (isset($request->playback) ? ' AND -music_cat_id: '.CAT_BEAT : '');
-                        $searchSolarium['music_title_search'] = $titleSearch . '^2';
+                        $searchSolarium['music_title_search'] = $titleSearch . '^2' . (isset($request->playback) ? ' AND -music_cat_id: '.CAT_BEAT : '');
                         $searchSolarium['music_artist_search'] = $titleSearch;
                     }
                 }
