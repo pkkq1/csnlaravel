@@ -259,7 +259,7 @@ class UploadController extends Controller
                     'success' => false,
                     'message' => '('.$_FILES['file']['name'].') Sai định dạng video',
                 ]);
-            if($videoInfo['video']['resolution_x'] < 650 || $videoInfo['video']['resolution_y'] < 300) {
+            if(isset($videoInfo['video']) && ($videoInfo['video']['resolution_x'] < 650 || $videoInfo['video']['resolution_y'] < 300)) {
                 return response()->json([
                     'status' => false,
                     'message' => '('.$_FILES['file']['name'].') Độ phân giải video quá thấp',
