@@ -15,6 +15,7 @@ class ArtistModel extends Model
 
     public static function searchArtist($keyName)
     {
+        $keyName = htmlspecialchars_decode(str_replace("'", "\'", $keyName));
         $query = "
           select artist_id as id, artist_nickname as name
             from csn_artist
