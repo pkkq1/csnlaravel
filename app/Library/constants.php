@@ -136,8 +136,8 @@ define('SET_DEACTIVE', 0);
 // search
 define('ROWS_MUSIC_SEARCH_PAGING', 10);
 define('ROWS_ARTIST_SEARCH_PAGING', 10);
-define('ROWS_ALBUM_SEARCH_PAGING', 10);
-define('ROWS_VIDEO_SEARCH_PAGING', 8);
+define('ROWS_ALBUM_SEARCH_PAGING', 20);
+define('ROWS_VIDEO_SEARCH_PAGING', 16);
 
 define('TIME_EXPIRED_LINK', 20); // minute
 define('TIME_EXPIRED_UPLOAD_LISTEN_DOWNLOAD', '-1 hour'); // hour

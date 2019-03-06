@@ -211,7 +211,7 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                             </div>
                         </div>
                         <?php
-                        }, $result['album']['data'])
+                        }, array_slice($result['album']['data'], 0 , 10))
                         ?>
                     </div>
                     <center style="padding-bottom: 25px"><a style="color: #878787;font-size: 14px;font-family: 'SFProDisplay-Medium';" class="link_more" href="javascript:void(0)" onclick="return reDirectTab('nav-album-tab')" title="">Xem tất cả</a></center>
@@ -239,7 +239,7 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                             </div>
                         </div>
                         <?php
-                        }, $result['video']['data'])
+                        }, array_slice($result['video']['data'], 0 , 8))
                         ?>
                     </div>
                     <center style="padding-bottom: 25px"><a style="color: #878787;font-size: 14px;font-family: 'SFProDisplay-Medium';" class="link_more" href="javascript:void(0)" onclick="return reDirectTab('nav-video-tab')" title="">Xem tất cả</a></center>
