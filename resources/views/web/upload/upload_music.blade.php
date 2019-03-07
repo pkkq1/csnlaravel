@@ -92,7 +92,11 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                                 if($music->music_last_update_by) {
                                     if($music->music_user_id == $music->music_last_update_by)
                                         $userMusic[1] = $userMusic[0];
-                                    echo ', bởi: <a target="_blank" href="/user/'.$userMusic[1]->user_id.'">'.$userMusic[1]->username.'</a>';
+                                    if(!isset($userMusic[1])) {
+                                        echo ', bởi: (user undefined)';
+                                    }else{
+                                        echo ', bởi: <a target="_blank" href="/user/'.$userMusic[1]->user_id.'">'.$userMusic[1]->username.'</a>';
+                                    }
                                 }
                             ?>
                         </div>
