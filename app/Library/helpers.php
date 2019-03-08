@@ -160,18 +160,9 @@ class Helpers
         }
         return '/ca-si/'.self::rawTiengVietUrl($artistNickName) . "~" . base64_encode(KEY_ID_ARTIST_ENCODE_URL . $artistId) . $mode . ".".HTMLEX;
     }
-    public static function undo_htmlspecialchars($input)
-    {
-        $input = preg_replace("/&gt;/i", ">", $input);
-        $input = preg_replace("/&lt;/i", "<", $input);
-        $input = preg_replace("/&quot;/i", "\"", $input);
-        $input = preg_replace("/&amp;/i", "&", $input);
-
-        return $input;
-    }
     public static function rawHtmlArtists($artistId, $artistNickName) {
-        $artistId = explode(';', $artistId);
-        $artistNickName = explode(';', self::undo_htmlspecialchars($artistNickName));
+        $artistId = explode(';', htmlspecialchars_decode($artistId));
+        $artistNickName = explode(';', htmlspecialchars_decode($artistNickName));
         if($artistNickName && $artistId) {
             $html = '';
             foreach ($artistNickName as $key => $val) {
