@@ -1499,3 +1499,10 @@ a.boxclose{
     margin-left: 10px !important;
     height: 16px!important;
 }
+.seek-jw {
+    cursor: pointer;
+}
+
+.box_right_upload .form-group .form-control {
+    color: #000000!important;
+}
