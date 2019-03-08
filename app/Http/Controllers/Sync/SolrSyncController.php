@@ -96,7 +96,7 @@ class SolrSyncController extends Controller
 //                'music_title_artist_charset' => $titleCharset . ' '. $artistCharset,
 //                'music_lyric' => $item->music_lyric,
 //                'music_lyric_search' => $lyricSearch,
-                'music_lyric_charset' => $lyricCharset,
+                //'music_lyric_charset' => $lyricCharset,
                 'music_bitrate_html' => Helpers::bitrate2str($item->music_bitrate),
                 'music_cover' => Helpers::cover_url($item->cover_id),
                 'music_link' => '/'.Helpers::listen_url($item->toArray(), false),
