@@ -193,12 +193,17 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
         $artistIds = explode(';', $music->music_artist_id);
         $artistName = explode(';', htmlspecialchars($music->music_artist, ENT_QUOTES));
         $artistNameRel = [];
-        foreach ($artistIds as $key => $item) {
-            if($item == -1) {
-                unset($artistIds[$key]);
-                $artistNameRel[] = $artistName[$key];
+        if($artistIds) {
+            foreach ($artistIds as $key => $item) {
+                if($item == -1) {
+                    unset($artistIds[$key]);
+                    $artistNameRel[] = $artistName[$key];
+                }
             }
+        }else{
+            $artistNameRel = $artistName;
         }
+
 
 
         // nhạc cùng ca sĩ
