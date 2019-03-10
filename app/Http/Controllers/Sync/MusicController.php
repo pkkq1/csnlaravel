@@ -55,7 +55,7 @@ class MusicController extends Controller
            }
        }
        if(!$video->isEmpty()) {
-           $Solr->syncMusic(null, $video);
+           $Solr->syncVideo(null, $video);
            foreach ($video as $item) {
                $arrCover[$item->cover_id] = $item->cat_id;
            }
