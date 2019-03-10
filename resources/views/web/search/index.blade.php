@@ -154,7 +154,7 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                     @if($result['music']['data'])
                         <div class="box_header d-flex justify-content-between align-items-end">
                             <h5 class="title m-0">Bài hát</h5>
-                            <a class="link_more" href="javascript:void(0)" onclick="return reDirectTab('nav-music-tab')" title="">Xem tất cả</a>
+                            {{--<a class="link_more" href="javascript:void(0)" onclick="return reDirectTab('nav-music-tab')" title="">Xem tất cả</a>--}}
                         </div>
                         <ul class="list-unstyled list_music music_kq">
                             <?php
@@ -182,15 +182,15 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                                 </div>
                             </li>
                             <?php
-                            }, $result['music']['data'])
+                            }, array_slice($result['music']['data'], 0 , 5))
                             ?>
                         </ul>
-                        <center><?php Helpers::pagingCustom($result['music']['page'], $result['music']['rows'], $result['music']['row_total'] ?? 0, '<a href="/tim-kiem?q=&page_music=%d">%d</a>', $search) ?></center>
+                        <center style="padding-bottom: 25px"><a style="color: #878787;font-size: 14px;font-family: 'SFProDisplay-Medium';" class="link_more" href="javascript:void(0)" onclick="return reDirectTab('nav-music-tab')" title="">Xem tất cả</a></center>
                     @endif
                     @if($result['album']['data'])
                     <div class="box_header d-flex justify-content-between align-items-end">
                         <h5 class="title m-0">Album</h5>
-                        <a class="link_more" href="javascript:void(0)" onclick="return reDirectTab('nav-album-tab')" title="">Xem tất cả</a>
+                        {{--<a class="link_more" href="javascript:void(0)" onclick="return reDirectTab('nav-album-tab')" title="">Xem tất cả</a>--}}
                     </div>
                     <div class="row row10px float-col-width">
                         <?php
@@ -211,15 +211,15 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                             </div>
                         </div>
                         <?php
-                        }, $result['album']['data'])
+                        }, array_slice($result['album']['data'], 0 , 10))
                         ?>
                     </div>
-                    <center><?php Helpers::pagingCustom($result['album']['page'], $result['album']['rows'], $result['album']['row_total'] ?? 0,  '<a href="/tim-kiem?q=&page_album=%d">%d</a>', $search) ?></center>
+                    <center style="padding-bottom: 25px"><a style="color: #878787;font-size: 14px;font-family: 'SFProDisplay-Medium';" class="link_more" href="javascript:void(0)" onclick="return reDirectTab('nav-album-tab')" title="">Xem tất cả</a></center>
                     @endif
                     @if($result['video']['data'])
                     <div class="box_header d-flex justify-content-between align-items-end">
                         <h5 class="title m-0">Video</h5>
-                        <a class="link_more" href="javascript:void(0)" onclick="return reDirectTab('nav-video-tab')" title="">Xem tất cả</a>
+                        {{--<a class="link_more" href="javascript:void(0)" onclick="return reDirectTab('nav-video-tab')" title="">Xem tất cả</a>--}}
                     </div>
                     <div class="row row10px float-col-width-video">
                         <?php
@@ -239,10 +239,10 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                             </div>
                         </div>
                         <?php
-                        }, $result['video']['data'])
+                        }, array_slice($result['video']['data'], 0 , 8))
                         ?>
                     </div>
-                    <center><?php Helpers::pagingCustom($result['video']['page'], $result['video']['rows'], $result['video']['row_total'] ?? 0,  '<a href="/tim-kiem?q=&page_video=%d">%d</a>', $search) ?></center>
+                    <center style="padding-bottom: 25px"><a style="color: #878787;font-size: 14px;font-family: 'SFProDisplay-Medium';" class="link_more" href="javascript:void(0)" onclick="return reDirectTab('nav-video-tab')" title="">Xem tất cả</a></center>
                     @endif
                 </div>
                 <div class="tab-pane fade {{isset($_GET['page_music']) ? 'show active' : ''}}" id="nav-music" role="tabpanel" aria-labelledby="nav-music-tab">

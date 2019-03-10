@@ -5,6 +5,12 @@ return [
         'title' => 'Cộng đồng chia sẻ nhạc chất lượng cao và xếp hạng âm nhạc trực tuyến',
         'image' => '/'
     ],
+    'artist_exception' => [
+        143, 7020, 18320, 35203
+    ],
+    'music_exception' => [
+        7020, 18320, 35203
+    ],
     'catalog' => [
 
         'romance' => [

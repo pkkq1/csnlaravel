@@ -1320,7 +1320,6 @@ form#login-form {
 }
 .search_layout_upload {
     width: 97.5%;
-    margin-top: -15px;
     position: absolute!important;
     z-index: 999;
     display: none;
@@ -1499,4 +1498,11 @@ a.boxclose{
     float: right;
     margin-left: 10px !important;
     height: 16px!important;
+}
+.seek-jw {
+    cursor: pointer;
+}
+
+.box_right_upload .form-group .form-control {
+    color: #000000!important;
 }

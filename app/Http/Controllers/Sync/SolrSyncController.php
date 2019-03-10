@@ -45,7 +45,7 @@ class SolrSyncController extends Controller
                 ->where('music_id', $id)
                 ->get();
         }elseif($musicItem){
-            if(is_array($musicItem)){
+            if(isset($musicItem[0])){
                 $searchMusic = $musicItem;
             }else{
                 $searchMusic[] = $musicItem;
@@ -96,13 +96,13 @@ class SolrSyncController extends Controller
 //                'music_title_artist_charset' => $titleCharset . ' '. $artistCharset,
 //                'music_lyric' => $item->music_lyric,
 //                'music_lyric_search' => $lyricSearch,
-                'music_lyric_charset' => $lyricCharset,
+                //'music_lyric_charset' => $lyricCharset,
                 'music_bitrate_html' => Helpers::bitrate2str($item->music_bitrate),
                 'music_cover' => Helpers::cover_url($item->cover_id),
                 'music_link' => '/'.Helpers::listen_url($item->toArray(), false),
                 'music_filename' => $item->music_filename,
                 'music_artist' => $item->music_artist, //str_replace(';', ',', $item->music_artist),
-                'music_artist_id' => explode(';', $item->music_artist_id),
+                'music_artist_id' => explode(';', htmlspecialchars_decode($item->music_artist_id)),
                 'music_artist_html' => Helpers::rawHtmlArtists($item->music_artist_id, $item->music_artist),
                 'music_listen' => $item->music_listen,
                 'music_title_url' => $item->music_title_url,
@@ -113,7 +113,7 @@ class SolrSyncController extends Controller
                 'cat_level' => $item->cat_level,
                 'music_cover_id' => $item->cover_id,
                 'cover_id' => $item->cover_id,
-                'music_bitrate' => $item->music_bitrate,
+                'music_bitrate' => (int)$item->music_bitrate,
                 'music_width' => $item->music_width,
                 'music_height' => $item->music_height,
                 'music_length' => $item->music_length,
@@ -123,7 +123,6 @@ class SolrSyncController extends Controller
                 'music_downloads_max_week' => $item->music_downloads_max_week,
 
             ];
-
             $datas[] = $data;
             //$datas[] = $data['id'];
             //$this->Solr->addDocuments($data);
@@ -160,7 +159,7 @@ class SolrSyncController extends Controller
                 ->where('music_id', $id)
                 ->get();
         }elseif($musicItem){
-            if(is_array($musicItem)){
+            if(isset($musicItem[0])){
                 $searchMusic = $musicItem;
             }else{
                 $searchMusic[] = $musicItem;
@@ -225,7 +224,7 @@ class SolrSyncController extends Controller
                 ->orderBy('music_id', 'asc')
                 ->get();
         }elseif($videoItem){
-            if(is_array($videoItem)){
+            if(isset($videoItem[0])){
                 $searchVideo = $videoItem;
             }else{
                 $searchVideo[] = $videoItem;
@@ -278,7 +277,7 @@ class SolrSyncController extends Controller
                 'video_link' => '/'.Helpers::listen_url($item->toArray(), false),
                 'video_filename' => $item->music_filename,
                 'video_artist' => $item->music_artist, //str_replace(';', ',', $item->music_artist),
-                'video_artist_id' => explode(';', $item->music_artist_id),//$item->music_artist_id, //str_replace(';', ',', $item->music_artist_id),
+                'video_artist_id' => explode(';', htmlspecialchars_decode($item->music_artist_id)),//$item->music_artist_id, //str_replace(';', ',', $item->music_artist_id),
                 'video_artist_html' => Helpers::rawHtmlArtists($item->music_artist_id, $item->music_artist),
                 'video_listen' => $item->music_listen,
                 'video_title_url' => $item->music_title_url,
@@ -327,7 +326,7 @@ class SolrSyncController extends Controller
                 ->where('music_id', $id)
                 ->get();
         }elseif($videoItem){
-            if(is_array($videoItem)){
+            if(isset($videoItem[0])){
                 $searchVideo = $videoItem;
             }else{
                 $searchVideo[] = $videoItem;
@@ -389,7 +388,7 @@ class SolrSyncController extends Controller
         if($id) {
             $artist = ArtistModel::where('artist_id', $id)->get();
         }elseif($artistItem){
-            if(is_array($artistItem)){
+            if(isset($artistItem[0])){
                 $artist = $artistItem;
             }else{
                 $artist[] = $artistItem;
@@ -397,7 +396,7 @@ class SolrSyncController extends Controller
         }elseif($time){
             $artist = ArtistModel::where('music_last_update_time', '>',  $time)->get();
         }else {
-            $artist = ArtistModel::offset(0)->limit(130000)->get();
+            $artist = ArtistModel::where('music_total', '>', 0)->offset(0)->limit(130000)->get();
         }
         DB::disconnect('mysql');
         $datas = [];
@@ -432,7 +431,7 @@ class SolrSyncController extends Controller
         if($id) {
             $cover = CoverModel::where('cover_id', $id)->orderBy('cover_id', 'asc')->get();
         }elseif($coverItem){
-            if(is_array($coverItem)){
+            if(isset($coverItem[0])){
                 $cover = $coverItem;
             }else{
                 $cover[] = $coverItem;
@@ -497,7 +496,7 @@ class SolrSyncController extends Controller
 //                $artistCharset = Helpers::rawTiengVietUrl($music_artist, ' ');
 
                 $data['album_music_artist'] = $music_artist;
-                $data['album_music_artist_id'] = explode(';', $music_artist_id);
+                $data['album_music_artist_id'] = explode(';', htmlspecialchars_decode($music_artist_id));
                 $data['album_music_artist_search'] = $artistSearch;
                 $data['album_music_artist_charset'] = $artistCharset;
                 $data['album_music_artist_nospace'] = str_replace(' ', '', $artistCharset);

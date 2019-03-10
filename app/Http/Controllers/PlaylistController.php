@@ -72,7 +72,7 @@ class PlaylistController extends Controller
             'playlist_time' => time(),
             'playlist_music_total' => 0,
             'playlist_status' => 1,
-            'playlist_title' => htmlspecialchars(trim(stripslashes(($request->input('playlist_title')))))
+            'playlist_title' => htmlspecialchars_decode(trim(stripslashes(($request->input('playlist_title')))))
         ]);
         Helpers::ajaxResult(true, 'Đã tạo playlist.', $result);
     }
@@ -108,12 +108,12 @@ class PlaylistController extends Controller
         $playlistUser->playlist_music_total = $playlistUser->playlist_music_total + $countUpdate;
         // add and sort artist
         if($request->input('artist')) {
-            $artistNew = explode(';', $request->input('artist'));
+            $artistNew = explode(';', htmlspecialchars_decode($request->input('artist')));
             if(!$request->input('artist_id')) {
-                $artistIdNew = urlencode($request->input('artist'));
+                $artistIdNew = urlencode(htmlspecialchars_decode($request->input('artist')));
                 $artistIdNew = explode('%3B+', $artistIdNew);
             }else{
-                $artistIdNew = explode(';', $request->input('artist_id'));
+                $artistIdNew = explode(';', htmlspecialchars_decode($request->input('artist_id')));
             }
             $artistOld = [];
             $arrNew = [];
@@ -184,7 +184,7 @@ class PlaylistController extends Controller
             $playlist = new PlaylistModel();
         }
         $update = [
-            'playlist_title' => htmlspecialchars(trim(stripslashes(($request->input('playlist_title'))))),
+            'playlist_title' => htmlspecialchars_decode(trim(stripslashes(($request->input('playlist_title'))))),
             'playlist_cat_id' => $request->input('playlist_cat_id') ?? 0,
             'playlist_cat_level' => $request->input('playlist_cat_level') ?? 0,
             'user_id' => Auth::user()->id,
@@ -225,11 +225,13 @@ class PlaylistController extends Controller
         if($action == 'edit') {
             $result = $playlist->update($update);
             $mes = 'Đã Cập nhập playlist.';
+            $imgPlaylist = '';
             // update cover
             if($request->input('playlist_cover')) {
                 $fileNameCover = Helpers::saveBase64ImageJpg($request->input('playlist_cover'), Helpers::file_path($id, MUSIC_PLAYLIST_PATH, true), $id);
+                $imgPlaylist = Helpers::file_path($id, PUBLIC_MUSIC_PLAYLIST_PATH, true). $fileNameCover;
             }
-            return redirect()->route('playlist.update_playlist', $id)->with('success', $mes);
+            return redirect()->route('playlist.update_playlist', $id)->with(['success' => $mes, 'imgPlaylist' => $imgPlaylist]);
         }else{
             $update['playlist_status'] = SET_ACTIVE;
 

@@ -6,6 +6,7 @@ use Config;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Auth;
+use App\Models\ArtistModel;
 
 class Helpers
 {
@@ -159,23 +160,14 @@ class Helpers
         }
         return '/ca-si/'.self::rawTiengVietUrl($artistNickName) . "~" . base64_encode(KEY_ID_ARTIST_ENCODE_URL . $artistId) . $mode . ".".HTMLEX;
     }
-    public static function undo_htmlspecialchars($input)
-    {
-        $input = preg_replace("/&gt;/i", ">", $input);
-        $input = preg_replace("/&lt;/i", "<", $input);
-        $input = preg_replace("/&quot;/i", "\"", $input);
-        $input = preg_replace("/&amp;/i", "&", $input);
-
-        return $input;
-    }
     public static function rawHtmlArtists($artistId, $artistNickName) {
-        $artistId = explode(';', $artistId);
-        $artistNickName = explode(';', self::undo_htmlspecialchars($artistNickName));
+        $artistId = explode(';', htmlspecialchars_decode($artistId));
+        $artistNickName = explode(';', htmlspecialchars_decode($artistNickName));
         if($artistNickName && $artistId) {
             $html = '';
             foreach ($artistNickName as $key => $val) {
 //                $html = $html.', <a href="'.self::artistUrl(isset($artistId[$key]) ? $artistId[$key] : -1, $val).'">'.$val.'</a>';
-                $val = htmlspecialchars($val);
+                $val = htmlspecialchars(trim($val));
                 $html = $html.'; <a href="'.self::artistUrl(isset($artistId[$key]) ? $artistId[$key] : -1, $val).'">'.$val.'</a>';
             }
             return substr($html, 2);
@@ -425,9 +417,18 @@ class Helpers
         return self::file_path($cover_id, MUSIC_COVER_PATH);
     }
 
-    public static function cover_url($cover_id = 0)
+    public static function cover_url($cover_id = 0, $artist_id = 0)
     {
-        return ($cover_id > 0) ? self::cover_path($cover_id) . $cover_id . '.jpg' :  env('APP_URL').'/imgs/no_cover.jpg';
+        if($cover_id > 0) {
+             return self::cover_path($cover_id) . $cover_id . '.jpg';
+        }else{
+            if($artist_id > 0) {
+                $artist = ArtistModel::find($artist_id);
+                return $artist && $artist->artist_avatar ? env('APP_URL') . self::file_path($artist->artist_id, PUBLIC_AVATAR_ARTIST_PATH, true) . $artist->artist_avatar : env('APP_URL') . '/imgs/no_cover.jpg';
+            }else{
+                return env('APP_URL') . '/imgs/no_cover.jpg';
+            }
+        }
     }
     public static function artist_cover($artist_id)
     {
@@ -635,9 +636,9 @@ class Helpers
             $url = 'https://data.chiasenhac.com/dataxx/36/'; //'http://data36.chiasenhac.com/';
         else if ($music_id <= 1979000)
             $url = 'https://data.chiasenhac.com/dataxx/31/'; //'http://data31.chiasenhac.com/';
-        else if ($music_id <= 1982000)
+        else if ($music_id <= 1988000)
             $url = 'https://data.chiasenhac.com/';
-        else if ($music_id <= 1995000)
+        else if ($music_id <= 1998000)
             $url = 'https://data.chiasenhac.com/dataxx/25/';//'http://data25.chiasenhac.com/';
         else
             $url = 'https://data.chiasenhac.com/';
@@ -938,5 +939,13 @@ class Helpers
 //        $str = str_replace('\\', '', $str);
         $str = str_replace(array('\\', '+', '-', '~', '!', '%', '/', ';', '?', '#', '`', '@', '$', '&', '_', '=', '{', '}', ',', '<', '>', '"', '[', ']', '|', '*', '^', ':', '(', ')'), ' ', $str);
         return trim(preg_replace(['/y/', '/ý/', '/ỳ/', '/ỷ/', '/ỵ/', '/ỹ/', '/s/'], ['i', 'í', 'ì', 'ỉ', 'ị', 'ĩ', 'x'], mb_strtolower($str, 'UTF-8')));
+    }
+    public static function checkExitsExcepArtist($artistId, $arrExep)
+    {
+        foreach (explode(';', $artistId) as $item) {
+            if(in_array($item, $arrExep))
+                return true;
+        }
+        return false;
     }
 }

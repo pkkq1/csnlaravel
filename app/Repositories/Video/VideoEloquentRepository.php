@@ -26,7 +26,12 @@ class VideoEloquentRepository extends EloquentRepository implements VideoReposit
 
         return $result;
     }
+    public function getQueryPublished()
+    {
+        return $result = $this->_model
+            ->where('music_deleted', '<', 1);
 
+    }
     /**
      * Get post only published
      * @param $id int Post ID

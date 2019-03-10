@@ -60,6 +60,8 @@ class Kernel extends ConsoleKernel
 //        $schedule->command('solr:type artist'); // đồng bộ search solr ca sĩ
         $schedule->command('solr:type cover')->hourlyAt(40); // đồng bộ search solr album
 
+        $schedule->command('sync_music_new')->everyFiveMinutes(); // đồng bộ nhạc mới cho solr và update total_music cover
+
     }
 
     /**

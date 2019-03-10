@@ -33,6 +33,7 @@ use App\Repositories\SearchResult\SearchResultEloquentRepository;
 use App\Repositories\MusicFavourite\MusicFavouriteRepository;
 use App\Repositories\VideoFavourite\VideoFavouriteRepository;
 use App\Repositories\Karaoke\KaraokeEloquentRepository;
+use App\Http\Controllers\Sync\SolrSyncController;
 
 class MusicController extends Controller
 {
@@ -51,11 +52,13 @@ class MusicController extends Controller
     protected $videoFavouriteRepository;
     protected $karaokeRepository;
     protected $searchResultRepository;
+    protected $Solr;
 
     public function __construct(MusicEloquentRepository $musicRepository, PlaylistEloquentRepository $playlistRepository, MusicListenEloquentRepository $musicListenRepository,
                                 CategoryEloquentRepository $categoryListenRepository, CoverEloquentRepository $coverRepository, VideoEloquentRepository $videoRepository, ArtistRepository $artistRepository,
                                 MusicFavouriteRepository $musicFavouriteRepository, VideoFavouriteRepository $videoFavouriteRepository, MusicDownloadEloquentRepository $musicDownloadRepository, KaraokeEloquentRepository $karaokeRepository,
-                                VideoListenEloquentRepository $videoListenRepository, VideoDownloadEloquentRepository $videoDownloadRepository, PlaylistPublisherEloquentRepository $playlistPublisherRepository, SearchResultEloquentRepository $searchResultRepository)
+                                VideoListenEloquentRepository $videoListenRepository, VideoDownloadEloquentRepository $videoDownloadRepository, PlaylistPublisherEloquentRepository $playlistPublisherRepository, SearchResultEloquentRepository $searchResultRepository,
+                                Solarium $Solr)
     {
         $this->musicRepository = $musicRepository;
         $this->videoRepository = $videoRepository;
@@ -72,6 +75,7 @@ class MusicController extends Controller
         $this->videoFavouriteRepository = $videoFavouriteRepository;
         $this->karaokeRepository = $karaokeRepository;
         $this->searchResultRepository = $searchResultRepository;
+        $this->Solr = $Solr;
     }
 
     public function getMusicInfo(Request $request, $musicUrl) {
@@ -86,15 +90,15 @@ class MusicController extends Controller
         if($playlistMusic) {
             $offsetPl = $playlistMusic[$request->playlist ? ($request->playlist > count($playlistMusic) ? count($playlistMusic) : $request->playlist) - 1 : 0];
             if($offsetPl['cat_id'] == CAT_VIDEO) {
-                $music = $this->videoRepository->findOnlyMusicId($offsetPl['music_id'], false);
+                $music = $this->videoRepository->findOnlyMusicId($offsetPl['music_id']);
             }else{
-                $music = $this->musicRepository->findOnlyMusicId($offsetPl['music_id'], false);
+                $music = $this->musicRepository->findOnlyMusicId($offsetPl['music_id']);
             }
         }else{
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Nội dung playlist không có.'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Nội dung playlist không có'], 400);
         }
         if(!$music)
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Nội dung playlist không có.'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Bài hát không tìm thấy'], 400);
         $music['file_url'] = Helpers::file_url($music);
         return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['music' => $music->toArray(), 'playlist' => $playlistMusic], 'error' => []], 200);
     }

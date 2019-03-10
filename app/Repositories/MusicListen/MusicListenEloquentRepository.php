@@ -73,6 +73,14 @@ class MusicListenEloquentRepository extends EloquentRepository implements MusicL
             ->orderBy('csn_music.music_downloads_today', 'desc')
             ->orderBy('csn_music.music_downloads_this_week', 'desc')
             ->select($this->_selectMusic)
+            ->whereNotIn('music_id', function($query) {
+                $query->select('music_id')
+                    ->from('csn_music_exception');
+            })
+            ->whereNotIn('music_artist_id', function($query) {
+                $query->select('artist_id')
+                    ->from('csn_artist_exception');
+            })
             ->limit(20)
             ->get();
         return $result;
@@ -84,6 +92,14 @@ class MusicListenEloquentRepository extends EloquentRepository implements MusicL
 //            ->orderBy('csn_video.music_downloads_today', 'desc')
 //            ->orderBy('csn_video.music_downloads_this_week', 'desc')
             ->select($this->_selectVideo)
+            ->whereNotIn('music_id', function($query) {
+                $query->select('music_id')
+                    ->from('csn_video_exception');
+            })
+            ->whereNotIn('music_artist_id', function($query) {
+                $query->select('artist_id')
+                    ->from('csn_artist_exception');
+            })
             ->limit(20)
             ->get();
         return $result;

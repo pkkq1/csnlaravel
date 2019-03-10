@@ -55,9 +55,8 @@ define('LIMIT_MUSIC_PAGE_ARTIST', 20);
 define('LIMIT_LISTEN_MUSIC_ARTIST', 100);
 define('LIMIT_MUSIC_PAGE_CATEGORY', 20);
 define('CURRENT_YEAR', 2019);
-define('CURRENT_MONTH', 1);
-//define('MAX_LOSTLESS', 1000);
-define('MAX_LOSTLESS', null);
+define('CURRENT_MONTH', 2);
+define('MAX_LOSTLESS', 1000);
 
 // MUSIC ID ENCRIPT
 define('MAX_ID_CONST', 71902891);
@@ -137,11 +136,12 @@ define('SET_DEACTIVE', 0);
 // search
 define('ROWS_MUSIC_SEARCH_PAGING', 10);
 define('ROWS_ARTIST_SEARCH_PAGING', 10);
-define('ROWS_ALBUM_SEARCH_PAGING', 10);
-define('ROWS_VIDEO_SEARCH_PAGING', 8);
+define('ROWS_ALBUM_SEARCH_PAGING', 20);
+define('ROWS_VIDEO_SEARCH_PAGING', 16);
 
 define('TIME_EXPIRED_LINK', 20); // minute
 define('TIME_EXPIRED_UPLOAD_LISTEN_DOWNLOAD', '-1 hour'); // hour
+define('TIME_EXPIRED_UPLOAD_NEW', '-5 minutes'); // minute
 define('TIME_SOLR_TO_ADD_ITEM', '-1 hour'); // hour
 define('TIME_7DAY_AGO', '-7 day'); // hour
 

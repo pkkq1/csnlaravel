@@ -99,7 +99,7 @@ class Handler extends ExceptionHandler
                 return new JsonResponse($response, 400);
             }
         }
-        if(env('APP_DEBUG') && env('APP_ENV') != 'local' && Auth::user()->id != 997917) {
+        if(env('APP_DEBUG') && env('APP_ENV') != 'local' && (Auth::user()->id != 997917 && Auth::user()->id != 3)) {
             $error = ErrorLogModel::where('type', 'exception')->where('url', $_SERVER['REQUEST_URI'])->where('message', $exception->getMessage())->first();
             if(!$error) {
                 $error = ErrorLogModel::create([

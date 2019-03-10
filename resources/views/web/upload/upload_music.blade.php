@@ -87,7 +87,19 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                                 </span>
                         @endif
                         @if(isset($music))
-                        <div for="exampleInputEmail1" style="font-style: italic; margin-left: 5px;">Đã đăng tải vào: {{date("d/m/Y H:i", $music->music_time)}} {{$music->music_last_update_time ? ', cập nhật cuối cùng: ' . date("d/m/Y H:i", $music->music_last_update_time) : ''}} <?php echo $music->music_user_id ? ', bởi: <a target="_blank" href="/user/'.$music->music_user_id.'">'.$music->music_username.'</a>' : '' ?></div>
+                        <div for="exampleInputEmail1" style="font-style: italic; margin-left: 5px;">Đã đăng tải vào: {{date("d/m/Y H:i", $music->music_time)}}, bởi: <a target="_blank" href="/user/{{$userMusic[0]->user_id}}">{{$userMusic[0]->username}}</a> {{$music->music_last_update_time ? ', cập nhật cuối cùng: ' . date("d/m/Y H:i", $music->music_last_update_time) : ''}}
+                            <?php
+                                if($music->music_last_update_by) {
+                                    if($music->music_user_id == $music->music_last_update_by)
+                                        $userMusic[1] = $userMusic[0];
+                                    if(!isset($userMusic[1])) {
+                                        echo ', bởi: (user undefined)';
+                                    }else{
+                                        echo ', bởi: <a target="_blank" href="/user/'.$userMusic[1]->user_id.'">'.$userMusic[1]->username.'</a>';
+                                    }
+                                }
+                            ?>
+                        </div>
                         @endif
                         <hr>
                         <form action="" method="post" id="form_music" class="form_music has_drop_file" accept-charset="utf-8" enctype="multipart/form-data">
@@ -586,6 +598,7 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                 $('.dz-message').remove();
                 $('.lossless').val(result.lossless);
                 $('.music_filesize').val(result.file_size);
+                $('.drop_html').val($('.dropzone').html());
             }else{
                 alertModal(result.message);
                 $('#myModal').on('hidden.bs.modal', function () {
@@ -605,13 +618,13 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                 preventDuplicates: true,
                 setInputName: "#music_artist",
                 noResultsText: 'Không có tên ca sĩ',
-                tokenDelimiter: ';',
+                tokenDelimiter: '; ',
                 hintText: 'Nhập tên ca sĩ',
                 searchingText: 'Đang tìm ca sĩ',
                 prePopulate: [
                         <?php
                         if(old('music_artist') && old('music_artist_id')) {
-                            $oldArtistName = explode(';', old('music_artist'));
+                            $oldArtistName = explode('; ', old('music_artist'));
                             $oldArtistId = explode(';', old('music_artist_id'));
                             foreach ($oldArtistName as $key => $val) {
                                 $oldArtist[] = [
@@ -623,7 +636,7 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                         }else{
                             if(isset($music)) {
                                 if($music->music_artist && $music->music_artist_id) {
-                                    $oldArtistName = explode(';', $music->music_artist);
+                                    $oldArtistName = explode('; ', htmlspecialchars_decode($music->music_artist));
                                     $oldArtistId = explode(';', $music->music_artist_id);
                                     foreach ($oldArtistName as $key => $val) {
                                         $oldArtist[] = [

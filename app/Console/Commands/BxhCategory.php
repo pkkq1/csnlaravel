@@ -7,6 +7,7 @@ use App\Http\Controllers\Sync\BxhCategoryController;
 use App\Repositories\Music\MusicEloquentRepository;
 use App\Repositories\Category\CategoryEloquentRepository;
 use App\Repositories\MusicListen\MusicListenEloquentRepository;
+use App\Repositories\ArtistException\ArtistExceptionRepository;
 
 class BxhCategory extends Command
 {
@@ -32,12 +33,14 @@ class BxhCategory extends Command
     protected $musicRepository;
     protected $categoryRepository;
     protected $musicListenRepository;
+    protected $artistExpRepository;
 
-    public function __construct(MusicEloquentRepository $musicRepository, CategoryEloquentRepository $categoryRepository, MusicListenEloquentRepository $musicListenRepository)
+    public function __construct(MusicEloquentRepository $musicRepository, CategoryEloquentRepository $categoryRepository, MusicListenEloquentRepository $musicListenRepository, ArtistExceptionRepository $artistExpRepository)
     {
         $this->musicRepository = $musicRepository;
         $this->categoryRepository = $categoryRepository;
         $this->musicListenRepository = $musicListenRepository;
+        $this->artistExpRepository = $artistExpRepository;
         parent::__construct();
     }
 
@@ -48,7 +51,7 @@ class BxhCategory extends Command
      */
     public function handle()
     {
-        $bxh = new BxhCategoryController($this->musicRepository, $this->categoryRepository, $this->musicListenRepository);
+        $bxh = new BxhCategoryController($this->musicRepository, $this->categoryRepository, $this->musicListenRepository, $this->artistExpRepository);
         if($this->argument('type') == 'cat') {
             if($this->argument('month') == 'today') {
                 // run sync category today
