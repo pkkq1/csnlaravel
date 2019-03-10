@@ -36,4 +36,17 @@ class ResetPasswordController extends Controller
     {
         $this->middleware('guest');
     }
+
+    protected function resetPassword($user, $password)
+    {
+        $user->password = md5($password);
+
+        $user->setRememberToken(Str::random(60));
+
+        $user->save();
+
+        event(new PasswordReset($user));
+
+        $this->guard()->login($user);
+    }
 }
