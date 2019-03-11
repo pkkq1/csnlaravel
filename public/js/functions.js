@@ -89,9 +89,9 @@ function alertModal(content = 'Lỗi, không thực hiện được.') {
 function confirmModal(content = 'Lỗi, không thực hiện được.', title = '', modal_size = 'modal-lg') {
     if(!content)
         content = 'Lỗi, không thực hiện được';
-    $("#myConfirmModal .modal-title").addClass('hidden');
+    $("#myConfirmModal .modal-header").addClass('hidden');
     if(title) {
-        $("#myConfirmModal .modal-title").removeClass('hidden');
+        $("#myConfirmModal .modal-header").removeClass('hidden');
         $("#myConfirmModal .modal-title").html(title);
     }
     $("#myConfirmModal .modal-dialog").removeClass('modal-lg').addClass(modal_size);
