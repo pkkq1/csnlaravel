@@ -717,7 +717,7 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                 document.getElementById('cat_level').options[1]=new Option("Nhạc rap, hiphop", "2", false, false);
                 document.getElementById('cat_level').options[2]=new Option("Nhạc dance, remix", "3", false, false);
             }
-            cat_sublevel_reload(cat_id);
+            cat_sublevel_reload(1);
         }
 
         function cat_sublevel_reload(cat_level)
