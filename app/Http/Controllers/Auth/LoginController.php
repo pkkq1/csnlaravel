@@ -50,11 +50,11 @@ class LoginController extends Controller
         if(!filter_var($request->get($this->username()), FILTER_VALIDATE_EMAIL)) {
             $credentials = [
                 'username' => $request->email,
-                'password' => md5($request->password)
-//              'password' => $request->password,
+                'password' => $request->password,
 
             ];
         }
+        $credentials['password'] = bcrypt($request->password);
 //        if(Auth::once($credentials)) {
 //            $user = Auth::getUser();
 //            if($user->user_active == 0 || $user->user_active == 1) {

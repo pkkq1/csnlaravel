@@ -197,6 +197,19 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
         }
         $select = ['music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'music_listen', 'music_bitrate', 'music_filename', 'music_width', 'music_height', 'music_length']; //, 'music_shortlyric'
         $artistIds = explode(';', $music->music_artist_id);
+        $artistName = explode(';', htmlspecialchars($music->music_artist, ENT_QUOTES));
+        $artistNameRel = [];
+        if($artistIds) {
+            foreach ($artistIds as $key => $item) {
+                if($item == -1) {
+                    unset($artistIds[$key]);
+                    $artistNameRel[] = $artistName[$key];
+                }
+            }
+        }else{
+            $artistNameRel = $artistName;
+        }
+
 
 
         // nhạc cùng ca sĩ
@@ -232,15 +245,21 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
 //        }
 
         $searchSolarium = [];
+        $searchSolariumVideo = [];
         $searchSolarium['-id'] = 'music_'.$music->music_id. ' AND '.$type.'_id :['.ID_OLD_MUSIC.' TO *]';
-        $searchSolarium['music_artist_id'] = '('.implode(' OR ', $artistIds).')';
+        if($artistIds) {
+            $searchSolarium['music_artist_id'] = '('.implode(' OR ', $artistIds).')';
+            $searchSolariumVideo['video_artist_id'] = $searchSolarium['music_artist_id'];
+        }
+        if($artistNameRel) {
+            $searchSolarium['music_artist'] = '('.implode(' OR ', $artistNameRel).')';
+            $searchSolariumVideo['video_artist'] = $searchSolarium['music_artist'];
+        }
         $MusicSameArtist= $this->Solr->search($searchSolarium, 1, 5, array('score' => 'desc', 'music_downloads_today' => 'desc', 'music_downloads_this_week' => 'desc', 'music_download' => 'desc'));
         $MusicSameArtist = $MusicSameArtist['data'];
 
-        $searchSolarium = [];
-        $searchSolarium['-id'] = 'video_'.$music->music_id. ' AND video_id :['.ID_OLD_MUSIC.' TO *]';
-        $searchSolarium['video_artist_id'] = '('.implode(' OR ', $artistIds).')';
-        $VideoSameArtist= $this->Solr->search($searchSolarium, 1, 5, array('score' => 'desc', 'video_downloads_today' => 'desc', 'video_downloads_this_week' => 'desc', 'video_download' => 'desc'));
+        $searchSolariumVideo['-id'] = 'video_'.$music->music_id. ' AND video_id :['.ID_OLD_MUSIC.' TO *]';
+        $VideoSameArtist= $this->Solr->search($searchSolariumVideo, 1, 5, array('score' => 'desc', 'video_downloads_today' => 'desc', 'video_downloads_this_week' => 'desc', 'video_download' => 'desc'));
         $VideoSameArtist = $VideoSameArtist['data'];
 //        // video cùng ca sĩ
 //        $VideoSameArtist = \App\Models\VideoSuggestModel::where(function($q) use ($artistIds) {

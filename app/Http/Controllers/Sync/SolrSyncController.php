@@ -61,9 +61,8 @@ class SolrSyncController extends Controller
         }else{
             $searchMusic = MusicModel::select('music_id', 'music_composer', 'music_title', 'music_artist', 'music_downloads_this_week',
                 'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_downloads_this_week', 'music_lyric', 'music_title_url')
-                ->where('cat_id', '!=', CAT_VIDEO)
-                ->where('music_deleted', '<', 1)
-                ->where('music_id', '>', intval($_GET['m_start']))
+                ->where([['cat_id', '!=', CAT_VIDEO], ['music_deleted', '<', 1], ['music_id', '>', intval($_GET['m_start'])], ['music_id', '<', 1387001]])
+                ->orwhere([['cat_id', '!=', CAT_VIDEO], ['music_deleted', '<', 1], ['music_id', '>', intval($_GET['m_start'])], ['music_id', '>', 1419000]])
 //                ->whereIn('music_id', [1980711])
                 ->offset(0)
                 ->limit(5000)
@@ -128,7 +127,7 @@ class SolrSyncController extends Controller
             //$this->Solr->addDocuments($data);
             //$this->Solr->solrDeleteById($data['id']);
 
-            if(Auth::check() && Auth::user()->id == 3) {
+            if(Auth::check() && (Auth::user()->id == 3 || Auth::user()->id == 997917)) {
                 if ( strpos($_SERVER['REQUEST_URI'], 'sync/solr_') !== false ){
                     echo ($key) . '/ ' . $item->music_id . "\n <br>";
                 }
@@ -137,7 +136,7 @@ class SolrSyncController extends Controller
         $this->Solr->addMultiDocuments($datas);
         //$this->Solr->solrMultiDeleteById($datas);
 
-        if(Auth::check() && Auth::user()->id == 3) {
+        if(Auth::check() && (Auth::user()->id == 3 || Auth::user()->id == 997917)) {
             if ( strpos($_SERVER['REQUEST_URI'], 'sync/solr_') !== false) {
                 if (sizeof($searchMusic) > 0) {
                     die('<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html><head><script type="text/javascript">window.location = "?m_start=' . $item->music_id . '"; </script></head><body></body></html>');
@@ -198,12 +197,12 @@ class SolrSyncController extends Controller
             $datas[] = $data['id'];
             //$this->Solr->addDocuments($data);
             //$this->Solr->solrDeleteById($data['id']);
-            if(Auth::check() && Auth::user()->id == 3)
+            if(Auth::check() && (Auth::user()->id == 3 || Auth::user()->id == 997917))
                 echo ($key) . '/ ' . $item->music_id . "\n <br>";
         }
         //$this->Solr->addMultiDocuments($datas);
         $this->Solr->solrMultiDeleteById($datas);
-        if(Auth::check() && Auth::user()->id == 3) {
+        if(Auth::check() && (Auth::user()->id == 3 || Auth::user()->id == 997917)) {
             if ( strpos($_SERVER['REQUEST_URI'], 'sync/solr_') !== false) {
                 if (sizeof($searchMusic) > 0) {
                     die('<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html><head><script type="text/javascript">window.location = "?m_start=' . $item->music_id . '"; </script></head><body></body></html>');
@@ -240,10 +239,8 @@ class SolrSyncController extends Controller
         }else {
             $searchVideo = VideoModel::select('music_id', 'music_title_search', 'music_artist_search', 'music_composer', 'music_album_search', 'music_title', 'music_artist', 'music_downloads_this_week',
                 'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_title_url', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_width', 'music_height', 'music_last_update_time', 'music_length', 'music_time')
-                ->where('cat_id', '=', CAT_VIDEO)
-//                ->where('music_id', '=', 1988018)
-                ->where('music_deleted', '<', 1)
-                ->where('music_id', '>', intval($_GET['v_start']))
+                ->where([['cat_id', '=', CAT_VIDEO], ['music_deleted', '<', 1], ['music_id', '>', intval($_GET['v_start'])], ['music_id', '<', 1387001]])
+                ->orwhere([['cat_id', '=', CAT_VIDEO], ['music_deleted', '<', 1], ['music_id', '>', intval($_GET['v_start'])], ['music_id', '>', 1419000]])
 //                ->whereIn('music_id', [1603231,1602966,1603110])
                 ->offset(0)
                 ->limit(5000)
@@ -299,7 +296,7 @@ class SolrSyncController extends Controller
             $datas[] = $data;
 //            $this->Solr->addDocuments($data);
 
-            if (Auth::check() && Auth::user()->id == 3) {
+            if (Auth::check() && (Auth::user()->id == 3 || Auth::user()->id == 997917)) {
                 if (strpos($_SERVER['REQUEST_URI'], 'sync/solr_') !== false) {
                     echo ($key) . '/ ' . $item->music_id . "\n <br>";
                 }
@@ -307,7 +304,7 @@ class SolrSyncController extends Controller
         }
         $this->Solr->addMultiDocuments($datas);
 
-        if (Auth::check() && Auth::user()->id == 3) {
+        if (Auth::check() && (Auth::user()->id == 3 || Auth::user()->id == 997917)) {
             if (strpos($_SERVER['REQUEST_URI'], 'sync/solr_') !== false) {
                 if (sizeof($searchVideo) > 0) {
                     die('<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html><head><script type="text/javascript">window.location = "?v_start=' . $item->music_id . '"; </script></head><body></body></html>');
@@ -365,7 +362,7 @@ class SolrSyncController extends Controller
             $datas[] = $data['id'];
             //$this->Solr->addDocuments($data);
             //$this->Solr->solrDeleteById($data['id']);
-            if (Auth::check() && Auth::user()->id == 3) {
+            if (Auth::check() && (Auth::user()->id == 3 || Auth::user()->id == 997917)) {
                 if (strpos($_SERVER['REQUEST_URI'], 'sync/solr_') !== false) {
                     echo ($key) . '/ ' . $item->music_id . "\n <br>";
                 }
@@ -373,7 +370,7 @@ class SolrSyncController extends Controller
         }
         //$this->Solr->addMultiDocuments($datas);
         $this->Solr->solrMultiDeleteById($datas);
-        if (Auth::check() && Auth::user()->id == 3) {
+        if (Auth::check() && (Auth::user()->id == 3 || Auth::user()->id == 997917)) {
             if (strpos($_SERVER['REQUEST_URI'], 'sync/solr_') !== false) {
                 if (sizeof($searchVideo) > 0) {
                     die('<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html><head><script type="text/javascript">window.location = "?v_start=' . $item->music_id . '"; </script></head><body></body></html>');
@@ -396,7 +393,7 @@ class SolrSyncController extends Controller
         }elseif($time){
             $artist = ArtistModel::where('music_last_update_time', '>',  $time)->get();
         }else {
-            $artist = ArtistModel::where('music_total', '>', 0)->offset(0)->limit(130000)->get();
+            $artist = ArtistModel::where('music_total', '>', 0)->orwhere('artist_avatar', '!=', '')->where('artist_cover', '!=', '')->offset(0)->limit(130000)->get();
         }
         DB::disconnect('mysql');
         $datas = [];
@@ -417,7 +414,7 @@ class SolrSyncController extends Controller
             $datas[] = $data;
 //            $this->Solr->addDocuments($data);
 
-            if(Auth::check() && Auth::user()->id == 3) {
+            if(Auth::check() && (Auth::user()->id == 3 || Auth::user()->id == 997917)) {
                 if (strpos($_SERVER['REQUEST_URI'], 'sync/solr_') !== false) {
                     echo ($key) . '/ ' . $item->artist_id . "\n <br>";
                 }
@@ -505,7 +502,7 @@ class SolrSyncController extends Controller
             }
             $datas[] = $data;
 //            $this->Solr->addDocuments($data);
-            if(Auth::check() && Auth::user()->id == 3) {
+            if(Auth::check() && (Auth::user()->id == 3 || Auth::user()->id == 997917)) {
                 if (strpos($_SERVER['REQUEST_URI'], 'sync/solr_') !== false) {
                     echo ($key) . '/ ' . $item->cover_id . "\n <br>";
                 }
@@ -513,7 +510,7 @@ class SolrSyncController extends Controller
         }
         $this->Solr->addMultiDocuments($datas);
 
-        if (Auth::check() && Auth::user()->id == 3) {
+        if (Auth::check() && (Auth::user()->id == 3 || Auth::user()->id == 997917)) {
             if (strpos($_SERVER['REQUEST_URI'], 'sync/solr_') !== false) {
                 if (sizeof($cover) > 0) {
                     die('<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html><head><script type="text/javascript">window.location = "?c_start=' . $item->cover_id . '"; </script></head><body></body></html>');
