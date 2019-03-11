@@ -206,7 +206,7 @@ use App\Library\Helpers;
                 prePopulate: [
                     <?php
                     if($fields['playlist_artist_id']['value']) {
-                        echo '{id: ' . $fields['playlist_artist_id']['value'] . ', name: "' . $fields['playlist_artist_name']['value'] . '"},';
+                        echo '{id: ' . $fields['playlist_artist_id']['value'] . ', name: "' .  str_replace('"', '\"', htmlspecialchars_decode($fields['playlist_artist_name']['value'], ENT_QUOTES)) . '"},';
                     }
                     ?>
                 ],

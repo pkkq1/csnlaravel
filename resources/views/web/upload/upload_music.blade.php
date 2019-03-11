@@ -631,7 +631,7 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                                     'id' => $oldArtistId[$key],
                                     'name' => $val
                                 ];
-                                echo '{id: ' . $oldArtistId[$key] . ', name: "' . $val . '"},';
+                                echo '{id: ' . $oldArtistId[$key] . ', name: "' . str_replace('"', '\"', $val) . '"},';
                             }
                         }else{
                             if(isset($music)) {
