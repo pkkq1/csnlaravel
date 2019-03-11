@@ -211,7 +211,7 @@ class MusicController extends CrudController
         // get entry ID from Request (makes sure its the last ID for nested resources)
         $id = $this->crud->getCurrentEntryId() ?? $id;
         $music = $this->musicRepository->getModel()::where('music_id', $id)->first();
-        $this->deleteMusicRepository->getModel()::create($music->toArray());
+        $this->deleteMusicRepository->create($music->toArray());
         return $this->crud->delete($id);
     }
 }

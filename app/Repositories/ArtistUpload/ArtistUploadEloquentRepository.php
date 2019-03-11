@@ -43,11 +43,11 @@ class ArtistUploadEloquentRepository extends EloquentRepository implements Artis
      * Create
      * @return mixed
      */
-    public function create(array $attributes)
+    public function createArtist(array $attributes)
     {
         $attributes['last_update_time'] = strtotime(date('Y/m/d H:i:s'));
         $attributes['last_edit_time'] = strtotime(date('Y/m/d H:i:s'));
-        $result = $this->_model::firstOrCreate($attributes);
+        $result = $this->create($attributes);
         return $result;
     }
 

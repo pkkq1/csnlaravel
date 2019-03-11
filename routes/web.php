@@ -200,10 +200,10 @@ Route::group(['middlewareGroups' => ['web']], function () {
             });
             // Music
             Route::prefix('music')->group(function () {
-                Route::get('store_lyric', ['as' => 'music.get_lyric', 'uses' => 'MusicController@storeLyric']);
-                Route::get('store_karaoke', ['as' => 'music.get_karaoke', 'uses' => 'MusicController@storeKaraoke']);
-                Route::post('store_lyric', ['as' => 'music.get_lyric', 'uses' => 'MusicController@storeLyric']);
-                Route::post('store_karaoke', ['as' => 'music.get_karaoke', 'uses' => 'MusicController@storeKaraoke']);
+                Route::get('suggestion_lyric', ['as' => 'music.get_lyric', 'uses' => 'MusicController@suggestionLyric']);
+                Route::post('suggestion_lyric', ['as' => 'music.get_lyric', 'uses' => 'MusicController@suggestionLyric']);
+                Route::get('suggestion_karaoke', ['as' => 'music.get_karaoke', 'uses' => 'MusicController@suggestionKaraoke']);
+                Route::post('suggestion_karaoke', ['as' => 'music.sugg_karaoke', 'uses' => 'MusicController@suggestionKaraoke']);
             });
 
         });

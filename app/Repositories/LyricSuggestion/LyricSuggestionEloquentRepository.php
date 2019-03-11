@@ -1,9 +1,9 @@
 <?php
-namespace App\Repositories\KaraokeSuggestion;
+namespace App\Repositories\LyricSuggestion;
 
 use App\Repositories\EloquentRepository;
 use DB;
-class KaraokeSuggestionEloquentRepository extends EloquentRepository implements KaraokeSuggestionRepositoryInterface
+class LyricSuggestionEloquentRepository extends EloquentRepository implements LyricSuggestionRepositoryInterface
 {
     /**
      * get model
@@ -11,7 +11,7 @@ class KaraokeSuggestionEloquentRepository extends EloquentRepository implements 
      */
     public function getModel()
     {
-        return \App\Models\KaraokeSuggestionModel::class;
+        return \App\Models\LyricSuggestionModel::class;
     }
     /**
      * Get all posts only published

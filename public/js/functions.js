@@ -86,9 +86,14 @@ function alertModal(content = 'Lỗi, không thực hiện được.') {
     $("#myModal").modal();
 
 }
-function confirmModal(content = 'Lỗi, không thực hiện được.', modal_size = 'modal-lg') {
+function confirmModal(content = 'Lỗi, không thực hiện được.', title = '', modal_size = 'modal-lg') {
     if(!content)
         content = 'Lỗi, không thực hiện được';
+    $("#myConfirmModal .modal-title").addClass('hidden');
+    if(title) {
+        $("#myConfirmModal .modal-title").removeClass('hidden');
+        $("#myConfirmModal .modal-title").html(title);
+    }
     $("#myConfirmModal .modal-dialog").removeClass('modal-lg').addClass(modal_size);
     $("#myConfirmModal .modal-body").html('<div class="modal_content_csn">' + content + '</div>');
     $("#myConfirmModal").modal();

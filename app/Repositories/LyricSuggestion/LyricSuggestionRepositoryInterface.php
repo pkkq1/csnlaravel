@@ -1,7 +1,7 @@
 <?php
-namespace App\Repositories\KaraokeSuggestion;
+namespace App\Repositories\LyricSuggestion;
 
-interface KaraokeSuggestionRepositoryInterface
+interface LyricSuggestionRepositoryInterface
 {
     /**
      * Get all posts only published

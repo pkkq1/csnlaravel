@@ -81,23 +81,14 @@ class CommentController extends CrudController
         ]);
         $this->crud->addColumn([
             'label' => 'Bài hát/Video',
-            'type' => 'closure',
+            'type' => 'select',
             'name' => 'music_id',
             'entity' => 'music',
             'attribute' => 'music_title',
             'model' => "App\Models\MusicModel",
-            'function' => function($entry) {
-                $music = $entry->music()->first();
-                if($music) {
-                    return '<a target="_blank" href="'.Helpers::listen_url($music->toArray()).'" >'.$music->music_title.'</a>';
-                }else{
-                    $music = $entry->video()->first();
-                    if($music)
-                        return '<a target="_blank" href="'.Helpers::listen_url($music->toArray()).'" >'.$music->music_title.'</a>';
-                    return '-';
-                }
-            },
         ]);
+
+
 //        $this->crud->addColumn([
 //            'label' => 'Bài hát',
 //            'type' => 'select',

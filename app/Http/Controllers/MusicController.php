@@ -24,9 +24,11 @@ use App\Repositories\Artist\ArtistRepository;
 use App\Repositories\SearchResult\SearchResultEloquentRepository;
 use App\Repositories\MusicFavourite\MusicFavouriteRepository;
 use App\Repositories\VideoFavourite\VideoFavouriteRepository;
+use App\Repositories\KaraokeSuggestion\KaraokeSuggestionEloquentRepository;
 use Illuminate\Support\Facades\Auth;
 use App\Models\PlaylistMusicModel;
 use App\Repositories\Karaoke\KaraokeEloquentRepository;
+use App\Repositories\LyricSuggestion\LyricSuggestionEloquentRepository;
 use DB;
 
 class MusicController extends Controller
@@ -51,11 +53,14 @@ class MusicController extends Controller
     protected $videoFavouriteRepository;
     protected $karaokeRepository;
     protected $searchResultRepository;
+    protected $karaokeSuggestionRepository;
+    protected $lyricSuggestionRepository;
 
     public function __construct(MusicEloquentRepository $musicRepository, PlaylistEloquentRepository $playlistRepository, MusicListenEloquentRepository $musicListenRepository,
                                 CategoryEloquentRepository $categoryListenRepository, CoverEloquentRepository $coverRepository, VideoEloquentRepository $videoRepository, ArtistRepository $artistRepository,
                                 MusicFavouriteRepository $musicFavouriteRepository, VideoFavouriteRepository $videoFavouriteRepository, MusicDownloadEloquentRepository $musicDownloadRepository, KaraokeEloquentRepository $karaokeRepository,
-                                VideoListenEloquentRepository $videoListenRepository, VideoDownloadEloquentRepository $videoDownloadRepository, PlaylistPublisherEloquentRepository $playlistPublisherRepository, SearchResultEloquentRepository $searchResultRepository)
+                                VideoListenEloquentRepository $videoListenRepository, VideoDownloadEloquentRepository $videoDownloadRepository, PlaylistPublisherEloquentRepository $playlistPublisherRepository, SearchResultEloquentRepository $searchResultRepository,
+                                KaraokeSuggestionEloquentRepository $karaokeSuggestionRepository, LyricSuggestionEloquentRepository $lyricSuggestionRepository)
     {
         $this->musicRepository = $musicRepository;
         $this->videoRepository = $videoRepository;
@@ -70,7 +75,8 @@ class MusicController extends Controller
         $this->artistRepository = $artistRepository;
         $this->musicFavouriteRepository = $musicFavouriteRepository;
         $this->videoFavouriteRepository = $videoFavouriteRepository;
-
+        $this->karaokeSuggestionRepository = $karaokeSuggestionRepository;
+        $this->lyricSuggestionRepository = $lyricSuggestionRepository;
         $this->karaokeRepository = $karaokeRepository;
         $this->searchResultRepository = $searchResultRepository;
     }
@@ -169,7 +175,7 @@ class MusicController extends Controller
             if(($playlist->music)) {
                 $playlistMusic = $playlist->music->toArray();
             }
-            $playlist->playlist_cover = $playlist->playlist_cover ? Helpers::file_path($playlist->playlist_id, env('DATA_URL').MUSIC_PLAYLIST_PATH, true).$playlist->playlist_id . '.png' : env('APP_URL').'/imgs/no_cover.jpg';
+            $playlist->playlist_cover = $playlist->playlist_cover ? Helpers::file_path($playlist->playlist_id, env('DATA_URL').MUSIC_PLAYLIST_PATH, true).$playlist->playlist_id . '.jpg' : env('APP_URL').'/imgs/no_cover.jpg';
         }elseif($arrUrl['type'] == 'playlist_publisher'){
             $playlist = $this->playlistPublisherRepository->getMusicByPlaylistId($arrUrl['id']);
             if(!$playlist)
@@ -178,7 +184,7 @@ class MusicController extends Controller
             if(($playlist->music)) {
                 $playlistMusic = $playlist->music->toArray();
             }
-            $playlist->playlist_cover = $playlist->playlist_cover ? env('APP_URL').Helpers::file_path($playlist->playlist_id, env('DATA_URL').MUSIC_PLAYLIST_PATH, true).$playlist->playlist_id . '.png' : env('APP_URL').'/imgs/no_cover.jpg';
+            $playlist->playlist_cover = $playlist->playlist_cover ? env('APP_URL').Helpers::file_path($playlist->playlist_id, env('DATA_URL').MUSIC_PLAYLIST_PATH, true).$playlist->playlist_id . '.jpg' : env('APP_URL').'/imgs/no_cover.jpg';
         }elseif($arrUrl['type'] == 'nghe-bat-hat-ca-si'){
             $arrUrl = Helpers::splitArtistUrl($musicUrl);
             $artist = $this->artistRepository->find($arrUrl['id']);
@@ -402,7 +408,7 @@ class MusicController extends Controller
             $getModelFavourite->getModel()::where([['user_id', Auth::user()->id], ['music_id', $request->music_id]])->delete();
         }else{
             $msg = 'Đã thêm '.$typeMes.' '.$request->name.' vào danh sách yêu thích.';
-            $getModelFavourite->getModel()::create(['user_id' => Auth::user()->id, 'music_id' => $request->music_id]);
+            $getModelFavourite->create(['user_id' => Auth::user()->id, 'music_id' => $request->music_id]);
         }
         Helpers::ajaxResult(true, $msg, $dataRes);
     }
@@ -419,10 +425,8 @@ class MusicController extends Controller
         }
         Helpers::ajaxResult(true, '', null);
     }
-    public function storeLyric(Request $request) {
-        if(!backpack_user()->can('duyet_sua_nhac')){
-            abort(403, 'Lỗi truy cập, tài khoản bạn không có chỉnh sửa lyric.');
-        }
+    public function suggestionLyric(Request $request) {
+
         if($request->cat_id == CAT_VIDEO_URL) {
             $music = $this->videoRepository->findOnlyMusicId($request->id);
         }else{
@@ -434,15 +438,35 @@ class MusicController extends Controller
         if($request->submit == 'get') {
             Helpers::ajaxResult(true, '', ['lyric' => $music->music_lyric]);
         }else{
-            $music->music_lyric = htmlspecialchars_decode(trim(stripslashes(($request->lyric))));
-            $music->save();
-            Helpers::ajaxResult(true, 'Sửa lyric thành công', ['lyric' => $music->music_lyric]);
+            if(!$request->lyric) {
+                Helpers::ajaxResult(false, 'vui lòng nhập thông tin lyric', null);
+            }
+            if($request->submit == 'store') {
+                if(!backpack_user()->can('duyet_sua_nhac')){
+                    abort(403, 'Lỗi truy cập, tài khoản bạn không có chỉnh sửa lyric.');
+                }
+                $music->music_lyric = $request->lyric;
+                $music->save();
+                Helpers::ajaxResult(true, 'Sửa lyric thành công', ['lyric' => $music->music_lyric]);
+            }else {
+
+                $this->lyricSuggestionRepository->getModel()::where(['music_id' => $music->music_id, 'user_id' => Auth::user()->id])->delete();
+                $this->lyricSuggestionRepository->create([
+                    'music_id' => $music->music_id,
+                    'music_title' => $music->music_title,
+                    'music_artist' => $music->music_artist,
+                    'music_time' => time(),
+                    'music_length' => $music->music_length,
+                    'music_lyric' => $request->lyric,
+                    'user_id' => Auth::user()->id,
+                ]);
+                Helpers::ajaxResult(true, 'Gửi gợi ý lyric cho bài hát thành công', null);
+            }
+
         }
     }
-    public function storeKaraoke(Request $request) {
-        if(!backpack_user()->can('duyet_sua_karaoke')){
-            abort(403, 'Lỗi truy cập, tài khoản bạn không có chỉnh sửa karaoke.');
-        }
+    public function suggestionKaraoke(Request $request) {
+
         if($request->cat_id == CAT_VIDEO_URL) {
             $music = $this->videoRepository->findOnlyMusicId($request->id);
         }else{
@@ -454,21 +478,45 @@ class MusicController extends Controller
         if($request->submit == 'get') {
             Helpers::ajaxResult(true, '', ['lyric' => $music->musicKara->music_lyric_karaoke ?? '']);
         }else{
-            if(!isset($music->musicKara->music_lyric_karaoke)) {
-                $this->karaokeRepository->getModel()::create([
+            if(!$request->karaoke) {
+                Helpers::ajaxResult(false, 'vui lòng nhập thông tin karaoke', null);
+            }
+            if($request->submit == 'store') {
+                if(!backpack_user()->can('duyet_sua_karaoke')){
+                    abort(403, 'Lỗi truy cập, tài khoản bạn không có chỉnh sửa karaoke.');
+                }
+                if(!isset($music->musicKara->music_lyric_karaoke)) {
+                    $this->karaokeRepository->create([
+                        'music_id' => $music->music_id,
+                        'music_title' => $music->music_title,
+                        'music_artist' => $music->music_artist,
+                        'music_downloads_this_week' => $music->music_downloads_this_week,
+                        'music_time' => time(),
+                        'music_length' => $music->music_length,
+                        'music_lyric_karaoke' => $request->karaoke,
+                    ]);
+                }else{
+                    $music->musicKara->music_lyric_karaoke = $request->karaoke;
+                    $music->musicKara->save();
+                }
+                Helpers::ajaxResult(true, 'Sửa lyric thành công', null);
+            }else{
+                if(!$request->karaoke) {
+                    Helpers::ajaxResult(false, 'vui lòng nhập thông tin karaoke', null);
+                }
+                $this->karaokeSuggestionRepository->getModel()::where(['music_id' => $music->music_id, 'user_id' => Auth::user()->id])->delete();
+                $this->karaokeSuggestionRepository->create([
                     'music_id' => $music->music_id,
                     'music_title' => $music->music_title,
                     'music_artist' => $music->music_artist,
                     'music_downloads_this_week' => $music->music_downloads_this_week,
                     'music_time' => time(),
                     'music_length' => $music->music_length,
-                    'music_lyric_karaoke' => htmlspecialchars_decode(trim(stripslashes(($request->karaoke)))),
+                    'music_lyric_karaoke' => $request->karaoke,
+                    'user_id' => Auth::user()->id,
                 ]);
-            }else{
-                $music->musicKara->music_lyric_karaoke = $request->karaoke;
-                $music->musicKara->save();
+                Helpers::ajaxResult(true, 'Gửi gợi ý karaoke cho bài hát thành công', null);
             }
-            Helpers::ajaxResult(true, 'Sửa lyric thành công', null);
         }
     }
 }

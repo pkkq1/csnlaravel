@@ -44,6 +44,9 @@ class ArtistController extends Controller
         if($request->input('term')) {
             $result = ArtistModel::searchArtist($request->input('term'));
         }
+        foreach ($result as $item) {
+            $item->name = htmlspecialchars_decode($item->name);
+        }
         return response($result);
     }
     public function index(Request $request, $artistUrl) {
@@ -92,10 +95,10 @@ class ArtistController extends Controller
         if($request->type == 'true'){
             $msg = 'Đã bỏ ca sĩ '.$request->name.' ra khỏi danh sách yêu thích.';
             $dataRes = [];
-            $this->artistFavouriteRepository->getModel()::where([['user_id', Auth::user()->id], ['artist_id', $request->artist_id]])->delete();
+            $this->artistFavouriteRepository->where([['user_id', Auth::user()->id], ['artist_id', $request->artist_id]])->delete();
         }else{
             $msg = 'Đã thêm ca sĩ '.$request->name.' vào danh sách yêu thích.';
-            $this->artistFavouriteRepository->getModel()::create(['user_id' => Auth::user()->id, 'artist_id' => $request->artist_id]);
+            $this->artistFavouriteRepository->create(['user_id' => Auth::user()->id, 'artist_id' => $request->artist_id]);
         }
         Helpers::ajaxResult(true, $msg, $dataRes);
     }

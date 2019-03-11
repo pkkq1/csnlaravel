@@ -42,6 +42,7 @@ class VideoEloquentRepository extends EloquentRepository implements VideoReposit
         $result = $this
             ->_model
             ->where('music_id', $id)
+            ->where('music_deleted', '<', 1)
             ->first();
 
         return $result;
@@ -63,6 +64,7 @@ class VideoEloquentRepository extends EloquentRepository implements VideoReposit
         $result = $this
             ->_model
             ->where('music_title_url', $url)
+            ->where('music_deleted', '<', 1)
             ->first();
 
         return $result;
@@ -72,6 +74,7 @@ class VideoEloquentRepository extends EloquentRepository implements VideoReposit
         $result = $this
             ->_model
             ->where('music_id', $id)
+            ->where('music_deleted', '<', 1)
             ->with('musicKara')
             ->first();
         return $result;
@@ -81,6 +84,7 @@ class VideoEloquentRepository extends EloquentRepository implements VideoReposit
         $result = $this
             ->_model
             ->whereIn('music_id', $ids)
+            ->where('music_deleted', '<', 1)
             ->get();
 
         return $result;
@@ -90,6 +94,7 @@ class VideoEloquentRepository extends EloquentRepository implements VideoReposit
         $result = $this
             ->_model
             ->where('music_id', $id)
+            ->where('music_deleted', '<', 1)
             ->Increment($field);
         return $result;
     }
@@ -103,6 +108,7 @@ class VideoEloquentRepository extends EloquentRepository implements VideoReposit
             $arrWhere[] = $year;
         }
         $result = $this->_model::where($arrWhere)
+            ->where('music_deleted', '<', 1)
             ->orderBy($fillOrder, $typeOrder)
             ->paginate($page);
         return $result;
@@ -112,6 +118,7 @@ class VideoEloquentRepository extends EloquentRepository implements VideoReposit
         $result = $this
             ->_model
             ->select('music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'music_album_id', 'music_listen', 'music_bitrate', 'music_filename', 'music_length')
+            ->where('music_deleted', '<', 1)
             ->orderBy($fillOrder, $typeOrder)
             ->paginate($page);
         return $result;
@@ -125,6 +132,7 @@ class VideoEloquentRepository extends EloquentRepository implements VideoReposit
             ->orWhere('music_artist_id', 'like', $artist_id.';%')
             ->orWhere('music_artist_id', 'like', '%;'.$artist_id)
             ->orWhere('music_artist_id', 'like', '%;'.$artist_id.';%')
+            ->where('music_deleted', '<', 1)
             ->orderBy($fillOrder, $typeOrder)
             ->paginate($page);
         return $result;

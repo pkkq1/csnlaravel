@@ -4,10 +4,10 @@
     <a href="#"><i class="fa fa-address-card"></i> <span>Ca Sĩ</span> <i class="fa fa-angle-left pull-right"></i></a>
     <ul class="treeview-menu">
         @if(backpack_user()->can('xet_duyet_ca_si_(list)'))
-        <li><a href="{{env('APP_URL').'/'.config('backpack.base.route_prefix', 'admin')}}/artist_upload"><i class="fa fa-font-awesome"></i> <span>Xét Duyệt Ca Sĩ</span></a></li>
+        <li><a href="{{env('APP_URL').'/'.config('backpack.base.route_prefix', 'admin')}}/artist_upload"><i class="fa fa-arrow-circle-right"></i> <span>Xét Duyệt Ca Sĩ</span></a></li>
         @endif
         @if(backpack_user()->can('danh_sach_ca_si_(list)'))
-        <li><a href="{{env('APP_URL').'/'.config('backpack.base.route_prefix', 'admin')}}/artist"><i class="fa fa-arrow-circle-right"></i> <span>Danh Sách Ca Sĩ</span></a></li>
+        <li><a href="{{env('APP_URL').'/'.config('backpack.base.route_prefix', 'admin')}}/artist"><i class="fa fa-address-book-o"></i> <span>Danh Sách Ca Sĩ</span></a></li>
         @endif
     </ul>
 </li>
@@ -47,7 +47,19 @@
     </ul>
 </li>
 @endif
-
+@if(backpack_user()->can('danh_muc_csn_(list)') || backpack_user()->can('danh_muc_playlist_(list)'))
+    <li class="treeview">
+        <a href="#"><i class="fa fa-info-circle"></i> <span>Gợi ý</span> <i class="fa fa-angle-left pull-right"></i></a>
+        <ul class="treeview-menu">
+            @if(backpack_user()->can('danh_muc_csn_(list)'))
+                <li><a href="{{env('APP_URL').'/'.config('backpack.base.route_prefix', 'admin')}}/lyric"><i class="fa fa-music"></i> <span>Lyric</span></a></li>
+            @endif
+            @if(backpack_user()->can('danh_muc_playlist_(list)'))
+                <li><a href="{{env('APP_URL').'/'.config('backpack.base.route_prefix', 'admin')}}/karaoke"><i class="fa fa-microphone"></i> <span>Karaoke</span></a></li>
+            @endif
+        </ul>
+    </li>
+@endif
 @if(backpack_user()->can('comment_(list)'))
     <li class="treeview">
         <a href="#"><i class="fa fa-comment"></i> <span>Bình luận</span> <i class="fa fa-angle-left pull-right"></i></a>

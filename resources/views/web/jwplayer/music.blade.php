@@ -182,7 +182,7 @@ if($musicSet['type_listen'] == 'playlist') {
                         <div class="tab-content" id="pills-tabContent">
                             <div class="tab-pane show active" id="pills-liric" role="tabpanel"
                                  aria-labelledby="pills-liric-tab">
-                                @if((isset($lyric_array['sub']) && $lyric_array['sub'] != false) || (Auth::check() && backpack_user()->can('duyet_sua_nhac')) || (Auth::check() && backpack_user()->can('duyet_sua_karaoke')))
+                                @if((Auth::check() || isset($lyric_array['sub']) && $lyric_array['sub'] != false) || (Auth::check() && backpack_user()->can('duyet_sua_nhac')) || (Auth::check() && backpack_user()->can('duyet_sua_karaoke')))
                                 <ul class="nav nav-tabs sub_Tab" id="myTab" role="tablist">
                                     <li class="nav-item">
                                         <div class="nav-link form-group form-check mb-0 autoplay"
@@ -200,9 +200,12 @@ if($musicSet['type_listen'] == 'playlist') {
                                             </label>
                                             @endif
                                             @if(Auth::check() && backpack_user()->can('duyet_sua_nhac'))
-                                                <a href="javascript:editLyric();" >Sửa lyric</a>
-                                                <a href="javascript:editKaraoke();" style="margin-left: 10px;">Sửa karaoke</a>
                                                 <a href="/dang-tai/{{$musicSet['type_jw'] !== 'video' ? 'nhac' : 'video'}}/{{$music->music_id}}" style="margin-left: 10px;">Sửa nhạc</a>
+                                                <a href="javascript:sugLyric();" style="margin-left: 10px;">Gợi ý/c.sửa lyric</a>
+                                                <a href="javascript:sugKaraoke();" style="margin-left: 10px;">Gợi ý/c.sửa karaoke</a>
+                                            @else
+                                                <a href="javascript:sugLyric();" style="margin-left: 10px;">Gợi ý lyric</a>
+                                                <a href="javascript:sugKaraoke();" style="margin-left: 10px;">Gợi ý karaoke</a>
                                             @endif
                                         </div>
                                     </li>
@@ -723,6 +726,7 @@ if($musicSet['type_listen'] == 'playlist') {
                 $('#hidden_lyrics').remove();
                 new RabbitLyrics({
                     element: document.getElementById("lyrics"),
+                    jw_player: player,
                     viewMode: 'mini',
                     onUpdateTimeJw: false
                 });
@@ -738,6 +742,7 @@ if($musicSet['type_listen'] == 'playlist') {
         jwplayer().onTime(function () {
             new RabbitLyrics({
                 element: document.getElementById("lyrics"),
+                jw_player: player,
                 viewMode: 'mini',
                 onUpdateTimeJw: true
             });
@@ -961,7 +966,7 @@ if($musicSet['type_listen'] == 'playlist') {
                     }
                 }
                 function openShare() {
-                    confirmModal('Bạn cần phải chia sẻ bài này lên FB thì mới được download! Mỗi lần chia sẻ, sẽ được tải lossless không giới hạn trong 3 ngày', 'modal-mg');
+                    confirmModal('Bạn cần phải chia sẻ bài này lên FB thì mới được download! Mỗi lần chia sẻ, sẽ được tải lossless không giới hạn trong 3 ngày', '','modal-mg');
                     $("#myConfirmModal .btn-ok").one('click', function () {
                         FB.ui({
                                 method: 'share',
@@ -1082,6 +1087,7 @@ if($musicSet['type_listen'] == 'playlist') {
                     if(formId == 0) {
                         if(pageComment == 1) {
                             $('.ul_comments').prepend(response);
+                            clickCommentSeek();
                             $('.ul_comments .reply_comment').first().on('click', function () {
                                 var reply = $('.post_comment_reply_' + $(this).data('comment_id'));
                                 if (!reply.hasClass('reply_show')) {
@@ -1135,8 +1141,17 @@ if($musicSet['type_listen'] == 'playlist') {
                         loadPageComment($(this).attr('href'));
                         pageComment = $(this).html();
                     });
+                    clickCommentSeek();
                 }
             });
+        }
+        function clickCommentSeek() {
+            $('.list_comment').find('.seek-jw').click(function() {
+                $('html, body').animate({
+                    scrollTop: $("#csnplayer").offset().top - 100
+                }, 500);
+                jwplayer().seek($(this).data('postion'));
+            })
         }
         $(window).scroll(function(event){
             var st = $(this).scrollTop();
@@ -1432,69 +1447,277 @@ if($musicSet['type_listen'] == 'playlist') {
                 }
                 <?php
             }
-            if(backpack_user()->can('duyet_sua_nhac')) {
-                ?>
-                    function editLyric() {
-                        $.ajax({
-                            url: '/music/store_lyric',
-                            type: "GET",
-                            dataType: "json",
-                            data: {
-                                'cat_id': '<?php echo $music->cat_id ?>',
-                                'submit': 'get',
-                                'id': '<?php echo $music->music_id ?>',
-                            },
-                            beforeSend: function () {
-                                if(loaded) return false;
-                                loaded = true;
-                            },
-                            success: function(response) {
-                                if(response.success) {
-                                    confirmModal('<textarea style="width: 100%" rows="14" class="modal_lyric">' + response.data.lyric + '</textarea>');
-                                    $("#myConfirmModal .btn-ok").one('click', function () {
-                                        $.ajax({
-                                            url: '/music/store_lyric',
-                                            type: "POST",
-                                            dataType: "json",
-                                            data: {
-                                                'cat_id': '<?php echo $music->cat_id ?>',
-                                                'submit': 'store',
-                                                'id': '<?php echo $music->music_id ?>',
-                                                'lyric': $('#myConfirmModal .modal_lyric').val(),
-                                            },
-                                            beforeSend: function () {
-                                                if(loaded) return false;
-                                                loaded = true;
-                                            },
-                                            success: function(response) {
-                                                if(response.success) {
-                                                    location.reload();
-                                                }else {
-                                                    alertModal(response.message);
-                                                }
-                                            }
-                                        });
+        }
+        ?>
+        /////////////////////////////
+        /// Suggestion Lyric //////
+        /////////////////////////
+        function sugLyric() {
+            $.ajax({
+                url: '/music/suggestion_lyric',
+                type: "GET",
+                dataType: "json",
+                data: {
+                    'cat_id': '<?php echo $music->cat_id ?>',
+                    'submit': 'get',
+                    'id': '<?php echo $music->music_id ?>',
+                },
+                beforeSend: function () {
+                    if(loaded) return false;
+                    loaded = true;
+                },
+                success: function(response) {
+                    if(response.success) {
+                        confirmModal('<textarea style="width: 100%" rows="14" class="modal_lyric">' + response.data.lyric + '</textarea>', 'Gợi ý lyric');
+                        $('#myConfirmModal').find('.btn-ok').html('Gửi gợi ý');
+                        <?php
+                        if(Auth::check() && backpack_user()->can('duyet_sua_nhac')) {
+                        ?>
+                        $('#myConfirmModal').find('.modal-footer').prepend('<button class="btn btn-edit">Sửa Lyric</button>');
+                        <?php
+                        }
+                        ?>
+                        $('#myConfirmModal').on('hidden.bs.modal', function () {
+                            $('#myConfirmModal').find('.btn-ok').html('Đồng ý');
+                            $('#myConfirmModal').find('.btn-edit').remove();
+                        })
+                        $("#myConfirmModal .btn-ok").one('click', function () {
+                            $.ajax({
+                                url: '/music/suggestion_lyric',
+                                type: "POST",
+                                dataType: "json",
+                                data: {
+                                    'cat_id': '<?php echo $music->cat_id ?>',
+                                    'submit': 'suggestion',
+                                    'id': '<?php echo $music->music_id ?>',
+                                    'lyric': $('#myConfirmModal .modal_lyric').val(),
+                                },
+                                beforeSend: function () {
+                                    if(loaded) return false;
+                                    loaded = true;
+                                },
+                                success: function(response) {
+                                    if(data.success) {
                                         $('.modal').find('.close_confirm').click();
-                                    });
-                                }else {
-                                    alertModal(response.message);
+                                        alertModal(response.message);
+                                    }else{
+                                        alertModal(response.message);
+                                    }
                                 }
-                            }
+                            });
+                            $('.modal').find('.close_confirm').click();
                         });
+
+                        <?php
+                        if(Auth::check() && backpack_user()->can('duyet_sua_nhac')) {
+                        ?>
+                        $("#myConfirmModal .btn-edit").one('click', function () {
+                            $.ajax({
+                                url: '/music/suggestion_lyric',
+                                type: "POST",
+                                dataType: "json",
+                                data: {
+                                    'cat_id': '<?php echo $music->cat_id ?>',
+                                    'submit': 'store',
+                                    'id': '<?php echo $music->music_id ?>',
+                                    'lyric': $('#myConfirmModal .modal_lyric').val(),
+                                },
+                                beforeSend: function () {
+                                    if(loaded) return false;
+                                    loaded = true;
+                                },
+                                success: function(response) {
+                                    if(response.success) {
+                                        location.reload();
+                                    }else {
+                                        alertModal(response.message);
+                                    }
+                                }
+                            });
+                            $('.modal').find('.close_confirm').click();
+                        });
+                        <?php
+                        }
+                        ?>
+                    }else {
+                        alertModal(response.message);
                     }
-                <?php
+                }
+            });
+        }
+
+        /////////////////////////////
+        /// Suggestion Karaoke //////
+        /////////////////////////
+        var karaMusic = '';
+        function sugKaraoke() {
+            if(!karaMusic) {
+                $.ajax({
+                    url: '/music/suggestion_karaoke',
+                    type: "GET",
+                    dataType: "json",
+                    data: {
+                        'cat_id': '<?php echo $music->cat_id ?>',
+                        'submit': 'get',
+                        'id': '<?php echo $music->music_id ?>',
+                    },
+                    beforeSend: function () {
+                        if(loaded) return false;
+                        loaded = true;
+                    },
+                    success: function(response) {
+                        if(response.success) {
+                            karaMusic = response.data.lyric;
+                            refreshSugKara(karaMusic);
+                        }else {
+                            alertModal(response.message);
+                        }
+                    }
+                });
+            }else{
+                refreshSugKara(karaMusic);
             }
-            if(backpack_user()->can('duyet_sua_karaoke')) {
+        }
+        function refreshSugKara(content) {
+            if(jwplayer().getState() == 'playing')
+                jwplayer().pause();
+            confirmModal('<textarea style="width: 100%" rows="14" class="modal_kara">' + content + '</textarea><div id="kara_sug_csnplayer"></div>', 'Gợi ý karaoke');
+            $('#myConfirmModal').find('.btn-ok').html('Gửi gợi ý');
+            $('#myConfirmModal').find('.modal-footer').prepend('<button class="btn btn-test">Xem trước</button>');
+            <?php
+                if(Auth::check() && backpack_user()->can('duyet_sua_nhac')) {
+                    ?>
+                        $('#myConfirmModal').find('.modal-footer').prepend('<button class="btn btn-edit">Sửa Karaoke</button>');
+                    <?php
+                }
+            ?>
+            $('#myConfirmModal').on('hidden.bs.modal', function () {
+                $('.btn-test').remove();
+                $('#kara_sug_csnplayer').remove();
+                $('#myConfirmModal').find('.btn-ok').html('Đồng ý');
+            })
+            $('.btn-test').click(function () {
+                karaMusic = $('.modal_kara').val();
+                $('#kara_sug_lyrics').html($('.modal_kara').val());
+                firstLoadLyric = false;
+                // waitingDialog.show();
+                // waitingDialog.hide();
+
+                var kara_sug_player = jwplayer('kara_sug_csnplayer');
+                kara_sug_player.setup({
+                    width: '100%',
+                    height: '88',
+                    repeat: false,
+                    aspectratio: "<?php echo $musicSet['type_jw'] == 'video' ? '16:9' : 'false' ?>",
+                    stretching: 'fill',
+                    sources: [
+                        <?php
+                        $typeJwSource = $musicSet['type_jw'] == 'video' ? 'mp4' : 'mp3';
+                        for ($i=0; $i<sizeof($file_url); $i++){
+                            echo '{"file": "'. $file_url[$i]['url'] .'", "label": "'. $file_url[$i]['label'] .'", "type": "'.$typeJwSource.'", "default": '. (($i==1) ? 'true' : 'false') .'},';
+                        }
+                        ?>
+                    ],
+                    title: "<?php echo $music->music_title ?>",
+                    skin: {
+                        name: 'nhac'
+                    },
+                    timeSliderAbove: true,
+                    autostart: true,
+                    controlbar: "bottom",
+                    plugins: {
+                        '<?php echo $musicSet['type_listen'] == 'single' ? '/js/nhac-csn.js' : '/js/nhac-playlist.js' ?>': {
+                            duration: 20,
+                            msisdn: '',
+                            package_id: 0,
+                            album_id : '0',
+                            content_type: 'song',
+                            utm_source: '',
+                            utm_medium: '',
+                            utm_term: '',
+                            utm_content: '',
+                            utm_campaign: '',
+                            device_id: '',
+                            channel: 'WEB',
+                            url_referer: '',
+                            action_type: 'play_song',
+                            player_type: 'NotDRM',
+                            service_id: 0,
+                            source_rec: 'rand',
+                            listen_state: 'online',
+                            other_info: '',
+                            expired_time: 0,
+                            version: '1.0'
+                        }
+                    },
+                });
+
+                $('#kara_sug_csnplayer').find('.jw-captions').html('<div id="kara_sug_lyrics" class="rabbit-lyrics">' + $('.modal_kara').val() + '</div>');
+                kara_sug_player.onBeforePlay(function() {
+                    new RabbitLyrics({
+                        element: document.getElementById("kara_sug_lyrics"),
+                        jw_player: kara_sug_player,
+                        viewMode: 'mini',
+                        onUpdateTimeJw: false
+                    });
+                    <?php
+                    if($musicSet['type_jw'] != 'video') {
+                    ?>
+                    $('.jw-display-icon-display').css('display', 'none')
+                    <?php
+                    }
+                    ?>
+                });
+                kara_sug_player.onTime(function () {
+                    new RabbitLyrics({
+                        element: document.getElementById("kara_sug_lyrics"),
+                        jw_player: kara_sug_player,
+                        viewMode: 'mini',
+                        onUpdateTimeJw: true
+                    });
+                })
+
+
+            });
+            $('.btn-ok').click(function () {
+                $.ajax({
+                    url: '/music/suggestion_karaoke',
+                    type: "POST",
+                    dataType: "json",
+                    data: {
+                        'karaoke': $('.modal_kara').val(),
+                        'id': '<?php echo $music->music_id ?>',
+                        'submit': 'suggestion',
+                        'cat_id': '<?php echo $music->cat_id ?>',
+                    },
+                    beforeSend: function () {
+                        if(loaded) return false;
+                        loaded = true;
+                    },
+                    success: function(response) {
+                        karaMusic = '';
+                        if(data.success) {
+                            $('.modal').find('.close_confirm').click();
+                            alertModal(response.message);
+                        }else{
+                            alertModal(response.message);
+                        }
+                    }
+                });
+            });
+            <?php
+            if(Auth::check() && backpack_user()->can('duyet_sua_nhac')) {
                 ?>
-                function editKaraoke() {
+                $('.btn-edit').click(function () {
                     $.ajax({
-                        url: '/music/store_karaoke',
-                        type: "GET",
+                        url: '/music/suggestion_karaoke',
+                        type: "POST",
                         dataType: "json",
                         data: {
                             'cat_id': '<?php echo $music->cat_id ?>',
-                            'submit': 'get',
+                            'submit': 'store',
                             'id': '<?php echo $music->music_id ?>',
+                            'karaoke': $('#myConfirmModal .modal_kara').val(),
                         },
                         beforeSend: function () {
                             if(loaded) return false;
@@ -1502,42 +1725,17 @@ if($musicSet['type_listen'] == 'playlist') {
                         },
                         success: function(response) {
                             if(response.success) {
-                                confirmModal('<textarea style="width: 100%" rows="14" class="modal_kara">' + response.data.lyric + '</textarea>');
-                                $("#myConfirmModal .btn-ok").one('click', function () {
-                                    $.ajax({
-                                        url: '/music/store_karaoke',
-                                        type: "POST",
-                                        dataType: "json",
-                                        data: {
-                                            'cat_id': '<?php echo $music->cat_id ?>',
-                                            'submit': 'store',
-                                            'id': '<?php echo $music->music_id ?>',
-                                            'karaoke': $('#myConfirmModal .modal_kara').val(),
-                                        },
-                                        beforeSend: function () {
-                                            if(loaded) return false;
-                                            loaded = true;
-                                        },
-                                        success: function(response) {
-                                            if(response.success) {
-                                                location.reload();
-                                            }else {
-                                                alertModal(response.message);
-                                            }
-                                        }
-                                    });
-                                    $('.modal').find('.close_confirm').click();
-                                });
+                                location.reload();
                             }else {
                                 alertModal(response.message);
                             }
                         }
                     });
-                }
+                });
                 <?php
             }
+            ?>
         }
-        ?>
     </script>
     @if($musicSet['type_jw'] != 'video')
         <style>

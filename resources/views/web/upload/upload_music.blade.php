@@ -618,7 +618,7 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                 preventDuplicates: true,
                 setInputName: "#music_artist",
                 noResultsText: 'Không có tên ca sĩ',
-                tokenDelimiter: '; ',
+                tokenDelimiter: ';',
                 hintText: 'Nhập tên ca sĩ',
                 searchingText: 'Đang tìm ca sĩ',
                 prePopulate: [
@@ -986,7 +986,7 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                 ?>
                 $('.btn-delete-music').click(function (event) {
                     event.preventDefault();
-                    confirmModal('Bạn có chắc chắn muốn xóa nhạc không?', 'modal-sm');
+                    confirmModal('Bạn có chắc chắn muốn xóa nhạc không?', '','modal-sm');
                     $("#myConfirmModal .btn-ok").one('click', function () {
                         $('.delete_music').val(<?php echo $music->music_id ?>);
                         document.getElementById("form_music").submit();

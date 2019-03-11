@@ -198,6 +198,10 @@
     <div class="modal-dialog modal-lg">
         <!-- Modal content-->
         <div class="modal-content">
+            <div class="modal-header">
+                <span class="modal-title span_h5" style="float: left;"></span>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
             <div class="modal-body">
                 <p>Some text in the modal.</p>
             </div>

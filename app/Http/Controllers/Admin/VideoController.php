@@ -152,7 +152,7 @@ class VideoController extends CrudController
         // get entry ID from Request (makes sure its the last ID for nested resources)
         $id = $this->crud->getCurrentEntryId() ?? $id;
         $music = $this->videoRepository->getModel()::where('music_id', $id)->first();
-        $this->deleteVideoRepository->getModel()::create($music->toArray());
+        $this->deleteVideoRepository->create($music->toArray());
         return $this->crud->delete($id);
     }
 }
