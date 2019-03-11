@@ -395,7 +395,7 @@ class SolrSyncController extends Controller
         }elseif($time){
             $artist = ArtistModel::where('music_last_update_time', '>',  $time)->get();
         }else {
-            $artist = ArtistModel::where('music_total', '>', 0)->offset(0)->limit(130000)->get();
+            $artist = ArtistModel::where('music_total', '>', 0)->orwhere('artist_avatar', '!=', '')->where('artist_cover', '!=', '')->offset(0)->limit(130000)->get();
         }
         DB::disconnect('mysql');
         $datas = [];
