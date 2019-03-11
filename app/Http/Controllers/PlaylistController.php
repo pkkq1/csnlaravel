@@ -108,12 +108,12 @@ class PlaylistController extends Controller
         $playlistUser->playlist_music_total = $playlistUser->playlist_music_total + $countUpdate;
         // add and sort artist
         if($request->input('artist')) {
-            $artistNew = explode(';', htmlspecialchars_decode($request->input('artist')));
+            $artistNew = explode(';', htmlspecialchars_decode($request->input('artist'), ENT_QUOTES));
             if(!$request->input('artist_id')) {
-                $artistIdNew = urlencode(htmlspecialchars_decode($request->input('artist')));
+                $artistIdNew = urlencode(htmlspecialchars_decode($request->input('artist'), ENT_QUOTES));
                 $artistIdNew = explode('%3B+', $artistIdNew);
             }else{
-                $artistIdNew = explode(';', htmlspecialchars_decode($request->input('artist_id')));
+                $artistIdNew = explode(';', htmlspecialchars_decode($request->input('artist_id'), ENT_QUOTES));
             }
             $artistOld = [];
             $arrNew = [];

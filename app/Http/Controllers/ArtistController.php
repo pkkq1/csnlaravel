@@ -45,7 +45,7 @@ class ArtistController extends Controller
             $result = ArtistModel::searchArtist($request->input('term'));
         }
         foreach ($result as $item) {
-            $item->name = htmlspecialchars_decode($item->name);
+            $item->name = htmlspecialchars_decode($item->name, ENT_QUOTES);
         }
         return response($result);
     }

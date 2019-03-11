@@ -518,7 +518,7 @@ class UploadController extends Controller
         }
         if(!$result)
             return redirect()->route('upload.createMusic')->with('error', 'tạo '.$messType.' thất bại');
-        $fileName = $result->music_id.'.'.last(explode('.', htmlspecialchars_decode($request->input('drop_files'))));
+        $fileName = $result->music_id.'.'.last(explode('.', htmlspecialchars_decode($request->input('drop_files'), ENT_QUOTES)));
         Storage::disk('public')->move(DEFAULT_STORAGE_CACHE_MUSIC_PATH.$request->input('drop_files'), Helpers::file_path($result->music_id, SOURCE_STORAGE_PATH, true).$fileName);
         $result->music_filename = $fileName;
         $result->save();
@@ -563,7 +563,7 @@ class UploadController extends Controller
             $album->last_user_id = Auth::user()->id;
             $imgAlbum = '';
             if($request->input('album_cover')) {
-                $typeImageCover = array_last(explode('.', htmlspecialchars_decode($_FILES['choose_album_cover']['name'])));
+                $typeImageCover = array_last(explode('.', htmlspecialchars_decode($_FILES['choose_album_cover']['name'], ENT_QUOTES)));
                 $fileNameCovert = Helpers::saveBase64ImageJpg($request->input('album_cover'), Helpers::file_path($album->cover_id, AVATAR_ALBUM_CROP_PATH, true), $album->cover_id);
                 if($album->cover_filename)
                     Storage::disk('public')->delete(Helpers::file_path($album->cover_id, COVER_ALBUM_SOURCE_PATH, true).$album->cover_filename);
@@ -606,8 +606,8 @@ class UploadController extends Controller
             'album_cover' => 'required',
             'music_year' => 'max:4',
         ]);
-        $fileUploads = explode(';', htmlspecialchars_decode($request->input('drop_files')));
-        $fileSize = explode(';', htmlspecialchars_decode($request->input('music_filesize')));
+        $fileUploads = explode(';', htmlspecialchars_decode($request->input('drop_files'), ENT_QUOTES));
+        $fileSize = explode(';', htmlspecialchars_decode($request->input('music_filesize'), ENT_QUOTES));
         $album = $this->coverRepository->create([
             'music_album' => $request->input('music_album') ?? '',
             'music_production' => $request->input('music_production') ?? '',
@@ -624,19 +624,19 @@ class UploadController extends Controller
             'user_id' => Auth::user()->id,
             'last_user_id' => Auth::user()->id,
         ]);
-        foreach(explode(';', htmlspecialchars_decode($request->input('music_artist'))) as $key => $item) {
+        foreach(explode(';', htmlspecialchars_decode($request->input('music_artist'), ENT_QUOTES)) as $key => $item) {
             $album['album_artist_' . ++ $key] = $item;
             if($key == 1)
                 break;
         }
-        foreach(explode(';', htmlspecialchars_decode($request->input('music_artist_id'))) as $key => $item) {
+        foreach(explode(';', htmlspecialchars_decode($request->input('music_artist_id'), ENT_QUOTES)) as $key => $item) {
             $album['album_artist_id_' . ++ $key] = $item;
             if($key == 1)
                 break;
         }
         if(!$album)
             return redirect()->route('upload.upload_album')->with('error', 'tạo album thất bại');
-        $typeImageCover = array_last(explode('.', htmlspecialchars_decode($_FILES['choose_album_cover']['name'])));
+        $typeImageCover = array_last(explode('.', htmlspecialchars_decode($_FILES['choose_album_cover']['name'], ENT_QUOTES)));
         $fileNameCovert = Helpers::saveBase64ImageJpg($request->input('album_cover'), Helpers::file_path($album->cover_id, AVATAR_ALBUM_CROP_PATH, true), $album->cover_id);
         if($album->cover_filename)
             Storage::disk('public')->delete(Helpers::file_path($album->cover_id, COVER_ALBUM_SOURCE_PATH, true).$album->cover_filename);

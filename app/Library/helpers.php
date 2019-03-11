@@ -161,8 +161,8 @@ class Helpers
         return '/ca-si/'.self::rawTiengVietUrl($artistNickName) . "~" . base64_encode(KEY_ID_ARTIST_ENCODE_URL . $artistId) . $mode . ".".HTMLEX;
     }
     public static function rawHtmlArtists($artistId, $artistNickName) {
-        $artistId = explode(';', htmlspecialchars_decode($artistId));
-        $artistNickName = explode(';', htmlspecialchars_decode($artistNickName));
+        $artistId = explode(';', htmlspecialchars_decode($artistId, ENT_QUOTES));
+        $artistNickName = explode(';', htmlspecialchars_decode($artistNickName, ENT_QUOTES));
         if($artistNickName && $artistId) {
             $html = '';
             foreach ($artistNickName as $key => $val) {
@@ -468,21 +468,21 @@ class Helpers
 
     public static function album_url($album_info, $id = 0)
     {
-        $album_title_url = self::rawTiengVietUrl(htmlspecialchars_decode($album_info['music_album']));
+        $album_title_url = self::rawTiengVietUrl(htmlspecialchars_decode($album_info['music_album'], ENT_QUOTES));
         $album_url = $album_title_url . '~' . base64_encode(KEY_ID_ALBUM_ENCODE_URL . $album_info['cover_id']) . "." . HTMLEX;;
 
         return ($id == 0) ? SUB_ALLBUM . $album_url : SUB_ALLBUM . $album_url . '?id='. $id;
     }
     public static function playlist_url($playlist_info, $id = 0)
     {
-        $playlist_title_url = self::rawTiengVietUrl(htmlspecialchars_decode($playlist_info['playlist_title']));
+        $playlist_title_url = self::rawTiengVietUrl(htmlspecialchars_decode($playlist_info['playlist_title'],ENT_QUOTES));
         $playlist_url = $playlist_title_url . '~' . base64_encode(KEY_ID_PLAYLIST_ENCODE_URL . $playlist_info['playlist_id']) . "." . HTMLEX;;
 
         return ($id == 0) ? SUB_PLAYLIST . $playlist_url : SUB_PLAYLIST . $playlist_url . '?id='. $id;
     }
     public static function playlist_publisher_url($playlist_info, $id = 0)
     {
-        $playlist_title_url = self::rawTiengVietUrl(htmlspecialchars_decode($playlist_info['playlist_title']));
+        $playlist_title_url = self::rawTiengVietUrl(htmlspecialchars_decode($playlist_info['playlist_title'], ENT_QUOTES));
         $playlist_url = $playlist_title_url . '~' . base64_encode(KEY_ID_PLAYLIST_ENCODE_URL . $playlist_info['playlist_id']) . "." . HTMLEX;;
 
         return ($id == 0) ? SUB_PLAYLIST_PUBLISHER . $playlist_url : SUB_PLAYLIST . $playlist_url . '?id='. $id;
@@ -497,7 +497,7 @@ class Helpers
 
     public static function music_filename($music_info)
     {
-        $name = htmlspecialchars_decode(self::khongdau($music_info['music_title'] . ' - ' . $music_info['music_artist']));
+        $name = htmlspecialchars_decode(self::khongdau($music_info['music_title'] . ' - ' . $music_info['music_artist']), ENT_QUOTES);
         $temp = '';
         $last_char = ' ';
         for ($i = 0; $i < strlen($name); $i++) {
