@@ -239,10 +239,8 @@ class SolrSyncController extends Controller
         }else {
             $searchVideo = VideoModel::select('music_id', 'music_title_search', 'music_artist_search', 'music_composer', 'music_album_search', 'music_title', 'music_artist', 'music_downloads_this_week',
                 'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_title_url', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_width', 'music_height', 'music_last_update_time', 'music_length', 'music_time')
-                ->where('cat_id', '=', CAT_VIDEO)
-//                ->where('music_id', '=', 1988018)
-                ->where('music_deleted', '<', 1)
-                ->where('music_id', '>', intval($_GET['v_start']))
+                ->where([['cat_id', '=', CAT_VIDEO], ['music_deleted', '<', 1], ['music_id', '>', intval($_GET['v_start'])], ['music_id', '<', 1387001]])
+                ->orwhere([['cat_id', '=', CAT_VIDEO], ['music_deleted', '<', 1], ['music_id', '>', intval($_GET['v_start'])], ['music_id', '>', 1419000]])
 //                ->whereIn('music_id', [1603231,1602966,1603110])
                 ->offset(0)
                 ->limit(5000)
