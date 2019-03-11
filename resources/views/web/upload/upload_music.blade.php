@@ -624,7 +624,7 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                 prePopulate: [
                         <?php
                         if(old('music_artist') && old('music_artist_id')) {
-                            $oldArtistName = explode('; ', old('music_artist'));
+                            $oldArtistName = explode(';', htmlspecialchars_decode(old('music_artist')));
                             $oldArtistId = explode(';', old('music_artist_id'));
                             foreach ($oldArtistName as $key => $val) {
                                 $oldArtist[] = [
@@ -636,7 +636,7 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                         }else{
                             if(isset($music)) {
                                 if($music->music_artist && $music->music_artist_id) {
-                                    $oldArtistName = explode('; ', htmlspecialchars_decode($music->music_artist));
+                                    $oldArtistName = explode(';', htmlspecialchars_decode($music->music_artist));
                                     $oldArtistId = explode(';', $music->music_artist_id);
                                     foreach ($oldArtistName as $key => $val) {
                                         $oldArtist[] = [
