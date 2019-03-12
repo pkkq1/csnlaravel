@@ -31,6 +31,7 @@ $avtArtist = $artist->artist_avatar ? Helpers::file_path($artist->artist_id, PUB
     <div class="container">
         <div class="row row_wrapper">
             <div class="col-md-9">
+                @if(!$previewArtist)
                 <div class="tabs tabs-style-line tab-category">
                     <nav>
                         <ul>
@@ -47,6 +48,7 @@ $avtArtist = $artist->artist_avatar ? Helpers::file_path($artist->artist_id, PUB
                         <section id="playlist"></section>
                     </div>
                 </div>
+                @endif
             </div>
             <div class="col-md-3">
                 @include('web.layouts.right_banner')
