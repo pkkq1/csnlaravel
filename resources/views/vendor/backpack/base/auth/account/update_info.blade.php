@@ -74,16 +74,6 @@
                         <label class="required">{{ $label }}</label>
                         <input required class="form-control" type="text" name="{{ $field }}" value="{{ old($field) ? old($field) : $user->$field }}">
                     </div>
-
-                    <div class="form-group">
-                        @php
-                            $label = config('backpack.base.authentication_column_name');
-                            $field = backpack_authentication_column();
-                        @endphp
-                        <label class="required">{{ $label }}</label>
-                        <input required class="form-control" type="{{ backpack_authentication_column()=='email'?'email':'text' }}" name="{{ $field }}" value="{{ old($field) ? old($field) : $user->$field }}">
-                    </div>
-
                 </div>
 
                 <div class="box-footer">

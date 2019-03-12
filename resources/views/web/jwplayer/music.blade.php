@@ -189,24 +189,28 @@ if($musicSet['type_listen'] == 'playlist') {
                                              style="padding: 10px 20px;">
                                             <input type="checkbox" checked class="form-check-input display-sub"
                                                    id="display-sub" onclick="display_sub()">
-                                            @if((isset($lyric_array['sub']) && $lyric_array['sub'] != false))
-                                            <label class="form-check-label d-flex align-items-center"
-                                                   for="display-sub">
+
+
+                                            <div class="form-check-label d-flex align-items-center">
+                                                @if((isset($lyric_array['sub']) && $lyric_array['sub'] != false))
+                                                    <label class="form-check-label d-flex align-items-center"
+                                                           for="display-sub">
                                                 <span style="font-size: 13px; color: #4b4b4b; font-family: 'SFProDisplay-Medium';"
                                                       class="txt">Hiển Thị Sub</span>
-                                                <span class="switch">
+                                                        <span class="switch">
                                                     <span class="switch-inner"></span>
                                                 </span>
-                                            </label>
-                                            @endif
-                                            @if(Auth::check() && backpack_user()->can('duyet_sua_nhac'))
-                                                <a href="/dang-tai/{{$musicSet['type_jw'] !== 'video' ? 'nhac' : 'video'}}/{{$music->music_id}}" style="margin-left: 10px;">Sửa nhạc</a>
-                                                <a href="javascript:sugLyric();" style="margin-left: 10px;">Gợi ý/c.sửa lyric</a>
-                                                <a href="javascript:sugKaraoke();" style="margin-left: 10px;">Gợi ý/c.sửa karaoke</a>
-                                            @else
-                                                <a href="javascript:sugLyric();" style="margin-left: 10px;">Gợi ý lyric</a>
-                                                <a href="javascript:sugKaraoke();" style="margin-left: 10px;">Gợi ý karaoke</a>
-                                            @endif
+                                                    </label>
+                                                @endif
+                                                @if(Auth::check() && backpack_user()->can('duyet_sua_nhac'))
+                                                    <a href="/dang-tai/{{$musicSet['type_jw'] !== 'video' ? 'nhac' : 'video'}}/{{$music->music_id}}">Sửa nhạc</a>
+                                                    <a href="javascript:sugLyric();" style="margin-left: 10px;">Gợi ý/c.sửa lyric</a>
+                                                    <a href="javascript:sugKaraoke();" style="margin-left: 10px;">Gợi ý/c.sửa karaoke</a>
+                                                @else
+                                                    <a href="javascript:sugLyric();">Gợi ý lyric</a>
+                                                    <a href="javascript:sugKaraoke();" style="margin-left: 10px;">Gợi ý karaoke</a>
+                                                @endif
+                                            </div>
                                         </div>
                                     </li>
                                 </ul>
@@ -1581,7 +1585,23 @@ if($musicSet['type_listen'] == 'playlist') {
         function refreshSugKara(content) {
             if(jwplayer().getState() == 'playing')
                 jwplayer().pause();
-            confirmModal('<textarea style="width: 100%" rows="14" class="modal_kara">' + content + '</textarea><div id="kara_sug_csnplayer"></div>', 'Gợi ý karaoke');
+            confirmModal('<textarea style="width: 100%" placeholder="[00:00.00]Bài hát: Phía Sau Một Cô Gái    \n' +
+                '[00:02.00]Ca sĩ: Soobin Hoàng Sơn\n' +
+                '[00:04.00]\n' +
+                '[00:24.45]Nhiều khi anh mong được một lần \n' +
+                '[00:26.78]Nói ra hết tất cả thay vì\n' +
+                '[00:31.46]\n' +
+                '[00:34.41]Ngồi lặng im nghe em kể về \n' +
+                '[00:36.88]Anh ta bằng đôi mắt lấp lánh\n' +
+                '[00:41.94]\n' +
+                '[00:45.04]Đôi lúc em tránh ánh mắt của anh\n' +
+                '[00:48.82]Vì dường như lúc nào \n' +
+                '[00:50.80]Em cũng hiểu thấu lòng anh\n' +
+                '[00:54.28]\n' +
+                '[00:55.16]Không thể ngắt lời\n' +
+                '[00:57.11]\n' +
+                '[00:57.42]Càng không thể \n' +
+                '[00:58.40]Để giọt lệ nào được rơi" rows="14" class="modal_kara">' + content + '</textarea><div id="kara_sug_csnplayer"></div>', 'Gợi ý karaoke');
             $('#myConfirmModal').find('.btn-ok').html('Gửi gợi ý');
             $('#myConfirmModal').find('.modal-footer').prepend('<button class="btn btn-test">Xem trước</button>');
             <?php
@@ -1593,6 +1613,7 @@ if($musicSet['type_listen'] == 'playlist') {
             ?>
             $('#myConfirmModal').on('hidden.bs.modal', function () {
                 $('.btn-test').remove();
+                $('.btn-edit').remove();
                 $('#kara_sug_csnplayer').remove();
                 $('#myConfirmModal').find('.btn-ok').html('Đồng ý');
             })

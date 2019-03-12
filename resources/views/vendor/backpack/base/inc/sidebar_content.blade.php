@@ -13,6 +13,19 @@
 </li>
 @endif
 @if(backpack_user()->can('danh_muc_csn_(list)') || backpack_user()->can('danh_muc_playlist_(list)'))
+    <li class="treeview">
+        <a href="#"><i class="fa fa-microphone"></i> <span>Gợi ý Lyric, Karaoke</span> <i class="fa fa-angle-left pull-right"></i></a>
+        <ul class="treeview-menu">
+            @if(backpack_user()->can('danh_muc_csn_(list)'))
+                <li><a href="{{env('APP_URL').'/'.config('backpack.base.route_prefix', 'admin')}}/lyric"><i class="fa fa-music"></i> <span>Lyric</span></a></li>
+            @endif
+            @if(backpack_user()->can('danh_muc_playlist_(list)'))
+                <li><a href="{{env('APP_URL').'/'.config('backpack.base.route_prefix', 'admin')}}/karaoke"><i class="fa fa-info-circle"></i> <span>Karaoke</span></a></li>
+            @endif
+        </ul>
+    </li>
+@endif
+@if(backpack_user()->can('danh_muc_csn_(list)') || backpack_user()->can('danh_muc_playlist_(list)'))
 <li class="treeview">
     <a href="#"><i class="fa fa-list"></i> <span>Danh Mục</span> <i class="fa fa-angle-left pull-right"></i></a>
     <ul class="treeview-menu">
@@ -40,25 +53,12 @@
 @endif
 @if(backpack_user()->can('duyet_sua_nhac') || backpack_user()->can('duyet_sua_karaoke'))
 <li class="treeview">
-    <a href="#"><i class="fa fa-play"></i> <span>Nhạc/Video</span> <i class="fa fa-angle-left pull-right"></i></a>
+    <a href="#"><i class="fa fa-play"></i> <span>Nhạc, Video</span> <i class="fa fa-angle-left pull-right"></i></a>
     <ul class="treeview-menu">
         <li><a href="{{backpack_url('music')}}"><i class="fa fa-music"></i> <span>Nhạc / Karaoke</span></a></li>
         <li><a href="{{backpack_url('video')}}"><i class="fa fa-video-camera"></i> <span>Video</span></a></li>
     </ul>
 </li>
-@endif
-@if(backpack_user()->can('danh_muc_csn_(list)') || backpack_user()->can('danh_muc_playlist_(list)'))
-    <li class="treeview">
-        <a href="#"><i class="fa fa-info-circle"></i> <span>Gợi ý</span> <i class="fa fa-angle-left pull-right"></i></a>
-        <ul class="treeview-menu">
-            @if(backpack_user()->can('danh_muc_csn_(list)'))
-                <li><a href="{{env('APP_URL').'/'.config('backpack.base.route_prefix', 'admin')}}/lyric"><i class="fa fa-music"></i> <span>Lyric</span></a></li>
-            @endif
-            @if(backpack_user()->can('danh_muc_playlist_(list)'))
-                <li><a href="{{env('APP_URL').'/'.config('backpack.base.route_prefix', 'admin')}}/karaoke"><i class="fa fa-microphone"></i> <span>Karaoke</span></a></li>
-            @endif
-        </ul>
-    </li>
 @endif
 @if(backpack_user()->can('comment_(list)'))
     <li class="treeview">
