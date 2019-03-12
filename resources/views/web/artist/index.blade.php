@@ -31,7 +31,7 @@ $avtArtist = $artist->artist_avatar ? Helpers::file_path($artist->artist_id, PUB
     <div class="container">
         <div class="row row_wrapper">
             <div class="col-md-9">
-                @if(!$previewArtist)
+                @if(!isset($previewArtist))
                 <div class="tabs tabs-style-line tab-category">
                     <nav>
                         <ul>
