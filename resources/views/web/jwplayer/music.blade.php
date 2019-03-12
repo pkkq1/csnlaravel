@@ -193,13 +193,12 @@ if($musicSet['type_listen'] == 'playlist') {
 
                                             <div class="form-check-label d-flex align-items-center">
                                                 @if((isset($lyric_array['sub']) && $lyric_array['sub'] != false))
-                                                    <label class="form-check-label d-flex align-items-center"
-                                                           for="display-sub">
-                                                <span style="font-size: 13px; color: #4b4b4b; font-family: 'SFProDisplay-Medium';"
-                                                      class="txt">Hiển Thị Sub</span>
-                                                        <span class="switch">
-                                                    <span class="switch-inner"></span>
-                                                </span>
+                                                    <label class="form-check-label d-flex align-items-center" for="display-sub" style="margin-right: 10px;">
+                                                        <span style="font-size: 13px; color: #4b4b4b; font-family: 'SFProDisplay-Medium';"
+                                                              class="txt">Hiển Thị Sub</span>
+                                                                <span class="switch">
+                                                            <span class="switch-inner"></span>
+                                                        </span>
                                                     </label>
                                                 @endif
                                                 @if(Auth::check() && backpack_user()->can('duyet_sua_nhac'))
@@ -1501,7 +1500,7 @@ if($musicSet['type_listen'] == 'playlist') {
                                     loaded = true;
                                 },
                                 success: function(response) {
-                                    if(data.success) {
+                                    if(response.success) {
                                         $('.modal').find('.close_confirm').click();
                                         alertModal(response.message);
                                     }else{
@@ -1717,7 +1716,7 @@ if($musicSet['type_listen'] == 'playlist') {
                     },
                     success: function(response) {
                         karaMusic = '';
-                        if(data.success) {
+                        if(response.success) {
                             $('.modal').find('.close_confirm').click();
                             alertModal(response.message);
                         }else{
