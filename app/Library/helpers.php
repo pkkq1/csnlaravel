@@ -454,7 +454,7 @@ class Helpers
             "Đ" => "D",
         );
 
-        return strtr($str, $unicode_trans);
+        return str_replace('?', '', mb_convert_encoding(strtr($str, $unicode_trans), "EUC-JP", "auto"));
     }
 
     public static function rawTiengVietUrl($str, $spaceReplace = '-')
