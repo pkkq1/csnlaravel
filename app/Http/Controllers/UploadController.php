@@ -253,29 +253,32 @@ class UploadController extends Controller
         }
         $getID3 = new \getID3;
         $videoInfo = $getID3->analyze($_FILES['file']['tmp_name']);
+        $pathInfo = pathinfo($_FILES['file']['name']);
         if($type == 'video') {
-            if($request->type == 'music')
-                return response()->json([
-                    'success' => false,
-                    'message' => '('.$_FILES['file']['name'].') Sai định dạng video',
-                ]);
-            if(!isset($videoInfo['video']) || !isset($videoInfo['video']['resolution_x']) || !isset($videoInfo['video']['resolution_y'])) {
-                return response()->json([
-                    'status' => false,
-                    'message' => '('.$_FILES['file']['name'].') Định dạng phân giải video không tìm thấy',
-                ]);
-            }
-            if(($videoInfo['video']['resolution_x'] < 650 || $videoInfo['video']['resolution_y'] < 300)) {
-                return response()->json([
-                    'status' => false,
-                    'message' => '('.$_FILES['file']['name'].') Độ phân giải video quá thấp',
-                ]);
-            }
-            if(isset($videoInfo['playtime_seconds']) && $videoInfo['playtime_seconds'] > 3600) {
-                return response()->json([
-                    'success' => false,
-                    'message' => '('.$_FILES['file']['name'].') Độ dài video không vượt quá 60 phút',
-                ]);
+            if($pathInfo['extension'] != 'm2ts') {
+                if($request->type == 'music')
+                    return response()->json([
+                        'success' => false,
+                        'message' => '('.$_FILES['file']['name'].') Sai định dạng video',
+                    ]);
+                if(!isset($videoInfo['video']) || !isset($videoInfo['video']['resolution_x']) || !isset($videoInfo['video']['resolution_y'])) {
+                    return response()->json([
+                        'status' => false,
+                        'message' => '('.$_FILES['file']['name'].') Định dạng phân giải video không tìm thấy',
+                    ]);
+                }
+                if(($videoInfo['video']['resolution_x'] < 650 || $videoInfo['video']['resolution_y'] < 300)) {
+                    return response()->json([
+                        'status' => false,
+                        'message' => '('.$_FILES['file']['name'].') Độ phân giải video quá thấp',
+                    ]);
+                }
+                if(isset($videoInfo['playtime_seconds']) && $videoInfo['playtime_seconds'] > 3600) {
+                    return response()->json([
+                        'success' => false,
+                        'message' => '('.$_FILES['file']['name'].') Độ dài video không vượt quá 60 phút',
+                    ]);
+                }
             }
         }else{
             if($request->type == 'video')
