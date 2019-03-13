@@ -68,16 +68,15 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
 
         return $result;
     }
-    public function findOnlyMusicId($id)
+    public function findOnlyMusicId($id, $delete = false)
     {
         $result = $this
             ->_model
             ->where('music_id', $id)
-            ->where('music_deleted', '<', 1)
-            ->with('musicKara')
-            ->first();
-
-        return $result;
+            ->with('musicKara');
+        if(!$delete)
+            $result = $result->where('music_deleted', '<', 1);
+        return $result->first();
     }
     public function deleteSafe($music)
     {

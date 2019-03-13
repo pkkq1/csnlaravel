@@ -17,10 +17,10 @@
         <a href="#"><i class="fa fa-microphone"></i> <span>Gợi ý Lyric, Karaoke</span> <i class="fa fa-angle-left pull-right"></i></a>
         <ul class="treeview-menu">
             @if(backpack_user()->can('danh_muc_csn_(list)'))
-                <li><a href="{{env('APP_URL').'/'.config('backpack.base.route_prefix', 'admin')}}/lyric"><i class="fa fa-music"></i> <span>Lyric</span></a></li>
+                <li><a href="{{env('APP_URL').'/'.config('backpack.base.route_prefix', 'admin')}}/lyric"><i class="fa fa-info-circle"></i> <span>Lyric</span></a></li>
             @endif
             @if(backpack_user()->can('danh_muc_playlist_(list)'))
-                <li><a href="{{env('APP_URL').'/'.config('backpack.base.route_prefix', 'admin')}}/karaoke"><i class="fa fa-info-circle"></i> <span>Karaoke</span></a></li>
+                <li><a href="{{env('APP_URL').'/'.config('backpack.base.route_prefix', 'admin')}}/karaoke"><i class="fa fa-music"></i> <span>Karaoke</span></a></li>
             @endif
         </ul>
     </li>

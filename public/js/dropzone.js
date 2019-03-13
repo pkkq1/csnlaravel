@@ -909,6 +909,7 @@ var Dropzone = function (_Emitter) {
         // Receives `file`
         processing: function processing(file) {
           $('.count_file_music').html('Đang tải lên ' + (++countFile) + ' mục').addClass('title');
+            console.log(1);
           if(countFile  == 3){
               $('.dropzone').css("overflow-y", "scroll");
               $('.dropzone').css("height", "220px");
@@ -984,7 +985,7 @@ var Dropzone = function (_Emitter) {
           if (file._removeLink) {
             file._removeLink.innerHTML = this.options.dictRemoveFile;
           }
-          $('.count_file_music').html('Đã tải lên ' + (countFile) + ' mục');
+          // $('.count_file_music').html('Đã tải lên ' + (countFile) + ' mục');
           $('.dz-message').remove();
           if (file.previewElement) {
             return file.previewElement.classList.add("dz-complete");
@@ -2746,6 +2747,10 @@ var Dropzone = function (_Emitter) {
           try {
             response = JSON.parse(response);
             this.options.callResponseSuccess(response);
+            if(response.success === true) {
+            }else{
+                $('.count_file_music').html('Đang tải lên ' + (--countFile) + ' mục').addClass('title');
+            }
           } catch (error) {
             e = error;
             response = "Invalid JSON response from server.";

@@ -3,10 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Backpack\CRUD\CrudTrait;
 use DB;
 
 class KaraokeSuggestionModel extends Model
 {
+    use CrudTrait;
     public $timestamps = false;
     protected $table = 'csn_music_karaoke_suggestion';
     protected $primaryKey = 'music_id';

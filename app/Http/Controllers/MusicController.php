@@ -97,27 +97,13 @@ class MusicController extends Controller
             return view('errors.errors')->with('e');
         }
         if($cat == CAT_VIDEO_URL) {
-            $music = $this->videoRepository->findOnlyMusicId($arrUrl['id']);
+            $music = $this->videoRepository->findOnlyMusicId($arrUrl['id'], true);
         }else{
-            $music = $this->musicRepository->findOnlyMusicId($arrUrl['id']);
+            $music = $this->musicRepository->findOnlyMusicId($arrUrl['id'], true);
         }
         if(!$music)
             return view('errors.404')->with('message', 'Nhạc đang cập nhật.');
-        if($music->music_deleted > 0) {
-            music_check_deleted:
-            if($cat == CAT_VIDEO_URL) {
-                $music = $this->videoRepository->findOnlyMusicId($music->music_deleted);
-            }else{
-                $music = $this->musicRepository->findOnlyMusicId($music->music_deleted);
-            }
-            if(!$music)
-                return view('errors.404')->with('message', 'Nhạc đang cập nhật.');
-            if($music->music_deleted > 0) {
-                goto music_check_deleted;
-            }
-            $musicListenUrl = Helpers::listen_url($music->toArray());
-            return redirect($musicListenUrl);
-        }
+        self::checkDeleteMusic($music);
         // +1 view
         if(Helpers::sessionCountTimesMusic($arrUrl['id'])){
             if($cat == CAT_VIDEO_URL) {
@@ -219,15 +205,16 @@ class MusicController extends Controller
         if($playlistMusic) {
             $offsetPl = $playlistMusic[$request->playlist ? ($request->playlist > count($playlistMusic) ? count($playlistMusic) : $request->playlist) - 1 : 0];
             if($offsetPl['cat_id'] == CAT_VIDEO) {
-                $music = $this->videoRepository->findOnlyMusicId($offsetPl['music_id']);
+                $music = $this->videoRepository->findOnlyMusicId($offsetPl['music_id'], true);
             }else{
-                $music = $this->musicRepository->findOnlyMusicId($offsetPl['music_id']);
+                $music = $this->musicRepository->findOnlyMusicId($offsetPl['music_id'], true);
             }
         }else{
             return view('errors.text_error')->with('message', 'Nội dung playlist không có.');
         }
         if(!$music)
             return view('errors.404');
+        self::checkDeleteMusic($music);
         // +1 view
         if(Helpers::sessionCountTimesMusic($arrUrl['id'])){
             if($music->cat_id == CAT_VIDEO) {
@@ -517,6 +504,23 @@ class MusicController extends Controller
                 ]);
                 Helpers::ajaxResult(true, 'Gửi gợi ý karaoke cho bài hát thành công', null);
             }
+        }
+    }
+    public function checkDeleteMusic($music) {
+        if($music->music_deleted > 0) {
+            music_check_deleted:
+            if($music->cat_id == CAT_VIDEO_URL) {
+                $music = $this->videoRepository->findOnlyMusicId($music->music_deleted);
+            }else{
+                $music = $this->musicRepository->findOnlyMusicId($music->music_deleted);
+            }
+            if(!$music)
+                return view('errors.404')->with('message', 'Nhạc đang cập nhật.');
+            if($music->music_deleted > 0) {
+                goto music_check_deleted;
+            }
+            $musicListenUrl = Helpers::listen_url($music->toArray());
+            return redirect($musicListenUrl);
         }
     }
 }
