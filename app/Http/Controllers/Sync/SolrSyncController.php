@@ -151,6 +151,8 @@ class SolrSyncController extends Controller
     public function syncDeleteMusic($id = null, $musicItem = null) {
 //        <delete><query>_id:12345323211</query></delete>
 //        <delete><query>music_id:[1387001 TO 1419000]</query></delete>
+//        <delete><query>(id:music_*)AND(_version_:[0 TO 1627700530459443201])</query></delete>
+
         if($id) {
             $searchMusic = MusicModel::select('music_id', 'music_composer', 'music_title', 'music_artist', 'music_downloads_this_week',
                 'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_downloads_this_week', 'music_lyric')
