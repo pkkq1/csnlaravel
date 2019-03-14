@@ -1,9 +1,9 @@
 <?php
-namespace App\Repositories\LyricSuggestion;
+namespace App\Repositories\MusicSearchResult;
 
 use App\Repositories\EloquentRepository;
 use DB;
-class LyricSuggestionEloquentRepository extends EloquentRepository implements LyricSuggestionRepositoryInterface
+class MusicSearchResultEloquentRepository extends EloquentRepository implements MusicSearchResultRepositoryInterface
 {
     /**
      * get model
@@ -11,7 +11,7 @@ class LyricSuggestionEloquentRepository extends EloquentRepository implements Ly
      */
     public function getModel()
     {
-        return \App\Models\LyricSuggestionModel::class;
+        return \App\Models\MusicSearchResultModel::class;
     }
     /**
      * Get all posts only published
@@ -37,6 +37,19 @@ class LyricSuggestionEloquentRepository extends EloquentRepository implements Ly
             ->where('is_published', 1)
             ->first();
 
+        return $result;
+    }
+    public function createSearch($music)
+    {
+        $result = $this
+            ->_model->where('music_id', $music->music_id)
+            ->first();
+        if(!$result) {
+            $result = $this->_model->create($music->toArray());
+        }else {
+            $result->music_search_count = $result->music_search_count + 1;
+            $result->save();
+        }
         return $result;
     }
 

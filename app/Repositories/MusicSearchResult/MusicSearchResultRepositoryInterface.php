@@ -1,7 +1,7 @@
 <?php
-namespace App\Repositories\LyricSuggestion;
+namespace App\Repositories\MusicSearchResult;
 
-interface LyricSuggestionRepositoryInterface
+interface MusicSearchResultRepositoryInterface
 {
     /**
      * Get all posts only published

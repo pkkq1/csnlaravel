@@ -29,6 +29,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\PlaylistMusicModel;
 use App\Repositories\Karaoke\KaraokeEloquentRepository;
 use App\Repositories\LyricSuggestion\LyricSuggestionEloquentRepository;
+use App\Repositories\MusicSearchResult\MusicSearchResultEloquentRepository;
 use DB;
 
 class MusicController extends Controller
@@ -55,12 +56,13 @@ class MusicController extends Controller
     protected $searchResultRepository;
     protected $karaokeSuggestionRepository;
     protected $lyricSuggestionRepository;
+    protected $musicSearchResultRepository;
 
     public function __construct(MusicEloquentRepository $musicRepository, PlaylistEloquentRepository $playlistRepository, MusicListenEloquentRepository $musicListenRepository,
                                 CategoryEloquentRepository $categoryListenRepository, CoverEloquentRepository $coverRepository, VideoEloquentRepository $videoRepository, ArtistRepository $artistRepository,
                                 MusicFavouriteRepository $musicFavouriteRepository, VideoFavouriteRepository $videoFavouriteRepository, MusicDownloadEloquentRepository $musicDownloadRepository, KaraokeEloquentRepository $karaokeRepository,
                                 VideoListenEloquentRepository $videoListenRepository, VideoDownloadEloquentRepository $videoDownloadRepository, PlaylistPublisherEloquentRepository $playlistPublisherRepository, SearchResultEloquentRepository $searchResultRepository,
-                                KaraokeSuggestionEloquentRepository $karaokeSuggestionRepository, LyricSuggestionEloquentRepository $lyricSuggestionRepository)
+                                KaraokeSuggestionEloquentRepository $karaokeSuggestionRepository, LyricSuggestionEloquentRepository $lyricSuggestionRepository, MusicSearchResultEloquentRepository $musicSearchResultRepository)
     {
         $this->musicRepository = $musicRepository;
         $this->videoRepository = $videoRepository;
@@ -79,6 +81,7 @@ class MusicController extends Controller
         $this->lyricSuggestionRepository = $lyricSuggestionRepository;
         $this->karaokeRepository = $karaokeRepository;
         $this->searchResultRepository = $searchResultRepository;
+        $this->musicSearchResultRepository = $musicSearchResultRepository;
     }
 
     /**
@@ -110,6 +113,9 @@ class MusicController extends Controller
                 $this->videoListenRepository->incrementListen($arrUrl['id']);
             }else{
                 $this->musicListenRepository->incrementListen($arrUrl['id']);
+            }
+            if(isset($request->ref) && $request->ref == 'search_box') {
+                $this->musicSearchResultRepository->createSearch($music);
             }
         }
         $type = 'music';
