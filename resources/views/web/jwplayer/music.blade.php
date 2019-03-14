@@ -182,7 +182,7 @@ if($musicSet['type_listen'] == 'playlist') {
                         <div class="tab-content" id="pills-tabContent">
                             <div class="tab-pane show active" id="pills-liric" role="tabpanel"
                                  aria-labelledby="pills-liric-tab">
-                                @if((Auth::check() || isset($lyric_array['sub']) && $lyric_array['sub'] != false) || (Auth::check() && backpack_user()->can('duyet_sua_nhac')) || (Auth::check() && backpack_user()->can('duyet_sua_karaoke')))
+                                @if((isset($lyric_array['sub']) && $lyric_array['sub'] != false) || (Auth::check() && backpack_user()->can('duyet_sua_nhac')) || (Auth::check() && backpack_user()->can('duyet_sua_karaoke')))
                                 <ul class="nav nav-tabs sub_Tab" id="myTab" role="tablist">
                                     <li class="nav-item">
                                         <div class="nav-link form-group form-check mb-0 autoplay"
@@ -201,13 +201,15 @@ if($musicSet['type_listen'] == 'playlist') {
                                                         </span>
                                                     </label>
                                                 @endif
-                                                @if(Auth::check() && backpack_user()->can('duyet_sua_nhac'))
-                                                    <a href="/dang-tai/{{$musicSet['type_jw'] !== 'video' ? 'nhac' : 'video'}}/{{$music->music_id}}">Sửa nhạc</a>
-                                                    <a href="javascript:sugLyric();" style="margin-left: 10px;">Gợi ý/c.sửa lyric</a>
-                                                    <a href="javascript:sugKaraoke();" style="margin-left: 10px;">Gợi ý/c.sửa karaoke</a>
-                                                @else
-                                                    <a href="javascript:sugLyric();">Gợi ý lyric</a>
-                                                    <a href="javascript:sugKaraoke();" style="margin-left: 10px;">Gợi ý karaoke</a>
+                                                @if(Auth::check())
+                                                    @if(backpack_user()->can('duyet_sua_nhac'))
+                                                        <a href="/dang-tai/{{$musicSet['type_jw'] !== 'video' ? 'nhac' : 'video'}}/{{$music->music_id}}">Sửa nhạc</a>
+                                                        <a href="javascript:sugLyric();" style="margin-left: 10px;">Gợi ý/c.sửa lyric</a>
+                                                        <a href="javascript:sugKaraoke();" style="margin-left: 10px;">Gợi ý/c.sửa karaoke</a>
+                                                    @else
+                                                        <a href="javascript:sugLyric();">Gợi ý lyric</a>
+                                                        <a href="javascript:sugKaraoke();" style="margin-left: 10px;">Gợi ý karaoke</a>
+                                                    @endif
                                                 @endif
                                             </div>
                                         </div>
@@ -1494,7 +1496,7 @@ if($musicSet['type_listen'] == 'playlist') {
                             '[t1]Ta gần nhau hơn bằng những cái chạm nhẹ\n' +
                             '\n' +
                             'We burn it up, you light me up" class="modal_lyric">' + response.data.lyric + '</textarea>', 'Gợi ý lyric');
-                        $('#myConfirmModal').find('.btn-ok').html('Gửi gợi ý');
+                        $('#myConfirmModal').find('.btn-ok').html('Gửi gợi ý').addClass('btn-lyric');
                         <?php
                         if(Auth::check() && backpack_user()->can('duyet_sua_nhac')) {
                         ?>
@@ -1503,10 +1505,10 @@ if($musicSet['type_listen'] == 'playlist') {
                         }
                         ?>
                         $('#myConfirmModal').on('hidden.bs.modal', function () {
-                            $('#myConfirmModal').find('.btn-ok').html('Đồng ý');
+                            $('#myConfirmModal').find('.btn-ok').html('Đồng ý').removeClass('btn-lyric');
                             $('#myConfirmModal').find('.btn-edit').remove();
                         })
-                        $("#myConfirmModal .btn-ok").one('click', function () {
+                        $("#myConfirmModal .btn-lyric").one('click', function () {
                             $.ajax({
                                 url: '/music/suggestion_lyric',
                                 type: "POST",
@@ -1530,9 +1532,7 @@ if($musicSet['type_listen'] == 'playlist') {
                                     }
                                 }
                             });
-                            $('.modal').find('.close_confirm').click();
                         });
-
                         <?php
                         if(Auth::check() && backpack_user()->can('duyet_sua_nhac')) {
                         ?>
@@ -1623,7 +1623,7 @@ if($musicSet['type_listen'] == 'playlist') {
                 '[00:57.11]\n' +
                 '[00:57.42]Càng không thể \n' +
                 '[00:58.40]Để giọt lệ nào được rơi" rows="14" class="modal_kara">' + content + '</textarea><div id="kara_sug_csnplayer"></div>', 'Gợi ý karaoke');
-            $('#myConfirmModal').find('.btn-ok').html('Gửi gợi ý');
+            $('#myConfirmModal').find('.btn-ok').html('Gửi gợi ý').addClass('btn-karaoke');
             $('#myConfirmModal').find('.modal-footer').prepend('<button class="btn btn-test">Xem trước</button>');
             <?php
                 if(Auth::check() && backpack_user()->can('duyet_sua_nhac')) {
@@ -1636,7 +1636,7 @@ if($musicSet['type_listen'] == 'playlist') {
                 $('.btn-test').remove();
                 $('.btn-edit').remove();
                 $('#kara_sug_csnplayer').remove();
-                $('#myConfirmModal').find('.btn-ok').html('Đồng ý');
+                $('#myConfirmModal').find('.btn-ok').html('Đồng ý').removeClass('btn-karaoke');
             })
             $('.btn-test').click(function () {
                 karaMusic = $('.modal_kara').val();
@@ -1721,7 +1721,7 @@ if($musicSet['type_listen'] == 'playlist') {
 
 
             });
-            $('.btn-ok').click(function () {
+            $("#myConfirmModal .btn-karaoke").one('click', function () {
                 $.ajax({
                     url: '/music/suggestion_karaoke',
                     type: "POST",

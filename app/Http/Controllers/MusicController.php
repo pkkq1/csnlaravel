@@ -436,13 +436,9 @@ class MusicController extends Controller
                 $music->save();
                 Helpers::ajaxResult(true, 'Sửa lyric thành công', ['lyric' => $music->music_lyric]);
             }else {
-
-                $lyricKara = $this->lyricSuggestionRepository->getModel()::where(['music_id' => $music->music_id, 'user_id' => Auth::user()->id])->first();
-                if($lyricKara) {
-                    if($lyricKara->music_lyric == $request->lyric)
-                        Helpers::ajaxResult(false, 'thông tin nhập không thay đổi', null);
-                    $lyricKara->delete();
-                }
+                $this->lyricSuggestionRepository->getModel()::where(['music_id' => $music->music_id, 'user_id' => Auth::user()->id])->delete();
+                if($music->music_lyric == $request->lyric)
+                    Helpers::ajaxResult(false, 'thông tin nhập không thay đổi', null);
                 $this->lyricSuggestionRepository->create([
                     'music_id' => $music->music_id,
                     'music_title' => $music->music_title,
@@ -496,12 +492,9 @@ class MusicController extends Controller
                 if(!$request->karaoke) {
                     Helpers::ajaxResult(false, 'Vui lòng nhập thông tin karaoke', null);
                 }
-                $karaExist = $this->karaokeSuggestionRepository->getModel()::where(['music_id' => $music->music_id, 'user_id' => Auth::user()->id])->first();
-                if($karaExist) {
-                    if($karaExist->musicKara->music_lyric_karaoke == $request->karaoke)
-                        Helpers::ajaxResult(false, 'Thông tin nhập không thay đổi', null);
-                    $karaExist->delete();
-                }
+                $this->karaokeSuggestionRepository->getModel()::where(['music_id' => $music->music_id, 'user_id' => Auth::user()->id])->delete();
+                if($music->musicKara->music_lyric_karaoke == $request->karaoke)
+                    Helpers::ajaxResult(false, 'Thông tin nhập không thay đổi', null);
                 $this->karaokeSuggestionRepository->create([
                     'music_id' => $music->music_id,
                     'music_title' => $music->music_title,
