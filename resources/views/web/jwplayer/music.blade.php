@@ -899,15 +899,6 @@ if($musicSet['type_listen'] == 'playlist') {
 
 
         function updateQuality(callback) {
-            if(firstLoadUpdateQuality){
-                firstLoadUpdateQuality = false;
-                <?php if($musicFavourite) {
-                    ?>
-                    $('.toggle_wishlist').addClass('selector');
-                    <?php
-                } ?>
-                reloadFavourite();
-            }
             var curQual = jwplayer('csnplayer').getCurrentQuality();
             if(callback['levels'].length == 2) {
                 if(!$('.jw-icon-hd').hasClass('stringQ')) {
@@ -1118,7 +1109,7 @@ if($musicSet['type_listen'] == 'playlist') {
         function loadPageComment(url) {
             $.ajax({
                 url: url,
-                type: "POST",
+                type: "GET",
                 dataType: "html",
                 data: {'music_id': musicId},
                 beforeSend: function () {
@@ -1471,7 +1462,38 @@ if($musicSet['type_listen'] == 'playlist') {
                 },
                 success: function(response) {
                     if(response.success) {
-                        confirmModal('<textarea style="width: 100%" rows="14" class="modal_lyric">' + response.data.lyric + '</textarea>', 'Gợi ý lyric');
+                        confirmModal('<textarea style="width: 100%" rows="14" placeholder="1. I can feel us falling upon the Mercury\n' +
+                            '[t1]Anh cảm thấy chúng ta đang rơi xuống sao Thuỷ\n' +
+                            '\n' +
+                            'But the temperature rising, a fire is flickering\n' +
+                            '\n' +
+                            '[t1]Nhưng nhiệt độ lại tăng cao, một ngọn lửa lại bùng lên\n' +
+                            '\n' +
+                            'Getting hotter and hotter, beyond the wildest dreams\n' +
+                            '\n' +
+                            '[t1]Chúng ta đang nóng dần lên, vượt xa những giấc mơ điên rồ nhất\n' +
+                            '\n' +
+                            'I\'m connected to Heaven cause this is everything.\n' +
+                            '\n' +
+                            '[t1]Anh đã gắn mình với Thiên Đàng vì nó là tất cả.\n' +
+                            '\n' +
+                            'Can you feel the waking sun?\n' +
+                            '\n' +
+                            '[t1]Em có cảm nhận được sự chuyển động của mặt trời?\n' +
+                            '\n' +
+                            'Rising up, the two of us\n' +
+                            '\n' +
+                            '[t1]Vươn lên cao, chỉ hai ta\n' +
+                            '\n' +
+                            'We can touch the sun\n' +
+                            '\n' +
+                            '[t1]Chúng ta có thể chạm tới mặt trời\n' +
+                            '\n' +
+                            'We\'re closer now with every touch\n' +
+                            '\n' +
+                            '[t1]Ta gần nhau hơn bằng những cái chạm nhẹ\n' +
+                            '\n' +
+                            'We burn it up, you light me up" class="modal_lyric">' + response.data.lyric + '</textarea>', 'Gợi ý lyric');
                         $('#myConfirmModal').find('.btn-ok').html('Gửi gợi ý');
                         <?php
                         if(Auth::check() && backpack_user()->can('duyet_sua_nhac')) {
