@@ -128,7 +128,7 @@ use App\Library\Helpers;
                                 <a href="{{ $crud->hasAccess('list') ? url($crud->route).'/approval/'.$fields['id']['value'] : url()->previous() }}" class="btn btn-info suggest_artist"><span class="fa fa-arrow-circle-right"></span> &nbsp;Xác Nhận Ca Sĩ Mới</a>
                             @endif
                             <a href="{{ $crud->hasAccess('list') ? url($crud->route).'/preview/'.$fields['id']['value'].'' : url()->previous() }}" target="_blank" class="btn btn-warning"><span class="fa fa-align-center"></span> &nbsp;Xem Trước</a>
-                            @if($crud->hasAccess('list'))
+                            @if($crud->hasAccess('delete'))
                             <a href="javascript:void(0)" onclick="deleteEntry({{$fields['id']['value']}})" class="btn btn-default"><span class="fa fa-trash"></span> &nbsp;Xóa</a>
                             @endif
                             <div class="btn-group">
@@ -286,17 +286,20 @@ use App\Library\Helpers;
             });
         });
         function deleteEntry(id) {
-            $.ajax({
-                url: '/admin/artist_upload/' + id,
-                type: "DELETE",
-                dataType: "html",
-                beforeSend: function () {
+            var r = confirm("Bạn có chắc chắn xóa gợi ý ca sĩ này không!");
+            if (r == true) {
+                $.ajax({
+                    url: '/admin/artist_upload/' + id,
+                    type: "DELETE",
+                    dataType: "html",
+                    beforeSend: function () {
 
-                },
-                success: function(response) {
-                    location.href = '/admin/artist_upload';
-                }
-            });
+                    },
+                    success: function(response) {
+                        location.href = '/admin/artist_upload';
+                    }
+                });
+            }
         }
         $('.suggest_artist').click(function (event) {
             event.preventDefault();

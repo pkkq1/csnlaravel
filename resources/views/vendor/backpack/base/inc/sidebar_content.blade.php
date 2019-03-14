@@ -1,10 +1,22 @@
+<?php
+use App\Models\ArtistUploadModel;
+use App\Models\LyricSuggestionModel;
+use App\Models\KaraokeSuggestionModel;
+$notif['artist_upload'] = ArtistUploadModel::count();
+$notif['lyric_sug'] = LyricSuggestionModel::count();
+$notif['kara_sug'] = KaraokeSuggestionModel::count();
+$htmlNotif['artist_upload'] = $notif['artist_upload'] > 0 ? '<span class="_51lp _51lr _5ugg _5ugh _3-99">'.($notif['artist_upload'] > 9 ? '9+' : $notif['artist_upload']).'</span>' : '';
+$htmlNotif['total_sug'] = ($notif['kara_sug'] + $notif['lyric_sug']) > 0 ? '<span class="_51lp _51lr _5ugg _5ugh _3-99">'.(($notif['kara_sug'] + $notif['lyric_sug']) > 9 ? '9+' : ($notif['kara_sug'] + $notif['lyric_sug'])).'</span>' : '';
+$htmlNotif['lyric_sug'] = $notif['lyric_sug'] > 0 ? '<span class="_51lp _51lr _5ugg _5ugh _3-99">'.($notif['lyric_sug'] > 9 ? '9+' : $notif['lyric_sug']).'</span>' : '';
+$htmlNotif['kara_sug'] = $notif['kara_sug'] > 0 ? '<span class="_51lp _51lr _5ugg _5ugh _3-99">'.($notif['kara_sug'] > 9 ? '9+' : $notif['kara_sug']).'</span>' : '';
+?>
 <li><a href="{{ backpack_url('dashboard') }}"><i class="fa fa-dashboard"></i> <span>{{ trans('backpack::base.dashboard') }}</span></a></li>
 @if(backpack_user()->can('xet_duyet_ca_si_(list)') || backpack_user()->can('danh_sach_ca_si_(list)'))
 <li class="treeview">
-    <a href="#"><i class="fa fa-address-card"></i> <span>Ca Sĩ</span> <i class="fa fa-angle-left pull-right"></i></a>
+    <a href="#"><i class="fa fa-address-card"></i> <span>Ca Sĩ</span><?php echo $htmlNotif['artist_upload'] ?><i class="fa fa-angle-left pull-right"></i></a>
     <ul class="treeview-menu">
         @if(backpack_user()->can('xet_duyet_ca_si_(list)'))
-        <li><a href="{{env('APP_URL').'/'.config('backpack.base.route_prefix', 'admin')}}/artist_upload"><i class="fa fa-arrow-circle-right"></i> <span>Xét Duyệt Ca Sĩ</span></a></li>
+        <li><a href="{{env('APP_URL').'/'.config('backpack.base.route_prefix', 'admin')}}/artist_upload"><i class="fa fa-arrow-circle-right"></i> <span>Xét Duyệt Ca Sĩ</span><?php echo $htmlNotif['artist_upload'] ?></a></li>
         @endif
         @if(backpack_user()->can('danh_sach_ca_si_(list)'))
         <li><a href="{{env('APP_URL').'/'.config('backpack.base.route_prefix', 'admin')}}/artist"><i class="fa fa-address-book-o"></i> <span>Danh Sách Ca Sĩ</span></a></li>
@@ -14,13 +26,13 @@
 @endif
 @if(backpack_user()->can('danh_muc_csn_(list)') || backpack_user()->can('danh_muc_playlist_(list)'))
     <li class="treeview">
-        <a href="#"><i class="fa fa-microphone"></i> <span>Gợi ý Lyric, Karaoke</span> <i class="fa fa-angle-left pull-right"></i></a>
+        <a href="#"><i class="fa fa-microphone"></i> <span>Gợi ý Lyric, Karaoke</span> <?php echo $htmlNotif['total_sug'] ?><i class="fa fa-angle-left pull-right"></i></a>
         <ul class="treeview-menu">
             @if(backpack_user()->can('danh_muc_csn_(list)'))
-                <li><a href="{{env('APP_URL').'/'.config('backpack.base.route_prefix', 'admin')}}/lyric"><i class="fa fa-info-circle"></i> <span>Lyric</span></a></li>
+                <li><a href="{{env('APP_URL').'/'.config('backpack.base.route_prefix', 'admin')}}/lyric"><i class="fa fa-info-circle"></i> <span>Lyric</span> <?php echo $htmlNotif['lyric_sug'] ?></a></li>
             @endif
             @if(backpack_user()->can('danh_muc_playlist_(list)'))
-                <li><a href="{{env('APP_URL').'/'.config('backpack.base.route_prefix', 'admin')}}/karaoke"><i class="fa fa-music"></i> <span>Karaoke</span></a></li>
+                <li><a href="{{env('APP_URL').'/'.config('backpack.base.route_prefix', 'admin')}}/karaoke"><i class="fa fa-music"></i> <span>Karaoke</span> <?php echo $htmlNotif['kara_sug'] ?></a></li>
             @endif
         </ul>
     </li>
@@ -98,3 +110,23 @@
     </ul>
 </li>
 @endif
+<style>
+    ._5ugg, ._3z_5 {
+        background-color: #fa3e3e;
+        border-radius: 2px;
+        color: #fff;
+        padding: 1px 3px;
+    }
+    ._51lp {
+        background-clip: padding-box;
+        display: inline-block;
+        font-family: 'helvetica neue', Helvetica, Arial, sans-serif;
+        font-size: 10px;
+        -webkit-font-smoothing: subpixel-antialiased;
+        line-height: 1.3;
+        min-height: 13px;
+    }
+    ._3-99 {
+        margin-left: 4px;
+    }
+</style>

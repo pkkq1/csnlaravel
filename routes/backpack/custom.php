@@ -36,7 +36,8 @@ Route::group([
     Route::put('/artist_upload/suggest/{id}', 'ArtistUploadController@suggest');
     Route::put('/artist_upload/approval/{id}', 'ArtistUploadController@approvalArtistUpload');
 
-
+    Route::put('/lyric/suggest/{id}', 'LyricController@approvalLyric');
+    Route::put('/karaoke/suggest/{id}', 'KaraokeController@approvalKaraoke');
 
 
 

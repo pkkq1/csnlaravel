@@ -914,7 +914,7 @@ if($musicSet['type_listen'] == 'playlist') {
     function loadPageComment(url) {
         $.ajax({
             url: url,
-            type: "POST",
+            type: "GET",
             dataType: "html",
             data: {'music_id': musicId},
             beforeSend: function () {

@@ -11,6 +11,10 @@ class LyricSuggestionModel extends Model
     use CrudTrait;
     public $timestamps = false;
     protected $table = 'csn_music_lyric_suggestion';
-    protected $primaryKey = 'music_id';
+    protected $primaryKey = 'id';
     protected $fillable = ['music_id', 'music_title', 'music_artist', 'music_time', 'music_length', 'music_lyric', 'user_id'];
+    public function user()
+    {
+        return $this->belongsTo('App\Models\UserModel', 'user_id')->select('id', 'name', 'user_avatar', 'username');
+    }
 }

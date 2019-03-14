@@ -3,8 +3,9 @@ use App\Library\Helpers;
 use App\Models\MusicModel;
 $music = MusicModel::find($fields['music_id']['value']);
 $partListenFullUrl = Helpers::listen_url($music, '');
-$oldLyricArr = preg_split('/\r\n|\r|\n/', htmlspecialchars_decode($music->music_lyric, ENT_QUOTES));
-$sugLyricArr = preg_split('/\r\n|\r|\n/', htmlspecialchars_decode($fields['music_lyric']['value'], ENT_QUOTES));
+$oldKara = $music->musicKara->music_lyric_karaoke;
+$oldKaraArr = preg_split('/\r\n|\r|\n/', htmlspecialchars_decode($oldKara, ENT_QUOTES));
+$sugKaraArr = preg_split('/\r\n|\r|\n/', htmlspecialchars_decode($fields['music_lyric_karaoke']['value'], ENT_QUOTES));
 $file_url = Helpers::file_url($music);
 ?>
 @extends('backpack::layout')
@@ -21,6 +22,8 @@ $file_url = Helpers::file_url($music);
             <li class="active">{{ trans('backpack::crud.edit') }}</li>
         </ol>
     </section>
+    <link href="{{env('APP_URL')}}/node_modules/rabbit-lyrics/dist/rabbit-lyrics.css" rel="stylesheet" type="text/css"/>
+    <script src="{{env('APP_URL')}}/node_modules/rabbit-lyrics/dist/rabbit-lyrics.js" type="text/javascript"></script>
     <script type="text/javascript" src="/node_modules/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="/assets/jQuery-File-Upload-9.21.0/js/vendor/jquery.ui.widget.js"></script>
     <script type="text/javascript" src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -62,6 +65,13 @@ $file_url = Helpers::file_url($music);
                         @endif
                         <hr>
                         <div id="csnplayer" class="<?php echo $music->cat_id == CAT_VIDEO ? 'csn_video' : 'csn_music' ?>" style="position:relative; z-index: 99999; width:100%;"> </div>
+                        <div id="hidden_lyrics" class="hidden">
+                            <div id="lyrics" class="rabbit-lyrics">
+                                @if($music->cat_id != CAT_VIDEO )
+                                    <?php echo isset($fields['music_lyric_karaoke']['value']) ? Helpers::rawLyrics($fields['music_lyric_karaoke']['value']) : ''; ?>
+                                @endif
+                            </div>
+                        </div>
                         <br/>
                         <div class="form-group col-xs-6">
                             <h3 class="box-title">Thông tin gợi ý</h3>
@@ -72,12 +82,12 @@ $file_url = Helpers::file_url($music);
                     </div>
                     <div class="box-body row display-flex-wrap" style="display: flex;flex-wrap: wrap;">
                         <div class="form-group col-xs-6">
-                            @foreach($sugLyricArr as $key => $item)
-                                <p class="<?php echo isset($oldLyricArr[$key]) ? ($oldLyricArr[$key] != $item ? 'color-red' : '') : 'color-red' ?>">{{$item}}</p>
+                            @foreach($sugKaraArr as $key => $item)
+                                <p class="<?php echo isset($oldKaraArr[$key]) ? ($oldKaraArr[$key] != $item ? 'color-red' : '') : 'color-red' ?>">{{$item}}</p>
                             @endforeach
                         </div>
                         <div class="form-group col-xs-6">
-                            @foreach($oldLyricArr as $key => $item)
+                            @foreach($oldKaraArr as $key => $item)
                                 <p class="">{{$item}}</p>
                             @endforeach
                         </div>
@@ -88,7 +98,8 @@ $file_url = Helpers::file_url($music);
                         @include('crud::form_content', ['fields' => $fields, 'action' => 'edit'])
                     @endif
                     <div class="form-group col-xs-12">
-                        <textarea style="width: 100%;" name="music_lyric" rows="20">{{$fields['music_lyric']['value']}}</textarea>
+
+                        <textarea style="width: 100%;" name="music_lyric_karaoke" rows="20">{{$fields['music_lyric_karaoke']['value']}}</textarea>
                     </div>
                     <div class="box-footer">
 
@@ -96,7 +107,7 @@ $file_url = Helpers::file_url($music);
 
                             <input type="hidden" name="save_action" value="{{ $saveAction['active']['value'] }}">
 
-                            <a href="/admin/lyric/suggest/{{$fields['id']['value']}}" class="btn btn-primary suggest_lyric"><span class="fa fa-arrow-circle-right"></span> &nbsp;Xác nhận gợi ý</a>
+                            <a href="/admin/karaoke/suggest/{{$fields['id']['value']}}" class="btn btn-primary suggest_lyric"><span class="fa fa-arrow-circle-right"></span> &nbsp;Xác nhận gợi ý</a>
 
                             <div class="btn-group">
 
@@ -169,14 +180,14 @@ $file_url = Helpers::file_url($music);
             var r = confirm("Bạn có chắc chắn xóa gợi ý lyric này không!");
             if (r == true) {
                 $.ajax({
-                    url: '/admin/lyric/' + id,
+                    url: '/admin/karaoke/' + id,
                     type: "DELETE",
                     dataType: "html",
                     beforeSend: function () {
 
                     },
                     success: function(response) {
-                        location.href = '/admin/lyric';
+                        location.href = '/admin/karaoke';
                     }
                 });
             }
@@ -184,9 +195,13 @@ $file_url = Helpers::file_url($music);
         }
         jwplayer.key="dWwDdbLI0ul1clbtlw+4/UHPxlYmLoE9Ii9QEw==";
         var player = jwplayer('csnplayer');
+        var firstLoadLyric = false;
+        var firstLoadBeforePlay = true;
+        var firstLoadUpdateQuality = true;
+        var listLyrics = [];
         player.setup({
             width: '100%',
-            height: '88',
+            height: '120',
             repeat: false,
             aspectratio: "<?php echo $music->cat_id == CAT_VIDEO ? '16:9' : 'false' ?>",
             stretching: 'fill',
@@ -231,7 +246,36 @@ $file_url = Helpers::file_url($music);
                 }
             },
         });
-
+        jwplayer().onBeforePlay(function() {
+            //logPlayAudioFlag = true;
+            //console.log('set flag again|'+logPlayAudioFlag);
+            if(firstLoadBeforePlay) {
+                firstLoadBeforePlay = false;
+                $('#csnplayer').find('.jw-captions').html($('#hidden_lyrics').html());
+                $('#hidden_lyrics').remove();
+                new RabbitLyrics({
+                    element: document.getElementById("lyrics"),
+                    jw_player: player,
+                    viewMode: 'mini',
+                    onUpdateTimeJw: false
+                });
+                <?php
+                if($music->cat_id != CAT_VIDEO) {
+                ?>
+                $('.jw-display-icon-display').css('display', 'none')
+                <?php
+                }
+                ?>
+            }
+        });
+        jwplayer().onTime(function () {
+            new RabbitLyrics({
+                element: document.getElementById("lyrics"),
+                jw_player: player,
+                viewMode: 'mini',
+                onUpdateTimeJw: true
+            });
+        })
         jwplayer().onQualityLevels(function(callback){
             updateQuality(callback);
         });
@@ -290,6 +334,46 @@ $file_url = Helpers::file_url($music);
         }
         .color-red {
             color: red;
+        }
+        .rabbit-lyrics {
+            position: absolute!important;
+            bottom: 0!important;
+            width: 100%!important;
+            text-align: center!important;
+        }
+        .rabbit-lyrics-mini {
+            height: 30px;
+            line-height: 30px;
+        }
+        .rabbit-lyrics {
+            margin: auto;
+            display: flex;
+        }
+        .rabbit-lyrics .line {
+            margin: auto;
+            line-height: 19px;
+        }
+        .kara-csn {
+            text-align: left;
+            margin-top: -19px;
+            overflow: hidden;
+            color: #FF2D55;
+            white-space: nowrap;
+            text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+
+            -webkit-animation: mymove infinite;
+            -webkit-animation-duration: 0.1s;
+            animation: mymove infinite;
+            animation-duration: 0.1s;
+        }
+        .sub_line {
+            display: none;
+        }
+        .vietsub1 {
+            color: #65abbc;
+        }
+        .vietsub2 {
+            color: #c0a478;
         }
     </style>
 @endpush

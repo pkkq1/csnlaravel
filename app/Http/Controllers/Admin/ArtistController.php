@@ -41,7 +41,7 @@ class ArtistController extends CrudController
 
         $this->middleware(function ($request, $next)
         {
-            if(!backpack_user()->can('xoa_nhac')) {
+            if(!backpack_user()->can('danh_sach_ca_si_(list)')) {
                 $this->crud->denyAccess(['list']);
             }
             if(!backpack_user()->can('danh_sach_ca_si_(create)')) {
