@@ -11,7 +11,7 @@ class KaraokeEloquentRepository extends EloquentRepository implements KaraokeRep
      */
     public function getModel()
     {
-        return \App\Models\KaraokeModel::class;
+        return \App\Models\MusicKaraokeModel::class;
     }
     /**
      * Get all posts only published

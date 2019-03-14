@@ -19,6 +19,7 @@ use App\Repositories\Artist\ArtistRepository;
 use App\Solr\Solarium;
 use App\Http\Controllers\Sync\SolrSyncController;
 use App\Models\KaraokeSuggestionModel;
+use App\Models\MusicKaraokeModel;
 use App\Models\MusicModel;
 
 class KaraokeController extends CrudController
@@ -149,8 +150,20 @@ class KaraokeController extends CrudController
             return redirect()->back();
         }
         $music = MusicModel::find($request->music_id);
-        $music->musicKara->music_lyric_karaoke = $request->music_lyric_karaoke;
-        $music->musicKara->save();
+        if(!$music->musicKara) {
+            MusicKaraokeModel::create([
+                'music_id' => $music->music_id,
+                'music_title' => $music->music_title,
+                'music_artist' => $music->music_artist,
+                'music_downloads_this_week' => $music->music_downloads_this_week,
+                'music_time' => time(),
+                'music_length' => $music->music_length,
+                'music_lyric_karaoke' => $request->music_lyric_karaoke,
+            ]);
+        }else{
+            $music->musicKara->music_lyric_karaoke = $request->music_lyric_karaoke;
+            $music->musicKara->save();
+        }
         $sugLyric->delete();
         \Alert::success('Chỉnh sửa karaoke mới thành công.')->flash();
         return \Redirect::to($this->crud->route);

@@ -479,7 +479,7 @@ class MusicController extends Controller
                 if(!backpack_user()->can('duyet_sua_karaoke')){
                     abort(403, 'Lỗi truy cập, tài khoản bạn không có chỉnh sửa karaoke.');
                 }
-                if(!isset($music->musicKara->music_lyric_karaoke)) {
+                if(!$music->musicKara) {
                     $this->karaokeRepository->create([
                         'music_id' => $music->music_id,
                         'music_title' => $music->music_title,
