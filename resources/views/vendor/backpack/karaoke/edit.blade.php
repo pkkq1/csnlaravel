@@ -3,7 +3,7 @@ use App\Library\Helpers;
 use App\Models\MusicModel;
 $music = MusicModel::find($fields['music_id']['value']);
 $partListenFullUrl = Helpers::listen_url($music, '');
-$oldKara = $music->musicKara->music_lyric_karaoke;
+$oldKara = $music->musicKara->music_lyric_karaoke ?? '';
 $oldKaraArr = preg_split('/\r\n|\r|\n/', htmlspecialchars_decode($oldKara, ENT_QUOTES));
 $sugKaraArr = preg_split('/\r\n|\r|\n/', htmlspecialchars_decode($fields['music_lyric_karaoke']['value'], ENT_QUOTES));
 $file_url = Helpers::file_url($music);
