@@ -388,25 +388,34 @@ class UploadController extends Controller
             if(($oldCoverId != $request->input('cover_id')) && $oldStage != UPLOAD_STAGE_DELETED) {
                 $newAlbum = $newAlbum ? $newAlbum :$this->coverRepository->findCover($request->input('cover_id'));
                 $oldAlbum = $this->coverRepository->findCover($oldCoverId);
-                if(!$newAlbum || !$oldAlbum)
-                    return view('errors.text_error')->with('message', 'Lỗi album không tìm thấy trong hệ thống');
                 if($oldCoverId != 0 && $request->input('cover_id')) {
                     // chuyển album
-                    $oldAlbum->album_music_total = $oldAlbum->album_music_total - 1;
-                    $oldAlbum->album_last_updated = time();
-                    $newAlbum->album_music_total = $newAlbum->album_music_total + 1;
-                    $newAlbum->album_last_updated = time();
+                    if($oldAlbum) {
+                        $oldAlbum->album_music_total = $oldAlbum->album_music_total - 1;
+                        $oldAlbum->album_last_updated = time();
+                    }
+                    if($newAlbum) {
+                        $newAlbum->album_music_total = $newAlbum->album_music_total + 1;
+                        $newAlbum->album_last_updated = time();
+                    }
                 }elseif($request->input('cover_id')) {
                     // thêm album
-                    $newAlbum->album_music_total = $newAlbum->album_music_total + 1;
-                    $newAlbum->album_last_updated = time();
+                    if($newAlbum) {
+                        $newAlbum->album_music_total = $newAlbum->album_music_total + 1;
+                        $newAlbum->album_last_updated = time();
+                    }
+
                 }elseif(!$request->input('cover_id')) {
                     // xóa album
-                    $oldAlbum->album_music_total = $oldAlbum->album_music_total - 1;
-                    $oldAlbum->album_last_updated = time();
+                    if($oldAlbum) {
+                        $oldAlbum->album_music_total = $oldAlbum->album_music_total - 1;
+                        $oldAlbum->album_last_updated = time();
+                    }
                 }
-                $oldAlbum->save();
-                $newAlbum->save();
+                if($oldAlbum)
+                    $oldAlbum->save();
+                if($newAlbum)
+                    $newAlbum->save();
             }
             if(($per_Xet_Duyet && $oldStage != $request->input('music_state')) || $isDelete) {
                 // cập nhật tình trạng sẽ xóa
@@ -421,7 +430,7 @@ class UploadController extends Controller
                         $Solr->syncDeleteMusic(null, $result);
                     }
                     // áp dụng không thay đổi cover
-                    if($result->cover_id && $oldCoverId == $request->input('cover_id')) {
+                    if($result->cover_id && $oldCoverId == $request->input('cover_id') && $oldAlbum) {
                         $oldAlbum = $this->coverRepository->findCover($result->cover_id);
                         $oldAlbum->album_music_total = $oldAlbum->album_music_total - 1;
                         $oldAlbum->album_last_updated = time();
@@ -432,7 +441,7 @@ class UploadController extends Controller
                 }else{
                     // cập nhật tình trạng đã xóa thành xét duyệt
                     // áp dụng không thay đổi cover
-                    if($result->cover_id && $oldCoverId == $request->input('cover_id') && $oldStage == UPLOAD_STAGE_DELETED) {
+                    if($result->cover_id && $oldCoverId == $request->input('cover_id') && $oldStage == UPLOAD_STAGE_DELETED && $oldAlbum) {
                         $oldAlbum = $this->coverRepository->findCover($result->cover_id);
                         $oldAlbum->album_music_total = $oldAlbum->album_music_total + 1;
                         $oldAlbum->album_last_updated = time(); // tự động cập nhật cover ở crontab
