@@ -182,7 +182,7 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
 
                                         <div class="form-group col-4{{ $errors->has('music_production') ? ' has-error' : '' }}">
                                             <label for="music_production">Hãng sản xuất</label>
-                                            <input {{ isset($music) ? 'disabled' : '' }} type="text" class="form-control" {{isset($music) ? ($music->album_id > 0 ? 'disabled' : '') : ''}} value="{{ old('music_production') ?? $music->music_production ?? '' }}" name="music_production" id="music_production" placeholder="">
+                                            <input type="text" class="form-control" {{isset($music) ? ($music->cover_id > 0 ? 'disabled' : '') : ''}} value="{{ old('music_production') ?? $music->music_production ?? '' }}" name="music_production" id="music_production" placeholder="">
                                             @if ($errors->has('music_production'))
                                                 <span class="help-block">
                                                     <strong>{{ str_replace('music year', 'hãng sản xuất', $errors->first('music_production')) }}</strong>
@@ -191,7 +191,7 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                                         </div>
                                         <div class="form-group col-4{{ $errors->has('music_album_id') ? ' has-error' : '' }}">
                                             <label for="music_album_id">Hãng đĩa</label>
-                                            <input type="text" {{ isset($music) ? 'disabled' : '' }} class="form-control" {{isset($music) ? ($music->album_id > 0 ? 'disabled' : '') : ''}} value="{{ old('music_album_id') ?? $music->music_album_id ?? '' }}"  name="music_album_id" id="music_album_id" placeholder="">
+                                            <input type="text" class="form-control" {{isset($music) ? ($music->cover_id > 0 ? 'disabled' : '') : ''}} value="{{ old('music_album_id') ?? $music->music_album_id ?? '' }}"  name="music_album_id" id="music_album_id" placeholder="">
                                             @if ($errors->has('music_album_id'))
                                                 <span class="help-block">
                                                     <strong>{{ str_replace('music album id', 'hãng đĩa', $errors->first('music_album_id')) }}</strong>
@@ -200,7 +200,7 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                                         </div>
                                         <div class="form-group col-4{{ $errors->has('music_year') ? ' has-error' : '' }}">
                                             <label for="music_year">Năm phát hành</label>
-                                            <input {{ isset($music) ? 'disabled' : '' }} type="text" class="form-control" {{isset($music) ? ($music->cover_id > 0 ? 'disabled' : '') : ''}} name="music_year" value="{{ old('music_year') ?? $music->music_year ?? '' }}" id="music_year" placeholder="">
+                                            <input type="text" class="form-control" {{isset($music) ? ($music->cover_id > 0 ? 'disabled' : '') : ''}} name="music_year" value="{{ old('music_year') ?? $music->music_year ?? '' }}" id="music_year" placeholder="">
                                             @if(isset($music))
                                                 <input type="hidden" name="music_year" value="{{ old('music_year') ?? $music->music_year ?? '' }}">
                                             @endif
