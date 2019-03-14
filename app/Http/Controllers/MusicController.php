@@ -439,7 +439,7 @@ class MusicController extends Controller
 
                 $lyricKara = $this->lyricSuggestionRepository->getModel()::where(['music_id' => $music->music_id, 'user_id' => Auth::user()->id])->first();
                 if($lyricKara) {
-                    if($music->music_lyric == $request->lyric)
+                    if($lyricKara->music_lyric == $request->lyric)
                         Helpers::ajaxResult(false, 'thông tin nhập không thay đổi', null);
                     $lyricKara->delete();
                 }
@@ -471,7 +471,7 @@ class MusicController extends Controller
             Helpers::ajaxResult(true, '', ['lyric' => $music->musicKara->music_lyric_karaoke ?? '']);
         }else{
             if(!$request->karaoke) {
-                Helpers::ajaxResult(false, 'vui lòng nhập thông tin karaoke', null);
+                Helpers::ajaxResult(false, 'Vui lòng nhập thông tin karaoke', null);
             }
             if($request->submit == 'store') {
                 if(!backpack_user()->can('duyet_sua_karaoke')){
@@ -494,12 +494,12 @@ class MusicController extends Controller
                 Helpers::ajaxResult(true, 'Sửa lyric thành công', null);
             }else{
                 if(!$request->karaoke) {
-                    Helpers::ajaxResult(false, 'vui lòng nhập thông tin karaoke', null);
+                    Helpers::ajaxResult(false, 'Vui lòng nhập thông tin karaoke', null);
                 }
                 $karaExist = $this->karaokeSuggestionRepository->getModel()::where(['music_id' => $music->music_id, 'user_id' => Auth::user()->id])->first();
                 if($karaExist) {
                     if($karaExist->musicKara->music_lyric_karaoke == $request->karaoke)
-                        Helpers::ajaxResult(false, 'thông tin nhập không thay đổi', null);
+                        Helpers::ajaxResult(false, 'Thông tin nhập không thay đổi', null);
                     $karaExist->delete();
                 }
                 $this->karaokeSuggestionRepository->create([
