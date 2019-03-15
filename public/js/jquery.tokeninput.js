@@ -199,12 +199,23 @@ $.TokenList = function (input, url_or_data, settings) {
             }
         })
         .blur(function () {
-            hide_dropdown();
-            console.log(123);
-            if($(this).val().trim().length) {
-                add_token({id: -1, name: $(this).val()});
+
+            $strPos = $(this).val().indexOf(";");
+            $valKeyUp = input_box.val().substring(0, $strPos);
+            $valExpand = input_box.val().replace($valKeyUp + ';', "");
+            if($strPos != -1 && $valExpand) {
+                input_box.val($valKeyUp);
+                do_search();
+                $strPos = 0;
+                $valKeyUp = '';
+                $valExpand = '';
+            }else{
+                hide_dropdown();
+                if($(this).val().trim().length) {
+                    add_token({id: -1, name: $(this).val()});
+                }
+                $(this).val('');
             }
-            $(this).val('');
         })
         .bind("keyup keydown blur update", resize_input)
         .keydown(function (event) {
@@ -294,18 +305,25 @@ $.TokenList = function (input, url_or_data, settings) {
         })
         .keyup(function (event) {
             if(event.keyCode == 186 || event.keyCode == 188 || event.keyCode == 190) {
-
-                $valKeyUp = input_box.val().substring(0, input_box.val().length -1);
-                if($valKeyUp !== ""){
-                    var inputNone = {
-                        id : -1,
-                        name: $valKeyUp
+                $strPos = input_box.val().indexOf(";");
+                $valKeyUp = input_box.val().substring(0, $strPos);
+                $valExpand = input_box.val().replace($valKeyUp + ';', "");
+                if($strPos && $valExpand) {
+                    input_box.val($valKeyUp);
+                    do_search();
+                }else{
+                    if($valKeyUp !== "" && $valExpand == ""){
+                        var inputNone = {
+                            id : -1,
+                            name: $valKeyUp
+                        }
+                        add_token (inputNone);
                     }
-                    add_token (inputNone);
+                    input_box.val("");
+                    hide_dropdown();
+                    return false;
                 }
-                input_box.val("");
-                hide_dropdown();
-                return false;
+
             }
         });
 
@@ -520,7 +538,7 @@ $.TokenList = function (input, url_or_data, settings) {
             token_list.children().each(function () {
                 var existing_token = $(this);
                 var existing_data = $.data(existing_token.get(0), "tokeninput");
-                if(existing_data && existing_data.id === item.id && item.id !== -1) {
+                if(existing_data && existing_data.id === item.id && existing_data.name === item.name) {
                     found_existing_token = existing_token;
                     return false;
                 }
@@ -532,7 +550,6 @@ $.TokenList = function (input, url_or_data, settings) {
                 return;
             }
         }
-
         // Insert the new tokens
         if(settings.tokenLimit == null || token_count < settings.tokenLimit) {
             insert_token(item);
@@ -764,8 +781,10 @@ $.TokenList = function (input, url_or_data, settings) {
     // than settings.minChars
     function do_search() {
         var query = input_box.val();
-
         if(query && query.length) {
+            if(query.indexOf(";") != -1) {
+                query = query.substr(0, query.indexOf(";"));
+            }
             if(selected_token) {
                 deselect_token($(selected_token), POSITION.AFTER);
             }
@@ -809,9 +828,9 @@ $.TokenList = function (input, url_or_data, settings) {
                     ajax_params.url = url;
                 }
 
-                // Prepare the request
+                var query = query.toLowerCase();
                 ajax_params.data[settings.queryParam] = query;
-                var query = input_box.val().toLowerCase();
+                // Prepare the request
                 ajax_params.type = settings.method;
                 ajax_params.dataType = settings.contentType;
                 if(settings.crossDomain) {
