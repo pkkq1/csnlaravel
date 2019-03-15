@@ -205,11 +205,11 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
             foreach ($artistIds as $key => $item) {
                 if($item == -1) {
                     unset($artistIds[$key]);
-                    $artistNameRel[] = $artistName[$key];
+                    $artistNameRel[] = Helpers::strReplaceSolr($artistName[$key]);
                 }
             }
         }else{
-            $artistNameRel = $artistName;
+            $artistNameRel = Helpers::strReplaceSolr($artistName);
         }
 
 
