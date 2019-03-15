@@ -499,8 +499,9 @@ class MusicController extends Controller
                     Helpers::ajaxResult(false, 'Vui lòng nhập thông tin karaoke', null);
                 }
                 $this->karaokeSuggestionRepository->getModel()::where(['music_id' => $music->music_id, 'user_id' => Auth::user()->id])->delete();
-                if($music->musicKara->music_lyric_karaoke == $request->karaoke)
-                    Helpers::ajaxResult(false, 'Thông tin nhập không thay đổi', null);
+                if($music->musicKara)
+                    if($music->musicKara->music_lyric_karaoke == $request->karaoke)
+                        Helpers::ajaxResult(false, 'Thông tin nhập không thay đổi', null);
                 $this->karaokeSuggestionRepository->create([
                     'music_id' => $music->music_id,
                     'music_title' => $music->music_title,

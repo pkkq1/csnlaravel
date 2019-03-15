@@ -18,8 +18,9 @@ Route::group([
     CRUD::resource('music', 'MusicController');
     CRUD::resource('video', 'VideoController');
 
-    CRUD::resource('lyric', 'LyricController');
-    CRUD::resource('karaoke', 'KaraokeController');
+    CRUD::resource('lyric', 'SugLyricController');
+    CRUD::resource('karaoke', 'SugKaraokeController');
+    CRUD::resource('list_karaoke', 'KaraokeController');
 
     CRUD::resource('comment', 'CommentController');
     CRUD::resource('comment_replay', 'CommentReplayController');
@@ -36,8 +37,8 @@ Route::group([
     Route::put('/artist_upload/suggest/{id}', 'ArtistUploadController@suggest');
     Route::put('/artist_upload/approval/{id}', 'ArtistUploadController@approvalArtistUpload');
 
-    Route::put('/lyric/suggest/{id}', 'LyricController@approvalLyric');
-    Route::put('/karaoke/suggest/{id}', 'KaraokeController@approvalKaraoke');
+    Route::put('/lyric/suggest/{id}', 'SugLyricController@approvalLyric');
+    Route::put('/karaoke/suggest/{id}', 'SugKaraokeController@approvalKaraoke');
 
 
 

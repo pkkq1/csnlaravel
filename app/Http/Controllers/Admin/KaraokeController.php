@@ -18,35 +18,32 @@ use Illuminate\Support\Facades\Auth;
 use App\Repositories\Artist\ArtistRepository;
 use App\Solr\Solarium;
 use App\Http\Controllers\Sync\SolrSyncController;
-use App\Models\KaraokeSuggestionModel;
-use App\Models\MusicKaraokeModel;
-use App\Models\MusicModel;
 
 class KaraokeController extends CrudController
 {
+    protected $artistRepository;
     protected $Solr;
 
-    public function __construct(Solarium $Solr)
+    public function __construct(ArtistRepository $artistRepository, Solarium $Solr)
     {
+        $this->artistRepository = $artistRepository;
         parent::__construct();
 
-        $this->crud->setModel("App\Models\KaraokeSuggestionModel");
-        $this->crud->setEntityNameStrings('Karaoke', 'Karaoke');
-        $this->crud->setRoute(config('backpack.base.route_prefix').'/karaoke');
-        $this->crud->orderBy('id', 'asc');
+        $this->crud->setModel("App\Models\MusicKaraokeModel");
+        $this->crud->setEntityNameStrings('Danh Sách Karaoke', 'Danh Sách Karaoke');
+        $this->crud->setRoute(config('backpack.base.route_prefix').'/list_karaoke');
+        $this->crud->orderBy('music_update_time', 'desc');
+        $this->crud->orderBy('music_time', 'desc');
         $this->crud->denyAccess(['create']);
-        $this->Solr = $Solr;
 
-//        $this->crud->setEntityNameStrings('menu item', 'menu items');
+        $this->Solr = $Solr;
 
         $this->middleware(function ($request, $next)
         {
             if(!backpack_user()->can('suggestion_karaoke_(list)')) {
                 $this->crud->denyAccess(['list']);
             }
-            if(!backpack_user()->can('suggestion_karaoke_(create)')) {
-                $this->crud->denyAccess(['create']);
-            }
+            $this->crud->denyAccess(['create']);
             if(!backpack_user()->can('suggestion_karaoke_(update)')) {
                 $this->crud->denyAccess(['update']);
             }
@@ -87,49 +84,14 @@ class KaraokeController extends CrudController
             ],
         ]);
 
-
         $this->crud->addField([
-            'name'  => 'id',
-            'type'  => 'hidden',
-        ]);
-        $this->crud->addField([
-            'name'  => 'music_id',
-            'type'  => 'hidden',
-        ]);
-        $this->crud->addField([
-            'name'  => 'music_title',
-            'type'  => 'hidden',
-        ]);
-        $this->crud->addField([
-            'name'  => 'music_artist',
-            'type'  => 'hidden',
-        ]);
-        $this->crud->addField([
-            'name'  => 'music_lyric_karaoke',
-            'type'  => 'hidden',
-        ]);
-        $this->crud->addField([
-            'name'  => 'user_id',
-            'type'  => 'hidden',
+            'name' => 'music_lyric_karaoke',
+            'label' => 'Karaoke',
+            'type' => 'textarea',
+            'placeholder' => 'Nhập thông tin karaoke',
+            // 'disabled' => 'disabled'
         ]);
 
-    }
-    public function edit($id, $template = false)
-    {
-        $this->crud->hasAccessOrFail('update');
-
-        // get entry ID from Request (makes sure its the last ID for nested resources)
-        $id = $this->crud->getCurrentEntryId() ?? $id;
-
-        // get the info for that entry
-        $this->data['entry'] = $this->crud->getEntry($id);
-        $this->data['crud'] = $this->crud;
-        $this->data['saveAction'] = $this->getSaveAction();
-        $this->data['fields'] = $this->crud->getUpdateFields($id);
-        $this->data['title'] = trans('backpack::crud.edit').' '.$this->crud->entity_name;
-        $this->data['id'] = $id;
-
-        return view('vendor.backpack.karaoke.edit', $this->data);
     }
     public function destroy($id)
     {
@@ -143,29 +105,5 @@ class KaraokeController extends CrudController
     {
         return parent::updateCrud($request);
     }
-    public function approvalKaraoke(StoreRequest $request, $id) {
-        $sugLyric = KaraokeSuggestionModel::find($id);
-        if(!$sugLyric) {
-            \Alert::error('Lỗi, gợi ý không tồn tại')->flash();
-            return redirect()->back();
-        }
-        $music = MusicModel::find($request->music_id);
-        if(!$music->musicKara) {
-            MusicKaraokeModel::create([
-                'music_id' => $music->music_id,
-                'music_title' => $music->music_title,
-                'music_artist' => $music->music_artist,
-                'music_downloads_this_week' => $music->music_downloads_this_week,
-                'music_time' => time(),
-                'music_length' => $music->music_length,
-                'music_lyric_karaoke' => $request->music_lyric_karaoke,
-            ]);
-        }else{
-            $music->musicKara->music_lyric_karaoke = $request->music_lyric_karaoke;
-            $music->musicKara->save();
-        }
-        $sugLyric->delete();
-        \Alert::success('Chỉnh sửa karaoke mới thành công.')->flash();
-        return \Redirect::to($this->crud->route);
-    }
+
 }
