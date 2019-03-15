@@ -113,7 +113,7 @@ class UserMusicController extends Controller
             return view('user.music_approval', compact('music', 'stage'));
         }
     }
-    public function musicUploadedRedirect(Request $request, $user_id, $music_id) {
+    public function musicUploadedRedirect(Request $request, $music_id) {
 //        , 'music_user_id' => $user_id
         $music = $this->musicRepository->getModel()::where(['music_id' => $music_id])->first();
         if($music) {
