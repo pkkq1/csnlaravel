@@ -120,7 +120,7 @@ class UserMusicController extends Controller
             $url = Helpers::listen_url($music->toArray());
             return redirect($url);
         }
-        return view('errors.404');
+        return view('errors.404')->with('message', 'Nhạc đang cập nhật.');
     }
     public function musicRecent(Request $request) {
         $musics = [];
