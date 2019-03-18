@@ -239,6 +239,7 @@ class UploadController extends Controller
     function uploadFileMusic(Request $request) {
 //        $fileU = $request->file('file');
         $type = substr($_FILES['file']['type'], 0, 5);
+        $pathInfo = pathinfo($_FILES['file']['name']);
         if($type != 'audio' && $type != 'video') {
             return response()->json([
                 'status' => false,
@@ -253,7 +254,6 @@ class UploadController extends Controller
         }
         $getID3 = new \getID3;
         $videoInfo = $getID3->analyze($_FILES['file']['tmp_name']);
-        $pathInfo = pathinfo($_FILES['file']['name']);
         if($type == 'video') {
             if($pathInfo['extension'] != 'm2ts') {
                 if($request->type == 'music')
@@ -309,14 +309,14 @@ class UploadController extends Controller
         ]);
     }
     public function storeMusic(Request $request, $musicId = null) {
-        global $cat_id2info;
         include(app_path() . '/../resources/views/cache/def_main_cat.blade.php');
-        if(!isset($cat_id2info[$request->cat_id][$request->cat_level]) || $request->cat_level == 0) {
+        global $cat_id2info;
+        if(!isset($cat_id2info[$request->cat_id][$request->cat_level])) {
             $errorMessages = new \Illuminate\Support\MessageBag;
-            if($request->cat_level == 0) {
-                $errorMessages->merge(['cat_level' => ['Danh mục bạn chọn không phù hợp lệ.']]);
-            }else{
+            if($request->cat_id < 0 || $request->cat_id > 9) {
                 $errorMessages->merge(['cat_id' => ['Danh mục bạn chọn không phù hợp lệ.']]);
+            }else{
+                $errorMessages->merge(['cat_level' => ['Danh mục bạn chọn không phù hợp lệ.']]);
             }
             return redirect()->back()->withErrors($errorMessages);
         }

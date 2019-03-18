@@ -243,7 +243,7 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                                             </select>
                                             @if ($errors->has('cat_level'))
                                                 <span class="help-block">
-                                                    <strong>{{ $errors->first('cat_id') }}</strong>
+                                                    <strong>{{ $errors->first('cat_level') }}</strong>
                                                 </span>
                                             @endif
                                         </div>
