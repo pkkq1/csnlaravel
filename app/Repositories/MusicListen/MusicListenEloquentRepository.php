@@ -96,6 +96,7 @@ class MusicListenEloquentRepository extends EloquentRepository implements MusicL
             ->where('music_year', '>', intval(date('Y')) - 2)
             ->orderBy('csn_video.music_downloads_today', 'desc')
             ->orderBy('csn_video.music_downloads_this_week', 'desc')
+            ->orderBy('csn_video.music_listen', 'desc')
             ->select($this->_selectVideo)
             ->whereNotIn('music_id', function($query) {
                 $query->select('music_id')
