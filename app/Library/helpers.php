@@ -490,7 +490,7 @@ class Helpers
 
     public static function pagingCustom($page, $rows, $total, $url, $key = 'q') {
         echo '<ul class="pagination">';
-        echo PaginationLinksCustom::create($page, intval($total / $rows), 1, '<li>'.$url.'</li>', '<li class="active"><a>%d</a></li>', '<li><a>&hellip;</a></li>', $key);
+        echo PaginationLinksCustom::create($page, ceil($total / $rows), 1, '<li>'.$url.'</li>', '<li class="active"><a>%d</a></li>', '<li><a>&hellip;</a></li>', $key);
         echo '</ul>';
     }
 
