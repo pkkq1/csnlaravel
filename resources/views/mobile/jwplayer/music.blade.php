@@ -824,7 +824,7 @@ if($musicSet['type_listen'] == 'playlist') {
         //////////////////////////////////
         if(!$('.download_status').hasClass('music_downloaded')) {
             $.ajax({
-                url: '/count_to_download',
+                url: '/count/download',
                 type: "POST",
                 dataType: "json",
                 data: {

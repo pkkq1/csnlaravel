@@ -20,7 +20,7 @@ Route::get('/sync/solr_cover', 'Sync\SolrSyncController@syncCover');
 Route::get('/sync/solr_music_delete', 'Sync\SolrSyncController@syncDeleteMusic');
 Route::get('/sync/solr_video_delete', 'Sync\SolrSyncController@syncDeleteVideo');
 
-Route::get('/sync/demo', 'Sync\SyncTableController@user');
+Route::get('/sync/demo', 'Sync\BxhCategoryController@syncBxhCategory');
 //Route::get('/sync/demo2', 'Sync\UploaderController@uploader');
 
 
@@ -141,7 +141,7 @@ Route::group(['middlewareGroups' => ['web']], function () {
     Route::get('tim-kiem', ['as' => 'search.index', 'uses' => 'SearchController@index']);
     Route::get('/search/real', 'SearchController@ajaxSearch');
     // count download
-    Route::post('/count_to_download', ['as' => 'music.count_download', 'uses' => 'MusicController@countDownload']);
+    Route::post('/count/download', ['as' => 'music.count_download', 'uses' => 'MusicController@countDownload']);
 
 
     // User
