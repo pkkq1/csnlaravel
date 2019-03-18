@@ -456,10 +456,8 @@ class UploadController extends Controller
             $result->music_title = $request->input('music_title');
             $result->music_artist = $request->input('music_artist');
             $result->music_artist_id = trim($request->input('music_artist_id') ?? '');
-//            $result->music_production = $request->input('music_production') ?? '';
             $result->music_composer = $request->input('music_composer') ?? '';
-//            $result->music_album_id = $request->input('music_album_id') ?? '';
-//            $result->music_year = $request->input('music_year') ?? 0;
+
             $result->cat_id = $request->input('cat_id') ?? 0;
             $result->cat_level = $request->input('cat_level') ?? 0;
             $result->cat_sublevel = $request->input('cat_sublevel') ?? 0;
@@ -475,6 +473,11 @@ class UploadController extends Controller
             if($per_Xet_Duyet_Chat_luong && $request->input('music_bitrate_fixed')) {
                 $result->music_bitrate_fixed = $request->input('music_bitrate_fixed');
                 $result->music_bitrate_fixed_by = Auth::user()->id;
+            }
+            if($result->cover_id == 0){
+                $result->music_production = $request->input('music_production') ?? '';
+                $result->music_album_id = $request->input('music_album_id') ?? '';
+                $result->music_year = $request->input('music_year') ?? 0;
             }
             $result->save();
             // update cover artist
