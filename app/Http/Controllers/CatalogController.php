@@ -41,14 +41,14 @@ class CatalogController extends Controller
         return view('catalog.playlist_publisher', compact('playlist', 'caption'));
     }
     public function musicNews(Request $request) {
-        $music = $this->musicRepository->musicNews('music_last_update_time', 'desc', LIMIT_MUSIC_PAGE_CATEGORY);
+        $music = $this->musicRepository->musicNews('music_time', 'desc', LIMIT_MUSIC_PAGE_CATEGORY);
         if($request->input('tab'))
             return view('category.music_item', compact('music'));
         return view('catalog.music_news', compact('music'));
 
     }
     public function videoNews(Request $request) {
-        $video = $this->videoRepository->videoNews('music_last_update_time', 'desc', LIMIT_MUSIC_PAGE_CATEGORY);
+        $video = $this->videoRepository->videoNews('music_time', 'desc', LIMIT_MUSIC_PAGE_CATEGORY);
         if($request->input('tab'))
             return view('category.video_item', compact('video'));
         return view('catalog.video_news', compact('video'));

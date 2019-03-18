@@ -101,6 +101,7 @@ class SolrSyncController extends Controller
                 'music_link' => '/'.Helpers::listen_url($item->toArray(), false),
                 'music_filename' => $item->music_filename,
                 'music_artist' => $item->music_artist, //str_replace(';', ',', $item->music_artist),
+                'music_artist_array' => explode(';', $item->music_artist),
                 'music_artist_id' => explode(';', htmlspecialchars_decode($item->music_artist_id, ENT_QUOTES)),
                 'music_artist_html' => Helpers::rawHtmlArtists($item->music_artist_id, $item->music_artist),
                 'music_listen' => $item->music_listen,
