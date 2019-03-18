@@ -314,9 +314,9 @@ class UploadController extends Controller
         if(!isset($cat_id2info[$request->cat_id][$request->cat_level])) {
             $errorMessages = new \Illuminate\Support\MessageBag;
             if($request->cat_id < 0 || $request->cat_id > 9) {
-                $errorMessages->merge(['cat_id' => ['Danh mục bạn chọn không phù hợp lệ.']]);
+                $errorMessages->merge(['cat_id' => ['Danh mục bạn chọn không hợp lệ.']]);
             }else{
-                $errorMessages->merge(['cat_level' => ['Danh mục bạn chọn không phù hợp lệ.']]);
+                $errorMessages->merge(['cat_level' => ['Danh mục bạn chọn không hợp lệ.']]);
             }
             return redirect()->back()->withErrors($errorMessages);
         }
@@ -324,11 +324,20 @@ class UploadController extends Controller
             'music_title' => 'required|max:255',
             'music_composer' => 'max:255',
             'music_artist' => 'required',
+            'music_artist_id' => 'required',
             'drop_files' => 'required',
             'music_year' => 'max:4',
             'music_album_id' => 'max:15',
             'music_source_url' => 'max:255',
         ]);
+        // check artist
+        $countArtist = count(explode(';', $request->input('music_artist')));
+        $countArtistId = count(explode(';', $request->input('music_artist_id')));
+        if($countArtist != $countArtistId) {
+            $errorMessages = new \Illuminate\Support\MessageBag;
+            $errorMessages->merge(['music_artist' => ['Ca Sĩ bạn chọn không hợp lệ.']]);
+            return redirect()->back()->withErrors($errorMessages);
+        }
 
         $typeUpload = $request->input('type_upload');
         $artistExp = $this->artistExpRepository->getArrIds();
@@ -623,10 +632,32 @@ class UploadController extends Controller
             'music_album' => 'required|max:255',
             'music_composer' => 'max:255',
             'music_artist' => 'required',
+            'music_artist_id' => 'required',
             'drop_files' => 'required',
             'album_cover' => 'required',
             'music_year' => 'max:4',
         ]);
+        include(app_path() . '/../resources/views/cache/def_main_cat.blade.php');
+        global $cat_id2info;
+        if(!isset($cat_id2info[$request->cat_id][$request->cat_level])) {
+            $errorMessages = new \Illuminate\Support\MessageBag;
+            if($request->cat_id < 0 || $request->cat_id > 9) {
+                $errorMessages->merge(['cat_id' => ['Danh mục bạn chọn không hợp lệ.']]);
+            }else{
+                $errorMessages->merge(['cat_level' => ['Danh mục bạn chọn không hợp lệ.']]);
+            }
+            return redirect()->back()->withErrors($errorMessages);
+        }
+        // check artist
+        $countArtist = count(explode(';', $request->input('music_artist')));
+        $countArtistId = count(explode(';', $request->input('music_artist_id')));
+        if($countArtist != $countArtistId) {
+            $errorMessages = new \Illuminate\Support\MessageBag;
+            $errorMessages->merge(['music_artist' => ['Ca Sĩ bạn chọn không hợp lệ.']]);
+            return redirect()->back()->withErrors($errorMessages);
+        }
+
+
         $fileUploads = explode(';', htmlspecialchars_decode($request->input('drop_files'), ENT_QUOTES));
         $fileSize = explode(';', htmlspecialchars_decode($request->input('music_filesize'), ENT_QUOTES));
         $album = $this->coverRepository->create([
