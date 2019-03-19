@@ -37,7 +37,7 @@ class SearchController extends Controller
         return view('search.index', compact('result', 'titleSearch', 'search', 'result'));
     }
     public function ajaxSearch(Request $request, $quickSearch = true) {
-        $search = Helpers::strReplaceSolr($request->q);
+        $search = htmlspecialchars(Helpers::strReplaceSolr($request->q, true), ENT_QUOTES);
 //        $search = trim(mb_strtolower($request->q, 'UTF-8'));
         $searchExp = explode(' ', $search);
         foreach ($searchExp as $key => $item) {
@@ -64,7 +64,7 @@ class SearchController extends Controller
             ],
         ];
         if($search) {
-            $rawTiengViet = Helpers::khongdau($search, ' ');
+            $rawTiengViet = Helpers::strReplaceSolr(Helpers::khongdau($search, ' '));
             //dd($search);
             $charsetNoSpace = str_replace(' ', '', $rawTiengViet);
             $titleCharset = str_replace(' ', '+', $rawTiengViet);
@@ -93,11 +93,9 @@ class SearchController extends Controller
                         $searchSolarium['music_artist_search'] = $titleSearch;
                     }
                 }
-
                 $search_level_playback = 1;
                 $keyResult = 'music';
                 $search_level = 1;
-
                 search_music_2:
                 if ($search_level == 2)
                 {

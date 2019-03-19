@@ -76,16 +76,16 @@ class SolrSyncController extends Controller
         foreach ($searchMusic as $key => $item) {
             $titleSearch = Helpers::replaceKeySearch($item->music_title);
             $artistSearch = Helpers::replaceKeySearch($item->music_artist);
-            $titleCharset = Helpers::strReplaceSolr(Helpers::khongdau($titleSearch, ' '));
-            $artistCharset = Helpers::strReplaceSolr(Helpers::khongdau($artistSearch, ' '));
+            $titleCharset = htmlspecialchars(Helpers::strReplaceSolr(Helpers::khongdau($titleSearch, ' ')), ENT_QUOTES);
+            $artistCharset = htmlspecialchars(Helpers::strReplaceSolr(Helpers::khongdau($artistSearch, ' ')), ENT_QUOTES);
 //            $lyricSearch = Helpers::replaceKeySearch($item->music_lyric);
 //            $lyricCharset = Helpers::khongdau(str_replace("\n", ' ', $lyricSearch), ' ');
             $data = [
                 'id' => 'music_'.$item->music_id,
                 'music_id' => $item->music_id,
                 'music_title' => $item->music_title,
-                'music_title_search' => $titleSearch,
-                'music_artist_search' => $artistSearch,
+                'music_title_search' => htmlspecialchars($titleSearch, ENT_QUOTES),
+                'music_artist_search' => htmlspecialchars($artistSearch, ENT_QUOTES),
 //                'music_title_artist_search' => $titleSearch .' '. $artistSearch,
                 'music_title_charset_nospace' => str_replace(' ', '', $titleCharset),
                 'music_artist_charset_nospace' => str_replace(' ', '', $artistCharset),
@@ -401,7 +401,7 @@ class SolrSyncController extends Controller
         DB::disconnect('mysql');
         $datas = [];
         foreach ($artist as $key => $item) {
-            $artist_nickname_charset = Helpers::strReplaceSolr(Helpers::khongdau(mb_strtolower($item->artist_nickname, 'UTF-8'), ' '));
+            $artist_nickname_charset = Helpers::strReplaceSolr(Helpers::khongdau(mb_strtolower($item->artist_nickname, 'UTF-8'), ' '), true);
             $data = [
                 'id' => 'artist_'.$item->artist_id,
                 'artist_id' => $item->artist_id,
