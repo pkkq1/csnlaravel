@@ -331,7 +331,7 @@ class UploadController extends Controller
             'music_source_url' => 'max:255',
         ]);
         // check artist
-        $countArtist = count(explode(';', $request->input('music_artist')));
+        $countArtist = count(explode(';', htmlspecialchars_decode($request->input('music_artist'), ENT_QUOTES)));
         $countArtistId = count(explode(';', $request->input('music_artist_id')));
         if($countArtist != $countArtistId) {
             $errorMessages = new \Illuminate\Support\MessageBag;
