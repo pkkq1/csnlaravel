@@ -482,7 +482,10 @@ if($musicSet['type_listen'] == 'playlist') {
                     </div>
                 </div>
             </div>
+
             <div class="col-md-3">
+                <div id="right1_banner"> </div>
+
                 @if(!empty($video))
                     <?php
                         $urlVideo = Helpers::listen_url($video);
