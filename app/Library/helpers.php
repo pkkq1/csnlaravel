@@ -463,7 +463,7 @@ class Helpers
     }
 
     public static function replaceKeySearch($str) {
-        return preg_replace(['/y/', '/ý/', '/ỳ/', '/ỷ/', '/ỵ/', '/ỹ/', '/s/'], ['i', 'í', 'ì', 'ỉ', 'ị', 'ĩ', 'x'], mb_strtolower($str, 'UTF-8'));
+        return self::strReplaceSolr(preg_replace(['/y/', '/ý/', '/ỳ/', '/ỷ/', '/ỵ/', '/ỹ/', '/s/'], ['i', 'í', 'ì', 'ỉ', 'ị', 'ĩ', 'x'], mb_strtolower($str, 'UTF-8')));
     }
 
     public static function album_url($album_info, $id = 0)
