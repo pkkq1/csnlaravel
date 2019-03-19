@@ -15,4 +15,7 @@ class MusicListenModel extends Model
     public function hasOneMusic() {
         return $this->hasOne('App\Models\MusicModel', 'music_id');
     }
+    public function hasOneVideo() {
+        return $this->hasOne('App\Models\VideoModel', 'music_id');
+    }
 }
