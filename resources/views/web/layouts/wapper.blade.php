@@ -45,6 +45,18 @@
         </div>
     </div>
 
+    @hasSection('in_home')
+    @else
+    <div class="ads_box" id="pc_masthead_bg">
+        <div class="container text-center">
+            <div id="bsmasthead-wrapper">
+                <!-- Ad Tag-980x250 for Publisher chiasenhac - LAVA DIGITAL-->
+                <script src='https://pub.lavanetwork.net/sites/chiasenhac/chiasenhac_masthead.js'></script>
+            </div>
+        </div>
+    </div>
+    @endif
+
     <nav class="bottom navbar navbar-expand-lg navbar-light bg-light ghw-bottom-header">
         <div class="collapse navbar-collapse container" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
