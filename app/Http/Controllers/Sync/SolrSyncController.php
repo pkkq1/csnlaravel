@@ -79,7 +79,7 @@ class SolrSyncController extends Controller
             $titleCharset = Helpers::strReplaceSolr(Helpers::khongdau($titleSearch, ' '));
             $artistCharset = Helpers::strReplaceSolr(Helpers::khongdau($artistSearch, ' '));
 //            $lyricSearch = Helpers::replaceKeySearch($item->music_lyric);
-            $lyricCharset = Helpers::khongdau(str_replace("\n", ' ', $lyricSearch), ' ');
+//            $lyricCharset = Helpers::khongdau(str_replace("\n", ' ', $lyricSearch), ' ');
             $data = [
                 'id' => 'music_'.$item->music_id,
                 'music_id' => $item->music_id,
