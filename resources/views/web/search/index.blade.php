@@ -426,7 +426,6 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
             </div>
         </div>
         <div class="col-md-3">
-            <div id="right1_banner"> </div>
             @include('web.layouts.right_banner')
         </div>
     </div>

@@ -1,6 +1,8 @@
 <?php
     $catalog = config('constants.catalog');
 ?>
+    <div id="right1_banner"> </div>
+
     @if(isset($short))
         @foreach($catalog as $key => $val)
             <a class="catalog1 weekend" style="background-image: url('/imgs/chude/{{$val['img_web']}}')" href="/chu-de/{{$key}}.html" title="Romance">
