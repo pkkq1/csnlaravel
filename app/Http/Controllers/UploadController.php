@@ -649,7 +649,7 @@ class UploadController extends Controller
             return redirect()->back()->withErrors($errorMessages);
         }
         // check artist
-        $countArtist = count(explode(';', $request->input('music_artist')));
+        $countArtist = count(explode(';', htmlspecialchars_decode($request->input('music_artist'), ENT_QUOTES)));
         $countArtistId = count(explode(';', $request->input('music_artist_id')));
         if($countArtist != $countArtistId) {
             $errorMessages = new \Illuminate\Support\MessageBag;
