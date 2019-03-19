@@ -64,8 +64,8 @@ class PlaylistController extends Controller
         if(!$request->input('playlist_title')){
             Helpers::ajaxResult(false, 'Bạn chưa nhập tên playlist mới.', null);
         }
-        if(strlen($request->input('playlist_title')) <= 1){
-            Helpers::ajaxResult(false, 'Tên playlist mới ít nhất 2 ký tự.', null);
+        if(strlen($request->input('playlist_title')) <= 1 || strlen($request->input('playlist_title')) > 100){
+            Helpers::ajaxResult(false, 'Tên playlist mới ít nhất 2 và nhỏ hơn 100 ký tư.', null);
         }
         $result = $this->playlistRepository->create([
             'user_id' => Auth::user()->id,
@@ -118,7 +118,7 @@ class PlaylistController extends Controller
             $artistOld = [];
             $arrNew = [];
             if($playlistUser->playlist_artist) {
-                $artistOld = unserialize($playlistUser->playlist_artist);
+                $artistOld = unserialize(htmlspecialchars_decode($playlistUser->playlist_artist, ENT_QUOTES));
                 foreach($artistNew as $key => $val) {
                     $keyExits = $artistIdNew[$key] == -1 ? urlencode($val): $artistIdNew[$key];
                     if(isset($artistOld[$keyExits])) {

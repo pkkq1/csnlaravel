@@ -463,7 +463,7 @@ class Helpers
     }
 
     public static function replaceKeySearch($str) {
-        return preg_replace(['/y/', '/ý/', '/ỳ/', '/ỷ/', '/ỵ/', '/ỹ/', '/s/'], ['i', 'í', 'ì', 'ỉ', 'ị', 'ĩ', 'x'], mb_strtolower($str, 'UTF-8'));
+        return self::strReplaceSolr(preg_replace(['/y/', '/ý/', '/ỳ/', '/ỷ/', '/ỵ/', '/ỹ/', '/s/'], ['i', 'í', 'ì', 'ỉ', 'ị', 'ĩ', 'x'], mb_strtolower($str, 'UTF-8')));
     }
 
     public static function album_url($album_info, $id = 0)
@@ -933,11 +933,13 @@ class Helpers
         return 'https://data.chiasenhac.com/dataxx/5/data/spectrum'.Helpers::file_path($musicId, '/', true).$musicId.'.jpg';
 //        return 'http://data5.chiasenhac.com/data/spectrum'.Helpers::file_path($musicId, '/', true).$musicId.'.jpg';
     }
-    public static function strReplaceSolr($str) {
+    public static function strReplaceSolr($str, $keyRelease = false) {
 //        $firstPart = preg_replace(array('/[^a-zA-Z0-9]/'), array(''), substr($str, 0, 1));
 //        $str = $firstPart . substr($str, 1);
 //        $str = str_replace('\\', '', $str);
         $str = str_replace(array('\\', '+', '-', '~', '!', '%', '/', ';', '?', '#', '`', '@', '$', '&', '_', '=', '{', '}', ',', '<', '>', '"', '[', ']', '|', '*', '^', ':', '(', ')'), ' ', $str);
+        if(!$keyRelease)
+            return $str;
         return trim(preg_replace(['/y/', '/ý/', '/ỳ/', '/ỷ/', '/ỵ/', '/ỹ/', '/s/'], ['i', 'í', 'ì', 'ỉ', 'ị', 'ĩ', 'x'], mb_strtolower($str, 'UTF-8')));
     }
     public static function checkExitsExcepArtist($artistId, $arrExep)

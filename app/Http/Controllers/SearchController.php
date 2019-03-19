@@ -37,7 +37,7 @@ class SearchController extends Controller
         return view('search.index', compact('result', 'titleSearch', 'search', 'result'));
     }
     public function ajaxSearch(Request $request, $quickSearch = true) {
-        $search = Helpers::strReplaceSolr($request->q);
+        $search = Helpers::strReplaceSolr($request->q, true);
 //        $search = trim(mb_strtolower($request->q, 'UTF-8'));
         $searchExp = explode(' ', $search);
         foreach ($searchExp as $key => $item) {
@@ -64,17 +64,16 @@ class SearchController extends Controller
             ],
         ];
         if($search) {
-            $rawTiengViet = Helpers::khongdau($search, ' ');
-            //dd($search);
+            $rawTiengViet = htmlspecialchars(Helpers::khongdau($search, ' '), ENT_QUOTES);
             $charsetNoSpace = str_replace(' ', '', $rawTiengViet);
             $titleCharset = str_replace(' ', '+', $rawTiengViet);
-            $titleSearch = str_replace(' ', '+', $search);//Helpers::replaceKeySearch($searchNotUtf8);
+            $titleSearch = str_replace(' ', '+', htmlspecialchars($search, ENT_QUOTES));//Helpers::replaceKeySearch($searchNotUtf8);
             // search key
             if(isset($request->view_all) || isset($request->view_music)) {
                 $searchSolarium = [];
                 //$searchSolarium['music_title_charset_nospace'] = $charsetNoSpace .'^1000';
 //                if ($quickSearch) {
-                    $searchSolarium['music_title_charset_nospace'] = $charsetNoSpace . '^500';
+                    $searchSolarium['music_title_charset_nospace'] = $charsetNoSpace . '^80';
                     $searchSolarium['music_title_artist_charset_nospace'] = $charsetNoSpace . '^100 | music_title_artist_charset_nospace:' . $charsetNoSpace . '*^50';
 //                }
     //            $searchSolarium['music_title_artist_charset'] = $titleCharset;
@@ -93,11 +92,9 @@ class SearchController extends Controller
                         $searchSolarium['music_artist_search'] = $titleSearch;
                     }
                 }
-
                 $search_level_playback = 1;
                 $keyResult = 'music';
                 $search_level = 1;
-
                 search_music_2:
                 if ($search_level == 2)
                 {

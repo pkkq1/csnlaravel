@@ -163,7 +163,7 @@ if($category->cat_id == 3 || $category->cat_id == 4 || $category->cat_id == 6 ||
                             $catMusic = array_slice($hot_music_rows[6], 0, LIMIT_HOME_CAT_MUSIC);
                             array_map(function ($i, $item) {
                             $musicId = Helpers::music_id($item);
-                            $url = SUB_BXH_NOW_MUSIC.'chinese.html?playlist='.++$i;
+                            $url = SUB_BXH_NOW_MUSIC.'korea.html?playlist='.++$i;
                             ?>
                             <li class="media {{($i == 1 ? 'first stand' : ($i == 2 ? 'now up' : ($i == 3 ? 'now down' : 'now')))}} align-items-stretch">
                                 <div class="media-left mr-3">
