@@ -327,7 +327,7 @@ if($musicSet['type_listen'] == 'playlist') {
                             </div>
                             <span id="innity-in-post"></span>
                             <!-- BlueSeed - asynchronous code for placement 1658 Chiasenhac Inread Mobile -->
-                            <script id="jshd1pm_1658" src="https://d2.blueseed.tv/ads-sync.js?placement=1658"></script>
+                            <div><script src="https://d2.blueseed.tv/ads-sync.js?placement=1658"></script></div>
                             <div class="p-3">
                                 <div class="block block_comment">
                                     <div class="block_header d-flex flex-row justify-content-between mb-2 music_comment">
