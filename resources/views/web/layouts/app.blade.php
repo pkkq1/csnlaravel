@@ -24,6 +24,7 @@ $allpage_banner = false;
 @endif
 
 @hasSection('in_player')
+        @hasSection('in_player000')
         <div class="ads_box" id="pc_masthead">
             <div class="container text-center">
                 <div id="bsmasthead-wrapper">
@@ -32,6 +33,7 @@ $allpage_banner = false;
                 </div>
             </div>
         </div>
+        @endif
 @else
     <div class="ads_box" id="pc_masthead">
         <div class="container text-center">
