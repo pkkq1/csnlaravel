@@ -326,8 +326,14 @@ if($musicSet['type_listen'] == 'playlist') {
                                 @endif
                             </div>
                             <span id="innity-in-post"></span>
-                            <!-- BlueSeed - asynchronous code for placement 1658 Chiasenhac Inread Mobile -->
-                            <div><script src="https://d2.blueseed.tv/ads-sync.js?placement=1658"></script></div>
+
+                            <script type="text/javascript">
+                                /* load placement: chiasenhac_mobile inpage, for account: chiasenhac, site: chiasenhac.vn, size: 2x2 - mobile */
+                                var _avlVar = _avlVar || [];
+                                _avlVar.push(["b63673ce47e748a6a5fe6c79c4713e1d","[content_page_url]","[width]","[height]"]);
+                            </script>
+                            <script type="text/javascript" src="//ss.yomedia.vn/js/yomedia-sdk.js?v=3" id="s-b63673ce47e748a6a5fe6c79c4713e1d"></script>
+                            
                             <div class="p-3">
                                 <div class="block block_comment">
                                     <div class="block_header d-flex flex-row justify-content-between mb-2 music_comment">
