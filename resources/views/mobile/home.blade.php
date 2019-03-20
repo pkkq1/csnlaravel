@@ -418,12 +418,12 @@ $catalog = config('constants.catalog');
                                         <ul class="pagination">
                                             <li class="disabled"><span>«</span></li>
                                             <li class="active"><span>1</span></li>
-                                            <li><a href="/bai-hat-moi.html?page=2">2</a></li>
-                                            <li><a href="/bai-hat-moi.html?page=3">3</a></li>
+                                            <li><a href="/tab_category?page=2">2</a></li>
+                                            <li><a href="/tab_category?page=3">3</a></li>
                                             <li class="disabled"><span>...</span></li>
-                                            <li><a href="/bai-hat-moi.html?page=51425">63425</a></li>
-                                            <li><a href="/bai-hat-moi.html?page=51426">63426</a></li>
-                                            <li><a href="/bai-hat-moi.html?page=2" rel="next">»</a></li>
+                                            <li><a href="/tab_category?page=51425">63425</a></li>
+                                            <li><a href="/tab_category?page=51426">63426</a></li>
+                                            <li><a href="/tab_category?page=2" rel="next">»</a></li>
                                         </ul>
                                     </center>
                                 </div>
@@ -456,12 +456,12 @@ $catalog = config('constants.catalog');
                                         <ul class="pagination">
                                             <li class="disabled"><span>«</span></li>
                                             <li class="active"><span>1</span></li>
-                                            <li><a href="/video-moi.html?page=2">2</a></li>
-                                            <li><a href="/video-moi.html?page=3">3</a></li>
+                                            <li><a href="/tab_category?page=2">2</a></li>
+                                            <li><a href="/tab_category?page=3">3</a></li>
                                             <li class="disabled"><span>...</span></li>
-                                            <li><a href="/video-moi.html?page=51425">51425</a></li>
-                                            <li><a href="/video-moi.html?page=51426">51426</a></li>
-                                            <li><a href="/video-moi.html?page=2" rel="next">»</a></li>
+                                            <li><a href="/tab_category?page=51425">51425</a></li>
+                                            <li><a href="/tab_category?page=51426">51426</a></li>
+                                            <li><a href="/tab_category?page=2" rel="next">»</a></li>
                                         </ul>
                                     </center>
                                 </div>
@@ -489,7 +489,7 @@ $catalog = config('constants.catalog');
         function musicPage(url, tab) {
             $.ajax({
                 url: url,
-                type: "GET",
+                type: "POST",
                 dataType: "html",
                 data: {
                     'tab': tab == 'music_news' ? 'music' : tab == 'video_news' ? 'video' : 'cover'

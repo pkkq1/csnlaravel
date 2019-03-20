@@ -82,6 +82,18 @@ function searchHighlight(key, string) {
     }
     return string.replace(stringPos, '<span class="search_highlight">' + stringPos + '</span>');
 }
+function findGetParameter(parameterName) {
+    var result = null,
+        tmp = [];
+    location.search
+        .substr(1)
+        .split("&")
+        .forEach(function (item) {
+            tmp = item.split("=");
+            if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+        });
+    return result;
+}
 function copyClipboardAction(copyValue){
     // we need to create element or use existing element but should n't visible to user.
     var hiddenEleForCopy = $('#_hiddenEleForCopy_');

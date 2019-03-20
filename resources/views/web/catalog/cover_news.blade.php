@@ -38,37 +38,7 @@ $titleMeta = $title.' - '. Config::get('constants.app.title');
                     </div>
                     <div class="content-wrap tab-content-category">
                         <section id="cover_news" class="content-current">
-                            <div class="row row10px float-col-width">
-                                <?php
-                                array_map(function ($item) {
-                                $url = Helpers::album_url($item);
-                                $album_artist_id = $item['album_artist_id_1'];
-                                $album_artist = $item['album_artist_1'];
-                                if($item['album_artist_id_2']) {
-                                    $album_artist_id = $album_artist_id. ';'.$item['album_artist_id_2'];
-                                    $album_artist = $album_artist. ';'.$item['album_artist_2'];
-                                }
-                                ?>
-                                <div class="col">
-                                    <div class="card card1">
-                                        <div class="card-header" style="background-image: url({{Helpers::cover_url($item['cover_id'])}});">
-                                            <a href="{{$url}}" title="{{$item['music_album']}}">
-                                                <span class="icon-play"></span>
-                                            </a>
-                                        </div>
-                                        <div class="card-body">
-                                            <h3 class="card-title"><a href="{{$url}}" title="{{$item['music_album']}}">{{$item['music_album']}}</a></h3>
-                                            <p class="card-text">
-                                                <?php echo Helpers::rawHtmlArtists($album_artist_id, $album_artist) ?>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <?php
-                                }, $cover->toArray()['data']);
-                                ?>
-                            </div>
-                            <center>{{$cover->links()}}</center>
+                            <?php echo $htmlCover?>
                         </section>
                     </div>
                 </div>
@@ -89,10 +59,10 @@ $titleMeta = $title.' - '. Config::get('constants.app.title');
         function musicPage(url) {
             $.ajax({
                 url: url,
-                type: "GET",
+                type: "POST",
                 dataType: "html",
                 data: {
-                    'tab': 'video'
+                    'tab': 'cover'
                 },
                 beforeSend: function () {
                     if(loaded) return false;
@@ -103,7 +73,7 @@ $titleMeta = $title.' - '. Config::get('constants.app.title');
                     $('#cover_news').html(response);
                     $('#cover_news').find('.pagination li a').on('click', function (e) {
                         e.preventDefault();
-                        musicPage($(this).attr('href').replace("tab_category", "album-moi"));
+                        musicPage($(this).attr('href'));
                     });
                 }
             });
