@@ -228,7 +228,7 @@ use App\Library\Helpers;
 </script>
 
 <?php
-    $cookie_name = "csn_popup_beta";
+    $cookie_name = "csn_popup_beta2";
     $session_ads_popup = isset($_COOKIE[$cookie_name]) ? intval(unserialize(stripslashes($_COOKIE[$cookie_name]))) : 0;
     if ( $session_ads_popup < 1 )
     {
@@ -240,8 +240,4 @@ use App\Library\Helpers;
     }
 ?>
 
-<!-- BlueSeed - Asynchronous Code for Ad Placement 2245 Chiasenhac.vn -->
-<script src="//d2.blueseed.tv/ads-sync.js?placement=2245"></script>
 
-<!-- BlueSeed - asynchronous code for placement 1849 CHIASENHAC.VN - mobile native button -->
-<script id="jshd1pm_1849" src="https://d2.blueseed.tv/ads-sync.js?placement=1849"></script>
