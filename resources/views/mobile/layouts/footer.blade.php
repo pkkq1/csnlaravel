@@ -228,7 +228,7 @@ use App\Library\Helpers;
 </script>
 
 <?php
-    $cookie_name = "csn_popup";
+    $cookie_name = "csn_popup_beta";
     $session_ads_popup = isset($_COOKIE[$cookie_name]) ? intval(unserialize(stripslashes($_COOKIE[$cookie_name]))) : 0;
     if ( $session_ads_popup < 1 )
     {
