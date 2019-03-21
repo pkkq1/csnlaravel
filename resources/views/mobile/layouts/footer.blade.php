@@ -232,7 +232,7 @@ use App\Library\Helpers;
     $session_ads_popup = isset($_COOKIE[$cookie_name]) ? intval(unserialize(stripslashes($_COOKIE[$cookie_name]))) : 0;
     if ( $session_ads_popup < 1 )
     {
-        @setcookie($cookie_name, serialize($session_ads_popup + 1), time() + 10, '/', $config['cookie_domain'], 0);
+        @setcookie($cookie_name, serialize($session_ads_popup + 1), time() + 10, '/', '.chiasenhac.vn', 0);
 
         // Blueseed - Mobile In flow - Popup // backup code Ambient
         echo '<!-- BlueSeed - asynchronous code for placement 1478 Chiasenhac InFlow Mobile -->
