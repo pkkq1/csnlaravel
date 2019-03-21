@@ -19,7 +19,7 @@ function view($view = null, $data = [], $mergeData = [])
         return $factory;
     }
     $Agent = new Agent();
-    if(strpos($_SERVER['REQUEST_URI'], '/admin') === false) {
+    if(isset($_SERVER['REQUEST_URI']) && strpos($_SERVER['REQUEST_URI'], '/admin') === false) {
         if ($Agent->isMobile()) {
             // you're a mobile device
             if(file_exists(resource_path('views/mobile').'/'.str_replace('.', '/', $view).'.blade.php') === false){

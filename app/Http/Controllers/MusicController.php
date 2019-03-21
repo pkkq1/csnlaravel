@@ -100,13 +100,13 @@ class MusicController extends Controller
             return view('errors.errors')->with('e');
         }
         if($cat == CAT_VIDEO_URL) {
-            $music = $this->videoRepository->findOnlyMusicId($arrUrl['id'], true);
+            $music = $this->videoRepository->findOnlyMusicId($arrUrl['id']);
         }else{
-            $music = $this->musicRepository->findOnlyMusicId($arrUrl['id'], true);
+            $music = $this->musicRepository->findOnlyMusicId($arrUrl['id']);
         }
-        if(!$music)
-            return view('errors.404')->with('message', 'Nhạc đang cập nhật.');
-        self::checkDeleteMusic($music);
+        if(!$music) {
+            return $this->musicRepository->checkDeleteMusic($arrUrl['id']);
+        }
         // +1 view
         if(Helpers::sessionCountTimesMusic($arrUrl['id'])){
             if($cat == CAT_VIDEO_URL) {
@@ -211,16 +211,16 @@ class MusicController extends Controller
         if($playlistMusic) {
             $offsetPl = $playlistMusic[$request->playlist ? ($request->playlist > count($playlistMusic) ? count($playlistMusic) : $request->playlist) - 1 : 0];
             if($offsetPl['cat_id'] == CAT_VIDEO) {
-                $music = $this->videoRepository->findOnlyMusicId($offsetPl['music_id'], true);
+                $music = $this->videoRepository->findOnlyMusicId($offsetPl['music_id']);
             }else{
-                $music = $this->musicRepository->findOnlyMusicId($offsetPl['music_id'], true);
+                $music = $this->musicRepository->findOnlyMusicId($offsetPl['music_id']);
             }
         }else{
             return view('errors.text_error')->with('message', 'Nội dung playlist không có.');
         }
-        if(!$music)
-            return view('errors.404');
-        self::checkDeleteMusic($music);
+        if(!$music) {
+            $music = $this->musicRepository->checkDeleteMusic($music, false);
+        }
         // +1 view
         if(Helpers::sessionCountTimesMusic($arrUrl['id'])){
             if($music->cat_id == CAT_VIDEO) {
@@ -307,8 +307,9 @@ class MusicController extends Controller
         }else{
             $music = $this->musicRepository->findOnlyMusicId(Helpers::decodeID($id));
         }
-        if(!$music)
-            return view('errors.404');
+        if(!$music) {
+            $music = $this->musicRepository->checkDeleteMusic($id, false);
+        }
         // +1 view
         if(Helpers::sessionCountTimesMusic($id)){
             if($catUrl == CAT_VIDEO) {
@@ -516,21 +517,5 @@ class MusicController extends Controller
             }
         }
     }
-    public function checkDeleteMusic($music) {
-        if($music->music_deleted > 0) {
-            music_check_deleted:
-            if($music->cat_id == CAT_VIDEO_URL) {
-                $music = $this->videoRepository->findOnlyMusicId($music->music_deleted);
-            }else{
-                $music = $this->musicRepository->findOnlyMusicId($music->music_deleted);
-            }
-            if(!$music)
-                return view('errors.404')->with('message', 'Nhạc đang cập nhật.');
-            if($music->music_deleted > 0) {
-                goto music_check_deleted;
-            }
-            $musicListenUrl = Helpers::listen_url($music->toArray());
-            return redirect($musicListenUrl);
-        }
-    }
+
 }

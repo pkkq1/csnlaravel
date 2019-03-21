@@ -8,6 +8,9 @@ use App\Solr\Solarium;
 use App\Models\MusicSuggestModel;
 use App\Models\DeleteMusicModel;
 use App\Models\VideoSuggestModel;
+use App\Repositories\Video\VideoEloquentRepository;
+use App\Repositories\MusicDeleted\MusicDeletedEloquentRepository;
+use App\Repositories\VideoDeleted\VideoDeletedEloquentRepository;
 
 class MusicEloquentRepository extends EloquentRepository implements MusicRepositoryInterface
 {
@@ -16,10 +19,16 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
      * @return string
      */
     protected $Solr;
+    protected $videoRepository;
+    protected $musicDeletedRepository;
+    protected $videoDeletedRepository;
 
-    public function __construct(Solarium $Solr) {
+    public function __construct(Solarium $Solr, VideoEloquentRepository $videoRepository, MusicDeletedEloquentRepository $musicDeletedRepository, VideoDeletedEloquentRepository $videoDeletedRepository) {
         parent::__construct();
         $this->Solr = $Solr;
+        $this->videoRepository = $videoRepository;
+        $this->musicDeletedRepository = $musicDeletedRepository;
+        $this->videoDeletedRepository = $videoDeletedRepository;
     }
 
     public function getModel()
@@ -68,14 +77,13 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
 
         return $result;
     }
-    public function findOnlyMusicId($id, $delete = false)
+    public function findOnlyMusicId($id)
     {
         $result = $this
             ->_model
             ->where('music_id', $id)
             ->with('musicKara');
-        if(!$delete)
-            $result = $result->where('music_deleted', '<', 1);
+        $result = $result->where('music_deleted', '<', 1);
         return $result->first();
     }
     public function deleteSafe($music)
@@ -425,7 +433,7 @@ $titleDup = ' . str_replace('video_', 'music_',  var_export($titleDupResult, tru
 $video = ' . str_replace('video_', 'music_',  var_export($videoResult, true)) . ';
 ?>');
     }
-    public static function getHistoryRecents($tempStr) {
+    public function getHistoryRecents($tempStr) {
         $query  = "SELECT *
             FROM
             (
@@ -440,6 +448,53 @@ $video = ' . str_replace('video_', 'music_',  var_export($videoResult, true)) . 
             ORDER BY FIELD(music_id, ".$tempStr.")";
         $result = DB::connection( 'mysql' )->select( $query );
         return $result;
+    }
+    public function checkDeleteMusic($music_id, $reDirect = true) {
+        global $musicFirstId;
+        global $step;
+        $step = 1;
+        $musicFirstId = $music_id;
+        $type = 'music';
+        music_check_deleted:
+        $music = $this->musicDeletedRepository->getModel()::where('music_id', $music_id)->first();
+        if(!$music) {
+            $type = 'video';
+            $music = $this->videoDeletedRepository->getModel()::where('music_id', $music_id)->first();
+        }
+        if($music && $music->music_deleted > 0) {
+            if($music->cat_id == CAT_VIDEO_URL) {
+                $musicReal = $this->videoRepository->findOnlyMusicId($music->music_deleted);
+            }else{
+                $musicReal = self::findOnlyMusicId($music->music_deleted);
+            }
+            if(!$musicReal) {
+                $step = 2;
+                $music_id = $musicReal->music_id;
+                goto music_check_deleted;
+            }
+            if($step > 1) {
+                // insert (1) -> (4)
+                if($type == 'music') {
+                    $this->musicDeletedRepository->getModel()::where('music_id', $musicFirstId)->update(['music_deleted'], $musicReal->music_id);
+                }else {
+                    $this->videoDeletedRepository->getModel()::where('music_id', $musicFirstId)->update(['music_deleted'], $musicReal->music_id);
+                }
+            }
+            if($reDirect) {
+                $musicListenUrl = Helpers::listen_url($musicReal->toArray());
+                return redirect($musicListenUrl);
+            }
+            return $musicReal;
+        }
+        if($step > 1) {
+            if($type == 'music') {
+                $this->musicDeletedRepository->getModel()::where('music_id', $musicFirstId)->delete();
+            }else {
+                $this->videoDeletedRepository->getModel()::where('music_id', $musicFirstId)->delete();
+            }
+        }
+        abort(403, 'Nhạc đang cập nhật.');
+        exit();
     }
 }
 

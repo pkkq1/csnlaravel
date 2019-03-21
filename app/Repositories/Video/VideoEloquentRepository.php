@@ -80,14 +80,13 @@ class VideoEloquentRepository extends EloquentRepository implements VideoReposit
 
         return $result;
     }
-    public function findOnlyMusicId($id, $delete = false)
+    public function findOnlyMusicId($id)
     {
         $result = $this
             ->_model
             ->where('music_id', $id)
             ->with('musicKara');
-        if(!$delete)
-            $result = $result->where('music_deleted', '<', 1);
+        $result->where('music_deleted', '<', 1);
         return $result->first();
     }
     public function findMusicIds($ids)
