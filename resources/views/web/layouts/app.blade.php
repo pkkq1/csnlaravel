@@ -25,22 +25,35 @@ $allpage_banner = false;
 
 @hasSection('in_player')
         @hasSection('in_player000')
-        <div class="ads_box" id="pc_masthead">
+            <div class="ads_box" id="pc_masthead">
+                <div class="container text-center">
+                    <div id="bsmasthead-wrapper">
+                        <!-- BlueSeed - asynchronous code for placement 1643 Chiasenhac Masthead Player Desktop -->
+                        <ins class="hadar-placement" data-hdpm="1643"></ins>
+                        <script id="jshd1pm_1643" src="https://static.blueseed.tv/ajs/display.js"></script>
+                    </div>
+                </div>
+            </div>
+        @endif
+        @hasSection('in_home')
+        @else
+        @endif
+        <div class="ads_box" id="pc_masthead_bg">
             <div class="container text-center">
                 <div id="bsmasthead-wrapper">
-                    <!-- BlueSeed - asynchronous code for placement 1643 Chiasenhac Masthead Player Desktop -->
-                    <ins class="hadar-placement" data-hdpm="1643" ></ins><script id="jshd1pm_1643" src="https://static.blueseed.tv/ajs/display.js"></script>
+                    <!-- Ad Tag-980x250 for Publisher chiasenhac - LAVA DIGITAL-->
+                    <script src='https://pub.lavanetwork.net/sites/chiasenhac/chiasenhac_masthead.js'></script>
                 </div>
             </div>
         </div>
-        @endif
 @else
     <div class="ads_box" id="pc_masthead">
         <div class="container text-center">
-               <div id="bsmasthead-wrapper">
-                   <!-- BlueSeed - asynchronous code for placement 1365 Chiasenhac Masthead Desktop -->
-                   <ins class="hadar-placement" data-hdpm="1365" ></ins><script id="jshd1pm_1365" src="https://static.blueseed.tv/ajs/display.js"></script>
-               </div>
+            <div id="bsmasthead-wrapper">
+                <!-- BlueSeed - asynchronous code for placement 1365 Chiasenhac Masthead Desktop -->
+                <ins class="hadar-placement" data-hdpm="1365"></ins>
+                <script id="jshd1pm_1365" src="https://static.blueseed.tv/ajs/display.js"></script>
+            </div>
         </div>
     </div>
 @endif
