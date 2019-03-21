@@ -23,7 +23,7 @@ $titleMeta = $category->cat_title . ' - '. Config::get('constants.app.title');
         @include('mobile.layouts.header_top')
         <!-- swiper1-->
         <div class="header_sub_menu">
-            <div data-itemmenu="4" class="swipermusic_news-container swiper1">
+            <div data-itemmenu="4" class="swiper-container swiper1">
                 <div class="swiper-wrapper">
                     @if($category->cat_id != CATEGORY_ID_VIDEO)
                     <div class="swiper-slide tab-music selected album-{{CURRENT_YEAR}}" data-tab="album-{{CURRENT_YEAR}}">Album {{CURRENT_YEAR}}</div>

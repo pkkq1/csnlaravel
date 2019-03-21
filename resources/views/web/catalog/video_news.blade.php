@@ -38,29 +38,7 @@ $titleMeta = $title.' - '. Config::get('constants.app.title');
                     </div>
                     <div class="content-wrap tab-content-category">
                         <section id="music_videos" class="content-current">
-                            <div class="row row10px float-col-width-video">
-                                <?php
-                                array_map(function ($item) {
-                                $url = Helpers::listen_url($item);
-                                ?>
-                                <div class="col">
-                                    <div class="card card1 video">
-                                        <div class="card-header" style="background-image: url({{Helpers::thumbnail_url($item)}});">
-                                            <a href="{{$url}}" title="{{$item['music_title']}}">
-                                                <span class="icon-play"></span>
-                                            </a>
-                                        </div>
-                                        <div class="card-body">
-                                            <h3 class="card-title"><a href="{{$url}}" title="{{$item['music_title']}}">{{$item['music_title']}}</a></h3>
-                                            <p class="card-text"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <?php
-                                }, $video->toArray()['data'])
-                                ?>
-                            </div>
-                            <center>{{$video->links()}}</center>
+                            <?php echo $htmlVideo; ?>
                         </section>
                     </div>
                 </div>
@@ -81,7 +59,7 @@ $titleMeta = $title.' - '. Config::get('constants.app.title');
         function musicPage(url) {
             $.ajax({
                 url: url,
-                type: "GET",
+                type: "POST",
                 dataType: "html",
                 data: {
                     'tab': 'video'
@@ -95,7 +73,7 @@ $titleMeta = $title.' - '. Config::get('constants.app.title');
                     $('#music_videos').html(response);
                     $('#music_videos').find('.pagination li a').on('click', function (e) {
                         e.preventDefault();
-                        musicPage($(this).attr('href').replace("tab_category", "video-moi"));
+                        musicPage($(this).attr('href'));
                     });
                 }
             });

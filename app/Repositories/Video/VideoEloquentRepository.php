@@ -4,6 +4,7 @@ namespace App\Repositories\Video;
 use App\Repositories\EloquentRepository;
 use DB;
 use App\Library\Helpers;
+use App\Solr\Solarium;
 use App\Models\DeleteVideoModel;
 
 class VideoEloquentRepository extends EloquentRepository implements VideoRepositoryInterface
@@ -12,6 +13,13 @@ class VideoEloquentRepository extends EloquentRepository implements VideoReposit
      * get model
      * @return string
      */
+    protected $Solr;
+
+    public function __construct(Solarium $Solr) {
+        parent::__construct();
+        $this->Solr = $Solr;
+    }
+
     public function getModel()
     {
         return \App\Models\VideoModel::class;
@@ -116,6 +124,18 @@ class VideoEloquentRepository extends EloquentRepository implements VideoReposit
             ->paginate($page);
         return $result;
     }
+    public function getCategoryVideoSolr($catId, $catLevel, $year = null, $fillOrder, $typeOrder, $perPage)
+    {
+        if($catId) {
+            $searchSolarium['video_cat_id'] = $catId;
+        }else {
+            $searchSolarium['id'] = 'video_*';
+        }
+        if($catLevel != 0)
+            $searchSolarium['video_cat_level'] = $catLevel;
+        $result = $this->Solr->search($searchSolarium, $_GET['page'] ?? 1, $perPage, array('score' => 'desc', $fillOrder => $typeOrder));
+        return $result;
+    }
     public function videoNews($fillOrder, $typeOrder, $page)
     {
         $result = $this
@@ -124,6 +144,12 @@ class VideoEloquentRepository extends EloquentRepository implements VideoReposit
             ->where('music_deleted', '<', 1)
             ->orderBy($fillOrder, $typeOrder)
             ->paginate($page);
+        return $result;
+    }
+    public function videoNewsSolr($fillOrder, $typeOrder, $perPage)
+    {
+        $searchSolarium['id'] = 'video_*';
+        $result = $this->Solr->search($searchSolarium, $_GET['page'] ?? 1, $perPage, array('score' => 'desc', $fillOrder => $typeOrder));
         return $result;
     }
     public function findVideoByArtist($artist_id, $fillOrder, $typeOrder, $page)

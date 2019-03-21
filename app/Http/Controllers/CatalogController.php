@@ -41,22 +41,19 @@ class CatalogController extends Controller
         return view('catalog.playlist_publisher', compact('playlist', 'caption'));
     }
     public function musicNews(Request $request) {
-        $music = $this->musicRepository->musicNews('music_time', 'desc', LIMIT_MUSIC_PAGE_CATEGORY);
-        if($request->input('tab'))
-            return view('category.music_item', compact('music'));
-        return view('catalog.music_news', compact('music'));
+        $music = $this->musicRepository->musicNewsSolr('music_id', 'desc', LIMIT_MUSIC_PAGE_CATEGORY);
+        $htmlMusic = view('category_solr.music_item', compact('music'));;
+        return view('catalog.music_news', compact('htmlMusic'));
 
     }
     public function videoNews(Request $request) {
-        $video = $this->videoRepository->videoNews('music_time', 'desc', LIMIT_MUSIC_PAGE_CATEGORY);
-        if($request->input('tab'))
-            return view('category.video_item', compact('video'));
-        return view('catalog.video_news', compact('video'));
+        $video = $this->videoRepository->videoNewsSolr('video_id', 'desc', LIMIT_MUSIC_PAGE_CATEGORY);
+        $htmlVideo = view('category_solr.video_item', compact('video'));
+        return view('catalog.video_news', compact('htmlVideo'));
     }
     public function albumNews(Request $request) {
-        $cover = $this->coverRepository->coverNews('cover_id', 'desc', LIMIT_MUSIC_PAGE_CATEGORY);
-        if($request->input('tab'))
-            return view('category.cover_item', compact('cover'));
-        return view('catalog.cover_news', compact('cover'));
+        $cover = $this->coverRepository->coverNewSolr('cover_id', 'desc', LIMIT_MUSIC_PAGE_CATEGORY);
+        $htmlCover = view('category_solr.cover_item', compact('cover'));
+        return view('catalog.cover_news', compact('htmlCover'));
     }
 }

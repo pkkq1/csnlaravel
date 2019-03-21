@@ -140,6 +140,12 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
             ->paginate($page);
         return $result;
     }
+    public function musicNewsSolr($fillOrder, $typeOrder, $perPage)
+    {
+        $searchSolarium['id'] = 'music_*';
+        $result = $this->Solr->search($searchSolarium, $_GET['page'] ?? 1, $perPage, array('score' => 'desc', $fillOrder => $typeOrder));
+        return $result;
+    }
     public function incrementCol($id, $field)
     {
         $result = $this
@@ -168,6 +174,17 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
             ->where('music_deleted', '<', 1)
             ->orderBy($fillOrder, $typeOrder)
             ->paginate($page);
+        return $result;
+    }
+    public function getCategoryMusicSolr($catId, $catLevel, $fillOrder, $typeOrder, $perPage) {
+        if($catId) {
+            $searchSolarium['music_cat_id'] = $catId;
+        }else{
+            $searchSolarium['id'] = 'music_*';
+        }
+        if($catLevel != 0)
+            $searchSolarium['music_cat_level'] = $catLevel;
+        $result = $this->Solr->search($searchSolarium, $_GET['page'] ?? 1, $perPage, array('score' => 'desc', $fillOrder => $typeOrder));
         return $result;
     }
     public function suggestion($music, $type = 'music') {

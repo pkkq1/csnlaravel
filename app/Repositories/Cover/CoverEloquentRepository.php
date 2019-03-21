@@ -3,12 +3,20 @@ namespace App\Repositories\Cover;
 
 use App\Repositories\EloquentRepository;
 use DB;
+use App\Solr\Solarium;
+
 class CoverEloquentRepository extends EloquentRepository implements CoverRepositoryInterface
 {
     /**
      * get model
      * @return string
      */
+    protected $Solr;
+    public function __construct(Solarium $Solr) {
+        parent::__construct();
+        $this->Solr = $Solr;
+    }
+
     public function getModel()
     {
         return \App\Models\CoverModel::class;
@@ -115,6 +123,20 @@ class CoverEloquentRepository extends EloquentRepository implements CoverReposit
             ->paginate($page);
         return $result;
     }
+    public function getCategoryCoverSolr($catId, $catLevel, $year = null, $bitrate = null, $fillOrder, $typeOrder, $perPage) {
+        if($catLevel == 0) {
+            $searchSolarium['album_cat'] = $catId.'_*';
+        }else{
+            $searchSolarium['album_cat'] = $catId.'_'.$catLevel;
+        }
+        if($year) {
+            $searchSolarium['album_music_year'] = $year[1];
+        }
+        if($bitrate) {
+            $searchSolarium['album_bitrate'] = $bitrate;
+        }
+        return $this->Solr->search($searchSolarium, $_GET['page'] ?? 1, $perPage, array('score' => 'desc', $fillOrder => $typeOrder));
+    }
     public function findAlbumByArtist($artist, $fillOrder, $typeOrder, $page)
     {
         $result = $this
@@ -140,6 +162,10 @@ class CoverEloquentRepository extends EloquentRepository implements CoverReposit
             ->orderBy($fillOrder, $typeOrder)
             ->paginate($page);
         return $result;
+    }
+    public function coverNewSolr($fillOrder, $typeOrder, $perPage) {
+        $searchSolarium['id'] = 'cover_*';
+        return $this->Solr->search($searchSolarium, $_GET['page'] ?? 1, $perPage, array('score' => 'desc', $fillOrder => $typeOrder));
     }
 }
 
