@@ -67,6 +67,11 @@ class Handler extends ExceptionHandler
             }
         }
         // error response basic
+        $Agent = new Agent();
+        $view = 'web.';
+        if ($Agent->isMobile()) {
+            $view = 'mobile.';
+        }
         if(method_exists($exception, 'getStatusCode')) {
             if($exception->getStatusCode() == 422) {
                 // Validation
@@ -77,11 +82,6 @@ class Handler extends ExceptionHandler
                         return response()->make($exception->getMessage(), 403);
                     }
                     Helpers::ajaxResult(false, $exception->getMessage(), null);
-                }
-                $Agent = new Agent();
-                $view = 'web.';
-                if ($Agent->isMobile()) {
-                    $view = 'mobile.';
                 }
                 return response()->view($view.'errors.403', ['message'=> $exception->getMessage()], 403);
             }elseif ($exception->getStatusCode() == 404) {
@@ -114,6 +114,7 @@ class Handler extends ExceptionHandler
                     'user_id' => Auth::check() ? Auth::user()->id : null,
                     'message' => $exception->getMessage(),
                     'parameter' => strlen(json_encode(Request()->all())) < 500 ? json_encode(Request()->all()) : ' ',
+                    'device_display' => substr($view, 0, -1),
                     'ip_address' => Helpers::getIp()
                 ]);
             }else{

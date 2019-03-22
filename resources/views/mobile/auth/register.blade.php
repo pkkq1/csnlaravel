@@ -44,6 +44,9 @@ use App\Library\Helpers;
             if(!username.val()) {
                 return addErrorInput(username, 'Tên đăng nhập không được để trống');
             }
+            if(!username.val()) {
+                return addErrorInput(name, 'Tên hiển thị không được để trống');
+            }
             if(!email.val()) {
                 return addErrorInput(email, 'Email không được để trống');
             }
