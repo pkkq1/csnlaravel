@@ -27,6 +27,7 @@ use App\Repositories\VideoFavourite\VideoFavouriteRepository;
 use App\Repositories\KaraokeSuggestion\KaraokeSuggestionEloquentRepository;
 use Illuminate\Support\Facades\Auth;
 use App\Models\PlaylistMusicModel;
+use App\Models\ErrorLogModel;
 use App\Repositories\Karaoke\KaraokeEloquentRepository;
 use App\Repositories\LyricSuggestion\LyricSuggestionEloquentRepository;
 use App\Repositories\MusicSearchResult\MusicSearchResultEloquentRepository;
@@ -106,6 +107,9 @@ class MusicController extends Controller
         }
         if(!$music) {
             return $this->musicRepository->checkDeleteMusic($arrUrl['id']);
+        }
+        if(!isset($arrUrl['url'][0]) || ($arrUrl['url'][0] . '~' . $arrUrl['url'][1]) != $music->music_title_url) {
+            return redirect(Helpers::listen_url($music->toArray()));
         }
         // +1 view
         if(Helpers::sessionCountTimesMusic($arrUrl['id'])){
@@ -209,6 +213,7 @@ class MusicController extends Controller
             $typeListen = 'album';
         }
         if($playlistMusic) {
+            $request->playlist = intval($request->playlist);
             $offsetPl = $playlistMusic[$request->playlist ? ($request->playlist > count($playlistMusic) ? count($playlistMusic) : $request->playlist) - 1 : 0];
             if($offsetPl['cat_id'] == CAT_VIDEO) {
                 $music = $this->videoRepository->findOnlyMusicId($offsetPl['music_id']);
