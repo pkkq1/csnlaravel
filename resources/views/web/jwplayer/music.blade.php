@@ -146,9 +146,10 @@ if($musicSet['type_listen'] == 'playlist') {
                             <div class="card-body">
                                 <h4 class="card-title">{{$music->music_title}}</h4>
                                 <ul class="list-unstyled">
-                                    <?php echo $music->music_artist ? '<li><span>Ca sĩ: </span>'.$artistHtml.'</li>' : '' ?>
+                                    <?php
+                                    echo $music->music_artist ? '<li><span>Ca sĩ: </span>'.$artistHtml.'</li>' : '' ?>
                                     <?php echo $music->music_composer ? '<li><span>Sáng tác: </span><a href="/tim-kiem?q='.$music->music_composer.'&mode=sang-tac" style=" color: #212552; ">'.$music->music_composer.'</a></li>' : '' ?>
-                                    <?php echo $music->music_album ? '<li><span>Album: </span><a href="'.(($musicSet['type_listen'] != 'album') ? Helpers::album_url(['music_album' => $music->music_album, 'cover_id' => $music->cover_id ]) : url()->current()).'">'.$music->music_album.'</a></li>' : '' ?>
+                                    <?php echo $music->music_album ? '<li><span>Album: </span><a href="'.Helpers::album_url(['music_album' => $music->music_album, 'cover_id' => $music->cover_id ]).'">'.$music->music_album.'</a></li>' : '' ?>
                                     <?php echo $music->music_year ? '<li><span>Năm phát hành: </span>'.$music->music_year.'</li>' : '' ?>
                                 </ul>
                             </div>
@@ -182,7 +183,6 @@ if($musicSet['type_listen'] == 'playlist') {
                         <div class="tab-content" id="pills-tabContent">
                             <div class="tab-pane show active" id="pills-liric" role="tabpanel"
                                  aria-labelledby="pills-liric-tab">
-                                @if((isset($lyric_array['sub']) && $lyric_array['sub'] != false) || (Auth::check() && backpack_user()->can('duyet_sua_nhac')) || (Auth::check() && backpack_user()->can('duyet_sua_karaoke')))
                                 <ul class="nav nav-tabs sub_Tab" id="myTab" role="tablist">
                                     <li class="nav-item">
                                         <div class="nav-link form-group form-check mb-0 autoplay"
@@ -215,9 +215,7 @@ if($musicSet['type_listen'] == 'playlist') {
                                         </div>
                                     </li>
                                 </ul>
-                                @else
                                 <br/>
-                                @endif
                                 <div class="tab-content tab-lyric" id="myTabContent">
                                     <div class="tab-pane fade show active" id="home" role="tabpanel"
                                          aria-labelledby="home-tab">
@@ -904,6 +902,13 @@ if($musicSet['type_listen'] == 'playlist') {
 
 
         function updateQuality(callback) {
+            <?php
+            if($musicFavourite) {
+                ?>
+                $('.toggle_wishlist').toggleClass('selector');
+                <?php
+            }
+            ?>
             var curQual = jwplayer('csnplayer').getCurrentQuality();
             if(callback['levels'].length == 2) {
                 if(!$('.jw-icon-hd').hasClass('stringQ')) {
@@ -1370,49 +1375,47 @@ if($musicSet['type_listen'] == 'playlist') {
         //// favourite music ////////
         //////////////////////////////////
         function reloadFavourite() {
-            $('.jw-favourite').click(function(e) {
+            <?php
+            if(!Auth::check()) {
+            ?>
+            switchAuth('myModal_login');
+            return false;
                 <?php
-                if(!Auth::check()) {
+                }
                 ?>
-                switchAuth('myModal_login');
-                return false;
-                    <?php
+            let falgFav = $('.toggle_wishlist').hasClass('selector');
+            $.ajax({
+                url: '/music/favourite',
+                type: "POST",
+                dataType: "json",
+                data: {
+                    'type': falgFav,
+                    'type_of': '<?php echo $musicSet['type_jw'] ?>',
+                    'name': '<?php echo str_replace("'", "\'", $music->music_title); ?>',
+                    'music_id' : '<?php echo $music->music_id; ?>',
+                },
+                beforeSend: function () {
+                    if(loaded) return false;
+                    loaded = true;
+                },
+                success: function(response) {
+                    if(response.success) {
+                        // let notifType = 'success';
+                        // if(response.data !== null)
+                        //     notifType = 'default';
+                        // Lobibox.notify(notifType, {
+                        //     size: 'mini',
+                        //     sound: false,
+                        //     delay: 1500,
+                        //     delayIndicator: false,
+                        //     msg: response.message
+                        // });
+                    }else {
+                        alertModal(data.message);
                     }
-                    ?>
-                let falgFav = $('.toggle_wishlist').hasClass('selector');
-                $.ajax({
-                    url: '/music/favourite',
-                    type: "POST",
-                    dataType: "json",
-                    data: {
-                        'type': falgFav,
-                        'type_of': '<?php echo $musicSet['type_jw'] ?>',
-                        'name': '<?php echo str_replace("'", "\'", $music->music_title); ?>',
-                        'music_id' : '<?php echo $music->music_id; ?>',
-                    },
-                    beforeSend: function () {
-                        if(loaded) return false;
-                        loaded = true;
-                    },
-                    success: function(response) {
-                        if(response.success) {
-                            // let notifType = 'success';
-                            // if(response.data !== null)
-                            //     notifType = 'default';
-                            // Lobibox.notify(notifType, {
-                            //     size: 'mini',
-                            //     sound: false,
-                            //     delay: 1500,
-                            //     delayIndicator: false,
-                            //     msg: response.message
-                            // });
-                        }else {
-                            alertModal(data.message);
-                        }
-                    }
-                });
-                $('.toggle_wishlist').toggleClass('selector');
+                }
             });
+            $('.toggle_wishlist').toggleClass('selector');
         }
         //////////////////////////////
         //// block comment, edit lyric, karaoke ////////

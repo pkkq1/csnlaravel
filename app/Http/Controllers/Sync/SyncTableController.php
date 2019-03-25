@@ -19,6 +19,7 @@ use App\Repositories\Cover\CoverEloquentRepository;
 use App\Repositories\Music\MusicEloquentRepository;
 use App\Repositories\Video\VideoEloquentRepository;
 use App\Repositories\Category\CategoryEloquentRepository;
+use App\Solr\Solarium;
 use DB;
 
 class SyncTableController extends Controller
@@ -27,12 +28,14 @@ class SyncTableController extends Controller
     protected $coverRepository;
     protected $videoRepository;
     protected $categoryRepository;
+    protected $Solr;
 
-    public function __construct(MusicEloquentRepository $musicRepository, CoverEloquentRepository $coverRepository, VideoEloquentRepository $videoRepository, CategoryEloquentRepository $categoryRepository) {
+    public function __construct(MusicEloquentRepository $musicRepository, CoverEloquentRepository $coverRepository, VideoEloquentRepository $videoRepository, CategoryEloquentRepository $categoryRepository, Solarium $Solr) {
         $this->musicRepository = $musicRepository;
         $this->coverRepository = $coverRepository;
         $this->videoRepository = $videoRepository;
         $this->categoryRepository = $categoryRepository;
+        $this->Solr = $Solr;
     }
     public function syncArtistCategoryCover() {
         $cover = CoverModel::with('music')->offset(100000)->limit(10000)->get();
@@ -98,6 +101,6 @@ class SyncTableController extends Controller
         return response(['Ok']);
     }
     public function demo() {
-        
+
     }
 }

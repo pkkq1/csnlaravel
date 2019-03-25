@@ -271,16 +271,11 @@ if($category->cat_id == 3 || $category->cat_id == 4 || $category->cat_id == 6 ||
     // jQuery
     window.addEventListener('popstate', function(e) {
         // var state = e.originalEvent.state;
-        var tab = findGetParameter('tab');
-        var page = findGetParameter('page');
+        var tab = findGetParameter('tab', 'album-<?php echo CURRENT_YEAR ?>');
+        var page = findGetParameter('page', 1);
         urlFloat = '/tab_category' + (page ? '?page=' + page : '');
-        if(tab == null) {
-            $('.album-<?php echo CURRENT_YEAR ?>').parent().click();
-            $('.album-<?php echo CURRENT_YEAR ?>').click();
-        }else{
-            $('.' + tab).parent().click();
-            $('.' + tab).click();
-        }
+        $('.' + tab).parent().click();
+        $('.' + tab).click();
     });
 
 

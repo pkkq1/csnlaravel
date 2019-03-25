@@ -11,6 +11,7 @@ $titleMeta = 'Cập nhật album - ' . Config::get('constants.app.title');
 
     <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/token-input.css">
     <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/token-input-facebook.css">
+    <script type="text/javascript" src="/node_modules/sortablejs/Sortable.min.js"></script>
 @endsection
 @extends('web.layouts.app')
 @section('content')
@@ -49,20 +50,25 @@ $titleMeta = 'Cập nhật album - ' . Config::get('constants.app.title');
                                         <?php
                                         $uploadFile = $album->uploadFile();
                                         ?>
-                                        <h5 class="count_file_music title" style="text-align: left;">Đang tải lên {{count($uploadFile)}} mục</h5>
+                                        <h5 class="count_file_music title" style="text-align: left;">Đang tải lên {{count($uploadFile)}} mục </h5>
+                                        <div id="editable">
                                         @foreach($uploadFile as $item)
                                             <?php $url = Helpers::listen_url($item); ?>
-                                            <div class="media dz-processing"><a target="_blank" title="Nghe {{$item->music_title}}" href="{{$url}}"><img class="mr-3 align-self-center" src="/imgs/document.png" alt=""></a>
+                                            <div class="media dz-processing" data-id="{{$item->music_id}}" id="{{$item->music_id}}"><a target="_blank" title="Nghe {{$item->music_title}}" href="{{$url}}"><img class="mr-3 align-self-center" src="/imgs/document.png" alt=""></a>
                                                 <div class="media-body align-self-center">
                                                     <div class="d-flex align-items-center justify-content-between mb-1">
                                                         <h4 class="media-title" style="width: 100%">
-                                                            <span style="color: #36464F;">Track: {{$item->music_track_id}}&nbsp;&nbsp;&nbsp;</span>
+                                                            <span style="color: #36464F;">{{$item->music_track_id}}&nbsp;. </span>
                                                             <span style="color: #36464F;"><a target="_blank" title="{{$item->music_filename_upload}}" href="{{$url}}">Music: {{substr($item->music_title, 0, 30) . (strlen($item->music_title) > 30 ? '...' : '')}}</a></span>
                                                             <small data-dz-size="" class="text-danger">{{Helpers::formatBytes($item->music_filesize)}}
+                                                            </small>
+                                                            <small data-progress-present="" class="text-danger data-progress-present line-uploaded-music-small js-remove">
+                                                                <a target="_blank" href="#" title="Xóa {{$item->music_title}}"><i class="fa fa-trash" style="font-size: 14px; line-height: 18px"></i></a>
                                                             </small>
                                                             <small data-progress-present="" class="text-danger data-progress-present line-uploaded-music-small">
                                                                 <a target="_blank" href="/dang-tai/nhac/{{$item->music_id}}" title="Chỉnh sửa {{$item->music_title}}"><i class="material-icons" style="font-size: 14px; line-height: 18px">border_color</i></a>
                                                             </small>
+
                                                         </h4>
                                                     </div>
                                                     <div class="progress">
@@ -73,6 +79,35 @@ $titleMeta = 'Cập nhật album - ' . Config::get('constants.app.title');
                                                 </div>
                                             </div>
                                         @endforeach
+                                        @if(count($uploadFile) > 1)
+                                            <script type="text/javascript">
+                                                var el = document.getElementById('editable');
+                                                var sortable = Sortable.create(el,{
+                                                    filter: '.js-remove',
+                                                    onFilter: function (evt) {
+                                                        console.log(evt.item);
+                                                        $('.album_delete_music').val($('.album_delete_music').val() + ',' + evt.item.id)
+                                                        evt.item.parentNode.removeChild(evt.item);
+                                                    },
+                                                    onEnd: function (evt) {
+                                                        let sortIds = '';
+                                                        $('.dz-processing').each(function(index, val) {
+                                                            console.log($(val).data('id'));
+                                                            sortIds = sortIds + ',' + $(val).attr('id');
+                                                        })
+                                                        $('.track_order_music').val(sortIds);
+                                                    }
+                                                });
+                                            </script>
+                                            <style>
+                                                .dz-processing {
+                                                    cursor: pointer;
+                                                }
+                                            </style>
+                                            <input type="hidden" name="track_order_music" class="track_order_music" value="" />
+                                            <input type="hidden" name="album_delete_music" class="album_delete_music" value="" />
+                                        @endif
+                                        </div>
                                     @else
                                         <h5 class="count_file_music" style="text-align: left;"></h5>
                                         <div class="form-group m-0 fallback"><label for="upload_lyric_file" class="text-center"><img src="/imgs/ copy.png" alt=""><h3 class="title">Chọn file để upload</h3><small>Bạn có thể kéo và thả file vào đây</small><input name="file" type="file" multiple /></label><input type="file" class="form-control-file" id="upload_lyric_file"></div>
@@ -86,7 +121,11 @@ $titleMeta = 'Cập nhật album - ' . Config::get('constants.app.title');
                                     <strong>{{ str_replace('drop files', 'upload', $errors->first('drop_files')) }}</strong>
                                 </span>
                         @endif
-                        <p class="text-center upload_text_desc"><small>Bạn có thể upload nhiều bài hát cùng lúc bằng cách nhấn giữ phím Ctrl và click chọn các files.</small></p>
+                        @if(isset($album))
+                            <p class="text-center upload_text_desc"><small>Kéo và di chuyển để sắp xếp thứ tự các tracks của bài hát.</small></p>
+                        @else
+                            <p class="text-center upload_text_desc"><small>Bạn có thể upload nhiều bài hát cùng lúc bằng cách nhấn giữ phím Ctrl và click chọn các files.</small></p>
+                        @endif
                         <hr>
                         <form action="" method="post" class="form_music has_drop_file" accept-charset="utf-8" enctype="multipart/form-data">
                             <div class="row row10px">
@@ -268,6 +307,10 @@ $titleMeta = 'Cập nhật album - ' . Config::get('constants.app.title');
                                                 </span>
                                             @endif
                                         </div>
+                                        @if(isset($uploadFile) && count($uploadFile) > 1)
+                                            <input type="hidden" name="track_order_music" class="track_order_music" value="" />
+                                            <input type="hidden" name="album_delete_music" class="album_delete_music" value="" />
+                                        @endif
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <input type="hidden" name="lossless" class="lossless" value="0">
                                         <input type="hidden" name="drop_files" class="drop_files" value="{{old('drop_files')}}">
@@ -337,10 +380,10 @@ $titleMeta = 'Cập nhật album - ' . Config::get('constants.app.title');
             .dropzone.dz-clickable * {
                 cursor: pointer;
             }
-            <?php if(count($uploadFile) > 2) {
+            <?php if(count($uploadFile) > 4) {
             ?>
                 .dropzone{
-                    overflow-y: scroll; height: 220px;
+                    overflow-y: scroll; height: 350px;
                 }
             <?php
             } ?>

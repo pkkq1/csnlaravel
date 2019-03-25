@@ -34,6 +34,7 @@ class SearchController extends Controller
         $result = $result[0];
         if(!$search)
             return redirect('/');
+        $search = htmlspecialchars($search, ENT_QUOTES);
         return view('search.index', compact('result', 'titleSearch', 'search', 'result'));
     }
     public function ajaxSearch(Request $request, $quickSearch = true) {

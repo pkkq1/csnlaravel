@@ -236,8 +236,8 @@ function convertDateTime(timestamp) {
         ];
     return date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
 }
-function findGetParameter(parameterName) {
-    var result = null,
+function findGetParameter(parameterName, def = null) {
+    var result = def,
         tmp = [];
     location.search
         .substr(1)

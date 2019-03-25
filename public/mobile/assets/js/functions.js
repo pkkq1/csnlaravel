@@ -82,7 +82,7 @@ function searchHighlight(key, string) {
     }
     return string.replace(stringPos, '<span class="search_highlight">' + stringPos + '</span>');
 }
-function findGetParameter(parameterName) {
+function findGetParameter(parameterName, def = null) {
     var result = null,
         tmp = [];
     location.search

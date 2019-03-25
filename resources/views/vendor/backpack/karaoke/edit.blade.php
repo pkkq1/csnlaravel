@@ -375,5 +375,27 @@ $file_url = Helpers::file_url($music);
         .vietsub2 {
             color: #c0a478;
         }
+        .rabbit-lyrics.rabbit-lyrics-mini {
+            height: auto!important;
+            top: -19px;
+        }
+        .two_sub {
+            top:0px!important;
+        }
+        .rabbit-lyrics .sub1 {
+            display: inline-block;
+        }
+        .jw-captions {
+            max-height: 64px!important;
+        }
+        .jw-controlbar {
+            padding: 12px 0 0!important;
+        }
+        .jw-controlbar {
+            height: 54px!important;
+        }
+        .rabbit-lyrics .line {
+            min-height: auto!important;
+        }
     </style>
 @endpush

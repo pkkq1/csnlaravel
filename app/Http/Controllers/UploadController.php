@@ -574,7 +574,6 @@ class UploadController extends Controller
                 return view('errors.404');
             // update upload
             $upload = $album->upload;
-            // update upload
             $musics = $album->music;
             if($album->cover_id < 0) {
                 // create new cover if cover id < 0 (not image)
@@ -602,6 +601,22 @@ class UploadController extends Controller
                 $album->cover_filename = $fileNameCovertSource;
                 $imgAlbum = Helpers::file_path($album->cover_id, PUBLIC_COVER_ALBUM_CROP_PATH, true). $album->cover_id . '.jpg';
             }
+            if($request->track_order_music) {
+                $tracks = explode(',', $request->track_order_music);
+                foreach ($tracks as $key => $item) {
+                    if($item) {
+                        $this->uploadRepository->getModel()::where('music_id', $item)->update(['music_track_id' => $key]);
+                    }
+                }
+            }
+            if($request->album_delete_music) {
+                $moveCover = explode(',', $request->album_delete_music);
+                foreach ($moveCover as $key => $item) {
+                    if($item) {
+                        $this->uploadRepository->getModel()::where('music_id', $item)->update(['cover_id' => 0]);
+                    }
+                }
+            }
             $album->save();
             foreach($upload as $item) {
                 $item->music_album = $album->music_album ?? '';
@@ -614,7 +629,6 @@ class UploadController extends Controller
             }
 
             foreach($musics as $item) {
-                $item->cover_id = $album->cover_id;
                 $item->music_album = $album->music_album ?? '';
                 $item->music_year = $album->music_year ?? '';
                 $item->music_album_id = $album->music_album_id ?? '';

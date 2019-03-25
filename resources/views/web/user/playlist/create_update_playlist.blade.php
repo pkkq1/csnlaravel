@@ -98,8 +98,16 @@ $titleMeta = $playlistUser ? 'Cập nhật playlist - ' . $playlistUser->playlis
                                                 <ul class="list-group list-group-sortable" id="editable">
                                                     @if(isset($listMusicVideo))
                                                         @foreach($listMusicVideo as $key => $item)
-                                                            <li class="list-group-item d-flex align-items-center justify-content-between" artist="{{$item->music_artist}}" artist_id="{{$item->music_artist_id}}" id="{{$item->music_id}}"><span>{{++$key}}. <a class="name" href="{{Helpers::listen_url($item)}}" title="">{{$item->music_title}}</a> - <?php echo '<a class="author" href="#">'.implode(',</a><a class="author" href="#">', explode(';', $item->music_artist)).'</a>' ?>
-                                                            </span> <a class="delete js-remove" href="javascript:void(0)" title="xoá nhạc"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                                            <li class="list-group-item d-flex align-items-center justify-content-between"
+                                                                artist="{{$item->music_artist}}"
+                                                                artist_id="{{$item->music_artist_id}}"
+                                                                id="{{$item->music_id}}"><span>{{++$key}}. <a
+                                                                            class="name"
+                                                                            href="{{Helpers::listen_url($item)}}"
+                                                                            title="">{{$item->music_title}}</a> - <?php echo '<a class="author" href="#">' . implode(',</a><a class="author" href="#">', explode(';', $item->music_artist)) . '</a>' ?>
+                                                            </span> <a class="delete js-remove"
+                                                                       href="javascript:void(0)" title="xoá nhạc"><i
+                                                                            class="fa fa-trash" aria-hidden="true"></i></a>
                                                             </li>
                                                         @endforeach
                                                     @endif
