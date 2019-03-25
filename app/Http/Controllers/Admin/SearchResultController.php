@@ -28,7 +28,7 @@ class SearchResultController extends CrudController
         $this->searchResultRepository = $searchResultRepository;
         parent::__construct();
 
-        $this->crud->setModel("App\Models\SearchResultModel");
+        $this->crud->setModel("App\Models\MusicSearchResultModel");
         $this->crud->setEntityNameStrings('Kết quả tìm kiếm', 'Kết quả tìm kiếm');
         $this->crud->setRoute(config('backpack.base.route_prefix').'/search_results');
 //        $this->crud->setEntityNameStrings('menu item', 'menu items');
@@ -43,27 +43,19 @@ class SearchResultController extends CrudController
             return $next($request);
         });
         $this->crud->addColumn([
-            'name'  => 'id',
+            'name'  => 'music_id',
             'label' => 'ID',
             'type' => 'closure',
             'function' => function($entry) {
-                return '<a href="/user/music_uploaded/redirect/'.$entry->type_id.'" target="_blank">'.$entry->id.'</a>';
+                return '<a href="/user/music_uploaded/redirect/'.$entry->music_id.'" target="_blank">'.$entry->music_id.'</a>';
             },
         ]);
         $this->crud->addColumn([
-            'name' => 'key_search',
-            'label' => 'Từ khóa',
+            'name' => 'music_title',
+            'label' => 'Bài hát (video)',
         ]);
         $this->crud->addColumn([
-            'name' => 'type',
-            'label' => 'Thể loại',
-        ]);
-        $this->crud->addColumn([
-            'name' => 'type_id',
-            'label' => 'id',
-        ]);
-        $this->crud->addColumn([
-            'name' => 'count',
+            'name' => 'music_search_count',
             'label' => 'Truy cập',
         ]);
         $this->crud->addColumn([

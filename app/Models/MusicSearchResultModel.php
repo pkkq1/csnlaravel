@@ -14,7 +14,7 @@ class MusicSearchResultModel extends Model
 {
     use CrudTrait;
     protected $table = 'csn_music_search_result';
-    protected $primaryKey = 'music_id';
+    protected $primaryKey = 'id';
     protected $fillable =
         [
             'music_id', 'music_title', 'music_artist', 'music_artist_id', 'music_album', 'music_year', 'music_search_count'
