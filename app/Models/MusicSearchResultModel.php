@@ -17,6 +17,6 @@ class MusicSearchResultModel extends Model
     protected $primaryKey = 'music_id';
     protected $fillable =
         [
-            'music_id' ,'cat_id', 'cat_level', 'cat_sublevel', 'cat_custom', 'cover_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'music_album', 'music_year', 'music_search_count'
+            'music_id', 'music_title', 'music_artist', 'music_artist_id', 'music_album', 'music_year', 'music_search_count'
         ];
 }
