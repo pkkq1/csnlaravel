@@ -233,6 +233,9 @@ class MusicController extends Controller
             }else{
                 $this->musicListenRepository->incrementListen($music->music_id);
             }
+            if(isset($request->ref) && $request->ref == 'search_box') {
+                $this->musicSearchResultRepository->createSearch($music);
+            }
         }
         $type = 'music';
         if($music->cat_id == CAT_VIDEO)
@@ -322,6 +325,9 @@ class MusicController extends Controller
             }else{
                 $this->musicListenRepository->incrementListen($id);
             }
+            if(isset($request->ref) && $request->ref == 'search_box') {
+                $this->musicSearchResultRepository->createSearch($music);
+            }
         }
         // update cookie music history
         $cookie = Helpers::MusicCookie($request, $music);
@@ -361,6 +367,9 @@ class MusicController extends Controller
                 $this->videoListenRepository->incrementListen($arrUrl['id']);
             }else{
                 $this->musicListenRepository->incrementListen($arrUrl['id']);
+            }
+            if(isset($request->ref) && $request->ref == 'search_box') {
+                $this->musicSearchResultRepository->createSearch($music);
             }
         }
         if(!$music)
