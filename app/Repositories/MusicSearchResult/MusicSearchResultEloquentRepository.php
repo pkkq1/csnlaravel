@@ -45,7 +45,7 @@ class MusicSearchResultEloquentRepository extends EloquentRepository implements 
     {
         $result = $this
             ->_model->where('music_id', $music->music_id)
-            ->where('created_at', Carbon::today())
+            ->whereDate('created_at', Carbon::today())
             ->first();
         if(!$result) {
             $result = $this->_model->create($music->toArray());
