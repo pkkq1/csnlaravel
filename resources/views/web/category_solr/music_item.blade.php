@@ -27,7 +27,7 @@ use App\Library\Helpers;
             <small class="time_stt"><i class="material-icons listen-material-icons"> play_arrow </i>{{number_format($item['music_listen'][0])}}</small>
             <ul class="list-inline">
                 <li class="list-inline-item"><a href="{{$item['music_link'][0]}}" title="nghe riêng nhạc {{$item['music_title'][0]}}"><i class="material-icons">headset</i></a></li>
-                <li class="list-inline-item"><a href="{{Helpers::fbShareLink( $item['music_link'][0], true)}}" target="_blank" title="chia sẻ {{$item['music_title'][0]}}"><i class="material-icons">share</i></a></li>
+                <li class="list-inline-item"><a href="{{Helpers::fbShareLink( $item['music_link'][0], true)}}" onclick="shareFbLink(event, '{{env('APP_URL').$item['music_link'][0]}}')" class="fb-share-link" title="chia sẻ {{$item['music_title'][0]}}"><i class="material-icons">share</i></a></li>
             </ul>
         </div>
     </li>

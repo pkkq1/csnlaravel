@@ -47,6 +47,7 @@ global $allpage_banner;
     <script type="text/javascript" src="/assets/emoji-picker-master/lib/js/util.js"></script>
     <script type="text/javascript" src="/assets/emoji-picker-master/lib/js/jquery.emojiarea.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="/js/cookie.min.js"></script>
     <script src="/js/functions.js"></script>
     <script src="/js/waves.js"></script>
     <script src='https://www.google.com/recaptcha/api.js'></script>

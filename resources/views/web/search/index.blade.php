@@ -177,7 +177,7 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                                 <div class="media-right align-self-center">
                                     <small class="time_stt">{{number_format($item['music_listen'])}}</small>
                                     <ul class="list-inline">
-                                        <li class="list-inline-item"><a href="{{Helpers::fbShareLink($item['music_link'], true)}}" target="_blank" title="chia sẻ {{$item['music_title']}}"><i class="material-icons">share</i></a></li>
+                                        <li class="list-inline-item"><a class="fb-share-link" href="{{Helpers::fbShareLink($item['music_link'], true)}}" target="_blank" title="chia sẻ {{$item['music_title']}}"><i class="material-icons">share</i></a></li>
                                     </ul>
                                 </div>
                             </li>
@@ -275,7 +275,7 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                                 <div class="media-right align-self-center">
                                     <small class="time_stt">{{number_format($item['music_listen'])}}</small>
                                     <ul class="list-inline">
-                                        <li class="list-inline-item"><a href="{{Helpers::fbShareLink($item['music_link'], true)}}" target="_blank" title="chia sẻ {{$item['music_title']}}"><i class="material-icons">share</i></a></li>
+                                        <li class="list-inline-item"><a class="fb-share-link" href="{{Helpers::fbShareLink($item['music_link'], true)}}" target="_blank" title="chia sẻ {{$item['music_title']}}"><i class="material-icons">share</i></a></li>
                                     </ul>
                                 </div>
                             </li>
@@ -383,7 +383,7 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                                 <div class="media-right align-self-center">
                                     <small class="time_stt">{{number_format($item['music_listen'])}}</small>
                                     <ul class="list-inline">
-                                        <li class="list-inline-item"><a href="{{Helpers::fbShareLink($item['music_link'], true)}}" target="_blank" title="chia sẻ {{$item['music_title']}}"><i class="material-icons">share</i></a></li>
+                                        <li class="list-inline-item"><a class="fb-share-link" href="{{Helpers::fbShareLink($item['music_link'], true)}}" target="_blank" title="chia sẻ {{$item['music_title']}}"><i class="material-icons">share</i></a></li>
                                     </ul>
                                 </div>
                             </li>

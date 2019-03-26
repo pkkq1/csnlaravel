@@ -39,7 +39,28 @@ $( document ).ready(function() {
     $('body').click(function(){
         $(".suggest").fadeOut("fast")
     });
+    $('.fb-share-link').click(function(e) {
+        shareFbLink(e, $(this).attr('href'))
+    });
 });
+
+function shareFbLink(event, href) {
+    event.preventDefault();
+    href = findOfStringParameter(href, 'href', href).replace("localhost//", "localhost/").replace("com//", "com/").replace("vn//", "vn/");
+    FB.ui({
+        method: 'share',
+        href: href,
+        caption: $('meta[name=title]').attr("content"),
+    }, function(response){
+        Cookies.set("share_down_lossless", JSON.stringify({
+            timestamp: new Date(),
+            content: 'share_down_lossless'
+        }));
+    });
+    return false;
+}
+
+
 function alertModal(content = 'Lỗi, không thực hiện được.') {
     if(!content)
         content = 'Lỗi, không thực hiện được.'

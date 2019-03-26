@@ -48,7 +48,6 @@ if($musicSet['type_listen'] == 'playlist') {
     <link href="{{env('APP_URL')}}/node_modules/rabbit-lyrics/dist/rabbit-lyrics.css" rel="stylesheet" type="text/css"/>
     <script src="{{env('APP_URL')}}/node_modules/rabbit-lyrics/dist/rabbit-lyrics.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/csn-jwplayer.css">
-    <script src="/js/cookie.min.js"></script>
 @endsection
 
 @extends('mobile.layouts.app')
@@ -807,7 +806,8 @@ if($musicSet['type_listen'] == 'playlist') {
         $('.wrap-bottom-sheet').hide();
         $('.bottom-sheet').slideUp();
         // copyClipboardAction(window.location.href);
-        window.open('https://www.facebook.com/sharer/sharer.php?u=' + window.location.href, '_blank');
+        shareFbLink(e, window.location.href);
+        // window.open('https://www.facebook.com/sharer/sharer.php?u=' + window.location.href, '_blank');
         // alertModal('Đã copy địa chỉ vào bộ nhớ máy của bạn.');
     });
     function downloadMusic() {

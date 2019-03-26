@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="/mobile/assets/css/responsive.css">
     <link rel="stylesheet" href="/mobile/assets/css/custom.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="/js/cookie.min.js"></script>
     @yield('contentCSS')
 
     <!-- Global site tag (gtag.js) - Google Analytics -->

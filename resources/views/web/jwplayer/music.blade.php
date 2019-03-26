@@ -52,7 +52,6 @@ if($musicSet['type_listen'] == 'playlist') {
 @section('contentCSS')
     <link href="{{env('APP_URL')}}/node_modules/rabbit-lyrics/dist/rabbit-lyrics.css" rel="stylesheet" type="text/css"/>
     <script src="{{env('APP_URL')}}/node_modules/rabbit-lyrics/dist/rabbit-lyrics.js" type="text/javascript"></script>
-    <script src="/js/cookie.min.js"></script>
     <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/csn-jwplayer.css">
 @endsection
 @extends('web.layouts.app')
@@ -107,7 +106,7 @@ if($musicSet['type_listen'] == 'playlist') {
                                             <ul class="list-inline d-flex align-items-center justify-content-end">
                                                 <li class="list-inline-item"><a href="{{$url}}" title="nghe riêng nhạc {{$item['music_title']}}"><i class="material-icons">headset</i></a></li>
                                                 <li class="list-inline-item"><a onclick="addPlaylistTable('{{str_replace("'", "\'", $item['music_title'])}}', '{{$item['music_id']}}', '{{isset($item['music_artist']) ? $item['music_artist'] : "false"}}', '{{isset($item['music_artist_id']) ? $item['music_artist_id'] : "false"}}')" href="javascript:void(0)" title="thêm vào playlist"><i class="material-icons">playlist_add</i></a></li>
-                                                <li class="list-inline-item"><a href="{{Helpers::fbShareLink($url)}}" title="chia sẻ {{$item['music_title']}}"><i class="material-icons">share</i></a></li>
+                                                <li class="list-inline-item"><a class="fb-share-link" href="{{$url}}" title="chia sẻ {{$item['music_title']}}"><i class="material-icons">share</i></a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -568,7 +567,7 @@ if($musicSet['type_listen'] == 'playlist') {
                                         <small class="time_stt"><i class="material-icons listen-material-icons"> play_arrow </i>{{number_format($item['music_listen'])}}</small>
                                         <ul class="list-inline">
                                             <li class="list-inline-item"><a href="{{$url}}" title="nghe riêng {{$item['music_title']}}"><i class="material-icons">headset</i></a></li>
-                                            <li class="list-inline-item"><a target="_blank" href="{{Helpers::fbShareLink($url)}}" title="share {{$item['music_title']}}"><i class="material-icons">share</i></a></li>
+                                            <li class="list-inline-item"><a target="_blank" class="fb-share-link" href="{{Helpers::fbShareLink($url)}}" title="share {{$item['music_title']}}"><i class="material-icons">share</i></a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -940,15 +939,6 @@ if($musicSet['type_listen'] == 'playlist') {
             embedString()
         });
 
-        $('.fb-share-link').click(function(e) {
-            e.preventDefault();
-            FB.ui({
-                method: 'share',
-                href: $(this).attr('href'),
-                caption: $('meta[name=title]').attr("content"),
-            }, function(response){});
-            return false;
-        });
         <?php
             if(isset($file_url[4]['url'])) {
                 ?>
@@ -970,6 +960,7 @@ if($musicSet['type_listen'] == 'playlist') {
                     }
                 }
                 function openShare() {
+                    $('#myConfirmModal').find('.btn-ok').html('Bắt đầu chia sẻ');
                     confirmModal('Bạn cần phải chia sẻ bài này lên FB thì mới được download! Mỗi lần chia sẻ, sẽ được tải lossless không giới hạn trong 3 ngày', '','modal-mg');
                     $("#myConfirmModal .btn-ok").one('click', function () {
                         FB.ui({

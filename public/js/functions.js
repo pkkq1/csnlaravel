@@ -52,7 +52,26 @@ $( document ).ready(function() {
         $(".suggest").fadeOut("fast")
         $(".suggest_search").fadeOut("fast")
     });
+    $('.fb-share-link').click(function(e) {
+        shareFbLink(e, $(this).attr('href'))
+    });
+
 });
+function shareFbLink(event, href) {
+    event.preventDefault();
+    href = findOfStringParameter(href, 'href', href).replace("localhost//", "localhost/").replace("com//", "com/").replace("vn//", "vn/");
+    FB.ui({
+        method: 'share',
+        href: href,
+        caption: $('meta[name=title]').attr("content"),
+    }, function(response){
+        Cookies.set("share_down_lossless", JSON.stringify({
+            timestamp: new Date(),
+            content: 'share_down_lossless'
+        }));
+    });
+    return false;
+}
 
 $(function () {
     $('[data-toggle="tooltip"]').tooltip()
@@ -97,7 +116,9 @@ function confirmModal(content = 'Lỗi, không thực hiện được.', title =
     $("#myConfirmModal .modal-dialog").removeClass('modal-lg').addClass(modal_size);
     $("#myConfirmModal .modal-body").html('<div class="modal_content_csn">' + content + '</div>');
     $("#myConfirmModal").modal();
-
+    $('#myConfirmModal').on('hidden.bs.modal', function () {
+        $('#myConfirmModal').find('.btn-ok').html('Đồng ý');
+    });
 }
 
 function successModal(content = 'Lỗi, không thực hiện được') {
@@ -236,10 +257,30 @@ function convertDateTime(timestamp) {
         ];
     return date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
 }
+function escapeHtml(text) {
+    return text
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
 function findGetParameter(parameterName, def = null) {
     var result = def,
         tmp = [];
     location.search
+        .substr(1)
+        .split("&")
+        .forEach(function (item) {
+            tmp = item.split("=");
+            if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+        });
+    return result;
+}
+function findOfStringParameter(string, parameterName, def = null) {
+    var result = def,
+        tmp = [];
+    string
         .substr(1)
         .split("&")
         .forEach(function (item) {
