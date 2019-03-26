@@ -33,7 +33,7 @@
                 }, a.parentNode.insertBefore(PP, a)), void 0 == PPP && (PPP = document.createElement("div"), PPP.className = "jw-icon csn-random-btn jw-icon-inline jw-button-color jw-reset jw-icon-sequence", PPP.innerHTML = sequence, PPP.title = "Ngẫu nhiên", PPP.onclick = function () {
                     "jw-icon csn-random-btn jw-icon-inline jw-button-color jw-reset jw-icon-sequence" == PPP.className ? (PPP.className = "jw-icon csn-random-btn jw-icon-inline jw-button-color jw-reset jw-icon-shuffle",
                         TTT = !1, PPP.innerHTML = shuffle, autoRandom(true)) : (PPP.className = "jw-icon csn-random-btn jw-icon-inline jw-button-color jw-reset jw-icon-sequence", TTT = !0, PPP.innerHTML = sequence, autoRandom(false))
-                }, V = document.createElement("div"), V.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-favourite",V.style = 'line-height: 38px;', V.innerHTML = '<span class="csn-title-favourite">Yêu thích bài hát này</span><span class="wishlist toggle_wishlist"><i aria-hidden="true" style="font-size: 18px"  class="fa fa-heart-o"></i></span>',
+                }, V = document.createElement("div"), V.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-favourite",V.style = 'line-height: 38px;', V.innerHTML = '<span class="csn-title-favourite">Yêu thích bài hát này</span><span class="wishlist toggle_wishlist"><i aria-hidden="true" style="font-size: 18px"  class="fa fa-heart-o"></i></span>', V.onclick = function() { reloadFavourite() },
                 a.parentNode.insertBefore(PPP, a), PP.parentNode.insertBefore(V, PP)));
                 jwplayer().setConfig({
                     repeat: false
