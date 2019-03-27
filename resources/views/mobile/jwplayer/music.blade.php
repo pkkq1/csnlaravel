@@ -71,7 +71,7 @@ if($musicSet['type_listen'] == 'playlist') {
                                      class="image bg-blur"></div>
                                 <div style="background: url('{{Helpers::cover_url($music->cover_id)}}') no-repeat center;background-size: cover;padding: 20%;"
                                      class="image-main"></div>
-                                <?php $month_day = intval(date('ndH')); echo $month_day; ?>
+                                <?php $month_day = intval(date('ndH')); ?>
                                 @if($month_day < 33125)
                                     <div class="image-main" style="top: 1px">
                                         <script type="text/javascript">
