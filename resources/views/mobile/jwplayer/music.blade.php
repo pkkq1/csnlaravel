@@ -69,7 +69,7 @@ if($musicSet['type_listen'] == 'playlist') {
                             @if($musicSet['type_jw'] != 'video')
                             <div style="background: url('{{$thumnailMusic}}') no-repeat center;background-size: cover;padding-bottom: 70%;" class="image bg-blur"></div>
                             <div style="background: url('{{Helpers::cover_url($music->cover_id)}}') no-repeat center;background-size: cover;padding: 20%;" class="image-main"></div>
-                                <div class="image-main" style="top: 0"><script type="text/javascript">
+                                <div class="image-main" style="top: 1px"><script type="text/javascript">
                                         /* load placement: chiasenhac_3d-box, for account: chiasenhac, site: chiasenhac.vn, size: 300x250 - mobile */
                                         var _avlVar = _avlVar || [];
                                         _avlVar.push(["52a932db595742ef97a993108efe6d2c","[content_page_url]","[width]","[height]"]);
