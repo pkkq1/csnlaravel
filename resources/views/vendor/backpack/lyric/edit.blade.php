@@ -1,7 +1,6 @@
 <?php
 use App\Library\Helpers;
 use App\Models\MusicModel;
-$music = MusicModel::find($fields['music_id']['value']);
 $partListenFullUrl = Helpers::listen_url($music, '');
 $oldLyricArr = preg_split('/\r\n|\r|\n/', htmlspecialchars_decode($music->music_lyric, ENT_QUOTES));
 $sugLyricArr = preg_split('/\r\n|\r|\n/', htmlspecialchars_decode($fields['music_lyric']['value'], ENT_QUOTES));

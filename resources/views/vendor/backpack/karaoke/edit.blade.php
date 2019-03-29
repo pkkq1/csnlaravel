@@ -1,7 +1,6 @@
 <?php
 use App\Library\Helpers;
 use App\Models\MusicModel;
-$music = MusicModel::find($fields['music_id']['value']);
 $partListenFullUrl = Helpers::listen_url($music, '');
 $oldKara = $music->musicKara->music_lyric_karaoke ?? '';
 $oldKaraArr = preg_split('/\r\n|\r|\n/', htmlspecialchars_decode($oldKara, ENT_QUOTES));

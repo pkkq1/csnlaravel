@@ -130,7 +130,12 @@ class SugKaraokeController extends CrudController
         $this->data['fields'] = $this->crud->getUpdateFields($id);
         $this->data['title'] = trans('backpack::crud.edit').' '.$this->crud->entity_name;
         $this->data['id'] = $id;
-
+        $music = MusicModel::find($this->data['fields']['music_id']['value']);
+        if(!$music) {
+            \Alert::error('Lỗi, bài hát đã bị xóa')->flash();
+            return redirect()->back();
+        }
+        $this->data['music'] = $music;
         return view('vendor.backpack.karaoke.edit', $this->data);
     }
     public function destroy($id)
