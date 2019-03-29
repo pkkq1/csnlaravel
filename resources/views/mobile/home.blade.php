@@ -1,4 +1,5 @@
 @section('in_home', true)
+
 <?php
 use App\Library\Helpers;
 // global variable file /case
