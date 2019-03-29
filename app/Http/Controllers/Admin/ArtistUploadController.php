@@ -30,6 +30,7 @@ class ArtistUploadController extends CrudController
     public function __construct(ArtistRepository $artistRepository, ArtistUploadEloquentRepository $artistUploadRepository, Solarium $Solr) {
         $this->artistRepository = $artistRepository;
         $this->artistUploadRepository = $artistUploadRepository;
+        $this->Solr = $Solr;
         parent::__construct();
     }
     public function setup()
