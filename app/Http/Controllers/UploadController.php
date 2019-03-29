@@ -304,7 +304,7 @@ class UploadController extends Controller
             'success' => true,
             'message' => 'Upload Success',
             'file_name' => $fileName,
-            'lossless' => $type == 'audio' ? (isset($videoInfo['audio']) ? $videoInfo['audio']['lossless'] == true ? 1000 : (int)($videoInfo['audio']['bitrate'] / 1024) : '') : '',
+            'lossless' => $type == 'audio' ? (isset($videoInfo['audio']['lossless']) ? $videoInfo['audio']['lossless'] == true ? 1000 : (int)($videoInfo['audio']['bitrate'] / 1024) : '') : '',
             'file_size' => $_FILES['file']['size']
         ]);
     }

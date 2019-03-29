@@ -109,7 +109,7 @@ class Handler extends ExceptionHandler
                     'request' => json_encode(app('request')->route()->getAction()),
                     'type' => 'exception',
                     'url' => $_SERVER['REQUEST_URI'],
-                    'view' => '',
+                    'view' => json_encode($exception->getTrace()[0]),
                     'note' => 'file: '.$exception->getFile().'; ',
                     'user_id' => Auth::check() ? Auth::user()->id : null,
                     'message' => $exception->getMessage(),

@@ -65,10 +65,12 @@ function shareFbLink(event, href) {
         href: href,
         caption: $('meta[name=title]').attr("content"),
     }, function(response){
-        Cookies.set("share_down_lossless", JSON.stringify({
-            timestamp: new Date(),
-            content: 'share_down_lossless'
-        }));
+        if (response && !response.error_message) {
+            Cookies.set("share_down_lossless", JSON.stringify({
+                timestamp: new Date(),
+                content: 'share_down_lossless'
+            }));
+        }
     });
     return false;
 }
