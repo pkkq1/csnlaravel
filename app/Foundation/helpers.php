@@ -92,3 +92,17 @@ function data_get($target, $key, $default = null)
 
     return $target;
 }
+/**
+ * Escape HTML special characters in a string.
+ *
+ * @param  \Illuminate\Contracts\Support\Htmlable|string  $value
+ * @param  bool  $doubleEncode default laravel 5.6 is false
+ * @return string
+ */
+function e($value, $doubleEncode = false)
+{
+    if ($value instanceof Htmlable) {
+        return $value->toHtml();
+    }
+    return htmlspecialchars($value, ENT_QUOTES, 'UTF-8', $doubleEncode);
+}
