@@ -148,7 +148,7 @@ if($musicSet['type_listen'] == 'playlist') {
                                                 $item['music_artist_html'] = $item['music_artist_html'] ?? Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']);
                                                 $item['music_bitrate_html'] = $item['music_bitrate_html'] ?? ($musicSet['type_jw'] != 'video' ? Helpers::bitrate2str($item['music_bitrate']) : Helpers::size2str($item['music_width'] ?? 0, $item['music_height'] ?? 0));
                                                 ?>
-                                                @if($music->cat_id == CAT_VIDEO)
+                                                @if($music->cat_id != CAT_VIDEO)
                                                     <div class="element mb-2 card-footer {{($music->music_id == $item['music_id'] ? (count($musicSet['playlist_music']) > 1 ? 'listen' : '') : '')}}" id="music-listen-{{$item['music_id']}}">
                                                         <a href="{{$urlAlbum}}"><div style="background : url(<?php echo Helpers::cover_url($item['cover_id']) ?>) no-repeat center;background-size: cover;" class="image image100px mr-2 d-inline-block align-middle"></div></a>
                                                         <div class="content d-inline-block align-middle">
