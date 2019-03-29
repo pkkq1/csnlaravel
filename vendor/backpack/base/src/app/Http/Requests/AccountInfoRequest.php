@@ -38,6 +38,11 @@ class AccountInfoRequest extends FormRequest
         $user = backpack_auth()->user();
 
         return [
+            backpack_authentication_column() => [
+                'required',
+                backpack_authentication_column() == 'email' ? 'email' : '',
+                Rule::unique($user->getTable())->ignore($user->getKey(), $user->getKeyName()),
+            ],
             'name' => 'required',
         ];
     }

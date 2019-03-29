@@ -19,4 +19,14 @@ class MusicSearchResultModel extends Model
         [
             'music_id', 'music_title', 'music_artist', 'music_artist_id', 'music_album', 'music_year', 'music_search_count'
         ];
+
+    public function getTotalSum()
+    {
+        return self::where([
+            ['music_id', $this->music_id],
+//            ['created_at', '>=', date('Y-m-d', time())],
+        ])->selectRaw('sum(music_search_count) as music_search_count')
+            ->groupBy(['music_id'])
+            ->value('music_search_count') ?: 0;
+    }
 }

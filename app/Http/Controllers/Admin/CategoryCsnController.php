@@ -23,6 +23,9 @@ class CategoryCsnController extends CrudController
     {
         parent::__construct();
 
+    }
+    public function setup()
+    {
         $this->crud->setModel("App\Models\CategoryCsnModel");
         $this->crud->setEntityNameStrings('Category CSN', 'Category CSN');
         $this->crud->setRoute(config('backpack.base.route_prefix').'/category_csn');
@@ -44,8 +47,6 @@ class CategoryCsnController extends CrudController
             }
             return $next($request);
         });
-//        $this->crud->allowAccess('reorder');
-//        $this->crud->enableReorder('name', 2);
         $this->crud->addColumn([
             'name' => 'cat_id',
             'label' => 'ID',
@@ -87,8 +88,6 @@ class CategoryCsnController extends CrudController
             'name' => 'cat_level',
             'label' => 'Level',
         ]);
-
-
     }
 
     public function store(StoreRequest $request)

@@ -68,8 +68,8 @@ class Permission extends Model implements PermissionContract
     public static function findByName($name)
     {
         $permission = static::getPermissions()->where('name', $name)->first();
+
         if (! $permission) {
-            return null;
             throw new PermissionDoesNotExist();
         }
 

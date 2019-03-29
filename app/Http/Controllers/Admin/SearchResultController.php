@@ -21,20 +21,34 @@ use App\Repositories\User\UserEloquentRepository;
 
 class SearchResultController extends CrudController
 {
-    protected $searchResultRepository;
 
-    public function __construct(SearchResultEloquentRepository $searchResultRepository)
+    public function __construct()
     {
-        $this->searchResultRepository = $searchResultRepository;
         parent::__construct();
+    }
 
+    public function setup()
+    {
+//        parent::__construct();
         $this->crud->setModel("App\Models\MusicSearchResultModel");
         $this->crud->setEntityNameStrings('Kết quả tìm kiếm', 'Kết quả tìm kiếm');
         $this->crud->setRoute(config('backpack.base.route_prefix').'/search_results');
 //        $this->crud->setEntityNameStrings('menu item', 'menu items');
-        $this->crud->orderBy('updated_at', 'desc');
-        $this->crud->denyAccess(['create']);
-        $this->crud->denyAccess(['edit']);
+
+
+        $this->crud->denyAccess(['create', 'update', 'reorder', 'delete']);
+        $this->crud->enableBulkActions();
+        $this->crud->addBulkDeleteButton();
+        $this->crud->removeAllButtons();
+
+
+//        $this->crud->groupBy('music_id', 'music_title');
+        $this->crud->orderBy('music_search_count', 'desc');
+//        $this->crud->orderBy('updated_at', 'desc');
+
+        $this->crud->addClause('whereDate', 'created_at', '>=', date('Y-m-d', time()));
+
+
         $this->middleware(function ($request, $next)
         {
             if(!backpack_user()->can('search_results(list)')) {
@@ -42,6 +56,8 @@ class SearchResultController extends CrudController
             }
             return $next($request);
         });
+
+
         $this->crud->addColumn([
             'name'  => 'music_id',
             'label' => 'ID',
@@ -58,12 +74,44 @@ class SearchResultController extends CrudController
             'name' => 'music_search_count',
             'label' => 'Truy cập',
         ]);
-        $this->crud->addColumn([
-            'name' => 'updated_at',
-            'label' => 'Cập nhật',
-        ]);
-    }
+//        $this->crud->addColumn([
+//            'name' => 'created_at',
+//            'label' => 'Ngày tạo',
+//        ]);
+//        $this->crud->addColumn([
+//            'name' => 'music_search_count',
+//            'label' => 'Truy cập',
+//            'type' => "model_function",
+//            'function_name' => 'getTotalSum',
+//        ]);
 
+        $this->crud->addFilter([ // daterange filter
+            'type' => 'date_range',
+            'name' => 'from_to',
+            'label'=> 'Hiển thị theo thời gian'
+        ],
+            false,
+            function($value) {
+                $dates = json_decode(htmlspecialchars_decode($value, ENT_QUOTES));
+                $this->crud->addClause('whereDate', 'created_at', '>=', $dates->from);
+                $this->crud->addClause('whereDate', 'created_at', '<=', $dates->to);
+//                $this->crud->removeColumns(['music_title']);
+//                $this->crud->removeColumns(['created_at']);
+
+
+//                $this->crud->groupBy('music_id');
+//                $this->crud->orderBy('music_search_count', 'desc');
+
+//
+//                $this->crud->query = $this->crud->query->selectRaw('music_id, sum(music_search_count) as music_search_count')
+//                    ->groupBy('csn_music_search_result.music_id');
+
+            });
+
+
+//        $this->crud->addButtonFromView('line', 'view', 'show', 'end');
+
+    }
     public function store(StoreRequest $request)
     {
         return parent::storeCrud();

@@ -23,8 +23,14 @@ class MySql extends DbDumper
     /** @var bool */
     protected $dbNameWasSetAsExtraOption = false;
 
+    /** @var bool */
+    protected $allDatabasesWasSetAsExtraOption = false;
+
     /** @var string */
     protected $setGtidPurged = 'AUTO';
+
+    /** @var bool */
+    protected $createTables = true;
 
     public function __construct()
     {
@@ -131,11 +137,7 @@ class MySql extends DbDumper
 
         $command = $this->getDumpCommand($dumpFile, $temporaryCredentialsFile);
 
-        $process = new Process($command);
-
-        if (! is_null($this->timeout)) {
-            $process->setTimeout($this->timeout);
-        }
+        $process = Process::fromShellCommandline($command, null, null, null, $this->timeout);
 
         $process->run();
 
@@ -144,12 +146,27 @@ class MySql extends DbDumper
 
     public function addExtraOption(string $extraOption)
     {
+        if (strpos($extraOption, '--all-databases') !== false) {
+            $this->dbNameWasSetAsExtraOption = true;
+            $this->allDatabasesWasSetAsExtraOption = true;
+        }
+
         if (preg_match('/^--databases (\S+)/', $extraOption, $matches) === 1) {
             $this->setDbName($matches[1]);
             $this->dbNameWasSetAsExtraOption = true;
         }
 
         return parent::addExtraOption($extraOption);
+    }
+
+    /**
+     * @return $this
+     */
+    public function doNotCreateTables()
+    {
+        $this->createTables = false;
+
+        return $this;
     }
 
     /**
@@ -168,6 +185,10 @@ class MySql extends DbDumper
             "{$quote}{$this->dumpBinaryPath}mysqldump{$quote}",
             "--defaults-extra-file=\"{$temporaryCredentialsFile}\"",
         ];
+
+        if (! $this->createTables) {
+            $command[] = '--no-create-info';
+        }
 
         if ($this->skipComments) {
             $command[] = '--skip-comments';
@@ -226,10 +247,14 @@ class MySql extends DbDumper
 
     protected function guardAgainstIncompleteCredentials()
     {
-        foreach (['userName', 'dbName', 'host'] as $requiredProperty) {
+        foreach (['userName', 'host'] as $requiredProperty) {
             if (strlen($this->$requiredProperty) === 0) {
                 throw CannotStartDump::emptyParameter($requiredProperty);
             }
+        }
+
+        if (strlen('dbName') === 0 && ! $this->allDatabasesWasSetAsExtraOption) {
+            throw CannotStartDump::emptyParameter($requiredProperty);
         }
     }
 

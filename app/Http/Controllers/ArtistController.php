@@ -17,6 +17,7 @@ use App\Repositories\Video\VideoEloquentRepository;
 use App\Repositories\Cover\CoverEloquentRepository;
 use App\Repositories\PlaylistPublisher\PlaylistPublisherEloquentRepository;
 use App\Repositories\ArtistFavourite\ArtistFavouriteRepository;
+use App\Repositories\ArtistSearchResult\ArtistSearchResultEloquentRepository;
 
 class ArtistController extends Controller
 {
@@ -26,16 +27,18 @@ class ArtistController extends Controller
     protected $coverRepository;
     protected $playlistPublisherRepository;
     protected $artistFavouriteRepository;
+    protected $artistSearchResult;
     protected $Solr;
 
     public function __construct(ArtistRepository $artistRepository, MusicEloquentRepository $musicRepository, VideoEloquentRepository $videoRepository, CoverEloquentRepository $coverRepository,
-                                PlaylistPublisherEloquentRepository $playlistPublisherRepository, ArtistFavouriteRepository $artistFavouriteRepository, Solarium $Solr) {
+                                PlaylistPublisherEloquentRepository $playlistPublisherRepository, ArtistFavouriteRepository $artistFavouriteRepository, Solarium $Solr, ArtistSearchResultEloquentRepository $artistSearchResult) {
         $this->artistRepository = $artistRepository;
         $this->musicRepository = $musicRepository;
         $this->videoRepository = $videoRepository;
         $this->coverRepository = $coverRepository;
         $this->playlistPublisherRepository = $playlistPublisherRepository;
         $this->artistFavouriteRepository = $artistFavouriteRepository;
+        $this->artistSearchResult = $artistSearchResult;
         $this->Solr = $Solr;
     }
 

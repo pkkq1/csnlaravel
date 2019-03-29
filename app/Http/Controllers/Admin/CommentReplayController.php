@@ -30,6 +30,10 @@ class CommentReplayController extends CrudController
         $this->userRepository = $userRepository;
         parent::__construct();
 
+    }
+    public function setup()
+    {
+
         $this->crud->setModel("App\Models\CommentReplyModel");
         $this->crud->setEntityNameStrings('Trả lời bình luận', 'Trả lời bình luận');
         $this->crud->setRoute(config('backpack.base.route_prefix').'/comment_replay');
@@ -49,6 +53,19 @@ class CommentReplayController extends CrudController
             }
             return $next($request);
         });
+        $this->crud->addFilter([ // daterange filter
+            'type' => 'date_range',
+            'name' => 'from_to',
+            'label'=> 'Hiển thị theo thời gian'
+        ],
+            false,
+            function($value) {
+                $dates = json_decode(htmlspecialchars_decode($value, ENT_QUOTES));
+                $this->crud->addClause('where', 'comment_time', '>=', strtotime($dates->from . ' 00:00'));
+                $this->crud->addClause('where', 'comment_time', '<=', strtotime($dates->to . ' 23:59'));
+//                $this->crud->removeColumns(['created_at']);
+            });
+
         $this->crud->addColumn([
             'name'  => 'comment_reply_id',
             'label' => 'ID',

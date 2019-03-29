@@ -27,16 +27,16 @@ class ArtistController extends CrudController
     public function __construct(ArtistRepository $artistRepository, Solarium $Solr)
     {
         $this->artistRepository = $artistRepository;
-        parent::__construct();
+        $this->Solr = $Solr;
 
+        parent::__construct();
+    }
+    public function setup() {
         $this->crud->setModel("App\Models\ArtistModel");
         $this->crud->setEntityNameStrings('Ca sĩ', 'Ca Sĩ');
         $this->crud->setRoute(config('backpack.base.route_prefix').'/artist');
         $this->crud->orderBy('updated_at', 'desc');
         $this->crud->denyAccess(['create']);
-
-        $this->Solr = $Solr;
-
 //        $this->crud->setEntityNameStrings('menu item', 'menu items');
 
         $this->middleware(function ($request, $next)

@@ -27,18 +27,17 @@ class SugLyricController extends CrudController
 
     public function __construct(Solarium $Solr)
     {
+        $this->Solr = $Solr;
         parent::__construct();
 
+    }
+    public function setup()
+    {
         $this->crud->setModel("App\Models\LyricSuggestionModel");
         $this->crud->setEntityNameStrings('Lyric', 'Lyric');
         $this->crud->setRoute(config('backpack.base.route_prefix').'/lyric');
         $this->crud->orderBy('id', 'asc');
         $this->crud->denyAccess(['create']);
-
-        $this->Solr = $Solr;
-
-//        $this->crud->setEntityNameStrings('menu item', 'menu items');
-
         $this->middleware(function ($request, $next)
         {
             if(!backpack_user()->can('suggestion_lyric_(list)')) {
@@ -112,8 +111,8 @@ class SugLyricController extends CrudController
             'name'  => 'user_id',
             'type'  => 'hidden',
         ]);
-
     }
+
     public function edit($id, $template = false)
     {
         $this->crud->hasAccessOrFail('update');

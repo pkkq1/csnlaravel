@@ -5,8 +5,6 @@ namespace Spatie\Permission\Traits;
 use Illuminate\Support\Collection;
 use Spatie\Permission\Contracts\Role;
 use Spatie\Permission\Contracts\Permission;
-use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Config;
 
 trait HasRoles
 {
@@ -18,7 +16,6 @@ trait HasRoles
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-
     public function roles()
     {
         return $this->belongsToMany(
@@ -198,9 +195,6 @@ trait HasRoles
     {
         if (is_string($permission)) {
             $permission = app(Permission::class)->findByName($permission);
-            if (! $permission) {
-                return false;
-            }
         }
 
         return $this->hasDirectPermission($permission) || $this->hasPermissionViaRole($permission);

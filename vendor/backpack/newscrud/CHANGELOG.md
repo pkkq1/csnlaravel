@@ -21,6 +21,28 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 ### Security
 - Nothing
 
+## 2.1.10 - 2019-03-12
+
+### Added
+- support for Laravel 5.8 and CRUD 3.6;
+
+## 2.1.9 - 2018-11-26
+
+### Fixed
+- authorization in form request files;
+
+
+## 2.1.8 - 2018-11-22
+
+### Fixed
+- travis config file;
+
+
+## 2.1.7 - 2018-11-22
+
+### Fixed
+- using ```backpack_auth()``` in Crud requests instead of Auth;
+- support for CRUD 3.4 and 3.5;
 
 ## 2.1.6 - 2017-11-29
 

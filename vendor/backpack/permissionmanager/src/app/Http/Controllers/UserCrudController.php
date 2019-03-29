@@ -6,6 +6,9 @@ use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Http\Requests\CrudRequest;
 use Backpack\PermissionManager\app\Http\Requests\UserStoreCrudRequest as StoreRequest;
 use Backpack\PermissionManager\app\Http\Requests\UserUpdateCrudRequest as UpdateRequest;
+use App\Models\Role;
+use App\Models\PermissionUserModel;
+use App\Models\Permission;
 
 class UserCrudController extends CrudController
 {
@@ -34,6 +37,77 @@ class UserCrudController extends CrudController
         if(!backpack_user()->can('user_(delete)')) {
             $this->crud->denyAccess(['delete']);
         }
+
+
+
+        $this->crud->addFilter([ // select2_multiple filter
+            'name' => 'roles',
+//            'type' => 'dropdown',
+            'type' => 'select2_multiple',
+            'label'=> 'Roles',
+            'placeholder' => 'Tìm phân quyền truy cập (Roles)'
+        ], function () {
+            return Role::orderBy('name')->get()->pluck('name', 'id')->toArray();
+        }, function ($values) {
+            $values = json_decode(htmlspecialchars_decode($values, ENT_QUOTES));
+            if (!empty($values)) {
+                // $this->crud->addClause('where', 'roles.name', 'IN', $values);
+                $this->crud->query = $this->crud->query->whereHas('roles',
+                    function ($query) use ($values) {
+                        $query->whereIn('csn_roles.id', $values);
+                    });
+            }
+        });
+        $this->crud->addFilter([ // select2_multiple filter
+            'name' => 'permissions',
+            'type' => 'select2_multiple',
+            'label'=> 'Extra Permissions',
+            'placeholder' => 'Tìm phân quyền truy cập (Extra Permissions)'
+        ], function () {
+            return Permission::orderBy('name')->get()->pluck('name', 'id')->toArray();
+        }, function ($values) {
+            $values = json_decode(htmlspecialchars_decode($values, ENT_QUOTES));
+            if (!empty($values)) {
+                $this->crud->query = $this->crud->query->whereHas('permissions',
+                    function ($query) use ($values) {
+                        $query->whereIn('csn_permissions.id', $values);
+                    });
+            }
+        });
+
+
+
+//        $this->crud->addFilter([ // select2 filter
+//            'name' => 'status',
+//            'type' => 'select2',
+//            'label'=> 'Status'
+//        ], function() {
+//            return [
+//                1 => 'In stock',
+//                2 => 'In provider stock',
+//                3 => 'Available upon ordering',
+//                4 => 'Not available',
+//            ];
+//        }, function($value) { // if the filter is active
+//            // $this->crud->addClause('where', 'status', $value);
+//        });
+
+
+//
+//        $this->crud->addFilter([ // select2_ajax filter
+//            'name' => 'role_id',
+//            'type' => 'select2_ajax',
+//            'label'=> 'Roles',
+//            'placeholder' => 'Tìm phân quyền truy cập'
+//        ],
+//            url('admin/ajax-role-options'), // the ajax route
+//            function($value) { // if the filter is active
+//                $this->crud->query = $this->crud->query->with(['Role' => function ($query) {
+//                    $query->where('user_id', '=', 1);
+//                }]);
+//            });
+
+
         $this->crud->setColumns([
             [
                 'name'  => 'id',
@@ -155,6 +229,7 @@ class UserCrudController extends CrudController
                 ],
             ],
         ]);
+
     }
 
     /**
@@ -201,5 +276,11 @@ class UserCrudController extends CrudController
         } else {
             $request->request->remove('password');
         }
+    }
+    public function getRoleOption(CrudRequest $request)
+    {
+        $term = $this->request->input('term');
+        $options = Role::where('name', 'like', '%'.$term.'%')->get();
+        return $options->pluck('name', 'id');
     }
 }

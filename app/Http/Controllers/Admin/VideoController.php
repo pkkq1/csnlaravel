@@ -27,6 +27,10 @@ class VideoController extends CrudController
         $this->deleteVideoRepository = $deleteVideoRepository;
         $this->videoRepository = $videoRepository;
         parent::__construct();
+    }
+
+    public function setup()
+    {
 
         $this->crud->setModel("App\Models\VideoModel");
         $this->crud->setEntityNameStrings('Video CSN', 'Video CSN');

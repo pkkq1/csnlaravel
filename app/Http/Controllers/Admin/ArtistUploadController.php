@@ -27,21 +27,34 @@ class ArtistUploadController extends CrudController
     protected $artistUploadRepository;
     protected $Solr;
 
-    public function __construct(ArtistRepository $artistRepository, ArtistUploadEloquentRepository $artistUploadRepository, Solarium $Solr)
-    {
+    public function __construct(ArtistRepository $artistRepository, ArtistUploadEloquentRepository $artistUploadRepository, Solarium $Solr) {
         $this->artistRepository = $artistRepository;
         $this->artistUploadRepository = $artistUploadRepository;
         parent::__construct();
+    }
+    public function setup()
+    {
         $this->crud->setModel("App\Models\ArtistUploadModel");
         $this->crud->setEntityNameStrings('Upload Artist', 'Artist Upload');
         $this->crud->setRoute(config('backpack.base.route_prefix').'/artist_upload');
         $this->crud->denyAccess(['create']);
         $this->crud->orderBy('artist_id', 'asc');
-        $this->Solr = $Solr;
 //        $this->crud->denyAccess(['create', 'delete', 'update', 'list']);
 //        $this->crud->allowAccess('reorder');
 //        $this->crud->hasAccess('update');
 //        $this->crud->enableReorder('name', 2);
+
+        $this->crud->addFilter([ // dropdown filter
+            'name' => 'type',
+            'type' => 'dropdown',
+            'label'=> 'Status'
+        ], [
+            0 => 'Chỉnh sửa',
+            1 => 'Tạo',
+        ], function($value) { // if the filter is active
+             $this->crud->addClause('where', 'type', $value);
+        });
+
         $this->middleware(function ($request, $next)
         {
             if(!backpack_user()->can('xet_duyet_ca_si_(list)')) {

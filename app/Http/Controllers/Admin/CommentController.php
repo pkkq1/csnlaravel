@@ -29,7 +29,9 @@ class CommentController extends CrudController
         $this->musicRepository = $musicRepository;
         $this->userRepository = $userRepository;
         parent::__construct();
-
+    }
+    public function setup()
+    {
         $this->crud->setModel("App\Models\CommentModel");
         $this->crud->setEntityNameStrings('Bình luận', 'Bình luận');
         $this->crud->setRoute(config('backpack.base.route_prefix').'/comment');
@@ -49,6 +51,30 @@ class CommentController extends CrudController
             }
             return $next($request);
         });
+        $this->crud->addFilter([ // dropdown filter
+            'name' => 'comment_delete',
+            'type' => 'dropdown',
+            'label'=> 'Tình trạng'
+        ], [
+            0 => 'Bình luận mở',
+            1 => 'Bình luận khóa',
+        ], function($value) { // if the filter is active
+            $this->crud->addClause('where', 'comment_delete', $value);
+        });
+        $this->crud->addFilter([ // daterange filter
+            'type' => 'date_range',
+            'name' => 'from_to',
+            'label'=> 'Hiển thị theo thời gian'
+        ],
+            false,
+            function($value) {
+                $dates = json_decode(htmlspecialchars_decode($value, ENT_QUOTES));
+                $this->crud->addClause('where', 'comment_time', '>=', strtotime($dates->from . ' 00:00'));
+                $this->crud->addClause('where', 'comment_time', '<=', strtotime($dates->to . ' 23:59'));
+//                $this->crud->removeColumns(['created_at']);
+            });
+
+
         $this->crud->addColumn([
             'name'  => 'comment_id',
             'label' => 'ID',

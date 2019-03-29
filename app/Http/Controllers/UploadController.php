@@ -651,6 +651,7 @@ class UploadController extends Controller
             'drop_files' => 'required',
             'album_cover' => 'required',
             'music_year' => 'max:4',
+            'music_album_id' => 'max:15',
         ]);
         include(app_path() . '/../resources/views/cache/def_main_cat.blade.php');
         global $cat_id2info;

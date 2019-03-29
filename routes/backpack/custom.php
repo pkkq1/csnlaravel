@@ -40,7 +40,14 @@ Route::group([
     Route::put('/lyric/suggest/{id}', 'SugLyricController@approvalLyric');
     Route::put('/karaoke/suggest/{id}', 'SugKaraokeController@approvalKaraoke');
 
-
+});
+Route::group([
+    'namespace'  => 'Backpack\PermissionManager\app\Http\Controllers',
+    'prefix'     => config('backpack.base.route_prefix', 'admin'),
+    'middleware' => ['web', backpack_middleware()],
+], function () {
+    Route::get('/ajax-role-options', 'UserCrudController@getRoleOption');
 
 });
+
 

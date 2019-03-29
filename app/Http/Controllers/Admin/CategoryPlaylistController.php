@@ -21,7 +21,10 @@ class CategoryPlaylistController extends CrudController
     public function __construct()
     {
         parent::__construct();
+    }
 
+    public function setup()
+    {
         $this->crud->setModel("App\Models\CategoryPlaylistModel");
         $this->crud->setEntityNameStrings('Category Playlist', 'Category Playlist');
         $this->crud->setRoute(config('backpack.base.route_prefix').'/category_playlist');
@@ -87,7 +90,6 @@ class CategoryPlaylistController extends CrudController
             'name' => 'cat_level',
             'label' => 'Level',
         ]);
-
     }
 
     public function store(StoreRequest $request)

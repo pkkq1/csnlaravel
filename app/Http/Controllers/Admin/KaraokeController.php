@@ -27,8 +27,11 @@ class KaraokeController extends CrudController
     public function __construct(ArtistRepository $artistRepository, Solarium $Solr)
     {
         $this->artistRepository = $artistRepository;
+        $this->Solr = $Solr;
         parent::__construct();
-
+    }
+    public function setup()
+    {
         $this->crud->setModel("App\Models\MusicKaraokeModel");
         $this->crud->setEntityNameStrings('Danh Sách Karaoke', 'Danh Sách Karaoke');
         $this->crud->setRoute(config('backpack.base.route_prefix').'/list_karaoke');
@@ -36,7 +39,6 @@ class KaraokeController extends CrudController
         $this->crud->orderBy('music_time', 'desc');
         $this->crud->denyAccess(['create']);
 
-        $this->Solr = $Solr;
 
         $this->middleware(function ($request, $next)
         {
@@ -91,8 +93,8 @@ class KaraokeController extends CrudController
             'placeholder' => 'Nhập thông tin karaoke',
             // 'disabled' => 'disabled'
         ]);
-
     }
+
     public function destroy($id)
     {
         return $this->crud->delete($id);

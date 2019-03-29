@@ -45,6 +45,10 @@ class PlaylistUserController extends CrudController
         $this->playlistPublisherRepository = $playlistPublisherRepository;
         $this->playlistMusicPublisherRepository = $playlistMusicPublisherRepository;
         parent::__construct();
+
+    }
+    public function setup()
+    {
         $this->crud->setModel("App\Models\PlaylistModel");
         $this->crud->setEntityNameStrings('Playlist User', 'Playlist User');
         $this->crud->setRoute(config('backpack.base.route_prefix').'/playlist_user');
@@ -207,8 +211,8 @@ class PlaylistUserController extends CrudController
             'name'  => 'artist_cover',
             'label' => 'Cover',
         ]);
-
     }
+
     public function edit($id, $template = false)
     {
         $this->crud->hasAccessOrFail('update');

@@ -29,13 +29,15 @@ class SugKaraokeController extends CrudController
     public function __construct(Solarium $Solr)
     {
         parent::__construct();
-
+        $this->Solr = $Solr;
+    }
+    public function setup()
+    {
         $this->crud->setModel("App\Models\KaraokeSuggestionModel");
         $this->crud->setEntityNameStrings('Karaoke', 'Karaoke');
         $this->crud->setRoute(config('backpack.base.route_prefix').'/karaoke');
         $this->crud->orderBy('id', 'asc');
         $this->crud->denyAccess(['create']);
-        $this->Solr = $Solr;
 
 //        $this->crud->setEntityNameStrings('menu item', 'menu items');
 
@@ -112,8 +114,8 @@ class SugKaraokeController extends CrudController
             'name'  => 'user_id',
             'type'  => 'hidden',
         ]);
-
     }
+
     public function edit($id, $template = false)
     {
         $this->crud->hasAccessOrFail('update');

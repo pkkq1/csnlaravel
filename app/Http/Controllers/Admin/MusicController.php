@@ -29,6 +29,10 @@ class MusicController extends CrudController
         $this->musicRepository = $musicRepository;
         parent::__construct();
 
+    }
+
+    public function setup()
+    {
         $this->crud->setModel("App\Models\MusicModel");
         $this->crud->setEntityNameStrings('Nhạc CSN', 'Nhạc CSN');
         $this->crud->setRoute(config('backpack.base.route_prefix').'/music');

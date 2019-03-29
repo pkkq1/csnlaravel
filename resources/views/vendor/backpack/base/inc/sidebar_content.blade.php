@@ -90,7 +90,7 @@ $htmlNotif['kara_sug'] = $notif['kara_sug'] > 0 ? '<span class="_51lp _51lr _5ug
 <!-- Users, Roles Permissions -->
 @if(backpack_user()->can('user_(list)') || backpack_user()->can('role_permission_(list)'))
 <li class="treeview">
-    <a href="#"><i class="fa fa-group"></i> <span>Users, Roles, Permissions</span> <i class="fa fa-angle-left pull-right"></i></a>
+    <a href="#"><i class="fa fa-group"></i> <span>Tài khoản, Phân quyền</span> <i class="fa fa-angle-left pull-right"></i></a>
     <ul class="treeview-menu">
         @if(backpack_user()->can('user_(list)'))
         <li><a href="{{ backpack_url('user') }}"><i class="fa fa-user"></i> <span>Users</span></a></li>
@@ -104,7 +104,7 @@ $htmlNotif['kara_sug'] = $notif['kara_sug'] > 0 ? '<span class="_51lp _51lr _5ug
 @endif
 @if(backpack_user()->can('advanced_(list)'))
 <li class="treeview">
-    <a href="#"><i class="fa fa-cogs"></i> <span>Advanced</span> <i class="fa fa-angle-left pull-right"></i></a>
+    <a href="#"><i class="fa fa-cogs"></i> <span>Cài đặt nâng cao</span> <i class="fa fa-angle-left pull-right"></i></a>
     <ul class="treeview-menu">
         <li><a href="{{ backpack_url('elfinder') }}"><i class="fa fa-files-o"></i> <span>File manager</span></a></li>
         <li><a href="{{ backpack_url('backup') }}"><i class="fa fa-hdd-o"></i> <span>Backups</span></a></li>
