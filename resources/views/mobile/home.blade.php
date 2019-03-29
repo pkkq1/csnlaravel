@@ -1,3 +1,4 @@
+@section('in_home', true)
 <?php
 use App\Library\Helpers;
 // global variable file /case
@@ -472,14 +473,6 @@ $catalog = config('constants.catalog');
             </div>
         </div>
     </main>
-
-    <!-- Flight Tag: Chiasenhac - PS/TG/VN/OppoF11/Campaign -->
-    <script type="text/javascript">
-        innity_country = "VN";
-        innity_flight = "99996";
-    </script>
-    <script type="text/javascript" src="https://cdn.innity.net/flight.js"></script>
-
 @endsection
 @section('contentJS')
     <script>

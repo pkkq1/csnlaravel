@@ -74,5 +74,14 @@ $allpage_banner = false;
     <script id="jshd1pm_1883" src="https://d2.blueseed.tv/ads-sync.js?placement=1883"></script>
 @endif
 
+@hasSection('in_home')
+<!-- Flight Tag: Chiasenhac - PS/TG/VN/OppoF11/Campaign -->
+<script type="text/javascript">
+    innity_country = "VN";
+    innity_flight = "99996";
+</script>
+<script type="text/javascript" src="https://cdn.innity.net/flight.js"></script>
+@endif
+
 </body>
 </html>
