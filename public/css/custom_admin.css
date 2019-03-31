@@ -19,3 +19,9 @@
     margin-top: -1.7px;
     margin-right: 5px;
 }
+.box-header.with-border {
+    border-bottom: none;
+}
+.box-header {
+    padding-top: 5px;
+}
