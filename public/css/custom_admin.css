@@ -25,3 +25,9 @@
 .box-header {
     padding-top: 5px;
 }
+.navbar-default .navbar-nav {
+    margin-top: 5px;
+}
+.navbar-default .navbar-brand {
+    margin-top: 5px;
+}
