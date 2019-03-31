@@ -31,3 +31,8 @@
 .navbar-default .navbar-brand {
     margin-top: 5px;
 }
+form .box-header {
+    border-bottom: 1px solid #f4f4f4;
+    float: inherit;
+    margin-bottom: 0px;
+}
