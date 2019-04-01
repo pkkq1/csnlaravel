@@ -494,11 +494,11 @@ if($musicSet['type_listen'] == 'playlist') {
             "adschedule": {
                 "myPreroll": {
                     "offset": "pre",
-                    "tag": ["https://tag.gammaplatform.com/adx/request/?wid=1508317956&zid=1508321486&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"]
+                    "tag": ["https://d5.blueseed.tv/vast3?plm=1362&t=<?php echo time(); ?>", "https://tag.gammaplatform.com/adx/request/?wid=1508317956&zid=1508321486&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"]
                 },
                 "myPreroll2": {
                     "offset": 1,
-                    "tag": ["https://tag.gammaplatform.com/adx/request/?wid=1508317956&zid=1508321486&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"]
+                    "tag": ["https://d2.blueseed.tv/vast3?plm=1644&t=<?php echo time(); ?>", "https://tag.gammaplatform.com/adx/request/?wid=1508317956&zid=1508321486&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"]
                 }
             }
         },
