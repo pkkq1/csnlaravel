@@ -123,11 +123,11 @@ return [
 
 //    'log' => env('APP_LOG', 'single'),
 
-    'log' => env('APP_LOG', 'daily'),
+    'log' => env('APP_LOG', 'errorlog'),
 
     'log_level' => env('APP_LOG_LEVEL', 'error'),
 
-    'log_max_files' => 0,
+    'log_max_files' => 3,
 
 
     /*
