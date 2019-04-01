@@ -149,8 +149,8 @@
 .pagination > .active > span:focus {
     z-index: 3;
     color: #fff;
-    background-color: #FF2D55;
-    border-color: #FF2D55;
+    background-color: #FF2D55!important;
+    border-color: #FF2D55!important;
     cursor: default;
 }
 .pagination > .disabled > span,
