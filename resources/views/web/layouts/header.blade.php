@@ -98,13 +98,10 @@ global $allpage_banner;
             },
             statusCode: {
                 401: function () {
-                    // clearTimeout(timeOutLoading);
-                    // waitingDialog.hide();
-                    if (typeof switchAuth !== 'undefined' && $.isFunction(switchAuth)) {
-                        switchAuth('myModal_login');
-                    }
-                    location.replace('?rq=login&back_url=' + window.location.pathname);
-                    return false;
+                    redirectLogin();
+                },
+                405: function () {
+                    redirectLogin();
                 },
                 404: function (response) {
                     alertModal(response.responseText);
@@ -116,6 +113,15 @@ global $allpage_banner;
                 }
             },
         });
+        function redirectLogin() {
+            // clearTimeout(timeOutLoading);
+            // waitingDialog.hide();
+            if (typeof switchAuth !== 'undefined' && $.isFunction(switchAuth)) {
+                switchAuth('myModal_login');
+            }
+            location.replace('?rq=login&back_url=' + window.location.pathname);
+            return false;
+        }
         $( document ).ajaxStart(function() {
             // timeOutLoading = setTimeout(function(){
             //     waitingDialog.show();
