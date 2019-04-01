@@ -66,14 +66,16 @@ if($musicSet['type_listen'] == 'playlist') {
             <div id="pills-tabContent" class="tab-content">
                 <div id="pills-thongtin" role="tabpanel" aria-labelledby="pills-thongtin-tab" class="tab-pane fade active show">
                     <div class="block_thongtin">
-                        <div class="infor_main">
+                        <div class="infor_main" style="min-height: 400px;">
                             @if($musicSet['type_jw'] != 'video')
-                                <div style="background: url('{{$thumnailMusic}}') no-repeat center;background-size: cover;padding-bottom: 70%;"
+                                <div id="bg_blue" style="display: none; background: url('{{$thumnailMusic}}') no-repeat center;background-size: cover;padding-bottom: 70%;"
                                      class="image bg-blur"></div>
                                 <div style="background: url('{{Helpers::cover_url($music->cover_id)}}') no-repeat center;background-size: cover;padding: 20%;"
                                      class="image-main"></div>
+                                <div id="csnplayerads" style="position:relative; z-index: 99999; width:100%;"> </div>
+
                                 <?php $month_day = intval(date('ndH')); ?>
-                                @if($month_day < 33125)
+                                @if($month_day < 0)
                                     <div class="image-main" style="top: 1px">
                                         <script type="text/javascript">
                                             /* load placement: chiasenhac_3d-box, for account: chiasenhac, site: chiasenhac.vn, size: 300x250 - mobile */
@@ -84,7 +86,6 @@ if($musicSet['type_listen'] == 'playlist') {
                                     </div>
                                 @endif
                             @endif
-                            <div id="csnplayerads" style="position:relative; z-index: 99999; width:100%;"> </div>
                             <div id="csnplayer" class="player_media <?php echo $musicSet['type_jw'] == 'video' ? 'csn_video' : 'csn_music' ?>" style="position:relative; z-index: 99999; width:100%;"> </div>
                             <div id="hidden_lyrics" class="hidden">
                                 <div id="lyrics" class="rabbit-lyrics">
@@ -486,6 +487,31 @@ if($musicSet['type_listen'] == 'playlist') {
     if($musicSet['type_jw'] != 'video') {
     ?>
     // ads
+    jwplayer("csnplayerads").setup({
+        advertising: {
+            client: "vast",
+            skipoffset: 5,
+            "adschedule": {
+                "myPreroll": {
+                    "offset": "pre",
+                    "tag": ["http://tag.gammaplatform.com/adx/request/?wid=1508317956&zid=1508321486&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"]
+                },
+                "myPreroll2": {
+                    "offset": 1,
+                    "tag": ["http://tag.gammaplatform.com/adx/request/?wid=1508317956&zid=1508321486&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"]
+                }
+            }
+        },
+        mute: true,
+        width: "100%",
+        aspectratio: "16:9",
+        autostart: true,
+        file: "https://beta.chiasenhac.vn/video/csn-5s.mp4",
+        events: { "onComplete": function() {
+            $('#csnplayerads').remove();
+            $('#bg_blue').show();
+        } }
+    });
     <?php
     }
     ?>
