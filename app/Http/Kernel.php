@@ -42,6 +42,11 @@ class Kernel extends HttpKernel
         'api' => [
             \App\Http\Middleware\CheckRequestApi::class,
         ],
+
+        'auth' => [
+            \App\Http\Middleware\Authenticate::class,
+//            \Illuminate\Auth\Middleware\Authenticate::class
+        ],
     ];
 
     /**
@@ -53,7 +58,6 @@ class Kernel extends HttpKernel
      */
     protected $routeMiddleware = [
         'isActive' => \App\Http\Middleware\CheckIsActive::class,
-        'auth' => \Illuminate\Auth\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
