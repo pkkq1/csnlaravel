@@ -305,7 +305,6 @@ $file_url = Helpers::file_url($music);
             $("#csnplayer").css("width", $('.box-header').width() - 20);
             $(window).scroll(function(event){
                 var st = $(this).scrollTop();
-                console.log(st);
                 if (st > 250) {
                     $("#csnplayer").addClass("fix-wrap");
                     $(".box-body").css('margin-top', $("#csnplayer").height())
