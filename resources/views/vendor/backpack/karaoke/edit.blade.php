@@ -396,5 +396,30 @@ $file_url = Helpers::file_url($music);
         .rabbit-lyrics .line {
             min-height: auto!important;
         }
+        .box-header {
+            float: inherit;
+            margin-bottom: 0px;
+        }
+        .fix-wrap{
+            position: fixed;
+            top: 10px;
+            z-index: 999999;
+        }
     </style>
+    <script>
+        $( document ).ready(function() {
+            $("#csnplayer").css("width", $('.box-header').width() - 20);
+            $(window).scroll(function(event){
+                var st = $(this).scrollTop();
+                console.log(st);
+                if (st > 250) {
+                    $("#csnplayer").addClass("fix-wrap");
+                    $(".box-body").css('margin-top', $("#csnplayer").height())
+                } else {
+                    $("#csnplayer").removeClass("fix-wrap");
+                    $(".box-body").css('margin-top', '0px')
+                }
+            });
+        });
+    </script>
 @endpush
