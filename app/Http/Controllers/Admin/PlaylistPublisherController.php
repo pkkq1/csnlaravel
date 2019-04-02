@@ -49,6 +49,8 @@ class PlaylistPublisherController extends CrudController
         $this->crud->setRoute(config('backpack.base.route_prefix').'/playlist_publisher');
         $this->crud->denyAccess(['create']);
         $this->crud->orderBy('playlist_id', 'desc');
+        $this->crud->enableBulkActions();
+        $this->crud->addBulkDeleteButton();
         $this->middleware(function ($request, $next)
         {
             if(!backpack_user()->can('playlist_publisher_(list)')) {

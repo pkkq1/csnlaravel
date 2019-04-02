@@ -38,6 +38,8 @@ class VideoController extends CrudController
 //        $this->crud->setEntityNameStrings('menu item', 'menu items');
         $this->crud->orderBy('music_last_update_time', 'desc');
         $this->crud->denyAccess(['create']);
+        $this->crud->enableBulkActions();
+        $this->crud->addBulkDeleteButton();
         $this->middleware(function ($request, $next)
         {
             if(!backpack_user()->can('duyet_sua_nhac') && !backpack_user()->can('duyet_sua_karaoke')) {
