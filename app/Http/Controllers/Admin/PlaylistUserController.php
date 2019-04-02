@@ -54,8 +54,8 @@ class PlaylistUserController extends CrudController
         $this->crud->setRoute(config('backpack.base.route_prefix').'/playlist_user');
         $this->crud->denyAccess(['create']);
         $this->crud->orderBy('playlist_id', 'desc');
-        $this->crud->enableBulkActions();
-        $this->crud->addBulkDeleteButton();
+
+
         $this->crud->addFilter([ // daterange filter
             'type' => 'date_range',
             'name' => 'from_to',
@@ -179,7 +179,8 @@ class PlaylistUserController extends CrudController
 //            'attribute' => 'name',
 //            'model' => "App/Models/PlaylistModel",
 //        ]);
-
+        $this->crud->enableBulkActions();
+        $this->crud->addBulkDeleteButton();
 
         $this->crud->addField([
             'name'  => 'playlist_id',
