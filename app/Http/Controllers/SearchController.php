@@ -104,6 +104,11 @@ class SearchController extends Controller
                         $searchSolarium['music_artist_search'] = '';
                     }
                 }
+                // click từ đường dẫn ca sĩ
+                if($request->mode == 'ca-si') {
+                    $searchSolarium = [];
+                    $searchSolarium['music_artist_charset_nospace'] = $charsetNoSpace;
+                }
                 if($search_level_playback == 2) {
                     $keyResult = 'music_playback';
                     $resultMusic = $this->Solr->search($searchSolarium, ($request->page_playback ?? 1), $request->rows ?? ROWS_MUSIC_SEARCH_PAGING, array('score' => 'desc', 'music_downloads_this_week' => 'desc', 'music_downloads_today' => 'desc', 'music_listen' => 'desc'));
@@ -183,6 +188,11 @@ class SearchController extends Controller
                 if(isset($request->only_user)){
                     $searchSolarium['music_album_charset'] = $searchSolarium['music_album_charset'] .' AND album_user_id: ' . Auth::user()->user_id;
                 }
+                // click từ đường dẫn ca sĩ
+                if($request->mode == 'ca-si') {
+                    $searchSolarium = [];
+                    $searchSolarium['music_album_charset_nospace'] = $charsetNoSpace;
+                }
                 $resultAlbum = $this->Solr->search($searchSolarium, ($request->page_album ?? 1), $request->rows ?? ROWS_ALBUM_SEARCH_PAGING, array('score' => 'desc'));
                 if($resultAlbum['data']) {
                     foreach ($resultAlbum['data'] as $item) {
@@ -228,7 +238,11 @@ class SearchController extends Controller
                         $searchSolarium['video_artist_search'] = '';
                     }
                 }
-
+                // click từ đường dẫn ca sĩ
+                if($request->mode == 'ca-si') {
+                    $searchSolarium = [];
+                    $searchSolarium['video_artist_charset_nospace'] = $charsetNoSpace;
+                }
                 $resultVideo = $this->Solr->search($searchSolarium, ($request->page_video ?? 1), $request->rows ?? ROWS_VIDEO_SEARCH_PAGING, array('score' => 'desc', 'video_downloads_max_week' => 'desc', 'video_downloads_today' => 'desc', 'video_listen' => 'desc'));
                 if($resultVideo['data']) {
                     foreach ($resultVideo['data'] as $item) {
