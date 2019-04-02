@@ -47,7 +47,7 @@ class SearchController extends Controller
         }
         $searchNotUtf8 = implode('+', $searchExp);
         $result[0] = [
-            'q' =>  $search,
+            'q' =>  $request->q,
             'music' => [
                 'data' => [], 'rows' => 10, 'page' => 1, 'row_total' => 0,
             ],
