@@ -945,6 +945,7 @@ var Dropzone = function (_Emitter) {
 
               node.nodeName === 'PROGRESS' ? node.value = progress : node.style.width = progress + "%";
               file.previewElement.querySelectorAll("[data-progress-present]")[0].innerText = progress.toFixed(0) + "%";
+              $('.btn-upload').prop("disabled", true);
             }
           }
         },
