@@ -318,7 +318,7 @@ $titleMeta = 'Cập nhật album - ' . Config::get('constants.app.title');
                                         <input type="hidden" name="music_filesize" class="music_filesize" value="{{old('music_filesize')}}">
                                         <input type="hidden" name="action_upload" class="action_upload" value="{{ isset($album) ? 'edit' : 'create' }}">
                                         <div class="text-center col-12">
-                                            <button type="submit" class="btn btn-danger btn-upload">{{isset($album) ? 'Cập nhật' : 'Tải lên'}}</button>
+                                            <button type="submit" {{isset($album) ? '' : 'disabled'}} class="btn btn-danger btn-upload">{{isset($album) ? 'Cập nhật' : 'Tải lên'}}</button>
                                         </div>
                                     </div>
                                 </div>

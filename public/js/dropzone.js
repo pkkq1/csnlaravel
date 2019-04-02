@@ -909,7 +909,7 @@ var Dropzone = function (_Emitter) {
         // Receives `file`
         processing: function processing(file) {
           $('.count_file_music').html('Đang tải lên ' + (++countFile) + ' mục').addClass('title');
-            console.log(1);
+            $('.btn-upload').prop("disabled", true);
           if(countFile  == 3){
               $('.dropzone').css("overflow-y", "scroll");
               $('.dropzone').css("height", "220px");
@@ -2748,8 +2748,10 @@ var Dropzone = function (_Emitter) {
             response = JSON.parse(response);
             this.options.callResponseSuccess(response);
             if(response.success === true) {
+                $('.btn-upload').prop("disabled", false);
             }else{
-                $('.count_file_music').html('Đang tải lên ' + (--countFile) + ' mục').addClass('title');
+              // $('.btn-upload').prop("disabled", false);
+              $('.count_file_music').html('Đang tải lên ' + (--countFile) + ' mục').addClass('title');
             }
           } catch (error) {
             e = error;
