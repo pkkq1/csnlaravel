@@ -437,11 +437,11 @@ $video = ' . str_replace('video_', 'music_',  var_export($videoResult, true)) . 
         $query  = "SELECT *
             FROM
             (
-            (SELECT music_id, cat_id, cat_level, cover_id, music_title, music_title_url, music_artist, 'music' as type
+            (SELECT music_id, cat_id, cat_level, cover_id, music_title, music_title_url, music_artist, music_artist_id, music_bitrate, music_length, 'music' as type
             FROM csn_music
-            WHERE music_id in (".$tempStr."))
+            WHERE music_id in (".$tempStr.") and cat_id != ".CAT_VIDEO.")
             UNION All
-            (SELECT music_id, cat_id, cat_level, cover_id, music_title, music_title_url, music_artist, 'video' as type
+            (SELECT music_id, cat_id, cat_level, cover_id, music_title, music_title_url, music_artist, music_artist_id, music_bitrate, music_length, 'video' as type
             FROM csn_video
             WHERE music_id in (".$tempStr."))
             ) tbl

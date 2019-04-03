@@ -122,6 +122,7 @@ class SolrSyncController extends Controller
                 'music_downloads_today' => $item->music_downloads_today,
                 'music_downloads_this_week' => $item->music_downloads_this_week,
                 'music_downloads_max_week' => $item->music_downloads_max_week,
+                'music_search_result' => 0,
 
             ];
             $datas[] = $data;
@@ -297,6 +298,7 @@ class SolrSyncController extends Controller
                 'video_downloads_today' => $item->music_downloads_today,
                 'video_downloads_this_week' => $item->music_downloads_this_week,
                 'video_downloads_max_week' => $item->music_downloads_max_week,
+                'video_search_result' => 0,
             ];
             $datas[] = $data;
 //            $this->Solr->addDocuments($data);
@@ -492,6 +494,7 @@ class SolrSyncController extends Controller
                 'album_music_artist_nospace' => '',
                 'album_music_artist_html' => '',
                 'album_music_year' => $item->music_year,
+                'album_search_result' => 0,
             ];
             if($music_artist) {
 //                $artistSearch = Helpers::replaceKeySearch($music_artist);

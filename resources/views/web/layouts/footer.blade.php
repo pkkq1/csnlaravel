@@ -542,7 +542,7 @@
         if(loadHistory) {
             $.ajax({
                 url: "/music/history_listen",
-                type: "GET",
+                type: "POST",
                 dataType: "json",
                 data: {},
                 beforeSend: function () {

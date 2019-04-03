@@ -133,7 +133,8 @@ Route::group(['middlewareGroups' => ['web']], function () {
 
     // ajax comment
     Route::get('binh-luan/get_ajax', ['as' => 'comment.get_ajax', 'uses' => 'CommentController@getAjaxCommentByMusicId']);
-    Route::get('music/history_listen', ['as' => 'music.history_listen', 'uses' => 'MusicController@historyListen']);
+    Route::post('music/history_listen', ['as' => 'music.history_listen', 'uses' => 'MusicController@historyListen']);
+    Route::get('lich-su-nghe', ['as' => 'music.history_listen', 'uses' => 'MusicController@historyListen']);
 
     Route::post('music/favourite', ['as' => 'user.uploaded', 'uses' => 'MusicController@musicFavourite']);
 

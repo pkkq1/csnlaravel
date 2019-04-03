@@ -380,19 +380,26 @@ class MusicController extends Controller
             $musicHistory = unserialize($musicRecent);
             $tempStr = implode(',', $musicHistory);
             $musics = $this->musicRepository->getHistoryRecents($tempStr);
-            foreach ($musics as $key => $item) {
-                $result[] = [
-                    'title' => ++$key . '. ' . $item->music_title . ' - '. str_replace(';', ', ', $item->music_artist),
-                    'link' => Helpers::listen_url([
-                        'music_id'=> $item->music_id,
-                        'cat_id' => $item->cat_id,
-                        'cat_level' => $item->cat_level,
-                        'music_title_url' => $item->music_title_url,
-                    ])
-                ];
+            if($request->isMethod('post')) {
+                foreach ($musics as $key => $item) {
+                    $result[] = [
+                        'title' => ++$key . '. ' . $item->music_title . ' - '. str_replace(';', ', ', $item->music_artist),
+                        'link' => Helpers::listen_url([
+                            'music_id'=> $item->music_id,
+                            'cat_id' => $item->cat_id,
+                            'cat_level' => $item->cat_level,
+                            'music_title_url' => $item->music_title_url,
+                        ])
+                    ];
+                }
+            }else {
+
             }
+
         }
-        return response($result);
+        if($request->isMethod('post'))
+            return response($result);
+        return view('catalog.history', compact('musics'));
     }
     function musicFavourite (Request $request) {
         $dataRes = null;
