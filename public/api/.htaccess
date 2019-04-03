@@ -1,4 +1,0 @@
-Options -Indexes
-RewriteEngine On
-
-Redirect 301 /api http://old.chiasenhac.vn/api
