@@ -7,12 +7,6 @@
 @yield('contentJS')
 
 @hasSection('in_home')
-    <!-- Flight Tag: Chiasenhac - PS/TG/VN/OppoF11/Campaign -->
-    <script type="text/javascript">
-        innity_country = "VN";
-        innity_flight = "99996";
-    </script>
-    <script type="text/javascript" src="https://cdn.innity.net/flight.js"></script>
 @endif
 
 </body>
