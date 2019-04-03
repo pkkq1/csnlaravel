@@ -297,7 +297,7 @@ class Helpers
         $data = str_replace('data:image/jpeg;base64,', '', $data);
         $data = str_replace(' ', '+', $data);
         $data = base64_decode($data);
-        $source = imagecreatefromstring(file_get_contents($data));
+        $source = imagecreatefromstring($data);
         $fileName = ($fileName ?? rand() . '_' . time()) . '.jpg';
         $dir = Storage::disk('public')->getAdapter()->getPathPrefix().$path;
         if (!file_exists($dir)) {
