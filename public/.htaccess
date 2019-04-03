@@ -23,6 +23,9 @@
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
 
+    # api
+    Redirect 301 /api/home.php http://old.chiasenhac.com/api/home.php
+
     <Files .env>
         order allow,deny
         Deny from all
