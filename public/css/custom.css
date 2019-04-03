@@ -1506,3 +1506,6 @@ a.boxclose{
 .box_right_upload .form-group .form-control {
     color: #000000!important;
 }
+.list_music .media .media-left a {
+    z-index: 5;
+}
