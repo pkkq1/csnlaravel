@@ -255,7 +255,7 @@ use App\Library\Helpers;
     $rand100 = rand(1,100);
 ?>
 @if($month_day < 41125)
-    @if ($rand100 > 50)
+    @if ($rand100 > 60)
         <!-- Ad Tag: Chiasenhac - PS/TG/VN/OppoF11/Campaign -->
 <div id="innity_adslot_236794"></div>
 <script type="text/javascript">
