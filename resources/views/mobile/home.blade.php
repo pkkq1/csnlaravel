@@ -230,12 +230,10 @@ $catalog = config('constants.catalog');
                             <div class="block block_album">
                                 <div class="block_header d-flex flex-row justify-content-between mb-2">
                                     <h3 class="main_title text-pink mb-0">Album Việt Nam</h3>
-                                    <span class="text-gray align-self-end">Xem tất cả</span>
+                                    <span class="align-self-end"><a class="text-gray" href="/mp3/vietnam.html?tab=album-moi">Xem tất cả</a></span>
                                 </div>
                                 <div class="block_album_main d-flex flex-wrap">
                                     <div class="slide-album owl-theme owl-carousel">
-
-
                                         <?php
                                         $musicNewCat = Helpers::getRandLimitArr($album_cat_new[3], LIMIT_HOME_CAT_MUSIC);
                                         array_map(function ($item) {
@@ -258,7 +256,7 @@ $catalog = config('constants.catalog');
                             <div class="block block_album">
                                 <div class="block_header d-flex flex-row justify-content-between mb-2">
                                     <h3 class="main_title text-pink mb-0">Album US-UK</h3>
-                                    <span class="text-gray align-self-end">Xem tất cả</span>
+                                    <span class="align-self-end"><a class="text-gray" href="/mp3/us-uk.html?tab=album-moi">Xem tất cả</a></span>
                                 </div>
                                 <div class="block_album_main d-flex flex-wrap">
                                     <div class="slide-album owl-theme owl-carousel owl-loaded owl-drag">
@@ -292,7 +290,7 @@ $catalog = config('constants.catalog');
                             <div class="block block_album">
                                 <div class="block_header d-flex flex-row justify-content-between mb-2">
                                     <h3 class="main_title text-pink mb-0">Album Hoa</h3>
-                                    <span class="text-gray align-self-end">Xem tất cả</span>
+                                    <span class="align-self-end"><a class="text-gray" href="/mp3/chinese.html?tab=album-moi">Xem tất cả</a></span>
                                 </div>
                                 <div class="block_album_main d-flex flex-wrap">
                                     <div class="slide-album owl-theme owl-carousel owl-loaded owl-drag">
@@ -326,7 +324,7 @@ $catalog = config('constants.catalog');
                             <div class="block block_album">
                                 <div class="block_header d-flex flex-row justify-content-between mb-2">
                                     <h3 class="main_title text-pink mb-0">Album K-Pop</h3>
-                                    <span class="text-gray align-self-end">Xem tất cả</span>
+                                    <span class="align-self-end"><a class="text-gray" href="/mp3/korea.html?tab=album-moi">Xem tất cả</a></span>
                                 </div>
                                 <div class="block_album_main d-flex flex-wrap">
                                     <div class="slide-album owl-theme owl-carousel owl-loaded owl-drag">
@@ -360,7 +358,7 @@ $catalog = config('constants.catalog');
                             <div class="block block_album">
                                 <div class="block_header d-flex flex-row justify-content-between mb-2">
                                     <h3 class="main_title text-pink mb-0">Album J-Pop</h3>
-                                    <span class="text-gray align-self-end">Xem tất cả</span>
+                                    <span class="align-self-end"><a class="text-gray" href="/mp3/japan.html?tab=album-moi">Xem tất cả</a></span>
                                 </div>
                                 <div class="block_album_main d-flex flex-wrap">
                                     <div class="slide-album owl-theme owl-carousel owl-loaded owl-drag">
