@@ -115,8 +115,11 @@ use App\Library\Helpers;
             var theHtml = rawBodySearch(rawArtist(item.artist['data'], item.q), rawMusic(item.music['data'], item.q), rawAlbum(item.album['data'], item.q), rawVideo(item.video['data'], item.q));
             $(".suggest").fadeIn("fast")
             $('.search_layout').html(theHtml);
-            return $( "<li>" )
-                .appendTo( ul );
+            $( "<li>" ).appendTo( ul );
+            $('.search_layout .search-line-music').click(function () {
+                Cookies.set('search_search', $(this).attr('href'))
+            })
+            return true;
         };
     });
     function rawBodySearch(artist, music, album, video) {
@@ -130,7 +133,7 @@ use App\Library\Helpers;
             var artist = '';
             $.each( artists, function( key, value ) {
                 artist = artist +
-                    '   <a class="search-line" href="' + value.artist_link + '?ref=search_box"><div class="element mb-2">' +
+                    '   <a class="search-line" href="' + value.artist_link + '"><div class="element mb-2">' +
                     '   <div style="background : url(' + value.artist_avatar + ') no-repeat center;background-size: cover;" class="image100 mr-2 d-inline-block align-middle"></div>' +
                     '       <div class="content d-inline-block align-middle">' +
                     '           <h6 class="name_song text-black mb-1">' + searchHighlight(q, value.artist_nickname) + '</h6>' +
@@ -152,7 +155,7 @@ use App\Library\Helpers;
             var song = '';
             $.each( musics, function( key, value ) {
                 song = song +
-                    '   <a class="search-line" href="' + value.music_link + '?ref=search_box"><div class="element mb-2">' +
+                    '   <a class="search-line search-line-music" href="' + value.music_link + '"><div class="element mb-2">' +
                     '       <div class="content d-inline-block align-middle">' +
                     '           <h6 class="name_song text-black mb-1">' + searchHighlight(q, value.music_title) + '</h6>' +
                     '           <p class="name_singer text-gray mb-1">' + value.music_artist + '</p>' +
@@ -175,7 +178,7 @@ use App\Library\Helpers;
             var album = '';
             $.each( albums, function( key, value ) {
                 album = album +
-                    '   <a class="search-line" href="' + value.album_link + '?ref=search_box"><div class="element mb-2">' +
+                    '   <a class="search-line" href="' + value.album_link + '"><div class="element mb-2">' +
                     '   <div style="background : url(' + value.album_cover + ') no-repeat center;background-size: cover;" class="image100 mr-2 d-inline-block align-middle"></div>' +
                     '       <div class="content d-inline-block align-middle">' +
                     '           <h6 class="name_song text-black mb-1">' + searchHighlight(q, value.music_album) + '</h6>' +
@@ -199,7 +202,7 @@ use App\Library\Helpers;
             var video = '';
             $.each( videos, function( key, value ) {
                 video = video +
-                    '<a class="search-line" href="' + value.video_link + '?ref=search_box">' +
+                    '<a class="search-line search-line-music" href="' + value.video_link + '">' +
                     '<div class="element mb-2">' +
                     '   <div style="background : url(' + value.video_cover + ') no-repeat center;background-size: cover;min-width: 90px; height: 63px;" class="image100 mr-2 d-inline-block align-middle">' +
                     '       <p class="time text-white mb-0 px-2 py-1"><img src="/images/ic_menu_clock.png" width="14"> ' + value.video_length_html + '</p>' +

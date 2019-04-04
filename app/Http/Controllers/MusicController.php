@@ -31,6 +31,7 @@ use App\Models\ErrorLogModel;
 use App\Repositories\Karaoke\KaraokeEloquentRepository;
 use App\Repositories\LyricSuggestion\LyricSuggestionEloquentRepository;
 use App\Repositories\MusicSearchResult\MusicSearchResultEloquentRepository;
+use Session;
 use DB;
 
 class MusicController extends Controller
@@ -118,7 +119,8 @@ class MusicController extends Controller
             }else{
                 $this->musicListenRepository->incrementListen($arrUrl['id']);
             }
-            if(isset($request->ref) && $request->ref == 'search_box') {
+            if($_COOKIE['search_search'] ?? '') {
+                unset($_COOKIE['search_search']);
                 $this->musicSearchResultRepository->createSearch($music);
             }
         }
@@ -233,7 +235,8 @@ class MusicController extends Controller
             }else{
                 $this->musicListenRepository->incrementListen($music->music_id);
             }
-            if(isset($request->ref) && $request->ref == 'search_box') {
+            if($_COOKIE['search_search'] ?? '') {
+                unset($_COOKIE['search_search']);
                 $this->musicSearchResultRepository->createSearch($music);
             }
         }
