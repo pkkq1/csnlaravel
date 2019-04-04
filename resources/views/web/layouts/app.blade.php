@@ -28,6 +28,8 @@ $allpage_banner = false;
     @else
     @endif
 
+@hasSection('in_edit')
+@else
     @hasSection('in_player')
         <div class="ads_box" id="pc_masthead">
             <div class="container text-center">
@@ -60,6 +62,7 @@ $allpage_banner = false;
             </div>
         </div>
     @endif
+@endif
 
 @yield('content')
 
@@ -67,25 +70,27 @@ $allpage_banner = false;
 </section>
 @yield('contentJS')
 
-@hasSection('in_player')
-    <!-- BlueSeed - asynchronous code for placement 1640 Chiasenhac Balloon Music Player Desktop -->
-    <script id="jshd1pm_1640" src="https://d2.blueseed.tv/ads-sync.js?placement=1640"></script>
+@hasSection('in_edit')
 @else
-    <!-- BlueSeed - asynchronous code for placement 1468 Chiasenhac Balloon Home Page Desktop -->
-    <script id="jshd1pm_1468" src="https://d2.blueseed.tv/ads-sync.js?placement=1468"></script>
+    @hasSection('in_player')
+        <!-- BlueSeed - asynchronous code for placement 1640 Chiasenhac Balloon Music Player Desktop -->
+        <script id="jshd1pm_1640" src="https://d2.blueseed.tv/ads-sync.js?placement=1640"></script>
+    @else
+        <!-- BlueSeed - asynchronous code for placement 1468 Chiasenhac Balloon Home Page Desktop -->
+        <script id="jshd1pm_1468" src="https://d2.blueseed.tv/ads-sync.js?placement=1468"></script>
 
-    <?php
-    $cookie_name = "csn_popup_pc";
-    $session_ads_popup = isset($_COOKIE[$cookie_name]) ? intval(unserialize(stripslashes($_COOKIE[$cookie_name]))) : 0;
-    if ( $session_ads_popup < 1 )
-    {
-        @setcookie($cookie_name, serialize($session_ads_popup + 1), time() + 30, '/', '.chiasenhac.vn', 0);
+        <?php
+        $cookie_name = "csn_popup_pc";
+        $session_ads_popup = isset($_COOKIE[$cookie_name]) ? intval(unserialize(stripslashes($_COOKIE[$cookie_name]))) : 0;
+        if ($session_ads_popup < 1) {
+            @setcookie($cookie_name, serialize($session_ads_popup + 1), time() + 30, '/', '.chiasenhac.vn', 0);
 
-        // Blueseed - Mobile In flow - Popup // backup code Ambient
-        echo '<!-- BlueSeed - asynchronous code for placement 1883 Chiasenhac InFlow Desktop -->
+            // Blueseed - Mobile In flow - Popup // backup code Ambient
+            echo '<!-- BlueSeed - asynchronous code for placement 1883 Chiasenhac InFlow Desktop -->
     <script id="jshd1pm_1883" src="https://d2.blueseed.tv/ads-sync.js?placement=1883"></script>';
-    }
-    ?>
+        }
+        ?>
+    @endif
 @endif
 
 </body>
