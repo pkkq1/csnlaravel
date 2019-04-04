@@ -85,8 +85,12 @@ class Helpers
                     $v = $diff->$k . ' ' . $v . ' trước';
                 }elseif ($v == 'giờ') {
                     $v = $diff->$k . ' ' . $v . ' trước';
-                } elseif ($diff->$k <= 1) {
-                    $v = 'Hôm qua, ' . date('H:i', $datetime);
+                } elseif ($v == 'ngày') {
+                    if($diff->$k == 1) {
+                        $v = 'Hôm qua, ' . date('H:i', $datetime);
+                    }else{
+                        $v = $diff->$k . ' ' . $v . ' trước';
+                    }
                 } else {
                     $v = $diff->$k . ' ' . $v;
                 }
@@ -94,7 +98,6 @@ class Helpers
                 unset($string[$k]);
             }
         }
-
         if (!$full) $string = array_slice($string, 0, 1);
         return $string ? implode(', ', $string) : 'Bây giờ';
     }
