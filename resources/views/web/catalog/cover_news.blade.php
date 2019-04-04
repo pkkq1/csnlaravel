@@ -56,7 +56,18 @@ $titleMeta = $title.' - '. Config::get('constants.app.title');
             e.preventDefault();
             musicPage($(this).attr('href'));
         });
-        function musicPage(url) {
+        window.addEventListener('popstate', function(e) {
+            // var state = e.originalEvent.state;
+            var page = findGetParameter('page', 1);
+            musicPage('/tab_category' + (page != 1 ? '?page=' + page : ''), false);
+        });
+        function musicPage(url, pushPage = true) {
+            if(pushPage) {
+                var page = parseFloat(url.substr(url.indexOf("?page=") + 6));
+                page = isNaN(page) ? 1 : page;
+                window.history.pushState({}, '', window.location.pathname +  (page != 1 ? '?page=' + page : ''));
+                $('.tab-category .media-title').html('Album mới trang ' + page)
+            }
             $.ajax({
                 url: url,
                 type: "POST",
