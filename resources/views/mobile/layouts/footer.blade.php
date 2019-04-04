@@ -246,3 +246,35 @@ use App\Library\Helpers;
 
 <!-- BlueSeed - asynchronous code for placement 1849 CHIASENHAC.VN - mobile native button -->
 <script id="jshd1pm_1849" src="https://d2.blueseed.tv/ads-sync.js?placement=1849"></script>
+
+<?php
+    $month_day = intval(date('ndH'));
+    $rand100 = rand(1,100);
+?>
+@if($month_day < 41125)
+    @if ($rand100 > 50)
+        <!-- Ad Tag: Chiasenhac - PS/TG/VN/OppoF11/Campaign -->
+<div id="innity_adslot_236794"></div>
+<script type="text/javascript">
+innity_country = "VN";
+innity_path = "/201903_27145/99980/";
+innity_proxy = "proxy_236794";
+innity_ord = "ord=[timestamp]";
+</script>
+<script type="text/javascript" src="https://cdn.innity.net/global.js"></script>
+<noscript><a href="https://avn.innity.com/click/?adid=236794&cb=[timestamp]" target="_blank">
+<img src="https://avn.innity.com/view/alt/?campaignid=27145&adid=236794&cb=[timestamp]" border="0" title="Click Here"></a></noscript>
+    @else
+        <!-- Ad Tag: Chiasenhac - PS/TG/VN/OppoF11/Campaign -->
+<div id="innity_adslot_236772"></div>
+<script type="text/javascript">
+innity_country = "VN";
+innity_path = "/201903_27145/99996/";
+innity_proxy = "proxy_236772";
+innity_ord = "ord=[timestamp]";
+</script>
+<script type="text/javascript" src="https://cdn.innity.net/global.js"></script>
+<noscript><a href="https://avn.innity.com/click/?adid=236772&cb=[timestamp]" target="_blank">
+<img src="https://avn.innity.com/view/alt/?campaignid=27145&adid=236772&cb=[timestamp]" border="0" title="Click Here"></a></noscript>
+    @endif
+@endif
