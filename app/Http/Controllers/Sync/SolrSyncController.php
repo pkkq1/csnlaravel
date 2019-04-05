@@ -35,7 +35,7 @@ class SolrSyncController extends Controller
         return $this->Solr->ping();
     }
 
-    public function syncMusic($id = null, $musicItem = null, $time = null) {
+    public function syncMusic($id = null, $musicItem = null, $time = null, $field = 'music_last_update_time') {
         if($id) {
             $searchMusic = MusicModel::select('music_id', 'music_composer', 'music_title', 'music_artist', 'music_downloads_this_week',
                 'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_downloads_this_week', 'music_lyric', 'music_title_url', 'music_download_time')
@@ -55,8 +55,7 @@ class SolrSyncController extends Controller
                 'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_downloads_this_week', 'music_lyric', 'music_title_url', 'music_download_time')
                 ->where('cat_id', '!=', CAT_VIDEO)
                 ->where('music_deleted', '<', 1)
-                ->orderBy('music_id', 'asc')
-                ->where('music_last_update_time', '>',  $time)
+                ->where($field, '>',  $time)
                 ->get();
         }else{
             $searchMusic = MusicModel::select('music_id', 'music_composer', 'music_title', 'music_artist', 'music_downloads_this_week',
@@ -71,7 +70,6 @@ class SolrSyncController extends Controller
         }
         DB::disconnect('mysql');
 
-        //dd($searchMusic);
         $datas = [];
         foreach ($searchMusic as $key => $item) {
             $titleSearch = Helpers::replaceKeySearch($item->music_title);
@@ -218,7 +216,7 @@ class SolrSyncController extends Controller
         }
         return response(['Ok']);
     }
-    public function syncVideo($id = null, $videoItem = null, $time = null) {
+    public function syncVideo($id = null, $videoItem = null, $time = null, $field = 'music_last_update_time') {
         if($id) {
             $searchVideo = VideoModel::select('music_id', 'music_title_search', 'music_artist_search', 'music_composer', 'music_album_search', 'music_title', 'music_artist', 'music_downloads_this_week',
                 'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_title_url', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_width', 'music_height', 'music_last_update_time', 'music_length', 'music_time', 'music_download_time')
@@ -238,7 +236,7 @@ class SolrSyncController extends Controller
                 'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_title_url', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_width', 'music_height', 'music_last_update_time', 'music_length', 'music_time', 'music_download_time')
                 ->where('cat_id', '=', CAT_VIDEO)
                 ->where('music_deleted', '<', 1)
-                ->where('music_last_update_time', '>',  $time)
+                ->where($field, '>',  $time)
                 ->orderBy('music_id', 'asc')
                 ->get();
         }else {

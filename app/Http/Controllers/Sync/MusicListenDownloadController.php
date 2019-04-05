@@ -72,75 +72,49 @@ class MusicListenDownloadController extends Controller
     }
 
     public function realMusicListen(){
-        $result = $this->musicListenRepository->getModel()::select('music_id', 'music_listen', 'music_listen_time', 'music_listen_fake')->where('music_listen_time', '>',  strtotime(TIME_EXPIRED_UPLOAD_LISTEN_DOWNLOAD))->get();
+//        $result = $this->musicListenRepository->getModel()::where('music_listen_time', '>',  strtotime(TIME_EXPIRED_UPLOAD_LISTEN_DOWNLOAD))->with('hasOneMusic')->get();
+        $query  = "UPDATE csn_music_listen AS l, csn_music AS m 
+                        SET m.music_listen = l.music_listen + l.music_listen_fake, m.music_listen_time = l.music_listen_time
+                        WHERE l.music_listen_time > ".strtotime(TIME_EXPIRED_UPLOAD_LISTEN_DOWNLOAD)."
+                            AND m.music_id = l.music_id";
+        $result = DB::connection( 'mysql' )->select( $query );
+
+//        $result = $this->musicListenRepository->getModel()::where('music_listen_time', '>',  strtotime(TIME_EXPIRED_UPLOAD_LISTEN_DOWNLOAD))->pluck('music_id');
+//        $musicArr = $this->musicRepository->getModel()::whereIn('music_id', $result)->get();
         $Solr = new SolrSyncController($this->Solr);
-        $musicArr = [];
-        foreach ($result as $item) {
-            $music = $this->musicRepository->getQueryPublished()->where('music_id', $item->music_id)->first();
-            if($music) {
-                $music->update([
-                    'music_listen' => $item->music_listen + $item->music_listen_fake,
-                    'music_listen_time' => $item->music_listen_time
-                ]);
-                $musicArr[] = $music;
-            }
-        }
-        if($musicArr)
-            $Solr->syncMusic(null, $musicArr);
+        $Solr->syncMusic(null, null, strtotime(TIME_EXPIRED_UPLOAD_LISTEN_DOWNLOAD), 'music_listen_time');
         return response(['Ok']);
     }
     public function realMusicDownload(){
-        $result = $this->musicDownloadRepository->getModel()::select('music_id', 'music_downloads', 'music_downloads_time')->where('music_downloads_time', '>',  strtotime(TIME_EXPIRED_UPLOAD_LISTEN_DOWNLOAD))->get();
+//        $result = $this->musicDownloadRepository->getModel()::select('music_id', 'music_downloads', 'music_downloads_time')->where('music_downloads_time', '>',  strtotime(TIME_EXPIRED_UPLOAD_LISTEN_DOWNLOAD))->with('hasOneMusic')->get();
+        $query  = "UPDATE csn_music_download AS d, csn_music AS m 
+                        SET m.music_downloads = d.music_downloads, m.music_download_time = d.music_downloads_time
+                        WHERE d.music_downloads_time > ".strtotime(TIME_EXPIRED_UPLOAD_LISTEN_DOWNLOAD)."
+                            AND m.music_id = d.music_id";
+        $result = DB::connection( 'mysql' )->select( $query );
         $Solr = new SolrSyncController($this->Solr);
-        $musicArr = [];
-        foreach ($result as $item) {
-            $music = $this->musicRepository->getQueryPublished()->where('music_id', '1996032')->first();
-            if($music) {
-                $music->update([
-                    'music_downloads' => $item->music_downloads,
-                    'music_download_time' => $item->music_downloads_time,
-                ]);
-                $musicArr[] = $music;
-            }
-        }
-        if($musicArr)
-            $Solr->syncMusic(null, $musicArr);
+        $Solr->syncMusic(null, null, strtotime(TIME_EXPIRED_UPLOAD_LISTEN_DOWNLOAD), 'music_download_time');
         return response(['Ok']);
     }
     public function realVideoListen(){
-        $result = $this->videoListenRepository->getModel()::select('music_id', 'music_listen', 'music_listen_time', 'music_listen_fake')->where('music_listen_time', '>',  strtotime(TIME_EXPIRED_UPLOAD_LISTEN_DOWNLOAD))->get();
+        $query  = "UPDATE csn_video_listen AS l, csn_video AS v 
+                        SET v.music_listen = l.music_listen + l.music_listen_fake, v.music_listen_time = l.music_listen_time
+                        WHERE l.music_listen_time > ".strtotime(TIME_EXPIRED_UPLOAD_LISTEN_DOWNLOAD)."
+                            AND v.music_id = l.music_id";
+        $result = DB::connection( 'mysql' )->select( $query );
         $Solr = new SolrSyncController($this->Solr);
-        $videoArr = [];
-        foreach ($result as $item) {
-            $video = $this->videoRepository->getQueryPublished()->where('music_id', $item->music_id)->first();
-            if($video) {
-                $video->update([
-                    'music_listen' => $item->music_listen + $item->music_listen_fake,
-                    'music_listen_time' => $item->music_listen_time,
-                ]);
-                $videoArr[] = $video;
-            }
-        }
-        if($videoArr)
-            $Solr->syncVideo(null, $videoArr);
+        $Solr->syncMusic(null, null, strtotime(TIME_EXPIRED_UPLOAD_LISTEN_DOWNLOAD), 'music_listen_time');
         return response(['Ok']);
     }
     public function realVideoDownload(){
-        $result = $this->videoDownloadRepository->getModel()::select('music_id', 'music_downloads', 'music_downloads_time')->where('music_downloads_time', '>',  strtotime(TIME_EXPIRED_UPLOAD_LISTEN_DOWNLOAD))->get();
+//        $result = $this->musicDownloadRepository->getModel()::select('music_id', 'music_downloads', 'music_downloads_time')->where('music_downloads_time', '>',  strtotime(TIME_EXPIRED_UPLOAD_LISTEN_DOWNLOAD))->with('hasOneMusic')->get();
+        $query  = "UPDATE csn_video_download AS d, csn_video AS v 
+                        SET v.music_downloads = d.music_downloads, v.music_download_time = d.music_downloads_time
+                        WHERE d.music_downloads_time > ".strtotime(TIME_EXPIRED_UPLOAD_LISTEN_DOWNLOAD)."
+                            AND v.music_id = d.music_id";
+        $result = DB::connection( 'mysql' )->select( $query );
         $Solr = new SolrSyncController($this->Solr);
-        $videoArr = [];
-        foreach ($result as $item) {
-            $video = $this->videoRepository->getQueryPublished()->where('music_id', $item->music_id)->first();
-            if($video) {
-                $video->update([
-                    'music_downloads' => $item->music_downloads,
-                    'music_download_time' => $item->music_downloads_time
-                ]);
-                $videoArr[] = $video;
-            }
-        }
-        if($videoArr)
-            $Solr->syncVideo(null, $videoArr);
+        $Solr->syncMusic(null, null, strtotime(TIME_EXPIRED_UPLOAD_LISTEN_DOWNLOAD), 'music_download_time');
         return response(['Ok']);
     }
 }
