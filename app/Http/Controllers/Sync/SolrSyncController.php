@@ -57,16 +57,31 @@ class SolrSyncController extends Controller
                 ->where('music_deleted', '<', 1)
                 ->where($field, '>',  $time)
                 ->get();
-        }else{
-            $searchMusic = MusicModel::select('music_id', 'music_composer', 'music_title', 'music_artist', 'music_downloads_this_week',
-                'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_downloads_this_week', 'music_lyric', 'music_title_url', 'music_download_time')
-                ->where([['cat_id', '!=', CAT_VIDEO], ['music_deleted', '<', 1], ['music_id', '>', intval($_GET['m_start'])], ['music_id', '<', 1387001]])
-                ->orwhere([['cat_id', '!=', CAT_VIDEO], ['music_deleted', '<', 1], ['music_id', '>', intval($_GET['m_start'])], ['music_id', '>', 1419000]])
+        }elseif ( isset($_GET['m_start']) ) {
+            if(Auth::check() && (Auth::user()->id == 3 || Auth::user()->id == 997917)) {
+                $searchMusic = MusicModel::select('music_id', 'music_composer', 'music_title', 'music_artist', 'music_downloads_this_week',
+                    'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_downloads_this_week', 'music_lyric', 'music_title_url', 'music_download_time')
+                    ->where([['cat_id', '!=', CAT_VIDEO], ['music_deleted', '<', 1], ['music_id', '>', intval($_GET['m_start'])], ['music_id', '<', 1387001]])
+                    ->orwhere([['cat_id', '!=', CAT_VIDEO], ['music_deleted', '<', 1], ['music_id', '>', intval($_GET['m_start'])], ['music_id', '>', 1419000]])
 //                ->whereIn('music_id', [1980711])
-                ->offset(0)
-                ->limit(50000)
-                ->orderBy('music_id', 'asc')
-                ->get();
+                    ->offset(0)
+                    ->limit(50000)
+                    ->orderBy('music_id', 'asc')
+                    ->get();
+            }
+            else {
+                $minute_now = intval(date('s'));
+                $limit = 50000;
+                $offset = $minute_now * $limit;
+                $searchMusic = MusicModel::select('music_id', 'music_composer', 'music_title', 'music_artist', 'music_downloads_this_week',
+                    'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_downloads_this_week', 'music_lyric', 'music_title_url', 'music_download_time')
+                    ->where([['cat_id', '!=', CAT_VIDEO], ['music_deleted', '<', 1], ['music_id', '>', intval($_GET['m_start'])], ['music_id', '<', 1387001]])
+                    ->orwhere([['cat_id', '!=', CAT_VIDEO], ['music_deleted', '<', 1], ['music_id', '>', intval($_GET['m_start'])], ['music_id', '>', 1419000]])
+                    ->offset($offset)
+                    ->limit($limit)
+                    ->orderBy('music_id', 'asc')
+                    ->get();
+            }
         }
         DB::disconnect('mysql');
 
@@ -137,7 +152,8 @@ class SolrSyncController extends Controller
         $this->Solr->addMultiDocuments($datas);
         //$this->Solr->solrMultiDeleteById($datas);
 
-        if(Auth::check() && (Auth::user()->id == 3 || Auth::user()->id == 997917)) {
+//        if(Auth::check() && (Auth::user()->id == 3 || Auth::user()->id == 997917)) {
+            if ( isset($_GET['m_start']) ) {
             if ( strpos($_SERVER['REQUEST_URI'], 'sync/solr_') !== false) {
                 if (sizeof($searchMusic) > 0) {
                     die('<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html><head><script type="text/javascript">window.location = "?m_start=' . $item->music_id . '"; </script></head><body></body></html>');
