@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Repositories\SearchResult\SearchResultEloquentRepository;
 use App\Repositories\Music\MusicEloquentRepository;
 use App\Repositories\User\UserEloquentRepository;
+use DB;
 
 class SearchResultController extends CrudController
 {
@@ -43,11 +44,38 @@ class SearchResultController extends CrudController
 
 
 //        $this->crud->groupBy('music_id', 'music_title');
+        $this->crud->orderBy(DB::raw("DATE_FORMAT(created_at, '%Y-%m-%d')"), 'desc');
         $this->crud->orderBy('music_search_count', 'desc');
-//        $this->crud->orderBy('updated_at', 'desc');
 
-        $this->crud->addClause('whereDate', 'created_at', '>=', date('Y-m-d', time()));
+//        $this->crud->addColumn([
+//            'name' => 'music_search_count',
+//            'label' => 'Truy cập',
+//            'type' => "model_function",
+//            'function_name' => 'getTotalSum',
+//        ]);
+//        $this->crud->addClause('whereDate', 'created_at', '>=', date('Y-m-d', time()));
+        $this->crud->addFilter([ // daterange filter
+            'type' => 'date_range',
+            'name' => 'from_to',
+            'label'=> 'Hiển thị theo thời gian'
+        ],
+            false,
+            function($value) {
+                $dates = json_decode(htmlspecialchars_decode($value, ENT_QUOTES));
+                $this->crud->addClause('whereDate', 'created_at', '>=', $dates->from);
+                $this->crud->addClause('whereDate', 'created_at', '<=', $dates->to);
+//                $this->crud->removeColumns(['music_title']);
+//                $this->crud->removeColumns(['created_at']);
 
+
+//                $this->crud->groupBy('music_id');
+//                $this->crud->orderBy('music_search_count', 'desc');
+
+//
+//                $this->crud->query = $this->crud->query->selectRaw('music_id, sum(music_search_count) as music_search_count')
+//                    ->groupBy('csn_music_search_result.music_id');
+
+            });
 
         $this->middleware(function ($request, $next)
         {
@@ -74,40 +102,12 @@ class SearchResultController extends CrudController
             'name' => 'music_search_count',
             'label' => 'Truy cập',
         ]);
-//        $this->crud->addColumn([
-//            'name' => 'created_at',
-//            'label' => 'Ngày tạo',
-//        ]);
-//        $this->crud->addColumn([
-//            'name' => 'music_search_count',
-//            'label' => 'Truy cập',
-//            'type' => "model_function",
-//            'function_name' => 'getTotalSum',
-//        ]);
-
-        $this->crud->addFilter([ // daterange filter
-            'type' => 'date_range',
-            'name' => 'from_to',
-            'label'=> 'Hiển thị theo thời gian'
-        ],
-            false,
-            function($value) {
-                $dates = json_decode(htmlspecialchars_decode($value, ENT_QUOTES));
-                $this->crud->addClause('whereDate', 'created_at', '>=', $dates->from);
-                $this->crud->addClause('whereDate', 'created_at', '<=', $dates->to);
-//                $this->crud->removeColumns(['music_title']);
-//                $this->crud->removeColumns(['created_at']);
-
-
-//                $this->crud->groupBy('music_id');
-//                $this->crud->orderBy('music_search_count', 'desc');
-
-//
-//                $this->crud->query = $this->crud->query->selectRaw('music_id, sum(music_search_count) as music_search_count')
-//                    ->groupBy('csn_music_search_result.music_id');
-
-            });
-
+        $this->crud->addColumn([
+            'name' => 'updated_at',
+            'label' => 'Cập nhật',
+            'type' => "datetime",
+            'format' => 'Y-m-d H:i'
+        ]);
 
 //        $this->crud->addButtonFromView('line', 'view', 'show', 'end');
 
