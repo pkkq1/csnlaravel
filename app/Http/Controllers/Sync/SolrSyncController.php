@@ -64,7 +64,7 @@ class SolrSyncController extends Controller
                 ->orwhere([['cat_id', '!=', CAT_VIDEO], ['music_deleted', '<', 1], ['music_id', '>', intval($_GET['m_start'])], ['music_id', '>', 1419000]])
 //                ->whereIn('music_id', [1980711])
                 ->offset(0)
-                ->limit(5000)
+                ->limit(50000)
                 ->orderBy('music_id', 'asc')
                 ->get();
         }
