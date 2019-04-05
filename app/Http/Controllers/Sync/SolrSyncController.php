@@ -73,7 +73,7 @@ class SolrSyncController extends Controller
                     ->orderBy('music_id', 'asc')
                     ->get();
             } else {
-                $minute_now = intval(date('s')) - 40;
+                $minute_now = intval(date('i')) - 40;
                 $limit = 50000;
                 $offset = $minute_now * $limit;
                 $searchMusic = MusicModel::select('music_id', 'music_composer', 'music_title', 'music_artist', 'music_downloads_this_week',
