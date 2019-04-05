@@ -78,6 +78,7 @@ $allpage_banner = false;
     @else
         <!-- BlueSeed - asynchronous code for placement 1468 Chiasenhac Balloon Home Page Desktop -->
         <script id="jshd1pm_1468" src="https://d2.blueseed.tv/ads-sync.js?placement=1468"></script>
+    @endif
 
         <?php
         $cookie_name = "csn_popup_pc";
@@ -90,7 +91,6 @@ $allpage_banner = false;
     <script id="jshd1pm_1883" src="https://d2.blueseed.tv/ads-sync.js?placement=1883"></script>';
         }
         ?>
-    @endif
 @endif
 
 </body>
