@@ -98,7 +98,7 @@ class MusicListenDownloadController extends Controller
             if($music) {
                 $music->update([
                     'music_downloads' => $item->music_downloads,
-                    'music_download_time' => $item->music_download_time,
+                    'music_downloads_time' => $item->music_downloads_time,
                 ]);
                 $musicArr[] = $music;
             }
@@ -134,7 +134,7 @@ class MusicListenDownloadController extends Controller
             if($video) {
                 $video->update([
                     'music_downloads' => $item->music_downloads,
-                    'music_download_time' => $item->music_download_time
+                    'music_downloads_time' => $item->music_downloads_time
                 ]);
                 $videoArr[] = $video;
             }
