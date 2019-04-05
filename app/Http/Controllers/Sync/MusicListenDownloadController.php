@@ -72,7 +72,7 @@ class MusicListenDownloadController extends Controller
     }
 
     public function realMusicListen(){
-        $result = $this->musicListenRepository->getModel()::select('music_id', 'music_listen', 'music_listen_time', 'music_listen_fake')->where('music_listen_time', '>',  strtotime(TIME_EXPIRED_UPLOAD_LISTEN_DOWNLOAD))->limit(100)->get();
+        $result = $this->musicListenRepository->getModel()::select('music_id', 'music_listen', 'music_listen_time', 'music_listen_fake')->where('music_listen_time', '>',  strtotime(TIME_EXPIRED_UPLOAD_LISTEN_DOWNLOAD))->get();
         $Solr = new SolrSyncController($this->Solr);
         $musicArr = [];
         foreach ($result as $item) {
@@ -90,15 +90,15 @@ class MusicListenDownloadController extends Controller
         return response(['Ok']);
     }
     public function realMusicDownload(){
-        $result = $this->musicDownloadRepository->getModel()::select('music_id', 'music_downloads', 'music_downloads_time')->where('music_downloads_time', '>',  strtotime(TIME_EXPIRED_UPLOAD_LISTEN_DOWNLOAD))->limit(100)->get();
+        $result = $this->musicDownloadRepository->getModel()::select('music_id', 'music_downloads', 'music_downloads_time')->where('music_downloads_time', '>',  strtotime(TIME_EXPIRED_UPLOAD_LISTEN_DOWNLOAD))->get();
         $Solr = new SolrSyncController($this->Solr);
         $musicArr = [];
         foreach ($result as $item) {
-            $music = $this->musicRepository->getQueryPublished()->where('music_id', $item->music_id)->first();
+            $music = $this->musicRepository->getQueryPublished()->where('music_id', '1996032')->first();
             if($music) {
                 $music->update([
                     'music_downloads' => $item->music_downloads,
-                    'music_downloads_time' => $item->music_downloads_time,
+                    'music_download_time' => $item->music_downloads_time,
                 ]);
                 $musicArr[] = $music;
             }
@@ -108,7 +108,7 @@ class MusicListenDownloadController extends Controller
         return response(['Ok']);
     }
     public function realVideoListen(){
-        $result = $this->videoListenRepository->getModel()::select('music_id', 'music_listen', 'music_listen_time', 'music_listen_fake')->where('music_listen_time', '>',  strtotime(TIME_EXPIRED_UPLOAD_LISTEN_DOWNLOAD))->limit(100)->get();
+        $result = $this->videoListenRepository->getModel()::select('music_id', 'music_listen', 'music_listen_time', 'music_listen_fake')->where('music_listen_time', '>',  strtotime(TIME_EXPIRED_UPLOAD_LISTEN_DOWNLOAD))->get();
         $Solr = new SolrSyncController($this->Solr);
         $videoArr = [];
         foreach ($result as $item) {
@@ -126,7 +126,7 @@ class MusicListenDownloadController extends Controller
         return response(['Ok']);
     }
     public function realVideoDownload(){
-        $result = $this->videoDownloadRepository->getModel()::select('music_id', 'music_downloads', 'music_downloads_time')->where('music_downloads_time', '>',  strtotime(TIME_EXPIRED_UPLOAD_LISTEN_DOWNLOAD))->limit(100)->get();
+        $result = $this->videoDownloadRepository->getModel()::select('music_id', 'music_downloads', 'music_downloads_time')->where('music_downloads_time', '>',  strtotime(TIME_EXPIRED_UPLOAD_LISTEN_DOWNLOAD))->get();
         $Solr = new SolrSyncController($this->Solr);
         $videoArr = [];
         foreach ($result as $item) {
@@ -134,7 +134,7 @@ class MusicListenDownloadController extends Controller
             if($video) {
                 $video->update([
                     'music_downloads' => $item->music_downloads,
-                    'music_downloads_time' => $item->music_downloads_time
+                    'music_download_time' => $item->music_downloads_time
                 ]);
                 $videoArr[] = $video;
             }
