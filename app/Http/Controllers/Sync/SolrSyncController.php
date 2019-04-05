@@ -73,7 +73,7 @@ class SolrSyncController extends Controller
                     ->orderBy('music_id', 'asc')
                     ->get();
             } else {
-                $minute_now = intval(date('i')) - 40;
+                $minute_now = intval(date('i'));
                 $limit = 50000;
                 $offset = $minute_now * $limit;
                 $searchMusic = MusicModel::select('music_id', 'music_composer', 'music_title', 'music_artist', 'music_downloads_this_week',
@@ -139,7 +139,7 @@ class SolrSyncController extends Controller
                 'music_downloads_this_week' => $item->music_downloads_this_week,
                 'music_downloads_max_week' => $item->music_downloads_max_week,
                 'music_search_result' => 0,
-
+                'update_time' => time(),
             ];
             $datas[] = $data;
             //$datas[] = $data['id'];
@@ -148,12 +148,11 @@ class SolrSyncController extends Controller
 
 //            if (Auth::check() && (Auth::user()->id == 3 || Auth::user()->id == 997917)) {
                 if (isset($_GET['m_start'])) {
-
                     if (strpos($_SERVER['REQUEST_URI'], 'sync/solr_') !== false) {
                         echo ($key) . '/ ' . $item->music_id . "\n <br>";
                     }
                 }
-            }
+//            }
             $this->Solr->addMultiDocuments($datas);
             //$this->Solr->solrMultiDeleteById($datas);
 
