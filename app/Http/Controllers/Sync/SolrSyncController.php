@@ -139,7 +139,7 @@ class SolrSyncController extends Controller
                 'music_downloads_this_week' => $item->music_downloads_this_week,
                 'music_downloads_max_week' => $item->music_downloads_max_week,
                 'music_search_result' => 0,
-                'update_time' => time(),
+                'solr_updated_time' => time(),
             ];
             $datas[] = $data;
             //$datas[] = $data['id'];
