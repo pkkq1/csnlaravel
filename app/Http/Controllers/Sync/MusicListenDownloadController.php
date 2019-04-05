@@ -110,7 +110,7 @@ class MusicListenDownloadController extends Controller
         $Solr = new SolrSyncController($this->Solr);
         $videoArr = [];
         foreach ($result as $item) {
-            $video = $this->videoRepository->getQueryPublished()->where('music_id', $item->music_id);
+            $video = $this->videoRepository->getQueryPublished()->where('music_id', $item->music_id)->first();
             if($video) {
                 $video->update([
                     'music_listen' => $item->music_listen
@@ -127,7 +127,7 @@ class MusicListenDownloadController extends Controller
         $Solr = new SolrSyncController($this->Solr);
         $videoArr = [];
         foreach ($result as $item) {
-            $video = $this->videoRepository->getQueryPublished()->where('music_id', $item->music_id);
+            $video = $this->videoRepository->getQueryPublished()->where('music_id', $item->music_id)->first();
             if($video) {
                 $video->update([
                     'music_downloads' => $item->music_downloads
