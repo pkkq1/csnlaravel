@@ -250,6 +250,14 @@ use App\Library\Helpers;
 <!-- BlueSeed - asynchronous code for placement 1849 CHIASENHAC.VN - mobile native button -->
 <script id="jshd1pm_1849" src="https://d2.blueseed.tv/ads-sync.js?placement=1849"></script>
 
+
+
+
+
+@if( 0 )
+<!-- HadarOne - Asynchronous Code for Ad Placement 2210 Chiasenhac.vn Deleted -->
+<div><ins class="hadar-placement" data-hdpm="2210" ></ins><script async src="//static.blueseed.tv/ajs/display.js"></script></div>
+
 <?php
     $month_day = intval(date('ndH'));
     $rand100 = rand(1,100);
@@ -280,4 +288,5 @@ innity_ord = "ord=[timestamp]";
 <noscript><a href="https://avn.innity.com/click/?adid=236772&cb=[timestamp]" target="_blank">
 <img src="https://avn.innity.com/view/alt/?campaignid=27145&adid=236772&cb=[timestamp]" border="0" title="Click Here"></a></noscript>
     @endif
+@endif
 @endif
