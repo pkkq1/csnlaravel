@@ -286,7 +286,7 @@ class UploadController extends Controller
                     'success' => false,
                     'message' => '('.$_FILES['file']['name'].') Sai định dạng nhạc',
                 ]);
-            if(isset($videoInfo['playtime_seconds']) && $videoInfo['playtime_seconds'] < 30) {
+            if(strpos($request->headers->get('referer'), 'album') != false && isset($videoInfo['playtime_seconds']) && $videoInfo['playtime_seconds'] < 30) {
                 return response()->json([
                     'success' => false,
                     'message' => '('.$_FILES['file']['name'].') Độ dài nhạc/video không được thấp hơn 30 giây',
