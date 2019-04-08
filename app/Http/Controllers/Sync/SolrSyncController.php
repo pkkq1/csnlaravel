@@ -90,6 +90,7 @@ class SolrSyncController extends Controller
                 {
                     $this->Solr->solrDeleteByQueries('(id:music_*)AND(solr_updated_time:[0 TO '. (time() - 1800) .'])');
                     echo "Deleted!";
+                    exit;
                 }
             }
         }
