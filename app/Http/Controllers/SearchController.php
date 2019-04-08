@@ -38,7 +38,7 @@ class SearchController extends Controller
         return view('search.index', compact('result', 'titleSearch', 'search', 'result'));
     }
     public function ajaxSearch(Request $request, $quickSearch = true) {
-        $search = Helpers::strReplaceSolr($request->q, true);
+        $search = Helpers::strReplaceSolr(htmlspecialchars($request->q, ENT_QUOTES), true);
 //        $search = trim(mb_strtolower($request->q, 'UTF-8'));
         $searchExp = explode(' ', $search);
         foreach ($searchExp as $key => $item) {
@@ -119,8 +119,8 @@ class SearchController extends Controller
                     foreach ($resultMusic['data'] as $item) {
                         $result[0][$keyResult]['data'][] = [
                             'music_id' => $item['music_id'][0],
-                            'music_title' => $item['music_title'][0],// . ' | ' . $titleCharset . $item['score'] . ' { ' . $item['music_downloads_this_week'][0] . ' }' . $search_level,
-                            'music_artist' => $item['music_artist'][0],
+                            'music_title' => htmlspecialchars_decode($item['music_title'][0], ENT_QUOTES),// . ' | ' . $titleCharset . $item['score'] . ' { ' . $item['music_downloads_this_week'][0] . ' }' . $search_level,
+                            'music_artist' => htmlspecialchars_decode($item['music_artist'][0], ENT_QUOTES),
                             'music_bitrate' => $item['music_bitrate'][0],
                             'music_bitrate_html' => $item['music_bitrate_html'][0],
                             'music_link' => $item['music_link'][0],
@@ -167,7 +167,7 @@ class SearchController extends Controller
                     foreach ($resultArtist['data'] as $item) {
                         $result[0]['artist']['data'][] = [
                             'artist_id' => $item['artist_id'][0],
-                            'artist_nickname' => $item['artist_nickname'][0],
+                            'artist_nickname' => htmlspecialchars_decode($item['artist_nickname'][0], ENT_QUOTES),
                             'artist_link' =>  $item['artist_link'][0],
                             'artist_cover' => $item['artist_cover'][0],
                             'artist_avatar' => $item['artist_avatar'][0],
@@ -198,7 +198,7 @@ class SearchController extends Controller
                     foreach ($resultAlbum['data'] as $item) {
                         $result[0]['album']['data'][] = [
                             'cover_id' => $item['cover_id'][0],
-                            'music_album' => $item['music_album'][0],
+                            'music_album' => htmlspecialchars_decode($item['music_album'][0], ENT_QUOTES),
                             'album_link' => $item['album_link'][0],
                             'album_id' => $request->view_album ? $item['id'] : '',
                             'album_bitrate' => $item['music_bitrate'][0],
@@ -248,8 +248,8 @@ class SearchController extends Controller
                     foreach ($resultVideo['data'] as $item) {
                         $result[0]['video']['data'][] = [
                             'video_id' => $item['video_id'][0],
-                            'video_title' => $item['video_title'][0],
-                            'video_artist' => $item['video_artist'][0],
+                            'video_title' => htmlspecialchars_decode($item['video_title'][0], ENT_QUOTES),
+                            'video_artist' => htmlspecialchars_decode($item['video_artist'][0], ENT_QUOTES),
                             'video_bitrate' => $item['video_bitrate'][0],
                             'video_link' => $item['video_link'][0],
                             'video_cover' => isset($item['video_cover']) ? $item['video_cover'][0] : '',

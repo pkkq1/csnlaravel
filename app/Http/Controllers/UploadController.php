@@ -394,7 +394,7 @@ class UploadController extends Controller
                 }
             }
             // tách hoặc xóa khỏi album
-            if(($oldCoverId != $request->input('cover_id')) && $oldStage != UPLOAD_STAGE_DELETED) {
+            if(($oldCoverId != $request->input('cover_id')) && !in_array($oldStage, [UPLOAD_STAGE_DELETED, UPLOAD_STAGE_UNCENSOR])) {
                 $newAlbum = $newAlbum ? $newAlbum :$this->coverRepository->findCover($request->input('cover_id'));
                 $oldAlbum = $this->coverRepository->findCover($oldCoverId);
                 if($oldCoverId != 0 && $request->input('cover_id')) {
@@ -428,7 +428,7 @@ class UploadController extends Controller
             }
             if(($per_Xet_Duyet && $oldStage != $request->input('music_state')) || $isDelete) {
                 // cập nhật tình trạng sẽ xóa
-                if(($request->input('music_state') == UPLOAD_STAGE_DELETED && $oldStage != UPLOAD_STAGE_DELETED) || $isDelete) { //check old stage to before update stage field
+                if(((in_array($request->input('music_state'), [UPLOAD_STAGE_DELETED, UPLOAD_STAGE_UNCENSOR])) && !in_array($oldStage, [UPLOAD_STAGE_DELETED, UPLOAD_STAGE_UNCENSOR])) || $isDelete) { //check old stage to before update stage field
                     // xóa nhạc, video
                     $result->music_state = UPLOAD_STAGE_DELETED;
                     if($result->cat_id == CAT_VIDEO) {
@@ -450,7 +450,7 @@ class UploadController extends Controller
                 }else{
                     // cập nhật tình trạng đã xóa thành xét duyệt
                     // áp dụng không thay đổi cover
-                    if($result->cover_id && $oldCoverId == $request->input('cover_id') && $oldStage == UPLOAD_STAGE_DELETED && $oldAlbum) {
+                    if($result->cover_id && $oldCoverId == $request->input('cover_id') && in_array($oldStage, [UPLOAD_STAGE_DELETED, UPLOAD_STAGE_UNCENSOR]) && $oldAlbum) {
                         $oldAlbum = $this->coverRepository->findCover($result->cover_id);
                         $oldAlbum->album_music_total = $oldAlbum->album_music_total + 1;
                         $oldAlbum->album_last_updated = time(); // tự động cập nhật cover ở crontab
@@ -609,15 +609,11 @@ class UploadController extends Controller
                     }
                 }
             }
+            $moveCover = [];
             if($request->album_delete_music) {
                 $moveCover = explode(',', $request->album_delete_music);
-                foreach ($moveCover as $key => $item) {
-                    if($item) {
-                        $this->uploadRepository->getModel()::where('music_id', $item)->update(['cover_id' => 0]);
-                    }
-                }
+
             }
-            $album->save();
             foreach($upload as $item) {
                 $item->music_album = $album->music_album ?? '';
                 $item->cover_id = $album->cover_id;
@@ -625,6 +621,11 @@ class UploadController extends Controller
                 $item->music_album_id = $album->music_album_id ?? '';
                 $item->music_production = $album->music_production ?? '';
                 $item->music_last_update_time = time();
+                if(in_array($item->music_id, $moveCover)){
+                    $item->cover_id = 0;
+                    if(!in_array($item->music_state, [UPLOAD_STAGE_DELETED, UPLOAD_STAGE_UNCENSOR]))
+                        $album->album_music_total = $album->album_music_total - 1;
+                }
                 $item->save();
             }
 
@@ -634,8 +635,14 @@ class UploadController extends Controller
                 $item->music_album_id = $album->music_album_id ?? '';
                 $item->music_production = $album->music_production ?? '';
                 $item->music_last_update_time = time();
+                if(in_array($item->music_id, $moveCover)){
+                    $item->cover_id = 0;
+                }
                 $item->save();
             }
+            if($album->album_music_total == 0)
+                $Solr->deleteCustom('cover_' . $album->cover_id);
+            $album->save();
 //            // update solr
             if($album->album_music_total > 0) {
                 $Solr = new SolrSyncController($this->Solr);
