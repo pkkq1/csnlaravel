@@ -140,10 +140,10 @@ class Solarium
             'message' => ''
         ];
     }
-    public function solrDeleteByQueries($queries){
+    public function solrDeleteByQuerie($queries){
         $update = $this->client->createUpdate();
         try{
-            $update->addDeleteQueries($queries);
+            $update->addDeleteQuerie($queries);
             $update->addCommit();
             $result = $this->client->update($update);
             return [
