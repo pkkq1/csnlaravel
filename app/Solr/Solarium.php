@@ -140,6 +140,24 @@ class Solarium
             'message' => ''
         ];
     }
+    public function solrDeleteByQueries($queries){
+        $update = $this->client->createUpdate();
+        try{
+            $update->addDeleteQueries($queries);
+            $update->addCommit();
+            $result = $this->client->update($update);
+            return [
+                'status' => true,
+                'message' => ''
+            ];
+        }
+        catch (Exception $e) {
+            return [
+                'status' => false,
+                'message' => $e->getMessage()
+            ];
+        }
+    }
     public function addDocuments(array $data = array(), $overWrite = true) {
         $update = $this->client->createUpdate();
 
