@@ -72,7 +72,7 @@ class SolrSyncController extends Controller
                     ->limit(50000)
                     ->orderBy('music_id', 'asc')
                     ->get();
-            //} else {
+            } else {
                 $minute_now = intval(date('i'));
                 $hour_now = intval(date('H'));
                 $limit = 50000;
