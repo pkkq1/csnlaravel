@@ -44,6 +44,7 @@ define('KEY_ID_PLAYLIST_ENCODE_URL', 'csn_playlist~');
 define('KEY_ID_ALBUM_ENCODE_URL', 'csn_album~');
 define('KEY_ID_ARTIST_ENCODE_URL', 'csn_artist~');
 define('DEFAULT_CAT_ID_ACTIVE_BXH', 3);
+define('DEFAULT_TIME_QUERY_BXH', 90); // những bài bát có 90 ngày trong bảng xếp hạng ngày
 define('UPLOAD_STAGE_DELETED', -1); // đã xóa
 define('UPLOAD_STAGE_UNCENSOR', 0); // chưa duyệt. mới upload, chờ xử lý
 define('UPLOAD_STAGE_INCONVERT', 1); // đang xử lý

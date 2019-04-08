@@ -68,11 +68,13 @@ class MusicListenEloquentRepository extends EloquentRepository implements MusicL
     public function bxhHotTodayCategoryMusic($idCategory)
     {
 //        $result = $this->_model->join('csn_music', 'csn_music_listen.music_id', 'csn_music.music_id')
-        $sql_top_blocktime = 'AND music_time > '. (time() - 45*86400);// . ' OR music_id = 1192664 OR music_id = 1242989)';
         $result = \App\Models\MusicModel::where('csn_music.cat_id', $idCategory)
             ->where('cat_id', '!=', CAT_VIDEO)
-            ->where('music_time', '>', time() - 45*86400)
-            ->where('music_year', '>', intval(date('Y')) - 2)
+            ->where('music_time', '>', time() - DEFAULT_TIME_QUERY_BXH * 86400) // 90 ngày trở lên
+            ->where(function ($query) {
+                $query->where('music_year', '>', intval(date('Y')) - 2)
+                    ->orWhere('music_year', 0);
+            })
             ->orderBy('csn_music.music_downloads_today', 'desc')
             ->orderBy('csn_music.music_downloads_this_week', 'desc')
             ->select($this->_selectMusic)
@@ -92,8 +94,11 @@ class MusicListenEloquentRepository extends EloquentRepository implements MusicL
     {
         $result = \App\Models\VideoModel::where('csn_video.cat_id', CATEGORY_ID_VIDEO)
             ->where('csn_video.cat_level', $idCategory)
-            ->where('music_time', '>', time() - 45*86400)
-            ->where('music_year', '>', intval(date('Y')) - 2)
+            ->where('music_time', '>', time() - DEFAULT_TIME_QUERY_BXH * 86400) // 90 ngày trở lên
+            ->where(function ($query) {
+                $query->where('music_year', '>', intval(date('Y')) - 2)
+                    ->orWhere('music_year', 0);
+            })
             ->orderBy('csn_video.music_downloads_today', 'desc')
             ->orderBy('csn_video.music_downloads_this_week', 'desc')
             ->orderBy('csn_video.music_listen', 'desc')

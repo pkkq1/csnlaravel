@@ -72,7 +72,7 @@ class MusicController extends Controller
        return response(['Ok']);
    }
    public function demo() {
-       $cover = $this->coverRepository->getModel()::where('cover_id', '>=', '101350')->get();
+       $cover = $this->coverRepository->getModel()::where('cover_id', '>=', '102444')->get();
        foreach ($cover as $item) {
            if($item->album_cat_id_1 == 1) {
                $cntCover = $this->videoRepository->getQueryPublished()->where('cover_id', $item->cover_id)->count();
