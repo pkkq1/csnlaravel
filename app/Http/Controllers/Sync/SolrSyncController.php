@@ -74,6 +74,7 @@ class SolrSyncController extends Controller
                     ->get();
             } else {
                 $minute_now = intval(date('i'));
+                $hour_now = intval(date('H'));
                 $limit = 50000;
                 $offset = $minute_now * $limit;
                 $searchMusic = MusicModel::select('music_id', 'music_composer', 'music_title', 'music_artist', 'music_downloads_this_week',
@@ -84,6 +85,13 @@ class SolrSyncController extends Controller
                     ->limit($limit)
                     ->orderBy('music_id', 'asc')
                     ->get();
+
+                if ( sizeof($searchMusic) == 0 && ($hour_now == 1 || $hour_now == 13) && $minute_now == 28 ) //
+                {
+                    $this->Solr->solrDeleteByQuery('(id:music_*)AND(solr_updated_time:[0 TO '. (time() - 3600) .'])');
+                    echo "Deleted!";
+                    exit;
+                }
             }
         }
         DB::disconnect('mysql');
