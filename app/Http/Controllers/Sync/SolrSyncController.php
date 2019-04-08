@@ -88,7 +88,7 @@ class SolrSyncController extends Controller
 
                 if ( sizeof($searchMusic) == 0 && $hour_now == 17 && $minute_now > 36 ) //
                 {
-                    $this->Solr->solrDeleteByQuerie('(id:music_*)AND(solr_updated_time:[0 TO '. (time() - 1800) .'])');
+                    $this->Solr->solrDeleteByQuery('(id:music_*)AND(solr_updated_time:[0 TO '. (time() - 1800) .'])');
                     echo "Deleted!";
                     exit;
                 }
