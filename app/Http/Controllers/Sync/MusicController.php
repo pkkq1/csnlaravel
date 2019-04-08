@@ -67,20 +67,9 @@ class MusicController extends Controller
            }else{
                $cntCover = $this->musicRepository->getQueryPublished()->where('cover_id', $key)->count();
            }
-           $this->coverRepository->getModel()::where('cover_id', $key)->update(['album_music_total' => $cntCover]);
-       }
-       return response(['Ok']);
-   }
-   public function demo() {
-       $cover = $this->coverRepository->getModel()::where('cover_id', '>=', '102444')->get();
-       foreach ($cover as $item) {
-           if($item->album_cat_id_1 == 1) {
-               $cntCover = $this->videoRepository->getQueryPublished()->where('cover_id', $item->cover_id)->count();
-           }else{
-               $cntCover = $this->musicRepository->getQueryPublished()->where('cover_id', $item->cover_id)->count();
-           }
-           $item->album_music_total = $cntCover;
-           $item->save();
+           $cover = $this->coverRepository->getModel()::where('cover_id', $key)->first();
+           $cover->update(['album_music_total' => $cntCover]);
+           $Solr->syncCover(null, $cover);
        }
        return response(['Ok']);
    }
