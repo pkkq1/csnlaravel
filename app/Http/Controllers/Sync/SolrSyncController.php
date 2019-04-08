@@ -28,15 +28,19 @@ class SolrSyncController extends Controller
 {
     protected $Solr;
 
-    public function __construct(Solarium $Solr) {
+    public function __construct(Solarium $Solr)
+    {
         $this->Solr = $Solr;
     }
-    public function ping() {
+
+    public function ping()
+    {
         return $this->Solr->ping();
     }
 
-    public function syncMusic($id = null, $musicItem = null, $time = null, $field = 'music_last_update_time') {
-        if($id) {
+    public function syncMusic($id = null, $musicItem = null, $time = null, $field = 'music_last_update_time')
+    {
+        if ($id) {
             $searchMusic = MusicModel::select('music_id', 'music_composer', 'music_title', 'music_artist', 'music_downloads_this_week',
                 'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_downloads_this_week', 'music_lyric', 'music_title_url', 'music_download_time')
                 ->where('cat_id', '!=', CAT_VIDEO)
@@ -44,29 +48,43 @@ class SolrSyncController extends Controller
                 ->orderBy('music_id', 'asc')
                 ->where('music_id', $id)
                 ->get();
-        }elseif($musicItem){
-            if(isset($musicItem[0])){
+        } elseif ($musicItem) {
+            if (isset($musicItem[0])) {
                 $searchMusic = $musicItem;
-            }else{
+            } else {
                 $searchMusic[] = $musicItem;
             }
-        }elseif($time) {
+        } elseif ($time) {
             $searchMusic = MusicModel::select('music_id', 'music_composer', 'music_title', 'music_artist', 'music_downloads_this_week',
                 'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_downloads_this_week', 'music_lyric', 'music_title_url', 'music_download_time')
                 ->where('cat_id', '!=', CAT_VIDEO)
                 ->where('music_deleted', '<', 1)
-                ->where($field, '>',  $time)
+                ->where($field, '>', $time)
                 ->get();
-        }else{
-            $searchMusic = MusicModel::select('music_id', 'music_composer', 'music_title', 'music_artist', 'music_downloads_this_week',
-                'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_downloads_this_week', 'music_lyric', 'music_title_url', 'music_download_time')
-                ->where([['cat_id', '!=', CAT_VIDEO], ['music_deleted', '<', 1], ['music_id', '>', intval($_GET['m_start'])], ['music_id', '<', 1387001]])
-                ->orwhere([['cat_id', '!=', CAT_VIDEO], ['music_deleted', '<', 1], ['music_id', '>', intval($_GET['m_start'])], ['music_id', '>', 1419000]])
+        } elseif (isset($_GET['m_start'])) {
+            if (Auth::check() && (Auth::user()->id == 3 || Auth::user()->id == 997917)) {
+                $searchMusic = MusicModel::select('music_id', 'music_composer', 'music_title', 'music_artist', 'music_downloads_this_week',
+                    'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_downloads_this_week', 'music_lyric', 'music_title_url', 'music_download_time')
+                    ->where([['cat_id', '!=', CAT_VIDEO], ['music_deleted', '<', 1], ['music_id', '>', intval($_GET['m_start'])], ['music_id', '<', 1387001]])
+                    ->orwhere([['cat_id', '!=', CAT_VIDEO], ['music_deleted', '<', 1], ['music_id', '>', intval($_GET['m_start'])], ['music_id', '>', 1419000]])
 //                ->whereIn('music_id', [1980711])
-                ->offset(0)
-                ->limit(5000)
-                ->orderBy('music_id', 'asc')
-                ->get();
+                    ->offset(0)
+                    ->limit(50000)
+                    ->orderBy('music_id', 'asc')
+                    ->get();
+            } else {
+                $minute_now = intval(date('i'));
+                $limit = 50000;
+                $offset = $minute_now * $limit;
+                $searchMusic = MusicModel::select('music_id', 'music_composer', 'music_title', 'music_artist', 'music_downloads_this_week',
+                    'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_downloads_this_week', 'music_lyric', 'music_title_url', 'music_download_time')
+                    ->where([['cat_id', '!=', CAT_VIDEO], ['music_deleted', '<', 1], ['music_id', '>', intval($_GET['m_start'])], ['music_id', '<', 1387001]])
+                    ->orwhere([['cat_id', '!=', CAT_VIDEO], ['music_deleted', '<', 1], ['music_id', '>', intval($_GET['m_start'])], ['music_id', '>', 1419000]])
+                    ->offset($offset)
+                    ->limit($limit)
+                    ->orderBy('music_id', 'asc')
+                    ->get();
+            }
         }
         DB::disconnect('mysql');
 
@@ -79,7 +97,7 @@ class SolrSyncController extends Controller
 //            $lyricSearch = Helpers::replaceKeySearch($item->music_lyric);
 //            $lyricCharset = Helpers::khongdau(str_replace("\n", ' ', $lyricSearch), ' ');
             $data = [
-                'id' => 'music_'.$item->music_id,
+                'id' => 'music_' . $item->music_id,
                 'music_id' => $item->music_id,
                 'music_title' => $item->music_title,
                 'music_title_search' => htmlspecialchars($titleSearch, ENT_QUOTES),
@@ -96,7 +114,7 @@ class SolrSyncController extends Controller
                 //'music_lyric_charset' => $lyricCharset,
                 'music_bitrate_html' => Helpers::bitrate2str($item->music_bitrate),
                 'music_cover' => Helpers::cover_url($item->cover_id),
-                'music_link' => '/'.Helpers::listen_url($item->toArray(), false),
+                'music_link' => '/' . Helpers::listen_url($item->toArray(), false),
                 'music_filename' => $item->music_filename,
                 'music_artist' => $item->music_artist, //str_replace(';', ',', $item->music_artist),
                 'music_artist_array' => explode(';', $item->music_artist),
@@ -121,15 +139,16 @@ class SolrSyncController extends Controller
                 'music_downloads_this_week' => $item->music_downloads_this_week,
                 'music_downloads_max_week' => $item->music_downloads_max_week,
                 'music_search_result' => 0,
-
+                'solr_updated_time' => time(),
             ];
             $datas[] = $data;
             //$datas[] = $data['id'];
             //$this->Solr->addDocuments($data);
             //$this->Solr->solrDeleteById($data['id']);
 
-            if(Auth::check() && (Auth::user()->id == 3 || Auth::user()->id == 997917)) {
-                if ( strpos($_SERVER['REQUEST_URI'], 'sync/solr_') !== false ){
+//            if (Auth::check() && (Auth::user()->id == 3 || Auth::user()->id == 997917)) {
+            if (isset($_GET['m_start'])) {
+                if (strpos($_SERVER['REQUEST_URI'], 'sync/solr_') !== false) {
                     echo ($key) . '/ ' . $item->music_id . "\n <br>";
                 }
             }
@@ -137,8 +156,9 @@ class SolrSyncController extends Controller
         $this->Solr->addMultiDocuments($datas);
         //$this->Solr->solrMultiDeleteById($datas);
 
-        if(Auth::check() && (Auth::user()->id == 3 || Auth::user()->id == 997917)) {
-            if ( strpos($_SERVER['REQUEST_URI'], 'sync/solr_') !== false) {
+//        if(Auth::check() && (Auth::user()->id == 3 || Auth::user()->id == 997917)) {
+        if (isset($_GET['m_start'])) {
+            if (strpos($_SERVER['REQUEST_URI'], 'sync/solr_') !== false) {
                 if (sizeof($searchMusic) > 0) {
                     die('<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html><head><script type="text/javascript">window.location = "?m_start=' . $item->music_id . '"; </script></head><body></body></html>');
                 } else {
@@ -149,24 +169,27 @@ class SolrSyncController extends Controller
 
         return response(['Ok']);
     }
-    public function syncDeleteMusic($id = null, $musicItem = null) {
+
+    public
+    function syncDeleteMusic($id = null, $musicItem = null)
+    {
 //        <delete><query>_id:12345323211</query></delete>
 //        <delete><query>music_id:[1387001 TO 1419000]</query></delete>
 //        <delete><query>(id:music_*)AND(_version_:[0 TO 1627700530459443201])</query></delete>
 
-        if($id) {
+        if ($id) {
             $searchMusic = MusicModel::select('music_id', 'music_composer', 'music_title', 'music_artist', 'music_downloads_this_week',
                 'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_downloads_this_week', 'music_lyric')
                 ->where('cat_id', '!=', CAT_VIDEO)
                 ->where('music_id', $id)
                 ->get();
-        }elseif($musicItem){
-            if(isset($musicItem[0])){
+        } elseif ($musicItem) {
+            if (isset($musicItem[0])) {
                 $searchMusic = $musicItem;
-            }else{
+            } else {
                 $searchMusic[] = $musicItem;
             }
-        }else {
+        } else {
             $searchMusic = UploadModel::select('music_id')
                 ->where('cat_id', '!=', CAT_VIDEO)
                 ->where('music_state', '=', -1)
@@ -193,20 +216,20 @@ class SolrSyncController extends Controller
         $datas = [];
         foreach ($searchMusic as $key => $item) {
             $data = [
-                'id' => 'music_'.$item->music_id,
+                'id' => 'music_' . $item->music_id,
             ];
 
             //$datas[] = $data;
             $datas[] = $data['id'];
             //$this->Solr->addDocuments($data);
             //$this->Solr->solrDeleteById($data['id']);
-            if(Auth::check() && (Auth::user()->id == 3 || Auth::user()->id == 997917))
+            if (Auth::check() && (Auth::user()->id == 3 || Auth::user()->id == 997917))
                 echo ($key) . '/ ' . $item->music_id . "\n <br>";
         }
         //$this->Solr->addMultiDocuments($datas);
         $this->Solr->solrMultiDeleteById($datas);
-        if(Auth::check() && (Auth::user()->id == 3 || Auth::user()->id == 997917)) {
-            if ( strpos($_SERVER['REQUEST_URI'], 'sync/solr_') !== false) {
+        if (Auth::check() && (Auth::user()->id == 3 || Auth::user()->id == 997917)) {
+            if (strpos($_SERVER['REQUEST_URI'], 'sync/solr_') !== false) {
                 if (sizeof($searchMusic) > 0) {
                     die('<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html><head><script type="text/javascript">window.location = "?m_start=' . $item->music_id . '"; </script></head><body></body></html>');
                 } else {
@@ -216,8 +239,11 @@ class SolrSyncController extends Controller
         }
         return response(['Ok']);
     }
-    public function syncVideo($id = null, $videoItem = null, $time = null, $field = 'music_last_update_time') {
-        if($id) {
+
+    public
+    function syncVideo($id = null, $videoItem = null, $time = null, $field = 'music_last_update_time')
+    {
+        if ($id) {
             $searchVideo = VideoModel::select('music_id', 'music_title_search', 'music_artist_search', 'music_composer', 'music_album_search', 'music_title', 'music_artist', 'music_downloads_this_week',
                 'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_title_url', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_width', 'music_height', 'music_last_update_time', 'music_length', 'music_time', 'music_download_time')
                 ->where('cat_id', '=', CAT_VIDEO)
@@ -225,21 +251,21 @@ class SolrSyncController extends Controller
                 ->where('music_id', $id)
                 ->orderBy('music_id', 'asc')
                 ->get();
-        }elseif($videoItem){
-            if(isset($videoItem[0])){
+        } elseif ($videoItem) {
+            if (isset($videoItem[0])) {
                 $searchVideo = $videoItem;
-            }else{
+            } else {
                 $searchVideo[] = $videoItem;
             }
-        }elseif($time){
+        } elseif ($time) {
             $searchVideo = VideoModel::select('music_id', 'music_title_search', 'music_artist_search', 'music_composer', 'music_album_search', 'music_title', 'music_artist', 'music_downloads_this_week',
                 'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_title_url', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_width', 'music_height', 'music_last_update_time', 'music_length', 'music_time', 'music_download_time')
                 ->where('cat_id', '=', CAT_VIDEO)
                 ->where('music_deleted', '<', 1)
-                ->where($field, '>',  $time)
+                ->where($field, '>', $time)
                 ->orderBy('music_id', 'asc')
                 ->get();
-        }else {
+        } else {
             $searchVideo = VideoModel::select('music_id', 'music_title_search', 'music_artist_search', 'music_composer', 'music_album_search', 'music_title', 'music_artist', 'music_downloads_this_week',
                 'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_title_url', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_width', 'music_height', 'music_last_update_time', 'music_length', 'music_time', 'music_download_time')
                 ->where([['cat_id', '=', CAT_VIDEO], ['music_deleted', '<', 1], ['music_id', '>', intval($_GET['v_start'])], ['music_id', '<', 1387001]])
@@ -258,7 +284,7 @@ class SolrSyncController extends Controller
             $titleCharset = Helpers::strReplaceSolr(Helpers::khongdau($titleSearch, ' '));
             $artistCharset = Helpers::strReplaceSolr(Helpers::khongdau($artistSearch, ' '));
             $data = [
-                'id' => 'video_'.$item->music_id,
+                'id' => 'video_' . $item->music_id,
                 'video_id' => $item->music_id,
                 'video_title' => $item->music_title,
                 'video_title_search' => $titleSearch,
@@ -266,7 +292,7 @@ class SolrSyncController extends Controller
 //                'video_title_artist_search' => $titleSearch .' '. $artistSearch,
                 'video_title_charset_nospace' => str_replace(' ', '', $titleCharset),
                 'video_artist_charset_nospace' => str_replace(' ', '', $artistCharset),
-                'video_title_artist_charset_nospace' => str_replace(' ', '', $titleCharset) .''. str_replace(' ', '', $artistCharset),
+                'video_title_artist_charset_nospace' => str_replace(' ', '', $titleCharset) . '' . str_replace(' ', '', $artistCharset),
                 'video_title_charset' => $titleCharset,
                 'video_artist_charset' => $artistCharset,
 //                'video_title_artist_charset' => $titleCharset .' '. $artistCharset,
@@ -274,7 +300,7 @@ class SolrSyncController extends Controller
                 'video_width' => $item->music_width,
                 'video_height' => $item->music_height,
                 'video_cover' => Helpers::thumbnail_url($item->toArray()),
-                'video_link' => '/'.Helpers::listen_url($item->toArray(), false),
+                'video_link' => '/' . Helpers::listen_url($item->toArray(), false),
                 'video_filename' => $item->music_filename,
                 'video_artist' => $item->music_artist, //str_replace(';', ',', $item->music_artist),
                 'video_artist_id' => explode(';', htmlspecialchars_decode($item->music_artist_id, ENT_QUOTES)),//$item->music_artist_id, //str_replace(';', ',', $item->music_artist_id),
@@ -321,19 +347,22 @@ class SolrSyncController extends Controller
 
         return response(['Ok']);
     }
-    public function syncDeleteVideo($id = null, $videoItem = null) {
-        if($id) {
+
+    public
+    function syncDeleteVideo($id = null, $videoItem = null)
+    {
+        if ($id) {
             $searchVideo = VideoModel::select('music_id')
                 ->where('cat_id', '=', CAT_VIDEO)
                 ->where('music_id', $id)
                 ->get();
-        }elseif($videoItem){
-            if(isset($videoItem[0])){
+        } elseif ($videoItem) {
+            if (isset($videoItem[0])) {
                 $searchVideo = $videoItem;
-            }else{
+            } else {
                 $searchVideo[] = $videoItem;
             }
-        }else {
+        } else {
             $searchVideo = UploadModel::select('music_id')
                 ->where('cat_id', '=', CAT_VIDEO)
                 ->where('music_state', '=', -1)
@@ -360,7 +389,7 @@ class SolrSyncController extends Controller
         $datas = [];
         foreach ($searchVideo as $key => $item) {
             $data = [
-                'id' => 'video_'.$item->music_id,
+                'id' => 'video_' . $item->music_id,
             ];
 
             //$datas[] = $data;
@@ -386,18 +415,21 @@ class SolrSyncController extends Controller
         }
         return response(['Ok']);
     }
-    public function syncArtist($id = null, $artistItem = null, $time = null) {
-        if($id) {
+
+    public
+    function syncArtist($id = null, $artistItem = null, $time = null)
+    {
+        if ($id) {
             $artist = ArtistModel::where('artist_id', $id)->get();
-        }elseif($artistItem){
-            if(isset($artistItem[0])){
+        } elseif ($artistItem) {
+            if (isset($artistItem[0])) {
                 $artist = $artistItem;
-            }else{
+            } else {
                 $artist[] = $artistItem;
             }
-        }elseif($time){
-            $artist = ArtistModel::where('music_last_update_time', '>',  $time)->get();
-        }else {
+        } elseif ($time) {
+            $artist = ArtistModel::where('music_last_update_time', '>', $time)->get();
+        } else {
             $artist = ArtistModel::where('music_total', '>', 0)->orwhere('artist_avatar', '!=', '')->where('artist_cover', '!=', '')->offset(0)->limit(130000)->get();
         }
         DB::disconnect('mysql');
@@ -405,7 +437,7 @@ class SolrSyncController extends Controller
         foreach ($artist as $key => $item) {
             $artist_nickname_charset = Helpers::strReplaceSolr(Helpers::khongdau(mb_strtolower($item->artist_nickname, 'UTF-8'), ' '), true);
             $data = [
-                'id' => 'artist_'.$item->artist_id,
+                'id' => 'artist_' . $item->artist_id,
                 'artist_id' => $item->artist_id,
                 'artist_nickname' => $item->artist_nickname,
                 'artist_nickname_search' => Helpers::replaceKeySearch($item->artist_nickname),
@@ -413,13 +445,13 @@ class SolrSyncController extends Controller
                 'artist_nickname_charset_nospace' => Helpers::replaceKeySearch(str_replace(' ', '', $artist_nickname_charset)),
                 'music_total' => $item->music_total,
                 'artist_link' => Helpers::artistUrl($item->artist_id, $item->artist_nickname),
-                'artist_cover' => $item->artist_cover ? Helpers::file_path($item->artist_id, PUBLIC_COVER_ARTIST_PATH, true).$item->artist_cover : '/imgs/no_cover_artist.jpg',
-                'artist_avatar' => $item->artist_avatar ? Helpers::file_path($item->artist_id, PUBLIC_AVATAR_ARTIST_PATH, true).$item->artist_avatar : '/imgs/no_cover.jpg',
+                'artist_cover' => $item->artist_cover ? Helpers::file_path($item->artist_id, PUBLIC_COVER_ARTIST_PATH, true) . $item->artist_cover : '/imgs/no_cover_artist.jpg',
+                'artist_avatar' => $item->artist_avatar ? Helpers::file_path($item->artist_id, PUBLIC_AVATAR_ARTIST_PATH, true) . $item->artist_avatar : '/imgs/no_cover.jpg',
             ];
             $datas[] = $data;
 //            $this->Solr->addDocuments($data);
 
-            if(Auth::check() && (Auth::user()->id == 3 || Auth::user()->id == 997917)) {
+            if (Auth::check() && (Auth::user()->id == 3 || Auth::user()->id == 997917)) {
                 if (strpos($_SERVER['REQUEST_URI'], 'sync/solr_') !== false) {
                     echo ($key) . '/ ' . $item->artist_id . "\n <br>";
                 }
@@ -429,19 +461,22 @@ class SolrSyncController extends Controller
 
         return response(['Ok']);
     }
-    public function syncCover($id = null, $coverItem = null, $time = null) {
-        if($id) {
+
+    public
+    function syncCover($id = null, $coverItem = null, $time = null)
+    {
+        if ($id) {
             $cover = CoverModel::where('cover_id', $id)->orderBy('cover_id', 'asc')->get();
-        }elseif($coverItem){
-            if(isset($coverItem[0])){
+        } elseif ($coverItem) {
+            if (isset($coverItem[0])) {
                 $cover = $coverItem;
-            }else{
+            } else {
                 $cover[] = $coverItem;
             }
-        }elseif($time){
+        } elseif ($time) {
             $cover = CoverModel::where('album_music_total', '>', 0)
-                ->where('album_last_updated', '>',  $time)->orderBy('cover_id', 'asc')->get();
-        }else {
+                ->where('album_last_updated', '>', $time)->orderBy('cover_id', 'asc')->get();
+        } else {
             $cover = CoverModel::where('album_music_total', '>', 0)
                 ->where('cover_id', '>', intval($_GET['c_start']))
                 ->orderBy('cover_id', 'asc')->offset(0)->limit(5000)->get();
@@ -451,15 +486,15 @@ class SolrSyncController extends Controller
         foreach ($cover as $key => $item) {
             $music_artist = $item->album_artist_1;
             $music_artist_id = $item->album_artist_id_1;
-            if($item->album_artist_2) {
-                $music_artist = $music_artist.'; '.$item->album_artist_2;
-                $music_artist_id = $music_artist_id.';'.$item->album_artist_id_2;
+            if ($item->album_artist_2) {
+                $music_artist = $music_artist . '; ' . $item->album_artist_2;
+                $music_artist_id = $music_artist_id . ';' . $item->album_artist_id_2;
             }
             $album_cat = $item->album_cat_id_1;
-            if($album_cat) {
+            if ($album_cat) {
                 $album_cat .= '_' . $item->album_cat_level_1;
-                if($item->album_cat_id_2)
-                    $album_cat .= ';' . $item->album_cat_id_2.'_'.$item->album_cat_level_1;
+                if ($item->album_cat_id_2)
+                    $album_cat .= ';' . $item->album_cat_id_2 . '_' . $item->album_cat_level_1;
             }
             $titleSearch = Helpers::replaceKeySearch($item->music_album);
             $titleCharset = Helpers::strReplaceSolr(Helpers::khongdau($titleSearch, ' '));
@@ -467,15 +502,15 @@ class SolrSyncController extends Controller
             $artistCharset = Helpers::strReplaceSolr(Helpers::khongdau($artistSearch, ' '));
 
             $data = [
-                'id' => 'cover_'.$item->cover_id,
+                'id' => 'cover_' . $item->cover_id,
                 'cover_id' => $item->cover_id,
                 'music_album' => $item->music_album,
                 'music_album_search' => $titleSearch,
-                'music_album_artist_search' => $titleSearch .' '. $artistSearch,
+                'music_album_artist_search' => $titleSearch . ' ' . $artistSearch,
                 'music_album_charset' => $titleCharset,
-                'music_album_artist_charset' => $titleCharset.' '. $artistCharset,
+                'music_album_artist_charset' => $titleCharset . ' ' . $artistCharset,
                 'music_album_charset_nospace' => Helpers::replaceKeySearch(str_replace(' ', '', $titleCharset)),
-                'music_album_artist_charset_nospace' => str_replace(' ', '', $titleCharset) .''.str_replace(' ', '', $artistCharset),
+                'music_album_artist_charset_nospace' => str_replace(' ', '', $titleCharset) . '' . str_replace(' ', '', $artistCharset),
                 'album_cover' => Helpers::cover_url($item->cover_id),
                 'cover_filename' => $item->cover_filename,
                 'album_cat' => !empty($album_cat) ? $album_cat : '',
@@ -494,7 +529,7 @@ class SolrSyncController extends Controller
                 'album_music_year' => $item->music_year,
                 'album_search_result' => 0,
             ];
-            if($music_artist) {
+            if ($music_artist) {
 //                $artistSearch = Helpers::replaceKeySearch($music_artist);
 //                $artistCharset = Helpers::rawTiengVietUrl($music_artist, ' ');
 
@@ -508,7 +543,7 @@ class SolrSyncController extends Controller
             }
             $datas[] = $data;
 //            $this->Solr->addDocuments($data);
-            if(Auth::check() && (Auth::user()->id == 3 || Auth::user()->id == 997917)) {
+            if (Auth::check() && (Auth::user()->id == 3 || Auth::user()->id == 997917)) {
                 if (strpos($_SERVER['REQUEST_URI'], 'sync/solr_') !== false) {
                     echo ($key) . '/ ' . $item->cover_id . "\n <br>";
                 }
@@ -529,7 +564,10 @@ class SolrSyncController extends Controller
 
         return response(['Ok']);
     }
-    public function deleteCustom($id) {
+
+    public
+    function deleteCustom($id)
+    {
         $this->Solr->solrDeleteById($id);
     }
 }
