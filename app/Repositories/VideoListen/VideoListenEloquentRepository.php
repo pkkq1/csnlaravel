@@ -81,15 +81,16 @@ class VideoListenEloquentRepository extends EloquentRepository implements VideoL
     {
         $result = $this->_model
             ->join('csn_video', 'csn_video_listen.music_id', 'csn_video.music_id')
-            ->where('csn_video.cat_id', CATEGORY_ID_VIDEO)
+//            ->where('csn_video.cat_id', CATEGORY_ID_VIDEO)
             ->where('csn_video.cat_level', $idCategory)
-            ->where('music_time', '>', time() - DEFAULT_TIME_QUERY_BXH * 86400) // 90 ngày trở lên
+            ->where('music_time', '>', time() - 150 * 86400) // 150 ngày trở lên
             ->where(function ($query) {
                 $query->where('music_year', '>', intval(date('Y')) - 2)
                     ->orWhere('music_year', 0);
             })
+            ->orderBy('csn_video_listen.music_listen_today_0', 'desc')
+            ->orderBy('csn_video_listen.music_listen_today_1', 'desc')
             ->orderBy('csn_video_listen.music_listen_this_week', 'desc')
-            ->orderBy('csn_video_listen.music_listen_max_week', 'desc')
             ->select($this->_selectVideo)
             ->whereNotIn('csn_video.music_id', function($query) {
                 $query->select('music_id')

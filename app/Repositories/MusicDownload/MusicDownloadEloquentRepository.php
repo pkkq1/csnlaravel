@@ -77,8 +77,8 @@ class MusicDownloadEloquentRepository extends EloquentRepository implements Musi
             })
 //            ->where('csn_music_download.music_downloads_today_0', '>', 10)
             ->orderBy('csn_music_download.music_downloads_today_0', 'desc')
+            ->orderBy('csn_music_download.music_downloads_today_1', 'desc')
             ->orderBy('csn_music_download.music_downloads_this_week', 'desc')
-            ->orderBy('csn_music_download.music_downloads_max_week', 'desc')
             ->select($this->_selectMusic)
             ->whereNotIn('csn_music.music_id', function($query) {
                 $query->select('music_id')
