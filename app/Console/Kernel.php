@@ -36,16 +36,17 @@ class Kernel extends ConsoleKernel
         //          ->hourly();
 //        $schedule->call('\App\Http\Controllers\Sync\SolrSyncController@syncCover');
 
-        $schedule->command('music_listen_download:type real')->hourly(5); // gán giá trị listen và download
-        $schedule->command('music_listen_download:type today')->dailyAt('00:01');
+        $schedule->command('music_listen_download:type real')->hourly(3); // gán giá trị listen và download
+        $schedule->command('music_listen_download:type today')->dailyAt('00:08');
 
+        $schedule->command('bxh_cat:type cat today')->dailyAt('00:04');  // bảng xếp hạng hôm nay, tính bằng download_today_0, chạy trước dailyAt('00:08');
+        $schedule->command('bxh_cat:type cat week')->dailyAt('00:10');   // bảng xếp hạng trong tuần, chạy sau dailyAt('00:08');
 
         $schedule->command('album')->hourlyAt(12);
         $schedule->command('album_cat')->hourlyAt(15);
         $schedule->command('music_download')->hourlyAt(20);
         $schedule->command('suggestion_cat')->hourlyAt(25);
-        $schedule->command('bxh_cat:type cat today')->hourly(10);  // bảng xếp hạng hôm nay, tính bằng download_today ->hourly(5)
-        $schedule->command('bxh_cat:type cat week')->dailyAt('00:10');   // bảng xếp hạng trong tuần
+
         $schedule->command('uploader:type 7day')->dailyAt('00:15');   // bảng xếp hạng uploader
         $schedule->command('uploader:type cache_upload')->dailyAt('00:17');   // xóa files cache upload
 

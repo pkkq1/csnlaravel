@@ -79,11 +79,26 @@ class VideoListenEloquentRepository extends EloquentRepository implements VideoL
     }
     public function bxhHotTodayCategoryVideo($idCategory)
     {
-        $result = \App\Models\VideoModel::where('csn_video.cat_id', CATEGORY_ID_VIDEO)
+        $result = $this->_model
+            ->join('csn_video', 'csn_video_listen.music_id', 'csn_video.music_id')
+            ->where('csn_video.cat_id', CATEGORY_ID_VIDEO)
             ->where('csn_video.cat_level', $idCategory)
-//            ->orderBy('csn_video.music_downloads_today', 'desc')
-//            ->orderBy('csn_video.music_downloads_this_week', 'desc')
+            ->where('music_time', '>', time() - DEFAULT_TIME_QUERY_BXH * 86400) // 90 ngày trở lên
+            ->where(function ($query) {
+                $query->where('music_year', '>', intval(date('Y')) - 2)
+                    ->orWhere('music_year', 0);
+            })
+            ->orderBy('csn_video_listen.music_listen_this_week', 'desc')
+            ->orderBy('csn_video_listen.music_listen_max_week', 'desc')
             ->select($this->_selectVideo)
+            ->whereNotIn('csn_video.music_id', function($query) {
+                $query->select('music_id')
+                    ->from('csn_video_exception');
+            })
+            ->whereNotIn('csn_video.music_artist_id', function($query) {
+                $query->select('artist_id')
+                    ->from('csn_artist_exception');
+            })
             ->limit(20)
             ->get();
         return $result;

@@ -14,9 +14,12 @@ use App\Models\CategoryCsnModel;
 use App\Repositories\Music\MusicEloquentRepository;
 use App\Repositories\Category\CategoryEloquentRepository;
 use App\Repositories\MusicListen\MusicListenEloquentRepository;
+use App\Repositories\VideoListen\VideoListenEloquentRepository;
 use App\Repositories\MusicException\MusicExceptionEloquentRepository;
 use App\Repositories\VideoException\VideoExceptionEloquentRepository;
 use App\Repositories\ArtistException\ArtistExceptionRepository;
+use App\Repositories\MusicDownload\MusicDownloadEloquentRepository;
+use App\Repositories\VideoDownload\VideoDownloadEloquentRepository;
 use DB;
 
 class BxhCategoryController extends Controller
@@ -24,13 +27,21 @@ class BxhCategoryController extends Controller
     protected $musicRepository;
     protected $categoryRepository;
     protected $musicListenRepository;
+    protected $videoListenRepository;
     protected $artistExpRepository;
+    protected $musicDownloadRepository;
+    protected $videoDownloadRepository;
 
-    public function __construct(MusicEloquentRepository $musicRepository, CategoryEloquentRepository $categoryRepository, MusicListenEloquentRepository $musicListenRepository, ArtistExceptionRepository $artistExpRepository) {
+    public function __construct(MusicEloquentRepository $musicRepository, CategoryEloquentRepository $categoryRepository, MusicListenEloquentRepository $musicListenRepository, VideoListenEloquentRepository $videoListenRepository, ArtistExceptionRepository $artistExpRepository,
+                                    MusicDownloadEloquentRepository $musicDownloadRepository, VideoDownloadEloquentRepository $videoDownloadRepository)
+    {
         $this->musicRepository = $musicRepository;
         $this->categoryRepository = $categoryRepository;
         $this->musicListenRepository = $musicListenRepository;
+        $this->videoListenRepository = $videoListenRepository;
         $this->artistExpRepository = $artistExpRepository;
+        $this->musicDownloadRepository = $musicDownloadRepository;
+        $this->videoDownloadRepository = $videoDownloadRepository;
     }
     public function syncBxhCategory($today = true, $week = false) {
         $catregory =$this->categoryRepository->getCategoryParent();
@@ -40,7 +51,8 @@ class BxhCategoryController extends Controller
         $ressultVideo = [];
         $artistExp = $this->artistExpRepository->getArrIds();
         foreach ($catregory as $item) {
-            $result = $this->musicListenRepository->bxhHotTodayCategoryMusic($item->cat_id)->toArray();
+//            $result = $this->musicListenRepository->bxhHotTodayCategoryMusic($item->cat_id)->toArray();
+            $result = $this->musicDownloadRepository->bxhHotTodayCategoryMusic($item->cat_id)->toArray();
             foreach($result as $item2) {
                 if(!Helpers::checkExitsExcepArtist($item2['music_artist_id'], $artistExp)) {
                     $item2['cover_html'] = Helpers::cover_url($item2['cover_id'], explode(';', $item2['music_artist_id'])[0]);
@@ -49,7 +61,9 @@ class BxhCategoryController extends Controller
                     $ressultMusic[$item->cat_id][] = $item2;
                 }
             }
-            $result = $this->musicListenRepository->bxhHotTodayCategoryVideo($item->cat_id)->toArray();
+//            $result = $this->musicListenRepository->bxhHotTodayCategoryVideo($item->cat_id)->toArray();
+//            $result = $this->videoDownloadRepository->bxhHotTodayCategoryVideo($item->cat_id)->toArray();
+            $result = $this->videoListenRepository->bxhHotTodayCategoryVideo($item->cat_id)->toArray();
             foreach($result as $item2) {
                 if(!Helpers::checkExitsExcepArtist($item2['music_artist_id'], $artistExp)) {
                     $item2['cover_html'] = Helpers::cover_url($item2['cover_id'], explode(';', $item2['music_artist_id'])[0]);
