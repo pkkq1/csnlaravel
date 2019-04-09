@@ -1,0 +1,50 @@
+google.com, pub-9997447233325653, DIRECT, f08c47fec0942fa0
+gammassp.com, 1508317556, DIRECT
+ambientdigitalgroup.com, 1508317556, DIRECT
+openx.com, 110440, RESELLER, 6a698e2ec38604c6
+gammassp.com, 1503295933, DIRECT
+appnexus.com, 1835, RESELLER
+
+gammassp.com, 1504092369, DIRECT
+vertoz.com, 23829, DIRECT, 8728b7e97e589da4
+appnexus.com, 2744, RESELLER
+rubiconproject.com, 17580, RESELLER, 0bfd66d529a55807
+adtech.com, 10316, DIRECT
+aolcloud.net, 10316, DIRECT
+adform.com, 278, RESELLER, 9f5210a2f0999e32
+google.com, pub-5512390705137507, RESELLER, f08c47fec0942fa0
+google.com, pub-9910893758418484, DIRECT
+google.com, pub-8434185908489285, DIRECT
+google.com, pub-7683628640306220, RESELLER, f08c47fec0942fa0
+google.com, pub-6918582494067064, RESELLER, f08c47fec0942fa0
+google.com, pub-1965383259143495, RESELLER, f08c47fec0942fa0
+google.com, pub-7002491002409919, RESELLER
+google.com, pub-1937576406332709, RESELLER, f08c47fec0942fa0
+smartadserver.com, 2581, RESELLER
+smartadserver.com, 1079, RESELLER
+sovrn.com, 212673, DIRECT, fafdf38b16bf6b2b
+lijit.com, 212673, DIRECT, fafdf38b16bf6b2b
+gumgum.com, 11645, RESELLER, ffdef49475d318a9
+openx.com, 537120960, RESELLER
+openx.com, 83499, RESELLER
+openx.com, 538959099, RESELLER
+pubmatic.com, 137711, RESELLER
+pubmatic.com, 156212, RESELLER
+pubmatic.com, 62483, RESELLER
+coxmt.com,2000068028602,direct
+
+gammassp.com, 1503295933, DIRECT
+appnexus.com, 1835, RESELLER
+freewheel.tv, 231609, RESELLER
+freewheel.tv, 231617, RESELLER
+freewheel.tv, 231393, RESELLER
+freewheel.tv, 231401, RESELLER
+freewheel.tv, 293217, RESELLER
+freewheel.tv, 293233, RESELLER
+advalue.com.vn, 1535090901, DIRECT 
+
+mgid.com, 56994649, DIRECT
+mgid.com, 56994800, DIRECT
+mgid.com, 353436, DIRECT
+mgid.com, 56994805, DIRECT
+mgid.com, 353441, DIRECT
