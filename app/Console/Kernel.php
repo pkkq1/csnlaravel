@@ -27,7 +27,7 @@ class Kernel extends ConsoleKernel
     /**
      * Define the application's command schedule.
      *
-     * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
+     * @param  \Illuminate\Console\Scheduling\Schedule $schedule
      * @return void
      */
     protected function schedule(Schedule $schedule)
@@ -50,7 +50,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('uploader:type cache_upload')->dailyAt('00:17');   // xóa files cache upload
 
 
-        $schedule->command('bxh_cat:type cat_month '.CURRENT_MONTH.' 2019')->dailyAt('00:20');  // bảng xếp hạng tháng trong năm, (all sẽ lấy tất cả trong năm, all_month sẽ lấy tất cả tháng, số sẽ lấy đúng tháng)
+        $schedule->command('bxh_cat:type cat_month ' . CURRENT_MONTH . ' 2019')->dailyAt('00:20');  // bảng xếp hạng tháng trong năm, (all sẽ lấy tất cả trong năm, all_month sẽ lấy tất cả tháng, số sẽ lấy đúng tháng)
         $schedule->command('bxh_cat:type cat_month all 2019')->dailyAt('00:25');   // bảng xếp hạng của năm
         $schedule->command('top_artist')->dailyAt('00:30');   // top ca sĩ
 
@@ -62,6 +62,7 @@ class Kernel extends ConsoleKernel
 
         $schedule->command('sync_music_new')->everyFiveMinutes(); // đồng bộ nhạc mới cho solr và update total_music cover
 
+        $schedule->command('solr:type all')->twiceDaily(1, 14)->everyMinute(); // đồng bộ lại toàn bộ nhac, video, cover, artist
     }
 
     /**
@@ -71,7 +72,7 @@ class Kernel extends ConsoleKernel
      */
     protected function commands()
     {
-        $this->load(__DIR__.'/Commands');
+        $this->load(__DIR__ . '/Commands');
         require base_path('routes/console.php');
     }
 }
