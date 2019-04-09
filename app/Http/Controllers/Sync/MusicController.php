@@ -73,4 +73,19 @@ class MusicController extends Controller
        }
        return response(['Ok']);
    }
+    public function demo() {
+        $cover = $this->coverRepository->getModel()::where('cover_id', '>=', '101350')->get();
+        $Solr = new SolrSyncController($this->Solr);
+        foreach ($cover as $item) {
+            if($item->album_cat_id_1 == 1) {
+                $cntCover = $this->videoRepository->getQueryPublished()->where('cover_id', $item->cover_id)->count();
+            }else{
+                $cntCover = $this->musicRepository->getQueryPublished()->where('cover_id', $item->cover_id)->count();
+            }
+            $item->album_music_total = $cntCover;
+            $item->save();
+            $Solr->syncCover(null, $item);
+        }
+        return response(['Ok']);
+    }
 }
