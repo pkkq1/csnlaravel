@@ -55,9 +55,9 @@ class Solr extends Command
         }elseif($this->argument('type') == 'all') {
             $minute_now = intval(date('i'));
             // Music
-            if ($minute_now < 30) {
+            if ($minute_now < 50) {
                 $limit = 50000;
-                $offset = ($minute_now - 10) * $limit;
+                $offset = ($minute_now - 20) * $limit;
                 $Solr->syncMusic(null, null, null, '', $offset, $limit);
             } elseif ($minute_now == 30) {
                 //$this->Solr->solrDeleteByQuery('(id:music_*)AND(solr_updated_time:[0 TO '. (time() - 2000) .'])');
