@@ -394,7 +394,7 @@ if($musicSet['type_listen'] == 'playlist') {
                 </div>
 
                 <!-- Composite Start -->
-                <div id="M418572ScriptRootC353285">
+                <div id="M418572ScriptRootC353285" class="box_header d-flex justify-content-between align-items-end">
                     <div id="M418572PreloadC353285">
                         Loading...    </div>
                     <script>
