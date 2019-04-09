@@ -21,16 +21,6 @@ class CategoryCsnController extends CrudController
 {
     public function __construct()
     {
-        parent::__construct();
-
-    }
-    public function setup()
-    {
-        $this->crud->setModel("App\Models\CategoryCsnModel");
-        $this->crud->setEntityNameStrings('Category CSN', 'Category CSN');
-        $this->crud->setRoute(config('backpack.base.route_prefix').'/category_csn');
-        $this->crud->orderBy('cat_id', 'desc');
-//        $this->crud->setEntityNameStrings('menu item', 'menu items');
         $this->middleware(function ($request, $next)
         {
             if(!backpack_user()->can('danh_muc_csn_(list)')) {
@@ -47,6 +37,17 @@ class CategoryCsnController extends CrudController
             }
             return $next($request);
         });
+        parent::__construct();
+
+    }
+    public function setup()
+    {
+        $this->crud->setModel("App\Models\CategoryCsnModel");
+        $this->crud->setEntityNameStrings('Category CSN', 'Category CSN');
+        $this->crud->setRoute(config('backpack.base.route_prefix').'/category_csn');
+        $this->crud->orderBy('cat_id', 'desc');
+//        $this->crud->setEntityNameStrings('menu item', 'menu items');
+
         $this->crud->addColumn([
             'name' => 'cat_id',
             'label' => 'ID',

@@ -20,19 +20,6 @@ class CategoryPlaylistController extends CrudController
 {
     public function __construct()
     {
-        parent::__construct();
-    }
-
-    public function setup()
-    {
-        $this->crud->setModel("App\Models\CategoryPlaylistModel");
-        $this->crud->setEntityNameStrings('Category Playlist', 'Category Playlist');
-        $this->crud->setRoute(config('backpack.base.route_prefix').'/category_playlist');
-        $this->crud->orderBy('cat_id', 'desc');
-//        $this->crud->setEntityNameStrings('menu item', 'menu items');
-
-//        $this->crud->allowAccess('reorder');
-//        $this->crud->enableReorder('name', 2);
         $this->middleware(function ($request, $next)
         {
             if(!backpack_user()->can('danh_muc_playlist_(list)')) {
@@ -49,6 +36,20 @@ class CategoryPlaylistController extends CrudController
             }
             return $next($request);
         });
+        parent::__construct();
+    }
+
+    public function setup()
+    {
+        $this->crud->setModel("App\Models\CategoryPlaylistModel");
+        $this->crud->setEntityNameStrings('Category Playlist', 'Category Playlist');
+        $this->crud->setRoute(config('backpack.base.route_prefix').'/category_playlist');
+        $this->crud->orderBy('cat_id', 'desc');
+//        $this->crud->setEntityNameStrings('menu item', 'menu items');
+
+//        $this->crud->allowAccess('reorder');
+//        $this->crud->enableReorder('name', 2);
+
         $this->crud->addColumn([
             'name' => 'cat_id',
             'label' => 'ID',

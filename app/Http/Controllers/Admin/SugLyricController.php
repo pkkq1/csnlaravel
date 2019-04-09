@@ -28,16 +28,6 @@ class SugLyricController extends CrudController
     public function __construct(Solarium $Solr)
     {
         $this->Solr = $Solr;
-        parent::__construct();
-
-    }
-    public function setup()
-    {
-        $this->crud->setModel("App\Models\LyricSuggestionModel");
-        $this->crud->setEntityNameStrings('Lyric', 'Lyric');
-        $this->crud->setRoute(config('backpack.base.route_prefix').'/lyric');
-        $this->crud->orderBy('id', 'asc');
-        $this->crud->denyAccess(['create']);
         $this->middleware(function ($request, $next)
         {
             if(!backpack_user()->can('suggestion_lyric_(list)')) {
@@ -54,6 +44,17 @@ class SugLyricController extends CrudController
             }
             return $next($request);
         });
+        parent::__construct();
+
+    }
+    public function setup()
+    {
+        $this->crud->setModel("App\Models\LyricSuggestionModel");
+        $this->crud->setEntityNameStrings('Lyric', 'Lyric');
+        $this->crud->setRoute(config('backpack.base.route_prefix').'/lyric');
+        $this->crud->orderBy('id', 'asc');
+        $this->crud->denyAccess(['create']);
+
         $this->crud->setColumns([
             [
                 'name'  => 'music_id',
@@ -154,6 +155,7 @@ class SugLyricController extends CrudController
         }
         $music = MusicModel::find($request->music_id);
         $music->music_lyric = $request->music_lyric;
+        $music->music_last_update_time = time();
         $music->save();
         $sugLyric->delete();
         \Alert::success('Chỉnh sửa lyric mới thành công.')->flash();

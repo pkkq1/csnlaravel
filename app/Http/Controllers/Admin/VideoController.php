@@ -26,6 +26,16 @@ class VideoController extends CrudController
     {
         $this->deleteVideoRepository = $deleteVideoRepository;
         $this->videoRepository = $videoRepository;
+        $this->middleware(function ($request, $next)
+        {
+            if(!backpack_user()->can('duyet_sua_nhac') && !backpack_user()->can('duyet_sua_karaoke')) {
+                $this->crud->denyAccess(['list']);
+            }
+            if(!backpack_user()->can('xoa_nhac')) {
+                $this->crud->denyAccess(['delete']);
+            }
+            return $next($request);
+        });
         parent::__construct();
     }
 
@@ -40,16 +50,7 @@ class VideoController extends CrudController
         $this->crud->denyAccess(['create']);
         $this->crud->enableBulkActions();
         $this->crud->addBulkDeleteButton();
-        $this->middleware(function ($request, $next)
-        {
-            if(!backpack_user()->can('duyet_sua_nhac') && !backpack_user()->can('duyet_sua_karaoke')) {
-                $this->crud->denyAccess(['list']);
-            }
-            if(!backpack_user()->can('xoa_nhac')) {
-                $this->crud->denyAccess(['delete']);
-            }
-            return $next($request);
-        });
+
 //        $this->crud->allowAccess('reorder');
 //        $this->crud->enableReorder('name', 2);
         $this->crud->addColumn([

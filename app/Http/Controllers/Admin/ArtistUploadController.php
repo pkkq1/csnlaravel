@@ -31,6 +31,22 @@ class ArtistUploadController extends CrudController
         $this->artistRepository = $artistRepository;
         $this->artistUploadRepository = $artistUploadRepository;
         $this->Solr = $Solr;
+        $this->middleware(function ($request, $next)
+        {
+            if(!backpack_user()->can('xet_duyet_ca_si_(list)')) {
+                $this->crud->denyAccess(['list']);
+            }
+            if(!backpack_user()->can('xet_duyet_ca_si_(create)')) {
+                $this->crud->denyAccess(['create']);
+            }
+            if(!backpack_user()->can('xet_duyet_ca_si_(update)')) {
+                $this->crud->denyAccess(['update']);
+            }
+            if(!backpack_user()->can('xet_duyet_ca_si_(delete)')) {
+                $this->crud->denyAccess(['delete']);
+            }
+            return $next($request);
+        });
         parent::__construct();
     }
     public function setup()
@@ -56,22 +72,7 @@ class ArtistUploadController extends CrudController
              $this->crud->addClause('where', 'type', $value);
         });
 
-        $this->middleware(function ($request, $next)
-        {
-            if(!backpack_user()->can('xet_duyet_ca_si_(list)')) {
-                $this->crud->denyAccess(['list']);
-            }
-            if(!backpack_user()->can('xet_duyet_ca_si_(create)')) {
-                $this->crud->denyAccess(['create']);
-            }
-            if(!backpack_user()->can('xet_duyet_ca_si_(update)')) {
-                $this->crud->denyAccess(['update']);
-            }
-            if(!backpack_user()->can('xet_duyet_ca_si_(delete)')) {
-                $this->crud->denyAccess(['delete']);
-            }
-            return $next($request);
-        });
+
         $this->crud->orderBy('artist_id', 'desc');
 //        $this->crud->addClause('where', 'active', 1);
         $this->crud->setColumns([

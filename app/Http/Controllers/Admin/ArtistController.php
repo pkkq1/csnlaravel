@@ -28,19 +28,9 @@ class ArtistController extends CrudController
     {
         $this->artistRepository = $artistRepository;
         $this->Solr = $Solr;
-
-        parent::__construct();
-    }
-    public function setup() {
-        $this->crud->setModel("App\Models\ArtistModel");
-        $this->crud->setEntityNameStrings('Ca sĩ', 'Ca Sĩ');
-        $this->crud->setRoute(config('backpack.base.route_prefix').'/artist');
-        $this->crud->orderBy('updated_at', 'desc');
-        $this->crud->denyAccess(['create']);
-//        $this->crud->setEntityNameStrings('menu item', 'menu items');
-
         $this->middleware(function ($request, $next)
         {
+            $this->crud->denyAccess(['create']);
             if(!backpack_user()->can('danh_sach_ca_si_(list)')) {
                 $this->crud->denyAccess(['list']);
             }
@@ -55,6 +45,16 @@ class ArtistController extends CrudController
             }
             return $next($request);
         });
+        parent::__construct();
+    }
+    public function setup() {
+        $this->crud->setModel("App\Models\ArtistModel");
+        $this->crud->setEntityNameStrings('Ca sĩ', 'Ca Sĩ');
+        $this->crud->setRoute(config('backpack.base.route_prefix').'/artist');
+        $this->crud->orderBy('updated_at', 'desc');
+//        $this->crud->setEntityNameStrings('menu item', 'menu items');
+
+
         $this->crud->setColumns([
             [
                 'name'  => 'artist_id',

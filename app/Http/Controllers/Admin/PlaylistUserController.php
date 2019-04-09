@@ -44,6 +44,22 @@ class PlaylistUserController extends CrudController
         $this->playlistRepository = $playlistRepository;
         $this->playlistPublisherRepository = $playlistPublisherRepository;
         $this->playlistMusicPublisherRepository = $playlistMusicPublisherRepository;
+        $this->middleware(function ($request, $next)
+        {
+            if(!backpack_user()->can('playlist_user_(list)')) {
+                $this->crud->denyAccess(['list']);
+            }
+            if(!backpack_user()->can('playlist_user_(create)')) {
+                $this->crud->denyAccess(['create']);
+            }
+            if(!backpack_user()->can('playlist_user_(update)')) {
+                $this->crud->denyAccess(['update']);
+            }
+            if(!backpack_user()->can('playlist_user_(delete)')) {
+                $this->crud->denyAccess(['delete']);
+            }
+            return $next($request);
+        });
         parent::__construct();
 
     }
@@ -67,22 +83,7 @@ class PlaylistUserController extends CrudController
                 $this->crud->addClause('whereDate', 'created_at', '>=', $dates->from);
                 $this->crud->addClause('whereDate', 'created_at', '<=', $dates->to);
             });
-        $this->middleware(function ($request, $next)
-        {
-            if(!backpack_user()->can('playlist_user_(list)')) {
-                $this->crud->denyAccess(['list']);
-            }
-            if(!backpack_user()->can('playlist_user_(create)')) {
-                $this->crud->denyAccess(['create']);
-            }
-            if(!backpack_user()->can('playlist_user_(update)')) {
-                $this->crud->denyAccess(['update']);
-            }
-            if(!backpack_user()->can('playlist_user_(delete)')) {
-                $this->crud->denyAccess(['delete']);
-            }
-            return $next($request);
-        });
+
 //        $this->crud->addClause('where', 'active', 1);
         $this->crud->setColumns([
             [

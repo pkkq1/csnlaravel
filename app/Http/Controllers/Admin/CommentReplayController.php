@@ -28,18 +28,6 @@ class CommentReplayController extends CrudController
     {
         $this->musicRepository = $musicRepository;
         $this->userRepository = $userRepository;
-        parent::__construct();
-
-    }
-    public function setup()
-    {
-
-        $this->crud->setModel("App\Models\CommentReplyModel");
-        $this->crud->setEntityNameStrings('Trả lời bình luận', 'Trả lời bình luận');
-        $this->crud->setRoute(config('backpack.base.route_prefix').'/comment_replay');
-//        $this->crud->setEntityNameStrings('menu item', 'menu items');
-        $this->crud->orderBy('comment_reply_id', 'desc');
-        $this->crud->denyAccess(['create']);
         $this->middleware(function ($request, $next)
         {
             if(!backpack_user()->can('comment_(list)')) {
@@ -53,6 +41,19 @@ class CommentReplayController extends CrudController
             }
             return $next($request);
         });
+        parent::__construct();
+
+    }
+    public function setup()
+    {
+
+        $this->crud->setModel("App\Models\CommentReplyModel");
+        $this->crud->setEntityNameStrings('Trả lời bình luận', 'Trả lời bình luận');
+        $this->crud->setRoute(config('backpack.base.route_prefix').'/comment_replay');
+//        $this->crud->setEntityNameStrings('menu item', 'menu items');
+        $this->crud->orderBy('comment_reply_id', 'desc');
+        $this->crud->denyAccess(['create']);
+
         $this->crud->addFilter([ // daterange filter
             'type' => 'date_range',
             'name' => 'from_to',

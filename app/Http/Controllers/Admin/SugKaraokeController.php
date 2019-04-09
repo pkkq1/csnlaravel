@@ -29,18 +29,6 @@ class SugKaraokeController extends CrudController
     public function __construct(Solarium $Solr)
     {
         parent::__construct();
-        $this->Solr = $Solr;
-    }
-    public function setup()
-    {
-        $this->crud->setModel("App\Models\KaraokeSuggestionModel");
-        $this->crud->setEntityNameStrings('Karaoke', 'Karaoke');
-        $this->crud->setRoute(config('backpack.base.route_prefix').'/karaoke');
-        $this->crud->orderBy('id', 'asc');
-        $this->crud->denyAccess(['create']);
-
-//        $this->crud->setEntityNameStrings('menu item', 'menu items');
-
         $this->middleware(function ($request, $next)
         {
             if(!backpack_user()->can('suggestion_karaoke_(list)')) {
@@ -57,6 +45,19 @@ class SugKaraokeController extends CrudController
             }
             return $next($request);
         });
+        $this->Solr = $Solr;
+    }
+    public function setup()
+    {
+        $this->crud->setModel("App\Models\KaraokeSuggestionModel");
+        $this->crud->setEntityNameStrings('Karaoke', 'Karaoke');
+        $this->crud->setRoute(config('backpack.base.route_prefix').'/karaoke');
+        $this->crud->orderBy('id', 'asc');
+        $this->crud->denyAccess(['create']);
+
+//        $this->crud->setEntityNameStrings('menu item', 'menu items');
+
+
         $this->crud->setColumns([
             [
                 'name'  => 'music_id',
@@ -174,6 +175,8 @@ class SugKaraokeController extends CrudController
             $music->musicKara->user_id = $sugLyric->user_id;
             $music->musicKara->music_update_time = time();
             $music->musicKara->save();
+            $music->music_last_update_time = time();
+            $music->save();
         }
         $sugLyric->delete();
         \Alert::success('Chỉnh sửa karaoke mới thành công.')->flash();

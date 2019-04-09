@@ -25,6 +25,14 @@ class SearchResultController extends CrudController
 
     public function __construct()
     {
+        $this->middleware(function ($request, $next)
+        {
+            if(!backpack_user()->can('search_results(list)')) {
+                $this->crud->denyAccess(['list']);
+            }
+            return $next($request);
+        });
+
         parent::__construct();
     }
 
@@ -77,13 +85,6 @@ class SearchResultController extends CrudController
 
             });
 
-        $this->middleware(function ($request, $next)
-        {
-            if(!backpack_user()->can('search_results(list)')) {
-                $this->crud->denyAccess(['list']);
-            }
-            return $next($request);
-        });
 
 
         $this->crud->addColumn([

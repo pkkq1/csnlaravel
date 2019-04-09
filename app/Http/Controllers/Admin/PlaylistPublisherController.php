@@ -38,18 +38,6 @@ class PlaylistPublisherController extends CrudController
         $this->artistUploadRepository = $artistUploadRepository;
         $this->playlistMusicPublisherRepository = $playlistMusicPublisherRepository;
         $this->playlistPublisherRepository = $playlistPublisherRepository;
-        parent::__construct();
-
-    }
-
-    public function setup()
-    {
-        $this->crud->setModel("App\Models\PlaylistPublisherModel");
-        $this->crud->setEntityNameStrings('Playlist Publisher', 'Playlist Publisher');
-        $this->crud->setRoute(config('backpack.base.route_prefix').'/playlist_publisher');
-        $this->crud->denyAccess(['create']);
-        $this->crud->orderBy('playlist_id', 'desc');
-
         $this->middleware(function ($request, $next)
         {
             if(!backpack_user()->can('playlist_publisher_(list)')) {
@@ -66,6 +54,19 @@ class PlaylistPublisherController extends CrudController
             }
             return $next($request);
         });
+        parent::__construct();
+
+    }
+
+    public function setup()
+    {
+        $this->crud->setModel("App\Models\PlaylistPublisherModel");
+        $this->crud->setEntityNameStrings('Playlist Publisher', 'Playlist Publisher');
+        $this->crud->setRoute(config('backpack.base.route_prefix').'/playlist_publisher');
+        $this->crud->denyAccess(['create']);
+        $this->crud->orderBy('playlist_id', 'desc');
+
+
 //        $this->crud->addClause('where', 'active', 1);
         $this->crud->setColumns([
             [

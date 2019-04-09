@@ -7,54 +7,55 @@
  */
 namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request as Request;
-
-use App\Http\Requests;
 use App\Library\Helpers;
+use App\Http\Requests;
 use App\Models\MusicKaraokeModel;
+use Illuminate\Support\Facades\Storage;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 // VALIDATION: change the requests to match your own file names if you need form validation
 use Backpack\CRUD\app\Http\Requests\CrudRequest as StoreRequest;
 use Backpack\CRUD\app\Http\Requests\CrudRequest as UpdateRequest;
 use Illuminate\Support\Facades\Auth;
-use App\Repositories\DeleteMusic\DeleteMusicEloquentRepository;
-use App\Repositories\Music\MusicEloquentRepository;
+use App\Repositories\Artist\ArtistRepository;
+use App\Solr\Solarium;
 use App\Models\MusicModel;
+use App\Models\VideoModel;
+use App\Http\Controllers\Sync\SolrSyncController;
 
-class MusicController extends CrudController
+class LyricKaraokeVideoController extends CrudController
 {
-    protected $deleteMusicRepository;
-    protected $musicRepository;
-    public function __construct(DeleteMusicEloquentRepository $deleteMusicRepository, MusicEloquentRepository $musicRepository)
+    protected $artistRepository;
+    protected $Solr;
+
+    public function __construct(ArtistRepository $artistRepository, Solarium $Solr)
     {
-        $this->deleteMusicRepository = $deleteMusicRepository;
-        $this->musicRepository = $musicRepository;
+        $this->artistRepository = $artistRepository;
+        $this->Solr = $Solr;
         $this->middleware(function ($request, $next)
         {
-            if(!backpack_user()->can('duyet_sua_nhac') && !backpack_user()->can('duyet_sua_karaoke')) {
+            if(!backpack_user()->can('duyet_sua_nhac')) {
                 $this->crud->denyAccess(['list']);
             }
-            if(!backpack_user()->can('xoa_nhac')) {
-                $this->crud->denyAccess(['delete']);
+            $this->crud->denyAccess(['create']);
+            if(!backpack_user()->can('duyet_sua_nhac')) {
+                $this->crud->denyAccess(['update']);
             }
+            $this->crud->denyAccess(['delete']);
             return $next($request);
         });
         parent::__construct();
-
     }
-
     public function setup()
     {
-        $this->crud->setModel("App\Models\MusicModel");
-        $this->crud->setEntityNameStrings('Nhạc CSN', 'Nhạc CSN');
-        $this->crud->setRoute(config('backpack.base.route_prefix').'/music');
-//        $this->crud->setEntityNameStrings('menu item', 'menu items');
+        $this->crud->setModel("App\Models\VideoModel");
+        $this->crud->setEntityNameStrings('Danh Sách Karaoke', 'Danh Sách Video Lyric Karaoke');
+        $this->crud->setRoute(config('backpack.base.route_prefix').'/list_video_lyric_karaoke');
         $this->crud->orderBy('music_last_update_time', 'desc');
+        $this->crud->orderBy('music_time', 'desc');
         $this->crud->denyAccess(['create']);
-        $this->crud->enableBulkActions();
-        $this->crud->addBulkDeleteButton();
 
-//        $this->crud->allowAccess('reorder');
-//        $this->crud->enableReorder('name', 2);
+
+
         $this->crud->addColumn([
             'name' => 'music_id',
             'label' => 'ID',
@@ -91,45 +92,11 @@ class MusicController extends CrudController
 //                return Helpers::rawHtmlArtists($entry->music_artist_id, $entry->music_artist);
 //            }
         ]);
-
-        $this->crud->addField([
-            'name' => 'music_title',
-            'label' => 'Tên bài hát',
-        ]);
-        $this->crud->addField([
-            'name' => 'music_composer',
-            'label' => 'Sáng tác',
-            'wrapperAttributes' => [
-                'class' => 'form-group col-md-6',
-            ],
-        ]);
-        $this->crud->addField([
-            'name' => 'music_production',
-            'label' => 'Sản Xuất',
-            'wrapperAttributes' => [
-                'class' => 'form-group col-md-6',
-            ],
-        ]);
-        $this->crud->addField([
-            'name' => 'music_album_id',
-            'label' => 'Hãng đĩa',
-            'wrapperAttributes' => [
-                'class' => 'form-group col-md-6',
-            ],
-        ]);
-        $this->crud->addField([
-            'name' => 'music_year',
-            'label' => 'Năm phát hành',
-            'wrapperAttributes' => [
-                'class' => 'form-group col-md-6',
-            ],
-        ]);
         $this->crud->addField([
             'name' => 'music_shortlyric',
             'label' => 'Lời bài hát ngắn',
             'type' => 'textarea',
             'placeholder' => 'Nhập lời bài hát ngắn',
-            // 'disabled' => 'disabled'
         ]);
         $this->crud->addField([    // WYSIWYG
             'name' => 'music_lyric',
@@ -137,28 +104,12 @@ class MusicController extends CrudController
             'type' => 'textarea',
             'placeholder' => 'Nhập lời bài hát đầy đủ.',
         ]);
-        $this->crud->addField([
-            'name' => 'music_note',
-            'label' => 'Ghi chú',
-        ]);
-        $this->crud->addField([
-            'name'  => 'cat_id',
-            'type'  => 'hidden',
-        ]);
-        $this->crud->addField([
-            'name'  => 'cat_level',
-            'type'  => 'hidden',
-        ]);
-        $this->crud->addField([
-            'name'  => 'cat_sublevel',
-            'type'  => 'hidden',
-        ]);
-        $this->crud->addField([
-            'name'  => 'cat_custom',
-            'type'  => 'hidden',
-        ]);
     }
 
+    public function destroy($id)
+    {
+        return $this->crud->delete($id);
+    }
     public function store(StoreRequest $request)
     {
         return parent::storeCrud($request);
@@ -166,6 +117,7 @@ class MusicController extends CrudController
     public function edit($id, $template = false)
     {
         $this->crud->hasAccessOrFail('update');
+        $this->crud->setOperation('update');
 
         // get entry ID from Request (makes sure its the last ID for nested resources)
         $id = $this->crud->getCurrentEntryId() ?? $id;
@@ -175,15 +127,18 @@ class MusicController extends CrudController
         $this->data['crud'] = $this->crud;
         $this->data['saveAction'] = $this->getSaveAction();
         $this->data['fields'] = $this->crud->getUpdateFields($id);
-        $this->data['title'] = trans('backpack::crud.edit').' '.$this->crud->entity_name;
+        $this->data['title'] = $this->crud->getTitle() ?? trans('backpack::crud.edit').' '.$this->crud->entity_name;
+
         $this->data['id'] = $id;
 
-        return view('vendor.backpack.music.edit', $this->data);
+        // load the view from /resources/views/vendor/backpack/crud/ if it exists, otherwise load the one in the package
+
+        return view('vendor.backpack.suggestion_lyric_karaoke.edit_music', $this->data);
     }
     public function update(UpdateRequest $request)
     {
-        dd($request->music_lyric);
         $per_kara = backpack_user()->can('duyet_sua_karaoke');
+        $music =  VideoModel::where('music_id', $request->music_id)->first();
         if($per_kara) {
             $kara = MusicKaraokeModel::where('music_id', $request->music_id)->first();
             if($kara) {
@@ -192,28 +147,17 @@ class MusicController extends CrudController
                 $kara->save();
             }elseif($request->music_karaoke){
                 MusicKaraokeModel::create([
-                    'music_id' => $request->music_id,
-                    'music_title' => $request->music_title,
+                    'music_id' => $music->music_id,
+                    'music_title' => $music->music_title,
                     'music_time' => time(),
                     'music_lyric_karaoke' => $request->music_karaoke,
                 ]);
             }
         }
         if(backpack_user()->can('duyet_sua_nhac')) {
-            MusicModel::where('music_id', $request->music_id)->update([
-                'music_title' => $request->music_title ?? '',
-                'music_composer' => $request->music_composer ?? '',
-                'music_production' => $request->music_production ?? '',
-                'music_album_id' => $request->music_album_id ?? '',
-                'music_year' => $request->music_year ?? '',
+            $music->update([
                 'music_shortlyric' => $request->music_shortlyric ?? '',
                 'music_lyric' => $request->music_lyric ?? '',
-                'music_note' => $request->music_note ?? '',
-                'cat_id' => $request->cat_id ?? '',
-                'cat_level' => $request->cat_level ?? '',
-                'cat_sublevel' => $request->cat_sublevel ?? '',
-                'cat_custom' => $request->cat_custom ?? '',
-                'music_last_update_time' => time()
             ]);
             \Alert::success(trans('backpack::crud.update_success'))->flash();
 
@@ -231,14 +175,5 @@ class MusicController extends CrudController
         $this->crud->hasAccessOrFail('update');
 
     }
-    public function destroy($id)
-    {
-        $this->crud->hasAccessOrFail('delete');
 
-        // get entry ID from Request (makes sure its the last ID for nested resources)
-        $id = $this->crud->getCurrentEntryId() ?? $id;
-        $music = $this->musicRepository->getModel()::where('music_id', $id)->first();
-        $this->deleteMusicRepository->create($music->toArray());
-        return $this->crud->delete($id);
-    }
 }

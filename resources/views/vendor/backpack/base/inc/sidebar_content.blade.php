@@ -34,8 +34,11 @@ $htmlNotif['kara_sug'] = $notif['kara_sug'] > 0 ? '<span class="_51lp _51lr _5ug
             @if(backpack_user()->can('suggestion_karaoke_(list)'))
                 <li><a href="{{env('APP_URL').'/'.config('backpack.base.route_prefix', 'admin')}}/karaoke"><i class="fa fa-music"></i> <span>Karaoke</span> <?php echo $htmlNotif['kara_sug'] ?></a></li>
             @endif
-                @if(backpack_user()->can('suggestion_karaoke_(list)'))
-                    <li><a href="{{env('APP_URL').'/'.config('backpack.base.route_prefix', 'admin')}}/list_karaoke"><i class="fa fa-music"></i> <span>Danh sách karaoke</span></a></li>
+            @if(backpack_user()->can('suggestion_lyric_(list)') || backpack_user()->can('suggestion_karaoke_(list)'))
+                <li><a href="{{env('APP_URL').'/'.config('backpack.base.route_prefix', 'admin')}}/list_music_lyric_karaoke"><i class="fa fa-music"></i> <span>Lyric - Karaoke Nhạc</span></a></li>
+            @endif
+                @if(backpack_user()->can('suggestion_lyric_(list)') || backpack_user()->can('suggestion_karaoke_(list)'))
+                    <li><a href="{{env('APP_URL').'/'.config('backpack.base.route_prefix', 'admin')}}/list_video_lyric_karaoke"><i class="fa fa-music"></i> <span>Lyric - Karaoke Video</span></a></li>
                 @endif
         </ul>
     </li>
@@ -70,7 +73,7 @@ $htmlNotif['kara_sug'] = $notif['kara_sug'] > 0 ? '<span class="_51lp _51lr _5ug
 <li class="treeview">
     <a href="#"><i class="fa fa-play"></i> <span>Nhạc, Video</span> <i class="fa fa-angle-left pull-right"></i></a>
     <ul class="treeview-menu">
-        <li><a href="{{backpack_url('music')}}"><i class="fa fa-music"></i> <span>Nhạc / Karaoke</span></a></li>
+        <li><a href="{{backpack_url('music')}}"><i class="fa fa-music"></i> <span>Nhạc</span></a></li>
         <li><a href="{{backpack_url('video')}}"><i class="fa fa-video-camera"></i> <span>Video</span></a></li>
     </ul>
 </li>

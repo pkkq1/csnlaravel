@@ -28,16 +28,6 @@ class CommentController extends CrudController
     {
         $this->musicRepository = $musicRepository;
         $this->userRepository = $userRepository;
-        parent::__construct();
-    }
-    public function setup()
-    {
-        $this->crud->setModel("App\Models\CommentModel");
-        $this->crud->setEntityNameStrings('Bình luận', 'Bình luận');
-        $this->crud->setRoute(config('backpack.base.route_prefix').'/comment');
-//        $this->crud->setEntityNameStrings('menu item', 'menu items');
-        $this->crud->orderBy('comment_id', 'desc');
-        $this->crud->denyAccess(['create']);
         $this->middleware(function ($request, $next)
         {
             if(!backpack_user()->can('comment_(list)')) {
@@ -51,6 +41,17 @@ class CommentController extends CrudController
             }
             return $next($request);
         });
+        parent::__construct();
+    }
+    public function setup()
+    {
+        $this->crud->setModel("App\Models\CommentModel");
+        $this->crud->setEntityNameStrings('Bình luận', 'Bình luận');
+        $this->crud->setRoute(config('backpack.base.route_prefix').'/comment');
+//        $this->crud->setEntityNameStrings('menu item', 'menu items');
+        $this->crud->orderBy('comment_id', 'desc');
+        $this->crud->denyAccess(['create']);
+
         $this->crud->addFilter([ // dropdown filter
             'name' => 'comment_delete',
             'type' => 'dropdown',
