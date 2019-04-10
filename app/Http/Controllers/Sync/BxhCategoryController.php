@@ -52,7 +52,11 @@ class BxhCategoryController extends Controller
         $artistExp = $this->artistExpRepository->getArrIds();
         foreach ($catregory as $item) {
 //            $result = $this->musicListenRepository->bxhHotTodayCategoryMusic($item->cat_id)->toArray();
-            $result = $this->musicDownloadRepository->bxhHotTodayCategoryMusic($item->cat_id)->toArray();
+            $result = $this->musicDownloadRepository->bxhCategoryMusic($item->cat_id, [
+                    'csn_music_download.music_downloads_today_0' => 'desc',
+                    'csn_music_download.music_downloads_today_1' => 'desc',
+                    'csn_music_download.music_downloads_this_week' => 'desc']
+            )->toArray();
             foreach($result as $item2) {
                 if(!Helpers::checkExitsExcepArtist($item2['music_artist_id'], $artistExp)) {
                     $item2['cover_html'] = Helpers::cover_url($item2['cover_id'], explode(';', $item2['music_artist_id'])[0]);
@@ -63,7 +67,11 @@ class BxhCategoryController extends Controller
             }
 //            $result = $this->musicListenRepository->bxhHotTodayCategoryVideo($item->cat_id)->toArray();
 //            $result = $this->videoDownloadRepository->bxhHotTodayCategoryVideo($item->cat_id)->toArray();
-            $result = $this->videoListenRepository->bxhHotTodayCategoryVideo($item->cat_id)->toArray();
+            $result = $this->videoListenRepository->bxhCategoryVideo($item->cat_id, [
+                'csn_video_listen.music_listen_today_0' => 'desc',
+                'csn_video_listen.music_listen_today_1' => 'desc',
+                'csn_video_listen.music_listen_this_week' => 'desc']
+            )->toArray();
             foreach($result as $item2) {
                 if(!Helpers::checkExitsExcepArtist($item2['music_artist_id'], $artistExp)) {
                     $item2['cover_html'] = Helpers::cover_url($item2['cover_id'], explode(';', $item2['music_artist_id'])[0]);
@@ -91,7 +99,11 @@ $hot_video_rows = ' . var_export($ressultVideo, true) . ';
             $ressultMusic = [];
             $ressultVideo = [];
             foreach ($catregory as $item) {
-                $result = $this->musicListenRepository->bxhWeekCategoryMusic($item->cat_id)->toArray();
+//                $result = $this->musicListenRepository->bxhWeekCategoryMusic($item->cat_id)->toArray();
+                $result = $this->musicDownloadRepository->bxhCategoryMusic($item->cat_id, [
+                        'csn_music_download.music_downloads_this_week' => 'desc',
+                        'csn_music_download.music_downloads_max_week' => 'desc']
+                )->toArray();
                 DB::disconnect('mysql');
                 foreach ($result as $item2) {
                     $item2['cover_html'] = Helpers::cover_url($item2['cover_id'], explode(';', $item2['music_artist_id'])[0]);
@@ -99,7 +111,11 @@ $hot_video_rows = ' . var_export($ressultVideo, true) . ';
                     $item2['music_bitrate_html'] = Helpers::bitrate2str($item2['music_bitrate']);
                     $ressultMusic[$item->cat_id][] = $item2;
                 }
-                $result = $this->musicListenRepository->bxhWeekCategoryVideo($item->cat_id)->toArray();
+//                $result = $this->musicListenRepository->bxhWeekCategoryVideo($item->cat_id)->toArray();
+                $result = $this->videoListenRepository->bxhCategoryVideo($item->cat_id, [
+                        'csn_video_listen.music_listen_this_week' => 'desc',
+                        'csn_video_listen.music_listen_max_week' => 'desc']
+                )->toArray();
                 DB::disconnect('mysql');
                 foreach ($result as $item2) {
                     $item2['cover_html'] = Helpers::cover_url($item2['cover_id'], explode(';', $item2['music_artist_id'])[0]);
@@ -130,7 +146,11 @@ $hot_video_rows = ' . var_export($ressultVideo, true) . ';
         $catregory =$this->categoryRepository->getCategoryParent();
         if($month == 'all') {
             foreach ($catregory as $item) {
-                $result = $this->musicListenRepository->bxhYearCategoryMusic($item->cat_id, $year)->toArray();
+//                $result = $this->musicListenRepository->bxhYearCategoryMusic($item->cat_id, $year)->toArray();
+                $result = $this->musicDownloadRepository->bxhCategoryMusic($item->cat_id, [
+                        'csn_music_download.music_downloads_max_week' => 'desc',
+//                        'csn_music.music_downloads' => 'desc',
+                ], $year)->toArray();
                 DB::disconnect('mysql');
                 foreach($result as $item2) {
                     $item2['cover_html'] = Helpers::cover_url($item2['cover_id'], explode(';', $item2['music_artist_id'])[0]);
@@ -138,7 +158,11 @@ $hot_video_rows = ' . var_export($ressultVideo, true) . ';
                     $item2['music_bitrate_html'] = Helpers::bitrate2str($item2['music_bitrate']);
                     $ressultMusic[$item->cat_id][] = $item2;
                 }
-                $result = $ressultVideo[$item->cat_id] = $this->musicListenRepository->bxhYearCategoryVideo($item->cat_id, $year)->toArray();
+//                $result = $ressultVideo[$item->cat_id] = $this->musicListenRepository->bxhYearCategoryVideo($item->cat_id, $year)->toArray();
+                $result = $this->videoListenRepository->bxhCategoryVideo($item->cat_id, [
+                        'csn_video_listen.music_listen_max_week' => 'desc'
+//                        'csn_video.music_listen' => 'desc'
+                ], $year)->toArray();
                 DB::disconnect('mysql');
                 foreach($result as $item2) {
                     $item2['cover_html'] = Helpers::cover_url($item2['cover_id'], explode(';', $item2['music_artist_id'])[0]);
@@ -168,7 +192,10 @@ $hot_video_rows = ' . var_export($ressultVideo, true) . ';
                 $ressultMusic = [];
                 $ressultVideo = [];
                 foreach ($catregory as $item) {
-                    $result = $this->musicListenRepository->bxhMonthCategoryMusic($item->cat_id, $firstDate, $lastDate, $year)->toArray();
+//                    $result = $this->musicListenRepository->bxhMonthCategoryMusic($item->cat_id, $firstDate, $lastDate, $year)->toArray();
+                    $result = $this->musicDownloadRepository->bxhCategoryMusic($item->cat_id, [
+                        'csn_music_download.music_downloads_max_week' => 'desc',
+                    ], $year, $firstDate, $lastDate)->toArray();
                     DB::disconnect('mysql');
                     foreach($result as $item2) {
                         $item2['cover_html'] = Helpers::cover_url($item2['cover_id'], explode(';', $item2['music_artist_id'])[0]);
@@ -176,7 +203,10 @@ $hot_video_rows = ' . var_export($ressultVideo, true) . ';
                         $item2['music_bitrate_html'] = Helpers::bitrate2str($item2['music_bitrate']);
                         $ressultMusic[$item->cat_id][] = $item2;
                     }
-                    $result = $this->musicListenRepository->bxhMonthCategoryVideo($item->cat_id, $firstDate, $lastDate, $year)->toArray();
+//                    $result = $this->musicListenRepository->bxhMonthCategoryVideo($item->cat_id, $firstDate, $lastDate, $year)->toArray();
+                    $result = $this->videoListenRepository->bxhCategoryVideo($item->cat_id, [
+                        'csn_video_listen.music_listen_max_week' => 'desc'
+                    ], $year, $firstDate, $lastDate)->toArray();
                     DB::disconnect('mysql');
                     foreach($result as $item2) {
                         $item2['cover_html'] = Helpers::cover_url($item2['cover_id'], explode(';', $item2['music_artist_id'])[0]);

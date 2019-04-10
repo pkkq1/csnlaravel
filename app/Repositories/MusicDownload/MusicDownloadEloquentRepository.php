@@ -64,21 +64,13 @@ class MusicDownloadEloquentRepository extends EloquentRepository implements Musi
     {
         // TODO: Implement findOnlyPublished() method.
     }
-    public function bxhHotTodayCategoryMusic($idCategory)
+    public function bxhCategoryMusic($idCategory, $order, $year = '', $firstDate = '', $lastDate = '')
     {
         $result = $this->_model
             ->join('csn_music', 'csn_music_download.music_id', 'csn_music.music_id')
             ->where('csn_music.cat_id', $idCategory)
             ->where('csn_music.cat_id', '!=', CAT_VIDEO)
-            ->where('csn_music.music_time', '>', time() - DEFAULT_TIME_QUERY_BXH * 86400) // 90 ngày trở lên
-            ->where(function ($query) {
-                $query->where('music_year', '>', intval(date('Y')) - 2)
-                    ->orWhere('music_year', 0);
-            })
-//            ->where('csn_music_download.music_downloads_today_0', '>', 10)
-            ->orderBy('csn_music_download.music_downloads_today_0', 'desc')
-            ->orderBy('csn_music_download.music_downloads_today_1', 'desc')
-            ->orderBy('csn_music_download.music_downloads_this_week', 'desc')
+
             ->select($this->_selectMusic)
             ->whereNotIn('csn_music.music_id', function($query) {
                 $query->select('music_id')
@@ -88,9 +80,27 @@ class MusicDownloadEloquentRepository extends EloquentRepository implements Musi
                 $query->select('artist_id')
                     ->from('csn_artist_exception');
             })
-            ->limit(20)
-            ->get();
-        return $result;
+            ;
+        if($year) {
+            $result = $result->where('csn_music.music_year', $year);
+        }else{
+            // today
+            $result = $result->where('csn_music.music_time', '>', time() - DEFAULT_TIME_QUERY_BXH * 86400) // 90 ngày trở lên
+                                ->where(function ($query) {
+                                    $query->where('csn_music.music_year', '>', intval(date('Y')) - 2)
+                                        ->orWhere('csn_music.music_year', 0);
+                                });
+        }
+        if($firstDate && $lastDate) {
+            $result = $result->where('csn_music.music_time', '>=', $firstDate)
+                            ->where('csn_music.music_time', '<=', $lastDate);
+        }
+        if($order) {
+            foreach($order as $key => $type) {
+                $result = $result->orderBy($key, $type);
+            }
+        }
+        return $result->limit(20)->get();
     }
 }
 

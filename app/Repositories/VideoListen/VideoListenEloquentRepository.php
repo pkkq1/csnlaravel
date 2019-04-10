@@ -77,20 +77,13 @@ class VideoListenEloquentRepository extends EloquentRepository implements VideoL
             ->get();
         return $result;
     }
-    public function bxhHotTodayCategoryVideo($idCategory)
+    public function bxhCategoryVideo($idCategory, $order, $year = '', $firstDate = '', $lastDate = '')
     {
         $result = $this->_model
             ->join('csn_video', 'csn_video_listen.music_id', 'csn_video.music_id')
 //            ->where('csn_video.cat_id', CATEGORY_ID_VIDEO)
             ->where('csn_video.cat_level', $idCategory)
-            ->where('music_time', '>', time() - 150 * 86400) // 150 ngày trở lên
-            ->where(function ($query) {
-                $query->where('music_year', '>', intval(date('Y')) - 2)
-                    ->orWhere('music_year', 0);
-            })
-            ->orderBy('csn_video_listen.music_listen_today_0', 'desc')
-            ->orderBy('csn_video_listen.music_listen_today_1', 'desc')
-            ->orderBy('csn_video_listen.music_listen_this_week', 'desc')
+
             ->select($this->_selectVideo)
             ->whereNotIn('csn_video.music_id', function($query) {
                 $query->select('music_id')
@@ -99,10 +92,27 @@ class VideoListenEloquentRepository extends EloquentRepository implements VideoL
             ->whereNotIn('csn_video.music_artist_id', function($query) {
                 $query->select('artist_id')
                     ->from('csn_artist_exception');
-            })
-            ->limit(20)
-            ->get();
-        return $result;
+            });
+        if($year) {
+            $result = $result->where('csn_video.music_year', $year);
+        }else{
+            // today
+            $result = $result->where('music_time', '>', time() - 150 * 86400) // 150 ngày trở lên
+                            ->where(function ($query) {
+                                $query->where('csn_video.music_year', '>', intval(date('Y')) - 2)
+                                    ->orWhere('csn_video.music_year', 0);
+                            });
+        }
+        if($firstDate && $lastDate) {
+            $result = $result->where('csn_video.music_time', '>=', $firstDate)
+                ->where('csn_video.music_time', '<=', $lastDate);
+        }
+         if($order) {
+             foreach($order as $key => $type) {
+                 $result->orderBy($key, $type);
+             }
+         }
+        return $result->limit(20)->get();
     }
     public function bxhWeekCategoryMusic($idCategory)
     {
