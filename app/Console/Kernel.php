@@ -42,7 +42,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('bxh_cat:type cat today')->hourlyAt('00:04');  // bảng xếp hạng hôm nay, tính bằng download_today_0, chạy trước dailyAt('00:08');
         $schedule->command('bxh_cat:type cat week')->dailyAt('00:10');   // bảng xếp hạng trong tuần, chạy sau dailyAt('00:08');
 
-        $schedule->command('album')->hourlyAt(12);
+        $schedule->command('album')->hourlyAt(12)->emailOutputTo('tt.hau94@gmail.com');
         $schedule->command('album_cat')->hourlyAt(15);
         $schedule->command('music_download')->hourlyAt(20);
         $schedule->command('suggestion_cat')->hourlyAt(25);
@@ -61,7 +61,7 @@ class Kernel extends ConsoleKernel
 //        $schedule->command('solr:type artist'); // đồng bộ search solr ca sĩ
         $schedule->command('solr:type cover')->hourlyAt(40); // đồng bộ search solr album
 
-        $schedule->command('sync_music_new')->everyFiveMinutes()->sendOutputTo('command1_output.log')->emailOutputTo('tt.hau94@gmail.com'); // đồng bộ nhạc mới cho solr và update total_music cover
+        $schedule->command('sync_music_new')->everyFiveMinutes()->emailOutputTo('tt.hau94@gmail.com'); // đồng bộ nhạc mới cho solr và update total_music cover
 
 //        $schedule->command('solr:type all')->twiceDaily(1, 16)->everyMinute(); // đồng bộ lại toàn bộ nhac, video, cover, artist
         $schedule->command('solr:type all')->cron('* 16 * * *');
