@@ -38,7 +38,28 @@ class UserCrudController extends CrudController
             $this->crud->denyAccess(['delete']);
         }
 
-
+        $this->crud->addFilter([ // daterange filter
+            'type' => 'date_range',
+            'name' => 'from_to',
+            'label'=> 'Thời gian tạo'
+        ],
+            false,
+            function($value) {
+                $dates = json_decode(htmlspecialchars_decode($value, ENT_QUOTES));
+                $this->crud->addClause('whereDate', 'created_at', '>=', $dates->from);
+                $this->crud->addClause('whereDate', 'created_at', '<=', $dates->to);
+            });
+        $this->crud->addFilter([ // daterange filter
+            'type' => 'date_range',
+            'name' => 'from_to_2',
+            'label'=> 'Thời gian đăng nhập'
+        ],
+            false,
+            function($value) {
+                $dates = json_decode(htmlspecialchars_decode($value, ENT_QUOTES));
+                $this->crud->addClause('where', 'user_lastvisit', '>=', strtotime($dates->from));
+                $this->crud->addClause('where', 'user_lastvisit', '<=', strtotime($dates->to));
+            });
 
         $this->crud->addFilter([ // select2_multiple filter
             'name' => 'roles',
