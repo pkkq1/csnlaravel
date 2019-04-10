@@ -64,7 +64,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('sync_music_new')->everyFiveMinutes()->emailOutputTo('tt.hau94@gmail.com'); // đồng bộ nhạc mới cho solr và update total_music cover
 
 //        $schedule->command('solr:type all')->twiceDaily(1, 16)->everyMinute(); // đồng bộ lại toàn bộ nhac, video, cover, artist
-        $schedule->command('solr:type all')->cron('* 16 * * *');
+//        $schedule->command('solr:type all')->cron('* 16 * * *');
     }
 
     /**
