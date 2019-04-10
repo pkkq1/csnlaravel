@@ -130,10 +130,10 @@ class CoverEloquentRepository extends EloquentRepository implements CoverReposit
             $searchSolarium['album_cat'] = $catId.'_'.$catLevel;
         }
         if($year) {
-            $searchSolarium['album_music_year'] = $year[1];
+            $searchSolarium['album_cat'] = $searchSolarium['album_cat'].' AND album_music_year:'.$year[1];
         }
         if($bitrate) {
-            $searchSolarium['album_bitrate'] = $bitrate;
+            $searchSolarium['album_cat'] = $searchSolarium['album_cat'].' AND album_bitrate:'.$bitrate;
         }
         return $this->Solr->search($searchSolarium, $_GET['page'] ?? 1, $perPage, array('score' => 'desc', $fillOrder => $typeOrder));
     }
