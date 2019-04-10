@@ -35,6 +35,7 @@ class Kernel extends ConsoleKernel
         // $schedule->command('inspire')
         //          ->hourly();
 //        $schedule->call('\App\Http\Controllers\Sync\SolrSyncController@syncCover');
+        $schedule->command('solr:type all')->twiceDaily(1, 16)->everyMinute(); // đồng bộ lại toàn bộ nhac, video, cover, artist
 
         $schedule->command('music_listen_download:type real')->hourlyAt(3); // gán giá trị listen và download
         $schedule->command('music_listen_download:type today')->dailyAt('00:08');
@@ -63,7 +64,6 @@ class Kernel extends ConsoleKernel
 
         $schedule->command('sync_music_new')->everyFiveMinutes(); // đồng bộ nhạc mới cho solr và update total_music cover
 
-        $schedule->command('solr:type all')->twiceDaily(1, 16)->everyMinute(); // đồng bộ lại toàn bộ nhac, video, cover, artist
 //        $schedule->command('solr:type all')->cron('* 1,16 * * *');
     }
 
