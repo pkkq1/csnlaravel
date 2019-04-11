@@ -85,6 +85,12 @@ class MusicController extends CrudController
         ]);
 
         $this->crud->addColumn([
+            'name' => 'music_downloads',
+            'label' => 'lượt tải',
+            'type' =>'number'
+        ]);
+
+        $this->crud->addColumn([
             'name' => 'music_search_result',
             'label' => 'Tìm kiếm',
             'type' =>'number'
