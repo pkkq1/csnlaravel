@@ -145,6 +145,7 @@ define('TIME_EXPIRED_UPLOAD_LISTEN_DOWNLOAD', '-1 hour'); // hour
 define('TIME_EXPIRED_UPLOAD_NEW', '-7 minutes'); // minute
 define('TIME_SOLR_TO_ADD_ITEM', '-1 hour'); // hour
 define('TIME_7DAY_AGO', '-7 day'); // hour
+define('TIME_MUSIC_SEARCH_RESULT_1DAY_AGO', '-1 day'); // day time to music search result
 
 define('MAXIMUM_FILE_SIZE_UPLOAD_VIDEO', 5737418240); // maximum upload file video 5Gb
 define('ID_OLD_MUSIC', 1000000);

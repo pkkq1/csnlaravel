@@ -17,7 +17,7 @@ class MusicSearchResultModel extends Model
     protected $primaryKey = 'id';
     protected $fillable =
         [
-            'music_id', 'music_title', 'music_artist', 'music_artist_id', 'music_album', 'music_year', 'music_search_count'
+            'music_id', 'music_title', 'music_artist', 'music_artist_id', 'music_album', 'music_year', 'music_search_count', 'cat_id'
         ];
 
     public function getTotalSum()
