@@ -48,8 +48,8 @@ class VideoController extends CrudController
 //        $this->crud->setEntityNameStrings('menu item', 'menu items');
         $this->crud->orderBy('music_last_update_time', 'desc');
         $this->crud->denyAccess(['create']);
-        $this->crud->enableBulkActions();
-        $this->crud->addBulkDeleteButton();
+//        $this->crud->enableBulkActions();
+//        $this->crud->addBulkDeleteButton();
 
 //        $this->crud->allowAccess('reorder');
 //        $this->crud->enableReorder('name', 2);
@@ -92,6 +92,19 @@ class VideoController extends CrudController
                                   border-radius: 3px;" src="'.Helpers::thumbnail_url($entry->toArray()).'"/></a>';
             }
         ]);
+
+        $this->crud->addColumn([
+            'name' => 'music_listen',
+            'label' => 'lượt xem',
+            'type' =>'number'
+        ]);
+
+        $this->crud->addColumn([
+            'name' => 'music_search_result',
+            'label' => 'Tìm kiếm',
+            'type' =>'number'
+        ]);
+
         $this->crud->addField([
             'name' => 'music_composer',
             'label' => 'Sáng tác',
