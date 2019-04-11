@@ -3,6 +3,7 @@ namespace App\Repositories\Music;
 
 use App\Repositories\EloquentRepository;
 use DB;
+use Illuminate\Support\Facades\Auth;
 use App\Library\Helpers;
 use App\Solr\Solarium;
 use App\Models\MusicSuggestModel;
@@ -493,7 +494,7 @@ $video = ' . str_replace('video_', 'music_',  var_export($videoResult, true)) . 
                 $this->videoDeletedRepository->getModel()::where('music_id', $musicFirstId)->delete();
             }
         }
-        if(backpack_user()->can('duyet_sua_nhac')){
+        if(Auth::check() && backpack_user()->can('duyet_sua_nhac')){
             abort(403, '<a href="/dang-tai/nhac/'.(isset($musicReal) ? $musicReal->music_id : $music_id).'" style="font-size: 18px; display: block">Qua trang chỉnh sửa upload</a>Nhạc đang cập nhật.');
         }
         abort(403, 'Nhạc đang cập nhật.');
