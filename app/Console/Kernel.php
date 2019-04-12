@@ -4,6 +4,7 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use Mail;
 
 class Kernel extends ConsoleKernel
 {
@@ -36,10 +37,17 @@ class Kernel extends ConsoleKernel
         //          ->hourly();
 //        $schedule->call('\App\Http\Controllers\Sync\SolrSyncController@syncCover');
 
-        $schedule->command('music_listen_download:type real')->hourlyAt(3)->emailOutputTo('tt.hau94@gmail.com'); // gán giá trị listen và download
+        $schedule->command('music_listen_download:type real')->hourlyAt(3); // gán giá trị listen và download
         $schedule->command('music_listen_download:type today')->dailyAt('00:08');
 
-        $schedule->command('bxh_cat:type cat today')->hourlyAt('00:04');  // bảng xếp hạng hôm nay, tính bằng download_today_0, chạy trước dailyAt('00:08');
+        $schedule->call(function() {
+            Mail::raw('Testing from mydomain', function($message)
+            {
+                $message->to('tt.hau94@gmail.com')->from('alerts@mydomain.com');
+            });
+        })->everyMinute();
+
+        $schedule->command('bxh_cat:type cat today')->hourlyAt(4);  // bảng xếp hạng hôm nay, tính bằng download_today_0, chạy trước dailyAt('00:08');
         $schedule->command('bxh_cat:type cat week')->dailyAt('00:10');   // bảng xếp hạng trong tuần, chạy sau dailyAt('00:08');
 
         $schedule->command('album')->hourlyAt(12)->emailOutputTo('tt.hau94@gmail.com');
