@@ -5,18 +5,18 @@ use App\Models\KaraokeSuggestionModel;
 $notif['artist_upload'] = ArtistUploadModel::count();
 $notif['lyric_sug'] = LyricSuggestionModel::count();
 $notif['kara_sug'] = KaraokeSuggestionModel::count();
-$htmlNotif['artist_upload'] = $notif['artist_upload'] > 0 ? '<span class="_51lp _51lr _5ugg _5ugh _3-99">'.($notif['artist_upload'] > 9 ? '9+' : $notif['artist_upload']).'</span>' : '';
-$htmlNotif['total_sug'] = ($notif['kara_sug'] + $notif['lyric_sug']) > 0 ? '<span class="_51lp _51lr _5ugg _5ugh _3-99">'.(($notif['kara_sug'] + $notif['lyric_sug']) > 9 ? '9+' : ($notif['kara_sug'] + $notif['lyric_sug'])).'</span>' : '';
-$htmlNotif['lyric_sug'] = $notif['lyric_sug'] > 0 ? '<span class="_51lp _51lr _5ugg _5ugh _3-99">'.($notif['lyric_sug'] > 9 ? '9+' : $notif['lyric_sug']).'</span>' : '';
-$htmlNotif['kara_sug'] = $notif['kara_sug'] > 0 ? '<span class="_51lp _51lr _5ugg _5ugh _3-99">'.($notif['kara_sug'] > 9 ? '9+' : $notif['kara_sug']).'</span>' : '';
+$htmlNotif['artist_upload'] = $notif['artist_upload'] > 0 ? '<span class="label pull-right bg-red _3-99 _3-98 red-important">'.($notif['artist_upload'] > 9 ? '9+' : $notif['artist_upload']).'</span>' : '';
+$htmlNotif['total_sug'] = ($notif['kara_sug'] + $notif['lyric_sug']) > 0 ? '<span class="label pull-right bg-red _3-99 _3-98 red-important">'.(($notif['kara_sug'] + $notif['lyric_sug']) > 9 ? '9+' : ($notif['kara_sug'] + $notif['lyric_sug'])).'</span>' : '';
+$htmlNotif['lyric_sug'] = $notif['lyric_sug'] > 0 ? '<span class="label pull-right bg-red _3-99 red-important">'.($notif['lyric_sug'] > 9 ? '9+' : $notif['lyric_sug']).'</span>' : '';
+$htmlNotif['kara_sug'] = $notif['kara_sug'] > 0 ? '<span class="label pull-right bg-red _3-99 red-important">'.($notif['kara_sug'] > 9 ? '9+' : $notif['kara_sug']).'</span>' : '';
 ?>
 <li><a href="{{ backpack_url('dashboard') }}"><i class="fa fa-dashboard"></i> <span>{{ trans('backpack::base.dashboard') }}</span></a></li>
 @if(backpack_user()->can('xet_duyet_ca_si_(list)') || backpack_user()->can('danh_sach_ca_si_(list)'))
 <li class="treeview">
-    <a href="#"><i class="fa fa-address-card"></i> <span>Ca Sĩ</span><?php echo $htmlNotif['artist_upload'] ?><i class="fa fa-angle-left pull-right"></i></a>
+    <a href="#"><i class="fa fa-address-card"></i> <span>Ca Sĩ</span><span class="pull-right-container"><?php echo $htmlNotif['artist_upload'] ?></span><i class="fa fa-angle-left pull-right"></i></a>
     <ul class="treeview-menu">
         @if(backpack_user()->can('xet_duyet_ca_si_(list)'))
-        <li><a href="{{env('APP_URL').'/'.config('backpack.base.route_prefix', 'admin')}}/artist_upload"><i class="fa fa-arrow-circle-right"></i> <span>Xét Duyệt Ca Sĩ</span><?php echo $htmlNotif['artist_upload'] ?></a></li>
+            <li><a href="{{env('APP_URL').'/'.config('backpack.base.route_prefix', 'admin')}}/artist_upload"><i class="fa fa-arrow-circle-right"></i> <span>Xét Duyệt Ca Sĩ</span><span class="pull-right-container"><?php echo $htmlNotif['artist_upload'] ?></span></a></li>
         @endif
         @if(backpack_user()->can('danh_sach_ca_si_(list)'))
         <li><a href="{{env('APP_URL').'/'.config('backpack.base.route_prefix', 'admin')}}/artist"><i class="fa fa-address-book-o"></i> <span>Danh Sách Ca Sĩ</span></a></li>
@@ -26,20 +26,20 @@ $htmlNotif['kara_sug'] = $notif['kara_sug'] > 0 ? '<span class="_51lp _51lr _5ug
 @endif
 @if(backpack_user()->can('suggestion_lyric_(list)') || backpack_user()->can('suggestion_karaoke_(list)'))
     <li class="treeview">
-        <a href="#"><i class="fa fa-microphone"></i> <span>Gợi ý Lyric, Karaoke</span> <?php echo $htmlNotif['total_sug'] ?><i class="fa fa-angle-left pull-right"></i></a>
+        <a href="#"><i class="fa fa-microphone"></i> <span>Gợi ý Lyric, Karaoke</span><span class="pull-right-container"><?php echo $htmlNotif['total_sug'] ?></span><i class="fa fa-angle-left pull-right"></i></a>
         <ul class="treeview-menu">
             @if(backpack_user()->can('suggestion_lyric_(list)'))
-                <li><a href="{{env('APP_URL').'/'.config('backpack.base.route_prefix', 'admin')}}/lyric"><i class="fa fa-info-circle"></i> <span>Lyric</span> <?php echo $htmlNotif['lyric_sug'] ?></a></li>
+                <li><a href="{{env('APP_URL').'/'.config('backpack.base.route_prefix', 'admin')}}/lyric"><i class="fa fa-circle-o"></i> <span>Lyric</span> <span class="pull-right-container"><?php echo $htmlNotif['lyric_sug'] ?></span></a></li>
             @endif
             @if(backpack_user()->can('suggestion_karaoke_(list)'))
-                <li><a href="{{env('APP_URL').'/'.config('backpack.base.route_prefix', 'admin')}}/karaoke"><i class="fa fa-music"></i> <span>Karaoke</span> <?php echo $htmlNotif['kara_sug'] ?></a></li>
+                    <li><a href="{{env('APP_URL').'/'.config('backpack.base.route_prefix', 'admin')}}/karaoke"><i class="fa fa-circle-o"></i> <span>Karaoke</span> <span class="pull-right-container"><?php echo $htmlNotif['kara_sug'] ?></span></a></li>
             @endif
             @if(backpack_user()->can('suggestion_lyric_(list)') || backpack_user()->can('suggestion_karaoke_(list)'))
-                <li><a href="{{env('APP_URL').'/'.config('backpack.base.route_prefix', 'admin')}}/list_music_lyric_karaoke"><i class="fa fa-music"></i> <span>Lyric - Karaoke Nhạc</span></a></li>
+                <li><a href="{{env('APP_URL').'/'.config('backpack.base.route_prefix', 'admin')}}/list_music_lyric_karaoke"><i class="fa fa-circle-o"></i> <span>Lyric - Karaoke Nhạc</span></a></li>
             @endif
-                @if(backpack_user()->can('suggestion_lyric_(list)') || backpack_user()->can('suggestion_karaoke_(list)'))
-                    <li><a href="{{env('APP_URL').'/'.config('backpack.base.route_prefix', 'admin')}}/list_video_lyric_karaoke"><i class="fa fa-music"></i> <span>Lyric - Karaoke Video</span></a></li>
-                @endif
+            @if(backpack_user()->can('suggestion_lyric_(list)') || backpack_user()->can('suggestion_karaoke_(list)'))
+                <li><a href="{{env('APP_URL').'/'.config('backpack.base.route_prefix', 'admin')}}/list_video_lyric_karaoke"><i class="fa fa-circle-o"></i> <span>Lyric - Karaoke Video</span></a></li>
+            @endif
         </ul>
     </li>
 @endif
@@ -48,10 +48,10 @@ $htmlNotif['kara_sug'] = $notif['kara_sug'] > 0 ? '<span class="_51lp _51lr _5ug
     <a href="#"><i class="fa fa-list"></i> <span>Danh Mục</span> <i class="fa fa-angle-left pull-right"></i></a>
     <ul class="treeview-menu">
         @if(backpack_user()->can('danh_muc_csn_(list)'))
-        <li><a href="{{env('APP_URL').'/'.config('backpack.base.route_prefix', 'admin')}}/category_csn"><i class="fa fa-font-awesome"></i> <span>Danh Mục CSN</span></a></li>
+        <li><a href="{{env('APP_URL').'/'.config('backpack.base.route_prefix', 'admin')}}/category_csn"><i class="fa fa-circle-o"></i> <span>Danh Mục CSN</span></a></li>
         @endif
         @if(backpack_user()->can('danh_muc_playlist_(list)'))
-        <li><a href="{{env('APP_URL').'/'.config('backpack.base.route_prefix', 'admin')}}/category_playlist"><i class="fa fa-tag"></i> <span>Danh Mục Playlist</span></a></li>
+        <li><a href="{{env('APP_URL').'/'.config('backpack.base.route_prefix', 'admin')}}/category_playlist"><i class="fa fa-circle-o"></i> <span>Danh Mục Playlist</span></a></li>
         @endif
     </ul>
 </li>
@@ -61,10 +61,10 @@ $htmlNotif['kara_sug'] = $notif['kara_sug'] > 0 ? '<span class="_51lp _51lr _5ug
     <a href="#"><i class="fa fa-list-alt"></i> <span>Playlist</span> <i class="fa fa-angle-left pull-right"></i></a>
     <ul class="treeview-menu">
         @if(backpack_user()->can('playlist_user_(list)'))
-        <li><a href="{{env('APP_URL').'/'.config('backpack.base.route_prefix', 'admin')}}/playlist_user"><i class="fa fa-bars"></i> <span>Playlist User</span></a></li>
+        <li><a href="{{env('APP_URL').'/'.config('backpack.base.route_prefix', 'admin')}}/playlist_user"><i class="fa fa-circle-o"></i> <span>Playlist User</span></a></li>
         @endif
         @if(backpack_user()->can('playlist_publisher_(list)'))
-        <li><a href="{{env('APP_URL').'/'.config('backpack.base.route_prefix', 'admin')}}/playlist_publisher"><i class="fa fa-align-right"></i> <span>Playlist Publisher</span></a></li>
+        <li><a href="{{env('APP_URL').'/'.config('backpack.base.route_prefix', 'admin')}}/playlist_publisher"><i class="fa fa-circle-o"></i> <span>Playlist Publisher</span></a></li>
         @endif
     </ul>
 </li>
@@ -134,5 +134,11 @@ $htmlNotif['kara_sug'] = $notif['kara_sug'] > 0 ? '<span class="_51lp _51lr _5ug
     }
     ._3-99 {
         margin-left: 4px;
+    }
+    ._3-98 {
+        margin-right: 12px!important;
+    }
+    .red-important {
+        background-color: #fa3e3e!important;
     }
 </style>
