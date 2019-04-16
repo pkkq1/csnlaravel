@@ -259,7 +259,7 @@ class Helpers
         global $cat_id2info;
         include_once(__DIR__.'/../../resources/views/cache/def_main_cat.blade.php');
         if(isset($cat_id2info[$music_info['cat_id']][$music_info['cat_level']])) {
-            if ( ENV('APP_ENV') !== 'beta' ) {
+            if ( ENV('APP_ENV') == 'beta' ) {
                 $seo_domain = '';
                 switch ($music_info['cat_id']) {
                     case 1:
