@@ -393,20 +393,6 @@ if($musicSet['type_listen'] == 'playlist') {
                     </div>
                 </div>
 
-                <!-- Composite Start -->
-                <div id="M418572ScriptRootC353285" class="box_header d-flex justify-content-between align-items-end">
-                    <div id="M418572PreloadC353285">
-                        Loading...    </div>
-                    <script>
-                        (function(){
-                            var D=new Date(),d=document,b='body',ce='createElement',ac='appendChild',st='style',ds='display',n='none',gi='getElementById',lp=d.location.protocol,wp=lp.indexOf('http')==0?lp:'https:';
-                            var i=d[ce]('iframe');i[st][ds]=n;d[gi]("M418572ScriptRootC353285")[ac](i);try{var iw=i.contentWindow.document;iw.open();iw.writeln("<ht"+"ml><bo"+"dy></bo"+"dy></ht"+"ml>");iw.close();var c=iw[b];}
-                            catch(e){var iw=d;var c=d[gi]("M418572ScriptRootC353285");}var dv=iw[ce]('div');dv.id="MG_ID";dv[st][ds]=n;dv.innerHTML=353285;c[ac](dv);
-                            var s=iw[ce]('script');s.async='async';s.defer='defer';s.charset='utf-8';s.src=wp+"//jsc.mgid.com/m/c/m.chiasenhac.vn.353285.js?t="+D.getYear()+D.getMonth()+D.getUTCDate()+D.getUTCHours();c[ac](s);})();
-                    </script>
-                </div>
-                <!-- Composite End -->
-
                 @if($MusicSameArtist)
                     <div class="box_header d-flex justify-content-between align-items-end">
                         <h5 class="title m-0">Bài hát cùng ca sĩ</h5>
