@@ -206,69 +206,107 @@ class Helpers
         return $url;
     }
 
-    public static function nav_links($c_info = array(), $c_id = 0, $c_level = 0)
-    {
-        global $root_path, $theme, $cat_id2info;
-        $lang = Config::get('constants.lang');
-
-        $url = ENV('URL');//$root_path;
-        if (!$c_id && !$c_level) {
-            $c_id = $c_info['cat_id'];
-            $c_level = $c_info['cat_level'];
-
-            if (!$c_id && !$c_level) {
-                $nav_links = '<a href="' . $url . '">' . ENV('SITENAME') . '</a>';
-                return $nav_links;
-            }
-        }
-
-        $url .= ($c_id == CAT_VIDEO) ? VIEW_VIDEO_URL . '/' : VIEW_MUSIC_URL . '/';
-        $ct_id = 1;
-        $nav_links = ($theme['themes_id'] == 4) ? '<li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a href="' . $url . '" itemprop="item"><span itemprop="name">' . $lang['MUSIC'] . '</span></a><meta itemprop="position" content="' . $ct_id . '"></li>' : '';
-        if (isset($cat_id2info[$c_id][0]['cat_short_title'])) {
-            $url .= $cat_id2info[$c_id][0]['cat_url'] . "/";
-            $nav_links .= ($theme['themes_id'] == 4) ? '<li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a href="' . $url . '" itemprop="item"><span itemprop="name">' . $cat_id2info[$c_id][0]['cat_short_title'] . '</span></a><meta itemprop="position" content="' . (++$ct_id) . '"></li>' : '<a href="' . $url . '">' . $cat_id2info[$c_id][0]['cat_short_title'] . '</a>';
-        }
-
-        if ($c_level > 0) {
-            if (isset($c_info['cat_short_title'])) {
-                $url .= $c_info['cat_url'] . "/";
-                $nav_links .= ($theme['themes_id'] == 4) ? '<li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a href="' . $url . '" itemprop="item"><span itemprop="name">' . $cat_id2info[$c_id][$c_level]['cat_short_title'] . '</span></a><meta itemprop="position" content="' . (++$ct_id) . '"></li>' : ' -&gt; <a href="' . $url . '">' . $cat_id2info[$c_id][$c_level]['cat_short_title'] . '</a>';
-            } else if (isset($cat_id2info[$c_id][$c_level]['cat_short_title'])) {
-                $url .= $cat_id2info[$c_id][$c_level]['cat_url'] . "/";
-                $nav_links .= ($theme['themes_id'] == 4) ? '<li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a href="' . $url . '" itemprop="item"><span itemprop="name">' . $cat_id2info[$c_id][$c_level]['cat_short_title'] . '</span></a><meta itemprop="position" content="' . (++$ct_id) . '"></li>' : ' -&gt; <a href="' . $url . '">' . $cat_id2info[$c_id][$c_level]['cat_short_title'] . '</a>';
-            }
-
-            $c_sublevel = $c_info['cat_sublevel'];
-            if ($c_sublevel > 0) {
-                if ($c_id == 2) {
-                    $nav_links .= ($lang['CAT_SUBLEVEL_PLAYBACK'][$c_sublevel]['cat_title']) ? (($theme['themes_id'] == 4) ? '<li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><span itemprop="name">' . $lang['CAT_SUBLEVEL_PLAYBACK'][$c_sublevel]['cat_title'] . '</span><meta itemprop="position" content="' . (++$ct_id) . '"></li>' : ' -&gt; ' . $lang['CAT_SUBLEVEL_PLAYBACK'][$c_sublevel]['cat_title']) : "";
-                } else if ($c_id == 3) {
-                    $nav_links .= ($lang['CAT_SUBLEVEL_VN'][$c_level][$c_sublevel]['cat_title']) ? (($theme['themes_id'] == 4) ? '<li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><span itemprop="name">' . $lang['CAT_SUBLEVEL_VN'][$c_level][$c_sublevel]['cat_title'] . '</span><meta itemprop="position" content="' . (++$ct_id) . '"></li>' : ' -&gt; ' . $lang['CAT_SUBLEVEL_VN'][$c_level][$c_sublevel]['cat_title']) : "";
-                } else if ($c_id > 3) {
-                    $nav_links .= ($lang['CAT_SUBLEVEL'][$c_level][$c_sublevel]['cat_title']) ? (($theme['themes_id'] == 4) ? '<li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><span itemprop="name">' . $lang['CAT_SUBLEVEL'][$c_level][$c_sublevel]['cat_title'] . '</span><meta itemprop="position" content="' . (++$ct_id) . '"></li>' : ' -&gt; ' . $lang['CAT_SUBLEVEL'][$c_level][$c_sublevel]['cat_title']) : "";
-                }
-            }
-        }
-
-        return $nav_links;
-    }
+//    public static function nav_links($c_info = array(), $c_id = 0, $c_level = 0)
+//    {
+//        global $root_path, $theme, $cat_id2info;
+//        $lang = Config::get('constants.lang');
+//
+//        $url = ENV('URL');//$root_path;
+//        if (!$c_id && !$c_level) {
+//            $c_id = $c_info['cat_id'];
+//            $c_level = $c_info['cat_level'];
+//
+//            if (!$c_id && !$c_level) {
+//                $nav_links = '<a href="' . $url . '">' . ENV('SITENAME') . '</a>';
+//                return $nav_links;
+//            }
+//        }
+//
+//        $url .= ($c_id == CAT_VIDEO) ? VIEW_VIDEO_URL . '/' : VIEW_MUSIC_URL . '/';
+//        $ct_id = 1;
+//        $nav_links = ($theme['themes_id'] == 4) ? '<li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a href="' . $url . '" itemprop="item"><span itemprop="name">' . $lang['MUSIC'] . '</span></a><meta itemprop="position" content="' . $ct_id . '"></li>' : '';
+//        if (isset($cat_id2info[$c_id][0]['cat_short_title'])) {
+//            $url .= $cat_id2info[$c_id][0]['cat_url'] . "/";
+//            $nav_links .= ($theme['themes_id'] == 4) ? '<li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a href="' . $url . '" itemprop="item"><span itemprop="name">' . $cat_id2info[$c_id][0]['cat_short_title'] . '</span></a><meta itemprop="position" content="' . (++$ct_id) . '"></li>' : '<a href="' . $url . '">' . $cat_id2info[$c_id][0]['cat_short_title'] . '</a>';
+//        }
+//
+//        if ($c_level > 0) {
+//            if (isset($c_info['cat_short_title'])) {
+//                $url .= $c_info['cat_url'] . "/";
+//                $nav_links .= ($theme['themes_id'] == 4) ? '<li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a href="' . $url . '" itemprop="item"><span itemprop="name">' . $cat_id2info[$c_id][$c_level]['cat_short_title'] . '</span></a><meta itemprop="position" content="' . (++$ct_id) . '"></li>' : ' -&gt; <a href="' . $url . '">' . $cat_id2info[$c_id][$c_level]['cat_short_title'] . '</a>';
+//            } else if (isset($cat_id2info[$c_id][$c_level]['cat_short_title'])) {
+//                $url .= $cat_id2info[$c_id][$c_level]['cat_url'] . "/";
+//                $nav_links .= ($theme['themes_id'] == 4) ? '<li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a href="' . $url . '" itemprop="item"><span itemprop="name">' . $cat_id2info[$c_id][$c_level]['cat_short_title'] . '</span></a><meta itemprop="position" content="' . (++$ct_id) . '"></li>' : ' -&gt; <a href="' . $url . '">' . $cat_id2info[$c_id][$c_level]['cat_short_title'] . '</a>';
+//            }
+//
+//            $c_sublevel = $c_info['cat_sublevel'];
+//            if ($c_sublevel > 0) {
+//                if ($c_id == 2) {
+//                    $nav_links .= ($lang['CAT_SUBLEVEL_PLAYBACK'][$c_sublevel]['cat_title']) ? (($theme['themes_id'] == 4) ? '<li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><span itemprop="name">' . $lang['CAT_SUBLEVEL_PLAYBACK'][$c_sublevel]['cat_title'] . '</span><meta itemprop="position" content="' . (++$ct_id) . '"></li>' : ' -&gt; ' . $lang['CAT_SUBLEVEL_PLAYBACK'][$c_sublevel]['cat_title']) : "";
+//                } else if ($c_id == 3) {
+//                    $nav_links .= ($lang['CAT_SUBLEVEL_VN'][$c_level][$c_sublevel]['cat_title']) ? (($theme['themes_id'] == 4) ? '<li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><span itemprop="name">' . $lang['CAT_SUBLEVEL_VN'][$c_level][$c_sublevel]['cat_title'] . '</span><meta itemprop="position" content="' . (++$ct_id) . '"></li>' : ' -&gt; ' . $lang['CAT_SUBLEVEL_VN'][$c_level][$c_sublevel]['cat_title']) : "";
+//                } else if ($c_id > 3) {
+//                    $nav_links .= ($lang['CAT_SUBLEVEL'][$c_level][$c_sublevel]['cat_title']) ? (($theme['themes_id'] == 4) ? '<li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><span itemprop="name">' . $lang['CAT_SUBLEVEL'][$c_level][$c_sublevel]['cat_title'] . '</span><meta itemprop="position" content="' . (++$ct_id) . '"></li>' : ' -&gt; ' . $lang['CAT_SUBLEVEL'][$c_level][$c_sublevel]['cat_title']) : "";
+//                }
+//            }
+//        }
+//
+//        return $nav_links;
+//    }
 
     public static function listen_url($music_info, $domain = true)
     {
         global $cat_id2info;
         include_once(__DIR__.'/../../resources/views/cache/def_main_cat.blade.php');
-        if(isset($cat_id2info[$music_info['cat_id']][$music_info['cat_level']]))
+        if(isset($cat_id2info[$music_info['cat_id']][$music_info['cat_level']])) {
+            if ( ENV('APP_ENV') !== 'beta' ) {
+                $seo_domain = '';
+                switch ($music_info['cat_id']) {
+                    case 1:
+                        $seo_domain = 'https://vc.chiasenhac.vn/';
+                        break;
+                    case 2:
+                        $seo_domain = 'https://pb.chiasenhac.vn/';
+                        break;
+                    case 3:
+                        $seo_domain = 'https://vn.chiasenhac.vn/';
+                        break;
+                    case 4:
+                        $seo_domain = 'https://us.chiasenhac.vn/';
+                        break;
+                    case 5:
+                        $seo_domain = 'https://cn.chiasenhac.vn/';
+                        break;
+                    case 6:
+                        $seo_domain = 'https://kr.chiasenhac.vn/';
+                        break;
+                    case 7:
+                        $seo_domain = 'https://jp.chiasenhac.vn/';
+                        break;
+                    case 8:
+                        $seo_domain = 'https://fr.chiasenhac.vn/';
+                        break;
+                    case 9:
+                        $seo_domain = 'https://ot.chiasenhac.vn/';
+                        break;
+                    default:
+                        $seo_domain = '';
+                }
+
+                return $seo_domain . self::category_url($cat_id2info[$music_info['cat_id']][$music_info['cat_level']]) . self::music_url($music_info);
+            }
+
             return ($domain ? ENV('LISTEN_URL') : '') . self::category_url($cat_id2info[$music_info['cat_id']][$music_info['cat_level']]) . self::music_url($music_info);
+        }
         return '';
     }
 
-    public static function download_url($music_info)
-    {
-        global $cat_id2info, $phpEx;
-
-        return ENV('DOWNLOAD_URL') . self::category_url($cat_id2info[$music_info[cat_id]][$music_info[cat_level]]) . self::music_url($music_info, DOWNLOAD_URL);
-    }
+//    public static function download_url($music_info)
+//    {
+//        global $cat_id2info, $phpEx;
+//
+//        return ENV('DOWNLOAD_URL') . self::category_url($cat_id2info[$music_info[cat_id]][$music_info[cat_level]]) . self::music_url($music_info, DOWNLOAD_URL);
+//    }
 
 
     public static function thumbnail_url($video_info, $mode = '')
