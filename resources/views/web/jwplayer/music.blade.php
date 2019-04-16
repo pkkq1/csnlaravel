@@ -409,7 +409,7 @@ if($musicSet['type_listen'] == 'playlist') {
 
                 @if($MusicSameArtist)
                     <div class="box_header d-flex justify-content-between align-items-end">
-                        <h5 class="title m-0">Cùng ca sĩ</h5>
+                        <h5 class="title m-0">Bài hát cùng ca sĩ</h5>
                         <a class="link_more" href="{{$matchArtist[1]}}" title="Xem tất cả">Xem tất cả</a>
                     </div>
                     <div class="row row10px float-col-width">
