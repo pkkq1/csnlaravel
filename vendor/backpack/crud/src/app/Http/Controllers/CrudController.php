@@ -41,7 +41,6 @@ class CrudController extends BaseController
                 $this->request = $request;
                 $this->crud->request = $request;
                 $this->setup();
-
                 return $next($request);
             });
         }

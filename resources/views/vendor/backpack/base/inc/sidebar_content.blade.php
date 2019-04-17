@@ -88,7 +88,7 @@ $htmlNotif['kara_sug'] = $notif['kara_sug'] > 0 ? '<span class="label pull-right
     </li>
 @endif
 @if(backpack_user()->can('search_results(list)'))
-    <li><a href="{{ backpack_url('search_results') }}"><i class="fa fa-search"></i> <span>Kết quả tìm kiếm</span></a></li>
+    <li><a href="{{ backpack_url('search_results') }}"><i class="fa fa-search"></i> <span>Tìm kiếm hôm nay</span></a></li>
 @endif
 <!-- Users, Roles Permissions -->
 @if(backpack_user()->can('user_(list)') || backpack_user()->can('role_permission_(list)'))
@@ -105,6 +105,22 @@ $htmlNotif['kara_sug'] = $notif['kara_sug'] > 0 ? '<span class="label pull-right
     </ul>
 </li>
 @endif
+
+<!-- Report -->
+@if(backpack_user()->can('report_user_login_(list)') || backpack_user()->can('report_user_register_(list)'))
+<li class="treeview">
+    <a href="#"><i class="fa fa-line-chart"></i> <span>Báo cáo</span> <i class="fa fa-angle-left pull-right"></i></a>
+    <ul class="treeview-menu">
+        @if(backpack_user()->can('report_user_login_(list)'))
+        <li><a href="{{ backpack_url('report_user_login') }}"><i class="fa fa-sign-in"></i> <span>Tài khoản đăng nhập</span></a></li>
+        @endif
+        @if(backpack_user()->can('report_user_register_(list)'))
+        <li><a href="{{ backpack_url('report_user_register') }}"><i class="fa fa-sign-in"></i> <span>Tài khoản đăng ký</span></a></li>
+        @endif
+    </ul>
+</li>
+@endif
+
 @if(backpack_user()->can('advanced_(list)'))
 <li class="treeview">
     <a href="#"><i class="fa fa-cogs"></i> <span>Cài đặt nâng cao</span> <i class="fa fa-angle-left pull-right"></i></a>

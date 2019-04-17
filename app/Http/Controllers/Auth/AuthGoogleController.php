@@ -45,6 +45,8 @@ class AuthGoogleController extends Controller
                 'email' => $email,
                 'user_active' => ACTIVE_USER,
                 'user_avatar' => $user->avatar_original,
+                'user_lastvisit' => time(),
+                'user_regdate' => time(),
                 'user_identity' => $user->getId(),
                 'user_phone_number' => ''
             ]);

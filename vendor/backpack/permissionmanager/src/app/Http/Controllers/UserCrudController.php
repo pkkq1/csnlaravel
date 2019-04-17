@@ -22,7 +22,7 @@ class UserCrudController extends CrudController
         $this->crud->setModel(config('backpack.permissionmanager.user_model'));
         $this->crud->setEntityNameStrings(trans('backpack::permissionmanager.user'), trans('backpack::permissionmanager.users'));
         $this->crud->setRoute(config('backpack.base.route_prefix').'/user');
-//        $this->crud->orderBy('created_at', 'desc');
+        $this->crud->orderBy('user_regdate', 'desc');
         $this->crud->enableAjaxTable();
         // Columns.
         if(!backpack_user()->can('user_(list)')) {
@@ -41,13 +41,13 @@ class UserCrudController extends CrudController
         $this->crud->addFilter([ // daterange filter
             'type' => 'date_range',
             'name' => 'from_to',
-            'label'=> 'Thời gian tạo'
+            'label'=> 'Thời gian đăng ký'
         ],
             false,
             function($value) {
                 $dates = json_decode(htmlspecialchars_decode($value, ENT_QUOTES));
-                $this->crud->addClause('whereDate', 'created_at', '>=', $dates->from);
-                $this->crud->addClause('whereDate', 'created_at', '<=', $dates->to);
+                $this->crud->addClause('whereDate', 'user_regdate', '>=', strtotime($dates->from . ' 00:00'));
+                $this->crud->addClause('whereDate', 'user_regdate', '<=', strtotime($dates->to . ' 23:59'));
             });
         $this->crud->addFilter([ // daterange filter
             'type' => 'date_range',
@@ -57,10 +57,31 @@ class UserCrudController extends CrudController
             false,
             function($value) {
                 $dates = json_decode(htmlspecialchars_decode($value, ENT_QUOTES));
-                $this->crud->addClause('where', 'user_lastvisit', '>=', strtotime($dates->from));
-                $this->crud->addClause('where', 'user_lastvisit', '<=', strtotime($dates->to));
+                $this->crud->addClause('where', 'user_lastvisit', '>=', strtotime($dates->from . ' 00:00'));
+                $this->crud->addClause('where', 'user_lastvisit', '<=', strtotime($dates->to . ' 23:59'));
             });
+        $this->crud->addFilter([ // dropdown filter
+            'name' => 'type',
+            'type' => 'dropdown',
+            'label'=> 'Thể loại đăng ký'
+        ], [
+            1 => 'Facebook',
+            2 => 'Google',
+            3 => 'Tài khoản CSN',
+        ], function($value) { // if the filter is active
+            if ($value == 0) {
 
+            } elseif ($value == 1) {
+                $this->crud->addClause('where', 'user_fb_identity', '!=', '');
+
+            } elseif ($value == 2) {
+                $this->crud->addClause('where', 'user_identity', '!=', '');
+
+            } else {
+                $this->crud->addClause('where', 'user_fb_identity', '!=', '');
+                $this->crud->addClause('where', 'user_identity', '!=', '');
+            }
+        });
         $this->crud->addFilter([ // select2_multiple filter
             'name' => 'roles',
 //            'type' => 'dropdown',
@@ -139,7 +160,7 @@ class UserCrudController extends CrudController
                 },
             ],
             [
-                'name'  => 'created_at',
+                'name'  => 'user_regdate',
                 'label' => 'Ngày tạo',
                 'type'  => 'date',
             ],

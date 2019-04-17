@@ -17,6 +17,8 @@ Route::group([
     CRUD::resource('playlist_publisher', 'PlaylistPublisherController');
     CRUD::resource('music', 'MusicController');
     CRUD::resource('video', 'VideoController');
+    CRUD::resource('report_user_login', 'ReportUserLoginController');
+    CRUD::resource('report_user_register', 'ReportUserRegisterController');
 
     CRUD::resource('lyric', 'SugLyricController');
     CRUD::resource('karaoke', 'SugKaraokeController');

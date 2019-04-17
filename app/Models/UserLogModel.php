@@ -12,9 +12,9 @@ class UserLogModel extends Model
     public $timestamps = false;
     protected $table = 'csn_user_log';
     protected $primaryKey = 'id';
-    protected $fillable = ['user_id', 'log_date'];
+    protected $fillable = ['user_id', 'log_date', 'type'];
     public function user()
     {
-        return $this->belongsTo('App\Models\UserModel', 'user_id')->select('id', 'name', 'user_avatar', 'username');
+        return $this->belongsTo('App\Models\UserModel', 'user_id');
     }
 }
