@@ -48,7 +48,7 @@ class ReportUserRegisterController extends CrudController
         $this->data['title'] = $this->crud->getTitle() ?? mb_ucfirst($this->crud->entity_name_plural);
         $chart = UserModel::select(DB::raw('DATE_FORMAT(FROM_UNIXTIME(user_regdate), \'%Y-%m-%d\') as date'),
             DB::raw("count(*) as views, IF(user_identity != '', 'google', IF(user_fb_identity != '', 'facebook', 'csn')) as type"))
-            ->where('user_regdate', '>=', strtotime(TIME_30DAY_AGO))
+            ->where('user_regdate', '>=', strtotime(date('Y-m-d', strtotime(TIME_60DAY_AGO)). ' 00:00'))
             ->groupBy('date', 'type')
             ->get()->toArray();
         $this->data['chart'] = $chart;
@@ -79,8 +79,8 @@ class ReportUserRegisterController extends CrudController
             false,
             function($value) {
                 $dates = json_decode(htmlspecialchars_decode($value, ENT_QUOTES));
-                $this->crud->addClause('whereDate', 'user_regdate', '>=', strtotime($dates->from . ' 00:00'));
-                $this->crud->addClause('whereDate', 'user_regdate', '<=', strtotime($dates->to . ' 23:59'));
+                $this->crud->addClause('where', 'user_regdate', '>=', strtotime($dates->from . ' 00:00'));
+                $this->crud->addClause('where', 'user_regdate', '<=', strtotime($dates->to . ' 23:59'));
             });
         $this->crud->addFilter([ // dropdown filter
             'name' => 'type',
@@ -94,14 +94,14 @@ class ReportUserRegisterController extends CrudController
             if ($value == 0) {
 
             } elseif ($value == 1) {
-                $this->crud->addClause('where', 'user_fb_identity', '!=', '');
+                $this->crud->addClause('where', 'user_fb_identity', '<>', '');
 
             } elseif ($value == 2) {
-                $this->crud->addClause('where', 'user_identity', '!=', '');
+                $this->crud->addClause('where', 'user_identity', '<>', '');
 
             } else {
-                $this->crud->addClause('where', 'user_fb_identity', '!=', '');
-                $this->crud->addClause('where', 'user_identity', '!=', '');
+                $this->crud->addClause('where', 'user_fb_identity', '<>', '');
+                $this->crud->addClause('where', 'user_identity', '<>', '');
             }
         });
 
@@ -122,7 +122,7 @@ class ReportUserRegisterController extends CrudController
             },
         ]);
         $this->crud->addColumn([
-            'name' => 'created_at',
+            'name' => 'user_regdate',
             'label' => 'Đăng ký',
             'type' => "datetime",
             'format' => 'Y-m-d H:i'
@@ -137,10 +137,23 @@ class ReportUserRegisterController extends CrudController
             'label' => 'Tên người dùng',
         ]);
 
-
         $this->crud->addColumn([
             'name' => 'email',
             'label' => 'Email',
+        ]);
+        $this->crud->addColumn([
+            'name'  => 'user_fb_identity',
+            'label' => 'Dạng đăng ký',
+            'type' => 'closure',
+            'function' => function($entry) {
+                if($entry->user_fb_identity != '') {
+                    return 'Facebook';
+                }elseif ($entry->user_identity != '') {
+                    return 'Facebook';
+                }else {
+                    return 'CSN';
+                }
+            },
         ]);
 //        $this->crud->addButtonFromView('line', 'view', 'show', 'end');
     }

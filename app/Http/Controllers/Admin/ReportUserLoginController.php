@@ -44,7 +44,7 @@ class ReportUserLoginController extends CrudController
         $this->data['crud'] = $this->crud;
         $this->data['title'] = $this->crud->getTitle() ?? mb_ucfirst($this->crud->entity_name_plural);
         $chart = UserLogModel::select(DB::raw('DATE_FORMAT(FROM_UNIXTIME(log_date), \'%Y-%m-%d\') as date'), DB::raw('count(*) as views, type'))
-            ->where('log_date', '>=', strtotime(TIME_60DAY_AGO))
+            ->where('log_date', '>=', strtotime(date('Y-m-d', strtotime(TIME_60DAY_AGO)). ' 00:00'))
             ->groupBy('date', 'type')
             ->get()->toArray();
         $this->data['chart'] = $chart;
@@ -101,19 +101,16 @@ class ReportUserLoginController extends CrudController
                 return '<a href="#" target="_blank">ẩn danh</a>';
             },
         ]);
-//        $this->crud->addColumn([
-//            'label' => 'Người tạo',
-//            'type' => 'select',
-//            'name' => 'user_id',
-//            'entity' => 'user',
-//            'attribute' => 'name',
-//            'model' => "App\User",
-//        ]);
+
         $this->crud->addColumn([
             'name' => 'log_date',
             'label' => 'Đăng nhập vào lúc',
             'type' => "datetime",
             'format' => 'Y-m-d H:i'
+        ]);
+        $this->crud->addColumn([
+            'label' => 'Dạng truy cập',
+            'name' => 'type',
         ]);
 //        $this->crud->addButtonFromView('line', 'view', 'show', 'end');
     }
