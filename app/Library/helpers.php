@@ -263,7 +263,7 @@ class Helpers
                 $seo_domain = '';
                 switch ($music_info['cat_id']) {
                     case 1:
-                        $seo_domain = 'https://vc.chiasenhac.vn/';
+                        $seo_domain = 'https://mv.chiasenhac.vn/';
                         break;
                     case 2:
                         $seo_domain = 'https://pb.chiasenhac.vn/';
