@@ -19,6 +19,7 @@ use App\Repositories\SearchResult\SearchResultEloquentRepository;
 use App\Repositories\Music\MusicEloquentRepository;
 use App\Repositories\User\UserEloquentRepository;
 use App\Models\UserLogModel;
+use App\Models\UserModel;
 use DB;
 
 class ReportUserRegisterController extends CrudController
@@ -45,14 +46,12 @@ class ReportUserRegisterController extends CrudController
 
         $this->data['crud'] = $this->crud;
         $this->data['title'] = $this->crud->getTitle() ?? mb_ucfirst($this->crud->entity_name_plural);
-
-        $chart = UserLogModel::select(DB::raw('DATE_FORMAT(FROM_UNIXTIME(log_date), \'%d-%m\') as date'), DB::raw('count(*) as views'))
-        ->where('log_date', '>=', strtotime(TIME_60DAY_AGO))
-        ->groupBy('date')
-        ->get()
-        ->toArray();
+        $chart = UserModel::select(DB::raw('DATE_FORMAT(FROM_UNIXTIME(user_regdate), \'%Y-%m-%d\') as date'),
+            DB::raw("count(*) as views, IF(user_identity != '', 'google', IF(user_fb_identity != '', 'facebook', 'csn')) as type"))
+            ->where('user_regdate', '>=', strtotime(TIME_30DAY_AGO))
+            ->groupBy('date', 'type')
+            ->get()->toArray();
         $this->data['chart'] = $chart;
-        // load the view from /resources/views/vendor/backpack/crud/ if it exists, otherwise load the one in the package
         return view('vendor.backpack.report.list_user_register', $this->data);
     }
 
@@ -111,7 +110,15 @@ class ReportUserRegisterController extends CrudController
             'label' => 'User',
             'type' => 'closure',
             'function' => function($entry) {
-                return '<a href="/user/'.$entry->id.'" target="_blank">'.$entry->name.'</a>';
+                return '<a href="/user/'.$entry->id.'" target="_blank">'.$entry->id.'</a>';
+            },
+        ]);
+        $this->crud->addColumn([
+            'name'  => 'user_avatar',
+            'label' => 'Ảnh',
+            'type' => 'closure',
+            'function' => function($entry) {
+                return '<img style=" max-height: 25px; width: auto; border-radius: 3px;" class="mr-3" src="'. Helpers::pathAvatar($entry->user_avatar, $entry->id) .'"/>';
             },
         ]);
         $this->crud->addColumn([
@@ -125,11 +132,11 @@ class ReportUserRegisterController extends CrudController
             'name' => 'username',
             'label' => 'User name',
         ]);
-
         $this->crud->addColumn([
-            'name' => 'Tên người dùng',
-            'label' => 'name',
+            'name' => 'name',
+            'label' => 'Tên người dùng',
         ]);
+
 
         $this->crud->addColumn([
             'name' => 'email',

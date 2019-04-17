@@ -19,7 +19,6 @@ use App\Repositories\SearchResult\SearchResultEloquentRepository;
 use App\Repositories\Music\MusicEloquentRepository;
 use App\Repositories\User\UserEloquentRepository;
 use App\Models\UserLogModel;
-use App\Models\UserModel;
 use DB;
 
 class ReportUserLoginController extends CrudController
@@ -29,9 +28,7 @@ class ReportUserLoginController extends CrudController
     {
         $this->middleware(function ($request, $next)
         {
-            if(!backpack_user()->can('report_user_login_(list)')) {
-                $this->crud->denyAccess(['list']);
-            }
+
             return $next($request);
         });
 
@@ -46,14 +43,11 @@ class ReportUserLoginController extends CrudController
 
         $this->data['crud'] = $this->crud;
         $this->data['title'] = $this->crud->getTitle() ?? mb_ucfirst($this->crud->entity_name_plural);
-
-        $chart = UserModel::select(DB::raw('DATE_FORMAT(FROM_UNIXTIME(log_date), \'%d-%m\') as date'), DB::raw('count(*) as views'))
-        ->where('log_date', '>=', strtotime(TIME_60DAY_AGO))
-        ->groupBy('date')
-        ->get()
-        ->toArray();
+        $chart = UserLogModel::select(DB::raw('DATE_FORMAT(FROM_UNIXTIME(log_date), \'%Y-%m-%d\') as date'), DB::raw('count(*) as views, type'))
+            ->where('log_date', '>=', strtotime(TIME_60DAY_AGO))
+            ->groupBy('date', 'type')
+            ->get()->toArray();
         $this->data['chart'] = $chart;
-        // load the view from /resources/views/vendor/backpack/crud/ if it exists, otherwise load the one in the package
         return view('vendor.backpack.report.list_user_login', $this->data);
     }
 
@@ -117,7 +111,7 @@ class ReportUserLoginController extends CrudController
 //        ]);
         $this->crud->addColumn([
             'name' => 'log_date',
-            'label' => 'Đăng nhập',
+            'label' => 'Đăng nhập vào lúc',
             'type' => "datetime",
             'format' => 'Y-m-d H:i'
         ]);

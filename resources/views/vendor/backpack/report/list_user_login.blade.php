@@ -17,15 +17,26 @@
 @section('content')
     <!-- Default box -->
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-6">
             <div class="box">
                 <div class="box-header with-border" style="float: left">
-                    <h3 class="box-title">Area Chart (kết quả 60 ngày qua)</h3>
+                    <h3 class="box-title">Tổng đăng nhập kết quả 60 ngày qua (Area Chart)</h3>
                 </div>
                 <div class="box-body">
                     <div class="chart">
-                        <canvas id="areaChart" style="height:250px"></canvas>
+                        <canvas id="lineChart" style="height:250px"></canvas>
                     </div>
+                </div>
+                <!-- /.box-body -->
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="box">
+                <div class="box-header with-border" style="float: left">
+                    <h3 class="box-title">Các loại đăng nhập kết quả 60 ngày qua (Donut Chart)</h3>
+                </div>
+                <div class="box-body">
+                    <canvas id="pieChart" style="height:250px"></canvas>
                 </div>
                 <!-- /.box-body -->
             </div>
@@ -117,6 +128,23 @@
 
     <!-- Morris.js charts -->
     <script src="{{ asset('vendor/adminlte/bower_components/chart.js/Chart.js') }}"></script>
+    <?php
+        $chartDateTotal = [];
+        $chartFacebook= [];
+        $chartGoogle = [];
+        $chartCsn = [];
+        foreach($chart as $item) {
+            $chartDateTotal[$item['date']] = ($chartDateTotal[$item['date']] ?? 0) + $item['views'];
+            if($item['type'] == 'facebook') {
+                $chartFacebook[$item['date']] = ($chartFacebook[$item['date']] ?? 0) + $item['views'];
+            } elseif ($item['type'] == 'google') {
+                $chartGoogle[$item['date']] = ($chartGoogle[$item['date']] ?? 0) + $item['views'];
+            } else{
+                $chartCsn[$item['date']] = ($chartCsn[$item['date']] ?? 0) + $item['views'];
+            }
+
+        }
+    ?>
     <script>
         $(function () {
             /* ChartJS
@@ -124,28 +152,50 @@
              * Here we will create a few charts using ChartJS
              */
 
-            //--------------
-            //- AREA CHART -
-            //--------------
-
-            // Get context with jQuery - using jQuery's .get() method.
-            var areaChartCanvas = $('#areaChart').get(0).getContext('2d')
-            // This will get the first returned node in the jQuery collection.
-            var areaChart       = new Chart(areaChartCanvas)
 
             var areaChartData = {
-                labels  : [<?php foreach($chart as $item) { echo "'".$item['date'] ."'". ','; } ?>],
+                labels  : [<?php foreach($chartDateTotal as $key => $item) { echo "'".substr($key, 5)."'". ','; } ?>],
                 datasets: [
                     {
-                        label               : 'Digital Goods',
+                        label               : 'Tổng',
+                        fillColor           : '#f39c12',
+                        strokeColor         : '#f39c12',
+                        pointColor          : '#f39c12',
+                        pointStrokeColor    : '#f39c12',
+                        pointHighlightFill  : '#fff',
+                        pointHighlightStroke: '#f39c12',
+                        data                : [<?php foreach($chartDateTotal as $item) { echo $item . ','; } ?>]
+                    },
+                    {
+                        label               : 'Facebook',
+                        fillColor           : '#4267b2',
+                        strokeColor         : '#4267b2',
+                        pointColor          : '#4267b2',
+                        pointStrokeColor    : '#4267b2',
+                        pointHighlightFill  : '#fff',
+                        pointHighlightStroke: '#4267b2',
+                        data                : [<?php foreach($chartFacebook as $item) { echo $item . ','; } ?>]
+                    },
+                    {
+                        label               : 'Google',
+                        fillColor           : '#f56954',
+                        strokeColor         : '#f56954',
+                        pointColor          : '#f56954',
+                        pointStrokeColor    : '#f56954',
+                        pointHighlightFill  : '#fff',
+                        pointHighlightStroke: '#f56954',
+                        data                : [<?php foreach($chartGoogle as $item) { echo $item . ','; } ?>]
+                    },
+                    {
+                        label               : 'Csn',
                         fillColor           : '#d2d6de',
                         strokeColor         : '#d2d6de',
-                        pointColor          : '#3b8bba',
-                        pointStrokeColor    : 'rgba(60,141,188,1)',
+                        pointColor          : '#d2d6de',
+                        pointStrokeColor    : '#d2d6de',
                         pointHighlightFill  : '#fff',
-                        pointHighlightStroke: 'rgba(60,141,188,1)',
-                        data                : [<?php foreach($chart as $item) { echo $item['views'] . ','; } ?>]
-                    }
+                        pointHighlightStroke: '#d2d6de',
+                        data                : [<?php foreach($chartCsn as $item) { echo $item . ','; } ?>]
+                    },
                 ]
             }
             var areaChartOptions = {
@@ -186,7 +236,64 @@
                 responsive              : true
             }
             //Create the line chart
-            areaChart.Line(areaChartData, areaChartOptions)
+            var lineChartCanvas          = $('#lineChart').get(0).getContext('2d')
+            var lineChart                = new Chart(lineChartCanvas)
+            var lineChartOptions         = areaChartOptions
+            lineChartOptions.datasetFill = false
+            lineChart.Line(areaChartData, lineChartOptions)
+            //-------------
+            //- PIE CHART -
+            //-------------
+            // Get context with jQuery - using jQuery's .get() method.
+            var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
+            var pieChart       = new Chart(pieChartCanvas)
+            var PieData        = [
+
+                {
+                    value    : <?php echo array_sum($chartFacebook) ?>,
+                    color    : '#4267b2',
+                    highlight: '#4267b2',
+                    label    : 'Facebook'
+                },
+                {
+                    value    : <?php echo array_sum($chartGoogle) ?>,
+                    color    : '#f56954',
+                    highlight: '#f56954',
+                    label    : 'Google'
+                },
+                {
+                    value    :  <?php echo array_sum($chartCsn) ?>,
+                    color    : '#d2d6de',
+                    highlight: '#d2d6de',
+                    label    : 'Tài khoản Csn'
+                }
+            ]
+            var pieOptions     = {
+                //Boolean - Whether we should show a stroke on each segment
+                segmentShowStroke    : true,
+                //String - The colour of each segment stroke
+                segmentStrokeColor   : '#fff',
+                //Number - The width of each segment stroke
+                segmentStrokeWidth   : 2,
+                //Number - The percentage of the chart that we cut out of the middle
+                percentageInnerCutout: 50, // This is 0 for Pie charts
+                //Number - Amount of animation steps
+                animationSteps       : 100,
+                //String - Animation easing effect
+                animationEasing      : 'easeOutBounce',
+                //Boolean - Whether we animate the rotation of the Doughnut
+                animateRotate        : true,
+                //Boolean - Whether we animate scaling the Doughnut from the centre
+                animateScale         : false,
+                //Boolean - whether to make the chart responsive to window resizing
+                responsive           : false,
+                // Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
+                maintainAspectRatio  : true,
+                //String - A legend template
+            }
+            //Create pie or douhnut chart
+            // You can switch between pie and douhnut using the method below.
+            pieChart.Doughnut(PieData, pieOptions)
         })
     </script>
 @endsection

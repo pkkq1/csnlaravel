@@ -115,7 +115,7 @@ $htmlNotif['kara_sug'] = $notif['kara_sug'] > 0 ? '<span class="label pull-right
         <li><a href="{{ backpack_url('report_user_login') }}"><i class="fa fa-sign-in"></i> <span>Tài khoản đăng nhập</span></a></li>
         @endif
         @if(backpack_user()->can('report_user_register_(list)'))
-        <li><a href="{{ backpack_url('report_user_register') }}"><i class="fa fa-sign-in"></i> <span>Tài khoản đăng ký</span></a></li>
+        <li><a href="{{ backpack_url('report_user_register') }}"><i class="fa fa-registered"></i> <span>Tài khoản đăng ký</span></a></li>
         @endif
     </ul>
 </li>
