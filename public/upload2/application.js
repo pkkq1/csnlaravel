@@ -25,7 +25,7 @@ $(function () {
             '//jquery-file-upload.appspot.com'
         );
         $('#fileupload').fileupload('option', {
-            maxFileSize: 5000000,
+            maxFileSize: 500000000,
             acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i
         });
     } else {
