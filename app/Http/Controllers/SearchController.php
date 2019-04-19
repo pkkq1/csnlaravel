@@ -275,7 +275,7 @@ class SearchController extends Controller
 //                $result[0]['video']['page'] = $resultVideo['page'];
 //                $result[0]['video']['row_total'] = $resultVideo['row_total'];
 //            }
-//        }
+        }
         return ($request->type == 'json' ? response((array)$result) : $result);
     }
 
