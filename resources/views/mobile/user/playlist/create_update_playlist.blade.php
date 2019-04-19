@@ -5,8 +5,8 @@ $user = Auth::user();
 ?>
 @extends('mobile.layouts.app')
 @section('contentCSS')
-    <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/croppie.css">
-    <script type="text/javascript" src="{{env('APP_URL')}}/node_modules/sortablejs/Sortable.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/croppie.css">
+    <script type="text/javascript" src="/node_modules/sortablejs/Sortable.min.js"></script>
 @endsection
 @section('content')
     <div class="header">
@@ -183,7 +183,7 @@ $user = Auth::user();
     </div>
 @endsection
 @section('contentJS')
-    <script type="text/javascript" src="{{env('APP_URL')}}/js/croppie.js"></script>
+    <script type="text/javascript" src="/js/croppie.js"></script>
     <script>
         function back() {
             window.location.replace('<?php echo $playlistUser ? '/user/playlist/chinh-sua' : url()->previous() ?>');

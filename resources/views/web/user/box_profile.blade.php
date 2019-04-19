@@ -132,7 +132,7 @@ isset($float_edit) ? $float_edit = $float_edit : $float_edit = false;
         </div>
     </div>
 </div>
-<script type="text/javascript" src="{{env('APP_URL')}}/js/croppie.js"></script>
+<script type="text/javascript" src="/js/croppie.js"></script>
 @if($float_edit == true)
 <script>
     var oldViewAvatar = $('#view_user_avatar').attr("src");
