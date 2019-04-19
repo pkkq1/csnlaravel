@@ -22,7 +22,7 @@ $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
 @endsection
 @extends('mobile.layouts.app')
 @section('contentCSS')
-    <link rel="stylesheet" type="text/css" href="/css/croppie.css">
+    <link rel="stylesheet" type="text/css" href="{{URL::to('/')}}/css/croppie.css">
 @endsection
 @section('content')
     <div class="header">

@@ -22,9 +22,9 @@ $titleMeta = $title.' - '. Config::get('constants.app.title');
 @endsection
 @extends('web.layouts.app')
 @section('contentCSS')
-    <link rel="stylesheet" type="text/css" href="/css/TabStylesInspiration/normalize.css">
-    <link rel="stylesheet" type="text/css" href="/css/TabStylesInspiration/tabs.css">
-    <link rel="stylesheet" type="text/css" href="/css/TabStylesInspiration/tabstyles.css">
+    <link rel="stylesheet" type="text/css" href="{{URL::to('/')}}/css/TabStylesInspiration/normalize.css">
+    <link rel="stylesheet" type="text/css" href="{{URL::to('/')}}/css/TabStylesInspiration/tabs.css">
+    <link rel="stylesheet" type="text/css" href="{{URL::to('/')}}/css/TabStylesInspiration/tabstyles.css">
 @endsection
 @section('content')
     <div class="container">

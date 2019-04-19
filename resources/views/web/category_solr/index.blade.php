@@ -27,9 +27,9 @@ if($category->cat_id == 3 || $category->cat_id == 4 || $category->cat_id == 6 ||
 @include('cache.bxh.bxh_today')
 @extends('web.layouts.app')
 @section('contentCSS')
-    <link rel="stylesheet" type="text/css" href="/css/TabStylesInspiration/normalize.css">
-    <link rel="stylesheet" type="text/css" href="/css/TabStylesInspiration/tabs.css">
-    <link rel="stylesheet" type="text/css" href="/css/TabStylesInspiration/tabstyles.css">
+    <link rel="stylesheet" type="text/css" href="{{URL::to('/')}}/css/TabStylesInspiration/normalize.css">
+    <link rel="stylesheet" type="text/css" href="{{URL::to('/')}}/css/TabStylesInspiration/tabs.css">
+    <link rel="stylesheet" type="text/css" href="{{URL::to('/')}}/css/TabStylesInspiration/tabstyles.css">
 @endsection
 @section('content')
     <div class="container">
