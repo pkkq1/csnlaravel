@@ -271,8 +271,10 @@
         }
         cat_level_reload(3);
         document.getElementById('cat_id').value = <?php echo $fields['cat_id']['value'] ?? 3 ?>;
+        cat_level_reload(<?php echo old('cat_id') ?? $music->cat_id ?? 3 ?>);
         setTimeout(function () {
             document.getElementById('cat_level').value = <?php echo $fields['cat_level']['value'] ?? 1 ?>;
+            cat_sublevel_reload(<?php echo old('cat_level') ?? $music->cat_level ?? 1 ?>);
         }, 300);
         setTimeout(function () {
             document.getElementById('cat_sublevel').value = <?php echo $fields['cat_sublevel']['value'] ?? 0 ?>;

@@ -719,7 +719,7 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                 document.getElementById('cat_level').options[1]=new Option("Nhạc rap, hiphop", "2", false, false);
                 document.getElementById('cat_level').options[2]=new Option("Nhạc dance, remix", "3", false, false);
             }
-            cat_sublevel_reload(1);
+            cat_sublevel_reload(cat_id);
         }
 
         function cat_sublevel_reload(cat_level)
@@ -802,15 +802,17 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
             }else{
                 ?>
                 document.getElementById('cat_id').value = <?php echo old('cat_id') ?? $music->cat_id ?? 3 ?>;
+                cat_level_reload(<?php echo old('cat_id') ?? $music->cat_id ?? 3 ?>);
                 setTimeout(function () {
                     document.getElementById('cat_level').value = <?php echo old('cat_level') ?? $music->cat_level ?? 1 ?>;
-                }, 500);
+                    cat_sublevel_reload(<?php echo old('cat_level') ?? $music->cat_level ?? 1 ?>);
+                }, 200);
                 setTimeout(function () {
                     document.getElementById('cat_sublevel').value = <?php echo old('cat_sublevel') ?? $music->cat_sublevel ?? 0 ?>;
-                }, 500);
+                }, 400);
                 setTimeout(function () {
                     document.getElementById('cat_custom').value = <?php echo old('cat_custom') ?? $music->cat_custom ?? 0 ?>;
-                }, 500);
+                }, 600);
                 <?php
             }
         ?>
