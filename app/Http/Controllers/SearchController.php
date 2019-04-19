@@ -154,127 +154,127 @@ class SearchController extends Controller
                     goto search_music_2;
                 }
             }
-//            if(isset($request->view_all) || isset($request->view_artist)) {
-//                $searchSolarium = [];
-//                if($quickSearch)
-//                    $searchSolarium['artist_nickname_charset_nospace'] =  $charsetNoSpace . '^100 | artist_nickname_charset_nospace:'.$charsetNoSpace.'*^50';
-//                $searchSolarium['artist_nickname_charset'] = $titleCharset;
-//                if($titleSearch != $titleCharset) {
-//                    $searchSolarium['artist_nickname_search'] = $titleSearch;
-//                }
-//                $resultArtist = $this->Solr->search($searchSolarium, ($request->page_artist ?? 1), $request->rows ?? ROWS_ARTIST_SEARCH_PAGING, array('score' => 'desc', 'music_total' => 'desc'));
-//                if($resultArtist['data']) {
-//                    foreach ($resultArtist['data'] as $item) {
-//                        $result[0]['artist']['data'][] = [
-//                            'artist_id' => $item['artist_id'][0],
-//                            'artist_nickname' => htmlspecialchars_decode($item['artist_nickname'][0], ENT_QUOTES),
-//                            'artist_link' =>  $item['artist_link'][0],
-//                            'artist_cover' => $item['artist_cover'][0],
-//                            'artist_avatar' => $item['artist_avatar'][0],
-//                        ];
-//                    }
-//                }
-//                $result[0]['artist']['rows'] = $resultArtist['rows'];
-//                $result[0]['artist']['page'] = $resultArtist['page'];
-//                $result[0]['artist']['row_total'] = $resultArtist['row_total'];
-//            }
-//            if(isset($request->view_all) || isset($request->view_album)) {
-//                $searchSolarium = [];
-//                if($quickSearch)
-//                    $searchSolarium['music_album_charset_nospace'] =  $charsetNoSpace . '^100 | music_album_charset_nospace:'.$charsetNoSpace.'*^50';
-//                $searchSolarium['music_album_charset'] = $titleCharset;
-//                if($titleSearch !== $titleCharset)
-//                    $searchSolarium['music_album_search'] = $titleSearch;
-//                if(isset($request->only_user)){
-//                    $searchSolarium['music_album_charset'] = $searchSolarium['music_album_charset'] .' AND album_user_id: ' . Auth::user()->user_id;
-//                }
-//                // click từ đường dẫn ca sĩ
-//                if($request->mode == 'ca-si') {
-//                    $searchSolarium = [];
-//                    $searchSolarium['music_album_charset_nospace'] = $charsetNoSpace;
-//                }
-//                $resultAlbum = $this->Solr->search($searchSolarium, ($request->page_album ?? 1), $request->rows ?? ROWS_ALBUM_SEARCH_PAGING, array('score' => 'desc'));
-//                if($resultAlbum['data']) {
-//                    foreach ($resultAlbum['data'] as $item) {
-//                        $result[0]['album']['data'][] = [
-//                            'cover_id' => $item['cover_id'][0],
-//                            'music_album' => htmlspecialchars_decode($item['music_album'][0], ENT_QUOTES),
-//                            'album_link' => $item['album_link'][0],
-//                            'album_id' => $request->view_album ? $item['id'] : '',
-//                            'album_bitrate' => $item['music_bitrate'][0],
-//                            'album_artist' => isset($item['album_music_artist']) ? $item['album_music_artist'][0] : '',
-//                            'album_artist_html' => isset($item['album_music_artist_html']) ? $item['album_music_artist_html'][0] : '',
-//                            'album_cover' => isset($item['album_cover']) ? $item['album_cover'][0] : '',
-//                        ];
-//                    }
-//                }
-//                $result[0]['album']['rows'] = $resultAlbum['rows'];
-//                $result[0]['album']['page'] = $resultAlbum['page'];
-//                $result[0]['album']['row_total'] = $resultAlbum['row_total'];
-//            }
-//            if(isset($request->view_all) || isset($request->view_video)) {
-//                $searchSolarium = [];
-//                if($quickSearch) {
-//                    $searchSolarium['video_title_charset_nospace'] = $charsetNoSpace . '^500';
-//                    $searchSolarium['video_title_artist_charset_nospace'] = $charsetNoSpace . '^100 | video_title_artist_charset_nospace:' . $charsetNoSpace . '*^50';
-//                }
-//                if($titleSearch) {
-//                    $searchSolarium['video_title_charset'] = $titleCharset . '^2';
-//                    $searchSolarium['video_artist_charset'] = $titleCharset;
-//
-//                    if ($titleSearch != $titleCharset) {
-//                        $searchSolarium['video_title_search'] = $titleSearch . '^2';
-//                        $searchSolarium['video_artist_search'] = $titleSearch;
-//                    }
-//                }
-//
-//                $search_level = 1;
-//
-//                search_video_2:
-//                if ($search_level == 2)
-//                {
-//                    $searchSolarium['video_artist_charset'] = '';
-//                    if ($titleSearch != $titleCharset) {
-//                        $searchSolarium['video_artist_search'] = '';
-//                    }
-//                }
-//                // click từ đường dẫn ca sĩ
-//                if($request->mode == 'ca-si') {
-//                    $searchSolarium = [];
-//                    $searchSolarium['video_artist_charset_nospace'] = $charsetNoSpace;
-//                }
-//                $resultVideo = $this->Solr->search($searchSolarium, ($request->page_video ?? 1), $request->rows ?? ROWS_VIDEO_SEARCH_PAGING, array('score' => 'desc', 'video_downloads' => 'desc', 'video_listen' => 'desc'));
-//                if($resultVideo['data']) {
-//                    foreach ($resultVideo['data'] as $item) {
-//                        $result[0]['video']['data'][] = [
-//                            'video_id' => $item['video_id'][0],
-//                            'video_title' => htmlspecialchars_decode($item['video_title'][0], ENT_QUOTES),
-//                            'video_artist' => htmlspecialchars_decode($item['video_artist'][0], ENT_QUOTES),
-//                            'video_bitrate' => $item['video_bitrate'][0],
-//                            'video_link' => $item['video_link'][0],
-//                            'video_cover' => isset($item['video_cover']) ? $item['video_cover'][0] : '',
-//                            'video_listen' => $item['video_listen_total'][0],
-//                            'video_length' => $item['video_length'][0],
-//                            'video_length_html' => $item['video_length_html'][0],
-//                            'video_downloads' => $item['video_downloads'][0],
-//                            'video_title_url' => $item['video_title_url'][0],
-//                        ];
-//
-//                        if ($search_level == 1)
-//                        {
-//                            if ($item['video_title_charset_nospace'][0] == $charsetNoSpace)
-//                            {
-//                                $search_level = 2;
-//                                $result[0]['video']['data'] = [];
-//                                goto search_video_2;
-//                            }
-//                        }
-//                    }
-//                }
-//                $result[0]['video']['rows'] = $resultVideo['rows'];
-//                $result[0]['video']['page'] = $resultVideo['page'];
-//                $result[0]['video']['row_total'] = $resultVideo['row_total'];
-//            }
+            if(isset($request->view_all) || isset($request->view_artist)) {
+                $searchSolarium = [];
+                if($quickSearch)
+                    $searchSolarium['artist_nickname_charset_nospace'] =  $charsetNoSpace . '^100 | artist_nickname_charset_nospace:'.$charsetNoSpace.'*^50';
+                $searchSolarium['artist_nickname_charset'] = $titleCharset;
+                if($titleSearch != $titleCharset) {
+                    $searchSolarium['artist_nickname_search'] = $titleSearch;
+                }
+                $resultArtist = $this->Solr->search($searchSolarium, ($request->page_artist ?? 1), $request->rows ?? ROWS_ARTIST_SEARCH_PAGING, array('score' => 'desc', 'music_total' => 'desc'));
+                if($resultArtist['data']) {
+                    foreach ($resultArtist['data'] as $item) {
+                        $result[0]['artist']['data'][] = [
+                            'artist_id' => $item['artist_id'][0],
+                            'artist_nickname' => htmlspecialchars_decode($item['artist_nickname'][0], ENT_QUOTES),
+                            'artist_link' =>  $item['artist_link'][0],
+                            'artist_cover' => $item['artist_cover'][0],
+                            'artist_avatar' => $item['artist_avatar'][0],
+                        ];
+                    }
+                }
+                $result[0]['artist']['rows'] = $resultArtist['rows'];
+                $result[0]['artist']['page'] = $resultArtist['page'];
+                $result[0]['artist']['row_total'] = $resultArtist['row_total'];
+            }
+            if(isset($request->view_all) || isset($request->view_album)) {
+                $searchSolarium = [];
+                if($quickSearch)
+                    $searchSolarium['music_album_charset_nospace'] =  $charsetNoSpace . '^100 | music_album_charset_nospace:'.$charsetNoSpace.'*^50';
+                $searchSolarium['music_album_charset'] = $titleCharset;
+                if($titleSearch !== $titleCharset)
+                    $searchSolarium['music_album_search'] = $titleSearch;
+                if(isset($request->only_user)){
+                    $searchSolarium['music_album_charset'] = $searchSolarium['music_album_charset'] .' AND album_user_id: ' . Auth::user()->user_id;
+                }
+                // click từ đường dẫn ca sĩ
+                if($request->mode == 'ca-si') {
+                    $searchSolarium = [];
+                    $searchSolarium['music_album_charset_nospace'] = $charsetNoSpace;
+                }
+                $resultAlbum = $this->Solr->search($searchSolarium, ($request->page_album ?? 1), $request->rows ?? ROWS_ALBUM_SEARCH_PAGING, array('score' => 'desc'));
+                if($resultAlbum['data']) {
+                    foreach ($resultAlbum['data'] as $item) {
+                        $result[0]['album']['data'][] = [
+                            'cover_id' => $item['cover_id'][0],
+                            'music_album' => htmlspecialchars_decode($item['music_album'][0], ENT_QUOTES),
+                            'album_link' => $item['album_link'][0],
+                            'album_id' => $request->view_album ? $item['id'] : '',
+                            'album_bitrate' => $item['music_bitrate'][0],
+                            'album_artist' => isset($item['album_music_artist']) ? $item['album_music_artist'][0] : '',
+                            'album_artist_html' => isset($item['album_music_artist_html']) ? $item['album_music_artist_html'][0] : '',
+                            'album_cover' => isset($item['album_cover']) ? $item['album_cover'][0] : '',
+                        ];
+                    }
+                }
+                $result[0]['album']['rows'] = $resultAlbum['rows'];
+                $result[0]['album']['page'] = $resultAlbum['page'];
+                $result[0]['album']['row_total'] = $resultAlbum['row_total'];
+            }
+            if(isset($request->view_all) || isset($request->view_video)) {
+                $searchSolarium = [];
+                if($quickSearch) {
+                    $searchSolarium['video_title_charset_nospace'] = $charsetNoSpace . '^500';
+                    $searchSolarium['video_title_artist_charset_nospace'] = $charsetNoSpace . '^100 | video_title_artist_charset_nospace:' . $charsetNoSpace . '*^50';
+                }
+                if($titleSearch) {
+                    $searchSolarium['video_title_charset'] = $titleCharset . '^2';
+                    $searchSolarium['video_artist_charset'] = $titleCharset;
+
+                    if ($titleSearch != $titleCharset) {
+                        $searchSolarium['video_title_search'] = $titleSearch . '^2';
+                        $searchSolarium['video_artist_search'] = $titleSearch;
+                    }
+                }
+
+                $search_level = 1;
+
+                search_video_2:
+                if ($search_level == 2)
+                {
+                    $searchSolarium['video_artist_charset'] = '';
+                    if ($titleSearch != $titleCharset) {
+                        $searchSolarium['video_artist_search'] = '';
+                    }
+                }
+                // click từ đường dẫn ca sĩ
+                if($request->mode == 'ca-si') {
+                    $searchSolarium = [];
+                    $searchSolarium['video_artist_charset_nospace'] = $charsetNoSpace;
+                }
+                $resultVideo = $this->Solr->search($searchSolarium, ($request->page_video ?? 1), $request->rows ?? ROWS_VIDEO_SEARCH_PAGING, array('score' => 'desc', 'video_downloads' => 'desc', 'video_listen' => 'desc'));
+                if($resultVideo['data']) {
+                    foreach ($resultVideo['data'] as $item) {
+                        $result[0]['video']['data'][] = [
+                            'video_id' => $item['video_id'][0],
+                            'video_title' => htmlspecialchars_decode($item['video_title'][0], ENT_QUOTES),
+                            'video_artist' => htmlspecialchars_decode($item['video_artist'][0], ENT_QUOTES),
+                            'video_bitrate' => $item['video_bitrate'][0],
+                            'video_link' => $item['video_link'][0],
+                            'video_cover' => isset($item['video_cover']) ? $item['video_cover'][0] : '',
+                            'video_listen' => $item['video_listen_total'][0],
+                            'video_length' => $item['video_length'][0],
+                            'video_length_html' => $item['video_length_html'][0],
+                            'video_downloads' => $item['video_downloads'][0],
+                            'video_title_url' => $item['video_title_url'][0],
+                        ];
+
+                        if ($search_level == 1)
+                        {
+                            if ($item['video_title_charset_nospace'][0] == $charsetNoSpace)
+                            {
+                                $search_level = 2;
+                                $result[0]['video']['data'] = [];
+                                goto search_video_2;
+                            }
+                        }
+                    }
+                }
+                $result[0]['video']['rows'] = $resultVideo['rows'];
+                $result[0]['video']['page'] = $resultVideo['page'];
+                $result[0]['video']['row_total'] = $resultVideo['row_total'];
+            }
         }
         return ($request->type == 'json' ? response((array)$result) : $result);
     }
