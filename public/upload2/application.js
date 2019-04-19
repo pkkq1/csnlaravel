@@ -26,7 +26,7 @@ $(function () {
         );
         $('#fileupload').fileupload('option', {
             maxFileSize: 500000000,
-            acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i
+            acceptFileTypes: /(\.|\/)(gif|jpe?g|png|mp4)$/i
         });
     } else {
         // Load existing files:
