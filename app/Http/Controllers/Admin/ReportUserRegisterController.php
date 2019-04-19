@@ -118,7 +118,8 @@ class ReportUserRegisterController extends CrudController
             'label' => 'Ảnh',
             'type' => 'closure',
             'function' => function($entry) {
-                return '<img style=" max-height: 25px; width: auto; border-radius: 3px;" class="mr-3" src="'. Helpers::pathAvatar($entry->user_avatar, $entry->id) .'"/>';
+                $img = Helpers::pathAvatar($entry->user_avatar, $entry->id);
+                return '<a href="'.$img.'"><img style=" max-height: 25px; width: auto; border-radius: 3px;" class="mr-3" src="'. $img .'"/></a>';
             },
         ]);
         $this->crud->addColumn([

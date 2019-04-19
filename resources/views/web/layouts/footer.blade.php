@@ -709,7 +709,7 @@
         </div>
     </div>
 </footer>
-<script src="/js/lobiboxcsn.min.js"></script>
+<script src="{{env('APP_URL')}}/js/lobiboxcsn.min.js"></script>
 
 @if( isset($allpage_banner) && $allpage_banner == true )
 <script type="text/javascript">

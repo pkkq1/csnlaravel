@@ -5,21 +5,21 @@ $file_url = Helpers::file_url($music);
 ?>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="/node_modules/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/custom.css">
-    <link rel="stylesheet" type="text/css" href="/fonts/fonts.css">
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/node_modules/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/fonts/fonts.css">
+    <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/style.css">
     <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/csn-jwplayer.css">
-    <script type="text/javascript" src="/node_modules/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/{{env('APP_URL')}}node_modules/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="{{env('APP_URL')}}/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 </head>
 
 <body>
     <div id="csnplayer" style="position:relative; z-index: 99999; width:100%;"> </div>
 </body>
-<link rel="stylesheet" type="text/css" href="/css/csn-jwplayer.css">
-<script src="/assets/jwplayer-7.12.0/jwplayer.js"></script>
+<link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/csn-jwplayer.css">
+<script src="{{env('APP_URL')}}/assets/jwplayer-7.12.0/jwplayer.js"></script>
 <script>
     jwplayer.key="dWwDdbLI0ul1clbtlw+4/UHPxlYmLoE9Ii9QEw==";
     var player = jwplayer('csnplayer');

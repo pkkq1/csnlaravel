@@ -22,7 +22,7 @@ $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
 @endsection
 @extends('mobile.layouts.app')
 @section('contentCSS')
-    <link rel="stylesheet" type="text/css" href="/css/croppie.css">
+    <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/croppie.css">
 @endsection
 @section('content')
     <div class="header">
@@ -247,7 +247,7 @@ $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
     </div>
 @endsection
 @section('contentJS')
-    <script type="text/javascript" src="/js/croppie.js"></script>
+    <script type="text/javascript" src="{{env('APP_URL')}}/js/croppie.js"></script>
     <script>
         var oldViewAvatar = $('#view_user_avatar').attr("src");
         var oldAvatar = $('#user_avatar').val();

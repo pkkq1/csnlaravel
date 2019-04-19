@@ -469,7 +469,7 @@ if($musicSet['type_listen'] == 'playlist') {
 </section>
 @endsection
 @section('contentJS')
-<script src="/assets/jwplayer-7.12.0/jwplayer.js"></script>
+<script src="{{env('APP_URL')}}/assets/jwplayer-7.12.0/jwplayer.js"></script>
 <script>
     var musicId = '<?php echo $music->music_id ?>';
     var artists = "<?php echo $music->music_artist  ?>";

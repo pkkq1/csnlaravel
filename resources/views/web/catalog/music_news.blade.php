@@ -22,9 +22,9 @@ $titleMeta = $title.' - '. Config::get('constants.app.title');
 @endsection
 @extends('web.layouts.app')
 @section('contentCSS')
-    <link rel="stylesheet" type="text/css" href="/css/TabStylesInspiration/normalize.css">
-    <link rel="stylesheet" type="text/css" href="/css/TabStylesInspiration/tabs.css">
-    <link rel="stylesheet" type="text/css" href="/css/TabStylesInspiration/tabstyles.css">
+    <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/TabStylesInspiration/normalize.css">
+    <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/TabStylesInspiration/tabs.css">
+    <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/TabStylesInspiration/tabstyles.css">
 @endsection
 @section('content')
     <div class="container">
@@ -50,7 +50,7 @@ $titleMeta = $title.' - '. Config::get('constants.app.title');
     </div>
 @endsection
 @section('contentJS')
-    <script src="/js/cbpFWTabs.js"></script>
+    <script src="{{env('APP_URL')}}/js/cbpFWTabs.js"></script>
     <script>
         $('#music_news').find('.pagination li a').on('click', function (e) {
             e.preventDefault();
