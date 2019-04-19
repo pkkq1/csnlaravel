@@ -21,9 +21,9 @@ $avtArtist = $artist->artist_avatar ? Helpers::file_path($artist->artist_id, PUB
     <meta property="og:updated_time" content="{{time()}}" />
 @endsection
 @section('contentCSS')
-    <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/TabStylesInspiration/normalize.css">
-    <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/TabStylesInspiration/tabs.css">
-    <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/TabStylesInspiration/tabstyles.css">
+    <link rel="stylesheet" type="text/css" href="/css/TabStylesInspiration/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/TabStylesInspiration/tabs.css">
+    <link rel="stylesheet" type="text/css" href="/css/TabStylesInspiration/tabstyles.css">
 @endsection
 @extends('web.layouts.app')
 @section('content')
@@ -57,7 +57,7 @@ $avtArtist = $artist->artist_avatar ? Helpers::file_path($artist->artist_id, PUB
     </div>
 @endsection
 @section('contentJS')
-    <script src="{{env('APP_URL')}}/js/cbpFWTabs.js"></script>
+    <script src="/js/cbpFWTabs.js"></script>
     <script>
         (function() {
             [].slice.call( document.querySelectorAll( '.tabs' ) ).forEach( function( el ) {

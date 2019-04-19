@@ -84,12 +84,12 @@ use App\Library\Helpers;
 <footer>
 
 </footer>
-<script src="{{env('APP_URL')}}/mobile/assets/js/bootstrap.min.js"></script>
-<script src="{{env('APP_URL')}}/mobile/assets/js/owl.carousel.min.js"></script>
-<script src="{{env('APP_URL')}}/mobile/assets/js/swiper.js"></script>
-<script src="{{env('APP_URL')}}/mobile/assets/js/main.js"></script>
+<script src="/mobile/assets/js/bootstrap.min.js"></script>
+<script src="/mobile/assets/js/owl.carousel.min.js"></script>
+<script src="/mobile/assets/js/swiper.js"></script>
+<script src="/mobile/assets/js/main.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script src="{{env('APP_URL')}}/mobile/assets/js/functions.js"></script>
+<script src="/mobile/assets/js/functions.js"></script>
 <script>
     var dataSearch = [];
     $( document ).ready(function() {

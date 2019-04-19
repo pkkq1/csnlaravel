@@ -5,7 +5,7 @@ $titleMeta = isset($artistExist) ? 'Cập nhật nghệ sĩ '.$artistExist->arti
 ?>
 @extends('web.layouts.app')
 @section('contentCSS')
-    <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/croppie.css">
+    <link rel="stylesheet" type="text/css" href="/css/croppie.css">
 @endsection
 @section('content')
     {{--@include('web.user.box_profile', ['user' =>  Auth::user(), 'float_edit' => false])--}}
@@ -165,7 +165,7 @@ $titleMeta = isset($artistExist) ? 'Cập nhật nghệ sĩ '.$artistExist->arti
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="{{env('APP_URL')}}/js/croppie.js"></script>
+    <script type="text/javascript" src="/js/croppie.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
     <script>
         $(document).ready(function(){

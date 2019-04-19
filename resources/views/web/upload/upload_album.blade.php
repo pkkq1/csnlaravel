@@ -4,14 +4,14 @@ use App\Library\Helpers;
 $titleMeta = 'Cập nhật album - ' . Config::get('constants.app.title');
 ?>
 @section('contentCSS')
-    <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/croppie.css">
+    <link rel="stylesheet" type="text/css" href="/css/croppie.css">
     <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/dropzone.css">
     <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/bootstrap-tagsinput.css">
     <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/typeaheadjs.css">
 
     <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/token-input.css">
     <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/token-input-facebook.css">
-    <script type="text/javascript" src="{{env('APP_URL')}}/node_modules/sortablejs/Sortable.min.js"></script>
+    <script type="text/javascript" src="/node_modules/sortablejs/Sortable.min.js"></script>
 @endsection
 @extends('web.layouts.app')
 @section('content')
@@ -389,7 +389,7 @@ $titleMeta = 'Cập nhật album - ' . Config::get('constants.app.title');
             } ?>
         </style>
     @else
-        <script type="text/javascript" src="{{env('APP_URL')}}/js/dropzone.js"></script>
+        <script type="text/javascript" src="/js/dropzone.js"></script>
         <script>
             // Dropzone.prototype.defaultOptions.acceptedFiles = '';
             Dropzone.prototype.defaultOptions.headers = {
@@ -419,10 +419,10 @@ $titleMeta = 'Cập nhật album - ' . Config::get('constants.app.title');
             ?>
         </script>
     @endif
-    <script type="text/javascript" src="{{env('APP_URL')}}/js/croppie.js"></script>
-    <script type="text/javascript" src="{{env('APP_URL')}}/js/bootstrap-tagsinput.js"></script>
-    <script type="text/javascript" src="{{env('APP_URL')}}/js/typeahead.bundle.js"></script>
-    <script type="text/javascript" src="{{env('APP_URL')}}/js/jquery.tokeninput.js"></script>
+    <script type="text/javascript" src="/js/croppie.js"></script>
+    <script type="text/javascript" src="/js/bootstrap-tagsinput.js"></script>
+    <script type="text/javascript" src="/js/typeahead.bundle.js"></script>
+    <script type="text/javascript" src="/js/jquery.tokeninput.js"></script>
     <script>
         $(".form_music").keypress(function(e) {
             //Enter key

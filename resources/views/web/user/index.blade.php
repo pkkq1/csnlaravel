@@ -22,10 +22,10 @@ $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
 @endsection
 @extends('web.layouts.app')
 @section('contentCSS')
-    <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/TabStylesInspiration/normalize.css">
-    <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/TabStylesInspiration/tabs.css">
-    <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/TabStylesInspiration/tabstyles.css">
-    <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/croppie.css">
+    <link rel="stylesheet" type="text/css" href="/css/TabStylesInspiration/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/TabStylesInspiration/tabs.css">
+    <link rel="stylesheet" type="text/css" href="/css/TabStylesInspiration/tabstyles.css">
+    <link rel="stylesheet" type="text/css" href="/css/croppie.css">
 @endsection
 @section('content')
 @include('web.user.box_profile', ['user' => $user, 'mySelf' => $mySelf, 'float_edit' => true])
@@ -120,7 +120,7 @@ $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
 </div>
 @endsection
 @section('contentJS')
-<script src="{{env('APP_URL')}}/js/cbpFWTabs.js"></script>
+<script src="/js/cbpFWTabs.js"></script>
 <!-- Modal -->
 <div id="myModal" class="modal fade" role="dialog">
     <div class="modal-dialog modal-sm">
