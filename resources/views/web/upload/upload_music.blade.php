@@ -398,16 +398,16 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
 
 @section('contentJS')
 
-    <script type="text/javascript" src="/js/dropzone.js"></script>
-    <script type="text/javascript" src="/js/bootstrap-tagsinput.js"></script>
-    <script type="text/javascript" src="/js/typeahead.bundle.js"></script>
-    <script type="text/javascript" src="/js/jquery.tokeninput.js"></script>
+    <script type="text/javascript" src="{{URL::to('/')}}/js/dropzone.js"></script>
+    <script type="text/javascript" src="{{URL::to('/')}}/js/bootstrap-tagsinput.js"></script>
+    <script type="text/javascript" src="{{URL::to('/')}}/js/typeahead.bundle.js"></script>
+    <script type="text/javascript" src="{{URL::to('/')}}/js/jquery.tokeninput.js"></script>
     @if(isset($music) && $music['music_filename'])
         <?php
         $file_url = Helpers::file_url($music);
         ?>
-        <link rel="stylesheet" type="text/css" href="/css/csn-jwplayer.css">
-        <script src="/assets/jwplayer-7.12.0/jwplayer.js"></script>
+        <link rel="stylesheet" type="text/css" href="{{URL::to('/')}}/css/csn-jwplayer.css">
+        <script src="{{URL::to('/')}}/assets/jwplayer-7.12.0/jwplayer.js"></script>
         <script>
             jwplayer.key="dWwDdbLI0ul1clbtlw+4/UHPxlYmLoE9Ii9QEw==";
             var player = jwplayer('csnplayer');

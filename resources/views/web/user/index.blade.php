@@ -22,10 +22,10 @@ $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
 @endsection
 @extends('web.layouts.app')
 @section('contentCSS')
-    <link rel="stylesheet" type="text/css" href="/css/TabStylesInspiration/normalize.css">
-    <link rel="stylesheet" type="text/css" href="/css/TabStylesInspiration/tabs.css">
-    <link rel="stylesheet" type="text/css" href="/css/TabStylesInspiration/tabstyles.css">
-    <link rel="stylesheet" type="text/css" href="/css/croppie.css">
+    <link rel="stylesheet" type="text/css" href="{{URL::to('/')}}/css/TabStylesInspiration/normalize.css">
+    <link rel="stylesheet" type="text/css" href="{{URL::to('/')}}/css/TabStylesInspiration/tabs.css">
+    <link rel="stylesheet" type="text/css" href="{{URL::to('/')}}/css/TabStylesInspiration/tabstyles.css">
+    <link rel="stylesheet" type="text/css" href="{{URL::to('/')}}/css/croppie.css">
 @endsection
 @section('content')
 @include('web.user.box_profile', ['user' => $user, 'mySelf' => $mySelf, 'float_edit' => true])

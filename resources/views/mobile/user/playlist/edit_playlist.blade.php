@@ -6,8 +6,8 @@ $user = Auth::user();
 ?>
 @extends('mobile.layouts.app')
 @section('contentCSS')
-    <link rel="stylesheet" type="text/css" href="/css/croppie.css">
-    <script type="text/javascript" src="/node_modules/sortablejs/Sortable.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{URL::to('/')}}/css/croppie.css">
+    <script type="text/javascript" src="{{URL::to('/')}}/node_modules/sortablejs/Sortable.min.js"></script>
 @endsection
 @section('content')
     <div class="header">

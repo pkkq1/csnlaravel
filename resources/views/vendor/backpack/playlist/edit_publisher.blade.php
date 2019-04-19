@@ -15,12 +15,12 @@ use App\Library\Helpers;
             <li class="active">{{ trans('backpack::crud.edit') }}</li>
         </ol>
     </section>
-    <script type="text/javascript" src="/node_modules/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="/node_modules/sortablejs/Sortable.min.js"></script>
-    <script type="text/javascript" src="/assets/jQuery-File-Upload-9.21.0/js/vendor/jquery.ui.widget.js"></script>
-    <script type="text/javascript" src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="{{URL::to('/')}}/node_modules/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="{{URL::to('/')}}/node_modules/sortablejs/Sortable.min.js"></script>
+    <script type="text/javascript" src="{{URL::to('/')}}/assets/jQuery-File-Upload-9.21.0/js/vendor/jquery.ui.widget.js"></script>
+    <script type="text/javascript" src="{{URL::to('/')}}/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <link rel="stylesheet" type="text/css" href="/css/croppie.css">
+    <link rel="stylesheet" type="text/css" href="{{URL::to('/')}}/css/croppie.css">
     <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/bootstrap-tagsinput.css">
     <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/typeaheadjs.css">
     <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/token-input.css">
@@ -185,10 +185,10 @@ use App\Library\Helpers;
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="/js/croppie.js"></script>
-    <script type="text/javascript" src="/js/bootstrap-tagsinput.js"></script>
-    <script type="text/javascript" src="/js/typeahead.bundle.js"></script>
-    <script type="text/javascript" src="/js/jquery.tokeninput.js"></script>
+    <script type="text/javascript" src="{{URL::to('/')}}/js/croppie.js"></script>
+    <script type="text/javascript" src="{{URL::to('/')}}/js/bootstrap-tagsinput.js"></script>
+    <script type="text/javascript" src="{{URL::to('/')}}/js/typeahead.bundle.js"></script>
+    <script type="text/javascript" src="{{URL::to('/')}}/js/jquery.tokeninput.js"></script>
     <script>
         $('input[name=artist_avatar]').parent().addClass('hidden');
         $('input[name=artist_cover]').parent().addClass('hidden');

@@ -21,9 +21,9 @@ $avtArtist = $artist->artist_avatar ? Helpers::file_path($artist->artist_id, PUB
     <meta property="og:updated_time" content="{{time()}}" />
 @endsection
 @section('contentCSS')
-    <link rel="stylesheet" type="text/css" href="/css/TabStylesInspiration/normalize.css">
-    <link rel="stylesheet" type="text/css" href="/css/TabStylesInspiration/tabs.css">
-    <link rel="stylesheet" type="text/css" href="/css/TabStylesInspiration/tabstyles.css">
+    <link rel="stylesheet" type="text/css" href="{{URL::to('/')}}/css/TabStylesInspiration/normalize.css">
+    <link rel="stylesheet" type="text/css" href="{{URL::to('/')}}/css/TabStylesInspiration/tabs.css">
+    <link rel="stylesheet" type="text/css" href="{{URL::to('/')}}/css/TabStylesInspiration/tabstyles.css">
 @endsection
 @extends('web.layouts.app')
 @section('content')
