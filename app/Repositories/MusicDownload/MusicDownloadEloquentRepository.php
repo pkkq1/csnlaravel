@@ -69,6 +69,7 @@ class MusicDownloadEloquentRepository extends EloquentRepository implements Musi
         $result = $this->_model
             ->join('csn_music', 'csn_music_download.music_id', 'csn_music.music_id')
             ->where('csn_music.cat_id', $idCategory)
+            ->where('csn_music.music_deleted', '<', 1)
             ->where('csn_music.cat_id', '!=', CAT_VIDEO)
 
             ->select($this->_selectMusic)

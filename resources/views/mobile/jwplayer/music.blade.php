@@ -1126,6 +1126,7 @@ if($musicSet['type_listen'] == 'playlist') {
     }
     function addMusicPlaylist(playlistId, musicAddId, artistAdd, artistIdAdd, type = 'tab') {
         const playlistIdSelect = $('.playlist_id_' + playlistId);
+        var countPlaylist = playlistIdSelect.find('.title_playlist span');
         let music_id = (musicAddId == false ? musicId : musicAddId);
         $.ajax({
             url: window.location.origin + "/user/playlist/add-music-playlist",
@@ -1135,23 +1136,25 @@ if($musicSet['type_listen'] == 'playlist') {
             beforeSend: function () {
                 if(loaded) return false;
                 loaded = true;
+                if(playlistIdSelect.hasClass('music-exists')) {
+                    countPlaylist.html(parseInt(countPlaylist.html()) - 1);
+                    playlistIdSelect.removeClass('music-exists');
+                    playlistIdSelect.find('.material-icons').remove();
+                }else{
+                    countPlaylist.html(parseInt(countPlaylist.html()) + 1);
+                    playlistIdSelect.addClass('music-exists');
+                    playlistIdSelect.find('a').prepend('<i class="material-icons icon-box-playlist"> check </i>');
+                }
             },
             success: function(data) {
                 if(data.success) {
-                    var countPlaylist = playlistIdSelect.find('.title_playlist span');
                     if(type == 'box' && music_id == musicId){
                         if($('.add_playlist').hasClass('active')) {
                             type = 'all';
                         }
                     }
                     if(data.data) {
-                        countPlaylist.html(parseInt(countPlaylist.html()) - 1);
-                        playlistIdSelect.removeClass('music-exists');
-                        playlistIdSelect.find('.material-icons').remove();
                     }else {
-                        countPlaylist.html(parseInt(countPlaylist.html()) + 1);
-                        playlistIdSelect.addClass('music-exists');
-                        playlistIdSelect.find('a').prepend('<i class="material-icons icon-box-playlist"> check </i>');
                     }
                 }else{
                     alertModal(data.message);
