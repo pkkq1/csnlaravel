@@ -6,7 +6,7 @@
             minLength: 1,
             source: function( request, response ) {
                 $.ajax( {
-                    url: "/search/real",
+                    url: "<?php echo URL::to('/') ?>/search/real",
                     dataType: "json",
                     data: {
                         q: request.term,
@@ -408,7 +408,7 @@
                 return addErrorInput(password, 'Mật khẩu phải trên 6 ký tự.');
             }
             $.ajax({
-                url: '/login',
+                url: '<?php echo URL::to('/') ?>/login',
                 type: "POST",
                 dataType: "json",
                 data: {
@@ -466,7 +466,7 @@
                 return addErrorInput(contact, 'Xác nhận thỏa thuận để đăng ý tài khoản');
             }
             $.ajax({
-                url: '/register',
+                url: '<?php echo URL::to('/') ?>/register',
                 type: "POST",
                 dataType: "json",
                 data: {
@@ -501,7 +501,7 @@
                 return addErrorInput(email, 'Email không được để trống');
             }
             $.ajax({
-                url: '/password/email',
+                url: '<?php echo URL::to('/') ?>/password/email',
                 type: "POST",
                 dataType: "json",
                 data: {
