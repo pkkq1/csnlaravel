@@ -273,8 +273,8 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
 //        }
 
         $searchSolarium = [];
-        $searchSolariumVideo = [];
-        $searchSolarium['-id'] = 'music_'.$music->music_id. ' AND '.$type.'_id :['.ID_OLD_MUSIC.' TO *]';
+        $searchSolariumVideo['-id'] = 'video_'.$music->music_id. ' AND video_id :['.ID_OLD_MUSIC.' TO *]';
+        $searchSolarium['-id'] = 'music_'.$music->music_id. ' AND music_id :['.ID_OLD_MUSIC.' TO *]';
         if($artistIds) {
             $searchSolarium['music_artist_id'] = '('.implode(' OR ', $artistIds).')';
             $searchSolariumVideo['video_artist_id'] = $searchSolarium['music_artist_id'];
@@ -285,7 +285,6 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
         }
         $MusicSameArtist= $this->Solr->search($searchSolarium, 1, 5, array('score' => 'desc', 'music_downloads_today' => 'desc', 'music_downloads_this_week' => 'desc', 'music_download' => 'desc'));
         $MusicSameArtist = $MusicSameArtist['data'];
-
         $searchSolariumVideo['-id'] = 'video_'.$music->music_id. ' AND video_id :['.ID_OLD_MUSIC.' TO *]';
         $VideoSameArtist= $this->Solr->search($searchSolariumVideo, 1, 5, array('score' => 'desc', 'video_downloads_today' => 'desc', 'video_downloads_this_week' => 'desc', 'video_download' => 'desc'));
         $VideoSameArtist = $VideoSameArtist['data'];
