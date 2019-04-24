@@ -712,6 +712,22 @@ if($musicSet['type_listen'] == 'playlist') {
             } else {
                 alertModal('Xin lỗi bài hát này đã bị lỗi! Vui lòng trải nghiệm video khác');
                 // location.href = "/";
+                $.ajax({
+                    url: window.location.origin + '/sys/error_slow_bug',
+                    type: "POST",
+                    dataType: "json",
+                    data: {
+                        'url': window.location.href,
+                        'display_by': 'web'
+                    },
+                    beforeSend: function () {
+                        if(loaded) return false;
+                        loaded = true;
+                    },
+                    success: function(response) {
+
+                    }
+                });
             }
             error_count++;
         });

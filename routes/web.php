@@ -44,6 +44,7 @@ Route::group(['middlewareGroups' => ['web']], function () {
         Route::get('solr_artist', 'Sync\SolrSyncController@syncArtist');
     });
 
+    Route::post('/sys/error_slow_bug', ['as' => 'error.slow_bug', 'uses' => 'SystemController@addBugSlow']);
 
     Route::get('/mp3/hot/hot-{year}', ['as' => 'bxh.month', 'uses' => 'BxhController@year']);
 
