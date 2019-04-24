@@ -1252,6 +1252,8 @@ if($musicSet['type_listen'] == 'playlist') {
         }
         function addMusicPlaylist(playlistId, musicAddId, artistAdd, artistIdAdd, type = 'tab') {
             const playlistIdSelect = $('.playlist_id_' + playlistId);
+            var countPlaylist = playlistIdSelect.find('.title_playlist span');
+            var selectPlaylist = $('.' + type + '-playlist').find('.playlist_id_' + playlistId);
             let music_id = (musicAddId == false ? musicId : musicAddId);
             $.ajax({
                 url: window.location.origin + "/user/playlist/add-music-playlist",
@@ -1261,26 +1263,27 @@ if($musicSet['type_listen'] == 'playlist') {
                 beforeSend: function () {
                     if(loaded) return false;
                     loaded = true;
+                    if(playlistIdSelect.hasClass('music-exists')) {
+                        countPlaylist.html(parseInt(countPlaylist.html()) - 1);
+                        selectPlaylist.removeClass('music-exists');
+                        selectPlaylist.find('.material-icons').remove();
+                    }else{
+                        countPlaylist.html(parseInt(countPlaylist.html()) + 1);
+                        selectPlaylist.addClass('music-exists');
+                        selectPlaylist.find('time').before('<i class="material-icons"> check </i>');
+                        $('.box-playlist').find('.playlist_id_' + playlistId).find('a').prepend('<i class="material-icons icon-box-playlist"> check </i>');
+                    }
                 },
                 success: function(data) {
                     if(data.success) {
-                        var countPlaylist = playlistIdSelect.find('.title_playlist span');
                         playlistIdSelect.find('time').html(convertDateTime(Date.now() / 1000));
                         if(type == 'box' && music_id == musicId){
                             if($('.add_playlist').hasClass('active')) {
                                 type = 'all';
                             }
                         }
-                        var selectPlaylist = $('.' + type + '-playlist').find('.playlist_id_' + playlistId);
                         if(data.data) {
-                            countPlaylist.html(parseInt(countPlaylist.html()) - 1);
-                            selectPlaylist.removeClass('music-exists');
-                            selectPlaylist.find('.material-icons').remove();
                         }else {
-                            countPlaylist.html(parseInt(countPlaylist.html()) + 1);
-                            selectPlaylist.addClass('music-exists');
-                            selectPlaylist.find('time').before('<i class="material-icons"> check </i>');
-                            $('.box-playlist').find('.playlist_id_' + playlistId).find('a').prepend('<i class="material-icons icon-box-playlist"> check </i>');
                         }
                     }else{
                         alertModal(data.message);

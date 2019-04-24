@@ -592,6 +592,7 @@ $catalog = config('constants.catalog');
 
     function addMusicPlaylist(playlistId, musicAddId, artistAdd, artistIdAdd) {
         const playlistIdSelect = $('.playlist_id_' + playlistId);
+        var countPlaylist = playlistIdSelect.find('.title_playlist span');
         $.ajax({
             url: window.location.origin + "/user/playlist/add-music-playlist",
             type: "POST",
@@ -600,18 +601,20 @@ $catalog = config('constants.catalog');
             beforeSend: function () {
                 if(loaded) return false;
                 loaded = true;
+                if(playlistIdSelect.hasClass('music-exists')) {
+                    countPlaylist.html(parseInt(countPlaylist.html()) - 1);
+                    playlistIdSelect.removeClass('music-exists');
+                    playlistIdSelect.find('.material-icons').remove();
+                }else{
+                    countPlaylist.html(parseInt(countPlaylist.html()) + 1);
+                    playlistIdSelect.addClass('music-exists');
+                    playlistIdSelect.find('a').prepend('<i class="material-icons icon-box-playlist"> check </i>');
+                }
             },
             success: function(data) {
                 if(data.success) {
-                    var countPlaylist = playlistIdSelect.find('.title_playlist span');
                     if(data.data) {
-                        countPlaylist.html(parseInt(countPlaylist.html()) - 1);
-                        playlistIdSelect.removeClass('music-exists');
-                        playlistIdSelect.find('.material-icons').remove();
                     }else{
-                        countPlaylist.html(parseInt(countPlaylist.html()) + 1);
-                        playlistIdSelect.addClass('music-exists');
-                        playlistIdSelect.find('a').prepend('<i class="material-icons icon-box-playlist"> check </i>');
                     }
                 }else{
                     alertModal(data.message);
