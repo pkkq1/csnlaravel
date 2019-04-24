@@ -69,7 +69,7 @@ $titleMeta = $title.' - '. Config::get('constants.app.title');
                 $('.tab-category .media-title').html('Album mới trang ' + page)
             }
             $.ajax({
-                url: url,
+                url: window.location.origin + url,
                 type: "POST",
                 dataType: "html",
                 data: {

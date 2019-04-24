@@ -1061,7 +1061,7 @@ if($musicSet['type_listen'] == 'playlist') {
                 return false;
             }
             $.ajax({
-                url: "/comment/post",
+                url: window.location.origin + "comment/post",
                 type: "POST",
                 dataType: "html",
                 data: {'comment': $('.form-comment-' + formId).find('textarea').val(),
@@ -1110,7 +1110,7 @@ if($musicSet['type_listen'] == 'playlist') {
 
         function loadPageComment(url) {
             $.ajax({
-                url: url,
+                url: window.location.origin + url,
                 type: "GET",
                 dataType: "html",
                 data: {'music_id': musicId},
@@ -1174,7 +1174,7 @@ if($musicSet['type_listen'] == 'playlist') {
                 }
             ?>
             $.ajax({
-                url: "/user/playlist/danh-sach-playlist",
+                url: window.location.origin + "/user/playlist/danh-sach-playlist",
                 type: "GET",
                 dataType: "json",
                 data: { music_id : musicIdSelect},
@@ -1229,7 +1229,7 @@ if($musicSet['type_listen'] == 'playlist') {
                 return false;
             }
             $.ajax({
-                url: "/user/playlist/create-playlist",
+                url: window.location.origin + "/user/playlist/create-playlist",
                 type: "POST",
                 dataType: "json",
                 data: {'music_id': musicId, 'playlist_title': titlePlaylist.val()},
@@ -1254,7 +1254,7 @@ if($musicSet['type_listen'] == 'playlist') {
             const playlistIdSelect = $('.playlist_id_' + playlistId);
             let music_id = (musicAddId == false ? musicId : musicAddId);
             $.ajax({
-                url: "/user/playlist/add-music-playlist",
+                url: window.location.origin + "/user/playlist/add-music-playlist",
                 type: "POST",
                 dataType: "json",
                 data: {'playlist_id': playlistId, 'music_id': music_id, 'artist': (artistAdd == false ? artists : artistAdd), 'artist_id': (artistIdAdd == false ? artistIds : artistIdAdd)},
@@ -1344,7 +1344,7 @@ if($musicSet['type_listen'] == 'playlist') {
         $('.download_item').click(function () {
             if(!$('.download_status').hasClass('music_downloaded')) {
                 $.ajax({
-                    url: '/count/download',
+                    url: window.location.origin + '/count/download',
                     type: "POST",
                     dataType: "json",
                     data: {
@@ -1377,7 +1377,7 @@ if($musicSet['type_listen'] == 'playlist') {
                 ?>
             let falgFav = $('.toggle_wishlist').hasClass('selector');
             $.ajax({
-                url: '/music/favourite',
+                url: window.location.origin + '/music/favourite',
                 type: "POST",
                 dataType: "json",
                 data: {
@@ -1418,7 +1418,7 @@ if($musicSet['type_listen'] == 'playlist') {
                 ?>
                 function deleteComment(type, id) {
                     $.ajax({
-                        url: '/comment/block',
+                        url: window.location.origin + '/comment/block',
                         type: "POST",
                         dataType: "json",
                         data: {
@@ -1448,7 +1448,7 @@ if($musicSet['type_listen'] == 'playlist') {
         /////////////////////////
         function sugLyric() {
             $.ajax({
-                url: '/music/suggestion_lyric',
+                url: window.location.origin + '/music/suggestion_lyric',
                 type: "GET",
                 dataType: "json",
                 data: {
@@ -1508,7 +1508,7 @@ if($musicSet['type_listen'] == 'playlist') {
                         })
                         $("#myConfirmModal .btn-lyric").one('click', function () {
                             $.ajax({
-                                url: '/music/suggestion_lyric',
+                                url: window.location.origin + '/music/suggestion_lyric',
                                 type: "POST",
                                 dataType: "json",
                                 data: {
@@ -1536,7 +1536,7 @@ if($musicSet['type_listen'] == 'playlist') {
                         ?>
                         $("#myConfirmModal .btn-edit").one('click', function () {
                             $.ajax({
-                                url: '/music/suggestion_lyric',
+                                url: window.location.origin + '/music/suggestion_lyric',
                                 type: "POST",
                                 dataType: "json",
                                 data: {
@@ -1576,7 +1576,7 @@ if($musicSet['type_listen'] == 'playlist') {
         function sugKaraoke() {
             if(!karaMusic) {
                 $.ajax({
-                    url: '/music/suggestion_karaoke',
+                    url: window.location.origin + '/music/suggestion_karaoke',
                     type: "GET",
                     dataType: "json",
                     data: {
@@ -1721,7 +1721,7 @@ if($musicSet['type_listen'] == 'playlist') {
             });
             $("#myConfirmModal .btn-karaoke").one('click', function () {
                 $.ajax({
-                    url: '/music/suggestion_karaoke',
+                    url: window.location.origin + '/music/suggestion_karaoke',
                     type: "POST",
                     dataType: "json",
                     data: {
@@ -1750,7 +1750,7 @@ if($musicSet['type_listen'] == 'playlist') {
                 ?>
                 $('.btn-edit').click(function () {
                     $.ajax({
-                        url: '/music/suggestion_karaoke',
+                        url: window.location.origin + '/music/suggestion_karaoke',
                         type: "POST",
                         dataType: "json",
                         data: {

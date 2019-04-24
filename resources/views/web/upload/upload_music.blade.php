@@ -824,7 +824,7 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                 minLength: 1,
                 source: function( request, response ) {
                     $.ajax( {
-                        url: "/search/real",
+                        url: window.location.origin + "/search/real",
                         dataType: "json",
                         data: {
                             q: request.term,
@@ -850,7 +850,7 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                         $('.choose_music_search').find('.media-title').html('<span class="search_highlight">' + title + '</span>');
                         $('.suggest_music').val($( this ).attr('href') || $( this ).find('a').attr('href'));
                         $.ajax({
-                            url: '/dang-tai/noi-dung-chinh-sua-dang-tai',
+                            url: window.location.origin + '/dang-tai/noi-dung-chinh-sua-dang-tai',
                             type: "POST",
                             dataType: "json",
                             data: {
@@ -921,7 +921,7 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                 minLength: 1,
                 source: function( request, response ) {
                     $.ajax( {
-                        url: "/search/real",
+                        url: window.location.origin + "/search/real",
                         dataType: "json",
                         data: {
                             q: request.term,

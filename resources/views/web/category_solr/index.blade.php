@@ -297,7 +297,7 @@ if($category->cat_id == 3 || $category->cat_id == 4 || $category->cat_id == 6 ||
         }
         if(($('#'+tab).html()).length == 0 || floatTab) {
             $.ajax({
-                url: url,
+                url: window.location.origin + url,
                 type: "POST",
                 dataType: "html",
                 data: {

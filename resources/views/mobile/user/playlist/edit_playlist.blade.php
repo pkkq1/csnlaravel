@@ -100,7 +100,7 @@ $user = Auth::user();
                 callback: function ($this, type, ev) {
                     if (type === 'yes') {
                         $.ajax({
-                            url: "/user/playlist/delete",
+                            url: window.location.origin + "/user/playlist/delete",
                             type: "POST",
                             dataType: "json",
                             data: {playlis_ids: ids},

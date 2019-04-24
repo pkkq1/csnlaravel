@@ -488,7 +488,7 @@ $catalog = config('constants.catalog');
         });
         function musicPage(url, tab) {
             $.ajax({
-                url: url,
+                url: window.location.origin + url,
                 type: "POST",
                 dataType: "html",
                 data: {

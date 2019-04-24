@@ -28,7 +28,7 @@ use App\Library\Helpers;
                 return addErrorInput(email, 'Email không được để trống');
             }
             $.ajax({
-                url: '/password/email',
+                url: window.location.origin + '/password/email',
                 type: "POST",
                 dataType: "json",
                 data: {

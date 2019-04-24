@@ -169,7 +169,7 @@ $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
         var uploaded = $('#uploaded');
         var approval = $('#duyet-nhac');
         $.ajax({
-            url: url,
+            url: window.location.origin + url,
             type: "POST",
             dataType: "html",
             data: {
@@ -217,7 +217,7 @@ $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
         var tabContent = $('#' + tab);
         if(tabContent.html().length == 0 || float) {
             $.ajax({
-                url: url,
+                url: window.location.origin + url,
                 type: "POST",
                 dataType: "html",
                 data: {
@@ -251,7 +251,7 @@ $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
         ?>
         let falgFav = $('.wishlist-' + music_id).hasClass('selector');
         $.ajax({
-            url: '/music/favourite',
+            url: window.location.origin + '/music/favourite',
             type: "POST",
             dataType: "json",
             data: {

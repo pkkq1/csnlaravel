@@ -54,7 +54,7 @@ use App\Library\Helpers;
                 return addErrorInput(password, 'Mật khẩu phải trên 6 ký tự.');
             }
             $.ajax({
-                url: '/login',
+                url: window.location.origin + '/login',
                 type: "POST",
                 dataType: "json",
                 data: {

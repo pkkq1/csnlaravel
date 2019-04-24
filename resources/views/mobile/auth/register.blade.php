@@ -66,7 +66,7 @@ use App\Library\Helpers;
                 return addErrorInput(contact, 'Xác nhận thỏa thuận để đăng ý tài khoản');
             }
             $.ajax({
-                url: '/register',
+                url: window.location.origin + '/register',
                 type: "POST",
                 dataType: "json",
                 data: {

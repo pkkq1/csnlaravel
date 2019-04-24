@@ -176,7 +176,7 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
         function categoryTab(url, tab, floatTab = false) {
             if(($('#'+tab).html()).length == 0 || floatTab) {
                 $.ajax({
-                    url: url,
+                    url: window.location.origin + url,
                     type: "POST",
                     dataType: "html",
                     data: {},

@@ -6,7 +6,7 @@
             minLength: 1,
             source: function( request, response ) {
                 $.ajax( {
-                    url: "<?php echo URL::to('/') ?>/search/real",
+                    url: window.location.origin + "/search/real",
                     dataType: "json",
                     data: {
                         q: request.term,
@@ -408,7 +408,7 @@
                 return addErrorInput(password, 'Mật khẩu phải trên 6 ký tự.');
             }
             $.ajax({
-                url: '<?php echo URL::to('/') ?>/login',
+                url: window.location.origin + '/login',
                 type: "POST",
                 dataType: "json",
                 data: {
@@ -466,7 +466,7 @@
                 return addErrorInput(contact, 'Xác nhận thỏa thuận để đăng ý tài khoản');
             }
             $.ajax({
-                url: '<?php echo URL::to('/') ?>/register',
+                url: window.location.origin + '/register',
                 type: "POST",
                 dataType: "json",
                 data: {
@@ -501,7 +501,7 @@
                 return addErrorInput(email, 'Email không được để trống');
             }
             $.ajax({
-                url: '<?php echo URL::to('/') ?>/password/email',
+                url: window.location.origin + '/password/email',
                 type: "POST",
                 dataType: "json",
                 data: {
@@ -544,7 +544,7 @@
     function showHistoryMusic() {
         if(loadHistory) {
             $.ajax({
-                url: "/music/history_listen",
+                url: window.location.origin + "/music/history_listen",
                 type: "POST",
                 dataType: "json",
                 data: {},

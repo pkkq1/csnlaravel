@@ -214,7 +214,7 @@ isset($float_edit) ? $float_edit = $float_edit : $float_edit = false;
                     return false;
                 }
                 $.ajax({
-                    url: "/user/update",
+                    url: window.location.origin + "/user/update",
                     type: "POST",
                     dataType: 'json',
                     data: {

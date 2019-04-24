@@ -98,7 +98,7 @@ $avtArtist = $artist->artist_avatar ? Helpers::file_path($artist->artist_id, PUB
     function artistTab(url, tab, floatTab = false) {
         if(($('#'+tab).html()).length == 0 || floatTab) {
             $.ajax({
-                url: url,
+                url: window.location.origin + url,
                 type: "GET",
                 dataType: "html",
                 data: {
@@ -134,7 +134,7 @@ $avtArtist = $artist->artist_avatar ? Helpers::file_path($artist->artist_id, PUB
         e.preventDefault();
         let falgFav = $('.toggle_wishlist').hasClass('selector');
         $.ajax({
-            url: '/ca-si/favorite',
+            url: window.location.origin + '/ca-si/favorite',
             type: "GET",
             dataType: "json",
             data: {

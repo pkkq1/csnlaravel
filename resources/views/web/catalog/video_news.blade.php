@@ -58,7 +58,7 @@ $titleMeta = $title.' - '. Config::get('constants.app.title');
         });
         function musicPage(url) {
             $.ajax({
-                url: url,
+                url: window.location.origin + url,
                 type: "POST",
                 dataType: "html",
                 data: {

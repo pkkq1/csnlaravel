@@ -68,7 +68,7 @@ $titleMeta = $title.' - '. Config::get('constants.app.title');
                 window.history.pushState({}, '', window.location.pathname +  (page != 1 ? '?page=' + page : ''));
             }
             $.ajax({
-                url: url,
+                url: window.location.origin + url,
                 type: "POST",
                 dataType: "html",
                 data: {

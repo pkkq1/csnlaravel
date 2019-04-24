@@ -97,7 +97,7 @@ use App\Library\Helpers;
             minLength: 1,
             source: function( request, response ) {
                 $.ajax( {
-                    url: "/search/real",
+                    url: window.location.origin + "/search/real",
                     dataType: "json",
                     data: {
                         q: request.term,

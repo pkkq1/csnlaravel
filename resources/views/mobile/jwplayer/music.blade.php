@@ -873,7 +873,7 @@ if($musicSet['type_listen'] == 'playlist') {
         //////////////////////////////////
         if(!$('.download_status').hasClass('music_downloaded')) {
             $.ajax({
-                url: '/count/download',
+                url: window.location.origin + '/count/download',
                 type: "POST",
                 dataType: "json",
                 data: {
@@ -913,7 +913,7 @@ if($musicSet['type_listen'] == 'playlist') {
             return false;
         }
         $.ajax({
-            url: "/comment/post",
+            url: window.location.origin + "/comment/post",
             type: "POST",
             dataType: "html",
             data: {'comment': $('.form-comment-' + formId).find('textarea').val(),
@@ -962,7 +962,7 @@ if($musicSet['type_listen'] == 'playlist') {
 
     function loadPageComment(url) {
         $.ajax({
-            url: url,
+            url: window.location.origin + url,
             type: "GET",
             dataType: "html",
             data: {'music_id': musicId},
@@ -1044,7 +1044,7 @@ if($musicSet['type_listen'] == 'playlist') {
             return false;
         }
         $.ajax({
-            url: "/user/playlist/create-playlist",
+            url: window.location.origin + "/user/playlist/create-playlist",
             type: "POST",
             dataType: "json",
             data: {'music_id': musicId, 'playlist_title': titlePlaylist.val()},
@@ -1073,7 +1073,7 @@ if($musicSet['type_listen'] == 'playlist') {
         }
         ?>
         $.ajax({
-            url: "/user/playlist/danh-sach-playlist",
+            url: window.location.origin + "/user/playlist/danh-sach-playlist",
             type: "GET",
             dataType: "json",
             data: { music_id : musicId},
@@ -1128,7 +1128,7 @@ if($musicSet['type_listen'] == 'playlist') {
         const playlistIdSelect = $('.playlist_id_' + playlistId);
         let music_id = (musicAddId == false ? musicId : musicAddId);
         $.ajax({
-            url: "/user/playlist/add-music-playlist",
+            url: window.location.origin + "/user/playlist/add-music-playlist",
             type: "POST",
             dataType: "json",
             data: {'playlist_id': playlistId, 'music_id': music_id, 'artist': (artistAdd == false ? artists : artistAdd), 'artist_id': (artistIdAdd == false ? artistIds : artistIdAdd)},
@@ -1170,7 +1170,7 @@ if($musicSet['type_listen'] == 'playlist') {
             ?>
         let falgFav = $('.toggle_wishlist').hasClass('selector');
         $.ajax({
-            url: '/music/favourite',
+            url: window.location.origin + '/music/favourite',
             type: "POST",
             dataType: "json",
             data: {

@@ -521,7 +521,7 @@ $catalog = config('constants.catalog');
             }
             ?>
         $.ajax({
-            url: "/user/playlist/danh-sach-playlist",
+            url: window.location.origin + "/user/playlist/danh-sach-playlist",
             type: "GET",
             dataType: "json",
             data: {music_id: music_id},
@@ -567,7 +567,7 @@ $catalog = config('constants.catalog');
             return false;
         }
         $.ajax({
-            url: "/user/playlist/create-playlist",
+            url: window.location.origin + "/user/playlist/create-playlist",
             type: "POST",
             dataType: "json",
             data: {'music_id': musicId, 'playlist_title': titlePlaylist.val()},
@@ -593,7 +593,7 @@ $catalog = config('constants.catalog');
     function addMusicPlaylist(playlistId, musicAddId, artistAdd, artistIdAdd) {
         const playlistIdSelect = $('.playlist_id_' + playlistId);
         $.ajax({
-            url: "/user/playlist/add-music-playlist",
+            url: window.location.origin + "/user/playlist/add-music-playlist",
             type: "POST",
             dataType: "json",
             data: {'playlist_id': playlistId, 'music_id': (musicAddId == false ? musicId : musicAddId), 'artist': (artistAdd == false ? artists : artistAdd), 'artist_id': (artistIdAdd == false ? artistIds : artistIdAdd)},
