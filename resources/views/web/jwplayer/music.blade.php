@@ -482,7 +482,10 @@ if($musicSet['type_listen'] == 'playlist') {
             </div>
 
             <div class="col-md-3">
-                <div id="right1_banner"> </div>
+                <div id="right1_banner">
+                    <!-- BlueSeed - asynchronous code for placement 2044 Chiasenhac Right Banner Player -->
+                    <ins class="hadar-placement" data-hdpm="2044" ></ins><script id="jshd1pm_2044" src="https://static.blueseed.tv/ajs/display.js"></script>
+                </div>
 
                 @if(!empty($video))
                     <?php
