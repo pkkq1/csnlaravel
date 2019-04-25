@@ -22,6 +22,7 @@ class SystemController extends Controller
             'type' => 'file_not_found',
             'link' => $request->url,
             'device_display' => $request->display_by,
+            'ip_address' => Helpers::getIp(),
         ]);
     }
 }
