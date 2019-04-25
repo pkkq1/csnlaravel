@@ -83,6 +83,7 @@ class VideoListenEloquentRepository extends EloquentRepository implements VideoL
             ->join('csn_video', 'csn_video_listen.music_id', 'csn_video.music_id')
 //            ->where('csn_video.cat_id', CATEGORY_ID_VIDEO)
             ->where('csn_video.cat_level', $idCategory)
+            ->where('csn_video.music_deleted', '<', 1)
 
             ->select($this->_selectVideo)
             ->whereNotIn('csn_video.music_id', function($query) {

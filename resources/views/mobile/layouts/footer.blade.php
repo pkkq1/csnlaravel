@@ -290,3 +290,16 @@ innity_ord = "ord=[timestamp]";
     @endif
 @endif
 @endif
+<?php
+global $startTime;
+use App\Models\ErrorBugSlowModel;
+$endTime = number_format(microtime(true) - $startTime, 3);
+if($endTime > 5) {
+    ErrorBugSlowModel::firstOrCreate([
+        'type' => 'slow',
+        'link' => url()->full(),
+        'device_display' => 'mobile',
+        'time_load' => $endTime,
+    ]);
+}
+?>
