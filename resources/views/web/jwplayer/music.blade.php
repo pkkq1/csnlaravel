@@ -1080,7 +1080,7 @@ if($musicSet['type_listen'] == 'playlist') {
                 return false;
             }
             $.ajax({
-                url: window.location.origin + "comment/post",
+                url: window.location.origin + "/comment/post",
                 type: "POST",
                 dataType: "html",
                 data: {'comment': $('.form-comment-' + formId).find('textarea').val(),
