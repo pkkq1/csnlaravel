@@ -1012,4 +1012,17 @@ class Helpers
         }
         return false;
     }
+    public static function convertArrSolr(&$dataSolr) {
+        $data = [];
+        if($dataSolr['data']) {
+            foreach ($dataSolr['data'] as $item) {
+                $term = [];
+                foreach ($item as $key => $val) {
+                    $term[$key] = $val[0];
+                }
+                $data[] = $term;
+            }
+        }
+        return $dataSolr['data'] = $data;
+    }
 }

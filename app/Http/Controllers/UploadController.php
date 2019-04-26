@@ -297,6 +297,12 @@ class UploadController extends Controller
                     'success' => false,
                     'message' => '('.$_FILES['file']['name'].') Bài nhạc không được gửi lên vì có chất lượng thấp.',
                 ]);
+            if(isset($videoInfo['playtime_seconds']) && $videoInfo['playtime_seconds'] > 3600) {
+                return response()->json([
+                    'success' => false,
+                    'message' => '('.$_FILES['file']['name'].') Độ dài nhạc không vượt quá 60 phút',
+                ]);
+            }
 
         }
         $fileName = Helpers::moveFile($request->file('file'), $_SERVER['DOCUMENT_ROOT'].DEFAULT_ROOT_CACHE_MUSIC_PATH, $_FILES['file']['name']);

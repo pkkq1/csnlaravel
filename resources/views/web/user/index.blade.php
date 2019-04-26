@@ -217,7 +217,7 @@ $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
         var tabContent = $('#' + tab);
         if(tabContent.html().length == 0 || float) {
             $.ajax({
-                url: window.location.origin + url,
+                url: url,
                 type: "POST",
                 dataType: "html",
                 data: {
@@ -251,7 +251,7 @@ $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
         ?>
         let falgFav = $('.wishlist-' + music_id).hasClass('selector');
         $.ajax({
-            url: window.location.origin + '/music/favourite',
+            url: type == 'artist' ? '/ca-si/favorite' : '/music/favourite',
             type: "POST",
             dataType: "json",
             data: {
@@ -259,6 +259,7 @@ $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
                 'type_of': type,
                 'name': title,
                 'music_id' : music_id,
+                'artist_id' : music_id,
             },
             beforeSend: function () {
                 if(loaded) return false;

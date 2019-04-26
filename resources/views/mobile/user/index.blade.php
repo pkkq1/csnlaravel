@@ -360,7 +360,7 @@ $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
                 return false;
             }
             $.ajax({
-                url: window.location.origin + "/user/update",
+                url: "/user/update",
                 type: "POST",
                 dataType: 'json',
                 data: {
@@ -446,7 +446,7 @@ $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
         function musicUploaded(url, stage) {
             var uploaded = $('#uploaded');
             $.ajax({
-                url: window.location.origin + url,
+                url: url,
                 type: "POST",
                 dataType: "html",
                 data: {
@@ -477,7 +477,7 @@ $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
             var tabContent = $('#' + tab);
             if(tabContent.html().length == 0 || float) {
                 $.ajax({
-                    url: window.location.origin + url,
+                    url: url,
                     type: "POST",
                     dataType: "html",
                     data: {

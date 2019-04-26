@@ -26,6 +26,10 @@ Route::prefix('auth')->group(function () {
 Route::get('search', 'SearchController@index');
 Route::post('nghe-album/{musicUrl}.html', ['as' => 'api.music.listen', 'uses' => 'MusicController@getMusicInfo']);
 Route::post('nghe-album/{musicUrl}', ['as' => 'api.music.listen', 'uses' => 'MusicController@getMusicInfo']);
+Route::post('artist/profile', ['as' => 'api.artist.profile', 'uses' => 'ArtistController@getProfile']);
+Route::get('artist/tab', ['as' => 'api.artist.tab', 'uses' => 'ArtistController@getTabArtist']);
+Route::post('artist/favourite', ['as' => 'api.artist.favourite', 'uses' => 'ArtistController@favourite']);
+Route::post('artist/list_all_music', ['as' => 'api.artist.list_all_music', 'uses' => 'ArtistController@listMusic']);
 
 
 

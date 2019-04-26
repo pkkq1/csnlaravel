@@ -98,10 +98,10 @@ class ArtistController extends Controller
         if($request->type == 'true'){
             $msg = 'Đã bỏ ca sĩ '.$request->name.' ra khỏi danh sách yêu thích.';
             $dataRes = [];
-            $this->artistFavouriteRepository->where([['user_id', Auth::user()->id], ['artist_id', $request->artist_id]])->delete();
+            $this->artistFavouriteRepository->getModel()::where([['user_id', Auth::user()->id], ['artist_id', $request->artist_id]])->delete();
         }else{
             $msg = 'Đã thêm ca sĩ '.$request->name.' vào danh sách yêu thích.';
-            $this->artistFavouriteRepository->create(['user_id' => Auth::user()->id, 'artist_id' => $request->artist_id]);
+            $this->artistFavouriteRepository->getModel()::firstOrCreate(['user_id' => Auth::user()->id, 'artist_id' => $request->artist_id]);
         }
         Helpers::ajaxResult(true, $msg, $dataRes);
     }
