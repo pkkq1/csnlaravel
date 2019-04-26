@@ -169,7 +169,7 @@ $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
         var uploaded = $('#uploaded');
         var approval = $('#duyet-nhac');
         $.ajax({
-            url: window.location.origin + url,
+            url: url,
             type: "POST",
             dataType: "html",
             data: {
