@@ -9,7 +9,7 @@ global $timeStart, $allpage_banner;
 $timeStart = microtime(true);
 define('LARAVEL_START', microtime(true));
 
-$allpage_banner = true;
+$allpage_banner = false;
 /*
 |--------------------------------------------------------------------------
 | Register The Auto Loader

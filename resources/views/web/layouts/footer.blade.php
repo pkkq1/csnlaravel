@@ -814,4 +814,72 @@
 @endif
 
 
+<script type="text/javascript">
+    var screenW = 640, screenH = 480;
+    if (parseInt(navigator.appVersion)>3) {
+        screenW = screen.width;
+        screenH = screen.height;
+    }
+    else if (navigator.appName == "Netscape" && parseInt(navigator.appVersion)==3 && navigator.javaEnabled() )
+    {
+        var jToolkit = java.awt.Toolkit.getDefaultToolkit();
+        var jScreenSize = jToolkit.getScreenSize();
+        screenW = jScreenSize.width;
+        screenH = jScreenSize.height;
+    }
+
+    if ( screenW > 1280 )
+    {
+        var b_width = 160;
+        var b_height = 600;
+        var a_marginleft = 600;
+        var b_marginleft = -(a_marginleft + b_width);//-(492 + b_width);
+
+        document.write('<div id="asb_left" style="position: fixed; top: 150px; left: 0pt; width: 100%; height: ' + b_height + 'px; overflow: hidden; visibility: hidden;"><div style="position: absolute; visibility: visible; left: 50%; margin-left: ' + b_marginleft + 'px; margin-right: 0pt; z-index:-1;">');
+        document.write('<div id="innity_page_skin_expandable_left"></div>');
+        document.write('</div></div>');
+
+        document.write('<div id="asb_right" style="position: fixed; top: 150px; right: 0px; width: 100%; height: ' + b_height + 'px; overflow: hidden; visibility: hidden;"><div style="position: absolute; visibility: visible; left: 50%; margin-left: ' + a_marginleft + 'px; margin-right: 0pt; z-index:-1;">');
+        document.write('<div id="innity_page_skin_expandable_right"></div>');
+        document.write('</div></div>');
+    }
+</script>
+<script type="text/javascript">
+    (function($){
+        $.fn.visible = function(partial){
+
+            var $t			= $(this),
+                $w			= $(window),
+                viewTop			= $w.scrollTop(),
+                viewBottom		= viewTop + $w.height(),
+                _top			= $t.offset().top,
+                _bottom			= _top + $t.height(),
+                compareTop		= partial === true ? _bottom : _top,
+                compareBottom	= partial === true ? _top : _bottom;
+
+            return ((compareBottom <= viewBottom) && (compareTop >= viewTop));
+        };
+    })(jQuery);
+
+    $( window ).scroll(function() {
+        if ( $(window).scrollTop() > 150 )
+        {
+            $("#asb_left").css({ top: "0px" });
+            $("#asb_right").css({ top: "0px" });
+        }
+        else
+        {
+            $("#asb_left").css({ top: (150 - $(window).scrollTop()) + "px" });
+            $("#asb_right").css({ top: (150 - $(window).scrollTop()) + "px" });
+        }
+    });
+</script>
+<!-- Flight Tag: Chiasenhac - Vn/Yamaha/Apr19/JanusPromotion -->
+<script type="text/javascript">
+    innity_country = "VN";
+    innity_flight = "102485";
+</script>
+<script type="text/javascript" src="https://cdn.innity.net/flight.js"></script>
+
+
 </section>
