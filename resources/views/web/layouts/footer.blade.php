@@ -835,11 +835,11 @@
         var a_marginleft = 600;
         var b_marginleft = -(a_marginleft + b_width);//-(492 + b_width);
 
-        document.write('<div id="asb_left" style="position: fixed; top: 150px; left: 0pt; width: 100%; height: ' + b_height + 'px; overflow: hidden; visibility: hidden;"><div style="position: absolute; visibility: visible; left: 50%; margin-left: ' + b_marginleft + 'px; margin-right: 0pt; z-index:-1;">');
+        document.write('<div id="asb_left" style="position: fixed; top: 57px; left: 0pt; width: 100%; height: ' + b_height + 'px; overflow: hidden; visibility: hidden;"><div style="position: absolute; visibility: visible; left: 50%; margin-left: ' + b_marginleft + 'px; margin-right: 0pt; z-index:-1;">');
         document.write('<div id="innity_page_skin_expandable_left"></div>');
         document.write('</div></div>');
 
-        document.write('<div id="asb_right" style="position: fixed; top: 150px; right: 0px; width: 100%; height: ' + b_height + 'px; overflow: hidden; visibility: hidden;"><div style="position: absolute; visibility: visible; left: 50%; margin-left: ' + a_marginleft + 'px; margin-right: 0pt; z-index:-1;">');
+        document.write('<div id="asb_right" style="position: fixed; top: 57px; right: 0px; width: 100%; height: ' + b_height + 'px; overflow: hidden; visibility: hidden;"><div style="position: absolute; visibility: visible; left: 50%; margin-left: ' + a_marginleft + 'px; margin-right: 0pt; z-index:-1;">');
         document.write('<div id="innity_page_skin_expandable_right"></div>');
         document.write('</div></div>');
     }
@@ -862,15 +862,15 @@
     })(jQuery);
 
     $( window ).scroll(function() {
-        if ( $(window).scrollTop() > 150 )
+        if ( $(window).scrollTop() > 57 )
         {
             $("#asb_left").css({ top: "0px" });
             $("#asb_right").css({ top: "0px" });
         }
         else
         {
-            $("#asb_left").css({ top: (150 - $(window).scrollTop()) + "px" });
-            $("#asb_right").css({ top: (150 - $(window).scrollTop()) + "px" });
+            $("#asb_left").css({ top: (57 - $(window).scrollTop()) + "px" });
+            $("#asb_right").css({ top: (57 - $(window).scrollTop()) + "px" });
         }
     });
 </script>
