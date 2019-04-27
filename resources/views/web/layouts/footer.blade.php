@@ -830,7 +830,7 @@
 
     if ( screenW > 1280 )
     {
-        var b_width = 160;
+        var b_width = 120;
         var b_height = 600;
         var a_marginleft = 600;
         var b_marginleft = -(a_marginleft + b_width);//-(492 + b_width);
