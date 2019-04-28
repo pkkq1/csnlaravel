@@ -814,6 +814,7 @@
 @endif
 
 
+<!-- Flight Tag: Chiasenhac - Vn/Yamaha/Apr19/JanusPromotion -->
 <script type="text/javascript">
     var screenW = 640, screenH = 480;
     if (parseInt(navigator.appVersion)>3) {
@@ -842,7 +843,13 @@
         document.write('<div id="asb_right" style="position: fixed; top: 57px; right: 0px; width: 100%; height: ' + b_height + 'px; overflow: hidden; visibility: hidden;"><div style="position: absolute; visibility: visible; left: 50%; margin-left: ' + a_marginleft + 'px; margin-right: 0pt; z-index:-1;">');
         document.write('<div id="innity_page_skin_expandable_right"></div>');
         document.write('</div></div>');
-    }
+
+        document.write('<s' + 'cript type="text/javascript">');
+        document.write('innity_country = "VN";');
+        document.write('innity_flight = "102485";');
+        document.write('</s'+'cript>');
+        document.write('<s'+'cript type="text/javascript" src="https://cdn.innity.net/flight.js">'+'</s'+'cript>');
+}
 </script>
 <script type="text/javascript">
     (function($){
@@ -874,12 +881,5 @@
         }
     });
 </script>
-<!-- Flight Tag: Chiasenhac - Vn/Yamaha/Apr19/JanusPromotion -->
-<script type="text/javascript">
-    innity_country = "VN";
-    innity_flight = "102485";
-</script>
-<script type="text/javascript" src="https://cdn.innity.net/flight.js"></script>
-
 
 </section>
