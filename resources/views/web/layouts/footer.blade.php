@@ -874,8 +874,6 @@
             }
         });
     }
-
-    document.write('<span>' + screenW + '</span>');
 </script>
 
 </section>
