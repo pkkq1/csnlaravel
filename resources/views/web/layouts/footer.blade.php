@@ -835,11 +835,14 @@
         document.write('<div id="innity_page_skin_expandable_right"></div>');
         document.write('</div></div>');
 
+        document.write('<div id="innity_adslot_238602"></div> ');
         document.write('<s' + 'cript type="text/javascript">');
         document.write(' innity_country = "VN";');
-        document.write(' innity_flight = "102485";');
+        document.write(' innity_path = "/201904_27652/102485/";');
+        document.write(' innity_proxy = "proxy_238602";');
+        document.write(' innity_ord = "ord=[timestamp]";');
         document.write(' </s'+'cript>');
-        document.write(' <s'+'cript type="text/javascript" src="https://cdn.innity.net/flight.js">'+'</s'+'cript>');
+        document.write(' <s'+'cript type="text/javascript" src="https://cdn.innity.net/global.js">'+'</s'+'cript>');
     }
 </script>
 <script type="text/javascript">
