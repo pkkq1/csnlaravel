@@ -817,11 +817,11 @@
 <!-- Flight Tag: Chiasenhac - Vn/Yamaha/Apr19/JanusPromotion -->
 <script type="text/javascript">
     var screenW = 640, screenH = 480;
-    if (parseInt(navigator.appVersion)>3) {
+    if ( true ) { //parseInt(navigator.appVersion) > 3) {
         screenW = screen.width;
         screenH = screen.height;
     }
-    else if (navigator.appName == "Netscape" && parseInt(navigator.appVersion)==3 && navigator.javaEnabled() )
+    else if (navigator.appName == "Netscape" && parseInt(navigator.appVersion) == 3 && navigator.javaEnabled() )
     {
         var jToolkit = java.awt.Toolkit.getDefaultToolkit();
         var jScreenSize = jToolkit.getScreenSize();
@@ -845,10 +845,10 @@
         document.write('</div></div>');
 
         document.write('<s' + 'cript type="text/javascript">');
-        document.write('innity_country = "VN";');
-        document.write('innity_flight = "102485";');
-        document.write('</s'+'cript>');
-        document.write('<s'+'cript type="text/javascript" src="https://cdn.innity.net/flight.js">'+'</s'+'cript>');
+        document.write(' innity_country = "VN";');
+        document.write(' innity_flight = "102485";');
+        document.write(' </s'+'cript>');
+        document.write(' <s'+'cript type="text/javascript" src="https://cdn.innity.net/flight.js">'+'</s'+'cript>');
 }
 </script>
 <script type="text/javascript">
