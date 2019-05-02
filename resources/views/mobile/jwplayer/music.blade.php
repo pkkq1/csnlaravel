@@ -468,777 +468,805 @@ if($musicSet['type_listen'] == 'playlist') {
     </div>
 </section>
 @endsection
+
 @section('contentJS')
-<script src="/assets/jwplayer-7.12.0/jwplayer.js"></script>
-<script>
-    var musicId = '<?php echo $music->music_id ?>';
-    var artists = "<?php echo $music->music_artist  ?>";
-    var artistIds = '<?php echo $music->music_artist_id  ?>';
-    var musicAddId = '';
-    //////////////////////////
-    ////JW Player//////////
-    ////////////////////////
+    <script src="/assets/jwplayer-7.12.0/jwplayer.js"></script>
+    <script>
+        var musicId = '<?php echo $music->music_id ?>';
+        var artists = "<?php echo $music->music_artist  ?>";
+        var artistIds = '<?php echo $music->music_artist_id  ?>';
+        var musicAddId = '';
+        //////////////////////////
+        ////JW Player//////////
+        ////////////////////////
 
 
-    jwplayer.key="dWwDdbLI0ul1clbtlw+4/UHPxlYmLoE9Ii9QEw==";
-    var player = jwplayer('csnplayer');
-    var firstPlayer = true;
-    <?php
-    if($musicSet['type_jw'] != 'video') {
-    ?>
-    // ads
-    jwplayer("csnplayerads").setup({
-        advertising: {
-            client: "vast",
-            skipoffset: 5,
-            "adschedule": {
-                "myPreroll": {
-                    "offset": "pre",
-                    "tag": ["https://d5.blueseed.tv/vast3?plm=1362&t=<?php echo time(); ?>", "https://tag.gammaplatform.com/adx/request/?wid=1508317956&zid=1508321486&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"]
-                },
-                "myPreroll2": {
-                    "offset": 1,
-                    "tag": ["https://d2.blueseed.tv/vast3?plm=1644&t=<?php echo time(); ?>", "https://tag.gammaplatform.com/adx/request/?wid=1508317956&zid=1508321486&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"]
-                }
-            }
-        },
-        mute: true,
-        width: "100%",
-        aspectratio: "16:9",
-        autostart: true,
-        file: "https://beta.chiasenhac.vn/video/csn-5s.mp4",
-        events: { "onComplete": function() {
-            $('#csnplayerads').remove();
-            $('#bg_blue').show();
-        } }
-    });
-    <?php
-    }
-    ?>
-
-    player.setup({
-        width: '100%',
-        height: '88',
-        repeat: false,
-        aspectratio: "<?php echo $musicSet['type_jw'] == 'video' ? '16:9' : 'false' ?>",
-        stretching: 'fill',
-        sources: [
-            <?php
-            $typeJwSource = $musicSet['type_jw'] == 'video' ? 'mp4' : 'mp3';
-            for ($i=0; $i<sizeof($file_url); $i++){
-                echo '{"file": "'. $file_url[$i]['url'] .'", "label": "'. $file_url[$i]['label'] .'", "type": "'.$typeJwSource.'", "default": '. (($i==1) ? 'true' : 'false') .'},';
-            }
-            ?>
-        ],
-        title: "<?php echo str_replace("'", "\'", $music->music_title); ?>",
-        skin: {
-            name: 'nhac'
-        },
-        timeSliderAbove: true,
-        // autostart: true,
-        autostart: false,
-        controlbar: "bottom",
-        plugins: {
-            '<?php echo $musicSet['type_listen'] == 'single' ? '/js/nhac-csn-mobile.js' : '/js/nhac-playlist-mobile.js' ?>': {
-                duration: 20,
-                msisdn: '',
-                package_id: 0,
-                album_id : '0',
-                content_type: 'song',
-                utm_source: '',
-                utm_medium: '',
-                utm_term: '',
-                utm_content: '',
-                utm_campaign: '',
-                device_id: '',
-                channel: 'WEB',
-                url_referer: '',
-                action_type: 'play_song',
-                player_type: 'NotDRM',
-                service_id: 0,
-                source_rec: 'rand',
-                listen_state: 'online',
-                other_info: '',
-                expired_time: 0,
-                version: '1.0'
-            }
-        }
-    });
-    var error_count =0;
-    player.onError(function(e) {
-        if (error_count < jwplayer().getQualityLevels().length - 1) {
-            setQualityCookie = false;
-            jwplayer().setCurrentQuality(error_count);
-        } else {
-            alertModal('Xin lỗi bài hát này đã bị lỗi! Vui lòng trải nghiệm video khác');
-            // location.href = "/";
-            $.ajax({
-                url: window.location.origin + '/sys/error_slow_bug',
-                type: "POST",
-                dataType: "json",
-                data: {
-                    'url': window.location.href,
-                    'display_by': 'mobile'
-                },
-                beforeSend: function () {
-                    if(loaded) return false;
-                    loaded = true;
-                },
-                success: function(response) {
-
-                }
-            });
-        }
-        error_count++;
-    });
-    var device_type = 'mobile';
-    var listPlayed =Array();
-    var logPlayAudioFlag = false;
-    var firstPause = false;
-
-    var embed = 'false';
-    var userStatus = 1;
-    var firstLoadLyric = false;
-    var firstLoadBeforePlay = true;
-    var firstLoadUpdateQuality = true;
-    var listLyrics = [];
-    jwplayer().onBeforePlay(function() {
-        //logPlayAudioFlag = true;
-        //console.log('set flag again|'+logPlayAudioFlag);
-        $('#csnplayer').find('.jw-captions').html($('#hidden_lyrics').html());
-        $('#hidden_lyrics').remove();
-        new RabbitLyrics({
-            element: document.getElementById("lyrics"),
-            viewMode: 'mini',
-            onUpdateTimeJw: false
-        });
+        jwplayer.key = "dWwDdbLI0ul1clbtlw+4/UHPxlYmLoE9Ii9QEw==";
+        var player = jwplayer('csnplayer');
+        var firstPlayer = true;
         <?php
         if($musicSet['type_jw'] != 'video') {
         ?>
-        $('.jw-display-icon-display').css('display', 'none')
+        // ads
+        jwplayer("csnplayerads").setup({
+            advertising: {
+                client: "vast",
+                skipoffset: 5,
+                "adschedule": {
+                    "myPreroll": {
+                        "offset": "pre",
+                        "tag": ["https://d5.blueseed.tv/vast3?plm=1362&t=<?php echo time(); ?>", "https://tag.gammaplatform.com/adx/request/?wid=1508317956&zid=1508321486&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"]
+                    },
+                    "myPreroll2": {
+                        "offset": 1,
+                        "tag": ["https://d2.blueseed.tv/vast3?plm=1644&t=<?php echo time(); ?>", "https://tag.gammaplatform.com/adx/request/?wid=1508317956&zid=1508321486&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"]
+                    }
+                }
+            },
+            mute: true,
+            width: "100%",
+            aspectratio: "16:9",
+            autostart: true,
+            file: "https://beta.chiasenhac.vn/video/csn-5s.mp4",
+            events: {
+                "onComplete": function () {
+                    $('#csnplayerads').remove();
+                    $('#bg_blue').show();
+                }
+            }
+        });
         <?php
         }
         ?>
-        if(firstLoadBeforePlay) {
-            firstLoadBeforePlay = false;
-            console.log(123);
-            // jw-icon-playback
-            setTimeout(function(){
-                $('.stringQ').on('touchstart', function () {
-                    if($('.stringQ').hasClass('jw-open')){
-                        $('.stringQ').removeClass('jw-open');
-                    }else{
-                        $('.stringQ').addClass('jw-open');
-                    }
-                });
-                $('.stringQ .jw-text').on('touchstart', function () {
-                    if($('.stringQ').hasClass('jw-open')){
-                        $('.stringQ').removeClass('jw-open');
-                    }else{
-                        $('.stringQ').addClass('jw-open');
-                    }
-                });
-                // $('.jw-icon-auto-next').on('touchstart', function () {
-                //     if($('.jw-icon-auto-next').hasClass('jw-icon-auto-next-on')){
-                //         $('.jw-icon-auto-next').removeClass('jw-icon-auto-next-on');
-                //         $('.jw-icon-auto-next').addClass('jw-icon-auto-next-off');
-                //         onPlayerAutoNextOff();
-                //     }else{
-                //         $('.jw-icon-auto-next').removeClass('jw-icon-auto-next-off');
-                //         $('.jw-icon-auto-next').addClass('jw-icon-auto-next-on');
-                //         onPlayerAutoNextOn();
-                //     }
-                // });
+
+        player.setup({
+            width: '100%',
+            height: '88',
+            repeat: false,
+            aspectratio: "<?php echo $musicSet['type_jw'] == 'video' ? '16:9' : 'false' ?>",
+            stretching: 'fill',
+            sources: [
                 <?php
-                    if(($musicSet['type_listen'] == 'playlist' || $musicSet['type_listen'] == 'album') && !empty($musicSet['playlist_music'])) {
-                        ?>
-                        // $('.csn-repeat-btn').on('touchstart', function () {
-                        //     $('.csn-repeat-btn').click();
-                        // });
-                        // $('.csn-random-btn').on('touchstart', function () {
-                        //     $('.csn-random-btn').click();
-                        // });
-                        <?php
-                    }
-                ?>
-            }, 300);
-        }
-    });
-    jwplayer().onTime(function () {
-        new RabbitLyrics({
-            element: document.getElementById("lyrics"),
-            viewMode: 'mini',
-            onUpdateTimeJw: true
-        });
-    });
-    var setQualityCookie = true;
-    jwplayer().onQualityLevels(function(callback){
-        if(Cookies.get('label_quality') == 'Lossless') {
-            setQualityCookie = false;
-            jwplayer().setCurrentQuality(callback.levels.length - 1);
-        }
-        updateQuality(callback);
-        if(sessionStorage.getItem("auto_next") == 'false') {
-            $('.jw-icon-auto-next-on').removeClass('jw-icon-auto-next-on').addClass('jw-icon-auto-next-off');
-            jwplayer().setConfig({
-                repeat: true
-            });
-        }
-    });
-    jwplayer().onQualityChange(function(callback){
-        if(setQualityCookie)
-            Cookies.set('label_quality', callback.levels[callback.currentQuality].label);
-        setQualityCookie = true;
-        updateQuality(callback);
-    })
-    jwplayer().on('userInactive', function () {
-        <?php
-        if($musicSet['type_jw'] != 'video') {
-        ?>
-        $('#csnplayer').removeClass('jw-flag-user-inactive');
-        <?php
-            }
-            ?>
-            $
-    })
-    function onPlayerAutoNextOn()
-    {
-        sessionStorage.setItem("auto_next", true);
-        jwplayer().setConfig({
-            repeat: false
-        });
-
-    }
-    function onPlayerAutoNextOff()
-    {
-        sessionStorage.setItem("auto_next", false);
-        jwplayer().setConfig({
-            repeat: true
-        });
-    }
-    function onPlayerAutoNext()
-    {
-        AutoPlay(true);
-    }
-    function onPlayerAutoBack()
-    {
-        window.location.href = '<?php echo url()->previous() ?>';
-    }
-    function generateRandom(min, max, except = array()) {
-        var valRad = Math.floor(Math.random() * (max - min + 1)) + min;
-        return (except.indexOf(valRad) !== -1 ? generateRandom(min, max, except) : valRad);
-    }
-    function AutoPlay(float = false){
-            <?php
-            if($musicSet['type_listen'] == 'single') {
-            ?>
-            if(sessionStorage.getItem("auto_next") == 'false' && float == false) {
-                return false;
-            }
-        let sug_first = $('.sug_music').find('.media');
-        window.location.href = sug_first.first().find('.media-left').attr('href');
-            <?php
-            }else{
-            ?>
-        let recommendation = $('.music_recommendation');
-        let nextListen = 1;
-        let maxPlaylist = <?php echo count($musicSet['playlist_music']); ?>;
-        let activeBool = 0;
-        recommendation.find('.card-footer').each(function(index, value) {
-            if(activeBool) {
-                nextListen = index + 1;
-                return false;
-            }
-            if($(value).hasClass('listen')) {
-                activeBool = index + 1;
-            }
-        });
-        if(sessionStorage.getItem("auto_random") == 'true') {
-            let keyPlaylist = (((window.location.pathname).split('.')[0]).split('/'))[2];
-            let playlistStore = sessionStorage.getItem(keyPlaylist);
-            if(playlistStore) {
-                playlistStore = JSON.parse(playlistStore);
-                if(playlistStore.length == maxPlaylist) {
-                    if(sessionStorage.getItem("auto_repeat") == 'none') {
-                        sessionStorage.removeItem(keyPlaylist);
-                        if(!float)
-                            return false;
-                    }
-                    playlistStore = new Array();
+                $typeJwSource = $musicSet['type_jw'] == 'video' ? 'mp4' : 'mp3';
+                for ($i = 0; $i < sizeof($file_url); $i++) {
+                    echo '{"file": "' . $file_url[$i]['url'] . '", "label": "' . $file_url[$i]['label'] . '", "type": "' . $typeJwSource . '", "default": ' . (($i == 1) ? 'true' : 'false') . '},';
                 }
-            }else{
-                playlistStore = new Array();
-                playlistStore.push(activeBool);
+                ?>
+            ],
+            title: "<?php echo str_replace("'", "\'", $music->music_title); ?>",
+            skin: {
+                name: 'nhac'
+            },
+            timeSliderAbove: true,
+            // autostart: true,
+            autostart: false,
+            controlbar: "bottom",
+            plugins: {
+                '<?php echo $musicSet['type_listen'] == 'single' ? '/js/nhac-csn-mobile.js' : '/js/nhac-playlist-mobile.js' ?>': {
+                    duration: 20,
+                    msisdn: '',
+                    package_id: 0,
+                    album_id: '0',
+                    content_type: 'song',
+                    utm_source: '',
+                    utm_medium: '',
+                    utm_term: '',
+                    utm_content: '',
+                    utm_campaign: '',
+                    device_id: '',
+                    channel: 'WEB',
+                    url_referer: '',
+                    action_type: 'play_song',
+                    player_type: 'NotDRM',
+                    service_id: 0,
+                    source_rec: 'rand',
+                    listen_state: 'online',
+                    other_info: '',
+                    expired_time: 0,
+                    version: '1.0'
+                }
+            }
+        });
+        var error_count = 0;
+        player.onError(function (e) {
+            if (error_count < jwplayer().getQualityLevels().length - 1) {
+                setQualityCookie = false;
+                jwplayer().setCurrentQuality(error_count);
+            } else {
+                alertModal('Xin lỗi bài hát này đã bị lỗi! Vui lòng trải nghiệm video khác');
+                // location.href = "/";
+                $.ajax({
+                    url: window.location.origin + '/sys/error_slow_bug',
+                    type: "POST",
+                    dataType: "json",
+                    data: {
+                        'url': window.location.href,
+                        'display_by': 'mobile'
+                    },
+                    beforeSend: function () {
+                        if (loaded) return false;
+                        loaded = true;
+                    },
+                    success: function (response) {
 
+                    }
+                });
             }
-            nextListen = generateRandom(1, maxPlaylist, playlistStore);
-            playlistStore.push(nextListen);
-            sessionStorage.setItem(keyPlaylist, JSON.stringify(playlistStore))
-        }else{
-            if(sessionStorage.getItem("auto_repeat") == 'none') {
-                if(nextListen == 1 && float == false)
-                    return false;
-            }
-        }
-        window.location.href = window.location.pathname + '?playlist=' + nextListen;
-        <?php
-        }
-        ?>
-        console.log('next');
-    }
-    function autoRepeat(T){
-        if(T == 'one') {
-            jwplayer().setConfig({
-                repeat: true
+            error_count++;
+        });
+        var device_type = 'mobile';
+        var listPlayed = Array();
+        var logPlayAudioFlag = false;
+        var firstPause = false;
+
+        var embed = 'false';
+        var userStatus = 1;
+        var firstLoadLyric = false;
+        var firstLoadBeforePlay = true;
+        var firstLoadUpdateQuality = true;
+        var listLyrics = [];
+        jwplayer().onBeforePlay(function () {
+            //logPlayAudioFlag = true;
+            //console.log('set flag again|'+logPlayAudioFlag);
+            $('#csnplayer').find('.jw-captions').html($('#hidden_lyrics').html());
+            $('#hidden_lyrics').remove();
+            new RabbitLyrics({
+                element: document.getElementById("lyrics"),
+                viewMode: 'mini',
+                onUpdateTimeJw: false
             });
-            logPlayAudioFlag = true;
-            sessionStorage.setItem("auto_repeat", 'one');
-        }
-        if(T == 'all' || T == 'none') {
+            <?php
+            if($musicSet['type_jw'] != 'video') {
+            ?>
+            $('.jw-display-icon-display').css('display', 'none')
+            <?php
+                }
+                ?>
+            if (firstLoadBeforePlay) {
+                firstLoadBeforePlay = false;
+                console.log(123);
+                // jw-icon-playback
+                setTimeout(function () {
+                    $('.stringQ').on('touchstart', function () {
+                        if ($('.stringQ').hasClass('jw-open')) {
+                            $('.stringQ').removeClass('jw-open');
+                        } else {
+                            $('.stringQ').addClass('jw-open');
+                        }
+                    });
+                    $('.stringQ .jw-text').on('touchstart', function () {
+                        if ($('.stringQ').hasClass('jw-open')) {
+                            $('.stringQ').removeClass('jw-open');
+                        } else {
+                            $('.stringQ').addClass('jw-open');
+                        }
+                    });
+                    // $('.jw-icon-auto-next').on('touchstart', function () {
+                    //     if($('.jw-icon-auto-next').hasClass('jw-icon-auto-next-on')){
+                    //         $('.jw-icon-auto-next').removeClass('jw-icon-auto-next-on');
+                    //         $('.jw-icon-auto-next').addClass('jw-icon-auto-next-off');
+                    //         onPlayerAutoNextOff();
+                    //     }else{
+                    //         $('.jw-icon-auto-next').removeClass('jw-icon-auto-next-off');
+                    //         $('.jw-icon-auto-next').addClass('jw-icon-auto-next-on');
+                    //         onPlayerAutoNextOn();
+                    //     }
+                    // });
+                    <?php
+                    if(($musicSet['type_listen'] == 'playlist' || $musicSet['type_listen'] == 'album') && !empty($musicSet['playlist_music'])) {
+                    ?>
+                    // $('.csn-repeat-btn').on('touchstart', function () {
+                    //     $('.csn-repeat-btn').click();
+                    // });
+                    // $('.csn-random-btn').on('touchstart', function () {
+                    //     $('.csn-random-btn').click();
+                    // });
+                    <?php
+                    }
+                    ?>
+                }, 300);
+            }
+        });
+        jwplayer().onTime(function () {
+            new RabbitLyrics({
+                element: document.getElementById("lyrics"),
+                viewMode: 'mini',
+                onUpdateTimeJw: true
+            });
+        });
+        var setQualityCookie = true;
+        jwplayer().onQualityLevels(function (callback) {
+            if (Cookies.get('label_quality') == 'Lossless') {
+                setQualityCookie = false;
+                jwplayer().setCurrentQuality(callback.levels.length - 1);
+            }
+            updateQuality(callback);
+            if (sessionStorage.getItem("auto_next") == 'false') {
+                $('.jw-icon-auto-next-on').removeClass('jw-icon-auto-next-on').addClass('jw-icon-auto-next-off');
+                jwplayer().setConfig({
+                    repeat: true
+                });
+            }
+        });
+        jwplayer().onQualityChange(function (callback) {
+            if (setQualityCookie)
+                Cookies.set('label_quality', callback.levels[callback.currentQuality].label);
+            setQualityCookie = true;
+            updateQuality(callback);
+        })
+        jwplayer().on('userInactive', function () {
+            <?php
+            if($musicSet['type_jw'] != 'video') {
+            ?>
+            $('#csnplayer').removeClass('jw-flag-user-inactive');
+            <?php
+                }
+                ?>
+                $
+        })
+
+        function onPlayerAutoNextOn() {
+            sessionStorage.setItem("auto_next", true);
             jwplayer().setConfig({
                 repeat: false
             });
-            logPlayAudioFlag = false;
-            sessionStorage.setItem("auto_repeat", T);
-        }
-    }
-    function autoRandom(F){
-        if(F) {
-            sessionStorage.setItem("auto_random", true);
-        }else{
-            sessionStorage.setItem("auto_random", false);
-        }
-    }
-    jwplayer().onBeforeComplete(function() {
-        if(logPlayAudioFlag == false && typeof AutoPlay=='function'){
-            AutoPlay();
-        }
-    });
 
-    function updateQuality(callback) {
-        if(firstLoadUpdateQuality){
-            firstLoadUpdateQuality = false;
-            $('.jw-favourite').remove();
-            $('.jw-icon-playback').on('touchstart', function () {
-                // alert(1);
-                // $('.jw-icon-playback').click();
+        }
+
+        function onPlayerAutoNextOff() {
+            sessionStorage.setItem("auto_next", false);
+            jwplayer().setConfig({
+                repeat: true
             });
         }
-        var curQual = jwplayer('csnplayer').getCurrentQuality();
-        if(callback['levels'].length == 2) {
-            if(!$('.jw-icon-hd').hasClass('stringQ')) {
-                $('.jw-icon-hd').html(callback['levels'][curQual]['label']);
-            }
-            $('.jw-icon-hd').addClass('stringQ');
-            $('.jw-icon-hd').removeClass('jw-icon-hd');
-            $('.stringQ').html(callback['levels'][curQual]['label']);
-        }else{
-            if(!$('.jw-icon-hd').hasClass('stringQ')) {
-                $('.jw-icon-hd').append('<span>' + callback['levels'][curQual]['label'] + '</span>');
-            }
-            $('.jw-icon-hd').addClass('stringQ');
-            $('.jw-icon-hd').removeClass('jw-icon-hd');
-            $('.stringQ').find('span').html(callback['levels'][curQual]['label']);
+
+        function onPlayerAutoNext() {
+            AutoPlay(true);
         }
-    }
-    // btn playlist, download, factories
-    $('.cancel-download').click(function(e) {
-        $('.wrap-bottom-sheet').hide();
-        $('.bottom-sheet').slideUp();
-    });
-    $('.wrap-bottom-sheet').click(function(e) {
-        $(this).hide();
-        $('.bottom-sheet').slideUp();
-    });
-    $('.ele-download .icon').click(function(e) {
-        $('.bottom-sheet').slideUp();
-        $('.wrap-bottom-sheet').show();
-        jQuery('.popup-download').slideDown();
-    });
-    $('.ele-playlist .icon').click(function(e) {
-        $('.bottom-sheet').slideUp();
-        $('.wrap-bottom-sheet').show();
-        jQuery('.popup-playlist').slideDown();
-    });
-    $('.ele-share .icon').click(function(e) {
-        $('.wrap-bottom-sheet').hide();
-        $('.bottom-sheet').slideUp();
-        // copyClipboardAction(window.location.href);
-        shareFbLink(e, window.location.href);
-        // window.open('https://www.facebook.com/sharer/sharer.php?u=' + window.location.href, '_blank');
-        // alertModal('Đã copy địa chỉ vào bộ nhớ máy của bạn.');
-    });
-    function downloadMusic() {
-        var radios = document.getElementsByName('quality');
-        for (var i = 0, length = radios.length; i < length; i++)
-        {
-            if (radios[i].checked)
-            {
-                $('.wrap-bottom-sheet').hide();
-                $('.bottom-sheet').slideUp();
-                if(i == 3) {
-                    window.open(radios[i].value, '_blank');
+
+        function onPlayerAutoBack() {
+            window.location.href = '<?php echo url()->previous() ?>';
+        }
+
+        function generateRandom(min, max, except = array()) {
+            var valRad = Math.floor(Math.random() * (max - min + 1)) + min;
+            return (except.indexOf(valRad) !== -1 ? generateRandom(min, max, except) : valRad);
+        }
+
+        function AutoPlay(float = false) {
+            <?php
+                if($musicSet['type_listen'] == 'single') {
+                ?>
+            if (sessionStorage.getItem("auto_next") == 'false' && float == false) {
+                return false;
+            }
+            let sug_first = $('.sug_music').find('.media');
+            window.location.href = sug_first.first().find('.media-left').attr('href');
+                <?php
                 }else{
-                    window.open(radios[i].value, '_blank');
-                    break;
-                }
-            }
-        }
-        //////////////////////////////
-        //// count download ////////
-        //////////////////////////////////
-        if(!$('.download_status').hasClass('music_downloaded')) {
-            $.ajax({
-                url: window.location.origin + '/count/download',
-                type: "POST",
-                dataType: "json",
-                data: {
-                    'music_id' : '<?php echo $music->music_id; ?>',
-                    'cat_id' : '<?php echo $music->cat_id; ?>',
-                },
-                beforeSend: function () {
-                    if(loaded) return false;
-                    loaded = true;
-                },
-                success: function(response) {
-
-                }
-            });
-        }
-        $('.download_status').addClass('music_downloaded');
-    }
-
-    //////////////////////////
-    //////Comment///////////////
-    ////////////////////////////
-    var loadComment = true;
-    var pageComment = true;
-    $('.box_form_comment').submit(false);
-    function postComment(formId) {
-        var textArea = $('.form-comment-' + formId).find('textarea');
-        <?php
-        if(!Auth::check()) {
-        ?>
-        window.location.href = '/login?back_url=' + window.location.href;
-        return false;
-        <?php
-            }
-            ?>
-        if(!textArea.val()) {
-            alertModal('Chưa nhập nội dung bình luận.');
-            return false;
-        }
-        $.ajax({
-            url: window.location.origin + "/comment/post",
-            type: "POST",
-            dataType: "html",
-            data: {'comment': $('.form-comment-' + formId).find('textarea').val(),
-                'music_id' : musicId,
-                'comment_jw_postion' : jwplayer().getPosition(),
-                'reply_cmt_id': $('.form-comment-' + formId).find('.reply_cmt_id').val()},
-            beforeSend: function () {
-                if(loaded) return false;
-                loaded = true;
-            },
-            statusCode: {
-                401: function(){
-                    window.location.href = '/login?back_url=' + window.location.href;
+                ?>
+            let recommendation = $('.music_recommendation');
+            let nextListen = 1;
+            let maxPlaylist = <?php echo count($musicSet['playlist_music']); ?>;
+            let activeBool = 0;
+            recommendation.find('.card-footer').each(function (index, value) {
+                if (activeBool) {
+                    nextListen = index + 1;
                     return false;
                 }
-            },
-            success: function(response) {
-                $('.form-comment-' + formId).find('textarea').val('');
-                if(formId == 0) {
-                    if(pageComment == 1) {
-                        $('.list_comment_list_body').prepend(response);
-                        $('.list_comment_list_body .reply_comment').first().on('click', function () {
-                            var reply = $('.post_comment_reply_' + $(this).data('comment_id'));
-                            if (!reply.hasClass('reply_show')) {
-                                $('.post_comment_reply').removeClass('reply_show');
-                                reply.addClass('reply_show');
-                            } else {
-                                reply.removeClass('reply_show');
-                            }
-                            reply.find('textarea').trigger('focus');
-                        });
-                        $('.box_form_comment').submit(false);
-                    }else{
-                        loadPageComment('/binh-luan/get_ajax?page=1');
-                    }
-                }else{
-                    $('.comment-reply-' + formId).prepend(response);
+                if ($(value).hasClass('listen')) {
+                    activeBool = index + 1;
                 }
-                $('.music_comment .number_comment').html(parseInt($('.music_comment .number_comment').html()) + 1);
-                $('.box_form_comment').submit(false);
-                swiper2.update();
-            }
-        });
-        return false;
-    }
-
-    function loadPageComment(url) {
-        $.ajax({
-            url: window.location.origin + url,
-            type: "GET",
-            dataType: "html",
-            data: {'music_id': musicId},
-            beforeSend: function () {
-                if(loaded) return false;
-                loaded = true;
-                // $('.list_comment .list_body').html('<div class="modal-body" style="text-align: center;"><img src="/imgs/comet-spinner.gif" width="100px" /></div>');
-            },
-            success: function(response) {
-                $('.list_comment_list_body').html(response);
-                $('.box_form_comment').submit(false);
-                $('.reply_comment').on('click', function () {
-                    var reply = $('.post_comment_reply_' + $(this).data('comment_id'));
-                    if (!reply.hasClass('reply_show')) {
-                        $('.post_comment_reply').removeClass('reply_show');
-                        reply.addClass('reply_show');
-                    } else {
-                        reply.removeClass('reply_show');
-                    }
-                    reply.find('textarea').trigger('focus');
-                });
-                $('.pagination li a').on('click', function (e) {
-                    e.preventDefault();
-                    loadPageComment($(this).attr('href'));
-                    pageComment = $(this).html();
-                });
-                swiper2.update();
-            }
-        });
-    }
-    $(window).scroll(function(event){
-        var st = $(this).scrollTop();
-        if(loadComment) {
-            if (st > $('#form_comment').offset().top - 900){
-                loadPageComment('/binh-luan/get_ajax?page=<?php echo $_GET['comment_page'] ?? 1 ?>');
-                pageComment = <?php echo $_GET['comment_page'] ?? 1 ?>;
-                loadComment = false;
-            }
-        }
-    });
-    //// display Sub
-    var displaySub = $('.sub_line');
-    if(sessionStorage.getItem("display_sub") == 'true') {
-        displaySub.css('display', 'block');
-        $('#display-sub').attr("checked", "checked");
-    }else {
-        if(sessionStorage.getItem("display_sub") == null) {
-            sessionStorage.setItem("display_sub", true);
-            displaySub.css('display', 'block');
-        }else{
-            $('#display-sub').removeAttr("checked");
-        }
-    }
-    function display_sub() {
-        if(sessionStorage.getItem("display_sub") == 'true') {
-            sessionStorage.setItem("display_sub", false);
-            displaySub.css('display', 'none');
-        }else{
-            sessionStorage.setItem("display_sub", true);
-            displaySub.css('display', 'block');
-        }
-    }
-
-    //////////////////////////
-    ////Add Playlist////////
-    ////////////////////////
-    function btnCreatePlaylist(box_text_create_playlist) {
-        var titlePlaylist = $('.' + box_text_create_playlist);
-        <?php
-        if(!Auth::check()) {
-        ?>
-        window.location.href = '/login?back_url=' + window.location.href;
-        return false;
-        <?php
-            }
-            ?>
-        if(!titlePlaylist.val()) {
-            alertModal('Bạn chưa nhập tên playlist mới.');
-            return false;
-        }
-        $.ajax({
-            url: window.location.origin + "/user/playlist/create-playlist",
-            type: "POST",
-            dataType: "json",
-            data: {'music_id': musicId, 'playlist_title': titlePlaylist.val()},
-            beforeSend: function () {
-                if(loaded) return false;
-                loaded = true;
-            },
-            success: function(data) {
-                if(data.success) {
-                    $('.box_show_playlist_popup .list-group').prepend(stringItemBoxPlaylist(data.data.playlist_title, data.data.playlist_music_total, data.data.playlist_id, false, data.data.playlist_time));
-                    titlePlaylist.val("");
-                    $('.box_show_playlist').animate({scrollTop: 0}, 'slow');
-                }else{
-                    alertModal(data.message);
-                }
-            }
-        });
-    }
-    function loadPlayList(musicId) {
-        <?php
-        if(!Auth::check()) {
-        ?>
-        window.location.href = '/login?back_url=' + window.location.href;
-        return false;
-        <?php
-        }
-        ?>
-        $.ajax({
-            url: window.location.origin + "/user/playlist/danh-sach-playlist",
-            type: "GET",
-            dataType: "json",
-            data: { music_id : musicId},
-            beforeSend: function () {
-                $('.box_show_playlist .list-group').html('');
-                if(loaded) return false;
-                loaded = true;
-            },
-            success: function(data) {
-                if(data.success) {
-                    var stringHtml = '';
-                    var stringBoxHtml = '';
-                    if(data.data) {
-                        $.each(data.data, function (index, val) {
-                            stringBoxHtml += stringItemBoxPlaylist(val.playlist_title, val.playlist_music_total, val.playlist_id, val.music_exists, val.playlist_time);
-                        });
-                    }
-                    $('.box_show_playlist .list-group').html(stringBoxHtml);
-                }else{
-                    alertModal(data.message);
-                }
-
-            }
-        });
-    }
-    function stringItemBoxPlaylist(playlist_title, playlist_music_total, playlist_id, music_exist, playlist_time){
-        return '<div onclick="addBoxMusicPlaylist(' + playlist_id + ')" class="item playlist_id_' + playlist_id + ' ' + (music_exist ? 'music-exists' : '') + '"><a href="javascript:void(0)" class="list-group-item list-group-item-action d-flex title_playlist">' + playlist_title + ' (<span>' + playlist_music_total + '</span>)' + (music_exist ? '<i class="material-icons icon-box-playlist"> check </i>' : '') + '</a></div>';
-    }
-    var boxMusicId = '';
-    var boxArtists = '';
-    var boxArtistIds = '';
-    function addPlaylistTable(musicName, setId, setArtist, setArtistId) {
-        $('.bottom-sheet').slideUp();
-        <?php
-        if(!Auth::check()) {
-        ?>
-        window.location.href = '/login?back_url=' + window.location.href;
-        return false;
-        <?php
-            }
-            ?>
-            boxMusicId = setId;
-        boxArtists = setArtist;
-        boxArtistIds = setArtistId;
-        $('.box_add_playlist').html('Thêm bài hát <span class="text-pink">' + musicName + '</span> vào danh sách Playlist');
-        loadPlayList(setId);
-    }
-    function addBoxMusicPlaylist(playlist_id) {
-        addMusicPlaylist(playlist_id, boxMusicId, boxArtists, boxArtistIds, 'box');
-    }
-    function addMusicPlaylist(playlistId, musicAddId, artistAdd, artistIdAdd, type = 'tab') {
-        const playlistIdSelect = $('.playlist_id_' + playlistId);
-        var countPlaylist = playlistIdSelect.find('.title_playlist span');
-        let music_id = (musicAddId == false ? musicId : musicAddId);
-        $.ajax({
-            url: window.location.origin + "/user/playlist/add-music-playlist",
-            type: "POST",
-            dataType: "json",
-            data: {'playlist_id': playlistId, 'music_id': music_id, 'artist': (artistAdd == false ? artists : artistAdd), 'artist_id': (artistIdAdd == false ? artistIds : artistIdAdd)},
-            beforeSend: function () {
-                if(loaded) return false;
-                loaded = true;
-                if(playlistIdSelect.hasClass('music-exists')) {
-                    countPlaylist.html(parseInt(countPlaylist.html()) - 1);
-                    playlistIdSelect.removeClass('music-exists');
-                    playlistIdSelect.find('.material-icons').remove();
-                }else{
-                    countPlaylist.html(parseInt(countPlaylist.html()) + 1);
-                    playlistIdSelect.addClass('music-exists');
-                    playlistIdSelect.find('a').prepend('<i class="material-icons icon-box-playlist"> check </i>');
-                }
-            },
-            success: function(data) {
-                if(data.success) {
-                    if(type == 'box' && music_id == musicId){
-                        if($('.add_playlist').hasClass('active')) {
-                            type = 'all';
+            });
+            if (sessionStorage.getItem("auto_random") == 'true') {
+                let keyPlaylist = (((window.location.pathname).split('.')[0]).split('/'))[2];
+                let playlistStore = sessionStorage.getItem(keyPlaylist);
+                if (playlistStore) {
+                    playlistStore = JSON.parse(playlistStore);
+                    if (playlistStore.length == maxPlaylist) {
+                        if (sessionStorage.getItem("auto_repeat") == 'none') {
+                            sessionStorage.removeItem(keyPlaylist);
+                            if (!float)
+                                return false;
                         }
+                        playlistStore = new Array();
                     }
-                    if(data.data) {
-                    }else {
-                    }
-                }else{
-                    alertModal(data.message);
+                } else {
+                    playlistStore = new Array();
+                    playlistStore.push(activeBool);
+
+                }
+                nextListen = generateRandom(1, maxPlaylist, playlistStore);
+                playlistStore.push(nextListen);
+                sessionStorage.setItem(keyPlaylist, JSON.stringify(playlistStore))
+            } else {
+                if (sessionStorage.getItem("auto_repeat") == 'none') {
+                    if (nextListen == 1 && float == false)
+                        return false;
                 }
             }
-        });
-    }
-    $('.toggle_wishlist').click(function(e) {
-        <?php
-        if(!Auth::check()) {
-        ?>
-        window.location.href = '/login?back_url=' + window.location.href;
-        return false;
+            window.location.href = window.location.pathname + '?playlist=' + nextListen;
             <?php
             }
             ?>
-        let falgFav = $('.toggle_wishlist').hasClass('selector');
-        $.ajax({
-            url: window.location.origin + '/music/favourite',
-            type: "POST",
-            dataType: "json",
-            data: {
-                'type': falgFav,
-                'type_of': '<?php echo $musicSet['type_jw'] ?>',
-                'name': '<?php echo str_replace("'", "\'", $music->music_title); ?>',
-                'music_id' : '<?php echo $music->music_id; ?>',
-            },
-            beforeSend: function () {
-                if(loaded) return false;
-                loaded = true;
-            },
-            success: function(response) {
-                if(response.success) {
+            console.log('next');
+        }
 
-                }else {
-                    alertModal(data.message);
+        function autoRepeat(T) {
+            if (T == 'one') {
+                jwplayer().setConfig({
+                    repeat: true
+                });
+                logPlayAudioFlag = true;
+                sessionStorage.setItem("auto_repeat", 'one');
+            }
+            if (T == 'all' || T == 'none') {
+                jwplayer().setConfig({
+                    repeat: false
+                });
+                logPlayAudioFlag = false;
+                sessionStorage.setItem("auto_repeat", T);
+            }
+        }
+
+        function autoRandom(F) {
+            if (F) {
+                sessionStorage.setItem("auto_random", true);
+            } else {
+                sessionStorage.setItem("auto_random", false);
+            }
+        }
+
+        jwplayer().onBeforeComplete(function () {
+            if (logPlayAudioFlag == false && typeof AutoPlay == 'function') {
+                AutoPlay();
+            }
+        });
+
+        function updateQuality(callback) {
+            if (firstLoadUpdateQuality) {
+                firstLoadUpdateQuality = false;
+                $('.jw-favourite').remove();
+                $('.jw-icon-playback').on('touchstart', function () {
+                    // alert(1);
+                    // $('.jw-icon-playback').click();
+                });
+            }
+            var curQual = jwplayer('csnplayer').getCurrentQuality();
+            if (callback['levels'].length == 2) {
+                if (!$('.jw-icon-hd').hasClass('stringQ')) {
+                    $('.jw-icon-hd').html(callback['levels'][curQual]['label']);
+                }
+                $('.jw-icon-hd').addClass('stringQ');
+                $('.jw-icon-hd').removeClass('jw-icon-hd');
+                $('.stringQ').html(callback['levels'][curQual]['label']);
+            } else {
+                if (!$('.jw-icon-hd').hasClass('stringQ')) {
+                    $('.jw-icon-hd').append('<span>' + callback['levels'][curQual]['label'] + '</span>');
+                }
+                $('.jw-icon-hd').addClass('stringQ');
+                $('.jw-icon-hd').removeClass('jw-icon-hd');
+                $('.stringQ').find('span').html(callback['levels'][curQual]['label']);
+            }
+        }
+
+        // btn playlist, download, factories
+        $('.cancel-download').click(function (e) {
+            $('.wrap-bottom-sheet').hide();
+            $('.bottom-sheet').slideUp();
+        });
+        $('.wrap-bottom-sheet').click(function (e) {
+            $(this).hide();
+            $('.bottom-sheet').slideUp();
+        });
+        $('.ele-download .icon').click(function (e) {
+            $('.bottom-sheet').slideUp();
+            $('.wrap-bottom-sheet').show();
+            jQuery('.popup-download').slideDown();
+        });
+        $('.ele-playlist .icon').click(function (e) {
+            $('.bottom-sheet').slideUp();
+            $('.wrap-bottom-sheet').show();
+            jQuery('.popup-playlist').slideDown();
+        });
+        $('.ele-share .icon').click(function (e) {
+            $('.wrap-bottom-sheet').hide();
+            $('.bottom-sheet').slideUp();
+            // copyClipboardAction(window.location.href);
+            shareFbLink(e, window.location.href);
+            // window.open('https://www.facebook.com/sharer/sharer.php?u=' + window.location.href, '_blank');
+            // alertModal('Đã copy địa chỉ vào bộ nhớ máy của bạn.');
+        });
+
+        function downloadMusic() {
+            var radios = document.getElementsByName('quality');
+            for (var i = 0, length = radios.length; i < length; i++) {
+                if (radios[i].checked) {
+                    $('.wrap-bottom-sheet').hide();
+                    $('.bottom-sheet').slideUp();
+                    if (i == 3) {
+                        window.open(radios[i].value, '_blank');
+                    } else {
+                        window.open(radios[i].value, '_blank');
+                        break;
+                    }
+                }
+            }
+            //////////////////////////////
+            //// count download ////////
+            //////////////////////////////////
+            if (!$('.download_status').hasClass('music_downloaded')) {
+                $.ajax({
+                    url: window.location.origin + '/count/download',
+                    type: "POST",
+                    dataType: "json",
+                    data: {
+                        'music_id': '<?php echo $music->music_id; ?>',
+                        'cat_id': '<?php echo $music->cat_id; ?>',
+                    },
+                    beforeSend: function () {
+                        if (loaded) return false;
+                        loaded = true;
+                    },
+                    success: function (response) {
+
+                    }
+                });
+            }
+            $('.download_status').addClass('music_downloaded');
+        }
+
+        //////////////////////////
+        //////Comment///////////////
+        ////////////////////////////
+        var loadComment = true;
+        var pageComment = true;
+        $('.box_form_comment').submit(false);
+
+        function postComment(formId) {
+            var textArea = $('.form-comment-' + formId).find('textarea');
+            <?php
+                if(!Auth::check()) {
+                ?>
+                window.location.href = '/login?back_url=' + window.location.href;
+            return false;
+            <?php
+                }
+                ?>
+            if (!textArea.val()) {
+                alertModal('Chưa nhập nội dung bình luận.');
+                return false;
+            }
+            $.ajax({
+                url: window.location.origin + "/comment/post",
+                type: "POST",
+                dataType: "html",
+                data: {
+                    'comment': $('.form-comment-' + formId).find('textarea').val(),
+                    'music_id': musicId,
+                    'comment_jw_postion': jwplayer().getPosition(),
+                    'reply_cmt_id': $('.form-comment-' + formId).find('.reply_cmt_id').val()
+                },
+                beforeSend: function () {
+                    if (loaded) return false;
+                    loaded = true;
+                },
+                statusCode: {
+                    401: function () {
+                        window.location.href = '/login?back_url=' + window.location.href;
+                        return false;
+                    }
+                },
+                success: function (response) {
+                    $('.form-comment-' + formId).find('textarea').val('');
+                    if (formId == 0) {
+                        if (pageComment == 1) {
+                            $('.list_comment_list_body').prepend(response);
+                            $('.list_comment_list_body .reply_comment').first().on('click', function () {
+                                var reply = $('.post_comment_reply_' + $(this).data('comment_id'));
+                                if (!reply.hasClass('reply_show')) {
+                                    $('.post_comment_reply').removeClass('reply_show');
+                                    reply.addClass('reply_show');
+                                } else {
+                                    reply.removeClass('reply_show');
+                                }
+                                reply.find('textarea').trigger('focus');
+                            });
+                            $('.box_form_comment').submit(false);
+                        } else {
+                            loadPageComment('/binh-luan/get_ajax?page=1');
+                        }
+                    } else {
+                        $('.comment-reply-' + formId).prepend(response);
+                    }
+                    $('.music_comment .number_comment').html(parseInt($('.music_comment .number_comment').html()) + 1);
+                    $('.box_form_comment').submit(false);
+                    swiper2.update();
+                }
+            });
+            return false;
+        }
+
+        function loadPageComment(url) {
+            $.ajax({
+                url: window.location.origin + url,
+                type: "GET",
+                dataType: "html",
+                data: {'music_id': musicId},
+                beforeSend: function () {
+                    if (loaded) return false;
+                    loaded = true;
+                    // $('.list_comment .list_body').html('<div class="modal-body" style="text-align: center;"><img src="/imgs/comet-spinner.gif" width="100px" /></div>');
+                },
+                success: function (response) {
+                    $('.list_comment_list_body').html(response);
+                    $('.box_form_comment').submit(false);
+                    $('.reply_comment').on('click', function () {
+                        var reply = $('.post_comment_reply_' + $(this).data('comment_id'));
+                        if (!reply.hasClass('reply_show')) {
+                            $('.post_comment_reply').removeClass('reply_show');
+                            reply.addClass('reply_show');
+                        } else {
+                            reply.removeClass('reply_show');
+                        }
+                        reply.find('textarea').trigger('focus');
+                    });
+                    $('.pagination li a').on('click', function (e) {
+                        e.preventDefault();
+                        loadPageComment($(this).attr('href'));
+                        pageComment = $(this).html();
+                    });
+                    swiper2.update();
+                }
+            });
+        }
+
+        $(window).scroll(function (event) {
+            var st = $(this).scrollTop();
+            if (loadComment) {
+                if (st > $('#form_comment').offset().top - 900) {
+                    loadPageComment('/binh-luan/get_ajax?page=<?php echo $_GET['comment_page'] ?? 1 ?>');
+                    pageComment = <?php echo $_GET['comment_page'] ?? 1 ?>;
+                    loadComment = false;
                 }
             }
         });
-    });
+        //// display Sub
+        var displaySub = $('.sub_line');
+        if (sessionStorage.getItem("display_sub") == 'true') {
+            displaySub.css('display', 'block');
+            $('#display-sub').attr("checked", "checked");
+        } else {
+            if (sessionStorage.getItem("display_sub") == null) {
+                sessionStorage.setItem("display_sub", true);
+                displaySub.css('display', 'block');
+            } else {
+                $('#display-sub').removeAttr("checked");
+            }
+        }
 
-</script>
-@if($musicSet['type_jw'] != 'video')
-    <style>
-        .jw-icon-rewind{
-            display: none!important;
+        function display_sub() {
+            if (sessionStorage.getItem("display_sub") == 'true') {
+                sessionStorage.setItem("display_sub", false);
+                displaySub.css('display', 'none');
+            } else {
+                sessionStorage.setItem("display_sub", true);
+                displaySub.css('display', 'block');
+            }
         }
-        .jw-icon-fullscreen, .jw-title-primary{
-            display: none!important;
+
+        //////////////////////////
+        ////Add Playlist////////
+        ////////////////////////
+        function btnCreatePlaylist(box_text_create_playlist) {
+            var titlePlaylist = $('.' + box_text_create_playlist);
+            <?php
+                if(!Auth::check()) {
+                ?>
+                window.location.href = '/login?back_url=' + window.location.href;
+            return false;
+            <?php
+                }
+                ?>
+            if (!titlePlaylist.val()) {
+                alertModal('Bạn chưa nhập tên playlist mới.');
+                return false;
+            }
+            $.ajax({
+                url: window.location.origin + "/user/playlist/create-playlist",
+                type: "POST",
+                dataType: "json",
+                data: {'music_id': musicId, 'playlist_title': titlePlaylist.val()},
+                beforeSend: function () {
+                    if (loaded) return false;
+                    loaded = true;
+                },
+                success: function (data) {
+                    if (data.success) {
+                        $('.box_show_playlist_popup .list-group').prepend(stringItemBoxPlaylist(data.data.playlist_title, data.data.playlist_music_total, data.data.playlist_id, false, data.data.playlist_time));
+                        titlePlaylist.val("");
+                        $('.box_show_playlist').animate({scrollTop: 0}, 'slow');
+                    } else {
+                        alertModal(data.message);
+                    }
+                }
+            });
         }
-    </style>
-@endif
-@if(($musicSet['type_listen'] == 'playlist' || $musicSet['type_listen'] == 'album') && !empty($musicSet['playlist_music']))
-    @if(!(isset($_GET['playlist'])) || $_GET['playlist'] == 1)
+
+        function loadPlayList(musicId) {
+            <?php
+                if(!Auth::check()) {
+                ?>
+                window.location.href = '/login?back_url=' + window.location.href;
+            return false;
+            <?php
+            }
+            ?>
+            $.ajax({
+                url: window.location.origin + "/user/playlist/danh-sach-playlist",
+                type: "GET",
+                dataType: "json",
+                data: {music_id: musicId},
+                beforeSend: function () {
+                    $('.box_show_playlist .list-group').html('');
+                    if (loaded) return false;
+                    loaded = true;
+                },
+                success: function (data) {
+                    if (data.success) {
+                        var stringHtml = '';
+                        var stringBoxHtml = '';
+                        if (data.data) {
+                            $.each(data.data, function (index, val) {
+                                stringBoxHtml += stringItemBoxPlaylist(val.playlist_title, val.playlist_music_total, val.playlist_id, val.music_exists, val.playlist_time);
+                            });
+                        }
+                        $('.box_show_playlist .list-group').html(stringBoxHtml);
+                    } else {
+                        alertModal(data.message);
+                    }
+
+                }
+            });
+        }
+
+        function stringItemBoxPlaylist(playlist_title, playlist_music_total, playlist_id, music_exist, playlist_time) {
+            return '<div onclick="addBoxMusicPlaylist(' + playlist_id + ')" class="item playlist_id_' + playlist_id + ' ' + (music_exist ? 'music-exists' : '') + '"><a href="javascript:void(0)" class="list-group-item list-group-item-action d-flex title_playlist">' + playlist_title + ' (<span>' + playlist_music_total + '</span>)' + (music_exist ? '<i class="material-icons icon-box-playlist"> check </i>' : '') + '</a></div>';
+        }
+
+        var boxMusicId = '';
+        var boxArtists = '';
+        var boxArtistIds = '';
+
+        function addPlaylistTable(musicName, setId, setArtist, setArtistId) {
+            $('.bottom-sheet').slideUp();
+            <?php
+                if(!Auth::check()) {
+                ?>
+                window.location.href = '/login?back_url=' + window.location.href;
+            return false;
+            <?php
+                }
+                ?>
+                boxMusicId = setId;
+            boxArtists = setArtist;
+            boxArtistIds = setArtistId;
+            $('.box_add_playlist').html('Thêm bài hát <span class="text-pink">' + musicName + '</span> vào danh sách Playlist');
+            loadPlayList(setId);
+        }
+
+        function addBoxMusicPlaylist(playlist_id) {
+            addMusicPlaylist(playlist_id, boxMusicId, boxArtists, boxArtistIds, 'box');
+        }
+
+        function addMusicPlaylist(playlistId, musicAddId, artistAdd, artistIdAdd, type = 'tab') {
+            const playlistIdSelect = $('.playlist_id_' + playlistId);
+            var countPlaylist = playlistIdSelect.find('.title_playlist span');
+            let music_id = (musicAddId == false ? musicId : musicAddId);
+            $.ajax({
+                url: window.location.origin + "/user/playlist/add-music-playlist",
+                type: "POST",
+                dataType: "json",
+                data: {
+                    'playlist_id': playlistId,
+                    'music_id': music_id,
+                    'artist': (artistAdd == false ? artists : artistAdd),
+                    'artist_id': (artistIdAdd == false ? artistIds : artistIdAdd)
+                },
+                beforeSend: function () {
+                    if (loaded) return false;
+                    loaded = true;
+                    if (playlistIdSelect.hasClass('music-exists')) {
+                        countPlaylist.html(parseInt(countPlaylist.html()) - 1);
+                        playlistIdSelect.removeClass('music-exists');
+                        playlistIdSelect.find('.material-icons').remove();
+                    } else {
+                        countPlaylist.html(parseInt(countPlaylist.html()) + 1);
+                        playlistIdSelect.addClass('music-exists');
+                        playlistIdSelect.find('a').prepend('<i class="material-icons icon-box-playlist"> check </i>');
+                    }
+                },
+                success: function (data) {
+                    if (data.success) {
+                        if (type == 'box' && music_id == musicId) {
+                            if ($('.add_playlist').hasClass('active')) {
+                                type = 'all';
+                            }
+                        }
+                        if (data.data) {
+                        } else {
+                        }
+                    } else {
+                        alertModal(data.message);
+                    }
+                }
+            });
+        }
+
+        $('.toggle_wishlist').click(function (e) {
+            <?php
+                if(!Auth::check()) {
+                ?>
+                window.location.href = '/login?back_url=' + window.location.href;
+            return false;
+                <?php
+                }
+                ?>
+            let falgFav = $('.toggle_wishlist').hasClass('selector');
+            $.ajax({
+                url: window.location.origin + '/music/favourite',
+                type: "POST",
+                dataType: "json",
+                data: {
+                    'type': falgFav,
+                    'type_of': '<?php echo $musicSet['type_jw'] ?>',
+                    'name': '<?php echo str_replace("'", "\'", $music->music_title); ?>',
+                    'music_id': '<?php echo $music->music_id; ?>',
+                },
+                beforeSend: function () {
+                    if (loaded) return false;
+                    loaded = true;
+                },
+                success: function (response) {
+                    if (response.success) {
+
+                    } else {
+                        alertModal(data.message);
+                    }
+                }
+            });
+        });
+
+    </script>
+    @if($musicSet['type_jw'] != 'video')
         <style>
-            .jw-icon-backsong{
-                display: none!important;
+            .jw-icon-rewind {
+                display: none !important;
+            }
+
+            .jw-icon-fullscreen, .jw-title-primary {
+                display: none !important;
             }
         </style>
     @endif
-@endif
-<style>
-    .jw-flag-time-slider-above:not(.jw-flag-ads-googleima).jwplayer .jw-group>.jw-icon, .jw-flag-time-slider-above:not(.jw-flag-ads-googleima).jwplayer .jw-group>.jw-text {
-        height: 40px;
-    }
-    .jw-icon-volume {
-        display: none;
-    }
-</style>
-@endsection
+    @if(($musicSet['type_listen'] == 'playlist' || $musicSet['type_listen'] == 'album') && !empty($musicSet['playlist_music']))
+        @if(!(isset($_GET['playlist'])) || $_GET['playlist'] == 1)
+            <style>
+                .jw-icon-backsong {
+                    display: none !important;
+                }
+            </style>
+        @endif
+    @endif
+    <style>
+        .jw-flag-time-slider-above:not(.jw-flag-ads-googleima).jwplayer .jw-group > .jw-icon, .jw-flag-time-slider-above:not(.jw-flag-ads-googleima).jwplayer .jw-group > .jw-text {
+            height: 40px;
+        }
 
+        .jw-icon-volume {
+            display: none;
+        }
+    </style>
+
+    <iframe frameborder="0" allowtransparency="true" height="0" width="0" marginheight="0" marginwidth="0" vspace="0" hspace="0" src="https://hb.gammaplatform.com/adx/usersync"></iframe>
+@endsection
