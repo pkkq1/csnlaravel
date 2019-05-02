@@ -118,7 +118,7 @@ class SearchController extends Controller
                     $resultMusic = $this->Solr->search($searchSolarium, ($request->page_playback ?? 1), $request->rows ?? ROWS_MUSIC_SEARCH_PAGING, array('score' => 'desc', 'music_downloads' => 'desc', 'music_listen' => 'desc'));
                 }elseif(isset($request->top_music) && $search_top_music == 1) {
                     $keyResult = 'top_music';
-                    $searchSolarium['-id'] = '0 AND music_search_result:[300 TO 999999]';
+                    $searchSolarium['-id'] = '0 AND music_search_result:['.LIMIT_SEARCH_TOP_RESULT.' TO 999999]';
                     $resultMusic = $this->Solr->search($searchSolarium, ($request->page_music ?? 1), 2, array('score' => 'desc', 'music_search_result' => 'desc', 'music_listen' => 'desc'));
                     unset($searchSolarium['-id']);
                 }else{
