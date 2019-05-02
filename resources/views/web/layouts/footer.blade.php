@@ -12,7 +12,7 @@
                         q: request.term,
                         type: 'json',
                         rows: 3,
-                        top_music: true,
+                        // top_music: true,
                         view_all: true
                     },
                     success: function( data ) {
