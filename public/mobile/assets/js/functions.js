@@ -74,34 +74,37 @@ function successModal(content = 'Lỗi, không thực hiện được.') {
     $('#alertModal').modal('show');
 }
 function xoa_dau(str) {
-    str = str.replace(/Ă |Ă¡|áº¡|áº£|Ă£|Ă¢|áº§|áº¥|áº­|áº©|áº«|Äƒ|áº±|áº¯|áº·|áº³|áºµ/g, "a");
-    str = str.replace(/Ă¨|Ă©|áº¹|áº»|áº½|Ăª|á»|áº¿|á»‡|á»ƒ|á»…/g, "e");
-    str = str.replace(/Ă¬|Ă­|á»‹|á»‰|Ä©/g, "i");
-    str = str.replace(/Ă²|Ă³|á»|á»|Ăµ|Ă´|á»“|á»‘|á»™|á»•|á»—|Æ¡|á»|á»›|á»£|á»Ÿ|á»¡/g, "o");
-    str = str.replace(/Ă¹|Ăº|á»¥|á»§|Å©|Æ°|á»«|á»©|á»±|á»­|á»¯/g, "u");
-    str = str.replace(/á»³|Ă½|á»µ|á»·|á»¹/g, "y");
-    str = str.replace(/Ä‘/g, "d");
-    str = str.replace(/Ă€|Ă|áº |áº¢|Ăƒ|Ă‚|áº¦|áº¤|áº¬|áº¨|áºª|Ä‚|áº°|áº®|áº¶|áº²|áº´/g, "A");
-    str = str.replace(/Ăˆ|Ă‰|áº¸|áºº|áº¼|Ă|á»€|áº¾|á»†|á»‚|á»„/g, "E");
-    str = str.replace(/ĂŒ|Ă|á»|á»ˆ|Ä¨/g, "I");
-    str = str.replace(/Ă’|Ă“|á»Œ|á»|Ă•|Ă”|á»’|á»|á»˜|á»”|á»–|Æ |á»œ|á»|á»¢|á»|á» /g, "O");
-    str = str.replace(/Ă™|Ă|á»¤|á»¦|Å¨|Æ¯|á»ª|á»¨|á»°|á»¬|á»®/g, "U");
-    str = str.replace(/á»²|Ă|á»´|á»¶|á»¸/g, "Y");
-    str = str.replace(/Ä/g, "D");
+    str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
+    str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e");
+    str = str.replace(/ì|í|ị|ỉ|ĩ/g, "i");
+    str = str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g, "o");
+    str = str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u");
+    str = str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y");
+    str = str.replace(/đ/g, "d");
+    str = str.replace(/À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ/g, "A");
+    str = str.replace(/È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ/g, "E");
+    str = str.replace(/Ì|Í|Ị|Ỉ|Ĩ/g, "I");
+    str = str.replace(/Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ/g, "O");
+    str = str.replace(/Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ/g, "U");
+    str = str.replace(/Ỳ|Ý|Ỵ|Ỷ|Ỹ/g, "Y");
+    str = str.replace(/Đ/g, "D");
     return str;
 }
 function searchHighlight(key, string) {
-    var keyReplace = xoa_dau(key).toLowerCase();
-    var stringReplace = xoa_dau(string).toLowerCase();
-    n = stringReplace.indexOf(keyReplace);
-    var stringPos = string.substring(n, n + key.length);
-    if(n === -1) {
-        // console.log(key);
-        // console.log(string);
-        // searchHighlight(key.substring(0, key.length - 1), string);
-        return string;
+    if(string) {
+        var keyReplace = xoa_dau(key).toLowerCase();
+        var stringReplace = xoa_dau(string).toLowerCase();
+        n = stringReplace.indexOf(keyReplace);
+        var stringPos = string.substring(n, n + key.length);
+        if (n === -1) {
+            // console.log(key);
+            // console.log(string);
+            // searchHighlight(key.substring(0, key.length - 1), string);
+            return string;
+        }
+        return string.replace(stringPos, '<span class="search_highlight">' + stringPos + '</span>');
     }
-    return string.replace(stringPos, '<span class="search_highlight">' + stringPos + '</span>');
+    return string;
 }
 function findGetParameter(parameterName, def = null) {
     var result = null,

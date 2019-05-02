@@ -12,6 +12,7 @@
                         q: request.term,
                         type: 'json',
                         rows: 3,
+                        top_music: true,
                         view_all: true
                     },
                     success: function( data ) {
@@ -21,7 +22,7 @@
             }
         }).autocomplete( "instance" )._renderItem = function( ul, item ) {
             var theHtml = rawBodySearch(rawArtist(item.artist['data'], item.q), rawMusic(item.music['data'], item.q),
-                rawAlbum(item.album['data'], item.q), rawVideo(item.video['data'], item.q));
+                rawAlbum(item.album['data'], item.q), rawVideo(item.video['data'], item.q), rawTopMusic(item.top_music['data'], item.q));
             if(theHtml.length != 29) {
                 theHtml = '<span style="float: right;margin-right: 7px;margin-top: 1px;"><a onclick="redirectSearch()" href="javascript:void(0)">Xem tất cả</a></span>' + theHtml;
             }
@@ -34,8 +35,9 @@
             return true;
         };
     });
-    function rawBodySearch(artist, music, album, video) {
+    function rawBodySearch(artist, music, album, video, top_music) {
         return '<div class="card-body">' +
+            top_music +
             music +
             artist +
             album +
@@ -56,7 +58,7 @@
                     '      <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">' +
                     '          <h5 class="media-title mt-0 mb-0 span_h5">' + searchHighlight(q, value.music_title) + '</h5>' +
                     '          <div class="author">' + value.music_artist + '</div>' +
-                    '          <small class="type_music c1">' + value.music_bitrate + '</small>' +
+                    '          <small class="type_music c1">' + value.music_bitrate_html + '</small>' +
                     '      </div>' +
                     '  </li>' +
                     '  </a>';

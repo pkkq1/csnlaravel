@@ -103,6 +103,7 @@ use App\Library\Helpers;
                         q: request.term,
                         type: 'json',
                         rows: 3,
+                        top_music: true,
                         view_all: true
                     },
                     success: function( data ) {
@@ -112,7 +113,7 @@ use App\Library\Helpers;
                 } );
             }
         }).autocomplete( "instance" )._renderItem = function( ul, item ) {
-            var theHtml = rawBodySearch(rawArtist(item.artist['data'], item.q), rawMusic(item.music['data'], item.q), rawAlbum(item.album['data'], item.q), rawVideo(item.video['data'], item.q));
+            var theHtml = rawBodySearch(rawArtist(item.artist['data'], item.q), rawMusic(item.music['data'], item.q), rawAlbum(item.album['data'], item.q), rawVideo(item.video['data'], item.q), rawMusicTop(item.top_music['data'], item.q));
             $(".suggest").fadeIn("fast")
             $('.search_layout').html(theHtml);
             $( "<li>" ).appendTo( ul );
@@ -122,8 +123,9 @@ use App\Library\Helpers;
             return true;
         };
     });
-    function rawBodySearch(artist, music, album, video) {
-        return music +
+    function rawBodySearch(artist, music, album, video, top_music) {
+        return top_music +
+            music +
             artist +
             album +
             video;
@@ -142,9 +144,32 @@ use App\Library\Helpers;
             });
             return '<div class="block block_artist">' +
                 '<div class="block_header d-flex flex-row justify-content-between mb-2">' +
-                '   <h3 class="main_title text-pink mb-0">Nghệ sĩ</h3><a onclick="redirectSearch(\'page_artist\')" href="javascript:void(0)"><span class="text-gray align-self-end">Xem tất cả</span></a>' +
+                '   <h3 class="main_title text-pink mb-0" style="font-weight: 700;">Nghệ sĩ</h3><a onclick="redirectSearch(\'page_artist\')" href="javascript:void(0)"><span class="text-gray align-self-end">Xem tất cả</span></a>' +
                 '</div>' +
                 '<div class="block_baihat_main block_more">' + artist +
+                '</div>' +
+                '</div>';
+        }
+        return '';
+    }
+    function rawMusicTop(musics, q) {
+        if(musics.length > 0) {
+            var song = '';
+            $.each( musics, function( key, value ) {
+                song = song +
+                    '   <a class="search-line search-line-music" href="' + value.music_link + '"><div class="element mb-2">' +
+                    '       <div class="content d-inline-block align-middle">' +
+                    '           <h6 class="name_song text-black mb-1">' + searchHighlight(q, value.music_title) + '</h6>' +
+                    '           <p class="name_singer text-gray mb-1">' + value.music_artist + '</p>' +
+                    '           <p class="loss text-pink mb-0">' + value.music_bitrate_html + '</p>' +
+                    '       </div>' +
+                    '   </div></a>';
+            });
+            return '<div class="block block_baihat">' +
+                '<div class="block_header d-flex flex-row justify-content-between mb-2">' +
+                '   <h3 class="main_title text-pink mb-0" style="font-weight: 700;">Top kết quả</h3><a onclick="redirectSearch(\'page_music\')" href="javascript:void(0)"><span class="text-gray align-self-end">Xem tất cả</span></a>' +
+                '</div>' +
+                '<div class="block_baihat_main block_more">' + song +
                 '</div>' +
                 '</div>';
         }
@@ -159,13 +184,13 @@ use App\Library\Helpers;
                     '       <div class="content d-inline-block align-middle">' +
                     '           <h6 class="name_song text-black mb-1">' + searchHighlight(q, value.music_title) + '</h6>' +
                     '           <p class="name_singer text-gray mb-1">' + value.music_artist + '</p>' +
-                    '           <p class="loss text-pink mb-0">' + value.music_bitrate + '</p>' +
+                    '           <p class="loss text-pink mb-0">' + value.music_bitrate_html + '</p>' +
                     '       </div>' +
                     '   </div></a>';
             });
             return '<div class="block block_baihat">' +
                 '<div class="block_header d-flex flex-row justify-content-between mb-2">' +
-                '   <h3 class="main_title text-pink mb-0">Bài hát</h3><a onclick="redirectSearch(\'page_music\')" href="javascript:void(0)"><span class="text-gray align-self-end">Xem tất cả</span></a>' +
+                '   <h3 class="main_title text-pink mb-0" style="font-weight: 700;">Bài hát</h3><a onclick="redirectSearch(\'page_music\')" href="javascript:void(0)"><span class="text-gray align-self-end">Xem tất cả</span></a>' +
                 '</div>' +
                 '<div class="block_baihat_main block_more">' + song +
                 '</div>' +
@@ -189,7 +214,7 @@ use App\Library\Helpers;
             });
             return '<div class="block block_album">' +
                 '<div class="block_header d-flex flex-row justify-content-between mb-2">' +
-                '   <h3 class="main_title text-pink mb-0">Album</h3><a onclick="redirectSearch(\'page_album\')" href="javascript:void(0)"><span class="text-gray align-self-end">Xem tất cả</span></a>' +
+                '   <h3 class="main_title text-pink mb-0" style="font-weight: 700;">Album</h3><a onclick="redirectSearch(\'page_album\')" href="javascript:void(0)"><span class="text-gray align-self-end">Xem tất cả</span></a>' +
                 '</div>' +
                 '<div class="block_baihat_main block_more">' + album +
                 '</div>' +
@@ -217,7 +242,7 @@ use App\Library\Helpers;
                 '<div class="block_header d-flex flex-row justify-content-between mb-2">' +
                 '   <h3 class="main_title text-pink mb-0">Video</h3><a onclick="redirectSearch(\'page_video\')" href="javascript:void(0)"><span class="text-gray align-self-end">Xem tất cả</span></a>' +
                 '</div>' +
-                '<div class="block_baihat_main block_more">' + video +
+                '<div class="block_baihat_main block_more" style="font-weight: 700;">' + video +
                 '</div>' +
                 '</div>';
         }

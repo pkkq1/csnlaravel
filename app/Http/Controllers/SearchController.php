@@ -51,6 +51,9 @@ class SearchController extends Controller
             'music' => [
                 'data' => [], 'rows' => 10, 'page' => 1, 'row_total' => 0,
             ],
+            'top_music' => [
+                'data' => [], 'rows' => 10, 'page' => 1, 'row_total' => 0,
+            ],
             'music_playback' => [
                 'data' => [], 'rows' => 10, 'page' => 1, 'row_total' => 0,
             ],
@@ -94,7 +97,8 @@ class SearchController extends Controller
                     }
                 }
                 $search_level_playback = 1;
-                $keyResult = 'music';
+                $search_top_music = 1;
+                $keyResult = 'top_music';
                 $search_level = 1;
                 search_music_2:
                 if ($search_level == 2)
@@ -112,8 +116,16 @@ class SearchController extends Controller
                 if($search_level_playback == 2) {
                     $keyResult = 'music_playback';
                     $resultMusic = $this->Solr->search($searchSolarium, ($request->page_playback ?? 1), $request->rows ?? ROWS_MUSIC_SEARCH_PAGING, array('score' => 'desc', 'music_downloads' => 'desc', 'music_listen' => 'desc'));
+                }elseif(isset($request->top_music) && $search_top_music == 1) {
+                    $keyResult = 'top_music';
+                    $searchSolarium['-id'] = '0 AND music_search_result:[300 TO 999999]';
+                    $resultMusic = $this->Solr->search($searchSolarium, ($request->page_music ?? 1), 2, array('score' => 'desc', 'music_search_result' => 'desc', 'music_listen' => 'desc'));
+                    unset($searchSolarium['-id']);
                 }else{
+                    $keyResult = 'music';
+//                    dd($searchSolarium);
                     $resultMusic = $this->Solr->search($searchSolarium, ($request->page_music ?? 1), $request->rows ?? ROWS_MUSIC_SEARCH_PAGING, array('score' => 'desc', 'music_downloads' => 'desc', 'music_listen' => 'desc'));
+//                    dd($resultMusic);
                 }
                 if($resultMusic['data']) {
                     foreach ($resultMusic['data'] as $item) {
@@ -150,6 +162,17 @@ class SearchController extends Controller
                     $search_level_playback = 2;
                     foreach ($searchSolarium as $key => $item) {
                         $searchSolarium[$key] = str_replace('-music_cat_id', 'music_cat_id', $item);
+                    }
+                    goto search_music_2;
+                }
+                if(isset($request->top_music) && $search_top_music == 1) {
+                    $search_top_music = 2;
+                    $arrIds = [];
+                    if($result[0]['top_music']['data']) {
+                        foreach ($result[0]['top_music']['data'] as $item) {
+                            $arrIds[] = '-id:music_' . $item['music_id'];
+                        }
+                        $searchSolarium['-id'] = '0' .' AND '. implode($arrIds, ' AND ');
                     }
                     goto search_music_2;
                 }
