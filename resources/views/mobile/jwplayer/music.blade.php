@@ -974,7 +974,7 @@ if($musicSet['type_listen'] == 'playlist') {
                             });
                             $('.box_form_comment').submit(false);
                         } else {
-                            loadPageComment('/binh-luan/get_ajax?page=1');
+                            loadPageComment(window.location.origin + '/binh-luan/get_ajax?page=1');
                         }
                     } else {
                         $('.comment-reply-' + formId).prepend(response);
@@ -1025,7 +1025,7 @@ if($musicSet['type_listen'] == 'playlist') {
             var st = $(this).scrollTop();
             if (loadComment) {
                 if (st > $('#form_comment').offset().top - 900) {
-                    loadPageComment('/binh-luan/get_ajax?page=<?php echo $_GET['comment_page'] ?? 1 ?>');
+                    loadPageComment(window.location.origin + '/binh-luan/get_ajax?page=<?php echo $_GET['comment_page'] ?? 1 ?>');
                     pageComment = <?php echo $_GET['comment_page'] ?? 1 ?>;
                     loadComment = false;
                 }
