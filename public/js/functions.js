@@ -169,7 +169,7 @@ function xoa_dau(str) {
         str = str.replace(/Đ/g, "D");
     return str;
 }
-function searchHighlight(key, string) {
+function searchHighlight(key, string, boolean = false) {
     if(string) {
         var keyReplace = xoa_dau(key).toLowerCase();
         var stringReplace = xoa_dau(string).toLowerCase();
@@ -179,11 +179,11 @@ function searchHighlight(key, string) {
             // console.log(key);
             // console.log(string);
             // searchHighlight(key.substring(0, key.length - 1), string);
-            return string;
+            return boolean ? false : string;
         }
         return string.replace(stringPos, '<span class="search_highlight">' + stringPos + '</span>');
     }
-    return string;
+    return boolean ? false : string;
 
 }
 var waitingDialog = waitingDialog || (function ($) {
