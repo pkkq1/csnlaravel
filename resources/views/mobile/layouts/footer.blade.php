@@ -103,7 +103,7 @@ use App\Library\Helpers;
                         q: request.term,
                         type: 'json',
                         rows: 3,
-                        // top_music: true,
+                        top_music: true,
                         view_all: true
                     },
                     success: function( data ) {
@@ -156,22 +156,27 @@ use App\Library\Helpers;
         if(musics.length > 0) {
             var song = '';
             $.each( musics, function( key, value ) {
-                song = song +
-                    '   <a class="search-line search-line-music" href="' + value.music_link + '"><div class="element mb-2">' +
-                    '       <div class="content d-inline-block align-middle">' +
-                    '           <h6 class="name_song text-black mb-1">' + searchHighlight(q, value.music_title) + '</h6>' +
-                    '           <p class="name_singer text-gray mb-1">' + value.music_artist + '</p>' +
-                    '           <p class="loss text-pink mb-0">' + value.music_bitrate_html + '</p>' +
-                    '       </div>' +
-                    '   </div></a>';
+                let keySearchH =  searchHighlight(q, value.music_title, true);
+                if(keySearchH != false) {
+                    song = song +
+                        '   <a class="search-line search-line-music" href="' + value.music_link + '"><div class="element mb-2">' +
+                        '       <div class="content d-inline-block align-middle">' +
+                        '           <h6 class="name_song text-black mb-1">' + searchHighlight(q, value.music_title) + '</h6>' +
+                        '           <p class="name_singer text-gray mb-1">' + value.music_artist + '</p>' +
+                        '           <p class="loss text-pink mb-0">' + value.music_bitrate_html + '</p>' +
+                        '       </div>' +
+                        '   </div></a>';
+                }
             });
-            return '<div class="block block_baihat">' +
-                '<div class="block_header d-flex flex-row justify-content-between mb-2">' +
-                '   <h3 class="main_title text-pink mb-0" style="font-weight: 700;">Top kết quả</h3><a onclick="redirectSearch(\'page_music\')" href="javascript:void(0)"><span class="text-gray align-self-end">Xem tất cả</span></a>' +
-                '</div>' +
-                '<div class="block_baihat_main block_more">' + song +
-                '</div>' +
-                '</div>';
+            if(song.trim()) {
+                return '<div class="block block_baihat">' +
+                    '<div class="block_header d-flex flex-row justify-content-between mb-2">' +
+                    '   <h3 class="main_title text-pink mb-0" style="font-weight: 700;">Top kết quả</h3><a onclick="redirectSearch(\'page_music\')" href="javascript:void(0)"><span class="text-gray align-self-end">Xem tất cả</span></a>' +
+                    '</div>' +
+                    '<div class="block_baihat_main block_more">' + song +
+                    '</div>' +
+                    '</div>';
+            }
         }
         return '';
     }

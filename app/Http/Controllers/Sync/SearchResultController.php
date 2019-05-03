@@ -12,6 +12,7 @@ use Illuminate\Http\Request as Request;
 use Illuminate\Support\Facades\Auth;
 use App\Library\Helpers;
 use App\Solr\Solarium;
+use App\Models\MusicSearchResultReportModel;
 use App\Repositories\Cover\CoverEloquentRepository;
 use App\Repositories\Music\MusicEloquentRepository;
 use App\Repositories\Video\VideoEloquentRepository;
@@ -62,7 +63,9 @@ class SearchResultController extends Controller
             ->orderBy('csn_music_search_result.music_search_count', 'desc')
             ->limit(25000)
             ->get();
-        $this->searchRepository->getModel()::where('created_at', '<=', $date)->delete();
+        $searchResult = $this->searchRepository->getModel()::where('created_at', '<=', $date)->where('music_search_count', '>', 3)->get();
+        MusicSearchResultReportModel::insert($searchResult->toArray());
+        $searchResult->delete();
         if(count($musicArr))
             $Solr->syncMusic(null, $musicArr);
         if(count($videoArr))
