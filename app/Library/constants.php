@@ -152,4 +152,4 @@ define('TIME_MUSIC_SEARCH_RESULT_1DAY_AGO', '-1 day'); // day time to music sear
 
 define('MAXIMUM_FILE_SIZE_UPLOAD_VIDEO', 5737418240); // maximum upload file video 5Gb
 define('ID_OLD_MUSIC', 1000000);
-define('LIMIT_SEARCH_TOP_RESULT', 300);
+define('LIMIT_SEARCH_TOP_RESULT', 100);
