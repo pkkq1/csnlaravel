@@ -126,5 +126,56 @@ class MusicController extends Controller
         $music['file_url'] = Helpers::file_url($music);
         return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['music' => $music->toArray(), 'playlist' => $playlistMusic], 'error' => []], 200);
     }
-
+    public function listenSingleMusic(Request $request, $cat, $sub, $musicUrl) {
+        try {
+            $arrUrl = Helpers::splitMusicUrl($musicUrl);
+        } catch (Exception $e) {
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'url sai cú pháp'], 400);
+        }
+        if($cat == CAT_VIDEO_URL) {
+            $music = $this->videoRepository->findOnlyMusicId($arrUrl['id']);
+        }else{
+            $music = $this->musicRepository->findOnlyMusicId($arrUrl['id']);
+        }
+        if(!$music) {
+            $music = $this->musicRepository->checkDeleteMusic($arrUrl['id'], false);
+        }
+        // +1 view
+        if(Helpers::sessionCountTimesMusic($arrUrl['id'])){
+            if($cat == CAT_VIDEO_URL) {
+                $this->videoListenRepository->incrementListen($arrUrl['id']);
+            }else{
+                $this->musicListenRepository->incrementListen($arrUrl['id']);
+            }
+            if($_COOKIE['search_search'] ?? '') {
+                unset($_COOKIE['search_search']);
+                $this->musicSearchResultRepository->createSearch($music);
+            }
+        }
+        $type = 'music';
+        if($music->cat_id == CAT_VIDEO)
+            $type = 'video';
+        // update cookie music history
+        $cookie = Helpers::MusicCookie($request, $music);
+        //update cache file suggestion
+        $this->musicRepository->suggestion($music, $type);
+        $musicSet = [
+            'type_listen' => 'single', // single | playlist | album
+            'type_jw' =>  $type,  // music | video
+            'playlist_music' => [],
+            'music_history' => $cookie
+        ];
+//        // update search analytics
+//        if(isset($request->ref) && isset($request->key_search)&& isset($request->type_search) && $request->ref == 'search') {
+//            $this->searchResultRepository->createAnalytics($request->ref, $request->key_search, $music->music_id, $request->type_search);
+//        }
+        $musicFavourite = false;
+        if(Auth::check()){
+            $getModelFavourite = $this->musicFavouriteRepository;
+            if($type == 'video')
+                $getModelFavourite = $this->videoFavouriteRepository;
+            $musicFavourite = $getModelFavourite->getModel()::where([['user_id', Auth::user()->id], ['music_id', $music->music_id]])->first();
+        }
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['music' => $music->toArray(), 'musicSet' => $musicSet, 'musicFavourite' => $musicFavourite], 'error' => []], 200);
+    }
 }
