@@ -78,7 +78,7 @@ class MusicController extends Controller
         $this->Solr = $Solr;
     }
 
-    public function getMusicInfo(Request $request, $musicUrl) {
+    public function getAlbumInfo(Request $request, $musicUrl) {
         $arrUrl = Helpers::splitPlaylistUrl($musicUrl);
         $album = $this->coverRepository->getCoverMusicById($arrUrl['id']);
         if(!$album)
@@ -86,6 +86,30 @@ class MusicController extends Controller
         $playlistMusic = [];
         if(($album->music)) {
             $playlistMusic = $album->music->toArray();
+        }
+        if($playlistMusic) {
+            $offsetPl = $playlistMusic[$request->playlist ? ($request->playlist > count($playlistMusic) ? count($playlistMusic) : $request->playlist) - 1 : 0];
+            if($offsetPl['cat_id'] == CAT_VIDEO) {
+                $music = $this->videoRepository->findOnlyMusicId($offsetPl['music_id']);
+            }else{
+                $music = $this->musicRepository->findOnlyMusicId($offsetPl['music_id']);
+            }
+        }else{
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Nội dung playlist không có'], 400);
+        }
+        if(!$music)
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Bài hát không tìm thấy'], 400);
+        $music['file_url'] = Helpers::file_url($music);
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['music' => $music->toArray(), 'playlist' => $playlistMusic], 'error' => []], 200);
+    }
+    public function getPlaylistInfo(Request $request, $musicUrl) {
+        $arrUrl = Helpers::splitPlaylistUrl($musicUrl, 'playlist');
+        $playlist = $this->playlistRepository->getMusicByPlaylistId($arrUrl['id']);
+        if(!$playlist)
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'không tìm thấy playlist'], 400);
+        $playlistMusic = [];
+        if(($playlist->music)) {
+            $playlistMusic = $playlist->music->toArray();
         }
         if($playlistMusic) {
             $offsetPl = $playlistMusic[$request->playlist ? ($request->playlist > count($playlistMusic) ? count($playlistMusic) : $request->playlist) - 1 : 0];

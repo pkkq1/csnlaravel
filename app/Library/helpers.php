@@ -375,10 +375,10 @@ class Helpers
         ];
     }
 
-    public  static function splitPlaylistUrl($url) {
+    public  static function splitPlaylistUrl($url, $floatType = false) {
         $arrSplit = explode('~', $url);
         $id_encode = last(str_replace('.html', '', $arrSplit));
-        $type = explode('/', url()->current())[3];
+        $type = $floatType ?? explode('/', url()->current())[3];
         return [
             'id' => str_replace(($type == 'playlist' || $type == 'playlist_publisher') ? KEY_ID_PLAYLIST_ENCODE_URL : KEY_ID_ALBUM_ENCODE_URL, "", base64_decode($id_encode)),
             'type' => $type,

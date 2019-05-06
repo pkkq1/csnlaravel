@@ -874,6 +874,7 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                         });
                     })
                 });
+                this.element.removeClass( "ui-autocomplete-loading" );
             };
         });
         function rawBodySearchUpload(music) {
@@ -949,6 +950,7 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                         $('.cover_id').val($('.choose_album_search').find('li').data('id'));
                     })
                 });
+                this.element.removeClass( "ui-autocomplete-loading" );
             };
         });
 

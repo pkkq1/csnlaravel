@@ -31,7 +31,8 @@
             $( "<li>" ).appendTo( ul );
             $('.search_layout .search-line-music').click(function () {
                 Cookies.set('search_search', $(this).attr('href'))
-            })
+            });
+            this.element.removeClass( "ui-autocomplete-loading" );
             return true;
         };
     });

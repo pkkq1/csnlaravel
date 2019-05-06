@@ -24,8 +24,12 @@ Route::prefix('auth')->group(function () {
     Route::get('login/google', 'AuthController@loginGoogle');
 });
 Route::get('search', 'SearchController@index');
-Route::post('nghe-album/{musicUrl}.html', ['as' => 'api.music.listen', 'uses' => 'MusicController@getMusicInfo']);
-Route::post('nghe-album/{musicUrl}', ['as' => 'api.music.listen', 'uses' => 'MusicController@getMusicInfo']);
+Route::post('nghe-album/{musicUrl}.html', ['as' => 'api.music.listen', 'uses' => 'MusicController@getAlbumInfo']);
+Route::post('nghe-album/{musicUrl}', ['as' => 'api.music.listen', 'uses' => 'MusicController@getAlbumInfo']);
+
+Route::post('playlist/{musicUrl}.html', ['as' => 'api.music.listen', 'uses' => 'MusicController@getPlaylistInfo']);
+Route::post('playlist/{musicUrl}', ['as' => 'api.music.listen', 'uses' => 'MusicController@getPlaylistInfo']);
+
 
 // artist
 Route::prefix('artist')->group(function () {
