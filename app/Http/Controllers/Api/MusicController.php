@@ -33,6 +33,7 @@ use App\Repositories\SearchResult\SearchResultEloquentRepository;
 use App\Repositories\MusicFavourite\MusicFavouriteRepository;
 use App\Repositories\VideoFavourite\VideoFavouriteRepository;
 use App\Repositories\Karaoke\KaraokeEloquentRepository;
+use App\Repositories\Session\SessionEloquentRepository;
 use App\Http\Controllers\Sync\SolrSyncController;
 
 class MusicController extends Controller
@@ -52,13 +53,14 @@ class MusicController extends Controller
     protected $videoFavouriteRepository;
     protected $karaokeRepository;
     protected $searchResultRepository;
+    protected $sessionRepository;
     protected $Solr;
 
     public function __construct(MusicEloquentRepository $musicRepository, PlaylistEloquentRepository $playlistRepository, MusicListenEloquentRepository $musicListenRepository,
                                 CategoryEloquentRepository $categoryListenRepository, CoverEloquentRepository $coverRepository, VideoEloquentRepository $videoRepository, ArtistRepository $artistRepository,
                                 MusicFavouriteRepository $musicFavouriteRepository, VideoFavouriteRepository $videoFavouriteRepository, MusicDownloadEloquentRepository $musicDownloadRepository, KaraokeEloquentRepository $karaokeRepository,
                                 VideoListenEloquentRepository $videoListenRepository, VideoDownloadEloquentRepository $videoDownloadRepository, PlaylistPublisherEloquentRepository $playlistPublisherRepository, SearchResultEloquentRepository $searchResultRepository,
-                                Solarium $Solr)
+                                Solarium $Solr, SessionEloquentRepository $sessionRepository)
     {
         $this->musicRepository = $musicRepository;
         $this->videoRepository = $videoRepository;
@@ -75,6 +77,7 @@ class MusicController extends Controller
         $this->videoFavouriteRepository = $videoFavouriteRepository;
         $this->karaokeRepository = $karaokeRepository;
         $this->searchResultRepository = $searchResultRepository;
+        $this->sessionRepository = $sessionRepository;
         $this->Solr = $Solr;
     }
 
@@ -100,7 +103,15 @@ class MusicController extends Controller
         if(!$music)
             return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Bài hát không tìm thấy'], 400);
         $music['file_url'] = Helpers::file_url($music);
-        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['music' => $music->toArray(), 'playlist' => $playlistMusic], 'error' => []], 200);
+        $musicFavourite = false;
+        if($request->sid) {
+            $userSess = $this->sessionRepository->getSessionById($request->sid);
+            $getModelFavourite = $this->musicFavouriteRepository;
+            if($music->cat_id == CAT_VIDEO)
+                $getModelFavourite = $this->videoFavouriteRepository;
+            $musicFavourite = $getModelFavourite->getModel()::where([['user_id',$userSess->user_id], ['music_id', $music->music_id]])->first();
+        }
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['music' => $music->toArray(), 'playlist' => $playlistMusic, 'musicFavourite' => $musicFavourite ? true : false], 'error' => []], 200);
     }
     public function getPlaylistInfo(Request $request, $musicUrl) {
         $arrUrl = Helpers::splitPlaylistUrl($musicUrl, 'playlist');
@@ -124,7 +135,15 @@ class MusicController extends Controller
         if(!$music)
             return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Bài hát không tìm thấy'], 400);
         $music['file_url'] = Helpers::file_url($music);
-        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['music' => $music->toArray(), 'playlist' => $playlistMusic], 'error' => []], 200);
+        $musicFavourite = false;
+        if($request->sid) {
+            $userSess = $this->sessionRepository->getSessionById($request->sid);
+            $getModelFavourite = $this->musicFavouriteRepository;
+            if($music->cat_id == CAT_VIDEO)
+                $getModelFavourite = $this->videoFavouriteRepository;
+            $musicFavourite = $getModelFavourite->getModel()::where([['user_id',$userSess->user_id], ['music_id', $music->music_id]])->first();
+        }
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['music' => $music->toArray(), 'playlist' => $playlistMusic, 'musicFavourite' => $musicFavourite ? true : false], 'error' => []], 200);
     }
     public function listenSingleMusic(Request $request, $cat, $sub, $musicUrl) {
         try {
@@ -170,12 +189,117 @@ class MusicController extends Controller
 //            $this->searchResultRepository->createAnalytics($request->ref, $request->key_search, $music->music_id, $request->type_search);
 //        }
         $musicFavourite = false;
-        if(Auth::check()){
+        if($request->sid) {
+            $userSess = $this->sessionRepository->getSessionById($request->sid);
             $getModelFavourite = $this->musicFavouriteRepository;
             if($type == 'video')
                 $getModelFavourite = $this->videoFavouriteRepository;
-            $musicFavourite = $getModelFavourite->getModel()::where([['user_id', Auth::user()->id], ['music_id', $music->music_id]])->first();
+            $musicFavourite = $getModelFavourite->getModel()::where([['user_id',$userSess->user_id], ['music_id', $music->music_id]])->first();
         }
-        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['music' => $music->toArray(), 'musicSet' => $musicSet, 'musicFavourite' => $musicFavourite], 'error' => []], 200);
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['music' => $music->toArray(), 'musicSet' => $musicSet, 'musicFavourite' => $musicFavourite ? true : false], 'error' => []], 200);
+    }
+    public function listenBxhNow(Request $request, $catUrl, $catLevel = '') {
+        return $this->listenBxhMusic($request, str_replace('.html', '', $catUrl), 'now', $catLevel);
+    }
+    public function listenBxhWeek(Request $request, $catUrl, $catLevel = '') {
+        return $this->listenBxhMusic($request, str_replace('.html', '', $catUrl), 'week', $catLevel);
+    }
+    public function listenBxhMonth(Request $request, $month, $year, $catUrl, $catLevel = '') {
+        return $this->listenBxhMusic($request, str_replace('.html', '', $catUrl), 'month', $catLevel, $month, $year);
+    }
+    public function listenBxhYear(Request $request, $year, $catUrl, $catLevel = '') {
+        return $this->listenBxhMusic($request, str_replace('.html', '', $catUrl), 'year', $catLevel, 'all', $year);
+    }
+    public function listenBxhMusic($request, $catUrl, $typeBxh = 'now', $catLevel = '', $month = 0, $year = 0) {
+        $id = $request->id;
+        $type = 'music';
+        $playlistMusic = [];
+        // cache array
+        global $hot_music_rows;
+        global $hot_video_rows;
+        $month = sprintf('%02d', $month);
+        if($typeBxh == 'now') {
+            include(app_path() . '/../resources/views/cache/bxh/bxh_today.blade.php');
+        }elseif($typeBxh == 'week') {
+            include(app_path() . '/../resources/views/cache/bxh/bxh_week.blade.php');
+        }elseif($typeBxh == 'month') {
+            include(app_path() . '/../resources/views/cache/bxh/bxh_'.$month.'_'.$year.'.blade.php');
+        }elseif($typeBxh == 'year') {
+            $month = 'all';
+            include(app_path() . '/../resources/views/cache/bxh/bxh_'.$month.'_'.$year.'.blade.php');
+        }
+        $category = $this->categoryListenRepository->getCategoryUrl($catUrl == CAT_VIDEO_URL ? $catLevel : $catUrl);
+        if(!$category)
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Danh mục không tìm thấy'], 400);
+        if($catUrl == CAT_VIDEO_URL) {
+            // video (sub category videoclip)
+            $type = 'video';
+            $playlistMusic = $hot_video_rows[$category->cat_level];
+        }else{
+            // music (category music level 0)
+            $playlistMusic = $hot_music_rows[$category->cat_id];
+        }
+        if(!$id) {
+            $firstMusic = $playlistMusic[$request->playlist ? $request->playlist - 1 : 0];
+            $id = $firstMusic['music_id'];
+        }
+        if($catUrl == CAT_VIDEO_URL) {
+            $music = $this->videoRepository->findOnlyMusicId(Helpers::decodeID($id));
+        }else{
+            $music = $this->musicRepository->findOnlyMusicId(Helpers::decodeID($id));
+        }
+        if(!$music) {
+            $music = $this->musicRepository->checkDeleteMusic($id, false);
+        }
+        // +1 view
+        if(Helpers::sessionCountTimesMusic($id)){
+            if($catUrl == CAT_VIDEO) {
+                $this->videoListenRepository->incrementListen($id);
+            }else{
+                $this->musicListenRepository->incrementListen($id);
+            }
+        }
+        // update cookie music history
+        $cookie = Helpers::MusicCookie($request, $music);
+        //update cache file suggestion
+        $this->musicRepository->suggestion($music, $type);
+        $musicSet = [
+            'type_listen' => 'album', // single | playlist | album
+            'type_jw' =>  $type,  // music | video
+            'playlist_music' => $playlistMusic,
+            'music_history' => $cookie
+        ];
+        $musicFavourite = false;
+        if($request->sid) {
+            $userSess = $this->sessionRepository->getSessionById($request->sid);
+            $getModelFavourite = $this->musicFavouriteRepository;
+            if($type == 'video')
+                $getModelFavourite = $this->videoFavouriteRepository;
+            $musicFavourite = $getModelFavourite->getModel()::where([['user_id',$userSess->user_id], ['music_id', $music->music_id]])->first();
+        }
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['musicFavourite' => $musicFavourite ? true : false, 'music' => $music->toArray(), 'musicSet' => $musicSet], 'error' => []], 200);
+    }
+    function musicFavourite (Request $request) {
+        if($request->sid) {
+            $userSess = $this->sessionRepository->getSessionById($request->sid);
+            if(!$userSess)
+                return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Lỗi User'], 400);
+        }else {
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Lỗi User'], 400);
+        }
+        $typeMes = 'bài hát';
+        $getModelFavourite = $this->musicFavouriteRepository;
+        if($request->type_of == 'video') {
+            $typeMes = 'video';
+            $getModelFavourite = $this->videoFavouriteRepository;
+        }
+        if($request->type == 'false'){
+            $msg = 'Đã bỏ '.$typeMes.' '.$request->name.' ra khỏi danh sách yêu thích.';
+            $getModelFavourite->getModel()::where([['user_id', $userSess->user_id], ['music_id', $request->music_id]])->delete();
+        }else{
+            $msg = 'Đã thêm '.$typeMes.' '.$request->name.' vào danh sách yêu thích.';
+            $getModelFavourite->create(['user_id' => $userSess->user_id, 'music_id' => $request->music_id]);
+        }
+        return new JsonResponse(['message' => $msg, 'code' => 200, 'data' => [], 'error' => []], 200);
     }
 }

@@ -31,6 +31,7 @@ class BxhController extends Controller
         foreach ($category as $item) {
             $dataBxh[$item->cat_id] = [
                 'cat_name' => $item->cat_short_title,
+                'cat_url' => $item->cat_url,
                 'music' => $hot_music_rows[$item->cat_id] ?? [],
                 'video' => $hot_video_rows[$item->cat_id - 2] ?? []
             ];
