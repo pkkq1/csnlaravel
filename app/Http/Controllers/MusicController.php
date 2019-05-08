@@ -27,6 +27,7 @@ use App\Repositories\VideoFavourite\VideoFavouriteRepository;
 use App\Repositories\KaraokeSuggestion\KaraokeSuggestionEloquentRepository;
 use Illuminate\Support\Facades\Auth;
 use App\Models\PlaylistMusicModel;
+use Jenssegers\Agent\Agent;
 use App\Models\ErrorLogModel;
 use App\Repositories\Karaoke\KaraokeEloquentRepository;
 use App\Repositories\LyricSuggestion\LyricSuggestionEloquentRepository;
@@ -189,7 +190,8 @@ class MusicController extends Controller
             if(!$artist)
                 return view('errors.text_error')->with('message', 'Ca sĩ chưa được phát hành.');
             $musicSet['page'] = $request->trang ?? 1;
-            $playlistMusic = $this->musicRepository->findMusicByArtist($artist->artist_id, $musicSet['page'],'music_last_update_time', 'desc', LIMIT_LISTEN_MUSIC_ARTIST);
+            $Agent = new Agent();
+            $playlistMusic = $this->musicRepository->findMusicByArtist($artist->artist_id, $musicSet['page'],'music_last_update_time', 'desc', $Agent->isMobile() ? LIMIT_LISTEN_MUSIC_ARTIST_MOBILE : LIMIT_LISTEN_MUSIC_ARTIST);
             if(!$playlistMusic)
                 return view('errors.text_error')->with('message', 'Ca sĩ chưa có bài hát nào phát hành.');
             $typeListen = 'playlist';

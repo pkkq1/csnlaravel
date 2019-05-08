@@ -74,19 +74,12 @@ Route::post('bang-xep-hang/nam-{year}/{catUrl}/{catLevel?}', ['as' => 'bxh.month
 Route::post('music/favourite', ['as' => 'bxh.month', 'uses' => 'MusicController@musicFavourite']);
 // User
 Route::prefix('user/')->group(function () {
-    Route::post('{id}/music_recents', ['as' => 'user.uploaded', 'uses' => 'UserMusicController@musicRecent']);
-    Route::post('artist_favourite', ['as' => 'user.uploaded', 'uses' => 'UserMusicController@artistFavourite']);
-    Route::post('video_favourite', ['as' => 'user.uploaded', 'uses' => 'UserMusicController@videoFavourite']);
-    Route::post('music_favourite', ['as' => 'user.uploaded', 'uses' => 'UserMusicController@musicFavourite']);
+    Route::post('{id}/music_recents', ['as' => 'user.music_recents', 'uses' => 'UserMusicController@musicRecent']);
+    Route::post('artist_favourite', ['as' => 'user.artist_favourite', 'uses' => 'UserMusicController@artistFavourite']);
+    Route::post('video_favourite', ['as' => 'user.video_favourite', 'uses' => 'UserMusicController@videoFavourite']);
+    Route::post('music_favourite', ['as' => 'user.music_favourite', 'uses' => 'UserMusicController@musicFavourite']);
+    Route::get('profile/{id}', ['as' => 'user.profile', 'uses' => 'UserController@index']);
 });
-
-
-
-
-
-
-
-
 
 
 

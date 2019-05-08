@@ -126,9 +126,9 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
         foreach ($music['data'] as $item) {
             $result[] = [
                 'music_id' => $item['music_id'][0],
-                'cat_id' => $item['cover_id'][0],
+                'cat_id' => $item['cat_id'][0],
                 'cat_level' => $item['cat_level'][0],
-                'cover_id' => $item['music_id'][0],
+                'cover_id' => $item['cover_id'][0],
                 'music_title' => $item['music_title'][0],
                 'music_bitrate_html' => $item['music_bitrate_html'][0],
                 'music_bitrate' => $item['music_bitrate'][0],
