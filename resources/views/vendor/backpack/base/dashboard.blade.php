@@ -1,3 +1,6 @@
+<?php
+use App\Library\Helpers;
+?>
 @extends('backpack::layout')
 
 @section('header')
@@ -19,43 +22,27 @@
             <!-- DIRECT CHAT -->
             <div class="box box-warning direct-chat direct-chat-warning">
                 <div class="box-header with-border" style="float: left; width: 100%;">
-                    <h3 class="box-title">10 bình luận mới nhất</h3>
+                    <h3 class="box-title">{{count($comment_recent)}} bình luận mới nhất vừa qua</h3>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body" style="display: initial;">
                     <!-- Conversations are loaded here -->
                     <div class="direct-chat-messages">
                         <!-- Message. Default to the left -->
+                        @foreach($comment_recent as $item)
                         <div class="direct-chat-msg">
                             <div class="direct-chat-info clearfix">
-                                <span class="direct-chat-name pull-left">Alexander Pierce</span>
-                                <span class="direct-chat-timestamp pull-right">23 Jan 2:00 pm</span>
+                                <span class="direct-chat-name pull-left">{{$item['user']['name']}}</span>
+                                <span class="direct-chat-timestamp pull-right"><?php echo Helpers::timeElapsedString($item['comment_time']); ?></span>
                             </div>
                             <!-- /.direct-chat-info -->
-                            <img class="direct-chat-img" src="https://chiasenhac.vn/storage/data/user_avatar/998/997917.jpg?time=1555413645" alt="message user image">
+                            <a href="/user/{{$item['user_id']}}"><img class="direct-chat-img" src="<?php echo Helpers::pathAvatar($item['user']['user_avatar'], $item['user']['id']) ?>"></a>
                             <!-- /.direct-chat-img -->
                             <div class="direct-chat-text">
-                                Is this template really for free? That's unbelievable!
+                                <?php echo $item['comment_text'] ?>
                             </div>
-                            <!-- /.direct-chat-text -->
                         </div>
-                        <!-- /.direct-chat-msg -->
-
-                        <!-- Message. Default to the left -->
-                        <div class="direct-chat-msg">
-                            <div class="direct-chat-info clearfix">
-                                <span class="direct-chat-name pull-left">Alexander Pierce</span>
-                                <span class="direct-chat-timestamp pull-right">23 Jan 5:37 pm</span>
-                            </div>
-                            <!-- /.direct-chat-info -->
-                            <img class="direct-chat-img" src="https://chiasenhac.vn/storage/data/user_avatar/998/997917.jpg?time=1555413645" alt="message user image">
-                            <!-- /.direct-chat-img -->
-                            <div class="direct-chat-text">
-                                Working with AdminLTE on a great new app! Wanna join?
-                            </div>
-                            <!-- /.direct-chat-text -->
-                        </div>
-                        <!-- /.direct-chat-msg -->
+                        @endforeach
                     </div>
                     <!--/.direct-chat-messages-->
                 </div>
@@ -69,10 +56,10 @@
             <!-- USERS LIST -->
             <div class="box box-danger">
                 <div class="box-header with-border" style="float: left; width: 100%;">
-                    <h3 class="box-title">Latest Members</h3>
+                    <h3 class="box-title">Thành viên vừa đăng ký hôm nay</h3>
 
                     <div class="box-tools pull-right" style="display: inherit">
-                        <span class="label label-danger">8 New Members</span>
+                        <span class="label label-danger">{{count($user_register)}} thành viên mới</span>
                         <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                         </button>
                         <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
@@ -80,48 +67,15 @@
                     </div>
                 </div>
                 <!-- /.box-header -->
-                <div class="box-body no-padding">
+                <div class="box-body no-padding" style=" height: 250px; overflow: auto; display: inline-block; ">
                     <ul class="users-list clearfix">
-                        <li>
-                            <img src="dist/img/user1-128x128.jpg" alt="User Image">
-                            <a class="users-list-name" href="#">Alexander Pierce</a>
-                            <span class="users-list-date">Today</span>
-                        </li>
-                        <li>
-                            <img src="dist/img/user8-128x128.jpg" alt="User Image">
-                            <a class="users-list-name" href="#">Norman</a>
-                            <span class="users-list-date">Yesterday</span>
-                        </li>
-                        <li>
-                            <img src="dist/img/user7-128x128.jpg" alt="User Image">
-                            <a class="users-list-name" href="#">Jane</a>
-                            <span class="users-list-date">12 Jan</span>
-                        </li>
-                        <li>
-                            <img src="dist/img/user6-128x128.jpg" alt="User Image">
-                            <a class="users-list-name" href="#">John</a>
-                            <span class="users-list-date">12 Jan</span>
-                        </li>
-                        <li>
-                            <img src="dist/img/user2-160x160.jpg" alt="User Image">
-                            <a class="users-list-name" href="#">Alexander</a>
-                            <span class="users-list-date">13 Jan</span>
-                        </li>
-                        <li>
-                            <img src="dist/img/user5-128x128.jpg" alt="User Image">
-                            <a class="users-list-name" href="#">Sarah</a>
-                            <span class="users-list-date">14 Jan</span>
-                        </li>
-                        <li>
-                            <img src="dist/img/user4-128x128.jpg" alt="User Image">
-                            <a class="users-list-name" href="#">Nora</a>
-                            <span class="users-list-date">15 Jan</span>
-                        </li>
-                        <li>
-                            <img src="dist/img/user3-128x128.jpg" alt="User Image">
-                            <a class="users-list-name" href="#">Nadia</a>
-                            <span class="users-list-date">15 Jan</span>
-                        </li>
+                        @foreach($user_register as $item)
+                            <li>
+                                <a href="/user/{{$item['user_id']}}"><img style="width: 67px; height: 67px;" src="<?php echo Helpers::pathAvatar($item['user_avatar'], $item['id']) ?>" alt="{{$item['name']}}"></a>
+                                <a class="users-list-name" target="_bank" href="/user/{{$item['user_id']}}">{{$item['name']}}</a>
+                                <span class="users-list-date"><?php echo Helpers::timeElapsedString(strtotime($item['created_at'])); ?></span>
+                            </li>
+                        @endforeach
                     </ul>
                     <!-- /.users-list -->
                 </div>

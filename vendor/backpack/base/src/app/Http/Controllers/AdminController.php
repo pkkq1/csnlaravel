@@ -1,6 +1,8 @@
 <?php
 
 namespace Backpack\Base\app\Http\Controllers;
+use App\Models\CommentModel;
+use App\Models\UserModel;
 
 class AdminController extends Controller
 {
@@ -22,7 +24,8 @@ class AdminController extends Controller
     public function dashboard()
     {
         $this->data['title'] = trans('backpack::base.dashboard'); // set the page title
-
+        $this->data['comment_recent'] = CommentModel::where('comment_time', '>=', strtotime(date('Y/m/d', strtotime(TIME_1DAY_AGO)). ' 00:00'))->with('user')->orderBy('comment_time', 'desc')->limit(13)->get()->toArray();
+        $this->data['user_register'] = UserModel::whereDate('created_at', date('Y/m/d', time()))->orderBy('created_at', 'desc')->get()->toArray();
         return view('backpack::dashboard', $this->data);
     }
 

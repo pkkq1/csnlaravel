@@ -197,7 +197,7 @@ class UploadController extends Controller
             return view('errors.text_error')->with('message', 'Nhập ít nhất các thông tin cho ca sĩ '.$artistExist->artist_nickname);
         }
         $artist = [
-            'artist_nickname' => $request->artist_nickname,
+            'artist_nickname' => $artistExist->artist_nickname,
             'artist_birthday' => date("Y/m/d", strtotime($request->input('artist_birthday'))),
             'artist_gender' => $request->input('artist_gender'),
             'last_update_user_id' => Auth::user()->id,

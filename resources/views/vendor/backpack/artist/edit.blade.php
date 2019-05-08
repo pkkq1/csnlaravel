@@ -148,7 +148,6 @@ use App\Library\Helpers;
     <script>
         $('input[name=artist_avatar]').parent().addClass('hidden');
         $('input[name=artist_cover]').parent().addClass('hidden');
-
         $(document).ready(function(){
             var selectImage;
 
@@ -247,5 +246,6 @@ use App\Library\Helpers;
                 })
             });
         });
+
     </script>
 @endpush

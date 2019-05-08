@@ -311,5 +311,12 @@ use App\Library\Helpers;
             $('form').attr('action', $(this).attr('href'));
             document.getElementById("upload_article_form").submit();
         })
+        <?php
+        if($fields['type']['value'] == 0) {
+        ?>
+        $('input[name=artist_nickname]').attr("disabled", true);
+        <?php
+        }
+        ?>
     </script>
 @endpush
