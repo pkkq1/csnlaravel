@@ -39,7 +39,7 @@ class SearchResultController extends CrudController
     public function setup()
     {
 //        parent::__construct();
-        $this->crud->setModel("App\Models\MusicSearchResultModel");
+        $this->crud->setModel("App\Models\MusicSearchResultReportModel");
         $this->crud->setEntityNameStrings('Kết quả tìm kiếm', 'Kết quả tìm kiếm');
         $this->crud->setRoute(config('backpack.base.route_prefix').'/search_results');
 //        $this->crud->setEntityNameStrings('menu item', 'menu items');
