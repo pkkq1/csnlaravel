@@ -325,7 +325,7 @@ class ArtistUploadController extends CrudController
             return redirect()->back();
         }
         // check save if you get approval article
-        if($artistUpload->artist_nickname != $request->artist_nickname || $artistUpload->artist_gender != $request->artist_gender || date_create_from_format("d-m-Y", $artistUpload->artist_birthday) != date_create_from_format("d-m-Y", $request->artist_birthday)
+        if($artistUpload->artist_gender != $request->artist_gender || date_create_from_format("d-m-Y", $artistUpload->artist_birthday) != date_create_from_format("d-m-Y", $request->artist_birthday)
             || strlen($request->input('artist_avatar')) > 100 || strlen($request->input('artist_cover')) > 100) {
 
             \Alert::error('Đã có sự thay đổi, hãy chỉnh sửa lại và lưu trước khi xác nhận ca sĩ này.')->flash();
