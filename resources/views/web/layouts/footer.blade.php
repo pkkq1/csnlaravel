@@ -49,23 +49,20 @@
         var song = '';
         if(musics.length > 0) {
             $.each( musics, function( key, value ) {
-                let keySearchH =  searchHighlight(q, value.music_title, true);
-                if(keySearchH != false) {
-                    song = song +
-                        '  <a class="search-line search-line-music" href="' + value.music_link + '" title="' + value.music_title + ' - ' + value.music_artist + '">' +
-                        '  <li class="media align-items-stretch">' +
-                        // '      <div class="media-left align-items-stretch mr-2">' +
-                        // '              <img src="' + value.music_cover + '" alt="' + value.music_title + '">' +
-                        // '           <i class="material-icons">play_circle_outline</i>' +
-                        // '      </div>' +
-                        '      <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">' +
-                        '          <h5 class="media-title mt-0 mb-0 span_h5">' + searchHighlight(q, value.music_title, true) + '</h5>' +
-                        '          <div class="author">' + value.music_artist + '</div>' +
-                        '          <small class="type_music c1">' + value.music_bitrate_html + '</small>' +
-                        '      </div>' +
-                        '  </li>' +
-                        '  </a>';
-                }
+                song = song +
+                    '  <a class="search-line search-line-music" href="' + value.music_link + '" title="' + value.music_title + ' - ' + value.music_artist + '">' +
+                    '  <li class="media align-items-stretch">' +
+                    // '      <div class="media-left align-items-stretch mr-2">' +
+                    // '              <img src="' + value.music_cover + '" alt="' + value.music_title + '">' +
+                    // '           <i class="material-icons">play_circle_outline</i>' +
+                    // '      </div>' +
+                    '      <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">' +
+                    '          <h5 class="media-title mt-0 mb-0 span_h5">' + searchHighlight(q, value.music_title) + '</h5>' +
+                    '          <div class="author">' + value.music_artist + '</div>' +
+                    '          <small class="type_music c1">' + value.music_bitrate_html + '</small>' +
+                    '      </div>' +
+                    '  </li>' +
+                    '  </a>';
             });
             if(song.trim()) {
                 return '<h4 class="card-title">Top Kết Quả</h4>' +
