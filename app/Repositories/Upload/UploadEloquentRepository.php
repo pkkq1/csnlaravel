@@ -70,11 +70,14 @@ class UploadEloquentRepository extends EloquentRepository implements UploadRepos
             ->paginate($page);
         return $result;
     }
-    public function musicByStage($stageArr, $fillOrder, $typeOrder, $page)
+    public function musicByStage($stageArr, $fillOrder, $typeOrder, $page, $user = null)
     {
         $result = $this->_model::select('music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title', 'music_artist', 'music_artist_id', 'music_album_id', 'music_bitrate', 'music_filename', 'music_updated', 'music_last_update_time')
-            ->whereIn('music_state', $stageArr)
-            ->orderBy($fillOrder, $typeOrder)
+            ->whereIn('music_state', $stageArr);
+        if($user) {
+            $result = $result->where('music_last_update_by', $user);
+        }
+        $result = $result->orderBy($fillOrder, $typeOrder)
             ->paginate($page);
         return $result;
     }

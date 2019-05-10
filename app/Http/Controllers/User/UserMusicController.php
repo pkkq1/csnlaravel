@@ -106,6 +106,10 @@ class UserMusicController extends Controller
                 // đã duyệt
                 $music['stage_fullcensor'] = $this->uploadRepository->musicByStage([UPLOAD_STAGE_FULLCENSOR], 'music_last_update_time', 'desc', LIMIT_PAGE_MUSIC_UPLOADED);
             }
+            if($stage == 'all' || $stage == 'fullcensor_by') {
+                // đã duyệt theo user lần cuối cùng
+                $music['stage_fullcensor_by'] = $this->uploadRepository->musicByStage([UPLOAD_STAGE_FULLCENSOR], 'music_last_update_time', 'desc', LIMIT_PAGE_MUSIC_UPLOADED, Auth::user()->id);
+            }
             if($stage == 'all' || $stage == 'delete') {
                 // đã xóa
                 $music['stage_delete'] = $this->uploadRepository->musicByStage([UPLOAD_STAGE_DELETED], 'music_last_update_time', 'desc', LIMIT_PAGE_MUSIC_UPLOADED);
