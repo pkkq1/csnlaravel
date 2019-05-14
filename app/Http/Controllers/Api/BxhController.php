@@ -8,8 +8,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request as Request;
 use \Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request as Request;
 use Illuminate\Support\Facades\Auth;
 use App\Library\Helpers;
 use App\Repositories\Category\CategoryEloquentRepository;

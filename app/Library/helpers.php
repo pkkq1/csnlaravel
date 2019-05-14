@@ -1018,7 +1018,7 @@ class Helpers
             foreach ($dataSolr['data'] as $item) {
                 $term = [];
                 foreach ($item as $key => $val) {
-                    $term[$key] = $val[0];
+                    $term[$key] = is_array($val) ? $val[0] : $val;
                 }
                 $data[] = $term;
             }

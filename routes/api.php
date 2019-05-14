@@ -68,8 +68,7 @@ Route::post('bang-xep-hang/thang-{month}-{year}/{catUrl}/{catLevel?}', ['as' => 
 
 Route::post('bang-xep-hang/nam-{year}/{catUrl}/{catLevel?}.html', ['as' => 'bxh.month', 'uses' => 'MusicController@listenBxhYear']);
 Route::post('bang-xep-hang/nam-{year}/{catUrl}/{catLevel?}', ['as' => 'bxh.month', 'uses' => 'MusicController@listenBxhYear']);
-
-
+Route::post('tab_category', ['as' => 'category.get_tab', 'uses' => 'CategoryController@getTabCategory']);
 
 Route::post('music/favourite', ['as' => 'bxh.month', 'uses' => 'MusicController@musicFavourite']);
 // User
@@ -79,6 +78,21 @@ Route::prefix('user/')->group(function () {
     Route::post('video_favourite', ['as' => 'user.video_favourite', 'uses' => 'UserMusicController@videoFavourite']);
     Route::post('music_favourite', ['as' => 'user.music_favourite', 'uses' => 'UserMusicController@musicFavourite']);
     Route::get('profile/{id}', ['as' => 'user.profile', 'uses' => 'UserController@index']);
+});
+
+// Catalog
+Route::prefix('catalog/')->group(function () {
+    Route::get('bai-hat-moi', ['as' => 'catalog.music', 'uses' => 'CatalogController@musicNews']);
+    Route::get('video-moi', ['as' => 'catalog.video', 'uses' => 'CatalogController@videoNews']);
+    Route::get('album-moi', ['as' => 'catalog.album', 'uses' => 'CatalogController@albumNews']);
+    Route::get('bai-hat-moi.html', ['as' => 'catalog.music', 'uses' => 'CatalogController@musicNews']);
+    Route::get('video-moi.html', ['as' => 'catalog.video', 'uses' => 'CatalogController@videoNews']);
+    Route::get('album-moi.html', ['as' => 'catalog.album', 'uses' => 'CatalogController@albumNews']);
+});
+// Chu de
+Route::prefix('chu-de/')->group(function () {
+    Route::get('{url}.html', ['as' => 'catalog.index', 'uses' => 'CatalogController@playlistPublisher']);
+    Route::get('{url}', ['as' => 'catalog.index', 'uses' => 'CatalogController@playlistPublisher']);
 });
 
 
