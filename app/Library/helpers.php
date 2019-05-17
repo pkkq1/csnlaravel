@@ -698,7 +698,9 @@ class Helpers
             $url = 'https://data.chiasenhac.com/dataxx/36/'; //'http://data36.chiasenhac.com/';
         else if ($music_id <= 1979000)
             $url = 'https://data.chiasenhac.com/dataxx/31/'; //'http://data31.chiasenhac.com/';
-        else if ($music_id <= 1993000)
+        else if ($music_id <= 1989000)
+            $url = 'https://data.chiasenhac.com/dataxx/33/'; //'http://data31.chiasenhac.com/';
+        else if ($music_id <= 1999000)
             $url = 'https://data.chiasenhac.com/';
         else if ($music_id <= 2008000)
             $url = 'https://data.chiasenhac.com/dataxx/25/';//'http://data25.chiasenhac.com/';
