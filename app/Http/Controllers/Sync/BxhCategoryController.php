@@ -186,8 +186,8 @@ $hot_video_rows = ' . var_export($ressultVideo, true) . ';
 ?>');
         }else{
             for($i = ($month == 'all_month' ? 1 : $month); $i <= ($month == 'all_month' ? 12 : $month); $i++) {
-                $month = sprintf('%02d', $i);
-                $firstDate = strtotime('01-'.$month.'-'.$year);
+                $month_ = sprintf('%02d', $i);
+                $firstDate = strtotime('01-'.$month_.'-'.$year);
                 $lastDate = strtotime(date('t-m-Y', $firstDate));
                 $ressultMusic = [];
                 $ressultVideo = [];
@@ -215,8 +215,8 @@ $hot_video_rows = ' . var_export($ressultVideo, true) . ';
                         $ressultVideo[$item->cat_id][] = $item2;
                     }
                 }
-                file_put_contents(resource_path().'/views/cache/bxh/bxh_'.$month.'_'.$year.'.blade.php',
-                    '<?php 
+                file_put_contents(resource_path().'/views/cache/bxh/bxh_'.$month_.'_'.$year.'.blade.php',
+                    '<?php
 if ( !ENV(\'IN_PHPBB\') )
 {
     die(\'Hacking attempt\');
