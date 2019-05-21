@@ -483,9 +483,15 @@ if($musicSet['type_listen'] == 'playlist') {
 
             <div class="col-md-3">
                 <div id="right1_banner">
-                    <!-- BlueSeed - asynchronous code for placement 2044 Chiasenhac Right Banner Player -->
-                    <ins class="hadar-placement" data-hdpm="2044" ></ins><script id="jshd1pm_2044" src="https://static.blueseed.tv/ajs/display.js"></script>
+                    @if ($music->cat_id == 6)
+                        <a href="https://www.facebook.com/groups/csn.kpop.fan/" target="_blank"><img src="/images/banner/kpop-fbgroup-300x170.jpg" width="300" height="170"></a>
+                    @else
+                        <!-- BlueSeed - asynchronous code for placement 2044 Chiasenhac Right Banner Player -->
+                        <ins class="hadar-placement" data-hdpm="2044" ></ins><script id="jshd1pm_2044" src="https://static.blueseed.tv/ajs/display.js"></script>
+                    @endif
                 </div>
+
+                <br>
 
                 @if(!empty($video))
                     <?php
