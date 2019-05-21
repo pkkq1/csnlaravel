@@ -3,7 +3,7 @@
 ?>
 
     <div id="right1_banner">
-        @if ($category->cat_id == 6)
+        @if (isset($category->cat_id) && $category->cat_id == 6)
             <a href="https://www.facebook.com/groups/csn.kpop.fan/" target="_blank"><img src="/images/banner/kpop-fbgroup-300x170.jpg" width="300" height="170"></a>
         @else
             <!-- BlueSeed - asynchronous code for placement 2043 Chiasenhac Right Banner -->
