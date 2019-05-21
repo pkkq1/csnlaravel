@@ -818,7 +818,7 @@
 </script>
 @endif
 
-@if( rand(1,100) < 30 )
+@if( rand(1,100) < 0 )
 <!-- Flight Tag: Chiasenhac - Vn/Yamaha/Apr19/JanusPromotion -->
 <script type="text/javascript">
     var screenW = 640, screenH = 480;
