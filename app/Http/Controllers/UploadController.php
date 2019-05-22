@@ -485,9 +485,26 @@ class UploadController extends Controller
             $result->music_updated = 0;
             if($request->music_track_id)
                 $result->music_track_id = $request->music_track_id;
-            if($per_Xet_Duyet_Chat_luong && $request->input('music_bitrate_fixed')) {
+            if($per_Xet_Duyet_Chat_luong && $request->input('music_bitrate_fixed') && $result->music_bitrate_fixed != $request->input('music_bitrate_fixed')) {
                 $result->music_bitrate_fixed = $request->input('music_bitrate_fixed');
                 $result->music_bitrate_fixed_by = Auth::user()->id;
+                if($request->input('music_bitrate_fixed') == 128){
+                    $result->music_320_filesize = 0 - abs($result->music_320_filesize);
+                    $result->music_m4a_filesize = 0 - abs($result->music_m4a_filesize);
+                    $result->music_lossless_filesize = 0 - abs($result->music_lossless_filesize);
+                }elseif ($request->input('music_bitrate_fixed') == 320) {
+                    $result->music_320_filesize = abs($result->music_320_filesize);
+                    $result->music_m4a_filesize = 0 - abs($result->music_m4a_filesize);
+                    $result->music_lossless_filesize = 0 - abs($result->music_lossless_filesize);
+                }elseif ($request->input('music_bitrate_fixed') == 500) {
+                    $result->music_m4a_filesize = abs($result->music_m4a_filesize);
+                    $result->music_320_filesize = 0 - abs($result->music_320_filesize);
+                    $result->music_lossless_filesize = 0 - abs($result->music_lossless_filesize);
+                }elseif ($request->input('music_bitrate_fixed') == 1000) {
+                    $result->music_320_filesize = abs($result->music_320_filesize);
+                    $result->music_m4a_filesize = abs($result->music_m4a_filesize);
+                    $result->music_lossless_filesize = abs($result->music_lossless_filesize);
+                }
             }
             if($result->cover_id == 0){
                 $result->music_production = $request->input('music_production') ?? '';
