@@ -111,7 +111,7 @@ use App\Library\Helpers;
                                 </ul>
 
                             </div>
-                            <a href="/admin/block_artist/{{$fields['id']['value']}}" class="btn btn-warning" style="background-color: #423f3f; border-color: #131212;"><span class="fa fa-window-close"></span> &nbsp;Chặn Ca sĩ</a>
+                            <a href="/admin/rm_block_artist/{{$fields['id']['value']}}" class="btn btn-warning" style="background-color: #423f3f; border-color: #131212;"><span class="fa fa-window-close"></span> Xóa&nbsp;Chặn Ca sĩ</a>
                             <a href="{{ $crud->hasAccess('list') ? url($crud->route) : url()->previous() }}" class="btn btn-default"><span class="fa fa-ban"></span> &nbsp;{{ trans('backpack::crud.cancel') }}</a>
                         </div>
 

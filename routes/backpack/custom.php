@@ -32,6 +32,10 @@ Route::group([
     CRUD::resource('artist_upload', 'ArtistUploadController');
     CRUD::resource('artist', 'ArtistController');
     CRUD::resource('search_results', 'SearchResultController');
+    CRUD::resource('artist_exception', 'ExceptionArtistController');
+
+    Route::get('block_artist/{id}', 'ExceptionArtistController@setExptionArtist');
+    Route::get('rm_block_artist/{id}', 'ExceptionArtistController@RemoveExptionArtist');
 
     Route::get('artist_upload/preview/{id}', 'ArtistUploadController@preview');
     Route::get('artist_upload/suggest/{id}', 'ArtistUploadController@suggest');

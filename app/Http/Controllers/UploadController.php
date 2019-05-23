@@ -505,6 +505,7 @@ class UploadController extends Controller
                     $result->music_m4a_filesize = abs($result->music_m4a_filesize);
                     $result->music_lossless_filesize = abs($result->music_lossless_filesize);
                 }
+                $result->music_bitrate = $request->input('music_bitrate_fixed');
             }
             if($result->cover_id == 0){
                 $result->music_production = $request->input('music_production') ?? '';
