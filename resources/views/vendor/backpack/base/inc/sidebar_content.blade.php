@@ -21,6 +21,9 @@ $htmlNotif['kara_sug'] = $notif['kara_sug'] > 0 ? '<span class="label pull-right
         @if(backpack_user()->can('danh_sach_ca_si_(list)'))
         <li><a href="{{env('APP_URL').'/'.config('backpack.base.route_prefix', 'admin')}}/artist"><i class="fa fa-address-book-o"></i> <span>Danh Sách Ca Sĩ</span></a></li>
         @endif
+            @if(backpack_user()->can('danh_sach_ca_si_(list)'))
+                <li><a href="{{env('APP_URL').'/'.config('backpack.base.route_prefix', 'admin')}}/artist_exception"><i class="fa fa-window-close"></i> <span>Ca sĩ bị chặn</span></a></li>
+            @endif
     </ul>
 </li>
 @endif
