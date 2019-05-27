@@ -125,7 +125,7 @@ class MusicController extends CrudController
         ]);
         $this->crud->addField([
             'name' => 'music_album_id',
-            'label' => 'Hãng đĩa',
+            'label' => 'Mã đĩa',
             'wrapperAttributes' => [
                 'class' => 'form-group col-md-6',
             ],

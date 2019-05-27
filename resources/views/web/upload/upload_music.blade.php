@@ -192,7 +192,7 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                                             @endif
                                         </div>
                                         <div class="form-group col-4{{ $errors->has('music_album_id') ? ' has-error' : '' }}">
-                                            <label for="music_album_id">Hãng đĩa</label>
+                                            <label for="music_album_id">Mã đĩa</label>
                                             <input type="text" class="form-control" {{isset($music) ? ($music->cover_id > 0 ? 'disabled' : '') : ''}} value="{{ old('music_album_id') ?? $music->music_album_id ?? '' }}"  name="music_album_id" id="music_album_id" placeholder="">
                                             @if ($errors->has('music_album_id'))
                                                 <span class="help-block">
