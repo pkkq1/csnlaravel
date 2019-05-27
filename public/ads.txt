@@ -161,7 +161,16 @@ freewheel.tv, 893377, RESELLER
 freewheel.tv, 225337, RESELLER 
 #//Calltoad agency March 20// 
 google.com, pub-8933329999391104, RESELLER, f08c47fec0942fa0
-
 #//Lava 21-5-2019//
 google.com, pub-7945044863874787, DIRECT, f08c47fec0942fa0
 google.com, pub-7945044863874787, RESELLER, f08c47fec0942fa0
+#//Ambient 23-5-2019//
+freewheel.tv, 226473, RESELLER
+freewheel.tv, 226481, RESELLER
+#//Yo 24-5-2019//
+gammassp.com, 1503295933, DIRECT
+appnexus.com, 1835, RESELLER
+freewheel.tv, 231609, RESELLER
+freewheel.tv, 231617, RESELLER
+advalue.com.vn, 1535090901, DIRECT 
+google.com, pub-7945044863874787, DIRECT, f08c47fec0942fa0
