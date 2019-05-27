@@ -54,7 +54,7 @@ $titleMeta = 'Cập nhật album - ' . Config::get('constants.app.title');
                                         <div id="editable">
                                         @foreach($uploadFile as $item)
                                             <?php $url = Helpers::listen_url($item); ?>
-                                            <div class="media dz-processing" data-id="{{$item->music_id}}" id="{{$item->music_id}}"><a target="_blank" title="Nghe {{$item->music_title}}" href="{{$url}}"><img class="mr-3 align-self-center" src="/imgs/document.png" alt=""></a>
+                                            <div class="media dz-processing" data-id="{{$item->music_id}}" id="{{$item->music_id}}"><a target="_blank" title="{{$item->music_filename_upload}}" href="{{$url}}"><img class="mr-3 align-self-center" src="/imgs/document.png" alt=""></a>
                                                 <div class="media-body align-self-center">
                                                     <div class="d-flex align-items-center justify-content-between mb-1">
                                                         <h4 class="media-title" style="width: 100%">
