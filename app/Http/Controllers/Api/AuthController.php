@@ -64,7 +64,7 @@ class AuthController extends Controller
         $existUser->sid = session()->getId();
         $existUser->user_avatar_url = Helpers::pathAvatar($existUser->user_avatar, $existUser->id, env('APP_URL'));
         // null
-        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => $existUser, 'error' => []], 200);
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => Helpers::convertArrHtmlCharsDecode($existUser), 'error' => []], 200);
     }
     public function loginGoogle(Request $req) {
 
@@ -109,7 +109,7 @@ class AuthController extends Controller
         $existUser->user_avatar_url = Helpers::pathAvatar($existUser->user_avatar, $existUser->id, env('APP_URL'));
         $existUser->sid = session()->getId();
         // null
-        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => $existUser, 'error' => []], 200);
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => Helpers::convertArrHtmlCharsDecode($existUser), 'error' => []], 200);
     }
 
 }

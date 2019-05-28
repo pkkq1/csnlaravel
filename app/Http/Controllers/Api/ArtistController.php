@@ -138,7 +138,7 @@ class ArtistController extends Controller
         $playlistMusic = $this->musicRepository->findMusicByArtist($artist->artist_id, $request->trang ?? 1,'music_last_update_time', 'desc', LIMIT_LISTEN_MUSIC_ARTIST);
         if(!$playlistMusic)
             return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Ca sĩ chưa có bài hát nào phát hành.'], 400);
-        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => $playlistMusic, 'error' => ''], 200);
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => Helpers::convertArrHtmlCharsDecode($playlistMusic), 'error' => ''], 200);
     }
 
 }

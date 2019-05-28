@@ -48,7 +48,7 @@ class UserController extends Controller
         $user = $this->userRepository->getUserById($id)->first();
         if(!$user)
             return new JsonResponse(['message' => 'Người dùng đang được cập nhật.', 'code' => 400, 'data' => [], 'error' => []], 400);
-        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['user' => $user], 'error' => []], 200);
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['user' => Helpers::convertArrHtmlCharsDecode($user)], 'error' => []], 200);
     }
     public function store(Request $request) {
         $reqRefresh = false;

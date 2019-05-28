@@ -56,7 +56,7 @@ class CatalogController extends Controller
             }
             $playlist[$key]['playlist_artist'] = $artistArr;
         }
-        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['caption' => $result['caption'], 'playlist' => $playlist], 'error' => []], 200);
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['caption' => $result['caption'], 'playlist' => Helpers::convertArrHtmlCharsDecode($playlist)], 'error' => []], 200);
     }
     public function musicNews(Request $request) {
         $music = $this->musicRepository->musicNewsSolr('music_id', 'desc', LIMIT_MUSIC_PAGE_CATEGORY);

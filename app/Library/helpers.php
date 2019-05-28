@@ -1020,11 +1020,21 @@ class Helpers
             foreach ($dataSolr['data'] as $item) {
                 $term = [];
                 foreach ($item as $key => $val) {
-                    $term[$key] = is_array($val) ? $val[0] : $val;
+                    $term[$key] = htmlspecialchars_decode((is_array($val) ? $val[0] : $val), ENT_QUOTES);
                 }
                 $data[] = $term;
             }
         }
         return $dataSolr['data'] = $data;
+    }
+    public static function convertArrHtmlCharsDecode($data) {
+        foreach ($data as $key => $val) {
+            if(is_array($val)) {
+                $data[$key] = self::convertArrHtmlCharsDecode($val);
+            }else{
+                $data[$key] = htmlspecialchars_decode($val, ENT_QUOTES);
+            }
+        }
+        return $data;
     }
 }

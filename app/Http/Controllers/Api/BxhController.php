@@ -36,7 +36,7 @@ class BxhController extends Controller
                 'video' => $hot_video_rows[$item->cat_id - 2] ?? []
             ];
         }
-        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['dataBxh' => $dataBxh, 'titleBxh' => $titleBxh], 'error' => []], 200);
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['dataBxh' => Helpers::convertArrHtmlCharsDecode($dataBxh), 'titleBxh' => $titleBxh], 'error' => []], 200);
     }
     public function week(Request $request, $cat = false) {
         $titleBxh = 'Bảng xếp hạng hot trong tuần';
@@ -52,7 +52,7 @@ class BxhController extends Controller
                 'video' => $hot_video_rows[$item->cat_id - 2] ?? []
             ];
         }
-        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['dataBxh' => $dataBxh, 'titleBxh' => $titleBxh], 'error' => []], 200);
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['dataBxh' => Helpers::convertArrHtmlCharsDecode($dataBxh), 'titleBxh' => $titleBxh], 'error' => []], 200);
     }
     public function month(Request $request, $month, $year, $cat = false) {
         $cacheBxh = 'bxh_'.sprintf('%02d', $month).'_'.$year;
@@ -69,7 +69,7 @@ class BxhController extends Controller
                 'video' => $hot_video_rows[$item->cat_id - 2] ?? []
             ];
         }
-        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['dataBxh' => $dataBxh, 'titleBxh' => $titleBxh], 'error' => []], 200);
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['dataBxh' => Helpers::convertArrHtmlCharsDecode($dataBxh), 'titleBxh' => $titleBxh], 'error' => []], 200);
     }
     public function year(Request $request, $year, $cat = false) {
         $cacheBxh = 'bxh_all_'.$year;
@@ -86,6 +86,6 @@ class BxhController extends Controller
                 'video' => $hot_video_rows[$item->cat_id - 2] ?? []
             ];
         }
-        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['dataBxh' => $dataBxh, 'titleBxh' => $titleBxh], 'error' => []], 200);
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['dataBxh' => Helpers::convertArrHtmlCharsDecode($dataBxh), 'titleBxh' => $titleBxh], 'error' => []], 200);
     }
 }

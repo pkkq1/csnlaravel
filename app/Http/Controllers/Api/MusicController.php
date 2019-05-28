@@ -84,6 +84,7 @@ class MusicController extends Controller
     public function getAlbumInfo(Request $request, $musicUrl) {
         $arrUrl = Helpers::splitPlaylistUrl($musicUrl);
         $album = $this->coverRepository->getCoverMusicById($arrUrl['id']);
+
         if(!$album)
             return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'không tìm thấy album'], 400);
         $playlistMusic = [];
@@ -106,12 +107,14 @@ class MusicController extends Controller
         $musicFavourite = false;
         if($request->sid) {
             $userSess = $this->sessionRepository->getSessionById($request->sid);
-            $getModelFavourite = $this->musicFavouriteRepository;
-            if($music->cat_id == CAT_VIDEO)
-                $getModelFavourite = $this->videoFavouriteRepository;
-            $musicFavourite = $getModelFavourite->getModel()::where([['user_id',$userSess->user_id], ['music_id', $music->music_id]])->first();
+            if($userSess) {
+                $getModelFavourite = $this->musicFavouriteRepository;
+                if($music->cat_id == CAT_VIDEO)
+                    $getModelFavourite = $this->videoFavouriteRepository;
+                $musicFavourite = $getModelFavourite->getModel()::where([['user_id', $userSess->user_id ?? null], ['music_id', $music->music_id]])->first();
+            }
         }
-        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['music' => $music->toArray(), 'playlist' => $playlistMusic, 'musicFavourite' => $musicFavourite ? true : false], 'error' => []], 200);
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['music' => Helpers::convertArrHtmlCharsDecode($music->toArray()), 'playlist' => Helpers::convertArrHtmlCharsDecode($playlistMusic), 'musicFavourite' => $musicFavourite ? true : false], 'error' => []], 200);
     }
     public function getPlaylistInfo(Request $request, $musicUrl) {
         $arrUrl = Helpers::splitPlaylistUrl($musicUrl, 'playlist');
@@ -138,12 +141,14 @@ class MusicController extends Controller
         $musicFavourite = false;
         if($request->sid) {
             $userSess = $this->sessionRepository->getSessionById($request->sid);
-            $getModelFavourite = $this->musicFavouriteRepository;
-            if($music->cat_id == CAT_VIDEO)
-                $getModelFavourite = $this->videoFavouriteRepository;
-            $musicFavourite = $getModelFavourite->getModel()::where([['user_id',$userSess->user_id], ['music_id', $music->music_id]])->first();
+            if($userSess) {
+                $getModelFavourite = $this->musicFavouriteRepository;
+                if($music->cat_id == CAT_VIDEO)
+                    $getModelFavourite = $this->videoFavouriteRepository;
+                $musicFavourite = $getModelFavourite->getModel()::where([['user_id', $userSess->user_id], ['music_id', $music->music_id]])->first();
+            }
         }
-        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['music' => $music->toArray(), 'playlist' => $playlistMusic, 'musicFavourite' => $musicFavourite ? true : false], 'error' => []], 200);
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['music' => Helpers::convertArrHtmlCharsDecode($music->toArray()), 'playlist' => Helpers::convertArrHtmlCharsDecode($playlistMusic), 'musicFavourite' => $musicFavourite ? true : false], 'error' => []], 200);
     }
     public function listenSingleMusic(Request $request, $cat, $sub, $musicUrl) {
         try {
@@ -191,12 +196,15 @@ class MusicController extends Controller
         $musicFavourite = false;
         if($request->sid) {
             $userSess = $this->sessionRepository->getSessionById($request->sid);
-            $getModelFavourite = $this->musicFavouriteRepository;
-            if($type == 'video')
-                $getModelFavourite = $this->videoFavouriteRepository;
-            $musicFavourite = $getModelFavourite->getModel()::where([['user_id',$userSess->user_id], ['music_id', $music->music_id]])->first();
+            if($userSess) {
+                $getModelFavourite = $this->musicFavouriteRepository;
+                if($type == 'video')
+                    $getModelFavourite = $this->videoFavouriteRepository;
+                $musicFavourite = $getModelFavourite->getModel()::where([['user_id', $userSess->user_id], ['music_id', $music->music_id]])->first();
+            }
+
         }
-        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['music' => $music->toArray(), 'musicSet' => $musicSet, 'musicFavourite' => $musicFavourite ? true : false], 'error' => []], 200);
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['music' => Helpers::convertArrHtmlCharsDecode($music->toArray()), 'musicSet' => $musicSet, 'musicFavourite' => $musicFavourite ? true : false], 'error' => []], 200);
     }
     public function listenBxhNow(Request $request, $catUrl, $catLevel = '') {
         return $this->listenBxhMusic($request, str_replace('.html', '', $catUrl), 'now', $catLevel);
@@ -272,12 +280,15 @@ class MusicController extends Controller
         $musicFavourite = false;
         if($request->sid) {
             $userSess = $this->sessionRepository->getSessionById($request->sid);
-            $getModelFavourite = $this->musicFavouriteRepository;
-            if($type == 'video')
-                $getModelFavourite = $this->videoFavouriteRepository;
-            $musicFavourite = $getModelFavourite->getModel()::where([['user_id',$userSess->user_id], ['music_id', $music->music_id]])->first();
+            if($userSess) {
+                $getModelFavourite = $this->musicFavouriteRepository;
+                if($type == 'video')
+                    $getModelFavourite = $this->videoFavouriteRepository;
+                $musicFavourite = $getModelFavourite->getModel()::where([['user_id',$userSess->user_id], ['music_id', $music->music_id]])->first();
+            }
+
         }
-        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['musicFavourite' => $musicFavourite ? true : false, 'music' => $music->toArray(), 'musicSet' => $musicSet], 'error' => []], 200);
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['musicFavourite' => $musicFavourite ? true : false, 'music' => Helpers::convertArrHtmlCharsDecode($music->toArray()), 'musicSet' => $musicSet], 'error' => []], 200);
     }
     function musicFavourite (Request $request) {
         if($request->sid) {
