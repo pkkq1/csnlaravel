@@ -24,6 +24,7 @@ Route::prefix('auth')->group(function () {
     Route::get('login/google', 'AuthController@loginGoogle');
 });
 Route::get('search', 'SearchController@index');
+Route::get('home', 'HomeController@index');
 Route::post('nghe-album/{musicUrl}.html', ['as' => 'api.music.listen', 'uses' => 'MusicController@getAlbumInfo']);
 Route::post('nghe-album/{musicUrl}', ['as' => 'api.music.listen', 'uses' => 'MusicController@getAlbumInfo']);
 
@@ -94,11 +95,6 @@ Route::prefix('chu-de/')->group(function () {
     Route::get('{url}.html', ['as' => 'catalog.index', 'uses' => 'CatalogController@playlistPublisher']);
     Route::get('{url}', ['as' => 'catalog.index', 'uses' => 'CatalogController@playlistPublisher']);
 });
-
-
-
-
-
 
 // user
 Route::prefix('user')->group(function () {
