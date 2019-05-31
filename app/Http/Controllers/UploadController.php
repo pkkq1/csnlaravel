@@ -360,11 +360,12 @@ class UploadController extends Controller
         }
         $mess = '';
         $messType = $typeUpload == 'music' ? 'bài hát' : 'video';
+        $user = Auth::user();
         if($request->input('action_upload') == 'edit') {
             $userId = Auth::user()->id;
             $arrStage = [UPLOAD_STAGE_DELETED, UPLOAD_STAGE_UNCENSOR, UPLOAD_STAGE_FULLCONVERT];
-            $per_Xet_Duyet = Auth::user()->hasPermission('duyet_sua_nhac');
-            $per_Xet_Duyet_Chat_luong = Auth::user()->hasPermission('duyet_sua_chat_luong_nhac');
+            $per_Xet_Duyet = $user->hasPermission('duyet_sua_nhac');
+            $per_Xet_Duyet_Chat_luong = $user->hasPermission('duyet_sua_chat_luong_nhac');
             if($per_Xet_Duyet) {
                 $userId = 'permission_duyet_csn';
                 $arrStage[] = UPLOAD_STAGE_FULLCENSOR;
@@ -393,7 +394,7 @@ class UploadController extends Controller
                 $result->cover_id = 0;
             }else{
                 $newAlbum = $this->coverRepository->findCover($request->input('cover_id'));
-                if($per_Xet_Duyet || $newAlbum->user_id == Auth::user()->id) {
+                if($per_Xet_Duyet || $newAlbum->user_id == $user->id) {
                     $result->cover_id = str_replace('cover_', '', $request->input('cover_id'));
                 }else{
                     return view('errors.text_error')->with('message', 'Bạn không có quyền với album này, kiểm tra lại quyền hoặc đăng tải của chủ sở hữu album');
@@ -444,6 +445,7 @@ class UploadController extends Controller
                         $this->musicRepository->deleteSafe($result);
                         $Solr->syncDeleteMusic(null, $result);
                     }
+                    $user->decrement('user_music', 1);
                     // áp dụng không thay đổi cover
                     if($result->cover_id && $oldCoverId == $request->input('cover_id') && $oldAlbum) {
                         $oldAlbum = $this->coverRepository->findCover($result->cover_id);
@@ -481,13 +483,13 @@ class UploadController extends Controller
             $result->music_source_url = $request->input('music_source_url') ?? '';
             $result->music_note = $request->input('music_note') ?? '';
             $result->music_last_update_time = time();
-            $result->music_last_update_by = Auth::user()->id;
+            $result->music_last_update_by = $user->id;
             $result->music_updated = 0;
             if($request->music_track_id)
                 $result->music_track_id = $request->music_track_id;
             if($per_Xet_Duyet_Chat_luong && $request->input('music_bitrate_fixed') && $result->music_bitrate_fixed != $request->input('music_bitrate_fixed')) {
                 $result->music_bitrate_fixed = $request->input('music_bitrate_fixed');
-                $result->music_bitrate_fixed_by = Auth::user()->id;
+                $result->music_bitrate_fixed_by = $user->id;
                 if($request->input('music_bitrate_fixed') == 128){
                     $result->music_320_filesize = 0 - abs($result->music_320_filesize);
                     $result->music_m4a_filesize = 0 - abs($result->music_m4a_filesize);
@@ -550,8 +552,8 @@ class UploadController extends Controller
                 'music_title' => $request->input('music_title'),
                 'music_artist' => $request->input('music_artist'),
                 'music_artist_id' => $request->input('music_artist_id'),
-                'music_user_id' => Auth::user()->id,
-                'music_username' => Auth::user()->name,
+                'music_user_id' => $user->id,
+                'music_username' => $user->name,
                 'music_production' => $request->input('music_production') ?? '',
                 'music_composer' => $request->input('music_composer') ?? '',
                 'music_album_id' => $request->input('music_album_id') ?? '',
@@ -577,10 +579,12 @@ class UploadController extends Controller
         Storage::disk('public')->move(DEFAULT_STORAGE_CACHE_MUSIC_PATH.$drop_files, Helpers::file_path($result->music_id, SOURCE_STORAGE_PATH, true).$fileName);
         $result->music_filename = $fileName;
         $result->save();
+        $user->increment('user_music', 1);
         return redirect()->route($typeUpload == 'music' ? 'upload.createMusic' : 'upload.createVideo')->with('success', 'Đã tạo '.$messType.' ' . $csnMusic['music_title'] . '<a href="/dang-tai/'.($typeUpload == 'music' ? 'nhac' : 'video').'/'.$result->music_id.'"> quay lại chỉnh sửa</a>');
     }
 
     public function storeAlbum(Request $request, $coverId = null) {
+        $user = Auth::user();
         if($request->input('action_upload') == 'edit') {
             $this->validate($request, [
                 'music_album' => 'required|max:255',
@@ -589,9 +593,9 @@ class UploadController extends Controller
                 'music_year' => 'required|max:5',
                 'music_album_id' => 'max:15',
             ]);
-            $userId = Auth::user()->id;
+            $userId = $user->id;
             $Solr = new SolrSyncController($this->Solr);
-            if(Auth::user()->hasPermission('duyet_sua_nhac'))
+            if($user->hasPermission('duyet_sua_nhac'))
                 $userId = null;
             $album = $this->coverRepository->findCover($coverId, $userId);
             if(!$album)
@@ -614,7 +618,7 @@ class UploadController extends Controller
             $album->music_album_id = $request->input('music_album_id') ?? '';
             $album->music_year = $request->input('music_year') ?? '';
             $album->album_last_updated = time();
-            $album->last_user_id = Auth::user()->id;
+            $album->last_user_id = $user->id;
             $imgAlbum = '';
             if($request->input('album_cover')) {
                 $typeImageCover = array_last(explode('.', htmlspecialchars_decode($_FILES['choose_album_cover']['name'], ENT_QUOTES)));
@@ -720,8 +724,8 @@ class UploadController extends Controller
             'music_bitrate' => $request->input('lossless') ? 1000 : 0,
             'album_music_total' => 0,  // update in sync -> musicController (crontab)
 //            'album_music_total' => count($fileUploads),
-            'user_id' => Auth::user()->id,
-            'last_user_id' => Auth::user()->id,
+            'user_id' => $user->id,
+            'last_user_id' => $user->id,
         ]);
         foreach(explode(';', htmlspecialchars_decode($request->input('music_artist'), ENT_QUOTES)) as $key => $item) {
             $album['album_artist_' . ++ $key] = $item;
@@ -751,8 +755,8 @@ class UploadController extends Controller
             'music_album' => $album->music_album,
             'music_artist' => $request->input('music_artist') ?? '',
             'music_artist_id' => $request->input('music_artist_id'),
-            'music_user_id' => Auth::user()->id,
-            'music_username' => Auth::user()->name,
+            'music_user_id' => $user->id,
+            'music_username' => $user->name,
             'music_production' => $request->input('music_production') ?? '',
             'music_composer' => $request->input('music_composer') ?? '',
             'music_album_id' => $request->input('music_album_id') ?? '',
@@ -766,15 +770,18 @@ class UploadController extends Controller
             'music_note' => $request->input('music_note') ?? '',
             'music_source_url' => $request->input('music_source_url') ?? '',
         ];
+        $musicUpload = 0;
         foreach ($fileUploads as $key => $item) {
             $csnMusic['music_filename_upload'] = $item;
             $csnMusic['music_filesize'] = $fileSize[$key];
             $csnMusic['music_track_id'] = ++$key;
+            $musicUpload ++;
             $result = $this->uploadRepository->create($csnMusic);
             $fileName = $result->music_id.'.'.last(explode('.', $item));
             Storage::disk('public')->move(DEFAULT_STORAGE_CACHE_MUSIC_PATH.$item, Helpers::file_path($result->music_id, SOURCE_STORAGE_PATH, true).$fileName);
             $result->save();
         }
+        $user->increment('user_music', $musicUpload);
         return redirect()->route('upload.createMusic')->with('success', 'Đã tạo album mới ' . $request->input('music_album'). '<a href="/dang-tai/album/'.$result->cover_id.'"> vào chỉnh sửa album</a>');
     }
     function suggest(Request $request) {
