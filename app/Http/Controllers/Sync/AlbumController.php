@@ -76,8 +76,8 @@ class AlbumController extends Controller
         foreach ($music_new_uploads_tmp as $key => $item) {
             $music_new_uploads_artist[$item['music_artist_id']] = isset($music_new_uploads_artist[$item['music_artist_id']]) ? $music_new_uploads_artist[$item['music_artist_id']] + 1 : 1;
             if ($music_new_uploads_artist[$item['music_artist_id']] < 3) {
-                $total = isset($total) ? $total + 1 : 1;
-                if ($total > 20) break;
+                $total = isset($total) ? $total + 1 : 0;
+                if ($total > 19) break;
 
                 $music_new_uploads[$total] = $music_new_uploads_tmp[$key];
                 $music_new_uploads[$total]['cover_html'] = Helpers::cover_url($item['cover_id'], explode(';', $item['music_artist_id'])[0]);
