@@ -32,7 +32,20 @@ class HomeController extends Controller
 
         $video_new_uploads = Helpers::convertArrHtmlCharsDecode($video_new_uploads);
         $music_new_uploads = Helpers::convertArrHtmlCharsDecode($music_new_uploads);
-        $album_new = Helpers::convertArrHtmlCharsDecode($album_new);
+        foreach ($album_new as $key => $item) {
+            $album_new[$key]['music_album'] = htmlspecialchars_decode($item['music_album'], ENT_QUOTES);
+            $album_new[$key]['music_artist'] = htmlspecialchars_decode($item['music_artist'], ENT_QUOTES);
+            $album_new[$key]['album_url'] = Helpers::album_url($item['cover_id']);
+            $album_new[$key]['cover_url'] = Helpers::cover_url($item['cover_id']);
+        }
+        foreach ($album_cat_new as $key => $item) {
+            foreach ($item as $key2 => $item2) {
+                $album_cat_new[$key][$key2]['music_album'] = htmlspecialchars_decode($item2['music_album'], ENT_QUOTES);
+                $album_cat_new[$key][$key2]['music_artist'] = htmlspecialchars_decode($item2['music_artist'], ENT_QUOTES);
+                $album_cat_new[$key][$key2]['album_url'] = Helpers::album_url($item2['cover_id']);
+                $album_cat_new[$key][$key2]['cover_url'] = Helpers::cover_url($item2['cover_id']);
+            }
+        }
         $album_cat_new = Helpers::convertArrHtmlCharsDecode($album_cat_new);
         return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => [
             'album_hot_home' => Helpers::getRandLimitArr($album_new, LIMIT_HOME_ALBUM_NEW_MOBILE),
