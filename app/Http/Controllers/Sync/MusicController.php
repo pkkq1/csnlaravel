@@ -45,7 +45,7 @@ class MusicController extends Controller
     }
    public function syncNewMusicVideo() {
        $music = $this->musicRepository->getQueryPublished()->where('music_time', '>',  strtotime(TIME_EXPIRED_UPLOAD_NEW))->get();
-       $video = $this->musicRepository->getQueryPublished()->where('music_time', '>',  strtotime(TIME_EXPIRED_UPLOAD_NEW))->get();
+       $video = $this->videoRepository->getQueryPublished()->where('music_time', '>',  strtotime(TIME_EXPIRED_UPLOAD_NEW))->get();
        $Solr = new SolrSyncController($this->Solr);
        $arrCover = [];
        if(!$music->isEmpty()) {
