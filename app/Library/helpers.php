@@ -1032,7 +1032,7 @@ class Helpers
             if(is_array($val)) {
                 $data[$key] = self::convertArrHtmlCharsDecode($val);
             }else{
-                $data[$key] = htmlspecialchars_decode($val, ENT_QUOTES);
+                $data[$key] = $val ? htmlspecialchars_decode($val, ENT_QUOTES) : null;
             }
         }
         return $data;
