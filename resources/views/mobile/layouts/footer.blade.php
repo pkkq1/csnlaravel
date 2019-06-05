@@ -1,5 +1,8 @@
 <?php
 use App\Library\Helpers;
+global $memberVip;
+if($memberVip == null)
+    $memberVip = Helpers::checkMemberVip();
 ?>
 <sectiton class="block_popup">
     @yield('popupMusic')
@@ -257,7 +260,7 @@ use App\Library\Helpers;
     //     document.getElementById("search_autocomplete").trigger('focus');
     // })
 </script>
-
+@if(!$memberVip)
 <?php
     $cookie_name = "csn_popup_beta2";
     $session_ads_popup = isset($_COOKIE[$cookie_name]) ? intval(unserialize(stripslashes($_COOKIE[$cookie_name]))) : 0;
@@ -276,46 +279,42 @@ use App\Library\Helpers;
 
 <!-- BlueSeed - asynchronous code for placement 1849 CHIASENHAC.VN - mobile native button -->
 <script id="jshd1pm_1849" src="https://d2.blueseed.tv/ads-sync.js?placement=1849"></script>
+    @if( 0 )
+    <!-- HadarOne - Asynchronous Code for Ad Placement 2210 Chiasenhac.vn Deleted -->
+    <div><ins class="hadar-placement" data-hdpm="2210" ></ins><script async src="//static.blueseed.tv/ajs/display.js"></script></div>
 
-
-
-
-
-@if( 0 )
-<!-- HadarOne - Asynchronous Code for Ad Placement 2210 Chiasenhac.vn Deleted -->
-<div><ins class="hadar-placement" data-hdpm="2210" ></ins><script async src="//static.blueseed.tv/ajs/display.js"></script></div>
-
-<?php
-    $month_day = intval(date('ndH'));
-    $rand100 = rand(1,100);
-?>
-@if($month_day < 41125)
-    @if ($rand100 > 60)
-        <!-- Ad Tag: Chiasenhac - PS/TG/VN/OppoF11/Campaign -->
-<div id="innity_adslot_236794"></div>
-<script type="text/javascript">
-innity_country = "VN";
-innity_path = "/201903_27145/99980/";
-innity_proxy = "proxy_236794";
-innity_ord = "ord=[timestamp]";
-</script>
-<script type="text/javascript" src="https://cdn.innity.net/global.js"></script>
-<noscript><a href="https://avn.innity.com/click/?adid=236794&cb=[timestamp]" target="_blank">
-<img src="https://avn.innity.com/view/alt/?campaignid=27145&adid=236794&cb=[timestamp]" border="0" title="Click Here"></a></noscript>
-    @else
-        <!-- Ad Tag: Chiasenhac - PS/TG/VN/OppoF11/Campaign -->
-<div id="innity_adslot_236772"></div>
-<script type="text/javascript">
-innity_country = "VN";
-innity_path = "/201903_27145/99996/";
-innity_proxy = "proxy_236772";
-innity_ord = "ord=[timestamp]";
-</script>
-<script type="text/javascript" src="https://cdn.innity.net/global.js"></script>
-<noscript><a href="https://avn.innity.com/click/?adid=236772&cb=[timestamp]" target="_blank">
-<img src="https://avn.innity.com/view/alt/?campaignid=27145&adid=236772&cb=[timestamp]" border="0" title="Click Here"></a></noscript>
+    <?php
+        $month_day = intval(date('ndH'));
+        $rand100 = rand(1,100);
+    ?>
+        @if($month_day < 41125)
+            @if ($rand100 > 60)
+                <!-- Ad Tag: Chiasenhac - PS/TG/VN/OppoF11/Campaign -->
+        <div id="innity_adslot_236794"></div>
+        <script type="text/javascript">
+        innity_country = "VN";
+        innity_path = "/201903_27145/99980/";
+        innity_proxy = "proxy_236794";
+        innity_ord = "ord=[timestamp]";
+        </script>
+        <script type="text/javascript" src="https://cdn.innity.net/global.js"></script>
+        <noscript><a href="https://avn.innity.com/click/?adid=236794&cb=[timestamp]" target="_blank">
+        <img src="https://avn.innity.com/view/alt/?campaignid=27145&adid=236794&cb=[timestamp]" border="0" title="Click Here"></a></noscript>
+            @else
+                <!-- Ad Tag: Chiasenhac - PS/TG/VN/OppoF11/Campaign -->
+        <div id="innity_adslot_236772"></div>
+        <script type="text/javascript">
+        innity_country = "VN";
+        innity_path = "/201903_27145/99996/";
+        innity_proxy = "proxy_236772";
+        innity_ord = "ord=[timestamp]";
+        </script>
+        <script type="text/javascript" src="https://cdn.innity.net/global.js"></script>
+        <noscript><a href="https://avn.innity.com/click/?adid=236772&cb=[timestamp]" target="_blank">
+        <img src="https://avn.innity.com/view/alt/?campaignid=27145&adid=236772&cb=[timestamp]" border="0" title="Click Here"></a></noscript>
+            @endif
+        @endif
     @endif
-@endif
 @endif
 <?php
 global $startTime;

@@ -7,8 +7,10 @@
 use App\Library\Helpers;
 global $cat_id2info;
 global $cat_url2info;
-
+global $memberVip;
 global $album_new;
+global $memberVip;
+$memberVip = Helpers::checkMemberVip();
 global $MusicSameArtist;
 global $VideoSameArtist;
 global $titleDup;
@@ -218,8 +220,10 @@ if($musicSet['type_listen'] == 'playlist') {
                                 <div class="tab-content tab-lyric" id="myTabContent">
                                     <div class="tab-pane fade show active" id="home" role="tabpanel"
                                          aria-labelledby="home-tab">
+                                        @if(!$memberVip)
                                         <!-- BlueSeed - asynchronous code for placement 1992 Chiasenhac Inread Desktop -->
                                         <script id="jshd1pm_1992" src="https://d2.blueseed.tv/ads-sync.js?placement=1992"></script>
+                                        @endif
                                         <article>
                                             <div id="fulllyric">
                                                 @if(isset($lyric_array['lyric']))
@@ -486,8 +490,10 @@ if($musicSet['type_listen'] == 'playlist') {
                     @if ($music->cat_id == 6)
                         <a href="https://www.facebook.com/groups/csn.kpop.fan/" target="_blank"><img src="/images/banner/kpop-fbgroup-300x170.jpg" width="300" height="170"></a>
                     @else
+                        @if(!$memberVip)
                         <!-- BlueSeed - asynchronous code for placement 2044 Chiasenhac Right Banner Player -->
                         <ins class="hadar-placement" data-hdpm="2044" ></ins><script id="jshd1pm_2044" src="https://static.blueseed.tv/ajs/display.js"></script>
+                        @endif
                     @endif
                 </div>
 
@@ -622,7 +628,7 @@ if($musicSet['type_listen'] == 'playlist') {
         var player = jwplayer('csnplayer');
         var firstPlayer = true;
         <?php
-        if($musicSet['type_jw'] != 'video') {
+        if($musicSet['type_jw'] != 'video' && !$memberVip) {
             ?>
         jwplayer("csnplayerads").setup({
             advertising: {

@@ -1037,4 +1037,14 @@ class Helpers
         }
         return $data;
     }
+    public static function checkMemberVip() {
+        if(Auth::check()) {
+            $level = Auth::user()->level();
+            if($level && $level->level_id == 1 && $level->level_expried >= time() && $level->level_block == 0) {
+                return true;
+            }
+            return false;
+        }
+        return false;
+    }
 }

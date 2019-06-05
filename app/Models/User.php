@@ -72,4 +72,7 @@ class User extends Authenticatable
             return DEFAULT_ROLE_NAME_EMPTY;
         return $relationship->name;
     }
+    public function level() {
+        return $this->belongsTo('App\Models\UserLevelModel', 'user_id')->first();
+    }
 }

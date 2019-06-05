@@ -28,6 +28,8 @@ if($musicSet['type_listen'] == 'playlist') {
 } else {
     $thumnailMeta = $thumnailMusic;
 }
+global $memberVip;
+$memberVip = Helpers::checkMemberVip();
 ?>
 @section('meta')
     <meta name="author" content="{{$music->music_username}}">
@@ -57,11 +59,13 @@ if($musicSet['type_listen'] == 'playlist') {
         @include('mobile.layouts.header_top')
     </div>
     <main class="main main_player">
+        @if(!$memberVip)
         <div style="position: relative; text-align: center;">
             <!-- Blueseed- Asynchronous Code for Ad Placement 1813 Chiasenhac Masthead Mobile Deleted -->
             <ins class="hadar-placement" data-hdpm="1813"></ins>
             <script id="jshd1pm_1813" src="https://static.blueseed.tv/ajs/display.js"></script>
         </div>
+        @endif
         <div class="sidebar_top">
             <div id="pills-tabContent" class="tab-content">
                 <div id="pills-thongtin" role="tabpanel" aria-labelledby="pills-thongtin-tab" class="tab-pane fade active show">
@@ -341,6 +345,7 @@ if($musicSet['type_listen'] == 'playlist') {
                                     </div>
                                 @endif
                             </div>
+                            @if(!$memberVip)
                             <span id="innity-in-post"></span>
                             <!-- BlueSeed - asynchronous code for placement 1658 Chiasenhac Inread Mobile -->
                             <script src="https://d2.blueseed.tv/ads-sync.js?placement=1658"></script>
@@ -351,6 +356,7 @@ if($musicSet['type_listen'] == 'playlist') {
                                 _avlVar.push(["b63673ce47e748a6a5fe6c79c4713e1d","[content_page_url]","[width]","[height]"]);
                             </script>
                             <script type="text/javascript" src="//ss.yomedia.vn/js/yomedia-sdk.js?v=3" id="s-b63673ce47e748a6a5fe6c79c4713e1d"></script -->
+                            @endif
                             @endif
 
                             <div class="p-3">
@@ -487,7 +493,7 @@ if($musicSet['type_listen'] == 'playlist') {
         var player = jwplayer('csnplayer');
         var firstPlayer = true;
         <?php
-        if($musicSet['type_jw'] != 'video') {
+        if($musicSet['type_jw'] != 'video' && !$memberVip) {
         ?>
         // ads
         jwplayer("csnplayerads").setup({
@@ -518,6 +524,11 @@ if($musicSet['type_listen'] == 'playlist') {
             }
         });
         <?php
+        }else{
+            ?>
+            $('#csnplayerads').remove();
+            $('#bg_blue').show();
+            <?php
         }
         ?>
 

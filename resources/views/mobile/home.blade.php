@@ -12,6 +12,8 @@ global $music_new_uploads;
 global $video_new_uploads;
 global $album_cat_new;
 $catalog = config('constants.catalog');
+global $memberVip;
+$memberVip = Helpers::checkMemberVip();
 ?>
 @extends('mobile.layouts.app')
 @section('content')
@@ -34,11 +36,13 @@ $catalog = config('constants.catalog');
         </div>
     </div>
     <main class="main">
+        @if(!$memberVip)
         <div style="position: relative; text-align: center;">
             <!-- Blueseed- Asynchronous Code for Ad Placement 1813 Chiasenhac Masthead Mobile Deleted -->
             <ins class="hadar-placement" data-hdpm="1813"></ins>
             <script id="jshd1pm_1813" src="https://static.blueseed.tv/ajs/display.js"></script>
         </div>
+        @endif
         <div class="sidebar_top">
             <!-- swiper2-->
             <div class="swiper-container swiper2">

@@ -1,5 +1,9 @@
 <?php
+use App\Library\Helpers;
 global $allpage_banner;
+global $memberVip;
+if($memberVip == null)
+    $memberVip = Helpers::checkMemberVip();
 ?>
 <!DOCTYPE html>
 <html>
@@ -71,6 +75,7 @@ global $allpage_banner;
 
 @hasSection('in_edit')
 @else
+    @if(!$memberVip)
     @hasSection('in_player')
         <!-- BlueSeed - asynchronous code for placement 1640 Chiasenhac Balloon Music Player Desktop -->
         <script id="jshd1pm_1640" src="https://d2.blueseed.tv/ads-sync.js?placement=1640"></script>
@@ -90,6 +95,7 @@ global $allpage_banner;
     <script id="jshd1pm_1883" src="https://d2.blueseed.tv/ads-sync.js?placement=1883"></script>';
         }
         ?>
+    @endif
 @endif
 
 </body>
