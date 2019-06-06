@@ -697,6 +697,7 @@
                 <address class="m-0">
                     <div>Công ty Cổ phần giải trí Yêu Ca Hát</div>
                     <div>Giấy phép MXH số 337/GP-BTTTT do Bộ TT&TT cấp ngày 22/06/2016</div>
+                    <div><a style="color: #a9a9a9;" href="/chinh-sach-chia-se-nhac">Nội quy và chính sách Chia Sẻ Nhạc</a></div>
                     <?php
                         global $startTime;
                         use App\Models\ErrorBugSlowModel;
