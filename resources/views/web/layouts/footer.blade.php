@@ -693,37 +693,45 @@
         </div>
         <hr>
         <div class="row align-items-end">
-            <div class="col offset-3">
+            <div class="col-5 offset-2">
                 <address class="m-0">
                     <div>Công ty Cổ phần giải trí Yêu Ca Hát</div>
                     <div>Giấy phép MXH số 337/GP-BTTTT do Bộ TT&TT cấp ngày 22/06/2016</div>
-                    <div><a style="color: #a9a9a9;" href="/chinh-sach-chia-se-nhac">Nội quy và chính sách Chia Sẻ Nhạc</a></div>
-                    <?php
-                        global $startTime;
-                        use App\Models\ErrorBugSlowModel;
-                        $endTime = number_format(microtime(true) - $startTime, 3);
-                        if($endTime > 5) {
-                            ErrorBugSlowModel::firstOrCreate([
-                                'type' => 'slow',
-                                'link' => url()->full(),
-                                'device_display' => 'web',
-                                'time_load' => $endTime,
-                            ]);
-                        }
-                    ?>
-                    <div>Page generation time: {{ $endTime }} seconds</div>
                 </address>
             </div>
-            <div class="col-3">
-                <div class="text-right">
-                    <ul class="list-inline m-0 social_f">
-                        <li class="list-inline-item"><a href="https://www.facebook.com/chiasenhac/" title=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                        {{--<li class="list-inline-item"><a href="#" title=""><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>--}}
-                        {{--<li class="list-inline-item"><a href="#" title=""><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>--}}
-                        {{--<li class="list-inline-item"><a href="#" title=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>--}}
-                    </ul>
-                </div>
+            <div class="col-5">
+                <address class="m-0">
+                    <div><a style="color: #a9a9a9;" href="/chinh-sach-chia-se-nhac">Nội quy và chính sách Chia Sẻ Nhạc</a></div>
+                    <?php
+                    global $startTime;
+                    use App\Models\ErrorBugSlowModel;
+                    $endTime = number_format(microtime(true) - $startTime, 3);
+                    if($endTime > 5) {
+                        ErrorBugSlowModel::firstOrCreate([
+                            'type' => 'slow',
+                            'link' => url()->full(),
+                            'device_display' => 'web',
+                            'time_load' => $endTime,
+                        ]);
+                    }
+                    ?>
+                    <div>Page generation time: {{ $endTime }} seconds</div>
+                    <div class="text-right" style="position: absolute; margin-top: -35px; right: 0px;">
+                        <ul class="list-inline m-0 social_f">
+                            <li class="list-inline-item"><a href="https://www.facebook.com/chiasenhac/" title=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                            {{--<li class="list-inline-item"><a href="#" title=""><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>--}}
+                            {{--<li class="list-inline-item"><a href="#" title=""><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>--}}
+                            {{--<li class="list-inline-item"><a href="#" title=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>--}}
+                        </ul>
+                    </div>
+                </address>
             </div>
+
+
+
+
+
+
         </div>
     </div>
 </footer>

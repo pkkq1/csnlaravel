@@ -48,6 +48,7 @@ $memberVip = Helpers::checkMemberVip();
     <meta property="og:updated_time" content="{{time()}}" />
 @endsection
 @section('contentCSS')
+    <script src="https://sp.zalo.me/plugins/sdk.js"></script>
     <link href="{{env('APP_URL')}}/node_modules/rabbit-lyrics/dist/rabbit-lyrics.css" rel="stylesheet" type="text/css"/>
     <script src="{{env('APP_URL')}}/node_modules/rabbit-lyrics/dist/rabbit-lyrics.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/csn-jwplayer.css">
@@ -444,6 +445,22 @@ $memberVip = Helpers::checkMemberVip();
                 </div>
                 <div class="col-4 ele-share"><img src="/images/img_share_mp3.png" class="icon" alt="chia sẻ">
                     <p>Chia sẻ</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom-sheet text-center popup-share">
+        <h4>Chia sẻ</h4>
+        <div class="container">
+            <div class="row">
+                <div class="col-4">
+                    <a class="fb-share-link" href="{{url()->current()}}" title="{{$music->music_title}}"></a>
+                </div>
+                <div class="col-4">
+                    <a class="messenger-share-link" href="{{url()->current()}}" title="{{$music->music_title}}"></a>
+                </div>
+                <div class="col-4">
+                    <div class="zalo-share-button" data-href="" data-oaid="579745863508352884" data-layout="1" data-color="white" data-customize=true><a class="zalo-share-button" href="javascript:void(0)" title="{{$music->music_title}}"></a></div>
                 </div>
             </div>
         </div>
@@ -886,11 +903,21 @@ $memberVip = Helpers::checkMemberVip();
             $('.wrap-bottom-sheet').hide();
             $('.bottom-sheet').slideUp();
             // copyClipboardAction(window.location.href);
-            shareFbLink(e, window.location.href);
+            // shareFbLink(e, window.location.href);
             // window.open('https://www.facebook.com/sharer/sharer.php?u=' + window.location.href, '_blank');
             // alertModal('Đã copy địa chỉ vào bộ nhớ máy của bạn.');
+            $('.wrap-bottom-sheet').show();
+            jQuery('.popup-share').slideDown();
         });
-
+        $('.messenger-share-link').click(function(e) {
+            e.preventDefault();
+            FB.ui({
+                method: 'send',
+                link: $(this).attr('href'),
+                caption: 'Chia Sẻ Nhạc',
+            });
+            return false;
+        });
         function downloadMusic() {
             var radios = document.getElementsByName('quality');
             for (var i = 0, length = radios.length; i < length; i++) {

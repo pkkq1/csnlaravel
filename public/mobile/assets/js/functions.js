@@ -59,6 +59,18 @@ function shareFbLink(event, href) {
     });
     return false;
 }
+function findOfStringParameter(string, parameterName, def = null) {
+    var result = def,
+        tmp = [];
+    string
+        .substr(1)
+        .split("&")
+        .forEach(function (item) {
+            tmp = item.split("=");
+            if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+        });
+    return result;
+}
 
 
 function alertModal(content = 'Lỗi, không thực hiện được.') {

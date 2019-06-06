@@ -52,6 +52,7 @@ if($musicSet['type_listen'] == 'playlist') {
     <meta property="og:updated_time" content="{{time()}}" />
 @endsection
 @section('contentCSS')
+    <script src="https://sp.zalo.me/plugins/sdk.js"></script>
     <link href="{{env('APP_URL')}}/node_modules/rabbit-lyrics/dist/rabbit-lyrics.css" rel="stylesheet" type="text/css"/>
     <script src="{{env('APP_URL')}}/node_modules/rabbit-lyrics/dist/rabbit-lyrics.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/csn-jwplayer.css">
@@ -338,9 +339,9 @@ if($musicSet['type_listen'] == 'playlist') {
                             <div class="tab-pane" id="pills-share" role="tabpanel" aria-labelledby="pills-share-tab">
                                 <div class="form-group">
                                     <ul class="list-inline mb-1">
-                                        {{--<li class="list-inline-item"><a class="zalo-share-button" href="{{url()->current()}}" title="{{$music->music_title}}"></a></li>--}}
                                         <li class="list-inline-item"><a class="fb-share-link" href="{{url()->current()}}" title="{{$music->music_title}}"></a></li>
                                         <li class="list-inline-item"><a class="messenger-share-link" href="{{url()->current()}}" title="{{$music->music_title}}"></a></li>
+                                        <li class="list-inline-item"><div class="zalo-share-button" data-href="" data-oaid="579745863508352884" data-layout="1" data-color="white" data-customize=true><a class="zalo-share-button" href="javascript:void(0)" title="Chia sẻ {{$music->music_title}}"></a></div></li>
                                     </ul>
                                     <input type="email" class="form-control" id="share_link" aria-describedby="emailHelp" placeholder="" value="{{env('APP_URL').url()->getRequest()->getRequestUri()}}">
                                 </div>
