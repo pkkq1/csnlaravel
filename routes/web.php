@@ -43,6 +43,8 @@ Route::group(['middlewareGroups' => ['web']], function () {
         Route::get('solr_delete_music', 'Sync\SolrSyncController@syncDeleteMusic');
         Route::get('solr_artist', 'Sync\SolrSyncController@syncArtist');
     });
+    Route::get('chinh-sach-chia-se-nhac', 'HomeController@policy');
+    Route::get('chinh-sach-chia-se-nhac.html', 'HomeController@policy');
 
     Route::post('/sys/error_slow_bug', ['as' => 'error.slow_bug', 'uses' => 'SystemController@addBugSlow']);
 
