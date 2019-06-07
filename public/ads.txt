@@ -174,3 +174,8 @@ freewheel.tv, 231609, RESELLER
 freewheel.tv, 231617, RESELLER
 advalue.com.vn, 1535090901, DIRECT 
 google.com, pub-7945044863874787, DIRECT, f08c47fec0942fa0
+#innity 7/6/2019
+innity.com, Pub 5040 , DIRECT, 47ea16374dff1d69
+appnexus.com, 3058 , RESELLER
+google.com, pub-2254427607846536, DIRECT, f08c47fec0942fa0
+google.com, pub-3992036467687738, DIRECT, f08c47fec0942fa0

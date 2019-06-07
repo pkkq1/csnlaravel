@@ -27,11 +27,14 @@ global $allpage_banner;
     <link rel="stylesheet" href="{{URL::to('/')}}/css/lobibox.min.css"/>
     <link rel="stylesheet" type="text/css" href="{{URL::to('/')}}/css/style.css">
     <link rel="stylesheet" type="text/css" href="{{URL::to('/')}}/css/jquery-ui.css">
+
     @if( isset($allpage_banner) && $allpage_banner == true )
     <style>
         .container{max-width:1000px!important;width:100%}
     </style>
     @endif
+    <script type="text/javascript" src="https://cdn.innity.net/admanager.js"></script>
+
     @yield('contentCSS')
     <!-- JS -->
     <script type="text/javascript" src="{{URL::to('/')}}/node_modules/jquery/dist/jquery.min.js"></script>

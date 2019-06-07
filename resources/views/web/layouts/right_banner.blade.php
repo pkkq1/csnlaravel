@@ -12,7 +12,10 @@
         @else
             <!-- BlueSeed - asynchronous code for placement 2043 Chiasenhac Right Banner -->
             @if(!$memberVip)
-            <ins class="hadar-placement" data-hdpm="2043" ></ins><script id="jshd1pm_2043" src="https://static.blueseed.tv/ajs/display.js"></script>
+                <!-- Zone Tag : Chiasenhac Rectangle Mobile-->
+                <script type="text/javascript">
+                    new innity_adZone("79c662560b0a5f1ae00b623ad8c775e3", "86427", {"origin": "VN","width": "300", "height": "250"});
+                </script>
             @endif
         @endif
     </div>
