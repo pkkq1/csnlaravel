@@ -33,6 +33,7 @@ use App\Repositories\Karaoke\KaraokeEloquentRepository;
 use App\Repositories\LyricSuggestion\LyricSuggestionEloquentRepository;
 use App\Repositories\MusicSearchResult\MusicSearchResultEloquentRepository;
 use Session;
+use Response;
 use DB;
 
 class MusicController extends Controller
@@ -537,6 +538,46 @@ class MusicController extends Controller
                 Helpers::ajaxResult(true, 'Gửi gợi ý karaoke cho bài hát thành công', null);
             }
         }
+    }
+    public function downloadAlbum(Request $request) {
+        $memberVip = Helpers::checkMemberVip();
+        if(!$memberVip) {
+            Helpers::ajaxResult(false, 'Bạn chưa có quyền download tất cả nhạc album', null);
+        }
+        $arrUrl = Helpers::splitPlaylistUrl($request->album_url, $request->type);
+        $playlistMusic = [];
+        $music = [];
+        $playlist = [];
+        $typeListen = 'single';
+        $musicDownload = [];
+        if($arrUrl['type'] == 'album') {
+            $album = $this->coverRepository->getCoverMusicById($arrUrl['id']);
+            if(!$album)
+                Helpers::ajaxResult(false, 'Album không tìm thấy.', null);
+            $music = $album->musicDownload;
+            if($music) {
+                $playlistMusic = $music->toArray();
+            }
+        }elseif($arrUrl['type'] == 'playlist'){
+            $playlist = $this->playlistRepository->getMusicByPlaylistId($arrUrl['id']);
+            if(!$playlist)
+                Helpers::ajaxResult(false, 'Playlist không tìm thấy.', null);
+            $music = $playlist->musicDownload;
+            if($music) {
+                $playlistMusic = $music->toArray();
+            }
+        }
+        foreach ($playlistMusic as $key => $item) {
+            $item['music_file_cache'] = '';
+            $musicDownload[] = last(Helpers::file_url($item));
+        }
+        $statusCode = 200;
+        $content = view('javascript.download_album')->with('musicDownload', $musicDownload);
+        $response = Response::make($content, $statusCode);
+        $response->header('Content-Type', 'application/javascript');
+        return $response;
+
+
     }
 
 }

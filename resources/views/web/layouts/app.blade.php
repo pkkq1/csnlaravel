@@ -33,37 +33,39 @@ if($memberVip == null)
 
 @hasSection('in_edit')
 @else
-    @hasSection('in_player')
-        <div class="ads_box" id="pc_masthead">
-            <div class="container text-center">
-                <div id="bsmasthead-wrapper">
-                    <!-- BlueSeed - asynchronous code for placement 1643 Chiasenhac Masthead Player Desktop -->
-                    <ins class="hadar-placement" data-hdpm="1643"></ins>
-                    <script id="jshd1pm_1643" src="https://static.blueseed.tv/ajs/display.js"></script>
-                </div>
-            </div>
-        </div>
-
-        @hasSection('in_player_lava')
-            <div class="ads_box" id="pc_masthead_bg">
+    @if(!$memberVip)
+        @hasSection('in_player')
+            <div class="ads_box" id="pc_masthead">
                 <div class="container text-center">
                     <div id="bsmasthead-wrapper">
-                        <!-- Ad Tag-980x250 for Publisher chiasenhac - LAVA DIGITAL-->
-                        <script src='https://pub.lavanetwork.net/sites/chiasenhac/chiasenhac_masthead.js'></script>
+                        <!-- BlueSeed - asynchronous code for placement 1643 Chiasenhac Masthead Player Desktop -->
+                        <ins class="hadar-placement" data-hdpm="1643"></ins>
+                        <script id="jshd1pm_1643" src="https://static.blueseed.tv/ajs/display.js"></script>
+                    </div>
+                </div>
+            </div>
+
+            @hasSection('in_player_lava')
+                <div class="ads_box" id="pc_masthead_bg">
+                    <div class="container text-center">
+                        <div id="bsmasthead-wrapper">
+                            <!-- Ad Tag-980x250 for Publisher chiasenhac - LAVA DIGITAL-->
+                            <script src='https://pub.lavanetwork.net/sites/chiasenhac/chiasenhac_masthead.js'></script>
+                        </div>
+                    </div>
+                </div>
+            @endif
+        @else
+            <div class="ads_box" id="pc_masthead">
+                <div class="container text-center">
+                    <div id="bsmasthead-wrapper">
+                        <!-- BlueSeed - asynchronous code for placement 1365 Chiasenhac Masthead Desktop -->
+                        <ins class="hadar-placement" data-hdpm="1365"></ins>
+                        <script id="jshd1pm_1365" src="https://static.blueseed.tv/ajs/display.js"></script>
                     </div>
                 </div>
             </div>
         @endif
-    @else
-        <div class="ads_box" id="pc_masthead">
-            <div class="container text-center">
-                <div id="bsmasthead-wrapper">
-                    <!-- BlueSeed - asynchronous code for placement 1365 Chiasenhac Masthead Desktop -->
-                    <ins class="hadar-placement" data-hdpm="1365"></ins>
-                    <script id="jshd1pm_1365" src="https://static.blueseed.tv/ajs/display.js"></script>
-                </div>
-            </div>
-        </div>
     @endif
 @endif
 

@@ -1509,3 +1509,7 @@ a.boxclose{
 .list_music .media .media-left a {
     z-index: 5;
 }
+a.disabled {
+    pointer-events: none;
+    cursor: default;
+}

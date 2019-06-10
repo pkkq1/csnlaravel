@@ -153,6 +153,9 @@ if($musicSet['type_listen'] == 'playlist') {
                                     <?php echo $music->music_composer ? '<li><span>Sáng tác: </span><a href="/tim-kiem?q='.$music->music_composer.'&mode=sang-tac" style=" color: #212552; ">'.$music->music_composer.'</a></li>' : '' ?>
                                     <?php echo $music->music_album ? '<li><span>Album: </span><a href="'.Helpers::album_url(['music_album' => $music->music_album, 'cover_id' => $music->cover_id ]).'">'.$music->music_album.'</a></li>' : '' ?>
                                     <?php echo $music->music_year ? '<li><span>Năm phát hành: </span>'.$music->music_year.'</li>' : '' ?>
+                                    @if($memberVip && $musicSet['type_jw'] == 'music' && ($musicSet['type_listen'] == 'playlist' || $musicSet['type_listen'] == 'album'))
+                                    <li><a class="link_more download_album" href="javascript:void(0)" onclick="downloadAlbum('{{$_SERVER['REQUEST_URI']}}')" title="Download tât cả bài hát trong album {{$music->music_album}}">Download {{$musicSet['type_listen'] == 'playlist' ? 'Playlist' : 'Album'}}</a></li>
+                                    @endif
                                 </ul>
                             </div>
                         </div>
@@ -1811,6 +1814,27 @@ if($musicSet['type_listen'] == 'playlist') {
             }
             ?>
         }
+        <?php
+        if($memberVip) {
+            ?>
+            var download_all = true;
+            function downloadAlbum(url) {
+                if(download_all) {
+                    download_all = false;
+                    $('.download_album').addClass('disabled');
+                    $.post("/download-album", {
+                        'album_url': url,
+                        'type': '<?php echo $musicSet['type_listen'] ?>',
+                    });
+                    setTimeout(function(){
+                        download_all = true
+                        $('.download_album').removeClass('disabled');
+                    }, 2000);
+                }
+            }
+            <?php
+        }
+        ?>
     </script>
     @if($musicSet['type_jw'] != 'video')
         <style>

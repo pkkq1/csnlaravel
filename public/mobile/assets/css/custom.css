@@ -522,3 +522,7 @@ footer {
     display: inline-block;
     margin-top: -2px;
 }
+a.disabled {
+    pointer-events: none;
+    cursor: default;
+}

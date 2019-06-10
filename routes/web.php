@@ -147,6 +147,8 @@ Route::group(['middlewareGroups' => ['web']], function () {
     // count download
     Route::post('/count/download', ['as' => 'music.count_download', 'uses' => 'MusicController@countDownload']);
 
+    // download album
+    Route::post('download-album', ['as' => 'music.album.listen', 'uses' => 'MusicController@downloadAlbum']);
 
     // User
     Route::prefix('user/')->group(function () {
