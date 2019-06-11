@@ -666,7 +666,7 @@ if($musicSet['type_listen'] == 'playlist') {
             aspectratio: "16:9",
             autostart: true,
             file: "https://beta.chiasenhac.vn/video/csn-5s.mp4",
-            events: { "onComplete": function() { $('#csnplayerads').remove(); } }
+            events: { "beforeComplete": function() { $('#csnplayerads').remove(); } }
         });
             <?php
         }

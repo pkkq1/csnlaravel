@@ -534,7 +534,7 @@ $memberVip = Helpers::checkMemberVip();
             autostart: true,
             file: "https://beta.chiasenhac.vn/video/csn-5s.mp4",
             events: {
-                "onComplete": function () {
+                "beforeComplete": function () {
                     $('#csnplayerads').remove();
                     $('#bg_blue').show();
                 }
