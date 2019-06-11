@@ -350,14 +350,6 @@ $memberVip = Helpers::checkMemberVip();
                             <span id="innity-in-post"></span>
                             <!-- BlueSeed - asynchronous code for placement 1658 Chiasenhac Inread Mobile -->
                             <script src="https://d2.blueseed.tv/ads-sync.js?placement=1658"></script>
-                            @if( 0 )
-                            <script type="text/javascript">
-                                /* load placement: chiasenhac_mobile inpage, for account: chiasenhac, site: chiasenhac.vn, size: 2x2 - mobile */
-                                var _avlVar = _avlVar || [];
-                                _avlVar.push(["b63673ce47e748a6a5fe6c79c4713e1d","[content_page_url]","[width]","[height]"]);
-                            </script>
-                            <script type="text/javascript" src="//ss.yomedia.vn/js/yomedia-sdk.js?v=3" id="s-b63673ce47e748a6a5fe6c79c4713e1d"></script -->
-                            @endif
                             @endif
 
                             <div class="p-3">
@@ -601,10 +593,10 @@ $memberVip = Helpers::checkMemberVip();
         player.onError(function (e) {
             if (error_count < jwplayer().getQualityLevels().length - 1) {
                 setQualityCookie = false;
-                jwplayer().setCurrentQuality(error_count);
+                /*jwplayer().setCurrentQuality(error_count);*/
             } else {
                 alertModal('Xin lỗi bài hát này đã bị lỗi! Vui lòng trải nghiệm video khác');
-                // location.href = "/";
+                /* location.href = "/"; */
                 $.ajax({
                     url: window.location.origin + '/sys/error_slow_bug',
                     type: "POST",
@@ -1277,6 +1269,16 @@ $memberVip = Helpers::checkMemberVip();
             });
         });
 
+        var video_preroll_played = false;
+        window.addEventListener('load', function () {
+                document.body.addEventListener('touchstart', function (e) {
+                        if (video_preroll_played == false) {
+                            video_preroll_played = true;
+                            jwplayer('csnplayerads').play(true);
+                            jwplayer('csnplayer').play(true);
+                        }
+                    }, false)
+            }, false);
     </script>
     @if($musicSet['type_jw'] != 'video')
         <style>
