@@ -722,7 +722,7 @@ if($musicSet['type_listen'] == 'playlist') {
             },
         });
         var error_count =0;
-        player.onError(function(e) {
+        player.on('error', function(message) {
             if (error_count < jwplayer().getQualityLevels().length - 1) {
                 setQualityCookie = false;
                 jwplayer().setCurrentQuality(error_count);
@@ -748,6 +748,9 @@ if($musicSet['type_listen'] == 'playlist') {
             }
             error_count++;
         });
+
+
+
         var device_type = 'desktop';
         var listPlayed =Array();
         var logPlayAudioFlag = false;
@@ -759,7 +762,7 @@ if($musicSet['type_listen'] == 'playlist') {
         var firstLoadBeforePlay = true;
         var firstLoadUpdateQuality = true;
         var listLyrics = [];
-        jwplayer().onBeforePlay(function() {
+        jwplayer().on('beforePlay', function() {
             //logPlayAudioFlag = true;
             //console.log('set flag again|'+logPlayAudioFlag);
             if(firstLoadBeforePlay) {
@@ -781,7 +784,7 @@ if($musicSet['type_listen'] == 'playlist') {
                 ?>
             }
         });
-        jwplayer().onTime(function () {
+        jwplayer().on('time', function () {
             new RabbitLyrics({
                 element: document.getElementById("lyrics"),
                 jw_player: player,
@@ -790,7 +793,7 @@ if($musicSet['type_listen'] == 'playlist') {
             });
         })
         var setQualityCookie = true;
-        jwplayer().onQualityLevels(function(callback){
+        jwplayer().on('levels',function(callback){
             if(Cookies.get('label_quality') == 'Lossless') {
                 setQualityCookie = false;
                 jwplayer().setCurrentQuality(callback.levels.length - 1);
@@ -800,12 +803,12 @@ if($musicSet['type_listen'] == 'playlist') {
                 $('.check_auto_play').prop('checked', false).change();
             }
         });
-        jwplayer().onQualityChange(function(callback){
-            if(setQualityCookie)
-                Cookies.set('label_quality', callback.levels[callback.currentQuality].label);
-            setQualityCookie = true;
-            updateQuality(callback);
-        });
+        // jwplayer().onQualityChange(function(callback){
+        //     if(setQualityCookie)
+        //         Cookies.set('label_quality', callback.levels[callback.currentQuality].label);
+        //     setQualityCookie = true;
+        //     updateQuality(callback);
+        // });
         jwplayer().on('userInactive', function () {
             <?php
             if($musicSet['type_jw'] != 'video') {
@@ -930,13 +933,11 @@ if($musicSet['type_listen'] == 'playlist') {
                 sessionStorage.setItem("auto_random", false);
             }
         }
-        jwplayer().onBeforeComplete(function() {
+        jwplayer().on('beforeComplete', function() {
             if(logPlayAudioFlag == false && typeof AutoPlay=='function'){
                 AutoPlay();
             }
         });
-
-
         function updateQuality(callback) {
             <?php
             if($musicFavourite) {
