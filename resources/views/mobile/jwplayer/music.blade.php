@@ -502,7 +502,7 @@ $memberVip = Helpers::checkMemberVip();
         var player = jwplayer('csnplayer');
         var firstPlayer = true;
         <?php
-        if(0)//$musicSet['type_jw'] != 'video' && !$memberVip) {
+        if($musicSet['type_jw'] != 'video' && !$memberVip) {
         ?>
         // ads
         jwplayer("csnplayerads").setup({
