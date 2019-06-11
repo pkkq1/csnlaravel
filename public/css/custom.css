@@ -263,7 +263,7 @@
     height: 25px!important;
 }
 .csn-random-btn {
-    margin-right: -5px!important;
+    margin-right: 8px!important;
 }
 .stringQ:hover {
     color: #ff3456!important;
@@ -403,7 +403,6 @@
     color: white;
     background: rgba(49, 46, 46, 0.8)!important;
     top: -22px;
-    width: 150px;
     margin-left: -30px;
     font-size: 14px;
     position: absolute;

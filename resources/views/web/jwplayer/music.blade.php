@@ -83,7 +83,10 @@ if($musicSet['type_listen'] == 'playlist') {
                     <div id="hidden_lyrics" class="hidden">
                         <div id="lyrics" class="rabbit-lyrics">
                             @if($musicSet['type_jw'] != 'video')
-                            <?php echo isset($music->musicKara->music_lyric_karaoke) ? Helpers::rawLyrics($music->musicKara->music_lyric_karaoke) : ''; ?>
+                            <?php
+                                $music_lyric_karaoke = isset($music->musicKara->music_lyric_karaoke) ? Helpers::rawLyrics($music->musicKara->music_lyric_karaoke) : '';
+                                echo $music_lyric_karaoke;
+                            ?>
                             @endif
                         </div>
                     </div>
@@ -769,13 +772,17 @@ if($musicSet['type_listen'] == 'playlist') {
                 firstLoadBeforePlay = false;
                 $('#csnplayer').find('.jw-captions').html($('#hidden_lyrics').html());
                 $('#hidden_lyrics').remove();
-                new RabbitLyrics({
-                    element: document.getElementById("lyrics"),
-                    jw_player: player,
-                    viewMode: 'mini',
-                    onUpdateTimeJw: false
-                });
                 <?php
+                if($music_lyric_karaoke) {
+                    ?>
+                    new RabbitLyrics({
+                        element: document.getElementById("lyrics"),
+                        jw_player: player,
+                        viewMode: 'mini',
+                        onUpdateTimeJw: false
+                    });
+                    <?php
+                }
                 if($musicSet['type_jw'] != 'video') {
                 ?>
                 $('.jw-display-icon-display').css('display', 'none')
@@ -784,14 +791,21 @@ if($musicSet['type_listen'] == 'playlist') {
                 ?>
             }
         });
-        jwplayer().on('time', function () {
-            new RabbitLyrics({
-                element: document.getElementById("lyrics"),
-                jw_player: player,
-                viewMode: 'mini',
-                onUpdateTimeJw: true
-            });
-        })
+        <?php
+        if($music_lyric_karaoke) {
+            ?>
+            jwplayer().on('time', function () {
+                new RabbitLyrics({
+                    element: document.getElementById("lyrics"),
+                    jw_player: player,
+                    viewMode: 'mini',
+                    onUpdateTimeJw: true
+                });
+            })
+            <?php
+        }
+        ?>
+
         var setQualityCookie = true;
         jwplayer().on('levels',function(callback){
             if(Cookies.get('label_quality') == 'Lossless') {
@@ -1733,7 +1747,7 @@ if($musicSet['type_listen'] == 'playlist') {
                 });
 
                 $('#kara_sug_csnplayer').find('.jw-captions').html('<div id="kara_sug_lyrics" class="rabbit-lyrics">' + $('.modal_kara').val() + '</div>');
-                kara_sug_player.onBeforePlay(function() {
+                kara_sug_player.on('beforePlay', function () {
                     new RabbitLyrics({
                         element: document.getElementById("kara_sug_lyrics"),
                         jw_player: kara_sug_player,
@@ -1748,7 +1762,7 @@ if($musicSet['type_listen'] == 'playlist') {
                     }
                     ?>
                 });
-                kara_sug_player.onTime(function () {
+                kara_sug_player.on('time', function () {
                     new RabbitLyrics({
                         element: document.getElementById("kara_sug_lyrics"),
                         jw_player: kara_sug_player,

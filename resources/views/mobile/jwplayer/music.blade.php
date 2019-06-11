@@ -603,7 +603,7 @@ $memberVip = Helpers::checkMemberVip();
         }, false);
 
         var error_count = 0;
-        player.onError(function (e) {
+        player.on('error', function(message) {
             if (error_count < jwplayer().getQualityLevels().length - 1) {
                 setQualityCookie = false;
                 jwplayer().setCurrentQuality(error_count);
@@ -640,16 +640,16 @@ $memberVip = Helpers::checkMemberVip();
         var firstLoadBeforePlay = true;
         var firstLoadUpdateQuality = true;
         var listLyrics = [];
-        jwplayer().onBeforePlay(function () {
+        jwplayer().on('beforePlay', function() {
             //logPlayAudioFlag = true;
             //console.log('set flag again|'+logPlayAudioFlag);
             $('#csnplayer').find('.jw-captions').html($('#hidden_lyrics').html());
             $('#hidden_lyrics').remove();
-            new RabbitLyrics({
-                element: document.getElementById("lyrics"),
-                viewMode: 'mini',
-                onUpdateTimeJw: false
-            });
+            // new RabbitLyrics({
+            //     element: document.getElementById("lyrics"),
+            //     viewMode: 'mini',
+            //     onUpdateTimeJw: false
+            // });
             <?php
             if($musicSet['type_jw'] != 'video') {
             ?>
@@ -659,7 +659,6 @@ $memberVip = Helpers::checkMemberVip();
                 ?>
             if (firstLoadBeforePlay) {
                 firstLoadBeforePlay = false;
-                console.log(123);
                 // jw-icon-playback
                 setTimeout(function () {
                     $('.stringQ').on('touchstart', function () {
@@ -702,15 +701,15 @@ $memberVip = Helpers::checkMemberVip();
                 }, 300);
             }
         });
-        jwplayer().onTime(function () {
-            new RabbitLyrics({
-                element: document.getElementById("lyrics"),
-                viewMode: 'mini',
-                onUpdateTimeJw: true
-            });
-        });
+        // jwplayer().on('time', function () {
+        //     new RabbitLyrics({
+        //         element: document.getElementById("lyrics"),
+        //         viewMode: 'mini',
+        //         onUpdateTimeJw: true
+        //     });
+        // });
         var setQualityCookie = true;
-        jwplayer().onQualityLevels(function (callback) {
+        jwplayer().on('levels',function(callback){
             if (Cookies.get('label_quality') == 'Lossless') {
                 setQualityCookie = false;
                 jwplayer().setCurrentQuality(callback.levels.length - 1);
@@ -723,12 +722,12 @@ $memberVip = Helpers::checkMemberVip();
                 });
             }
         });
-        jwplayer().onQualityChange(function (callback) {
-            if (setQualityCookie)
-                Cookies.set('label_quality', callback.levels[callback.currentQuality].label);
-            setQualityCookie = true;
-            updateQuality(callback);
-        })
+        // jwplayer().onQualityChange(function (callback) {
+        //     if (setQualityCookie)
+        //         Cookies.set('label_quality', callback.levels[callback.currentQuality].label);
+        //     setQualityCookie = true;
+        //     updateQuality(callback);
+        // })
         jwplayer().on('userInactive', function () {
             <?php
             if($musicSet['type_jw'] != 'video') {
@@ -852,7 +851,7 @@ $memberVip = Helpers::checkMemberVip();
             }
         }
 
-        jwplayer().onBeforeComplete(function () {
+        jwplayer().on('beforeComplete', function() {
             if (logPlayAudioFlag == false && typeof AutoPlay == 'function') {
                 AutoPlay();
             }
