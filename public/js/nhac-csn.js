@@ -3,27 +3,27 @@
         function J() {
             if (void 0 == w.showAutoNext || w.showAutoNext) {
                 if (void 0 == D) {
-                    var a = E.getElementsByClassName("jw-icon-hd")[0];
+                    var a = E.getElementsByClassName("jw-settings-submenu-button")[0];
                     void 0 != a && (D = document.createElement("div"), D.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-auto-next jw-icon-auto-next-on", D.title = "Tự động chuyển bài gợi ý", D.innerHTML = '<span class="csn-title-auto">Tự động chuyển bài gợi ý</span>',
                         D.onclick = function() {
                         "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-auto-next jw-icon-auto-next-on" == D.className ? (D.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-auto-next jw-icon-auto-next-off",
                         "function" === typeof onPlayerAutoNextOff && onPlayerAutoNextOff()) : (D.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-auto-next jw-icon-auto-next-on", "function" === typeof onPlayerAutoNextOn && onPlayerAutoNextOn())
-                        }, V = document.createElement("div"), V.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-favourite jw-icon-show-title", V.style = 'margin-right: 14px!important; line-height: 40px;' ,V.innerHTML = '<span class="csn-title-favourite">Yêu thích bài hát này</span><span class="wishlist toggle_wishlist"><i aria-hidden="true" style="font-size: 20px" class="fa fa-heart-o"></i></span>', V.onclick = function() { reloadFavourite() },
+                        }, V = document.createElement("div"), V.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-favourite jw-icon-show-title", V.style = 'margin-right: 8px!important; line-height: 40px; margin-top: 4px;' ,V.innerHTML = '<span class="csn-title-favourite">Yêu thích bài hát này</span><span class="wishlist toggle_wishlist"><i aria-hidden="true" style="font-size: 20px" class="fa fa-heart-o"></i></span>', V.onclick = function() { reloadFavourite() },
                         a.parentNode.insertBefore(D, a));
                     D.parentNode.insertBefore(V, D);
                 }
-                var a = E.getElementsByClassName("jw-icon-playback")[0];
-                void 0 != a && (void 0 == Q && (Q = document.createElement("div"), Q.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-nextsong", Q.innerHTML = "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 16 16\"><path class=\"zp-svg-fill\" fill=\"#BEBEBE\" fill-rule=\"nonzero\" d=\"M14 2v12h-1.98V2H14zm-3.48 6L2 14V2l8.52 6z\"></path></svg>", Q.onclick = function () {
-                    "function" === typeof onPlayerAutoNext &&
-                    onPlayerAutoNext()
-                }, a.parentNode.insertBefore(Q, a.nextSibling)));
-                var a = E.getElementsByClassName("jw-icon-auto-next-on")[0];
+                // var a = E.getElementsByClassName("jw-icon-playback")[0];
+                // void 0 != a && (void 0 == Q && (Q = document.createElement("div"), Q.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-nextsong", Q.innerHTML = "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 16 16\"><path class=\"zp-svg-fill\" fill=\"#BEBEBE\" fill-rule=\"nonzero\" d=\"M14 2v12h-1.98V2H14zm-3.48 6L2 14V2l8.52 6z\"></path></svg>", Q.onclick = function () {
+                //     "function" === typeof onPlayerAutoNext &&
+                //     onPlayerAutoNext()
+                // }, a.parentNode.insertBefore(Q, a.nextSibling)));
+                // var a = E.getElementsByClassName("jw-icon-auto-next-on")[0];
             }
         }
 
         function Y() {
             if (void 0 == F) {
-                var a = E.getElementsByClassName("jw-icon-hd")[0];
+                var a = E.getElementsByClassName("jw-settings-submenu-button")[0];
                 void 0 != a && (F = document.createElement("div"), F.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-lyric", F.onclick = function() {
                     "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-lyric" == F.className ? (F.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-lyric jw-toggle jw-off", p.style.visibility = "hidden") : (F.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-lyric",
                         p.style.visibility = "visible")
@@ -106,7 +106,7 @@
 
         function aa(a) {
             if (void 0 == v) {
-                a = E.getElementsByClassName("jw-icon-hd")[0];
+                a = E.getElementsByClassName("jw-settings-submenu-button")[0];
                 if (void 0 == a) return;
                 v = a.getElementsByClassName("jw-option")
             }
@@ -128,7 +128,7 @@
 
         function W(a) {
             var d = e.getCurrentQuality(),
-                b = E.getElementsByClassName("jw-icon-hd")[0];
+                b = E.getElementsByClassName("jw-settings-submenu-button")[0];
             void 0 != b && (void 0 == N && (N = b.className), a = a[d].label.toLowerCase(), "320k" == a ? b.className = N + " jw-icon-hd-320" : "128k" == a && (b.className = N + " jw-icon-hd-128"))
         }
 
@@ -237,7 +237,7 @@
             TTT = !1,
             L = !1,
             A, P, PP, PPP, Q, N;
-        e.onReady(function(a) {
+        e.on('ready', function(a) {
             E = e.getContainer();
             C.style.position = "absolute";
             C.style.top = "0px";
@@ -247,7 +247,7 @@
             C.style.pointerEvents = "none";
             U("onReady")
         });
-        e.onBeforePlay(function(a) {
+        e.on('beforePlay', function(a) {
             a = E.getElementsByClassName("jw-title-primary")[0];
             void 0 != a && (A = a.innerHTML, 0 > A.indexOf("<font") && 0 < A.indexOf(" - ") && (P = A.split(" - ")[0], Q = A.split(" - ")[1], A = A.replace(" - ", " - <font color='#6a8385'>"), A += "</font>", a.innerHTML = A));
             J();
@@ -261,7 +261,7 @@
             W(a.levels)
         });
         e.on("visualQuality", function(a) {
-            void 0 == v && (v = E.getElementsByClassName("jw-icon-hd")[0].getElementsByClassName("jw-option"));
+            void 0 == v && (v = E.getElementsByClassName("jw-settings-submenu-button")[0].getElementsByClassName("jw-option"));
             "auto" != a.mode && "auto" != a.reason || e.setCurrentQuality(a.level.index);
             0 < v.length && (a = v[0], "Auto" == a.innerHTML && (a.className = "jw-hidden"))
         });
