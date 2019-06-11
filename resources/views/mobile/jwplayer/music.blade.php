@@ -593,7 +593,7 @@ $memberVip = Helpers::checkMemberVip();
         player.onError(function (e) {
             if (error_count < jwplayer().getQualityLevels().length - 1) {
                 setQualityCookie = false;
-                jwplayer().setCurrentQuality(error_count);
+                //jwplayer().setCurrentQuality(error_count);
             } else {
                 alertModal('Xin lỗi bài hát này đã bị lỗi! Vui lòng trải nghiệm video khác');
                 // location.href = "/";
