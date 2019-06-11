@@ -505,7 +505,7 @@ $memberVip = Helpers::checkMemberVip();
         if($musicSet['type_jw'] != 'video' && !$memberVip) {
         ?>
         // ads
-        jwplayer("csnplayerads").setup({
+        /*jwplayer("csnplayerads").setup({
             advertising: {
                 client: "vast",
                 skipoffset: 5,
@@ -531,7 +531,7 @@ $memberVip = Helpers::checkMemberVip();
                     $('#bg_blue').show();
                 }
             }
-        });
+        });*/
         <?php
         }else{
             ?>
@@ -589,6 +589,19 @@ $memberVip = Helpers::checkMemberVip();
                 }
             }
         });
+
+        var video_preroll_played = false;
+        window.addEventListener('load', function () {
+            document.body.addEventListener('touchstart', function (ae) {
+                if (video_preroll_played == false) {
+                    video_preroll_played = true;
+                    jwplayer('csnplayerads').play(true);
+                    jwplayer('csnplayer').play(true);
+                    jwplayer().play(true);
+                }
+            }, false)
+        }, false);
+
         var error_count = 0;
         player.onError(function (e) {
             if (error_count < jwplayer().getQualityLevels().length - 1) {
@@ -1268,18 +1281,6 @@ $memberVip = Helpers::checkMemberVip();
                 }
             });
         });
-
-        var video_preroll_played = false;
-        window.addEventListener('load', function () {
-                document.body.addEventListener('touchstart', function (e) {
-                        if (video_preroll_played == false) {
-                            video_preroll_played = true;
-                            jwplayer('csnplayerads').play(true);
-                            jwplayer('csnplayer').play(true);
-                            jwplayer().play(true);
-                        }
-                    }, false)
-            }, false);
     </script>
     @if($musicSet['type_jw'] != 'video')
         <style>
