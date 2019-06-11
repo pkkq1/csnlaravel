@@ -1083,11 +1083,9 @@ form#login-form {
 .jw-captions {
     max-height: 64px!important;
 }
-.jw-controlbar {
-    padding: 12px 0 0!important;
-}
-.jw-controlbar {
-    height: 54px!important;
+.jw-button-container {
+    height: 28px;
+    margin-bottom: 6px!important;
 }
 .rabbit-lyrics .line {
     min-height: auto!important;
