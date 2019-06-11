@@ -1276,6 +1276,7 @@ $memberVip = Helpers::checkMemberVip();
                             video_preroll_played = true;
                             jwplayer('csnplayerads').play(true);
                             jwplayer('csnplayer').play(true);
+                            jwplayer().play(true);
                         }
                     }, false)
             }, false);
