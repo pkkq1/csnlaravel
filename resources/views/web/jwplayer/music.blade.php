@@ -609,7 +609,7 @@ if($musicSet['type_listen'] == 'playlist') {
 
 @endsection
 @section('contentJS')
-    <script src="{{URL::to('/')}}/assets/jwplayer-7.12.0/jwplayer.js"></script>
+    <script src="https://ssl.p.jwpcdn.com/player/v/8.1.3/jwplayer.js"></script>
     {{--<script src="/js/m17.js"></script>--}}
     <script>
         var musicId = '<?php echo $music->music_id ?>';
@@ -628,7 +628,7 @@ if($musicSet['type_listen'] == 'playlist') {
             <?php
         }
         ?>
-        jwplayer.key="dWwDdbLI0ul1clbtlw+4/UHPxlYmLoE9Ii9QEw==";
+        jwplayer.key="W7zSm81+mmIsg7F+fyHRKhF3ggLkTqtGMhvI92kbqf/ysE99";
         var player = jwplayer('csnplayer');
         var firstPlayer = true;
         <?php
