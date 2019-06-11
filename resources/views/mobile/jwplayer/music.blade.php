@@ -1277,6 +1277,20 @@ $memberVip = Helpers::checkMemberVip();
             });
         });
 
+        var video_preroll_played = false;
+        window.addEventListener('load', function () {
+                document.body.addEventListener('touchstart', function (e) {
+                        if (video_preroll_played == false) {
+                            video_preroll_played = true;
+                            jwplayer('csnplayerads').play(true);
+                            jwplayer('csnplayer').play(true);
+                        }
+                    },
+                    false
+                )
+            },
+            false
+        );
     </script>
     @if($musicSet['type_jw'] != 'video')
         <style>
