@@ -495,7 +495,7 @@ $memberVip = Helpers::checkMemberVip();
 @endsection
 
 @section('contentJS')
-    <script src="/assets/jwplayer-7.12.0/jwplayer.js"></script>
+    <script src="https://ssl.p.jwpcdn.com/player/v/8.1.3/jwplayer.js"></script>
     <script>
         var musicId = '<?php echo $music->music_id ?>';
         var artists = "<?php echo $music->music_artist  ?>";
@@ -506,7 +506,7 @@ $memberVip = Helpers::checkMemberVip();
         ////////////////////////
 
 
-        jwplayer.key = "dWwDdbLI0ul1clbtlw+4/UHPxlYmLoE9Ii9QEw==";
+        jwplayer.key = "W7zSm81+mmIsg7F+fyHRKhF3ggLkTqtGMhvI92kbqf/ysE99";
         var player = jwplayer('csnplayer');
         var firstPlayer = true;
         <?php
@@ -534,7 +534,7 @@ $memberVip = Helpers::checkMemberVip();
             autostart: true,
             file: "https://beta.chiasenhac.vn/video/csn-5s.mp4",
             events: {
-                "onComplete": function () {
+                "beforeComplete": function () {
                     $('#csnplayerads').remove();
                     $('#bg_blue').show();
                 }
