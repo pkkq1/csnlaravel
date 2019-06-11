@@ -502,10 +502,10 @@ $memberVip = Helpers::checkMemberVip();
         var player = jwplayer('csnplayer');
         var firstPlayer = true;
         <?php
-        if($musicSet['type_jw'] != 'video' && !$memberVip) {
+        if(0)//$musicSet['type_jw'] != 'video' && !$memberVip) {
         ?>
         // ads
-        /*jwplayer("csnplayerads").setup({
+        jwplayer("csnplayerads").setup({
             advertising: {
                 client: "vast",
                 skipoffset: 5,
@@ -531,7 +531,7 @@ $memberVip = Helpers::checkMemberVip();
                     $('#bg_blue').show();
                 }
             }
-        });*/
+        });
         <?php
         }else{
             ?>
