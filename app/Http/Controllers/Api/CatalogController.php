@@ -55,6 +55,7 @@ class CatalogController extends Controller
                 }
             }
             $playlist[$key]['playlist_artist'] = $artistArr;
+            $playlist[$key]['playlist_cover_url'] = $item['playlist_cover'] ? Helpers::file_path($item['playlist_id'], env('DATA_URL').MUSIC_PLAYLIST_PATH, true).$item['playlist_id'] . '.png?v=' . time() : '/imgs/avatar_default.png';
         }
         return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['caption' => $result['caption'], 'playlist' => Helpers::convertArrHtmlCharsDecode($playlist)], 'error' => []], 200);
     }
