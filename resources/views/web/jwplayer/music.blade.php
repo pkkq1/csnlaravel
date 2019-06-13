@@ -26,6 +26,7 @@ $sug = [];
 $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3);
 $thumnailMusic =$musicSet['type_jw'] != 'video' ?  Helpers::cover_url($music->cover_id) : Helpers::thumbnail_url($music->toArray(), 'preview');
 $thumnailMeta = '';
+$music_lyric_karaoke = '';
 $titleExMeta = $music->music_title.'; '.$music->music_artist;
 if($musicSet['type_listen'] == 'playlist') {
     $thumnailMeta = $musicSet['playlist']->playlist_cover;
