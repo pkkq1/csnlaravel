@@ -74,7 +74,7 @@ $memberVip = Helpers::checkMemberVip();
                                     <div class="block_baihat_main block_more">
                                         <?php
                                         array_map(function($item) {
-                                        $url = '/' . $item['music_url'];
+                                        $url = $item['music_url'];
                                         ?>
                                         <a href="{{$url}}"><div class="element mb-2">
                                             <div class="image100 mr-2 d-inline-block align-middle" style="background : url('{{$item['cover_html']}}') no-repeat center;background-size: cover;">
@@ -193,7 +193,7 @@ $memberVip = Helpers::checkMemberVip();
                                         <?php
                                         $videoMusic = Helpers::getRandLimitArr($video_new_uploads, LIMIT_HOME_VIDEO_NEW_MOBILE);
                                         array_map(function ($item) {
-                                        $url= '/' . $item['music_url'];;
+                                        $url= $item['music_url'];;
                                         ?>
                                         <div class="element">
                                             <a href="{{$url}}"><div class="image" style="background: url({{$item['cover_html']}}) no-repeat center;background-size: cover">
@@ -393,7 +393,7 @@ $memberVip = Helpers::checkMemberVip();
                                 <div class="block_baihat_main block_more" id="music_news">
                                     <?php
                                     array_map(function($item) {
-                                    $url = '/' . $item['music_url'];
+                                    $url = $item['music_url'];
                                     ?>
                                     <div class="element mb-2">
                                         <a href="{{$url}}"><div class="image100 mr-2 d-inline-block align-middle" style="background : url('{{$item['cover_html']}}') no-repeat center;background-size: cover;">
@@ -432,7 +432,7 @@ $memberVip = Helpers::checkMemberVip();
                                 <div class="block_baihat_main block_more" id="video_news">
                                     <?php
                                     array_map(function($item) {
-                                    $url = '/' . $item['music_url'];
+                                    $url = $item['music_url'];
                                     ?>
                                     <div class="element py-3 border-bottom">
                                         <a href="{{$url}}">

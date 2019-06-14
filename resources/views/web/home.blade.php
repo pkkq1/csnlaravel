@@ -180,7 +180,7 @@ $catalog = config('constants.catalog');
                     <ul class="list-unstyled list_music">
                         <?php
                             array_map(function($item) {
-                            $url= '/' . $item['music_url'];;
+                            $url= $item['music_url'];;
                             ?>
                             <li class="media align-items-stretch">
                                 <div class="media-left align-items-stretch mr-2 items-stretch-{{$item['music_id']}}">
@@ -289,7 +289,7 @@ $catalog = config('constants.catalog');
                 <?php
                 $videoMusic = Helpers::getRandLimitArr($video_new_uploads, LIMIT_HOME_VIDEO_NEW);
                 array_map(function ($item) {
-                $url= '/' . $item['music_url'];
+                $url= $item['music_url'];
                     ?>
                     <div class="col">
                         <div class="card card1 video">
