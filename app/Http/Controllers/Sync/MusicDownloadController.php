@@ -35,6 +35,7 @@ class MusicDownloadController extends Controller
         $download_rows = $cache->toArray();
         foreach ($download_rows as $key => $item) {
             $download_rows[$key]['cover_html'] = Helpers::cover_url($item['cover_id'], explode(';', $item['music_artist_id'])[0]);
+            $download_rows[$key]['music_url'] = Helpers::listen_url($item, false);
             $download_rows[$key]['music_bitrate_html'] = Helpers::bitrate2str($item['music_bitrate']);
             $download_rows[$key]['music_artist_html'] = Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']);
         }
