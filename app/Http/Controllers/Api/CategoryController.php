@@ -55,21 +55,37 @@ class CategoryController extends Controller
             case "video-".CURRENT_YEAR:
                 $video = $this->videoRepository->getCategoryVideoSolr($request->cat_id, $request->cat_level, ['csn_video.music_year', CURRENT_YEAR], 'video_id', 'desc', LIMIT_PAGE_CATEGORY);
                 Helpers::convertArrSolr($video);
+                foreach ($video as $key => &$item) {
+                    $item = Helpers::convertArrHtmlCharsDecode($item);
+                    $item['video_cover'] = Helpers::thumbnail_url(['music_id' => $item['video_id'], 'cat_id' => $item['video_cat_id']], 'preview');
+                }
                 return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['video' => $video], 'error' => []], 200);
                 break;
             case "video-2018":
                 $video = $this->videoRepository->getCategoryVideoSolr($request->cat_id, $request->cat_level, ['csn_video.music_year', 2018], 'video_id', 'desc', LIMIT_PAGE_CATEGORY);
                 Helpers::convertArrSolr($video);
+                foreach ($video as $key => &$item) {
+                    $item = Helpers::convertArrHtmlCharsDecode($item);
+                    $item['video_cover'] = Helpers::thumbnail_url(['music_id' => $item['video_id'], 'cat_id' => $item['video_cat_id']], 'preview');
+                }
                 return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['video' => $video], 'error' => []], 200);
                 break;
             case "video-moi":
                 $video = $this->videoRepository->getCategoryVideoSolr($request->cat_id, $request->cat_level, null, 'video_id', 'desc', LIMIT_PAGE_CATEGORY);
                 Helpers::convertArrSolr($video);
+                foreach ($video as $key => &$item) {
+                    $item = Helpers::convertArrHtmlCharsDecode($item);
+                    $item['video_cover'] = Helpers::thumbnail_url(['music_id' => $item['video_id'], 'cat_id' => $item['video_cat_id']], 'preview');
+                }
                 return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['video' => $video], 'error' => []], 200);
                 break;
             case "video-vua-download":
                 $video = $this->videoRepository->getCategoryVideoSolr($request->cat_id, $request->cat_level, null,'video_id', 'desc', LIMIT_PAGE_CATEGORY);
                 Helpers::convertArrSolr($video);
+                foreach ($video as $key => &$item) {
+                    $item = Helpers::convertArrHtmlCharsDecode($item);
+                    $item['video_cover'] = Helpers::thumbnail_url(['music_id' => $item['video_id'], 'cat_id' => $item['video_cat_id']], 'preview');
+                }
                 return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['video' => $video], 'error' => []], 200);
                 break;
             case "vua-download":
@@ -84,6 +100,10 @@ class CategoryController extends Controller
             case "video":
                 $video = $this->videoRepository->videoNewsSolr('video_id', 'desc', LIMIT_MUSIC_PAGE_CATEGORY);
                 Helpers::convertArrSolr($video);
+                foreach ($video['data'] as $key => &$item) {
+                    $item = Helpers::convertArrHtmlCharsDecode($item);
+                    $item['video_cover'] = Helpers::thumbnail_url(['music_id' => $item['video_id'], 'cat_id' => $item['video_cat_id']], 'preview');
+                }
                 return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['video' => $video], 'error' => []], 200);
                 break;
             case "cover":

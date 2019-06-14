@@ -67,6 +67,10 @@ class CatalogController extends Controller
     public function videoNews(Request $request) {
         $video = $this->videoRepository->videoNewsSolr('video_id', 'desc', LIMIT_MUSIC_PAGE_CATEGORY);
         Helpers::convertArrSolr($video);
+        foreach ($video['data'] as $key => &$item) {
+            $item = Helpers::convertArrHtmlCharsDecode($item);
+            $item['video_cover'] = Helpers::thumbnail_url(['music_id' => $item['video_id'], 'cat_id' => $item['video_cat_id']], 'preview');
+        }
         return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['video' => $video], 'error' => []], 200);
     }
     public function albumNews(Request $request) {

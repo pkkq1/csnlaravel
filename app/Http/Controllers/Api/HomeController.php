@@ -30,7 +30,7 @@ class HomeController extends Controller
         include(app_path() . '/../resources/views/cache/def_home_download.blade.php');
         include(app_path() . '/../resources/views/cache/def_home_album_cat.blade.php');
 
-        $video_new_uploads = Helpers::convertArrHtmlCharsDecode($video_new_uploads);
+//        $video_new_uploads = Helpers::convertArrHtmlCharsDecode($video_new_uploads);
         $music_new_uploads = Helpers::convertArrHtmlCharsDecode($music_new_uploads);
         foreach ($album_new as $key => $item) {
             $album_new[$key]['music_album'] = htmlspecialchars_decode($item['music_album'], ENT_QUOTES);
@@ -45,6 +45,10 @@ class HomeController extends Controller
                 $album_cat_new[$key][$key2]['album_url'] = Helpers::album_url(['cover_id' => $item2['cover_id'], 'music_album' => $item2['music_album']]);
                 $album_cat_new[$key][$key2]['cover_url'] = Helpers::cover_url($item2['cover_id']);
             }
+        }
+        foreach ($video_new_uploads as $key => &$item) {
+            $item = Helpers::convertArrHtmlCharsDecode($item);
+            $item['cover_html'] = $item['cover_prv_html'];
         }
         return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => [
             'album_hot_home' => Helpers::getRandLimitArr($album_new, LIMIT_HOME_ALBUM_NEW_MOBILE),

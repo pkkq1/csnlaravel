@@ -81,6 +81,7 @@ class AlbumController extends Controller
 
                 $music_new_uploads[$total] = $music_new_uploads_tmp[$key];
                 $music_new_uploads[$total]['cover_html'] = Helpers::cover_url($item['cover_id'], explode(';', $item['music_artist_id'])[0]);
+                $music_new_uploads[$total]['music_url'] = Helpers::listen_url($item, false);
                 $music_new_uploads[$total]['music_bitrate_html'] = Helpers::bitrate2str($item['music_bitrate']);
                 $music_new_uploads[$total]['music_artist_html'] = Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']);
             }
@@ -91,6 +92,8 @@ class AlbumController extends Controller
             ->limit(50)->get()->toArray();
         foreach ($video_new_uploads as $key => $item) {
             $video_new_uploads[$key]['cover_html'] = Helpers::thumbnail_url($item);
+            $video_new_uploads[$key]['cover_prv_html'] = Helpers::thumbnail_url($item, 'preview');
+            $video_new_uploads[$key]['music_url'] = Helpers::listen_url($item, false);
             $video_new_uploads[$key]['music_bitrate_html'] = Helpers::size2str($item['music_width'], $item['music_height']);
             $video_new_uploads[$key]['music_artist_html'] = Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']);
         }
