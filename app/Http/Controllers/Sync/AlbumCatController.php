@@ -44,6 +44,8 @@ class AlbumCatController extends Controller
                 $album_cat_new[$cat][] = [
                     'cover_id' => $item['cover_id'],
                     'music_album' => $item['music_album'],
+                    'cover_url' => Helpers::cover_url($item['cover_id']),
+                    'album_url' => Helpers::album_url($item),
                     'music_artist' => $album_artist,
                     'album_artist_id' => $album_artist_id,
                     'music_artist_html' => !empty($album_artist) ? Helpers::rawHtmlArtists($album_artist_id, $album_artist) : '',
