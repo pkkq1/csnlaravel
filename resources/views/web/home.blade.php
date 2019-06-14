@@ -139,7 +139,7 @@ $catalog = config('constants.catalog');
                     <ul class="list-unstyled list_music">
                         <?php
                             array_map(function($item) {
-                                $url = '/' . $item['music_url'];
+                                $url = $item['music_url'];
                             ?>
                             <li class="media align-items-stretch items-stretch-{{$item['music_id']}}">
                                 <div class="media-left align-items-stretch mr-2">
