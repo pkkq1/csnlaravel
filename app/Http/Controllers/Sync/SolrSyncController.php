@@ -332,6 +332,7 @@ class SolrSyncController extends Controller
                 'video_width' => $item->music_width,
                 'video_height' => $item->music_height,
                 'video_cover' => Helpers::thumbnail_url($item->toArray()),
+                'video_preview' => Helpers::thumbnail_url($item->toArray(), 'video_preview'),
                 'video_link' => Helpers::listen_url($item->toArray(), false),
                 'video_filename' => $item->music_filename,
                 'video_artist' => $item->music_artist, //str_replace(';', ',', $item->music_artist),
