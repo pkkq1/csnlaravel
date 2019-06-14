@@ -32,20 +32,8 @@ class HomeController extends Controller
 
 //        $video_new_uploads = Helpers::convertArrHtmlCharsDecode($video_new_uploads);
         $music_new_uploads = Helpers::convertArrHtmlCharsDecode($music_new_uploads);
-        foreach ($album_new as $key => $item) {
-            $album_new[$key]['music_album'] = htmlspecialchars_decode($item['music_album'], ENT_QUOTES);
-            $album_new[$key]['music_artist'] = htmlspecialchars_decode($item['music_artist'], ENT_QUOTES);
-            $album_new[$key]['album_url'] = Helpers::album_url(['cover_id' => $item['cover_id'], 'music_album' => $item['music_album']]);
-            $album_new[$key]['cover_url'] = Helpers::cover_url($item['cover_id']);
-        }
-        foreach ($album_cat_new as $key => $item) {
-            foreach ($item as $key2 => $item2) {
-                $album_cat_new[$key][$key2]['music_album'] = htmlspecialchars_decode($item2['music_album'], ENT_QUOTES);
-                $album_cat_new[$key][$key2]['music_artist'] = htmlspecialchars_decode($item2['music_artist'], ENT_QUOTES);
-                $album_cat_new[$key][$key2]['album_url'] = Helpers::album_url(['cover_id' => $item2['cover_id'], 'music_album' => $item2['music_album']]);
-                $album_cat_new[$key][$key2]['cover_url'] = Helpers::cover_url($item2['cover_id']);
-            }
-        }
+        $album_new = Helpers::convertArrHtmlCharsDecode($album_new);
+        $album_cat_new = Helpers::convertArrHtmlCharsDecode($album_cat_new);
         foreach ($video_new_uploads as $key => &$item) {
             $item = Helpers::convertArrHtmlCharsDecode($item);
             $item['cover_html'] = $item['cover_prv_html'];

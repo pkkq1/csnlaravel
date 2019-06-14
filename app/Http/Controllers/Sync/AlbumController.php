@@ -40,6 +40,8 @@ class AlbumController extends Controller
             $album_new[] = [
                 'cover_id' => $item->cover_id,
                 'music_album' => $item->music_album,
+                'album_url' => Helpers::album_url(['cover_id' => $item->cover_id, 'music_album' => $item->music_album]),
+                'cover_url' =>  Helpers::cover_url($item->cover_id),
                 'music_artist' => $album_artist,
                 'music_artist_html' => !empty($album_artist) ? Helpers::rawHtmlArtists($album_artist_id, $album_artist) : '',
                 'music_bitrate' => $item->music_bitrate,
@@ -59,6 +61,8 @@ class AlbumController extends Controller
             $album_old[] = [
                 'cover_id' => $item->cover_id,
                 'music_album' => $item->music_album,
+                'album_url' => Helpers::album_url(['cover_id' => $item->cover_id, 'music_album' => $item->music_album]),
+                'cover_url' =>  Helpers::cover_url($item->cover_id),
                 'music_artist' => $album_artist,
                 'music_artist_id' => $album_artist_id,
                 'music_artist_html' => !empty($album_artist) ? Helpers::rawHtmlArtists($album_artist_id, $album_artist) : '',
