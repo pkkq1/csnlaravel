@@ -52,9 +52,8 @@ $memberVip = Helpers::checkMemberVip();
                             <div class="owl-carousel owl-theme slider_home pt-3">
                                 <?php
                                 array_map(function($item) {
-                                $url = Helpers::album_url($item);
                                 ?>
-                                <a href="{{$url}}"><div class="item" style="background: url({{Helpers::cover_url($item['cover_id'])}}) no-repeat center;background-size: cover;">
+                                <a href="{{$item['album_url']}}"><div class="item" style="background: url({{$item['cover_url']}}) no-repeat center;background-size: cover;">
                                         <div class="element text-white">
                                             <h6 class="name_song mb-1">{{$item['music_album']}}</h6>
                                             <p class="name_singer mb-1 author"><?php echo $item['music_artist'] ?></p>
@@ -75,7 +74,7 @@ $memberVip = Helpers::checkMemberVip();
                                     <div class="block_baihat_main block_more">
                                         <?php
                                         array_map(function($item) {
-                                        $url = Helpers::listen_url($item);
+                                        $url = '/' . $item['music_url'];
                                         ?>
                                         <a href="{{$url}}"><div class="element mb-2">
                                             <div class="image100 mr-2 d-inline-block align-middle" style="background : url('{{$item['cover_html']}}') no-repeat center;background-size: cover;">
@@ -136,12 +135,11 @@ $memberVip = Helpers::checkMemberVip();
                                             $newMusic1 = array_slice($newMusic, 0, 4);
                                             $newMusic2 = array_slice($newMusic, 5, 9);
                                             array_map(function ($item) {
-                                            $url = Helpers::album_url($item);
                                             ?>
                                             <div class="item element">
-                                                <a href="{{$url}}"><div class="image rounded" style="background: url({{Helpers::cover_url($item['cover_id'])}}) no-repeat center;background-size: cover"></div></a>
+                                                <a href="{{$item['album_url']}}"><div class="image rounded" style="background: url({{$item['cover_url']}}) no-repeat center;background-size: cover"></div></a>
                                                 <div class="content mt-3">
-                                                    <a href="{{$url}}"><h6 class="name_song mb-1 card-title">{{$item['music_album']}}</h6></a>
+                                                    <a href="{{$item['album_url']}}"><h6 class="name_song mb-1 card-title">{{$item['music_album']}}</h6></a>
                                                     <p class="name_singer text-gray mb-1 author"><?php echo $item['music_artist_html'] ?></p>
                                                     <p class="loss text-pink mb-0"><?php echo $item['music_bitrate_html'] ?></p>
                                                 </div>
@@ -153,12 +151,11 @@ $memberVip = Helpers::checkMemberVip();
                                         <div class="slide-album owl-theme owl-carousel">
                                             <?php
                                             array_map(function ($item) {
-                                            $url = Helpers::album_url($item);
                                             ?>
                                             <div class="item element">
-                                                <a href="{{$url}}"><div class="image rounded" style="background: url({{Helpers::cover_url($item['cover_id'])}}) no-repeat center;background-size: cover"></div></a>
+                                                <a href="{{$item['album_url']}}"><div class="image rounded" style="background: url({{$item['cover_url']}}) no-repeat center;background-size: cover"></div></a>
                                                 <div class="content mt-3">
-                                                    <a href="{{$url}}"><h6 class="name_song mb-1 card-title">{{$item['music_album']}}</h6></a>
+                                                    <a href="{{$item['album_url']}}"><h6 class="name_song mb-1 card-title">{{$item['music_album']}}</h6></a>
                                                     <p class="name_singer text-gray mb-1 author"><?php echo $item['music_artist_html'] ?></p>
                                                     <p class="loss text-pink mb-0"><?php echo $item['music_bitrate_html'] ?></p>
                                                 </div>
@@ -196,10 +193,10 @@ $memberVip = Helpers::checkMemberVip();
                                         <?php
                                         $videoMusic = Helpers::getRandLimitArr($video_new_uploads, LIMIT_HOME_VIDEO_NEW_MOBILE);
                                         array_map(function ($item) {
-                                        $url = Helpers::listen_url($item);
+                                        $url= '/' . $item['music_url'];;
                                         ?>
                                         <div class="element">
-                                            <a href="{{$url}}"><div class="image" style="background: url({{Helpers::thumbnail_url($item)}}) no-repeat center;background-size: cover">
+                                            <a href="{{$url}}"><div class="image" style="background: url({{$item['cover_html']}}) no-repeat center;background-size: cover">
                                                     @if($item['music_listen'] > 0 )
                                                     <p class="view text-white mb-0 px-2 py-1"><img src="/mobile/assets/images/img_camera.png" width="16" /> <?php echo Helpers::numberShorten($item['music_listen']) ?></p>
                                                     @endif
@@ -241,12 +238,11 @@ $memberVip = Helpers::checkMemberVip();
                                         <?php
                                         $musicNewCat = Helpers::getRandLimitArr($album_cat_new[3], LIMIT_HOME_CAT_MUSIC);
                                         array_map(function ($item) {
-                                        $url = Helpers::album_url($item);
                                         ?>
                                         <div class="item element">
-                                            <a href="{{$url}}"><div style="background: url({{Helpers::cover_url($item['cover_id'])}}) no-repeat center;background-size: cover;" class="image rounded"></div></a>
+                                            <a href="{{$item['album_url']}}"><div style="background: url({{$item['cover_url']}}) no-repeat center;background-size: cover;" class="image rounded"></div></a>
                                             <div class="content mt-3">
-                                                <a href="{{$url}}"><h6 class="name_song mb-1 card-title">{{$item['music_album']}}</h6></a>
+                                                <a href="{{$item['album_url']}}"><h6 class="name_song mb-1 card-title">{{$item['music_album']}}</h6></a>
                                                 <p class="name_singer text-gray mb-1 author"><?php echo $item['music_artist_html'] ?></p>
                                                 <p class="loss text-pink mb-0"><?php echo $item['music_bitrate_html'] ?></p>
                                             </div>
@@ -269,14 +265,13 @@ $memberVip = Helpers::checkMemberVip();
                                                 <?php
                                                 $musicNewCat = Helpers::getRandLimitArr($album_cat_new[4], LIMIT_HOME_CAT_MUSIC);
                                                 array_map(function ($item) {
-                                                $url = Helpers::album_url($item);
                                                 ?>
                                                 <div class="owl-item cloned" style="width: 184.783px; margin-right: 10px;">
                                                     <div class="item element">
-                                                        <a href="{{$url}}"><div class="image rounded" style="background: url({{Helpers::cover_url($item['cover_id'])}}) no-repeat center;background-size: cover"></div></a>
+                                                        <a href="{{$item['album_url']}}"><div class="image rounded" style="background: url({{$item['cover_url']}}) no-repeat center;background-size: cover"></div></a>
                                                         <div class="content mt-3">
                                                             <h6 class="name_song mb-1 card-title">{{$item['music_album']}}</h6>
-                                                            <a href="{{$url}}"><p class="name_singer text-gray mb-1 author"><?php echo $item['music_artist_html'] ?></p></a>
+                                                            <a href="{{$item['album_url']}}"><p class="name_singer text-gray mb-1 author"><?php echo $item['music_artist_html'] ?></p></a>
                                                             <p class="loss text-pink mb-0"><?php echo $item['music_bitrate_html'] ?></p>
                                                         </div>
                                                     </div>
@@ -303,14 +298,13 @@ $memberVip = Helpers::checkMemberVip();
                                                 <?php
                                                 $musicNewCat = Helpers::getRandLimitArr($album_cat_new[5], LIMIT_HOME_CAT_MUSIC);
                                                 array_map(function ($item) {
-                                                $url = Helpers::album_url($item);
                                                 ?>
                                                 <div class="owl-item cloned" style="width: 184.783px; margin-right: 10px;">
                                                     <div class="item element">
-                                                        <a href="{{$url}}"><div class="image rounded" style="background: url({{Helpers::cover_url($item['cover_id'])}}) no-repeat center;background-size: cover"></div></a>
+                                                        <a href="{{$item['album_url']}}"><div class="image rounded" style="background: url({{$item['cover_url']}}) no-repeat center;background-size: cover"></div></a>
                                                         <div class="content mt-3">
                                                             <h6 class="name_song mb-1 card-title">{{$item['music_album']}}</h6>
-                                                            <a href="{{$url}}"><p class="name_singer text-gray mb-1 author"><?php echo $item['music_artist_html'] ?></p></a>
+                                                            <a href="{{$item['album_url']}}"><p class="name_singer text-gray mb-1 author"><?php echo $item['music_artist_html'] ?></p></a>
                                                             <p class="loss text-pink mb-0"><?php echo $item['music_bitrate_html'] ?></p>
                                                         </div>
                                                     </div>
@@ -337,14 +331,13 @@ $memberVip = Helpers::checkMemberVip();
                                                 <?php
                                                 $musicNewCat = Helpers::getRandLimitArr($album_cat_new[6], LIMIT_HOME_CAT_MUSIC);
                                                 array_map(function ($item) {
-                                                $url = Helpers::album_url($item);
                                                 ?>
                                                 <div class="owl-item cloned" style="width: 184.783px; margin-right: 10px;">
                                                     <div class="item element">
-                                                        <a href="{{$url}}"><div class="image rounded" style="background: url({{Helpers::cover_url($item['cover_id'])}}) no-repeat center;background-size: cover"></div></a>
+                                                        <a href="{{$item['album_url']}}"><div class="image rounded" style="background: url({{$item['cover_url']}}) no-repeat center;background-size: cover"></div></a>
                                                         <div class="content mt-3">
                                                             <h6 class="name_song mb-1 card-title">{{$item['music_album']}}</h6>
-                                                            <a href="{{$url}}"><p class="name_singer text-gray mb-1 author"><?php echo $item['music_artist_html'] ?></p></a>
+                                                            <a href="{{$item['album_url']}}"><p class="name_singer text-gray mb-1 author"><?php echo $item['music_artist_html'] ?></p></a>
                                                             <p class="loss text-pink mb-0"><?php echo $item['music_bitrate_html'] ?></p>
                                                         </div>
                                                     </div>
@@ -371,14 +364,13 @@ $memberVip = Helpers::checkMemberVip();
                                                 <?php
                                                 $musicNewCat = Helpers::getRandLimitArr($album_cat_new[7], LIMIT_HOME_CAT_MUSIC);
                                                 array_map(function ($item) {
-                                                $url = Helpers::album_url($item);
                                                 ?>
                                                 <div class="owl-item cloned" style="width: 184.783px; margin-right: 10px;">
                                                     <div class="item element">
-                                                        <a href="{{$url}}"><div class="image rounded" style="background: url({{Helpers::cover_url($item['cover_id'])}}) no-repeat center;background-size: cover"></div></a>
+                                                        <a href="{{$item['album_url']}}"><div class="image rounded" style="background: url({{$item['cover_url']}}) no-repeat center;background-size: cover"></div></a>
                                                         <div class="content mt-3">
                                                             <h6 class="name_song mb-1 card-title">{{$item['music_album']}}</h6>
-                                                            <a href="{{$url}}"><p class="name_singer text-gray mb-1 author"><?php echo $item['music_artist_html'] ?></p></a>
+                                                            <a href="{{$item['album_url']}}"><p class="name_singer text-gray mb-1 author"><?php echo $item['music_artist_html'] ?></p></a>
                                                             <p class="loss text-pink mb-0"><?php echo $item['music_bitrate_html'] ?></p>
                                                         </div>
                                                     </div>
@@ -401,7 +393,7 @@ $memberVip = Helpers::checkMemberVip();
                                 <div class="block_baihat_main block_more" id="music_news">
                                     <?php
                                     array_map(function($item) {
-                                    $url = Helpers::listen_url($item);
+                                    $url = '/' . $item['music_url'];
                                     ?>
                                     <div class="element mb-2">
                                         <a href="{{$url}}"><div class="image100 mr-2 d-inline-block align-middle" style="background : url('{{$item['cover_html']}}') no-repeat center;background-size: cover;">
@@ -440,11 +432,11 @@ $memberVip = Helpers::checkMemberVip();
                                 <div class="block_baihat_main block_more" id="video_news">
                                     <?php
                                     array_map(function($item) {
-                                    $url = Helpers::listen_url($item);
+                                    $url = '/' . $item['music_url'];
                                     ?>
                                     <div class="element py-3 border-bottom">
                                         <a href="{{$url}}">
-                                            <div class="image mr-2 d-inline-block align-middle" style="background : url({{Helpers::thumbnail_url($item)}}) no-repeat center;background-size: cover;">
+                                            <div class="image mr-2 d-inline-block align-middle" style="background : url({{$item['cover_html']}}) no-repeat center;background-size: cover;">
                                                 <p class="time"><img src="/mobile/assets/images/icon/ic_menu_clock.png" width="14"> {{$item['music_length'] >= 3600 ? gmdate("H:i:s", $item['music_length']) : gmdate("i:s", $item['music_length'])}}</p>
                                             </div>
                                         </a>

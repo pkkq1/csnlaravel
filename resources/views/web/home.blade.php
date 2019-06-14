@@ -24,25 +24,23 @@ $catalog = config('constants.catalog');
 @include('cache.bxh.bxh_today')
 @include('cache.uploader.uploader_week')
 @include('cache.top_artist')
-
 <div class="slide_home"
      style="background: url('/imgs/Slice-1.jpg');">
     <div class="container">
         <div class="owl-carousel owl-theme">
             <?php
                 array_map(function($item) {
-                $url = Helpers::album_url($item);
                     ?>
                     <div class="item">
                         <div class="card card1 slide">
                             <div class="card-header"
-                                 style="background-image: url({{Helpers::cover_url($item['cover_id'])}});">
-                                <a href="{{$url}}" title="{{$item['music_album']}}">
+                                 style="background-image: url({{$item['cover_url']}});">
+                                <a href="{{$item['album_url']}}" title="{{$item['music_album']}}">
                                     <span class="icon-play"></span>
                                 </a>
                             </div>
                             <div class="card-body">
-                                <h3 class="card-title"><a href="{{$url}}" title="{{$item['music_album']}}">{{$item['music_album']}}</a></h3>
+                                <h3 class="card-title"><a href="{{$item['album_url']}}" title="{{$item['music_album']}}">{{$item['music_album']}}</a></h3>
                                 <p class="card-text author"><?php echo $item['music_artist_html'] ?></p>
                                 <div class="card-text"><?php echo $item['music_bitrate_html'] ?></div>
                             </div>
@@ -88,7 +86,6 @@ $catalog = config('constants.catalog');
                 <?php
                 $newMusic = Helpers::getRandLimitArr($album_new, LIMIT_HOME_MUSIC_NEW);
                 array_map(function ($i, $item) {
-                $url = Helpers::album_url($item);
                 ?>
                     @if ($i == 5)
                     </div>
@@ -96,13 +93,13 @@ $catalog = config('constants.catalog');
                     @endif
                         <div class="col">
                             <div class="card card1">
-                                <div class="card-header" style="background-image: url({{Helpers::cover_url($item['cover_id'])}});">
-                                    <a href="{{$url}}" title="{{$item['music_album']}}">
+                                <div class="card-header" style="background-image: url({{$item['cover_url']}});">
+                                    <a href="{{$item['album_url']}}" title="{{$item['music_album']}}">
                                         <span class="icon-play"></span>
                                     </a>
                                 </div>
                                 <div class="card-body">
-                                    <h3 class="card-title"><a href="{{$url}}" title="{{$item['music_album']}}">{{$item['music_album']}}</a></h3>
+                                    <h3 class="card-title"><a href="{{$item['album_url']}}" title="{{$item['music_album']}}">{{$item['music_album']}}</a></h3>
                                     <p class="card-text"><?php echo $item['music_artist_html'] ?></p>
                                 </div>
                             </div>
@@ -142,7 +139,7 @@ $catalog = config('constants.catalog');
                     <ul class="list-unstyled list_music">
                         <?php
                             array_map(function($item) {
-                                $url = Helpers::listen_url($item);
+                                $url = '/' . $item['music_url'];
                             ?>
                             <li class="media align-items-stretch items-stretch-{{$item['music_id']}}">
                                 <div class="media-left align-items-stretch mr-2">
@@ -183,7 +180,7 @@ $catalog = config('constants.catalog');
                     <ul class="list-unstyled list_music">
                         <?php
                             array_map(function($item) {
-                            $url= Helpers::listen_url($item);
+                            $url= '/' . $item['music_url'];;
                             ?>
                             <li class="media align-items-stretch">
                                 <div class="media-left align-items-stretch mr-2 items-stretch-{{$item['music_id']}}">
@@ -261,7 +258,6 @@ $catalog = config('constants.catalog');
                 <?php
                 $albumNew = Helpers::getRandLimitArr($album_old, LIMIT_HOME_ALBUM_NEW_BOTTOM);
                 array_map(function ($i, $item) {
-                    $url = Helpers::album_url($item);
                 ?>
                     @if ($i == 5)
                     </div>
@@ -269,13 +265,13 @@ $catalog = config('constants.catalog');
                     @endif
                         <div class="col">
                             <div class="card card1">
-                                <div class="card-header" style="background-image: url({{Helpers::cover_url($item['cover_id'])}});">
-                                    <a href="{{$url}}" title="{{$item['music_album']}}">
+                                <div class="card-header" style="background-image: url({{$item['cover_url']}});">
+                                    <a href="{{$item['album_url']}}" title="{{$item['music_album']}}">
                                         <span class="icon-play"></span>
                                     </a>
                                 </div>
                                 <div class="card-body">
-                                    <h3 class="card-title"><a href="{{$url}}" title="{{$item['music_album']}}">{{$item['music_album']}}</a><span class="year-album"> ({{CURRENT_YEAR}})</span></h3>
+                                    <h3 class="card-title"><a href="{{$item['album_url']}}" title="{{$item['music_album']}}">{{$item['music_album']}}</a><span class="year-album"> ({{CURRENT_YEAR}})</span></h3>
                                     <p class="card-text"><?php echo $item['music_artist_html'] ?></p>
                                 </div>
                             </div>
@@ -293,11 +289,11 @@ $catalog = config('constants.catalog');
                 <?php
                 $videoMusic = Helpers::getRandLimitArr($video_new_uploads, LIMIT_HOME_VIDEO_NEW);
                 array_map(function ($item) {
-                $url = Helpers::listen_url($item);
+                $url= '/' . $item['music_url'];
                     ?>
                     <div class="col">
                         <div class="card card1 video">
-                            <div class="card-header" style="background-image: url({{Helpers::thumbnail_url($item)}});">
+                            <div class="card-header" style="background-image: url({{$item['cover_html']}});">
                                 <a href="{{$url}}" title="{{$item['music_title']}}">
                                     <span class="icon-play"></span>
                                 </a>
@@ -358,7 +354,7 @@ $catalog = config('constants.catalog');
                             <div class="media-body d-flex flex-column {{$i == 1 ? '' : 'justify-content-between'}}">
                                 <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
                                 <div class="{{$i == 1 ? '' : 'd-flex'}} align-items-center justify-content-between">
-                                    <div class="author"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></div>
+                                    <div class="author"><?php echo $item['music_artist_html'] ?></div>
                                     <small class="counter_view">{{number_format($item['music_listen'])}}</small>
                                 </div>
                             </div>
@@ -379,7 +375,7 @@ $catalog = config('constants.catalog');
                     <li class="media {{($i == 1 ? 'first stand' : ($i == 2 ? 'now up' : ($i == 3 ? 'now down' : 'now')))}} align-items-stretch">
                         <div class="media-left mr-3">
                             <span></span>
-                            <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{Helpers::cover_url($item['cover_id'])}}" alt="{{$item['music_title']}}">
+                            <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{$item['music_url']}}" alt="{{$item['music_title']}}">
                             @if($item['cat_id'] == CAT_BEAT)
                                 <p class="time time-bxh-home text-white mb-0 py-1">Beat</p>
                             @endif
