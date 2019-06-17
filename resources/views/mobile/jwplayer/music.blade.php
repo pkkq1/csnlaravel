@@ -562,7 +562,7 @@ $memberVip = Helpers::checkMemberVip();
             },
             mute: false,
             timeSliderAbove: true,
-            autostart: true,
+            autostart: false,
             // autostart: false,
             controlbar: "bottom",
             plugins: {
