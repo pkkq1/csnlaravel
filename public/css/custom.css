@@ -1032,8 +1032,13 @@ form#login-form {
 }
 .rabbit-lyrics .line {
     margin: auto;
-    line-height: 19px;
-    font-size: 16px;
+    line-height: 19.5px;
+    font-size: 17px;
+}
+#kara_sug_lyrics.rabbit-lyrics .line {
+    margin: auto;
+    line-height: 18.5px;
+    font-size: 17px;
 }
 .kara-csn {
     text-align: left;
