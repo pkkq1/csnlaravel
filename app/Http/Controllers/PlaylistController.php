@@ -264,7 +264,7 @@ class PlaylistController extends Controller
         }
         foreach($playlist->get() as $item) {
             if($item->playlist_cover)
-                Storage::delete('public' . Helpers::file_path($item->playlist_id, MUSIC_PLAYLIST_PATH, true) . $item->playlist_id.'.png');
+                Storage::delete('public' . Helpers::file_path($item->playlist_id, MUSIC_PLAYLIST_PATH, true) . $item->playlist_id.'.jpg');
         }
         $playlist->delete();
         return response()->json([
