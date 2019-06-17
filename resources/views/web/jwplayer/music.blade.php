@@ -1675,7 +1675,7 @@ if($musicSet['type_listen'] == 'playlist') {
                 '[00:55.16]Không thể ngắt lời\n' +
                 '[00:57.11]\n' +
                 '[00:57.42]Càng không thể \n' +
-                '[00:58.40]Để giọt lệ nào được rơi" rows="14" class="modal_kara">' + content + '</textarea><div id="kara_sug_csnplayer"></div>', 'Gợi ý karaoke');
+                '[00:58.40]Để giọt lệ nào được rơi" rows="14" class="modal_kara">' + content + '</textarea><div id="kara_sug_csnplayer"></div>', 'Gợi ý karaoke <i style="font-size: 16px;">(bạn có thể chỉnh sửa nội dung bên dưới và ấn xem trước)</i>');
             $('#myConfirmModal').find('.btn-ok').html('Gửi gợi ý').addClass('btn-karaoke');
             $('#myConfirmModal').find('.modal-footer').prepend('<button class="btn btn-test">Xem trước</button>');
             <?php
@@ -1746,9 +1746,8 @@ if($musicSet['type_listen'] == 'playlist') {
                         }
                     },
                 });
-
-                $('#kara_sug_csnplayer').find('.jw-captions').html('<div id="kara_sug_lyrics" class="rabbit-lyrics">' + $('.modal_kara').val() + '</div>');
                 kara_sug_player.on('beforePlay', function () {
+                    $('#kara_sug_csnplayer').find('.jw-captions').html('<div id="kara_sug_lyrics" class="rabbit-lyrics">' + $('.modal_kara').val() + '</div>');
                     new RabbitLyrics({
                         element: document.getElementById("kara_sug_lyrics"),
                         jw_player: kara_sug_player,
