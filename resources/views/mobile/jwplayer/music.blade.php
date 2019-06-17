@@ -560,6 +560,7 @@ $memberVip = Helpers::checkMemberVip();
             skin: {
                 name: 'nhac'
             },
+            mute: false,
             timeSliderAbove: true,
             autostart: true,
             // autostart: false,
