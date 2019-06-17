@@ -561,8 +561,8 @@ $memberVip = Helpers::checkMemberVip();
                 name: 'nhac'
             },
             timeSliderAbove: true,
-            // autostart: true,
-            autostart: false,
+            autostart: true,
+            // autostart: false,
             controlbar: "bottom",
             plugins: {
                 '<?php echo $musicSet['type_listen'] == 'single' ? '/js/nhac-csn-mobile.js' : '/js/nhac-playlist-mobile.js' ?>': {
