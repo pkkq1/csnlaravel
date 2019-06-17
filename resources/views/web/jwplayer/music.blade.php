@@ -654,15 +654,15 @@ if($musicSet['type_listen'] == 'playlist') {
                     },
                     "myPreroll3": {
                         "offset": 2,
-                        "tag": ["https://tag.gammaplatform.com/adx/request/?wid=1508317885&zid=1508318418&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"]
+                        "tag": ["https://d2.blueseed.tv/vast3?plm=1656&t=<?php echo time(); ?>","https://tag.gammaplatform.com/adx/request/?wid=1508317885&zid=1508318418&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"]
                     },
                     "myMidroll": {
                         "offset": 3,
-                        "tag": "https://tag.gammaplatform.com/adx/request/?wid=1508317885&zid=1508318800&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"
+                        "tag": ["https://d2.blueseed.tv/vast3?plm=2201&t=<?php echo time(); ?>","https://tag.gammaplatform.com/adx/request/?wid=1508317885&zid=1508318800&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"]
                     },
                     "myMidroll2": {
                         "offset": 4,
-                        "tag": "https://tag.gammaplatform.com/adx/request/?wid=1508317885&zid=1508318800&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"
+                        "tag": ["https://d2.blueseed.tv/vast3?plm=2202&t=<?php echo time(); ?>","https://tag.gammaplatform.com/adx/request/?wid=1508317885&zid=1508318800&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"]
                     }
                 }
             },
