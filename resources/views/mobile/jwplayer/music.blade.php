@@ -591,6 +591,8 @@ $memberVip = Helpers::checkMemberVip();
                 }
             }
         });
+        jwplayer('csnplayerads').play(false);
+        jwplayer('csnplayer').play(true);
 
         var video_preroll_played = false;
         window.addEventListener('load', function () {
