@@ -697,7 +697,7 @@ if($musicSet['type_listen'] == 'playlist') {
                 name: 'nhac'
             },
             timeSliderAbove: true,
-            autostart: "viewable",
+            autostart: true,
             controlbar: "bottom",
             plugins: {
                 '<?php echo $musicSet['type_listen'] == 'single' ? '/js/nhac-csn.js' : '/js/nhac-playlist.js' ?>': {
@@ -741,6 +741,16 @@ if($musicSet['type_listen'] == 'playlist') {
                 }
             }, false)
         }, false);
+
+        player.onReady(function() {
+            console.log('ready');
+            player.play(true);
+            player.onPlay(function() {
+                console.log('playing');
+                player.setControls(false);
+                player.play(true);
+            });
+        });
 
         var error_count =0;
         player.on('error', function(message) {
