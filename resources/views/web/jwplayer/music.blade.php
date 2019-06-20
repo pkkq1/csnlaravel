@@ -725,6 +725,23 @@ if($musicSet['type_listen'] == 'playlist') {
                 }
             },
         });
+
+        jwplayer('csnplayerads').play(false);
+        jwplayer('csnplayer').play(true);
+        jwplayer().play(true);
+
+        var video_preroll_played = false;
+        window.addEventListener('load', function () {
+            document.body.addEventListener('touchstart', function (ae) {
+                if (video_preroll_played == false) {
+                    video_preroll_played = true;
+                    jwplayer('csnplayerads').play(false);
+                    jwplayer('csnplayer').play(true);
+                    jwplayer().play(true);
+                }
+            }, false)
+        }, false);
+
         var error_count =0;
         player.on('error', function(message) {
             if (error_count < jwplayer().getQualityLevels().length - 1) {
