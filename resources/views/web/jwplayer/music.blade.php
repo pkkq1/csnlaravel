@@ -697,7 +697,7 @@ if($musicSet['type_listen'] == 'playlist') {
                 name: 'nhac'
             },
             timeSliderAbove: true,
-            autostart: true,
+            autostart: "viewable",
             controlbar: "bottom",
             plugins: {
                 '<?php echo $musicSet['type_listen'] == 'single' ? '/js/nhac-csn.js' : '/js/nhac-playlist.js' ?>': {
