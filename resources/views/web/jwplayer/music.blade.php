@@ -742,16 +742,6 @@ if($musicSet['type_listen'] == 'playlist') {
             }, false)
         }, false);
 
-        player.onReady(function() {
-            console.log('ready');
-            player.play(true);
-            player.onPlay(function() {
-                console.log('playing');
-                player.setControls(false);
-                player.play(true);
-            });
-        });
-
         var error_count =0;
         player.on('error', function(message) {
             if (error_count < jwplayer().getQualityLevels().length - 1) {
