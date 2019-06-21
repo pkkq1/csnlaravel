@@ -123,7 +123,7 @@ class UserController extends Controller
     {
         $tokenVerify = MailTokenModel::where('token', $token)->first();
         if(!$tokenVerify)
-            return view('errors.text_error')->with('message', 'Mã xác nhận email của bạn không tồn tại.');
+            return view('errors.text_error')->with('message', 'Mã xác nhận email của bạn không tồn tại. Có thể do tài khoản của bạn đã được kích hoạt thành công rồi.');
         $user = UserModel::where('email', $tokenVerify->email)->where('user_active', DEACTIVE_USER)->first();
         if(!$user)
             return view('errors.text_error')->with('message', 'Lỗi xác thực email, kiểm tra tình trạng tài khoản của bạn.');
