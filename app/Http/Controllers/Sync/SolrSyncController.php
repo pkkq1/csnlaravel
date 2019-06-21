@@ -40,14 +40,17 @@ class SolrSyncController extends Controller
 
     public function syncMusic($id = null, $musicItem = null, $time = null, $field = 'music_last_update_time', $offset = 0, $limit = 0)
     {
+        $searchMusic = [];
         if ($id) {
-            $searchMusic = MusicModel::select('music_id', 'music_composer', 'music_title', 'music_artist', 'music_downloads_this_week', 'music_search_result',
-                'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_downloads_this_week', 'music_lyric', 'music_title_url', 'music_download_time')
-                ->where('cat_id', '!=', CAT_VIDEO)
-                ->where('music_deleted', '<', 1)
-                ->orderBy('music_id', 'asc')
-                ->where('music_id', $id)
-                ->get();
+            if ($id < 1387001 or $id > 1419000) {
+                $searchMusic = MusicModel::select('music_id', 'music_composer', 'music_title', 'music_artist', 'music_downloads_this_week', 'music_search_result',
+                    'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_downloads_this_week', 'music_lyric', 'music_title_url', 'music_download_time')
+                    ->where('cat_id', '!=', CAT_VIDEO)
+                    ->where('music_deleted', '<', 1)
+                    ->orderBy('music_id', 'asc')
+                    ->where('music_id', $id)
+                    ->get();
+            }
         } elseif ($musicItem) {
             if (isset($musicItem[0])) {
                 $searchMusic = $musicItem;
@@ -267,14 +270,17 @@ class SolrSyncController extends Controller
     public
     function syncVideo($id = null, $videoItem = null, $time = null, $field = 'music_last_update_time', $offset = 0, $limit = 0)
     {
+        $searchVideo = [];
         if ($id) {
-            $searchVideo = VideoModel::select('music_id', 'music_title_search', 'music_artist_search', 'music_composer', 'music_album_search', 'music_title', 'music_artist', 'music_downloads_this_week', 'music_search_result',
-                'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_title_url', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_width', 'music_height', 'music_last_update_time', 'music_length', 'music_time', 'music_download_time')
-                ->where('cat_id', '=', CAT_VIDEO)
-                ->where('music_deleted', '<', 1)
-                ->where('music_id', $id)
-                ->orderBy('music_id', 'asc')
-                ->get();
+            if ($id < 1387001 or $id > 1419000) {
+                $searchVideo = VideoModel::select('music_id', 'music_title_search', 'music_artist_search', 'music_composer', 'music_album_search', 'music_title', 'music_artist', 'music_downloads_this_week', 'music_search_result',
+                    'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_title_url', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_width', 'music_height', 'music_last_update_time', 'music_length', 'music_time', 'music_download_time')
+                    ->where('cat_id', '=', CAT_VIDEO)
+                    ->where('music_deleted', '<', 1)
+                    ->where('music_id', $id)
+                    ->orderBy('music_id', 'asc')
+                    ->get();
+            }
         } elseif ($videoItem) {
             if (isset($videoItem[0])) {
                 $searchVideo = $videoItem;
