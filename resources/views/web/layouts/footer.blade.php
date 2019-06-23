@@ -774,7 +774,7 @@
         document.write('</div></div></a>');
 
         document.write('<a target="_blank" href="https://clicktrackingv2.userreport.com/?BLV24cc65fe;https://sunhee.vn/?utm_source=BSD_Adnetwork&utm_medium=Chiasenhac&utm_campaign=Launch"><div id="asb_left" style="position: fixed; top: '+ (b_top + 350) + 'px; left: 0px; width: 100%; height: 500px; overflow: hidden; visibility: hidden;"><div style="position: absolute; visibility: visible; left: 50%; margin-left: -720px; margin-right: 0px; z-index:1;">');
-        document.write('<iframe src="http://data.chiasenhac.com/banner/sunhee/left/left.html" frameborder="0" scrolling="no" width="122" height="500" /></iframe>');
+        document.write('<iframe src="https://data.chiasenhac.com/banner/sunhee/left/left.html" frameborder="0" scrolling="no" width="122" height="500" /></iframe>');
         document.write('</div></div></a>');
 
         document.write('<a target="_blank" href="https://clicktrackingv2.userreport.com/?BLV6a500067;https://sunhee.vn/?utm_source=BSD_Adnetwork&utm_medium=Chiasenhac&utm_campaign=Launch"><div id="bgsb_right" style="position: fixed; top: '+ b_top +'px; right: 0px; width: 100%; height: 1080px; overflow: hidden; visibility: hidden;"><div style="position: absolute; visibility: visible; left: 50%; margin-left: 585px; margin-right: 0px; z-index:-2;">');
@@ -783,7 +783,7 @@
         document.write('</div></a></div>');
 
         document.write('<a target="_blank" href="https://clicktrackingv2.userreport.com/?BLV6a500067;https://sunhee.vn/?utm_source=BSD_Adnetwork&utm_medium=Chiasenhac&utm_campaign=Launch"><div id="asb_right" style="position: fixed; top: '+ (b_top + 350) + 'px; left: 0px; width: 100%; height: 500px; overflow: hidden; visibility: hidden;"><div style="position: absolute; visibility: visible; left: 50%; margin-left: 590px; margin-right: 0px; z-index:1;">');
-        document.write('<iframe src="http://data.chiasenhac.com/banner/sunhee/right/right.html" frameBorder="0" scrolling="no" height="500" width="130"></iframe>');
+        document.write('<iframe src="https://data.chiasenhac.com/banner/sunhee/right/right.html" frameBorder="0" scrolling="no" height="500" width="130"></iframe>');
         document.write('</div></div></a>');
     }
 </script>
