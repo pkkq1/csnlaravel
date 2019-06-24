@@ -346,15 +346,15 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
 //        }
         $searchSolarium = [];
         $searchSolarium['-id'] = $type.'_'.$music->music_id. ' AND '.$type.'_id :['.ID_OLD_MUSIC.' TO *]';
-        $searchSolarium[$type.'_download'] = '[' . MIN_DOWNLOAD_SUG_TITLE_SAME . ' TO *]';
+        $searchSolarium[$type.'_downloads'] = '[' . MIN_DOWNLOAD_SUG_TITLE_SAME . ' TO *]';
         if($music->music_composer) {
             $searchSolarium[$type.'_composer'] = '("' . implode('" OR "', explode(';', $music->music_composer)).'")';
         }
 //        $searchSolarium['-music_cover_id'] = 0;
-        $titleDup= $this->Solr->search($searchSolarium, 1, 2, array('score' => 'desc', $type.'_bitrate_' => 'desc', $type.'_downloads_today' => 'desc', $type.'_downloads_this_week' => 'desc', $type.'_downloads' => 'desc'));
+        $titleDup= $this->Solr->search($searchSolarium, 1, 2, array('score' => 'desc', $type.'_bitrate' => 'desc', $type.'_downloads_today' => 'desc', $type.'_downloads_this_week' => 'desc', $type.'_downloads' => 'desc'));
         if($music->music_composer && !$titleDup['data']) {
             unset($searchSolarium[$type.'_composer']);
-            $titleDup = $this->Solr->search($searchSolarium, 1, 2, array('score' => 'desc', $type.'_bitrate_' => 'desc', $type.'_downloads_today' => 'desc', $type.'_downloads_this_week' => 'desc', $type.'_downloads' => 'desc'));
+            $titleDup = $this->Solr->search($searchSolarium, 1, 2, array('score' => 'desc', $type.'_bitrate' => 'desc', $type.'_downloads_today' => 'desc', $type.'_downloads_this_week' => 'desc', $type.'_downloads' => 'desc'));
         }
         $titleDup = $titleDup['data'];
 
