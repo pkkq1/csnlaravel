@@ -737,7 +737,7 @@
 </footer>
 <script src="{{URL::to('/')}}/js/lobiboxcsn.min.js"></script>
 
-@if( isset($allpage_banner) && $allpage_banner == true )
+@if( $sb_banner == false ) /*isset($allpage_banner) && $allpage_banner == true )*/
 <script type="text/javascript">
     var screenW = 640, screenH = 480;
     if (parseInt(navigator.appVersion)>3) {
@@ -752,42 +752,38 @@
         screenH = jScreenSize.height;
     }
 
-    if ( screenW > 1024 )
+    screenW = window.innerWidth;
+    screenH = window.innerHeight;
+
+    var b_top = 0;
+    if ( screenW > 1280 )
     {
-        var default_width = 150;
-        var default_height = 700;
-        var b_width = (screenW - 1024) / 2;
-        var b_height = screenH - 60;
-
-        if (b_width / default_width > b_height / default_height)
+        if ( screenH < 850 )
         {
-            b_width = b_height * (default_width / default_height);
-        }
-        else
-        {
-            b_height = b_width * (default_height / default_width);
+            if ( screenH > 500 ) {
+                b_top = screenH - 800 - 50;
+            } else
+            {
+                b_top = 500 - 800 - 50;
+            }
         }
 
-        var b_width = 150;
-        var b_height = 1000;
-        var b_marginleft = -(500 + b_width);//-(492 + b_width);
-
-        document.write('<a target="_blank" href="https://clicktrackingv2.userreport.com/?BLV224c750d;https://yame.vn/shop/ao-thun?s=2&utm_source=background_CSN&utm_medium=CPD"><div id="bgsb_left" style="position: fixed; top: 150px; left: 0pt; width: 100%; height: ' + b_height + 'px; overflow: hidden; visibility: hidden;"><div style="position: absolute; visibility: visible; left: 50%; margin-left: -960px; margin-right: 0pt; z-index:-2;">');
-        document.write('<div style="width: 460px; height: 1000px; position: relative; background-color: #e8ce79; background-repeat: no-repeat; background-position: center;"/> </div>');
-        document.write('<img src="https://visitanalytics.userreport.com/hit.gif?t=BLV224c750d">');
+        document.write('<a target="_blank" href="https://clicktrackingv2.userreport.com/?BLV24cc65fe;https://sunhee.vn/?utm_source=BSD_Adnetwork&utm_medium=Chiasenhac&utm_campaign=Launch"><div id="bgsb_left" style="position: fixed; top: '+ b_top + 'px; left: 0px; width: 100%; height: 1080px; overflow: hidden; visibility: hidden;"><div style="position: absolute; visibility: visible; left: 50%; margin-left: -1075px; margin-right: 0px; z-index:-2;">');
+        document.write('<div style="width: 490px; height: 1080px; position: relative; background-color: #94d5fd; background-repeat: no-repeat; background-position: center;"/> <img src="https://data.chiasenhac.com/banner/sunhee/bg_left.jpg" border="0" width="490" height="1080" /> </div>');
+        document.write('<img src="https://visitanalytics.userreport.com/hit.gif?t=BLV24cc65fe&t=<?php echo time(); ?>">');
         document.write('</div></div></a>');
 
-        document.write('<a target="_blank" href="https://clicktrackingv2.userreport.com/?BLV224c750d;https://yame.vn/shop/ao-thun?s=2&utm_source=background_CSN&utm_medium=CPD"><div id="asb_left" style="position: fixed; top: 150px; left: 0pt; width: 100%; height: ' + b_height + 'px; overflow: hidden; visibility: hidden;"><div style="position: absolute; visibility: visible; left: 50%; margin-left: ' + b_marginleft + 'px; margin-right: 0pt; z-index:-1;">');
-        document.write('<img src="https://data.chiasenhac.com/banner/yame2/Left_2.png" border="0" width="150" height="700" />');
+        document.write('<a target="_blank" href="https://clicktrackingv2.userreport.com/?BLV24cc65fe;https://sunhee.vn/?utm_source=BSD_Adnetwork&utm_medium=Chiasenhac&utm_campaign=Launch"><div id="asb_left" style="position: fixed; top: '+ (b_top + 350) + 'px; left: 0px; width: 100%; height: 500px; overflow: hidden; visibility: hidden;"><div style="position: absolute; visibility: visible; left: 50%; margin-left: -720px; margin-right: 0px; z-index:1;">');
+        document.write('<iframe src="https://data.chiasenhac.com/banner/sunhee/left/left.html" frameborder="0" scrolling="no" width="122" height="500" /></iframe>');
         document.write('</div></div></a>');
 
-        document.write('<a target="_blank" href="https://clicktrackingv2.userreport.com/?BLV9eacb70;https://yame.vn/shop/ao-thun?s=2&utm_source=background_CSN&utm_medium=CPD"><div id="bgsb_right" style="position: fixed; top: 150px; right: 0pt; width: 100%; height: ' + b_height + 'px; overflow: hidden; visibility: hidden;"><div style="position: absolute; visibility: visible; left: 50%; margin-left: 500px; margin-right: 0pt; z-index:-2;">');
-        document.write('<div style="width: 460px; height: 1000px; position: relative; background-color: #e8ce79; background-repeat: no-repeat; background-position: center;"/> </div>');
-        document.write('<img src="https://visitanalytics.userreport.com/hit.gif?t=BLV9eacb70a">');
+        document.write('<a target="_blank" href="https://clicktrackingv2.userreport.com/?BLV6a500067;https://sunhee.vn/?utm_source=BSD_Adnetwork&utm_medium=Chiasenhac&utm_campaign=Launch"><div id="bgsb_right" style="position: fixed; top: '+ b_top +'px; right: 0px; width: 100%; height: 1080px; overflow: hidden; visibility: hidden;"><div style="position: absolute; visibility: visible; left: 50%; margin-left: 585px; margin-right: 0px; z-index:-2;">');
+        document.write('<div style="width: 490px; height: 1080px; position: relative; background-color: #94d5fd; background-repeat: no-repeat; background-position: center;"/> <img src="https://data.chiasenhac.com/banner/sunhee/bg_right.jpg" border="0" width="490" height="1080" /> </div>');
+        document.write('<img src="https://visitanalytics.userreport.com/hit.gif?t=BLV6a500067&t=<?php echo time(); ?>">');
         document.write('</div></a></div>');
 
-        document.write('<a target="_blank" href="https://clicktrackingv2.userreport.com/?BLV9eacb70;https://yame.vn/shop/ao-thun?s=2&utm_source=background_CSN&utm_medium=CPD"><div id="asb_right" style="position: fixed; top: 150px; right: 0px; width: 100%; height: ' + b_height + 'px; overflow: hidden; visibility: hidden;"><div style="position: absolute; visibility: visible; left: 50%; margin-left: 500px; margin-right: 0pt; z-index:-1;">');
-        document.write('<img src="https://data.chiasenhac.com/banner/yame2/Right_2.png" border="0" width="150" height="700" />');
+        document.write('<a target="_blank" href="https://clicktrackingv2.userreport.com/?BLV6a500067;https://sunhee.vn/?utm_source=BSD_Adnetwork&utm_medium=Chiasenhac&utm_campaign=Launch"><div id="asb_right" style="position: fixed; top: '+ (b_top + 350) + 'px; left: 0px; width: 100%; height: 500px; overflow: hidden; visibility: hidden;"><div style="position: absolute; visibility: visible; left: 50%; margin-left: 590px; margin-right: 0px; z-index:1;">');
+        document.write('<iframe src="https://data.chiasenhac.com/banner/sunhee/right/right.html" frameBorder="0" scrolling="no" height="500" width="130"></iframe>');
         document.write('</div></div></a>');
     }
 </script>
@@ -809,19 +805,19 @@
     })(jQuery);
 
     $( window ).scroll(function() {
-        if ( $(window).scrollTop() > 150 )
+        if ( $(window).scrollTop() > b_top )
         {
-            $("#bgsb_left").css({ top: "0px" });
-            $("#bgsb_right").css({ top: "0px" });
-            $("#asb_left").css({ top: "0px" });
-            $("#asb_right").css({ top: "0px" });
+            $("#bgsb_left").css({ top: b_top + "px" });
+            $("#bgsb_right").css({ top: b_top + "px" });
+            //$("#asb_left").css({ top: "0px" });
+            //$("#asb_right").css({ top: "0px" });
         }
         else
         {
-            $("#bgsb_left").css({ top: (150 - $(window).scrollTop()) + "px" });
-            $("#bgsb_right").css({ top: (150 - $(window).scrollTop()) + "px" });
-            $("#asb_left").css({ top: (150 - $(window).scrollTop()) + "px" });
-            $("#asb_right").css({ top: (150 - $(window).scrollTop()) + "px" });
+            $("#bgsb_left").css({ top: (0 - $(window).scrollTop()) + "px" });
+            $("#bgsb_right").css({ top: (0 - $(window).scrollTop()) + "px" });
+            //$("#asb_left").css({ top: (0 - $(window).scrollTop()) + "px" });
+            //$("#asb_right").css({ top: (0 - $(window).scrollTop()) + "px" });
         }
     });
 </script>

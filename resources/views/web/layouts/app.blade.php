@@ -1,7 +1,10 @@
 <?php
 use App\Library\Helpers;
 global $allpage_banner;
+global $sb_banner;
 global $memberVip;
+
+$sb_banner = false;
 if($memberVip == null)
     $memberVip = Helpers::checkMemberVip();
 ?>
@@ -35,7 +38,7 @@ if($memberVip == null)
 @else
         @if(!$memberVip)
             @hasSection('in_player')
-                @hasSection('in_player_lava')
+                @if ( rand(1,2) == 1 )
                     <div class="ads_box" id="pc_masthead">
                         <div class="container text-center">
                             <div id="bsmasthead-wrapper">
@@ -45,16 +48,17 @@ if($memberVip == null)
                             </div>
                         </div>
                     </div>
-                @endif
-
-                <div class="ads_box" id="pc_masthead_bg">
-                    <div class="container text-center">
-                        <div id="bsmasthead-wrapper">
-                            <!-- Ad Tag-980x250 for Publisher chiasenhac - LAVA DIGITAL-->
-                            <script src='https://pub.lavanetwork.net/sites/chiasenhac/chiasenhac_masthead.js'></script>
+                @else
+                    <div class="ads_box" id="pc_masthead_bg">
+                        <div class="container text-center">
+                            <div id="bsmasthead-wrapper">
+                                <!-- Ad Tag-980x250 for Publisher chiasenhac - LAVA DIGITAL-->
+                                <script src='https://pub.lavanetwork.net/sites/chiasenhac/chiasenhac_masthead.js'></script>
+                            </div>
                         </div>
                     </div>
-                </div>
+                    <?php $sb_banner = true; ?>
+                @endif
             @else
                 <div class="ads_box" id="pc_masthead">
                     <div class="container text-center">

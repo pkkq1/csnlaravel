@@ -1,3 +1,4 @@
+@section('in_search', true)
 <?php
 use App\Library\Helpers;
 $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
