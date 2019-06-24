@@ -284,10 +284,10 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
             $searchSolarium['music_artist'] = '('.implode(' OR ', $artistNameRel).')';
             $searchSolariumVideo['video_artist'] = $searchSolarium['music_artist'];
         }
-        $MusicSameArtist= $this->Solr->search($searchSolarium, 1, 5, array('score' => 'desc', 'music_downloads_today' => 'desc', 'music_downloads_this_week' => 'desc', 'music_download' => 'desc'));
+        $MusicSameArtist= $this->Solr->search($searchSolarium, 1, 5, array('score' => 'desc', 'music_downloads_today' => 'desc', 'music_downloads_this_week' => 'desc', 'music_downloads' => 'desc'));
         $MusicSameArtist = $MusicSameArtist['data'];
         $searchSolariumVideo['-id'] = 'video_'.$music->music_id. ' AND video_id :['.ID_OLD_MUSIC.' TO *]';
-        $VideoSameArtist= $this->Solr->search($searchSolariumVideo, 1, 5, array('score' => 'desc', 'video_downloads_today' => 'desc', 'video_downloads_this_week' => 'desc', 'video_download' => 'desc'));
+        $VideoSameArtist= $this->Solr->search($searchSolariumVideo, 1, 5, array('score' => 'desc', 'video_downloads_today' => 'desc', 'video_downloads_this_week' => 'desc', 'video_downloads' => 'desc'));
         $VideoSameArtist = $VideoSameArtist['data'];
 //        // video cùng ca sĩ
 //        $VideoSameArtist = \App\Models\VideoSuggestModel::where(function($q) use ($artistIds) {
