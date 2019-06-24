@@ -24,6 +24,7 @@ Route::group([
     CRUD::resource('karaoke', 'SugKaraokeController');
     CRUD::resource('list_music_lyric_karaoke', 'LyricKaraokeMusicController');
     CRUD::resource('list_video_lyric_karaoke', 'LyricKaraokeVideoController');
+    CRUD::resource('upload', 'UploadController');
 
     CRUD::resource('comment', 'CommentController');
     CRUD::resource('comment_replay', 'CommentReplayController');
