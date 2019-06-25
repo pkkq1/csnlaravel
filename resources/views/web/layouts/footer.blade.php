@@ -16,7 +16,6 @@
                         view_all: true
                     },
                     success: function( data ) {
-                        alert('Hệ thống tìm kiếm đang được bảo trì');
                         dataSearch = response( data );
                     }
                 } );
