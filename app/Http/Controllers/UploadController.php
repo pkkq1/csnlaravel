@@ -445,7 +445,8 @@ class UploadController extends Controller
                         $this->musicRepository->deleteSafe($result);
                         $Solr->syncDeleteMusic(null, $result);
                     }
-                    $user->decrement('user_music', 1);
+                    $this->userExpRepository->getModel()::where('user_id', $result->user_id)->decrement('user_music', 1);
+//                    $user->decrement('user_music', 1);
                     // áp dụng không thay đổi cover
                     if($result->cover_id && $oldCoverId == $request->input('cover_id') && $oldAlbum) {
                         $oldAlbum = $this->coverRepository->findCover($result->cover_id);
