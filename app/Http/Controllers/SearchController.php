@@ -8,10 +8,8 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request as Request;
 use Illuminate\Support\Facades\Auth;
-use App\Repositories\Music\MusicEloquentRepository;
 use App\Library\Helpers;
 use App\Solr\Solarium;
-use App\Repositories\Category\CategoryEloquentRepository;
 
 class SearchController extends Controller
 {

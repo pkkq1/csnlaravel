@@ -142,8 +142,8 @@ Route::group(['middlewareGroups' => ['web']], function () {
     Route::post('music/favourite', ['as' => 'user.uploaded', 'uses' => 'MusicController@musicFavourite']);
 
     // Search
-    Route::get('tim-kiem', ['as' => 'search.index', 'uses' => 'SearchController@index']);
-    Route::get('/search/real', 'SearchController@ajaxSearch');
+//    Route::get('tim-kiem', ['as' => 'search.index', 'uses' => 'SearchController@index']);
+//    Route::get('/search/real', 'SearchController@ajaxSearch');
     // count download
     Route::post('/count/download', ['as' => 'music.count_download', 'uses' => 'MusicController@countDownload']);
 
