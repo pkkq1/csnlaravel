@@ -21,6 +21,7 @@ class SearchController extends Controller
         $this->Solr = $Solr;
     }
     public function index(Request $request) {
+        $request->q = mb_substr($request->q,0,50, "utf-8");
         if(!$request->q)
             return redirect()->route('home');
         $search = mb_strtolower($request->q, 'UTF-8');
@@ -38,6 +39,7 @@ class SearchController extends Controller
         return view('search.index', compact('result', 'titleSearch', 'search', 'result'));
     }
     public function ajaxSearch(Request $request, $quickSearch = true) {
+        $request->q = mb_substr($request->q,0,50, "utf-8");
         $search = Helpers::strReplaceSolr(htmlspecialchars($request->q, ENT_QUOTES), true);
 //        $search = trim(mb_strtolower($request->q, 'UTF-8'));
         $searchExp = explode(' ', $search);
