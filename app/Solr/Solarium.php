@@ -26,6 +26,7 @@ class Solarium
     }
     public function search($search = array(), $page = 1, $perPage = 10, $sort = array(), $select = array())
     {
+        dd('hệ thống đang bảo trì');
         $query = $this->client->createSelect();
         try{
             $temp = '';
