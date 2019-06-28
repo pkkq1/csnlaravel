@@ -513,11 +513,15 @@ $memberVip = Helpers::checkMemberVip();
                 "adschedule": {
                     "myPreroll": {
                         "offset": "pre",
-                        "tag": ["https://d5.blueseed.tv/vast3?plm=1362&t=<?php echo time(); ?>", "https://tag.gammaplatform.com/adx/request/?wid=1508317956&zid=1508321486&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"]
+                        "tag": ["https://d5.blueseed.tv/vast3?plm=1362&t=<?php echo time(); ?>", "https://delivery.yomedia.vn/vast?pid=cb3dd57d621d48669c11be66df3ec2f6&vast=3&ec=0&ref=[yo_page_url]&w=[player_width]&h=[player_height]&aaid=[yo_device_aaid]&idfa=[yo_device_idfa]", "https://tag.gammaplatform.com/adx/request/?wid=1508317956&zid=1508321486&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"]
                     },
                     "myPreroll2": {
                         "offset": 1,
-                        "tag": ["https://d2.blueseed.tv/vast3?plm=1644&t=<?php echo time(); ?>", "https://tag.gammaplatform.com/adx/request/?wid=1508317956&zid=1508321486&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"]
+                        "tag": ["https://d2.blueseed.tv/vast3?plm=1644&t=<?php echo time(); ?>", "https://delivery.yomedia.vn/vast?pid=cb3dd57d621d48669c11be66df3ec2f6&vast=3&ec=0&ref=[yo_page_url]&w=[player_width]&h=[player_height]&aaid=[yo_device_aaid]&idfa=[yo_device_idfa]", "https://tag.gammaplatform.com/adx/request/?wid=1508317956&zid=1508321486&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"]
+                    },
+                    "myPreroll3": {
+                        "offset": 2,
+                        "tag": ["https://d2.blueseed.tv/vast3?plm=1644&t=<?php echo time(); ?>", "https://delivery.yomedia.vn/vast?pid=cb3dd57d621d48669c11be66df3ec2f6&vast=3&ec=0&ref=[yo_page_url]&w=[player_width]&h=[player_height]&aaid=[yo_device_aaid]&idfa=[yo_device_idfa]", "https://tag.gammaplatform.com/adx/request/?wid=1508317956&zid=1508321486&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"]
                     }
                 }
             },
