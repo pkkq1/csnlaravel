@@ -65,7 +65,7 @@ if($category->cat_id == 3 || $category->cat_id == 4 || $category->cat_id == 6 ||
                         </ul>
                     </nav>
                     <div class="content-wrap tab-content-category">
-                        <section id="video-{{CURRENT_YEAR}}" class="content-current"><?php echo $firstTab ?></section>
+                        <section id="video-{{CURRENT_YEAR}}" class="content-current"><?php echo $firstTab; ?></section>
                         <section id="video-moi"></section>
                         <section id="video-vua-download"></section>
                     </div>
@@ -268,6 +268,7 @@ if($category->cat_id == 3 || $category->cat_id == 4 || $category->cat_id == 6 ||
         categoryTab($(this).attr('href'), 'video-<?php echo CURRENT_YEAR ?>', true);
     });
     var urlFloat = '';
+    var reloadFloat = false;
     // jQuery
     window.addEventListener('popstate', function(e) {
         // var state = e.originalEvent.state;
@@ -280,16 +281,24 @@ if($category->cat_id == 3 || $category->cat_id == 4 || $category->cat_id == 6 ||
 
 
     function categoryTab(url, tab, floatTab = false, pushHistory = true) {
-        if(!urlFloat) {
-            var page = parseFloat(url.substr(url.indexOf("?page=") + 6));
+        if(reloadFloat) {
+            reloadFloat = false;
+            var page = parseFloat(window.location.search.substr(window.location.search.indexOf("&page=") + 6));
             page = isNaN(page) ? 1 : page;
-            window.history.pushState({}, '', window.location.pathname + '?tab=' + tab + (page != 1 ? '&page=' + page : ''));
+            url = url + '?page=' + page;
+        }else{
+            if(!urlFloat) {
+                var page = parseFloat(url.substr(url.indexOf("?page=") + 6));
+                page = isNaN(page) ? 1 : page;
+                window.history.pushState({}, '', window.location.pathname + '?tab=' + tab + (page != 1 ? '&page=' + page : ''));
+            }
         }
         if(urlFloat) {
             floatTab = true;
             url = urlFloat;
             urlFloat = '';
         }
+        console.log(url);
         if(($('#'+tab).html()).length == 0 || floatTab) {
             $.ajax({
                 url: window.location.origin + url,
@@ -320,6 +329,7 @@ if($category->cat_id == 3 || $category->cat_id == 4 || $category->cat_id == 6 ||
         if(isset($_GET['tab'])) {
             ?>
             $( document ).ready(function() {
+                reloadFloat = true;
                 $('.<?php echo $_GET['tab'] ?>').parent().click();
                 $('.<?php echo $_GET['tab'] ?>').click();
             });
