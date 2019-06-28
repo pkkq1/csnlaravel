@@ -30,6 +30,10 @@ class CategoryController extends Controller
     }
     public function index1(Request $request, $sub) {
         $category = $this->categoryRepository->getCategoryParentByUrl($sub);
+        $_GET['page'] = 1;
+        if(isset($request->tab) && ($request->tab == 'album-'.CURRENT_YEAR || $request->tab == 'video-'.CURRENT_YEAR)) {
+            $_GET['page'] = $request->page;
+        }
         if(!$category)
             return redirect()->guest('/');
         if($category->cat_id != CATEGORY_ID_VIDEO) {

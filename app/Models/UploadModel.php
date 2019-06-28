@@ -8,9 +8,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Backpack\CRUD\CrudTrait;
 
 class UploadModel extends Model
 {
+    use CrudTrait;
     public $timestamps = false;
     protected $table = 'csn_upload';
     protected $primaryKey = 'music_id';

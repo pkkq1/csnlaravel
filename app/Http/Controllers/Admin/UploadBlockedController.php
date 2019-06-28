@@ -19,8 +19,10 @@ use Illuminate\Support\Facades\Auth;
 use App\Repositories\DeleteMusic\DeleteMusicEloquentRepository;
 use App\Repositories\Music\MusicEloquentRepository;
 use App\Models\MusicModel;
+use App\Models\UploadModel;
+use App\Models\UploadExceptionModel;
 
-class MusicController extends CrudController
+class UploadBlockedController extends CrudController
 {
     protected $deleteMusicRepository;
     protected $musicRepository;
@@ -44,11 +46,12 @@ class MusicController extends CrudController
 
     public function setup()
     {
-        $this->crud->setModel("App\Models\MusicModel");
-        $this->crud->setEntityNameStrings('Nhạc CSN', 'Nhạc CSN');
-        $this->crud->setRoute(config('backpack.base.route_prefix').'/music');
+        $this->crud->setModel("App\Models\UploadExceptionModel");
+        $this->crud->setEntityNameStrings('Upload CSN', 'Upload Blocked CSN');
+        $this->crud->setRoute(config('backpack.base.route_prefix').'/upload_blocked');
 //        $this->crud->setEntityNameStrings('menu item', 'menu items');
         $this->crud->orderBy('music_last_update_time', 'desc');
+        $this->crud->denyAccess(['create', 'edit']);
 //        $this->crud->enableBulkActions();
 //        $this->crud->addBulkDeleteButton();
 
@@ -71,7 +74,7 @@ class MusicController extends CrudController
             'label' => 'Ảnh cover',
             'type' => 'closure',
             'function' => function($entry) {
-                return '<a target="_blank" href="'.Helpers::listen_url($entry->toArray()).'" ><img style="
+                return '<a target="_blank" href="/dang-tai/'.($entry->cat_id == 2 ? 'video' : 'nhac').'/'.$entry->music_id.'" ><img style="
                                   max-height: 25px;
                                   width: auto;
                                   border-radius: 3px;" src="'.Helpers::cover_url($entry->cover_id).'"/></a>';
@@ -169,28 +172,13 @@ class MusicController extends CrudController
             'name'  => 'cat_custom',
             'type'  => 'hidden',
         ]);
+        $this->crud->enableAjaxTable();
+        $this->crud->setEditView('crud::edit_upload');
     }
 
     public function store(StoreRequest $request)
     {
         return parent::storeCrud($request);
-    }
-    public function edit($id, $template = false)
-    {
-        $this->crud->hasAccessOrFail('update');
-
-        // get entry ID from Request (makes sure its the last ID for nested resources)
-        $id = $this->crud->getCurrentEntryId() ?? $id;
-
-        // get the info for that entry
-        $this->data['entry'] = $this->crud->getEntry($id);
-        $this->data['crud'] = $this->crud;
-        $this->data['saveAction'] = $this->getSaveAction();
-        $this->data['fields'] = $this->crud->getUpdateFields($id);
-        $this->data['title'] = trans('backpack::crud.edit').' '.$this->crud->entity_name;
-        $this->data['id'] = $id;
-
-        return view('vendor.backpack.music.edit', $this->data);
     }
     public function update(UpdateRequest $request)
     {

@@ -25,6 +25,9 @@ Route::group([
     CRUD::resource('list_music_lyric_karaoke', 'LyricKaraokeMusicController');
     CRUD::resource('list_video_lyric_karaoke', 'LyricKaraokeVideoController');
     CRUD::resource('upload', 'UploadController');
+    Route::get('upload/set_exp/{id}', 'UploadController@setExp');
+    CRUD::resource('upload_blocked', 'UploadBlockedController');
+
 
     CRUD::resource('comment', 'CommentController');
     CRUD::resource('comment_replay', 'CommentReplayController');
