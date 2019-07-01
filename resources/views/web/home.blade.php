@@ -375,7 +375,7 @@ $catalog = config('constants.catalog');
                     <li class="media {{($i == 1 ? 'first stand' : ($i == 2 ? 'now up' : ($i == 3 ? 'now down' : 'now')))}} align-items-stretch">
                         <div class="media-left mr-3">
                             <span></span>
-                            <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{$item['music_url']}}" alt="{{$item['music_title']}}">
+                            <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{$item['cover_html']}}" alt="{{$item['music_title']}}">
                             @if($item['cat_id'] == CAT_BEAT)
                                 <p class="time time-bxh-home text-white mb-0 py-1">Beat</p>
                             @endif
@@ -405,7 +405,7 @@ $catalog = config('constants.catalog');
                     <li class="media {{($i == 1 ? 'first stand' : ($i == 2 ? 'now up' : ($i == 3 ? 'now down' : 'now')))}} align-items-stretch">
                         <div class="media-left mr-3">
                             <span></span>
-                            <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{Helpers::cover_url($item['cover_id'])}}" alt="{{$item['music_title']}}">
+                            <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{$item['cover_html']}}" alt="{{$item['music_title']}}">
                             @if($item['cat_id'] == CAT_BEAT)
                                 <p class="time time-bxh-home text-white mb-0 py-1">Beat</p>
                             @endif
@@ -435,7 +435,7 @@ $catalog = config('constants.catalog');
                     <li class="media {{($i == 1 ? 'first stand' : ($i == 2 ? 'now up' : ($i == 3 ? 'now down' : 'now')))}} align-items-stretch">
                         <div class="media-left mr-3">
                             <span></span>
-                            <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{Helpers::cover_url($item['cover_id'])}}" alt="{{$item['music_title']}}">
+                            <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{$item['cover_html']}}" alt="{{$item['music_title']}}">
                             @if($item['cat_id'] == CAT_BEAT)
                                 <p class="time time-bxh-home text-white mb-0 py-1">Beat</p>
                             @endif
