@@ -445,7 +445,7 @@ class UploadController extends Controller
                         $this->musicRepository->deleteSafe($result);
                         $Solr->syncDeleteMusic(null, $result);
                     }
-                    $this->userExpRepository->getModel()::where('user_id', $result->user_id)->decrement('user_music', 1);
+//                    $this->userExpRepository->getModel()::where('user_id', $result->user_id)->decrement('user_music', 1);
 //                    $user->decrement('user_music', 1);
                     // áp dụng không thay đổi cover
                     if($result->cover_id && $oldCoverId == $request->input('cover_id') && $oldAlbum) {
@@ -459,8 +459,10 @@ class UploadController extends Controller
                 }else{
                     // cập nhật tình trạng đã xóa thành xét duyệt
                     // áp dụng không thay đổi cover
-                    if($result->cover_id && $oldCoverId == $request->input('cover_id') && in_array($oldStage, [UPLOAD_STAGE_DELETED, UPLOAD_STAGE_UNCENSOR]) && $oldAlbum) {
-                        $oldAlbum = $this->coverRepository->findCover($result->cover_id);
+                    if($result->cover_id && $oldCoverId == $request->input('cover_id') && in_array($oldStage, [UPLOAD_STAGE_DELETED, UPLOAD_STAGE_UNCENSOR])) {
+                        if(!$oldAlbum) {
+                            $oldAlbum = $this->coverRepository->findCover($result->cover_id);
+                        }
                         $oldAlbum->album_music_total = $oldAlbum->album_music_total + 1;
                         $oldAlbum->album_last_updated = time(); // tự động cập nhật cover ở crontab
                         $oldAlbum->save();
