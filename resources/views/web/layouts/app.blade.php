@@ -38,7 +38,7 @@ if($memberVip == null)
 @else
         @if(!$memberVip)
             @hasSection('in_player')
-                @if ( rand(1,100) > 70 )
+                @if ( rand(1,100) > 0 )
                     <div class="ads_box" id="pc_masthead">
                         <div class="container text-center">
                             <div id="bsmasthead-wrapper">
