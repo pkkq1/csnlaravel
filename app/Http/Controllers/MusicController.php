@@ -226,6 +226,9 @@ class MusicController extends Controller
                 $music = $this->musicRepository->findOnlyMusicId($offsetPl['music_id']);
             }
         }else{
+            if(Auth::check() && backpack_user()->can('duyet_sua_nhac')){
+                abort(403, '<a href="/dang-tai/album/'.$arrUrl['id'].'" style="font-size: 18px; display: block">Qua trang chỉnh sửa upload</a>Nhạc đang cập nhật.');
+            }
             return view('errors.text_error')->with('message', 'Nội dung playlist không có.');
         }
         if(!$music) {
