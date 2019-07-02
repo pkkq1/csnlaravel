@@ -1006,9 +1006,9 @@ class Helpers
             return $str;
         return trim(preg_replace(['/y/', '/ý/', '/ỳ/', '/ỷ/', '/ỵ/', '/ỹ/', '/s/'], ['i', 'í', 'ì', 'ỉ', 'ị', 'ĩ', 'x'], mb_strtolower($str, 'UTF-8')));
     }
-    public static function checkExitsExcepArtist($artistId, $arrExep)
+    public static function checkExitsExcepArtist($artist, $arrExep)
     {
-        foreach (explode(';', $artistId) as $item) {
+        foreach (explode(';', $artist) as $item) {
             if(in_array($item, $arrExep))
                 return true;
         }

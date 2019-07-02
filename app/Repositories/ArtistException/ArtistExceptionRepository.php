@@ -46,6 +46,14 @@ class ArtistExceptionRepository extends EloquentRepository implements ArtistExce
             $arr[] = $item->artist_id;
         }
         return $arr;
+    } public function getArrNames()
+    {
+        $result = $this->_model->select('artist_nickname')->get();
+        $arr = [];
+        foreach ($result as $item) {
+            $arr[] = $item->artist_nickname;
+        }
+        return $arr;
     }
 
 

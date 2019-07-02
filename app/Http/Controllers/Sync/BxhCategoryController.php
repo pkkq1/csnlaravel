@@ -49,7 +49,7 @@ class BxhCategoryController extends Controller
         if($today) {
         $ressultMusic = [];
         $ressultVideo = [];
-        $artistExp = $this->artistExpRepository->getArrIds();
+        $artistExp = $this->artistExpRepository->getArrNames();
         foreach ($catregory as $item) {
 //            $result = $this->musicListenRepository->bxhHotTodayCategoryMusic($item->cat_id)->toArray();
             $result = $this->musicDownloadRepository->bxhCategoryMusic($item->cat_id, [
@@ -58,7 +58,7 @@ class BxhCategoryController extends Controller
                     'csn_music_download.music_downloads_this_week' => 'desc']
             )->toArray();
             foreach($result as $item2) {
-                if(!Helpers::checkExitsExcepArtist($item2['music_artist_id'], $artistExp)) {
+                if(!Helpers::checkExitsExcepArtist($item2['music_artist'], $artistExp)) {
                     $item2['cover_html'] = Helpers::cover_url($item2['cover_id'], explode(';', $item2['music_artist_id'])[0]);
                     $item2['music_url'] = Helpers::listen_url($item2, false);
                     $item2['music_artist_html'] = Helpers::rawHtmlArtists($item2['music_artist_id'], $item2['music_artist']);
@@ -74,7 +74,7 @@ class BxhCategoryController extends Controller
                 'csn_video_listen.music_listen_this_week' => 'desc']
             )->toArray();
             foreach($result as $item2) {
-                if(!Helpers::checkExitsExcepArtist($item2['music_artist_id'], $artistExp)) {
+                if(!Helpers::checkExitsExcepArtist($item2['music_artist'], $artistExp)) {
                     $item2['cover_html'] = Helpers::cover_url($item2['cover_id'], explode(';', $item2['music_artist_id'])[0]);
                     $item2['music_url'] = Helpers::listen_url($item2, false);
                     $item2['music_artist_html'] = Helpers::rawHtmlArtists($item2['music_artist_id'], $item2['music_artist']);

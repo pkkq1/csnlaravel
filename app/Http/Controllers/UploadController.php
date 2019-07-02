@@ -346,8 +346,8 @@ class UploadController extends Controller
         }
 
         $typeUpload = $request->input('type_upload');
-        $artistExp = $this->artistExpRepository->getArrIds();
-        if(Helpers::checkExitsExcepArtist($request->input('music_artist_id'), $artistExp) && !Auth::user()->hasPermission('duyet_sua_nhac')) {
+        $artistExp = $this->artistExpRepository->getArrNames();
+        if(Helpers::checkExitsExcepArtist($request->input('music_artist'), $artistExp) && !Auth::user()->hasPermission('duyet_sua_nhac')) {
             $errorMessages = new \Illuminate\Support\MessageBag;
             $errorMessages->merge(['music_artist' => ['Ca sĩ không được phép upload.']]);
             return redirect()->back()->withErrors($errorMessages);
