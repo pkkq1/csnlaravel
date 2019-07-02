@@ -173,10 +173,10 @@ class ExceptionArtistController extends CrudController
         $this->crud->hasAccessOrFail('delete');
         // get entry ID from Request (makes sure its the last ID for nested resources)
         $id = $this->crud->getCurrentEntryId() ?? $id;
-        $artist = $this->artistRepository->getModel()::where('artist_id', $id)->first();
-        Storage::disk('public')->delete(Helpers::file_path($artist->artist_id, AVATAR_ARTIST_CROP_PATH, true).$artist->artist_avatar);
-        Storage::disk('public')->delete(Helpers::file_path($artist->artist_id, COVER_ARTIST_CROP_PATH, true).$artist->artist_cover);
-        $this->Solr->solrDeleteById('artist_'.$id);
+//        $artist = $this->artistRepository->getModel()::where('artist_id', $id)->first();
+//        Storage::disk('public')->delete(Helpers::file_path($artist->artist_id, AVATAR_ARTIST_CROP_PATH, true).$artist->artist_avatar);
+//        Storage::disk('public')->delete(Helpers::file_path($artist->artist_id, COVER_ARTIST_CROP_PATH, true).$artist->artist_cover);
+//        $this->Solr->solrDeleteById('artist_'.$id);
         return $this->crud->delete($id);
     }
     public function store(StoreRequest $request)
@@ -232,7 +232,7 @@ class ExceptionArtistController extends CrudController
             return redirect()->back();
         }
         ArtistExceptionModel::create($artistExist->toArray());
-        $artistExist->delete();
+//        $artistExist->delete();
         \Alert::success('Đã khóa ca sĩ thành công.')->flash();
         return \Redirect::to($this->crud->route);
     }
@@ -242,7 +242,6 @@ class ExceptionArtistController extends CrudController
             \Alert::error('Ca sĩ không đã tồn tại.')->flash();
             return redirect()->back();
         }
-        $this->artistRepository->getModel()::create($artistExist->toArray());
         $artistExist->delete();
         \Alert::success('Đã mỡ khóa ca sĩ thành công.')->flash();
         return \Redirect::to($this->crud->route);

@@ -1522,3 +1522,6 @@ a.disabled {
 .jw-reset {
     line-height: 36px!important;
 }
+.box_show_add_playlist .card-body .box_show_playlist_popup {
+    flex: none!important;
+}
