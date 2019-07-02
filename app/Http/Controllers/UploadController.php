@@ -354,7 +354,6 @@ class UploadController extends Controller
         }
         if($this->uploadExRepository->checkExist($request->input('music_title'), $request->input('music_artist')) && !Auth::user()->hasPermission('duyet_sua_nhac')) {
             $errorMessages = new \Illuminate\Support\MessageBag;
-            $errorMessages->merge(['music_artist' => ['Ca sĩ không được phép upload.']]);
             $errorMessages->merge(['music_title' => ['Bài hát không được phép upload.']]);
             return redirect()->back()->withErrors($errorMessages)->withInput($request->all());
         }

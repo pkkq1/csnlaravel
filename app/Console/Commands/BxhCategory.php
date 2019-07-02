@@ -11,6 +11,7 @@ use App\Repositories\VideoListen\VideoListenEloquentRepository;
 use App\Repositories\ArtistException\ArtistExceptionRepository;
 use App\Repositories\MusicDownload\MusicDownloadEloquentRepository;
 use App\Repositories\VideoDownload\VideoDownloadEloquentRepository;
+use App\Repositories\UploadException\UploadExceptionEloquentRepository;
 
 class BxhCategory extends Command
 {
@@ -39,8 +40,10 @@ class BxhCategory extends Command
     protected $artistExpRepository;
     protected $musicDownloadRepository;
     protected $videoDownloadRepository;
+    protected $uploadExRepository;
+    protected $videoListenRepository;
 
-    public function __construct(MusicEloquentRepository $musicRepository, CategoryEloquentRepository $categoryRepository, MusicListenEloquentRepository $musicListenRepository, VideoListenEloquentRepository $videoListenRepository, ArtistExceptionRepository $artistExpRepository, MusicDownloadEloquentRepository $musicDownloadRepository, VideoDownloadEloquentRepository $videoDownloadRepository)
+    public function __construct(MusicEloquentRepository $musicRepository, CategoryEloquentRepository $categoryRepository, MusicListenEloquentRepository $musicListenRepository, VideoListenEloquentRepository $videoListenRepository, ArtistExceptionRepository $artistExpRepository, MusicDownloadEloquentRepository $musicDownloadRepository, VideoDownloadEloquentRepository $videoDownloadRepository, UploadExceptionEloquentRepository $uploadExRepository)
     {
         $this->musicRepository = $musicRepository;
         $this->categoryRepository = $categoryRepository;
@@ -49,6 +52,7 @@ class BxhCategory extends Command
         $this->artistExpRepository = $artistExpRepository;
         $this->musicDownloadRepository = $musicDownloadRepository;
         $this->videoDownloadRepository = $videoDownloadRepository;
+        $this->uploadExRepository = $uploadExRepository;
         parent::__construct();
     }
 
@@ -59,7 +63,7 @@ class BxhCategory extends Command
      */
     public function handle()
     {
-        $bxh = new BxhCategoryController($this->musicRepository, $this->categoryRepository, $this->musicListenRepository, $this->videoListenRepository, $this->artistExpRepository, $this->musicDownloadRepository, $this->videoDownloadRepository);
+        $bxh = new BxhCategoryController($this->musicRepository, $this->categoryRepository, $this->musicListenRepository, $this->videoListenRepository, $this->artistExpRepository, $this->musicDownloadRepository, $this->videoDownloadRepository, $this->uploadExRepository );
         if($this->argument('type') == 'cat') {
             if($this->argument('month') == 'today') {
                 // run sync category today
