@@ -73,12 +73,12 @@ class MusicDownloadEloquentRepository extends EloquentRepository implements Musi
             ->where('csn_music.cat_id', '!=', CAT_VIDEO)
 
             ->select($this->_selectMusic)
-            ->whereNotIn('csn_music.music_id', function($query) {
-                $query->select('music_id')
-                    ->from('csn_music_exception');
+            ->whereNotIn('csn_music.music_title', function($query) {
+                $query->select('music_title')
+                    ->from('csn_music_copyright');
             })
-            ->whereNotIn('csn_music.music_artist_id', function($query) {
-                $query->select('artist_id')
+            ->whereNotIn('csn_music.music_artist', function($query) {
+                $query->select('artist_nickname')
                     ->from('csn_artist_exception');
             })
             ;
