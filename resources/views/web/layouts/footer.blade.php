@@ -737,7 +737,7 @@
 </footer>
 <script src="{{URL::to('/')}}/js/lobiboxcsn.min.js"></script>
 
-@if( $sb_banner == false ) /*isset($allpage_banner) && $allpage_banner == true )*/
+@if( $sb_banner == false && false ) /*isset($allpage_banner) && $allpage_banner == true )*/
 <script type="text/javascript">
     var screenW = 640, screenH = 480;
     if (parseInt(navigator.appVersion)>3) {
