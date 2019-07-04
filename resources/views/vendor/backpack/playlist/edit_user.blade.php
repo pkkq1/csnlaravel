@@ -67,7 +67,7 @@ use App\Library\Helpers;
                         @endif
                         <div class="form-group col-xs-12">
                             <label style="display: -webkit-box;">Avatar</label>
-                            <img class="mr-3" id="artist_cover_uploaded" src="{{$fields['playlist_cover']['value'] ? Helpers::file_path($fields['id']['value'], env('DATA_URL').MUSIC_PLAYLIST_PATH, true).$fields['playlist_id']['value'].'.png?time='.time() : '/imgs/avatar_default.png'}}" alt="">
+                            <img class="mr-3" id="artist_cover_uploaded" src="{{$fields['playlist_cover']['value'] ? Helpers::file_path($fields['id']['value'], env('DATA_URL').MUSIC_PLAYLIST_PATH, true).$fields['playlist_id']['value'].'.jpg?time='.time() : '/imgs/avatar_default.png'}}" alt="">
                             <div class="media-body">
                                 <div class="form-group" style="margin-top: 10px;">
                                     <input type="file" class="form-control-file" name="choose_playlist_cover" id="choose_playlist_cover" />
