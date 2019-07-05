@@ -10,6 +10,7 @@ use App\Models\MusicSuggestModel;
 use App\Models\DeleteMusicModel;
 use App\Models\VideoSuggestModel;
 use App\Repositories\Video\VideoEloquentRepository;
+use App\Repositories\Upload\UploadEloquentRepository;
 use App\Repositories\MusicDeleted\MusicDeletedEloquentRepository;
 use App\Repositories\VideoDeleted\VideoDeletedEloquentRepository;
 
@@ -23,13 +24,15 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
     protected $videoRepository;
     protected $musicDeletedRepository;
     protected $videoDeletedRepository;
+    protected $uploadRepository;
 
-    public function __construct(Solarium $Solr, VideoEloquentRepository $videoRepository, MusicDeletedEloquentRepository $musicDeletedRepository, VideoDeletedEloquentRepository $videoDeletedRepository) {
+    public function __construct(Solarium $Solr, VideoEloquentRepository $videoRepository, MusicDeletedEloquentRepository $musicDeletedRepository, VideoDeletedEloquentRepository $videoDeletedRepository, UploadEloquentRepository $uploadRepository) {
         parent::__construct();
         $this->Solr = $Solr;
         $this->videoRepository = $videoRepository;
         $this->musicDeletedRepository = $musicDeletedRepository;
         $this->videoDeletedRepository = $videoDeletedRepository;
+        $this->uploadRepository = $uploadRepository;
     }
 
     public function getModel()
@@ -494,10 +497,15 @@ $video = ' . str_replace('video_', 'music_',  var_export($videoResult, true)) . 
                 $this->videoDeletedRepository->getModel()::where('music_id', $musicFirstId)->delete();
             }
         }
+        $idMusic = (isset($musicReal) ? $musicReal->music_id : $music_id);
+        $upload = $this->uploadRepository->getModel()::where('music_id', $idMusic)->first();
+        $messError = 'Nhạc đang cập nhật.';
+        if($upload)
+            $messError = $messError . '<br/><h4 class="text-danger">Note: ' .$upload->music_note . '</h4>';
         if(Auth::check() && backpack_user()->can('duyet_sua_nhac')){
-            abort(403, '<a href="/dang-tai/nhac/'.(isset($musicReal) ? $musicReal->music_id : $music_id).'" style="font-size: 18px; display: block">Qua trang chỉnh sửa upload</a>Nhạc đang cập nhật.');
+            abort(403, '<a href="/dang-tai/nhac/'.$idMusic.'" style="font-size: 18px; display: block">Qua trang chỉnh sửa upload</a>' . $messError);
         }
-        abort(403, 'Nhạc đang cập nhật.');
+        abort(403, $messError);
         exit();
     }
 }

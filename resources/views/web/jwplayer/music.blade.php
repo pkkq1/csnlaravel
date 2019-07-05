@@ -215,6 +215,7 @@ if($musicSet['type_listen'] == 'playlist') {
                                                         <a href="/dang-tai/{{$musicSet['type_jw'] !== 'video' ? 'nhac' : 'video'}}/{{$music->music_id}}">Sửa nhạc</a>
                                                         <a href="javascript:sugLyric();" style="margin-left: 10px;">Gợi ý/c.sửa lyric</a>
                                                         <a href="javascript:sugKaraoke();" style="margin-left: 10px;">Gợi ý/c.sửa karaoke</a>
+                                                        <a href="javascript:mergeMusic();" style="margin-left: 10px;">Nhập nhạc</a>
                                                     @else
                                                         <a href="javascript:sugLyric();">Gợi ý lyric</a>
                                                         <a href="javascript:sugKaraoke();" style="margin-left: 10px;">Gợi ý karaoke</a>
@@ -1640,7 +1641,65 @@ if($musicSet['type_listen'] == 'playlist') {
                 }
             });
         }
-
+        <?php
+        if(Auth::check() && backpack_user()->can('duyet_sua_nhac')) {
+            ?>
+            function mergeMusic() {
+                $.ajax({
+                    url: window.location.origin + '/music/merge',
+                    type: "POST",
+                    dataType: "json",
+                    data: {
+                        'id': '<?php echo $music->music_id ?>',
+                    },
+                    beforeSend: function () {
+                        if(loaded) return false;
+                        loaded = true;
+                        confirmModal('<img src="/imgs/loader.gif" />', 'Bắt đầu nhập nhạc');
+                    },
+                    success: function(response) {
+                        if(response.success) {
+                            $('#myConfirmModal').find('.btn-ok').html('Nhập nhạc').addClass('btn-lyric');
+                            var html_radio = '';
+                            $.each(response.data, function (index, value) {
+                                html_radio = '<label for="merge_music_' + value.music_id + '"><input type="radio" id="merge_music_' + value.music_id + '" name="merge_music" value="' + value.music_id + '"> ' + value.music_title +' - ' + value.music_artist +'<a target="_blank" href="' + value.listen_url +'"> Xem trước</a></label>';
+                            });
+                            $('.modal_content_csn').html('<div class="merge_content_music">' + html_radio + '</div>');
+                            $("#myConfirmModal .btn-ok").click(function () {
+                                let val_radio_merge = $("input[name='merge_music']:checked").val();
+                                if(val_radio_merge) {
+                                    $.ajax({
+                                        url: window.location.origin + '/music/approve_merge',
+                                        type: "POST",
+                                        dataType: "json",
+                                        data: {
+                                            'id': '<?php echo $music->music_id ?>',
+                                            'id_merge': val_radio_merge,
+                                        },
+                                        beforeSend: function () {
+                                            if(loaded) return false;
+                                            loaded = true;
+                                        },
+                                        success: function(response) {
+                                            if(response.success) {
+                                                alert('Nhập nhạc thành công, tự động chuyển hướng bài hát vừa nhập vào.')
+                                                window.location.href = response.data.url;
+                                            }else {
+                                                $('.modal_content_csn').html(response.message);
+                                            }
+                                        }
+                                    });
+                                }
+                            });
+                        }else {
+                            $('.modal_content_csn').html(response.message);
+                        }
+                    }
+                });
+            }
+            <?php
+        }
+        ?>
         /////////////////////////////
         /// Suggestion Karaoke //////
         /////////////////////////
@@ -1843,6 +1902,7 @@ if($musicSet['type_listen'] == 'playlist') {
                         }
                     });
                 });
+
                 <?php
             }
             ?>

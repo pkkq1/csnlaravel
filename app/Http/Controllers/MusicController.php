@@ -30,6 +30,7 @@ use App\Models\PlaylistMusicModel;
 use Jenssegers\Agent\Agent;
 use App\Models\ErrorLogModel;
 use App\Repositories\Karaoke\KaraokeEloquentRepository;
+use App\Repositories\MusicDeleted\MusicDeletedEloquentRepository;
 use App\Repositories\LyricSuggestion\LyricSuggestionEloquentRepository;
 use App\Repositories\MusicSearchResult\MusicSearchResultEloquentRepository;
 use Session;
@@ -61,12 +62,13 @@ class MusicController extends Controller
     protected $karaokeSuggestionRepository;
     protected $lyricSuggestionRepository;
     protected $musicSearchResultRepository;
+    protected $musicDeletedRepository;
 
     public function __construct(MusicEloquentRepository $musicRepository, PlaylistEloquentRepository $playlistRepository, MusicListenEloquentRepository $musicListenRepository,
                                 CategoryEloquentRepository $categoryListenRepository, CoverEloquentRepository $coverRepository, VideoEloquentRepository $videoRepository, ArtistRepository $artistRepository,
                                 MusicFavouriteRepository $musicFavouriteRepository, VideoFavouriteRepository $videoFavouriteRepository, MusicDownloadEloquentRepository $musicDownloadRepository, KaraokeEloquentRepository $karaokeRepository,
                                 VideoListenEloquentRepository $videoListenRepository, VideoDownloadEloquentRepository $videoDownloadRepository, PlaylistPublisherEloquentRepository $playlistPublisherRepository, SearchResultEloquentRepository $searchResultRepository,
-                                KaraokeSuggestionEloquentRepository $karaokeSuggestionRepository, LyricSuggestionEloquentRepository $lyricSuggestionRepository, MusicSearchResultEloquentRepository $musicSearchResultRepository)
+                                KaraokeSuggestionEloquentRepository $karaokeSuggestionRepository, LyricSuggestionEloquentRepository $lyricSuggestionRepository, MusicSearchResultEloquentRepository $musicSearchResultRepository, MusicDeletedEloquentRepository $musicDeletedRepository)
     {
         $this->musicRepository = $musicRepository;
         $this->videoRepository = $videoRepository;
@@ -86,6 +88,7 @@ class MusicController extends Controller
         $this->karaokeRepository = $karaokeRepository;
         $this->searchResultRepository = $searchResultRepository;
         $this->musicSearchResultRepository = $musicSearchResultRepository;
+        $this->musicDeletedRepository = $musicDeletedRepository;
     }
 
     /**
@@ -579,8 +582,65 @@ class MusicController extends Controller
         $response = Response::make($content, $statusCode);
         $response->header('Content-Type', 'application/javascript');
         return $response;
-
-
     }
+    public function mergeMusic(Request $request) {
+        if(Auth::check() && backpack_user()->can('duyet_sua_nhac')){
+            $music = $this->musicRepository->findOnlyMusicId($request->id);
+            if(!$music)
+                Helpers::ajaxResult(false, 'Nhạc không tồn tại.', null);
+//            , ['music_deleted', '<=', 0]
+            $musicSame = $this->musicRepository->getModel()::select('music_id', 'music_title_url', 'cat_id', 'cat_level', 'cover_id', 'music_title', 'music_artist', 'music_listen', 'music_downloads')->where([['music_title', $music->music_title], ['music_artist', $music->music_artist], ['music_id', '!=', $music->music_id]])->get()->toArray();
+            if(!$musicSame)
+                Helpers::ajaxResult(false, 'Không có nhạc để nhập.', null);
 
+            foreach ($musicSame as &$item) {
+                $item['listen_url'] = Helpers::listen_url($item);
+            }
+            Helpers::ajaxResult(true, '', $musicSame);
+        }
+    }
+    public function approveMusic(Request $request) {
+        if(Auth::check() && backpack_user()->can('duyet_sua_nhac')){
+            $idMusic = $request->id;
+            $idMerge = $request->id_merge;
+            $music = $this->musicRepository->getModel()::where([['music_id', $idMusic], ['music_deleted', '<=', 0]])->first();
+            $musicListen = $this->musicListenRepository->getModel()::where('music_id', $idMusic)->first();
+            $musicDownload = $this->musicDownloadRepository->getModel()::where('music_id', $idMusic)->first();
+            $merge = $this->musicRepository->getModel()::where([['music_id', $idMerge], ['music_deleted', '<=', 0]])->first();
+            $mergeListen = $this->musicListenRepository->getModel()::where('music_id', $idMusic)->first();
+            $mergeDownload = $this->musicDownloadRepository->getModel()::where('music_id', $idMusic)->first();
+            $url = '';
+            if($idMusic > $idMerge) {
+                //  Trường hợp ID1 > ID2
+                $merge->music_listen = $merge->music_listen + $music->music_listen;
+                $merge->music_downloads = $merge->music_downloads + $music->music_downloads;
+                $mergeListen->music_listen = $mergeListen->music_listen + $musicListen->music_listen;
+                $mergeListen->music_listen_today = $mergeListen->music_listen_today + $musicListen->music_listen_today;
+                $mergeListen->music_downloads = $mergeListen->music_downloads + $mergeDownload->music_downloads;
+                $mergeListen->music_downloads_today = $mergeListen->music_downloads_today + $mergeDownload->music_downloads_today;
+                $merge->save();
+                $music->music_deleted = $merge->music_id;
+                $this->musicDeletedRepository->getModel()::create($music->toArray());
+                $music->delete();
+                $url = Helpers::listen_url($merge->toArray());
+            }else{
+                //  Trường hợp ID1 < ID2
+                $music->music_listen = $music->music_listen + $merge->music_listen;
+                $music->music_downloads = $music->music_downloads + $merge->music_downloads;
+                $musicListen->music_listen = $musicListen->music_listen + $mergeListen->music_listen;
+                $musicListen->music_listen_today = $musicListen->music_listen_today + $mergeListen->music_listen_today;
+                $musicDownload->music_downloads = $mergeDownload->music_downloads + $mergeListen->music_downloads;
+                $musicDownload->music_downloads_today = $mergeDownload->music_downloads_today + $mergeListen->music_downloads_today;
+                $music->save();
+                $merge->music_deleted = $music->music_id;
+                $this->musicDeletedRepository->getModel()::create($merge->toArray());
+                $merge->delete();
+                $url = Helpers::listen_url($music->toArray());
+
+
+            }
+            Helpers::ajaxResult(true, 'Nhập bài hát thành công', ['url' => $url]);
+        }
+        Helpers::ajaxResult(false, 'Lỗi ngoài hệ thống nhập', null);
+    }
 }

@@ -252,4 +252,5 @@ class MusicController extends CrudController
         $this->deleteMusicRepository->create($music->toArray());
         return $this->crud->delete($id);
     }
+
 }

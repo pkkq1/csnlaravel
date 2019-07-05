@@ -1525,3 +1525,6 @@ a.disabled {
 .box_show_add_playlist .card-body .box_show_playlist_popup {
     flex: none!important;
 }
+.merge_content_music {
+    text-align: left;
+}
