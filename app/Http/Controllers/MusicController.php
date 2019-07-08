@@ -221,12 +221,21 @@ class MusicController extends Controller
             $typeListen = 'album';
         }
         if($playlistMusic) {
-            $request->playlist = intval($request->playlist);
-            $offsetPl = $playlistMusic[$request->playlist ? ($request->playlist > count($playlistMusic) ? count($playlistMusic) : $request->playlist) - 1 : 0];
+            $offsetPlaylist = $request->playlist;
+            reload_new_offset:
+            $offsetPlaylist = intval($offsetPlaylist);
+            $offsetPl = $playlistMusic[$offsetPlaylist ? ($offsetPlaylist > count($playlistMusic) ? count($playlistMusic) : $offsetPlaylist) - 1 : 0];
             if($offsetPl['cat_id'] == CAT_VIDEO) {
                 $music = $this->videoRepository->findOnlyMusicId($offsetPl['music_id']);
             }else{
                 $music = $this->musicRepository->findOnlyMusicId($offsetPl['music_id']);
+            }
+            if(!$music) {
+                $music = $this->musicRepository->checkDeleteMusic($music, false);
+            }
+            if(!$music) {
+                $offsetPlaylist ++;
+                goto reload_new_offset;
             }
         }else{
             if(Auth::check() && backpack_user()->can('duyet_sua_nhac')){
@@ -234,9 +243,7 @@ class MusicController extends Controller
             }
             return view('errors.text_error')->with('message', 'Nội dung playlist không có.');
         }
-        if(!$music) {
-            $music = $this->musicRepository->checkDeleteMusic($music, false);
-        }
+
         // +1 view
         if(Helpers::sessionCountTimesMusic($arrUrl['id'])){
             if($music->cat_id == CAT_VIDEO) {
@@ -589,7 +596,7 @@ class MusicController extends Controller
             if(!$music)
                 Helpers::ajaxResult(false, 'Nhạc không tồn tại.', null);
 //            , ['music_deleted', '<=', 0]
-            $musicSame = $this->musicRepository->getModel()::select('music_id', 'music_title_url', 'cat_id', 'cat_level', 'cover_id', 'music_title', 'music_artist', 'music_listen', 'music_downloads')->where([['music_title', $music->music_title], ['music_artist', $music->music_artist], ['music_id', '!=', $music->music_id]])->get()->toArray();
+            $musicSame = $this->musicRepository->getModel()::select('music_id', 'music_title_url', 'cat_id', 'cat_level', 'cover_id', 'music_title', 'music_artist', 'music_listen', 'music_downloads')->where([['music_title', $music->music_title], ['music_artist', $music->music_artist], ['music_id', '!=', $music->music_id], ['music_deleted', '<=', 0]])->get()->toArray();
             if(!$musicSame)
                 Helpers::ajaxResult(false, 'Không có nhạc để nhập.', null);
 
