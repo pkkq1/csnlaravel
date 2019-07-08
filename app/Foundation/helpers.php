@@ -87,7 +87,7 @@ function data_get($target, $key, $default = null)
         }
     }
     if(isset($_SERVER['REQUEST_METHOD']) && ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'PUTT') && is_string($target)) {
-        $target = htmlspecialchars(trim(stripslashes($target)), ENT_QUOTES);
+        $target = htmlspecialchars(trim(stripslashes(Helpers::removeMultiSpace($target))), ENT_QUOTES);
     }
 
     return $target;

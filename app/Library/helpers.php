@@ -1014,6 +1014,9 @@ class Helpers
         }
         return false;
     }
+    public static function removeMultiSpace($input) {
+        return preg_replace('!\s+!', ' ', $input);
+    }
     public static function convertArrSolr(&$dataSolr) {
         $data = [];
         if($dataSolr['data']) {
