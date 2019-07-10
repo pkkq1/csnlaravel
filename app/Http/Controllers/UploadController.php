@@ -375,7 +375,8 @@ class UploadController extends Controller
             // kiểm tra và update stage music
             $oldStage = $result->music_state;
             $isDelete = $request->delete_music;
-            $oldAlbum = [];
+            $oldCoverId = $result->cover_id;
+            $oldAlbum = $oldCoverId ? $this->coverRepository->findCover($oldCoverId) : [];
             $newAlbum = [];
             if($per_Xet_Duyet) {
                 if(isset($request->music_state) && ($request->music_state != $result->music_state)) {
@@ -388,7 +389,6 @@ class UploadController extends Controller
             }
             // update album
             $Solr = new SolrSyncController($this->Solr);
-            $oldCoverId = $result->cover_id;
             if(!$request->input('cover_id')) {
                 $result->cover_id = 0;
             }else{
@@ -402,7 +402,6 @@ class UploadController extends Controller
             // tách hoặc xóa khỏi album
             if(($oldCoverId != $request->input('cover_id')) && !in_array($oldStage, [UPLOAD_STAGE_DELETED, UPLOAD_STAGE_UNCENSOR])) {
                 $newAlbum = $newAlbum ? $newAlbum :$this->coverRepository->findCover($request->input('cover_id'));
-                $oldAlbum = $this->coverRepository->findCover($oldCoverId);
                 if($oldCoverId != 0 && $request->input('cover_id')) {
                     // chuyển album
                     if($oldAlbum) {
