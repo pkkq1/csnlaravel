@@ -74,7 +74,7 @@ class MusicController extends Controller
        return response(['Ok']);
    }
     public function demo() {
-        $cover = $this->coverRepository->getModel()::where('cover_id', '>=', '106707')->get();
+        $cover = $this->coverRepository->getModel()::where('cover_id', '>=', '107008')->get();
         $Solr = new SolrSyncController($this->Solr);
         foreach ($cover as $item) {
             if($item->album_cat_id_1 == 1) {

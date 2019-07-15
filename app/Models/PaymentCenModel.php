@@ -6,15 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
 use DB;
 
-class UserLevelModel extends Model
+class PaymentCenModel extends Model
 {
     use CrudTrait;
-    protected $table = 'csn_users_level';
-    protected $primaryKey = 'id';
-    protected $fillable = ['user_id', 'level_id', 'level_expried', 'level_note', 'level_block'];
-
+    protected $table = 'csn_payment_cen';
+    protected $primaryKey = 'payment_id';
+    protected $fillable = ['payment_id', 'user_id', 'level_id', 'cen_value', 'cen_promotion', 'cen_total', 'cen_current_user', 'note'];
     public function level() {
         return $this->belongsTo('App\Models\LevelModel', 'level_id');
+    }
+    public function voucher() {
+        return $this->belongsTo('App\Models\VoucherModel', 'voucher_id');
     }
     public function user()
     {

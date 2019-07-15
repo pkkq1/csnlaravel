@@ -156,3 +156,13 @@ define('TIME_2DAY_AGO', '-2 day');
 define('MAXIMUM_FILE_SIZE_UPLOAD_VIDEO', 5737418240); // maximum upload file video 5Gb
 define('ID_OLD_MUSIC', 1000000);
 define('LIMIT_SEARCH_TOP_RESULT', 100);
+
+// level CSN
+define('LEVEL_VIP_1_1', 1); // vip 1 - 1 tháng
+define('LEVEL_VIP_1_2', 2); // vip 1 - 6 tháng
+define('LEVEL_VIP_1_3', 3); // vip 1 - 1 năm
+define('LEVEL_VIP_2_1', 4); // vip 2 - 7 ngày
+define('LEVEL_VIP_2_2', 5); // vip 2 - 1 tháng
+define('LEVEL_VIP_2_3', 6); // vip 2 - 3 tháng
+define('LEVEL_VIP_2_4', 7); // vip 2 - 6 tháng
+define('LEVEL_VIP_2_5', 8); // vip 2 - 1 năm

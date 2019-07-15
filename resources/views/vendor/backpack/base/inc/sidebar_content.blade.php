@@ -110,7 +110,19 @@ $htmlNotif['kara_sug'] = $notif['kara_sug'] > 0 ? '<span class="label pull-right
     </ul>
 </li>
 @endif
-
+@if(backpack_user()->can('user_level_(list)'))
+    <li class="treeview">
+        <a href="#"><i class="fa fa-thumbs-up"></i> <span>Vouchers, Member VIP</span> <i class="fa fa-angle-left pull-right"></i></a>
+        <ul class="treeview-menu">
+            @if(backpack_user()->can('user_level_(list)'))
+                <li><a href="{{ backpack_url('level') }}"><i class="fa fa-asterisk"></i> <span>Các gói cấp độ</span></a></li>
+                <li><a href="{{ backpack_url('voucher') }}"><i class="fa fa-gift"></i> <span>Các gói Voucher</span></a></li>
+                <li><a href="{{ backpack_url('history_level') }}"><i class="fa fa-user"></i> <span>Cập nhật cấp độ user</span></a></li>
+                <li><a href="{{ backpack_url('cen_payment') }}"><i class="fa fa-usd"></i> <span>Lịch sử giao dịch CEN</span></a></li>
+            @endif
+        </ul>
+    </li>
+@endif
 <!-- Report -->
 @if(backpack_user()->can('report_user_login_(list)') || backpack_user()->can('report_user_register_(list)'))
 <li class="treeview">
@@ -125,7 +137,6 @@ $htmlNotif['kara_sug'] = $notif['kara_sug'] > 0 ? '<span class="label pull-right
     </ul>
 </li>
 @endif
-
 @if(backpack_user()->can('advanced_(list)'))
 <li class="treeview">
     <a href="#"><i class="fa fa-cogs"></i> <span>Cài đặt nâng cao</span> <i class="fa fa-angle-left pull-right"></i></a>

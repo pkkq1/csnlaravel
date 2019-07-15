@@ -51,6 +51,14 @@ Route::group([
     Route::put('/lyric/suggest/{id}', 'SugLyricController@approvalLyric');
     Route::put('/karaoke/suggest/{id}', 'SugKaraokeController@approvalKaraoke');
 
+    CRUD::resource('level', 'LevelController');
+    CRUD::resource('cen_payment', 'PaymentCenController');
+    CRUD::resource('voucher', 'VoucherController');
+
+    Route::get('/history_level/search_user', 'UserLeverController@searchUser');
+    Route::get('/history_level/show_user/{id}', 'UserLeverController@showUser');
+    CRUD::resource('history_level', 'UserLeverController');
+
 });
 Route::group([
     'namespace'  => 'Backpack\PermissionManager\app\Http\Controllers',

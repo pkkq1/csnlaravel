@@ -33,7 +33,7 @@ use App\Library\Helpers;
                         <div class="direct-chat-msg">
                             <div class="direct-chat-info clearfix">
                                 <span class="direct-chat-name pull-left">{{$item['user']['name']}}</span>
-                                <span class="direct-chat-timestamp pull-right"><?php echo Helpers::timeElapsedString($item['comment_time']); ?></span>
+                                <span class="direct-chat-timestamp pull-right"><a href="/user/music_uploaded/redirect/{{$item['music_id']}}"><?php echo Helpers::timeElapsedString($item['comment_time']); ?></a> </span>
                             </div>
                             <!-- /.direct-chat-info -->
                             <a href="/user/{{$item['user_id']}}"><img class="direct-chat-img" src="<?php echo Helpers::pathAvatar($item['user']['user_avatar'], $item['user']['id']) ?>"></a>

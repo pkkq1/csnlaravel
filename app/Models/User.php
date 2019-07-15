@@ -73,6 +73,6 @@ class User extends Authenticatable
         return $relationship->name;
     }
     public function level() {
-        return $this->belongsTo('App\Models\UserLevelModel', 'user_id')->first();
+        return $this->belongsTo('App\Models\UserLevelModel', 'id', 'user_id')->first();
     }
 }

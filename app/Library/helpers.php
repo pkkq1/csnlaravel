@@ -1043,7 +1043,7 @@ class Helpers
     public static function checkMemberVip() {
         if(Auth::check()) {
             $level = Auth::user()->level();
-            if($level && $level->level_id == 1 && $level->level_expried >= time() && $level->level_block == 0) {
+            if($level && $level->level_id == 1 && $level->level_expried >= time() && $level->level_status == 1) {
                 return true;
             }
             return false;
