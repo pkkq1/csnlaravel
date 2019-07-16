@@ -432,6 +432,7 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                 },
                 timeSliderAbove: true,
                 autostart: false,
+                repeat: true,
                 controlbar: "bottom",
                 plugins: {
                     '/js/nhac-csn.js': {

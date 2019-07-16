@@ -18,6 +18,6 @@ class UserLevelModel extends Model
     }
     public function user()
     {
-        return $this->belongsTo('App\Models\UserModel', 'user_id')->select('id', 'name', 'user_avatar', 'username');
+        return $this->belongsTo('App\Models\UserModel', 'user_id')->select(DB::raw("CONCAT(name, ' - ', email) as name"), 'id', 'user_avatar', 'username', 'user_money', 'email');
     }
 }

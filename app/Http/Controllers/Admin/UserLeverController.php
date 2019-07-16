@@ -15,6 +15,11 @@ use Backpack\CRUD\app\Http\Requests\CrudRequest as StoreRequest;
 use Backpack\CRUD\app\Http\Requests\CrudRequest as UpdateRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Models\UserModel;
+use App\Models\LevelModel;
+use App\Models\VoucherModel;
+use App\Models\PaymentCenModel;
+use App\Library\Helpers;
+use App\Models\UserLevelModel;
 use DB;
 
 class UserLeverController extends CrudController
@@ -29,12 +34,10 @@ class UserLeverController extends CrudController
             if(!backpack_user()->can('user_level_(create)')) {
                 $this->crud->denyAccess(['create']);
             }
-            if(!backpack_user()->can('user_level_(delete)')) {
-                $this->crud->denyAccess(['delete']);
-            }
             if(!backpack_user()->can('user_level_(update)')) {
                 $this->crud->denyAccess(['update']);
             }
+            $this->crud->denyAccess(['delete']);
             return $next($request);
         });
         parent::__construct();
@@ -51,21 +54,20 @@ class UserLeverController extends CrudController
 //            'label' => 'User ID',
 //        ]);
         $this->crud->addColumn([
-            'name'  => 'id',
+            'name'  => 'user_id',
             'label' => 'ID',
             'type' => 'closure',
             'function' => function($entry) {
-                return '<a href="/user/'.$entry->user_id.'" target="_blank">'.$entry->id.'</a>';
+                return '<a href="/user/'.$entry->user_id.'" target="_blank">'.$entry->user_id.'</a>';
             },
         ]);
         $this->crud->addColumn([
             'label' => 'Người tạo',
             'type' => 'select',
-            'name' => 'user_id',
+            'name' => 'name',
             'entity' => 'user',
             'attribute' => 'name',
         ]);
-
         $this->crud->addColumn([
             'label' => 'Gói đang sử dụng',
             'type' => 'select',
@@ -80,21 +82,23 @@ class UserLeverController extends CrudController
             'entity' => 'level',
             'attribute' => 'level_time_expried',
         ]);
+
         $this->crud->addColumn([
-            'name' => 'level_expried',
+            'name'  => 'level_expried',
             'label' => 'Ngày hết hạn',
-            'type' => 'date',
-            'format' => 'd-m-Y H:i'
+            'type' => 'closure',
+            'function' => function($entry) {
+                return $entry->level_expried >= time() ? '<span class="label label-success" style="font-size: 90%">'.date('H:i - d/m/Y', $entry->level_expried).'</span>' : '<span class="label label-danger" style="font-size: 90%">'.date('H:i - d/m/Y', $entry->level_expried).'</span>';
+            },
         ]);
         $this->crud->addColumn([
             'name'  => 'level_status',
             'label' => 'Tình Trạng',
             'type' => 'closure',
             'function' => function($entry) {
-                return $entry->level_status == 1 ? '<span class="label label-success">Hoạt động</span>' : '<span class="label label-default">K.hoạt dộng</span>';
+                return $entry->level_status == 1 ? '<span class="label label-success">Hoạt động</span>' : '<span class="label label-danger">Hết hạn</span>';
             },
         ]);
-
 
 
         $this->crud->addField([
@@ -107,7 +111,24 @@ class UserLeverController extends CrudController
             'placeholder' => "Lựa chọn người dùng", // placeholder for the select
             'minimum_input_length' => 2, // minimum characters to type before querying results
         ]);
+        $this->crud->addField([
+            'label' => 'Áp dụng gói',
+            'type' => 'select_from_array',
+            'name' => 'level_id',
+            'options' => \App\Models\LevelModel::where('level_status', 1)->select(DB::Raw("CONCAT(level_name, ' - Cấp: ', level_packge,' - Cen: ', level_cen, ' ', level_time_expried) as level_name"), 'level_id')->pluck('level_name', 'level_id', 'level_time_expired')->toArray(),
+            'allows_null' => true,
+        ]);
+        $this->crud->addField([
+            'label' => 'Áp dụng voucher',
+            'type' => 'select_from_array',
+            'name' => 'voucher_id',
+            'options' => \App\Models\VoucherModel::where('voucher_status', 1)->pluck('voucher_name', 'voucher_id')->toArray(),
+            'allows_null' => true,
+        ]);
+//        $this->crud->setListView('crud::list_sync_chotot_article_for_buy');
+        $this->crud->setEditView('crud::edit_sync_chotot_for_buy_article');
 
+        $this->crud->setCreateView('vendor.backpack.user_level.add_user_level');
     }
 
     public function searchUser(Request $request)
@@ -117,7 +138,7 @@ class UserLeverController extends CrudController
 
         if ($search_term)
         {
-            $results = UserModel::select(DB::raw("CONCAT(name, ' - ', email) as name, user_id, user_id as id"))->where('name', 'LIKE', '%'.$search_term.'%')->orWhere('email', 'LIKE', '%'.$search_term.'%')->paginate(10);
+            $results = UserModel::select(DB::raw("CONCAT(name, ' - ', email, ' - Cen: ', user_money) as name, user_id, user_id as id"))->where('name', 'LIKE', '%'.$search_term.'%')->orWhere('email', 'LIKE', '%'.$search_term.'%')->paginate(10);
         }
         else
         {
@@ -126,7 +147,23 @@ class UserLeverController extends CrudController
 
         return $results;
     }
-
+    public function showLevelUser(Request $request, $id) {
+        $userLevel = UserLevelModel::where('user_id', $id)->with('level')->first();
+        if($userLevel) {
+            $userLevel['d_level_expried'] = date('H:i - d/m/Y', $userLevel->level_expried);
+            Helpers::ajaxResult(true, '', $userLevel);
+        }
+        Helpers::ajaxResult(false, '', []);
+    }
+    public function showLevel(Request $request, $id) {
+        $level = LevelModel::where('level_id', $id)->first();
+        $level['d_level_time_expried'] = date('H:i - d/m/Y', strtotime($level->level_time_expried));
+        Helpers::ajaxResult(true, '', $level);
+    }
+    public function showVoucher(Request $request, $id) {
+        $voucher = VoucherModel::where('voucher_id', $id)->with('levelEnableRow')->first();
+        Helpers::ajaxResult(true, '', $voucher);
+    }
     public function showUser($id)
     {
         return UserModel::find($id);
@@ -134,7 +171,80 @@ class UserLeverController extends CrudController
 
     public function store(StoreRequest $request)
     {
-        return parent::storeCrud($request);
+        $this->crud->hasAccessOrFail('create');
+        $this->crud->setOperation('create');
+        if (is_null($request)) {
+            $request = \Request::instance();
+        }
+        $user = UserModel::find($request->user_id);
+        if(!$user) {
+            \Alert::error('User không tồn tại')->flash();
+            return redirect()->back();
+        }
+        $userLevel = UserLevelModel::where('user_id', $request->user_id)->with('level')->first();
+        $payment = [
+            'user_id' => $user->user_id,
+            'level_id' => null,
+            'voucher_id' => null,
+            'cen_value' => 0,
+            'cen_promotion' => 0,
+            'cen_current_user' => $user->user_money,
+            'note' => 'Admin cung cấp',
+        ];
+        $level = [];
+        if($request->level_id) {
+            $level = LevelModel::where('level_id', $request->level_id)->where('level_status', 1)->first();
+            $payment['level_id'] = $level->level_id;
+            $payment['time_add_expired'] = $level->level_time_expried;
+//            $payment['cen_value'] = $level->level_cen;
+        }else{
+            $voucher = VoucherModel::where('voucher_id', $request->voucher_id)->where('voucher_status', 1)->with('levelEnableRow')->first();
+            $payment['voucher_id'] = $voucher->voucher_id;
+            $payment['cen_add'] = $voucher->value_cen;
+            if(isset($voucher->levelEnableRow)) {
+                $level = $voucher->levelEnableRow;
+                $payment['level_id'] = $voucher->levelEnableRow->level_id;
+                $payment['time_add_expired'] = $voucher->levelEnableRow->level_time_expried;
+//                $payment['cen_value'] = $voucher->levelEnableRow->level_cen;
+            }
+            if($payment['cen_add'] > 0) {
+                $user->user_money = $user->user_money + $payment['cen_add'];
+                $user->save();
+            }
+        }
+        if($level) {
+            if($userLevel) {
+                if($userLevel->level->level_packge != $level->level_packge) {
+                    // khác cấp (tự động reset hạn mức mới)
+                    $userLevel->level_expried = strtotime($level->level_time_expried);
+                }else{
+                    // cùng cấp
+                    if($userLevel->level_expried > time()) {
+                        // thêm gia hạn đã có (thêm hạn mức với hạn mức cũ)
+                        $userLevel->level_expried = strtotime($level->level_time_expried, $userLevel->level_expried);
+                    }else{
+                        // bắt đầu gia hạn mới (hiện tại + hạn mức cấp cho)
+                        $userLevel->level_expried = strtotime($level->level_time_expried);
+                    }
+                }
+                $userLevel->level_id = $level->level_id;
+                $userLevel->save();
+            }else{
+                $userLevel = UserLevelModel::create([
+                    'user_id' => $request->user_id,
+                    'level_id' => $level->level_id,
+                    'level_expried' => strtotime($level->level_time_expried),
+                    'level_note' => 'Admin cung cấp',
+                    'level_status' => 1,
+                ]);
+            }
+        }
+        PaymentCenModel::create($payment);
+
+        // show a success message
+        \Alert::success(trans('backpack::crud.insert_success'))->flash();
+
+        return $this->performSaveAction($userLevel->id);
     }
 
     public function update(UpdateRequest $request)

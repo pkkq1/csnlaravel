@@ -39,3 +39,15 @@ form .box-header {
 .dropdown-menu .select2-container-multi {
     min-width: 350px;
 }
+.show-info-user-level {
+    margin-top: 10px;
+    margin-bottom: -10px;
+}
+.show-info-level {
+    margin-top: 10px;
+    margin-bottom: -10px;
+}
+.voucher {
+    margin-top: 10px;
+    margin-bottom: -10px;
+}

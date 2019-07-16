@@ -16,11 +16,10 @@ class VoucherModel extends Model
         return $this->belongsTo('App\Models\LevelModel', 'level_id');
     }
     public function levelEnable() {
-//        dd($this->belongsTo('App\Models\LevelModel', 'level_id')->where('level_status', 1));
-
         $contracts = \App\Models\LevelModel::where('level_status', 1)->get();
         return $contracts;
-
-        return $this->belongsTo('App\Models\LevelModel', 'level_id');
+    }
+    public function levelEnableRow() {
+        return $this->belongsTo('App\Models\LevelModel', 'level_id')->where('level_status', 1);
     }
 }

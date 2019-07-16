@@ -40,26 +40,27 @@ class PaymentCenController extends CrudController
         $this->crud->setEntityNameStrings('Lịch sử giao dịch CEN', 'Lịch sử giao dịch CEN');
         $this->crud->setRoute(config('backpack.base.route_prefix').'/cen_payment');
 //        $this->crud->setEntityNameStrings('menu item', 'menu items');
+        $this->crud->orderBy('payment_id', 'desc');
 
-//        $this->crud->addColumn([
-//            'name' => 'user_id',
-//            'label' => 'User ID',
-//        ]);
         $this->crud->addColumn([
-            'name'  => 'id',
-            'label' => 'ID',
+            'name' => 'user_id',
+            'label' => 'User ID',
+        ]);
+        $this->crud->addColumn([
+            'name'  => 'user_id2',
+            'label' => 'Tên người tạo',
             'type' => 'closure',
             'function' => function($entry) {
-                return '<a href="/user/'.$entry->user_id.'" target="_blank">'.$entry->id.'</a>';
+                return '<a href="/user/'.$entry->user_id.'" target="_blank">'.$entry->user->name.'</a>';
             },
         ]);
-        $this->crud->addColumn([
-            'label' => 'Người tạo',
-            'type' => 'select',
-            'name' => 'user_id',
-            'entity' => 'user',
-            'attribute' => 'name',
-        ]);
+//        $this->crud->addColumn([
+//            'label' => 'Người tạo',
+//            'type' => 'select',
+//            'name' => 'user_id2',
+//            'entity' => 'user',
+//            'attribute' => 'name',
+//        ]);
 
         $this->crud->addColumn([
             'label' => 'Gói đang sử dụng',
