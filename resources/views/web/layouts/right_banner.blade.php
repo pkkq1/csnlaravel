@@ -12,11 +12,7 @@
         @else
             <!-- BlueSeed - asynchronous code for placement 2043 Chiasenhac Right Banner -->
             @if(!$memberVip)
-                    @hasSection('in_player')
-                        <script src="//d2.blueseed.tv/ads-sync.js?placement=2043"></script>
-                    @else
-                        <script src="//d2.blueseed.tv/ads-sync.js?placement=2044"></script>
-                    @endif
+                    <ins class="hadar-placement" data-hdpm="2043" ></ins><script id="jshd1pm_2043" src="https://static.blueseed.tv/ajs/display.js"></script>
             @endif
         @endif
     </div>
