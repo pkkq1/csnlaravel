@@ -12,7 +12,7 @@
         @else
             <!-- BlueSeed - asynchronous code for placement 2043 Chiasenhac Right Banner -->
             @if(!$memberVip)
-
+                 <script src="//d2.blueseed.tv/ads-sync.js?placement=2043"></script>
             @endif
         @endif
     </div>
