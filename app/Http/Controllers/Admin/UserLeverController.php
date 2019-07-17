@@ -45,7 +45,7 @@ class UserLeverController extends CrudController
     public function setup()
     {
         $this->crud->setModel("App\Models\UserLevelModel");
-        $this->crud->setEntityNameStrings('Cấp độ user đã mua', 'Cấp độ user đã mua');
+        $this->crud->setEntityNameStrings('Cấp độ hoặc chỉnh sửa level của user', 'Cấp độ user đã mua');
         $this->crud->setRoute(config('backpack.base.route_prefix').'/history_level');
 //        $this->crud->setEntityNameStrings('menu item', 'menu items');
 
@@ -53,6 +53,42 @@ class UserLeverController extends CrudController
 //            'name' => 'user_id',
 //            'label' => 'User ID',
 //        ]);
+        $this->crud->addFilter([ // daterange filter
+            'type' => 'date_range',
+            'name' => 'from_to',
+            'label'=> 'Tìm theo hạn mức'
+        ],
+            false,
+            function($value) {
+                $dates = json_decode(htmlspecialchars_decode($value, ENT_QUOTES));
+                $this->crud->addClause('where', 'level_expried', '>=', strtotime($dates->from . ' 00:00'));
+                $this->crud->addClause('where', 'level_expried', '<=',  strtotime($dates->to . ' 23:59'));
+            });
+        $this->crud->addFilter([ // select2_multiple filter
+            'name' => 'type_level',
+            'type' => 'select2_multiple',
+            'label'=> 'Tìm theo gói',
+            'placeholder' => 'Tìm theo gói'
+        ], function () {
+            return LevelModel::orderBy('level_id', 'asc')->pluck('level_name', 'level_id')->toArray();
+        }, function ($values) {
+            $values = json_decode(htmlspecialchars_decode($values, ENT_QUOTES));
+            if (!empty($values)) {
+                $this->crud->addClause('where', 'level_id', $values);
+            }
+        });
+
+        $this->crud->addFilter([ // dropdown filter
+            'name' => 'status',
+            'type' => 'dropdown',
+            'label'=> 'Tình Trạng'
+        ], [
+            1 => 'Hoạt động',
+            0 => 'V.hiệu hóa',
+        ], function($value) { // if the filter is active
+            $this->crud->addClause('where', 'level_status', $value);
+        });
+
         $this->crud->addColumn([
             'name'  => 'user_id',
             'label' => 'ID',
@@ -88,7 +124,7 @@ class UserLeverController extends CrudController
             'label' => 'Ngày hết hạn',
             'type' => 'closure',
             'function' => function($entry) {
-                return $entry->level_expried >= time() ? '<span class="label label-success" style="font-size: 90%">'.date('H:i - d/m/Y', $entry->level_expried).'</span>' : '<span class="label label-danger" style="font-size: 90%">'.date('H:i - d/m/Y', $entry->level_expried).'</span>';
+                return $entry->level_expried >= time() ? '<span class="label label-success" style="font-size: 90%">'.date('d/m/Y H:i', $entry->level_expried).'</span>' : '<span class="label label-danger" style="font-size: 90%">'.date('H:i - d/m/Y', $entry->level_expried).'</span>';
             },
         ]);
         $this->crud->addColumn([
@@ -96,7 +132,7 @@ class UserLeverController extends CrudController
             'label' => 'Tình Trạng',
             'type' => 'closure',
             'function' => function($entry) {
-                return $entry->level_status == 1 ? '<span class="label label-success">Hoạt động</span>' : '<span class="label label-danger">Hết hạn</span>';
+                return $entry->level_status == 1 ? '<span class="label label-success">Hoạt động</span>' : '<span class="label label-danger">V.hiệu hóa</span>';
             },
         ]);
 
@@ -125,9 +161,14 @@ class UserLeverController extends CrudController
             'options' => \App\Models\VoucherModel::where('voucher_status', 1)->pluck('voucher_name', 'voucher_id')->toArray(),
             'allows_null' => true,
         ]);
-//        $this->crud->setListView('crud::list_sync_chotot_article_for_buy');
-        $this->crud->setEditView('crud::edit_sync_chotot_for_buy_article');
+        $this->crud->addField([
+            'name' => 'level_status',
+            'label' => 'Tình trạng',
+            'type' => 'checkbox'
+        ]);
 
+
+        $this->crud->setEditView('vendor.backpack.user_level.edit_user_level');
         $this->crud->setCreateView('vendor.backpack.user_level.add_user_level');
     }
 
@@ -168,7 +209,6 @@ class UserLeverController extends CrudController
     {
         return UserModel::find($id);
     }
-
     public function store(StoreRequest $request)
     {
         $this->crud->hasAccessOrFail('create');

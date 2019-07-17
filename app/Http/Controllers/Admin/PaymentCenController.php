@@ -14,7 +14,8 @@ use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Http\Requests\CrudRequest as StoreRequest;
 use Backpack\CRUD\app\Http\Requests\CrudRequest as UpdateRequest;
 use Illuminate\Support\Facades\Auth;
-
+use App\Models\LevelModel;
+use App\Models\VoucherModel;
 
 
 class PaymentCenController extends CrudController
@@ -41,6 +42,47 @@ class PaymentCenController extends CrudController
         $this->crud->setRoute(config('backpack.base.route_prefix').'/cen_payment');
 //        $this->crud->setEntityNameStrings('menu item', 'menu items');
         $this->crud->orderBy('payment_id', 'desc');
+
+
+        $this->crud->addFilter([ // daterange filter
+            'type' => 'date_range',
+            'name' => 'from_to',
+            'label'=> 'Tìm theo ngày tạo'
+        ],
+            false,
+            function($value) {
+                $dates = json_decode(htmlspecialchars_decode($value, ENT_QUOTES));
+                $this->crud->addClause('whereDate', 'created_at', '>=', $dates->from);
+                $this->crud->addClause('whereDate', 'created_at', '<=', $dates->to);
+            });
+        $this->crud->addFilter([ // select2_multiple filter
+            'name' => 'type_level',
+            'type' => 'select2_multiple',
+            'label'=> 'Tìm theo gói',
+            'placeholder' => 'Tìm theo gói'
+        ], function () {
+            return LevelModel::orderBy('level_id', 'asc')->pluck('level_name', 'level_id')->toArray();
+        }, function ($values) {
+            $values = json_decode(htmlspecialchars_decode($values, ENT_QUOTES));
+            if (!empty($values)) {
+                $this->crud->addClause('where', 'level_id', $values);
+            }
+        });
+        $this->crud->addFilter([ // select2_multiple filter
+            'name' => 'type_voucher',
+            'type' => 'select2_multiple',
+            'label'=> 'Tìm theo voucher',
+            'placeholder' => 'Tìm theo voucher'
+        ], function () {
+            return VoucherModel::orderBy('voucher_id', 'asc')->pluck('voucher_name', 'voucher_id')->toArray();
+        }, function ($values) {
+            $values = json_decode(htmlspecialchars_decode($values, ENT_QUOTES));
+            if (!empty($values)) {
+                $this->crud->addClause('where', 'voucher_id', $values);
+            }
+        });
+
+
 
         $this->crud->addColumn([
             'name' => 'user_id',
@@ -102,6 +144,10 @@ class PaymentCenController extends CrudController
             'name' => 'cen_current_user',
             'type' => 'number',
             'label' => 'Cen User Hiện tại',
+        ]);
+        $this->crud->addColumn([
+            'name' => 'note',
+            'label' => 'Ghi chú',
         ]);
     }
 

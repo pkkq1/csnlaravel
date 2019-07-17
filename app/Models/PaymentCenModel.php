@@ -11,7 +11,7 @@ class PaymentCenModel extends Model
     use CrudTrait;
     protected $table = 'csn_payment_cen';
     protected $primaryKey = 'payment_id';
-    protected $fillable = ['payment_id', 'user_id', 'level_id', 'cen_value', 'cen_promotion', 'cen_current_user', 'note', 'cen_add', 'time_add_expired'];
+    protected $fillable = ['payment_id', 'user_id', 'level_id', 'voucher_id', 'cen_value', 'cen_promotion', 'cen_current_user', 'note', 'cen_add', 'time_add_expired'];
     public function level() {
         return $this->belongsTo('App\Models\LevelModel', 'level_id');
     }

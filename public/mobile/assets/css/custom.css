@@ -526,3 +526,9 @@ a.disabled {
     pointer-events: none;
     cursor: default;
 }
+.jw-settings-item-active {
+    background-image: linear-gradient(-243deg, #FB6B60 0%, #FF2E55 100%);
+}
+.jw-settings-menu {
+    height: 235px!important;
+}

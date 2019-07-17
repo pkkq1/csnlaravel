@@ -835,6 +835,7 @@ if($musicSet['type_listen'] == 'playlist') {
             if(sessionStorage.getItem("auto_next") == 'true') {
                 $('.check_auto_play').prop('checked', false).change();
             }
+            // jwplayer().setCurrentQuality(callback.levels.length - 1);
         });
         // jwplayer().onQualityChange(function(callback){
         //     if(setQualityCookie)

@@ -17,13 +17,13 @@ $mySelf = (Auth::check() && Auth::user()->id == $user_id);
         <div class="col">
             <ul class="list-unstyled list_music">
                 <?php
-                array_map(function($i, $item) use($perPage, $curentPage, $idAuth) {
+                array_map(function($i, $item_f) use($perPage, $curentPage, $idAuth) {
                 if($i < 5) {
-                $userFav = $item['user_id'];
-                $item = $item['music'];
+                $userFav = $item_f['user_id'];
+                $item = $item_f['music'];
                 $url = Helpers::listen_url($item);
                 ?>
-                <li class="media align-items-stretch items-stretch-{{$item['music_id']}}">
+                <li class="media align-items-stretch items-stretch-{{$item_f['music_id']}}">
                     <div class="media_tmp align-self-center d-flex align-items-center mr-3 pl-3">
                         <span class="counter">{{sprintf("%02d", (($curentPage - 1) * $perPage) + ++$i)}}</span>
                     </div>
@@ -43,7 +43,7 @@ $mySelf = (Auth::check() && Auth::user()->id == $user_id);
                     <div class="media-right align-self-center">
                         <ul class="list-inline" style="margin-right:0px">
                             <li class="list-inline-item">
-                                <a href="javascript:void(0)" onclick="return favourite('{{str_replace("'", "\'", $item['music_title'])}}', 'music', '{{$item['music_id']}}')" class="wishlist wishlist-{{$item['music_id']}} toggle_wishlist {{$userFav == $idAuth ? 'selector' : ''}} px-3"><i aria-hidden="true" class="fa fa-heart-o"></i></a>
+                                <a href="javascript:void(0)" onclick="return favourite('{{str_replace("'", "\'", $item['music_title'])}}', 'music', '{{$item_f['music_id']}}')" class="wishlist wishlist-{{$item_f['music_id']}} toggle_wishlist {{$userFav == $idAuth ? 'selector' : ''}} px-3"><i aria-hidden="true" class="fa fa-heart-o"></i></a>
                             </li>
                         </ul>
                     </div>
@@ -57,13 +57,13 @@ $mySelf = (Auth::check() && Auth::user()->id == $user_id);
         <div class="col">
             <ul class="list-unstyled list_music">
                 <?php
-                array_map(function($i, $item) use($perPage, $curentPage, $idAuth) {
+                array_map(function($i, $item_f) use($perPage, $curentPage, $idAuth) {
                 if($i >= 5) {
-                $userFav = $item['user_id'];
-                $item = $item['music'];
+                $userFav = $item_f['user_id'];
+                $item = $item_f['music'];
                 $url = Helpers::listen_url($item);
                 ?>
-                <li class="media align-items-stretch items-stretch-{{$item['music_id']}}">
+                <li class="media align-items-stretch items-stretch-{{$item_f['music_id']}}">
                     <div class="media_tmp align-self-center d-flex align-items-center mr-3 pl-3">
                         <span class="counter">{{sprintf("%02d", (($curentPage - 1) * $perPage) + ++$i)}}</span>
                     </div>
@@ -83,7 +83,7 @@ $mySelf = (Auth::check() && Auth::user()->id == $user_id);
                     <div class="media-right align-self-center">
                         <ul class="list-inline" style="margin-right:0px">
                             <li class="list-inline-item">
-                                <a href="javascript:void(0)" onclick="return favourite('{{str_replace("'", "\'", $item['music_title'])}}', 'music', '{{$item['music_id']}}')" class="wishlist wishlist-{{$item['music_id']}} toggle_wishlist {{$userFav == $idAuth ? 'selector' : ''}} px-3"><i aria-hidden="true" class="fa fa-heart-o"></i></a>
+                                <a href="javascript:void(0)" onclick="return favourite('{{str_replace("'", "\'", $item['music_title'])}}', 'music', '{{$item_f['music_id']}}')" class="wishlist wishlist-{{$item_f['music_id']}} toggle_wishlist {{$userFav == $idAuth ? 'selector' : ''}} px-3"><i aria-hidden="true" class="fa fa-heart-o"></i></a>
                             </li>
                         </ul>
                     </div>

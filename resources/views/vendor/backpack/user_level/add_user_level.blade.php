@@ -38,11 +38,15 @@
                     </div>
                     <div class="box-body row display-flex-wrap" style="display: flex; flex-wrap: wrap;">
                         <!-- load the view from the application if it exists, otherwise load the one in the package -->
-                        @if(view()->exists('vendor.backpack.crud.form_content'))
-                            @include('vendor.backpack.crud.form_content', [ 'fields' => $crud->getFields('create'), 'action' => 'create' ])
-                        @else
-                            @include('crud::form_content', [ 'fields' => $crud->getFields('create'), 'action' => 'create' ])
-                        @endif
+                        <div class="form-group col-xs-12">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="hidden" name="level_status" value="0">
+                                    <input type="checkbox" value="1" name="level_status" checked="checked"> Tình trạng
+                                </label>
+
+                            </div>
+                        </div>
                     </div><!-- /.box-body -->
                     <div class="box-footer">
 
@@ -58,7 +62,6 @@
                                 </button>
 
                             </div>
-
                             <a href="{{ $crud->hasAccess('list') ? url($crud->route) : url()->previous() }}" class="btn btn-default"><span class="fa fa-ban"></span> &nbsp;{{ trans('backpack::crud.cancel') }}</a>
                         </div>
 
