@@ -1531,3 +1531,9 @@ a.disabled {
 .jw-settings-item-active {
     background-image: linear-gradient(-243deg, #FB6B60 0%, #FF2E55 100%);
 }
+.upload_delete_note {
+    white-space: nowrap;
+    width: 220px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

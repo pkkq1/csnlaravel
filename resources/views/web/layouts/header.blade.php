@@ -55,7 +55,6 @@ global $allpage_banner;
     <script src="{{URL::to('/')}}/js/waves.js"></script>
     <script src='https://www.google.com/recaptcha/api.js'></script>
     <link rel="stylesheet" type="text/css" href="{{URL::to('/')}}/css/custom.css">
-
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-27050676-1"></script>
     <script>

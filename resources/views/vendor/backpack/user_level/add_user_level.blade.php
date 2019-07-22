@@ -38,15 +38,11 @@
                     </div>
                     <div class="box-body row display-flex-wrap" style="display: flex; flex-wrap: wrap;">
                         <!-- load the view from the application if it exists, otherwise load the one in the package -->
-                        <div class="form-group col-xs-12">
-                            <div class="checkbox">
-                                <label>
-                                    <input type="hidden" name="level_status" value="0">
-                                    <input type="checkbox" value="1" name="level_status" checked="checked"> Tình trạng
-                                </label>
-
-                            </div>
-                        </div>
+                        @if(view()->exists('vendor.backpack.crud.form_content'))
+                            @include('vendor.backpack.crud.form_content', [ 'fields' => $crud->getFields('create'), 'action' => 'create' ])
+                        @else
+                            @include('crud::form_content', [ 'fields' => $crud->getFields('create'), 'action' => 'create' ])
+                        @endif
                     </div><!-- /.box-body -->
                     <div class="box-footer">
 
@@ -62,6 +58,7 @@
                                 </button>
 
                             </div>
+
                             <a href="{{ $crud->hasAccess('list') ? url($crud->route) : url()->previous() }}" class="btn btn-default"><span class="fa fa-ban"></span> &nbsp;{{ trans('backpack::crud.cancel') }}</a>
                         </div>
 
@@ -76,12 +73,11 @@
 @endsection
 @push('after_scripts')
 <script>
+    $('.checkbox').after().remove()
     $(document).ready(function(){
         $('#select2_ajax_user_id').change(function () {
-            // $("select[name='voucher_id']").prop('selectedIndex', 0);
-            // $("select[name='level_id']").prop('selectedIndex', 0);
-            // $('.show-info-level').remove();
-            // $('.show-info-voucher').remove();
+            $("select[name='voucher_id']").prop('selectedIndex', 0);
+            $("select[name='level_id']").prop('selectedIndex', 0);
             $.ajax({
                 url: '/admin/history_level/search_user_id/' + $('#select2_ajax_user_id').val(),
                 type: "get",
@@ -120,7 +116,7 @@
                     },
                     success: function(response) {
                         $('.show-info-level').remove();
-                        $("select[name='voucher_id']").after('<div class="show-info-voucher"><label style="color:red">' + ((response.data.level_enable_row) ? 'Tặng sử dụng gói: ' + response.data.level_enable_row.level_name + ' ' + response.data.level_enable_row.level_time_expried + '<br/>Cấp: ' + response.data.level_enable_row.level_packge + '<br/>' : '') +
+                        $("select[name='voucher_id']").after('<div class="show-info-voucher"><label style="color:red">' + ((response.data.level_enable_row) ? 'Tặng sử dụng gói: ' + response.data.level_enable_row.level_name + ' ' + response.data.level_enable_row.level_time_expried + '<br/>Có hạn mức tới: ' + response.data.level_enable_row.d_level_time_expried + '<br/>' : '') +
                             'Cen tặng: ' + response.data.value_cen +
                             '</label></div>');
                     }

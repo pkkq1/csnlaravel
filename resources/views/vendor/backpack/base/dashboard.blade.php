@@ -33,7 +33,7 @@ use App\Library\Helpers;
                         <div class="direct-chat-msg">
                             <div class="direct-chat-info clearfix">
                                 <span class="direct-chat-name pull-left">{{$item['user']['name']}}</span>
-                                <span class="direct-chat-timestamp pull-right"><a href="/user/music_uploaded/redirect/{{$item['music_id']}}"><?php echo Helpers::timeElapsedString($item['comment_time']); ?></a> </span>
+                                <span class="direct-chat-timestamp pull-right"><a target="_blank" href="/user/music_uploaded/redirect/{{$item['music_id']}}"><?php echo Helpers::timeElapsedString($item['comment_time']); ?></a> </span>
                             </div>
                             <!-- /.direct-chat-info -->
                             <a href="/user/{{$item['user_id']}}"><img class="direct-chat-img" src="<?php echo Helpers::pathAvatar($item['user']['user_avatar'], $item['user']['id']) ?>"></a>
@@ -71,7 +71,7 @@ use App\Library\Helpers;
                     <ul class="users-list clearfix">
                         @foreach($user_register as $item)
                             <li>
-                                <a href="/user/{{$item['user_id']}}"><img style="width: 67px; height: 67px;" src="<?php echo Helpers::pathAvatar($item['user_avatar'], $item['id']) ?>" alt="{{$item['name']}}"></a>
+                                <a href="/user/{{$item['user_id']}}"><img style="width: 67px; height: 67px;" class="lazy" data-src="<?php echo Helpers::pathAvatar($item['user_avatar'], $item['id']) ?>" alt="{{$item['name']}}"></a>
                                 <a class="users-list-name" target="_bank" href="/user/{{$item['user_id']}}">{{$item['name']}}</a>
                                 <span class="users-list-date"><?php echo Helpers::timeElapsedString(strtotime($item['created_at'])); ?></span>
                             </li>
@@ -86,3 +86,16 @@ use App\Library\Helpers;
         <!-- /.col -->
     </div>
 @endsection
+@push('after_scripts')
+    <script type="text/javascript" src="{{URL::to('/')}}/js/jquery.lazy.min.js"></script>
+<script>
+    $(function() {
+        $('.lazy').lazy();
+    });
+    $(function() {
+        $('.users-list .lazy').lazy({
+            appendScroll: $('#lazy-container')
+        });
+    });
+</script>
+@endpush

@@ -219,9 +219,7 @@ use App\Library\Helpers;
                                 <h5 class="media-title mt-0 mb-0 title_home_tablet"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
                                 <div class="author title_home_tablet"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></div>
                             </div>
-                            @if($item['cat_id'] != CAT_VIDEO)
-                                <small class="type_music"><?php echo Helpers::bitrate2str($item['music_bitrate']); ?></small>
-                            @endif
+                            <small class="type_music upload_delete_note">{{$item['music_note']}}</small>
                         </div>
                         <div class="media-right align-self-center">
                             <small class="time_stt"><?php echo Helpers::timeElapsedString($item['music_last_update_time']); ?></small>
@@ -258,9 +256,7 @@ use App\Library\Helpers;
                                 <h5 class="media-title mt-0 mb-0 title_home_tablet"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
                                 <div class="author title_home_tablet"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></div>
                             </div>
-                            @if($item['cat_id'] != CAT_VIDEO)
-                                <small class="type_music"><?php echo Helpers::bitrate2str($item['music_bitrate']); ?></small>
-                            @endif
+                            <small class="type_music upload_delete_note">{{$item['music_note']}}</small>
                         </div>
                         <div class="media-right align-self-center">
                             <small class="time_stt"><?php echo Helpers::timeElapsedString($item['music_last_update_time']); ?></small>

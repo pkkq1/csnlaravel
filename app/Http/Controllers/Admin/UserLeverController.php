@@ -91,11 +91,11 @@ class UserLeverController extends CrudController
 
         $this->crud->addColumn([
             'name'  => 'user_id',
-            'label' => 'ID',
-            'type' => 'closure',
-            'function' => function($entry) {
-                return '<a href="/user/'.$entry->user_id.'" target="_blank">'.$entry->user_id.'</a>';
-            },
+            'label' => 'User ID',
+//            'type' => 'closure',
+//            'function' => function($entry) {
+//                return '<a href="/user/'.$entry->user_id.'" target="_blank">'.$entry->user_id.'</a>';
+//            },
         ]);
         $this->crud->addColumn([
             'label' => 'Người tạo',
@@ -103,6 +103,13 @@ class UserLeverController extends CrudController
             'name' => 'name',
             'entity' => 'user',
             'attribute' => 'name',
+        ]);
+        $this->crud->addColumn([
+            'label' => 'Cen hiện có',
+            'type' => 'select',
+            'name' => 'nameư',
+            'entity' => 'user',
+            'attribute' => 'user_money',
         ]);
         $this->crud->addColumn([
             'label' => 'Gói đang sử dụng',
@@ -179,7 +186,14 @@ class UserLeverController extends CrudController
 
         if ($search_term)
         {
-            $results = UserModel::select(DB::raw("CONCAT(name, ' - ', email, ' - Cen: ', user_money) as name, user_id, user_id as id"))->where('name', 'LIKE', '%'.$search_term.'%')->orWhere('email', 'LIKE', '%'.$search_term.'%')->paginate(10);
+            $results = UserModel::select(DB::raw("CONCAT(name, ' - ', email, ' - Cen: ', user_money) as name, user_id, user_id as id"))
+
+                ->where(function($q) use ($search_term) {
+                    $q->where('user_id', $search_term)
+                        ->orWhere('email', 'LIKE', '%'.$search_term.'%')
+                        ->orWhere('user_id', $search_term);
+                })
+                ->paginate(10);
         }
         else
         {
