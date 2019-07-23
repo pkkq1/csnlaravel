@@ -351,6 +351,12 @@ $memberVip = Helpers::checkMemberVip();
                             <span id="innity-in-post"></span>
                             <!-- BlueSeed - asynchronous code for placement 1658 Chiasenhac Inread Mobile -->
                             <script src="https://d2.blueseed.tv/ads-sync.js?placement=1658"></script>
+
+                                <script type="text/javascript">
+                                    var _ase  = _ase || [];
+                                    _ase.push(['1508317956','1511148773']);
+                                </script>
+                                <script src="//gamma.cachefly.net/js/ad-exchange.js" type="text/javascript"></script>
                             @endif
 
                             <div class="p-3">
