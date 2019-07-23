@@ -647,7 +647,7 @@ if($musicSet['type_listen'] == 'playlist') {
                 "adschedule": {
                     "myPreroll": {
                         "offset": "pre",
-                        "tag": ["https://aj1010.online/z4Kq_ISriKYm-yKIVUtk5c0ZL9nKiR8zfy8mxKoq5cP-sGjhBgbrQLfkgNlSaZZ6dfOWc-eiFd7b8er9uWaJW0w33yTdMJHU","https://aj1010.online/zSeyYJ3LVAwNZtp4Bi8fUTz3PTEYRA75TxWxt5gExwgaEbwaLpSYyzPQzxCWL1gGj2DVsG0Lo-bYRme3Z_Ki9p1onEm0fUC0","https://tag.gammaplatform.com/adx/request/?wid=1508317885&zid=1508318418&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"]
+                        "tag": ["https://adnetwork.adasiaholdings.com/ac?siteid=274888&pgid=1120835&fmtid=43981&ab=1&tgt=&oc=1&out=vast3&ps=1&pb=0&visit=S&vcn=s&tmstp=[timestamp]","https://aj1010.online/z4Kq_ISriKYm-yKIVUtk5c0ZL9nKiR8zfy8mxKoq5cP-sGjhBgbrQLfkgNlSaZZ6dfOWc-eiFd7b8er9uWaJW0w33yTdMJHU","https://aj1010.online/zSeyYJ3LVAwNZtp4Bi8fUTz3PTEYRA75TxWxt5gExwgaEbwaLpSYyzPQzxCWL1gGj2DVsG0Lo-bYRme3Z_Ki9p1onEm0fUC0","https://tag.gammaplatform.com/adx/request/?wid=1508317885&zid=1508318418&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"]
                     },
                     "myPreroll2": {
                         "offset": 1,
