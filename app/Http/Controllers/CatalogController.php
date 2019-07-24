@@ -14,6 +14,9 @@ use App\Repositories\Music\MusicEloquentRepository;
 use App\Repositories\Cover\CoverEloquentRepository;
 use App\Repositories\Video\VideoEloquentRepository;
 use App\Repositories\Playlist\PlaylistEloquentRepository;
+use App\Repositories\Upload\UploadEloquentRepository;
+use App\Repositories\UploadException\UploadExceptionEloquentRepository;
+use DB;
 
 class CatalogController extends Controller
 {
@@ -23,13 +26,17 @@ class CatalogController extends Controller
     protected $musicListenRepository;
     protected $coverRepository;
     protected $playlistRepository;
+    protected $uploadRepository;
+    protected $uploadExpRepository;
 
-    public function __construct(CategoryEloquentRepository $categoryRepository, MusicEloquentRepository $musicRepository, CoverEloquentRepository $coverRepository, VideoEloquentRepository $videoRepository, PlaylistEloquentRepository $playlistRepository) {
+    public function __construct(CategoryEloquentRepository $categoryRepository, MusicEloquentRepository $musicRepository, CoverEloquentRepository $coverRepository, VideoEloquentRepository $videoRepository, PlaylistEloquentRepository $playlistRepository, UploadEloquentRepository $uploadRepository, UploadExceptionEloquentRepository $uploadExpRepository) {
         $this->categoryRepository = $categoryRepository;
         $this->musicRepository = $musicRepository;
         $this->videoRepository = $videoRepository;
         $this->coverRepository = $coverRepository;
         $this->playlistRepository = $playlistRepository;
+        $this->uploadRepository = $uploadRepository;
+        $this->uploadExpRepository = $uploadExpRepository;
     }
     public function playlistPublisher(Request $request, $url) {
         $catalog = config('constants.catalog');
@@ -55,5 +62,22 @@ class CatalogController extends Controller
         $cover = $this->coverRepository->coverNewSolr('cover_id', 'desc', LIMIT_MUSIC_PAGE_CATEGORY);
         $htmlCover = view('category_solr.cover_item', compact('cover'));
         return view('catalog.cover_news', compact('htmlCover'));
+    }
+    public function copyright(Request $request) {
+        $upload = $this->uploadExpRepository->getModel()::select('music_id', 'music_title', 'music_artist', 'cat_id', 'cat_level', 'cat_sublevel', 'cat_custom', 'cover_id', 'music_composer', 'music_album', 'music_track_id', 'music_track_id', 'music_filename', 'music_bitrate');
+        if($request->load_ajax) {
+            if($request->search) {
+                $q = strtolower($request->search);
+                $upload->whereRaw("(LOWER(music_title) LIKE '%" . $q . "%' or LOWER(music_artist) LIKE '%" . $q . "%')");
+
+            }
+            $upload = $upload->orderBy('music_time', 'desc')->paginate(LIMIT_PAGE_CATEGORY);
+            return view('catalog.item_upload_copyright', compact('upload'));
+        }
+
+        $upload = $upload->orderBy('music_time', 'desc')->paginate(LIMIT_PAGE_CATEGORY);
+        $htmlMusic = view('catalog.item_upload_copyright', compact('upload'));
+        return view('catalog.upload_copyright', compact('htmlMusic'));
+
     }
 }

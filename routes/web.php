@@ -134,6 +134,9 @@ Route::group(['middlewareGroups' => ['web']], function () {
     Route::get('bang-xep-hang/nam-{year}/{catUrl}/{catLevel?}', ['as' => 'bxh.month', 'uses' => 'MusicController@listenBxhYear']);
 
 
+    Route::get('upload_copyright.html', ['as' => 'bxh.now', 'uses' => 'CatalogController@copyright']);
+    Route::get('upload_copyright', ['as' => 'bxh.now', 'uses' => 'CatalogController@copyright']);
+
     // ajax comment
     Route::get('binh-luan/get_ajax', ['as' => 'comment.get_ajax', 'uses' => 'CommentController@getAjaxCommentByMusicId']);
     Route::post('music/history_listen', ['as' => 'music.history_listen', 'uses' => 'MusicController@historyListen']);
