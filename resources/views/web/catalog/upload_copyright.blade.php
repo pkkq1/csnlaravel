@@ -1,6 +1,6 @@
 <?php
 use App\Library\Helpers;
-$titleMeta = 'Danh sách nhạc bản quyền';
+$titleMeta = 'Danh sách nhạc bị cấm upload';
 ?>
 @section('meta')
     <meta name="copyright" content="{{env('APP_URL')}}" />

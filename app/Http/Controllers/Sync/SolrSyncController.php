@@ -121,6 +121,7 @@ class SolrSyncController extends Controller
             $artistSearch = Helpers::replaceKeySearch($item->music_artist);
             $titleCharset = htmlspecialchars(Helpers::strReplaceSolr(Helpers::khongdau($titleSearch, ' ')), ENT_QUOTES);
             $artistCharset = htmlspecialchars(Helpers::strReplaceSolr(Helpers::khongdau($artistSearch, ' ')), ENT_QUOTES);
+            $composerCharset = htmlspecialchars(Helpers::strReplaceSolr(Helpers::khongdau($item->music_composer, ' ')), ENT_QUOTES);
 //            $lyricSearch = Helpers::replaceKeySearch($item->music_lyric);
 //            $lyricCharset = Helpers::khongdau(str_replace("\n", ' ', $lyricSearch), ' ');
             $data = [
@@ -151,6 +152,8 @@ class SolrSyncController extends Controller
                 'music_title_url' => $item->music_title_url,
                 'music_cat_id' => $item->cat_id,
                 'cat_id' => $item->cat_id,
+                'music_composer_charset' => $composerCharset,
+                'music_composer_charset_nospace' => str_replace(' ', '', $composerCharset),
                 'music_composer' => $item->music_composer,
                 'music_cat_level' => $item->cat_level,
                 'cat_level' => $item->cat_level,
@@ -319,8 +322,9 @@ class SolrSyncController extends Controller
         foreach ($searchVideo as $key => $item) {
             $titleSearch = Helpers::replaceKeySearch($item->music_title);
             $artistSearch = Helpers::replaceKeySearch($item->music_artist);
-            $titleCharset = Helpers::strReplaceSolr(Helpers::khongdau($titleSearch, ' '));
-            $artistCharset = Helpers::strReplaceSolr(Helpers::khongdau($artistSearch, ' '));
+            $titleCharset = htmlspecialchars(Helpers::strReplaceSolr(Helpers::khongdau($titleSearch, ' ')), ENT_QUOTES);
+            $artistCharset = htmlspecialchars(Helpers::strReplaceSolr(Helpers::khongdau($artistSearch, ' ')), ENT_QUOTES);
+            $composerCharset = htmlspecialchars(Helpers::strReplaceSolr(Helpers::khongdau($item->music_composer, ' ')), ENT_QUOTES);
             $data = [
                 'id' => 'video_' . $item->music_id,
                 'video_id' => $item->music_id,
@@ -350,6 +354,8 @@ class SolrSyncController extends Controller
                 'video_cat_level' => $item->cat_level,
                 'cat_id' => $item->cat_id,
                 'cat_level' => $item->cat_level,
+                'video_composer_charset' => $composerCharset,
+                'video_composer_charset_nospace' => str_replace(' ', '', $composerCharset),
                 'video_composer' => $item->music_composer,
                 'video_cover_id' => $item->cover_id,
                 'cover_id' => $item->cover_id,
