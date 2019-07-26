@@ -121,7 +121,8 @@ class SolrSyncController extends Controller
             $artistSearch = Helpers::replaceKeySearch($item->music_artist);
             $titleCharset = htmlspecialchars(Helpers::strReplaceSolr(Helpers::khongdau($titleSearch, ' ')), ENT_QUOTES);
             $artistCharset = htmlspecialchars(Helpers::strReplaceSolr(Helpers::khongdau($artistSearch, ' ')), ENT_QUOTES);
-            $composerCharset = htmlspecialchars(Helpers::strReplaceSolr(Helpers::khongdau($item->music_composer, ' ')), ENT_QUOTES);
+            $composerCharset = Helpers::replaceKeySearch($item->music_composer);
+            $composerCharset = htmlspecialchars(Helpers::strReplaceSolr(Helpers::khongdau($composerCharset, ' ')), ENT_QUOTES);
 //            $lyricSearch = Helpers::replaceKeySearch($item->music_lyric);
 //            $lyricCharset = Helpers::khongdau(str_replace("\n", ' ', $lyricSearch), ' ');
             $data = [
@@ -324,7 +325,8 @@ class SolrSyncController extends Controller
             $artistSearch = Helpers::replaceKeySearch($item->music_artist);
             $titleCharset = htmlspecialchars(Helpers::strReplaceSolr(Helpers::khongdau($titleSearch, ' ')), ENT_QUOTES);
             $artistCharset = htmlspecialchars(Helpers::strReplaceSolr(Helpers::khongdau($artistSearch, ' ')), ENT_QUOTES);
-            $composerCharset = htmlspecialchars(Helpers::strReplaceSolr(Helpers::khongdau($item->music_composer, ' ')), ENT_QUOTES);
+            $composerCharset = Helpers::replaceKeySearch($item->music_composer);
+            $composerCharset = htmlspecialchars(Helpers::strReplaceSolr(Helpers::khongdau($composerCharset, ' ')), ENT_QUOTES);
             $data = [
                 'id' => 'video_' . $item->music_id,
                 'video_id' => $item->music_id,

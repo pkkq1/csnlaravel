@@ -1537,3 +1537,6 @@ a.disabled {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+.nav_kq_search .dropdown .dropdown-menu {
+    width: 440px!important;
+}

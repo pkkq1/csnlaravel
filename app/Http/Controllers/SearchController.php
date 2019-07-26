@@ -108,6 +108,29 @@ class SearchController extends Controller
                         $searchSolarium['music_artist_search'] = '';
                     }
                 }
+                // filter
+                if($request->filter == 'sang-tac' && !isset($searchSolarium['music_composer_charset'])) {
+                    $searchSolarium['music_composer_charset'] = $searchSolarium['music_title_charset_nospace'];
+                    $searchSolarium['music_composer_charset_nospace'] = str_replace('music_title_artist_charset_nospace:', 'music_composer_charset_nospace:', $searchSolarium['music_title_artist_charset_nospace']);
+                    unset($searchSolarium['music_title_charset_nospace']);
+                    unset($searchSolarium['music_title_artist_charset_nospace']);
+                    unset($searchSolarium['music_title_charset']);
+                    unset($searchSolarium['music_artist_charset']);
+                    unset($searchSolarium['music_title_search']);
+                    unset($searchSolarium['music_artist_search']);
+                }
+                if($request->filter == 'ten-bai-hat') {
+                    unset($searchSolarium['music_title_artist_charset_nospace']);
+                    unset($searchSolarium['music_artist_charset']);
+                    unset($searchSolarium['music_artist_search']);
+                }
+                if($request->filter == 'ca-si') {
+                    unset($searchSolarium['music_title_charset_nospace']);
+                    unset($searchSolarium['music_title_artist_charset_nospace']);
+                    unset($searchSolarium['music_title_charset']);
+                    unset($searchSolarium['music_title_search']);
+                }
+
                 // click từ đường dẫn ca sĩ
                 if($request->mode == 'ca-si') {
                     $searchSolarium = [];
@@ -242,10 +265,10 @@ class SearchController extends Controller
             }
             if(isset($request->view_all) || isset($request->view_video)) {
                 $searchSolarium = [];
-                if($quickSearch) {
+//                if($quickSearch) {
                     $searchSolarium['video_title_charset_nospace'] = $charsetNoSpace . '^500';
                     $searchSolarium['video_title_artist_charset_nospace'] = $charsetNoSpace . '^100 | video_title_artist_charset_nospace:' . $charsetNoSpace . '*^50';
-                }
+//                }
                 if($titleSearch) {
                     $searchSolarium['video_title_charset'] = $titleCharset . '^2';
                     $searchSolarium['video_artist_charset'] = $titleCharset;
@@ -271,6 +294,29 @@ class SearchController extends Controller
                     $searchSolarium = [];
                     $searchSolarium['video_artist_charset_nospace'] = $charsetNoSpace;
                 }
+                // filter
+                if($request->filter == 'sang-tac' && !isset($searchSolarium['video_composer_charset'])) {
+                    $searchSolarium['video_composer_charset'] = $searchSolarium['video_title_charset_nospace'];
+                    $searchSolarium['video_composer_charset_nospace'] = str_replace('video_title_artist_charset_nospace:', 'video_composer_charset_nospace:', $searchSolarium['video_title_artist_charset_nospace']);
+                    unset($searchSolarium['video_title_charset_nospace']);
+                    unset($searchSolarium['video_title_artist_charset_nospace']);
+                    unset($searchSolarium['video_title_charset']);
+                    unset($searchSolarium['video_artist_charset']);
+                    unset($searchSolarium['video_title_search']);
+                    unset($searchSolarium['video_artist_search']);
+                }
+                if($request->filter == 'ten-bai-hat') {
+                    unset($searchSolarium['video_title_artist_charset_nospace']);
+                    unset($searchSolarium['video_artist_charset']);
+                    unset($searchSolarium['video_artist_search']);
+                }
+                if($request->filter == 'ca-si') {
+                    unset($searchSolarium['video_title_charset_nospace']);
+                    unset($searchSolarium['video_title_artist_charset_nospace']);
+                    unset($searchSolarium['video_title_charset']);
+                    unset($searchSolarium['video_title_search']);
+                }
+
                 $resultVideo = $this->Solr->search($searchSolarium, ($request->page_video ?? 1), $request->rows ?? ROWS_VIDEO_SEARCH_PAGING, array('score' => 'desc', 'video_downloads' => 'desc', 'video_listen' => 'desc'));
                 if($resultVideo['data']) {
                     foreach ($resultVideo['data'] as $item) {

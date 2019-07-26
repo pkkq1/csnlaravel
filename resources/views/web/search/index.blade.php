@@ -1,6 +1,7 @@
 <?php
 use App\Library\Helpers;
 $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
+$filter = $_GET['filter'] ?? '';
 ?>
 @section('meta')
     <meta name="copyright" content="{{env('APP_URL')}}" />
@@ -42,98 +43,44 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                             <div class="col-md-4">
                                 <h3 class="title">Tìm theo</h3>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                                    <label class="form-check-label" for="defaultCheck1">
-                                        Tên bài hát
+                                    <input class="form-check-input" type="radio" name="filter_search" value="" {{$filter == '' ? 'checked' : ''}} id="music_name_artist">
+                                    <label class="form-check-label" for="music_name_artist">
+                                        Tên b.hát + ca sĩ
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                                    <label class="form-check-label" for="defaultCheck1">
-                                        Ca sỹ
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                                    <label class="form-check-label" for="defaultCheck1">
-                                        Sáng tác
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                                    <label class="form-check-label" for="defaultCheck1">
+                                    <input class="form-check-input" type="radio" name="filter_search" {{$filter == 'ten-album' ? 'checked' : ''}} value="ten-album" id="music_album">
+                                    <label class="form-check-label" for="music_album">
                                         Tên Album
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                                    <label class="form-check-label" for="defaultCheck1">
-                                        Lời bài hát
                                     </label>
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <h3 class="title">Tìm theo</h3>
+                                <br/>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                                    <label class="form-check-label" for="defaultCheck1">
+                                    <input class="form-check-input" type="radio" name="filter_search" value="ten-bai-hat" {{$filter == 'ten-bai-hat' ? 'checked' : ''}} id="music_name">
+                                    <label class="form-check-label" for="music_name">
                                         Tên bài hát
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                                    <label class="form-check-label" for="defaultCheck1">
-                                        Ca sỹ
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                                    <label class="form-check-label" for="defaultCheck1">
-                                        Sáng tác
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                                    <label class="form-check-label" for="defaultCheck1">
-                                        Tên Album
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                                    <label class="form-check-label" for="defaultCheck1">
-                                        Lời bài hát
+                                    <input class="form-check-input" type="radio" name="filter_search" {{$filter == 'ca-si' ? 'checked' : ''}} value="ca-si" id="music_artist">
+                                    <label class="form-check-label" for="music_artist">
+                                        Ca sĩ
                                     </label>
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <h3 class="title">Tìm theo</h3>
+                                <br />
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                                    <label class="form-check-label" for="defaultCheck1">
-                                        Tên bài hát
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                                    <label class="form-check-label" for="defaultCheck1">
-                                        Ca sỹ
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                                    <label class="form-check-label" for="defaultCheck1">
+                                    <input class="form-check-input" type="radio" name="filter_search" value="sang-tac" {{$filter == 'sang-tac' ? 'checked' : ''}} id="music_composer">
+                                    <label class="form-check-label" for="music_composer">
                                         Sáng tác
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                                    <label class="form-check-label" for="defaultCheck1">
-                                        Tên Album
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                                    <label class="form-check-label" for="defaultCheck1">
+                                    <input class="form-check-input" type="radio" name="filter_search" value="loi-bai-hat" {{$filter == 'loi-bai-hat' ? 'checked' : ''}} id="music_lyric">
+                                    <label class="form-check-label" for="music_lyric">
                                         Lời bài hát
                                     </label>
                                 </div>
@@ -283,7 +230,7 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                             }, $result['music']['data'])
                             ?>
                         </ul>
-                        <center><?php Helpers::pagingCustom($result['music']['page'], $result['music']['rows'], $result['music']['row_total'] ?? 0, '<a href="/tim-kiem?q=&page_music=%d">%d</a>', $search) ?></center>
+                        <center><?php Helpers::pagingCustom($result['music']['page'], $result['music']['rows'], $result['music']['row_total'] ?? 0, '<a href="/tim-kiem?q=&page_music=%d&filter=' . ($_GET['filter'] ?? 'all') . '">%d</a>', $search) ?></center>
                     @endif
                 </div>
                 <div class="tab-pane fade {{isset($_GET['page_album']) ? 'show active' : ''}}" id="nav-album" role="tabpanel" aria-labelledby="nav-album-tab">
@@ -317,7 +264,7 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                         }, $result['album']['data'])
                         ?>
                     </div>
-                    <center><?php Helpers::pagingCustom($result['album']['page'], $result['album']['rows'], $result['album']['row_total'] ?? 0,  '<a href="/tim-kiem?q=&page_album=%d">%d</a>', $search) ?></center>
+                    <center><?php Helpers::pagingCustom($result['album']['page'], $result['album']['rows'], $result['album']['row_total'] ?? 0,  '<a href="/tim-kiem?q=&page_album=%d&filter=' . ($_GET['filter'] ?? 'all') . '">%d</a>', $search) ?></center>
                     @endif
                 </div>
                 <div class="tab-pane fade {{isset($_GET['page_video']) ? ' show active' : ''}}" id="nav-video" role="tabpanel" aria-labelledby="nav-video-tab">
@@ -350,7 +297,7 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                             }, $result['video']['data'])
                             ?>
                         </div>
-                        <center><?php Helpers::pagingCustom($result['video']['page'], $result['video']['rows'], $result['video']['row_total'] ?? 0,  '<a href="/tim-kiem?q=&page_video=%d">%d</a>', $search) ?></center>
+                        <center><?php Helpers::pagingCustom($result['video']['page'], $result['video']['rows'], $result['video']['row_total'] ?? 0,  '<a href="/tim-kiem?q=&page_video=%d&filter=' . ($_GET['filter'] ?? 'all') . '">%d</a>', $search) ?></center>
                     @endif
                 </div>
                 <div class="tab-pane fade {{isset($_GET['page_playback']) ? 'show active' : ''}}" id="nav-playback" role="tabpanel" aria-labelledby="nav-playback-tab">
@@ -391,7 +338,7 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
                             }, $result['music_playback']['data'])
                             ?>
                         </ul>
-                        <center><?php Helpers::pagingCustom($result['music_playback']['page'], $result['music_playback']['rows'], $result['music_playback']['row_total'] ?? 0, '<a href="/tim-kiem?q=&page_playback=%d">%d</a>', $search) ?></center>
+                        <center><?php Helpers::pagingCustom($result['music_playback']['page'], $result['music_playback']['rows'], $result['music_playback']['row_total'] ?? 0, '<a href="/tim-kiem?q=&page_playback=%d&filter=' . ($_GET['filter'] ?? 'all') . '">%d</a>', $search) ?></center>
                     @endif
                 </div>
                 <div class="tab-pane fade {{isset($_GET['page_artist']) ? ' show active' : ''}}" id="nav-artist" role="tabpanel" aria-labelledby="nav-artist-tab">
@@ -445,6 +392,14 @@ $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
     }
     $('.search-line-music').click(function () {
         Cookies.set('search_search', $(this).attr('href'))
+    })
+    $('.form-check-input').change(function() {
+        let url = window.location.href;
+        console.log(url);
+        if(url.indexOf("&filter=") != -1)
+            url = url.substr(0, url.indexOf("&filter="))
+        url = url + '&filter=' + $('input[type=radio][name=filter_search]:checked').val();
+        window.location.href = url;
     })
 </script>
 @endsection
