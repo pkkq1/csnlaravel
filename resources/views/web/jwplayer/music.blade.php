@@ -501,7 +501,8 @@ if($musicSet['type_listen'] == 'playlist') {
                     @else
                         @if(!$memberVip)
                         <!-- BlueSeed - asynchronous code for placement 2044 Chiasenhac Right Banner Player -->
-                        <ins class="hadar-placement" data-hdpm="2044" ></ins><script id="jshd1pm_2044" src="https://static.blueseed.tv/ajs/display.js"></script>
+                            <ins class="370d0bec" data-key="44f29eed708d6ef22488115efa7befac"></ins>
+                            <script async defer src="//aj1010.online/20dc880c.js"></script>
                         @endif
                     @endif
                 </div>
