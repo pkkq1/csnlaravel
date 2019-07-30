@@ -354,6 +354,7 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
             $searchSolarium[$type.'_composer'] = '("' . implode('" OR "', explode(';', $music->music_composer)).'")';
         }
 //        $searchSolarium['-music_cover_id'] = 0;
+        $searchSolarium['cat_id'] = $music->cat_id;
         $titleDup= $this->Solr->search($searchSolarium, 1, 2, array('score' => 'desc', $type.'_bitrate' => 'desc', $type.'_downloads_today' => 'desc', $type.'_downloads_this_week' => 'desc', $type.'_downloads' => 'desc'));
         if($music->music_composer && !$titleDup['data']) {
             unset($searchSolarium[$type.'_composer']);
