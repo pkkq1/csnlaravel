@@ -18,7 +18,7 @@ class Tag extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'tags';
+    protected $table = 'csn_tags';
     protected $primaryKey = 'id';
     public $timestamps = true;
     // protected $guarded = ['id'];
@@ -54,7 +54,7 @@ class Tag extends Model
 
     public function articles()
     {
-        return $this->belongsToMany('Backpack\NewsCRUD\app\Models\Article', 'article_tag');
+        return $this->belongsToMany('Backpack\NewsCRUD\app\Models\Article', 'csn_article_tag');
     }
 
     /*

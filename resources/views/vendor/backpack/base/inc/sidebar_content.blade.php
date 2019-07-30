@@ -95,6 +95,17 @@ $htmlNotif['kara_sug'] = $notif['kara_sug'] > 0 ? '<span class="label pull-right
 @if(backpack_user()->can('search_results(list)'))
     <li><a href="{{ backpack_url('search_results') }}"><i class="fa fa-search"></i> <span>Tìm kiếm hôm nay</span></a></li>
 @endif
+<li class="treeview">
+    <a href="#"><i class="fa fa-bookmark-o"></i> <span>Tin tức</span> <i class="fa fa-angle-left pull-right"></i></a>
+    <ul class="treeview-menu">
+        <li><a href="{{backpack_url('article') }}"><i class="fa fa-file-o"></i> <span>Bài viết</span></a></li>
+        <li><a href="{{backpack_url('category') }}"><i class="fa fa-list"></i> <span>Danh mục</span></a></li>
+        <li><a href="{{backpack_url('tag') }}"><i class="fa fa-tag"></i> <span>Tags</span></a></li>
+    </ul>
+</li>
+
+
+
 <!-- Users, Roles Permissions -->
 @if(backpack_user()->can('user_(list)') || backpack_user()->can('role_permission_(list)'))
 <li class="treeview">
