@@ -832,7 +832,7 @@ if($musicSet['type_listen'] == 'playlist') {
                 jwplayer().setCurrentQuality(callback.levels.length - 1);
             }
             updateQuality(callback);
-            if(sessionStorage.getItem("auto_next") == 'true') {
+            if(Cookies.get('auto_next') == 'true') {
                 $('.check_auto_play').prop('checked', false).change();
             }
             // jwplayer().setCurrentQuality(callback.levels.length - 1);
@@ -855,22 +855,22 @@ if($musicSet['type_listen'] == 'playlist') {
 
         function onPlayerAutoNextOn()
         {
-            sessionStorage.setItem("auto_next", false);
+            Cookies.set('auto_next', false);
             $('.check_auto_play').prop('checked', true).change();
         }
         function onPlayerAutoNextOff()
         {
-            sessionStorage.setItem("auto_next", true);
+            Cookies.set('auto_next', true);
             $('.check_auto_play').prop('checked', false).change();
         }
         $('.check_auto_play').on('change', function(){
             if($(this).is(':checked')){
                 logPlayAudioFlag = false;
-                sessionStorage.setItem("auto_next", false);
+                Cookies.set('auto_next', false);
                 setAutoNext(true);
             }else{
                 logPlayAudioFlag = true;
-                sessionStorage.setItem("auto_next", true);
+                Cookies.set('auto_next', true);
                 setAutoNext(false);
                 jwplayer().setConfig({
                     repeat: true

@@ -55,6 +55,9 @@ class CommentController extends Controller
         if(!Auth::user()->id) {
             return Redirect::to('/login');
         }
+        if(strlen($request->input('comment')) >= 1000)
+            abort(403, 'Lỗi bình luận bạn quá dài.');
+
         // check banned user
         if(backpack_user()->can('banned_user_comment')){
             abort(403, 'Lỗi truy cập, tài khoản bạn bị khóa chức năng đăng bình luận.');

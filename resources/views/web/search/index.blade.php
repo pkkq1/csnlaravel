@@ -45,7 +45,7 @@ $filter = $_GET['filter'] ?? '';
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="filter_search" value="" {{$filter == '' ? 'checked' : ''}} id="music_name_artist">
                                     <label class="form-check-label" for="music_name_artist">
-                                        Tên b.hát + ca sĩ
+                                        Tên b.hát & ca sĩ
                                     </label>
                                 </div>
                                 <div class="form-check">
