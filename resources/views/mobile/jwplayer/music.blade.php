@@ -350,7 +350,8 @@ $memberVip = Helpers::checkMemberVip();
                             @if(!$memberVip)
                             <span id="innity-in-post"></span>
                             <!-- BlueSeed - asynchronous code for placement 1658 Chiasenhac Inread Mobile -->
-                            <script src="https://d2.blueseed.tv/ads-sync.js?placement=1658"></script>
+                                <ins class="370d0bec" data-key="77f4a52c12ba04941fa356a9e1bc4f84"></ins>
+                                <script async defer src="//aj1010.online/20dc880c.js"></script>
                             @endif
 
                             <div class="p-3">
