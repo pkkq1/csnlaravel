@@ -231,8 +231,10 @@ if($musicSet['type_listen'] == 'playlist') {
                                          aria-labelledby="home-tab">
                                         @if(!$memberVip)
                                         <!-- BlueSeed - asynchronous code for placement 1992 Chiasenhac Inread Desktop -->
-                                        <script id="jshd1pm_1992" src="https://d2.blueseed.tv/ads-sync.js?placement=1992"></script>
+                                            <ins class="370d0bec" data-key="d3e6a8eb98236d0a2506db81b656dacb"></ins>
+                                            <script async defer src="//aj1010.online/20dc880c.js"></script>
                                         @endif
+                                            
                                         <article>
                                             <div id="fulllyric">
                                                 @if(isset($lyric_array['lyric']))
