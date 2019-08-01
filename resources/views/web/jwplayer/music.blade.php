@@ -251,7 +251,7 @@ if($musicSet['type_listen'] == 'playlist') {
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
-                                            <div class="col-12">
+                                            <div class="col-12 tab_download_music">
                                                 <ul class="list-unstyled download_status">
                                                     <?php
                                                     if ( isset($file_url[1]['url']) ){
@@ -271,6 +271,7 @@ if($musicSet['type_listen'] == 'playlist') {
                                                     }
                                                     ?>
                                                 </ul>
+
                                             </div>
                                             <div class="col">
 
@@ -1930,6 +1931,34 @@ if($musicSet['type_listen'] == 'playlist') {
             <?php
         }
         ?>
+        $('#pills-download-tab').click(function() {
+            if(!$('#pills-download-tab').hasClass('open_tab')) {
+                $('#pills-download-tab').addClass('open_tab');
+                $.ajax({
+                    url: window.location.origin + '/music/check_music_bitrate',
+                    type: "POST",
+                    dataType: "json",
+                    data: {
+                        'music_id': '<?php echo $music->music_id ?>',
+                    },
+                    beforeSend: function () {
+                        if(loaded) return false;
+                        loaded = true;
+                    },
+                    success: function(response) {
+                        if(response.success) {
+                            $('.tab_download_music').append('<div class="check_music_bitrate">' +
+                                '                                  <img class="bitrate_img" src="/images/music_bitrate_fixed/00.jpg">' +
+                                '                               <div class="bitrate_div">' +
+                                '                                  <span>Được kiểm tra bởi:</span><br/>' +
+                                '                                  <span class="span_bitrate">'+response.data.user_bitrate_fixed+'</span>' +
+                                '                               </div>' +
+                                '                            </div>');
+                        }
+                    }
+                });
+            }
+        });
     </script>
     @if($musicSet['type_jw'] != 'video')
         <style>

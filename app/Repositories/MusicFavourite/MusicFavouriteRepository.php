@@ -39,6 +39,11 @@ class MusicFavouriteRepository extends EloquentRepository implements MusicFavour
 
         return $result;
     }
+    public function deleteFavouriteByMusicId($musicId)
+    {
+        $result = $this->_model::where('music_id', $musicId)->delete();
+        return $result;
+    }
 
     /**
      * Create

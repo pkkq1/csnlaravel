@@ -25,6 +25,8 @@ use App\Repositories\SearchResult\SearchResultEloquentRepository;
 use App\Repositories\MusicFavourite\MusicFavouriteRepository;
 use App\Repositories\VideoFavourite\VideoFavouriteRepository;
 use App\Repositories\KaraokeSuggestion\KaraokeSuggestionEloquentRepository;
+use App\Repositories\Upload\UploadEloquentRepository;
+use App\Repositories\User\UserEloquentRepository;
 use Illuminate\Support\Facades\Auth;
 use App\Models\PlaylistMusicModel;
 use Jenssegers\Agent\Agent;
@@ -63,12 +65,15 @@ class MusicController extends Controller
     protected $lyricSuggestionRepository;
     protected $musicSearchResultRepository;
     protected $musicDeletedRepository;
+    protected $uploadRepository;
+    protected $userRepository;
 
     public function __construct(MusicEloquentRepository $musicRepository, PlaylistEloquentRepository $playlistRepository, MusicListenEloquentRepository $musicListenRepository,
                                 CategoryEloquentRepository $categoryListenRepository, CoverEloquentRepository $coverRepository, VideoEloquentRepository $videoRepository, ArtistRepository $artistRepository,
                                 MusicFavouriteRepository $musicFavouriteRepository, VideoFavouriteRepository $videoFavouriteRepository, MusicDownloadEloquentRepository $musicDownloadRepository, KaraokeEloquentRepository $karaokeRepository,
                                 VideoListenEloquentRepository $videoListenRepository, VideoDownloadEloquentRepository $videoDownloadRepository, PlaylistPublisherEloquentRepository $playlistPublisherRepository, SearchResultEloquentRepository $searchResultRepository,
-                                KaraokeSuggestionEloquentRepository $karaokeSuggestionRepository, LyricSuggestionEloquentRepository $lyricSuggestionRepository, MusicSearchResultEloquentRepository $musicSearchResultRepository, MusicDeletedEloquentRepository $musicDeletedRepository)
+                                KaraokeSuggestionEloquentRepository $karaokeSuggestionRepository, LyricSuggestionEloquentRepository $lyricSuggestionRepository, MusicSearchResultEloquentRepository $musicSearchResultRepository, MusicDeletedEloquentRepository $musicDeletedRepository,
+                                UploadEloquentRepository $uploadRepository, UserEloquentRepository $userRepository)
     {
         $this->musicRepository = $musicRepository;
         $this->videoRepository = $videoRepository;
@@ -89,6 +94,8 @@ class MusicController extends Controller
         $this->searchResultRepository = $searchResultRepository;
         $this->musicSearchResultRepository = $musicSearchResultRepository;
         $this->musicDeletedRepository = $musicDeletedRepository;
+        $this->uploadRepository = $uploadRepository;
+        $this->userRepository = $userRepository;
     }
 
     /**
@@ -336,6 +343,9 @@ class MusicController extends Controller
         }
         if(!$music) {
             $music = $this->musicRepository->checkDeleteMusic($id, false);
+            if(!$music) {
+                return redirect(url()->current() . '?playlist=' . ( $request->playlist ? $request->playlist + 1 : 1));
+            }
         }
         // +1 view
         if(Helpers::sessionCountTimesMusic($id)){
@@ -649,5 +659,15 @@ class MusicController extends Controller
             Helpers::ajaxResult(true, 'Nhập bài hát thành công', ['url' => $url]);
         }
         Helpers::ajaxResult(false, 'Lỗi ngoài hệ thống nhập', null);
+    }
+    public function checkMusicBitrate(Request $request) {
+        if($request->music_id) {
+            $upload = $this->uploadRepository->findOnlyPublished($request->music_id);
+            if($upload && $upload->music_bitrate_fixed_by > 0) {
+                $user = $this->userRepository->findOnlyPublished($upload->music_bitrate_fixed_by)->first();
+                Helpers::ajaxResult(true, '', ['user_bitrate_fixed' => $user->username]);
+            }
+        }
+        Helpers::ajaxResult(false, '', []);
     }
 }

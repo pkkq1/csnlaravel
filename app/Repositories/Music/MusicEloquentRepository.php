@@ -498,6 +498,9 @@ $video = ' . str_replace('video_', 'music_',  var_export($videoResult, true)) . 
                 $this->videoDeletedRepository->getModel()::where('music_id', $musicFirstId)->delete();
             }
         }
+        if(!$reDirect) {
+           return false;
+        }
         $idMusic = (isset($musicReal) ? $musicReal->music_id : $music_id);
         $upload = $this->uploadRepository->getModel()::where('music_id', $idMusic)->first();
         $messError = 'Nhạc đang cập nhật.';

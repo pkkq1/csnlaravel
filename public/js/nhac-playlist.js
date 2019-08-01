@@ -46,7 +46,7 @@
                     PP.className = repeatClassOne;
                     PP.innerHTML = repeatOne;
                 }
-                if(sessionStorage.getItem("auto_repeat") == 'all') {
+                if(sessionStorage.getItem("auto_repeat") == 'all' || !sessionStorage.getItem("auto_repeat")) {
                     jwplayer().setConfig({
                         repeat: false
                     });
@@ -54,7 +54,7 @@
                     PP.className = repeatClassAll;
                     PP.innerHTML = repeatAll;
                 }
-                if(sessionStorage.getItem("auto_repeat") == 'none' || !sessionStorage.getItem("auto_repeat")) {
+                if(sessionStorage.getItem("auto_repeat") == 'none') {
                     jwplayer().setConfig({
                         repeat: false
                     });

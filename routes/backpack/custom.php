@@ -63,13 +63,13 @@ Route::group([
     CRUD::resource('history_level', 'UserLeverController');
 
 });
+Route::get('admin/article_tag/search_tag', 'Backpack\NewsCRUD\app\Http\Controllers\Admin\ArticleCrudController@searchTags');
 Route::group([
     'namespace'  => 'Backpack\PermissionManager\app\Http\Controllers',
     'prefix'     => config('backpack.base.route_prefix', 'admin'),
     'middleware' => ['web', backpack_middleware()],
 ], function () {
     Route::get('/ajax-role-options', 'UserCrudController@getRoleOption');
-
 });
 
 

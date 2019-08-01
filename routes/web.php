@@ -178,6 +178,10 @@ Route::group(['middlewareGroups' => ['web']], function () {
     Route::get('video-moi.html', ['as' => 'catalog.video', 'uses' => 'CatalogController@videoNews']);
     Route::get('album-moi.html', ['as' => 'catalog.album', 'uses' => 'CatalogController@albumNews']);
 
+
+    Route::post('music/check_music_bitrate',['as'=>'music.check_music_bitrate','uses'=>'MusicController@checkMusicBitrate']);
+
+
     Route::group(['middleware' => ['auth']], function() {
 
         Route::group(['middleware' => ['isActive']], function() {

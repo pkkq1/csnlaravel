@@ -45,6 +45,21 @@ class PlaylistMusicEloquentRepository extends EloquentRepository implements Play
         $result = $this->_model::where('cat_level', '!=', 0)->orderBy('cat_order', 'asc')->get();
         return $result;
     }
+    public function getMusicId($musicId)
+    {
+        $result = $this->_model::where('music_id', $musicId)->get();
+        return $result;
+    }
+    public function getPlaylistId($playlistId)
+    {
+        $result = $this->_model::where('playlist_id', $playlistId)->get();
+        return $result;
+    }
+    public function deletePlaylistByMusicId($musicId)
+    {
+        $result = $this->_model::where('music_id', $musicId)->delete();
+        return $result;
+    }
     public function getCategory()
     {
         $result = $this->_model::where('cat_level', 0)->orderBy('cat_order', 'asc')->get();

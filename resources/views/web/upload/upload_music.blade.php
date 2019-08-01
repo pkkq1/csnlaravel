@@ -388,7 +388,7 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                         <li>Nếu vì 1 lý do nào đó, bạn cần thay đổi Tên {{$mess}} hoặc tên ca sĩ thì bạn phải thực hiện lại thứ tự các bước như trên.</li>
                         <li>Bạn chỉ cần upload file {{$mess}} ở chất lượng cao nhất mà bạn có, hệ thống sẽ xử lý thành các định dạng có chất lượng thấp hơn để phù hợp yêu cầu nghe nhạc của mọi người.</li>
                         <li>Sau khi file nhạc và thông tin {{$mess}} đã được tải lên hệ thống thành công, bạn phát hiện có thông tin nhập chưa chính xác, cần chỉnh sửa thì bạn vẫn có 5 phút để thể thay đổi. Sau thời hạn 5 phút mà hệ thống không phát hiện thay đổi nào mới thì hệ thống bắt đầu xử lý {{$mess}} của bạn để đăng lên.</li>
-                        <li><a style="font-family: 'SFProDisplay-Medium'; color: #919191;" href="/upload_copyright.html">Truy cập danh sách</a> bài hát và ca sĩ bị cấm upload do chưa phù hợp với các chính sách của CSN.</li>
+                        <li><a style="font-family: 'SFProDisplay-Medium'; color: #919191; text-decoration: underline;" href="/upload_copyright.html">Truy cập danh sách</a> bài hát và ca sĩ bị cấm upload do chưa phù hợp với các chính sách của CSN.</li>
                     </ul>
                 </div>
             </div>

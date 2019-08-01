@@ -6,6 +6,8 @@ use Backpack\CRUD\app\Http\Controllers\CrudController;
 // VALIDATION: change the requests to match your own file names if you need form validation
 use Backpack\NewsCRUD\app\Http\Requests\ArticleRequest as StoreRequest;
 use Backpack\NewsCRUD\app\Http\Requests\ArticleRequest as UpdateRequest;
+use Backpack\NewsCRUD\app\Models\Tag;
+use Illuminate\Http\Request as Request;
 
 class ArticleCrudController extends CrudController
 {
@@ -128,15 +130,29 @@ class ArticleCrudController extends CrudController
             'attribute' => 'name',
             'model' => "Backpack\NewsCRUD\app\Models\Category",
         ]);
-        $this->crud->addField([       // Select2Multiple = n-n relationship (with pivot table)
-            'label' => 'Tags',
-            'type' => 'select2_multiple',
-            'name' => 'tags', // the method that defines the relationship in your Model
+//        $this->crud->addField([       // Select2Multiple = n-n relationship (with pivot table)
+//            'label' => 'Tags',
+//            'type' => 'select2_multiple',
+//            'name' => 'tags', // the method that defines the relationship in your Model
+//            'entity' => 'tags', // the method that defines the relationship in your Model
+//            'attribute' => 'name', // foreign key attribute that is shown to user
+//            'model' => "Backpack\NewsCRUD\app\Models\Tag", // foreign key model
+//            'pivot' => true, // on create&update, do you need to add/delete pivot table entries?
+//        ]);
+
+        $this->crud->addField([
+            'label' => "Tags", // Table column heading
+            'type' => "select2_from_ajax_multiple",
+            'name' => 'id', // the column that contains the ID of that connected entity
             'entity' => 'tags', // the method that defines the relationship in your Model
-            'attribute' => 'name', // foreign key attribute that is shown to user
-            'model' => "Backpack\NewsCRUD\app\Models\Tag", // foreign key model
-            'pivot' => true, // on create&update, do you need to add/delete pivot table entries?
+            'attribute' => "name", // foreign key attribute that is shown to user
+            'data_source' => url("admin/article_tag/search_tag"), // url to controller search function (with /{id} should return model)
+            'placeholder' => "Lựa chọn nhiều tags cho bài viết", // placeholder for the select
+            'minimum_input_length' => 1, // minimum characters to type before querying results
         ]);
+
+
+
         $this->crud->addField([    // ENUM
             'name' => 'status',
             'label' => 'Status',
@@ -150,7 +166,26 @@ class ArticleCrudController extends CrudController
         $this->crud->enableAjaxTable();
 
     }
+    public function searchTags(Request $request)
+    {
+        $search_term = $request->input('q');
+        $page = $request->input('page');
 
+        if ($search_term)
+        {
+            $results = Tag::select('name', 'id')
+                ->where(function($q) use ($search_term) {
+                    $q->where('name', 'LIKE', '%'.$search_term.'%')
+                        ->orWhere('slug', 'LIKE', '%'.$search_term.'%');
+                })
+                ->paginate(10);
+        }
+        else
+        {
+            $results = Tag::paginate(10);
+        }
+        return $results;
+    }
     public function store(StoreRequest $request)
     {
         return parent::storeCrud();

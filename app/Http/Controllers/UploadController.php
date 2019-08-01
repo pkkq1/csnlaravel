@@ -18,6 +18,8 @@ use App\Repositories\UploadException\UploadExceptionEloquentRepository;
 use App\Repositories\Album\AlbumEloquentRepository;
 use App\Repositories\Cover\CoverEloquentRepository;
 use App\Repositories\Artist\ArtistRepository;
+use App\Repositories\PlaylistMusic\PlaylistMusicEloquentRepository;
+use App\Repositories\MusicFavourite\MusicFavouriteRepository;
 use Illuminate\Support\Facades\Storage;
 use App\Repositories\DeleteMusic\DeleteMusicEloquentRepository;
 use App\Repositories\DeleteVideo\DeleteVideoEloquentRepository;
@@ -46,12 +48,14 @@ class UploadController extends Controller
     protected $deleteVideoRepository;
     protected $artistExpRepository;
     protected $userExpRepository;
+    protected $playlistMusicRepository;
+    protected $musicFavouriteRepository;
     protected $Solr;
 
     public function __construct(ArtistUploadEloquentRepository $artistUploadRepository, MusicEloquentRepository $musicRepository, ArtistRepository $artistRepository,
                                 UploadEloquentRepository $uploadRepository, AlbumEloquentRepository $albumRepository, VideoEloquentRepository $videoRepository, CoverEloquentRepository $coverRepository, Solarium $Solr,
                                 DeleteVideoEloquentRepository $deleteVideoRepository, DeleteMusicEloquentRepository $deleteMusicRepository, ArtistExceptionRepository $artistExpRepository, UploadExceptionEloquentRepository $uploadExRepository,
-                                UserEloquentRepository $userExpRepository) {
+                                UserEloquentRepository $userExpRepository, PlaylistMusicEloquentRepository $playlistMusicRepository, MusicFavouriteRepository $musicFavouriteRepository) {
         $this->artistUploadRepository = $artistUploadRepository;
         $this->musicRepository = $musicRepository;
         $this->videoRepository = $videoRepository;
@@ -64,6 +68,8 @@ class UploadController extends Controller
         $this->uploadExRepository = $uploadExRepository;
         $this->artistExpRepository = $artistExpRepository;
         $this->userExpRepository = $userExpRepository;
+        $this->playlistMusicRepository = $playlistMusicRepository;
+        $this->musicFavouriteRepository = $musicFavouriteRepository;
         $this->Solr = $Solr;
         $this->middleware(function ($request, $next)
         {
@@ -442,6 +448,8 @@ class UploadController extends Controller
                     }else {
                         $this->musicRepository->deleteSafe($result);
                         $Solr->syncDeleteMusic(null, $result);
+                        $this->playlistMusicRepository->deletePlaylistByMusicId($result->music_id);
+                        $this->musicFavouriteRepository->deleteFavouriteByMusicId($result->music_id);
                     }
 //                    $this->userExpRepository->getModel()::where('user_id', $result->user_id)->decrement('user_music', 1);
 //                    $user->decrement('user_music', 1);
@@ -799,5 +807,6 @@ class UploadController extends Controller
             Helpers::ajaxResult(false, 'Không tìm thấy nội dung', null);
         Helpers::ajaxResult(true, '', $result->toArray());
     }
+
 
 }

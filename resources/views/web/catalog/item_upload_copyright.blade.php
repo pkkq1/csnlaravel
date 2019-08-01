@@ -9,14 +9,14 @@
             <span class="counter">{{sprintf("%02d", ++$i)}}</span>
         </div>
         <div class="media-left align-items-stretch mr-2">
-            <a href="javascript:void(0)" title="{{$item['music_title']}}">
+            <a target="_blank" href="/dang-tai/nhac/{{$item['music_id']}}" title="{{$item['music_title']}}">
                 <img src="{{Helpers::cover_url($item['cover_id'])}}" alt="{{$item['music_title']}}">
                 <i class="material-icons">play_circle_outline</i>
             </a>
         </div>
         <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
             <div>
-                <h5 class="media-title mt-0 mb-0"><a href="javascript:void(0)" title="{{$item['music_title']}}">{{$item['music_title']}}</a></h5>
+                <h5 class="media-title mt-0 mb-0"><a target="_blank" href="/dang-tai/nhac/{{$item['music_id']}}" title="{{$item['music_title']}}">{{$item['music_title']}}</a></h5>
                 <div class="author"><?php echo $item['music_artist'] ?></div>
             </div>
             <small class="type_music c1"><?php echo Helpers::bitrate2str($item['music_bitrate']); ?></small>

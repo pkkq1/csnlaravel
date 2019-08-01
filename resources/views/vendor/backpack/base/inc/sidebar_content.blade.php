@@ -98,9 +98,9 @@ $htmlNotif['kara_sug'] = $notif['kara_sug'] > 0 ? '<span class="label pull-right
 <li class="treeview">
     <a href="#"><i class="fa fa-bookmark-o"></i> <span>Tin tức</span> <i class="fa fa-angle-left pull-right"></i></a>
     <ul class="treeview-menu">
-        <li><a href="{{backpack_url('article') }}"><i class="fa fa-file-o"></i> <span>Bài viết</span></a></li>
         <li><a href="{{backpack_url('category') }}"><i class="fa fa-list"></i> <span>Danh mục</span></a></li>
         <li><a href="{{backpack_url('tag') }}"><i class="fa fa-tag"></i> <span>Tags</span></a></li>
+        <li><a href="{{backpack_url('article') }}"><i class="fa fa-file-o"></i> <span>Bài viết</span></a></li>
     </ul>
 </li>
 
