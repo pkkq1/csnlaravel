@@ -84,10 +84,12 @@ if($memberVip == null)
     @if(!$memberVip)
         @hasSection('in_player')
             <!-- BlueSeed - asynchronous code for placement 1640 Chiasenhac Balloon Music Player Desktop -->
-            <script id="jshd1pm_1640" src="https://d2.blueseed.tv/ads-sync.js?placement=1640"></script>
+            <ins class="370d0bec" data-key="f208afd26b0f415fda3405513d8ebe55"></ins>
+            <script async defer src="//aj1010.online/20dc880c.js"></script>
         @else
             <!-- BlueSeed - asynchronous code for placement 1468 Chiasenhac Balloon Home Page Desktop -->
-            <script id="jshd1pm_1468" src="https://d2.blueseed.tv/ads-sync.js?placement=1468"></script>
+            <ins class="370d0bec" data-key="a52078840c1d74ca9c8c92c22adaa2ee"></ins>
+            <script async defer src="//aj1010.online/20dc880c.js"></script>
         @endif
 
         @hasSection('in_home')
