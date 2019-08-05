@@ -270,7 +270,8 @@ if($memberVip == null)
 
         // Blueseed - Mobile In flow - Popup // backup code Ambient
         echo '<!-- BlueSeed - asynchronous code for placement 1478 Chiasenhac InFlow Mobile -->
-        <script id="jshd1pm_1478" src="https://d2.blueseed.tv/ads-sync.js?placement=1478"></script>';
+        <ins class="370d0bec" data-key="a714898fd775c2c01506ef82f0a29fbf"></ins>
+<script async defer src="//aj1010.online/20dc880c.js"></script>';
     }
 ?>
 

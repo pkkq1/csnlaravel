@@ -43,8 +43,8 @@ if($memberVip == null)
                         <div class="container text-center">
                             <div id="bsmasthead-wrapper">
                                 <!-- BlueSeed - asynchronous code for placement 1643 Chiasenhac Masthead Player Desktop -->
-                                <ins class="hadar-placement" data-hdpm="1643"></ins>
-                                <script id="jshd1pm_1643" src="https://static.blueseed.tv/ajs/display.js"></script>
+                                <ins class="370d0bec" data-key="9a43993fd3f88e5ac078c498529ef11a"></ins>
+                                <script async defer src="//aj1010.online/20dc880c.js"></script>
                             </div>
                         </div>
                     </div>
@@ -64,8 +64,8 @@ if($memberVip == null)
                     <div class="container text-center">
                         <div id="bsmasthead-wrapper">
                             <!-- BlueSeed - asynchronous code for placement 1365 Chiasenhac Masthead Desktop -->
-                            <ins class="hadar-placement" data-hdpm="1365"></ins>
-                            <script id="jshd1pm_1365" src="https://static.blueseed.tv/ajs/display.js"></script>
+                            <ins class="370d0bec" data-key="ae56ae7603b4c19be628097c007637df"></ins>
+                            <script async defer src="//aj1010.online/20dc880c.js"></script>
                         </div>
                     </div>
                 </div>
