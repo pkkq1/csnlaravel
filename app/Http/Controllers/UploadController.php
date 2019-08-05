@@ -311,11 +311,11 @@ class UploadController extends Controller
             }
 
         }
-        $fileName = Helpers::moveFile($request->file('file'), $_SERVER['DOCUMENT_ROOT'].DEFAULT_ROOT_CACHE_MUSIC_PATH, $_FILES['file']['name']);
+        $fileName = Helpers::moveFile($request->file('file'), $_SERVER['DOCUMENT_ROOT'].DEFAULT_ROOT_CACHE_MUSIC_PATH, str_replace(';', '', $_FILES['file']['name']));
         return response()->json([
             'success' => true,
             'message' => 'Upload Success',
-            'file_name' => $fileName,
+            'file_name' => str_replace(';', '', $fileName),
             'lossless' => $type == 'audio' ? (isset($videoInfo['audio']['lossless']) ? $videoInfo['audio']['lossless'] == true ? 1000 : (int)($videoInfo['audio']['bitrate'] / 1024) : '') : '',
             'file_size' => $_FILES['file']['size']
         ]);
@@ -716,8 +716,6 @@ class UploadController extends Controller
             $errorMessages->merge(['music_artist' => ['Ca Sĩ bạn chọn không hợp lệ.']]);
             return redirect()->back()->withErrors($errorMessages);
         }
-
-
         $fileUploads = explode(';', htmlspecialchars_decode($request->input('drop_files'), ENT_QUOTES));
         $fileSize = explode(';', htmlspecialchars_decode($request->input('music_filesize'), ENT_QUOTES));
         $album = $this->coverRepository->create([

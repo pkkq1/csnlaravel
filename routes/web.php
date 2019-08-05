@@ -182,6 +182,8 @@ Route::group(['middlewareGroups' => ['web']], function () {
     Route::post('music/check_music_bitrate',['as'=>'music.check_music_bitrate','uses'=>'MusicController@checkMusicBitrate']);
 
 
+
+
     Route::group(['middleware' => ['auth']], function() {
 
         Route::group(['middleware' => ['isActive']], function() {
@@ -256,4 +258,13 @@ Route::group(['middlewareGroups' => ['web']], function () {
 
 });
 
+///// News
+Route::group([
+//    'namespace'  => 'App\Http\Controllers\News',
+    'prefix'     => 'tin-tuc',
+    'middleware' => ['web'],
+], function () {
+        Route::get('.html', ['as' => 'news.index', 'uses' => 'News\HomeController@index']);
+        Route::get('/', ['as' => 'news.index', 'uses' => 'News\HomeController@index']);
+});
 

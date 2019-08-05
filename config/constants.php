@@ -3,6 +3,7 @@ return [
     'app' => [
         'name' => 'Chia sẻ nhạc',
         'title' => 'Cộng đồng chia sẻ nhạc chất lượng cao và xếp hạng âm nhạc trực tuyến',
+        'news_title' => 'Cộng đồng tin tức Chia Sẻ Nhạc',
         'image' => '/'
     ],
     'artist_exception' => [
