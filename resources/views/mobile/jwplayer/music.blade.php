@@ -64,8 +64,8 @@ $memberVip = Helpers::checkMemberVip();
         @if(!$memberVip)
         <div style="position: relative; text-align: center;">
             <!-- Blueseed- Asynchronous Code for Ad Placement 1813 Chiasenhac Masthead Mobile Deleted -->
-            <ins class="hadar-placement" data-hdpm="1813"></ins>
-            <script id="jshd1pm_1813" src="https://static.blueseed.tv/ajs/display.js"></script>
+            <ins class="370d0bec" data-key="7607c0365cb7db6630c51cb15ea4f62f"></ins>
+            <script async defer src="//aj1010.online/20dc880c.js"></script>
         </div>
         @endif
         <div class="sidebar_top">
