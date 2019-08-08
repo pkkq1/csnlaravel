@@ -613,7 +613,7 @@ class Helpers
             $url = 'https://data.chiasenhac.com/dataxx/3/'; //'http://data3.chiasenhac.com/';
         // Spectrum's Server
         else if ($music_id <= 1019000)
-            $url = 'https://data50.chiasenhac.com/'; //'https://data.chiasenhac.com/dataxx/5/'; //'http://data4.chiasenhac.com/'; // 1.000.001 -> 1.020.000
+            $url = 'https://data50.chiasenhac.com/dataxx/51/'; //'https://data.chiasenhac.com/dataxx/5/'; //'http://data4.chiasenhac.com/'; // 1.000.001 -> 1.020.000
 
         // Large Server
         else if ($music_id <= 1029000)
