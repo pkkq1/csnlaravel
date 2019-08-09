@@ -83,7 +83,7 @@ class SolrSyncController extends Controller
             if (Auth::check() && (Auth::user()->id == 3 || Auth::user()->id == 997917)) {
                 $searchMusic = MusicModel::select('music_id', 'music_composer', 'music_title', 'music_artist', 'music_downloads_this_week', 'music_search_result',
                     'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_downloads_this_week', 'music_lyric', 'music_title_url', 'music_download_time')
-                    ->where([['cat_id', '!=', CAT_VIDEO], ['music_deleted', '<', 1], ['music_id', '>', intval($_GET['m_start'])], ['music_id', '<', 1387001]])
+                    ->where([['cat_id', '!=', CAT_VIDEO], ['music_deleted', '<', 1], ['music_id', '>', intval($_GET['m_start'])], ['music_id', '<', 1389001]])
                     ->orwhere([['cat_id', '!=', CAT_VIDEO], ['music_deleted', '<', 1], ['music_id', '>', intval($_GET['m_start'])], ['music_id', '>', 1419000]])
 //                ->whereIn('music_id', [1980711])
                     ->offset(0)
@@ -117,70 +117,72 @@ class SolrSyncController extends Controller
 
         $datas = [];
         foreach ($searchMusic as $key => $item) {
-            $titleSearch = Helpers::replaceKeySearch($item->music_title);
-            $artistSearch = Helpers::replaceKeySearch($item->music_artist);
-            $titleCharset = htmlspecialchars(Helpers::strReplaceSolr(Helpers::khongdau($titleSearch, ' ')), ENT_QUOTES);
-            $artistCharset = htmlspecialchars(Helpers::strReplaceSolr(Helpers::khongdau($artistSearch, ' ')), ENT_QUOTES);
-            $composerCharset = Helpers::replaceKeySearch($item->music_composer);
-            $composerCharset = htmlspecialchars(Helpers::strReplaceSolr(Helpers::khongdau($composerCharset, ' ')), ENT_QUOTES);
+            if ($item->music_id < 1389001 or $item->music_id > 1419000) {
+                $titleSearch = Helpers::replaceKeySearch($item->music_title);
+                $artistSearch = Helpers::replaceKeySearch($item->music_artist);
+                $titleCharset = htmlspecialchars(Helpers::strReplaceSolr(Helpers::khongdau($titleSearch, ' ')), ENT_QUOTES);
+                $artistCharset = htmlspecialchars(Helpers::strReplaceSolr(Helpers::khongdau($artistSearch, ' ')), ENT_QUOTES);
+                $composerCharset = Helpers::replaceKeySearch($item->music_composer);
+                $composerCharset = htmlspecialchars(Helpers::strReplaceSolr(Helpers::khongdau($composerCharset, ' ')), ENT_QUOTES);
 //            $lyricSearch = Helpers::replaceKeySearch($item->music_lyric);
 //            $lyricCharset = Helpers::khongdau(str_replace("\n", ' ', $lyricSearch), ' ');
-            $data = [
-                'id' => 'music_' . $item->music_id,
-                'music_id' => $item->music_id,
-                'music_title' => $item->music_title,
-                'music_title_search' => htmlspecialchars($titleSearch, ENT_QUOTES),
-                'music_artist_search' => htmlspecialchars($artistSearch, ENT_QUOTES),
+                $data = [
+                    'id' => 'music_' . $item->music_id,
+                    'music_id' => $item->music_id,
+                    'music_title' => $item->music_title,
+                    'music_title_search' => htmlspecialchars($titleSearch, ENT_QUOTES),
+                    'music_artist_search' => htmlspecialchars($artistSearch, ENT_QUOTES),
 //                'music_title_artist_search' => $titleSearch .' '. $artistSearch,
-                'music_title_charset_nospace' => str_replace(' ', '', $titleCharset),
-                'music_artist_charset_nospace' => str_replace(' ', '', $artistCharset),
-                'music_title_artist_charset_nospace' => str_replace(' ', '', $titleCharset) . '' . str_replace(' ', '', $artistCharset),
-                'music_title_charset' => $titleCharset,
-                'music_artist_charset' => $artistCharset,
+                    'music_title_charset_nospace' => str_replace(' ', '', $titleCharset),
+                    'music_artist_charset_nospace' => str_replace(' ', '', $artistCharset),
+                    'music_title_artist_charset_nospace' => str_replace(' ', '', $titleCharset) . '' . str_replace(' ', '', $artistCharset),
+                    'music_title_charset' => $titleCharset,
+                    'music_artist_charset' => $artistCharset,
 //                'music_title_artist_charset' => $titleCharset . ' '. $artistCharset,
 //                'music_lyric' => $item->music_lyric,
 //                'music_lyric_search' => $lyricSearch,
-                //'music_lyric_charset' => $lyricCharset,
-                'music_bitrate_html' => Helpers::bitrate2str($item->music_bitrate),
-                'music_cover' => Helpers::cover_url($item->cover_id),
-                'music_link' => Helpers::listen_url($item->toArray(), false),
-                'music_filename' => $item->music_filename,
-                'music_artist' => $item->music_artist, //str_replace(';', ',', $item->music_artist),
-                'music_artist_array' => explode(';', $item->music_artist),
-                'music_artist_id' => explode(';', htmlspecialchars_decode($item->music_artist_id, ENT_QUOTES)),
-                'music_artist_html' => Helpers::rawHtmlArtists($item->music_artist_id, $item->music_artist),
-                'music_listen' => $item->music_listen,
-                'music_title_url' => $item->music_title_url,
-                'music_cat_id' => $item->cat_id,
-                'cat_id' => $item->cat_id,
-                'music_composer_charset' => $composerCharset,
-                'music_composer_charset_nospace' => str_replace(' ', '', $composerCharset),
-                'music_composer' => $item->music_composer,
-                'music_cat_level' => $item->cat_level,
-                'cat_level' => $item->cat_level,
-                'music_cover_id' => $item->cover_id,
-                'cover_id' => $item->cover_id,
-                'music_bitrate' => $item->music_bitrate,
-                'music_width' => $item->music_width,
-                'music_height' => $item->music_height,
-                'music_length' => $item->music_length,
-                'music_downloads' => $item->music_downloads,
-                'music_download_time' => $item->music_download_time,
-                'music_downloads_today' => $item->music_downloads_today,
-                'music_downloads_this_week' => $item->music_downloads_this_week,
-                'music_downloads_max_week' => $item->music_downloads_max_week,
-                'music_search_result' => $item->music_search_result,
-                'solr_updated_time' => time(),
-            ];
-            $datas[] = $data;
-            //$datas[] = $data['id'];
-            //$this->Solr->addDocuments($data);
-            //$this->Solr->solrDeleteById($data['id']);
+                    //'music_lyric_charset' => $lyricCharset,
+                    'music_bitrate_html' => Helpers::bitrate2str($item->music_bitrate),
+                    'music_cover' => Helpers::cover_url($item->cover_id),
+                    'music_link' => Helpers::listen_url($item->toArray(), false),
+                    'music_filename' => $item->music_filename,
+                    'music_artist' => $item->music_artist, //str_replace(';', ',', $item->music_artist),
+                    'music_artist_array' => explode(';', $item->music_artist),
+                    'music_artist_id' => explode(';', htmlspecialchars_decode($item->music_artist_id, ENT_QUOTES)),
+                    'music_artist_html' => Helpers::rawHtmlArtists($item->music_artist_id, $item->music_artist),
+                    'music_listen' => $item->music_listen,
+                    'music_title_url' => $item->music_title_url,
+                    'music_cat_id' => $item->cat_id,
+                    'cat_id' => $item->cat_id,
+                    'music_composer_charset' => $composerCharset,
+                    'music_composer_charset_nospace' => str_replace(' ', '', $composerCharset),
+                    'music_composer' => $item->music_composer,
+                    'music_cat_level' => $item->cat_level,
+                    'cat_level' => $item->cat_level,
+                    'music_cover_id' => $item->cover_id,
+                    'cover_id' => $item->cover_id,
+                    'music_bitrate' => $item->music_bitrate,
+                    'music_width' => $item->music_width,
+                    'music_height' => $item->music_height,
+                    'music_length' => $item->music_length,
+                    'music_downloads' => $item->music_downloads,
+                    'music_download_time' => $item->music_download_time,
+                    'music_downloads_today' => $item->music_downloads_today,
+                    'music_downloads_this_week' => $item->music_downloads_this_week,
+                    'music_downloads_max_week' => $item->music_downloads_max_week,
+                    'music_search_result' => $item->music_search_result,
+                    'solr_updated_time' => time(),
+                ];
+                $datas[] = $data;
+                //$datas[] = $data['id'];
+                //$this->Solr->addDocuments($data);
+                //$this->Solr->solrDeleteById($data['id']);
 
 //            if (Auth::check() && (Auth::user()->id == 3 || Auth::user()->id == 997917)) {
-            if (isset($_GET['m_start'])) {
-                if (strpos($_SERVER['REQUEST_URI'], 'sync/solr_') !== false) {
-                    echo ($key) . '/ ' . $item->music_id . "\n <br>";
+                if (isset($_GET['m_start'])) {
+                    if (strpos($_SERVER['REQUEST_URI'], 'sync/solr_') !== false) {
+                        echo ($key) . '/ ' . $item->music_id . "\n <br>";
+                    }
                 }
             }
         }
