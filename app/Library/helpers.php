@@ -690,22 +690,22 @@ class Helpers
             $url = 'https://data.chiasenhac.com/dataxx/00/'; //'http://data00.chiasenhac.com/';
         // CSN's Server OLD
         else if ($music_id <= 1919000)
-            $url = (rand(1,2) == 1) ? 'https://data50.chiasenhac.com/dataxx/38/' : 'https://data50.chiasenhac.com/dataxx/37/';
+            $url = (rand(1,2) == 1) ? 'https://data.chiasenhac.com/dataxx/38/' : 'https://data.chiasenhac.com/dataxx/37/';
 //        $url = (rand(1,2) == 1) ? 'http://data38.chiasenhac.com/' : 'http://data37.chiasenhac.com/';
         else if ($music_id <= 1934000)
-            $url = 'https://data50.chiasenhac.com/dataxx/32/'; //'http://data32.chiasenhac.com/';
+            $url = 'https://data.chiasenhac.com/dataxx/32/'; //'http://data32.chiasenhac.com/';
         else if ($music_id <= 1949000)
-            $url = 'https://data50.chiasenhac.com/dataxx/34/'; //'http://data34.chiasenhac.com/';
+            $url = 'https://data.chiasenhac.com/dataxx/34/'; //'http://data34.chiasenhac.com/';
         else if ($music_id <= 1962000)
-            $url = 'https://data50.chiasenhac.com/dataxx/35/'; //'http://data35.chiasenhac.com/';
+            $url = 'https://data.chiasenhac.com/dataxx/35/'; //'http://data35.chiasenhac.com/';
         else if ($music_id <= 1969000)
-            $url = 'https://data50.chiasenhac.com/dataxx/36/'; //'http://data36.chiasenhac.com/';
+            $url = 'https://data.chiasenhac.com/dataxx/36/'; //'http://data36.chiasenhac.com/';
         else if ($music_id <= 1979000)
-            $url = 'https://data50.chiasenhac.com/dataxx/31/'; //'http://data31.chiasenhac.com/';
+            $url = 'https://data.chiasenhac.com/dataxx/31/'; //'http://data31.chiasenhac.com/';
         else if ($music_id <= 1993000)
-            $url = 'https://data50.chiasenhac.com/dataxx/33/'; //'http://data31.chiasenhac.com/';
+            $url = 'https://data.chiasenhac.com/dataxx/33/'; //'http://data31.chiasenhac.com/';
         else if ($music_id <= 2019000)
-            $url = 'https://data50.chiasenhac.com/';
+            $url = 'https://data.chiasenhac.com/';
         else if ($music_id <= 2027000)
             $url = 'https://data.chiasenhac.com/dataxx/25/';//'http://data25.chiasenhac.com/';
         else
