@@ -1001,7 +1001,7 @@ class Helpers
         return (strpos($userAvatar, 'http') !== false) ? $userAvatar : $domain.Helpers::file_path($userId, PUBLIC_AVATAR_PATH, true) . $userAvatar . '?time='.time();
     }
     public static function getImgQuality($musicId) {
-        return 'https://data.chiasenhac.com/dataxx/5/data/spectrum'.Helpers::file_path($musicId, '/', true).$musicId.'.jpg';
+        return 'https://data5.chiasenhac.com/data/spectrum'.Helpers::file_path($musicId, '/', true).$musicId.'.jpg';
 //        return 'http://data5.chiasenhac.com/data/spectrum'.Helpers::file_path($musicId, '/', true).$musicId.'.jpg';
     }
     public static function strReplaceSolr($str, $keyRelease = false) {
