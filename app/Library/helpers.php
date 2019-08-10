@@ -623,7 +623,7 @@ class Helpers
             $url = 'https://data54.chiasenhac.com/';
 
         // Large Server
-        else if (1029000 < $music_id && $music_id <= 1059000)
+/*        else if (1029000 < $music_id && $music_id <= 1059000)
             $url = 'https://data4.chiasenhac.com/';
 //            $url = (rand(1,3) != 1) ? 'https://data.chiasenhac.com/dataxx/17/' : 'https://data4.chiasenhac.com/';
         else if (1059000 < $music_id && $music_id <= 1089000)
@@ -640,7 +640,7 @@ class Helpers
             $url = (rand(1,3) != 1) ? 'https://data.chiasenhac.com/dataxx/23/' : 'https://data4.chiasenhac.com/';
         else if (1239000 < $music_id && $music_id <= 1269000)
             $url = (rand(1,3) != 1) ? 'https://data.chiasenhac.com/dataxx/24/' : 'https://data4.chiasenhac.com/';
-
+*/
         else if ($music_id <= 1269000)
             $url = 'https://data4.chiasenhac.com/';
 
