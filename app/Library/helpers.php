@@ -610,7 +610,7 @@ class Helpers
         if ($music_id <= 200000)
             $url = 'https://data02.chiasenhac.com';
         else if ($music_id < 1000000)
-            $url = 'https://data.chiasenhac.com/dataxx/3/'; //'http://data3.chiasenhac.com/';
+            $url = 'https://data3.chiasenhac.com/';
 
         // Large Data2's Server
         else if ($music_id <= 1029000)
