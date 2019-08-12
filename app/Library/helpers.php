@@ -608,7 +608,7 @@ class Helpers
         $music_id = $music_info['music_id'];
 
         if ($music_id <= 200000)
-            $url = 'https://data02.chiasenhac.com';
+            $url = 'https://data02.chiasenhac.com/';
         else if ($music_id < 1000000)
             $url = 'https://data3.chiasenhac.com/';
 
