@@ -608,9 +608,9 @@ class Helpers
         $music_id = $music_info['music_id'];
 
         if ($music_id <= 200000)
-            $url = 'https://data02.chiasenhac.com/';
+            $url = 'https://data50.chiasenhac.com/'; //'https://data02.chiasenhac.com/';
         else if ($music_id < 1000000)
-            $url = 'https://data3.chiasenhac.com/';
+            $url = 'https://data50.chiasenhac.com/'; //'https://data3.chiasenhac.com/';
 
         // Large Data2's Server
         else if ($music_id <= 1029000)
@@ -656,7 +656,7 @@ class Helpers
 
         // DDLQD's Server
         else if ($music_id <= 1299000)
-            $url = 'https://data00.chiasenhac.com/';
+            $url = 'https://data50.chiasenhac.com/'; //'https://data00.chiasenhac.com/';
         // data3 -> data
         else if ($music_id <= 1319000)
             $url = 'https://data.chiasenhac.com/';
@@ -674,7 +674,7 @@ class Helpers
         else if ($music_id <= 1469000)
             $url = 'https://data16.chiasenhac.com/';
         else if ($music_id <= 1489000)
-            $url = 'https://data16.chiasenhac.com/';
+            $url = 'https://data17.chiasenhac.com/';
 //        else if ($music_id <= 1489000)
 //            $url = 'https://data.chiasenhac.com/dataxx/27/'; //'http://data27.chiasenhac.com/';
         // YCH's Server
