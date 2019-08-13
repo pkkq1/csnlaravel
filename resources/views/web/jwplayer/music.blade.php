@@ -409,7 +409,7 @@ if($musicSet['type_listen'] == 'playlist') {
                     </div>
                 </div>
 
-                <div class="row">
+                <div class="row row10px">
                     <script type="text/javascript" src="https://cdn.innity.net/admanager.js"></script>
                     <script type="text/javascript">
                         new innity_adZone("79c662560b0a5f1ae00b623ad8c775e3", "87808", {"origin": "VN","width": "728", "height": "90"});
