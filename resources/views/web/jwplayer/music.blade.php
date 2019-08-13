@@ -409,11 +409,12 @@ if($musicSet['type_listen'] == 'playlist') {
                     </div>
                 </div>
 
-                <script type="text/javascript" src="https://cdn.innity.net/admanager.js"></script>
-                <!-- Zone Tag : Chiasenhac 728x90-->
-                <script type="text/javascript">
-                    new innity_adZone("79c662560b0a5f1ae00b623ad8c775e3", "87808", {"origin": "VN","width": "728", "height": "90"});
-                </script>
+                <div class="row">
+                    <script type="text/javascript" src="https://cdn.innity.net/admanager.js"></script>
+                    <script type="text/javascript">
+                        new innity_adZone("79c662560b0a5f1ae00b623ad8c775e3", "87808", {"origin": "VN","width": "728", "height": "90"});
+                    </script>
+                </div>
 
                 @if($MusicSameArtist)
                     <div class="box_header d-flex justify-content-between align-items-end">
