@@ -58,13 +58,13 @@ class SolrSyncController extends Controller
         } elseif ($time) {
             $searchMusic = MusicModel::select('music_id', 'music_composer', 'music_title', 'music_artist', 'music_downloads_this_week', 'music_search_result',
                 'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_downloads_this_week', 'music_lyric', 'music_title_url', 'music_download_time')
-                ->where([['cat_id', '!=', CAT_VIDEO], ['music_deleted', '<', 1], ['music_id', '<', 1404001], [$field, '>', $time]])
+                ->where([['cat_id', '!=', CAT_VIDEO], ['music_deleted', '<', 1], ['music_id', '<', 1406001], [$field, '>', $time]])
                 ->orwhere([['cat_id', '!=', CAT_VIDEO], ['music_deleted', '<', 1], ['music_id', '>', 1419000], [$field, '>', $time]])
                 ->get();
         } elseif ( $limit > 0 ) {
                 $searchMusic = MusicModel::select('music_id', 'music_composer', 'music_title', 'music_artist', 'music_downloads_this_week', 'music_search_result',
                     'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_downloads_this_week', 'music_lyric', 'music_title_url', 'music_download_time')
-                    ->where([['cat_id', '!=', CAT_VIDEO], ['music_deleted', '<', 1], ['music_id', '<', 1404001]])
+                    ->where([['cat_id', '!=', CAT_VIDEO], ['music_deleted', '<', 1], ['music_id', '<', 1406001]])
                     ->orwhere([['cat_id', '!=', CAT_VIDEO], ['music_deleted', '<', 1], ['music_id', '>', 1419000]])
                     ->offset($offset)
                     ->limit($limit)
@@ -81,7 +81,7 @@ class SolrSyncController extends Controller
             if (Auth::check() && (Auth::user()->id == 3 || Auth::user()->id == 997917)) {
                 $searchMusic = MusicModel::select('music_id', 'music_composer', 'music_title', 'music_artist', 'music_downloads_this_week', 'music_search_result',
                     'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_downloads_this_week', 'music_lyric', 'music_title_url', 'music_download_time')
-                    ->where([['cat_id', '!=', CAT_VIDEO], ['music_deleted', '<', 1], ['music_id', '>', intval($_GET['m_start'])], ['music_id', '<', 1404001]])
+                    ->where([['cat_id', '!=', CAT_VIDEO], ['music_deleted', '<', 1], ['music_id', '>', intval($_GET['m_start'])], ['music_id', '<', 1406001]])
                     ->orwhere([['cat_id', '!=', CAT_VIDEO], ['music_deleted', '<', 1], ['music_id', '>', intval($_GET['m_start'])], ['music_id', '>', 1419000]])
 //                ->whereIn('music_id', [1980711])
                     ->offset(0)
@@ -115,7 +115,7 @@ class SolrSyncController extends Controller
 
         $datas = [];
         foreach ($searchMusic as $key => $item) {
-            if ($item->music_id < 1404001 or $item->music_id > 1419000) {
+            if ($item->music_id < 1406001 or $item->music_id > 1419000) {
                 $titleSearch = Helpers::replaceKeySearch($item->music_title);
                 $artistSearch = Helpers::replaceKeySearch($item->music_artist);
                 $titleCharset = htmlspecialchars(Helpers::strReplaceSolr(Helpers::khongdau($titleSearch, ' ')), ENT_QUOTES);
