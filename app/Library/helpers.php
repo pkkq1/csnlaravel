@@ -631,7 +631,7 @@ class Helpers
         else if ($music_id <= 1299000)
             $url = 'https://data60.chiasenhac.com/';
         else if ($music_id <= 1319000)
-            $url = 'https://data62.chiasenhac.com/';
+            $url = 'https://data61.chiasenhac.com/';
 
         // DDLQD's Server
         else if ($music_id <= 1349000)
