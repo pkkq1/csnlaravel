@@ -409,6 +409,13 @@ if($musicSet['type_listen'] == 'playlist') {
                     </div>
                 </div>
 
+                <div class="row row10px">
+                    <script type="text/javascript" src="https://cdn.innity.net/admanager.js"></script>
+                    <script type="text/javascript">
+                        new innity_adZone("79c662560b0a5f1ae00b623ad8c775e3", "87808", {"origin": "VN","width": "728", "height": "90"});
+                    </script>
+                </div>
+
                 @if($MusicSameArtist)
                     <div class="box_header d-flex justify-content-between align-items-end">
                         <h5 class="title m-0">Bài hát cùng ca sĩ</h5>
@@ -684,6 +691,20 @@ if($musicSet['type_listen'] == 'playlist') {
 
 
         player.setup({
+            <?php if ($musicSet['type_jw'] == 'video')
+                echo '
+                advertising: {
+                    client: "vast",
+                    skipoffset: 5,
+                    "adschedule": {
+                        "myPreroll": {
+                            "offset": "pre",
+                            "tag": ["https://aj1010.online/z4Kq_ISriKYm-yKIVUtk5c0ZL9nKiR8zfy8mxKoq5cP-sGjhBgbrQLfkgNlSaZZ6dfOWc-eiFd7b8er9uWaJW0w33yTdMJHU","https://aj1010.online/zSeyYJ3LVAwNZtp4Bi8fUTz3PTEYRA75TxWxt5gExwgaEbwaLpSYyzPQzxCWL1gGj2DVsG0Lo-bYRme3Z_Ki9p1onEm0fUC0","https://tag.gammaplatform.com/adx/request/?wid=1508317885&zid=1508318418&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"]
+                        }
+                    }
+                },
+                ';
+            ?>
             width: '100%',
             height: '88',
             repeat: false,

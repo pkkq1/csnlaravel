@@ -607,103 +607,89 @@ class Helpers
     {
         $music_id = $music_info['music_id'];
 
-        if ($music_id <= 200000)
-            $url = 'https://data.chiasenhac.com/dataxx/02/'; //'http://data02.chiasenhac.com/';
-        else if ($music_id < 1000000)
-            $url = 'https://data.chiasenhac.com/dataxx/3/'; //'http://data3.chiasenhac.com/';
-        // Spectrum's Server
-        else if ($music_id <= 1005000)
-            $url = 'https://data4.chiasenhac.com/'; //'https://data.chiasenhac.com/dataxx/5/'; //'http://data4.chiasenhac.com/'; // 1.000.001 -> 1.020.000
-
-        // Large Server
+        // Large Data2's Server
+        if ($music_id < 1000000)
+            $url = 'https://data50.chiasenhac.com/'; //'https://data3.chiasenhac.com/';
         else if ($music_id <= 1029000)
-            $url = 'https://data4.chiasenhac.com/';
-//            $url = (rand(1,3) != 1) ? 'https://data.chiasenhac.com/dataxx/16/' : 'https://data4.chiasenhac.com/';
-        else if (1029000 < $music_id && $music_id <= 1059000)
-            $url = 'https://data4.chiasenhac.com/';
-//            $url = (rand(1,3) != 1) ? 'https://data.chiasenhac.com/dataxx/17/' : 'https://data4.chiasenhac.com/';
-        else if (1059000 < $music_id && $music_id <= 1089000)
-            $url = (rand(1,3) != 1) ? 'https://data.chiasenhac.com/dataxx/18/' : 'https://data4.chiasenhac.com/';
-        else if (1089000 < $music_id && $music_id <= 1119000)
-            $url = (rand(1,3) != 1) ? 'https://data.chiasenhac.com/dataxx/19/' : 'https://data4.chiasenhac.com/';
-        else if (1119000 < $music_id && $music_id <= 1149000)
-            $url = (rand(1,3) != 1) ? 'https://data.chiasenhac.com/dataxx/20/' : 'https://data4.chiasenhac.com/';
-        else if (1149000 < $music_id && $music_id <= 1179000)
-            $url = (rand(1,3) != 1) ? 'https://data.chiasenhac.com/dataxx/21/' : 'https://data4.chiasenhac.com/';
-        else if (1179000 < $music_id && $music_id <= 1209000)
-            $url = (rand(1,3) != 1) ? 'https://data.chiasenhac.com/dataxx/22/' : 'https://data4.chiasenhac.com/';
-        else if (1209000 < $music_id && $music_id <= 1239000)
-            $url = (rand(1,3) != 1) ? 'https://data.chiasenhac.com/dataxx/23/' : 'https://data4.chiasenhac.com/';
-        else if (1239000 < $music_id && $music_id <= 1269000)
-            $url = (rand(1,3) != 1) ? 'https://data.chiasenhac.com/dataxx/24/' : 'https://data4.chiasenhac.com/';
-
+            $url = 'https://data51.chiasenhac.com/';
+        else if ($music_id <= 1059000)
+            $url = 'https://data52.chiasenhac.com/';
+        else if ($music_id <= 1089000)
+            $url = 'https://data53.chiasenhac.com/';
+        else if ($music_id <= 1119000)
+            $url = 'https://data54.chiasenhac.com/';
+        else if ($music_id <= 1149000)
+            $url = 'https://data55.chiasenhac.com/';
+        else if ($music_id <= 1179000)
+            $url = 'https://data56.chiasenhac.com/';
+        else if ($music_id <= 1209000)
+            $url = 'https://data57.chiasenhac.com/';
+        else if ($music_id <= 1239000)
+            $url = 'https://data58.chiasenhac.com/';
         else if ($music_id <= 1269000)
-            $url = 'https://data4.chiasenhac.com/';
+            $url = 'https://data59.chiasenhac.com/';
+        else if ($music_id <= 1299000)
+            $url = 'https://data60.chiasenhac.com/';
+        else if ($music_id <= 1329000)
+            $url = 'https://data61.chiasenhac.com/';
+        else if ($music_id <= 1349000)
+            $url = 'https://data62.chiasenhac.com/';
 
         // DDLQD's Server
-        else if ($music_id <= 1299000)
-            $url = 'https://data.chiasenhac.com/dataxx/00/'; //'http://data00.chiasenhac.com/';
-        // data3 -> data
-        else if ($music_id <= 1319000)
-            $url = 'https://data.chiasenhac.com/';
-        // DDLQD's Server
-        else if ($music_id <= 1349000)
-            $url = 'https://data.chiasenhac.com/dataxx/02/'; //'http://data02.chiasenhac.com/';
         else if ($music_id <= 1379000)
-            $url = 'https://data.chiasenhac.com/dataxx/01/'; //'http://data01.chiasenhac.com/';
+            $url = 'https://data01.chiasenhac.com/';
         // Large Server
         else if ($music_id <= 1419000)
             $url = 'https://data.chiasenhac.com/';
         else if ($music_id <= 1449000)
-            $url = 'https://data.chiasenhac.com/dataxx/26/'; //'http://data26.chiasenhac.com/';
+            $url = 'https://data26.chiasenhac.com/';
         // Large Server
         else if ($music_id <= 1469000)
-            $url = 'https://data.chiasenhac.com/dataxx/16/';
+            $url = 'https://data16.chiasenhac.com/';
         else if ($music_id <= 1489000)
-            $url = 'https://data.chiasenhac.com/dataxx/17/';
-        else if ($music_id <= 1489000)
-            $url = 'https://data.chiasenhac.com/dataxx/27/'; //'http://data27.chiasenhac.com/';
+            $url = 'https://data17.chiasenhac.com/';
+//        else if ($music_id <= 1489000)
+//            $url = 'https://data.chiasenhac.com/dataxx/27/'; //'http://data27.chiasenhac.com/';
         // YCH's Server
         else if ($music_id <= 1529000)
-            $url = 'https://data.chiasenhac.com/dataxx/04/'; //'http://data04.chiasenhac.com/';
+            $url = 'https://data04.chiasenhac.com/';
         else if ($music_id <= 1569000)
-            $url = 'https://data.chiasenhac.com/dataxx/03/'; //'http://data03.chiasenhac.com/';
+            $url = 'https://data03.chiasenhac.com/';
         // Large Server
         else if ($music_id <= 1649000)
-            $url = 'https://data.chiasenhac.com/dataxx/2/'; //'http://data2.chiasenhac.com/';
+            $url = 'https://data2.chiasenhac.com/';
         // YCH's Server
         else if ($music_id <= 1689000)
-            $url = 'https://data.chiasenhac.com/dataxx/05/'; //'http://data05.chiasenhac.com/';
+            $url = 'https://data05.chiasenhac.com/';
         // Large Server
         else if ($music_id <= 1729000)
-            $url = 'https://data.chiasenhac.com/dataxx/2/'; //'http://data2.chiasenhac.com/';
+            $url = 'https://data2.chiasenhac.com/';
         else if ($music_id <= 1739000)
-            $url = 'https://data.chiasenhac.com/dataxx/01/'; //'http://data01.chiasenhac.com/';
+            $url = 'https://data01.chiasenhac.com/';
         else if ($music_id <= 1809000)
-            $url = 'https://data.chiasenhac.com/dataxx/3/'; //'http://data3.chiasenhac.com/';
+            $url = 'https://data3.chiasenhac.com/';
         // DDLQD's Server
         else if ($music_id <= 1859000)
-            $url = 'https://data.chiasenhac.com/dataxx/00/'; //'http://data00.chiasenhac.com/';
+            $url = 'https://data00.chiasenhac.com/';
         // CSN's Server OLD
         else if ($music_id <= 1919000)
-            $url = (rand(1,2) == 1) ? 'https://data.chiasenhac.com/dataxx/38/' : 'https://data.chiasenhac.com/dataxx/37/';
-//        $url = (rand(1,2) == 1) ? 'http://data38.chiasenhac.com/' : 'http://data37.chiasenhac.com/';
+            $url = (rand(1,2) == 1) ? 'https://data38.chiasenhac.com/' : 'https://data37.chiasenhac.com/';
         else if ($music_id <= 1934000)
-            $url = 'https://data.chiasenhac.com/dataxx/32/'; //'http://data32.chiasenhac.com/';
+            $url = 'https://data32.chiasenhac.com/';
         else if ($music_id <= 1949000)
-            $url = 'https://data.chiasenhac.com/dataxx/34/'; //'http://data34.chiasenhac.com/';
+            $url = 'https://data34.chiasenhac.com/';
         else if ($music_id <= 1962000)
-            $url = 'https://data.chiasenhac.com/dataxx/35/'; //'http://data35.chiasenhac.com/';
+            $url = 'https://data35.chiasenhac.com/';
         else if ($music_id <= 1969000)
-            $url = 'https://data.chiasenhac.com/dataxx/36/'; //'http://data36.chiasenhac.com/';
+            $url = 'https://data36.chiasenhac.com/';
         else if ($music_id <= 1979000)
-            $url = 'https://data.chiasenhac.com/dataxx/31/'; //'http://data31.chiasenhac.com/';
+            $url = 'https://data31.chiasenhac.com/';
         else if ($music_id <= 1993000)
-            $url = 'https://data.chiasenhac.com/dataxx/33/'; //'http://data31.chiasenhac.com/';
-        else if ($music_id <= 2010000)
-            $url = 'https://data.chiasenhac.com/';
+            $url = 'https://data33.chiasenhac.com/';
+        else if ($music_id <= 2019000)
+            $url = 'https://data18.chiasenhac.com/';
         else if ($music_id <= 2027000)
-            $url = 'https://data.chiasenhac.com/dataxx/25/';//'http://data25.chiasenhac.com/';
+            $url = 'https://data25.chiasenhac.com/';
         else
             $url = 'https://data.chiasenhac.com/';
 
@@ -994,7 +980,7 @@ class Helpers
         return (strpos($userAvatar, 'http') !== false) ? $userAvatar : $domain.Helpers::file_path($userId, PUBLIC_AVATAR_PATH, true) . $userAvatar . '?time='.time();
     }
     public static function getImgQuality($musicId) {
-        return 'https://data.chiasenhac.com/dataxx/5/data/spectrum'.Helpers::file_path($musicId, '/', true).$musicId.'.jpg';
+        return 'https://data5.chiasenhac.com/data/spectrum'.Helpers::file_path($musicId, '/', true).$musicId.'.jpg';
 //        return 'http://data5.chiasenhac.com/data/spectrum'.Helpers::file_path($musicId, '/', true).$musicId.'.jpg';
     }
     public static function strReplaceSolr($str, $keyRelease = false) {
