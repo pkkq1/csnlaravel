@@ -1,4 +1,3 @@
-<?php die 'Please come back later!'; ?>
 @section('hidden_wapper', true)
 @section('in_player', true)
 @include('cache.suggestion.'.ceil($music->music_id / 1000).'.'.$music->music_id)
