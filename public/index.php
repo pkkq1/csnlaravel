@@ -1,3 +1,6 @@
+<?php echo 'Please come back later!';
+exit; ?>
+
 <?php
 /**
  * Laravel - A PHP Framework For Web Artisans
