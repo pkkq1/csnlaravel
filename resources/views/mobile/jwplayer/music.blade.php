@@ -1,5 +1,3 @@
-<?php echo 'Please come back later!';
-exit; ?>
 @section('in_player', true)
 @include('cache.suggestion.'.ceil($music->music_id / 1000).'.'.$music->music_id)
 @include('cache.suggestion_cat.'.$music->cat_id.'_'.$music->cat_level)
