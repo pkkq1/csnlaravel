@@ -1,6 +1,3 @@
-<?php echo 'Please come back later!';
-exit; ?>
-
 <?php
 use App\Library\Helpers;
 global $allpage_banner;
