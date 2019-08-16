@@ -12,6 +12,9 @@ if($memberVip == null)
 <html>
 @include('web.layouts.header')
 <body>
+<!--  Yo verify campaign 16/8/2019 -->
+<script type="text/javascript" async defer src="//ss.yomedia.vn/js/1/230/ads.js"></script>
+
 @if( isset($allpage_banner) && $allpage_banner == true )
 <a target="_blank" href="https://clicktrackingv2.userreport.com/?BLV5a6cbb86;https://yame.vn/shop/ao-thun?s=2&utm_source=background_CSN&utm_medium=CPD">
     <div style="text-align: center; height: 150px; position: relative; background-color: #e8ce79; background-repeat: no-repeat; background-position: center; z-index: -1;">
