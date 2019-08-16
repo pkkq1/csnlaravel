@@ -18,7 +18,7 @@ class Category extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'csn_category_new';
+    protected $table = 'csn_category_news';
     protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];

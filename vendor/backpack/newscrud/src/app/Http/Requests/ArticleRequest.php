@@ -27,7 +27,7 @@ class ArticleRequest extends \Backpack\CRUD\app\Http\Requests\CrudRequest
             'slug' => 'unique:csn_articles,slug,'.\Request::get('id'),
             'content' => 'required|min:2',
             'short_content' => 'required|min:2',
-            'date' => 'required|date',
+            'date_publish' => 'required',
             'status' => 'required',
             'category_id' => 'required',
         ];

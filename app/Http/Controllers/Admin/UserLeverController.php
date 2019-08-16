@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\UserModel;
 use App\Models\LevelModel;
 use App\Models\VoucherModel;
-use App\Models\PaymentCenModel;
+use App\Models\PaymentModel;
 use App\Library\Helpers;
 use App\Models\UserLevelModel;
 use DB;
@@ -241,6 +241,8 @@ class UserLeverController extends CrudController
             'level_id' => null,
             'voucher_id' => null,
             'cen_value' => 0,
+            'status' => 'SUCCESS',
+            'request_from' => 'ADMIN',
             'cen_promotion' => 0,
             'cen_current_user' => $user->user_money,
             'note' => 'Admin cung cấp',
@@ -249,26 +251,31 @@ class UserLeverController extends CrudController
         if($request->level_id) {
             $level = LevelModel::where('level_id', $request->level_id)->where('level_status', 1)->first();
             $payment['level_id'] = $level->level_id;
+            $payment['level_cen'] = $level->level_cen;
+            $payment['level_money'] = $level->level_money;
             $payment['time_add_expired'] = $level->level_time_expried;
 //            $payment['cen_value'] = $level->level_cen;
         }else{
             $voucher = VoucherModel::where('voucher_id', $request->voucher_id)->where('voucher_status', 1)->with('levelEnableRow')->first();
             $payment['voucher_id'] = $voucher->voucher_id;
-            $payment['cen_add'] = $voucher->value_cen;
+            $payment['cen_add'] = $voucher->gift_value_cen;
             if(isset($voucher->levelEnableRow)) {
                 $level = $voucher->levelEnableRow;
                 $payment['level_id'] = $voucher->levelEnableRow->level_id;
                 $payment['time_add_expired'] = $voucher->levelEnableRow->level_time_expried;
+                $payment['level_cen'] = $voucher->levelEnableRow->level_cen;
+                $payment['level_money'] = $voucher->levelEnableRow->level_money;
 //                $payment['cen_value'] = $voucher->levelEnableRow->level_cen;
             }
-            if($payment['cen_add'] > 0) {
-                $user->user_money = $user->user_money + $payment['cen_add'];
-                $user->save();
-            }
+
         }
         if($level) {
             if($userLevel) {
                 if($userLevel->level->level_packge != $level->level_packge) {
+                    if($userLevel->level->level_packge > $level->level_packge) {
+                        \Alert::error('Gói hiện tại của bạn cao hơn gói vừa chọn')->flash();
+                        return redirect()->back();
+                    }
                     // khác cấp (tự động reset hạn mức mới)
                     $userLevel->level_expried = strtotime($level->level_time_expried);
                 }else{
@@ -293,8 +300,11 @@ class UserLeverController extends CrudController
                 ]);
             }
         }
-        PaymentCenModel::create($payment);
-
+        PaymentModel::create($payment);
+        if($payment['cen_add'] > 0) {
+            $user->user_money = $user->user_money + $payment['cen_add'];
+            $user->save();
+        }
         // show a success message
         \Alert::success(trans('backpack::crud.insert_success'))->flash();
 

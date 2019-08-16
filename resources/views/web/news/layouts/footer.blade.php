@@ -112,7 +112,25 @@
         </div>
     </div>
 </footer>
-<script src="{{URL::to('/')}}/tin_tuc/js/jquery-3.2.1.min.js"></script>
 <script src="{{URL::to('/')}}/tin_tuc/js/jquery.fancybox.min.js"></script>
 <script src="{{URL::to('/')}}/tin_tuc/js/slick.min.js"></script>
 <script src="{{URL::to('/')}}/tin_tuc/js/main.js"></script>
+<script src="{{URL::to('/')}}/tin_tuc/js/function.js"></script>
+<script>
+    // Set active state on menu element
+    var current_url = "{{ str_replace('.html', '', url()->current()) }}";
+    var full_url = current_url;
+    console.log(current_url);
+    var $navLinks = $("ul.u-flex--wrap li a");
+    // First look for an exact match including the search string
+    var $curentPageLink = $navLinks.filter(
+        function() { return $(this).attr('href').replace(".html", "") === full_url; }
+    );
+    // If not found, look for the link that starts with the url
+    if(!$curentPageLink.length > 0){
+        $curentPageLink = $navLinks.filter(
+            function() { return $(this).attr('href').startsWith(current_url) || current_url.startsWith($(this).attr('href')); }
+        );
+    }
+    $curentPageLink.parents('li').addClass('active');
+</script>

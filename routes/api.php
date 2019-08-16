@@ -101,5 +101,6 @@ Route::prefix('user')->group(function () {
     Route::get('profile', ['as' => 'api.user.tab', 'uses' => 'ArtistController@getTabArtist']);
 });
 
+//Payment & Level
 
 

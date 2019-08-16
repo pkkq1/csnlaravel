@@ -59,8 +59,13 @@ class VoucherController extends CrudController
             'label' => 'Tên voucher',
         ]);
         $this->crud->addColumn([
-            'name' => 'value_cen',
+            'name' => 'voucher_pay_cen',
             'label' => 'Giá trị voucher',
+            'type' => 'number',
+        ]);
+        $this->crud->addColumn([
+            'name' => 'gift_value_cen',
+            'label' => 'Cen được tặng',
             'type' => 'number',
         ]);
         $this->crud->addColumn([
@@ -89,15 +94,18 @@ class VoucherController extends CrudController
             'label' => 'Tên voucher',
         ]);
         $this->crud->addField([
-            'name' => 'value_cen',
-            'label' => 'Giá trị voucher',
+            'name' => 'gift_value_cen',
+            'label' => 'Cen được tặng',
             'type' => 'number',
+            'max' => 99999,
+            'min' => 0,
+            'default' => 0,
         ]);
         $this->crud->addField([
             'name'  => 'value_cen',
             'label' => 'giá trị voucher',
             'type' => 'number',
-            'max' => 99999999,
+            'max' => 99999,
             'min' => 0,
             'default' => 0,
         ]);

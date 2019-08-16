@@ -11,7 +11,7 @@ class VoucherModel extends Model
     use CrudTrait;
     protected $table = 'csn_voucher';
     protected $primaryKey = 'voucher_id';
-    protected $fillable = ['value_cen', 'voucher_name', 'level_id', 'voucher_note', 'voucher_status'];
+    protected $fillable = ['gift_value_cen', 'voucher_name', 'level_id', 'voucher_note', 'voucher_status', 'voucher_pay_cen'];
     public function level() {
         return $this->belongsTo('App\Models\LevelModel', 'level_id');
     }

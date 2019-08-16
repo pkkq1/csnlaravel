@@ -18,7 +18,7 @@ use App\Models\LevelModel;
 use App\Models\VoucherModel;
 
 
-class PaymentCenController extends CrudController
+class PaymentLogController extends CrudController
 {
     public function __construct()
     {
@@ -37,12 +37,12 @@ class PaymentCenController extends CrudController
     }
     public function setup()
     {
-        $this->crud->setModel("App\Models\PaymentCenModel");
-        $this->crud->setEntityNameStrings('Lịch sử giao dịch CEN', 'Lịch sử giao dịch CEN');
-        $this->crud->setRoute(config('backpack.base.route_prefix').'/cen_payment');
+        $this->crud->setModel("App\Models\PaymentModel");
+        $this->crud->setEntityNameStrings('Lịch sử giao dịch', 'Lịch sử giao dịch');
+        $this->crud->setRoute(config('backpack.base.route_prefix').'/payment_log');
 //        $this->crud->setEntityNameStrings('menu item', 'menu items');
         $this->crud->orderBy('payment_id', 'desc');
-
+        $this->crud->removeAllButtons();
 
         $this->crud->addFilter([ // daterange filter
             'type' => 'date_range',
@@ -87,6 +87,13 @@ class PaymentCenController extends CrudController
         $this->crud->addColumn([
             'name' => 'user_id',
             'label' => 'User ID',
+
+        ]);
+        $this->crud->addColumn([
+            'name' => 'created_at',
+            'label' => 'Ngày tạo',
+            'type' => 'date',
+            'format' => 'd/m/Y H:i',
         ]);
         $this->crud->addColumn([
             'name'  => 'user_id2',
@@ -119,6 +126,25 @@ class PaymentCenController extends CrudController
             'attribute' => 'level_time_expried',
         ]);
         $this->crud->addColumn([
+            'label' => 'Yêu cầu từ',
+            'name' => 'request_from',
+        ]);
+
+        $this->crud->addColumn([
+            'name'  => 'status',
+            'label' => 'Tình Trạng',
+            'type' => 'closure',
+            'function' => function($entry) {
+                if($entry->status == 'SUCCESS') {
+                    return '<span class="label label-success">Thành Công</span>';
+                }elseif ($entry->status == 'PROCESS') {
+                    return '<span class="label label-default">Xử Lý</span>';
+                }else{
+                    return '<span class="label label-danger">Lỗi</span>';
+                }
+            },
+        ]);
+        $this->crud->addColumn([
             'label' => 'Voucher',
             'type' => 'select',
             'name' => 'level_id_2',
@@ -126,24 +152,28 @@ class PaymentCenController extends CrudController
             'attribute' => 'voucher_name',
         ]);
         $this->crud->addColumn([
-            'name' => 'cen_value',
-            'type' => 'number',
-            'label' => 'Giá trị gói',
+            'name' => 'pay_cen_value',
+            'label' => 'Cen trả',
+            'type' => 'closure',
+            'function' => function($entry) {
+                if($entry->cen_promotion > 0) {
+                    return number_format($entry->cen_value) . ' - KM: '. number_format($entry->cen_promotion);
+                }else{
+                    return number_format($entry->cen_value);
+                }
+            },
         ]);
         $this->crud->addColumn([
-            'name' => 'cen_promotion',
-            'type' => 'number',
-            'label' => 'Giá đã KM',
-        ]);
-        $this->crud->addColumn([
-            'name' => 'cen_total',
-            'type' => 'number',
-            'label' => 'Tổng chi',
-        ]);
-        $this->crud->addColumn([
-            'name' => 'cen_current_user',
-            'type' => 'number',
-            'label' => 'Cen User Hiện tại',
+            'name' => 'pay_money_value',
+            'label' => 'Tiền VNĐ',
+            'type' => 'closure',
+            'function' => function($entry) {
+                if($entry->money_promotion > 0) {
+                    return number_format($entry->money_value) . ' - KM: '. number_format($entry->money_promotion);
+                }else{
+                    return number_format($entry->money_value);
+                }
+            },
         ]);
         $this->crud->addColumn([
             'name' => 'note',

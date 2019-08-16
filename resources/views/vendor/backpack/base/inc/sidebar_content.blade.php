@@ -129,7 +129,7 @@ $htmlNotif['kara_sug'] = $notif['kara_sug'] > 0 ? '<span class="label pull-right
                 <li><a href="{{ backpack_url('level') }}"><i class="fa fa-asterisk"></i> <span>Các gói cấp độ</span></a></li>
                 <li><a href="{{ backpack_url('voucher') }}"><i class="fa fa-gift"></i> <span>Các gói Voucher</span></a></li>
                 <li><a href="{{ backpack_url('history_level') }}"><i class="fa fa-user"></i> <span>Cập nhật cấp độ user</span></a></li>
-                <li><a href="{{ backpack_url('cen_payment') }}"><i class="fa fa-usd"></i> <span>Lịch sử giao dịch CEN</span></a></li>
+                <li><a href="{{ backpack_url('payment_log') }}"><i class="fa fa-usd"></i> <span>Lịch sử giao dịch</span></a></li>
             @endif
         </ul>
     </li>

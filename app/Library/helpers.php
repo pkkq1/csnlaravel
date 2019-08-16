@@ -1050,4 +1050,15 @@ class Helpers
         }
         return false;
     }
+    public static function news_image($image, $size = null) {
+        if(strpos($image, 'http') !== false){
+            if($size == 'full') {
+                return str_replace('-360x180.', '.', str_replace('-360x185.', '.', $image));
+            }else {
+                return $image;
+            }
+        }else {
+            return '/'.$image;
+        }
+    }
 }

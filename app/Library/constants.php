@@ -166,3 +166,8 @@ define('LEVEL_VIP_2_2', 5); // vip 2 - 1 tháng
 define('LEVEL_VIP_2_3', 6); // vip 2 - 3 tháng
 define('LEVEL_VIP_2_4', 7); // vip 2 - 6 tháng
 define('LEVEL_VIP_2_5', 8); // vip 2 - 1 năm
+
+// news
+define('STATUS_PUBLISHED', 'PUBLISHED');
+define('STATUS_DRAF', 'DRAF');
+define('PAGE_CATEGORY', 5);

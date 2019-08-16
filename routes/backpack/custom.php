@@ -52,7 +52,7 @@ Route::group([
     Route::put('/karaoke/suggest/{id}', 'SugKaraokeController@approvalKaraoke');
 
     CRUD::resource('level', 'LevelController');
-    CRUD::resource('cen_payment', 'PaymentCenController');
+    CRUD::resource('payment_log', 'PaymentLogController');
     CRUD::resource('voucher', 'VoucherController');
 
     Route::get('/history_level/search_user', 'UserLeverController@searchUser');

@@ -298,7 +298,6 @@ if($category->cat_id == 3 || $category->cat_id == 4 || $category->cat_id == 6 ||
             url = urlFloat;
             urlFloat = '';
         }
-        console.log(url);
         if(($('#'+tab).html()).length == 0 || floatTab) {
             $.ajax({
                 url: window.location.origin + url,

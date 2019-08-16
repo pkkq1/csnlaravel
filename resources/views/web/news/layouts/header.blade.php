@@ -13,4 +13,58 @@
     <link rel="stylesheet" href="{{URL::to('/')}}/tin_tuc/css/lib/jquery.scrollbar.css">
     <link rel="stylesheet" href="{{URL::to('/')}}/tin_tuc/css/lib/slick.css">
     <link rel="stylesheet" href="{{URL::to('/')}}/tin_tuc/css/style.css">
+    <link rel="stylesheet" href="{{URL::to('/')}}/tin_tuc/css/custom.css">
+    @yield('contentCSS')
+    <script src="{{URL::to('/')}}/tin_tuc/js/jquery-3.2.1.min.js"></script>
 </head>
+<script>
+    var csrfToken = "{{csrf_token()}}";
+    var loaded = false;
+    var timeOutLoading = 0;
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': csrfToken
+        },
+        statusCode: {
+            401: function () {
+                redirectLogin();
+            },
+            405: function () {
+                redirectLogin();
+            },
+            404: function (response) {
+                alertModal(response.responseText);
+                return false;
+            },
+            403: function (response) {
+                alertModal(response.responseText);
+                return false;
+            }
+        },
+    });
+    $( document ).ajaxStart(function() {
+        // timeOutLoading = setTimeout(function(){
+        //     waitingDialog.show();
+        // }, 1200);
+    });
+    $( document ).ajaxStop(function() {
+        // clearTimeout(timeOutLoading);
+        // waitingDialog.hide();
+        loaded = false;
+    });
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId            : '<?php echo env('FACEBOOK_APP_ID') ?>',
+            autoLogAppEvents : true,
+            xfbml            : true,
+            version          : 'v3.1'
+        });
+    };
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
