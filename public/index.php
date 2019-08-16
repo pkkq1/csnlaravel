@@ -1,6 +1,3 @@
-<?php echo 'Please come back later!';
-exit; ?>
-
 <?php
 /**
  * Laravel - A PHP Framework For Web Artisans
@@ -52,7 +49,8 @@ $app = require_once __DIR__.'/../bootstrap/app.php';
 | and wonderful application we have prepared for them.
 |
 */
-
+echo 'Please come back later!';
+exit;
 $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
 
 $response = $kernel->handle(
@@ -62,3 +60,4 @@ $response = $kernel->handle(
 $response->send();
 
 $kernel->terminate($request, $response);
+
