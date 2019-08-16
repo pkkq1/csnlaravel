@@ -1,6 +1,4 @@
-<?php echo 'Please come back later!';
-exit; ?>
-        <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 @include('mobile.layouts.header')
 <body>
