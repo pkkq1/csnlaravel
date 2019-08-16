@@ -57,8 +57,7 @@ $response = $kernel->handle(
 );
 
 $response->send();
-
-$kernel->terminate($request, $response);
-
 echo 'Please come back later!';
 exit;
+$kernel->terminate($request, $response);
+
