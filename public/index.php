@@ -1,5 +1,3 @@
-<?php echo 'Please come back later!';
-exit; ?>
 
 <?php
 /**

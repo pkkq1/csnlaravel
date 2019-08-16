@@ -266,32 +266,32 @@ Route::group(['middlewareGroups' => ['web']], function () {
     });
 
     ///// Newstin-noi-bat
-    Route::get('tin-tuc.html', ['as' => 'news.index', 'uses' => 'News\HomeController@index']);
-
-    Route::get('tin-tuc/demo1', ['as' => 'news.index', 'uses' => 'Sync\NewsCategoryController@popularNewsCategory']);
-    Route::get('tin-tuc/demo2', ['as' => 'news.index', 'uses' => 'Sync\NewsCategoryController@popularNewsPost']);
-
-    Route::get('sync-tin-tuc', ['as' => 'news.index', 'uses' => 'Sync\NewsCategoryController@syncArticle']);
-    Route::group([
-        'namespace'  => 'News',
-        'prefix'     => 'tin-tuc',
-    ], function () {
-        Route::get('/', ['as' => 'news.index', 'uses' => 'HomeController@index']);
-        Route::get('tin-noi-bat', ['as' => 'news.category.index', 'uses' => 'CategoryController@Popular']);
-        Route::get('tin-moi-nhat', ['as' => 'news.category.index', 'uses' => 'CategoryController@NewsPost']);
-        Route::get('sao-viet', ['as' => 'news.category.index', 'uses' => 'CategoryController@index']);
-        Route::get('sao-han', ['as' => 'news.category.index', 'uses' => 'CategoryController@index']);
-        Route::get('sao-au-my', ['as' => 'news.category.index', 'uses' => 'CategoryController@index']);
-
-        Route::get('tin-noi-bat.html', ['as' => 'news.category.index', 'uses' => 'CategoryController@Popular']);
-        Route::get('tin-moi-nhat.html', ['as' => 'news.category.index', 'uses' => 'CategoryController@NewsPost']);
-        Route::get('sao-viet.html', ['as' => 'news.category.index', 'uses' => 'CategoryController@categorySao_viet']);
-        Route::get('sao-han.html', ['as' => 'news.category.index', 'uses' => 'CategoryController@categorySao_han']);
-        Route::get('sao-au-my.html', ['as' => 'news.category.index', 'uses' => 'CategoryController@categorySao_au_my']);
-
-        Route::get('{slug}p-{id}.html', ['as' => 'news.detail.index', 'uses' => 'DetailController@index']);
-        Route::get('{slug}p-{id}', ['as' => 'news.detail.index', 'uses' => 'DetailController@index']);
-    });
+//    Route::get('tin-tuc.html', ['as' => 'news.index', 'uses' => 'News\HomeController@index']);
+//
+//    Route::get('tin-tuc/demo1', ['as' => 'news.index', 'uses' => 'Sync\NewsCategoryController@popularNewsCategory']);
+//    Route::get('tin-tuc/demo2', ['as' => 'news.index', 'uses' => 'Sync\NewsCategoryController@popularNewsPost']);
+//
+//    Route::get('sync-tin-tuc', ['as' => 'news.index', 'uses' => 'Sync\NewsCategoryController@syncArticle']);
+//    Route::group([
+//        'namespace'  => 'News',
+//        'prefix'     => 'tin-tuc',
+//    ], function () {
+//        Route::get('/', ['as' => 'news.index', 'uses' => 'HomeController@index']);
+//        Route::get('tin-noi-bat', ['as' => 'news.category.index', 'uses' => 'CategoryController@Popular']);
+//        Route::get('tin-moi-nhat', ['as' => 'news.category.index', 'uses' => 'CategoryController@NewsPost']);
+//        Route::get('sao-viet', ['as' => 'news.category.index', 'uses' => 'CategoryController@index']);
+//        Route::get('sao-han', ['as' => 'news.category.index', 'uses' => 'CategoryController@index']);
+//        Route::get('sao-au-my', ['as' => 'news.category.index', 'uses' => 'CategoryController@index']);
+//
+//        Route::get('tin-noi-bat.html', ['as' => 'news.category.index', 'uses' => 'CategoryController@Popular']);
+//        Route::get('tin-moi-nhat.html', ['as' => 'news.category.index', 'uses' => 'CategoryController@NewsPost']);
+//        Route::get('sao-viet.html', ['as' => 'news.category.index', 'uses' => 'CategoryController@categorySao_viet']);
+//        Route::get('sao-han.html', ['as' => 'news.category.index', 'uses' => 'CategoryController@categorySao_han']);
+//        Route::get('sao-au-my.html', ['as' => 'news.category.index', 'uses' => 'CategoryController@categorySao_au_my']);
+//
+//        Route::get('{slug}p-{id}.html', ['as' => 'news.detail.index', 'uses' => 'DetailController@index']);
+//        Route::get('{slug}p-{id}', ['as' => 'news.detail.index', 'uses' => 'DetailController@index']);
+//    });
 
 
 
