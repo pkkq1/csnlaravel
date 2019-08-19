@@ -63,10 +63,9 @@ if ( !ENV(\'IN_PHPBB\') )
 global $popular_category;
 $popular_category = ' . var_export($result, true) . ';
 ?>');
-
         return response(['Ok']);
     }
-    public function popularNewsPost() {
+    public function popularPost() {
         // tin nỗi bật
         $result = $this->articleViewRepository->getModel()::join("csn_articles","csn_articles.id","=","csn_article_view.article_id")
             ->select(DB::raw('csn_articles.id, csn_articles.category_id, csn_articles.title, csn_articles.slug, csn_articles.date_publish, csn_articles.short_content, csn_articles.image, csn_articles.article_by_user_name, csn_articles.article_by_user_id'))
@@ -89,6 +88,10 @@ global $popular_post;
 $popular_post = ' . var_export($result, true) . ';
 ?>');
 
+        return response(['Ok']);
+    }
+    public function newPost() {
+
         // tin mới nhất
         $result = $this->articleRepository->getModel()::select(DB::raw('csn_articles.id, csn_articles.category_id, csn_articles.title, csn_articles.slug, csn_articles.date_publish, csn_articles.short_content, csn_articles.image, csn_articles.article_by_user_name, csn_articles.article_by_user_id'))
             ->where('csn_articles.status', 'PUBLISHED')
@@ -108,10 +111,9 @@ if ( !ENV(\'IN_PHPBB\') )
 global $news_post;
 $news_post = ' . var_export($result, true) . ';
 ?>');
-
         return response(['Ok']);
     }
-    public function syncArticle(Request $request) {
+    public function syncArticle() {
         $client = new \GuzzleHttp\Client();
         $arrCat = [77320, 77318];
         foreach ($arrCat as $cat_id) {
@@ -127,7 +129,7 @@ $news_post = ' . var_export($result, true) . ';
             // Âu mỹ: 77320
             // Châu Á: 77319
             // Nhạc Việt: 77318
-            $category_id = $request->category == 77320 ? 4 : ($request->category == 77318 ? 2 : ($request->category == 77318 ? 2 : 77320));
+            $category_id = $cat_id == 77320 ? 4 : ($cat_id == 77318 ? 2 : ($cat_id == 77318 ? 2 : 77320));
             $response = $client->request('GET', $url, $option);
             $result = json_decode($response->getBody());
             $wp_featuredmedia = 'wp:featuredmedia';

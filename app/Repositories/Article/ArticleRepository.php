@@ -47,7 +47,8 @@ class ArticleRepository extends EloquentRepository implements ArticleRepositoryI
             ->select('id', 'category_id', 'title', 'slug', 'short_content', 'image', 'date_publish', 'featured', 'views', 'article_by_user_name', 'article_by_user_id', 'article_by_user_id_update', 'tags_name', 'tags_slug', 'tags_id')
             ->where('category_id', $id)
             ->whereDate('date_publish', '<=', date("Y-m-d h:i"))
-            ->where('status', STATUS_PUBLISHED);
+            ->where('status', STATUS_PUBLISHED)
+            ->orderBy('date_publish', 'desc');
         return $result;
     }
 

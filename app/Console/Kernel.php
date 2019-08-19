@@ -23,6 +23,7 @@ class Kernel extends ConsoleKernel
         Commands\Uploader::class,
         Commands\Solr::class,
         Commands\TopArtist::class,
+        Commands\NewsSyncPose::class,
     ];
 
     /**
@@ -67,6 +68,12 @@ class Kernel extends ConsoleKernel
 
 //        $schedule->command('solr:type all')->twiceDaily(1, 16)->everyMinute(); // đồng bộ lại toàn bộ nhac, video, cover, artist
 //        $schedule->command('solr:type all')->cron('* 16 * * *');
+
+        // news
+        $schedule->command('sync_news:type new_pose')->hourlyAt(3);
+        $schedule->command('sync_news:type new_news')->hourlyAt(5);
+        $schedule->command('sync_news:type popular_news')->hourlyAt(55);
+        $schedule->command('sync_news:type cat_popular_new')->hourlyAt(55);
     }
 
     /**
