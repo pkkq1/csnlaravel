@@ -6,7 +6,11 @@ use App\Library\Helpers;
         <div class="c-card c-card__02">
             <div class="c-card__header">
                 <div class="c-thumbnail">
-                    <div class="c-thumbnail--ratio"><img src="<?php echo Helpers::news_image($item->image) ?>" alt="Card image cap"></div>
+                    <div class="c-thumbnail--ratio">
+                        <a href="/tin-tuc/{{$item->slug}}-p-{{$item->id}}.html">
+                        <img src="<?php echo Helpers::news_image($item->image) ?>" alt="{{$item->title}}">
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="c-card__body">

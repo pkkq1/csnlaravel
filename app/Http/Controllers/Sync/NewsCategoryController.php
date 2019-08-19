@@ -46,6 +46,7 @@ class NewsCategoryController extends Controller
                 ->orderBy('csn_article_view.article_view_today_0', 'desc')
                 ->orderBy('csn_article_view.article_view_today_1', 'desc')
                 ->orderBy('csn_article_view.article_view_this_week', 'desc')
+                ->orderBy('csn_article_view.article_view', 'desc')
                 ->limit(7)
                 ->get()
                 ->toArray();

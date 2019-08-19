@@ -1044,7 +1044,16 @@ class Helpers
                 return $image;
             }
         }else {
-            return '/'.$image;
+            if($size == 'full') {
+                return '/'.$image;
+            }else {
+                $arrFile = explode('/', $image);
+                $removed = array_pop($arrFile);
+                $name = '/uploads/.tmb/' . $removed;
+//                return '/'.$image;
+                return $name;
+            }
+
         }
     }
 }
