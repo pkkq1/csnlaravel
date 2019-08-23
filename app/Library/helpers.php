@@ -1027,13 +1027,13 @@ class Helpers
         return $data;
     }
     public static function checkMemberVip() {
-        if(Auth::check()) {
-            $level = Auth::user()->level();
-            if($level && $level->level_id == 1 && $level->level_expried >= time() && $level->level_status == 1) {
-                return true;
-            }
-            return false;
-        }
+//        if(Auth::check()) {
+//            $level = Auth::user()->level();
+//            if($level && ($level->level_id == 1 || $level->level_id == 2) && $level->level_expried >= time() && $level->level_status == 1) {
+//                return true;
+//            }
+//            return false;
+//        }
         return false;
     }
     public static function news_image($image, $size = null) {

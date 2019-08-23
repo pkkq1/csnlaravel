@@ -241,6 +241,7 @@ class UserLeverController extends CrudController
             'level_id' => null,
             'voucher_id' => null,
             'cen_value' => 0,
+            'cen_add' => 0,
             'status' => 'SUCCESS',
             'request_from' => 'ADMIN',
             'cen_promotion' => 0,
