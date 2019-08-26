@@ -51,6 +51,18 @@ class ArticleRepository extends EloquentRepository implements ArticleRepositoryI
             ->orderBy('date_publish', 'desc');
         return $result;
     }
+    public function getTags($tag) {
+        $result = $this
+            ->_model
+            ->join("csn_article_tag","csn_article_tag.article_id","=","csn_articles.id")
+            ->join("csn_tags","csn_article_tag.tag_id","=","csn_tags.id")
+            ->select('csn_articles.id', 'csn_articles.category_id', 'csn_articles.title', 'csn_articles.slug', 'csn_articles.short_content', 'csn_articles.image', 'csn_articles.date_publish', 'csn_articles.featured', 'csn_articles.views', 'csn_articles.article_by_user_name', 'csn_articles.article_by_user_id', 'csn_articles.article_by_user_id_update', 'csn_articles.tags_name', 'csn_articles.tags_slug', 'csn_articles.tags_id')
+            ->where('csn_tags.slug', $tag)
+            ->whereDate('csn_articles.date_publish', '<=', date("Y-m-d h:i"))
+            ->where('csn_articles.status', STATUS_PUBLISHED)
+            ->orderBy('csn_articles.date_publish', 'desc');
+        return $result;
+    }
 
     /**
      * Create
