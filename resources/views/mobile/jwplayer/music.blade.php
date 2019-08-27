@@ -530,7 +530,7 @@ $memberVip = Helpers::checkMemberVip();
             width: "100%",
             aspectratio: "16:9",
             autostart: true,
-            file: "https://beta.chiasenhac.vn/video/csn-5s.mp4",
+            file: "https://chiasenhac.vn/video/csn-5s.mp4",
             events: {
                 "beforeComplete": function () {
                     $('#csnplayerads').remove();
