@@ -81,11 +81,11 @@ class ArticleCrudController extends CrudController
             'label' => 'ID',
         ]);
         $this->crud->addColumn([
-            'name' => 'date',
+            'name' => 'date_publish',
             'label' => 'Ngày X.Bản',
             'type' => 'closure',
             'function' => function($entry) {
-                return '<a href="/tin-tuc/'.$entry->slug.'-p-'.$entry->id.'.html" target="_blank">'.date_format(date_create($entry->date),"H:i d/m/Y").'</a>';
+                return '<a href="/tin-tuc/'.$entry->slug.'-p-'.$entry->id.'.html" target="_blank">'.date_format(date_create($entry->date_publish),"H:i d/m/Y").'</a>';
             },
         ]);
 
