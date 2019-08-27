@@ -291,6 +291,7 @@ Route::group(['middlewareGroups' => ['web']], function () {
 
         Route::get('{slug}p-{id}.html', ['as' => 'news.detail.index', 'uses' => 'DetailController@index']);
         Route::get('{slug}p-{id}', ['as' => 'news.detail.index', 'uses' => 'DetailController@index']);
+        Route::get('tag/{tag}', ['as' => 'news.detail.index', 'uses' => 'CatalogController@tag']);
     });
 
 
