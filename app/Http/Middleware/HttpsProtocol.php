@@ -20,6 +20,20 @@ class HttpsProtocol {
 //            exit;
 //            abort(403, 'Lỗi truy cập');
         }
+        $expUri = explode('/', $request->getRequestUri());
+        if(strpos($request->getHttpHost(), 'news') !== false) {
+            if($request->getRequestUri() == '/') {
+                return redirect()->route('news.index.html');
+            }
+            if(isset($expUri[1]) && !($expUri[1] == 'tin-tuc' || $expUri[1] == 'tin-tuc.html')) {
+                return redirect(env('APP_URL').$request->getRequestUri());
+            }
+        }
+        if(isset($expUri[1]) && ($expUri[1] == 'tin-tuc' || $expUri[1] == 'tin-tuc.html')) {
+            if(strpos($request->getHttpHost(), 'news') === false) {
+                return redirect('//news.'.$request->getHttpHost().$request->getRequestUri());
+            }
+        }
 
         return $next($request);
     }
