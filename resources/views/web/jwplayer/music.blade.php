@@ -682,7 +682,7 @@ if($musicSet['type_listen'] == 'playlist') {
             width: "100%",
             aspectratio: "16:9",
             autostart: "viewable",
-            file: "https://beta.chiasenhac.vn/video/csn-5s.mp4",
+            file: "https://chiasenhac.vn/video/csn-5s.mp4",
             autoPause: {
                 "viewability": true
             },
