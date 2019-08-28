@@ -2002,6 +2002,9 @@ if($musicSet['type_listen'] == 'playlist') {
             .jw-icon-fullscreen, .jw-title-primary{
                 display: none!important;
             }
+            .jw-icon-settings::after {
+                width: 100%!important;
+            }
         </style>
     @endif
     @if(($musicSet['type_listen'] == 'playlist' || $musicSet['type_listen'] == 'album') && !empty($musicSet['playlist_music']))
