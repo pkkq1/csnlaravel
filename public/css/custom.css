@@ -1554,3 +1554,7 @@ a.disabled {
     color: red;
     font-weight: 700;
 }
+.jw_setting_lable {
+    font-size: 13px;
+    padding-top: 2px;
+}

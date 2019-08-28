@@ -532,3 +532,7 @@ a.disabled {
 .jw-settings-menu {
     height: 235px!important;
 }
+.jw_setting_lable {
+    font-size: 11px;
+    padding-top: 2px;
+}

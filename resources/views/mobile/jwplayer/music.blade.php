@@ -725,6 +725,9 @@ $memberVip = Helpers::checkMemberVip();
         // });
         var setQualityCookie = true;
         jwplayer().on('levels',function(callback){
+            $('.jw-settings-submenu-button').find('svg').remove();
+            $('.jw-settings-submenu-button').find('lable').remove();
+            $('.jw-settings-submenu-button').prepend('<lable class="jw_setting_lable">' + jwplayer().getQualityLevels()[jwplayer().getCurrentQuality()]['label'] + '</lable>');
             if (Cookies.get('label_quality') == 'Lossless') {
                 setQualityCookie = false;
                 jwplayer().setCurrentQuality(callback.levels.length - 1);
