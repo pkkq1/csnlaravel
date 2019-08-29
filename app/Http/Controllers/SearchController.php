@@ -77,7 +77,7 @@ class SearchController extends Controller
                 $searchSolarium = [];
                 //$searchSolarium['music_title_charset_nospace'] = $charsetNoSpace .'^1000';
 //                if ($quickSearch) {
-                    $searchSolarium['music_title_charset_nospace'] = $charsetNoSpace . '^80';
+                    $searchSolarium['music_title_charset_nospace'] = $charsetNoSpace . '^500';
                     $searchSolarium['music_title_artist_charset_nospace'] = $charsetNoSpace . '^100 | music_title_artist_charset_nospace:' . $charsetNoSpace . '*^50';
 //                }
     //            $searchSolarium['music_title_artist_charset'] = $titleCharset;
