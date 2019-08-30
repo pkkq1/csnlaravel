@@ -117,7 +117,7 @@ $news_post = ' . var_export($result, true) . ';
         $client = new \GuzzleHttp\Client();
         $arrCat = [77320, 77318];
         foreach ($arrCat as $cat_id) {
-            $url = 'https://api.pose.com.vn/wp-json/wp/v2/posts/?categories='.$cat_id.'&_embed&page=1&per_page=10&offset=1&_embed';
+            $url = 'https://api.pose.com.vn/wp-json/wp/v2/posts/?categories='.$cat_id.'&_embed&page=1&per_page=3&offset=1&_embed';
             $option = [
                 'headers' => [
                     'accept' => 'application/json',

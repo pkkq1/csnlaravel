@@ -766,6 +766,7 @@ if($musicSet['type_listen'] == 'playlist') {
 
         var video_preroll_played = false;
         window.addEventListener('load', function () {
+            $('.jw-settings-submenu-button').find('.jw-text').html('Chất lượng');
             document.body.addEventListener('touchstart', function (ae) {
                 if (video_preroll_played == false) {
                     video_preroll_played = true;
