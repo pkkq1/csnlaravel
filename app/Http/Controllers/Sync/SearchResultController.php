@@ -18,6 +18,7 @@ use App\Repositories\Music\MusicEloquentRepository;
 use App\Repositories\Video\VideoEloquentRepository;
 use App\Repositories\MusicSearchResult\MusicSearchResultEloquentRepository;
 use DB;
+use View;
 
 class SearchResultController extends Controller
 {
@@ -73,5 +74,25 @@ class SearchResultController extends Controller
         if(count($videoArr))
             $Solr->syncVideo(null, $videoArr);
         return response(['Ok']);
+    }
+    public function CacheTopSearch () {
+        $date = date('Y-m-d',strtotime(TIME_MUSIC_SEARCH_RESULT_1DAY_AGO)) . ' 23:59:59';
+        $musicArr = $this->searchRepository->getModel()::join("csn_music","csn_music.music_id","=","csn_music_search_result.music_id")
+            ->select('csn_music.*')
+            ->where('csn_music_search_result.music_search_count', '>', 3)
+            ->orderBy('csn_music_search_result.music_search_count', 'desc')
+            ->limit(5)
+            ->get();
+        if(count($musicArr) < 3) {
+            $musicArr = MusicSearchResultReportModel::join("csn_music","csn_music.music_id","=","csn_music_search_result_report.music_id")
+                ->select('csn_music.*')
+                ->where('csn_music_search_result_report.created_at', '<=', $date)
+                ->where('csn_music_search_result_report.music_search_count', '>', 10)
+                ->orderBy('csn_music_search_result_report.music_search_count', 'desc')
+                ->limit(5)
+                ->get();
+        }
+        $content = view::make('web.search.cache_top_search', compact('musicArr'))->render();
+        file_put_contents(resource_path().'/views/cache/top_search.blade.php', $content);
     }
 }

@@ -25,7 +25,7 @@ class SearchResult extends Command
      *
      * @var string
      */
-    protected $signature = 'search_counting_result';
+    protected $signature = 'search_counting_result {type?}';
 
     /**
      * The console command description.
@@ -65,7 +65,11 @@ class SearchResult extends Command
     public function handle()
     {
         $search = new SearchResultController($this->musicRepository, $this->coverRepository, $this->videoRepository, $this->searchRepository, $this->Solr);
-        $search->syncCountSearch();
+        if($this->argument('type') == 'report') {
+            $search->syncCountSearch();
+        }elseif($this->argument('type') == 'cache') {
+            $search->CacheTopSearch();
+        }
     }
 }
 

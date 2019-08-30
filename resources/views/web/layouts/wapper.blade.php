@@ -12,8 +12,9 @@
                     <a href="http://old.chiasenhac.vn/" target="_blank"><img src="./imgs/csn_bancu.png" style="float: left; margin-right: 10px;"></a>
                     <div class="form-group m-0" style="float:left">
                         <i class="material-icons">search</i>
-                        <input type="search" name="q" class="form-control" value="{{$_GET['q'] ?? ''}}"  class="biginput" id="search_autocomplete" placeholder="nhập bài hát, video, tên nghệ sỹ bạn cần tìm">
+                        <input type="search" name="q" class="form-control" value="{{$_GET['q'] ?? ''}}" autocomplete="on" class="biginput" id="search_autocomplete" placeholder="nhập bài hát, video, tên nghệ sỹ bạn cần tìm">
                         <div class="search_layout card suggest">
+                            @include('cache.top_search')
                         </div>
                     </div>
                     <a class="list-inline-item" style="position: relative; float:left; margin-left: 25px; margin-right: -49px;"><i onclick="showHistoryMusic()" class="material-icons history-music" style="position: inherit;top: 5px; cursor: pointer;">history</i></a>

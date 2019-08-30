@@ -733,7 +733,7 @@ $memberVip = Helpers::checkMemberVip();
                 jwplayer().setCurrentQuality(callback.levels.length - 1);
             }
             updateQuality(callback);
-            if (sessionStorage.getItem("auto_next") == 'false') {
+            if (Cookies.get("auto_next") == 'false') {
                 $('.jw-icon-auto-next-on').removeClass('jw-icon-auto-next-on').addClass('jw-icon-auto-next-off');
                 jwplayer().setConfig({
                     repeat: true
@@ -758,7 +758,7 @@ $memberVip = Helpers::checkMemberVip();
         })
 
         function onPlayerAutoNextOn() {
-            sessionStorage.setItem("auto_next", true);
+            Cookies.set("auto_next", true);
             jwplayer().setConfig({
                 repeat: false
             });
@@ -766,7 +766,7 @@ $memberVip = Helpers::checkMemberVip();
         }
 
         function onPlayerAutoNextOff() {
-            sessionStorage.setItem("auto_next", false);
+            Cookies.set("auto_next", false);
             jwplayer().setConfig({
                 repeat: true
             });
@@ -789,7 +789,7 @@ $memberVip = Helpers::checkMemberVip();
             <?php
                 if($musicSet['type_listen'] == 'single') {
                 ?>
-            if (sessionStorage.getItem("auto_next") == 'false' && float == false) {
+            if (Cookies.get("auto_next") == 'false' && float == false) {
                 return false;
             }
             let sug_first = $('.sug_music').find('.media');
@@ -810,14 +810,14 @@ $memberVip = Helpers::checkMemberVip();
                     activeBool = index + 1;
                 }
             });
-            if (sessionStorage.getItem("auto_random") == 'true') {
+            if (Cookies.get("auto_random") == 'true') {
                 let keyPlaylist = (((window.location.pathname).split('.')[0]).split('/'))[2];
-                let playlistStore = sessionStorage.getItem(keyPlaylist);
+                let playlistStore = Cookies.get(keyPlaylist);
                 if (playlistStore) {
                     playlistStore = JSON.parse(playlistStore);
                     if (playlistStore.length == maxPlaylist) {
-                        if (sessionStorage.getItem("auto_repeat") == 'none') {
-                            sessionStorage.removeItem(keyPlaylist);
+                        if (Cookies.get("auto_repeat") == 'none') {
+                            Cookies.remove(keyPlaylist);
                             if (!float)
                                 return false;
                         }
@@ -830,9 +830,9 @@ $memberVip = Helpers::checkMemberVip();
                 }
                 nextListen = generateRandom(1, maxPlaylist, playlistStore);
                 playlistStore.push(nextListen);
-                sessionStorage.setItem(keyPlaylist, JSON.stringify(playlistStore))
+                Cookies.set(keyPlaylist, JSON.stringify(playlistStore))
             } else {
-                if (sessionStorage.getItem("auto_repeat") == 'none') {
+                if (Cookies.get("auto_repeat") == 'none') {
                     if (nextListen == 1 && float == false)
                         return false;
                 }
@@ -850,22 +850,22 @@ $memberVip = Helpers::checkMemberVip();
                     repeat: true
                 });
                 logPlayAudioFlag = true;
-                sessionStorage.setItem("auto_repeat", 'one');
+                Cookies.set("auto_repeat", 'one');
             }
             if (T == 'all' || T == 'none') {
                 jwplayer().setConfig({
                     repeat: false
                 });
                 logPlayAudioFlag = false;
-                sessionStorage.setItem("auto_repeat", T);
+                Cookies.set("auto_repeat", T);
             }
         }
 
         function autoRandom(F) {
             if (F) {
-                sessionStorage.setItem("auto_random", true);
+                Cookies.set("auto_random", true);
             } else {
-                sessionStorage.setItem("auto_random", false);
+                Cookies.set("auto_random", false);
             }
         }
 
@@ -1095,12 +1095,12 @@ $memberVip = Helpers::checkMemberVip();
         });
         //// display Sub
         var displaySub = $('.sub_line');
-        if (sessionStorage.getItem("display_sub") == 'true') {
+        if (Cookies.get("display_sub") == 'true') {
             displaySub.css('display', 'block');
             $('#display-sub').attr("checked", "checked");
         } else {
-            if (sessionStorage.getItem("display_sub") == null) {
-                sessionStorage.setItem("display_sub", true);
+            if (Cookies.get("display_sub") == null) {
+                Cookies.set("display_sub", true);
                 displaySub.css('display', 'block');
             } else {
                 $('#display-sub').removeAttr("checked");
@@ -1108,11 +1108,11 @@ $memberVip = Helpers::checkMemberVip();
         }
 
         function display_sub() {
-            if (sessionStorage.getItem("display_sub") == 'true') {
-                sessionStorage.setItem("display_sub", false);
+            if (Cookies.get("display_sub") == 'true') {
+                Cookies.set("display_sub", false);
                 displaySub.css('display', 'none');
             } else {
-                sessionStorage.setItem("display_sub", true);
+                Cookies.set("display_sub", true);
                 displaySub.css('display', 'block');
             }
         }

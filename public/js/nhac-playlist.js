@@ -38,7 +38,7 @@
                 jwplayer().setConfig({
                     repeat: false
                 });
-                if(sessionStorage.getItem("auto_repeat") == 'one') {
+                if(Cookies.set("auto_repeat") == 'one') {
                     jwplayer().setConfig({
                         repeat: true
                     });
@@ -46,7 +46,7 @@
                     PP.className = repeatClassOne;
                     PP.innerHTML = repeatOne;
                 }
-                if(sessionStorage.getItem("auto_repeat") == 'all' || !sessionStorage.getItem("auto_repeat")) {
+                if(Cookies.get("auto_repeat") == 'all' || !Cookies.get("auto_repeat")) {
                     jwplayer().setConfig({
                         repeat: false
                     });
@@ -54,14 +54,14 @@
                     PP.className = repeatClassAll;
                     PP.innerHTML = repeatAll;
                 }
-                if(sessionStorage.getItem("auto_repeat") == 'none') {
+                if(Cookies.get("auto_repeat") == 'none') {
                     jwplayer().setConfig({
                         repeat: false
                     });
-                    sessionStorage.setItem("auto_repeat", 'none');
+                    Cookies.get("auto_repeat", 'none');
                     logPlayAudioFlag = false;
                 }
-                if(sessionStorage.getItem("auto_random") == 'true') {
+                if(Cookies.get("auto_random") == 'true') {
                     PPP.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-shuffle";
                     PPP.innerHTML = shuffle;
                 }
