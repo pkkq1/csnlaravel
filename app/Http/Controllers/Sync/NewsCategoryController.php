@@ -113,7 +113,7 @@ $news_post = ' . var_export($result, true) . ';
 ?>');
         return response(['Ok']);
     }
-    public function syncArticle() {
+    public function syncArticlePOSE() {
         $client = new \GuzzleHttp\Client();
         $arrCat = [77320, 77318];
         foreach ($arrCat as $cat_id) {
@@ -164,8 +164,78 @@ $news_post = ' . var_export($result, true) . ';
                         'status' => 'PUBLISHED',
                         'featured' => 0,
                         'views' => 0,
-                        'article_by_user_name' => Auth::user()->name,
-                        'article_by_user_id' => Auth::user()->id,
+                        'article_by_user_name' => 'Tony Trần',
+                        'article_by_user_id' => 997917,
+                        'tags_name' => implode(';', $tag_name),
+                        'tags_id' => implode(';', $tag_id),
+                        'tags_slug' => implode(';', $tag_slug),
+                    ]);
+                    if($tag_name) {
+                        foreach ($tag_id as $item_tag_id) {
+                            $this->tagArticleRepository->getModel()::create([
+                                'article_id' => $article->id,
+                                'tag_id' => $item_tag_id,
+                            ]);
+                        }
+                    }
+                }
+            }
+        }
+        return response(['Ok']);
+    }
+    public function syncArticleSHELIKES() {
+        $client = new \GuzzleHttp\Client();
+        $arrCat = [74, 58];
+        foreach ($arrCat as $cat_id) {
+            $url = 'http://shelikes.asia/wp-json/wp/v2/posts/?categories='.$cat_id.'&_embed';
+            $option = [
+                'headers' => [
+                    'accept' => 'application/json',
+                ],
+                'form_params'=> [
+                ]
+            ];
+            // Âm nhạc: 12
+            // Âu mỹ: 74
+            // Châu Á: 59
+            // Nhạc Việt: 58
+            $category_id = $cat_id == 74 ? 4 : ($cat_id == 58 ? 2 : ($cat_id == 58 ? 2 : 74));
+            $response = $client->request('GET', $url, $option);
+            $result = json_decode($response->getBody());
+            $wp_featuredmedia = 'wp:featuredmedia';
+            $wp_term = 'wp:term';
+            foreach ($result as $item) {
+                if(!$this->articleRepository->getModel()::where('slug', $item->slug)->first()) {
+                    $tag_name = [];
+                    $tag_slug = [];
+                    $tag_id = [];
+                    if(isset($item->_embedded->$wp_term[1])) {
+                        foreach($item->_embedded->$wp_term[1] as $item_tag) {
+                            $tag_name[] = $item_tag->name;
+                            $tag_slug[] = $item_tag->slug;
+                            $tag = $this->tagRepository->getModel()::where('slug', $item_tag->slug)->first();
+                            if(!$tag) {
+                                $tag = $this->tagRepository->getModel()::create([
+                                    'name' => $item_tag->name,
+                                    'slug' => $item_tag->slug
+                                ]);
+                            }
+                            $tag_id[] = $tag->id;
+                        }
+                    }
+                    $article = $this->articleRepository->getModel()::create([
+                        'category_id' => $category_id,
+                        'title' => $item->title->rendered,
+                        'slug' => $item->slug,
+                        'date_publish' => str_replace('T', ' ', $item->date),
+                        'short_content' => strip_tags($item->excerpt->rendered),
+                        'content' => $item->content->rendered,
+                        'image' => $item->_embedded->$wp_featuredmedia[0]->media_details->sizes->medium->source_url,
+                        'status' => 'PUBLISHED',
+                        'featured' => 0,
+                        'views' => 0,
+                        'article_by_user_name' => 'Tony Trần',
+                        'article_by_user_id' => 997917,
                         'tags_name' => implode(';', $tag_name),
                         'tags_id' => implode(';', $tag_id),
                         'tags_slug' => implode(';', $tag_slug),

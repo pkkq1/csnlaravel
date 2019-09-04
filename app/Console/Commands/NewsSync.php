@@ -10,7 +10,7 @@ use App\Repositories\Tag\TagRepository;
 use App\Repositories\ArticleView\ArticleViewRepository;
 use App\Repositories\CategoryNews\CategoryNewsEloquentRepository;
 
-class NewsSyncPose extends Command
+class NewsSync extends Command
 {
     /**
      * The name and signature of the console command.
@@ -61,8 +61,9 @@ class NewsSyncPose extends Command
             $News->popularPost();
         }elseif($this->argument('type') == 'new_news') {
             $News->newPost();
-        }elseif($this->argument('type') == 'new_pose') {
-            $News->syncArticle();
+        }elseif($this->argument('type') == 'new') {
+            $News->syncArticlePOSE();
+            $News->syncArticleSHELIKES();
         }
     }
 }
