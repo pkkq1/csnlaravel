@@ -112,7 +112,7 @@ class SolrSyncController extends Controller
 
         $datas = [];
         foreach ($searchMusic as $key => $item) {
-            //if ($item->music_id < 1416001 or $item->music_id > 1419000) {
+            if ($item->music_id > 200000) {
             if ($item->cat_id != CAT_VIDEO) {
                 $titleSearch = Helpers::replaceKeySearch($item->music_title);
                 $artistSearch = Helpers::replaceKeySearch($item->music_artist);
@@ -181,7 +181,7 @@ class SolrSyncController extends Controller
                     }
                 }
             }
-            //}
+            }
         }
         $this->Solr->addMultiDocuments($datas);
         //$this->Solr->solrMultiDeleteById($datas);
@@ -320,64 +320,66 @@ class SolrSyncController extends Controller
         DB::disconnect('mysql');
         $datas = [];
         foreach ($searchVideo as $key => $item) {
-            if ($item->music_id < 1387001 or $item->music_id > 1419000) {
-                $titleSearch = Helpers::replaceKeySearch($item->music_title);
-                $artistSearch = Helpers::replaceKeySearch($item->music_artist);
-                $titleCharset = htmlspecialchars(Helpers::strReplaceSolr(Helpers::khongdau($titleSearch, ' ')), ENT_QUOTES);
-                $artistCharset = htmlspecialchars(Helpers::strReplaceSolr(Helpers::khongdau($artistSearch, ' ')), ENT_QUOTES);
-                $composerCharset = Helpers::replaceKeySearch($item->music_composer);
-                $composerCharset = htmlspecialchars(Helpers::strReplaceSolr(Helpers::khongdau($composerCharset, ' ')), ENT_QUOTES);
-                $data = [
-                    'id' => 'video_' . $item->music_id,
-                    'video_id' => $item->music_id,
-                    'video_title' => $item->music_title,
-                    'video_title_search' => $titleSearch,
-                    'video_artist_search' => $artistSearch,
+            if ($item->music_id > 200000) {
+                if ($item->music_id < 1387001 or $item->music_id > 1419000) {
+                    $titleSearch = Helpers::replaceKeySearch($item->music_title);
+                    $artistSearch = Helpers::replaceKeySearch($item->music_artist);
+                    $titleCharset = htmlspecialchars(Helpers::strReplaceSolr(Helpers::khongdau($titleSearch, ' ')), ENT_QUOTES);
+                    $artistCharset = htmlspecialchars(Helpers::strReplaceSolr(Helpers::khongdau($artistSearch, ' ')), ENT_QUOTES);
+                    $composerCharset = Helpers::replaceKeySearch($item->music_composer);
+                    $composerCharset = htmlspecialchars(Helpers::strReplaceSolr(Helpers::khongdau($composerCharset, ' ')), ENT_QUOTES);
+                    $data = [
+                        'id' => 'video_' . $item->music_id,
+                        'video_id' => $item->music_id,
+                        'video_title' => $item->music_title,
+                        'video_title_search' => $titleSearch,
+                        'video_artist_search' => $artistSearch,
 //                'video_title_artist_search' => $titleSearch .' '. $artistSearch,
-                    'video_title_charset_nospace' => str_replace(' ', '', $titleCharset),
-                    'video_artist_charset_nospace' => str_replace(' ', '', $artistCharset),
-                    'video_title_artist_charset_nospace' => str_replace(' ', '', $titleCharset) . '' . str_replace(' ', '', $artistCharset),
-                    'video_title_charset' => $titleCharset,
-                    'video_artist_charset' => $artistCharset,
+                        'video_title_charset_nospace' => str_replace(' ', '', $titleCharset),
+                        'video_artist_charset_nospace' => str_replace(' ', '', $artistCharset),
+                        'video_title_artist_charset_nospace' => str_replace(' ', '', $titleCharset) . '' . str_replace(' ', '', $artistCharset),
+                        'video_title_charset' => $titleCharset,
+                        'video_artist_charset' => $artistCharset,
 //                'video_title_artist_charset' => $titleCharset .' '. $artistCharset,
-                    'video_bitrate_html' => Helpers::size2str($item->music_width, $item->music_height),//, false, true),
-                    'video_width' => $item->music_width,
-                    'video_height' => $item->music_height,
-                    'video_cover' => Helpers::thumbnail_url($item->toArray()),
-                    'preview_url' => Helpers::thumbnail_url($item->toArray(), 'preview'),
-                    'video_link' => Helpers::listen_url($item->toArray(), false),
-                    'video_filename' => $item->music_filename,
-                    'video_artist' => $item->music_artist, //str_replace(';', ',', $item->music_artist),
-                    'video_artist_id' => explode(';', htmlspecialchars_decode($item->music_artist_id, ENT_QUOTES)),//$item->music_artist_id, //str_replace(';', ',', $item->music_artist_id),
-                    'video_artist_html' => Helpers::rawHtmlArtists($item->music_artist_id, $item->music_artist),
-                    'video_listen' => $item->music_listen,
-                    'video_title_url' => $item->music_title_url,
-                    'video_cat_id' => $item->cat_id,
-                    'video_cat_level' => $item->cat_level,
-                    'cat_id' => $item->cat_id,
-                    'cat_level' => $item->cat_level,
-                    'video_composer_charset' => $composerCharset,
-                    'video_composer_charset_nospace' => str_replace(' ', '', $composerCharset),
-                    'video_composer' => $item->music_composer,
-                    'video_cover_id' => $item->cover_id,
-                    'cover_id' => $item->cover_id,
-                    'video_bitrate' => $item->music_bitrate,
-                    'video_length' => $item->music_length,
-                    'video_download_time' => $item->music_download_time,
-                    'video_length_html' => $item->music_length >= 3600 ? gmdate("H:i:s", $item->music_length) : gmdate("i:s", $item->music_length),
-                    'video_downloads' => $item->music_downloads,
-                    'video_downloads_today' => $item->music_downloads_today,
-                    'video_downloads_this_week' => $item->music_downloads_this_week,
-                    'video_downloads_max_week' => $item->music_downloads_max_week,
-                    'video_search_result' => $item->music_search_result,
-                    'solr_updated_time' => time(),
-                ];
-                $datas[] = $data;
+                        'video_bitrate_html' => Helpers::size2str($item->music_width, $item->music_height),//, false, true),
+                        'video_width' => $item->music_width,
+                        'video_height' => $item->music_height,
+                        'video_cover' => Helpers::thumbnail_url($item->toArray()),
+                        'preview_url' => Helpers::thumbnail_url($item->toArray(), 'preview'),
+                        'video_link' => Helpers::listen_url($item->toArray(), false),
+                        'video_filename' => $item->music_filename,
+                        'video_artist' => $item->music_artist, //str_replace(';', ',', $item->music_artist),
+                        'video_artist_id' => explode(';', htmlspecialchars_decode($item->music_artist_id, ENT_QUOTES)),//$item->music_artist_id, //str_replace(';', ',', $item->music_artist_id),
+                        'video_artist_html' => Helpers::rawHtmlArtists($item->music_artist_id, $item->music_artist),
+                        'video_listen' => $item->music_listen,
+                        'video_title_url' => $item->music_title_url,
+                        'video_cat_id' => $item->cat_id,
+                        'video_cat_level' => $item->cat_level,
+                        'cat_id' => $item->cat_id,
+                        'cat_level' => $item->cat_level,
+                        'video_composer_charset' => $composerCharset,
+                        'video_composer_charset_nospace' => str_replace(' ', '', $composerCharset),
+                        'video_composer' => $item->music_composer,
+                        'video_cover_id' => $item->cover_id,
+                        'cover_id' => $item->cover_id,
+                        'video_bitrate' => $item->music_bitrate,
+                        'video_length' => $item->music_length,
+                        'video_download_time' => $item->music_download_time,
+                        'video_length_html' => $item->music_length >= 3600 ? gmdate("H:i:s", $item->music_length) : gmdate("i:s", $item->music_length),
+                        'video_downloads' => $item->music_downloads,
+                        'video_downloads_today' => $item->music_downloads_today,
+                        'video_downloads_this_week' => $item->music_downloads_this_week,
+                        'video_downloads_max_week' => $item->music_downloads_max_week,
+                        'video_search_result' => $item->music_search_result,
+                        'solr_updated_time' => time(),
+                    ];
+                    $datas[] = $data;
 //            $this->Solr->addDocuments($data);
 
-                if (Auth::check() && (Auth::user()->id == 3 || Auth::user()->id == 997917)) {
-                    if (strpos($_SERVER['REQUEST_URI'], 'sync/solr_') !== false) {
-                        echo ($key) . '/ ' . $item->music_id . "\n <br>";
+                    if (Auth::check() && (Auth::user()->id == 3 || Auth::user()->id == 997917)) {
+                        if (strpos($_SERVER['REQUEST_URI'], 'sync/solr_') !== false) {
+                            echo ($key) . '/ ' . $item->music_id . "\n <br>";
+                        }
                     }
                 }
             }
