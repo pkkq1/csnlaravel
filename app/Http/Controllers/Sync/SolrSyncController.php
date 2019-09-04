@@ -113,6 +113,7 @@ class SolrSyncController extends Controller
         $datas = [];
         foreach ($searchMusic as $key => $item) {
             //if ($item->music_id < 1416001 or $item->music_id > 1419000) {
+            if ($item->cat_id != CAT_VIDEO) {
                 $titleSearch = Helpers::replaceKeySearch($item->music_title);
                 $artistSearch = Helpers::replaceKeySearch($item->music_artist);
                 $titleCharset = htmlspecialchars(Helpers::strReplaceSolr(Helpers::khongdau($titleSearch, ' ')), ENT_QUOTES);
@@ -179,6 +180,7 @@ class SolrSyncController extends Controller
                         echo ($key) . '/ ' . $item->music_id . "\n <br>";
                     }
                 }
+            }
             //}
         }
         $this->Solr->addMultiDocuments($datas);
