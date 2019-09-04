@@ -187,7 +187,7 @@ $news_post = ' . var_export($result, true) . ';
         $client = new \GuzzleHttp\Client();
         $arrCat = [74, 58];
         foreach ($arrCat as $cat_id) {
-            $url = 'http://shelikes.asia/wp-json/wp/v2/posts/?categories='.$cat_id.'&_embed';
+            $url = 'http://shelikes.asia/wp-json/wp/v2/posts/?categories='.$cat_id.'&_embed&_embed&page=1&per_page=3&offset=1&_embed';
             $option = [
                 'headers' => [
                     'accept' => 'application/json',
