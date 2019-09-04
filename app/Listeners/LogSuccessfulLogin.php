@@ -31,22 +31,24 @@ class LogSuccessfulLogin
     public function handle()
     {
         $user = Auth::user();
-        if(strpos(url()->current(),"facebook") != false) {
-            $typeLoggin = 'facebook';
-        }elseif (strpos(url()->current(),"google") != false) {
-            $typeLoggin = 'google';
-        }else{
-            $typeLoggin = 'csn';
-        }
-        $user->user_lastvisit = time();
-        $user->save();
-        $userLog = UserLogModel::where('user_id', $user->user_id)->where('log_date', '>=', strtotime(date('m/d/Y', time()) . ' 00:00'))->first();
-        if ($userLog === null) {
-            UserLogModel::create([
-                'user_id' => $user->user_id,
-                'type' => $typeLoggin,
-                'log_date' => time()
-            ]);
+        if($user){
+            if(strpos(url()->current(),"facebook") != false) {
+                $typeLoggin = 'facebook';
+            }elseif (strpos(url()->current(),"google") != false) {
+                $typeLoggin = 'google';
+            }else{
+                $typeLoggin = 'csn';
+            }
+            $user->user_lastvisit = time();
+            $user->save();
+            $userLog = UserLogModel::where('user_id', $user->user_id)->where('log_date', '>=', strtotime(date('m/d/Y', time()) . ' 00:00'))->first();
+            if ($userLog === null) {
+                UserLogModel::create([
+                    'user_id' => $user->user_id,
+                    'type' => $typeLoggin,
+                    'log_date' => time()
+                ]);
+            }
         }
     }
 }
