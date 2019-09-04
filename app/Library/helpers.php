@@ -515,14 +515,13 @@ class Helpers
         return strtr($str, $unicode_trans);
     }
 
-    // echo ascii('Phạm Giang Pro'); => Pham Giang Pro
     public static function khongdau($value)
     {
         foreach (Helpers::charsArray() as $key => $val) {
             $value = str_replace($val, $key, $value);
         }
 
-        return $value;//preg_replace('/[^\x20-\x7E]/u', '', $value);
+        return Helpers::khongdau2($value);//preg_replace('/[^\x20-\x7E]/u', '', $value);
     }
     public static function charsArray()
     {
