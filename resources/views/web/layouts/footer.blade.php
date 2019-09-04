@@ -108,7 +108,7 @@
                     '      <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">' +
                     '          <div>' +
                     '              <h5 class="media-title mt-0 mb-0 span_h5" title="' + value.music_title + ' - ' + value.music_artist + '">' + searchHighlight(q, value.music_title) + '</h5>' +
-                    '              <div class="author">' + value.music_artist + '</div>' +
+                    '              <div class="author">' + (value.music_artist).replace(/;/g, '; ') + '</div>' +
                     '          </div>' +
                     '          <small class="type_music c1">' + value.music_bitrate_html + '</small>' +
                     '      </div>' +
@@ -171,7 +171,7 @@
                     '              <h5 class="media-title mt-0 mb-0 span_h5" title="' + value.video_title + ' - ' + value.video_artist + '">' + searchHighlight(q, value.video_title) + '</h5>' +
                     '              <div class="author">' + value.video_artist + '</div>' +
                     '          </div>' +
-                    '          <small class="type_music c1">' + value.video_bitrate + '</small>' +
+                    '          <small class="type_music c1">' + value.video_bitrate_html + '</small>' +
                     '      </div>' +
                     '      </a>' +
                     '  </li>';

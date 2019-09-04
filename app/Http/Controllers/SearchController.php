@@ -325,6 +325,7 @@ class SearchController extends Controller
                             'video_title' => htmlspecialchars_decode($item['video_title'][0], ENT_QUOTES),
                             'video_artist' => htmlspecialchars_decode($item['video_artist'][0], ENT_QUOTES),
                             'video_bitrate' => $item['video_bitrate'][0],
+                            'video_bitrate_html' => $item['video_bitrate_html'][0],
                             'video_link' => $item['video_link'][0],
                             'video_cover' => isset($item['video_cover']) ? $item['video_cover'][0] : '',
                             'video_listen' => $item['video_listen_total'][0],

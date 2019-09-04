@@ -188,7 +188,7 @@ if($memberVip == null)
                     '   <a class="search-line search-line-music" href="' + value.music_link + '"><div class="element mb-2">' +
                     '       <div class="content d-inline-block align-middle">' +
                     '           <h6 class="name_song text-black mb-1">' + searchHighlight(q, value.music_title) + '</h6>' +
-                    '           <p class="name_singer text-gray mb-1">' + value.music_artist + '</p>' +
+                    '           <p class="name_singer text-gray mb-1">' + (value.music_artist).replace(/;/g, '; ') + '</p>' +
                     '           <p class="loss text-pink mb-0">' + value.music_bitrate_html + '</p>' +
                     '       </div>' +
                     '   </div></a>';

@@ -480,7 +480,7 @@ class UploadController extends Controller
             if($newAlbum && $newAlbum->album_music_total == 0)
                 $Solr->deleteCustom('cover_' . $newAlbum->cover_id);
             $result->music_title = $request->input('music_title');
-            $result->music_artist = $request->input('music_artist');
+            $result->music_artist = str_replace(';', '; ', $request->input('music_artist'));
             $result->music_artist_id = trim($request->input('music_artist_id') ?? '');
             $result->music_composer = $request->input('music_composer') ?? '';
 
@@ -760,7 +760,7 @@ class UploadController extends Controller
             'music_title' => '',
             'cover_id' => $album->cover_id,
             'music_album' => $album->music_album,
-            'music_artist' => $request->input('music_artist') ?? '',
+            'music_artist' => str_replace(';', '; ', $request->input('music_artist')) ?? '',
             'music_artist_id' => $request->input('music_artist_id'),
             'music_user_id' => $user->id,
             'music_username' => $user->name,
