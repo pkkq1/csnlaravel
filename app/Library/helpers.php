@@ -522,7 +522,7 @@ class Helpers
             $value = str_replace($val, $key, $value);
         }
 
-        return preg_replace('/[^\x20-\x7E]/u', '', $value);
+        return $value;//preg_replace('/[^\x20-\x7E]/u', '', $value);
     }
     public static function charsArray()
     {
