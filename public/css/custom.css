@@ -1559,3 +1559,6 @@ a.disabled {
     padding-top: 2px;
     padding-right: 5px;
 }
+.align-items-end {
+    opacity: 0.3;
+}
