@@ -698,7 +698,7 @@
                     <div>Công ty Cổ phần giải trí Yêu Ca Hát</div>
                     <div>Chủ sở hữu website: Ông Nguyễn Hoàng Minh Quân</div>
                     <div>Giấy phép MXH số 337/GP-BTTTT do Bộ TT&TT cấp ngày 22/06/2016</div>
-                    <div>Giấy Chứng nhận Đăng ký Kinh doanh số 0305477372 do Sở kế hoạch và Đầu tư thành phố Hồ Chí Minhcấp ngày 21/01/2008.</div>
+                    <div>Giấy Chứng nhận Đăng ký Kinh doanh số 0305477372 do Sở kế hoạch và Đầu tư thành phố Hồ Chí Minh cấp ngày 21/01/2008.</div>
                 </address>
             </div>
             <div class="col-5">
