@@ -696,12 +696,17 @@
             <div class="col-5 offset-2">
                 <address class="m-0">
                     <div>Công ty Cổ phần giải trí Yêu Ca Hát</div>
+                    <div>Chủ sở hữu website: Ông Nguyễn Hoàng Minh Quân</div>
                     <div>Giấy phép MXH số 337/GP-BTTTT do Bộ TT&TT cấp ngày 22/06/2016</div>
+                    <div>Giấy Chứng nhận Đăng ký Kinh doanh số 0305477372 do Sở kế hoạch và Đầu tư thành phố Hồ Chí Minhcấp ngày 21/01/2008.</div>
                 </address>
             </div>
             <div class="col-5">
                 <address class="m-0">
-                    <div><a style="color: #a9a9a9;" href="/chinh-sach-chia-se-nhac">Nội quy và chính sách Chia Sẻ Nhạc</a></div>
+                    <div><i class="fa fa-map-marker" aria-hidden="true"></i> Tòa nhà Fideco, số 28 Phùng Khắc Khoan, Phường Đa Kao, Quận 01, TP.HCM</div>
+                    <div><i class="fa fa-envelope" aria-hidden="true"></i> info@chiasenhac.com</div>
+                    <div><i class="fa fa-phone" aria-hidden="true"></i> (028) 7300 8199 - Ext: 999</div>
+                    <div><i class="fa fa-book" aria-hidden="true"></i> <a style="color: #a9a9a9;" href="/chinh-sach-chia-se-nhac">Nội quy và chính sách Chia Sẻ Nhạc</a></div>
                     <?php
                     global $startTime;
                     use App\Models\ErrorBugSlowModel;
@@ -715,7 +720,7 @@
                         ]);
                     }
                     ?>
-                    <div>Page generation time: {{ $endTime }} seconds</div>
+                    <div><i class="fa fa-clock-o" aria-hidden="true"></i> Page generation time: {{ $endTime }} seconds</div>
                     <div class="text-right" style="position: absolute; margin-top: -35px; right: 0px;">
                         <ul class="list-inline m-0 social_f">
                             <li class="list-inline-item"><a href="https://www.facebook.com/chiasenhac/" title=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
