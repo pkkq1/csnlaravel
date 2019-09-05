@@ -59,7 +59,7 @@ class Kernel extends ConsoleKernel
 
 
         $schedule->command('search_counting_result report')->dailyAt('02:00'); // cập nhật bảng csn_music_search_result
-        $schedule->command('search_counting_result cache')->twiceDaily(1, 8, 13, 18, 22);
+        $schedule->command('search_counting_result cache')->hourlyAt(30);
 //        $schedule->command('solr:type music')->hourlyAt(30); // đồng bộ search solr nhạc
 //        $schedule->command('solr:type video')->hourlyAt(35); // đồng bộ search solr video
 //        $schedule->command('solr:type artist'); // đồng bộ search solr ca sĩ
