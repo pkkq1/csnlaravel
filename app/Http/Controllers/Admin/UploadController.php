@@ -246,6 +246,9 @@ class UploadController extends CrudController
         unset($upload['music_source_url']);
         UploadExceptionModel::create($upload);
         \Alert::success('Đã block bài hát thành công.')->flash();
+        if(isset($_GET['return_form_upload'])) {
+            return redirect('/dang-tai/nhac/'.$upload['music_id'])->with('success', 'Đã chặn bài hát '.$upload['music_title']);
+        }
         return \Redirect::to($this->crud->route);
 
     }

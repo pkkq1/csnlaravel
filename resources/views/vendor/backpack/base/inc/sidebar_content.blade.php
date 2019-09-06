@@ -79,7 +79,7 @@ $htmlNotif['kara_sug'] = $notif['kara_sug'] > 0 ? '<span class="label pull-right
         <li><a href="{{backpack_url('music')}}"><i class="fa fa-music"></i> <span>Nhạc</span></a></li>
         <li><a href="{{backpack_url('video')}}"><i class="fa fa-video-camera"></i> <span>Video</span></a></li>
         <li><a href="{{backpack_url('upload')}}"><i class="fa fa-upload"></i> <span>Upload</span></a></li>
-        <li><a href="{{backpack_url('upload_blocked')}}"><i class="fa fa-ban"></i> <span>Upload Blocked</span></a></li>
+        <li><a href="{{backpack_url('blocked_music')}}"><i class="fa fa-ban"></i> <span>Upload Blocked</span></a></li>
     </ul>
 </li>
 @endif

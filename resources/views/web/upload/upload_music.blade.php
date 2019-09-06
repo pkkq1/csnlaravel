@@ -359,6 +359,9 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                                             </script>
                                         @endif
                                         <div class="text-center col-12">
+                                            @if(!$uploadExp)
+                                                <button class="btn btn-danger btn-upload btn-block-music">Chặn nhạc</button>
+                                            @endif
                                             @if(isset($music) && $music->music_state != UPLOAD_STAGE_DELETED)
                                                 <button type="submit" class="btn btn-danger btn-upload btn-delete-music">Xóa nhạc</button>
                                             @endif
@@ -998,6 +1001,13 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                     $("#myConfirmModal .btn-ok").one('click', function () {
                         $('.delete_music').val(<?php echo $music->music_id ?>);
                         document.getElementById("form_music").submit();
+                    })
+                })
+                $('.btn-block-music').click(function (event) {
+                    event.preventDefault();
+                    confirmModal('Bạn có chắc chắn muốn chặn nhạc không?', '','modal-sm');
+                    $("#myConfirmModal .btn-ok").one('click', function () {
+                        window.location.href = '/admin/upload/set_exp/<?php echo $music->music_id ?>?return_form_upload=1';
                     })
                 })
                 <?php
