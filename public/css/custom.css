@@ -1559,6 +1559,11 @@ a.disabled {
     padding-top: 2px;
     padding-right: 5px;
 }
-.align-items-end {
+footer .align-items-end {
     opacity: 0.3;
+}
+.btn-block-music {
+    background-color: #464444!important;;
+    border-color: #3c3c3c!important;;
+    background-image: linear-gradient(-243deg, #565656 0%, #484848 100%)!important;
 }
