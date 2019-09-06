@@ -9,7 +9,7 @@ use App\Library\Helpers;
 $listPopular_page = Helpers::getRandLimitArr($popular_category[$article->category_id], 4);
 $topMusic = array_slice($hot_music_rows[3], 0, 5);
 if($articleTags) {
-    $articleTags = Helpers::getRandLimitArr($articleTags, 4);
+    $articleTags = Helpers::getRandLimitArr($articleTags->toArray(), 4);
 }else{
     $articleTags = Helpers::getRandLimitArr($news_post, 4);
 }
@@ -96,6 +96,7 @@ if($articleTags) {
                             </div>
                         </div>
                     </div>
+                    @if($articleTags)
                     <div class="c-box c-box__siderbar c-box__siderbar--type03">
                         <div class="c-box__header">
                             <h2>ĐỌC TIẾP</h2>
@@ -119,6 +120,7 @@ if($articleTags) {
                             </div>
                         </div>
                     </div>
+                    @endif
                 </div>
             </div>
         </div>

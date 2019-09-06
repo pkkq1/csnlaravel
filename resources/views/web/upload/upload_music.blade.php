@@ -359,7 +359,7 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                                             </script>
                                         @endif
                                         <div class="text-center col-12">
-                                            @if(!$uploadExp)
+                                            @if(isset($uploadExp) && !$uploadExp)
                                                 <button class="btn btn-danger btn-upload btn-block-music">Chặn nhạc</button>
                                             @endif
                                             @if(isset($music) && $music->music_state != UPLOAD_STAGE_DELETED)
