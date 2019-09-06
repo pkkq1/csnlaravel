@@ -138,9 +138,10 @@ class UploadController extends Controller
                 if(!$album)
                     return view('errors.text_error')->with('message', 'Tình trạng album không tìm thấy hoặc đang được xử lý');
             }
+            $uploadExp = $this->uploadExRepository->getModel()::where('music_title', $music->music_title)->where('music_artist', $music->music_artist)->first();
             $userMusic = $this->userExpRepository->getModel()::whereIn('user_id', [$music->music_user_id, $music->music_last_update_by])->orderByRaw( "FIELD(user_id, ".$music->music_user_id.", ".$music->music_last_update_by.")" )->get();
         }
-        return view('upload.upload_music', compact('typeUpload', 'music', 'album', 'userMusic'));
+        return view('upload.upload_music', compact('typeUpload', 'music', 'album', 'userMusic', 'uploadExp'));
     }
     public function createAlbum(Request $request, $coverId = null) {
         if($coverId) {
