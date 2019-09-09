@@ -87,6 +87,7 @@ class UploadController extends Controller
     }
     public function createMusic(Request $request, $musicId = null) {
         $typeUpload = 'music';
+        $uploadExp = '';
         if($musicId) {
             $id = Auth::user()->id;
             $arrStage = [UPLOAD_STAGE_DELETED, UPLOAD_STAGE_UNCENSOR, UPLOAD_STAGE_FULLCONVERT];
@@ -117,6 +118,7 @@ class UploadController extends Controller
     }
     public function createVideo(Request $request, $musicId = null) {
         $typeUpload = 'video';
+        $uploadExp = '';
         if($musicId) {
             $id = Auth::user()->id;
             $arrStage = [UPLOAD_STAGE_DELETED, UPLOAD_STAGE_UNCENSOR, UPLOAD_STAGE_FULLCONVERT];
