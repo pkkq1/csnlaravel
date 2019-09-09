@@ -103,12 +103,12 @@ use App\Library\Helpers;
     <div class="c-border__dash"></div>
     <section class="c-section">
         <div class="c-title c-title__01">
-            <h2>Sao hàn</h2>
+            <h2>Sao âu mỹ</h2>
         </div>
         <div class="o-container">
             <div class="c-grid">
                 <div class="c-grid__container c-grid__container--02">
-                    @foreach($popular_category[3] as $item)
+                    @foreach($popular_category[4] as $item)
                         <div class="c-grid__item">
                             <div class="c-card c-card__01">
                                 <div class="c-card__header">
@@ -133,19 +133,19 @@ use App\Library\Helpers;
     <div class="c-border__dash"></div>
     <section class="c-section">
         <div class="c-title c-title__01">
-            <h2>Sao âu mỹ</h2>
+            <h2>Sao hàn</h2>
         </div>
         <div class="o-container">
             <div class="c-grid">
                 <div class="c-grid__container c-grid__container--02">
-                    @foreach($popular_category[4] as $item)
+                    @foreach($popular_category[3] as $item)
                         <div class="c-grid__item">
                             <div class="c-card c-card__01">
                                 <div class="c-card__header">
                                     <div class="c-thumbnail">
                                         <div class="c-thumbnail--ratio">
                                             <a href="/tin-tuc/{{$item['slug']}}-p-{{$item['id']}}.html">
-                                            <img src="<?php echo Helpers::news_image($item['image'], 'full') ?>" alt="{{$item['title']}}">
+                                                <img src="<?php echo Helpers::news_image($item['image'], 'full') ?>" alt="{{$item['title']}}">
                                             </a>
                                         </div>
                                     </div>

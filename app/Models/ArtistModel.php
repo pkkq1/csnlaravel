@@ -11,7 +11,7 @@ class ArtistModel extends Model
     use CrudTrait;
     protected $table = 'csn_artist';
     protected $primaryKey = 'artist_id';
-    protected $fillable = ['artist_id', 'artist_nickname', 'artist_realname', 'artist_url', 'artist_birthday', 'artist_gender', 'artist_country', 'artist_avatar', 'artist_cover', 'artist_desc', 'last_update_user_id'];
+    protected $fillable = ['artist_id', 'artist_nickname', 'artist_realname', 'artist_url', 'artist_birthday', 'artist_gender', 'artist_country', 'artist_avatar', 'artist_cover', 'artist_desc', 'last_update_user_id', 'article_view_time'];
 
     public static function searchArtist($keyName)
     {

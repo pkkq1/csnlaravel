@@ -3,14 +3,14 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use App\Http\Controllers\Sync\NewsCategoryController;
+use App\Http\Controllers\Sync\ArticleCategoryController;
 use App\Repositories\Article\ArticleRepository;
 use App\Repositories\ArticleTags\ArticleTagsRepository;
 use App\Repositories\Tag\TagRepository;
 use App\Repositories\ArticleView\ArticleViewRepository;
 use App\Repositories\CategoryNews\CategoryNewsEloquentRepository;
 
-class NewsSync extends Command
+class ArticleSync extends Command
 {
     /**
      * The name and signature of the console command.
@@ -54,7 +54,7 @@ class NewsSync extends Command
      */
     public function handle()
     {
-        $News = new NewsCategoryController($this->articleRepository, $this->articleViewRepository, $this->categoryNewsRepository, $this->tagArticleRepository, $this->tagRepository);
+        $News = new ArticleCategoryController($this->articleRepository, $this->articleViewRepository, $this->categoryNewsRepository, $this->tagArticleRepository, $this->tagRepository);
         if($this->argument('type') == 'cat_popular_new') {
             $News->popularNewsCategory();
         }elseif($this->argument('type') == 'popular_news') {

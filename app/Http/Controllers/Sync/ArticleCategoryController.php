@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Storage;
 use DB;
 use File;
 
-class NewsCategoryController extends Controller
+class ArticleCategoryController extends Controller
 {
     protected $articleRepository;
     protected $articleViewRepository;
@@ -47,11 +47,11 @@ class NewsCategoryController extends Controller
                 ->orderBy('csn_article_view.article_view_today_1', 'desc')
                 ->orderBy('csn_article_view.article_view_this_week', 'desc')
                 ->orderBy('csn_article_view.article_view', 'desc')
+                ->orderBy('csn_article_view.article_id', 'desc')
                 ->limit(7)
                 ->get()
                 ->toArray();
         }
-
         $pathDir = resource_path() . '/views/cache/news/';
         file_put_contents($pathDir.'popular_category.blade.php',
             '<?php 
@@ -71,6 +71,8 @@ $popular_category = ' . var_export($result, true) . ';
             ->select(DB::raw('csn_articles.id, csn_articles.category_id, csn_articles.title, csn_articles.slug, csn_articles.date_publish, csn_articles.short_content, csn_articles.image, csn_articles.article_by_user_name, csn_articles.article_by_user_id'))
             ->where('csn_articles.status', 'PUBLISHED')
             ->whereDate('date_publish', '<=', date("Y-m-d h:i"))
+            ->orderBy('csn_article_view.article_view_today_0', 'desc')
+            ->orderBy('csn_article_view.article_view_today_1', 'desc')
             ->orderBy('csn_article_view.article_view_this_week', 'desc')
             ->orderBy('csn_article_view.article_id', 'desc')
             ->limit(15)
