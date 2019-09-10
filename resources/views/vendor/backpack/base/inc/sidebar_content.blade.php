@@ -103,7 +103,9 @@ $htmlNotif['kara_sug'] = $notif['kara_sug'] > 0 ? '<span class="label pull-right
         <li><a href="{{backpack_url('article') }}"><i class="fa fa-file-o"></i> <span>Bài viết</span></a></li>
     </ul>
 </li>
-
+@if(backpack_user()->can('code_ads(list)'))
+    <li><a href="{{ backpack_url('code_ads') }}"><i class="fa fa-audio-description"></i> <span>Code quảng cáo</span></a></li>
+@endif
 
 
 <!-- Users, Roles Permissions -->

@@ -1166,19 +1166,22 @@ class Helpers
         return $data;
     }
     public static function checkMemberVip() {
-        if(Auth::check()) {
-            $level = Auth::user()->level();
-            if($level && $level->level_expried >= time() && $level->level_status == 1) {
-                return true;
-            }
-            return false;
-        }
+//        if(Auth::check()) {
+//            $level = Auth::user()->level();
+//            if($level && $level->level_expried >= time() && $level->level_status == 1) {
+//                return true;
+//            }
+//            return false;
+//        }
         return false;
     }
     public static function news_image($image, $size = null) {
         if(strpos($image, 'http') !== false){
             if($size == 'full') {
-                return str_replace('-360x180.', '.', str_replace('-360x185.', '.', $image));
+                return str_replace(
+                    ["-360x180", "-360x185", "-300x240", "-300x214"],
+                    [""],
+                    $image);
             }else {
                 return $image;
             }

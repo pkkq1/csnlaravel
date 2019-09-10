@@ -27,6 +27,7 @@ Route::group([
     CRUD::resource('upload', 'UploadController');
     Route::get('upload/set_exp/{id}', 'UploadController@setExp');
     CRUD::resource('blocked_music', 'UploadBlockedController');
+    CRUD::resource('code_ads', 'CodeAdsController');
 
 
     CRUD::resource('comment', 'CommentController');

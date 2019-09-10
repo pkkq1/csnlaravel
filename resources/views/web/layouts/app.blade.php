@@ -86,13 +86,13 @@ if($memberVip == null)
 @else
     @if(!$memberVip)
         @hasSection('in_player')
-            <!-- BlueSeed - asynchronous code for placement 1640 Chiasenhac Balloon Music Player Desktop -->
-            <ins class="370d0bec" data-key="f208afd26b0f415fda3405513d8ebe55"></ins>
-            <script async defer src="//aj1010.online/20dc880c.js"></script>
+            @if(View::exists('cache.code_ads.trang-chu-ballon'))
+                @include('cache.code_ads.trang-chu-ballon')
+            @endif
         @else
-            <!-- BlueSeed - asynchronous code for placement 1468 Chiasenhac Balloon Home Page Desktop -->
-            <ins class="370d0bec" data-key="a52078840c1d74ca9c8c92c22adaa2ee"></ins>
-            <script async defer src="//aj1010.online/20dc880c.js"></script>
+            @if(View::exists('cache.code_ads.trang-chu-ballon-2'))
+                @include('cache.code_ads.trang-chu-ballon-2')
+            @endif
         @endif
 
         @hasSection('in_home')
