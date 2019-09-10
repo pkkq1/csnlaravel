@@ -42,9 +42,15 @@ if($memberVip == null)
         @if(!$memberVip)
             @hasSection('in_player')
                 @if ( rand(1,100) > 50 )
-                    @if(View::exists('cache.code_ads.pc-masthead-player'))
-                        @include('cache.code_ads.pc-masthead-player')
-                    @endif
+                    <div class="ads_box" id="pc_masthead">
+                        <div class="container text-center">
+                            <div id="bsmasthead-wrapper">
+                                @if(View::exists('cache.code_ads.pc-masthead-player'))
+                                    @include('cache.code_ads.pc-masthead-player')
+                                @endif
+                            </div>
+                        </div>
+                    </div>
                 @else
                     <div class="ads_box" id="pc_masthead_bg">
                         <div class="container text-center">
@@ -57,9 +63,16 @@ if($memberVip == null)
                     <?php $sb_banner = true; ?>
                 @endif
             @else
-                @if(View::exists('cache.code_ads.pc-masthead'))
-                    @include('cache.code_ads.pc-masthead-player')
-                @endif
+                <div class="ads_box" id="pc_masthead">
+                    <div class="container text-center">
+                        <div id="bsmasthead-wrapper">
+                            @if(View::exists('cache.code_ads.pc-masthead'))
+                                @include('cache.code_ads.pc-masthead-player')
+                            @endif
+                        </div>
+                    </div>
+                </div>
+
             @endif
         @endif
 @endif
