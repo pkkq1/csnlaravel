@@ -42,15 +42,9 @@ if($memberVip == null)
         @if(!$memberVip)
             @hasSection('in_player')
                 @if ( rand(1,100) > 50 )
-                    <div class="ads_box" id="pc_masthead">
-                        <div class="container text-center">
-                            <div id="bsmasthead-wrapper">
-                                <!-- BlueSeed - asynchronous code for placement 1643 Chiasenhac Masthead Player Desktop -->
-                                <ins class="370d0bec" data-key="9a43993fd3f88e5ac078c498529ef11a"></ins>
-                                <script async defer src="//aj1010.online/20dc880c.js"></script>
-                            </div>
-                        </div>
-                    </div>
+                    @if(View::exists('cache.code_ads.pc-masthead-player'))
+                        @include('cache.code_ads.pc-masthead-player')
+                    @endif
                 @else
                     <div class="ads_box" id="pc_masthead_bg">
                         <div class="container text-center">
@@ -63,15 +57,9 @@ if($memberVip == null)
                     <?php $sb_banner = true; ?>
                 @endif
             @else
-                <div class="ads_box" id="pc_masthead">
-                    <div class="container text-center">
-                        <div id="bsmasthead-wrapper">
-                            <!-- BlueSeed - asynchronous code for placement 1365 Chiasenhac Masthead Desktop -->
-                            <ins class="370d0bec" data-key="ae56ae7603b4c19be628097c007637df"></ins>
-                            <script async defer src="//aj1010.online/20dc880c.js"></script>
-                        </div>
-                    </div>
-                </div>
+                @if(View::exists('cache.code_ads.pc-masthead'))
+                    @include('cache.code_ads.pc-masthead-player')
+                @endif
             @endif
         @endif
 @endif
