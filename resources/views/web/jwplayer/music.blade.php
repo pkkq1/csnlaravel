@@ -776,12 +776,17 @@ if($musicSet['type_listen'] == 'playlist') {
                 }
             }, false)
         }, false);
-
-        var error_count =0;
+        var error_count = 0;
         player.on('error', function(message) {
+            let sourceList = player.getPlaylist()[0]['sources'];
+            let offsetPlay = jwplayer().getCurrentQuality();
             if (error_count < jwplayer().getQualityLevels().length - 1) {
-                setQualityCookie = false;
-                jwplayer().setCurrentQuality(error_count);
+                if((++offsetPlay) > jwplayer().getQualityLevels().length - 1){
+                    offsetPlay = 0;
+                }
+                player.setCurrentQuality(offsetPlay);
+                alertModal('Xin lỗi bài hát này đã bị lỗi! Sẽ chuyển qua chất lượng khác');
+                location.reload();
             } else {
                 alertModal('Xin lỗi bài hát này đã bị lỗi! Vui lòng trải nghiệm video khác');
                 // location.href = "/";
