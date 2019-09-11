@@ -3,6 +3,11 @@
 @include('cache.suggestion.'.ceil($music->music_id / 1000).'.'.$music->music_id)
 @include('cache.suggestion_cat.'.$music->cat_id.'_'.$music->cat_level)
 @include('cache.def_main_cat')
+@include('cache.code_ads.jw_my_preroll')
+@include('cache.code_ads.jw_my_preroll_2')
+@include('cache.code_ads.jw_my_preroll_3')
+@include('cache.code_ads.jw_my_mymidroll')
+@include('cache.code_ads.jw_my_mymidroll_2')
 <?php
 use App\Library\Helpers;
 global $cat_id2info;
@@ -10,12 +15,18 @@ global $cat_url2info;
 global $memberVip;
 global $album_new;
 global $memberVip;
-$memberVip = Helpers::checkMemberVip();
 global $MusicSameArtist;
 global $VideoSameArtist;
 global $titleDup;
 global $typeDup;
 global $video;
+global $jw_my_preroll;
+global $jw_my_preroll_2;
+global $jw_my_preroll_3;
+global $jw_my_mymidroll;
+global $jw_my_mymidroll_2;
+$memberVip = Helpers::checkMemberVip();
+
 $partListenFullUrl = Helpers::listen_url($music, '');
 $titleMeta = $music->music_title . ' - '. str_replace(';', ', ', $music->music_artist);
 $file_url = Helpers::file_url($music);
@@ -663,23 +674,23 @@ if($musicSet['type_listen'] == 'playlist') {
                 "adschedule": {
                     "myPreroll": {
                         "offset": "pre",
-                        "tag": ["https://aj1010.online/z4Kq_ISriKYm-yKIVUtk5c0ZL9nKiR8zfy8mxKoq5cP-sGjhBgbrQLfkgNlSaZZ6dfOWc-eiFd7b8er9uWaJW0w33yTdMJHU","https://aj1010.online/zSeyYJ3LVAwNZtp4Bi8fUTz3PTEYRA75TxWxt5gExwgaEbwaLpSYyzPQzxCWL1gGj2DVsG0Lo-bYRme3Z_Ki9p1onEm0fUC0","https://tag.gammaplatform.com/adx/request/?wid=1508317885&zid=1508318418&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"]
+                        "tag": <?php echo json_encode($jw_my_preroll); ?>
                     },
                     "myPreroll2": {
                         "offset": 1,
-                        "tag": ["https://aj1010.online/zSeyYJ3LVAwNZtp4Bi8fUTz3PTEYRA75TxWxt5gExwgaEbwaLpSYyzPQzxCWL1gGj2DVsG0Lo-bYRme3Z_Ki9p1onEm0fUC0","https://tag.gammaplatform.com/adx/request/?wid=1508317885&zid=1508318418&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"]
+                        "tag": <?php echo json_encode($jw_my_preroll_2); ?>
                     },
                     "myPreroll3": {
                         "offset": 2,
-                        "tag": ["https://aj1010.online/zyWNdWFoq0r1P5J6DgJolRApabzLTGolCUknU7TPkrnpesbV_ta4rAbJ9eXVr6LknR_NDsGhn6pWzdyO3HHFtf7GHw-EHeCQ","https://tag.gammaplatform.com/adx/request/?wid=1508317885&zid=1508318418&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"]
+                        "tag": <?php echo json_encode($jw_my_preroll_3); ?>
                     },
                     "myMidroll": {
                         "offset": 3,
-                        "tag": ["https://aj1010.online/zwsduVTsylFgXCuUPVIaUF_8ZgXYVisdlCYVdzcrBkIkMBpEEyVuL1_A2hNMnnAwf5xZJ_zbLsIGI48pk6B7pR2g9pqyOoDc","https://tag.gammaplatform.com/adx/request/?wid=1508317885&zid=1508318800&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"]
+                        "tag": <?php echo json_encode($jw_my_mymidroll); ?>
                     },
                     "myMidroll2": {
                         "offset": 4,
-                        "tag": ["https://aj1010.online/zWsZYLA7a5VU9NFiqjNbW6NbzBoCwx2pYxY06mH7jLNe92Z7hglTzHdipbpeytZ43PX8etwdvTyj9WYqdU3ymAYowINwqxVs","https://tag.gammaplatform.com/adx/request/?wid=1508317885&zid=1508318800&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"]
+                        "tag": <?php echo json_encode($jw_my_mymidroll_2); ?>
                     }
                 }
             },

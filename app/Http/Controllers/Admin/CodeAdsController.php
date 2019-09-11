@@ -58,6 +58,10 @@ class CodeAdsController extends CrudController
             'label' => 'Key',
         ]);
         $this->crud->addColumn([
+            'name' => 'type',
+            'label' => 'Thể loại',
+        ]);
+        $this->crud->addColumn([
             'name' => 'description',
             'label' => 'Diễn giải',
         ]);
@@ -77,12 +81,28 @@ class CodeAdsController extends CrudController
         ]);
         $this->crud->addField([
             'name' => 'key',
-            'label' => 'Key',
+            'label' => 'Key (Tham số biến, file)',
         ]);
         $this->crud->addField([
             'name'  => 'description',
             'label' => 'Diễn giải',
             'type' => 'textarea',
+        ]);
+        $this->crud->addField([
+            'label' => 'Tình trạng',
+            'type' => 'select_from_array',
+            'name' => 'status',
+            'options' => [0 => 'Không hoạt động', 1 => 'Hoạt động'],
+            'allows_null' => false,
+            'default' => 1,
+        ]);
+        $this->crud->addField([
+            'label' => 'Thể loại',
+            'type' => 'select_from_array',
+            'name' => 'type',
+            'options' => ['CODE HTML' => 'CODE HTML', 'ARRAY LINK' => 'ARRAY LINK'],
+            'allows_null' => false,
+            'default' => 1,
         ]);
         $this->crud->addField([
             'name'  => 'code1',
@@ -134,14 +154,7 @@ class CodeAdsController extends CrudController
             'label' => 'Nội dung code 10',
             'type' => 'textarea',
         ]);
-        $this->crud->addField([
-            'label' => 'Tình trạng',
-            'type' => 'select_from_array',
-            'name' => 'status',
-            'options' => [0 => 'Không hoạt động', 1 => 'Hoạt động'],
-            'allows_null' => false,
-            'default' => 1,
-        ]);
+
     }
 
     public function store(StoreRequest $request)
@@ -212,8 +225,8 @@ class CodeAdsController extends CrudController
     public function renderCode($codeContent) {
 //        ($codeContent->status == 1 ? $codeContent->code : '')
 
-
-        file_put_contents(resource_path().'/views/cache/code_ads/'.$codeContent->key.'.blade.php', '<?php 
+        if($codeContent->type == 'CODE HTML') {
+            file_put_contents(resource_path().'/views/cache/code_ads/'.$codeContent->key.'.blade.php', '<?php 
     $randNum = rand(1, 10);
         switch ($randNum)
         {
@@ -251,7 +264,24 @@ class CodeAdsController extends CrudController
                 echo "";
         }
 ?>');
-
+        }elseif ($codeContent->type == 'ARRAY LINK') {
+            $result = [];
+            ($codeContent->code1 ? ( $result[] = $codeContent->code1) : null);
+            ($codeContent->code2 ? ( $result[] = $codeContent->code2) : null);
+            ($codeContent->code3 ? ( $result[] = $codeContent->code3) : null);
+            ($codeContent->code4 ? ( $result[] = $codeContent->code4) : null);
+            ($codeContent->code5 ? ( $result[] = $codeContent->code5) : null);
+            ($codeContent->code6 ? ( $result[] = $codeContent->code6) : null);
+            ($codeContent->code7 ? ( $result[] = $codeContent->code7) : null);
+            ($codeContent->code8 ? ( $result[] = $codeContent->code8) : null);
+            ($codeContent->code9 ? ( $result[] = $codeContent->code9) : null);
+            ($codeContent->code10 ? ( $result[] = $codeContent->code10) : null);
+            file_put_contents(resource_path().'/views/cache/code_ads/'.$codeContent->key.'.blade.php', '<?php 
+global $'.$codeContent->key.';
+    
+$'.$codeContent->key.' = ' . var_export($result, true) . ';
+?>');
+        }
 
     }
 }

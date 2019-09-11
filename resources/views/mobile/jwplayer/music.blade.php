@@ -2,6 +2,9 @@
 @include('cache.suggestion.'.ceil($music->music_id / 1000).'.'.$music->music_id)
 @include('cache.suggestion_cat.'.$music->cat_id.'_'.$music->cat_level)
 @include('cache.def_main_cat')
+@include('cache.code_ads.mobile_jw_my_preroll')
+@include('cache.code_ads.mobile_jw_my_preroll_2')
+@include('cache.code_ads.mobile_jw_my_preroll_3')
 <?php
 use App\Library\Helpers;
 global $cat_id2info;
@@ -13,6 +16,10 @@ global $VideoSameArtist;
 global $titleDup;
 global $typeDup;
 global $video;
+global $mobile_jw_my_preroll;
+global $mobile_jw_my_preroll_2;
+global $mobile_jw_my_preroll_3;
+
 $titleMeta = $music->music_title . ' - '. str_replace(';', ', ', $music->music_artist);
 $file_url = Helpers::file_url($music);
 if($musicSet['type_jw'] == 'music' && !Auth::check()) {
@@ -519,15 +526,15 @@ $memberVip = Helpers::checkMemberVip();
                 "adschedule": {
                     "myPreroll": {
                         "offset": "pre",
-                        "tag": ["https://aj1010.online/zDU-4qBMqJoj_ofK7PbRS97xFbpQ9TOmKul9pvRrIe-ltbt_OXqSaKbDb9sQC_hL8PNOzupz51kNyIpHwN_uomeLOpOZpYm0", "https://delivery.yomedia.vn/vast?pid=cb3dd57d621d48669c11be66df3ec2f6&vast=3&ec=0&ref=[yo_page_url]&w=[player_width]&h=[player_height]&aaid=[yo_device_aaid]&idfa=[yo_device_idfa]", "https://tag.gammaplatform.com/adx/request/?wid=1508317956&zid=1508321486&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"]
+                        "tag": <?php echo json_encode($mobile_jw_my_preroll); ?>
                     },
                     "myPreroll2": {
                         "offset": 1,
-                        "tag": ["https://aj1010.online/znPJhHIgCLeojMaRI3Uim0CZr3LmZFSP_eupEBw9VXAxrZsPw0rnraakIFEMP9QpdZa9iHppLTIeJ4nYbiZmCEKdc8MYFMsc", "https://delivery.yomedia.vn/vast?pid=cb3dd57d621d48669c11be66df3ec2f6&vast=3&ec=0&ref=[yo_page_url]&w=[player_width]&h=[player_height]&aaid=[yo_device_aaid]&idfa=[yo_device_idfa]", "https://tag.gammaplatform.com/adx/request/?wid=1508317956&zid=1508321486&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"]
+                        "tag": <?php echo json_encode($mobile_jw_my_preroll_2); ?>
                     },
                     "myPreroll3": {
                         "offset": 2,
-                        "tag": ["https://aj1010.online/znPJhHIgCLeojMaRI3Uim0CZr3LmZFSP_eupEBw9VXAxrZsPw0rnraakIFEMP9QpdZa9iHppLTIeJ4nYbiZmCEKdc8MYFMsc", "https://delivery.yomedia.vn/vast?pid=cb3dd57d621d48669c11be66df3ec2f6&vast=3&ec=0&ref=[yo_page_url]&w=[player_width]&h=[player_height]&aaid=[yo_device_aaid]&idfa=[yo_device_idfa]", "https://tag.gammaplatform.com/adx/request/?wid=1508317956&zid=1508321486&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"]
+                        "tag": <?php echo json_encode($mobile_jw_my_preroll_3); ?>
                     }
                 }
             },
