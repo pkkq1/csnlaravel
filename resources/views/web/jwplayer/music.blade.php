@@ -710,7 +710,7 @@ if($musicSet['type_listen'] == 'playlist') {
 
 
         player.setup({
-            <?php if ($musicSet['type_jw'] == 'video')
+            <?php if ($musicSet['type_jw'] == 'video') {
                 echo '
                 advertising: {
                     client: "vast",
@@ -723,6 +723,21 @@ if($musicSet['type_listen'] == 'playlist') {
                     }
                 },
                 ';
+                }
+                else if ( $music->music_id == 234567) {
+                echo '
+                        advertising: {
+                        client: "vast",
+                    skipoffset: 5,
+                    "adschedule": {
+                            "myPreroll": {
+                                "offset": "pre",
+                                "tag": ["https://delivery.lavanetwork.net/www/delivery/fc.php?script=bannerTypeHtml:vastInlineBannerTypeHtml:vastInlineHtmlExtend&format=vast&nz=1&zones=pre-roll%3D3193&version=2"]
+                        }
+                    }
+                },
+                ';
+                    }
             ?>
             width: '100%',
             height: '88',
