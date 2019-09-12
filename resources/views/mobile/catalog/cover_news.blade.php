@@ -42,9 +42,9 @@ $memberVip = Helpers::checkMemberVip();
     <main class="main">
         @if(!$memberVip)
         <div style="position: relative; text-align: center;">
-            <!-- Blueseed- Asynchronous Code for Ad Placement 1813 Chiasenhac Masthead Mobile Deleted -->
-            <ins class="370d0bec" data-key="7607c0365cb7db6630c51cb15ea4f62f"></ins>
-            <script async defer src="//aj1010.online/20dc880c.js"></script>
+            @if(View::exists('cache.code_ads.mobile_masthead'))
+                @include('cache.code_ads.mobile_masthead')
+            @endif
         </div>
         @endif
         <div class="sidebar_top">
