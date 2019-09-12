@@ -2,9 +2,9 @@
 @include('cache.suggestion.'.ceil($music->music_id / 1000).'.'.$music->music_id)
 @include('cache.suggestion_cat.'.$music->cat_id.'_'.$music->cat_level)
 @include('cache.def_main_cat')
-@include('cache.code_ads.mobile_jw_my_preroll')
-@include('cache.code_ads.mobile_jw_my_preroll_2')
-@include('cache.code_ads.mobile_jw_my_preroll_3')
+@include('cache.code_ads.mobile_preroll')
+@include('cache.code_ads.mobile_preroll_2')
+@include('cache.code_ads.mobile_preroll_3')
 <?php
 use App\Library\Helpers;
 global $cat_id2info;
@@ -16,9 +16,9 @@ global $VideoSameArtist;
 global $titleDup;
 global $typeDup;
 global $video;
-global $mobile_jw_my_preroll;
-global $mobile_jw_my_preroll_2;
-global $mobile_jw_my_preroll_3;
+global $mobile_preroll;
+global $mobile_preroll_2;
+global $mobile_preroll_3;
 
 $titleMeta = $music->music_title . ' - '. str_replace(';', ', ', $music->music_artist);
 $file_url = Helpers::file_url($music);
@@ -526,15 +526,15 @@ $memberVip = Helpers::checkMemberVip();
                 "adschedule": {
                     "myPreroll": {
                         "offset": "pre",
-                        "tag": <?php echo json_encode($mobile_jw_my_preroll); ?>
+                        "tag": <?php echo json_encode($mobile_preroll); ?>
                     },
                     "myPreroll2": {
                         "offset": 1,
-                        "tag": <?php echo json_encode($mobile_jw_my_preroll_2); ?>
+                        "tag": <?php echo json_encode($mobile_preroll_2); ?>
                     },
                     "myPreroll3": {
                         "offset": 2,
-                        "tag": <?php echo json_encode($mobile_jw_my_preroll_3); ?>
+                        "tag": <?php echo json_encode($mobile_preroll_3); ?>
                     }
                 }
             },
