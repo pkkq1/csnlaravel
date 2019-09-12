@@ -231,34 +231,34 @@ class CodeAdsController extends CrudController
         switch ($randNum)
         {
             case 1:
-                echo "'.($codeContent->status == 1 ? str_replace('"', "\\\"", $codeContent->code1) : '').'";
+                echo '.($codeContent->status == 1 ? "'".str_replace("'", "\\'", $codeContent->code1)."'" : '').';
                 break;
             case 2:
-                echo "'.($codeContent->status == 1 ? str_replace('"', "\\\"", $codeContent->code2) : '').'";
+                echo '.($codeContent->status == 1 ? "'".str_replace("'", "\\'", $codeContent->code2)."'" : '').';
                 break;
             case 3:
-                echo "'.($codeContent->status == 1 ? str_replace('"', "\\\"", $codeContent->code3) : '').'";
+                echo '.($codeContent->status == 1 ? "'".str_replace("'", "\\'", $codeContent->code3)."'" : '').';
                 break;
             case 4:
-                echo "'.($codeContent->status == 1 ? str_replace('"', "\\\"", $codeContent->code4) : '').'";
+                echo '.($codeContent->status == 1 ? "'".str_replace("'", "\\'", $codeContent->code4)."'" : '').';
                 break;
             case 5:
-                echo "'.($codeContent->status == 1 ? str_replace('"', "\\\"", $codeContent->code5) : '').'";
+                echo '.($codeContent->status == 1 ? "'".str_replace("'", "\\'", $codeContent->code5)."'" : '').';
                 break;
             case 6:
-                echo "'.($codeContent->status == 1 ? str_replace('"', "\\\"", $codeContent->code6) : '').'";
+                echo '.($codeContent->status == 1 ? "'".str_replace("'", "\\'", $codeContent->code6)."'" : '').';
                 break;
             case 7:
-                echo "'.($codeContent->status == 1 ? str_replace('"', "\\\"", $codeContent->code7) : '').'";
+                echo '.($codeContent->status == 1 ? "'".str_replace("'", "\\'", $codeContent->code7)."'" : '').';
                 break;
             case 8:
-                echo "'.($codeContent->status == 1 ? str_replace('"', "\\\"", $codeContent->code8) : '').'";
+                echo '.($codeContent->status == 1 ? "'".str_replace("'", "\\'", $codeContent->code8)."'" : '').';
                 break;
             case 9:
-                echo "'.($codeContent->status == 1 ? str_replace('"', "\\\"", $codeContent->code9) : '').'";
+                echo '.($codeContent->status == 1 ? "'".str_replace("'", "\\'", $codeContent->code9)."'" : '').';
                 break;
             case 10:
-                echo "'.($codeContent->status == 1 ? str_replace('"', "\\\"", $codeContent->code10) : '').'";
+                echo '.($codeContent->status == 1 ? "'".str_replace("'", "\\'", $codeContent->code10)."'" : '').';
                 break;
             default:
                 echo "";
