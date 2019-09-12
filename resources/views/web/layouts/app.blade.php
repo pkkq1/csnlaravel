@@ -41,16 +41,17 @@ if($memberVip == null)
 @else
         @if(!$memberVip)
             @hasSection('in_player')
-                @if ( rand(1,100) > 50 )
                     <div class="ads_box" id="pc_masthead">
                         <div class="container text-center">
                             <div id="bsmasthead-wrapper">
-                                @if(View::exists('cache.code_ads.pc-masthead-player'))
-                                    @include('cache.code_ads.pc-masthead-player')
+                                @if(View::exists('cache.code_ads.pc_masthead_player'))
+                                    @include('cache.code_ads.pc_masthead_player')
                                 @endif
                             </div>
                         </div>
                     </div>
+
+                @if ( rand(1,100) > 0 )
                 @else
                     <div class="ads_box" id="pc_masthead_bg">
                         <div class="container text-center">
@@ -66,8 +67,8 @@ if($memberVip == null)
                 <div class="ads_box" id="pc_masthead">
                     <div class="container text-center">
                         <div id="bsmasthead-wrapper">
-                            @if(View::exists('cache.code_ads.pc-masthead'))
-                                @include('cache.code_ads.pc-masthead-player')
+                            @if(View::exists('cache.code_ads.pc_masthead_home'))
+                                @include('cache.code_ads.pc_masthead_home')
                             @endif
                         </div>
                     </div>
@@ -87,12 +88,12 @@ if($memberVip == null)
 @else
     @if(!$memberVip)
         @hasSection('in_player')
-            @if(View::exists('cache.code_ads.trang-chu-ballon'))
-                @include('cache.code_ads.trang-chu-ballon')
+            @if(View::exists('cache.code_ads.pc_ballon_player'))
+                @include('cache.code_ads.pc_ballon_player')
             @endif
         @else
-            @if(View::exists('cache.code_ads.trang-chu-ballon-2'))
-                @include('cache.code_ads.trang-chu-ballon-2')
+            @if(View::exists('cache.code_ads.pc_ballon_home'))
+                @include('cache.code_ads.pc_ballon_home')
             @endif
         @endif
 
