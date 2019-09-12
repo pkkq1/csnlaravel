@@ -3,11 +3,11 @@
 @include('cache.suggestion.'.ceil($music->music_id / 1000).'.'.$music->music_id)
 @include('cache.suggestion_cat.'.$music->cat_id.'_'.$music->cat_level)
 @include('cache.def_main_cat')
-@include('cache.code_ads.jw_my_preroll')
-@include('cache.code_ads.jw_my_preroll_2')
-@include('cache.code_ads.jw_my_preroll_3')
-@include('cache.code_ads.jw_my_mymidroll')
-@include('cache.code_ads.jw_my_mymidroll_2')
+@include('cache.code_ads.pc_preroll')
+@include('cache.code_ads.pc_preroll_2')
+@include('cache.code_ads.pc_preroll_3')
+@include('cache.code_ads.pc_midroll')
+@include('cache.code_ads.pc_midroll_2')
 <?php
 use App\Library\Helpers;
 global $cat_id2info;
@@ -20,11 +20,11 @@ global $VideoSameArtist;
 global $titleDup;
 global $typeDup;
 global $video;
-global $jw_my_preroll;
-global $jw_my_preroll_2;
-global $jw_my_preroll_3;
-global $jw_my_mymidroll;
-global $jw_my_mymidroll_2;
+global $pc_preroll;
+global $pc_preroll_2;
+global $pc_preroll_3;
+global $pc_midroll;
+global $pc_midroll_2;
 $memberVip = Helpers::checkMemberVip();
 
 $partListenFullUrl = Helpers::listen_url($music, '');
@@ -674,23 +674,23 @@ if($musicSet['type_listen'] == 'playlist') {
                 "adschedule": {
                     "myPreroll": {
                         "offset": "pre",
-                        "tag": <?php echo json_encode($jw_my_preroll); ?>
+                        "tag": <?php echo json_encode($pc_preroll); ?>
                     },
                     "myPreroll2": {
                         "offset": 1,
-                        "tag": <?php echo json_encode($jw_my_preroll_2); ?>
+                        "tag": <?php echo json_encode($pc_preroll_2); ?>
                     },
                     "myPreroll3": {
                         "offset": 2,
-                        "tag": <?php echo json_encode($jw_my_preroll_3); ?>
+                        "tag": <?php echo json_encode($pc_preroll_3); ?>
                     },
                     "myMidroll": {
                         "offset": 3,
-                        "tag": <?php echo json_encode($jw_my_mymidroll); ?>
+                        "tag": <?php echo json_encode($pc_midroll); ?>
                     },
                     "myMidroll2": {
                         "offset": 4,
-                        "tag": <?php echo json_encode($jw_my_mymidroll_2); ?>
+                        "tag": <?php echo json_encode($pc_midroll_2); ?>
                     }
                 }
             },
