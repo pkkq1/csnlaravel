@@ -710,7 +710,21 @@ if($musicSet['type_listen'] == 'playlist') {
 
 
         player.setup({
-            <?php if ($musicSet['type_jw'] == 'video') {
+            <?php if ( $music->music_id == 299247 ) {
+                echo '
+                advertising: {
+                    client: "vast",
+                    skipoffset: 5,
+                    "adschedule": {
+                        "myPreroll": {
+                            "offset": "pre",
+                            "tag": ["https://bid.g.doubleclick.net/xbbe/bid/xpub?deal_id=7928304_695456&max_duration=15&ord=[timestamp]&dc_sdk_apis=[APIFRAMEWORKS]&dc_omid_p=[OMIDPARTNER]&dc_rdid="]
+                        }
+                    }
+                },
+                ';
+            }
+            else if ($musicSet['type_jw'] == 'video') {
                 echo '
                 advertising: {
                     client: "vast",
@@ -724,7 +738,7 @@ if($musicSet['type_listen'] == 'playlist') {
                 },
                 ';
                 }
-                else if ( $music->music_id == 234567) {
+                else if ( $music->music_id == 234567 ) {
                 echo '
                         advertising: {
                         client: "vast",
