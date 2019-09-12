@@ -3,11 +3,22 @@
 @include('cache.suggestion.'.ceil($music->music_id / 1000).'.'.$music->music_id)
 @include('cache.suggestion_cat.'.$music->cat_id.'_'.$music->cat_level)
 @include('cache.def_main_cat')
-@include('cache.code_ads.pc_preroll')
-@include('cache.code_ads.pc_preroll_2')
-@include('cache.code_ads.pc_preroll_3')
-@include('cache.code_ads.pc_midroll')
-@include('cache.code_ads.pc_midroll_2')
+@if(View::exists('cache.code_ads.pc_preroll'))
+    @include('cache.code_ads.pc_preroll')
+@endif
+@if(View::exists('cache.code_ads.pc_preroll_2'))
+    @include('cache.code_ads.pc_preroll_2')
+@endif
+@if(View::exists('cache.code_ads.pc_preroll_3'))
+    @include('cache.code_ads.pc_preroll_3')
+@endif
+@if(View::exists('cache.code_ads.pc_midroll'))
+    @include('cache.code_ads.pc_midroll')
+@endif
+@if(View::exists('cache.code_ads.pc_midroll_2'))
+    @include('cache.code_ads.pc_midroll_2')
+@endif
+
 <?php
 use App\Library\Helpers;
 global $cat_id2info;
