@@ -269,9 +269,6 @@ if($memberVip == null)
     {
         @setcookie($cookie_name, serialize($session_ads_popup + 1), time() + 10, '/', '.chiasenhac.vn', 0);
 
-        @if(View::exists('cache.code_ads.mobile_popup'))
-            @include('cache.code_ads.mobile_popup')
-        @endif
     }
 ?>
 
