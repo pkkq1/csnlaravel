@@ -104,7 +104,7 @@ let CSN = {};
             asNavFor: '#c-slider__main',
             dots: false,
             arrows: false,
-            centerMode: true,
+            // centerMode: true,
             focusOnSelect: true,
             centerPadding: 0,
             responsive: [

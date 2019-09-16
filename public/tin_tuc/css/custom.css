@@ -232,3 +232,7 @@
 .c-list__item:last-of-type{
     border-bottom: none!important;
 }
+.c-slider__main {
+    margin-left: auto;
+    margin-right: auto;
+}
