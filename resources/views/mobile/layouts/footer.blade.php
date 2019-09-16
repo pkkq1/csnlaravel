@@ -260,26 +260,18 @@ if($memberVip == null)
     //     document.getElementById("search_autocomplete").trigger('focus');
     // })
 </script>
+
 @if(!$memberVip)
 <?php
     $cookie_name = "csn_popup_beta2";
     $session_ads_popup = isset($_COOKIE[$cookie_name]) ? intval(unserialize(stripslashes($_COOKIE[$cookie_name]))) : 0;
     if ( $session_ads_popup < 1 )
     {
-        @setcookie($cookie_name, serialize($session_ads_popup + 1), time() + 10, '/', '.chiasenhac.vn', 0);
-
-        // Blueseed - Mobile In flow - Popup // backup code Ambient
-        echo '<!-- BlueSeed - asynchronous code for placement 1478 Chiasenhac InFlow Mobile -->
-        <ins class="370d0bec" data-key="a714898fd775c2c01506ef82f0a29fbf"></ins>
-<script async defer src="//aj1010.online/20dc880c.js"></script>';
+        setcookie($cookie_name, serialize($session_ads_popup + 1), time() + 10, '/', '.chiasenhac.vn', 0);
+        //@include('cache.code_ads.mobile_popup');
+        include(__DIR__.'/../../../resources/views/cache/code_ads/mobile_popup.blade.php');
     }
 ?>
-
-<!-- BlueSeed - Asynchronous Code for Ad Placement 2245 Chiasenhac.vn -->
-<!-- script src="//d2.blueseed.tv/ads-sync.js?placement=2245"></script -->
-
-<!-- BlueSeed - asynchronous code for placement 1849 CHIASENHAC.VN - mobile native button -->
-<!-- script id="jshd1pm_1849" src="https://d2.blueseed.tv/ads-sync.js?placement=1849"></script -->
 @endif
 
 <?php
