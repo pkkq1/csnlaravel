@@ -260,6 +260,7 @@ if($memberVip == null)
     //     document.getElementById("search_autocomplete").trigger('focus');
     // })
 </script>
+
 @if(!$memberVip)
 <?php
     $cookie_name = "csn_popup_beta2";
@@ -268,10 +269,9 @@ if($memberVip == null)
     {
         @setcookie($cookie_name, serialize($session_ads_popup + 1), time() + 10, '/', '.chiasenhac.vn', 0);
 
-        // Blueseed - Mobile In flow - Popup // backup code Ambient
-        echo '<!-- BlueSeed - asynchronous code for placement 1478 Chiasenhac InFlow Mobile -->
-        <ins class="370d0bec" data-key="a714898fd775c2c01506ef82f0a29fbf"></ins>
-<script async defer src="//aj1010.online/20dc880c.js"></script>';
+        @if(View::exists('cache.code_ads.mobile_popup'))
+            @include('cache.code_ads.mobile_popup')
+        @endif
     }
 ?>
 
