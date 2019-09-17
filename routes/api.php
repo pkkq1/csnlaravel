@@ -101,6 +101,8 @@ Route::prefix('user')->group(function () {
     Route::get('profile', ['as' => 'api.user.tab', 'uses' => 'ArtistController@getTabArtist']);
 });
 
+Route::get('code_ads/{key}', ['as' => 'code.ads.index', 'uses' => 'CodeAdsController@index']);
+
 //Payment & Level
 
 

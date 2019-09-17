@@ -48,6 +48,7 @@ class CodeAdsController extends CrudController
         $this->crud->setEntityNameStrings('Code quảng cáo CSN', 'Code quảng cáo CSN');
         $this->crud->setRoute(config('backpack.base.route_prefix').'/code_ads');
 //        $this->crud->setEntityNameStrings('menu item', 'menu items');
+        $this->crud->orderBy('updated_at', 'desc');
 
         $this->crud->addColumn([
             'name' => 'name',
@@ -64,6 +65,12 @@ class CodeAdsController extends CrudController
         $this->crud->addColumn([
             'name' => 'description',
             'label' => 'Diễn giải',
+        ]);
+        $this->crud->addColumn([
+            'name' => 'updated_at',
+            'label' => 'Cập nhật',
+            'type' => 'date',
+            'format' => 'd/m H:i',
         ]);
         $this->crud->addColumn([
             'name'  => 'status',
