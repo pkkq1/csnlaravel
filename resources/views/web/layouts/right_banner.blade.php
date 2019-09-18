@@ -11,9 +11,9 @@
             <a href="https://www.facebook.com/groups/csn.kpop.fan/" target="_blank"><img src="/images/banner/kpop-fbgroup-300x170.jpg" width="300" height="170"></a>
         @else
             @if(!$memberVip)
-                <!-- BlueSeed - asynchronous code for placement 2043 Chiasenhac Right Banner -->
-                    <ins class="370d0bec" data-key="be7e79ddec434282ed633de6743ea10b"></ins>
-                    <script async defer src="//aj1010.online/20dc880c.js"></script>
+                @if(View::exists('cache.code_ads.pc_right_home'))
+                    @include('cache.code_ads.pc_right_home')
+                @endif
             @endif
         @endif
     </div>
