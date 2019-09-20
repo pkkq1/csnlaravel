@@ -361,9 +361,9 @@ $memberVip = Helpers::checkMemberVip();
                             </div>
                             @if(!$memberVip)
                             <span id="innity-in-post"></span>
-                            <!-- BlueSeed - asynchronous code for placement 1658 Chiasenhac Inread Mobile -->
-                                <ins class="370d0bec" data-key="77f4a52c12ba04941fa356a9e1bc4f84"></ins>
-                                <script async defer src="//aj1010.online/20dc880c.js"></script>
+                                @if(View::exists('cache.code_ads.mobile_inread_player'))
+                                    @include('cache.code_ads.mobile_inread_player')
+                                @endif
                             @endif
 
                             <div class="p-3">

@@ -537,9 +537,9 @@ if($musicSet['type_listen'] == 'playlist') {
                         <a href="https://www.facebook.com/groups/csn.kpop.fan/" target="_blank"><img src="/images/banner/kpop-fbgroup-300x170.jpg" width="300" height="170"></a>
                     @else
                         @if(!$memberVip)
-                        <!-- BlueSeed - asynchronous code for placement 2044 Chiasenhac Right Banner Player -->
-                            <ins class="370d0bec" data-key="44f29eed708d6ef22488115efa7befac"></ins>
-                            <script async defer src="//aj1010.online/20dc880c.js"></script>
+                            @if(View::exists('cache.code_ads.pc_right_player'))
+                                @include('cache.code_ads.pc_right_player')
+                            @endif
                         @endif
                     @endif
                 </div>
