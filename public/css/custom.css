@@ -1567,3 +1567,9 @@ footer .align-items-end {
     border-color: #3c3c3c!important;;
     background-image: linear-gradient(-243deg, #565656 0%, #484848 100%)!important;
 }
+.time_stt_not_hidden {
+    font-size: 11px;
+    color: #878787;
+    letter-spacing: 0;
+    font-family: 'SFProDisplay-Regular';
+}

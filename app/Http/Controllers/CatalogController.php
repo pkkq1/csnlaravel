@@ -64,18 +64,18 @@ class CatalogController extends Controller
         return view('catalog.cover_news', compact('htmlCover'));
     }
     public function copyright(Request $request) {
-        $upload = $this->uploadExpRepository->getModel()::select('music_id', 'music_title', 'music_artist', 'cat_id', 'cat_level', 'cat_sublevel', 'cat_custom', 'cover_id', 'music_composer', 'music_album', 'music_track_id', 'music_track_id', 'music_filename', 'music_bitrate');
+        $upload = $this->uploadExpRepository->getModel()::select('music_id', 'music_title', 'music_artist', 'cat_id', 'cat_level', 'cat_sublevel', 'cat_custom', 'cover_id', 'music_composer', 'music_album', 'music_track_id', 'music_track_id', 'music_filename', 'music_bitrate', 'date_expirted');
         if($request->load_ajax) {
             if($request->search) {
                 $q = strtolower($request->search);
                 $upload->whereRaw("(LOWER(music_title) LIKE '%" . $q . "%' or LOWER(music_artist) LIKE '%" . $q . "%')");
 
             }
-            $upload = $upload->orderBy('music_time', 'desc')->paginate(LIMIT_PAGE_CATEGORY);
+            $upload = $upload->orderBy('created_at', 'desc')->paginate(LIMIT_PAGE_CATEGORY);
             return view('catalog.item_upload_copyright', compact('upload'));
         }
 
-        $upload = $upload->orderBy('music_time', 'desc')->paginate(LIMIT_PAGE_CATEGORY);
+        $upload = $upload->orderBy('created_at', 'desc')->paginate(LIMIT_PAGE_CATEGORY);
         $htmlMusic = view('catalog.item_upload_copyright', compact('upload'));
         return view('catalog.upload_copyright', compact('htmlMusic'));
 

@@ -230,21 +230,36 @@ class UploadController extends CrudController
         $this->crud->hasAccessOrFail('update');
 
     }
-    public function setExp($id) {
+    public function setExp(Request $req, $id) {
         $upload = UploadModel::where('music_id', $id)->first();
         if(!$upload) {
             \Alert::error('Lỗi không tìm thấy bài hát upload')->flash();
             return redirect()->back();
         }
         $checkExsits = UploadExceptionModel::where('music_title', $upload->music_title)->where('music_artist', $upload->music_artist)->first();
-        if($checkExsits) {
+        if($checkExsits && (!$checkExsits->date_expirted || $checkExsits->date_expirted > time())) {
             \Alert::error('Lỗi bài hát chặn đã tồn tại')->flash();
             return redirect()->back();
         }
         $upload = $upload->toArray();
         unset($upload['music_artist_id']);
         unset($upload['music_source_url']);
-        UploadExceptionModel::create($upload);
+        if($checkExsits) {
+            if($req->exp == 0) {
+                $checkExsits->date_expirted = null;
+            }else {
+                $checkExsits->date_expirted = strtotime('+'.$req->exp.' month');
+            }
+            $checkExsits->save();
+        }else{
+            if($req->exp == 0) {
+                $upload['date_expirted'] = null;
+            }else {
+                $upload['date_expirted'] = strtotime('+'.$req->exp.' month');
+            }
+            UploadExceptionModel::create($upload);
+        }
+
         \Alert::success('Đã block bài hát thành công.')->flash();
         if(isset($_GET['return_form_upload'])) {
             return redirect('/dang-tai/nhac/'.$upload['music_id'])->with('success', 'Đã chặn bài hát '.$upload['music_title']);

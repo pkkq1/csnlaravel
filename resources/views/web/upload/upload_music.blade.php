@@ -1005,9 +1005,9 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                 })
                 $('.btn-block-music').click(function (event) {
                     event.preventDefault();
-                    confirmModal('Bạn có chắc chắn muốn chặn nhạc không?', '','modal-sm');
+                    confirmModal('Bạn có chắc chắn muốn chặn nhạc không?<br/><select class="form-control music_block_exp" name="music_block_exp" id="music_block_exp"><option value="0">Không thời hạn</option><option value="1">1 tháng</option><option selected value="3">3 tháng</option><option value="6">6 tháng</option><option value="12">1 năm</option></select>', '','modal-sm');
                     $("#myConfirmModal .btn-ok").one('click', function () {
-                        window.location.href = '/admin/upload/set_exp/<?php echo $music->music_id ?>?return_form_upload=1';
+                        window.location.href = '/admin/upload/set_exp/<?php echo $music->music_id ?>?return_form_upload=1&exp=' + $('.music_block_exp').val();
                     })
                 })
                 <?php

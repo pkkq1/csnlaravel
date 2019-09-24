@@ -111,7 +111,12 @@ class UploadController extends Controller
                 if(!$album)
                     return view('errors.text_error')->with('message', 'Tình trạng album không tìm thấy hoặc đang được xử lý');
             }
-            $uploadExp = $this->uploadExRepository->getModel()::where('music_title', $music->music_title)->where('music_artist', $music->music_artist)->first();
+            $uploadExp = $this->uploadExRepository->getModel()::where('music_title', $music->music_title)
+                ->where('music_artist', $music->music_artist)
+                ->where(function($q) {
+                    $q->where('date_expirted', null)
+                        ->orWhere('date_expirted', '>', time());
+                })->first();
             $userMusic = $this->userExpRepository->getModel()::whereIn('user_id', [$music->music_user_id, $music->music_last_update_by])->orderByRaw( "FIELD(user_id, ".$music->music_user_id.", ".$music->music_last_update_by.")" )->get();
         }
         return view('upload.upload_music', compact('typeUpload', 'music', 'album', 'userMusic', 'uploadExp'));
@@ -140,7 +145,12 @@ class UploadController extends Controller
                 if(!$album)
                     return view('errors.text_error')->with('message', 'Tình trạng album không tìm thấy hoặc đang được xử lý');
             }
-            $uploadExp = $this->uploadExRepository->getModel()::where('music_title', $music->music_title)->where('music_artist', $music->music_artist)->first();
+            $uploadExp = $this->uploadExRepository->getModel()::where('music_title', $music->music_title)
+                ->where('music_artist', $music->music_artist)
+                ->where(function($q) {
+                    $q->where('date_expirted', null)
+                        ->orWhere('date_expirted', '>', time());
+                })->first();
             $userMusic = $this->userExpRepository->getModel()::whereIn('user_id', [$music->music_user_id, $music->music_last_update_by])->orderByRaw( "FIELD(user_id, ".$music->music_user_id.", ".$music->music_last_update_by.")" )->get();
         }
         return view('upload.upload_music', compact('typeUpload', 'music', 'album', 'userMusic', 'uploadExp'));
@@ -362,9 +372,10 @@ class UploadController extends Controller
             $errorMessages->merge(['music_artist' => ['Ca sĩ không được phép upload.']]);
             return redirect()->back()->withErrors($errorMessages);
         }
-        if($this->uploadExRepository->checkExist($request->input('music_title'), $request->input('music_artist')) && !Auth::user()->hasPermission('duyet_sua_nhac')) {
+        $musicCoppyRight = $this->uploadExRepository->checkExist($request->input('music_title'), $request->input('music_artist'));
+        if($musicCoppyRight && !Auth::user()->hasPermission('duyet_sua_nhac')) {
             $errorMessages = new \Illuminate\Support\MessageBag;
-            $errorMessages->merge(['music_title' => ['Bài hát không được phép upload.']]);
+            $errorMessages->merge(['music_title' => ['Bài hát không được phép upload '. ($musicCoppyRight->date_expirted == null ? 'không thời hạn' : ' cho đến ' . date('d/m/Y', $musicCoppyRight->date_expirted)) . '.']]);
             return redirect()->back()->withErrors($errorMessages)->withInput($request->all());
         }
         $mess = '';

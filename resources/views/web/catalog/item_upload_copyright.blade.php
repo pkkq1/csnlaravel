@@ -21,6 +21,9 @@
             </div>
             <small class="type_music c1"><?php echo Helpers::bitrate2str($item['music_bitrate']); ?></small>
         </div>
+        <div class="media-right align-self-center">
+            <small class="time_stt_not_hidden">{{$item['date_expirted'] == null ? 'Không thời hạn' : date('d/m/Y', $item['date_expirted'])}}</small>
+        </div>
     </li>
     <?php
     }, array_keys($data['data']), $data['data']);

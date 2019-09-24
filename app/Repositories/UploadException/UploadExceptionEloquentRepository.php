@@ -43,6 +43,10 @@ class UploadExceptionEloquentRepository extends EloquentRepository implements Up
             ->_model
             ->where('music_title', $title)
             ->where('music_artist', $artist)
+            ->where(function($q) {
+                $q->where('date_expirted', null)
+                    ->orWhere('date_expirted', '>', time());
+            })
             ->first();
 
         return $result;

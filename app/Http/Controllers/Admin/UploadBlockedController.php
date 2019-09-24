@@ -50,7 +50,7 @@ class UploadBlockedController extends CrudController
         $this->crud->setEntityNameStrings('Upload CSN', 'Upload Blocked CSN');
         $this->crud->setRoute(config('backpack.base.route_prefix').'/blocked_music');
 //        $this->crud->setEntityNameStrings('menu item', 'menu items');
-        $this->crud->orderBy('music_id', 'desc');
+        $this->crud->orderBy('created_at', 'desc');
         $this->crud->denyAccess(['create', 'update']);
 //        $this->crud->enableBulkActions();
 //        $this->crud->addBulkDeleteButton();
