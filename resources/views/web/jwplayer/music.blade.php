@@ -743,7 +743,7 @@ if($musicSet['type_listen'] == 'playlist') {
                     "adschedule": {
                         "myPreroll": {
                             "offset": "pre",
-                            "tag": ' . echo json_encode($pc_preroll); . echo '
+                            "tag": []
                         }
                     }
                 },
