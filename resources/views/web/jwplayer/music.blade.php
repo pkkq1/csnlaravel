@@ -257,9 +257,9 @@ if($musicSet['type_listen'] == 'playlist') {
                                     <div class="tab-pane fade show active" id="home" role="tabpanel"
                                          aria-labelledby="home-tab">
                                         @if(!$memberVip)
-                                        <!-- BlueSeed - asynchronous code for placement 1992 Chiasenhac Inread Desktop -->
-                                            <ins class="370d0bec" data-key="d3e6a8eb98236d0a2506db81b656dacb"></ins>
-                                            <script async defer src="//aj1010.online/20dc880c.js"></script>
+                                            @if(View::exists('cache.code_ads.pc_inread_player'))
+                                                @include('cache.code_ads.pc_inread_player')
+                                            @endif
                                         @endif
                                             
                                         <article>
