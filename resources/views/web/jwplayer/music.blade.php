@@ -758,8 +758,8 @@ if($musicSet['type_listen'] == 'playlist') {
                     skipoffset: 5,
                     "adschedule": {
                             "myPreroll": {
-                                "offset": "post",
-                                "tag": ["https://delivery.lavanetwork.net/www/delivery/fc.php?script=bannerTypeHtml:vastInlineBannerTypeHtml:vastInlineHtmlExtend&format=vast&nz=1&zones=pre-roll%3D3200&version=2"]
+                                "offset": "pre",
+                                "tag": ["https://delivery.lavanetwork.net/www/delivery/fc.php?script=bannerTypeHtml:vastInlineBannerTypeHtml:vastInlineHtmlExtend&format=vast&nz=1&zones=pre-roll%3D3193&version=2"]
                         }
                     }
                 },
