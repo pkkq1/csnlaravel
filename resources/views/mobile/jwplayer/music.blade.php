@@ -88,7 +88,7 @@ $memberVip = Helpers::checkMemberVip();
                             @if($musicSet['type_jw'] != 'video')
                                 <div id="bg_blue" style="display: none; background: url('{{$thumnailMusic}}') no-repeat center;background-size: cover;padding-bottom: 70%;"
                                      class="image bg-blur"></div>
-                                <div style="background: url('{{Helpers::cover_url($music->cover_id)}}') no-repeat center;background-size: cover;padding: 20%;"
+                                <div id="companion_cover" style="background: url('{{Helpers::cover_url($music->cover_id)}}') no-repeat center;background-size: cover;padding: 20%;"
                                      class="image-main"></div>
                                 <div id="csnplayerads" style="position:relative; z-index: 99999; width:100%;"> </div>
 
