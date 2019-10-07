@@ -758,8 +758,8 @@ if($musicSet['type_listen'] == 'playlist') {
                         skipoffset: 5,
                         "companiondiv": {
                                 "id": "companion_cover",
-                                "width": 300,
-                                "height": 250
+                                "width": 640,
+                                "height": 640
                         },
                         "adschedule": {
                             "myPreroll": {
