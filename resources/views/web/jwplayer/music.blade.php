@@ -753,14 +753,15 @@ if($musicSet['type_listen'] == 'playlist') {
             }
             else if ( $music->music_id == 234567 ) {
                 echo '
-  "fwassetid": "companion_cover",
-  "duration": 600,
                     advertising: {
                         client: "vast",
                         skipoffset: 5,
                         "adschedule": {
                             "myPreroll": {
                                 "offset": "post",
+                                "id": "companion_cover",
+                                "width": 300,
+                                "height": 300,
                                 "tag": ["https://delivery.lavanetwork.net/www/delivery/fc.php?script=bannerTypeHtml:vastInlineBannerTypeHtml:vastInlineHtmlExtend&format=vast&nz=1&zones=pre-roll%3D3200&version=2"]
                         }
                     }
