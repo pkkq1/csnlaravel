@@ -756,12 +756,14 @@ if($musicSet['type_listen'] == 'playlist') {
                     advertising: {
                         client: "vast",
                         skipoffset: 5,
+                        "companiondiv": {
+                                "id": "companion_cover",
+                                "width": 300,
+                                "height": 300
+                        },
                         "adschedule": {
                             "myPreroll": {
                                 "offset": "post",
-                                "id": "companion_cover",
-                                "width": 300,
-                                "height": 300,
                                 "tag": ["https://delivery.lavanetwork.net/www/delivery/fc.php?script=bannerTypeHtml:vastInlineBannerTypeHtml:vastInlineHtmlExtend&format=vast&nz=1&zones=pre-roll%3D3200&version=2"]
                         }
                     }
