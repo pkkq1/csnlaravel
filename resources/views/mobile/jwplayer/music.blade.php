@@ -565,6 +565,11 @@ $memberVip = Helpers::checkMemberVip();
                         advertising: {
                         client: "vast",
                     skipoffset: 5,
+                        "companiondiv": {
+                                "id": "companion_cover",
+                                "width": 640,
+                                "height": 640
+                        },
                     "adschedule": {
                             "myPreroll": {
                                 "offset": "post",
