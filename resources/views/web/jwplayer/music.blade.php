@@ -753,6 +753,8 @@ if($musicSet['type_listen'] == 'playlist') {
             }
             else if ( $music->music_id == 234567 ) {
                 echo '
+  "fwassetid": "companion_cover",
+  "duration": 600,
                     advertising: {
                         client: "vast",
                         skipoffset: 5,
