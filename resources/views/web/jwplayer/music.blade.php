@@ -757,7 +757,7 @@ if($musicSet['type_listen'] == 'playlist') {
                         client: "vast",
                         skipoffset: 5,
                         "companiondiv": {
-                                "id": "companion_cover",
+                                "id": "right1_banner",
                                 "width": 640,
                                 "height": 640
                         },
