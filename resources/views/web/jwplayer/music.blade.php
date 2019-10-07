@@ -175,7 +175,7 @@ if($musicSet['type_listen'] == 'playlist') {
                 <div class="row">
                     <div class="col-md-4">
                         <div class="card card-details">
-                            <img src="{{$thumnailMusic}}" alt="" class="card-img-top">
+                            <div id="companion_cover"><img src="{{$thumnailMusic}}" alt="" class="card-img-top"></div>
                             <div class="card-body">
                                 <h4 class="card-title">{{$music->music_title}}</h4>
                                 <ul class="list-unstyled">
