@@ -185,3 +185,7 @@ google.com, pub-9997447233325653, RESELLER, f08c47fec0942fa0
 google.com, pub-2218669073808471, RESELLER, f08c47fec0942fa0
 #ambient 25/9/2019
 pubmatic.com, 158212, RESELLER, 5d62403b186f2ace
+#blueseed 7/10/2019
+gammassp.com, 1568690190, DIRECT, 31ac53fec2772a83
+pubmatic.com, 158212, RESELLER, 5d62403b186f2ace
+openx.com, 540729542, RESELLER, 6a698e2ec38604c6
