@@ -530,13 +530,7 @@ if($musicSet['type_listen'] == 'playlist') {
                     </div>
                 </div>
             </div>
-<style>
-    img {
-        max-width: 100%;
-        height: auto;
-        width: auto\9; /* ie8 */
-    }
-</style>
+
             <div class="col-md-3">
                 <div id="right1_banner" style=" max-width: 100%;">
                     @if ($music->cat_id == 6)
@@ -764,13 +758,13 @@ if($musicSet['type_listen'] == 'playlist') {
                         skipoffset: 5,
                         "companiondiv": {
                                 "id": "right1_banner",
-                                "width": 640,
-                                "height": 640
+                                "width": 300,
+                                "height": 250
                         },
                         "adschedule": {
                             "myPreroll": {
                                 "offset": "pre",
-                                "tag": ["https://delivery.lavanetwork.net/www/delivery/fc.php?script=bannerTypeHtml:vastInlineBannerTypeHtml:vastInlineHtmlExtend&format=vast&nz=1&zones=pre-roll%3D3200&version=2"]
+                                "tag": ["https://delivery.lavanetwork.net/www/delivery/fc.php?script=bannerTypeHtml:vastInlineBannerTypeHtml:vastInlineHtmlExtend&format=vast&nz=1&zones=pre-roll%3D3193&version=2"]
                         }
                     }
                 },
