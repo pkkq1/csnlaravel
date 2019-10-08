@@ -530,9 +530,15 @@ if($musicSet['type_listen'] == 'playlist') {
                     </div>
                 </div>
             </div>
-
+<style>
+    img {
+        max-width: 100%;
+        height: auto;
+        width: auto\9; /* ie8 */
+    }
+</style>
             <div class="col-md-3">
-                <div id="right1_banner">
+                <div id="right1_banner" style=" max-width: 100%;">
                     @if ($music->cat_id == 6)
                         <a href="https://www.facebook.com/groups/csn.kpop.fan/" target="_blank"><img src="/images/banner/kpop-fbgroup-300x170.jpg" width="300" height="170"></a>
                     @else
