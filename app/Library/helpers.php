@@ -828,17 +828,17 @@ class Helpers
         else if ($music_id <= 2019000)
             $url = 'https://data18.chiasenhac.com/';
         else if ($music_id <= 2029000)
-            $url = 'https://data.chiasenhac.com/';
+            $url = 'https://data19.chiasenhac.com/';
         else if ($music_id <= 2039000)
             $url = 'https://data25.chiasenhac.com/';
         else
             $url = 'https://data.chiasenhac.com/';
 
         ///// demo url hidden link
-        if($url == 'https://data4.chiasenhac.com/') {
-            $exp = strtotime("+" . TIME_EXPIRED_LINK . "  minutes");
-            return $url . md5(self::getIp() . env('DATA_KEY')) . '@' . $exp . '/';
-        }
+//        if($url == 'https://data4.chiasenhac.com/') {
+//            $exp = strtotime("+" . TIME_EXPIRED_LINK . "  minutes");
+//            return $url . md5(self::getIp() . env('DATA_KEY')) . '@' . $exp . '/';
+//        }
         return $url;
     }
 
