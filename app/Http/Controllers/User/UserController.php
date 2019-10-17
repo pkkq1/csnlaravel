@@ -19,6 +19,7 @@ use App\Models\MailTokenModel;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use App\Repositories\ArtistFavourite\ArtistFavouriteRepository;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class UserController extends Controller
 {
@@ -134,4 +135,10 @@ class UserController extends Controller
         Auth::login($user);
         return redirect('/');
     }
+    public function qrCode(Request $request) {
+        if(Auth::check() && session()->getId()) {
+            echo QrCode::size(250)->generate(env('APP_URL').'/api/user/qr_code/login/' . session()->getId());
+        }
+    }
+
 }

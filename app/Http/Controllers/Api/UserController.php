@@ -14,12 +14,14 @@ use App\Library\Helpers;
 use App\Repositories\User\UserEloquentRepository;
 use Illuminate\Support\Facades\Auth;
 use App\Models\UserModel;
+use App\Models\UserModel as User;
 use App\Repositories\Playlist\PlaylistEloquentRepository;
 use App\Models\MailTokenModel;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use \Illuminate\Http\JsonResponse;
 use App\Repositories\ArtistFavourite\ArtistFavouriteRepository;
+use App\Repositories\Session\SessionEloquentRepository;
 
 class UserController extends Controller
 {
@@ -32,10 +34,11 @@ class UserController extends Controller
     protected $playlistRepository;
     protected $artistFavouriteRepository;
 
-    public function __construct(UserEloquentRepository $userRepository, PlaylistEloquentRepository $playlistRepository, ArtistFavouriteRepository $artistFavouriteRepository)
+    public function __construct(UserEloquentRepository $userRepository, PlaylistEloquentRepository $playlistRepository, ArtistFavouriteRepository $artistFavouriteRepository, SessionEloquentRepository $sessionEloquentRepository)
     {
         $this->userRepository = $userRepository;
         $this->playlistRepository = $playlistRepository;
+        $this->sessionEloquentRepository = $sessionEloquentRepository;
     }
 
     /**
@@ -133,5 +136,15 @@ class UserController extends Controller
         MailTokenModel::deleteToken($tokenVerify->email);
         Auth::login($user);
         return redirect('/');
+    }
+    public function qrCodeLogin(Request $request, $token) {
+        if($token) {
+            $sess = $this->sessionEloquentRepository->getModel()::where('id', $token)->first();
+            if($sess->user_id) {
+                $existUser = User::where('user_id', '=', $sess->user_id)->first();
+                return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => Helpers::convertArrHtmlCharsDecode($existUser), 'error' => []], 200);
+            }
+        }
+        return new JsonResponse(['message' => 'Đăng nhập thất bại', 'code' => 400, 'data' => [], 'error' => []], 400);
     }
 }

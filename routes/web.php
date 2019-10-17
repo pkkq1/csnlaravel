@@ -163,8 +163,7 @@ Route::group(['middlewareGroups' => ['web']], function () {
         Route::post('artist_favourite', ['as' => 'user.uploaded', 'uses' => 'User\UserMusicController@artistFavourite']);
         Route::post('video_favourite', ['as' => 'user.uploaded', 'uses' => 'User\UserMusicController@videoFavourite']);
         Route::post('music_favourite', ['as' => 'user.uploaded', 'uses' => 'User\UserMusicController@musicFavourite']);
-
-
+        Route::post('qr_code', ['as' => 'user.qr_code', 'uses' => 'User\UserController@qrCode']);
     });
     Route::prefix('chu-de/')->group(function () {
         Route::get('{url}.html', ['as' => 'catalog.index', 'uses' => 'CatalogController@playlistPublisher']);
