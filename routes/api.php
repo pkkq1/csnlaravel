@@ -99,7 +99,7 @@ Route::prefix('chu-de/')->group(function () {
 // user
 Route::prefix('user')->group(function () {
     Route::get('profile', ['as' => 'api.user.tab', 'uses' => 'ArtistController@getTabArtist']);
-    Route::get('qr_code/login/{token}', ['as' => 'api.user.qr_code.login', 'uses' => 'UserController@qrCodeLogin']);
+    Route::post('qr_code/login/{token}', ['as' => 'api.user.qr_code.login', 'uses' => 'UserController@qrCodeLogin']);
 });
 
 Route::get('code_ads/{key}', ['as' => 'code.ads.index', 'uses' => 'CodeAdsController@index']);
