@@ -137,7 +137,7 @@ class UserController extends Controller
     }
     public function qrCode(Request $request) {
         if(Auth::check() && session()->getId()) {
-            echo QrCode::size(250)->generate(env('APP_URL').'/api/user/qr_code/login/' . session()->getId());
+            echo QrCode::size(250)->generate(session()->getId());
         }
     }
 
