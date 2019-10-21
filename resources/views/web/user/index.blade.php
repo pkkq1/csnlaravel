@@ -299,7 +299,9 @@ $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
                 loaded = true;
             },
             success: function(response) {
-                confirmModal(response, 'QR Code đăng nhập', 'modal-sm')
+                confirmModal(response + '<p>thời gian tồn tại Qr code là 3 phút</p>', 'QR Code đăng nhập', 'modal-sm');
+                $('.btn-ok').addClass('hidden');
+                $('.close_confirm').html('Đóng');
             }
         });
     }

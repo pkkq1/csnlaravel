@@ -13,6 +13,7 @@ use App\Http\Controllers\Controller;
 use App\Library\Helpers;
 use App\Repositories\User\UserEloquentRepository;
 use Illuminate\Support\Facades\Auth;
+use App\Repositories\QrCodeToken\QrCodeTokenRepository;
 use App\Models\UserModel;
 use App\Models\UserModel as User;
 use App\Repositories\Playlist\PlaylistEloquentRepository;
@@ -33,12 +34,15 @@ class UserController extends Controller
     protected $userRepository;
     protected $playlistRepository;
     protected $artistFavouriteRepository;
+    protected $qrCodeTokenRepository;
+    protected $sessionEloquentRepository;
 
-    public function __construct(UserEloquentRepository $userRepository, PlaylistEloquentRepository $playlistRepository, ArtistFavouriteRepository $artistFavouriteRepository, SessionEloquentRepository $sessionEloquentRepository)
+    public function __construct(UserEloquentRepository $userRepository, PlaylistEloquentRepository $playlistRepository, ArtistFavouriteRepository $artistFavouriteRepository, SessionEloquentRepository $sessionEloquentRepository, QrCodeTokenRepository $qrCodeTokenRepository)
     {
         $this->userRepository = $userRepository;
         $this->playlistRepository = $playlistRepository;
         $this->sessionEloquentRepository = $sessionEloquentRepository;
+        $this->qrCodeTokenRepository = $qrCodeTokenRepository;
     }
 
     /**
@@ -139,11 +143,20 @@ class UserController extends Controller
     }
     public function qrCodeLogin(Request $request, $token) {
         if($token) {
-            $sess = $this->sessionEloquentRepository->getModel()::where('id', $token)->first();
-            if($sess->user_id) {
-                $existUser = User::where('user_id', '=', $sess->user_id)->first();
-                return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => Helpers::convertArrHtmlCharsDecode($existUser), 'error' => []], 200);
+            $qrToken = $this->qrCodeTokenRepository->getModel()::where('token', $token)->first();
+            if($qrToken) {
+                if($qrToken->time_expired < time()) {
+                    return new JsonResponse(['message' => 'Đăng nhập thất bại, Qr code đã hết hạn', 'code' => 400, 'data' => [], 'error' => []], 400);
+                }
+                $sess = $this->sessionEloquentRepository->getModel()::where('id', $qrToken->session_id)->first();
+                if($sess && $sess->user_id) {
+                    $existUser = User::where('user_id', '=', $sess->user_id)->first();
+                    $qrToken->status = 'close';
+                    $qrToken->save();
+                    return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => Helpers::convertArrHtmlCharsDecode($existUser), 'error' => []], 200);
+                }
             }
+
         }
         return new JsonResponse(['message' => 'Đăng nhập thất bại', 'code' => 400, 'data' => [], 'error' => []], 400);
     }

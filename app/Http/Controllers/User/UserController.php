@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Library\Helpers;
 use App\Repositories\User\UserEloquentRepository;
+use App\Repositories\QrCodeToken\QrCodeTokenRepository;
 use Illuminate\Support\Facades\Auth;
 use App\Models\UserModel;
 use App\Repositories\Playlist\PlaylistEloquentRepository;
@@ -31,11 +32,13 @@ class UserController extends Controller
     protected $userRepository;
     protected $playlistRepository;
     protected $artistFavouriteRepository;
+    protected $qrCodeTokenRepository;
 
-    public function __construct(UserEloquentRepository $userRepository, PlaylistEloquentRepository $playlistRepository, ArtistFavouriteRepository $artistFavouriteRepository)
+    public function __construct(UserEloquentRepository $userRepository, PlaylistEloquentRepository $playlistRepository, ArtistFavouriteRepository $artistFavouriteRepository, QrCodeTokenRepository $qrCodeTokenRepository)
     {
         $this->userRepository = $userRepository;
         $this->playlistRepository = $playlistRepository;
+        $this->qrCodeTokenRepository = $qrCodeTokenRepository;
     }
 
     /**
@@ -137,7 +140,8 @@ class UserController extends Controller
     }
     public function qrCode(Request $request) {
         if(Auth::check() && session()->getId()) {
-            echo QrCode::size(250)->generate(session()->getId());
+            $result = $this->qrCodeTokenRepository->createQrCode(session()->getId(), Auth::user()->id);
+            echo QrCode::size(250)->generate($result->token);
         }
     }
 

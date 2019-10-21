@@ -152,6 +152,7 @@ define('TIME_90DAY_AGO', '-90 day'); // day
 define('TIME_MUSIC_SEARCH_RESULT_1DAY_AGO', '-1 day'); // day time to music search result
 define('TIME_1DAY_AGO', '-1 day');
 define('TIME_2DAY_AGO', '-2 day');
+define('TIME_EXPIRED_QR_CODE', '+5 minutes');
 
 define('MAXIMUM_FILE_SIZE_UPLOAD_VIDEO', 5737418240); // maximum upload file video 5Gb
 define('ID_OLD_MUSIC', 1000000);
