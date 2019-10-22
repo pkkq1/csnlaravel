@@ -299,10 +299,10 @@ $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
                 loaded = true;
             },
             success: function(response) {
-                confirmModal(response + '<p>Thời gian tồn tại Qr code: <span id="time">03:00</span></p>', 'QR Code đăng nhập', 'modal-sm');
+                confirmModal(response + '<p>Thời gian tồn tại Qr code: <span id="time">05:00</span></p>', 'QR Code đăng nhập', 'modal-sm');
                 $('.btn-ok').addClass('hidden');
                 $('.close_confirm').html('Đóng');
-                var fiveMinutes = 60 * 3,
+                var fiveMinutes = 60 * 5,
                     display = document.querySelector('#time');
                 startTimer(fiveMinutes, display);
             }
