@@ -274,11 +274,11 @@ if($memberVip == null)
 
     @hasSection('in_player')
         {{--@if(View::exists('cache.code_ads.mobie_spin_player'))--}}
-            @include('cache.code_ads.mobie_spin_player')
+            {{--@include('cache.code_ads.mobie_spin_player')--}}
         {{--@endif--}}
     @else
         {{--@if(View::exists('cache.code_ads.mobie_spin_home'))--}}
-            @include('cache.code_ads.mobie_spin_home')
+{{--            @include('cache.code_ads.mobie_spin_home')--}}
         {{--@endif--}}
     @endif
 ?>
