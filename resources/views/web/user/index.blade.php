@@ -299,11 +299,32 @@ $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
                 loaded = true;
             },
             success: function(response) {
-                confirmModal(response + '<p>thời gian tồn tại Qr code là 3 phút</p>', 'QR Code đăng nhập', 'modal-sm');
+                confirmModal(response + '<p>Thời gian tồn tại Qr code: <span id="time">03:00</span></p>', 'QR Code đăng nhập', 'modal-sm');
                 $('.btn-ok').addClass('hidden');
                 $('.close_confirm').html('Đóng');
+                var fiveMinutes = 60 * 3,
+                    display = document.querySelector('#time');
+                startTimer(fiveMinutes, display);
             }
         });
     }
+    function startTimer(duration, display) {
+        var timer = duration, minutes, seconds;
+        setInterval(function () {
+            minutes = parseInt(timer / 60, 10);
+            seconds = parseInt(timer % 60, 10);
+
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            display.textContent = minutes + ":" + seconds;
+
+            if (--timer < 0) {
+                timer = duration;
+                $('.close_confirm').click()
+            }
+        }, 1000);
+    }
+
 </script>
 @endsection
