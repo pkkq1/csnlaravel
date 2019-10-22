@@ -21,13 +21,13 @@ if($memberVip == null)
     <div class="menumain">
         <div id="navbar_main_header_top">
             @if(Auth::check())
-            <div class="profile">
-                <a href="{{env('APP_URL')}}/user/{{Auth::user()->id}}"><div style="background: url(<?php echo Helpers::pathAvatar(Auth::user()->user_avatar, Auth::user()->id) ?>?time={{time()}}) no-repeat center;background-size: cover;" id="nav-avatar" class="image mr-3 d-inline-block align-middle rounded-circle"></div>
-                    <div class="content d-inline-block align-middle">
-                        <h5 class="text-white wapper-name">{{Auth::user()->name}}</h5>
-                        <p class="text-gray m-0 wapper-name">{{Auth::user()->email}}</p>
-                    </div></a>
-            </div>
+                <div class="profile">
+                    <a href="{{env('APP_URL')}}/user/{{Auth::user()->id}}"><div style="background: url(<?php echo Helpers::pathAvatar(Auth::user()->user_avatar, Auth::user()->id) ?>?time={{time()}}) no-repeat center;background-size: cover;" id="nav-avatar" class="image mr-3 d-inline-block align-middle rounded-circle"></div>
+                        <div class="content d-inline-block align-middle">
+                            <h5 class="text-white wapper-name">{{Auth::user()->name}}</h5>
+                            <p class="text-gray m-0 wapper-name">{{Auth::user()->email}}</p>
+                        </div></a>
+                </div>
             @endif
             <ul class="navbar-nav">
                 <li class="nav-item">
@@ -37,9 +37,9 @@ if($memberVip == null)
                     <?php
                     if(isset($_GET['rq'])) {
                     ?>
-                        <script>
-                            window.location.replace('/<?php echo $_GET['rq'] ?>?back_url=' + window.location.pathname);
-                        </script>
+                    <script>
+                        window.location.replace('/<?php echo $_GET['rq'] ?>?back_url=' + window.location.pathname);
+                    </script>
                     <?php
                     }
                     ?>
@@ -262,26 +262,16 @@ if($memberVip == null)
 </script>
 
 @if(!$memberVip)
-<?php
+    <?php
     $cookie_name = "csn_popup_beta2";
     $session_ads_popup = isset($_COOKIE[$cookie_name]) ? intval(unserialize(stripslashes($_COOKIE[$cookie_name]))) : 0;
     if ( $session_ads_popup < 1 )
     {
         setcookie($cookie_name, serialize($session_ads_popup + 1), time() + 10, '/', '.chiasenhac.vn', 0);
-{{--        @include('cache.code_ads.mobile_popup');--}}
-        {{--@include(__DIR__.'/../../../resources/views/cache/code_ads/mobile_popup.blade.php');--}}
+        //@include('cache.code_ads.mobile_popup');
+        include(__DIR__.'/../../../resources/views/cache/code_ads/mobile_popup.blade.php');
     }
-
-    @hasSection('in_player')
-        {{--@if(View::exists('cache.code_ads.mobie_spin_player'))--}}
-            {{--@include('cache.code_ads.mobie_spin_player')--}}
-        {{--@endif--}}
-    @else
-        {{--@if(View::exists('cache.code_ads.mobie_spin_home'))--}}
-{{--            @include('cache.code_ads.mobie_spin_home')--}}
-        {{--@endif--}}
-    @endif
-?>
+    ?>
 @endif
 
 <?php
