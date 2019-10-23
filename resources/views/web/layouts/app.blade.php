@@ -114,5 +114,7 @@ if($memberVip == null)
     @endif
 @endif
 
+<div data-bs-native="728x90"></div>
+
 </body>
 </html>
