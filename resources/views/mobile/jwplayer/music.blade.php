@@ -75,9 +75,9 @@ $memberVip = Helpers::checkMemberVip();
     <main class="main main_player">
         @if(!$memberVip)
         <div style="position: relative; text-align: center;">
-            @if(View::exists('cache.code_ads.mobile_masthead'))
+{{--            @if(View::exists('cache.code_ads.mobile_masthead'))--}}
                 @include('cache.code_ads.mobile_masthead')
-            @endif
+            {{--@endif--}}
         </div>
         @endif
         <div class="sidebar_top">
@@ -363,9 +363,9 @@ $memberVip = Helpers::checkMemberVip();
                             </div>
                             @if(!$memberVip)
                             <span id="innity-in-post"></span>
-                                @if(View::exists('cache.code_ads.mobile_inread_player'))
+{{--                                @if(View::exists('cache.code_ads.mobile_inread_player'))--}}
                                     @include('cache.code_ads.mobile_inread_player')
-                                @endif
+                                {{--@endif--}}
                             @endif
 
                             <div class="p-3">
