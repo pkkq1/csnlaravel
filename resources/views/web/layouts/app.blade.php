@@ -44,9 +44,9 @@ if($memberVip == null)
                     <div class="ads_box" id="pc_masthead">
                         <div class="container text-center">
                             <div id="bsmasthead-wrapper">
-                                @if(View::exists('cache.code_ads.pc_masthead_player'))
+{{--                                @if(View::exists('cache.code_ads.pc_masthead_player'))--}}
                                     @include('cache.code_ads.pc_masthead_player')
-                                @endif
+                                {{--@endif--}}
                             </div>
                         </div>
                     </div>
@@ -67,9 +67,9 @@ if($memberVip == null)
                 <div class="ads_box" id="pc_masthead">
                     <div class="container text-center">
                         <div id="bsmasthead-wrapper">
-                            @if(View::exists('cache.code_ads.pc_masthead_home'))
+{{--                            @if(View::exists('cache.code_ads.pc_masthead_home'))--}}
                                 @include('cache.code_ads.pc_masthead_home')
-                            @endif
+                            {{--@endif--}}
                         </div>
                     </div>
                 </div>
@@ -88,13 +88,13 @@ if($memberVip == null)
 @else
     @if(!$memberVip)
         @hasSection('in_player')
-            @if(View::exists('cache.code_ads.pc_ballon_player'))
+{{--            @if(View::exists('cache.code_ads.pc_ballon_player'))--}}
                 @include('cache.code_ads.pc_ballon_player')
-            @endif
+            {{--@endif--}}
         @else
-            @if(View::exists('cache.code_ads.pc_ballon_home'))
+{{--            @if(View::exists('cache.code_ads.pc_ballon_home'))--}}
                 @include('cache.code_ads.pc_ballon_home')
-            @endif
+            {{--@endif--}}
         @endif
 
         @hasSection('in_home')

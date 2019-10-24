@@ -3,21 +3,21 @@
 @include('cache.suggestion.'.ceil($music->music_id / 1000).'.'.$music->music_id)
 @include('cache.suggestion_cat.'.$music->cat_id.'_'.$music->cat_level)
 @include('cache.def_main_cat')
-@if(View::exists('cache.code_ads.pc_preroll'))
+{{--@if(View::exists('cache.code_ads.pc_preroll'))--}}
     @include('cache.code_ads.pc_preroll')
-@endif
-@if(View::exists('cache.code_ads.pc_preroll_2'))
+{{--@endif--}}
+{{--@if(View::exists('cache.code_ads.pc_preroll_2'))--}}
     @include('cache.code_ads.pc_preroll_2')
-@endif
-@if(View::exists('cache.code_ads.pc_preroll_3'))
+{{--@endif--}}
+{{--@if(View::exists('cache.code_ads.pc_preroll_3'))--}}
     @include('cache.code_ads.pc_preroll_3')
-@endif
-@if(View::exists('cache.code_ads.pc_midroll'))
+{{--@endif--}}
+{{--@if(View::exists('cache.code_ads.pc_midroll'))--}}
     @include('cache.code_ads.pc_midroll')
-@endif
-@if(View::exists('cache.code_ads.pc_midroll_2'))
+{{--@endif--}}
+{{--@if(View::exists('cache.code_ads.pc_midroll_2'))--}}
     @include('cache.code_ads.pc_midroll_2')
-@endif
+{{--@endif--}}
 
 <?php
 use App\Library\Helpers;
@@ -257,9 +257,9 @@ if($musicSet['type_listen'] == 'playlist') {
                                     <div class="tab-pane fade show active" id="home" role="tabpanel"
                                          aria-labelledby="home-tab">
                                         @if(!$memberVip)
-                                            @if(View::exists('cache.code_ads.pc_inread_player'))
+{{--                                            @if(View::exists('cache.code_ads.pc_inread_player'))--}}
                                                 @include('cache.code_ads.pc_inread_player')
-                                            @endif
+                                            {{--@endif--}}
                                         @endif
                                             
                                         <article>
@@ -538,9 +538,9 @@ if($musicSet['type_listen'] == 'playlist') {
                         <a href="https://www.facebook.com/groups/csn.kpop.fan/" target="_blank"><img src="/images/banner/kpop-fbgroup-300x170.jpg" width="300" height="170"></a>
                     @else
                         @if(!$memberVip)
-                            @if(View::exists('cache.code_ads.pc_right_player'))
+{{--                            @if(View::exists('cache.code_ads.pc_right_player'))--}}
                                 @include('cache.code_ads.pc_right_player')
-                            @endif
+                            {{--@endif--}}
                         @endif
                     @endif
                 </div>

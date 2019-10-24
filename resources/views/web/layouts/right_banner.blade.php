@@ -11,9 +11,9 @@
             <a href="https://www.facebook.com/groups/csn.kpop.fan/" target="_blank"><img src="/images/banner/kpop-fbgroup-300x170.jpg" width="300" height="170"></a>
         @else
             @if(!$memberVip)
-                @if(View::exists('cache.code_ads.pc_right_home'))
+{{--                @if(View::exists('cache.code_ads.pc_right_home'))--}}
                     @include('cache.code_ads.pc_right_home')
-                @endif
+                {{--@endif--}}
             @endif
         @endif
     </div>
