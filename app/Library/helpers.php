@@ -426,7 +426,7 @@ class Helpers
         /// set view with cookie
         $musicRecent = $_COOKIE['music_history'];
         $musicHistory = unserialize($musicRecent);
-        if(in_array($idMusic, $musicHistory)) {
+        if(!in_array($idMusic, $musicHistory)) {
             return true;
         }
         return false;
