@@ -121,21 +121,21 @@ class MusicController extends Controller
         if(!$music) {
             return $this->musicRepository->checkDeleteMusic($arrUrl['id']);
         }
-        if(!(isset($arrUrl['url'][0]) && isset($arrUrl['url'][1])) || ($music->music_title_url && ($arrUrl['url'][0] . '~' . $arrUrl['url'][1]) != $music->music_title_url)) {
-            return redirect(Helpers::listen_url($music->toArray()));
-        }
+//        if(!(isset($arrUrl['url'][0]) && isset($arrUrl['url'][1])) || ($music->music_title_url && ($arrUrl['url'][0] . '~' . $arrUrl['url'][1]) != $music->music_title_url)) {
+//            return redirect(Helpers::listen_url($music->toArray()));
+//        }
         // +1 view
-        if(Helpers::sessionCountTimesMusic($arrUrl['id'])){
-            if($cat == CAT_VIDEO_URL) {
-                $this->videoListenRepository->incrementListen($arrUrl['id']);
-            }else{
-                $this->musicListenRepository->incrementListen($arrUrl['id']);
-            }
-            if($_COOKIE['search_search'] ?? '') {
-                unset($_COOKIE['search_search']);
-                $this->musicSearchResultRepository->createSearch($music);
-            }
-        }
+//        if(Helpers::sessionCountTimesMusic($arrUrl['id'])){
+//            if($cat == CAT_VIDEO_URL) {
+//                $this->videoListenRepository->incrementListen($arrUrl['id']);
+//            }else{
+//                $this->musicListenRepository->incrementListen($arrUrl['id']);
+//            }
+//            if($_COOKIE['search_search'] ?? '') {
+//                unset($_COOKIE['search_search']);
+//                $this->musicSearchResultRepository->createSearch($music);
+//            }
+//        }
         $type = 'music';
         if($music->cat_id == CAT_VIDEO)
             $type = 'video';
