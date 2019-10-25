@@ -580,8 +580,23 @@ $memberVip = Helpers::checkMemberVip();
                     }
                 },
                 ';
+                } else if ( $music->music_id == 299247 ) {
+                        echo '
+                        advertising: {
+                        client: "vast",
+                    skipoffset: 5,
+                    "adschedule": {
+                            "myPreroll": {
+                                "offset": "post",
+                                "tag": ["https://tag.gammaplatform.com/adx/request/?wid=1508317956&zid=1508321486&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"]
+                        }
+                    }
+                },
+                ';
                 }
             ?>
+
+
             width: '100%',
             height: '88',
             repeat: false,
