@@ -221,8 +221,20 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
             mkdir($pathDir, 0777, true);
         }else{
             if(file_exists($file)) {
+                $update_case_suggestion_music = UPDATE_CASE_SUGGESTION_MUSIC;
+                $time_compare_today = time() - $music->music_time;
+                if ($time_compare_today < 0 || $time_compare_today > 86400 * 180) {
+                    $update_case_suggestion_music = 86400 * 30;
+                } elseif ($time_compare_today > 86400 * 30) {
+                    $update_case_suggestion_music = 86400 * 7;
+                } elseif ($time_compare_today > 86400 * 7) {
+                    $update_case_suggestion_music = 86400;
+                } else {
+                    $update_case_suggestion_music = 10800;
+                }
+
                 // update time to file case
-                if(UPDATE_CASE_SUGGESTION_MUSIC_ONCE || (time() - filemtime($file)) < UPDATE_CASE_SUGGESTION_MUSIC) {
+                if(UPDATE_CASE_SUGGESTION_MUSIC_ONCE || (time() - filemtime($file)) < $update_case_suggestion_music) {
                     return false;
                 }
             }
