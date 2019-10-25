@@ -424,9 +424,9 @@ class Helpers
     }
     public static function sessionCountTimesMusic($idMusic, $type = 'listen') {
         /// set view with cookie
-        $musicRecent = $_COOKIE['music_history'] ?? [];
+        $musicRecent = $_COOKIE['music_history'] ?? '';
         $musicHistory = unserialize($musicRecent);
-        if(!in_array($idMusic, $musicHistory)) {
+        if(!is_array($musicHistory) || !in_array($idMusic, $musicHistory)) {
             return true;
         }
         return false;
