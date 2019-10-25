@@ -112,7 +112,8 @@ if($musicSet['type_listen'] == 'playlist') {
                         <div id="lyrics" class="rabbit-lyrics">
                             @if($musicSet['type_jw'] != 'video')
                             <?php
-                                $music_lyric_karaoke = isset($music->musicKara->music_lyric_karaoke) ? Helpers::rawLyrics($music->musicKara->music_lyric_karaoke) : '';
+                                $music_lyric_karaoke = $music->musicKara;
+                                $music_lyric_karaoke = $music_lyric_karaoke ? Helpers::rawLyrics($music->musicKara->music_lyric_karaoke) : '';
                                 echo $music_lyric_karaoke;
                             ?>
                             @endif

@@ -85,8 +85,7 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
     {
         $result = $this
             ->_model
-            ->where('music_id', $id)
-            ->with('musicKara');
+            ->where('music_id', $id);
         $result = $result->where('music_deleted', '<', 1);
         return $result->first();
     }
