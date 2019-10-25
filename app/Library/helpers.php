@@ -424,11 +424,11 @@ class Helpers
     }
     public static function sessionCountTimesMusic($idMusic, $type = 'listen') {
         /// set view with cookie
-//        $musicRecent = $_COOKIE['music_history'];
-//        $musicHistory = unserialize($musicRecent);
-//        if(in_array($idMusic, $musicHistory)) {
-//            return true;
-//        }
+        $musicRecent = $_COOKIE['music_history'];
+        $musicHistory = unserialize($musicRecent);
+        if(in_array($idMusic, $musicHistory)) {
+            return true;
+        }
 //        return false;
         /// set view with session
         session_start();
