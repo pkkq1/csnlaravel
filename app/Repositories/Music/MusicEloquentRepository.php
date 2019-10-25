@@ -201,7 +201,6 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
         return $result;
     }
     public function suggestion($music, $type = 'music') {
-        return false;
         $model = $this->_model;
         if($type == 'video') {
             $model = app()->make(
