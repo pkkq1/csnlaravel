@@ -645,7 +645,7 @@ $memberVip = Helpers::checkMemberVip();
                 }
             }
         });
-        // jwplayer('csnplayerads').play(false);
+        jwplayer('csnplayerads').play(false);
         jwplayer('csnplayer').play(true);
         jwplayer().play(true);
 
@@ -654,7 +654,7 @@ $memberVip = Helpers::checkMemberVip();
             document.body.addEventListener('touchstart', function (ae) {
                 if (video_preroll_played == false) {
                     video_preroll_played = true;
-                    // jwplayer('csnplayerads').play(false);
+                    jwplayer('csnplayerads').play(false);
                     jwplayer('csnplayer').play(true);
                     jwplayer().play(true);
                 }
