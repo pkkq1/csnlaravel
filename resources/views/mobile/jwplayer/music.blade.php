@@ -647,7 +647,7 @@ $memberVip = Helpers::checkMemberVip();
         });
         jwplayer('csnplayerads').play(false);
         // jwplayer('csnplayer').play(true);
-        // jwplayer().play(true);
+        jwplayer().play(true);
 
         var video_preroll_played = false;
         window.addEventListener('load', function () {
@@ -656,7 +656,7 @@ $memberVip = Helpers::checkMemberVip();
                     video_preroll_played = true;
                     jwplayer('csnplayerads').play(false);
                     // jwplayer('csnplayer').play(true);
-                    // jwplayer().play(true);
+                    jwplayer().play(true);
                 }
             }, false)
         }, false);
