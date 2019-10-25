@@ -429,7 +429,7 @@ class Helpers
         if(in_array($idMusic, $musicHistory)) {
             return true;
         }
-//        return false;
+        return false;
         /// set view with session
         session_start();
         if(!isset($_SESSION[$type])) {
