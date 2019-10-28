@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\App;
 use Config;
+use Illuminate\Support\Facades\Auth;
 
 class HttpsProtocol {
 
@@ -19,6 +20,9 @@ class HttpsProtocol {
             return redirect()->route('home');
 //            exit;
 //            abort(403, 'Lỗi truy cập');
+        }
+        if ($request->ip() == '115.79.42.176') {
+            \Debugbar::enable();
         }
         $expUri = explode('/', $request->getRequestUri());
         if(strpos($request->getHttpHost(), 'news') !== false) {
