@@ -21,7 +21,7 @@ class HttpsProtocol {
 //            exit;
 //            abort(403, 'Lỗi truy cập');
         }
-        if ($request->ip() == '115.79.42.176') {
+        if ($request->ip() == '115.79.42.176' || $request->ip() == '192.168.1.191') {
             \Debugbar::enable();
         }
         $expUri = explode('/', $request->getRequestUri());

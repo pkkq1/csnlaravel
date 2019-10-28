@@ -82,6 +82,12 @@ $top_uploader_weeks = ' . var_export($top_uploader_weeks, true) . ';
                 }
             }
         }
+        // clear all file debug bar
+        $files = Storage::disk('debugbar')->allFiles();
+        foreach ($files as $item) {
+            if($item != '.gitignore')
+                Storage::disk('debugbar')->delete($item);
+        }
         return response(['Ok']);
     }
 }
