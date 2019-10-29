@@ -89,7 +89,7 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
 //        $result = $result->where('music_deleted', '<', 1);
 
         $music = $result->first();
-        if ( empty($music) || $music->music_deleted < 1 )
+        if ( empty($music) || $music->music_deleted > 0 )
         {
             return false;
         }
