@@ -87,6 +87,7 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
             ->_model
             ->where('music_id', $id);
         $result = $result->where('music_deleted', '<', 1);
+
         return $result->first();
     }
     public function deleteSafe($music)
