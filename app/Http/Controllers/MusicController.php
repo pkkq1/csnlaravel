@@ -160,7 +160,12 @@ class MusicController extends Controller
                 $getModelFavourite = $this->videoFavouriteRepository;
             $musicFavourite = $getModelFavourite->getModel()::where([['user_id', Auth::user()->id], ['music_id', $music->music_id]])->first();
         }
-        return view('jwplayer.music', compact('music', 'musicSet', 'musicFavourite'));
+        global $MusicSameArtist;
+        global $VideoSameArtist;
+        global $titleDup;
+        global $video;
+        include(app_path() . '/../resources/views/cache/suggestion/'.ceil($music->music_id / 1000).'/'.$music->music_id.'.blade.php');
+        return view('jwplayer.music', compact('music', 'musicSet', 'musicFavourite', 'MusicSameArtist', 'VideoSameArtist', 'titleDup', 'video'));
     }
     public function listenPlaylistMusic(Request $request, $musicUrl) {
         $arrUrl = Helpers::splitPlaylistUrl($musicUrl);
@@ -289,7 +294,12 @@ class MusicController extends Controller
                 $getModelFavourite = $this->videoFavouriteRepository;
             $musicFavourite = $getModelFavourite->getModel()::where([['user_id', Auth::user()->id], ['music_id', $music->music_id]])->first();
         }
-        return view('jwplayer.music', compact('music', 'musicSet', 'musicFavourite'));
+        global $MusicSameArtist;
+        global $VideoSameArtist;
+        global $titleDup;
+        global $video;
+        include(app_path() . '/../resources/views/cache/suggestion/'.ceil($music->music_id / 1000).'/'.$music->music_id.'.blade.php');
+        return view('jwplayer.music', compact('music', 'musicSet', 'musicFavourite', 'MusicSameArtist', 'VideoSameArtist', 'titleDup', 'video'));
     }
     public function listenBxhNow(Request $request, $catUrl, $catLevel = '') {
         return $this->listenBxhMusic($request, str_replace('.html', '', $catUrl), 'now', $catLevel);
@@ -372,7 +382,12 @@ class MusicController extends Controller
                 $getModelFavourite = $this->videoFavouriteRepository;
             $musicFavourite = $getModelFavourite->getModel()::where([['user_id', Auth::user()->id], ['music_id', $music->music_id]])->first();
         }
-        return view('jwplayer.music', compact('music', 'musicSet', 'musicFavourite'));
+        global $MusicSameArtist;
+        global $VideoSameArtist;
+        global $titleDup;
+        global $video;
+        include(app_path() . '/../resources/views/cache/suggestion/'.ceil($music->music_id / 1000).'/'.$music->music_id.'.blade.php');
+        return view('jwplayer.music', compact('music', 'musicSet', 'musicFavourite', 'MusicSameArtist', 'VideoSameArtist', 'titleDup', 'video'));
     }
     public function embed(Request $request, $cat, $sub, $musicUrl) {
         try {

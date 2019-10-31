@@ -1,6 +1,6 @@
 @section('hidden_wapper', true)
 @section('in_player', true)
-@include('cache.suggestion.'.ceil($music->music_id / 1000).'.'.$music->music_id)
+{{--@include('cache.suggestion.'.ceil($music->music_id / 1000).'.'.$music->music_id)--}}
 @include('cache.suggestion_cat.'.$music->cat_id.'_'.$music->cat_level)
 @include('cache.def_main_cat')
 {{--@if(View::exists('cache.code_ads.pc_preroll'))--}}
@@ -26,11 +26,11 @@ global $cat_url2info;
 global $memberVip;
 global $album_new;
 global $memberVip;
-global $MusicSameArtist;
-global $VideoSameArtist;
-global $titleDup;
 global $typeDup;
-global $video;
+//global $MusicSameArtist;
+//global $VideoSameArtist;
+//global $titleDup;
+//global $video;
 global $pc_preroll;
 global $pc_preroll_2;
 global $pc_preroll_3;
