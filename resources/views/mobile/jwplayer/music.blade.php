@@ -1,5 +1,5 @@
 @section('in_player', true)
-@include('cache.suggestion.'.ceil($music->music_id / 1000).'.'.$music->music_id)
+{{--@include('cache.suggestion.'.ceil($music->music_id / 1000).'.'.$music->music_id)--}}
 @include('cache.suggestion_cat.'.$music->cat_id.'_'.$music->cat_level)
 @include('cache.def_main_cat')
 @include('cache.code_ads.mobile_preroll')
@@ -11,11 +11,11 @@ global $cat_id2info;
 global $cat_url2info;
 
 global $album_new;
-global $MusicSameArtist;
-global $VideoSameArtist;
-global $titleDup;
 global $typeDup;
-global $video;
+//global $MusicSameArtist;
+//global $VideoSameArtist;
+//global $titleDup;
+//global $video;
 global $mobile_preroll;
 global $mobile_preroll_2;
 global $mobile_preroll_3;
