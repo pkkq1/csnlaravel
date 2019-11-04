@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\Hash;
 use \Illuminate\Http\JsonResponse;
 use App\Repositories\ArtistFavourite\ArtistFavouriteRepository;
 use App\Repositories\Session\SessionEloquentRepository;
+use Session;
 
 class UserController extends Controller
 {
@@ -151,6 +152,7 @@ class UserController extends Controller
                 $sess = $this->sessionEloquentRepository->getModel()::where('id', $qrToken->session_id)->first();
                 if($sess && $sess->user_id) {
                     $existUser = User::where('user_id', '=', $sess->user_id)->first();
+                    $existUser->sid = session()->getId();
                     $qrToken->status = 'close';
                     $qrToken->save();
                     return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => Helpers::convertArrHtmlCharsDecode($existUser), 'error' => []], 200);
