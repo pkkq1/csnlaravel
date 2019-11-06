@@ -78,6 +78,7 @@ class UploadController extends Controller
             }
             return $next($request);
         });
+        abort(403, 'Đang bảo trì hệ thống đăng tải, vui lòng quay lại sau ít phút.');
     }
     public function index() {
         return view('upload.index');
