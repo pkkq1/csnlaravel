@@ -618,7 +618,7 @@
     font-size: 14px;
 }
 #header .top .form-group .suggest {
-    z-index: 9999999999999;
+    z-index: 9999;
 }
 .search_highlight {
  color: #ff3657

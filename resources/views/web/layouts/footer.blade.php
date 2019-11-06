@@ -16,7 +16,12 @@
                         view_all: true
                     },
                     success: function( data ) {
-                        dataSearch = response( data );
+                        if(data.success) {
+                            dataSearch = response( data );
+                        }else {
+                            alertModal(data.message);
+                        }
+
                     }
                 } );
             }
