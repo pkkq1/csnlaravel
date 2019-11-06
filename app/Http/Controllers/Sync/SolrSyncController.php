@@ -81,6 +81,7 @@ class SolrSyncController extends Controller
                     'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_downloads_this_week', 'music_lyric', 'music_title_url', 'music_download_time')
                     ->where([['cat_id', '!=', CAT_VIDEO], ['music_deleted', '<', 1], ['music_id', '>', intval($_GET['m_start'])]])
 //                ->whereIn('music_id', [1980711])
+                    ->where('music_id', '>', '200000')
                     ->offset(0)
                     ->limit(50000)
                     ->orderBy('music_id', 'asc')
@@ -183,7 +184,9 @@ class SolrSyncController extends Controller
             }
             }
         }
-        $this->Solr->addMultiDocuments($datas);
+
+        if($datas)
+            $this->Solr->addMultiDocuments($datas);
         //$this->Solr->solrMultiDeleteById($datas);
 
 //        if(Auth::check() && (Auth::user()->id == 3 || Auth::user()->id == 997917)) {
@@ -257,7 +260,8 @@ class SolrSyncController extends Controller
                 echo ($key) . '/ ' . $item->music_id . "\n <br>";
         }
         //$this->Solr->addMultiDocuments($datas);
-        $this->Solr->solrMultiDeleteById($datas);
+        if($datas)
+            $this->Solr->solrMultiDeleteById($datas);
         if (Auth::check() && (Auth::user()->id == 3 || Auth::user()->id == 997917)) {
             if (strpos($_SERVER['REQUEST_URI'], 'sync/solr_') !== false) {
                 if (sizeof($searchMusic) > 0) {
@@ -384,7 +388,8 @@ class SolrSyncController extends Controller
                 }
             }
         }
-        $this->Solr->addMultiDocuments($datas);
+        if($datas)
+            $this->Solr->addMultiDocuments($datas);
 
         if (Auth::check() && (Auth::user()->id == 3 || Auth::user()->id == 997917)) {
             if (strpos($_SERVER['REQUEST_URI'], 'sync/solr_') !== false) {
@@ -454,7 +459,8 @@ class SolrSyncController extends Controller
             }
         }
         //$this->Solr->addMultiDocuments($datas);
-        $this->Solr->solrMultiDeleteById($datas);
+        if($datas)
+            $this->Solr->solrMultiDeleteById($datas);
         if (Auth::check() && (Auth::user()->id == 3 || Auth::user()->id == 997917)) {
             if (strpos($_SERVER['REQUEST_URI'], 'sync/solr_') !== false) {
                 if (sizeof($searchVideo) > 0) {
@@ -509,7 +515,8 @@ class SolrSyncController extends Controller
                 }
             }
         }
-        $this->Solr->addMultiDocuments($datas);
+        if($datas)
+            $this->Solr->addMultiDocuments($datas);
 
         return response(['Ok']);
     }
@@ -602,7 +609,8 @@ class SolrSyncController extends Controller
                 }
             }
         }
-        $this->Solr->addMultiDocuments($datas);
+        if($datas)
+            $this->Solr->addMultiDocuments($datas);
 
         if (Auth::check() && (Auth::user()->id == 3 || Auth::user()->id == 997917)) {
             if (strpos($_SERVER['REQUEST_URI'], 'sync/solr_') !== false) {
