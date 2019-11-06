@@ -16,7 +16,7 @@
                         view_all: true
                     },
                     success: function( data ) {
-                        if(data.success) {
+                        if(typeof  data.success === 'undefined') {
                             dataSearch = response( data );
                         }else {
                             alertModal(data.message);

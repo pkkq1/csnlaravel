@@ -37,7 +37,7 @@ class SearchController extends Controller
         return view('search.index', compact('result', 'titleSearch', 'search', 'result'));
     }
     public function ajaxSearch(Request $request, $quickSearch = true) {
-        abort(403, 'Đang bảo trì hệ thống tìm kiếm, vui lòng quay lại sau ít phút.');
+//        abort(403, 'Đang bảo trì hệ thống tìm kiếm, vui lòng quay lại sau ít phút.');
         $request->q = mb_substr($request->q,0,50, "utf-8");
         $search = Helpers::strReplaceSolr(htmlspecialchars($request->q, ENT_QUOTES), true);
 //        $search = trim(mb_strtolower($request->q, 'UTF-8'));

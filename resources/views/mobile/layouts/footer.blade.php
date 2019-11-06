@@ -111,7 +111,7 @@ if($memberVip == null)
                     },
                     success: function( data ) {
                         waitingDialog.hide();
-                        if(data.success) {
+                        if(typeof  data.success === 'undefined') {
                             dataSearch = response( data );
                         }else {
                             alertModal(data.message);
