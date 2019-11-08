@@ -10,17 +10,17 @@ class HttpsProtocol {
 
     public function handle($request, Closure $next)
     {
-        if (!$request->secure() && App::environment() === 'beta') {
-            return redirect()->secure($request->getRequestUri());
-        }
-        if(strpos($request->url(), '_download') !== false) {
-            return redirect()->route('home');
-        }
-        if(in_array($request->ip(), Config::get('checkip.deny'))){
-            return redirect()->route('home');
-//            exit;
-//            abort(403, 'Lỗi truy cập');
-        }
+//        if (!$request->secure() && App::environment() === 'beta') {
+//            return redirect()->secure($request->getRequestUri());
+//        }
+//        if(strpos($request->url(), '_download') !== false) {
+//            return redirect()->route('home');
+//        }
+//        if(in_array($request->ip(), Config::get('checkip.deny'))){
+//            return redirect()->route('home');
+////            exit;
+////            abort(403, 'Lỗi truy cập');
+//        }
         if ($request->ip() == '115.79.42.176' || $request->ip() == '14.161.21.142') {
             \Debugbar::enable();
         }
