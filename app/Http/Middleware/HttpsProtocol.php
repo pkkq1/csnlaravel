@@ -10,9 +10,9 @@ class HttpsProtocol {
 
     public function handle($request, Closure $next)
     {
-//        if (!$request->secure() && App::environment() === 'beta') {
-//            return redirect()->secure($request->getRequestUri());
-//        }
+        if (!$request->secure() && App::environment() === 'beta') {
+            return redirect()->secure($request->getRequestUri());
+        }
 //        if(strpos($request->url(), '_download') !== false) {
 //            return redirect()->route('home');
 //        }
