@@ -44,7 +44,7 @@ class UploaderController extends Controller
     }
     public function uploader() {
         $top_uploader_weeks = $this->uploadRepository->getModel()::select(DB::raw('music_username, music_user_id, COUNT(*) AS music_total, SUM(music_32_filesize + music_filesize + music_320_filesize + music_m4a_filesize + music_lossless_filesize) AS size_total'))
-            ->where('music_time', '>', sstrtotime(date('Y-m-d', strtotime(TIME_7DAY_AGO)). ' 00:00'))
+            ->where('music_time', '>', strtotime(date('Y-m-d', strtotime(TIME_7DAY_AGO)). ' 00:00'))
             ->where('music_state', '>', 0)
             ->where('music_320_filesize', '>', 0)
             ->groupBy('music_username', 'music_user_id')
