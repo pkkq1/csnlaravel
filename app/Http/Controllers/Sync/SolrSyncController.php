@@ -113,7 +113,7 @@ class SolrSyncController extends Controller
 
         $datas = [];
         foreach ($searchMusic as $key => $item) {
-            if ($item->music_id > 200000) {
+            if ($item->music_id > 900000) {
             if ($item->cat_id != CAT_VIDEO) {
                 $titleSearch = Helpers::replaceKeySearch($item->music_title);
                 $artistSearch = Helpers::replaceKeySearch($item->music_artist);
@@ -324,7 +324,7 @@ class SolrSyncController extends Controller
         DB::disconnect('mysql');
         $datas = [];
         foreach ($searchVideo as $key => $item) {
-            if ($item->music_id > 200000) {
+            if ($item->music_id > 900000) {
                 if ($item->music_id < 1387001 or $item->music_id > 1419000) {
                     $titleSearch = Helpers::replaceKeySearch($item->music_title);
                     $artistSearch = Helpers::replaceKeySearch($item->music_artist);
