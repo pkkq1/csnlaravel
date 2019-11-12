@@ -660,7 +660,14 @@ $memberVip = Helpers::checkMemberVip();
                 }
             }, false)
         }, false);
-
+        jwplayer().on('Ready', function() {
+            jwplayer().play();
+        });
+        $(document).ready(function() {
+            $("#csnplayer").bind("click", function() {
+                jwplayer().play();
+            });
+        });
         var error_count = 0;
         player.on('error', function(message) {
             let sourceList = player.getPlaylist()[0]['sources'];
@@ -671,7 +678,9 @@ $memberVip = Helpers::checkMemberVip();
                 }
                 player.setCurrentQuality(offsetPlay);
                 alertModal('Xin lỗi bài hát này đã bị lỗi! Sẽ chuyển qua chất lượng khác');
-                // location.reload();
+                if(offsetPlay < 2) { // 32k, 128k
+                    location.reload();
+                }
             } else {
                 alertModal('Xin lỗi bài hát này đã bị lỗi! Vui lòng trải nghiệm video khác');
                 // location.href = "/";
