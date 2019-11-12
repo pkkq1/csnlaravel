@@ -313,11 +313,11 @@ class UploadController extends Controller
                     'message' => '('.$_FILES['file']['name'].') Độ dài nhạc/video không được thấp hơn 30 giây',
                 ]);
             }
-            if(isset($videoInfo['audio']) && ($videoInfo['audio']['lossless'] == false && $videoInfo['audio']['bitrate'] < 190000))
-                return response()->json([
-                    'success' => false,
-                    'message' => '('.$_FILES['file']['name'].') Bài nhạc không được gửi lên vì có chất lượng thấp.',
-                ]);
+//            if(isset($videoInfo['audio']) && ($videoInfo['audio']['lossless'] == false && $videoInfo['audio']['bitrate'] < 190000))
+//                return response()->json([
+//                    'success' => false,
+//                    'message' => '('.$_FILES['file']['name'].') Bài nhạc không được gửi lên vì có chất lượng thấp.',
+//                ]);
             if(isset($videoInfo['playtime_seconds']) && $videoInfo['playtime_seconds'] > 3600) {
                 return response()->json([
                     'success' => false,
