@@ -193,7 +193,7 @@ $memberVip = Helpers::checkMemberVip();
                                         <?php
                                         $videoMusic = Helpers::getRandLimitArr($video_new_uploads, LIMIT_HOME_VIDEO_NEW_MOBILE);
                                         array_map(function ($item) {
-                                        $url= $item['music_url'];;
+                                        $url= $item['music_url'];
                                         ?>
                                         <div class="element">
                                             <a href="{{$url}}"><div class="image" style="background: url({{$item['cover_html']}}) no-repeat center;background-size: cover">
