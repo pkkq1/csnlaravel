@@ -288,12 +288,12 @@ class UploadController extends Controller
                         'message' => '('.$_FILES['file']['name'].') Định dạng phân giải video không tìm thấy',
                     ]);
                 }
-                if(($videoInfo['video']['resolution_x'] < 650 || $videoInfo['video']['resolution_y'] < 300)) {
-                    return response()->json([
-                        'status' => false,
-                        'message' => '('.$_FILES['file']['name'].') Độ phân giải video quá thấp',
-                    ]);
-                }
+//                if(($videoInfo['video']['resolution_x'] < 650 || $videoInfo['video']['resolution_y'] < 300)) {
+//                    return response()->json([
+//                        'status' => false,
+//                        'message' => '('.$_FILES['file']['name'].') Độ phân giải video quá thấp',
+//                    ]);
+//                }
                 if(isset($videoInfo['playtime_seconds']) && $videoInfo['playtime_seconds'] > 3600) {
                     return response()->json([
                         'success' => false,
