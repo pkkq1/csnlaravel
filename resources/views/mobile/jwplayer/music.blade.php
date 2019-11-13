@@ -115,7 +115,7 @@ $memberVip = Helpers::checkMemberVip();
                         </div>
                         <div class="title p-3 relative">
                             <div>
-                                <h6 class="name_song mb-2">{{$music->music_title}}</h6>
+                                <h1 class="name_song mb-2">{{$music->music_title}}</h1>
                                 <p class="text-pink mb-2"><?php echo $artistHtml ?></p>
                                 <p class="text-gray m-0"><i class="fa fa-headphones"></i> {{number_format($music->music_listen)}}&nbsp;&nbsp;<i class="fa fa-download"></i> {{number_format($music->music_downloads)}}</p>
                             </div>
