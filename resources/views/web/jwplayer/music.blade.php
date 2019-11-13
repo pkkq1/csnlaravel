@@ -102,7 +102,7 @@ if($musicSet['type_listen'] == 'playlist') {
                     </ol>
                 </nav>
                 <div class="d-flex justify-content-between mb-3 box1 music-listen-title" style="line-height: 33px;">
-                    <h1 class="title">{{$music->music_title}} - <span><?php echo $artistHtml ?></span></h1>
+                    <h1 class="title">{{$music->music_title}} - <?php echo str_replace(";", "; ", $music->music_artist); ?></h1>
                     <span title="Đăng tải: {{date('d/m/Y h:i', $music->music_time)}}" class="d-flex listen"><i class="material-icons" style="padding-top: 3px;">headset</i> {{number_format($music->music_listen)}}&nbsp;&nbsp;<i class="material-icons" style="font-size: 28px;">cloud_download</i> {{number_format($music->music_downloads)}}</span>
                 </div>
                 <div class="card mb-4 detail_lyric_1">
@@ -178,7 +178,7 @@ if($musicSet['type_listen'] == 'playlist') {
                         <div class="card card-details">
                             <div id="companion_cover"><img src="{{$thumnailMusic}}" alt="" class="card-img-top"></div>
                             <div class="card-body">
-                                <h4 class="card-title">{{$music->music_title}}</h4>
+                                <h2 class="card-title">{{$music->music_title}}</h2>
                                 <ul class="list-unstyled">
                                     <?php
                                     echo $music->music_artist ? '<li><span>Ca sĩ: </span>'.$artistHtml.'</li>' : '' ?>
