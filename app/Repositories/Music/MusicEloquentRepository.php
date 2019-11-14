@@ -217,28 +217,28 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
 //        }
         $pathDir = resource_path() . '/views/cache/suggestion/' . ceil($music->music_id / 1000) . '/';
         $file = $pathDir . $music->music_id . '.blade.php';
-        if (!file_exists($pathDir)) {
-            mkdir($pathDir, 0777, true);
-        }else{
-            if(file_exists($file)) {
-                $update_case_suggestion_music = UPDATE_CASE_SUGGESTION_MUSIC;
-                $time_compare_today = time() - $music->music_time;
-                if ($time_compare_today < 0 || $time_compare_today > 86400 * 180) {
-                    $update_case_suggestion_music = 86400 * 30;
-                } elseif ($time_compare_today > 86400 * 30) {
-                    $update_case_suggestion_music = 86400 * 7;
-                } elseif ($time_compare_today > 86400 * 7) {
-                    $update_case_suggestion_music = 86400;
-                } else {
-                    $update_case_suggestion_music = 10800;
-                }
 
-                // update time to file case
-                if(UPDATE_CASE_SUGGESTION_MUSIC_ONCE || (time() - filemtime($file)) < $update_case_suggestion_music) {
-                    return false;
-                }
+        if (file_exists($file)) {
+            $update_case_suggestion_music = UPDATE_CASE_SUGGESTION_MUSIC;
+            $time_compare_today = time() - $music->music_time;
+            if ($time_compare_today < 0 || $time_compare_today > 86400 * 180) {
+                $update_case_suggestion_music = 86400 * 30;
+            } elseif ($time_compare_today > 86400 * 30) {
+                $update_case_suggestion_music = 86400 * 7;
+            } elseif ($time_compare_today > 86400 * 7) {
+                $update_case_suggestion_music = 86400;
+            } else {
+                $update_case_suggestion_music = 10800;
             }
+
+            // update time to file case
+            if (UPDATE_CASE_SUGGESTION_MUSIC_ONCE || (time() - filemtime($file)) < $update_case_suggestion_music) {
+                return false;
+            }
+        } else if (!file_exists($pathDir)) {
+            mkdir($pathDir, 0777, true);
         }
+
         $select = ['music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'music_listen', 'music_bitrate', 'music_filename', 'music_width', 'music_height', 'music_length']; //, 'music_shortlyric'
         $artistIds = explode(';', $music->music_artist_id);
         $artistName = explode(';', htmlspecialchars($music->music_artist, ENT_QUOTES));
