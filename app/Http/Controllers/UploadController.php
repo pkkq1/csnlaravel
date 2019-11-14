@@ -288,12 +288,12 @@ class UploadController extends Controller
                         'message' => '('.$_FILES['file']['name'].') Định dạng phân giải video không tìm thấy',
                     ]);
                 }
-                if(($videoInfo['video']['resolution_x'] < 650 || $videoInfo['video']['resolution_y'] < 300)) {
-                    return response()->json([
-                        'status' => false,
-                        'message' => '('.$_FILES['file']['name'].') Độ phân giải video quá thấp',
-                    ]);
-                }
+//                if(($videoInfo['video']['resolution_x'] < 650 || $videoInfo['video']['resolution_y'] < 300)) {
+//                    return response()->json([
+//                        'status' => false,
+//                        'message' => '('.$_FILES['file']['name'].') Độ phân giải video quá thấp',
+//                    ]);
+//                }
                 if(isset($videoInfo['playtime_seconds']) && $videoInfo['playtime_seconds'] > 3600) {
                     return response()->json([
                         'success' => false,
@@ -313,11 +313,11 @@ class UploadController extends Controller
                     'message' => '('.$_FILES['file']['name'].') Độ dài nhạc/video không được thấp hơn 30 giây',
                 ]);
             }
-//            if(isset($videoInfo['audio']) && ($videoInfo['audio']['lossless'] == false && $videoInfo['audio']['bitrate'] < 190000))
-//                return response()->json([
-//                    'success' => false,
-//                    'message' => '('.$_FILES['file']['name'].') Bài nhạc không được gửi lên vì có chất lượng thấp.',
-//                ]);
+            if(isset($videoInfo['audio']) && ($videoInfo['audio']['lossless'] == false && $videoInfo['audio']['bitrate'] < 190000))
+                return response()->json([
+                    'success' => false,
+                    'message' => '('.$_FILES['file']['name'].') Bài nhạc không được gửi lên vì có chất lượng thấp.',
+                ]);
             if(isset($videoInfo['playtime_seconds']) && $videoInfo['playtime_seconds'] > 3600) {
                 return response()->json([
                     'success' => false,
