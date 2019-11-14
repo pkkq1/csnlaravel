@@ -9,7 +9,7 @@ define('SUB_BXH_NOW_MUSIC', '/nhac-hot/');
 define('SUB_VIDEO', '/v-video/');
 define('KBPS', 'kbps');
 define('LOSSLESS', 'Lossless');
-define('UPDATE_CASE_SUGGESTION_MUSIC', 604800); // 1 will week
+define('UPDATE_CASE_SUGGESTION_MUSIC', true); //604800); // 1 will week
 define('TIMESPAN_TWO_DAY', 172800); // 2 day
 define('UPDATE_CASE_SUGGESTION_MUSIC_ONCE', true); // only 1 render cache suggest
 define('CATEGORY_ID_VIDEO', 1);
