@@ -731,7 +731,7 @@
                             'type' => 'slow2',
                             'link' => url()->full(),
                             'device_display' => 'web',
-                            'time_load' => $endTime,
+                            'time_load' => $endTime2,
                         ]);
                     }
 
