@@ -724,8 +724,19 @@
                             'time_load' => $endTime,
                         ]);
                     }
+
+                    $endTime2 = microtime(true) - LARAVEL_START;
+                    if($endTime2 > 5) {
+                        ErrorBugSlowModel::firstOrCreate([
+                            'type' => 'slow2',
+                            'link' => url()->full(),
+                            'device_display' => 'web',
+                            'time_load' => $endTime,
+                        ]);
+                    }
+
                     ?>
-                    <div><i class="fa fa-clock-o" aria-hidden="true"></i> Page generation time: {{ $endTime }} seconds</div>
+                    <div><i class="fa fa-clock-o" aria-hidden="true"></i> Page generation time: {{ $endTime }} seconds / {{ (microtime(true) - LARAVEL_START) }} s</div>
                     <div class="text-right" style="position: absolute; margin-top: -35px; right: 0px;">
                         <ul class="list-inline m-0 social_f">
                             <li class="list-inline-item"><a href="https://www.facebook.com/chiasenhac/" title=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
