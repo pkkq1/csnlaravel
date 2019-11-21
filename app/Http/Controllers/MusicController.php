@@ -346,7 +346,7 @@ class MusicController extends Controller
         if(!$id) {
             if ($request->playlist && isset($playlistMusic[$request->playlist-1]) )
             {
-                $firstMusic = $playlistMusic[$request->playlist - 1];
+                $firstMusic = $playlistMusic[0];//$playlistMusic[$request->playlist - 1];
             } else {
                 $firstMusic = $playlistMusic[0];
             }
