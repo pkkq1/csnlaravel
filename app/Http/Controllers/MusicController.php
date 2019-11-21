@@ -344,13 +344,7 @@ class MusicController extends Controller
             $playlistMusic = $hot_music_rows[$category->cat_id];
         }
         if(!$id) {
-            if ($request->playlist && isset($playlistMusic[$request->playlist-1]) )
-            {
-                $firstMusic = $playlistMusic[0];//$playlistMusic[$request->playlist - 1];
-            } else {
-                $firstMusic = $playlistMusic[0];
-            }
-//            $firstMusic = $playlistMusic[$request->playlist ? $request->playlist - 1 : 0];
+            $firstMusic = $playlistMusic[$request->playlist ? $request->playlist - 1 : 0];
             $id = $firstMusic['music_id'];
         }
         if($catUrl == CAT_VIDEO_URL) {
