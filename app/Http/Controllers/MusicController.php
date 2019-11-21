@@ -247,14 +247,15 @@ class MusicController extends Controller
             }
             if(!$music) {
                 $music = $this->musicRepository->checkDeleteMusic($music, false);
-            }
-            if(!$music) {
-                if($offsetPlaylist >= $maxNumPlaylist) {
-                    $offsetPlaylist = 1;
-                }else{
-                    $offsetPlaylist ++;
+                if(!$music) {
+                    if($offsetPlaylist >= $maxNumPlaylist) {
+                        $offsetPlaylist = 1;
+                    }else{
+                        $offsetPlaylist ++;
+                    }
+                    return redirect(url()->current() . '?playlist=' . $offsetPlaylist);
                 }
-                return redirect(url()->current() . '?playlist=' . $offsetPlaylist);
+                $playlistMusic[$offsetPlaylist - 1] = $music->toArray();
             }
         }else{
             if(Auth::check() && backpack_user()->can('duyet_sua_nhac')){
@@ -264,7 +265,7 @@ class MusicController extends Controller
         }
 
         // +1 view
-        if(Helpers::sessionCountTimesMusic($arrUrl['id'])){
+        if(Helpers::sessionCountTimesMusic($music->music_id)){
             if($music->cat_id == CAT_VIDEO) {
                 $this->videoListenRepository->incrementListen($music->music_id);
             }else{
@@ -321,7 +322,6 @@ class MusicController extends Controller
         return $this->listenBxhMusic($request, str_replace('.html', '', $catUrl), 'year', $catLevel, 'all', $year);
     }
     public function listenBxhMusic($request, $catUrl, $typeBxh = 'now', $catLevel = '', $month = 0, $year = 0) {
-        $id = $request->id;
         $type = 'music';
         $playlistMusic = [];
         // cache array
@@ -354,17 +354,14 @@ class MusicController extends Controller
         if($offsetPlaylist > $maxNumPlaylist) {
             return redirect(url()->current() . '?playlist=' . 1);
         }
-        if(!$id) {
-            $firstMusic = $playlistMusic[$offsetPlaylist - 1];
-            $id = $firstMusic['music_id'];
-        }
+        $firstMusic = $playlistMusic[$offsetPlaylist - 1];
         if($catUrl == CAT_VIDEO_URL) {
-            $music = $this->videoRepository->findOnlyMusicId(Helpers::decodeID($id));
+            $music = $this->videoRepository->findOnlyMusicId($firstMusic['music_id']);
         }else{
-            $music = $this->musicRepository->findOnlyMusicId(Helpers::decodeID($id));
+            $music = $this->musicRepository->findOnlyMusicId($firstMusic['music_id']);
         }
         if(!$music) {
-            $music = $this->musicRepository->checkDeleteMusic($id, false);
+            $music = $this->musicRepository->checkDeleteMusic($firstMusic['music_id'], false);
             if(!$music) {
                 if($offsetPlaylist >= $maxNumPlaylist) {
                     $offsetPlaylist = 1;
@@ -373,13 +370,14 @@ class MusicController extends Controller
                 }
                 return redirect(url()->current() . '?playlist=' . $offsetPlaylist);
             }
+            $playlistMusic[$offsetPlaylist - 1] = $music->toArray();
         }
         // +1 view
-        if(Helpers::sessionCountTimesMusic($id)){
+        if(Helpers::sessionCountTimesMusic($music->music_id)){
             if($catUrl == CAT_VIDEO) {
-                $this->videoListenRepository->incrementListen($id);
+                $this->videoListenRepository->incrementListen($music->music_id);
             }else{
-                $this->musicListenRepository->incrementListen($id);
+                $this->musicListenRepository->incrementListen($music->music_id);
             }
         }
         // update cookie music history
