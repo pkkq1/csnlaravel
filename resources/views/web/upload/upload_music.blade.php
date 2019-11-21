@@ -828,8 +828,10 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
             $( "#music_search" ).autocomplete({
                 minLength: 1,
                 source: function( request, response ) {
+                    delete $.ajaxSettings.headers["X-CSRF-TOKEN"];
                     $.ajax( {
-                        url: window.location.origin + "/search/real",
+                        // url: window.location.origin + "/search/real",
+                        url: "http://solr2.chiasenhac.vn/search/real",
                         dataType: "json",
                         data: {
                             q: request.term,
@@ -842,7 +844,7 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                         }
                     } );
                 }
-            }).autocomplete( "instance" )._renderItem = function( ul, item ) {
+            }).autocomplete( "instance" )._renderItemData = function( ul, item ) {
                 var theHtml = rawBodySearchUpload(rawUploadMusic(item.music['data'], item.q), item.q);
                 $('.search_layout_upload_music').html(theHtml);
                 $('#music_search').removeClass('ui-autocomplete-loading');
@@ -926,8 +928,10 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
             $( "#album_search" ).autocomplete({
                 minLength: 1,
                 source: function( request, response ) {
+                    delete $.ajaxSettings.headers["X-CSRF-TOKEN"];
                     $.ajax( {
-                        url: window.location.origin + "/search/real",
+                        // url: window.location.origin + "/search/real",
+                        url: "http://solr2.chiasenhac.vn/search/real",
                         dataType: "json",
                         data: {
                             q: request.term,
@@ -941,7 +945,7 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                         }
                     } );
                 }
-            }).autocomplete( "instance" )._renderItem = function( ul, item ) {
+            }).autocomplete( "instance" )._renderItemData = function( ul, item ) {
                 var theHtml = rawBodySearchUpload(rawUploadAlbum(item.album['data'], item.q), item.q);
                 $('#album_search').removeClass('ui-autocomplete-loading');
                 $('.search_layout_upload_album').html(theHtml);
