@@ -180,7 +180,7 @@ class MusicController extends Controller
             if(!$album)
                 return view('errors.text_error')->with('message', 'Album không tìm thấy.');
             $typeListen = 'album';
-            if(($album->music)) {
+            if($album->music) {
                 $playlistMusic = $album->music->toArray();
             }
         }elseif($arrUrl['type'] == 'playlist'){
@@ -188,7 +188,7 @@ class MusicController extends Controller
             if(!$playlist)
                 return view('errors.404');
             $typeListen = 'playlist';
-            if(($playlist->music)) {
+            if($playlist->music) {
                 $playlistMusic = $playlist->music->toArray();
             }
             $playlist->playlist_cover = $playlist->playlist_cover ? Helpers::file_path($playlist->playlist_id, env('DATA_URL').MUSIC_PLAYLIST_PATH, true).$playlist->playlist_id . '.jpg' : env('APP_URL').'/imgs/no_cover.jpg';
