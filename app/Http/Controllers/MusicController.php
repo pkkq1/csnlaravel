@@ -361,6 +361,7 @@ class MusicController extends Controller
         if(!$music) {
             $music = $this->musicRepository->checkDeleteMusic($id, false);
             if(!$music) {
+                return view('errors.404');
                 return redirect(url()->current() . '?playlist=' . ( $request->playlist ? $request->playlist + 1 : 1));
             }
         }
