@@ -101,7 +101,8 @@ if($memberVip == null)
             source: function( request, response ) {
                 delete $.ajaxSettings.headers["X-CSRF-TOKEN"];
                 $.ajax( {
-                    url: "http://solr2.chiasenhac.vn/search/real",
+                    // url: "http://solr2.chiasenhac.vn/search/real",
+                    url: window.location.origin + "/search/real",
                     dataType: "json",
                     data: {
                         q: request.term,
