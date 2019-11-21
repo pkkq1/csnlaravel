@@ -115,6 +115,12 @@ global $allpage_banner;
                 }
             },
         });
+        $.ajaxPrefilter(function (options, originalOptions, jqXHR) {
+            // do not send data for POST/PUT/DELETE
+            if(originalOptions.type !== 'GET' || options.type !== 'GET') {
+                $.ajaxSettings.headers["X-CSRF-TOKEN"] = csrfToken;
+            }
+        });
         function redirectLogin() {
             // clearTimeout(timeOutLoading);
             // waitingDialog.hide();

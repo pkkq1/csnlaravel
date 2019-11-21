@@ -99,8 +99,9 @@ if($memberVip == null)
         $( "#search_autocomplete" ).autocomplete({
             minLength: 1,
             source: function( request, response ) {
+                delete $.ajaxSettings.headers["X-CSRF-TOKEN"];
                 $.ajax( {
-                    url: window.location.origin + "/search/real",
+                    url: "http://solr2.chiasenhac.vn/search/real",
                     dataType: "json",
                     data: {
                         q: request.term,
@@ -119,7 +120,7 @@ if($memberVip == null)
                     }
                 } );
             }
-        }).autocomplete( "instance" )._renderItem = function( ul, item ) {
+        }).autocomplete( "instance" )._renderItemData = function( ul, item ) {
             var theHtml = rawBodySearch(rawArtist(item.artist['data'], item.q), rawMusic(item.music['data'], item.q), rawAlbum(item.album['data'], item.q), rawVideo(item.video['data'], item.q), rawMusicTop(item.top_music['data'], item.q));
             $(".suggest").fadeIn("fast")
             $('.search_layout').html(theHtml);
