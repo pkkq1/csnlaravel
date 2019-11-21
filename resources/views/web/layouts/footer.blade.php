@@ -717,7 +717,8 @@
                     <?php
                     global $startTime;
                     use App\Models\ErrorBugSlowModel;
-                    $endTime = number_format(microtime(true) - $startTime, 3);
+//                    $endTime = number_format(microtime(true) - $startTime, 3);
+                    $endTime = number_format(microtime(true) - LARAVEL_START, 3);
                     if($endTime > 5) {
                         ErrorBugSlowModel::firstOrCreate([
                             'type' => 'slow',
