@@ -217,7 +217,7 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
 //        }
         $pathDir = resource_path() . '/views/cache/suggestion/' . ceil($music->music_id / 1000) . '/';
         $file = $pathDir . $music->music_id . '.blade.php';
-
+/*
         if (file_exists($file)) {
             $update_case_suggestion_music = UPDATE_CASE_SUGGESTION_MUSIC;
             $time_compare_today = time() - $music->music_time;
@@ -237,7 +237,7 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
             }
         } else if (!file_exists($pathDir)) {
             mkdir($pathDir, 0777, true);
-        }
+        }*/
 
         $select = ['music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'music_listen', 'music_bitrate', 'music_filename', 'music_width', 'music_height', 'music_length']; //, 'music_shortlyric'
         $artistIds = explode(';', $music->music_artist_id);
@@ -431,7 +431,7 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
                 unset($videoResult['id']);
             }
         }
-        $pathDir = resource_path() . '/views/cache/suggestion/' . ceil($music->music_id / 1000) . '/';
+        /*$pathDir = resource_path() . '/views/cache/suggestion/' . ceil($music->music_id / 1000) . '/';
         file_put_contents($pathDir . $music->music_id . '.blade.php',
             '<?php 
 if ( !ENV(\'IN_PHPBB\') )
@@ -448,7 +448,7 @@ $MusicSameArtist = ' .str_replace('video_', 'music_',  var_export($MusicSameArti
 $VideoSameArtist = ' .str_replace('video_', 'music_',  var_export($VideoSameArtistResult, true)) . ';
 $titleDup = ' . str_replace('video_', 'music_',  var_export($titleDupResult, true)) . ';
 $video = ' . str_replace('video_', 'music_',  var_export($videoResult, true)) . ';
-?>');
+?>');*/
     }
     public function getHistoryRecents($tempStr) {
         $query  = "SELECT *

@@ -305,7 +305,8 @@ class MusicController extends Controller
         global $VideoSameArtist;
         global $titleDup;
         global $video;
-        include(app_path() . '/../resources/views/cache/suggestion/'.ceil($music->music_id / 1000).'/'.$music->music_id.'.blade.php');
+        $video = $titleDup = $VideoSameArtist = $MusicSameArtist = [];
+        @include(app_path() . '/../resources/views/cache/suggestion/'.ceil($music->music_id / 1000).'/'.$music->music_id.'.blade.php');
         return view('jwplayer.music', compact('music', 'musicSet', 'musicFavourite', 'MusicSameArtist', 'VideoSameArtist', 'titleDup', 'video'));
     }
     public function listenBxhNow(Request $request, $catUrl, $catLevel = '') {
