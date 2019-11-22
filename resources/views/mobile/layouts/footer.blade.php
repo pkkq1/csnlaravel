@@ -294,7 +294,7 @@ if($memberVip == null)
 global $startTime;
 use App\Models\ErrorBugSlowModel;
 //$endTime = number_format(microtime(true) - $startTime, 3);
-$endTime = number_format(microtime(true) - LARAVEL_START, 3);
+$endTime = round(microtime(true) - LARAVEL_START, 2);
 if($endTime > 5) {
     ErrorBugSlowModel::firstOrCreate([
         'type' => 'slow',
