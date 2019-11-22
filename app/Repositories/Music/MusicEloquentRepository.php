@@ -478,6 +478,7 @@ $video = ' . str_replace('video_', 'music_',  var_export($videoResult, true)) . 
             $type = 'video';
             $music = $this->videoDeletedRepository->getModel()::where('music_id', $music_id)->first();
         }
+
         if($music && $music->music_deleted > 0) {
             if($music->cat_id == CAT_VIDEO_URL) {
                 $musicReal = $this->videoRepository->findOnlyMusicId($music->music_deleted);
@@ -486,15 +487,15 @@ $video = ' . str_replace('video_', 'music_',  var_export($videoResult, true)) . 
             }
             if(!$musicReal) {
                 $step = 2;
-                $music_id = $musicReal->music_id;
+                $music_id = $music->music_deleted;
                 goto music_check_deleted;
             }
             if($step > 1) {
                 // insert (1) -> (4)
                 if($type == 'music') {
-                    $this->musicDeletedRepository->getModel()::where('music_id', $musicFirstId)->update(['music_deleted'], $musicReal->music_id);
+                    $this->musicDeletedRepository->getModel()::where('music_id', $musicFirstId)->update(['music_deleted' => $musicReal->music_id]);
                 }else {
-                    $this->videoDeletedRepository->getModel()::where('music_id', $musicFirstId)->update(['music_deleted'], $musicReal->music_id);
+                    $this->videoDeletedRepository->getModel()::where('music_id', $musicFirstId)->update(['music_deleted' => $musicReal->music_id]);
                 }
             }
             if($reDirect) {
