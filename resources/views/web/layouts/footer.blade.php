@@ -1,14 +1,14 @@
-
+﻿
 <script>
     var dataSearch = [];
     $( document ).ready(function() {
         $( "#search_autocomplete" ).autocomplete({
             minLength: 1,
             source: function( request, response ) {
-                // delete $.ajaxSettings.headers["X-CSRF-TOKEN"];
+                delete $.ajaxSettings.headers["X-CSRF-TOKEN"];
                 $.ajax( {
-                    // url: "https://solr2.chiasenhac.vn/search/real",
-                    url: window.location.origin + "/search/real",
+                    url: "https://s.chiasenhac.vn/search/real",
+                    // url: window.location.origin + "/search/real",
                     dataType: "json",
                     data: {
                         q: request.term,
