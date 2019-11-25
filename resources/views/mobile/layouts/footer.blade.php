@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 use App\Library\Helpers;
 global $memberVip;
 if($memberVip == null)
@@ -101,7 +101,7 @@ if($memberVip == null)
             source: function( request, response ) {
                 delete $.ajaxSettings.headers["X-CSRF-TOKEN"];
                 $.ajax( {
-                    url: "https://s.chiasenhac.vn/search/real",
+                    url: "<?php echo env('SEARCH_URL'); ?>/search/real",
                     // url: window.location.origin + "/search/real",
                     dataType: "json",
                     data: {
@@ -260,7 +260,7 @@ if($memberVip == null)
         return '';
     }
     function redirectSearch(tab) {
-        window.location.href = "/tim-kiem?q=" + $('#search_autocomplete').val() + '&' + tab + '=1';
+        window.location.href = "<?php echo env('SEARCH_URL'); ?>/tim-kiem?q=" + $('#search_autocomplete').val() + '&' + tab + '=1';
     }
     // $('.fa-search').click(function() {
     //     document.getElementById("search_autocomplete").trigger('focus');

@@ -1,4 +1,4 @@
-@section('hidden_wapper', true)
+﻿@section('hidden_wapper', true)
 @section('in_edit', true)
 
 <?php
@@ -831,7 +831,7 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                     delete $.ajaxSettings.headers["X-CSRF-TOKEN"];
                     $.ajax( {
                         // url: window.location.origin + "/search/real",
-                        url: "https://s.chiasenhac.vn/search/real",
+                        url: "<?php echo env('SEARCH_URL'); ?>/search/real",
                         dataType: "json",
                         data: {
                             q: request.term,
