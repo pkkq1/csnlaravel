@@ -260,7 +260,7 @@ if($memberVip == null)
         return '';
     }
     function redirectSearch(tab) {
-        window.location.href = "<?php echo env('SEARCH_URL'); ?>/tim-kiem?q=" + $('#search_autocomplete').val() + '&' + tab + '=1';
+        window.location.href = "/tim-kiem?q=" + $('#search_autocomplete').val() + '&' + tab + '=1';
     }
     // $('.fa-search').click(function() {
     //     document.getElementById("search_autocomplete").trigger('focus');
