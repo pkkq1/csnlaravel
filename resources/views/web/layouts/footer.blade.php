@@ -192,7 +192,7 @@
         return '';
     }
     function redirectSearch() {
-        window.location.href = "<?php echo env('SEARCH_URL'); ?>/tim-kiem?q=" + $('#search_autocomplete').val();
+        window.location.href = "/tim-kiem?q=" + $('#search_autocomplete').val();
     }
 </script>
 <!-- Modal -->
