@@ -172,3 +172,5 @@ define('LEVEL_VIP_2_5', 8); // vip 2 - 1 năm
 define('STATUS_PUBLISHED', 'PUBLISHED');
 define('STATUS_DRAF', 'DRAF');
 define('PAGE_CATEGORY', 5);
+define('LIMIT_ADD_PLAYLIST', 100);
+define('LIMIT_SHOW_MUSICS_PLAYLIST', 100);
