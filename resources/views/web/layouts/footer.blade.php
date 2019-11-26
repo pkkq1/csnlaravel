@@ -1,4 +1,4 @@
-
+﻿
 <script>
     var dataSearch = [];
     $( document ).ready(function() {
@@ -7,7 +7,7 @@
             source: function( request, response ) {
                 delete $.ajaxSettings.headers["X-CSRF-TOKEN"];
                 $.ajax( {
-                    url: "https://solr2.chiasenhac.vn/search/real",
+                    url: "<?php echo env('SEARCH_URL'); ?>/search/real",
                     // url: window.location.origin + "/search/real",
                     dataType: "json",
                     data: {
