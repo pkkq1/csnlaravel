@@ -1,4 +1,4 @@
-﻿<header id="header" class="">
+<header id="header" class="">
     <div class="top">
         <div class="container" style="position: relative;">
             <div class="d-flex align-items-center justify-content-between">

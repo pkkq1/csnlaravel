@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 use App\Library\Helpers;
 global $memberVip;
 if($memberVip == null)
