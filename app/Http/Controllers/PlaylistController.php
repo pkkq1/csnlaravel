@@ -100,7 +100,7 @@ class PlaylistController extends Controller
             $mess = 'Đã xóa bài hát khỏi playlist.';
         }else{
             $countPlaylist = PlaylistMusicModel::where(['playlist_id' => $request->input('playlist_id')])->count();
-            if($countPlaylist > 1) {
+            if($countPlaylist > LIMIT_ADD_PLAYLIST) {
                 Helpers::ajaxResult(false, 'Playlist của bạn đã đạt quá 100 bài hát', null);
             }
             $result = PlaylistMusicModel::firstOrCreate([
