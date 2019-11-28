@@ -429,6 +429,7 @@ class MusicController extends Controller
         return view('jwplayer.embed_mp3', compact('music'));
     }
     public function historyListen(Request $request) {
+        return [];
         $result = [];
         $musics = [];
         $musicRecent = $_COOKIE['music_history'] ?? '';
