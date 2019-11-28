@@ -39,7 +39,7 @@ class HttpsProtocol {
             }
         }
         if(isset($expUri[1]) && strpos($expUri[1], 'tim-kiem?q=') !== false) {
-            if(strpos($request->getHttpHost(), 's') === false) {
+            if(strpos($request->getHttpHost(), 's.') === false) {
                 return redirect('//s.'.$request->getHttpHost().$request->getRequestUri());
             }
         }
