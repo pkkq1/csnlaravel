@@ -104,7 +104,7 @@ if($memberVip == null)
             $cookie_name = "csn_popup_pc";
             $session_ads_popup = isset($_COOKIE[$cookie_name]) ? intval(unserialize(stripslashes($_COOKIE[$cookie_name]))) : 0;
             if ($session_ads_popup < 1) {
-                @setcookie($cookie_name, serialize($session_ads_popup + 1), time() + 30, '/', '.chiasenhac.vn', 0);
+                @setcookie($cookie_name, serialize($session_ads_popup + 1), time() + 30, '/', '.chiasenhac.vn', 1);
 
                 // Blueseed - Mobile In flow - Popup // backup code Ambient
                 //echo '<!-- BlueSeed - asynchronous code for placement 1883 Chiasenhac InFlow Desktop -->
