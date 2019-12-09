@@ -438,13 +438,14 @@ if($musicSet['type_listen'] == 'playlist') {
                     </div>
                 </div>
 
-                <!-- div class="row row10px">
+                <div class="row row10px">
                     <div data-bs-native="728x90"></div>
                     <script type="text/javascript" src="https://cdn.innity.net/admanager.js"></script>
+                    <!-- Zone Tag : Chiasenhac Rectangle Mobile-->
                     <script type="text/javascript">
-                        new innity_adZone("79c662560b0a5f1ae00b623ad8c775e3", "87808", {"origin": "VN","width": "728", "height": "90"});
+                        new innity_adZone("79c662560b0a5f1ae00b623ad8c775e3", "86427", {"origin": "VN","width": "300", "height": "250"});
                     </script>
-                </div -->
+                </div>
 
                 @if($MusicSameArtist)
                     <div class="box_header d-flex justify-content-between align-items-end">
