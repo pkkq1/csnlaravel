@@ -18,11 +18,13 @@ use Jenssegers\Agent\Agent;
 class SystemController extends Controller
 {
     public function addBugSlow(Request $request) {
-        ErrorBugSlowModel::firstOrCreate([
-            'type' => 'file_not_found',
-            'link' => $request->url,
-            'device_display' => $request->display_by,
-            'ip_address' => Helpers::getIp(),
-        ]);
+        if(Helpers::ip_info("210.245.121.234", "Country") == 'Vietnam') {
+            ErrorBugSlowModel::firstOrCreate([
+                'type' => 'file_not_found',
+                'link' => $request->url,
+                'device_display' => $request->display_by,
+                'ip_address' => Helpers::getIp(),
+            ]);
+        }
     }
 }
