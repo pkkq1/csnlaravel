@@ -593,9 +593,11 @@ if($musicSet['type_listen'] == 'playlist') {
                             $music_history[] = $item['music_id'];
                         }
                     }
-                    foreach($sug as $key => $item) {
-                        if(in_array($item['music_id'], $music_history)) {
-                            unset($sug[$key]);
+                    if(count($music_history) > 0) {
+                        foreach($sug as $key => $item) {
+                            if(in_array($item['music_id'], $music_history)) {
+                                unset($sug[$key]);
+                            }
                         }
                     }
                     if(isset($titleDup[0])) {
