@@ -930,7 +930,7 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                     delete $.ajaxSettings.headers["X-CSRF-TOKEN"];
                     $.ajax( {
                         // url: window.location.origin + "/search/real",
-                        url: "https://solr2.chiasenhac.vn/search/real",
+                        url: "<?php echo env('SEARCH_REAL_URL'); ?>/search/real",
                         dataType: "json",
                         data: {
                             q: request.term,
