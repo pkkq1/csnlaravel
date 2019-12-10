@@ -809,6 +809,8 @@ class Helpers
         // YCH's Server
         else if ($music_id <= 1529000)
             $url = 'https://data04.chiasenhac.com/';
+        else if ($music_id <= 1539000)
+            $url = 'https://data22.chiasenhac.com/';
         else if ($music_id <= 1569000)
             $url = 'https://data03.chiasenhac.com/';
         // Large Server
