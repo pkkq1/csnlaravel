@@ -97,5 +97,5 @@ $mySelf = (Auth::check() && Auth::user()->id == $user_id);
     </div>
     <center>{{$musicFavourite->links()}}</center>
 @else
-    <div class="center-text-mes"><span>Chưa có bài nhạc nào</span></div>
+    <div class="center-text-mes"><span>Chưa có bài nhạc nào trong danh sách yêu thích.</span></div>
 @endif
