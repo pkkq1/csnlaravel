@@ -182,6 +182,7 @@ Route::group(['middlewareGroups' => ['web']], function () {
 
 
 
+    Route::get('dang-tai/ca-si/tim-kiem', ['as' => 'artist.gettermartist', 'uses' => 'ArtistController@getTermArtist']);
 
     Route::group(['middleware' => ['auth']], function() {
 
@@ -190,7 +191,6 @@ Route::group(['middlewareGroups' => ['web']], function () {
             Route::prefix('dang-tai/')->group(function () {
                 Route::get('/', ['as' => 'upload.index', 'uses' => 'UploadController@index']);
                 Route::post('/noi-dung-chinh-sua-dang-tai', ['as' => 'upload.suggest', 'uses' => 'UploadController@suggest']);
-                Route::get('ca-si/tim-kiem', ['as' => 'artist.gettermartist', 'uses' => 'ArtistController@getTermArtist']);
                 Route::get('ca-si', ['as' => 'upload.createArtist', 'uses' => 'UploadController@createArtist']);
                 Route::post('ca-si', ['as' => 'upload.storeArtist', 'uses' => 'UploadController@storeArtist']);
                 Route::get('ca-si/{urlArtist}', ['as' => 'upload.suggestArtist', 'uses' => 'UploadController@suggestArtist']);
