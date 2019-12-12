@@ -24,5 +24,5 @@ $musicData = $videoFavourite->toArray();
     ?>
     <center>{{$videoFavourite->links()}}</center>
 @else
-    <div class="center-text-mes"><span>Chưa có video nào</span></div>
+    <div class="center-text-mes"><span>Chưa có video nào trong danh sách yêu thích.</span></div>
 @endif
