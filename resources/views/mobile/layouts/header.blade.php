@@ -51,7 +51,9 @@
         var loaded = false;
         var timeOutLoading = 0;
         $.ajaxSetup({
-
+            headers: {
+                'X-CSRF-TOKEN': csrfToken
+            },
             statusCode: {
                 401: function () {
                     waitingDialog.hide();
