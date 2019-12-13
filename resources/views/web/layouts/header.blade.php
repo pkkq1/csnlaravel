@@ -95,9 +95,7 @@ global $allpage_banner;
         var loaded = false;
         var timeOutLoading = 0;
         $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': csrfToken
-            },
+
             statusCode: {
                 401: function () {
                     redirectLogin();
@@ -115,12 +113,7 @@ global $allpage_banner;
                 }
             },
         });
-        $.ajaxPrefilter(function (options, originalOptions, jqXHR) {
-            // do not send data for POST/PUT/DELETE
-            if(originalOptions.type !== 'GET' || options.type !== 'GET') {
-                $.ajaxSettings.headers["X-CSRF-TOKEN"] = csrfToken;
-            }
-        });
+
         function redirectLogin() {
             // clearTimeout(timeOutLoading);
             // waitingDialog.hide();
