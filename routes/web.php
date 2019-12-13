@@ -23,7 +23,6 @@ Route::get('/sync/solr_video_delete', 'Sync\SolrSyncController@syncDeleteVideo')
 Route::get('/sync/demo', 'Sync\MusicController@demo');
 //Route::get('/sync/demo2', 'Sync\UploaderController@uploader');
 
-
 Route::group(['middlewareGroups' => ['web']], function () {
     Auth::routes();
 //    Route::get('login', ['as' => 'login', 'uses' => 'HomeController@index']);
@@ -147,6 +146,7 @@ Route::group(['middlewareGroups' => ['web']], function () {
     // Search
     Route::get('tim-kiem', ['as' => 'search.index', 'uses' => 'SearchController@index']);
     Route::get('/search/real', 'SearchController@ajaxSearch');
+    Route::get('/dang-tai/ca-si/tim-kiem', 'ArtistController@getTermArtist');
     // count download
     Route::post('/count/download', ['as' => 'music.count_download', 'uses' => 'MusicController@countDownload']);
 
@@ -182,7 +182,6 @@ Route::group(['middlewareGroups' => ['web']], function () {
 
 
 
-    Route::get('dang-tai/ca-si/tim-kiem', ['as' => 'artist.gettermartist', 'uses' => 'ArtistController@getTermArtist']);
 
     Route::group(['middleware' => ['auth']], function() {
 
