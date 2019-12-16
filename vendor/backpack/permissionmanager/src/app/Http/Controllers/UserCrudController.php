@@ -237,16 +237,16 @@ class UserCrudController extends CrudController
                 'label' => 'Chứng minh nhân dân',
                 'type'  => 'text',
             ],
-            [
-                'name'  => 'password',
-                'label' => trans('backpack::permissionmanager.password'),
-                'type'  => 'password',
-            ],
-            [
-                'name'  => 'password_confirmation',
-                'label' => trans('backpack::permissionmanager.password_confirmation'),
-                'type'  => 'password',
-            ],
+//            [
+//                'name'  => 'password',
+//                'label' => trans('backpack::permissionmanager.password'),
+//                'type'  => 'password',
+//            ],
+//            [
+//                'name'  => 'password_confirmation',
+//                'label' => trans('backpack::permissionmanager.password_confirmation'),
+//                'type'  => 'password',
+//            ],
             [
             // two interconnected entities
             'label'             => trans('backpack::permissionmanager.user_role_permission'),
