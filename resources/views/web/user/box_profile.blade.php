@@ -42,7 +42,7 @@ isset($float_edit) ? $float_edit = $float_edit : $float_edit = false;
                         </div>
                     </div>
                     <div class="col-md-9">
-                        <form action="" class="profile_submit1" method="get" accept-charset="utf-8">
+                        <form action="" class="profile_submit1" method="get" autocomplete="off" accept-charset="utf-8">
                             <div class="form-group">
                                 <label for="username">Tên Tài Khoản</label>
                                 <input type="text" {{Auth::user()->username ? 'disabled ' : ''}}class="form-control" id="username" aria-describedby="emailHelp" placeholder="bắt buộc nhập" value="{{Auth::user()->username}}">

@@ -232,6 +232,11 @@ class UserCrudController extends CrudController
                 'type'  => 'email',
             ],
             [
+                'name'  => 'user_identity_card',
+                'label' => 'Chứng minh nhân dân',
+                'type'  => 'text',
+            ],
+            [
                 'name'  => 'password',
                 'label' => trans('backpack::permissionmanager.password'),
                 'type'  => 'password',
