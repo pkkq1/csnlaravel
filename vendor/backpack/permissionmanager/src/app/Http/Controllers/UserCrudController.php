@@ -154,10 +154,11 @@ class UserCrudController extends CrudController
             [
                 'name'  => 'id',
                 'label' => 'ID',
-                'type' => 'closure',
-                'function' => function($entry) {
-                    return '<a href="/user/'.$entry->user_id.'" target="_blank">'.$entry->user_id.'</a>';
-                },
+                'type' => 'text',
+//                'type' => 'closure',
+//                'function' => function($entry) {
+//                    return '<a href="/user/'.$entry->user_id.'" target="_blank">'.$entry->user_id.'</a>';
+//                },
             ],
             [
                 'name'  => 'user_regdate',
