@@ -59,7 +59,8 @@ class UserController extends Controller
         $reqValid = [
             'name' => 'required|max:255|min:4',
             'user_birthday' => 'max:10',
-            'user_interests' => 'max:250',
+            'user_identity_card' => 'max:9',
+            'user_interests' => 'max:255',
         ];
         $setAttr = [
             'name' => 'Tên',
@@ -92,7 +93,8 @@ class UserController extends Controller
             'user_gender' => $request->input('user_gender'),
             'user_birthday' => $request->input('user_birthday'),
             'user_phone_number' => $request->input('user_phone_number'),
-            'user_interests' => $request->input('user_interests')
+            'user_interests' => $request->input('user_interests'),
+            'user_identity_card' => $request->input('user_identity_card')
         ];
         if(!Auth::user()->username) {
             $update['username'] = trim(strtolower($request->input('username')));

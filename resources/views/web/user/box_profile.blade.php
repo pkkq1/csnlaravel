@@ -63,11 +63,11 @@ isset($float_edit) ? $float_edit = $float_edit : $float_edit = false;
                                 <div class="form-row input_change_pass" style="display: none">
                                     <div class="form-group col-md-6">
                                         <label for="name">Mật khẩu cũ</label>
-                                        <input type="password" class="form-control" id="current_password" name="current_password" placeholder="" value="">
+                                        <input type="password" autocomplete="off" class="form-control" id="current_password" name="current_password" placeholder="" value="">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="name">Mật khẩu mới</label>
-                                        <input type="password" class="form-control" id="password" name="password" placeholder="" value="">
+                                        <input type="password" autocomplete="off" class="form-control" id="password" name="password" placeholder="" value="">
                                     </div>
                                 </div>
                             @endif
@@ -94,6 +94,10 @@ isset($float_edit) ? $float_edit = $float_edit : $float_edit = false;
                                 <div class="form-group col-md-6">
                                     <label for="user_phone_number">Ngày Sinh</label>
                                     <input type="date" class="form-control"  name="user_birthday" id="user_birthday" aria-describedby="phone" placeholder="" value="{{Auth::user()->user_birthday}}">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="user_birthday">Chứng Minh Nhân Dân</label>
+                                    <input type="text" class="form-control"  name="user_identity_card" id="user_identity_card" placeholder="" value="{{Auth::user()->user_identity_card}}">
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label for="user_interests">Thông tin</label>
@@ -213,6 +217,10 @@ isset($float_edit) ? $float_edit = $float_edit : $float_edit = false;
                     addErrorInput($('#name'), 'Tên không được để trống và lớn hơn 4 ký tự');
                     return false;
                 }
+                if(($('.profile_submit1').find('#user_identity_card').val()).length != 9 && ($('.profile_submit1').find('#user_identity_card').val()).length != 0) {
+                    addErrorInput($('#user_identity_card'), 'Chứng minh nhân dân phải đủ 9 ký tự');
+                    return false;
+                }
                 $.ajax({
                     url: window.location.origin + "/user/update",
                     type: "POST",
@@ -227,7 +235,8 @@ isset($float_edit) ? $float_edit = $float_edit : $float_edit = false;
                         'username': $('#username').val(),
                         'password': $('#password').val(),
                         'repassword': $('#repassword').val(),
-                        'current_password': $('#current_password').val()
+                        'current_password': $('#current_password').val(),
+                        'user_identity_card': $('#user_identity_card').val()
                     },
                     beforeSend: function () {
                         if(loaded) return false;
