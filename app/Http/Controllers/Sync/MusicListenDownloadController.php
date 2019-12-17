@@ -88,7 +88,7 @@ class MusicListenDownloadController extends Controller
     public function realMusicDownload(){
 //        $result = $this->musicDownloadRepository->getModel()::select('music_id', 'music_downloads', 'music_downloads_time')->where('music_downloads_time', '>',  strtotime(TIME_EXPIRED_UPLOAD_LISTEN_DOWNLOAD))->with('hasOneMusic')->get();
         $query  = "UPDATE csn_music_download AS d, csn_music AS m 
-                        SET m.music_downloads = d.music_downloads, m.music_download_time = d.music_downloads_time
+                        SET m.music_downloads = d.music_downloads, m.music_downloads_today = d.music_downloads_today, m.music_downloads_today_0 = d.music_downloads_today_0, m.music_downloads_this_week = d.music_downloads_this_week, m.music_download_time = d.music_downloads_time
                         WHERE d.music_downloads_time > ".strtotime(TIME_EXPIRED_UPLOAD_LISTEN_DOWNLOAD)."
                             AND m.music_id = d.music_id";
         $result = DB::connection( 'mysql' )->select( $query );
@@ -109,7 +109,7 @@ class MusicListenDownloadController extends Controller
     public function realVideoDownload(){
 //        $result = $this->musicDownloadRepository->getModel()::select('music_id', 'music_downloads', 'music_downloads_time')->where('music_downloads_time', '>',  strtotime(TIME_EXPIRED_UPLOAD_LISTEN_DOWNLOAD))->with('hasOneMusic')->get();
         $query  = "UPDATE csn_video_download AS d, csn_video AS v 
-                        SET v.music_downloads = d.music_downloads, v.music_download_time = d.music_downloads_time
+                        SET v.music_downloads = d.music_downloads, v.music_downloads_today = d.music_downloads_today, v.music_downloads_today_0 = d.music_downloads_today_0, v.music_downloads_this_week = d.music_downloads_this_week, v.music_download_time = d.music_downloads_time
                         WHERE d.music_downloads_time > ".strtotime(TIME_EXPIRED_UPLOAD_LISTEN_DOWNLOAD)."
                             AND v.music_id = d.music_id";
         $result = DB::connection( 'mysql' )->select( $query );

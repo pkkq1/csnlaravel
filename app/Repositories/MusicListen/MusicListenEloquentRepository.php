@@ -39,12 +39,14 @@ class MusicListenEloquentRepository extends EloquentRepository implements MusicL
                 ->create([
                 'music_id' => $id,
                 'music_listen' => 1,
+                'music_listen_today' => 1,
                 'music_listen_today_0' => 1,
                 'music_listen_time' => time(),
             ]);
         }else{
             $result->update([
                     'music_listen' => DB::raw('music_listen + 1'),
+                    'music_listen_today' => DB::raw('music_listen_today + 1'),
                     'music_listen_today_0' => DB::raw('music_listen_today_0 + 1'),
                     'music_listen_time' => time(),
                 ]);
