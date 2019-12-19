@@ -68,7 +68,7 @@ $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
                                     ?>
                                     <div class="col">
                                         <div class="card card1">
-                                            <div class="card-header" style="background-image: url({{$item->playlist_cover ? Helpers::file_path($item->playlist_id, env('DATA_URL').MUSIC_PLAYLIST_PATH, true).$item->playlist_id . '.jpg?v=' . time() : '/imgs/avatar_default.png'}});">
+                                            <div class="card-header" style="background-image: url({{$item->playlist_cover ? Helpers::file_path($item->playlist_id, env('DATA_URL').MUSIC_PLAYLIST_PATH, true).$item->playlist_id . '.jpg?v=' . time() : env('IMG_DATA_URL').'imgs/avatar_default.png'}});">
                                                 <?php echo $tagHref ?><span class="icon-play"></span></a>
                                             </div>
                                             <div class="card-body">

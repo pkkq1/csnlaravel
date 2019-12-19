@@ -170,7 +170,7 @@
                     '          <a class="search-line search-line-music" href="' + value.video_link + '">' +
                     '              <img src="' + value.video_cover + '" alt="' + value.video_title + '">' +
                     '              <i class="material-icons">play_circle_outline</i>' +
-                    '              <p class="time text-white mb-0 px-2 py-1"><img src="/images/ic_menu_clock.png" width="14"> ' + value.video_length_html + '</p>' +
+                    '              <p class="time text-white mb-0 px-2 py-1"><img src="{{env('IMG_DATA_URL')}}images/ic_menu_clock.png" width="14"> ' + value.video_length_html + '</p>' +
                     '          </a>' +
                     '      </div>' +
                     '      <a class="search-line search-line-music" title="' + value.video_title + ' - ' + value.video_artist + '"  href="' + value.video_link + '" >' +

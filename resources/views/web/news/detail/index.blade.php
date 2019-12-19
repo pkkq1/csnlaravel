@@ -44,7 +44,7 @@ if($articleTags) {
                         @endforeach
                     </div>
                     @endif
-                    <div class="c-block__social"><img src="images/social.png" alt=""></div>
+                    <div class="c-block__social"><img src="{{env('IMG_DATA_URL')}}images/social.png" alt=""></div>
                     <div class="c-border__dash"></div>
                     <div class="c-block__comment">
                         <div class="fb-comments" data-href="{{url()->current()}}" data-width="100%" data-numposts="10"></div>

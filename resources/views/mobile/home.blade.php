@@ -100,24 +100,24 @@ $memberVip = Helpers::checkMemberVip();
                                     </div>
                                     <div class="row">
                                         <div class="col-6">
-                                            <a href="/nhac-hot/vietnam.html"><div class="element rounded w-100 mb-2 d-flex flex-column justify-content-center text-center" style="background: url('/imgs/bxh/BXH Nhạc Việt Nam_ 245 x 140.png') no-repeat center;background-size: cover;">
+                                            <a href="/nhac-hot/vietnam.html"><div class="element rounded w-100 mb-2 d-flex flex-column justify-content-center text-center" style="background: url('{{env('IMG_DATA_URL')}}imgs/bxh/BXH Nhạc Việt Nam_ 245 x 140.png') no-repeat center;background-size: cover;">
                                                     <h5 class="text-white">VIỆT NAM</h5>
                                                 </div></a>
                                         </div>
                                         <div class="col-6">
-                                            <a href="/nhac-hot/us-uk.html"><div class="element rounded w-100 mb-2 d-flex flex-column justify-content-center text-center" style="background: url('/imgs/bxh/BXH Nhạc Us- UK _ 245 x 140.png') no-repeat center;background-size: cover;">
+                                            <a href="/nhac-hot/us-uk.html"><div class="element rounded w-100 mb-2 d-flex flex-column justify-content-center text-center" style="background: url('{{env('IMG_DATA_URL')}}imgs/bxh/BXH Nhạc Us- UK _ 245 x 140.png') no-repeat center;background-size: cover;">
                                                     <h5 class="text-white">US-UK</h5>
                                                 </div></a>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-6">
-                                            <a href="/nhac-hot/korea.html"><div class="element rounded w-100 mb-2 d-flex flex-column justify-content-center text-center" style="background: url('/imgs/bxh/BXH Nhạc Hàn _ 245 x 140.png') no-repeat center;background-size: cover;">
+                                            <a href="/nhac-hot/korea.html"><div class="element rounded w-100 mb-2 d-flex flex-column justify-content-center text-center" style="background: url('{{env('IMG_DATA_URL')}}imgs/bxh/BXH Nhạc Hàn _ 245 x 140.png') no-repeat center;background-size: cover;">
                                                     <h5 class="text-white">K-POP</h5>
                                                 </div></a>
                                         </div>
                                         <div class="col-6">
-                                            <a href="/nhac-hot/japan.html"><div class="element rounded w-100 mb-2 d-flex flex-column justify-content-center text-center" style="background: url('/imgs/bxh/BXH Nhạc Nhật _ 245 x 140.png') no-repeat center;background-size: cover;">
+                                            <a href="/nhac-hot/japan.html"><div class="element rounded w-100 mb-2 d-flex flex-column justify-content-center text-center" style="background: url('{{env('IMG_DATA_URL')}}imgs/bxh/BXH Nhạc Nhật _ 245 x 140.png') no-repeat center;background-size: cover;">
                                                     <h5 class="text-white">J-POP</h5>
                                                 </div></a>
                                         </div>
@@ -174,7 +174,7 @@ $memberVip = Helpers::checkMemberVip();
                                     <div class="slide-chude owl-carousel owl-theme">
                                     @foreach($catalog as $key => $val)
                                         <div class="item">
-                                            <a href="/chu-de/{{$key}}.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url('/imgs/chude/{{$val['img_web']}}') no-repeat center;background-size: cover;">
+                                            <a href="/chu-de/{{$key}}.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url('{{env('IMG_DATA_URL')}}imgs/chude/{{$val['img_web']}}') no-repeat center;background-size: cover;">
                                                     <h5 class="text-white">{{$val['label']}}</h5>
                                                 </div></a>
                                         </div>
@@ -219,7 +219,7 @@ $memberVip = Helpers::checkMemberVip();
                         <div class="container">
                             <div class="block block_detail_chude">
                                 @foreach($catalog as $key => $val)
-                                    <a href="/chu-de/{{$key}}.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url('/imgs/chude/{{$val['img_web']}}') no-repeat center;background-size: cover;">
+                                    <a href="/chu-de/{{$key}}.html"><div class="element rounded w-100 mb-3 d-flex flex-column justify-content-center text-center" style="background: url('{{env('IMG_DATA_URL')}}imgs/chude/{{$val['img_web']}}') no-repeat center;background-size: cover;">
                                             <h5 class="text-white">{{$val['label']}}</h5>
                                         </div></a>
                                 @endforeach

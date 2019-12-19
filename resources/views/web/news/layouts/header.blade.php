@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;display=swap&amp;subset=vietnamese" rel="stylesheet">
-    <link rel="shortcut icon" href="/imgs/favicon.ico">
+    <link rel="shortcut icon" href="{{env('IMG_DATA_URL')}}imgs/favicon.ico">
     <link rel="stylesheet" href="{{URL::to('/')}}/tin_tuc/css/lib/jquery.fancybox.css">
     <link rel="stylesheet" href="{{URL::to('/')}}/tin_tuc/css/lib/jquery.scrollbar.css">
     <link rel="stylesheet" href="{{URL::to('/')}}/tin_tuc/css/lib/slick.css">

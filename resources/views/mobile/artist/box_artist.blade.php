@@ -1,7 +1,7 @@
 <div class="box_profile" style="padding: 0px!important;">
     <div class="container" style="position: relative;">
         <div style="position: relative;width: 100%">
-            <img src="{{$artist->artist_cover ?  Helpers::file_path($artist->artist_id, PUBLIC_COVER_ARTIST_PATH, true).$artist->artist_cover : '/imgs/no_cover_artist.jpg'}}" style="width: 100%; height: 100%;" />
+            <img src="{{$artist->artist_cover ?  Helpers::file_path($artist->artist_id, PUBLIC_COVER_ARTIST_PATH, true).$artist->artist_cover : env('IMG_DATA_URL').'imgs/no_cover_artist.jpg'}}" style="width: 100%; height: 100%;" />
             <div class="media user11">
             <div class="media-left mr-4 align-self-center">
             {{--<img id="view_user_avatar_2" src="{{$artist->artist_cover ? PUBLIC_AVATAR_ARTIST_SOURCE_PATH.$artist->artist_cover.'?v='.time() : ''}}">--}}

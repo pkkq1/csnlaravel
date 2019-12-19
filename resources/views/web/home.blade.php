@@ -25,7 +25,7 @@ $catalog = config('constants.catalog');
 @include('cache.uploader.uploader_week')
 @include('cache.top_artist')
 <div class="slide_home"
-     style="background: url('/imgs/Slice-1.jpg');">
+     style="background: url('{{env('IMG_DATA_URL')}}imgs/Slice-1.jpg');">
     <div class="container">
         <div class="owl-carousel owl-theme">
             <?php
@@ -59,7 +59,7 @@ $catalog = config('constants.catalog');
                 autoplayHoverPause: true,
                 slideBy: 4,
                 nav: true,
-                navText: ['<img src="imgs/top-left.png" alt="">', '<img src="imgs/top-right.png" alt="">'],
+                navText: ['<img src="{{env('IMG_DATA_URL')}}imgs/top-left.png" alt="">', '<img src="{{env('IMG_DATA_URL')}}imgs/top-right.png" alt="">'],
                 responsive: {
                     0: {
                         items: 1
@@ -109,14 +109,14 @@ $catalog = config('constants.catalog');
                 ?>
             </div>
             <div class="box_catalog owl-carousel owl-theme">
-                <a href="/nhac-hot/vietnam.html" title="" class="item img-thumbnail swiper-slide" style="background: url('/imgs/bxh/BXH Nhạc Việt Nam_ 245 x 140.png') no-repeat;"><span>BXH Việt Nam</span></a>
-                <a href="/nhac-hot/video/v-video.html" title="" class="item img-thumbnail swiper-slide" style="background: url('/imgs/bxh/BXH Video_ 245 x 140.png') no-repeat;"><span>BXH Việt Video</span></a>
-                <a href="/nhac-hot/us-uk.html" title="" class="item img-thumbnail swiper-slide" style="background: url('/imgs/bxh/BXH Nhạc Us- UK _ 245 x 140.png') no-repeat;"><span>BXH US - UK</span></a>
-                <a href="/nhac-hot/chinese.html" title="" class="item img-thumbnail swiper-slide" style="background: url('/imgs/bxh/BXH Nhạc Hoa _ 245 x 140.png') no-repeat;"><span>BXH Nhạc Hoa</span></a>
-                <a href="/nhac-hot/korea.html" title="" class="item img-thumbnail swiper-slide" style="background: url('/imgs/bxh/BXH Nhạc Hàn _ 245 x 140.png') no-repeat;"><span>BXH Nhạc Hàn</span></a>
-                <a href="/nhac-hot/japan.html" title="" class="item img-thumbnail swiper-slide" style="background: url('/imgs/bxh/BXH Nhạc Nhật _ 245 x 140.png') no-repeat;"><span>BXH Nhạc Nhật</span></a>
-                <a href="/nhac-hot/other.html" title="" class="item img-thumbnail swiper-slide" style="background: url('/imgs/bxh/BXH Nhạc Nước Khác _ 245 x 140.png') no-repeat;"><span>BXH nhạc nước khác</span></a>
-                <a href="/nhac-hot/beat-playback.html" title="" class="item img-thumbnail swiper-slide" style="background: url('/imgs/bxh/BXH Beat _ 245 x 140.png') no-repeat;"><span>BXH Beat Playback</span></a>
+                <a href="/nhac-hot/vietnam.html" title="" class="item img-thumbnail swiper-slide" style="background: url('{{env('IMG_DATA_URL')}}imgs/bxh/BXH Nhạc Việt Nam_ 245 x 140.png') no-repeat;"><span>BXH Việt Nam</span></a>
+                <a href="/nhac-hot/video/v-video.html" title="" class="item img-thumbnail swiper-slide" style="background: url('{{env('IMG_DATA_URL')}}imgs/bxh/BXH Video_ 245 x 140.png') no-repeat;"><span>BXH Việt Video</span></a>
+                <a href="/nhac-hot/us-uk.html" title="" class="item img-thumbnail swiper-slide" style="background: url('{{env('IMG_DATA_URL')}}imgs/bxh/BXH Nhạc Us- UK _ 245 x 140.png') no-repeat;"><span>BXH US - UK</span></a>
+                <a href="/nhac-hot/chinese.html" title="" class="item img-thumbnail swiper-slide" style="background: url('{{env('IMG_DATA_URL')}}imgs/bxh/BXH Nhạc Hoa _ 245 x 140.png') no-repeat;"><span>BXH Nhạc Hoa</span></a>
+                <a href="/nhac-hot/korea.html" title="" class="item img-thumbnail swiper-slide" style="background: url('{{env('IMG_DATA_URL')}}imgs/bxh/BXH Nhạc Hàn _ 245 x 140.png') no-repeat;"><span>BXH Nhạc Hàn</span></a>
+                <a href="/nhac-hot/japan.html" title="" class="item img-thumbnail swiper-slide" style="background: url('{{env('IMG_DATA_URL')}}imgs/bxh/BXH Nhạc Nhật _ 245 x 140.png') no-repeat;"><span>BXH Nhạc Nhật</span></a>
+                <a href="/nhac-hot/other.html" title="" class="item img-thumbnail swiper-slide" style="background: url('{{env('IMG_DATA_URL')}}imgs/bxh/BXH Nhạc Nước Khác _ 245 x 140.png') no-repeat;"><span>BXH nhạc nước khác</span></a>
+                <a href="/nhac-hot/beat-playback.html" title="" class="item img-thumbnail swiper-slide" style="background: url('{{env('IMG_DATA_URL')}}imgs/bxh/BXH Beat _ 245 x 140.png') no-repeat;"><span>BXH Beat Playback</span></a>
             </div>
             <!-- Initialize Carousel -->
             <script>

@@ -538,7 +538,7 @@ if($musicSet['type_listen'] == 'playlist') {
             <div class="col-md-3">
                 <div id="right1_banner" style=" max-width: 100%;">
                     @if ($music->cat_id == 6)
-                        <a href="https://www.facebook.com/groups/csn.kpop.fan/" target="_blank"><img src="/images/banner/kpop-fbgroup-300x170.jpg" width="300" height="170"></a>
+                        <a href="https://www.facebook.com/groups/csn.kpop.fan/" target="_blank"><img src="{{env('IMG_DATA_URL')}}images/banner/kpop-fbgroup-300x170.jpg" width="300" height="170"></a>
                     @else
                         @if(!$memberVip)
 {{--                            @if(View::exists('cache.code_ads.pc_right_player'))--}}
@@ -1765,7 +1765,7 @@ if($musicSet['type_listen'] == 'playlist') {
                     beforeSend: function () {
                         if(loaded) return false;
                         loaded = true;
-                        confirmModal('<img src="/imgs/loader.gif" />', 'Bắt đầu nhập nhạc');
+                        confirmModal('<img src="{{env('IMG_DATA_URL')}}imgs/loader.gif" />', 'Bắt đầu nhập nhạc');
                     },
                     success: function(response) {
                         if(response.success) {
@@ -2055,7 +2055,7 @@ if($musicSet['type_listen'] == 'playlist') {
                     success: function(response) {
                         if(response.success) {
                             $('.tab_download_music').append('<div class="check_music_bitrate">' +
-                                '                                  <img class="bitrate_img" src="/images/music_bitrate_fixed/00.jpg">' +
+                                '                                  <img class="bitrate_img" src="{{env('IMG_DATA_URL')}}images/music_bitrate_fixed/00.jpg">' +
                                 '                               <div class="bitrate_div">' +
                                 '                                  <span>Được kiểm tra bởi:</span><br/>' +
                                 '                                  <span class="span_bitrate">'+response.data.user_bitrate_fixed+'</span>' +

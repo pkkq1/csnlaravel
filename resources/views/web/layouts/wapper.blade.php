@@ -4,12 +4,12 @@
             <div class="d-flex align-items-center justify-content-between">
                 <figure class="m-0">
                     <a href="{{env('APP_URL')}}/" title="" class="logo">
-                        <img src="/imgs/logo-web-official.png" style="padding-left: 15px;" />
+                        <img src="{{env('IMG_DATA_URL')}}imgs/logo-web-official.png" style="padding-left: 15px;" />
                     </a>
                     <figcaption class="d-none">explanatory caption</figcaption>
                 </figure>
                 <form action="<?php echo env('SEARCH_TEMPLATE_URL'); ?>/tim-kiem">
-                    <a href="http://old.chiasenhac.vn/" target="_blank"><img src="./imgs/csn_bancu.png" style="float: left; margin-right: 10px;"></a>
+                    <a href="http://old.chiasenhac.vn/" target="_blank"><img src="{{env('IMG_DATA_URL')}}imgs/csn_bancu.png" style="float: left; margin-right: 10px;"></a>
                     <div class="form-group m-0" style="float:left">
                         <i class="material-icons">search</i>
                         <input type="search" name="q" class="form-control" value="{{$_GET['q'] ?? ''}}" autocomplete="on" class="biginput" id="search_autocomplete" placeholder="nhập bài hát, video, tên nghệ sỹ bạn cần tìm">

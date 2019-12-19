@@ -8,7 +8,7 @@
 
     <div id="right1_banner">
         @if (isset($category->cat_id) && $category->cat_id == 6)
-            <a href="https://www.facebook.com/groups/csn.kpop.fan/" target="_blank"><img src="/images/banner/kpop-fbgroup-300x170.jpg" width="300" height="170"></a>
+            <a href="https://www.facebook.com/groups/csn.kpop.fan/" target="_blank"><img src="{{env('IMG_DATA_URL')}}images/banner/kpop-fbgroup-300x170.jpg" width="300" height="170"></a>
         @else
             @if(!$memberVip)
 {{--                @if(View::exists('cache.code_ads.pc_right_home'))--}}

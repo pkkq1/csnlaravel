@@ -1,7 +1,7 @@
 <?php
 use App\Library\Helpers;
 $titleMeta = $artist->artist_nickname . ' - '. Config::get('constants.app.title');
-$avtArtist = $artist->artist_avatar ? Helpers::file_path($artist->artist_id, PUBLIC_AVATAR_ARTIST_PATH, true) . $artist->artist_avatar : env('APP_URL').'/imgs/no_avatar.png';
+$avtArtist = $artist->artist_avatar ? Helpers::file_path($artist->artist_id, PUBLIC_AVATAR_ARTIST_PATH, true) . $artist->artist_avatar : env('IMG_DATA_URL').'imgs/no_avatar.png';
 ?>
 @section('meta')
     <meta name="author" content="{{$artist->artist_nickname}}">
@@ -25,7 +25,7 @@ $avtArtist = $artist->artist_avatar ? Helpers::file_path($artist->artist_id, PUB
         @include('mobile.layouts.header_top')
     </div>
     <main class="main main_profile">
-        <section style="background: url('{{$artist->artist_cover ?  Helpers::file_path($artist->artist_id, PUBLIC_COVER_ARTIST_PATH, true).$artist->artist_cover : '/imgs/no_cover_artist.jpg'}}'); background-position: center; background-repeat: no-repeat;" class="block_banner_singer">
+        <section style="background: url('{{$artist->artist_cover ?  Helpers::file_path($artist->artist_id, PUBLIC_COVER_ARTIST_PATH, true).$artist->artist_cover : env('IMG_DATA_URL').'imgs/no_cover_artist.jpg'}}'); background-position: center; background-repeat: no-repeat;" class="block_banner_singer">
             <div class="thumb-mask py-4" style="position: inherit; height: 100%;">
             <div class="container">
                 <div class="box_profile_singer">
