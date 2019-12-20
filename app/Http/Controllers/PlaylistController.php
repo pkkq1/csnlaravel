@@ -36,6 +36,13 @@ class PlaylistController extends Controller
         $this->playlistRepository = $playlistRepository;
         $this->playlistCategoryRepository = $playlistCategoryRepository;
         $this->playlistMusicRepository = $playlistMusicRepository;
+        $RqUri = $_SERVER['REQUEST_URI'];
+        if($_SERVER['HTTP_HOST'] !== 'upload.chiasenhac.vn') {
+            if($RqUri == '/user/playlist/them') {
+                header("Location: ".env('UPLOAD_TEMPLATE_URL').$_SERVER['REQUEST_URI']);
+                exit;
+            }
+        }
     }
 
     /**

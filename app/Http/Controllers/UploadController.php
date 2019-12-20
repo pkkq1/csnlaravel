@@ -78,7 +78,7 @@ class UploadController extends Controller
             }
             $RqUri = $_SERVER['REQUEST_URI'];
             if($_SERVER['HTTP_HOST'] !== 'upload.chiasenhac.vn') {
-                if($RqUri == '/dang-tai/nhac' || $RqUri == '/dang-tai/video' || $RqUri == '/dang-tai/album') {
+                if($RqUri == '/dang-tai/nhac' || $RqUri == '/dang-tai/video' || $RqUri == '/dang-tai/album' || $RqUri == '/dang-tai/ca-si') {
                     header("Location: ".env('UPLOAD_TEMPLATE_URL').$_SERVER['REQUEST_URI']);
                     exit;
                 }
