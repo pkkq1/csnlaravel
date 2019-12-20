@@ -21,7 +21,7 @@ $idAuth = Auth::check() ? Auth::user()->id : 0;
                 </div>
                 <div class="media-left align-items-stretch mr-2">
                     <a href="{{$url}}" title="{{$item['artist']['artist_nickname']}}">
-                        <img src="{{$item['artist']['artist_cover'] ? PUBLIC_COVER_ARTIST_PATH.$item['artist']['artist_avatar'] : env('IMG_DATA_URL').'imgs/no_cover.jpg'}}" alt="{{$item['artist']['artist_nickname']}}">
+                        <img src="{{$item['artist']['artist_cover'] ? COVER_ARTIST_CROP_PATH.$item['artist']['artist_avatar'] : env('IMG_DATA_URL').'imgs/no_cover.jpg'}}" alt="{{$item['artist']['artist_nickname']}}">
                     </a>
                 </div>
                 <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0 align-self-center">
@@ -58,7 +58,7 @@ $idAuth = Auth::check() ? Auth::user()->id : 0;
                 </div>
                 <div class="media-left align-items-stretch mr-2">
                     <a href="{{$url}}" title="{{$item['artist']['artist_nickname']}}">
-                        <img src="{{$item['artist']['artist_cover'] ? PUBLIC_COVER_ARTIST_PATH.$item['artist']['artist_avatar'] : env('IMG_DATA_URL').'imgs/no_cover.jpg'}}" alt="{{$item['artist']['artist_nickname']}}">
+                        <img src="{{$item['artist']['artist_cover'] ? env('DATA_URL').PUBLIC_COVER_ARTIST_PATH.$item['artist']['artist_avatar'] : env('IMG_DATA_URL').'imgs/no_cover.jpg'}}" alt="{{$item['artist']['artist_nickname']}}">
                     </a>
                 </div>
                 <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0 align-self-center">

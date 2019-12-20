@@ -55,8 +55,8 @@ class ArtistController extends Controller
                     'music_artist_points' => $item['music_downloads_this_week'],
                     'music_artist' => $artist->artist_nickname,
                     'artist_face_id' => $item['id'],
-                    'artist_avatar' => $artist->artist_avatar ? Helpers::file_path($artist->artist_id, AVATAR_ARTIST_CROP_PATH, true).$artist->artist_avatar : env('IMG_DATA_URL').'imgs/no_cover.jpg',
-                    'artist_cover' => $artist->artist_cover ? Helpers::file_path($artist->artist_id, COVER_ARTIST_CROP_PATH, true).$artist->artist_cover : env('IMG_DATA_URL').'imgs/no_cover_artist.jpg',
+                    'artist_avatar' => $artist->artist_avatar ? Helpers::file_path($artist->artist_id, AVATAR_ARTIST_CROP_PATH, true).$artist->artist_avatar : 'imgs/no_cover.jpg',
+                    'artist_cover' => $artist->artist_cover ? Helpers::file_path($artist->artist_id, COVER_ARTIST_CROP_PATH, true).$artist->artist_cover : 'imgs/no_cover_artist.jpg',
                     'artist_url' => Helpers::artistUrl($item['id'], $artist->artist_nickname),
                     'music_total' => $item['music_total']
                 ];
