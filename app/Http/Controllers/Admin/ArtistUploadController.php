@@ -47,6 +47,11 @@ class ArtistUploadController extends CrudController
             }
             return $next($request);
         });
+        $RqUri = $_SERVER['REQUEST_URI'];
+        if($_SERVER['HTTP_HOST'] !== 'upload.chiasenhac.vn') {
+            header("Location: ".env('UPLOAD_TEMPLATE_URL').$_SERVER['REQUEST_URI']);
+            exit;
+        }
         parent::__construct();
     }
     public function setup()
