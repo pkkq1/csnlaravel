@@ -79,7 +79,7 @@ class ArtistController extends CrudController
                 'function' => function($entry) {
                     if(!$entry->artist_avatar)
                         return '-';
-                    $urlImg = env('DATA_URL').($entry->artist_avatar ? Helpers::file_path($entry->artist_id, COVER_ARTIST_CROP_PATH, true) . $entry->artist_avatar : '/imgs/no_avatar.png');
+                    $urlImg = env('DATA_URL').($entry->artist_avatar ? Helpers::file_path($entry->artist_id, AVATAR_ARTIST_CROP_PATH, true) . $entry->artist_avatar : '/imgs/no_avatar.png');
                     return '<a href="'.Helpers::artistUrl($entry->artist_id, $entry->artist_nickname).'" target="_blank">
                               <img src="'.$urlImg.'" style="
                                   max-height: 25px;
