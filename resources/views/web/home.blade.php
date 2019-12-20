@@ -490,7 +490,7 @@ $catalog = config('constants.catalog');
                 $artistRows = $top_artist_rows;
                 array_map(function ($i, $item) {
                 ?>
-                    <a href="{{$item['artist_url']}}" title="{{$item['music_artist']}}" class="img-thumbnail singer {{$i == 0 ? 'c1' : ''}}" style="background-image: url({{$item['artist_avatar']}});">
+                    <a href="{{$item['artist_url']}}" title="{{$item['music_artist']}}" class="img-thumbnail singer {{$i == 0 ? 'c1' : ''}}" style="background-image: url({{env('DATA_URL').$item['artist_avatar']}});">
                         <span>{{$item['music_artist']}}</span>
                     </a>
                 <?php
