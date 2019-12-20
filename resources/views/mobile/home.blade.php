@@ -100,24 +100,24 @@ $memberVip = Helpers::checkMemberVip();
                                     </div>
                                     <div class="row">
                                         <div class="col-6">
-                                            <a href="/nhac-hot/vietnam.html"><div class="element rounded w-100 mb-2 d-flex flex-column justify-content-center text-center" style="background: url('{{env('IMG_DATA_URL')}}imgs/bxh/BXH Nhạc Việt Nam_ 245 x 140.png') no-repeat center;background-size: cover;">
+                                            <a href="/nhac-hot/vietnam.html"><div class="element rounded w-100 mb-2 d-flex flex-column justify-content-center text-center" style="background: url('{{env('IMG_DATA_URL')}}imgs/bxh/BXHNhacVietNam_245x140.png') no-repeat center;background-size: cover;">
                                                     <h5 class="text-white">VIỆT NAM</h5>
                                                 </div></a>
                                         </div>
                                         <div class="col-6">
-                                            <a href="/nhac-hot/us-uk.html"><div class="element rounded w-100 mb-2 d-flex flex-column justify-content-center text-center" style="background: url('{{env('IMG_DATA_URL')}}imgs/bxh/BXH Nhạc Us- UK _ 245 x 140.png') no-repeat center;background-size: cover;">
+                                            <a href="/nhac-hot/us-uk.html"><div class="element rounded w-100 mb-2 d-flex flex-column justify-content-center text-center" style="background: url('{{env('IMG_DATA_URL')}}imgs/bxh/BXHNhacUs-UK_245x140.png') no-repeat center;background-size: cover;">
                                                     <h5 class="text-white">US-UK</h5>
                                                 </div></a>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-6">
-                                            <a href="/nhac-hot/korea.html"><div class="element rounded w-100 mb-2 d-flex flex-column justify-content-center text-center" style="background: url('{{env('IMG_DATA_URL')}}imgs/bxh/BXH Nhạc Hàn _ 245 x 140.png') no-repeat center;background-size: cover;">
+                                            <a href="/nhac-hot/korea.html"><div class="element rounded w-100 mb-2 d-flex flex-column justify-content-center text-center" style="background: url('{{env('IMG_DATA_URL')}}imgs/bxh/BXHNhacHan_245x140.png') no-repeat center;background-size: cover;">
                                                     <h5 class="text-white">K-POP</h5>
                                                 </div></a>
                                         </div>
                                         <div class="col-6">
-                                            <a href="/nhac-hot/japan.html"><div class="element rounded w-100 mb-2 d-flex flex-column justify-content-center text-center" style="background: url('{{env('IMG_DATA_URL')}}imgs/bxh/BXH Nhạc Nhật _ 245 x 140.png') no-repeat center;background-size: cover;">
+                                            <a href="/nhac-hot/japan.html"><div class="element rounded w-100 mb-2 d-flex flex-column justify-content-center text-center" style="background: url('{{env('IMG_DATA_URL')}}imgs/bxh/BXHNhacNhat_245x140.png') no-repeat center;background-size: cover;">
                                                     <h5 class="text-white">J-POP</h5>
                                                 </div></a>
                                         </div>
