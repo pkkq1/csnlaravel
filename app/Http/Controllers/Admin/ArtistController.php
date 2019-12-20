@@ -79,7 +79,7 @@ class ArtistController extends CrudController
                 'function' => function($entry) {
                     if(!$entry->artist_avatar)
                         return '-';
-                    $urlImg = env('UPLOAD_TEMPLATE_URL').$entry->artist_avatar ? Helpers::file_path($entry->artist_id, PUBLIC_AVATAR_ARTIST_PATH, true) . $entry->artist_avatar : '/imgs/no_avatar.png';
+                    $urlImg = env('UPLOAD_TEMPLATE_URL').$entry->artist_avatar ? Helpers::file_path($entry->artist_id, COVER_ARTIST_CROP_PATH, true) . $entry->artist_avatar : '/imgs/no_avatar.png';
                     return '<a href="'.Helpers::artistUrl($entry->artist_id, $entry->artist_nickname).'" target="_blank">
                               <img src="'.$urlImg.'" style="
                                   max-height: 25px;
@@ -95,7 +95,7 @@ class ArtistController extends CrudController
                 'function' => function($entry) {
                     if(!$entry->artist_cover)
                         return '-';
-                    $urlImg = env('UPLOAD_TEMPLATE_URL').$entry->artist_cover ? Helpers::file_path($entry->artist_id, PUBLIC_COVER_ARTIST_PATH, true) . $entry->artist_cover : '/imgs/no_avatar.png';
+                    $urlImg = env('UPLOAD_TEMPLATE_URL').$entry->artist_cover ? Helpers::file_path($entry->artist_id, COVER_ARTIST_CROP_PATH, true) . $entry->artist_cover : '/imgs/no_avatar.png';
                     return '<a href="/user/'.$entry->last_update_user_id.'" target="_blank">
                               <img src="'.$urlImg.'" style="
                                   max-height: 25px;
