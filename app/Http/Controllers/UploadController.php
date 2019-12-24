@@ -76,9 +76,10 @@ class UploadController extends Controller
             if(backpack_user()->can('banned_user_upload')){
                 abort(403, 'Lỗi truy cập, tài khoản bạn bị khóa chức năng upload.');
             }
+
             $RqUri = $_SERVER['REQUEST_URI'];
             if($_SERVER['HTTP_HOST'] !== 'upload.chiasenhac.vn') {
-                if($RqUri == '/dang-tai/nhac' || $RqUri == '/dang-tai/video' || $RqUri == '/dang-tai/album' || $RqUri == '/dang-tai/ca-si') {
+                if($RqUri == '/dang-tai/nhac' || $RqUri == '/dang-tai/video' || $RqUri == '/dang-tai/album' || strpos($RqUri, '/dang-tai/ca-si') !== false) {
                     header("Location: ".env('UPLOAD_TEMPLATE_URL').$_SERVER['REQUEST_URI']);
                     exit;
                 }
