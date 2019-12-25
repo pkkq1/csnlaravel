@@ -114,9 +114,9 @@ $catalog = config('constants.catalog');
                 <a href="/nhac-hot/us-uk.html" title="" class="item img-thumbnail swiper-slide" style="background: url('{{env('IMG_DATA_URL')}}imgs/bxh/BXHNhacUs-UK_245x140.png') no-repeat;"><span>BXH US - UK</span></a>
                 <a href="/nhac-hot/chinese.html" title="" class="item img-thumbnail swiper-slide" style="background: url('{{env('IMG_DATA_URL')}}imgs/bxh/BXHNhacHoa_245x140.png') no-repeat;"><span>BXH Nhạc Hoa</span></a>
                 <a href="/nhac-hot/korea.html" title="" class="item img-thumbnail swiper-slide" style="background: url('{{env('IMG_DATA_URL')}}imgs/bxh/BXHNhacHan_245x140.png') no-repeat;"><span>BXH Nhạc Hàn</span></a>
-                <a href="/nhac-hot/japan.html" title="" class="item img-thumbnail swiper-slide" style="background: url('{{env('IMG_DATA_URL')}}imgs/bxh/BXHNhacNhat_245x140') no-repeat;"><span>BXH Nhạc Nhật</span></a>
-                <a href="/nhac-hot/other.html" title="" class="item img-thumbnail swiper-slide" style="background: url('{{env('IMG_DATA_URL')}}imgs/bxh/BXHNhacNuocKhac_245x140') no-repeat;"><span>BXH nhạc nước khác</span></a>
-                <a href="/nhac-hot/beat-playback.html" title="" class="item img-thumbnail swiper-slide" style="background: url('{{env('IMG_DATA_URL')}}imgs/bxh/BXHBeat_245x140') no-repeat;"><span>BXH Beat Playback</span></a>
+                <a href="/nhac-hot/japan.html" title="" class="item img-thumbnail swiper-slide" style="background: url('{{env('IMG_DATA_URL')}}imgs/bxh/BXHNhacNhat_245x140.png') no-repeat;"><span>BXH Nhạc Nhật</span></a>
+                <a href="/nhac-hot/other.html" title="" class="item img-thumbnail swiper-slide" style="background: url('{{env('IMG_DATA_URL')}}imgs/bxh/BXHNhacNuocKhac_245x140.png') no-repeat;"><span>BXH nhạc nước khác</span></a>
+                <a href="/nhac-hot/beat-playback.html" title="" class="item img-thumbnail swiper-slide" style="background: url('{{env('IMG_DATA_URL')}}imgs/bxh/BXHBeat_245x140.png') no-repeat;"><span>BXH Beat Playback</span></a>
             </div>
             <!-- Initialize Carousel -->
             <script>

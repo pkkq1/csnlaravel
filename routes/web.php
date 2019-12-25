@@ -21,7 +21,6 @@ Route::get('/sync/solr_music_delete', 'Sync\SolrSyncController@syncDeleteMusic')
 Route::get('/sync/solr_video_delete', 'Sync\SolrSyncController@syncDeleteVideo');
 
 Route::get('/sync/demo', 'Sync\MusicController@demo');
-Route::get('/demo_home', 'HomeController@index2');
 //Route::get('/sync/demo2', 'Sync\UploaderController@uploader');
 
 Route::group(['middlewareGroups' => ['web']], function () {
