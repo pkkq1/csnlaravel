@@ -73,7 +73,7 @@ use App\Library\Helpers;
                             @endif
                             <div class="form-group col-xs-12">
                                 <label style="display: -webkit-box;">Avatar</label>
-                                <img class="mr-3" width="152px" height="152px" id="artist_avatar_uploaded" src="{{$fields['artist_avatar']['value'] ? Helpers::file_path($fields['id']['value'], PUBLIC_CACHE_AVATAR_ARTIST_PATH, true).$fields['artist_avatar']['value'].'?time='.time() : '/imgs/avatar_default.png'}}" alt="">
+                                <img class="mr-3" width="152px" height="152px" id="artist_avatar_uploaded" src="{{$fields['artist_avatar']['value'] ? env('UPLOAD_TEMPLATE_URL').Helpers::file_path($fields['id']['value'], PUBLIC_CACHE_AVATAR_ARTIST_PATH, true).$fields['artist_avatar']['value'].'?time='.time() : '/imgs/avatar_default.png'}}" alt="">
                                 <div class="media-body">
                                     <div class="form-group" style="margin-top: 10px;">
                                         <input type="file" class="form-control-file" name="choose_artist_avatar" id="choose_artist_avatar">
@@ -83,7 +83,7 @@ use App\Library\Helpers;
 
                             <div class="form-group col-xs-12">
                                 <label style="display: -webkit-box;">Cover</label>
-                                <img class="mr-3" width="350px" height="90x" id="artist_cover_uploaded" src="{{$fields['artist_cover']['value'] ? Helpers::file_path($fields['id']['value'], PUBLIC_CACHE_COVER_ARTIST_PATH, true).$fields['artist_cover']['value'].'?time='.time() : '/imgs/avatar_default.png'}}" alt="">
+                                <img class="mr-3" width="350px" height="90x" id="artist_cover_uploaded" src="{{$fields['artist_cover']['value'] ? env('UPLOAD_TEMPLATE_URL').Helpers::file_path($fields['id']['value'], PUBLIC_CACHE_COVER_ARTIST_PATH, true).$fields['artist_cover']['value'].'?time='.time() : '/imgs/avatar_default.png'}}" alt="">
                                 <div class="media-body">
                                     <div class="form-group" style="margin-top: 10px;">
                                         <input type="file" class="form-control-file" name="choose_artist_cover" id="choose_artist_cover">
@@ -107,11 +107,11 @@ use App\Library\Helpers;
                             </div>
                             <div class="form-group col-xs-4">
                                 <label style="display: -webkit-box;">Avatar</label>
-                                <img class="mr-3" style="width: 100%"id="artist_avatar_uploaded" src="{{$artist_exists['artist_avatar'] ? Helpers::file_path($artist_exists['artist_id'], PUBLIC_AVATAR_ARTIST_PATH, true).$artist_exists['artist_avatar'].'?time='.time() : '/imgs/avatar_default.png'}}" alt="">
+                                <img class="mr-3" style="width: 100%"id="artist_avatar_uploaded" src="{{$artist_exists['artist_avatar'] ? env('DATA_URL').Helpers::file_path($artist_exists['artist_id'], PUBLIC_AVATAR_ARTIST_PATH, true).$artist_exists['artist_avatar'].'?time='.time() : '/imgs/avatar_default.png'}}" alt="">
                             </div>
                             <div class="form-group col-xs-9" style="margin-top: 50px;">
                                 <label style="display: -webkit-box;">Cover</label>
-                                <img class="mr-3" style="width: 100%" id="artist_cover_uploaded" src="{{$artist_exists['artist_cover'] ? Helpers::file_path($artist_exists['artist_id'], PUBLIC_COVER_ARTIST_PATH, true).$artist_exists['artist_cover'].'?time='.time() : '/imgs/avatar_default.png'}}" alt="">
+                                <img class="mr-3" style="width: 100%" id="artist_cover_uploaded" src="{{$artist_exists['artist_cover'] ? env('DATA_URL').Helpers::file_path($artist_exists['artist_id'], PUBLIC_COVER_ARTIST_PATH, true).$artist_exists['artist_cover'].'?time='.time() : '/imgs/avatar_default.png'}}" alt="">
                             </div>
                         </div>
                         @endif
