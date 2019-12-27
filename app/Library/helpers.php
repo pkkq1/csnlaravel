@@ -236,7 +236,7 @@ class Helpers
 //        $nav_links = ($theme['themes_id'] == 4) ? '<li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a href="' . $url . '" itemprop="item"><span itemprop="name">' . $lang['MUSIC'] . '</span></a><meta itemprop="position" content="' . $ct_id . '"></li>' : '';
 //        if (isset($cat_id2info[$c_id][0]['cat_short_title'])) {
 //            $url .= $cat_id2info[$c_id][0]['cat_url'] . "/";
-//            $nav_links .= ($theme['themes_id'] == 4) ? '<li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a href="' . $url . '" itemprop="item"><span itemprop="name">' . $cat_id2info[$c_id][0]['cat_short_title'] . '</span></a><meta itemprop="position" content="' . (++$ct_id) . '"></li>' : '<a href="' . $url . '">' . $cat_id2info[$c_id][0]['cat_short_title'] . '</a>';
+//            $nav_links .= ($theme['themes_id'] == 4) ? '<li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a href="' . $url . '" itemprop="item"><span itemprop="name">' . $cat_id2info[$c_id][0]['cat_short_title'] . '</span></a><meta itemprop="position" content="' . (++$ct_id) . '"></li>' : '<a href="' . $url . '">' . $cat_FIDinfo[$c_id][0]['cat_short_title'] . '</a>';
 //        }
 //
 //        if ($c_level > 0) {
@@ -850,7 +850,7 @@ class Helpers
             $url = 'https://data18.chiasenhac.com/';
         else if ($music_id <= 2049000)
             $url = 'https://data19.chiasenhac.com/';
-        else if ($music_id <= 2050000)
+        else if ($music_id <= 2055000)
             $url = 'https://data25.chiasenhac.com/';
         else
             $url = 'https://data.chiasenhac.com/';
