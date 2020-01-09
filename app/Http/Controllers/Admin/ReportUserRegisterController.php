@@ -127,7 +127,12 @@ class ReportUserRegisterController extends CrudController
             'type' => "datetime",
             'format' => 'Y-m-d H:i'
         ]);
-
+        $this->crud->addColumn([
+            'name' => 'user_birthday',
+            'label' => 'Nam Sinh',
+            'type' => "datetime",
+            'format' => 'Y'
+        ]);
         $this->crud->addColumn([
             'name' => 'username',
             'label' => 'User name',
