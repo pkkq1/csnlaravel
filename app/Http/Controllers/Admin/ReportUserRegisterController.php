@@ -82,6 +82,21 @@ class ReportUserRegisterController extends CrudController
                 $this->crud->addClause('where', 'user_regdate', '>=', strtotime($dates->from . ' 00:00'));
                 $this->crud->addClause('where', 'user_regdate', '<=', strtotime($dates->to . ' 23:59'));
             });
+        $this->crud->addFilter([ // daterange filter
+            'type' => 'range',
+            'name' => 'user_regdate',
+            'label'=> 'Năm sinh'
+        ],
+            false,
+//            function() {
+//                return UserModel::select(DB::raw("SUBSTR(user_birthday, 1, 4) as user_birthday"))->get()->toArray();
+//            },
+            function($value) {
+                $dates = json_decode(htmlspecialchars_decode($value, ENT_QUOTES));
+                $dateTo = $dates->to + 1;
+                $this->crud->addClause('whereDate', 'user_birthday', '>=', $dates->from);
+                $this->crud->addClause('whereDate', 'user_birthday', '<=', (string)$dateTo);
+            });
         $this->crud->addFilter([ // dropdown filter
             'name' => 'type',
             'type' => 'dropdown',
@@ -129,9 +144,11 @@ class ReportUserRegisterController extends CrudController
         ]);
         $this->crud->addColumn([
             'name' => 'user_birthday',
-            'label' => 'Nam Sinh',
-            'type' => "datetime",
-            'format' => 'Y'
+            'label' => 'Năm Sinh',
+            'type' => 'closure',
+            'function' => function($entry) {
+                return ($entry->user_birthday == '0000-00-00' ? '-' : substr($entry->user_birthday, 0, 4));
+            },
         ]);
         $this->crud->addColumn([
             'name' => 'username',
