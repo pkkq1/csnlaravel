@@ -40,7 +40,7 @@ class SearchController extends Controller
         // tuantrinh add 10/1/2020
         if ( !$request->filter && $request->mode )
         {
-            //$request->filter = $request->mode;
+            $request->filter = $request->mode;
         }
 
 //        abort(403, 'Đang bảo trì hệ thống tìm kiếm, vui lòng quay lại sau ít phút.');
@@ -118,7 +118,7 @@ class SearchController extends Controller
                 // filter
                 if($request->filter == 'sang-tac' && !isset($searchSolarium['music_composer_charset'])) {
                     $searchSolarium['music_composer_charset'] = $searchSolarium['music_title_charset_nospace'];
-                    $searchSolarium['filter'] = str_replace('music_title_artist_charset_nospace:', 'music_composer_charset_nospace:', $searchSolarium['music_title_artist_charset_nospace']);
+                    $searchSolarium['music_composer_charset_nospace'] = str_replace('music_title_artist_charset_nospace:', 'music_composer_charset_nospace:', $searchSolarium['music_title_artist_charset_nospace']);
                     unset($searchSolarium['music_title_charset_nospace']);
                     unset($searchSolarium['music_title_artist_charset_nospace']);
                     unset($searchSolarium['music_title_charset']);
