@@ -477,7 +477,7 @@ class Helpers
     public static function cover_url($cover_id = 0, $artist_id = 0)
     {
         if($cover_id > 0) {
-             return env('DATA_URL') . self::cover_path($cover_id) . $cover_id . '.jpg';
+             return self::cover_path($cover_id) . $cover_id . '.jpg';
         }else{
             if($artist_id > 0) {
                 $artist = ArtistModel::find($artist_id);
@@ -849,7 +849,7 @@ class Helpers
             $url = 'https://data18.chiasenhac.com/';
         else if ($music_id <= 2049000)
             $url = 'https://data19.chiasenhac.com/';
-        else if ($music_id <= 2058000)
+        else if ($music_id <= 2057000)
             $url = 'https://data25.chiasenhac.com/';
         else
             $url = 'https://data.chiasenhac.com/';
