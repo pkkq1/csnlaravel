@@ -37,6 +37,12 @@ class SearchController extends Controller
         return view('search.index', compact('result', 'titleSearch', 'search', 'result'));
     }
     public function ajaxSearch(Request $request, $quickSearch = true) {
+        // tuantrinh add 10/1/2020
+        if ( !$request->filter && $request->mode )
+        {
+            $request->filter = $request->mode;
+        }
+
 //        abort(403, 'Đang bảo trì hệ thống tìm kiếm, vui lòng quay lại sau ít phút.');
         $request->q = mb_substr($request->q,0,50, "utf-8");
         $search = Helpers::strReplaceSolr(htmlspecialchars($request->q, ENT_QUOTES), true);
@@ -112,7 +118,7 @@ class SearchController extends Controller
                 // filter
                 if($request->filter == 'sang-tac' && !isset($searchSolarium['music_composer_charset'])) {
                     $searchSolarium['music_composer_charset'] = $searchSolarium['music_title_charset_nospace'];
-                    $searchSolarium['music_composer_charset_nospace'] = str_replace('music_title_artist_charset_nospace:', 'music_composer_charset_nospace:', $searchSolarium['music_title_artist_charset_nospace']);
+                    $searchSolarium['filter'] = str_replace('music_title_artist_charset_nospace:', 'music_composer_charset_nospace:', $searchSolarium['music_title_artist_charset_nospace']);
                     unset($searchSolarium['music_title_charset_nospace']);
                     unset($searchSolarium['music_title_artist_charset_nospace']);
                     unset($searchSolarium['music_title_charset']);
