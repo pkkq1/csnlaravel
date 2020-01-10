@@ -40,7 +40,7 @@ class SearchController extends Controller
         // tuantrinh add 10/1/2020
         if ( !$request->filter && $request->mode )
         {
-            $request->filter = $request->mode;
+            //$request->filter = $request->mode;
         }
 
 //        abort(403, 'Đang bảo trì hệ thống tìm kiếm, vui lòng quay lại sau ít phút.');
