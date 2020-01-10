@@ -477,7 +477,7 @@ class Helpers
     public static function cover_url($cover_id = 0, $artist_id = 0)
     {
         if($cover_id > 0) {
-             return self::cover_path($cover_id) . $cover_id . '.jpg';
+             return env('DATA_URL') . self::cover_path($cover_id) . $cover_id . '.jpg';
         }else{
             if($artist_id > 0) {
                 $artist = ArtistModel::find($artist_id);
