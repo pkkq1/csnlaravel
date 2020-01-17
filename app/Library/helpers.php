@@ -960,12 +960,14 @@ class Helpers
                 );
             }
             if ($music_info['music_lossless_filesize'] > 0) {
-                $file_url[] = array(
-                    'url' => $url . 'downloads/' . ceil($music_id / 1000) . '/' . date('w') . '/' . rawurlencode($music_info['music_filename_noext']) . "/flac/" . rawurlencode($music_info['music_file_cache']) . ".flac",
-                    'label' => 'Lossless',
-                    'size' => self::filesize2str($music_info['music_lossless_filesize']),
-                    'type' => 'flac'
-                );
+                if(env('APP_ENV') != 'local' && self::isVNIP(self::getIp()) && Auth::check()) {
+                    $file_url[] = array(
+                        'url' => $url . 'downloads/' . ceil($music_id / 1000) . '/' . date('w') . '/' . rawurlencode($music_info['music_filename_noext']) . "/flac/" . rawurlencode($music_info['music_file_cache']) . ".flac",
+                        'label' => 'Lossless',
+                        'size' => self::filesize2str($music_info['music_lossless_filesize']),
+                        'type' => 'flac'
+                    );
+                }
             }
         }
 
@@ -1220,11 +1222,41 @@ class Helpers
 
         }
     }
-    public static function checkIpVN($IP) {
-        $country = 'XX';
-        if (!empty($IP)) {
-            $country = file_get_contents('http://api.hostip.info/country.php?ip='.$IP);
+//    public static function checkIpVN($IP) {
+//        $country = 'XX';
+//        if (!empty($IP)) {
+//            $country = file_get_contents('http://api.hostip.info/country.php?ip='.$IP);
+//        }
+//        return $country == 'VN' ? true : false;
+//    }
+    public static function Dot2LongIP($IPaddr)
+    {
+        if ($IPaddr == "") {
+            return 0;
         }
-        return $country == 'VN' ? true : false;
+        else {
+            //$ips = split ("\.", "$IPaddr");
+            //$ips = preg_split("/\./", "$IPaddr");
+            $ips = explode(".", $IPaddr);
+            return ($ips[3] + $ips[2] * 256 + $ips[1] * 256 * 256 + intval($ips[0]) * 256 * 256 * 256);
+        }
     }
+    public static function isVNIP($client_ip = '')
+    {
+        global $vn_long_ip_range;
+        include_once('DataIpVn.php');
+        $visitorIP = self::Dot2LongIP($client_ip);
+
+        if (strlen($client_ip) > 15) return true; // ipv6
+
+        for ($i = 0, $end = sizeof($vn_long_ip_range); $i < $end; $i++) {
+            if ($vn_long_ip_range[$i][0] > $visitorIP) {
+                return false;
+            } else if ($visitorIP <= $vn_long_ip_range[$i][1]) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }

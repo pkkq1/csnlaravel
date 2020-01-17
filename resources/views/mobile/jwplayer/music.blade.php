@@ -22,11 +22,6 @@ global $mobile_preroll_3;
 
 $titleMeta = $music->music_title . ' - '. str_replace(';', ', ', $music->music_artist);
 $file_url = Helpers::file_url($music);
-if($musicSet['type_jw'] == 'music' && !Auth::check()) {
-    if(last($file_url)['label'] == 'Lossless') {
-        array_pop($file_url);
-    }
-}
 $lyric_array = Helpers::lyric_to_web($music->music_lyric);
 $artistHtml = Helpers::rawHtmlArtists($music->music_artist_id, $music->music_artist);
 $sug = [];
