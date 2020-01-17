@@ -408,35 +408,33 @@ $memberVip = Helpers::checkMemberVip();
             <div class="container">
                 <div class="form-group download_status">
                     <?php
-                    if(Helpers::checkIpVN($_SERVER['REMOTE_ADDR'])) {
-                        if ( isset($file_url[1]['url']) ){
-                            echo '<label class="relative">
+                    if ( isset($file_url[1]['url']) ){
+                        echo '<label class="relative">
                                 <input id="exampleInputEmail1" value="'. $file_url[1]['url'] .'" type="radio" name="quality" class="form-control d-none"><strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 1 </span><span class="cl-green">'. strtoupper($file_url[1]['type']) .' '. $file_url[1]['label'] .'</span><span> '. $file_url[1]['size'] .'</span></strong>
                             </label>';
-                        }
-                        if ( isset($file_url[2]['url']) ){
-                            echo '<label class="relative">
+                    }
+                    if ( isset($file_url[2]['url']) ){
+                        echo '<label class="relative">
                                 <input id="exampleInputEmail1" value="'. $file_url[2]['url'] .'" type="radio" name="quality" class="form-control d-none"><strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 2 </span><span class="cl-blue">'. strtoupper($file_url[2]['type']) .' '. $file_url[2]['label'] .'</span><span> '. $file_url[2]['size'] .'</span></strong>
                             </label>';
-                        }
-                        if ( isset($file_url[3]['url']) ){
-                            echo '<label class="relative">
+                    }
+                    if ( isset($file_url[3]['url']) ){
+                        echo '<label class="relative">
                                 <input id="exampleInputEmail1" value="'. $file_url[3]['url'] .'" type="radio" name="quality" '.(isset($file_url[4]['url']) ? 'checked=""' : '').' class="form-control d-none"><strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 3 </span><span class="cl-orange">'. strtoupper($file_url[3]['type']) .' '. $file_url[3]['label'] .'</span><span> '. $file_url[3]['size'] .'</span></strong>
                             </label>';
-                        }
-                        if ( isset($file_url[4]['url']) ){
+                    }
+                    if ( isset($file_url[4]['url']) ){
 //                        echo '<label class="relative">
 //                                <input id="exampleInputEmail1" value="'. $file_url[4]['url'] .'" type="radio" name="quality" checked="" class="form-control d-none"><strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 4 </span><span class="cl-pink">'. strtoupper($file_url[4]['type']) .' '. $file_url[4]['label'] .'</span><span> '. $file_url[4]['size'] .'</span></strong>
 //                            </label>';
-                            echo '<label class="relative">
+                        echo '<label class="relative">
                                 <input id="exampleInputEmail1" value="'. $file_url[4]['url'] .'" type="radio" name="quality" class="form-control d-none"><strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 4 </span><span class="cl-pink">'. strtoupper($file_url[4]['type']) .' '. $file_url[4]['label'] .'</span><span> '. $file_url[4]['size'] .'</span></strong>
                             </label>';
-                        }
-                        if ( isset($file_url[0]['url']) ){
-                            echo '<label class="relative">
+                    }
+                    if ( isset($file_url[0]['url']) ){
+                        echo '<label class="relative">
                                 <input id="exampleInputEmail1" value="'. $file_url[0]['url'] .'" type="radio" name="quality" class="form-control d-none"><strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 5 </span><span class="">'. strtoupper($file_url[0]['type']) .' '. $file_url[0]['label'] .'</span><span> '. $file_url[0]['size'] .'</span></strong>
                             </label>';
-                        }
                     }
                     ?>
                 </div>
