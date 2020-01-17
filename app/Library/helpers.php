@@ -1220,4 +1220,11 @@ class Helpers
 
         }
     }
+    public static function checkIpVN($IP) {
+        $country = 'XX';
+        if (!empty($IP)) {
+            $country = file_get_contents('http://api.hostip.info/country.php?ip='.$IP);
+        }
+        return $country == 'VN' ? true : false;
+    }
 }
