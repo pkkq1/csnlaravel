@@ -54,7 +54,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('uploader:type cache_upload')->dailyAt('00:17');   // xóa files cache upload
 
 
-        $schedule->command('bxh_cat:type cat_month ' . CURRENT_MONTH . ' 2019')->dailyAt('00:20');  // bảng xếp hạng tháng trong năm, (all sẽ lấy tất cả trong năm, all_month sẽ lấy tất cả tháng, số sẽ lấy đúng tháng)
+        $schedule->command('bxh_cat:type cat_month ' . CURRENT_MONTH . ' 2020')->dailyAt('00:20');  // bảng xếp hạng tháng trong năm, (all sẽ lấy tất cả trong năm, all_month sẽ lấy tất cả tháng, số sẽ lấy đúng tháng)
         $schedule->command('bxh_cat:type cat_month all 2019')->dailyAt('00:25');   // bảng xếp hạng của năm
         $schedule->command('top_artist')->dailyAt('00:30');   // top ca sĩ
 
