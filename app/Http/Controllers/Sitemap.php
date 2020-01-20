@@ -24,10 +24,11 @@ class Sitemap extends Controller
         include(app_path() . '/../resources/views/cache/def_main_cat.blade.php');
         $arrDefCat = [
             '/',
-            '/mp3/hot',
-            '/mp3/hot/hot-today/',
-            '/mp3/hot/hot-week/',
-            '/mp3/hot/hot-month/',
+            '/nhac-hot.html',
+            '/bang-xep-hang/tuan.html',
+            '/bang-xep-hang/thang-01-2020.html',
+            '/bang-xep-hang/nam-2018.html',
+            '/bang-xep-hang/nam-2019.html',
         ];
         return response()->view('sitemap.sitemap_category', [
             'arrDefCat' => $arrDefCat,
