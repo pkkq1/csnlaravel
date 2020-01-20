@@ -55,8 +55,8 @@
                         <li><a href="{{env('APP_URL')}}/nhac-hot.html" title="">BXH Hôm Nay</a></li>
                         <li><a href="{{env('APP_URL')}}/bang-xep-hang/tuan.html" title="BXH tuần này">BXH Tuần Này</a></li>
                         <li><a href="{{env('APP_URL')}}/bang-xep-hang/thang-{{CURRENT_MONTH}}-{{CURRENT_YEAR}}.html" title="BXH tháng 9">BXH Tháng {{CURRENT_MONTH}}</a></li>
-                        <li><a href="{{env('APP_URL')}}/bang-xep-hang/nam-2018.html" title="BXH năm 2018">BXH Năm 2018</a></li>
-                        <li><a href="{{env('APP_URL')}}/bang-xep-hang/nam-2019.html" title="BXH năm 2018">BXH Năm 2019</a></li>
+                        <li><a href="{{env('APP_URL')}}/bang-xep-hang/nam-2019.html" title="BXH năm 2019">BXH Năm 2019</a></li>
+                        <li><a href="{{env('APP_URL')}}/bang-xep-hang/nam-2020.html" title="BXH năm 2020">BXH Năm 2020</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
