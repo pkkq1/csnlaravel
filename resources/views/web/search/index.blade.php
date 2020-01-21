@@ -395,11 +395,29 @@ $filter = $_GET['filter'] ?? '';
     })
     $('.form-check-input').change(function() {
         let url = window.location.href;
-        console.log(url);
         if(url.indexOf("&filter=") != -1)
             url = url.substr(0, url.indexOf("&filter="))
         url = url + '&filter=' + $('input[type=radio][name=filter_search]:checked').val();
         window.location.href = url;
     })
+    $( document ).ready(function() {
+        <?php
+        $filter = $_GET['filter'];
+        if($filter == 'ca-si') {
+            ?>
+            $('#nav-artist-tab').click();
+            <?php
+        }elseif ($filter == 'ten-bai-hat') {
+            ?>
+            $('#nav-music-tab').click();
+            <?php
+        }elseif ($filter == 'ten-album') {
+            ?>
+            $('#nav-album-tab').click();
+            <?php
+        }
+        ?>
+    });
+
 </script>
 @endsection

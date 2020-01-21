@@ -168,7 +168,7 @@ class Helpers
     public static function artistUrl($artistId, $artistNickName, $mode = '')
     {
         if(!$artistId || $artistId == -1){
-            return env('SEARCH_TEMPLATE_URL').'/tim-kiem?q='.trim($artistNickName).'&mode=ca-si';
+            return env('SEARCH_TEMPLATE_URL').'/tim-kiem?q='.trim($artistNickName).'&filter=ca-si';
         }
         return '/ca-si/'.self::rawTiengVietUrl($artistNickName) . "~" . base64_encode(KEY_ID_ARTIST_ENCODE_URL . $artistId) . $mode . ".".HTMLEX;
     }
