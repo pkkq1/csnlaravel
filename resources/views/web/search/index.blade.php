@@ -402,7 +402,7 @@ $filter = $_GET['filter'] ?? '';
     })
     $( document ).ready(function() {
         <?php
-        $filter = $_GET['filter'];
+        $filter = $_GET['filter'] ?? '';
         if($filter == 'ca-si') {
             ?>
             $('#nav-artist-tab').click();
