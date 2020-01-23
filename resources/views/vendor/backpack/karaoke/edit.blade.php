@@ -76,7 +76,7 @@ $file_url = Helpers::file_url($music);
                             <h3 class="box-title">Thông tin gợi ý</h3>
                         </div>
                         <div class="form-group col-xs-6">
-                            <h3 class="box-title">Thông tin lyric cũ</h3>
+                            <h3 class="box-title">Thông tin kara cũ</h3>
                         </div>
                     </div>
                     <div class="box-body row display-flex-wrap" style="display: flex;flex-wrap: wrap;">

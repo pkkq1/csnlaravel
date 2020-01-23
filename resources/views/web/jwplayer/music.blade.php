@@ -177,7 +177,7 @@ if($musicSet['type_listen'] == 'playlist') {
                                 <ul class="list-unstyled">
                                     <?php
                                     echo $music->music_artist ? '<li><span>Ca sĩ: </span>'.$artistHtml.'</li>' : '' ?>
-                                    <?php echo $music->music_composer ? '<li><span>Sáng tác: </span><a href="/tim-kiem?q='.$music->music_composer.'&mode=sang-tac" style=" color: #212552; ">'.$music->music_composer.'</a></li>' : '' ?>
+                                    <?php echo $music->music_composer ? '<li><span>Sáng tác: </span><a href="/tim-kiem?q='.$music->music_composer.'&filter=sang-tac" style=" color: #212552; ">'.$music->music_composer.'</a></li>' : '' ?>
                                     <?php echo $music->music_album ? '<li><span>Album: </span><a href="'.Helpers::album_url(['music_album' => $music->music_album, 'cover_id' => $music->cover_id ]).'">'.$music->music_album.'</a></li>' : '' ?>
                                     <?php echo $music->music_year ? '<li><span>Năm phát hành: </span>'.$music->music_year.'</li>' : '' ?>
                                     @if($memberVip && $musicSet['type_jw'] == 'music' && ($musicSet['type_listen'] == 'playlist' || $musicSet['type_listen'] == 'album'))

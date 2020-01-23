@@ -157,7 +157,7 @@ class SugKaraokeController extends CrudController
             \Alert::error('Lỗi, gợi ý không tồn tại')->flash();
             return redirect()->back();
         }
-        $music = MusicModel::find($request->music_id)->first();
+        $music = MusicModel::where('music_id', $request->music_id)->first();
         if(!$music->musicKara) {
             MusicKaraokeModel::create([
                 'music_id' => $music->music_id,
