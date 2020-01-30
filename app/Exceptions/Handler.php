@@ -101,6 +101,11 @@ class Handler extends ExceptionHandler
                 return new JsonResponse($response, 400);
             }
         }
+        // no access permissions
+        if ($exception->getMessage() == "Unauthorized access - you do not have the necessary permissions to see this page.") {
+            return response()->view($view.'errors.403', ['message'=> 'Bạn không có quyền truy cập, thoát ra ngay :(('], 403);
+        }
+
         if(env('APP_DEBUG') && env('APP_ENV') != 'local' && (Auth::user()->id != 997917 && Auth::user()->id != 3)) {
             $error = ErrorLogModel::where('type', 'exception')->where('url', $_SERVER['REQUEST_URI'])->where('message', $exception->getMessage())->first();
             if(!$error) {
