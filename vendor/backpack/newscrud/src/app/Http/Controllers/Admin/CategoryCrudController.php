@@ -12,7 +12,23 @@ class CategoryCrudController extends CrudController
     public function __construct()
     {
         parent::__construct();
-
+        $this->middleware(function ($request, $next)
+        {
+            if(!backpack_user()->can('article_(list)')) {
+                $this->crud->denyAccess(['list']);
+            }
+            if(!backpack_user()->can('article_(create)')) {
+                $this->crud->denyAccess(['create']);
+            }
+            if(!backpack_user()->can('article_(update)')) {
+                $this->crud->denyAccess(['update']);
+            }
+            if(!backpack_user()->can('article_(delete)')) {
+                $this->crud->denyAccess(['delete']);
+            }
+            return $next($request);
+        });
+        parent::__construct();
         /*
         |--------------------------------------------------------------------------
         | BASIC CRUD INFORMATION

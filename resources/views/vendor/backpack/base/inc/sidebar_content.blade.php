@@ -95,6 +95,7 @@ $htmlNotif['kara_sug'] = $notif['kara_sug'] > 0 ? '<span class="label pull-right
 @if(backpack_user()->can('search_results(list)'))
     <li><a href="{{ backpack_url('search_results') }}"><i class="fa fa-search"></i> <span>Tìm kiếm hôm nay</span></a></li>
 @endif
+@if(backpack_user()->can('article_(list)'))
 <li class="treeview">
     <a href="#"><i class="fa fa-bookmark-o"></i> <span>Tin tức</span> <i class="fa fa-angle-left pull-right"></i></a>
     <ul class="treeview-menu">
@@ -103,6 +104,7 @@ $htmlNotif['kara_sug'] = $notif['kara_sug'] > 0 ? '<span class="label pull-right
         <li><a href="{{backpack_url('article') }}"><i class="fa fa-file-o"></i> <span>Bài viết</span></a></li>
     </ul>
 </li>
+@endif
 @if(backpack_user()->can('code_ads(list)'))
     <li><a href="{{ backpack_url('code_ads') }}"><i class="fa fa-audio-description"></i> <span>Code quảng cáo</span></a></li>
 @endif

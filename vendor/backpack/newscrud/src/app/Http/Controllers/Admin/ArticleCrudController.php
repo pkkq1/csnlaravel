@@ -17,19 +17,18 @@ class ArticleCrudController extends CrudController
     {
         $this->middleware(function ($request, $next)
         {
-//            $this->crud->denyAccess(['create']);
-//            if(!backpack_user()->can('danh_sach_ca_si_(list)')) {
-//                $this->crud->denyAccess(['list']);
-//            }
-//            if(!backpack_user()->can('danh_sach_ca_si_(create)')) {
-//                $this->crud->denyAccess(['create']);
-//            }
-//            if(!backpack_user()->can('danh_sach_ca_si_(update)')) {
-//                $this->crud->denyAccess(['update']);
-//            }
-//            if(!backpack_user()->can('danh_sach_ca_si_(delete)')) {
-//                $this->crud->denyAccess(['delete']);
-//            }
+            if(!backpack_user()->can('article_(list)')) {
+                $this->crud->denyAccess(['list']);
+            }
+            if(!backpack_user()->can('article_(create)')) {
+                $this->crud->denyAccess(['create']);
+            }
+            if(!backpack_user()->can('article_(update)')) {
+                $this->crud->denyAccess(['update']);
+            }
+            if(!backpack_user()->can('article_(delete)')) {
+                $this->crud->denyAccess(['delete']);
+            }
             return $next($request);
         });
         parent::__construct();
