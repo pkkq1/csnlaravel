@@ -55,6 +55,7 @@ Route::group(['middlewareGroups' => ['web']], function () {
 
     Route::get('/logout', 'User\UserController@logout');
     Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
+    Route::get('/home2', ['as' => 'home', 'uses' => 'HomeController@index2']);
     Route::get('/home', ['as' => 'HomeController.index', 'uses' => 'HomeController@index']);
 
     // Socialite
