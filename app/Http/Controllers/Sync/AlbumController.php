@@ -13,18 +13,25 @@ use App\Library\Helpers;
 use App\Repositories\Cover\CoverEloquentRepository;
 use App\Repositories\Music\MusicEloquentRepository;
 use App\Repositories\Video\VideoEloquentRepository;
+use App\Repositories\MusicDownload\MusicDownloadEloquentRepository;
+use App\Repositories\MusicListen\MusicListenEloquentRepository;
 use DB;
+use App\Models\CoverModel;
 
 class AlbumController extends Controller
 {
     protected $musicRepository;
     protected $coverRepository;
     protected $videoRepository;
+    protected $musicDownloadRepository;
+    protected $musicListenRepository;
 
-    public function __construct(MusicEloquentRepository $musicRepository, CoverEloquentRepository $coverRepository, VideoEloquentRepository $videoRepository) {
+    public function __construct(MusicEloquentRepository $musicRepository, CoverEloquentRepository $coverRepository, VideoEloquentRepository $videoRepository, MusicDownloadEloquentRepository $musicDownloadRepository, MusicListenEloquentRepository $musicListenRepository) {
         $this->musicRepository = $musicRepository;
         $this->coverRepository = $coverRepository;
         $this->videoRepository = $videoRepository;
+        $this->musicDownloadRepository = $musicDownloadRepository;
+        $this->musicListenRepository = $musicListenRepository;
     }
     public function syncAlbum() {
         $cache = $this->coverRepository->getCoverNew('album_last_updated');
@@ -109,17 +116,67 @@ if ( !ENV(\'IN_PHPBB\') )
     die(\'Hacking attempt\');
     exit;
 }
-global $album_hot;
 global $album_new;
 global $album_old;
 global $music_new_uploads;
 global $video_new_uploads;
     
-$album_hot = ' . var_export($album_new, true) . ';
 $album_new = ' . var_export($album_new, true) . ';
 $album_old = ' . var_export($album_old, true) . ';
 $music_new_uploads = ' . var_export($music_new_uploads, true) . ';   
 $video_new_uploads = ' . var_export($video_new_uploads, true) . ';     
+?>');
+        return response(['Ok']);
+    }
+    public function albumHot() {
+        $result = CoverModel::join('csn_music', 'csn_music.cover_id', 'csn_cover.cover_id')
+            ->join('csn_music_download', 'csn_music_download.music_id', 'csn_music.music_id')
+            ->where('csn_music.music_deleted', '<', 1)
+            ->where('csn_music.cat_id', '!=', CAT_VIDEO)
+            ->where('csn_cover.album_music_total', '>', 1)
+            ->whereNotIn('csn_music.music_title', function($query) {
+                $query->select('music_title')
+                    ->from('csn_music_copyright');
+            })
+            ->whereNotIn('csn_music.music_artist', function($query) {
+                $query->select('artist_nickname')
+                    ->from('csn_artist_exception');
+            })
+            ->groupBy('csn_cover.cover_id', 'csn_cover.music_album', 'csn_cover.album_artist_1', 'csn_cover.album_artist_id_2', 'csn_cover.music_bitrate')
+            ->select(DB::raw('csn_cover.cover_id, csn_cover.music_album, csn_cover.album_artist_1, csn_cover.album_artist_id_2, csn_cover.music_bitrate, SUM(csn_music_download.music_downloads_today_0)/(csn_cover.album_music_total) as cover_downloads_total'))
+            ->orderBy('cover_downloads_total', 'desc');
+
+        $result = $result->limit(20)->get();
+        $album_hot_download = [];
+        foreach($result as $key => $item) {
+            $album_artist_id = $item->album_artist_id_1;
+            $album_artist = $item->album_artist_1;
+            if ($item->album_artist_id_2) {
+                $album_artist_id = $album_artist_id . ';' . $item->album_artist_id_2;
+                $album_artist = $album_artist . ';' . $item->album_artist_2;
+            }
+            $album_hot_download[] = [
+                'cover_id' => $item->cover_id,
+                'music_album' => $item->music_album,
+                'album_url' => Helpers::album_url(['cover_id' => $item->cover_id, 'music_album' => $item->music_album]),
+                'cover_url' =>  Helpers::cover_url($item->cover_id),
+                'music_artist' => $album_artist,
+                'music_artist_html' => !empty($album_artist) ? Helpers::rawHtmlArtists($album_artist_id, $album_artist) : '',
+                'music_bitrate' => $item->music_bitrate,
+                'music_bitrate_html' => Helpers::bitrate2str($item->music_bitrate),
+            ];
+        }
+
+        file_put_contents(resource_path().'/views/cache/def_home_album_hot.blade.php',
+            '<?php 
+if ( !ENV(\'IN_PHPBB\') )
+{
+    die(\'Hacking attempt\');
+    exit;
+}
+global $album_hot_download;
+    
+$album_hot_download = ' . var_export($album_hot_download, true) . ';
 ?>');
         return response(['Ok']);
     }

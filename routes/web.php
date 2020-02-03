@@ -21,6 +21,7 @@ Route::get('/sync/solr_music_delete', 'Sync\SolrSyncController@syncDeleteMusic')
 Route::get('/sync/solr_video_delete', 'Sync\SolrSyncController@syncDeleteVideo');
 
 Route::get('/sync/demo', 'Sync\MusicController@demo');
+Route::get('/sync/cover_hot', 'Sync\AlbumController@albumHot');
 Route::get('/sitemap_category.xml', 'Sitemap@category');
 Route::get('/sitemap_artist.xml', 'Sitemap@topArtist');
 Route::get('/sitemap_video.xml', 'Sitemap@newVideo');

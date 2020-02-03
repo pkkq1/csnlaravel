@@ -5,6 +5,7 @@ use App\Library\Helpers;
 // global variable file /case
 global $album_hot;
 global $album_new;
+global $album_hot_download;
 global $album_old;
 global $download_rows;
 global $music_new_uploads;
@@ -20,6 +21,7 @@ $catalog = config('constants.catalog');
 @section('content')
 
 @include('cache.def_home_album')
+@include('cache.def_home_album_hot')
 @include('cache.def_home_download')
 @include('cache.bxh.bxh_today')
 @include('cache.uploader.uploader_week')
@@ -47,7 +49,7 @@ $catalog = config('constants.catalog');
                         </div>
                     </div>
                     <?php
-                }, Helpers::getRandLimitArr($album_new, LIMIT_HOME_ALBUM_NEW));
+                }, Helpers::getRandLimitArr($album_hot_download, LIMIT_HOME_ALBUM_NEW));
             ?>
         </div>
         <script type="text/javascript">
