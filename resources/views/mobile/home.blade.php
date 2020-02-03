@@ -3,8 +3,8 @@
 <?php
 use App\Library\Helpers;
 // global variable file /case
+global $album_hot;
 global $album_new;
-global $album_hot_download;
 global $album_old;
 global $download_rows;
 global $top_uploader_rows;
@@ -18,7 +18,6 @@ $memberVip = Helpers::checkMemberVip();
 @extends('mobile.layouts.app')
 @section('content')
     @include('cache.def_home_album')
-    @include('cache.def_home_album_hot')
     @include('cache.def_home_download')
     @include('cache.def_home_album_cat')
     <div class="header">
@@ -63,7 +62,7 @@ $memberVip = Helpers::checkMemberVip();
                                     </div></a>
 
                                 <?php
-                                }, Helpers::getRandLimitArr($album_hot_download, LIMIT_HOME_ALBUM_NEW_MOBILE));
+                                }, Helpers::getRandLimitArr($album_new, LIMIT_HOME_ALBUM_NEW_MOBILE));
                                 ?>
                             </div>
                             <div class="container">
