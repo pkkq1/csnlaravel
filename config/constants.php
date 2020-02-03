@@ -14,13 +14,6 @@ return [
     ],
     'catalog' => [
 
-        'newyear' => [
-            'caption' => 'Chủ đề New Year',
-            'label' => 'New Year',
-            'user_id' => 1018430,
-            'img_web' => 'Newyear _ 345 x 110.png',
-            'img_mobile' => 'Newyear _ 345 x 110.png'
-        ],
         'romance' => [
             'caption' => 'Chủ đề romance',
             'label' => 'Romance',
@@ -83,6 +76,13 @@ return [
             'user_id' => 997943,
             'img_web' => 'Travel _ 345 x 110.png',
             'img_mobile' => 'Travel _ 345 x 110.png'
+        ],
+        'newyear' => [
+            'caption' => 'Chủ đề New Year',
+            'label' => 'New Year',
+            'user_id' => 1018430,
+            'img_web' => 'Newyear _ 345 x 110.png',
+            'img_mobile' => 'Newyear _ 345 x 110.png'
         ]
     ],
     'lang' => [
