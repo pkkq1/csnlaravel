@@ -49,7 +49,7 @@ $catalog = config('constants.catalog');
                     </div>
                 </div>
                 <?php
-                }, Helpers::getRandLimitArr($album_hot_download, LIMIT_HOME_ALBUM_NEW));
+                }, $album_hot_download);
                 ?>
             </div>
             <script type="text/javascript">

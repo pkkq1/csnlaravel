@@ -188,32 +188,33 @@ $video_new_uploads = ' . var_export($video_new_uploads, true) . ';
         }
         rsort($top_album_rows);
         $album_hot_download = [];
+        $key2=0;
         foreach ($top_album_rows as $key => $item) {
-            $album = $this->artistRepository->getModel()::find($item['id']);
-            if ($album) {
-                $album_artist_id = $item->album_artist_id_1;
-                $album_artist = $item->album_artist_1;
-                if ($item->album_artist_id_2) {
-                    $album_artist_id = $album_artist_id . ';' . $item->album_artist_id_2;
-                    $album_artist = $album_artist . ';' . $item->album_artist_2;
+            if($item['music_total'] > 2) {
+                $album = $this->coverRepository->getModel()::where('cover_id', $item['id'])->first();
+                if ($album) {
+                    $album_artist_id = $album->album_artist_id_1;
+                    $album_artist = $album->album_artist_1;
+                    if ($album->album_artist_id_2) {
+                        $album_artist_id = $album_artist_id . ';' . $album->album_artist_id_2;
+                        $album_artist = $album_artist . ';' . $album->album_artist_2;
+                    }
+                    $album_hot_download[] = [
+                        'music_album_points' => $item['music_downloads_today'],
+                        'cover_id' => $album->cover_id,
+                        'music_album' => $album->music_album,
+                        'album_url' => Helpers::album_url(['cover_id' => $album->cover_id, 'music_album' => $album->music_album]),
+                        'cover_url' =>  Helpers::cover_url($album->cover_id),
+                        'music_artist' => $album_artist,
+                        'music_artist_html' => !empty($album_artist) ? Helpers::rawHtmlArtists($album_artist_id, $album_artist) : '',
+                        'music_bitrate' => $album->music_bitrate,
+                        'music_bitrate_html' => Helpers::bitrate2str($album->music_bitrate),
+                    ];
                 }
-                $album_hot_download[] = [
-                    'music_album_points' => $item['music_downloads_today'],
-                    'music_total' => $item['music_total'],
-                    'cover_id' => $item->cover_id,
-                    'music_album' => $item->music_album,
-                    'album_url' => Helpers::album_url(['cover_id' => $item->cover_id, 'music_album' => $item->music_album]),
-                    'cover_url' => Helpers::cover_url($item->cover_id),
-                    'music_artist' => $album_artist,
-                    'music_artist_html' => !empty($album_artist) ? Helpers::rawHtmlArtists($album_artist_id, $album_artist) : '',
-                    'music_bitrate' => $item->music_bitrate,
-                    'music_bitrate_html' => Helpers::bitrate2str($item->music_bitrate),
-                ];
+                if (++$key2 == 20)
+                    break;
             }
-            if ($key == 20)
-                break;
         }
-
         file_put_contents(resource_path() . '/views/cache/def_home_album_hot.blade.php',
             '<?php 
 if ( !ENV(\'IN_PHPBB\') )

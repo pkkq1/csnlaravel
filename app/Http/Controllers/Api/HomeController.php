@@ -20,6 +20,7 @@ class HomeController extends Controller
     public function index(Request $request) {
         global $album_hot;
         global $album_new;
+        global $album_hot_download;
         global $album_old;
         global $download_rows;
         global $top_uploader_rows;
@@ -29,6 +30,7 @@ class HomeController extends Controller
         include(app_path() . '/../resources/views/cache/def_home_album.blade.php');
         include(app_path() . '/../resources/views/cache/def_home_download.blade.php');
         include(app_path() . '/../resources/views/cache/def_home_album_cat.blade.php');
+        include(app_path() . '/../resources/views/cache/def_home_album_hot.blade.php');
 
 //        $video_new_uploads = Helpers::convertArrHtmlCharsDecode($video_new_uploads);
         $music_new_uploads = Helpers::convertArrHtmlCharsDecode($music_new_uploads);
@@ -39,7 +41,7 @@ class HomeController extends Controller
             $item['cover_html'] = $item['cover_prv_html'];
         }
         return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => [
-            'album_hot_home' => Helpers::getRandLimitArr($album_new, LIMIT_HOME_ALBUM_NEW_MOBILE),
+            'album_hot_home' => $album_hot_download,
             'album_new_home' => Helpers::getRandLimitArr($album_new, LIMIT_HOME_MUSIC_NEW),
             'music_new_home' => Helpers::getRandLimitArr($music_new_uploads, LIMIT_HOME_ALBUM_OLD_MOBILE),
             'video_new_home' => Helpers::getRandLimitArr($video_new_uploads, LIMIT_HOME_VIDEO_NEW_MOBILE),
