@@ -38,8 +38,11 @@ global $pc_midroll;
 global $pc_midroll_2;
 $memberVip = Helpers::checkMemberVip();
 
+$music->music_artist = str_replace(';', '; ', $music->music_artist);
+$music->music_artist = str_replace('  ', ' ', str_replace('  ', ' ', $music->music_artist));
+
 $partListenFullUrl = Helpers::listen_url($music, '');
-$titleMeta = $music->music_title . ' - '. str_replace(';', ', ', $music->music_artist);
+$titleMeta = $music->music_title . ' - '. str_replace(';', ',', $music->music_artist);
 $file_url = Helpers::file_url($music);
 $lyric_array = Helpers::lyric_to_web($music->music_lyric);
 $artistHtml = Helpers::rawHtmlArtists($music->music_artist_id, $music->music_artist);
@@ -49,7 +52,7 @@ $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3
 $thumnailMusic =$musicSet['type_jw'] != 'video' ?  Helpers::cover_url($music->cover_id) : Helpers::thumbnail_url($music->toArray(), 'preview');
 $thumnailMeta = '';
 $music_lyric_karaoke = '';
-$titleExMeta = $music->music_title.'; '.$music->music_artist;
+$titleExMeta = $music->music_title.' - '.$music->music_artist;
 if($musicSet['type_listen'] == 'playlist') {
     $thumnailMeta = $musicSet['playlist']->playlist_cover;
     $titleExMeta = $musicSet['playlist']->playlist_title;
@@ -97,7 +100,7 @@ if($musicSet['type_listen'] == 'playlist') {
                     </ol>
                 </nav>
                 <div class="d-flex justify-content-between mb-3 box1 music-listen-title" style="line-height: 33px;">
-                    <h1 class="title">{{$music->music_title}} - <?php echo str_replace(";", "; ", $music->music_artist); ?></h1>
+                    <h1 class="title">{{$music->music_title}} - {{$music->music_artist}}</h1>
                     <span title="Đăng tải: {{date('d/m/Y h:i', $music->music_time)}}" class="d-flex listen"><i class="material-icons" style="padding-top: 3px;">headset</i> {{number_format($music->music_listen)}}&nbsp;&nbsp;<i class="material-icons" style="font-size: 28px;">cloud_download</i> {{number_format($music->music_downloads)}}</span>
                 </div>
                 <div class="card mb-4 detail_lyric_1">
