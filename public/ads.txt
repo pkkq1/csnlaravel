@@ -247,3 +247,5 @@ loopme.com, 10946, RESELLER, 6c8d5f95897a5a3b
 rubiconproject.com, 20744, RESELLER, 0bfd66d529a55807
 openx.com, 540298543, RESELLER, 6a698e2ec38604c6
 pubmatic.com, 158154, RESELLER, 5d62403b186f2ace
+#netlink 5/2/2020
+google.com, pub-7002491002409919, DIRECT, f08c47fec0942fa0
