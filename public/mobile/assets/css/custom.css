@@ -536,3 +536,6 @@ a.disabled {
     font-size: 11px;
     padding-top: 2px;
 }
+.owl-item .element{
+    display: block!important;
+}

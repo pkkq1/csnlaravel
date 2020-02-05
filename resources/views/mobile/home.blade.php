@@ -63,7 +63,7 @@ $memberVip = Helpers::checkMemberVip();
                                     </div></a>
 
                                 <?php
-                                }, $album_hot_download);
+                                }, array_slice($album_hot_download, 0, LIMIT_HOME_ALBUM_NEW_MOBILE));
                                 ?>
                             </div>
                             <div class="container">
