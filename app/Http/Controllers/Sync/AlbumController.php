@@ -200,6 +200,7 @@ $video_new_uploads = ' . var_export($video_new_uploads, true) . ';
                         $album_artist = $album_artist . ';' . $album->album_artist_2;
                     }
                     $album_hot_download[] = [
+                        'id' => $key2 + 1,
                         'music_album_points' => $item['music_downloads_today'],
                         'cover_id' => $album->cover_id,
                         'music_album' => $album->music_album,
