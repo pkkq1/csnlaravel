@@ -160,8 +160,9 @@ $catalog = config('constants.catalog');
                                     </div>
                                     <small class="type_music"><?php echo $item['music_bitrate_html']; ?></small>
                                 </div>
-                                <div class="media-right align-self-center">
-                                    <small class="time_stt"><?php echo Helpers::timeElapsedString($item['music_time']); ?></small>
+                                <div class="media-right align-self-center" style="display: grid; text-align: right">
+                                    <small class="time_stt"><i class="material-icons listen-material-icons"> alarm </i><?php echo Helpers::timeElapsedString($item['music_time']); ?></small>
+                                    <small class="time_stt"><i class="material-icons listen-material-icons"> headset </i>{{number_format($item['music_listen'])}}</small>
                                     <ul class="list-inline">
                                         <li class="list-inline-item"><a href="{{$url}}" target="_blank" title="nghe riêng nhạc {{$item['music_title']}}"><i class="material-icons">headset</i></a></li>
                                         <li class="list-inline-item"><a onclick="addPlaylistTable('{{str_replace("'", "\'", $item['music_title'])}}', '{{$item['music_id']}}', '{{isset($item['music_artist']) ? $item['music_artist'] : "false"}}', '{{isset($item['music_artist_id']) ? $item['music_artist_id'] : "false"}}')" href="javascript:void(0)" title="thêm vào playlist"><i class="material-icons">playlist_add</i></a></li>
@@ -201,8 +202,9 @@ $catalog = config('constants.catalog');
                                     </div>
                                     <small class="type_music c1"><?php echo $item['music_bitrate_html']; ?></small>
                                 </div>
-                                <div class="media-right align-self-center">
-                                    <small class="time_stt"><?php echo Helpers::timeElapsedString($item['music_time']); ?></small>
+                                <div class="media-right align-self-center" style="display: grid; text-align: right">
+                                    <small class="time_stt"><i class="material-icons listen-material-icons"> alarm </i><?php echo Helpers::timeElapsedString($item['music_time']); ?></small>
+                                    <small class="time_stt"><i class="material-icons listen-material-icons"> headset </i>{{number_format($item['music_listen'])}}</small>
                                     <ul class="list-inline">
                                         <li class="list-inline-item"><a href="{{$url}}" title="nghe riêng nhạc {{$item['music_title']}}"target="_blank" ><i class="material-icons">headset</i></a></li>
                                         <li class="list-inline-item"><a onclick="addPlaylistTable('{{str_replace("'", "\'", $item['music_title'])}}', {{$item['music_id']}}, {{isset($item['music_artist']) ? "'".$item['music_artist']."'" : "'false'"}}, {{isset($item['music_artist_id']) ? "'".$item['music_artist_id']."'" : "'false'"}})" href="javascript:void(0)" title="thêm vào playlist"><i class="material-icons">playlist_add</i></a></li>

@@ -23,8 +23,9 @@ use App\Library\Helpers;
             </div>
             <small class="type_music c1"><?php echo $item['music_bitrate_html'][0]; ?></small>
         </div>
-        <div class="media-right align-self-center">
-            <small class="time_stt"><i class="material-icons listen-material-icons"> play_arrow </i>{{number_format($item['music_listen'][0])}}</small>
+        <div class="media-right align-self-center" style="display: grid; text-align: right">
+            <small class="time_stt"><i class="material-icons listen-material-icons"> alarm </i><?php echo Helpers::timeElapsedString($item['music_time'][0]); ?></small>
+            <small class="time_stt"><i class="material-icons listen-material-icons"> headset </i>{{number_format($item['music_listen'][0])}}</small>
             <ul class="list-inline">
                 <li class="list-inline-item"><a href="{{$item['music_link'][0]}}" title="nghe riêng nhạc {{$item['music_title'][0]}}"><i class="material-icons">headset</i></a></li>
                 <li class="list-inline-item"><a href="{{Helpers::fbShareLink( $item['music_link'][0], true)}}" onclick="shareFbLink(event, '{{env('APP_URL').$item['music_link'][0]}}')" class="fb-share-link" title="chia sẻ {{$item['music_title'][0]}}"><i class="material-icons">share</i></a></li>

@@ -656,8 +656,8 @@ if($musicSet['type_listen'] == 'playlist') {
 
 @endsection
 @section('contentJS')
-    <script src="https://ssl.p.jwpcdn.com/player/v/8.1.3/jwplayer.js"></script>
-    {{--<script src="{{URL::to('/')}}/assets/jwplayer-7.12.0/jwplayer.js"></script>--}}
+    {{--<script src="https://ssl.p.jwpcdn.com/player/v/8.1.3/jwplayer.js"></script>--}}
+    <script src="{{URL::to('/')}}/assets/jwplayer-8.1.3.js"></script>
     {{--<script src="/js/m17.js"></script>--}}
     <script>
         var musicId = '<?php echo $music->music_id ?>';
