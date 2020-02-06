@@ -171,7 +171,6 @@ class SolrSyncController extends Controller
                     'music_time' => $item->music_time,
                     'solr_updated_time' => time(),
                 ];
-                dd($data);
                 $datas[] = $data;
                 //$datas[] = $data['id'];
                 //$this->Solr->addDocuments($data);
