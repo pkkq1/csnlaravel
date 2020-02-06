@@ -42,7 +42,7 @@ $catalog = config('constants.catalog');
                             </a>
                         </div>
                         <div class="card-body">
-                            <h3 class="card-title"><a href="{{$item['album_url']}}" title="{{$item['music_album']}}">{{$item['music_album']}}</a></h3>
+                            <span class="card-text">{{$item['id']}}.</span> <span class="card-title"><a href="{{$item['album_url']}}" title="{{$item['music_album']}}">{{$item['music_album']}}</a></span>
                             <p class="card-text author"><?php echo $item['music_artist_html'] ?></p>
                             <div class="card-text"><?php echo $item['music_bitrate_html'] ?></div>
                         </div>
