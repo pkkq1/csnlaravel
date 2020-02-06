@@ -73,6 +73,7 @@ class UploadEloquentRepository extends EloquentRepository implements UploadRepos
     public function musicByStage($stageArr, $fillOrder, $typeOrder, $page, $user = null)
     {
         $result = $this->_model::select('music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title', 'music_artist', 'music_artist_id', 'music_album_id', 'music_bitrate', 'music_filename', 'music_updated', 'music_last_update_time', 'music_note')
+            ->where('music_time', '>=', time() - 2592000)
             ->whereIn('music_state', $stageArr);
         if($user) {
             $result = $result->where('music_last_update_by', $user);
