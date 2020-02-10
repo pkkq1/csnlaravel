@@ -13,6 +13,8 @@ use App\Library\Helpers;
             <time class="comment_time"><?php echo Helpers::timeElapsedString($reply['comment_time']); ?></time>
             @if(Auth::check() && backpack_user()->can('comment_(can_block)'))
             <a class="comment_delete" href="javascript:void(0)" onclick="deleteComment('comment-reply', {{$reply['comment_reply_id']}}, {{$reply['comment_delete']}})">{{$reply['comment_delete'] ? 'Phục hồi' : 'Xóa'}}</a>
+            @else
+            <a class="comment_report" href="javascript:void(0)" onclick="reportComment('comment-reply', {{$reply['comment_reply_id']}})">...</a>
             @endif
         </div>
         <p class="media-text"><?php echo $reply['comment_delete'] ? '<i>Bình luận này đã bị xóa.</i>' : $reply['comment_text'] ?></p>

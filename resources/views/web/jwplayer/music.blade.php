@@ -245,6 +245,7 @@ if($musicSet['type_listen'] == 'playlist') {
                                                     @else
                                                         <a href="javascript:sugLyric();">Gợi ý lyric</a>
                                                         <a href="javascript:sugKaraoke();" style="margin-left: 10px;">Gợi ý karaoke</a>
+                                                        <a href="javascript:reportMusic();" style="margin-left: 10px;">Báo lỗi</a>
                                                     @endif
                                                 @endif
                                             </div>
@@ -1621,7 +1622,91 @@ if($musicSet['type_listen'] == 'playlist') {
                     });
                 }
                 <?php
+            }else{
+                ?>
+                function reportComment(type, id, comment_text) {
+                    confirmModal('Cho quản trị viên biết có gì không ổn với bình luận này. Tên bạn hoặc nội dung báo cáo sẽ không hiển thị với ai khác.' +
+                        '<textarea style="width: 100%" rows="5" placeholder="Nhập thêm thông tin bạn muốn báo cáo" class="text_report_comment"></textarea>' +
+                        '<select class="form-control select_report_comment">' +
+                        '   <option value="Spam">Spam</option>' +
+                        '   <option value="Vi phạm quy tắc">Vi phạm quy tắc CSN</option>' +
+                        '   <option value="Ngôn ngữ thù ghét">Ngôn ngữ thù ghét</option>' +
+                        '   <option value="Quấy rối">Quấy rối</option>' +
+                        '   <option value="Khác">Khác</option>' +
+                        '   </select>'
+                        , 'Báo cáo bình luận', 'modal-sm', 'Gửi cho quản trị viên');
+                    $("#myConfirmModal .btn-ok").one('click', function () {
+                        $.ajax({
+                            url: window.location.origin + '/report/comment',
+                            type: "POST",
+                            dataType: "json",
+                            data: {
+                                'type': type,
+                                'id': id,
+                                'comment_text': $('#comment-' + id).find('.media-text').first().html(),
+                                'music_id': '<?php echo $music->music_id; ?>',
+                                'music_name': '<?php echo str_replace("'", "\'", $music->music_title); ?>',
+                                'report_text': $('#myConfirmModal .text_report_comment').val(),
+                                'report_option': $('#myConfirmModal .select_report_comment').val(),
+                            },
+                            beforeSend: function () {
+                                if(loaded) return false;
+                                loaded = true;
+                            },
+                            success: function(response) {
+                                alertModal(response.message);
+                            }
+                        });
+                        $('.modal').find('.close_confirm').click();
+                    });
+
+
+
+                }
+                <?php
             }
+                ?>
+                function reportMusic() {
+                    confirmModal('Cho quản trị viên biết có gì không ổn với bài hát này. Tên bạn hoặc nội dung báo cáo sẽ không hiển thị với ai khác.' +
+                        '<textarea style="width: 100%" rows="5" placeholder="Nhập thêm thông tin bạn muốn báo cáo" class="text_report_music"></textarea>' +
+                        '<select class="form-control select_report_music">' +
+                        '   <option value="Spam">Spam</option>' +
+                        '   <option value="Vi phạm bản quyền">Vi phạm bản quyền</option>' +
+                        '   <option value="Không tải được">Không tải được</option>' +
+                        '   <option value="Chất lượng kém">Chất lượng kém</option>' +
+                        '   <option value="Thông tin chưa chính xác">Thông tin chưa chính xác</option>' +
+                        '   <option value="Bài hát bị lặp lại">Bài hát bị lặp lại</option>' +
+                        '   <option value="Lời bài hát chưa chính xác">Lời bài hát chưa chính xác</option>' +
+                        '   <option value="Karaoke chưa chính xác">Karaoke chưa chính xác</option>' +
+                        '   <option value="Lỗi khác">Lỗi khác</option>' +
+                        '   </select>'
+                        , 'Báo cáo bài hát', 'modal-sm', 'Gửi cho quản trị viên');
+                    $("#myConfirmModal .btn-ok").one('click', function () {
+                        $.ajax({
+                            url: window.location.origin + '/report/music',
+                            type: "POST",
+                            dataType: "json",
+                            data: {
+                                'music_id': '<?php echo $music->music_id; ?>',
+                                'music_name': '<?php echo str_replace("'", "\'", $music->music_title); ?>',
+                                'report_text': $('#myConfirmModal .text_report_music').val(),
+                                'report_option': $('#myConfirmModal .select_report_music').val(),
+                            },
+                            beforeSend: function () {
+                                if(loaded) return false;
+                                loaded = true;
+                            },
+                            success: function(response) {
+                                alertModal(response.message);
+                            }
+                        });
+                        $('.modal').find('.close_confirm').click();
+                    });
+
+
+
+                }
+        <?php
         }
         ?>
         /////////////////////////////
@@ -1674,8 +1759,7 @@ if($musicSet['type_listen'] == 'playlist') {
                             '\n' +
                             '[t1]Ta gần nhau hơn bằng những cái chạm nhẹ\n' +
                             '\n' +
-                            'We burn it up, you light me up" class="modal_lyric">' + response.data.lyric + '</textarea>', 'Gợi ý lyric');
-                        $('#myConfirmModal').find('.btn-ok').html('Gửi gợi ý').addClass('btn-lyric');
+                            'We burn it up, you light me up" class="modal_lyric">' + response.data.lyric + '</textarea>', 'Gợi ý lyric', 'modal-lg', 'Gửi gợi ý');
                         <?php
                         if(Auth::check() && backpack_user()->can('duyet_sua_nhac')) {
                         ?>
@@ -1684,7 +1768,6 @@ if($musicSet['type_listen'] == 'playlist') {
                         }
                         ?>
                         $('#myConfirmModal').on('hidden.bs.modal', function () {
-                            $('#myConfirmModal').find('.btn-ok').html('Đồng ý').removeClass('btn-lyric');
                             $('#myConfirmModal').find('.btn-edit').remove();
                         })
                         $("#myConfirmModal .btn-lyric").one('click', function () {

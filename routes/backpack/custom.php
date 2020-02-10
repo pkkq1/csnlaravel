@@ -62,6 +62,8 @@ Route::group([
     Route::get('/history_level/search_level_id/{id}', 'UserLeverController@showLevel');
     Route::get('/history_level/search_voucher_id/{id}', 'UserLeverController@showVoucher');
     CRUD::resource('history_level', 'UserLeverController');
+    CRUD::resource('report_music', 'ReportMusicController');
+    CRUD::resource('report_comment', 'ReportCommentController');
 
 });
 Route::get('admin/article_tag/search_tag', 'Backpack\NewsCRUD\app\Http\Controllers\Admin\ArticleCrudController@searchTags');

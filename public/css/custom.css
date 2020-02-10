@@ -1363,6 +1363,20 @@ form#login-form {
 .body_commnet_replay:hover .comment_delete{
     opacity: 1;
 }
+.comment_report {
+    opacity: 0;
+    position: absolute;
+    float: right;
+    right: 15px;
+    margin-top: 17px;
+}
+.body_commnet:hover .comment_report{
+    opacity: 1;
+}
+.body_commnet_replay:hover .comment_report{
+    opacity: 1;
+}
+
 .wapper-name {
     white-space: nowrap;
     overflow: hidden;

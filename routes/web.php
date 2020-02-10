@@ -245,6 +245,12 @@ Route::group(['middlewareGroups' => ['web']], function () {
             Route::post('update', ['as' => 'user.index', 'uses' => 'User\UserController@store']);
         });
 
+        // Report
+        Route::prefix('report/')->group(function () {
+            Route::post('comment', ['as' => 'report.comment', 'uses' => 'ReportController@reportComment']);
+            Route::post('music', ['as' => 'report.music', 'uses' => 'ReportController@reportMusic']);
+        });
+
         Route::get('roles',['as'=>'roles.index','uses'=>'RoleController@index']);
         Route::get('roles/create',['as'=>'roles.create','uses'=>'RoleController@create']);
 

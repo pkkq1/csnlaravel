@@ -107,7 +107,7 @@ function alertModal(content = 'Lỗi, không thực hiện được.') {
     $("#myModal").modal();
 
 }
-function confirmModal(content = 'Lỗi, không thực hiện được.', title = '', modal_size = 'modal-lg') {
+function confirmModal(content = 'Lỗi, không thực hiện được.', title = '', modal_size = 'modal-lg', nameBtnYes = 'Đồng ý', nameBtnNo = 'Hủy') {
     if(!content)
         content = 'Lỗi, không thực hiện được';
     $("#myConfirmModal .modal-header").addClass('hidden');
@@ -118,9 +118,8 @@ function confirmModal(content = 'Lỗi, không thực hiện được.', title =
     $("#myConfirmModal .modal-dialog").removeClass('modal-lg').addClass(modal_size);
     $("#myConfirmModal .modal-body").html('<div class="modal_content_csn">' + content + '</div>');
     $("#myConfirmModal").modal();
-    $('#myConfirmModal').on('hidden.bs.modal', function () {
-        $('#myConfirmModal').find('.btn-ok').html('Đồng ý');
-    });
+    $('#myConfirmModal').find('.btn-ok').html(nameBtnYes);
+    $('#myConfirmModal').find('.close_confirm').html(nameBtnNo);
 }
 
 function successModal(content = 'Lỗi, không thực hiện được') {
