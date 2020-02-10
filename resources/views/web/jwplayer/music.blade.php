@@ -1636,6 +1636,7 @@ if($musicSet['type_listen'] == 'playlist') {
                         '   </select>'
                         , 'Báo cáo bình luận', 'modal-sm', 'Gửi cho quản trị viên');
                     $("#myConfirmModal .btn-ok").one('click', function () {
+                        var offsetQualityCurrent = jwplayer(('csnplayer')).getCurrentQuality();
                         $.ajax({
                             url: window.location.origin + '/report/comment',
                             type: "POST",
@@ -1643,6 +1644,8 @@ if($musicSet['type_listen'] == 'playlist') {
                             data: {
                                 'type': type,
                                 'id': id,
+                                'url_music': window.location.href,
+                                'link_file_jw': jwplayer(('csnplayer')).getPlaylistItem()['sources'][offsetQualityCurrent]['file'],
                                 'comment_text': $('#comment-' + id).find('.media-text').first().html(),
                                 'music_id': '<?php echo $music->music_id; ?>',
                                 'music_name': '<?php echo str_replace("'", "\'", $music->music_title); ?>',
@@ -1682,11 +1685,14 @@ if($musicSet['type_listen'] == 'playlist') {
                         '   </select>'
                         , 'Báo cáo bài hát', 'modal-sm', 'Gửi cho quản trị viên');
                     $("#myConfirmModal .btn-ok").one('click', function () {
+                        var offsetQualityCurrent = jwplayer(('csnplayer')).getCurrentQuality();
                         $.ajax({
                             url: window.location.origin + '/report/music',
                             type: "POST",
                             dataType: "json",
                             data: {
+                                'url_music': window.location.href,
+                                'link_file_jw': jwplayer(('csnplayer')).getPlaylistItem()['sources'][offsetQualityCurrent]['file'],
                                 'music_id': '<?php echo $music->music_id; ?>',
                                 'music_name': '<?php echo str_replace("'", "\'", $music->music_title); ?>',
                                 'report_text': $('#myConfirmModal .text_report_music').val(),

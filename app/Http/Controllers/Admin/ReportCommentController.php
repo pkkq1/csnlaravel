@@ -91,6 +91,14 @@ class ReportCommentController extends CrudController
             'label' => 'Người gửi',
         ]);
         $this->crud->addColumn([
+            'name' => 'ip',
+            'label' => 'IP',
+        ]);
+        $this->crud->addColumn([
+            'name' => 'mod',
+            'label' => 'Giao diện',
+        ]);
+        $this->crud->addColumn([
             'name' => 'created_at',
             'label' => 'Ngày tạo',
             'type' => 'date',
@@ -100,6 +108,14 @@ class ReportCommentController extends CrudController
             'name'  => 'report_option',
             'label' => 'Lý do gửi',
             'type' => 'textarea',
+        ]);
+        $this->crud->addField([
+            'name'  => 'url_music',
+            'label' => 'URL đang nghe',
+        ]);
+        $this->crud->addField([
+            'name'  => 'link_file_jw',
+            'label' => 'FIle đang nghe',
         ]);
     }
 
