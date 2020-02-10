@@ -112,7 +112,7 @@ class ReportMusicController extends CrudController
         ]);
         $this->crud->addField([
             'name'  => 'link_file_jw',
-            'label' => 'FIle đang nghe',
+            'label' => 'File đang nghe',
         ]);
     }
 
