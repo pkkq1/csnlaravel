@@ -2,13 +2,23 @@
 use App\Models\ArtistUploadModel;
 use App\Models\LyricSuggestionModel;
 use App\Models\KaraokeSuggestionModel;
+use App\Models\ReportMusicModel;
+use App\Models\ReportCommentModel;
+
 $notif['artist_upload'] = ArtistUploadModel::count();
 $notif['lyric_sug'] = LyricSuggestionModel::count();
 $notif['kara_sug'] = KaraokeSuggestionModel::count();
+$notif['report_music'] = ReportMusicModel::count();
+$notif['report_cmt'] = ReportCommentModel::count();
 $htmlNotif['artist_upload'] = $notif['artist_upload'] > 0 ? '<span class="label pull-right bg-red _3-99 _3-98 red-important">'.($notif['artist_upload'] > 9 ? '9+' : $notif['artist_upload']).'</span>' : '';
 $htmlNotif['total_sug'] = ($notif['kara_sug'] + $notif['lyric_sug']) > 0 ? '<span class="label pull-right bg-red _3-99 _3-98 red-important">'.(($notif['kara_sug'] + $notif['lyric_sug']) > 9 ? '9+' : ($notif['kara_sug'] + $notif['lyric_sug'])).'</span>' : '';
 $htmlNotif['lyric_sug'] = $notif['lyric_sug'] > 0 ? '<span class="label pull-right bg-red _3-99 red-important">'.($notif['lyric_sug'] > 9 ? '9+' : $notif['lyric_sug']).'</span>' : '';
 $htmlNotif['kara_sug'] = $notif['kara_sug'] > 0 ? '<span class="label pull-right bg-red _3-99 red-important">'.($notif['kara_sug'] > 9 ? '9+' : $notif['kara_sug']).'</span>' : '';
+
+$htmlNotif['total_report'] = ($notif['report_music'] + $notif['report_cmt']) > 0 ? '<span class="label pull-right bg-red _3-99 _3-98 red-important">'.(($notif['report_music'] + $notif['report_cmt']) > 9 ? '9+' : ($notif['report_music'] + $notif['report_cmt'])).'</span>' : '';
+$htmlNotif['report_music'] = $notif['report_music'] > 0 ? '<span class="label pull-right bg-red _3-99 red-important">'.($notif['report_music'] > 9 ? '9+' : $notif['report_music']).'</span>' : '';
+$htmlNotif['report_cmt'] = $notif['report_cmt'] > 0 ? '<span class="label pull-right bg-red _3-99 red-important">'.($notif['report_cmt'] > 9 ? '9+' : $notif['report_cmt']).'</span>' : '';
+
 ?>
 <li><a href="{{ backpack_url('dashboard') }}"><i class="fa fa-dashboard"></i> <span>{{ trans('backpack::base.dashboard') }}</span></a></li>
 @if(backpack_user()->can('xet_duyet_ca_si_(list)') || backpack_user()->can('danh_sach_ca_si_(list)'))
@@ -94,10 +104,10 @@ $htmlNotif['kara_sug'] = $notif['kara_sug'] > 0 ? '<span class="label pull-right
 @endif
 @if(backpack_user()->can('report_(list)'))
     <li class="treeview">
-        <a href="#"><i class="fa fa-flag"></i> <span>Báo lỗi</span> <i class="fa fa-angle-left pull-right"></i></a>
+        <a href="#"><i class="fa fa-flag"></i> <span>Báo lỗi</span><span class="pull-right-container"><?php echo $htmlNotif['total_report'] ?></span><i class="fa fa-angle-left pull-right"></i></a>
         <ul class="treeview-menu">
-            <li><a href="{{ backpack_url('report_music') }}"><i class="fa fa-music"></i> <span>Nhạc</span></a></li>
-            <li><a href="{{ backpack_url('report_comment') }}"><i class="fa fa-comment"></i> <span>Bình luận</span></a></li>
+            <li><a href="{{ backpack_url('report_music') }}"><i class="fa fa-music"></i><span>Nhạc</span><span class="pull-right-container"><?php echo $htmlNotif['report_music'] ?></span></a></li>
+            <li><a href="{{ backpack_url('report_comment') }}"><i class="fa fa-comment"></i><span class="pull-right-container"></span><span>Bình luận</span><?php echo $htmlNotif['report_cmt'] ?></a></li>
         </ul>
     </li>
 @endif

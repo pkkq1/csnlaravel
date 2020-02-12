@@ -48,6 +48,7 @@ class ReportCommentController extends CrudController
         $this->crud->setModel("App\Models\ReportCommentModel");
         $this->crud->setEntityNameStrings('Báo cáo bình luận', 'Báo cáo bình luận');
         $this->crud->setRoute(config('backpack.base.route_prefix').'/report_comment');
+        $this->crud->orderBy('id', 'desc');
 //        $this->crud->setEntityNameStrings('menu item', 'menu items');
 
         $this->crud->addColumn([

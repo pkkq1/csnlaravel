@@ -48,6 +48,7 @@ class ReportMusicController extends CrudController
         $this->crud->setModel("App\Models\ReportMusicModel");
         $this->crud->setEntityNameStrings('Báo lỗi nhạc', 'Báo lỗi nhạc');
         $this->crud->setRoute(config('backpack.base.route_prefix').'/report_music');
+        $this->crud->orderBy('id', 'desc');
 //        $this->crud->setEntityNameStrings('menu item', 'menu items');
 
         $this->crud->addColumn([
