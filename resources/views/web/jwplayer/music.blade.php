@@ -1598,14 +1598,26 @@ if($musicSet['type_listen'] == 'playlist') {
         if(Auth::check()) {
             if(backpack_user()->can('comment_(can_block)')) {
                 ?>
-                function deleteComment(type, id) {
+                function deleteComment(typeCmt, id, typeAction) {
+                    confirmModal('Bạn có chắc chắn muốn xóa bình luận này không', '','modal-mg');
+                    $("#myConfirmModal .btn-ok").one('click', function () {
+                        actionComment(typeCmt, id, typeAction)
+                        $('.modal').find('.close_confirm').click();
+                        let intCmt = $('.music_comment').find('span').html();
+                        $('.music_comment').find('span').html(intCmt - 1);
+                    });
+                }
+                function actionComment(typeCmt, id, typeAction) {
                     $.ajax({
                         url: window.location.origin + '/comment/block',
                         type: "POST",
                         dataType: "json",
                         data: {
-                            'type': type,
+                            'type': typeCmt,
                             'id': id,
+                            'typeAc': typeAction,
+                            'music_id': '<?php echo $music->music_id; ?>',
+                            'cat_id': '<?php echo $music->cat_id ?>',
                         },
                         beforeSend: function () {
                             if(loaded) return false;
@@ -1613,8 +1625,12 @@ if($musicSet['type_listen'] == 'playlist') {
                         },
                         success: function(response) {
                             if(response.success) {
-                                $('#comment-' + id).find('.media-text').first().html(response.data.comment_text);
-                                $('#comment-' + id).find('.comment_delete').first().html(response.data.delete);
+                                if(response.message == 'delete') {
+                                    $('#comment-' + id).first().remove();
+                                }else{
+                                    $('#comment-' + id).find('.media-text').first().html(response.data.comment_text);
+                                    $('#comment-' + id).find('.actionComment').first().html(response.data.delete);
+                                }
                             }else {
                                 alertModal(response.message);
                             }

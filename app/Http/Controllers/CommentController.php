@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Redirect;
 use App\Repositories\Comment\CommentEloquentRepository;
 use App\Repositories\CommentReply\CommentReplyEloquentRepository;
 use App\Repositories\Music\MusicEloquentRepository;
+use App\Repositories\Video\VideoEloquentRepository;
 use App\Repositories\User\UserEloquentRepository;
 
 class CommentController extends Controller
@@ -27,15 +28,17 @@ class CommentController extends Controller
     protected $commentRepository;
     protected $commentReplayRepository;
     protected $musicRepository;
+    protected $videoRepository;
     protected $userRepository;
 
 
-    public function __construct(CommentEloquentRepository $commentRepository, CommentReplyEloquentRepository $commentReplayRepository, MusicEloquentRepository $musicRepository,
+    public function __construct(CommentEloquentRepository $commentRepository, CommentReplyEloquentRepository $commentReplayRepository, MusicEloquentRepository $musicRepository, VideoEloquentRepository $videoRepository,
                                 UserEloquentRepository $userRepository)
     {
         $this->commentRepository = $commentRepository;
         $this->commentReplayRepository = $commentReplayRepository;
         $this->musicRepository = $musicRepository;
+        $this->videoRepository = $videoRepository;
         $this->userRepository = $userRepository;
     }
 
@@ -116,21 +119,30 @@ class CommentController extends Controller
         }
     }
     function blockComment(Request $request) {
-         if(!backpack_user()->can('comment_(can_block)')){
-             abort(403, 'Lỗi truy cập, tài khoản bạn không có quyền block comment.');
-         }
+        if(!backpack_user()->can('comment_(can_block)')){
+            abort(403, 'Lỗi truy cập, tài khoản bạn không có quyền block comment.');
+        }
         if($request->type == 'comment') {
             $comment = $this->commentRepository->getModel()::where('comment_id', $request->id)->first();
         }else{
             $comment = $this->commentReplayRepository->getModel()::where('comment_reply_id', $request->id)->first();
         }
-        if(!$comment) {
-            Helpers::ajaxResult(false, 'Bình luận không tìm thấy', null);
+        if($request->typeAc == 'delete'){
+            $comment->delete();
+            if($request->cat_id == CAT_VIDEO) {
+                $this->videoRepository->decrementCol($request->music_id, 'music_comment');
+            }else{
+                $this->musicRepository->decrementCol($request->music_id, 'music_comment');
+            }
+            Helpers::ajaxResult(true, 'delete', []);
+        }else{
+            if(!$comment) {
+                Helpers::ajaxResult(false, 'Bình luận không tìm thấy', null);
+            }
+            $comment->comment_delete = !$comment->comment_delete;
+            $comment->comment_delete_by = Auth::user()->id;
+            $comment->save();
+            Helpers::ajaxResult(true, '', ['comment_text' => $comment->comment_delete ? '<i>Bình luận này đã bị ẩn.</i>' : $comment->comment_text, 'delete' => $comment->comment_delete ? 'Phục hồi': 'Ẩn']);
         }
-        $comment->comment_delete = !$comment->comment_delete;
-        $comment->comment_delete_by = Auth::user()->id;
-        $comment->save();
-        Helpers::ajaxResult(true, '', ['comment_text' => $comment->comment_delete ? '<i>Bình luận này đã bị xóa.</i>' : $comment->comment_text, 'delete' => $comment->comment_delete ? 'Phục hồi': 'Xóa']);
-
     }
 }

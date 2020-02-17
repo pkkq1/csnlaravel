@@ -108,6 +108,15 @@ class VideoEloquentRepository extends EloquentRepository implements VideoReposit
             ->Increment($field);
         return $result;
     }
+    public function decrementCol($id, $field)
+    {
+        $result = $this
+            ->_model
+            ->where('music_id', $id)
+            ->where('music_deleted', '<', 1)
+            ->decrement($field);
+        return $result;
+    }
     public function getCategoryVideo($catId, $catLevel, $year = null, $fillOrder, $typeOrder, $page)
     {
         $arrWhere[] = ['cat_id', $catId];

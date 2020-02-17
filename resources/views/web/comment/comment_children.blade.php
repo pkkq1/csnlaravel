@@ -12,11 +12,17 @@ use App\Library\Helpers;
             </h5>
             <time class="comment_time"><?php echo Helpers::timeElapsedString($reply['comment_time']); ?></time>
             @if(Auth::check() && backpack_user()->can('comment_(can_block)'))
-            <a class="comment_delete" href="javascript:void(0)" onclick="deleteComment('comment-reply', {{$reply['comment_reply_id']}}, {{$reply['comment_delete']}})">{{$reply['comment_delete'] ? 'Phục hồi' : 'Xóa'}}</a>
+                <div class="dropdown">
+                    <a class="comment_delete" href="javascript:void(0)" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">...</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item deleteComment" href="javascript:void(0)" onclick="deleteComment('comment', {{$item['comment_id']}}, 'delete')">Xóa</a>
+                        <a class="dropdown-item actionComment" href="javascript:void(0)" onclick="actionComment('comment', {{$item['comment_id']}}, '{{$item['comment_delete'] ? 'restore' : 'hidden'}}')">{{$item['comment_delete'] ? 'Phục hồi' : 'Ẩn'}}</a>
+                    </div>
+                </div>
             @else
             <a class="comment_report" href="javascript:void(0)" onclick="reportComment('comment-reply', {{$reply['comment_reply_id']}})">...</a>
             @endif
         </div>
-        <p class="media-text"><?php echo $reply['comment_delete'] ? '<i>Bình luận này đã bị xóa.</i>' : $reply['comment_text'] ?></p>
+        <p class="media-text"><?php echo $reply['comment_delete'] ? '<i>Bình luận này đã bị ẩn.</i>' : $reply['comment_text'] ?></p>
     </div>
 </div>

@@ -1355,7 +1355,6 @@ form#login-form {
     position: absolute;
     float: right;
     right: 15px;
-    margin-top: 17px;
 }
 .body_commnet:hover .comment_delete{
     opacity: 1;
