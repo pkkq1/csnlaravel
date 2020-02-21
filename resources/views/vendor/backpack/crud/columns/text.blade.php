@@ -1,7 +1,7 @@
 {{-- regular object attribute --}}
 @php
-	$value = data_get($entry, $column['name']);
-
+	$value = htmlspecialchars_decode(data_get($entry, $column['name']), ENT_QUOTES);
+	
 	if (is_array($value)) {
 		$value = json_encode($value);
 	}
