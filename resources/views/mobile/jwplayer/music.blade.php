@@ -675,12 +675,12 @@ $memberVip = Helpers::checkMemberVip();
                     offsetPlay = 0;
                 }
                 player.setCurrentQuality(offsetPlay);
-                alertModal('Xin lỗi bài hát này đã bị lỗi! Sẽ chuyển qua chất lượng khác');
+                alertModal('Xin lỗi bài hát này đã bị lỗi! <a href="javascript:window.location.reload();">Click vào đây</a> để chuyển qua chất lượng khác');
                 if(offsetPlay < 2) { // 32k, 128k
                     location.reload();
                 }
             } else {
-                alertModal('Xin lỗi bài hát này đã bị lỗi! Vui lòng trải nghiệm video khác');
+                alertModal('Xin lỗi bài hát này đã bị lỗi! <a href="javascript:window.location.reload();">Click vào đây</a> để chuyển qua chất lượng khác');
                 // location.href = "/";
                 $.ajax({
                     url: window.location.origin + '/sys/error_slow_bug',
