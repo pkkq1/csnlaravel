@@ -62,7 +62,9 @@ class BxhCategoryController extends Controller
             )->toArray();
             foreach($result as $item2) {
                 if(!Helpers::checkExitsExcepArtist($item2['music_artist'], $artistExp) || !$this->uploadExRepository->checkExist($item2['music_title'], $item2['music_artist'])) {
-                    $item2['cover_html'] = Helpers::cover_url($item2['cover_id'], explode(';', $item2['music_artist_id'])[0]);
+                    $cover_html = Helpers::cover_url($item2['cover_id'], explode(';', $item2['music_artist_id'])[0]);
+                    $item2['cover_html'] = $cover_html;
+                    $item2['cover_thumb_html'] = str_replace(MUSIC_COVER_PATH, MUSIC_COVER_THUMB_PATH, $cover_html);
                     $item2['music_url'] = Helpers::listen_url($item2, false);
                     $item2['music_artist_html'] = Helpers::rawHtmlArtists($item2['music_artist_id'], $item2['music_artist']);
                     $item2['music_bitrate_html'] = Helpers::bitrate2str($item2['music_bitrate']);
@@ -78,7 +80,9 @@ class BxhCategoryController extends Controller
             )->toArray();
             foreach($result as $item2) {
                 if(!Helpers::checkExitsExcepArtist($item2['music_artist'], $artistExp) || !$this->uploadExRepository->checkExist($item2['music_title'], $item2['music_artist'])) {
-                    $item2['cover_html'] = Helpers::cover_url($item2['cover_id'], explode(';', $item2['music_artist_id'])[0]);
+                    $cover_html = Helpers::cover_url($item2['cover_id'], explode(';', $item2['music_artist_id'])[0]);
+                    $item2['cover_html'] = $cover_html;
+                    $item2['cover_thumb_html'] = str_replace(MUSIC_COVER_PATH, MUSIC_COVER_THUMB_PATH, $cover_html);
                     $item2['music_url'] = Helpers::listen_url($item2, false);
                     $item2['music_artist_html'] = Helpers::rawHtmlArtists($item2['music_artist_id'], $item2['music_artist']);
                     $item2['music_bitrate_html'] = Helpers::size2str($item2['music_width'], $item2['music_height']);
@@ -111,7 +115,9 @@ $hot_video_rows = ' . var_export($ressultVideo, true) . ';
                 )->toArray();
                 DB::disconnect('mysql');
                 foreach ($result as $item2) {
-                    $item2['cover_html'] = Helpers::cover_url($item2['cover_id'], explode(';', $item2['music_artist_id'])[0]);
+                    $cover_html = Helpers::cover_url($item2['cover_id'], explode(';', $item2['music_artist_id'])[0]);
+                    $item2['cover_html'] = $cover_html;
+                    $item2['cover_thumb_html'] = str_replace(MUSIC_COVER_PATH, MUSIC_COVER_THUMB_PATH, $cover_html);
                     $item2['music_url'] = Helpers::listen_url($item2, false);
                     $item2['music_artist_html'] = Helpers::rawHtmlArtists($item2['music_artist_id'], $item2['music_artist']);
                     $item2['music_bitrate_html'] = Helpers::bitrate2str($item2['music_bitrate']);
@@ -124,7 +130,9 @@ $hot_video_rows = ' . var_export($ressultVideo, true) . ';
                 )->toArray();
                 DB::disconnect('mysql');
                 foreach ($result as $item2) {
-                    $item2['cover_html'] = Helpers::cover_url($item2['cover_id'], explode(';', $item2['music_artist_id'])[0]);
+                    $cover_html = Helpers::cover_url($item2['cover_id'], explode(';', $item2['music_artist_id'])[0]);
+                    $item2['cover_html'] = $cover_html;
+                    $item2['cover_thumb_html'] = str_replace(MUSIC_COVER_PATH, MUSIC_COVER_THUMB_PATH, $cover_html);
                     $item2['music_url'] = Helpers::listen_url($item2, false);
                     $item2['music_artist_html'] = Helpers::rawHtmlArtists($item2['music_artist_id'], $item2['music_artist']);
                     $item2['music_bitrate_html'] = Helpers::size2str($item2['music_width'], $item2['music_height']);
@@ -160,7 +168,9 @@ $hot_video_rows = ' . var_export($ressultVideo, true) . ';
                 ], $year)->toArray();
                 DB::disconnect('mysql');
                 foreach($result as $item2) {
-                    $item2['cover_html'] = Helpers::cover_url($item2['cover_id'], explode(';', $item2['music_artist_id'])[0]);
+                    $cover_html = Helpers::cover_url($item2['cover_id'], explode(';', $item2['music_artist_id'])[0]);
+                    $item2['cover_html'] = $cover_html;
+                    $item2['cover_thumb_html'] = str_replace(MUSIC_COVER_PATH, MUSIC_COVER_THUMB_PATH, $cover_html);
                     $item2['music_url'] = Helpers::listen_url($item2, false);
                     $item2['music_artist_html'] = Helpers::rawHtmlArtists($item2['music_artist_id'], $item2['music_artist']);
                     $item2['music_bitrate_html'] = Helpers::bitrate2str($item2['music_bitrate']);
@@ -173,7 +183,9 @@ $hot_video_rows = ' . var_export($ressultVideo, true) . ';
                 ], $year)->toArray();
                 DB::disconnect('mysql');
                 foreach($result as $item2) {
-                    $item2['cover_html'] = Helpers::cover_url($item2['cover_id'], explode(';', $item2['music_artist_id'])[0]);
+                    $cover_html = Helpers::cover_url($item2['cover_id'], explode(';', $item2['music_artist_id'])[0]);
+                    $item2['cover_html'] = $cover_html;
+                    $item2['cover_thumb_html'] = str_replace(MUSIC_COVER_PATH, MUSIC_COVER_THUMB_PATH, $cover_html);
                     $item2['music_url'] = Helpers::listen_url($item2, false);
                     $item2['music_artist_html'] = Helpers::rawHtmlArtists($item2['music_artist_id'], $item2['music_artist']);
                     $item2['music_bitrate_html'] = Helpers::size2str($item2['music_width'], $item2['music_height']);
@@ -207,7 +219,9 @@ $hot_video_rows = ' . var_export($ressultVideo, true) . ';
                     ], $year, $firstDate, $lastDate)->toArray();
                     DB::disconnect('mysql');
                     foreach($result as $item2) {
-                        $item2['cover_html'] = Helpers::cover_url($item2['cover_id'], explode(';', $item2['music_artist_id'])[0]);
+                        $cover_html = Helpers::cover_url($item2['cover_id'], explode(';', $item2['music_artist_id'])[0]);
+                        $item2['cover_html'] = $cover_html;
+                        $item2['cover_thumb_html'] = str_replace(MUSIC_COVER_PATH, MUSIC_COVER_THUMB_PATH, $cover_html);
                         $item2['music_url'] = Helpers::listen_url($item2, false);
                         $item2['music_artist_html'] = Helpers::rawHtmlArtists($item2['music_artist_id'], $item2['music_artist']);
                         $item2['music_bitrate_html'] = Helpers::bitrate2str($item2['music_bitrate']);
@@ -219,7 +233,9 @@ $hot_video_rows = ' . var_export($ressultVideo, true) . ';
                     ], $year, $firstDate, $lastDate)->toArray();
                     DB::disconnect('mysql');
                     foreach($result as $item2) {
-                        $item2['cover_html'] = Helpers::cover_url($item2['cover_id'], explode(';', $item2['music_artist_id'])[0]);
+                        $cover_html = Helpers::cover_url($item2['cover_id'], explode(';', $item2['music_artist_id'])[0]);
+                        $item2['cover_html'] = $cover_html;
+                        $item2['cover_thumb_html'] = str_replace(MUSIC_COVER_PATH, MUSIC_COVER_THUMB_PATH, $cover_html);
                         $item2['music_url'] = Helpers::listen_url($item2, false);
                         $item2['music_artist_html'] = Helpers::rawHtmlArtists($item2['music_artist_id'], $item2['music_artist']);
                         $item2['music_bitrate_html'] = Helpers::size2str($item2['music_width'], $item2['music_height']);

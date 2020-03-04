@@ -41,10 +41,12 @@ class AlbumCatController extends Controller
                     $album_artist_id = $album_artist_id . ';' . $item['album_artist_id_2'];
                     $album_artist = $album_artist . ';' . $item['album_artist_2'];
                 }
+                $cover_url = Helpers::cover_url($item['cover_id']);
                 $album_cat_new[$cat][] = [
                     'cover_id' => $item['cover_id'],
                     'music_album' => $item['music_album'],
-                    'cover_url' => Helpers::cover_url($item['cover_id']),
+                    'cover_url' => $cover_url,
+                    'cover_thumb_url' => str_replace(MUSIC_COVER_PATH, MUSIC_COVER_THUMB_PATH, $cover_url),
                     'album_url' => Helpers::album_url($item),
                     'music_artist' => $album_artist,
                     'album_artist_id' => $album_artist_id,

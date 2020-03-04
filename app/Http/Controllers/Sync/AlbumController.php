@@ -49,11 +49,13 @@ class AlbumController extends Controller
                 $album_artist_id = $album_artist_id . ';' . $item->album_artist_id_2;
                 $album_artist = $album_artist . ';' . $item->album_artist_2;
             }
+            $cover_url = Helpers::cover_url($item->cover_id);
             $album_new[] = [
                 'cover_id' => $item->cover_id,
                 'music_album' => $item->music_album,
                 'album_url' => Helpers::album_url(['cover_id' => $item->cover_id, 'music_album' => $item->music_album]),
-                'cover_url' => Helpers::cover_url($item->cover_id),
+                'cover_url' => $cover_url,
+                'cover_thumb_url' => str_replace(MUSIC_COVER_PATH, MUSIC_COVER_THUMB_PATH, $cover_url),
                 'music_artist' => $album_artist,
                 'music_artist_html' => !empty($album_artist) ? Helpers::rawHtmlArtists($album_artist_id, $album_artist) : '',
                 'music_bitrate' => $item->music_bitrate,
@@ -70,11 +72,13 @@ class AlbumController extends Controller
                 $album_artist_id = $album_artist_id . ';' . $item->album_artist_id_2;
                 $album_artist = $album_artist . ';' . $item->album_artist_2;
             }
+            $cover_url = Helpers::cover_url($item->cover_id);
             $album_old[] = [
                 'cover_id' => $item->cover_id,
                 'music_album' => $item->music_album,
                 'album_url' => Helpers::album_url(['cover_id' => $item->cover_id, 'music_album' => $item->music_album]),
-                'cover_url' => Helpers::cover_url($item->cover_id),
+                'cover_url' => $cover_url,
+                'cover_thumb_url' => str_replace(MUSIC_COVER_PATH, MUSIC_COVER_THUMB_PATH, $cover_url),
                 'music_artist' => $album_artist,
                 'music_artist_id' => $album_artist_id,
                 'music_artist_html' => !empty($album_artist) ? Helpers::rawHtmlArtists($album_artist_id, $album_artist) : '',
@@ -199,13 +203,15 @@ $video_new_uploads = ' . var_export($video_new_uploads, true) . ';
                         $album_artist_id = $album_artist_id . ';' . $album->album_artist_id_2;
                         $album_artist = $album_artist . ';' . $album->album_artist_2;
                     }
+                    $cover_url = Helpers::cover_url($album->cover_id);
                     $album_hot_download[] = [
                         'id' => $key2 + 1,
                         'music_album_points' => $item['music_downloads_today'],
                         'cover_id' => $album->cover_id,
                         'music_album' => $album->music_album,
                         'album_url' => Helpers::album_url(['cover_id' => $album->cover_id, 'music_album' => $album->music_album]),
-                        'cover_url' =>  Helpers::cover_url($album->cover_id),
+                        'cover_url' => $cover_url,
+                        'cover_thumb_url' => str_replace(MUSIC_COVER_PATH, MUSIC_COVER_THUMB_PATH, $cover_url),
                         'music_artist' => $album_artist,
                         'music_artist_html' => !empty($album_artist) ? Helpers::rawHtmlArtists($album_artist_id, $album_artist) : '',
                         'music_bitrate' => $album->music_bitrate,

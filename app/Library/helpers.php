@@ -1376,5 +1376,9 @@ class Helpers
         }
         return false;
     }
+    public static function coverThumb($cover_url)
+    {
+        return str_replace(MUSIC_COVER_PATH, MUSIC_COVER_THUMB_PATH, $cover_url);
+    }
 
 }
