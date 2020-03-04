@@ -146,7 +146,7 @@ $catalog = config('constants.catalog');
                             <li class="media align-items-stretch items-stretch-{{$item['music_id']}}">
                                 <div class="media-left align-items-stretch mr-2">
                                     <a href="{{$url}}" title="{{$item['music_title']}}">
-                                        <img src="{{$item['cover_thumb_html']}}" alt="{{$item['music_title']}}">
+                                        <img src="{{$item['cover_html']}}" alt="{{$item['music_title']}}">
                                         <i class="material-icons">play_circle_outline</i>
                                         @if($item['cat_id'] == CAT_BEAT)
                                             <p class="time text-white mb-0 py-1">Beat</p>
@@ -188,7 +188,7 @@ $catalog = config('constants.catalog');
                             <li class="media align-items-stretch">
                                 <div class="media-left align-items-stretch mr-2 items-stretch-{{$item['music_id']}}">
                                     <a href="{{$url}}" title="">
-                                        <img src="{{$item['cover_thumb_html']}}" alt="{{$item['music_title']}}">
+                                        <img src="{{$item['cover_html']}}" alt="{{$item['music_title']}}">
                                         <i class="material-icons">play_circle_outline</i>
                                         @if($item['cat_id'] == CAT_BEAT)
                                             <p class="time text-white mb-0 py-1">Beat</p>
@@ -349,7 +349,7 @@ $catalog = config('constants.catalog');
                             <li class="media {{($i == 1 ? 'first stand' : ($i == 2 ? 'now up' : ($i == 3 ? 'now down' : 'now')))}} align-items-stretch">
                                 <div class="media-left mr-3">
                                     <span></span>
-                                    <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{$item['cover_thumb_html']}}" alt="{{$item['music_title']}}">
+                                    <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{$item['cover_html']}}" alt="{{$item['music_title']}}">
                                         @if($item['cat_id'] == CAT_BEAT)
                                             <p class="time time-bxh-home text-white mb-0 py-1">Beat</p>
                                         @endif
@@ -379,7 +379,7 @@ $catalog = config('constants.catalog');
                             <li class="media {{($i == 1 ? 'first stand' : ($i == 2 ? 'now up' : ($i == 3 ? 'now down' : 'now')))}} align-items-stretch">
                                 <div class="media-left mr-3">
                                     <span></span>
-                                    <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{$item['cover_thumb_html']}}" alt="{{$item['music_title']}}">
+                                    <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{$item['cover_html']}}" alt="{{$item['music_title']}}">
                                         @if($item['cat_id'] == CAT_BEAT)
                                             <p class="time time-bxh-home text-white mb-0 py-1">Beat</p>
                                         @endif
@@ -409,7 +409,7 @@ $catalog = config('constants.catalog');
                             <li class="media {{($i == 1 ? 'first stand' : ($i == 2 ? 'now up' : ($i == 3 ? 'now down' : 'now')))}} align-items-stretch">
                                 <div class="media-left mr-3">
                                     <span></span>
-                                    <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{$item['cover_thumb_html']}}" alt="{{$item['music_title']}}">
+                                    <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{$item['cover_html']}}" alt="{{$item['music_title']}}">
                                         @if($item['cat_id'] == CAT_BEAT)
                                             <p class="time time-bxh-home text-white mb-0 py-1">Beat</p>
                                         @endif
@@ -439,7 +439,7 @@ $catalog = config('constants.catalog');
                             <li class="media {{($i == 1 ? 'first stand' : ($i == 2 ? 'now up' : ($i == 3 ? 'now down' : 'now')))}} align-items-stretch">
                                 <div class="media-left mr-3">
                                     <span></span>
-                                    <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{$item['cover_thumb_html']}}" alt="{{$item['music_title']}}">
+                                    <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{$item['cover_html']}}" alt="{{$item['music_title']}}">
                                         @if($item['cat_id'] == CAT_BEAT)
                                             <p class="time time-bxh-home text-white mb-0 py-1">Beat</p>
                                         @endif
