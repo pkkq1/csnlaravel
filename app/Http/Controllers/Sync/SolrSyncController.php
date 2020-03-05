@@ -123,6 +123,7 @@ class SolrSyncController extends Controller
                 $composerCharset = htmlspecialchars(Helpers::strReplaceSolr(Helpers::khongdau($composerCharset, ' ')), ENT_QUOTES);
 //            $lyricSearch = Helpers::replaceKeySearch($item->music_lyric);
 //            $lyricCharset = Helpers::khongdau(str_replace("\n", ' ', $lyricSearch), ' ');
+                $music_cover = Helpers::cover_url($item->cover_id);
                 $data = [
                     'id' => 'music_' . $item->music_id,
                     'music_id' => $item->music_id,
@@ -140,7 +141,8 @@ class SolrSyncController extends Controller
 //                'music_lyric_search' => $lyricSearch,
                     //'music_lyric_charset' => $lyricCharset,
                     'music_bitrate_html' => Helpers::bitrate2str($item->music_bitrate),
-                    'music_cover' => Helpers::cover_url($item->cover_id),
+                    'music_cover' => $music_cover,
+                    'music_cover_thumb' => Helpers::coverThumb($music_cover),
                     'music_link' => Helpers::listen_url($item->toArray(), false),
                     'music_filename' => $item->music_filename,
                     'music_artist' => $item->music_artist, //str_replace(';', ',', $item->music_artist),
@@ -562,6 +564,7 @@ class SolrSyncController extends Controller
             $artistSearch = Helpers::replaceKeySearch($music_artist);
             $artistCharset = Helpers::strReplaceSolr(Helpers::khongdau($artistSearch, ' '));
 
+            $album_cover = Helpers::cover_url($item->cover_id);
             $data = [
                 'id' => 'cover_' . $item->cover_id,
                 'cover_id' => $item->cover_id,
@@ -572,7 +575,8 @@ class SolrSyncController extends Controller
                 'music_album_artist_charset' => $titleCharset . ' ' . $artistCharset,
                 'music_album_charset_nospace' => Helpers::replaceKeySearch(str_replace(' ', '', $titleCharset)),
                 'music_album_artist_charset_nospace' => str_replace(' ', '', $titleCharset) . '' . str_replace(' ', '', $artistCharset),
-                'album_cover' => Helpers::cover_url($item->cover_id),
+                'album_cover' => $album_cover,
+                'album_cover_thumb' => Helpers::coverThumb($album_cover),
                 'cover_filename' => $item->cover_filename,
                 'album_cat' => !empty($album_cat) ? $album_cat : '',
                 'album_link' => Helpers::album_url($item->toArray()),
