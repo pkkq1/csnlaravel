@@ -85,7 +85,7 @@ global $hot_video_rows;
                                     </div>
                                     <div class="media-left align-items-stretch mr-2">
                                         <a href="{{$url}}" title="{{$item['music_title']}}">
-                                            <img src="{{$item['cover_html']}}" alt="{{$item['music_title']}}">
+                                            <img src="{{$item['cover_thumb_html']}}" alt="{{$item['music_title']}}">
                                             <i class="material-icons">play_circle_outline</i>
                                         </a>
                                     </div>
