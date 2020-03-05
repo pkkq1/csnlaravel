@@ -160,6 +160,11 @@ class ArtistController extends CrudController
     }
     public function edit($id, $template = false)
     {
+        $RqUri = $_SERVER['REQUEST_URI'];
+        if($_SERVER['HTTP_HOST'] !== 'upload.chiasenhac.vn') {
+            header("Location: ".env('UPLOAD_TEMPLATE_URL').$_SERVER['REQUEST_URI']);
+            exit;
+        }
         $this->crud->hasAccessOrFail('update');
 
         // get entry ID from Request (makes sure its the last ID for nested resources)
