@@ -29,7 +29,7 @@ $mySelf = (Auth::check() && Auth::user()->id == $user_id);
                     </div>
                     <div class="media-left align-items-stretch mr-2">
                         <a href="{{$url}}" title="{{$item['music_title']}}">
-                            <img src="{{Helpers::cover_url($item['cover_id'])}}" alt="{{$item['music_title']}}">
+                            <img src="{{Helpers::coverThumb(Helpers::cover_url($item['cover_id']))}}" alt="{{$item['music_title']}}">
                             <i class="material-icons">play_circle_outline</i>
                         </a>
                     </div>
@@ -69,7 +69,7 @@ $mySelf = (Auth::check() && Auth::user()->id == $user_id);
                     </div>
                     <div class="media-left align-items-stretch mr-2">
                         <a href="{{$url}}" title="{{$item['music_title']}}">
-                            <img src="{{Helpers::cover_url($item['cover_id'])}}" alt="{{$item['music_title']}}">
+                            <img src="{{Helpers::coverThumb(Helpers::cover_url($item['cover_id']))}}" alt="{{$item['music_title']}}">
                             <i class="material-icons">play_circle_outline</i>
                         </a>
                     </div>

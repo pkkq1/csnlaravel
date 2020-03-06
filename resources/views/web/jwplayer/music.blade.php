@@ -627,7 +627,7 @@ if($musicSet['type_listen'] == 'playlist') {
                         <li class="media align-items-stretch">
                             <div class="media-left align-items-stretch mr-2">
                                 <a href="{{$url}}" title="{{$item['music_title']}}">
-                                    <img class="{{$typeJw == 'video' ? 'video_thumbnail' : ''}}" src="{{$typeJw == 'video' ? Helpers::thumbnail_url($item) : Helpers::cover_url($item['cover_id'])}}" alt="">
+                                    <img class="{{$typeJw == 'video' ? 'video_thumbnail' : ''}}" src="{{$typeJw == 'video' ? Helpers::thumbnail_url($item) : Helpers::coverThumb(Helpers::cover_url($item['cover_id']))}}" alt="">
                                     <i class="material-icons">play_circle_outline</i>
                                     <span class="cover"></span>
                                 </a>

@@ -78,7 +78,7 @@ $memberVip = Helpers::checkMemberVip();
                                         $url = $item['music_url'];
                                         ?>
                                         <a href="{{$url}}"><div class="element mb-2">
-                                            <div class="image100 mr-2 d-inline-block align-middle" style="background : url('{{$item['cover_html']}}') no-repeat center;background-size: cover;">
+                                            <div class="image100 mr-2 d-inline-block align-middle" style="background : url('{{$item['cover_thumb_html']}}') no-repeat center;background-size: cover;">
                                                 @if($item['cat_id'] == CAT_BEAT)
                                                     <p class="time text-white mb-0 py-1">Beat</p>
                                                 @endif
@@ -397,7 +397,7 @@ $memberVip = Helpers::checkMemberVip();
                                     $url = $item['music_url'];
                                     ?>
                                     <div class="element mb-2">
-                                        <a href="{{$url}}"><div class="image100 mr-2 d-inline-block align-middle" style="background : url('{{$item['cover_html']}}') no-repeat center;background-size: cover;">
+                                        <a href="{{$url}}"><div class="image100 mr-2 d-inline-block align-middle" style="background : url('{{$item['cover_thumb_html']}}') no-repeat center;background-size: cover;">
                                                 @if($item['cat_id'] == CAT_BEAT)
                                                     <p class="time text-white mb-0 py-1">Beat</p>
                                                 @endif

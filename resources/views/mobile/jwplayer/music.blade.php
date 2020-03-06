@@ -84,7 +84,7 @@ $memberVip = Helpers::checkMemberVip();
                                 <div id="companion_cover">
                                     <div id="bg_blue" style="display: none; background: url('{{$thumnailMusic}}') no-repeat center;background-size: cover;padding-bottom: 70%;"
                                      class="image bg-blur"></div>
-                                    <div style="background: url('{{Helpers::cover_url($music->cover_id)}}') no-repeat center;background-size: cover;padding: 20%;"
+                                    <div style="background: url('{{Helpers::coverThumb(Helpers::cover_url($item['cover_id']))}}') no-repeat center;background-size: cover;padding: 20%;"
                                      class="image-main"></div>
                                 </div>
                                 <div id="csnplayerads" style="position:relative; z-index: 99999; width:100%;"> </div>
@@ -166,7 +166,7 @@ $memberVip = Helpers::checkMemberVip();
                                                 ?>
                                                 @if($item['cat_id'] != CAT_VIDEO)
                                                     <div class="element mb-2 card-footer {{($music->music_id == $item['music_id'] ? (count($musicSet['playlist_music']) > 1 ? 'listen' : '') : '')}}" id="music-listen-{{$item['music_id']}}">
-                                                        <a href="{{$urlAlbum}}"><div style="background : url(<?php echo Helpers::cover_url($item['cover_id']) ?>) no-repeat center;background-size: cover;" class="image image100px mr-2 d-inline-block align-middle"></div></a>
+                                                        <a href="{{$urlAlbum}}"><div style="background : url(<?php echo Helpers::coverThumb(Helpers::cover_url($item['cover_id'])) ?>) no-repeat center;background-size: cover;" class="image image100px mr-2 d-inline-block align-middle"></div></a>
                                                         <div class="content d-inline-block align-middle">
                                                             <a href="{{$urlAlbum}}"><h6 class="name_song text-black mb-1 card-title">{{$item['music_title']}}</h6></a>
                                                             <p class="name_singer text-gray mb-1 author"><?php echo $item['music_artist_html']; ?></p>
@@ -255,7 +255,7 @@ $memberVip = Helpers::checkMemberVip();
                                                 ?>
                                                 @if($typeJw != 'video')
                                                 <div class="element mb-2">
-                                                    <a href="{{$url}}"><div style="background : url(<?php echo Helpers::cover_url($item['cover_id']) ?>) no-repeat center;background-size: cover;" class="image image100px mr-2 d-inline-block align-middle"></div></a>
+                                                    <a href="{{$url}}"><div style="background : url(<?php echo Helpers::coverThumb(Helpers::cover_url($item['cover_id'])) ?>) no-repeat center;background-size: cover;" class="image image100px mr-2 d-inline-block align-middle"></div></a>
                                                     <div class="content d-inline-block align-middle media">
                                                         <a href="{{$url}}" class="media-left"><h6 class="name_song text-black mb-1 card-title">{{$item['music_title']}}</h6></a>
                                                         <p class="name_singer text-gray mb-1 author"><?php echo $item['music_artist_html']; ?></p>
@@ -311,7 +311,7 @@ $memberVip = Helpers::checkMemberVip();
                                                 $url = Helpers::listen_url($item);
                                                 ?>
                                                 <div class="element mb-2">
-                                                    <a href="{{$url}}"><div style="background : url(<?php echo Helpers::cover_url($item['cover_id']) ?>) no-repeat center;background-size: cover;" class="image image100px mr-2 d-inline-block align-middle"></div></a>
+                                                    <a href="{{$url}}"><div style="background : url(<?php echo Helpers::coverThumb(Helpers::cover_url($item['cover_id'])) ?>) no-repeat center;background-size: cover;" class="image image100px mr-2 d-inline-block align-middle"></div></a>
                                                     <div class="content d-inline-block align-middle">
                                                         <h6 class="name_song text-black mb-1 card-title">{{$item['music_title']}}</h6>
                                                         <p class="name_singer text-gray mb-1 author"><?php echo $item['music_artist_html']; ?></p>

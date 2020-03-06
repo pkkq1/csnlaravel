@@ -15,7 +15,7 @@ use App\Library\Helpers;
         </div>
         <div class="media-left align-items-stretch mr-2">
             <a href="{{$url}}" title="{{$item['music_title'][0]}}">
-                <img src="{{$item['music_cover'][0]}}" alt="{{$item['music_title'][0]}}">
+                <img src="{{$item['music_cover_thumb'][0]}}" alt="{{$item['music_title'][0]}}">
                 <i class="material-icons">play_circle_outline</i>
             </a>
         </div>

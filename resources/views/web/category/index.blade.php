@@ -116,7 +116,7 @@ if($category->cat_id == 3 || $category->cat_id == 4 || $category->cat_id == 6 ||
                             <li class="media {{($i == 1 ? 'first stand' : ($i == 2 ? 'now up' : ($i == 3 ? 'now down' : 'now')))}} align-items-stretch">
                                 <div class="media-left mr-3">
                                     <span></span>
-                                    <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{Helpers::cover_url($item['cover_id'])}}" alt="{{$item['music_title']}}"></a>
+                                    <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{Helpers::coverThumb(Helpers::cover_url($item['cover_id']))}}" alt="{{$item['music_title']}}"></a>
                                 </div>
                                 <div class="media-body d-flex flex-column {{$i == 1 ? '' : 'justify-content-between'}}">
                                     <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
@@ -142,7 +142,7 @@ if($category->cat_id == 3 || $category->cat_id == 4 || $category->cat_id == 6 ||
                             <li class="media {{($i == 1 ? 'first stand' : ($i == 2 ? 'now up' : ($i == 3 ? 'now down' : 'now')))}} align-items-stretch">
                                 <div class="media-left mr-3">
                                     <span></span>
-                                    <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{Helpers::cover_url($item['cover_id'])}}" alt="{{$item['music_title']}}"></a>
+                                    <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{Helpers::coverThumb(Helpers::cover_url($item['cover_id']))}}" alt="{{$item['music_title']}}"></a>
                                 </div>
                                 <div class="media-body d-flex flex-column {{$i == 1 ? '' : 'justify-content-between'}}">
                                     <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
@@ -168,7 +168,7 @@ if($category->cat_id == 3 || $category->cat_id == 4 || $category->cat_id == 6 ||
                             <li class="media {{($i == 1 ? 'first stand' : ($i == 2 ? 'now up' : ($i == 3 ? 'now down' : 'now')))}} align-items-stretch">
                                 <div class="media-left mr-3">
                                     <span></span>
-                                    <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{Helpers::cover_url($item['cover_id'])}}" alt="{{$item['music_title']}}"></a>
+                                    <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{Helpers::coverThumb(Helpers::cover_url($item['cover_id']))}}" alt="{{$item['music_title']}}"></a>
                                 </div>
                                 <div class="media-body d-flex flex-column {{$i == 1 ? '' : 'justify-content-between'}}">
                                     <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
@@ -195,7 +195,7 @@ if($category->cat_id == 3 || $category->cat_id == 4 || $category->cat_id == 6 ||
                                 <li class="media {{($i == 1 ? 'first stand' : ($i == 2 ? 'now up' : ($i == 3 ? 'now down' : 'now')))}} align-items-stretch">
                                     <div class="media-left mr-3">
                                         <span></span>
-                                        <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{Helpers::cover_url($item['cover_id'])}}" alt="{{$item['music_title']}}"></a>
+                                        <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{Helpers::coverThumb(Helpers::cover_url($item['cover_id']))}}" alt="{{$item['music_title']}}"></a>
                                     </div>
                                     <div class="media-body d-flex flex-column {{$i == 1 ? '' : 'justify-content-between'}}">
                                         <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
@@ -229,7 +229,7 @@ if($category->cat_id == 3 || $category->cat_id == 4 || $category->cat_id == 6 ||
                                 <li class="media {{($i == 1 ? 'first stand' : ($i == 2 ? 'now up' : ($i == 3 ? 'now down' : 'now')))}} align-items-stretch">
                                     <div class="media-left mr-3">
                                         <span></span>
-                                        <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{$category->cat_id == CAT_VIDEO ? Helpers::thumbnail_url($item) : Helpers::cover_url($item['cover_id'])}}" alt="{{$item['music_title']}}"></a>
+                                        <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{$category->cat_id == CAT_VIDEO ? Helpers::thumbnail_url($item) : Helpers::coverThumb(Helpers::cover_url($item['cover_id']))}}" alt="{{$item['music_title']}}"></a>
                                     </div>
                                     <div class="media-body d-flex flex-column {{$i == 1 ? '' : 'justify-content-between'}}">
                                         <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
