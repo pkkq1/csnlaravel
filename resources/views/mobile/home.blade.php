@@ -138,7 +138,7 @@ $memberVip = Helpers::checkMemberVip();
                                             array_map(function ($item) {
                                             ?>
                                             <div class="item element">
-                                                <a href="{{$item['album_url']}}"><div class="image rounded" style="background: url({{$item['cover_url']}}) no-repeat center;background-size: cover"></div></a>
+                                                <a href="{{$item['album_url']}}"><div class="image rounded" style="background: url({{$item['cover_thumb_url']}}) no-repeat center;background-size: cover"></div></a>
                                                 <div class="content mt-3">
                                                     <a href="{{$item['album_url']}}"><h6 class="name_song mb-1 card-title">{{$item['music_album']}}</h6></a>
                                                     <p class="name_singer text-gray mb-1 author"><?php echo $item['music_artist_html'] ?></p>
@@ -154,7 +154,7 @@ $memberVip = Helpers::checkMemberVip();
                                             array_map(function ($item) {
                                             ?>
                                             <div class="item element">
-                                                <a href="{{$item['album_url']}}"><div class="image rounded" style="background: url({{$item['cover_url']}}) no-repeat center;background-size: cover"></div></a>
+                                                <a href="{{$item['album_url']}}"><div class="image rounded" style="background: url({{$item['cover_thumb_url']}}) no-repeat center;background-size: cover"></div></a>
                                                 <div class="content mt-3">
                                                     <a href="{{$item['album_url']}}"><h6 class="name_song mb-1 card-title">{{$item['music_album']}}</h6></a>
                                                     <p class="name_singer text-gray mb-1 author"><?php echo $item['music_artist_html'] ?></p>
@@ -241,7 +241,7 @@ $memberVip = Helpers::checkMemberVip();
                                         array_map(function ($item) {
                                         ?>
                                         <div class="item element">
-                                            <a href="{{$item['album_url']}}"><div style="background: url({{$item['cover_url']}}) no-repeat center;background-size: cover;" class="image rounded"></div></a>
+                                            <a href="{{$item['album_url']}}"><div style="background: url({{$item['cover_thumb_url']}}) no-repeat center;background-size: cover;" class="image rounded"></div></a>
                                             <div class="content mt-3">
                                                 <a href="{{$item['album_url']}}"><h6 class="name_song mb-1 card-title">{{$item['music_album']}}</h6></a>
                                                 <p class="name_singer text-gray mb-1 author"><?php echo $item['music_artist_html'] ?></p>
@@ -269,9 +269,9 @@ $memberVip = Helpers::checkMemberVip();
                                                 ?>
                                                 <div class="owl-item cloned" style="width: 184.783px; margin-right: 10px;">
                                                     <div class="item element">
-                                                        <a href="{{$item['album_url']}}"><div class="image rounded" style="background: url({{$item['cover_url']}}) no-repeat center;background-size: cover"></div></a>
+                                                        <a href="{{$item['album_url']}}"><div class="image rounded" style="background: url({{$item['cover_thumb_url']}}) no-repeat center;background-size: cover"></div></a>
                                                         <div class="content mt-3">
-                                                            <h6 class="name_song mb-1 card-title">{{$item['music_album']}}</h6>
+                                                            <h6 class="name_song mb-1 card-title">{{$item['cover_thumb_url']}}</h6>
                                                             <a href="{{$item['album_url']}}"><p class="name_singer text-gray mb-1 author"><?php echo $item['music_artist_html'] ?></p></a>
                                                             <p class="loss text-pink mb-0"><?php echo $item['music_bitrate_html'] ?></p>
                                                         </div>
@@ -302,7 +302,7 @@ $memberVip = Helpers::checkMemberVip();
                                                 ?>
                                                 <div class="owl-item cloned" style="width: 184.783px; margin-right: 10px;">
                                                     <div class="item element">
-                                                        <a href="{{$item['album_url']}}"><div class="image rounded" style="background: url({{$item['cover_url']}}) no-repeat center;background-size: cover"></div></a>
+                                                        <a href="{{$item['album_url']}}"><div class="image rounded" style="background: url({{$item['cover_thumb_url']}}) no-repeat center;background-size: cover"></div></a>
                                                         <div class="content mt-3">
                                                             <h6 class="name_song mb-1 card-title">{{$item['music_album']}}</h6>
                                                             <a href="{{$item['album_url']}}"><p class="name_singer text-gray mb-1 author"><?php echo $item['music_artist_html'] ?></p></a>
@@ -335,7 +335,7 @@ $memberVip = Helpers::checkMemberVip();
                                                 ?>
                                                 <div class="owl-item cloned" style="width: 184.783px; margin-right: 10px;">
                                                     <div class="item element">
-                                                        <a href="{{$item['album_url']}}"><div class="image rounded" style="background: url({{$item['cover_url']}}) no-repeat center;background-size: cover"></div></a>
+                                                        <a href="{{$item['album_url']}}"><div class="image rounded" style="background: url({{$item['cover_thumb_url']}}) no-repeat center;background-size: cover"></div></a>
                                                         <div class="content mt-3">
                                                             <h6 class="name_song mb-1 card-title">{{$item['music_album']}}</h6>
                                                             <a href="{{$item['album_url']}}"><p class="name_singer text-gray mb-1 author"><?php echo $item['music_artist_html'] ?></p></a>
@@ -368,9 +368,9 @@ $memberVip = Helpers::checkMemberVip();
                                                 ?>
                                                 <div class="owl-item cloned" style="width: 184.783px; margin-right: 10px;">
                                                     <div class="item element">
-                                                        <a href="{{$item['album_url']}}"><div class="image rounded" style="background: url({{$item['cover_url']}}) no-repeat center;background-size: cover"></div></a>
+                                                        <a href="{{$item['album_url']}}"><div class="image rounded" style="background: url({{$item['cover_thumb_url']}}) no-repeat center;background-size: cover"></div></a>
                                                         <div class="content mt-3">
-                                                            <h6 class="name_song mb-1 card-title">{{$item['music_album']}}</h6>
+                                                            <h6 class="name_song mb-1 card-title">{{$item['cover_thumb_url']}}</h6>
                                                             <a href="{{$item['album_url']}}"><p class="name_singer text-gray mb-1 author"><?php echo $item['music_artist_html'] ?></p></a>
                                                             <p class="loss text-pink mb-0"><?php echo $item['music_bitrate_html'] ?></p>
                                                         </div>
