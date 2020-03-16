@@ -45,9 +45,14 @@ if($memberVip == null)
                     <div class="ads_box" id="pc_masthead">
                         <div class="container text-center">
                             <div id="bsmasthead-wrapper">
-{{--                                @if(View::exists('cache.code_ads.pc_masthead_player'))--}}
+                            {{--                                @if(View::exists('cache.code_ads.pc_masthead_player'))--}}
+                            @if ( rand(1,100) > 50 )
+                                <!-- Ad Tag-980x250 for Publisher chiasenhac - LAVA DIGITAL-->
+                                    <script src='https://pub.lavanetwork.net/sites/chiasenhac/chiasenhac_masthead.js'></script>
+                                @else
                                     @include('cache.code_ads.pc_masthead_player')
-                                {{--@endif--}}
+                                    {{--@endif--}}
+                                @endif
                             </div>
                         </div>
                     </div>
