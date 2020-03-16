@@ -99,8 +99,10 @@
         <div class="c-row">
             <div class="c-col">
                 <address>
-                    <div>Công ty Cổ phần giải trí Yêu Ca Hát</div>
-                    <div>Giấy phép MXH số 337/GP-BTTTT do Bộ TT&TT cấp ngày 22/06/2016</div>
+                    <div>Công ty cổ phần công nghệ CSN</div>
+                    <div>Chủ sở hữu website: Ông Nguyễn Hoàng Minh Quân</div>
+                    <div>Giấy phép MXH số 92/GP-BTTTT do Bộ TT&TT cấp ngày 11/03/2020</div>
+                    <div>Giấy Chứng nhận Đăng ký Kinh doanh số 0314660744 do Sở kế hoạch và Đầu tư thành phố Hồ Chí Minh cấp ngày 05/10/2017.</div>
                 </address>
             </div>
             <div class="c-col">
