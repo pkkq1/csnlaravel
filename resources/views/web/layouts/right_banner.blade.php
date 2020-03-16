@@ -2,6 +2,7 @@
     $catalog = config('constants.catalog');
     use App\Library\Helpers;
     global $memberVip;
+    global $allpage_banner;
     if($memberVip == null)
         $memberVip = Helpers::checkMemberVip();
 ?>
