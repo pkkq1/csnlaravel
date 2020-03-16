@@ -504,8 +504,13 @@ class Helpers
         $arrSplit = explode('~', $url);
         $id_encode = last(str_replace('.html', '', $arrSplit));
         $type = $floatType ? $floatType : explode('/', url()->current())[3];
+        if(preg_match('/[A-Z]/', $id_encode) === 0) {
+            $id = self::decodeID($id_encode);
+        }else{
+            $id = str_replace(($type == 'playlist' || $type == 'playlist_publisher') ? KEY_ID_PLAYLIST_ENCODE_URL : KEY_ID_ALBUM_ENCODE_URL, "", base64_decode($id_encode));
+        }
         return [
-            'id' => str_replace(($type == 'playlist' || $type == 'playlist_publisher') ? KEY_ID_PLAYLIST_ENCODE_URL : KEY_ID_ALBUM_ENCODE_URL, "", base64_decode($id_encode)),
+            'id' => (int)$id,
             'type' => $type,
             'url' => str_replace(last($arrSplit), "", $arrSplit)
         ];
@@ -796,7 +801,7 @@ class Helpers
     public static function album_url($album_info, $id = 0)
     {
         $album_title_url = self::rawTiengVietUrl(htmlspecialchars_decode($album_info['music_album'], ENT_QUOTES));
-        $album_url = $album_title_url . '~' . base64_encode(KEY_ID_ALBUM_ENCODE_URL . $album_info['cover_id']) . "." . HTMLEX;;
+        $album_url = strtolower($album_title_url) . '~' . self::encodeID($album_info['cover_id'], 'album') . "." . HTMLEX;;
 
         return ($id == 0) ? SUB_ALLBUM . $album_url : SUB_ALLBUM . $album_url . '?id='. $id;
     }
