@@ -45,7 +45,7 @@ class BxhController extends Controller
     public function year(Request $request, $year, $cat = false) {
         $cacheBxh = 'bxh_all_'.$year;
         $urlBxh = '/bang-xep-hang/nam-'.$year;
-        $titleBxh = 'Bảng xếp hạng hot trong năm '.$year;
+        $titleBxh = 'Bảng xếp hạng trong năm '.$year;
         $category = $this->categoryListenRepository->getAllParentCategory(0, [['cat_id', '!=', 1]])->toArray();
         $catVideo = $this->categoryListenRepository->getAllCatId(1, [['cat_level', '!=', 0]])->toArray();
         return view('bxh.index', compact('bxh', 'urlBxh', 'category', 'catVideo', 'titleBxh', 'cacheBxh'));

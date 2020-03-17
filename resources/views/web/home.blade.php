@@ -15,7 +15,18 @@ global $top_uploader_weeks;
 global $top_artist_rows;
 $catalog = config('constants.catalog');
 ?>
-
+@section('meta')
+    <meta name="copyright" content="{{env('APP_URL')}}" />
+    <meta name="revisit-after" content="7 Days">
+    <meta name="keywords" content="Lossless, 500kbps, 320kbps, music, mp3, m4a, flac, lossless, csn, nghe nhac, tai nhac, loi bai hat, lyrics">
+    <meta name="description" content="Nghe nhạc online tải nhạc dạng mp3, m4a, lossless và xem lời bài hát oàn toàn miễn phí.">
+    <meta name="title" content="Cộng đồng chia sẻ nhạc chất lượng cao và xếp hạng âm nhạc trực tuyến" />
+    <meta property="fb:app_id" content="419934814770318" />
+    <meta property="og:url" content="{{url()->current()}}" />
+    <meta property="og:title" content="Cộng đồng chia sẻ nhạc chất lượng cao và xếp hạng âm nhạc trực tuyến" />
+    <meta property="og:type" content="website" />
+    <meta property="og:updated_time" content="{{time()}}" />
+@endsection
 @extends('web.layouts.app')
 
 @section('content')
