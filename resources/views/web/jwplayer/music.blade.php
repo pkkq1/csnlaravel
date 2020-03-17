@@ -196,7 +196,7 @@ if($musicSet['type_listen'] == 'playlist') {
                                 Đóng góp: <span class="author"><a target="_blank" href="/user/{{$music->music_user_id}}">{{$music->music_username}}</a></span>
                             </div>
                             <div>
-                                <div class="fb-like" data-href="{{url()->current()}}" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+                                {{--<div class="fb-like" data-href="{{url()->current()}}" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>--}}
                             </div>
                         </div>
                         <ul class="nav nav-pills nav-justified mb-3" id="pills-tab" role="tablist">
