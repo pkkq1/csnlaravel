@@ -8,20 +8,26 @@ $metaKeyWorld = 'bang xep hang, music, mp3, m4a, flac, lossless, video, mv, hd, 
 $metaDesc = 'Nghe nhạc online chất lượng cao kèm lyrics, chia sẻ và tải nhạc dạng mp3, mp4, m4a, lossless.';
 if ($titleBxh == 'Bảng xếp hạng hot trong ngày') {
     $metaDesc = 'Nhạc hot  -Nghe nhạc hot online chất lượng cao kèm lyrics, chia sẻ và tải nhạc dạng mp3, mp4, m4a, lossles';
-    $metaKeyWorld = $metaKeyWorld . ',Nhạc hot, bài hát hot, bài hát hot, nghe nhạc online, tải nhạc miễn phí, chia sẻ nhạc, bài hát, nhạc vàng, nhạc trẻ, nhạc chữ tình, nhạc xuân, remix, nghe nhạc online, edm, bolero, upload nhạc, trance, house, lời bài hát, lossless';
+    $metaKeyWorld = $metaKeyWorld . ', Nhạc hot, bài hát hot, bài hát hot, nghe nhạc online, tải nhạc miễn phí, chia sẻ nhạc, bài hát, nhạc vàng, nhạc trẻ, nhạc chữ tình, nhạc xuân, remix, nghe nhạc online, edm, bolero, upload nhạc, trance, house, lời bài hát, lossless';
 } elseif ($titleBxh == 'Bảng xếp hạng hot trong tuần') {
     $metaDesc = 'Bảng xếp hạng hot hàng tuần - Cập nhật nhữn bài hát hay nhất kèm chất lượng cao kèm lyrics, chia sẻ và tải nhạc dạng mp3, mp4, m4a, lossless.';
-    $metaKeyWorld = $metaKeyWorld . 'Bảng xếp hạng tuần,bang xep hang bai hat, bxh bai hat, bang xep hang Viet Nam, bai hat Viet Nam, bang xep hang, bài hát hot, nghe nhạc online, tải nhạc miễn phí, chia sẻ nhạc, bài hát, nhạc vàng, nhạc trẻ, nhạc chữ tình, nhạc xuân, remix, nghe nhạc online, edm, bolero, upload nhạc, trance, house, lời bài hát, lossless';
+    $metaKeyWorld = $metaKeyWorld . ', Bảng xếp hạng tuần,bang xep hang bai hat, bxh bai hat, bang xep hang Viet Nam, bai hat Viet Nam, bang xep hang, bài hát hot, nghe nhạc online, tải nhạc miễn phí, chia sẻ nhạc, bài hát, nhạc vàng, nhạc trẻ, nhạc chữ tình, nhạc xuân, remix, nghe nhạc online, edm, bolero, upload nhạc, trance, house, lời bài hát, lossless';
+    $titleMeta = $titleBxh . 'Bảng xếp hạng bài hát hàng tuần- Nơi cảm nhận và chia sẻ âm nhạc';
 } elseif (strpos($titleBxh, 'Bảng xếp hạng hot trong tháng ') !== false) {
     $titleMeta = $titleBxh . ' - Nơi chia sẻ nhạc chất lượng cao và xếp hạng âm nhạc trực tuyến';
     $metaDesc = $titleBxh . ', Nghe nhạc online và tải nhạc miễn phí chất lượng cao kèm lyrics, chia sẻ và tải nhạc dạng mp3, mp4, m4a, lossless.';
     $metaKeyWorld = $metaKeyWorld . ', ' . $titleBxh . ', bang xep hang bai hat, bxh bai hat, bang xep hang Viet Nam, bai hat Viet Nam, bang xep hang,bài hát hot, nghe nhạc online, tải nhạc miễn phí, chia sẻ nhạc, bài hát, nhạc vàng, nhạc trẻ, nhạc chữ tình, nhạc xuân, remix, karaoke, nghe nhạc online, edm, bolero, upload nhạc, trance, house, lời bài hát, lossless';
 } elseif (strpos($titleBxh, 'Bảng xếp hạng trong năm ') !== false) {
     $yearBxh = last(explode(' ', $titleBxh));
-    $titleMeta = $titleBxh . ' - Tuyển tập những bài chất lượng cao';
-    $metaDesc = $titleBxh . ' - Tuyển tập 20 bài hát hot nhất được yêu thích nhất và tải nhiều nhất tại chiasenhac .vn';
-    $metaKeyWorld = $metaKeyWorld . ', Bảng xếp hạng bài hát ' . $yearBxh . ', bxh bài hát ' . $yearBxh . ', bảng xếp hạng Việt Nam ' . $yearBxh . ', bài hát Việt Nam, bảng xếp hạng ' . $yearBxh . ', bảng xếp hạng bài hát';
-}
+    if($yearBxh == 2019) {
+        $titleMeta = $titleBxh . ' - Tuyển tập những bài chất lượng cao';
+        $metaDesc = $titleBxh . ' được cập nhật hàng tuần tại chiasenhac.vn dựa theo lượt nghe, yêu thích trên nhiều nền tảng khác nhau';
+        $metaKeyWorld = $metaKeyWorld . ', Bảng xếp hạng bài hát, bxh bài hát, bảng xếp hạng Việt Nam, bài hát Việt Nam, bảng xếp hạng, bảng xếp hạng bài hát 2019';
+    }else{
+        $metaDesc = $titleBxh . ' - Tuyển tập 20 bài hát hot nhất được yêu thích nhất và tải nhiều nhất tại chiasenhac .vn';
+        $metaKeyWorld = $metaKeyWorld . ', Bảng xếp hạng bài hát ' . $yearBxh . ', bxh bài hát ' . $yearBxh . ', bảng xếp hạng Việt Nam ' . $yearBxh . ', bài hát Việt Nam, bảng xếp hạng ' . $yearBxh . ', bảng xếp hạng bài hát';
+    }
+  }
 ?>
 @section('meta')
     <meta name="copyright" content="{{env('APP_URL')}}" />
