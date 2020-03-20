@@ -801,7 +801,7 @@ class Helpers
     public static function album_url($album_info, $id = 0)
     {
         $album_title_url = self::rawTiengVietUrl(htmlspecialchars_decode($album_info['music_album'], ENT_QUOTES));
-        $album_url = strtolower($album_title_url) . '~' . self::encodeID($album_info['cover_id'], 'album') . "." . HTMLEX;;
+        $album_url = self::encodeID($album_info['cover_id'], 'album') . '/' . strtolower($album_title_url) . "." . HTMLEX;;
 
         return ($id == 0) ? SUB_ALLBUM . $album_url : SUB_ALLBUM . $album_url . '?id='. $id;
     }
