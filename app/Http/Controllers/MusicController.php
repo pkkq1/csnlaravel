@@ -174,6 +174,11 @@ class MusicController extends Controller
     public function newUrlPlayList(Request $request, $musicId, $musicUrl) {
         $url = $musicUrl . '~' . $musicId;
         $arrUrl = Helpers::splitPlaylistUrl($url);
+        if($arrUrl['type'] == 'nghe-bat-hat-ca-si') {
+            $arrUrl = Helpers::splitArtistUrl($musicUrl);
+        }elseif($arrUrl['type'] == 'nghe-bat-hat-yeu-thich') {
+            $arrUrl = Helpers::splitArtistUrl($musicUrl);
+        }
         return $this->listenPlaylistMusic($request, $arrUrl);
     }
     public function listenPlaylistMusic($request, $arrUrl) {
@@ -209,7 +214,6 @@ class MusicController extends Controller
             }
             $playlist->playlist_cover = $playlist->playlist_cover ? env('APP_URL').Helpers::file_path($playlist->playlist_id, env('DATA_URL').MUSIC_PLAYLIST_PATH, true).$playlist->playlist_id . '.jpg' : env('IMG_DATA_URL').'imgs/no_cover.jpg';
         }elseif($arrUrl['type'] == 'nghe-bat-hat-ca-si'){
-            $arrUrl = Helpers::splitArtistUrl($musicUrl);
             $artist = $this->artistRepository->find($arrUrl['id']);
             if(!$artist)
                 return view('errors.text_error')->with('message', 'Ca sĩ chưa được phát hành.');
@@ -224,7 +228,6 @@ class MusicController extends Controller
             $playlist->playlist_title = 'Tất cả bài hát ca sĩ '.$artist->artist_nickname;
         }
         elseif($arrUrl['type'] == 'nghe-bat-hat-yeu-thich'){
-            $arrUrl = Helpers::splitArtistUrl($musicUrl);
             $type = last(explode('/', $request->path()));
             if(!Auth::check())
                 return view('errors.text_error')->with('message', 'Bạn cần phải đăng nhập để hiển thị bài hát.');
