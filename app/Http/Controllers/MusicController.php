@@ -167,8 +167,16 @@ class MusicController extends Controller
         include(app_path() . '/../resources/views/cache/suggestion/'.ceil($music->music_id / 1000).'/'.$music->music_id.'.blade.php');
         return view('jwplayer.music', compact('music', 'musicSet', 'musicFavourite', 'MusicSameArtist', 'VideoSameArtist', 'titleDup', 'video'));
     }
-    public function listenPlaylistMusic(Request $request, $musicUrl) {
+    public function oldUrlPlayList(Request $request, $musicUrl) {
         $arrUrl = Helpers::splitPlaylistUrl($musicUrl);
+        return $this->listenPlaylistMusic($request, $arrUrl);
+    }
+    public function newUrlPlayList(Request $request, $musicId, $musicUrl) {
+        $url = $musicUrl . '~' . $musicId;
+        $arrUrl = Helpers::splitPlaylistUrl($url);
+        return $this->listenPlaylistMusic($request, $arrUrl);
+    }
+    public function listenPlaylistMusic($request, $arrUrl) {
         $playlistMusic = [];
         $music = [];
         $playlist = [];
