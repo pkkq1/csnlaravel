@@ -172,7 +172,7 @@ class MusicController extends Controller
         return $this->listenPlaylistMusic($request, $arrUrl);
     }
     public function newUrlPlayList(Request $request, $musicId, $musicUrl) {
-        $url = $musicId . '~' . $musicUrl;
+        $url = $musicUrl . '~' . $musicId;
         $arrUrl = Helpers::splitPlaylistUrl($url);
         return $this->listenPlaylistMusic($request, $arrUrl);
     }
