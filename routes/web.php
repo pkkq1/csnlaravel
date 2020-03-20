@@ -117,12 +117,12 @@ Route::group(['middlewareGroups' => ['web']], function () {
     Route::get('nghe-album/{musicId}/{musicUrl}', ['as' => 'music.album.listen', 'uses' => 'MusicController@newUrlPlayList']);
 
     // playlist
-    Route::get('playlist/{playlistUrl}.html', ['as' => 'music.playlist.listen', 'uses' => 'MusicController@listenPlaylistMusic']);
-    Route::get('playlist/{playlistUrl}', ['as' => 'music.playlist.listen', 'uses' => 'MusicController@listenPlaylistMusic']);
-    Route::get('playlist_publisher/{playlistUrl}.html', ['as' => 'music.playlist.listen', 'uses' => 'MusicController@listenPlaylistMusic']);
-    Route::get('playlist_publisher/{playlistUrl}', ['as' => 'music.playlist.listen', 'uses' => 'MusicController@listenPlaylistMusic']);
-    Route::get('nghe-bat-hat-ca-si/{playlistUrl}', ['as' => 'music.playlist.listen', 'uses' => 'MusicController@listenPlaylistMusic']);
-    Route::get('nghe-bat-hat-yeu-thich/{playlistUrl}', ['as' => 'music.playlist.listen', 'uses' => 'MusicController@listenPlaylistMusic']);
+    Route::get('playlist/{playlistUrl}.html', ['as' => 'music.playlist.listen', 'uses' => 'MusicController@oldUrlPlayList']);
+    Route::get('playlist/{playlistUrl}', ['as' => 'music.playlist.listen', 'uses' => 'MusicController@oldUrlPlayList']);
+    Route::get('playlist_publisher/{playlistUrl}.html', ['as' => 'music.playlist.listen', 'uses' => 'MusicController@oldUrlPlayList']);
+    Route::get('playlist_publisher/{playlistUrl}', ['as' => 'music.playlist.listen', 'uses' => 'MusicController@oldUrlPlayList']);
+    Route::get('nghe-bat-hat-ca-si/{playlistUrl}', ['as' => 'music.playlist.listen', 'uses' => 'MusicController@oldUrlPlayList']);
+    Route::get('nghe-bat-hat-yeu-thich/{playlistUrl}', ['as' => 'music.playlist.listen', 'uses' => 'MusicController@oldUrlPlayList']);
     // artist
     Route::get('ca-si/{artistUrl}', ['as' => 'artist.home', 'uses' => 'ArtistController@index']);
     Route::post('ca-si/favorite', ['as' => 'artist.home', 'uses' => 'ArtistController@favorite']);
