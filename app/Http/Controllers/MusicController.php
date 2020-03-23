@@ -107,6 +107,16 @@ class MusicController extends Controller
     {
         return view('home');
     }
+    public function newListenSingleMusic(Request $request, $cat, $sub, $id, $artist = '', $urlMusic = '') {
+        $urlMusic = $urlMusic . '~' . $artist . '~' . $id;
+        return $this->listenSingleMusic($request, $cat, $sub, $urlMusic);
+    }
+    public function oldListenSingleMusic(Request $request, $cat, $sub, $musicUrl) {
+        $url = explode('~', $musicUrl);
+        $redReplace = $url[2] . ($url[1] ? ('/' . $url[1]) : '') . ($url[0] ? ('/' . $url[0]) : '');
+        $redUrl = str_replace($musicUrl, $redReplace, url()->current());
+        return redirect(str_replace('.html', '', $redUrl));
+    }
     public function listenSingleMusic(Request $request, $cat, $sub, $musicUrl) {
         try {
             $arrUrl = Helpers::splitMusicUrl($musicUrl);

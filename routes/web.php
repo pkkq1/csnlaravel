@@ -95,12 +95,27 @@ Route::group(['middlewareGroups' => ['web']], function () {
 
     // listen music
     // single
-    Route::get('mp3/{cat}/{sub}/{musicUrl}.html', ['as' => 'music.listen', 'uses' => 'MusicController@listenSingleMusic']);
-    Route::get('mp3/{cat}/{sub}/{musicUrl}', ['as' => 'music.listen', 'uses' => 'MusicController@listenSingleMusic']);
+    Route::get('mp3/{cat}/{sub}/{musicUrl}.html', ['as' => 'music.listen', 'uses' => 'MusicController@oldListenSingleMusic']);
+    Route::get('mp3/{cat}/{sub}/{musicUrl}', ['as' => 'music.listen', 'uses' => 'MusicController@oldListenSingleMusic']);
+
+    // change new url listen music
+    Route::get('mp3/{cat}/{sub}/{id}/{artist}.html', ['as' => 'music.listen', 'uses' => 'MusicController@newListenSingleMusic']);
+    Route::get('mp3/{cat}/{sub}/{id}/{artist}', ['as' => 'music.listen', 'uses' => 'MusicController@newListenSingleMusic']);
+
+    Route::get('mp3/{cat}/{sub}/{id}/{artist}/{urlMusic}.html', ['as' => 'music.listen', 'uses' => 'MusicController@newListenSingleMusic']);
+    Route::get('mp3/{cat}/{sub}/{id}/{artist}/{urlMusic}', ['as' => 'music.listen', 'uses' => 'MusicController@newListenSingleMusic']);
 
     // video-clip
-    Route::get('hd/{cat}/{sub}/{musicUrl}.html', ['as' => 'music.video', 'uses' => 'MusicController@listenSingleMusic']);
-    Route::get('hd/{cat}/{sub}/{musicUrl}', ['as' => 'music.video', 'uses' => 'MusicController@listenSingleMusic']);
+    Route::get('hd/{cat}/{sub}/{musicUrl}.html', ['as' => 'music.video', 'uses' => 'MusicController@oldListenSingleMusic']);
+    Route::get('hd/{cat}/{sub}/{musicUrl}', ['as' => 'music.video', 'uses' => 'MusicController@oldListenSingleMusic']);
+
+    // change new url listen music
+
+    Route::get('hd/{cat}/{sub}/{id}/{artist}.html', ['as' => 'music.video', 'uses' => 'MusicController@newListenSingleMusic']);
+    Route::get('hd/{cat}/{sub}/{id}/{artist}', ['as' => 'music.video', 'uses' => 'MusicController@newListenSingleMusic']);
+
+    Route::get('hd/{cat}/{sub}/{id}/{artist}/{urlMusic}.html', ['as' => 'music.video', 'uses' => 'MusicController@newListenSingleMusic']);
+    Route::get('hd/{cat}/{sub}/{id}/{artist}/{urlMusic}', ['as' => 'music.video', 'uses' => 'MusicController@newListenSingleMusic']);
 
     // embed
     Route::get('embed/mp3/{cat}/{sub}/{musicUrl}.html', ['as' => 'music.listen', 'uses' => 'MusicController@embed']);

@@ -159,7 +159,9 @@ class Helpers
     public static function music_url($music_info, $mode = '')
     {
         $id = ($music_info['cat_id'] == CAT_VIDEO) ? self::encodeID($music_info['music_id'], 'video') : self::encodeID($music_info['music_id']);
-        return isset($music_info['music_title_url']) ? $music_info['music_title_url'] . "~" . $id . $mode . ".".HTMLEX : $id . $mode . "." . HTMLEX;
+        $url = explode('~', $music_info['music_title_url']);
+        return $id . (isset($url[1]) && $url[1] ? ('/' . $url[1]) : '') . ($url[0] ? ('/' . $url[0]) : '');
+//        return isset($music_info['music_title_url']) ? $music_info['music_title_url'] . "~" . $id . $mode . ".".HTMLEX : $id . $mode . "." . HTMLEX;
     }
     public static function music_id($music_info, $mode = '')
     {
@@ -301,10 +303,8 @@ class Helpers
                     default:
                         $seo_domain = '';
                 }
-
                 return $seo_domain . self::category_url($cat_id2info[$music_info['cat_id']][$music_info['cat_level']]) . self::music_url($music_info);
             }
-
             return ($domain ? ENV('LISTEN_URL') : '') . self::category_url($cat_id2info[$music_info['cat_id']][$music_info['cat_level']]) . self::music_url($music_info);
         }
         return '';
