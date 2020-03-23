@@ -52,12 +52,20 @@ class ArtistController extends Controller
         }
         return response($result);
     }
-    public function index(Request $request, $artistUrl) {
+    public function oldIndex(Request $request, $artistUrl) {
+        $artistEx = explode('~', $artistUrl);
+        $redReplace = $artistEx[1] . '/' . $artistEx[0];
+        $redUrl = str_replace($artistUrl, $redReplace, url()->current());
+        return redirect(str_replace('.html', '', $redUrl));
+    }
+    public function index(Request $request, $id, $artistUrl) {
+        $artistOldUrl = $artistUrl . '~' . $id;
         try {
-            $arrUrl = Helpers::splitArtistUrl($artistUrl);
+            $arrUrl = Helpers::splitArtistUrl($artistOldUrl);
         } catch (Exception $e) {
             return view('errors.errors')->with('e');
         }
+
         $artist = $this->artistRepository->find($arrUrl['id']);
         if(!$artist) {
             return view('errors.404');
@@ -67,6 +75,7 @@ class ArtistController extends Controller
         $artistFavourite = false;
         if(Auth::check())
             $artistFavourite = $this->artistFavouriteRepository->getModel()::where([['user_id', Auth::user()->id], ['artist_id', $artist->artist_id]])->first();
+        $artistUrl = $id . '/' . $artistUrl;
         return view('artist.index', compact('artist', 'musicHtml', 'artistFavourite', 'artistUrl'));
     }
     public function getTabArtist(Request $request) {

@@ -139,6 +139,7 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
                 'music_artist_id' => $item['music_artist_id'][0],
                 'music_listen' => $item['music_listen'][0],
                 'music_filename' => $item['music_filename'][0],
+                'music_title_url' => $item['music_title_url'][0],
             ];
         }
         return $result;

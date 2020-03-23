@@ -178,8 +178,10 @@ class MusicController extends Controller
         return view('jwplayer.music', compact('music', 'musicSet', 'musicFavourite', 'MusicSameArtist', 'VideoSameArtist', 'titleDup', 'video'));
     }
     public function oldUrlPlayList(Request $request, $musicUrl) {
-        $arrUrl = Helpers::splitPlaylistUrl($musicUrl);
-        return $this->listenPlaylistMusic($request, $arrUrl);
+        $albumUrlEx = explode('~', $musicUrl);
+        $redReplace = $albumUrlEx[1] . '/' . $albumUrlEx[0];
+        $redUrl = str_replace($musicUrl, $redReplace, url()->current());
+        return redirect(str_replace('.html', '', $redUrl));
     }
     public function newUrlPlayList(Request $request, $musicId, $musicUrl) {
         $url = $musicUrl . '~' . $musicId;
@@ -189,6 +191,17 @@ class MusicController extends Controller
         }elseif($arrUrl['type'] == 'nghe-bat-hat-yeu-thich') {
             $arrUrl = Helpers::splitArtistUrl($musicUrl);
         }
+        return $this->listenPlaylistMusic($request, $arrUrl);
+    }
+    public function OldCaSiPlaylist(Request $request, $artistUrl) {
+        $artistUrlEx = explode('~', $artistUrl);
+        $redReplace = $artistUrlEx[1] . '/' . $artistUrlEx[0];
+        $redUrl = str_replace($artistUrl, $redReplace, url()->current());
+        return redirect(str_replace('.html', '', $redUrl));
+    }
+    public function caSiPlaylist(Request $request, $artistId, $artistUrl) {
+        $url = $artistUrl . '~' . $artistId;
+        $arrUrl = Helpers::splitArtistUrl($url);
         return $this->listenPlaylistMusic($request, $arrUrl);
     }
     public function listenPlaylistMusic($request, $arrUrl) {
