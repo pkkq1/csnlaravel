@@ -108,7 +108,12 @@ class MusicController extends Controller
         return view('home');
     }
     public function newListenSingleMusic(Request $request, $cat, $sub, $id, $artist = '', $urlMusic = '') {
-        $urlMusic = $urlMusic . '~' . $artist . '~' . $id;
+        if($urlMusic == '') {
+            $urlMusic = $artist . '~' . $id;
+        }else{
+            $urlMusic = $urlMusic . '~' . $artist . '~' . $id;
+
+        }
         return $this->listenSingleMusic($request, $cat, $sub, $urlMusic);
     }
     public function oldListenSingleMusic(Request $request, $cat, $sub, $musicUrl) {
