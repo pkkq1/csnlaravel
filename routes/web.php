@@ -124,10 +124,10 @@ Route::group(['middlewareGroups' => ['web']], function () {
     Route::get('embed/hd/{cat}/{sub}/{musicUrl}', ['as' => 'music.video', 'uses' => 'MusicController@embed']);
 
     // album
-    Route::get('nghe-album/{musicUrl}.html', ['as' => 'music.album.listen', 'uses' => 'MusicController@oldUrlPlayList']);
-    Route::get('nghe-album/{musicUrl}', ['as' => 'music.album.listen', 'uses' => 'MusicController@oldUrlPlayList']);
+    Route::get('nghe-album/{musicUrl}.html', ['as' => 'music.album.listen', 'uses' => 'MusicController@UrlAlbum']);
+    Route::get('nghe-album/{musicUrl}', ['as' => 'music.album.listen', 'uses' => 'MusicController@UrlAlbum']);
 
-    // album custom
+    // album (delete)
     Route::get('nghe-album/{musicId}/{musicUrl}.html', ['as' => 'music.album.listen', 'uses' => 'MusicController@newUrlPlayList']);
     Route::get('nghe-album/{musicId}/{musicUrl}', ['as' => 'music.album.listen', 'uses' => 'MusicController@newUrlPlayList']);
 

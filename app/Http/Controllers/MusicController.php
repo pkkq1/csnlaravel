@@ -193,6 +193,19 @@ class MusicController extends Controller
         $arrUrl = Helpers::splitPlaylistUrl($url);
         return $this->listenPlaylistMusic($request, $arrUrl);
     }
+    public function urlAlbum(Request $request, $musicUrl) {
+        if(strpos($musicUrl, '~') !== false) {
+            // old URL playlist
+            $arrUrl = Helpers::splitPlaylistUrl($musicUrl);
+            return $this->listenPlaylistMusic($request, $arrUrl);
+        }else {
+            $id = last(explode('-', $musicUrl));
+            $urlAlbum = str_replace($id, '', $musicUrl);
+            $arrUrl = Helpers::splitPlaylistUrl(substr($urlAlbum, 0, -1) . '~' . $id);
+            return $this->listenPlaylistMusic($request, $arrUrl);
+        }
+
+    }
     public function listenFavourite (Request $request) {
         $arrUrl['type'] = 'nghe-bat-hat-yeu-thich';
         return $this->listenPlaylistMusic($request, $arrUrl);
