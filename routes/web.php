@@ -142,7 +142,7 @@ Route::group(['middlewareGroups' => ['web']], function () {
     Route::get('playlist_publisher/{playlistUrl}', ['as' => 'music.playlist.listen', 'uses' => 'MusicController@oldUrlPlayList']);
     Route::get('nghe-bat-hat-ca-si/{playlistUrl}', ['as' => 'music.playlist.listen', 'uses' => 'MusicController@OldCaSiPlaylist']);
     Route::get('nghe-bat-hat-ca-si/{artistId}/{artistUrl}', ['as' => 'music.playlist.listen', 'uses' => 'MusicController@caSiPlaylist']);
-    Route::get('nghe-bat-hat-yeu-thich/{playlistUrl}', ['as' => 'music.playlist.listen', 'uses' => 'MusicController@oldUrlPlayList']);
+    Route::get('nghe-bat-hat-yeu-thich/{playlistUrl}', ['as' => 'music.playlist.listen', 'uses' => 'MusicController@listenFavourite']);
     // artist
     Route::get('ca-si/{artistUrl}', ['as' => 'artist.home', 'uses' => 'ArtistController@oldIndex']);
     Route::get('ca-si/{id}/{artistUrl}', ['as' => 'artist.home', 'uses' => 'ArtistController@index']);

@@ -186,11 +186,10 @@ class MusicController extends Controller
     public function newUrlPlayList(Request $request, $musicId, $musicUrl) {
         $url = $musicUrl . '~' . $musicId;
         $arrUrl = Helpers::splitPlaylistUrl($url);
-        if($arrUrl['type'] == 'nghe-bat-hat-ca-si') {
-            $arrUrl = Helpers::splitArtistUrl($musicUrl);
-        }elseif($arrUrl['type'] == 'nghe-bat-hat-yeu-thich') {
-            $arrUrl = Helpers::splitArtistUrl($musicUrl);
-        }
+        return $this->listenPlaylistMusic($request, $arrUrl);
+    }
+    public function listenFavourite (Request $request) {
+        $arrUrl['type'] = 'nghe-bat-hat-yeu-thich';
         return $this->listenPlaylistMusic($request, $arrUrl);
     }
     public function OldCaSiPlaylist(Request $request, $artistUrl) {
