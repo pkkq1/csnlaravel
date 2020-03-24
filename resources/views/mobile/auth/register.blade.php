@@ -20,7 +20,7 @@ use App\Library\Helpers;
                 <a href="javascript:void(0)" onclick="authRegister()" class="login_button google text-gray mb-3 btn-gradien">Đăng Ký</a>
                 <div class="checkbox_remember">
                     <label for="remember" class="input-checkbox">
-                        <input id="contact_csn" type="checkbox" id="contact_csn" checked="" name="contact_csn" name="contact_csn" class="contact_csn"><span>Tôi đã đọc và đồng ý các điều kiện<a href="#"> Thỏa thuận sử dụng</a></span>
+                        <input id="contact_csn" type="checkbox" id="contact_csn" checked="" name="contact_csn" name="contact_csn" class="contact_csn"><span>Tôi đã đọc và đồng ý các điều kiện<a target="_blank" href="/chinh-sach-chia-se-nhac"> Thỏa thuận sử dụng</a></span>
                     </label>
                 </div>
                 <p style="color: white; text-align: center;" class="text-p"><a href="/login?back_url={{$_GET['back_url'] ?? url()->previous()}}" style="margin-right: 15px;color: #FF2D55;">Đăng nhập</a><span style="color: #888">|</span><a href="/password/reset?back_url={{$_GET['back_url'] ?? url()->previous()}}" style="margin-left: 15px;color: #FF2D55;">Quên mật khẩu</a></p>

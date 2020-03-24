@@ -302,7 +302,7 @@
                                     <div class="g-recaptcha captcha" data-sitekey="{{env('NOCAPTCHA_SITEKEY')}}" style="z-index: 99999999;"></div>
                                     <div class="login_action">
                                         <input class="contact_csn" type="checkbox" id="contact_csn" checked name="contact_csn">
-                                        <label style="cursor: pointer; font-size: 13px; display: inline;" for="contact_csn">Tôi đã đọc và đồng ý các điều kiện<a href="#" > Thỏa thuận sử dụng</a></label>
+                                        <label style="cursor: pointer; font-size: 13px; display: inline;" for="contact_csn">Tôi đã đọc và đồng ý các điều kiện<a target="_blank" href="/chinh-sach-chia-se-nhac" > Thỏa thuận sử dụng</a></label>
                                     </div>
                                     <button onclick="authRegister()" class="btn my-2 my-sm-0 waves-effect waves-light" style="margin-left: 0px;width: 100%; padding: 10px" type="submit">Đăng ký</button>
                                     <p class="text-p"><a href="javascript:void(0)" onclick="switchAuth('myModal_login')" style=" margin-right: 15px; ">Đăng nhập</a>
@@ -440,7 +440,7 @@
                     });
                 },
                 success: function(response) {
-                    location.reload('<?php echo $_GET['back_url'] ?? '' ?>');
+                    window.location = '<?php echo $_GET['back_url'] ?? '' ?>';
                 }
             });
         }
