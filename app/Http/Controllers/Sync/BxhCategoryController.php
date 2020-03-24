@@ -165,7 +165,7 @@ $hot_video_rows = ' . var_export($ressultVideo, true) . ';
                 $result = $this->musicDownloadRepository->bxhCategoryMusic($item->cat_id, [
                         'csn_music_download.music_downloads_max_week' => 'desc',
 //                        'csn_music.music_downloads' => 'desc',
-                ], $year)->toArray();
+                ], $year, '', '', 100)->toArray();
                 DB::disconnect('mysql');
                 foreach($result as $item2) {
                     $cover_html = Helpers::cover_url($item2['cover_id'], explode(';', $item2['music_artist_id'])[0]);

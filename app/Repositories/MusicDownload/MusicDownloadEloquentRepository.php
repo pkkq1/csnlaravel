@@ -66,7 +66,7 @@ class MusicDownloadEloquentRepository extends EloquentRepository implements Musi
     {
         // TODO: Implement findOnlyPublished() method.
     }
-    public function bxhCategoryMusic($idCategory, $order, $year = '', $firstDate = '', $lastDate = '')
+    public function bxhCategoryMusic($idCategory, $order, $year = '', $firstDate = '', $lastDate = '', $limit = 20)
     {
         $result = $this->_model
             ->join('csn_music', 'csn_music_download.music_id', 'csn_music.music_id')
@@ -103,7 +103,7 @@ class MusicDownloadEloquentRepository extends EloquentRepository implements Musi
                 $result = $result->orderBy($key, $type);
             }
         }
-        return $result->limit(20)->get();
+        return $result->limit($limit)->get();
     }
 }
 

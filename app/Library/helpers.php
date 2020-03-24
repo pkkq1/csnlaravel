@@ -820,14 +820,14 @@ class Helpers
         $album_title_url = self::rawTiengVietUrl(htmlspecialchars_decode($album_info['music_album'], ENT_QUOTES));
         $album_url = strtolower($album_title_url) . '-' . self::encodeID($album_info['cover_id'], 'album');
 
-        return ($id == 0) ? SUB_ALLBUM . $album_url : SUB_ALLBUM . $album_url . '?id='. $id;
+        return (($id == 0) ? SUB_ALLBUM . $album_url : SUB_ALLBUM . $album_url . '?id='. $id). ".".HTMLEX;
     }
     public static function playlist_url($playlist_info, $id = 0)
     {
         $playlist_title_url = self::rawTiengVietUrl(htmlspecialchars_decode($playlist_info['playlist_title'],ENT_QUOTES));
         $playlist_url = base64_encode(KEY_ID_PLAYLIST_ENCODE_URL . $playlist_info['playlist_id']) . "/" . $playlist_title_url;;
 
-        return ($id == 0) ? SUB_PLAYLIST . $playlist_url : SUB_PLAYLIST . $playlist_url . '?id='. $id;
+        return (($id == 0) ? SUB_PLAYLIST . $playlist_url : SUB_PLAYLIST . $playlist_url . '?id='. $id).HTMLEX;
     }
     public static function playlist_publisher_url($playlist_info, $id = 0)
     {
