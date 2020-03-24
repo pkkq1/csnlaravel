@@ -196,30 +196,30 @@ class MusicController extends Controller
     public function urlAlbum(Request $request, $musicUrl) {
         if(strpos($musicUrl, '~') !== false) {
             // old URL playlist
-            $arrUrl = Helpers::splitPlaylistUrl($musicUrl);
-            return $this->listenPlaylistMusic($request, $arrUrl);
+            return redirect(strtolower(str_replace('~', '-', url()->current())));
         }else {
             $id = last(explode('-', $musicUrl));
             $urlAlbum = str_replace($id, '', $musicUrl);
             $arrUrl = Helpers::splitPlaylistUrl(substr($urlAlbum, 0, -1) . '~' . $id);
             return $this->listenPlaylistMusic($request, $arrUrl);
         }
-
     }
     public function listenFavourite (Request $request) {
         $arrUrl['type'] = 'nghe-bat-hat-yeu-thich';
         return $this->listenPlaylistMusic($request, $arrUrl);
     }
-    public function OldCaSiPlaylist(Request $request, $artistUrl) {
-        $artistUrlEx = explode('~', $artistUrl);
-        $redReplace = $artistUrlEx[1] . '/' . $artistUrlEx[0];
-        $redUrl = str_replace($artistUrl, $redReplace, url()->current());
-        return redirect(str_replace('.html', '', $redUrl));
-    }
-    public function caSiPlaylist(Request $request, $artistId, $artistUrl) {
-        $url = $artistUrl . '~' . $artistId;
-        $arrUrl = Helpers::splitArtistUrl($url);
-        return $this->listenPlaylistMusic($request, $arrUrl);
+    public function caSiPlaylist(Request $request, $artistUrl) {
+
+        if(strpos($artistUrl, '~') !== false) {
+            // old URL playlist
+            dd(1);
+            return redirect(strtolower(str_replace('~', '-', url()->current())));
+        }else {
+            $id = last(explode('-', $artistUrl));
+            $artistUrl = str_replace('-' . $id, '~' . $id, $artistUrl);
+            $arrUrl = Helpers::splitPlaylistUrl($artistUrl);
+            return $this->listenPlaylistMusic($request, $arrUrl);
+        }
     }
     public function listenPlaylistMusic($request, $arrUrl) {
         $playlistMusic = [];

@@ -189,7 +189,7 @@ class Helpers
         if(!$artistId || $artistId == -1){
             return env('SEARCH_TEMPLATE_URL').'/tim-kiem?q='.trim($artistNickName).'&filter=ca-si';
         }
-        return '/ca-si/'.self::rawTiengVietUrl($artistNickName) . "~" . base64_encode(KEY_ID_ARTIST_ENCODE_URL . $artistId) . $mode . ".".HTMLEX;
+        return '/ca-si/'.strtolower(self::rawTiengVietUrl($artistNickName)) . "-" . self::encodeID($artistId, 'ca-si') . $mode . ".".HTMLEX;
     }
     public static function rawHtmlArtists($artistId, $artistNickName) {
         $artistId = explode(';', htmlspecialchars_decode($artistId, ENT_QUOTES));
@@ -818,7 +818,7 @@ class Helpers
     public static function album_url($album_info, $id = 0)
     {
         $album_title_url = self::rawTiengVietUrl(htmlspecialchars_decode($album_info['music_album'], ENT_QUOTES));
-        $album_url = self::encodeID($album_info['cover_id'], 'album') . '/' . strtolower($album_title_url);
+        $album_url = strtolower($album_title_url) . '-' . self::encodeID($album_info['cover_id'], 'album');
 
         return ($id == 0) ? SUB_ALLBUM . $album_url : SUB_ALLBUM . $album_url . '?id='. $id;
     }
