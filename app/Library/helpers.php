@@ -189,7 +189,7 @@ class Helpers
         if(!$artistId || $artistId == -1){
             return env('SEARCH_TEMPLATE_URL').'/tim-kiem?q='.trim($artistNickName).'&filter=ca-si';
         }
-        return '/ca-si/'.strtolower(self::rawTiengVietUrl($artistNickName)) . "-" . self::encodeID($artistId, 'ca-si') . $mode . ".".HTMLEX;
+        return '/ca-si/'.strtolower(self::rawTiengVietUrl($artistNickName)) . "-" . self::encodeID((int)$artistId, 'ca-si') . $mode . ".".HTMLEX;
     }
     public static function rawHtmlArtists($artistId, $artistNickName) {
         $artistId = explode(';', htmlspecialchars_decode($artistId, ENT_QUOTES));
