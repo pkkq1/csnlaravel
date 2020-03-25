@@ -328,7 +328,9 @@ class Helpers
                     default:
                         $seo_domain = '';
                 }
-                return $seo_domain . self::category_url($cat_id2info[$music_info['cat_id']][$music_info['cat_level']]) . self::music_url($music_info);
+                $url = ($music_info['cat_id'] == CAT_VIDEO) ? VIEW_VIDEO_URL . '/' : VIEW_MUSIC_URL . '/';
+                return ($seo_domain ? ENV('LISTEN_URL') : '') . $url . self::music_url($music_info);
+//                return $seo_domain . self::category_url($cat_id2info[$music_info['cat_id']][$music_info['cat_level']]) . self::music_url($music_info);
             }
             $url = ($music_info['cat_id'] == CAT_VIDEO) ? VIEW_VIDEO_URL . '/' : VIEW_MUSIC_URL . '/';
             return ($domain ? ENV('LISTEN_URL') : '') . $url . self::music_url($music_info);
