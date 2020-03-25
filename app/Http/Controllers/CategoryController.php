@@ -28,7 +28,8 @@ class CategoryController extends Controller
         $this->videoRepository = $videoRepository;
         $this->coverRepository = $coverRepository;
     }
-    public function index1(Request $request, $sub) {
+    public function index1(Request $request) {
+        $sub = str_replace('.html', '', (explode('/', url()->current()))[4]) ?? 'vietnam';
         $category = $this->categoryRepository->getCategoryParentByUrl($sub);
         $_GET['page'] = 1;
         if(isset($request->tab) && ($request->tab == 'album-'.CURRENT_YEAR || $request->tab == 'video-'.CURRENT_YEAR)) {
@@ -46,7 +47,8 @@ class CategoryController extends Controller
         $caption = $category->cat_title;
         return view('category.index', compact('category', 'firstTab', 'caption'));
     }
-    public function index2(Request $request, $cat, $sub) {
+    public function index2(Request $request, $sub) {
+        $cat = (explode('/', url()->current()))[4] ?? 'vietnam';
         $category = $this->categoryRepository->getCategoryParentByUrl($cat);
         $title = $category->cat_title;
         $category = $this->categoryRepository->getCategorySub($category->cat_id, $sub);

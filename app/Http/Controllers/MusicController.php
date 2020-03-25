@@ -116,19 +116,31 @@ class MusicController extends Controller
         }
         return $this->listenSingleMusic($request, $cat, $sub, $urlMusic);
     }
+    public function newLinkListenSingleMusic(Request $request, $artist = '', $urlMusic = '') {
+        $id = last($url = explode('-', $urlMusic));
+        $urlMusicTitle = str_replace('-' . $id, '', $urlMusic);
+        if($urlMusic == '') {
+            $id = last($url = explode('-', $artist));
+            $urlMusicTitle = str_replace('-' . $id, '', $artist);
+            $musicUrl = $urlMusicTitle . '~' . $id;
+        }else{
+            $musicUrl = $artist . '~' .$urlMusicTitle . '~' . $id;
+        }
+        return $this->listenSingleMusic($request, '', '', $musicUrl);
+    }
     public function oldListenSingleMusic(Request $request, $cat, $sub, $musicUrl) {
         $url = explode('~', $musicUrl);
         $redReplace = $url[2] . ($url[1] ? ('/' . $url[1]) : '') . ($url[0] ? ('/' . $url[0]) : '');
         $redUrl = str_replace($musicUrl, $redReplace, url()->current());
         return redirect(str_replace('.html', '', $redUrl));
     }
-    public function listenSingleMusic(Request $request, $cat, $sub, $musicUrl) {
+    public function listenSingleMusic(Request $request, $cat = '', $sub = '', $musicUrl) {
         try {
             $arrUrl = Helpers::splitMusicUrl($musicUrl);
         } catch (Exception $e) {
             return view('errors.errors')->with('e');
         }
-        if($cat == CAT_VIDEO_URL) {
+        if($arrUrl['type'] == 'video') {
             $music = $this->videoRepository->findOnlyMusicId($arrUrl['id']);
         }else{
             $music = $this->musicRepository->findOnlyMusicId($arrUrl['id']);
@@ -136,12 +148,16 @@ class MusicController extends Controller
         if(!$music) {
             return $this->musicRepository->checkDeleteMusic($arrUrl['id']);
         }
-        if(!(isset($arrUrl['url'][0]) && isset($arrUrl['url'][1])) || ($music->music_title_url && ($arrUrl['url'][0] . ($arrUrl['url'][1] ? '~' .$arrUrl['url'][1] : '')) != $music->music_title_url)) {
+        $urlOriginal = Helpers::listen_url($music->toArray());
+        if(url()->current() != $urlOriginal) {
             return redirect(Helpers::listen_url($music->toArray()));
         }
+//        if(!(isset($arrUrl['url'][0]) && isset($arrUrl['url'][1])) || ($music->music_title_url && ($arrUrl['url'][0] . ($arrUrl['url'][1] ? '~' .$arrUrl['url'][1] : '')) != $music->music_title_url)) {
+//            return redirect(Helpers::listen_url($music->toArray()));
+//        }
         // +1 view
         if(Helpers::sessionCountTimesMusic($arrUrl['id'])){
-            if($cat == CAT_VIDEO_URL) {
+            if($arrUrl['type'] == 'video') {
                 $this->videoListenRepository->incrementListen($arrUrl['id']);
             }else{
                 $this->musicListenRepository->incrementListen($arrUrl['id']);

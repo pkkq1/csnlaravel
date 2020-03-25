@@ -63,15 +63,42 @@ Route::group(['middlewareGroups' => ['web']], function () {
     Route::get('auth/google', 'Auth\AuthGoogleController@redirectToProvider');
     Route::get('auth/google/callback', 'Auth\AuthGoogleController@handleProviderCallback');
     Route::get('/xac-nhan-email/{token}', 'User\UserController@verifyEmail');
+
+
     // Category
-    Route::get('mp3/{cat}.html', ['as' => 'category.get1', 'uses' => 'CategoryController@index1']);
-    Route::get('mp3/{cat}', ['as' => 'category.get1', 'uses' => 'CategoryController@index1']);
-    Route::get('mp3/{cat}/{sub}.html', ['as' => 'category.get2', 'uses' => 'CategoryController@index2']);
-    Route::get('mp3/{cat}/{sub}', ['as' => 'category.get2', 'uses' => 'CategoryController@index2']);
+//    Route::get('mp3/{cat}.html', ['as' => 'category.get1', 'uses' => 'CategoryController@index1']);
+//    Route::get('mp3/{cat}', ['as' => 'category.get1', 'uses' => 'CategoryController@index1']);
+//    Route::get('mp3/{cat}/{sub}.html', ['as' => 'category.get2', 'uses' => 'CategoryController@index2']);
+
+    // sub category riêng tránh trùng với link nhạc single mới update
+
+
+
+    Route::get('mp3/vietnam.html', ['as' => 'category.get1', 'uses' => 'CategoryController@index1']);
+    Route::get('mp3/us-uk.html', ['as' => 'category.get1', 'uses' => 'CategoryController@index1']);
+    Route::get('mp3/chinese.html', ['as' => 'category.get1', 'uses' => 'CategoryController@index1']);
+    Route::get('mp3/korea.html', ['as' => 'category.get1', 'uses' => 'CategoryController@index1']);
+    Route::get('mp3/japan.html', ['as' => 'category.get1', 'uses' => 'CategoryController@index1']);
+    Route::get('mp3/france.html', ['as' => 'category.get1', 'uses' => 'CategoryController@index1']);
+    Route::get('mp3/other.html', ['as' => 'category.get1', 'uses' => 'CategoryController@index1']);
+    Route::get('mp3/beat-playback.html', ['as' => 'category.get1', 'uses' => 'CategoryController@index1']);
+
+
+
+    Route::get('mp3/vietnam/{sub}.html', ['as' => 'category.get2', 'uses' => 'CategoryController@index2']);
+    Route::get('mp3/us-uk/{sub}.html', ['as' => 'category.get2', 'uses' => 'CategoryController@index2']);
+    Route::get('mp3/chinese/{sub}.html', ['as' => 'category.get2', 'uses' => 'CategoryController@index2']);
+    Route::get('mp3/korea/{sub}.html', ['as' => 'category.get2', 'uses' => 'CategoryController@index2']);
+    Route::get('mp3/japan/{sub}.html', ['as' => 'category.get2', 'uses' => 'CategoryController@index2']);
+    Route::get('mp3/france/{sub}.html', ['as' => 'category.get2', 'uses' => 'CategoryController@index2']);
+    Route::get('mp3/other/{sub}.html', ['as' => 'category.get2', 'uses' => 'CategoryController@index2']);
+    Route::get('mp3/beat-playback/{sub}.html', ['as' => 'category.get2', 'uses' => 'CategoryController@index2']);
+
+
+
     Route::get('hd/{cat}.html', ['as' => 'category.get1', 'uses' => 'CategoryController@index1']);
-    Route::get('hd/{cat}', ['as' => 'category.get1', 'uses' => 'CategoryController@index1']);
-    Route::get('hd/{cat}/{sub}.html', ['as' => 'category.get2', 'uses' => 'CategoryController@index2']);
-    Route::get('hd/{cat}/{sub}', ['as' => 'category.get2', 'uses' => 'CategoryController@index2']);
+    Route::get('hd/video/{sub}.html', ['as' => 'category.get2', 'uses' => 'CategoryController@index2']);
+    Route::get('hd/video/{sub}', ['as' => 'category.get2', 'uses' => 'CategoryController@index2']);
     Route::post('tab_category', ['as' => 'category.get_tab', 'uses' => 'CategoryController@getTabCategory']);
 
 
@@ -94,16 +121,29 @@ Route::group(['middlewareGroups' => ['web']], function () {
 
 
     // listen music
-    // single
+    // single old
     Route::get('mp3/{cat}/{sub}/{musicUrl}.html', ['as' => 'music.listen', 'uses' => 'MusicController@oldListenSingleMusic']);
     Route::get('mp3/{cat}/{sub}/{musicUrl}', ['as' => 'music.listen', 'uses' => 'MusicController@oldListenSingleMusic']);
 
-    // change new url listen music
+    // change new url listen music (ver 2)
     Route::get('mp3/{cat}/{sub}/{id}/{artist}.html', ['as' => 'music.listen', 'uses' => 'MusicController@newListenSingleMusic']);
     Route::get('mp3/{cat}/{sub}/{id}/{artist}', ['as' => 'music.listen', 'uses' => 'MusicController@newListenSingleMusic']);
 
     Route::get('mp3/{cat}/{sub}/{id}/{artist}/{urlMusic}.html', ['as' => 'music.listen', 'uses' => 'MusicController@newListenSingleMusic']);
     Route::get('mp3/{cat}/{sub}/{id}/{artist}/{urlMusic}', ['as' => 'music.listen', 'uses' => 'MusicController@newListenSingleMusic']);
+
+
+
+    // new link url listen music (ver 3)
+
+    Route::get('mp3/{artist}/{urlMusic}.html', ['as' => 'music.listen', 'uses' => 'MusicController@newLinkListenSingleMusic']);
+    Route::get('mp3/{artist}/{urlMusic}', ['as' => 'music.listen', 'uses' => 'MusicController@newLinkListenSingleMusic']);
+
+    Route::get('mp3/{urlMusic}.html', ['as' => 'music.listen', 'uses' => 'MusicController@newLinkListenSingleMusic']);
+    Route::get('mp3/{urlMusic}', ['as' => 'music.listen', 'uses' => 'MusicController@newLinkListenSingleMusic']);
+
+
+
 
     // video-clip
     Route::get('hd/{cat}/{sub}/{musicUrl}.html', ['as' => 'music.video', 'uses' => 'MusicController@oldListenSingleMusic']);
@@ -116,6 +156,16 @@ Route::group(['middlewareGroups' => ['web']], function () {
 
     Route::get('hd/{cat}/{sub}/{id}/{artist}/{urlMusic}.html', ['as' => 'music.video', 'uses' => 'MusicController@newListenSingleMusic']);
     Route::get('hd/{cat}/{sub}/{id}/{artist}/{urlMusic}', ['as' => 'music.video', 'uses' => 'MusicController@newListenSingleMusic']);
+
+
+    // new link url video-clip (ver 3)
+    Route::get('hd/{artist}/{musicUrl}.html', ['as' => 'music.video', 'uses' => 'MusicController@newLinkListenSingleMusic']);
+    Route::get('hd/{artist}/{musicUrl}', ['as' => 'music.video', 'uses' => 'MusicController@newLinkListenSingleMusic']);
+
+    Route::get('hd/{musicUrl}.html', ['as' => 'music.video', 'uses' => 'MusicController@newLinkListenSingleMusic']);
+    Route::get('hd/{musicUrl}', ['as' => 'music.video', 'uses' => 'MusicController@newLinkListenSingleMusic']);
+
+
 
     // embed
     Route::get('embed/mp3/{cat}/{sub}/{musicUrl}.html', ['as' => 'music.listen', 'uses' => 'MusicController@embed']);
