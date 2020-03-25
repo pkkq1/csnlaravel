@@ -109,7 +109,9 @@ class MusicController extends Controller
     }
     public function newListenSingleMusic(Request $request, $cat, $sub, $id, $artist = '', $urlMusic = '') {
         if($urlMusic == '') {
-            $urlMusic = $artist . '~' . $id;
+            $id = last($url = explode('-', $artist));
+            $urlMusicTitle = str_replace('-' . $id, '', $artist);
+            $urlMusic = $urlMusicTitle . '~' . $id;
         }else{
             $urlMusic = $urlMusic . '~' . $artist . '~' . $id;
         }
