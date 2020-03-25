@@ -228,7 +228,6 @@ class MusicController extends Controller
 
         if(strpos($artistUrl, '~') !== false) {
             // old URL playlist
-            dd(1);
             return redirect(strtolower(str_replace('~', '-', url()->current())));
         }else {
             $id = last(explode('-', $artistUrl));
