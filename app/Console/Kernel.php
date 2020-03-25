@@ -67,17 +67,17 @@ class Kernel extends ConsoleKernel
         $schedule->command('solr:type cover')->hourlyAt(40); // đồng bộ search solr album
 
         $schedule->command('sync_music_new')->everyFiveMinutes(); // đồng bộ nhạc mới cho solr và update total_music cover
-        $schedule->command('article_view:type real')->hourlyAt(3); // gán giá trị listen và download
-        $schedule->command('article_view:type today')->dailyAt('00:08');
+//        $schedule->command('article_view:type real')->hourlyAt(3); // gán giá trị listen và download
+//        $schedule->command('article_view:type today')->dailyAt('00:08');
 
 //        $schedule->command('solr:type all')->twiceDaily(1, 16)->everyMinute(); // đồng bộ lại toàn bộ nhac, video, cover, artist
 //        $schedule->command('solr:type all')->cron('* 16 * * *');
 
         // news
-        $schedule->command('sync_news:type new')->everyFiveMinutes();
-        $schedule->command('sync_news:type new_news')->hourlyAt(5);
-        $schedule->command('sync_news:type popular_news')->hourlyAt(55);
-        $schedule->command('sync_news:type cat_popular_new')->hourlyAt(55);
+//        $schedule->command('sync_news:type new')->everyFiveMinutes();
+//        $schedule->command('sync_news:type new_news')->hourlyAt(5);
+//        $schedule->command('sync_news:type popular_news')->hourlyAt(55);
+//        $schedule->command('sync_news:type cat_popular_new')->hourlyAt(55);
     }
 
     /**
