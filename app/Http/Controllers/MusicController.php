@@ -151,7 +151,7 @@ class MusicController extends Controller
         }
         $urlOriginal = Helpers::listen_url($music->toArray());
         if(url()->current() != $urlOriginal) {
-            return redirect(Helpers::listen_url($music->toArray()));
+            return redirect($urlOriginal);
         }
 //        if(!(isset($arrUrl['url'][0]) && isset($arrUrl['url'][1])) || ($music->music_title_url && ($arrUrl['url'][0] . ($arrUrl['url'][1] ? '~' .$arrUrl['url'][1] : '')) != $music->music_title_url)) {
 //            return redirect(Helpers::listen_url($music->toArray()));
@@ -216,7 +216,8 @@ class MusicController extends Controller
     public function urlAlbum(Request $request, $musicUrl) {
         if(strpos($musicUrl, '~') !== false) {
             // old URL playlist
-            return redirect(strtolower(str_replace('~', '-', url()->current())));
+            $arrUrl = Helpers::splitPlaylistUrl($musicUrl);
+            return $this->listenPlaylistMusic($request, $arrUrl);
         }else {
             $id = last(explode('-', $musicUrl));
             $urlAlbum = str_replace($id, '', $musicUrl);
@@ -250,6 +251,10 @@ class MusicController extends Controller
             $album = $this->coverRepository->getCoverMusicById($arrUrl['id']);
             if(!$album)
                 return view('errors.text_error')->with('message', 'Album không tìm thấy.');
+            $urlOriginal = Helpers::album_url($album->toArray());
+            if(url()->current() != ENV('LISTEN_URL').substr($urlOriginal, 1)) {
+                return redirect($urlOriginal);
+            }
             $typeListen = 'album';
             if($album->music) {
                 $playlistMusic = $album->music->toArray();
