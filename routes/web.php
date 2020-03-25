@@ -174,7 +174,7 @@ Route::group(['middlewareGroups' => ['web']], function () {
     Route::get('embed/hd/{cat}/{sub}/{musicUrl}', ['as' => 'music.video', 'uses' => 'MusicController@embed']);
 
     // album
-    Route::get('nghe-album/{musicUrl}.html', ['as' => 'music.album.listen', 'uses' => 'MusicController@UrlAlbum']);
+    Route::get('nghe-album/{musicUrl}.html', ['as' => 'music.album.listen', 'uses' => 'MusicController@UrlAlbumRelease']);
     Route::get('nghe-album/{musicUrl}', ['as' => 'music.album.listen', 'uses' => 'MusicController@UrlAlbum']);
 
     // album (delete)

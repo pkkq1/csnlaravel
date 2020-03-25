@@ -210,6 +210,9 @@ class MusicController extends Controller
         $arrUrl = Helpers::splitPlaylistUrl($url);
         return $this->listenPlaylistMusic($request, $arrUrl);
     }
+    public function UrlAlbumRelease(Request $request, $musicUrl) {
+        return redirect(str_replace($musicUrl.'.html', $musicUrl, url()->current()));
+    }
     public function urlAlbum(Request $request, $musicUrl) {
         if(strpos($musicUrl, '~') !== false) {
             // old URL playlist

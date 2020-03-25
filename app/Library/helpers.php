@@ -197,7 +197,7 @@ class Helpers
         if(!$artistId || $artistId == -1){
             return env('SEARCH_TEMPLATE_URL').'/tim-kiem?q='.trim($artistNickName).'&filter=ca-si';
         }
-        return '/ca-si/'.strtolower(self::rawTiengVietUrl($artistNickName)) . "-" . self::encodeID((int)$artistId, 'ca-si') . $mode . ".".HTMLEX;
+        return '/ca-si/'.strtolower(self::rawTiengVietUrl($artistNickName)) . "-" . self::encodeID((int)$artistId, 'ca-si') . $mode;
     }
     public static function rawHtmlArtists($artistId, $artistNickName) {
         $artistId = explode(';', htmlspecialchars_decode($artistId, ENT_QUOTES));
@@ -832,19 +832,19 @@ class Helpers
         $album_title_url = self::rawTiengVietUrl(htmlspecialchars_decode($album_info['music_album'], ENT_QUOTES));
         $album_url = strtolower($album_title_url) . '-' . self::encodeID($album_info['cover_id'], 'album');
 
-        return (($id == 0) ? SUB_ALLBUM . $album_url : SUB_ALLBUM . $album_url . '?id='. $id). ".".HTMLEX;
+        return (($id == 0) ? SUB_ALLBUM . $album_url : SUB_ALLBUM . $album_url . '?id='. $id);
     }
     public static function playlist_url($playlist_info, $id = 0)
     {
         $playlist_title_url = self::rawTiengVietUrl(htmlspecialchars_decode($playlist_info['playlist_title'],ENT_QUOTES));
         $playlist_url = base64_encode(KEY_ID_PLAYLIST_ENCODE_URL . $playlist_info['playlist_id']) . "/" . $playlist_title_url;;
 
-        return (($id == 0) ? SUB_PLAYLIST . $playlist_url : SUB_PLAYLIST . $playlist_url . '?id='. $id).HTMLEX;
+        return (($id == 0) ? SUB_PLAYLIST . $playlist_url : SUB_PLAYLIST . $playlist_url . '?id='. $id);
     }
     public static function playlist_publisher_url($playlist_info, $id = 0)
     {
         $playlist_title_url = self::rawTiengVietUrl(htmlspecialchars_decode($playlist_info['playlist_title'], ENT_QUOTES));
-        $playlist_url = $playlist_title_url . '~' . base64_encode(KEY_ID_PLAYLIST_ENCODE_URL . $playlist_info['playlist_id']) . "." . HTMLEX;;
+        $playlist_url = $playlist_title_url . '~' . base64_encode(KEY_ID_PLAYLIST_ENCODE_URL . $playlist_info['playlist_id']);
 
         return ($id == 0) ? SUB_PLAYLIST_PUBLISHER . $playlist_url : SUB_PLAYLIST . $playlist_url . '?id='. $id;
     }
