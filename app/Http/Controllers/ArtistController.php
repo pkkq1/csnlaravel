@@ -52,6 +52,9 @@ class ArtistController extends Controller
         }
         return response($result);
     }
+    public function index2(Request $request, $artistUrl) {
+        return redirect(str_replace($artistUrl.'.html', $artistUrl, url()->current()));
+    }
     public function index(Request $request, $artistUrl) {
 
         if(strpos($artistUrl, '~') !== false) {
