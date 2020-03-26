@@ -963,7 +963,7 @@ class Helpers
         else if ($music_id <= 1569000)
             $url = 'https://data23.chiasenhac.com/';
         else if ($music_id <= 1569000)
-            $url = 'https://data03.chiasenhac.com/';
+            $url = 'https://data03.chiasenhac.com/'; // HDD ERROR DELETED
         // Large Server
         else if ($music_id <= 1649000)
             $url = 'https://data2.chiasenhac.com/';
