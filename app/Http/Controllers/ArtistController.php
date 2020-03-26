@@ -52,9 +52,6 @@ class ArtistController extends Controller
         }
         return response($result);
     }
-    public function index2(Request $request, $artistUrl) {
-        return redirect(str_replace($artistUrl.'.html', $artistUrl, url()->current()));
-    }
     public function index(Request $request, $artistUrl) {
 
         if(strpos($artistUrl, '~') !== false) {
@@ -69,6 +66,10 @@ class ArtistController extends Controller
         $artist = $this->artistRepository->find(Helpers::decodeID($id));
         if(!$artist) {
             return view('errors.404');
+        }
+        $urlOriginal = Helpers::artistUrl($artist->artist_id, $artist->artist_nickname);
+        if(url()->current() != ENV('LISTEN_URL').substr($urlOriginal, 1)) {
+            return redirect(ENV('LISTEN_URL').substr($urlOriginal, 1));
         }
         $music = $this->Solr->search(['music_artist_id' => $artist->artist_id], 1, LIMIT_MUSIC_PAGE_ARTIST, ['_version_' => 'desc']);
         $musicHtml =  view('artist.music_item', compact('music'));

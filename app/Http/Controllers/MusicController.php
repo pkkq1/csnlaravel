@@ -210,9 +210,6 @@ class MusicController extends Controller
         $arrUrl = Helpers::splitPlaylistUrl($url);
         return $this->listenPlaylistMusic($request, $arrUrl);
     }
-    public function UrlAlbumRelease(Request $request, $musicUrl) {
-        return redirect(str_replace($musicUrl.'.html', $musicUrl, url()->current()));
-    }
     public function urlAlbum(Request $request, $musicUrl) {
         if(strpos($musicUrl, '~') !== false) {
             // old URL playlist
@@ -253,7 +250,7 @@ class MusicController extends Controller
                 return view('errors.text_error')->with('message', 'Album không tìm thấy.');
             $urlOriginal = Helpers::album_url($album->toArray());
             if(url()->current() != ENV('LISTEN_URL').substr($urlOriginal, 1)) {
-                return redirect($urlOriginal);
+                return redirect(ENV('LISTEN_URL').substr($urlOriginal, 1));
             }
             $typeListen = 'album';
             if($album->music) {

@@ -197,7 +197,7 @@ class Helpers
         if(!$artistId || $artistId == -1){
             return env('SEARCH_TEMPLATE_URL').'/tim-kiem?q='.trim($artistNickName).'&filter=ca-si';
         }
-        return '/ca-si/'.strtolower(self::rawTiengVietUrl($artistNickName)) . "-" . self::encodeID((int)$artistId, 'ca-si') . $mode;
+        return '/ca-si/'.strtolower(self::rawTiengVietUrl($artistNickName)) . "-" . self::encodeID((int)$artistId, 'ca-si') . $mode . HTMLEX;
     }
     public static function rawHtmlArtists($artistId, $artistNickName) {
         $artistId = explode(';', htmlspecialchars_decode($artistId, ENT_QUOTES));
@@ -329,11 +329,11 @@ class Helpers
                         $seo_domain = '';
                 }
                 $url = ($music_info['cat_id'] == CAT_VIDEO) ? VIEW_VIDEO_URL . '/' : VIEW_MUSIC_URL . '/';
-                return ($seo_domain ? ENV('LISTEN_URL') : '') . $url . self::music_url($music_info);
+                return ($seo_domain ? ENV('LISTEN_URL') : '') . $url . self::music_url($music_info) . HTMLEX;
 //                return $seo_domain . self::category_url($cat_id2info[$music_info['cat_id']][$music_info['cat_level']]) . self::music_url($music_info);
             }
             $url = ($music_info['cat_id'] == CAT_VIDEO) ? VIEW_VIDEO_URL . '/' : VIEW_MUSIC_URL . '/';
-            return ($domain ? ENV('LISTEN_URL') : '') . $url . self::music_url($music_info);
+            return ($domain ? ENV('LISTEN_URL') : '') . $url . self::music_url($music_info) . HTMLEX;
 //            return ($domain ? ENV('LISTEN_URL') : '') . self::category_url($cat_id2info[$music_info['cat_id']][$music_info['cat_level']]) . self::music_url($music_info);
         }
         return '';
@@ -832,7 +832,7 @@ class Helpers
         $album_title_url = self::rawTiengVietUrl(htmlspecialchars_decode($album_info['music_album'], ENT_QUOTES));
         $album_url = strtolower($album_title_url) . '-' . self::encodeID($album_info['cover_id'], 'album');
 
-        return (($id == 0) ? SUB_ALLBUM . $album_url : SUB_ALLBUM . $album_url . '?id='. $id);
+        return (($id == 0) ? SUB_ALLBUM . $album_url : SUB_ALLBUM . $album_url . '?id='. $id) . HTMLEX;
     }
     public static function playlist_url($playlist_info, $id = 0)
     {

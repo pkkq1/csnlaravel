@@ -125,7 +125,7 @@ define('PUBLIC_MUSIC_PLAYLIST_PUBLISHER_PATH', '/storage/data/playlist_publisher
 // User
 define('AVATAR_PATH', 'data/user_avatar/');
 define('PUBLIC_AVATAR_PATH', '/storage/data/user_avatar/');
-define('HTMLEX', 'html');
+define('HTMLEX', '.html');
 define('DEACTIVE_USER', 0); //  not verify
 define('ACTIVE_USER', 1); // verified
 define('BANNED_USER', 2);
