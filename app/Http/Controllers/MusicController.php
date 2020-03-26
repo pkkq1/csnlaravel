@@ -109,21 +109,30 @@ class MusicController extends Controller
     }
     public function newListenSingleMusic(Request $request, $cat, $sub, $id, $artist = '', $urlMusic = '') {
         if($urlMusic == '') {
-            $id = last($url = explode('-', $artist));
-            $urlMusicTitle = str_replace('-' . $id, '', $artist);
-            $urlMusic = $urlMusicTitle . '~' . $id;
+//            $id = last($url = explode('-', $artist));
+//            $urlMusicTitle = str_replace('-' . $id, '', $artist);
+//            $urlMusic = $urlMusicTitle . '~' . $id;
+            $urlMusic = $artist . '~' . $id;
         }else{
             $urlMusic = $urlMusic . '~' . $artist . '~' . $id;
         }
+        dd($urlMusic);
         return $this->listenSingleMusic($request, $cat, $sub, $urlMusic);
     }
     public function newLinkListenSingleMusic(Request $request, $artist = '', $urlMusic = '') {
         $id = last($url = explode('-', $urlMusic));
         $urlMusicTitle = str_replace('-' . $id, '', $urlMusic);
         if($urlMusic == '') {
-            $id = last($url = explode('-', $artist));
-            $urlMusicTitle = str_replace('-' . $id, '', $artist);
-            $musicUrl = $urlMusicTitle . '~' . $id;
+            $arrArtist = explode('-', $artist);
+            if(count($arrArtist) == 1) {
+                // không có casi và tenbaihat
+                $musicUrl = '~' . $artist;
+            }else{
+                // 1 trong 2 là casi và tenbaihat
+                $id = last($arrArtist);
+                $urlMusicTitle = str_replace('-' . $id, '', $artist);
+                $musicUrl = $urlMusicTitle . '~' . $id;
+            }
         }else{
             $musicUrl = $artist . '~' .$urlMusicTitle . '~' . $id;
         }

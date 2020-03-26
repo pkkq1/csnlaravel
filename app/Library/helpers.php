@@ -179,7 +179,7 @@ class Helpers
         $url = explode('~', $music_info['music_title_url']);
         if($url[0] == '') {
             // music without title
-            $urlEnd = (isset($url[1]) ? '-' : '') . '' . $id;
+            $urlEnd = (isset($url[1]) && $url[1] != '' ? $url[1] . '-' : '') . '' . $id;
         }elseif (!isset($url[1]) || $url[1] == '') {
             // artist without name
             $urlEnd = $url[0] . '-' . $id;

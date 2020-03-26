@@ -96,7 +96,7 @@ Route::group(['middlewareGroups' => ['web']], function () {
 
 
 
-    Route::get('hd/{cat}.html', ['as' => 'category.get1', 'uses' => 'CategoryController@index1']);
+//    Route::get('hd/{cat}.html', ['as' => 'category.get1', 'uses' => 'CategoryController@index1']);
     Route::get('hd/video/{sub}.html', ['as' => 'category.get2', 'uses' => 'CategoryController@index2']);
     Route::get('hd/video/{sub}', ['as' => 'category.get2', 'uses' => 'CategoryController@index2']);
     Route::post('tab_category', ['as' => 'category.get_tab', 'uses' => 'CategoryController@getTabCategory']);
