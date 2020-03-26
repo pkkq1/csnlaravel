@@ -116,7 +116,6 @@ class MusicController extends Controller
         }else{
             $urlMusic = $urlMusic . '~' . $artist . '~' . $id;
         }
-        dd($urlMusic);
         return $this->listenSingleMusic($request, $cat, $sub, $urlMusic);
     }
     public function newLinkListenSingleMusic(Request $request, $artist = '', $urlMusic = '') {
