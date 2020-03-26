@@ -139,9 +139,16 @@ class MusicController extends Controller
     }
     public function oldListenSingleMusic(Request $request, $cat, $sub, $musicUrl) {
         $url = explode('~', $musicUrl);
-        $redReplace = $url[2] . ($url[1] ? ('/' . $url[1]) : '') . ($url[0] ? ('/' . $url[0]) : '');
-        $redUrl = str_replace($musicUrl, $redReplace, url()->current());
-        return redirect(str_replace('.html', '', $redUrl));
+//        if(count($url) == 1) {
+//            // không có casi và tenbaihat
+//            $musicUrl = $musicUrl;
+//        }elseif (count($url) == 2) {
+//            // 1 trong 2 là casi và tenbaihat
+//            $musicUrl = $musicUrl;
+//        }else {
+//            $musicUrl = $musicUrl;
+//        }
+        return $this->listenSingleMusic($request, '', '', $musicUrl);
     }
     public function listenSingleMusic(Request $request, $cat = '', $sub = '', $musicUrl) {
         try {
