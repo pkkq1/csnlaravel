@@ -9,6 +9,7 @@ $titleMeta = $titleBxh . ' - '. Config::get('constants.app.title');
 $metaKeyWorld = 'bang xep hang, music, mp3, m4a, flac, lossless, video, mv, hd, mp4, csn, nghe nhạc, tải nhạc, lời bài hát, lyrics';
 $metaDesc = 'Nghe nhạc online chất lượng cao kèm lyrics, chia sẻ và tải nhạc dạng mp3, mp4, m4a, lossless.';
 if ($titleBxh == 'Bảng xếp hạng hot trong ngày') {
+    $titleMeta = 'Bảng xếp hạng nhạc hot - Nơi cảm nhận top những bài hát hay nhất';
     $metaDesc = 'Nhạc hot  -Nghe nhạc hot online chất lượng cao kèm lyrics, chia sẻ và tải nhạc dạng mp3, mp4, m4a, lossles';
     $metaKeyWorld = $metaKeyWorld . ',Nhạc hot, bài hát hot, bài hát hot, nghe nhạc online, tải nhạc miễn phí, chia sẻ nhạc, bài hát, nhạc vàng, nhạc trẻ, nhạc chữ tình, nhạc xuân, remix, nghe nhạc online, edm, bolero, upload nhạc, trance, house, lời bài hát, lossless';
 } elseif ($titleBxh == 'Bảng xếp hạng hot trong tuần') {
