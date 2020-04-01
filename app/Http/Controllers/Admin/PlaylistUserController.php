@@ -230,6 +230,11 @@ class PlaylistUserController extends CrudController
 
     public function edit($id, $template = false)
     {
+        $RqUri = $_SERVER['REQUEST_URI'];
+        if($_SERVER['HTTP_HOST'] !== 'upload.chiasenhac.vn') {
+            header("Location: ".env('UPLOAD_TEMPLATE_URL').$_SERVER['REQUEST_URI']);
+            exit;
+        }
         $this->crud->hasAccessOrFail('update');
 
         // get entry ID from Request (makes sure its the last ID for nested resources)
@@ -269,7 +274,13 @@ class PlaylistUserController extends CrudController
             }
         }
         if(strlen($request->input('playlist_value_cover')) > 100) {
-            $fileNameCover = Helpers::saveBase64ImageJpg($request->input('playlist_value_cover'), Helpers::file_path($request->input('playlist_id'), MUSIC_PLAYLIST_PATH, true), $request->input('playlist_id'));
+            $fileNameCover = Helpers::saveBase64ImageJpg($request->input('playlist_value_cover'),
+                Helpers::file_path($request->input('playlist_id'), MUSIC_PLAYLIST_PATH, true),
+                $request->input('playlist_id'),
+                [
+                    ['dest' => Helpers::file_path($request->input('playlist_id'), MUSIC_PLAYLIST_THUMB_200_PATH, true), 'width' => 200, 'height' => null]
+                ]
+            );
             $request->request->set('playlist_cover', SET_ACTIVE);
         }
         $playlist = PlaylistModel::where('playlist_id', $request->input('playlist_id'))->first();
