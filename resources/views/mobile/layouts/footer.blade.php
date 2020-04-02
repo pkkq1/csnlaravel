@@ -91,7 +91,7 @@ if($memberVip == null)
 <script src="{{URL::to('/')}}/mobile/assets/js/owl.carousel.min.js"></script>
 <script src="{{URL::to('/')}}/mobile/assets/js/swiper.js"></script>
 <script src="{{URL::to('/')}}/mobile/assets/js/main.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="{{URL::to('/')}}/js/jquery-ui.js"></script>
 <script src="{{URL::to('/')}}/mobile/assets/js/functions.js"></script>
 <script>
     var dataSearch = [];

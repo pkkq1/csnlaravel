@@ -19,7 +19,7 @@ use App\Library\Helpers;
     <script type="text/javascript" src="{{URL::to('/')}}/node_modules/sortablejs/Sortable.min.js"></script>
     <script type="text/javascript" src="{{URL::to('/')}}/assets/jQuery-File-Upload-9.21.0/js/vendor/jquery.ui.widget.js"></script>
     <script type="text/javascript" src="{{URL::to('/')}}/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="{{URL::to('/')}}/js/jquery-ui.js"></script>
     <link rel="stylesheet" type="text/css" href="{{URL::to('/')}}/css/croppie.css">
     <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/bootstrap-tagsinput.css">
     <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/typeaheadjs.css">
