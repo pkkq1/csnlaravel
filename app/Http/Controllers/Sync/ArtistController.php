@@ -50,12 +50,14 @@ class ArtistController extends Controller
         $result = [];
         foreach ($top_artist_rows as $key => $item) {
             $artist = $this->artistRepository->getModel()::find($item['id']);
+            $avatar = $artist->artist_avatar ? Helpers::file_path($artist->artist_id, substr(AVATAR_ARTIST_CROP_PATH, 1), true).$artist->artist_avatar : 'imgs/no_cover.jpg';
             if($artist) {
                 $result[] = [
                     'music_artist_points' => $item['music_downloads_this_week'],
                     'music_artist' => $artist->artist_nickname,
                     'artist_face_id' => $item['id'],
-                    'artist_avatar' => $artist->artist_avatar ? Helpers::file_path($artist->artist_id, substr(AVATAR_ARTIST_CROP_PATH, 1), true).$artist->artist_avatar : 'imgs/no_cover.jpg',
+                    'artist_avatar' => $avatar,
+                    'artist_avatar_thumb' => str_replace('artist_avatar', 'artist_avatar_thumb', $avatar),
                     'artist_cover' => $artist->artist_cover ? Helpers::file_path($artist->artist_id, substr(COVER_ARTIST_CROP_PATH, 1), true).$artist->artist_cover : 'imgs/no_cover_artist.jpg',
                     'artist_url' => Helpers::artistUrl($item['id'], $artist->artist_nickname),
                     'music_total' => $item['music_total']
