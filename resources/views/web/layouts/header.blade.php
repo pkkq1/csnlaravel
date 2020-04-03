@@ -33,7 +33,7 @@ global $allpage_banner;
         {{--.container{max-width:1000px!important;width:100%}--}}
     {{--</style>--}}
     {{--@endif--}}
-    <script type="text/javascript" src="https://cdn.innity.net/admanager.js"></script>
+    {{--<script type="text/javascript" src="https://cdn.innity.net/admanager.js"></script>--}}
 
     @yield('contentCSS')
     <!-- JS -->
