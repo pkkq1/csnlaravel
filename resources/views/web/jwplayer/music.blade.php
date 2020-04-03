@@ -467,7 +467,7 @@ if($musicSet['type_listen'] == 'playlist') {
                         ?>
                         <div class="col">
                             <div class="card card1">
-                                <div class="card-header" style="background-image: url({{Helpers::cover_url($item['cover_id'])}});">
+                                <div class="card-header" style="background-image: url({{Helpers::coverThumb(Helpers::cover_url($item['cover_id']), MUSIC_COVER_THUMB_200_PATH)}});">
                                     <a href="{{$url}}" title="{{$item['music_title']}}">
                                         <span class="icon-play"></span>
                                     </a>

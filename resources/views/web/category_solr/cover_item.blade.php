@@ -8,7 +8,7 @@ use App\Library\Helpers;
     ?>
     <div class="col">
         <div class="card card1">
-            <div class="card-header" style="background-image: url({{$item['album_cover'][0]}});">
+            <div class="card-header" style="background-image: url({{$item['album_cover_thumb_200'][0]}});">
                 <a href="{{$item['album_link'][0]}}" title="{{$item['music_album'][0]}}">
                     <span class="icon-play"></span>
                 </a>

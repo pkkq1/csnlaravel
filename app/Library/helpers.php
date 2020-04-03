@@ -629,11 +629,11 @@ class Helpers
     public static function cover_url($cover_id = 0, $artist_id = 0)
     {
         if($cover_id > 0) {
-             return self::cover_path($cover_id) . $cover_id . '.jpg';
+            return self::cover_path($cover_id) . $cover_id . '.jpg';
         }else{
             if($artist_id > 0) {
                 $artist = ArtistModel::find($artist_id);
-                return $artist && $artist->artist_avatar ? env('DATA_URL') . self::file_path($artist->artist_id, AVATAR_ARTIST_CROP_PATH, true) . $artist->artist_avatar : env('APP_URL') . '/imgs/no_cover.jpg';
+                return $artist && $artist->artist_avatar ? env('DATA_URL') . self::file_path($artist->artist_id, AVATAR_ARTIST_THUMB_CROP_PATH, true) . $artist->artist_avatar : env('APP_URL') . '/imgs/no_cover.jpg';
             }else{
                 return env('APP_URL') . '/imgs/no_cover.jpg';
             }

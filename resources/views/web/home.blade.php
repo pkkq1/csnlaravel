@@ -106,7 +106,7 @@ $catalog = config('constants.catalog');
                     @endif
                     <div class="col">
                         <div class="card card1">
-                            <div class="card-header" style="background-image: url({{$item['cover_url']}});">
+                            <div class="card-header" style="background-image: url({{$item['cover_thumb_200_url']}});">
                                 <a href="{{$item['album_url']}}" title="{{$item['music_album']}}">
                                     <span class="icon-play"></span>
                                 </a>
@@ -280,7 +280,7 @@ $catalog = config('constants.catalog');
                     @endif
                     <div class="col">
                         <div class="card card1">
-                            <div class="card-header" style="background-image: url({{$item['cover_url']}});">
+                            <div class="card-header" style="background-image: url({{$item['cover_thumb_200_url']}});">
                                 <a href="{{$item['album_url']}}" title="{{$item['music_album']}}">
                                     <span class="icon-play"></span>
                                 </a>
@@ -505,7 +505,7 @@ $catalog = config('constants.catalog');
                     $artistRows = $top_artist_rows;
                     array_map(function ($i, $item) {
                     ?>
-                    <a href="{{$item['artist_url']}}" title="{{$item['music_artist']}}" class="img-thumbnail singer {{$i == 0 ? 'c1' : ''}}" style="background-image: url({{env('DATA_URL').$item['artist_avatar']}});">
+                    <a href="{{$item['artist_url']}}" title="{{$item['music_artist']}}" class="img-thumbnail singer {{$i == 0 ? 'c1' : ''}}" style="background-image: url({{env('DATA_URL').$item['artist_avatar_thumb']}});">
                         <span>{{$item['music_artist']}}</span>
                     </a>
                     <?php
