@@ -44,7 +44,7 @@ $titleMeta = $caption . ' - '. Config::get('constants.app.title');
                                                 ?>
                                                 <div class="col-6">
                                                     <div class="item element">
-                                                        <a href="{{$url}}"><div style="background: url({{$item['playlist_cover'] ? Helpers::file_path($item['playlist_id'], env('DATA_URL').MUSIC_PLAYLIST_PATH, true).$item['playlist_id'] . '.png?v=' . time() : '/imgs/avatar_default.png'}}) no-repeat center;background-size: cover;" class="image rounded"></div></a>
+                                                        <a href="{{$url}}"><div style="background: url({{$item['playlist_cover'] ? Helpers::file_path($item['playlist_id'], env('DATA_URL').MUSIC_PLAYLIST_THUMB_200_PATH, true).$item['playlist_id'] . '.png?v=' . time() : '/imgs/avatar_default.png'}}) no-repeat center;background-size: cover;" class="image rounded"></div></a>
                                                         <div class="content mt-3">
                                                             <a href="{{$url}}"><h6 class="name_song mb-1 card-title">{{$item['playlist_title']}}</h6></a>
                                                             <p class="name_singer text-gray mb-1 author">
