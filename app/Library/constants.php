@@ -109,6 +109,7 @@ define('MUSIC_THUMBNAIL_PATH', 'data/thumb/');
 // Cover
 define('MUSIC_COVER_PATH', 'data/cover/');
 define('MUSIC_COVER_THUMB_PATH', 'data/cover_thumb/');
+define('MUSIC_COVER_THUMB_200_PATH', 'data/cover_thumb_200/');
 define('MUSIC_COVER_SOURCE_PATH', 'data/source_cover/');
 // Artist
 define('MUSIC_ARTIST_PATH', 'data/artist/');

@@ -1412,9 +1412,9 @@ class Helpers
         }
         return false;
     }
-    public static function coverThumb($cover_url)
+    public static function coverThumb($cover_url, $size = MUSIC_COVER_THUMB_PATH)
     {
-        return str_replace(MUSIC_COVER_PATH, MUSIC_COVER_THUMB_PATH, $cover_url);
+        return str_replace(MUSIC_COVER_PATH, $size, $cover_url);
     }
 
 }

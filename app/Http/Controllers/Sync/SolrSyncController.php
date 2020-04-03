@@ -497,6 +497,7 @@ class SolrSyncController extends Controller
         $datas = [];
         foreach ($artist as $key => $item) {
             $artist_nickname_charset = Helpers::strReplaceSolr(Helpers::khongdau(mb_strtolower($item->artist_nickname, 'UTF-8'), ' '), true);
+            $avatar = $item->artist_avatar ? env('DATA_URL').Helpers::file_path($item->artist_id, AVATAR_ARTIST_CROP_PATH, true) . $item->artist_avatar : env('IMG_DATA_URL').'imgs/no_cover.jpg';
             $data = [
                 'id' => 'artist_' . $item->artist_id,
                 'artist_id' => $item->artist_id,
@@ -507,7 +508,8 @@ class SolrSyncController extends Controller
                 'music_total' => $item->music_total,
                 'artist_link' => Helpers::artistUrl($item->artist_id, $item->artist_nickname),
                 'artist_cover' => $item->artist_cover ? env('DATA_URL').Helpers::file_path($item->artist_id, COVER_ARTIST_CROP_PATH, true) . $item->artist_cover : env('IMG_DATA_URL').'imgs/no_cover_artist.jpg',
-                'artist_avatar' => $item->artist_avatar ? env('DATA_URL').Helpers::file_path($item->artist_id, AVATAR_ARTIST_CROP_PATH, true) . $item->artist_avatar : env('IMG_DATA_URL').'imgs/no_cover.jpg',
+                'artist_avatar' => $avatar,
+                'artist_avatar_thumb' => str_replace('artist_avatar', 'artist_avatar_thumb', $avatar),
                 'solr_updated_time' => time(),
             ];
             $datas[] = $data;
@@ -577,6 +579,7 @@ class SolrSyncController extends Controller
                 'music_album_artist_charset_nospace' => str_replace(' ', '', $titleCharset) . '' . str_replace(' ', '', $artistCharset),
                 'album_cover' => $album_cover,
                 'album_cover_thumb' => Helpers::coverThumb($album_cover),
+                'album_cover_thumb_200' => Helpers::coverThumb($album_cover, MUSIC_COVER_THUMB_200_PATH),
                 'cover_filename' => $item->cover_filename,
                 'album_cat' => !empty($album_cat) ? $album_cat : '',
                 'album_link' => Helpers::album_url($item->toArray()),
