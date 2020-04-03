@@ -174,7 +174,7 @@ class SearchController extends Controller
                             'cat_id' => $item['cat_id'][0],
                             'music_listen' => $item['music_listen'][0],
                             'music_filename' => '', //$item['music_file_name'][0]
-                            'music_cover' => $item['music_cover'][0],
+                            'music_cover' => $item['music_cover_thumb'][0],
                             'music_title_url' => $item['music_title_url'][0],
                             'music_downloads' => $item['music_downloads'][0],
                         ];
@@ -228,7 +228,7 @@ class SearchController extends Controller
                             'artist_nickname' => htmlspecialchars_decode($item['artist_nickname'][0], ENT_QUOTES),
                             'artist_link' =>  $item['artist_link'][0],
                             'artist_cover' => $item['artist_cover'][0],
-                            'artist_avatar' => $item['artist_avatar'][0],
+                            'artist_avatar' => $item['artist_avatar_thumb'][0],
                         ];
                     }
                 }
@@ -262,7 +262,7 @@ class SearchController extends Controller
                             'album_bitrate' => $item['music_bitrate'][0],
                             'album_artist' => isset($item['album_music_artist']) ? $item['album_music_artist'][0] : '',
                             'album_artist_html' => isset($item['album_music_artist_html']) ? $item['album_music_artist_html'][0] : '',
-                            'album_cover' => isset($item['album_cover']) ? $item['album_cover'][0] : '',
+                            'album_cover' => isset($item['album_cover_thumb']) ? $item['album_cover_thumb'][0] : '',
                         ];
                     }
                 }
