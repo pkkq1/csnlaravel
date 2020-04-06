@@ -6,6 +6,7 @@ global $allpage_banner;
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="Content-Style-Type" content="text/css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport">
     <title>{{ $titleMeta or Config::get('constants.app.title') }}</title>
     @yield('meta')
     <link rel="icon" href="/imgs/favicon.ico" type="image/x-icon" />
