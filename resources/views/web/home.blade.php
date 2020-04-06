@@ -92,7 +92,7 @@ $catalog = config('constants.catalog');
         <div class="row row_wrapper">
             <div class="col-md-9">
                 <div class="box_header d-flex justify-content-between align-items-end">
-                    <a class="view_all" href="/mp3/vietnam.html"><h5 class="title m-0">Album mới nhất {{date('Y', time())}}</h5></a>
+                    <a class="view_all" href="/mp3/vietnam.html"><h2 class="title m-0">Album mới nhất {{date('Y', time())}}</h2></a>
                     <a class="link_more" href="/mp3/vietnam.html" title="Album mới nhất {{date('Y', time())}}">Xem tất cả</a>
                 </div>
                 <div class="row row10px">
@@ -146,7 +146,7 @@ $catalog = config('constants.catalog');
                 <div class="row row10px">
                     <div class="col">
                         <div class="box_header d-flex justify-content-between align-items-end">
-                            <a class="view_all" href="/bai-hat-moi.html"><h5 class="title m-0">Bài hát mới chia sẻ</h5></a>
+                            <a class="view_all" href="/bai-hat-moi.html"><h2 class="title m-0">Bài hát mới chia sẻ</h2></a>
                             <a class="link_more" href="/bai-hat-moi.html" title="Bài hát mới nhất 2018">Xem tất cả</a>
                         </div>
                         <ul class="list-unstyled list_music">
@@ -166,7 +166,7 @@ $catalog = config('constants.catalog');
                                 </div>
                                 <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
                                     <div>
-                                        <h5 class="media-title mt-0 mb-0 title_home_tablet"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
+                                        <h2 class="media-title mt-0 mb-0 title_home_tablet"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h2>
                                         <div class="author title_home_tablet"><?php echo $item['music_artist_html'] ?></div>
                                     </div>
                                     <small class="type_music"><?php echo $item['music_bitrate_html']; ?></small>
@@ -188,7 +188,7 @@ $catalog = config('constants.catalog');
                     </div>
                     <div class="col">
                         <div class="box_header d-flex justify-content-between align-items-end">
-                            <a class="view_all" href="/mp3/vietnam.html?tab=vua-download"> <h5 class="title m-0">Download mới nhất</h5></a>
+                            <a class="view_all" href="/mp3/vietnam.html?tab=vua-download"> <h2 class="title m-0">Download mới nhất</h2></a>
                             <a class="link_more" href="/mp3/vietnam.html?tab=vua-download" title="Xem tất cả download">Xem tất cả</a>
                         </div>
                         <ul class="list-unstyled list_music">
@@ -208,7 +208,7 @@ $catalog = config('constants.catalog');
                                 </div>
                                 <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
                                     <div>
-                                        <h5 class="media-title mt-0 mb-0 title_home_tablet"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
+                                        <h2 class="media-title mt-0 mb-0 title_home_tablet"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h2>
                                         <div class="author title_home_tablet"><?php echo $item['music_artist_html'] ?></div>
                                     </div>
                                     <small class="type_music c1"><?php echo $item['music_bitrate_html']; ?></small>
@@ -233,7 +233,7 @@ $catalog = config('constants.catalog');
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <i class="material-icons">close</i>
                             </button>
-                            <h5 class="card-title box_add_playlist"></h5>
+                            <h2 class="card-title box_add_playlist"></h2>
                             <div class="box_show_playlist_popup box_show_playlist mb-2">
                                 <div class="list-group">
 
@@ -266,7 +266,7 @@ $catalog = config('constants.catalog');
                     })
                 </script>
                 <div class="box_header d-flex justify-content-between align-items-end">
-                    <a class="view_all" href="/album-moi.html"><h5 class="title m-0">Album mới</h5></a>
+                    <a class="view_all" href="/album-moi.html"><h2 class="title m-0">Album mới</h2></a>
                     <a class="link_more" href="/album-moi.html" title="Album mới">Xem tất cả</a>
                 </div>
                 <div class="row row10px float-col-width">
@@ -297,7 +297,7 @@ $catalog = config('constants.catalog');
 
                 </div>
                 <div class="box_header d-flex justify-content-between align-items-end">
-                    <a class="view_all" href="/video-moi.html"><h5 class="title m-0">Video mới</h5></a>
+                    <a class="view_all" href="/video-moi.html"><h2 class="title m-0">Video mới</h2></a>
                     <a class="link_more" href="/video-moi.html" title="Xem tất Cả Video">Xem tất cả</a>
                 </div>
                 <div class="row row10px float-col-width-video">
@@ -326,7 +326,7 @@ $catalog = config('constants.catalog');
             </div>
             <div class="col-md-3 home-bxh">
                 <div class="box_header d-flex justify-content-between align-items-end">
-                    <a class="view_all" href="/nhac-hot.html"><h5 class="title m-0">Bảng xếp hạng</h5></a>
+                    <a class="view_all" href="/nhac-hot.html"><h2 class="title m-0">Bảng xếp hạng</h5></a>
                     <a class="link_more" href="/nhac-hot.html" title="">Nghe tất cả<span class="ion-android-arrow-dropright-circle"></span></a>
                 </div>
                 <ul class="nav nav-tabs" id="myTab_bxh" role="tablist">
@@ -367,7 +367,7 @@ $catalog = config('constants.catalog');
                                     </a>
                                 </div>
                                 <div class="media-body d-flex flex-column {{$i == 1 ? '' : 'justify-content-between'}}">
-                                    <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
+                                    <h2 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
                                     <div class="{{$i == 1 ? '' : 'd-flex'}} align-items-center justify-content-between">
                                         <div class="author"><?php echo $item['music_artist_html'] ?></div>
                                         <small class="counter_view">{{number_format($item['music_listen'])}}</small>
@@ -397,7 +397,7 @@ $catalog = config('constants.catalog');
                                     </a>
                                 </div>
                                 <div class="media-body d-flex flex-column {{$i == 1 ? '' : 'justify-content-between'}}">
-                                    <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
+                                    <h2 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
                                     <div class="{{$i == 1 ? '' : 'd-flex'}} align-items-center justify-content-between">
                                         <div class="author"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></div>
                                         <small class="counter_view">{{number_format($item['music_listen'])}}</small>
@@ -427,7 +427,7 @@ $catalog = config('constants.catalog');
                                     </a>
                                 </div>
                                 <div class="media-body d-flex flex-column {{$i == 1 ? '' : 'justify-content-between'}}">
-                                    <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
+                                    <h2 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
                                     <div class="{{$i == 1 ? '' : 'd-flex'}} align-items-center justify-content-between">
                                         <div class="author"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></div>
                                         <small class="counter_view">{{number_format($item['music_listen'])}}</small>
@@ -457,7 +457,7 @@ $catalog = config('constants.catalog');
                                     </a>
                                 </div>
                                 <div class="media-body d-flex flex-column {{$i == 1 ? '' : 'justify-content-between'}}">
-                                    <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
+                                    <h2 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
                                     <div class="{{$i == 1 ? '' : 'd-flex'}} align-items-center justify-content-between">
                                         <div class="author"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></div>
                                         <small class="counter_view">{{number_format($item['music_listen'])}}</small>
@@ -472,7 +472,7 @@ $catalog = config('constants.catalog');
                 </div>
                 <div class="box_space"></div>
                 <div class="box_header d-flex justify-content-between align-items-end" style="margin-top: 15px;">
-                    <a class="view_all" href="/bang-xep-hang/tuan.html"><h5 class="title m-0">BXH upload trong tuần</h5></a>
+                    <a class="view_all" href="/bang-xep-hang/tuan.html"><h2 class="title m-0">BXH upload trong tuần</h5></a>
                 </div>
                 <ul class="list-unstyled bxh_week mb-0">
                     <?php
@@ -481,7 +481,7 @@ $catalog = config('constants.catalog');
                     <li class="media {{($i == 0 ? 'stand' : ($i == 1 ? 'up' : ($i == 2 ? 'down' : '')))}}">
                         <div class="media-left align-self-center"><span></span></div>
                         <div class="media-body">
-                            <h5 class="mt-0 mb-0 d-flex align-items-center justify-content-between">
+                            <h2 class="mt-0 mb-0 d-flex align-items-center justify-content-between">
                                 <a href="/user/{{$item['music_user_id']}}" title="{{$item['music_username']}}">{{$item['music_username']}}</a>
                                 <div class="counter_download">{{number_format($item['download_total'])}}</div>
                             </h5>
@@ -497,7 +497,7 @@ $catalog = config('constants.catalog');
                 </ul>
                 <div class="box_space"></div>
                 <div class="box_header d-flex justify-content-between align-items-end" style="margin-top: 15px;">
-                    <a class="view_all" href="#"><h5 class="title m-0">Ca sĩ yêu thích</h5></a>
+                    <a class="view_all" href="#"><h2 class="title m-0">Ca sĩ yêu thích</h5></a>
                 </div>
                 <div class="singer_grid">
                     <?php
