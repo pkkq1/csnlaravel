@@ -1,14 +1,14 @@
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <sitemap>
-        <loc>http://chiasenhac.vn/sitemap_category.xml</loc>
+        <loc>https://chiasenhac.vn/sitemap_category.xml</loc>
         <lastmod>2016-06-27</lastmod>
     </sitemap>
     <sitemap>
-        <loc>http://chiasenhac.vn/sitemap_artist.xml</loc>
+        <loc>https://chiasenhac.vn/sitemap_artist.xml</loc>
         <lastmod>2016-06-27</lastmod>
     </sitemap>
     <sitemap>
-        <loc>http://chiasenhac.vn/sitemap_video.xml</loc>
+        <loc>https://chiasenhac.vn/sitemap_video.xml</loc>
         <lastmod>2016-06-27</lastmod>
     </sitemap>
 </sitemapindex>
