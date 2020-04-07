@@ -831,13 +831,16 @@ class UploadController extends Controller
     }
     function suggest(Request $request) {
 
-        $arrUrl = Helpers::splitMusicUrl(last(explode('/', $request->url)));
-        if(!$arrUrl['id'])
+        $id = last($url = explode('-', $request->url));
+        $id_encode = last(str_replace('.html', '', $id));
+        $id = Helpers::decodeID($id_encode);
+        $type = substr($id_encode, 0, 1) == 'v' ? 'video' : 'music';
+        if(!$id)
             Helpers::ajaxResult(false, 'Không tìm thấy id', null);
-        if($arrUrl['type'] == 'music') {
-            $result = $this->musicRepository->getModel()::where('music_id', $arrUrl['id'])->select('cat_id', 'cat_level', 'cat_sublevel', 'cat_custom', 'music_title', 'music_composer', 'music_lyric')->first();
+        if($type == 'music') {
+            $result = $this->musicRepository->getModel()::where('music_id', $id)->select('cat_id', 'cat_level', 'cat_sublevel', 'cat_custom', 'music_title', 'music_composer', 'music_lyric')->first();
         }else {
-            $result = $this->videoRepository->getModel()::where('music_id', $arrUrl['id'])->select('cat_id', 'cat_level', 'cat_sublevel', 'cat_custom', 'music_title', 'music_composer', 'music_lyric')->first();
+            $result = $this->videoRepository->getModel()::where('music_id', $id)->select('cat_id', 'cat_level', 'cat_sublevel', 'cat_custom', 'music_title', 'music_composer', 'music_lyric')->first();
         }
         if(!$result)
             Helpers::ajaxResult(false, 'Không tìm thấy nội dung', null);

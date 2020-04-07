@@ -870,13 +870,18 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                             error: function (data) {
                             },
                             success: function(response) {
-                                $('#music_title').val(response.data.music_title);
-                                $('#music_composer').val(response.data.music_composer);
-                                $('#music_lyric').val(response.data.music_lyric);
-                                document.getElementById('cat_id').value = response.data.cat_id;
-                                document.getElementById('cat_level').value = response.data.cat_level;
-                                document.getElementById('cat_sublevel').value = response.data.cat_sublevel;
-                                document.getElementById('cat_custom').value = response.data.cat_custom;
+                                if(response.success) {
+                                    $('#music_title').val(response.data.music_title);
+                                    $('#music_composer').val(response.data.music_composer);
+                                    $('#music_lyric').val(response.data.music_lyric);
+                                    document.getElementById('cat_id').value = response.data.cat_id;
+                                    document.getElementById('cat_level').value = response.data.cat_level;
+                                    document.getElementById('cat_sublevel').value = response.data.cat_sublevel;
+                                    document.getElementById('cat_custom').value = response.data.cat_custom;
+                                }else{
+                                    alertModal(response.message);
+                                }
+
                             }
                         });
                     })
