@@ -119,7 +119,7 @@ class MusicController extends Controller
         return $this->listenSingleMusic($request, $cat, $sub, $urlMusic);
     }
     public function newLinkListenSingleMusic(Request $request, $artist = '', $urlMusic = '') {
-        $id = last($url = explode('-', $urlMusic));
+        $id = last(explode('-', $urlMusic));
         $urlMusicTitle = str_replace('-' . $id, '', $urlMusic);
         if($urlMusic == '') {
             $arrArtist = explode('-', $artist);

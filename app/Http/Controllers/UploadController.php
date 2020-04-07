@@ -831,8 +831,7 @@ class UploadController extends Controller
     }
     function suggest(Request $request) {
 
-        $id = last($url = explode('-', $request->url));
-        $id_encode = last(str_replace('.html', '', $id));
+        $id_encode = str_replace('.html', '', last(explode('-', $request->url)));
         $id = Helpers::decodeID($id_encode);
         $type = substr($id_encode, 0, 1) == 'v' ? 'video' : 'music';
         if(!$id)
