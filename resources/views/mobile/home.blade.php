@@ -58,7 +58,6 @@ $memberVip = Helpers::checkMemberVip();
                                         <div class="element text-white">
                                             <h6 class="name_song mb-1">{{$item['music_album']}}</h6>
                                             <p class="name_singer mb-1 author"><?php echo $item['music_artist'] ?></p>
-                                            <p class="loss text-pink mb-0"><?php echo $item['music_bitrate_html'] ?></p>
                                         </div>
                                     </div></a>
 

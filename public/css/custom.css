@@ -1586,3 +1586,13 @@ footer .align-items-end {
     letter-spacing: 0;
     font-family: 'SFProDisplay-Regular';
 }
+.slide_home {
+    padding: 20px 0px 10px 0px!important;
+    margin-bottom: -10px!important;
+}
+.slide_home .card1{
+    margin-bottom: 5px!important;
+}
+.card1.slide .card-body .card-text.author {
+    margin-bottom: 0px!important;
+}

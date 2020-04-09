@@ -51,7 +51,7 @@ jQuery(document).ready(function($) {
         margin: 10,
         nav: false,
         center: true,
-        items: 1.3,
+        items: 2,
         dots: true,
         autoplay: true,
     });
