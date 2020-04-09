@@ -22,9 +22,31 @@ Route::get('/sync/solr_video_delete', 'Sync\SolrSyncController@syncDeleteVideo')
 
 Route::get('/sync/demo', 'Sync\MusicController@demo');
 Route::get('/sync/cover_hot', 'Sync\AlbumController@albumHot');
-Route::get('/sitemap_category.xml', 'Sitemap@category');
+Route::get('/sitemap_category.xml', 'Sitemap@categoryList');
 Route::get('/sitemap_artist.xml', 'Sitemap@topArtist');
 Route::get('/sitemap_video.xml', 'Sitemap@newVideo');
+
+
+// site map category and bxh
+Route::prefix('sitemap')->group(function () {
+    //bxh
+    Route::get('nhac-hot.xml', ['as' => 'bxh.now', 'uses' => 'Sitemap@bxh_now']);
+    Route::get('bang-xep-hang/tuan.xml', ['as' => 'bxh.month', 'uses' => 'Sitemap@bxh_week']);
+    Route::get('bang-xep-hang/thang-{month}-{year}.xml', ['as' => 'bxh.month', 'uses' => 'Sitemap@bxh_month']);
+    Route::get('bang-xep-hang/nam-{year}.xml', ['as' => 'bxh.month', 'uses' => 'Sitemap@bxh_year']);
+    Route::get('bang-xep-hang/{cat}.xml', ['as' => 'bxh.cat', 'uses' => 'Sitemap@bxh_cat']);
+
+    // category
+    Route::get('hd/{cat}/{sub?}.xml', ['as' => 'category.get2', 'uses' => 'Sitemap@category']);
+    Route::get('hd/{cat}.xml', ['as' => 'category.get2', 'uses' => 'Sitemap@category']);
+    Route::get('mp3/{cat}/{sub?}.xml', ['as' => 'category.get2', 'uses' => 'Sitemap@category']);
+    Route::get('mp3/{cat}.xml', ['as' => 'category.get2', 'uses' => 'Sitemap@category']);
+
+
+});
+
+
+
 //Route::get('/sync/demo2', 'Sync\UploaderController@uploader');
 
 Route::group(['middlewareGroups' => ['web']], function () {
