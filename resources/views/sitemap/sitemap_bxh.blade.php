@@ -14,7 +14,6 @@ foreach ($hot_music_rows as $itemMusic) {
 		<video:video>
 			<video:cover>' . $item['cover_html'] . '</video:cover>
 			<video:title><![CDATA[' . $item['music_title'] . ' - ' . $item['music_artist'] . ']]></video:title>
-			<video:artist>' . $item['music_artist'] . '</video:artist>
 			<video:description><![CDATA[' . $item['music_shortlyric'] . ']]></video:description>
 		</video:video>
 	</url>';
@@ -27,7 +26,6 @@ foreach ($hot_video_rows as $itemVideo) {
 		<video:video>
 			<video:thumbnail_loc>' . $item['cover_html'] . '</video:thumbnail_loc>
 			<video:title><![CDATA[' . $item['music_title'] . ' - ' . $item['music_artist'] . ']]></video:title>
-			<video:artist>' . $item['music_artist'] . '</video:artist>
 			<video:description><![CDATA[' . $item['music_shortlyric'] . ']]></video:description>
 		</video:video>
 	</url>';

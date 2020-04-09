@@ -7,7 +7,6 @@ foreach ($musics['data'] as $item) {
         <video:video>
             <video:cover>' . $item['music_cover'][0] . '</video:cover>
             <video:title><![CDATA[' . $item['music_title'][0] . ' - ' . $item['music_artist'][0] . ']]></video:title>
-            <video:artist><![CDATA[' . $item['music_artist'][0] . ']]></video:artist>
         </video:video>
     </url>';
 }

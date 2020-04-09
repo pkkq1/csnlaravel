@@ -7,7 +7,6 @@ foreach ($video_new_uploads as $item) {
 		<video:video>
 			<video:thumbnail_loc>' . $item['cover_html'] . '</video:thumbnail_loc>
 			<video:title><![CDATA[' . $item['music_title'] . ' - ' . $item['music_artist'] . ']]></video:title>
-			<video:artist><![CDATA[' . $item['music_artist'] . ']]></video:artist>
 			<video:description><![CDATA[' . $item['music_shortlyric'] . ']]></video:description>
 		</video:video>
 	</url>';
