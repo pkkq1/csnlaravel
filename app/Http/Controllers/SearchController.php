@@ -263,6 +263,7 @@ class SearchController extends Controller
                             'album_artist' => isset($item['album_music_artist']) ? $item['album_music_artist'][0] : '',
                             'album_artist_html' => isset($item['album_music_artist_html']) ? $item['album_music_artist_html'][0] : '',
                             'album_cover' => isset($item['album_cover_thumb']) ? $item['album_cover_thumb'][0] : '',
+                            'album_cover_thumb_200' => isset($item['album_cover_thumb_200']) ? $item['album_cover_thumb_200'][0] : '',
                         ];
                     }
                 }
