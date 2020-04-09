@@ -1596,3 +1596,6 @@ footer .align-items-end {
 .card1.slide .card-body .card-text.author {
     margin-bottom: 0px!important;
 }
+.slide_home .owl-carousel .owl-nav button {
+    top: calc((212px - 50px)/2)!important;
+}
