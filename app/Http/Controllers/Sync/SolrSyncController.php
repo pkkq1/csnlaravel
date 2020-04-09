@@ -173,6 +173,7 @@ class SolrSyncController extends Controller
                     'music_time' => $item->music_time,
                     'solr_updated_time' => time(),
                 ];
+                dd($data);
                 $datas[] = $data;
                 //$datas[] = $data['id'];
                 //$this->Solr->addDocuments($data);
@@ -497,7 +498,7 @@ class SolrSyncController extends Controller
         $datas = [];
         foreach ($artist as $key => $item) {
             $artist_nickname_charset = Helpers::strReplaceSolr(Helpers::khongdau(mb_strtolower($item->artist_nickname, 'UTF-8'), ' '), true);
-            $avatar = $item->artist_avatar ? Helpers::file_path($item->artist_id, AVATAR_ARTIST_CROP_PATH, env('DATA_URL')) . $item->artist_avatar : env('IMG_DATA_URL').'imgs/no_cover.jpg';
+            $avatar = $item->artist_avatar ? Helpers::file_path($item->artist_id, AVATAR_ARTIST_CROP_PATH) . $item->artist_avatar : env('IMG_DATA_URL').'imgs/no_cover.jpg';
             $data = [
                 'id' => 'artist_' . $item->artist_id,
                 'artist_id' => $item->artist_id,
@@ -507,11 +508,12 @@ class SolrSyncController extends Controller
                 'artist_nickname_charset_nospace' => Helpers::replaceKeySearch(str_replace(' ', '', $artist_nickname_charset)),
                 'music_total' => $item->music_total,
                 'artist_link' => Helpers::artistUrl($item->artist_id, $item->artist_nickname),
-                'artist_cover' => $item->artist_cover ? Helpers::file_path($item->artist_id, COVER_ARTIST_CROP_PATH, env('DATA_URL')) . $item->artist_cover : env('IMG_DATA_URL').'imgs/no_cover_artist.jpg',
+                'artist_cover' => $item->artist_cover ? Helpers::file_path($item->artist_id, COVER_ARTIST_CROP_PATH) . $item->artist_cover : env('IMG_DATA_URL').'imgs/no_cover_artist.jpg',
                 'artist_avatar' => $avatar,
                 'artist_avatar_thumb' => str_replace('artist_avatar', 'artist_avatar_thumb', $avatar),
                 'solr_updated_time' => time(),
             ];
+            dd($data);
             $datas[] = $data;
 //            $this->Solr->addDocuments($data);
 
