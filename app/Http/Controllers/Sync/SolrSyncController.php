@@ -513,7 +513,6 @@ class SolrSyncController extends Controller
                 'artist_avatar_thumb' => str_replace('artist_avatar', 'artist_avatar_thumb', $avatar),
                 'solr_updated_time' => time(),
             ];
-            dd($data);
             $datas[] = $data;
 //            $this->Solr->addDocuments($data);
 
