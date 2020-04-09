@@ -252,7 +252,6 @@ if($musicSet['type_listen'] == 'playlist') {
                                         </div>
                                     </li>
                                 </ul>
-                                <br/>
                                 <div class="tab-content tab-lyric" id="myTabContent">
                                     <div class="tab-pane fade show active" id="home" role="tabpanel"
                                          aria-labelledby="home-tab">
