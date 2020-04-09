@@ -498,7 +498,6 @@ class SolrSyncController extends Controller
         foreach ($artist as $key => $item) {
             $artist_nickname_charset = Helpers::strReplaceSolr(Helpers::khongdau(mb_strtolower($item->artist_nickname, 'UTF-8'), ' '), true);
             $avatar = $item->artist_avatar ? Helpers::file_path($item->artist_id, AVATAR_ARTIST_CROP_PATH, env('DATA_URL')) . $item->artist_avatar : env('IMG_DATA_URL').'imgs/no_cover.jpg';
-            dd($avatar);
             $data = [
                 'id' => 'artist_' . $item->artist_id,
                 'artist_id' => $item->artist_id,
