@@ -7,7 +7,7 @@ foreach ($videos['data'] as $item) {
         <video:video>
             <video:thumbnail_loc>' . $item['video_cover'][0] . '</video:thumbnail_loc>
             <video:title><![CDATA[' . $item['video_title'][0] . ' - ' . $item['video_artist'][0] . ']]></video:title>
-            <video:artist>' . $item['video_artist'][0] . '</video:artist>
+            <video:artist><![CDATA[' . $item['video_artist'][0] . ']]></video:artist>
         </video:video>
     </url>';
 }
