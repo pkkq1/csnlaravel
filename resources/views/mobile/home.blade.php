@@ -270,7 +270,7 @@ $memberVip = Helpers::checkMemberVip();
                                                     <div class="item element">
                                                         <a href="{{$item['album_url']}}"><div class="image rounded" style="background: url({{$item['cover_thumb_200_url']}}) no-repeat center;background-size: cover"></div></a>
                                                         <div class="content mt-3">
-                                                            <h6 class="name_song mb-1 card-title">{{$item['cover_thumb_200_url']}}</h6>
+                                                            <h6 class="name_song mb-1 card-title">{{$item['music_album']}}</h6>
                                                             <a href="{{$item['album_url']}}"><p class="name_singer text-gray mb-1 author"><?php echo $item['music_artist_html'] ?></p></a>
                                                             <p class="loss text-pink mb-0"><?php echo $item['music_bitrate_html'] ?></p>
                                                         </div>
@@ -369,7 +369,7 @@ $memberVip = Helpers::checkMemberVip();
                                                     <div class="item element">
                                                         <a href="{{$item['album_url']}}"><div class="image rounded" style="background: url({{$item['cover_thumb_200_url']}}) no-repeat center;background-size: cover"></div></a>
                                                         <div class="content mt-3">
-                                                            <h6 class="name_song mb-1 card-title">{{$item['cover_thumb_200_url']}}</h6>
+                                                            <h6 class="name_song mb-1 card-title">{{$item['music_album']}}</h6>
                                                             <a href="{{$item['album_url']}}"><p class="name_singer text-gray mb-1 author"><?php echo $item['music_artist_html'] ?></p></a>
                                                             <p class="loss text-pink mb-0"><?php echo $item['music_bitrate_html'] ?></p>
                                                         </div>
