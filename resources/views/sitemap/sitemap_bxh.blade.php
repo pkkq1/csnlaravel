@@ -10,7 +10,7 @@ echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="h
 foreach ($hot_music_rows as $itemMusic) {
     foreach ($itemMusic as $item) {
         echo '<url>
-		<loc>' . env('APP_URL') . '/' .$item['music_url'] . '</loc>
+		<loc>' .$item['music_url'] . '</loc>
 		<video:video>
 			<video:cover>' . $item['cover_html'] . '</video:cover>
 			<video:title><![CDATA[' . $item['music_title'] . ' - ' . $item['music_artist'] . ']]></video:title>
@@ -23,7 +23,7 @@ foreach ($hot_music_rows as $itemMusic) {
 foreach ($hot_video_rows as $itemVideo) {
     foreach ($itemVideo as $item) {
         echo '<url>
-		<loc>' . env('APP_URL') . '/' .$item['music_url'] . '</loc>
+		<loc>' .$item['music_url'] . '</loc>
 		<video:video>
 			<video:thumbnail_loc>' . $item['cover_html'] . '</video:thumbnail_loc>
 			<video:title><![CDATA[' . $item['music_title'] . ' - ' . $item['music_artist'] . ']]></video:title>
