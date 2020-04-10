@@ -224,7 +224,7 @@ if($musicSet['type_listen'] == 'playlist') {
                                              style="padding: 10px 20px;">
                                             <input type="checkbox" checked class="form-check-input display-sub"
                                                    id="display-sub" onclick="display_sub()">
-
+                                            <h4 style="font-size: 14px;">Lời bài hát {{$music->music_title}}</h4>
 
                                             <div class="form-check-label d-flex align-items-center">
                                                 @if((isset($lyric_array['sub']) && $lyric_array['sub'] != false))
@@ -252,7 +252,6 @@ if($musicSet['type_listen'] == 'playlist') {
                                         </div>
                                     </li>
                                 </ul>
-                                <br/>
                                 <div class="tab-content tab-lyric" id="myTabContent">
                                     <div class="tab-pane fade show active" id="home" role="tabpanel"
                                          aria-labelledby="home-tab">
@@ -276,7 +275,7 @@ if($musicSet['type_listen'] == 'playlist') {
                             <div class="tab-pane" id="pills-download" role="tabpanel" aria-labelledby="pills-download-tab">
                                 <div class="card card2">
                                     <div class="card-header">
-                                        <h4 class="card-title">Vui lòng click chọn một trong các liên kết ở bên dưới để tải bài bài hát <span class="text-pink m-1">{{$music->music_title}}</span> về máy:</h4>
+                                        <span class="card-title">Vui lòng click chọn một trong các liên kết ở bên dưới để <h4 class="card-title" style="display:inline">tải bài bài hát <span class="text-pink m-1">{{$music->music_title}}</span></h4> về máy:</span>
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
@@ -319,7 +318,7 @@ if($musicSet['type_listen'] == 'playlist') {
                                             <div class="card-header border-0" id="headingOne">
                                                 <h5 class="mb-0">
                                                     <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                        Xem quang phổ (Spectrum) tại đây:
+                                                        Xem quang phổ (Spectrum) {{$music->music_title}}:
                                                         <i class="material-icons">keyboard_arrow_down</i>
                                                     </button>
                                                 </h5>
@@ -513,7 +512,7 @@ if($musicSet['type_listen'] == 'playlist') {
                 </div>
                 @endif
                 <div class="box_header d-flex justify-content-between align-items-end" id="post_comment">
-                    <h5 class="title m-0">Bình luận của bạn</h5>
+                    <h5 class="title m-0">Bình luận bài hát {{$music->music_title}}</h5>
                 </div>
                 @if ($message = Session::get('success'))
                     <div class="alert alert-success">
