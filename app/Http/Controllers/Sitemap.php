@@ -12,6 +12,7 @@ use App\Repositories\Category\CategoryEloquentRepository;
 use App\Repositories\Music\MusicEloquentRepository;
 use App\Repositories\Cover\CoverEloquentRepository;
 use App\Repositories\Video\VideoEloquentRepository;
+use App\Repositories\Artist\ArtistRepository;
 use App\Library\Helpers;
 use App\Solr\Solarium;
 use App\Models\ErrorBugSlowModel;
@@ -26,11 +27,17 @@ class Sitemap extends Controller
     protected $videoRepository;
     protected $musicListenRepository;
     protected $coverRepository;
-    public function __construct(CategoryEloquentRepository $categoryRepository, MusicEloquentRepository $musicRepository, CoverEloquentRepository $coverRepository, VideoEloquentRepository $videoRepository) {
+    protected $artistRepository;
+    protected $Solr;
+
+    public function __construct(ArtistRepository $artistRepository, CategoryEloquentRepository $categoryRepository, MusicEloquentRepository $musicRepository, CoverEloquentRepository $coverRepository, VideoEloquentRepository $videoRepository,
+                                Solarium $Solr) {
         $this->categoryRepository = $categoryRepository;
         $this->musicRepository = $musicRepository;
         $this->videoRepository = $videoRepository;
         $this->coverRepository = $coverRepository;
+        $this->artistRepository = $artistRepository;
+        $this->Solr = $Solr;
     }
     public function categoryList(Request $request)
     {
@@ -67,7 +74,7 @@ class Sitemap extends Controller
         global $video_new_uploads;
         include(app_path() . '/../resources/views/cache/def_home_album.blade.php');
         return response()->view('sitemap.sitemap_new_video', [
-            'video_new_uploads' => $video_new_uploads
+            'videos' => $video_new_uploads
         ])->header('Content-Type', 'text/xml');
     }
 
@@ -112,11 +119,11 @@ class Sitemap extends Controller
             $category = $this->categoryRepository->getCategorySub($category->cat_id, $sub);
         $_GET['page'] = 1;
         if($category->cat_id != CATEGORY_ID_VIDEO) {
-            $covers = $this->coverRepository->getCategoryCoverSolr($category->cat_id, $category->cat_level, null, null, 'cover_id', 'desc', LIMIT_PAGE_CATEGORY);
+//            $covers = $this->coverRepository->getCategoryCoverSolr($category->cat_id, $category->cat_level, null, null, 'cover_id', 'desc', LIMIT_PAGE_CATEGORY);
             $musics = $this->musicRepository->getCategoryMusicSolr($category->cat_id, $category->cat_level, 'music_id', 'desc', LIMIT_MUSIC_PAGE_CATEGORY);
             return response()->view('sitemap.sitemap_category_solr_music', [
                 'musics' => $musics,
-                'covers' => $covers,
+//                'covers' => $covers,
             ])->header('Content-Type', 'text/xml');
         }else{
             $video = $this->videoRepository->getCategoryVideoSolr($category->cat_id, $category->cat_level, ['csn_video.music_year', CURRENT_YEAR], 'video_id', 'desc', LIMIT_PAGE_CATEGORY);
@@ -124,5 +131,25 @@ class Sitemap extends Controller
                 'videos' => $video
             ])->header('Content-Type', 'text/xml');
         }
+    }
+    public function newMusic(Request $request)
+    {
+        global $music_new_uploads;
+        include(app_path() . '/../resources/views/cache/def_home_album.blade.php');
+        return response()->view('sitemap.sitemap_new_music', [
+            'musics' => $music_new_uploads
+        ])->header('Content-Type', 'text/xml');
+    }
+    public function artistListMusic(Request $request, $artistUrl) {
+        $id = last(explode('-', $artistUrl));
+        $urlArtist = substr(str_replace($id, '', $artistUrl), 0, -1);
+        $artist = $this->artistRepository->find(Helpers::decodeID($id));
+        if(!$artist) {
+            echo 'not found catogory'; exit;
+        }
+        $musics = $this->Solr->search(['music_artist_id' => $artist->artist_id], 1, LIMIT_MUSIC_PAGE_ARTIST, ['_version_' => 'desc']);
+        return response()->view('sitemap.sitemap_category_solr_music', [
+            'musics' => $musics,
+        ])->header('Content-Type', 'text/xml');
     }
 }

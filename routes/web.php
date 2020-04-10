@@ -22,10 +22,13 @@ Route::get('/sync/solr_video_delete', 'Sync\SolrSyncController@syncDeleteVideo')
 
 Route::get('/sync/demo', 'Sync\MusicController@demo');
 Route::get('/sync/cover_hot', 'Sync\AlbumController@albumHot');
+
+
+// site map
 Route::get('/sitemap_category.xml', 'Sitemap@categoryList');
 Route::get('/sitemap_artist.xml', 'Sitemap@topArtist');
+Route::get('/sitemap_music.xml', 'Sitemap@newMusic');
 Route::get('/sitemap_video.xml', 'Sitemap@newVideo');
-
 
 // site map category and bxh
 Route::prefix('sitemap')->group(function () {
@@ -42,6 +45,8 @@ Route::prefix('sitemap')->group(function () {
     Route::get('mp3/{cat}/{sub?}.xml', ['as' => 'category.get2', 'uses' => 'Sitemap@category']);
     Route::get('mp3/{cat}.xml', ['as' => 'category.get2', 'uses' => 'Sitemap@category']);
 
+    // arrtist
+    Route::get('ca-si/{artistUrl}.xml', ['as' => 'category.get2', 'uses' => 'Sitemap@artistListMusic']);
 
 });
 
