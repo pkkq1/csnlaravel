@@ -85,7 +85,21 @@ if($memberVip == null)
     </div>
 </sectiton>
 <footer>
-
+    <?php
+    global $startTime;
+    use App\Models\ErrorBugSlowModel;
+    //$endTime = number_format(microtime(true) - $startTime, 3);
+    $endTime = round(microtime(true) - LARAVEL_START, 2);
+    if($endTime > 5) {
+        ErrorBugSlowModel::firstOrCreate([
+            'type' => 'slow',
+            'link' => url()->full(),
+            'device_display' => 'mobile',
+            'time_load' => $endTime,
+        ]);
+    }
+    ?>
+    <div><i class="fa fa-clock-o" aria-hidden="true"></i> Page generation time: {{ $endTime }} seconds</div>
 </footer>
 <script src="{{URL::to('/')}}/mobile/assets/js/bootstrap.min.js"></script>
 <script src="{{URL::to('/')}}/mobile/assets/js/owl.carousel.min.js"></script>
@@ -291,18 +305,3 @@ if($memberVip == null)
     @endif
 
 @endif
-
-<?php
-global $startTime;
-use App\Models\ErrorBugSlowModel;
-//$endTime = number_format(microtime(true) - $startTime, 3);
-$endTime = round(microtime(true) - LARAVEL_START, 2);
-if($endTime > 5) {
-    ErrorBugSlowModel::firstOrCreate([
-        'type' => 'slow',
-        'link' => url()->full(),
-        'device_display' => 'mobile',
-        'time_load' => $endTime,
-    ]);
-}
-?>
