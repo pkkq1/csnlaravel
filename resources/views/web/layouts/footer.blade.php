@@ -440,7 +440,13 @@
                     });
                 },
                 success: function(response) {
-                    window.location = '<?php echo $_GET['back_url'] ?? '' ?>';
+                    <?php
+                        if(($_GET['back_url'] ?? '') != '') {
+                            echo "window.location = '".($_GET['back_url'] ?? '')."';";
+                        }else{
+                            echo 'location.reload();';
+                        }
+                    ?>
                 }
             });
         }
