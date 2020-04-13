@@ -219,12 +219,11 @@ if($musicSet['type_listen'] == 'playlist') {
                             <div class="tab-pane show active" id="pills-liric" role="tabpanel"
                                  aria-labelledby="pills-liric-tab">
                                 <ul class="nav nav-tabs sub_Tab" id="myTab" role="tablist">
-                                    <li class="nav-item">
+                                    <li class="nav-item" style="width: 100%">
                                         <div class="nav-link form-group form-check mb-0 autoplay"
-                                             style="padding: 10px 20px;">
+                                             style="padding: 10px 20px; float: right">
                                             <input type="checkbox" checked class="form-check-input display-sub"
                                                    id="display-sub" onclick="display_sub()">
-                                            <h4 style="font-size: 14px;">Lời bài hát {{$music->music_title}}</h4>
 
                                             <div class="form-check-label d-flex align-items-center">
                                                 @if((isset($lyric_array['sub']) && $lyric_array['sub'] != false))
@@ -249,6 +248,9 @@ if($musicSet['type_listen'] == 'playlist') {
                                                     @endif
                                                 @endif
                                             </div>
+                                        </div>
+                                        <div class="title-lyric">
+                                            <h4 style="font-size: 14px;">Lời bài hát {{$music->music_title}}</h4>
                                         </div>
                                     </li>
                                 </ul>

@@ -1611,3 +1611,31 @@ footer .align-items-end {
     color: #d8d8d8;
     margin: 0 5px;
 }
+.title-lyric {
+    padding-left: 20px;
+    padding-top: 12px;
+}
+
+.sub_Tab .autoplay .switch {
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 5px;
+    width: 35px!important;
+    border-radius: 20px;
+    height: 20px!important;
+    -webkit-transition: all .36s;
+    -o-transition: all .36s;
+    transition: all .36s;
+    position: relative;
+}
+.sub_Tab .autoplay .switch:after {
+    content: '';
+    width: 17px!important;
+    height: 17px!important;
+    border-radius: 50%;
+    position: absolute;
+    top: calc((100% - 17px) / 2)!important;
+}
+.sub_Tab .autoplay input:checked+.form-check-label .switch:after {
+    left: calc(100% - 19px)!important;
+}
