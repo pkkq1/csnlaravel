@@ -5,7 +5,7 @@ foreach ($musics['data'] as $item) {
     echo '<url>
         <loc>' . $item['music_link'][0] . '</loc>
         <video:video>
-            <video:video:thumbnail_loc>' . $item['music_cover'][0] . '</video:video:thumbnail_loc>
+            <video:thumbnail_loc>' . $item['music_cover'][0] . '</video:thumbnail_loc>
             <video:title><![CDATA[' . $item['music_title'][0] . ' - ' . $item['music_artist'][0] . ']]></video:title>
         </video:video>
     </url>';
