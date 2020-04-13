@@ -49,7 +49,7 @@ $artistHtml = Helpers::rawHtmlArtists($music->music_artist_id, $music->music_art
 preg_match('/href=["\']?([^"\'>]+)["\']?/', $artistHtml, $matchArtist);
 $sug = [];
 $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3);
-$thumnailMusic =$musicSet['type_jw'] != 'video' ?  Helpers::cover_url($music->cover_id) : Helpers::thumbnail_url($music->toArray(), 'preview');
+$thumnailMusic =$musicSet['type_jw'] != 'video' ?  Helpers::cover_url($music->cover_id, $music->music_artist_id, 'orginal') : Helpers::thumbnail_url($music->toArray(), 'preview');
 $thumnailMeta = '';
 $music_lyric_karaoke = '';
 $titleExMeta = $music->music_title.' - '.$music->music_artist;

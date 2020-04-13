@@ -123,7 +123,7 @@ class SolrSyncController extends Controller
                 $composerCharset = htmlspecialchars(Helpers::strReplaceSolr(Helpers::khongdau($composerCharset, ' ')), ENT_QUOTES);
 //            $lyricSearch = Helpers::replaceKeySearch($item->music_lyric);
 //            $lyricCharset = Helpers::khongdau(str_replace("\n", ' ', $lyricSearch), ' ');
-                $music_cover = Helpers::cover_url($item->cover_id);
+                $music_cover = Helpers::cover_url($item->cover_id, $item->music_artist_id);
                 $data = [
                     'id' => 'music_' . $item->music_id,
                     'music_id' => $item->music_id,
