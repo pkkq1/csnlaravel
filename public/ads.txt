@@ -249,3 +249,5 @@ openx.com, 540298543, RESELLER, 6a698e2ec38604c6
 pubmatic.com, 158154, RESELLER, 5d62403b186f2ace
 #netlink 5/2/2020
 google.com, pub-7002491002409919, DIRECT, f08c47fec0942fa0
+#ambient 13/4/2020
+pubmatic.com,159249,RESELLER,5d62403b186f2ace
