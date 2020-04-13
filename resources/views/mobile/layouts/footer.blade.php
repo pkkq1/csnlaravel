@@ -99,7 +99,26 @@ if($memberVip == null)
         ]);
     }
     ?>
-    <div><i class="fa fa-clock-o" aria-hidden="true"></i> Page generation time: {{ $endTime }} seconds</div>
+        <div class="item-f">
+            <a href="javascript:void(0);" onclick="alert_gioi_thieu();" style="color: #a9a9a9;" title="Giới Thiệu">Giới thiệu</a>
+        </div>
+        <div class="item-f">
+            <div class="csn-link-special">| </div>
+        </div>
+        <div class="item-f">
+            <div>Góp ý</div>
+        </div>
+        <div class="item-f">
+            <div class="csn-link-special">|</div>
+        </div>
+        <div class="item-f">
+            <a href="/chinh-sach-chia-se-nhac.html" style="color: #a9a9a9;" title="Nội quy và chính sách Chia Sẻ Nhạc" target="_blank">Nội quy & Chính sách</a></div>
+        <div class="item-f">
+            <div class="csn-link-special">|</div>
+        </div>
+        <div class="item-f">
+            <div>{{ $endTime }} seconds</div>
+        </div>
 </footer>
 <script src="{{URL::to('/')}}/mobile/assets/js/bootstrap.min.js"></script>
 <script src="{{URL::to('/')}}/mobile/assets/js/owl.carousel.min.js"></script>
@@ -108,6 +127,7 @@ if($memberVip == null)
 <script src="{{URL::to('/')}}/js/jquery-ui.js"></script>
 <script src="{{URL::to('/')}}/mobile/assets/js/functions.js"></script>
 <script>
+
     var dataSearch = [];
     $( document ).ready(function() {
         $( "#search_autocomplete" ).autocomplete({
@@ -146,6 +166,21 @@ if($memberVip == null)
             return true;
         };
     });
+    function alert_gioi_thieu() {
+        $("#alertModal .modal-body").html('<div class="modal_content_csn_gioi_thieu">' +
+            '<span class="csn-logo"><img src="https://data.chiasenhac.com/imgs/logo-web-official.png" style="margin-bottom: 15px;" alt="Logo Chiasenhac"></span>' +
+            '<div class="z-copyright-content">Công ty cổ phần công nghệ CSN<br>' +
+            'Chủ sở hữu website: Ông Nguyễn Hoàng Minh Quân<br>' +
+            'Giấy phép MXH số 92/GP-BTTTT do Bộ TT&TT cấp ngày 11/03/2020<br>' +
+            'Giấy Chứng nhận Đăng ký Kinh doanh số 0314660744 do Sở kế hoạch và đầu tư thành phố Hồ Chí Minh cấp ngày 05/10/2017.</br></br>' +
+
+            'Tòa nhà Fideco, số 28 Phùng Khắc Khoan, Phường Đa Kao, Quận 01, TP.HCM<br>' +
+            'info@chiasenhac.com<br>' +
+            '(028) 7300 8199 - Ext: 999<br>' +
+            '</div>');
+        $("#alertModal .modal-dialog").removeClass('modal-sm');
+        $("#alertModal").modal();
+    }
     function rawBodySearch(artist, music, album, video, top_music) {
         return top_music +
             music +

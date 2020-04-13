@@ -700,56 +700,66 @@
             </div>
         </div>
         <hr>
+        <?php
+        global $startTime;
+        use App\Models\ErrorBugSlowModel;
+        //                    $endTime = number_format(microtime(true) - $startTime, 3);
+        $endTime = round(microtime(true) - LARAVEL_START, 2);
+        if($endTime > 5) {
+            ErrorBugSlowModel::firstOrCreate([
+                'type' => 'slow',
+                'link' => url()->full(),
+                'device_display' => 'web',
+                'time_load' => $endTime,
+            ]);
+        }
+        ?>
         <div class="row align-items-end">
-            <div class="col-5 offset-2">
-                <address class="m-0">
-                    <div>Công ty cổ phần công nghệ CSN</div>
-                    <div>Chủ sở hữu website: Ông Nguyễn Hoàng Minh Quân</div>
-                    <div>Giấy phép MXH số 92/GP-BTTTT do Bộ TT&TT cấp ngày 11/03/2020</div>
-                    <div>Giấy Chứng nhận Đăng ký Kinh doanh số 0314660744 do Sở kế hoạch và Đầu tư thành phố Hồ Chí Minh cấp ngày 05/10/2017.</div>
-                </address>
+            <div class="col-10 offset-3">
+                <ul class="csn-nav-footer">
+                    <li>
+                        <a href="javascript:void(0);" onclick="alert_gioi_thieu();" style="color: #a9a9a9;" title="Giới Thiệu">Giới thiệu</a>
+                    </li>
+                    <li>
+                        <div class="csn-link-special">•</div>
+                    </li>
+                    <li>
+                        <div>Góp ý</div>
+                    </li>
+                    <li>
+                        <div class="csn-link-special">•</div>
+                    </li>
+                    <li>
+                        <a href="/chinh-sach-chia-se-nhac.html" style="color: #a9a9a9;" title="Nội quy và chính sách Chia Sẻ Nhạc" target="_blank">Nội quy và chính sách Chia Sẻ Nhạc</a></li>
+                    <li>
+                        <div class="csn-link-special">•</div>
+                    </li>
+                    <li>
+                        <div>Page generation time: {{ $endTime }} seconds</div>
+                    </li>
+                </ul>
             </div>
-            <div class="col-5">
-                <address class="m-0">
-                    <div><i class="fa fa-map-marker" aria-hidden="true"></i> Tòa nhà Fideco, số 28 Phùng Khắc Khoan, Phường Đa Kao, Quận 01, TP.HCM</div>
-                    <div><i class="fa fa-envelope" aria-hidden="true"></i> info@chiasenhac.com</div>
-                    <div><i class="fa fa-phone" aria-hidden="true"></i> (028) 7300 8199 - Ext: 999</div>
-                    <div><i class="fa fa-book" aria-hidden="true"></i> <a style="color: #a9a9a9;" href="/chinh-sach-chia-se-nhac">Nội quy và chính sách Chia Sẻ Nhạc</a></div>
-                    <?php
-                    global $startTime;
-                    use App\Models\ErrorBugSlowModel;
-                    //                    $endTime = number_format(microtime(true) - $startTime, 3);
-                    $endTime = round(microtime(true) - LARAVEL_START, 2);
-                    if($endTime > 5) {
-                        ErrorBugSlowModel::firstOrCreate([
-                            'type' => 'slow',
-                            'link' => url()->full(),
-                            'device_display' => 'web',
-                            'time_load' => $endTime,
-                        ]);
-                    }
-                    ?>
-                    <div><i class="fa fa-clock-o" aria-hidden="true"></i> Page generation time: {{ $endTime }} seconds</div>
-                    <div class="text-right" style="position: absolute; margin-top: -35px; right: 0px;">
-                        <ul class="list-inline m-0 social_f">
-                            <li class="list-inline-item"><a href="https://www.facebook.com/chiasenhac/" title=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                            {{--<li class="list-inline-item"><a href="#" title=""><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>--}}
-                            {{--<li class="list-inline-item"><a href="#" title=""><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>--}}
-                            {{--<li class="list-inline-item"><a href="#" title=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>--}}
-                        </ul>
-                    </div>
-                </address>
-            </div>
-
-
-
-
-
-
         </div>
     </div>
 </footer>
 <script src="{{URL::to('/')}}/js/lobiboxcsn.min.js"></script>
+<script>
+    function alert_gioi_thieu() {
+        $("#myModal .modal-body").html('<div class="modal_content_csn">' +
+            '<span class="csn-logo"><img src="https://data.chiasenhac.com/imgs/logo-web-official.png" style="margin-bottom: 15px;" alt="Logo Chiasenhac"></span>' +
+            '<div class="z-copyright-content">Công ty cổ phần công nghệ CSN<br>' +
+            'Chủ sở hữu website: Ông Nguyễn Hoàng Minh Quân<br>' +
+            'Giấy phép MXH số 92/GP-BTTTT do Bộ TT&TT cấp ngày 11/03/2020<br>' +
+            'Giấy Chứng nhận Đăng ký Kinh doanh số 0314660744 do Sở kế hoạch và đầu tư thành phố Hồ Chí Minh cấp ngày 05/10/2017.</br></br>' +
+
+            'Tòa nhà Fideco, số 28 Phùng Khắc Khoan, Phường Đa Kao, Quận 01, TP.HCM<br>' +
+            'info@chiasenhac.com<br>' +
+            '(028) 7300 8199 - Ext: 999<br>' +
+            '</div>');
+        $("#myModal .modal-dialog").removeClass('modal-sm');
+        $("#myModal").modal();
+    }
+</script>
 
 @if( $sb_banner == false && false ) /*isset($allpage_banner) && $allpage_banner == true )*/
 <script type="text/javascript">
@@ -834,6 +844,7 @@
             //$("#asb_right").css({ top: (0 - $(window).scrollTop()) + "px" });
         }
     });
+
 </script>
 @endif
 

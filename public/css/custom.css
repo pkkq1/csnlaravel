@@ -1599,3 +1599,15 @@ footer .align-items-end {
 .slide_home .owl-carousel .owl-nav button {
     top: calc((212px - 50px)/2)!important;
 }
+.csn-nav-footer {
+    display: flex;
+    list-style: none;
+}
+.csn-link-special {
+    line-height: 9px;
+    position: relative;
+    top: 5px;
+    font-size: 22px;
+    color: #d8d8d8;
+    margin: 0 5px;
+}

@@ -539,3 +539,19 @@ a.disabled {
 .owl-item .element{
     display: block!important;
 }
+#footer {
+    text-align: center;
+}
+.item-f {
+    float: left;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+.csn-nav-footer {
+    display: flex;
+    list-style: none;
+}
+.modal_content_csn_gioi_thieu {
+    text-align: center;
+    font-size: 17px;
+}
