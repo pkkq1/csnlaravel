@@ -25,6 +25,7 @@ Route::get('/sync/cover_hot', 'Sync\AlbumController@albumHot');
 
 
 // site map
+Route::get('/sitemap.xml', 'Sitemap@index');
 Route::get('/sitemap_category.xml', 'Sitemap@categoryList');
 Route::get('/sitemap_artist.xml', 'Sitemap@topArtist');
 Route::get('/sitemap_music.xml', 'Sitemap@newMusic');

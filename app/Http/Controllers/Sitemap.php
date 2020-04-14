@@ -59,7 +59,11 @@ class Sitemap extends Controller
             'cat_id2info' => $cat_id2info,
         ])->header('Content-Type', 'text/xml');
     }
-
+    public function index(Request $request)
+    {
+        return response()->view('sitemap.index', [])
+            ->header('Content-Type', 'text/xml');
+    }
     public function topArtist(Request $request)
     {
         global $top_artist_rows;
