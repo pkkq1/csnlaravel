@@ -61,7 +61,7 @@ class CategoryController extends Controller
             $caption = str_replace('Playback', ' ', $caption);
         }else {
             $video = $this->videoRepository->getCategoryVideoSolr($category->cat_id, $category->cat_level, ['csn_video.music_year', CURRENT_YEAR], 'video_id', 'desc', LIMIT_PAGE_CATEGORY);
-            $firstTab = view('category.video_item', compact('video'));
+            $firstTab = view('category_solr.video_item', compact('video'));
             $caption = $title .' > '. str_replace('Video', ' ', $category->cat_title);
         }
         if(!$category)
