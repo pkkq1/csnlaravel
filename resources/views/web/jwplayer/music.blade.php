@@ -2102,7 +2102,8 @@ if($musicSet['type_listen'] == 'playlist') {
                     timeJwPos = timeJwPosNew;
                     var searchInput = $("#modal_kara");
                     var contentTimeJwPos = "\n[" + timeJwPos + "]";
-                    if(searchInput.value() == '') { contentTimeJwPos = "[" + timeJwPos + "]"}
+                    if(document.karaform.modal_kara.value.trim() == '') { contentTimeJwPos = "[" + timeJwPos + "]"}
+                    console.log(contentTimeJwPos);
                     document.karaform.modal_kara.value += contentTimeJwPos;
                     searchInput.putCursorAtEnd()
                         .on("focus", function() {
