@@ -176,7 +176,7 @@ class Helpers
     public static function music_url($music_info, $mode = '')
     {
         $id = ($music_info['cat_id'] == CAT_VIDEO) ? self::encodeID($music_info['music_id'], 'video') : self::encodeID($music_info['music_id']);
-        $url = explode('~', $music_info['music_title_url']);
+        $url = explode('~', $music_info['music_title_url'] ?? '');
         if($url[0] == '') {
             // music without title
             $urlEnd = (isset($url[1]) && $url[1] != '' ? $url[1] . '-' : '') . '' . $id;
