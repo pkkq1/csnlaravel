@@ -99,7 +99,7 @@ class CategoryController extends Controller
                 return view('category_solr.video_item', compact('video'));
                 break;
             case "video-vua-download":
-                $video = $this->videoRepository->getCategoryVideoSolr($request->cat_id, $request->cat_level, null,'video_id', 'desc', LIMIT_PAGE_CATEGORY);
+                $video = $this->videoRepository->getCategoryVideoSolr($request->cat_id, $request->cat_level, null,'video_download_time', 'desc', LIMIT_PAGE_CATEGORY);
                 return view('category_solr.video_item', compact('video'));
                 break;
             case "vua-download":

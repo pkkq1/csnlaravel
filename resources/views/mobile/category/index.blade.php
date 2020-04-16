@@ -3,7 +3,6 @@ use App\Library\Helpers;
 $titleMeta = $category->cat_title . ' - '. Config::get('constants.app.title');
 global $memberVip;
 $memberVip = Helpers::checkMemberVip();
-
 $metaKeyWorld = 'bang xep hang, music, mp3, m4a, flac, lossless, video, mv, hd, mp4, csn, nghe nhạc, tải nhạc, lời bài hát, lyrics';
 $metaDesc = 'Nghe nhạc online chất lượng cao kèm lyrics, chia sẻ và tải nhạc dạng mp3, mp4, m4a, lossless.';
 
@@ -163,8 +162,8 @@ if ($caption == 'Video Clip') {
                     @else
                         <div class="swiper-slide" data-tab="video-{{CURRENT_YEAR}}">
                             <div class="container">
-                                <div class="block block_album block_profile_playlist">
-                                    <div class="row row-sm" id="video-{{CURRENT_YEAR}}">
+                                <div class="block_bxhvideo block_more">
+                                    <div class="block_baihat_main block_more" id="video-{{CURRENT_YEAR}}">
                                         <?php echo $firstTab ?>
                                     </div>
                                 </div>
@@ -172,15 +171,15 @@ if ($caption == 'Video Clip') {
                         </div>
                         <div class="swiper-slide block_bxhbaihat block_more" data-tab="video-moi">
                             <div class="container">
-                                <div class="block block_baihat">
-                                    <div class="block_bxhbaihat block_more" id="video-moi"></div>
+                                <div class="block_bxhvideo block_more">
+                                    <div class="block_baihat_main block_more" id="video-moi"></div>
                                 </div>
                             </div>
                         </div>
                         <div class="swiper-slide block_bxhbaihat block_more" data-tab="video-vua-download">
                             <div class="container">
-                                <div class="block block_baihat">
-                                    <div class="block_bxhbaihat block_more" id="video-vua-download"></div>
+                                <div class="block_bxhvideo block_more">
+                                    <div class="block_baihat_main block_more" id="video-vua-download"></div>
                                 </div>
                             </div>
                         </div>
