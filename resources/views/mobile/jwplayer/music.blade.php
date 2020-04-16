@@ -79,7 +79,7 @@ $memberVip = Helpers::checkMemberVip();
             <div id="pills-tabContent" class="tab-content">
                 <div id="pills-thongtin" role="tabpanel" aria-labelledby="pills-thongtin-tab" class="tab-pane fade active show">
                     <div class="block_thongtin">
-                        <div><h1 class="name_song mb-2">{{$music->music_title}} - {{$music->music_artist}}</h1></div>
+                        <div align="center"><h1 class="name_song mb-2">{{$music->music_title}} - {{$music->music_artist}}</h1></div>
                         <div class="infor_main" style="min-height: 400px;">
                             @if($musicSet['type_jw'] != 'video')
                                 <div id="companion_cover">
