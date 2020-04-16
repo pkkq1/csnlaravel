@@ -290,3 +290,61 @@ function findOfStringParameter(string, parameterName, def = null) {
         });
     return result;
 }
+String.prototype.toHHMMSS = function () {
+    var sec_num = parseInt(this, 10); // don't forget the second param
+    var hours   = Math.floor(sec_num / 3600);
+    var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
+    var seconds = sec_num - (hours * 3600) - (minutes * 60);
+
+    // if (hours   < 10) {hours   = "0"+hours;}
+    if (minutes < 10) {minutes = "0"+minutes;}
+    if (seconds < 10) {seconds = "0"+seconds;}
+    return minutes+':'+seconds;
+}
+function time_convert(num)
+{
+    var hours = Math.floor(num / 60);
+    var minutes = num % 60;
+    if (hours < 10) {hours = "0"+hours;}
+    if (minutes < 10) {seconds = "0"+minutes;}
+    return hours + ":" + minutes;
+}
+jQuery.fn.putCursorAtEnd = function() {
+
+    return this.each(function() {
+
+        // Cache references
+        var $el = $(this),
+            el = this;
+
+        // Only focus if input isn't already
+        if (!$el.is(":focus")) {
+            $el.focus();
+        }
+
+        // If this function exists... (IE 9+)
+        if (el.setSelectionRange) {
+
+            // Double the length because Opera is inconsistent about whether a carriage return is one character or two.
+            var len = $el.val().length * 2;
+
+            // Timeout seems to be required for Blink
+            setTimeout(function() {
+                el.setSelectionRange(len, len);
+            }, 1);
+
+        } else {
+
+            // As a fallback, replace the contents with itself
+            // Doesn't work in Chrome, but Chrome supports setSelectionRange
+            $el.val($el.val());
+
+        }
+
+        // Scroll to the bottom, in case we're in a tall textarea
+        // (Necessary for Firefox and Chrome)
+        this.scrollTop = 999999;
+
+    });
+
+};

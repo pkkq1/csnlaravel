@@ -543,7 +543,7 @@ a.disabled {
     text-align: center;
 }
 .item-f {
-    float: left;
+    display: inline-block;
     padding-right: 5px;
     padding-left: 5px;
 }
@@ -554,4 +554,7 @@ a.disabled {
 .modal_content_csn_gioi_thieu {
     text-align: center;
     font-size: 17px;
+}
+footer {
+    text-align: center;
 }

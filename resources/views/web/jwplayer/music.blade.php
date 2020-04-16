@@ -896,6 +896,7 @@ if($musicSet['type_listen'] == 'playlist') {
         var userStatus = 1;
         var firstLoadLyric = false;
         var firstLoadBeforePlay = true;
+        var firstLoadKaraSugBeforePlay = true;
         var firstLoadUpdateQuality = true;
         var listLyrics = [];
         jwplayer().on('beforePlay', function() {
@@ -1974,7 +1975,7 @@ if($musicSet['type_listen'] == 'playlist') {
         function refreshSugKara(content) {
             if(jwplayer().getState() == 'playing')
                 jwplayer().pause();
-            confirmModal('<textarea style="width: 100%" placeholder="[00:00.00]Bài hát: Phía Sau Một Cô Gái    \n' +
+            confirmModal('<form name="karaform"><textarea style="width: 100%" placeholder="[00:00.00]Bài hát: Phía Sau Một Cô Gái    \n' +
                 '[00:02.00]Ca sĩ: Soobin Hoàng Sơn\n' +
                 '[00:04.00]\n' +
                 '[00:24.45]Nhiều khi anh mong được một lần \n' +
@@ -1990,30 +1991,33 @@ if($musicSet['type_listen'] == 'playlist') {
                 '[00:55.16]Không thể ngắt lời\n' +
                 '[00:57.11]\n' +
                 '[00:57.42]Càng không thể \n' +
-                '[00:58.40]Để giọt lệ nào được rơi" rows="14" class="modal_kara">' + content + '</textarea><div id="kara_sug_csnplayer"></div>', 'Gợi ý karaoke <i style="font-size: 16px;">(bạn có thể chỉnh sửa nội dung bên dưới và ấn xem trước)</i>');
+                '[00:58.40]Để giọt lệ nào được rơi" rows="14" class="modal_kara" name="modal_kara" id="modal_kara">' + content + '</textarea></form><div id="kara_sug_csnplayer"></div>', 'Gợi ý karaoke <br><i style="font-size: 16px;">[Xem trước] để hiển thị và kiểm tra kara của bạn, hoặc có thay đổi mới</i><br><i style="font-size: 16px;">[Chèn Kara] chèn thời gian kara muốn tạo tại thời điểm đang nghe</i>');
             $('#myConfirmModal').find('.btn-ok').html('Gửi gợi ý').addClass('btn-karaoke');
+            $('#myConfirmModal').find('.modal-footer').prepend('<button class="btn btn-insert-kara">Chèn Kara</button>');
             $('#myConfirmModal').find('.modal-footer').prepend('<button class="btn btn-test">Xem trước</button>');
             <?php
                 if(Auth::check() && backpack_user()->can('duyet_sua_nhac')) {
                     ?>
-                        $('#myConfirmModal').find('.modal-footer').prepend('<button class="btn btn-edit">Sửa Karaoke</button>');
+                        $('#myConfirmModal').find('.modal-footer').prepend('<button class="btn btn-edit">Admin Sửa Karaoke</button>');
                     <?php
                 }
             ?>
             $('#myConfirmModal').on('hidden.bs.modal', function () {
                 $('.btn-test').remove();
+                $('.btn-insert-kara').remove();
                 $('.btn-edit').remove();
                 $('#kara_sug_csnplayer').remove();
                 $('#myConfirmModal').find('.btn-ok').html('Đồng ý').removeClass('btn-karaoke');
             })
+            var kara_sug_player = jwplayer('kara_sug_csnplayer');
             $('.btn-test').click(function () {
                 karaMusic = $('.modal_kara').val();
+                firstLoadKaraSugBeforePlay = true;
                 $('#kara_sug_lyrics').html($('.modal_kara').val());
                 firstLoadLyric = false;
                 // waitingDialog.show();
                 // waitingDialog.hide();
 
-                var kara_sug_player = jwplayer('kara_sug_csnplayer');
                 kara_sug_player.setup({
                     width: '100%',
                     height: '88',
@@ -2062,20 +2066,23 @@ if($musicSet['type_listen'] == 'playlist') {
                     },
                 });
                 kara_sug_player.on('beforePlay', function () {
-                    $('#kara_sug_csnplayer').find('.jw-captions').html('<div id="kara_sug_lyrics" class="rabbit-lyrics">' + $('.modal_kara').val() + '</div>');
-                    new RabbitLyrics({
-                        element: document.getElementById("kara_sug_lyrics"),
-                        jw_player: kara_sug_player,
-                        viewMode: 'mini',
-                        onUpdateTimeJw: false
-                    });
-                    <?php
-                    if($musicSet['type_jw'] != 'video') {
-                    ?>
-                    $('.jw-display-icon-display').css('display', 'none')
-                    <?php
+                    if(firstLoadKaraSugBeforePlay) {
+                        firstLoadKaraSugBeforePlay = false;
+                        $('#kara_sug_csnplayer').find('.jw-captions').html('<div id="kara_sug_lyrics" class="rabbit-lyrics">' + $('.modal_kara').val() + '</div>');
+                        new RabbitLyrics({
+                            element: document.getElementById("kara_sug_lyrics"),
+                            jw_player: kara_sug_player,
+                            viewMode: 'mini',
+                            onUpdateTimeJw: false
+                        });
+                        <?php
+                        if($musicSet['type_jw'] != 'video') {
+                        ?>
+                        $('.jw-display-icon-display').css('display', 'none');
+                        <?php
+                        }
+                        ?>
                     }
-                    ?>
                 });
                 kara_sug_player.on('time', function () {
                     new RabbitLyrics({
@@ -2086,7 +2093,21 @@ if($musicSet['type_listen'] == 'playlist') {
                     });
                 })
 
+            });
+            var timeJwPos = 0;
+            $('.btn-insert-kara').click(function () {
+                var timeJwPosNew = time_convert(kara_sug_player.getPosition().toFixed(2));
+                if(timeJwPos != timeJwPosNew) {
+                    kara_sug_player.pause();
+                    timeJwPos = timeJwPosNew;
+                    var searchInput = $("#modal_kara");
+                    document.karaform.modal_kara.value += "\n[" + timeJwPos + "]";
+                    searchInput.putCursorAtEnd()
+                        .on("focus", function() {
+                            searchInput.putCursorAtEnd()
+                        });
 
+                }
             });
             $("#myConfirmModal .btn-karaoke").one('click', function () {
                 $.ajax({
