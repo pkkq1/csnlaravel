@@ -79,6 +79,7 @@ $memberVip = Helpers::checkMemberVip();
             <div id="pills-tabContent" class="tab-content">
                 <div id="pills-thongtin" role="tabpanel" aria-labelledby="pills-thongtin-tab" class="tab-pane fade active show">
                     <div class="block_thongtin">
+                        <div align="center"><h1 class="name_song mb-2">{{$music->music_title}} - {{$music->music_artist}}</h1></div>
                         <div class="infor_main" style="min-height: 400px;">
                             @if($musicSet['type_jw'] != 'video')
                                 <div id="companion_cover">
@@ -110,7 +111,7 @@ $memberVip = Helpers::checkMemberVip();
                         </div>
                         <div class="title p-3 relative">
                             <div>
-                                <h1 class="name_song mb-2">{{$music->music_title}}</h1>
+                                <h2 class="name_song mb-2">{{$music->music_title}}</h2>
                                 <p class="text-pink mb-2"><?php echo $artistHtml ?></p>
                                 <p class="text-gray m-0"><i class="fa fa-headphones"></i> {{number_format($music->music_listen)}}&nbsp;&nbsp;<i class="fa fa-download"></i> {{number_format($music->music_downloads)}}</p>
                             </div>
@@ -295,7 +296,7 @@ $memberVip = Helpers::checkMemberVip();
                                                             </label>
                                                         </div>
                                                     @endif
-                                                    <?php echo $lyric_array['lyric'] ?>
+                                                    <?php echo '<h4 style="font-size: 14px; text-decoration: underline;">Lời bài hát '. $music->music_title .'</h4>' . $lyric_array['lyric'] ?>
                                                 @endif
                                             </div>
                                         </div>
@@ -366,7 +367,7 @@ $memberVip = Helpers::checkMemberVip();
                             <div class="p-3">
                                 <div class="block block_comment">
                                     <div class="block_header d-flex flex-row justify-content-between mb-2 music_comment">
-                                        <h3 class="main_title text-pink mb-0">Bình luận của bạn</h3><?php echo $music->music_comment ? '<span class="text-gray align-self-end"><span class="number_comment">'.number_format($music->music_comment).'</span> bình luận</span>' : '' ?>
+                                        <h3 class="main_title text-pink mb-0">Bình luận bài hát {{$music->music_title}}</h3><?php echo $music->music_comment ? '<span class="text-gray align-self-end"><span class="number_comment">'.number_format($music->music_comment).'</span> bình luận</span>' : '' ?>
                                     </div>
 
                                     <div class="block_body_comment">
