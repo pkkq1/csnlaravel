@@ -60,7 +60,7 @@ $file_url = Helpers::file_url($music);
                             </div>
                             <h3 class="box-title" style="line-height: 30px;">{{ trans('backpack::crud.edit') }}</h3>
                         @else
-                            <div style="font-size: 20px; font-family: 'SFProDisplay-Bold';" class="title"><a style="color: black;" href="/{{$partListenFullUrl}}" >{{$music->music_title}}</a> - <span><?php echo Helpers::rawHtmlArtists($music->music_artist_id, $music->music_artist) ?></span></div>
+                            <div style="font-size: 20px; font-family: 'SFProDisplay-Bold';" class="title"><a style="color: black;" href="{{$partListenFullUrl}}" >{{$music->music_title}}</a> - <span><?php echo Helpers::rawHtmlArtists($music->music_artist_id, $music->music_artist) ?></span></div>
                         @endif
                         <hr>
                         <div id="csnplayer" class="<?php echo $music->cat_id == CAT_VIDEO ? 'csn_video' : 'csn_music' ?>" style="position:relative; z-index: 99999; width:100%;"> </div>
