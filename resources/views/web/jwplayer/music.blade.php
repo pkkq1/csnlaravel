@@ -1755,6 +1755,242 @@ if($musicSet['type_listen'] == 'playlist') {
 
 
                 }
+
+        /////////////////////////////
+        /// Suggestion Karaoke //////
+        /////////////////////////
+        var karaMusic = '';
+        function sugKaraoke() {
+            if(!karaMusic) {
+                $.ajax({
+                    url: window.location.origin + '/music/suggestion_karaoke',
+                    type: "GET",
+                    dataType: "json",
+                    data: {
+                        'cat_id': '<?php echo $music->cat_id ?>',
+                        'submit': 'get',
+                        'id': '<?php echo $music->music_id ?>',
+                    },
+                    beforeSend: function () {
+                        if(loaded) return false;
+                        loaded = true;
+                    },
+                    success: function(response) {
+                        if(response.success) {
+                            karaMusic = response.data.lyric;
+                            refreshSugKara(karaMusic);
+                        }else {
+                            alertModal(response.message);
+                        }
+                    }
+                });
+            }else{
+                refreshSugKara(karaMusic);
+            }
+        }
+        function refreshSugKara(content) {
+            if(jwplayer().getState() == 'playing')
+                jwplayer().pause();
+            confirmModal('<form name="karaform"><textarea style="width: 100%" placeholder="[00:00.00]Bài hát: Phía Sau Một Cô Gái    \n' +
+                '[00:02.00]Ca sĩ: Soobin Hoàng Sơn\n' +
+                '[00:04.00]\n' +
+                '[00:24.45]Nhiều khi anh mong được một lần \n' +
+                '[00:26.78]Nói ra hết tất cả thay vì\n' +
+                '[00:31.46]\n' +
+                '[00:34.41]Ngồi lặng im nghe em kể về \n' +
+                '[00:36.88]Anh ta bằng đôi mắt lấp lánh\n' +
+                '[00:41.94]\n' +
+                '[00:45.04]Đôi lúc em tránh ánh mắt của anh\n' +
+                '[00:48.82]Vì dường như lúc nào \n' +
+                '[00:50.80]Em cũng hiểu thấu lòng anh\n' +
+                '[00:54.28]\n' +
+                '[00:55.16]Không thể ngắt lời\n' +
+                '[00:57.11]\n' +
+                '[00:57.42]Càng không thể \n' +
+                '[00:58.40]Để giọt lệ nào được rơi" rows="14" class="modal_kara" name="modal_kara" id="modal_kara">' + content + '</textarea></form><div id="kara_sug_csnplayer"></div>', 'Gợi ý karaoke <br><i style="font-size: 16px;">[Xem trước] để hiển thị và kiểm tra kara của bạn, hoặc có thay đổi mới</i><br><i style="font-size: 16px;">[Chèn Kara] chèn thời gian kara muốn tạo tại thời điểm đang nghe</i>');
+            $('#myConfirmModal').find('.btn-ok').html('Gửi gợi ý').addClass('btn-karaoke');
+            $('#myConfirmModal').find('.modal-footer').prepend('<button class="btn btn-insert-kara">Chèn Kara</button>');
+            $('#myConfirmModal').find('.modal-footer').prepend('<button class="btn btn-test">Xem trước</button>');
+            $('#myConfirmModal').addClass('sug-kara');
+            <?php
+            if(backpack_user()->can('duyet_sua_nhac')) {
+                ?>
+                $('#myConfirmModal').find('.modal-footer').prepend('<button class="btn btn-edit">Admin Sửa Karaoke</button>');
+                <?php
+            }
+            ?>
+            $('#myConfirmModal').on('hidden.bs.modal', function () {
+                $('.btn-test').remove();
+                $('.btn-insert-kara').remove();
+                $('.btn-edit').remove();
+                $('#kara_sug_csnplayer').remove();
+                $('#myConfirmModal').removeClass('sug-kara');
+                $('#myConfirmModal').find('.btn-ok').html('Đồng ý').removeClass('btn-karaoke');
+            });
+            var kara_sug_player = jwplayer('kara_sug_csnplayer');
+            $('.btn-test').click(function () {
+                karaMusic = $('.modal_kara').val();
+                firstLoadKaraSugBeforePlay = true;
+                $('#kara_sug_lyrics').html($('.modal_kara').val());
+                firstLoadLyric = false;
+                // waitingDialog.show();
+                // waitingDialog.hide();
+
+                kara_sug_player.setup({
+                    width: '100%',
+                    height: '88',
+                    repeat: false,
+                    aspectratio: "<?php echo $musicSet['type_jw'] == 'video' ? '16:9' : 'false' ?>",
+                    stretching: 'fill',
+                    sources: [
+                        <?php
+                        $typeJwSource = $musicSet['type_jw'] == 'video' ? 'mp4' : 'mp3';
+                        for ($i=0; $i<sizeof($file_url); $i++){
+                            echo '{"file": "'. $file_url[$i]['url'] .'", "label": "'. $file_url[$i]['label'] .'", "type": "'.$typeJwSource.'", "default": '. (($i==1) ? 'true' : 'false') .'},';
+                        }
+                        ?>
+                    ],
+                    title: "<?php echo $music->music_title ?>",
+                    skin: {
+                        name: 'nhac'
+                    },
+                    timeSliderAbove: true,
+                    autostart: true,
+                    controlbar: "bottom",
+                    plugins: {
+                        '<?php echo $musicSet['type_listen'] == 'single' ? '/js/nhac-csn.js' : '/js/nhac-playlist.js' ?>': {
+                            duration: 20,
+                            msisdn: '',
+                            package_id: 0,
+                            album_id : '0',
+                            content_type: 'song',
+                            utm_source: '',
+                            utm_medium: '',
+                            utm_term: '',
+                            utm_content: '',
+                            utm_campaign: '',
+                            device_id: '',
+                            channel: 'WEB',
+                            url_referer: '',
+                            action_type: 'play_song',
+                            player_type: 'NotDRM',
+                            service_id: 0,
+                            source_rec: 'rand',
+                            listen_state: 'online',
+                            other_info: '',
+                            expired_time: 0,
+                            version: '1.0'
+                        }
+                    },
+                });
+                kara_sug_player.on('beforePlay', function () {
+                    if(firstLoadKaraSugBeforePlay) {
+                        firstLoadKaraSugBeforePlay = false;
+                        $('#kara_sug_csnplayer').find('.jw-captions').html('<div id="kara_sug_lyrics" class="rabbit-lyrics">' + $('.modal_kara').val() + '</div>');
+                        new RabbitLyrics({
+                            element: document.getElementById("kara_sug_lyrics"),
+                            jw_player: kara_sug_player,
+                            viewMode: 'mini',
+                            onUpdateTimeJw: false
+                        });
+                        <?php
+                        if($musicSet['type_jw'] != 'video') {
+                        ?>
+                        $('.jw-display-icon-display').css('display', 'none');
+                        <?php
+                        }
+                        ?>
+                    }
+                });
+                kara_sug_player.on('time', function () {
+                    new RabbitLyrics({
+                        element: document.getElementById("kara_sug_lyrics"),
+                        jw_player: kara_sug_player,
+                        viewMode: 'mini',
+                        onUpdateTimeJw: true
+                    });
+                })
+
+            });
+            //auto show jwplayer sugKara
+            $( ".btn-test" ).trigger( "click" );
+            var timeJwPos = 0;
+            $('.btn-insert-kara').click(function () {
+                var timeJwPosNew = time_convert(kara_sug_player.getPosition().toFixed(2));
+                if(timeJwPos != timeJwPosNew) {
+                    kara_sug_player.pause();
+                    timeJwPos = timeJwPosNew;
+                    var searchInput = $("#modal_kara");
+                    var contentTimeJwPos = "\n[" + timeJwPos + "]";
+                    if(document.karaform.modal_kara.value.trim() == '') { contentTimeJwPos = "[" + timeJwPos + "]"}
+                    console.log(contentTimeJwPos);
+                    document.karaform.modal_kara.value += contentTimeJwPos;
+                    searchInput.putCursorAtEnd()
+                        .on("focus", function() {
+                            searchInput.putCursorAtEnd()
+                        });
+
+                }
+            });
+            $("#myConfirmModal .btn-karaoke").one('click', function () {
+                $.ajax({
+                    url: window.location.origin + '/music/suggestion_karaoke',
+                    type: "POST",
+                    dataType: "json",
+                    data: {
+                        'karaoke': $('.modal_kara').val(),
+                        'id': '<?php echo $music->music_id ?>',
+                        'submit': 'suggestion',
+                        'cat_id': '<?php echo $music->cat_id ?>',
+                    },
+                    beforeSend: function () {
+                        if(loaded) return false;
+                        loaded = true;
+                    },
+                    success: function(response) {
+                        karaMusic = '';
+                        if(response.success) {
+                            $('.modal').find('.close_confirm').click();
+                            alertModal(response.message);
+                        }else{
+                            alertModal(response.message);
+                        }
+                    }
+                });
+            });
+            <?php
+            if(Auth::check() && backpack_user()->can('duyet_sua_nhac')) {
+            ?>
+            $('.btn-edit').click(function () {
+                $.ajax({
+                    url: window.location.origin + '/music/suggestion_karaoke',
+                    type: "POST",
+                    dataType: "json",
+                    data: {
+                        'cat_id': '<?php echo $music->cat_id ?>',
+                        'submit': 'store',
+                        'id': '<?php echo $music->music_id ?>',
+                        'karaoke': $('#myConfirmModal .modal_kara').val(),
+                    },
+                    beforeSend: function () {
+                        if(loaded) return false;
+                        loaded = true;
+                    },
+                    success: function(response) {
+                        if(response.success) {
+                            location.reload();
+                        }else {
+                            alertModal(response.message);
+                        }
+                    }
+                });
+            });
+
+            <?php
+            }
+            ?>
+        }
+
         <?php
         }
         ?>
@@ -1940,236 +2176,6 @@ if($musicSet['type_listen'] == 'playlist') {
             <?php
         }
         ?>
-        /////////////////////////////
-        /// Suggestion Karaoke //////
-        /////////////////////////
-        var karaMusic = '';
-        function sugKaraoke() {
-            if(!karaMusic) {
-                $.ajax({
-                    url: window.location.origin + '/music/suggestion_karaoke',
-                    type: "GET",
-                    dataType: "json",
-                    data: {
-                        'cat_id': '<?php echo $music->cat_id ?>',
-                        'submit': 'get',
-                        'id': '<?php echo $music->music_id ?>',
-                    },
-                    beforeSend: function () {
-                        if(loaded) return false;
-                        loaded = true;
-                    },
-                    success: function(response) {
-                        if(response.success) {
-                            karaMusic = response.data.lyric;
-                            refreshSugKara(karaMusic);
-                        }else {
-                            alertModal(response.message);
-                        }
-                    }
-                });
-            }else{
-                refreshSugKara(karaMusic);
-            }
-        }
-        function refreshSugKara(content) {
-            if(jwplayer().getState() == 'playing')
-                jwplayer().pause();
-            confirmModal('<form name="karaform"><textarea style="width: 100%" placeholder="[00:00.00]Bài hát: Phía Sau Một Cô Gái    \n' +
-                '[00:02.00]Ca sĩ: Soobin Hoàng Sơn\n' +
-                '[00:04.00]\n' +
-                '[00:24.45]Nhiều khi anh mong được một lần \n' +
-                '[00:26.78]Nói ra hết tất cả thay vì\n' +
-                '[00:31.46]\n' +
-                '[00:34.41]Ngồi lặng im nghe em kể về \n' +
-                '[00:36.88]Anh ta bằng đôi mắt lấp lánh\n' +
-                '[00:41.94]\n' +
-                '[00:45.04]Đôi lúc em tránh ánh mắt của anh\n' +
-                '[00:48.82]Vì dường như lúc nào \n' +
-                '[00:50.80]Em cũng hiểu thấu lòng anh\n' +
-                '[00:54.28]\n' +
-                '[00:55.16]Không thể ngắt lời\n' +
-                '[00:57.11]\n' +
-                '[00:57.42]Càng không thể \n' +
-                '[00:58.40]Để giọt lệ nào được rơi" rows="14" class="modal_kara" name="modal_kara" id="modal_kara">' + content + '</textarea></form><div id="kara_sug_csnplayer"></div>', 'Gợi ý karaoke <br><i style="font-size: 16px;">[Xem trước] để hiển thị và kiểm tra kara của bạn, hoặc có thay đổi mới</i><br><i style="font-size: 16px;">[Chèn Kara] chèn thời gian kara muốn tạo tại thời điểm đang nghe</i>');
-            $('#myConfirmModal').find('.btn-ok').html('Gửi gợi ý').addClass('btn-karaoke');
-            $('#myConfirmModal').find('.modal-footer').prepend('<button class="btn btn-insert-kara">Chèn Kara</button>');
-            $('#myConfirmModal').find('.modal-footer').prepend('<button class="btn btn-test">Xem trước</button>');
-            <?php
-                if(Auth::check() && backpack_user()->can('duyet_sua_nhac')) {
-                    ?>
-                        $('#myConfirmModal').find('.modal-footer').prepend('<button class="btn btn-edit">Admin Sửa Karaoke</button>');
-                    <?php
-                }
-            ?>
-            $('#myConfirmModal').on('hidden.bs.modal', function () {
-                $('.btn-test').remove();
-                $('.btn-insert-kara').remove();
-                $('.btn-edit').remove();
-                $('#kara_sug_csnplayer').remove();
-                $('#myConfirmModal').find('.btn-ok').html('Đồng ý').removeClass('btn-karaoke');
-            })
-            var kara_sug_player = jwplayer('kara_sug_csnplayer');
-            $('.btn-test').click(function () {
-                karaMusic = $('.modal_kara').val();
-                firstLoadKaraSugBeforePlay = true;
-                $('#kara_sug_lyrics').html($('.modal_kara').val());
-                firstLoadLyric = false;
-                // waitingDialog.show();
-                // waitingDialog.hide();
-
-                kara_sug_player.setup({
-                    width: '100%',
-                    height: '88',
-                    repeat: false,
-                    aspectratio: "<?php echo $musicSet['type_jw'] == 'video' ? '16:9' : 'false' ?>",
-                    stretching: 'fill',
-                    sources: [
-                        <?php
-                        $typeJwSource = $musicSet['type_jw'] == 'video' ? 'mp4' : 'mp3';
-                        for ($i=0; $i<sizeof($file_url); $i++){
-                            echo '{"file": "'. $file_url[$i]['url'] .'", "label": "'. $file_url[$i]['label'] .'", "type": "'.$typeJwSource.'", "default": '. (($i==1) ? 'true' : 'false') .'},';
-                        }
-                        ?>
-                    ],
-                    title: "<?php echo $music->music_title ?>",
-                    skin: {
-                        name: 'nhac'
-                    },
-                    timeSliderAbove: true,
-                    autostart: true,
-                    controlbar: "bottom",
-                    plugins: {
-                        '<?php echo $musicSet['type_listen'] == 'single' ? '/js/nhac-csn.js' : '/js/nhac-playlist.js' ?>': {
-                            duration: 20,
-                            msisdn: '',
-                            package_id: 0,
-                            album_id : '0',
-                            content_type: 'song',
-                            utm_source: '',
-                            utm_medium: '',
-                            utm_term: '',
-                            utm_content: '',
-                            utm_campaign: '',
-                            device_id: '',
-                            channel: 'WEB',
-                            url_referer: '',
-                            action_type: 'play_song',
-                            player_type: 'NotDRM',
-                            service_id: 0,
-                            source_rec: 'rand',
-                            listen_state: 'online',
-                            other_info: '',
-                            expired_time: 0,
-                            version: '1.0'
-                        }
-                    },
-                });
-                kara_sug_player.on('beforePlay', function () {
-                    if(firstLoadKaraSugBeforePlay) {
-                        firstLoadKaraSugBeforePlay = false;
-                        $('#kara_sug_csnplayer').find('.jw-captions').html('<div id="kara_sug_lyrics" class="rabbit-lyrics">' + $('.modal_kara').val() + '</div>');
-                        new RabbitLyrics({
-                            element: document.getElementById("kara_sug_lyrics"),
-                            jw_player: kara_sug_player,
-                            viewMode: 'mini',
-                            onUpdateTimeJw: false
-                        });
-                        <?php
-                        if($musicSet['type_jw'] != 'video') {
-                        ?>
-                        $('.jw-display-icon-display').css('display', 'none');
-                        <?php
-                        }
-                        ?>
-                    }
-                });
-                kara_sug_player.on('time', function () {
-                    new RabbitLyrics({
-                        element: document.getElementById("kara_sug_lyrics"),
-                        jw_player: kara_sug_player,
-                        viewMode: 'mini',
-                        onUpdateTimeJw: true
-                    });
-                })
-
-            });
-            var timeJwPos = 0;
-            $('.btn-insert-kara').click(function () {
-                var timeJwPosNew = time_convert(kara_sug_player.getPosition().toFixed(2));
-                if(timeJwPos != timeJwPosNew) {
-                    kara_sug_player.pause();
-                    timeJwPos = timeJwPosNew;
-                    var searchInput = $("#modal_kara");
-                    var contentTimeJwPos = "\n[" + timeJwPos + "]";
-                    if(document.karaform.modal_kara.value.trim() == '') { contentTimeJwPos = "[" + timeJwPos + "]"}
-                    console.log(contentTimeJwPos);
-                    document.karaform.modal_kara.value += contentTimeJwPos;
-                    searchInput.putCursorAtEnd()
-                        .on("focus", function() {
-                            searchInput.putCursorAtEnd()
-                        });
-
-                }
-            });
-            $("#myConfirmModal .btn-karaoke").one('click', function () {
-                $.ajax({
-                    url: window.location.origin + '/music/suggestion_karaoke',
-                    type: "POST",
-                    dataType: "json",
-                    data: {
-                        'karaoke': $('.modal_kara').val(),
-                        'id': '<?php echo $music->music_id ?>',
-                        'submit': 'suggestion',
-                        'cat_id': '<?php echo $music->cat_id ?>',
-                    },
-                    beforeSend: function () {
-                        if(loaded) return false;
-                        loaded = true;
-                    },
-                    success: function(response) {
-                        karaMusic = '';
-                        if(response.success) {
-                            $('.modal').find('.close_confirm').click();
-                            alertModal(response.message);
-                        }else{
-                            alertModal(response.message);
-                        }
-                    }
-                });
-            });
-            <?php
-            if(Auth::check() && backpack_user()->can('duyet_sua_nhac')) {
-                ?>
-                $('.btn-edit').click(function () {
-                    $.ajax({
-                        url: window.location.origin + '/music/suggestion_karaoke',
-                        type: "POST",
-                        dataType: "json",
-                        data: {
-                            'cat_id': '<?php echo $music->cat_id ?>',
-                            'submit': 'store',
-                            'id': '<?php echo $music->music_id ?>',
-                            'karaoke': $('#myConfirmModal .modal_kara').val(),
-                        },
-                        beforeSend: function () {
-                            if(loaded) return false;
-                            loaded = true;
-                        },
-                        success: function(response) {
-                            if(response.success) {
-                                location.reload();
-                            }else {
-                                alertModal(response.message);
-                            }
-                        }
-                    });
-                });
-
-                <?php
-            }
-            ?>
-        }
         <?php
         if($memberVip) {
             ?>

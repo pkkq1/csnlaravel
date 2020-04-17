@@ -1639,3 +1639,15 @@ footer .align-items-end {
 .sub_Tab .autoplay input:checked+.form-check-label .switch:after {
     left: calc(100% - 19px)!important;
 }
+.sug-kara .modal-footer {
+    display: initial;
+}
+.sug-kara .close_confirm {
+    right: 20px;
+    position: absolute;
+}
+.sug-kara .btn-karaoke {
+    right: 75px;
+    position: absolute;
+
+}

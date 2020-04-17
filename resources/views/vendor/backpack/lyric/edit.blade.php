@@ -1,7 +1,7 @@
 <?php
 use App\Library\Helpers;
 use App\Models\MusicModel;
-$partListenFullUrl = Helpers::listen_url($music, '');
+$partListenFullUrl = Helpers::listen_url($music);
 $oldLyricArr = preg_split('/\r\n|\r|\n/', htmlspecialchars_decode($music->music_lyric, ENT_QUOTES));
 $sugLyricArr = preg_split('/\r\n|\r|\n/', htmlspecialchars_decode($fields['music_lyric']['value'], ENT_QUOTES));
 $file_url = Helpers::file_url($music);
