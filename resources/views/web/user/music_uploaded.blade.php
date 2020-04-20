@@ -291,7 +291,7 @@
         ?>
         <div class="col">
             <div class="card card1">
-                <div class="card-header" style="background-image: url({{Helpers::cover_url($item['cover_id'])}});">
+                <div class="card-header" style="background-image: url({{Helpers::coverThumb(Helpers::cover_url($item['cover_id']), MUSIC_COVER_THUMB_200_PATH)}});">
                     <a class="btn-album-remove btn btn-danger" href="{{'/dang-tai/album/'.$item['cover_id']}}" title="Chỉnh sửa {{$item['music_album']}}" >Chỉnh sửa</a>
                     <a href="{{$url}}" title="{{$item['music_album']}}">
                         <span class="icon-play"></span>
