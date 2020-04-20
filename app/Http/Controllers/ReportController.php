@@ -42,16 +42,16 @@ class ReportController extends Controller
                     'music_name' => $request->music_name,
                     'report_option' => $request->report_option,
                     'music_id' => $request->music_id,
-                    'report_text' => serialize([
+                    'report_text' => serialize([[
                         'user' => [
                             'time' => time(),
                             'user_id' => Auth::user()->id,
                             'content' => $request->report_text,
                         ],
-                    ]),
+                    ]]),
                     'comment_text' => $request->comment_text,
                     'by_user_id' => Auth::user()->id,
-                    'username' => Auth::user()->username,
+                    'username' => Auth::user()->name,
                     'ip' => Helpers::getIp(),
                     'mod' => $Agent->isMobile() ? 'mobile' : 'web',
                     'url_music' => $request->url_music,
@@ -74,15 +74,15 @@ class ReportController extends Controller
                     'music_id' => $request->music_id,
                     'music_name' => $request->music_name,
                     'report_option' => $request->report_option,
-                    'report_text' => serialize([
+                    'report_text' => serialize([[
                         'user' => [
                             'time' => time(),
                             'user_id' => Auth::user()->id,
                             'content' => $request->report_text,
                         ],
-                    ]),
+                    ]]),
                     'by_user_id' => Auth::user()->id,
-                    'username' => Auth::user()->username,
+                    'username' => Auth::user()->name,
                     'ip' => Helpers::getIp(),
                     'mod' => $Agent->isMobile() ? 'mobile' : 'web',
                     'url_music' => $request->url_music,
