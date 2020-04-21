@@ -106,6 +106,7 @@
                             <label>Trả lời báo lỗi</label>
                             <textarea name="report_text_new" class="form-control"></textarea>
                         </div>
+                        <input type="hidden" name="status_old" value="{{$fields['status']['value']}}" >
                         @if(view()->exists('vendor.backpack.crud.form_content'))
                             @include('vendor.backpack.crud.form_content', ['fields' => $fields, 'action' => 'edit'])
                         @else

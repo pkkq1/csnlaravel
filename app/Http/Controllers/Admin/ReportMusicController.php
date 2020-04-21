@@ -205,7 +205,6 @@ class ReportMusicController extends CrudController
         if (is_null($request)) {
             $request = \Request::instance();
         }
-
         // update the row in the db
         $item = $this->crud->update($request->get($this->crud->model->getKeyName()),
             $request->except('save_action', '_token', '_method', 'current_tab', 'http_referrer', 'id', 'link_file_jw', 'url_music', 'report_option', 'report_text'));
@@ -220,6 +219,10 @@ class ReportMusicController extends CrudController
                 'content' => $request->report_text_new,
             ];
             $item->report_text = serialize($contentReport);
+            $item->save();
+        }
+        if(($request->status_old != $item->status) & ($item->notifi_read == 0)) {
+            $item->notifi_read = 1;
             $item->save();
         }
         $this->data['entry'] = $this->crud->entry = $item;

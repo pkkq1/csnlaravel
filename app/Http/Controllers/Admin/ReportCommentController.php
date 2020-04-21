@@ -223,6 +223,10 @@ class ReportCommentController extends CrudController
             $item->report_text = serialize($contentReport);
             $item->save();
         }
+        if(($request->status_old != $item->status) & ($item->notifi_read == 0)) {
+            $item->notifi_read = 1;
+            $item->save();
+        }
         $this->data['entry'] = $this->crud->entry = $item;
         // show a success message
         \Alert::success(trans('backpack::crud.update_success'))->flash();
