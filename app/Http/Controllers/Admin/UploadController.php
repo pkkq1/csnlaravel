@@ -91,12 +91,15 @@ class UploadController extends CrudController
             'label' => 'lượt tải',
             'type' =>'number'
         ]);
-
         $this->crud->addColumn([
-            'name' => 'music_search_result',
-            'label' => 'Tìm kiếm',
-            'type' =>'number'
+            'name' => 'music_user_id',
+            'label' => 'ID Người đăng tải',
         ]);
+//        $this->crud->addColumn([
+//            'name' => 'music_search_result',
+//            'label' => 'Tìm kiếm',
+//            'type' =>'number'
+//        ]);
 
         $this->crud->addColumn([
             'name'  => 'music_artist',
