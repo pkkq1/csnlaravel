@@ -60,6 +60,23 @@ class ReportMusicController extends CrudController
         ], function($value) { // if the filter is active
             $this->crud->addClause('where', 'status', $value);
         });
+        $this->crud->addFilter([ // dropdown filter
+            'name' => 'report_option',
+            'type' => 'dropdown',
+            'label'=> 'Lý do gửi'
+        ], [
+            'Spam' => 'Spam',
+            'Vi phạm bản quyền' => 'Vi phạm bản quyền',
+            'Không tải được' => 'Không tải được',
+            'Chất lượng kém' => 'Chất lượng kém',
+            'Thông tin chưa chính xác' => 'Thông tin chưa chính xác',
+            'Bài hát bị lặp lại' => 'Bài hát bị lặp lại',
+            'Lời bài hát chưa chính xác' => 'Lời bài hát chưa chính xác',
+            'Karaoke chưa chính xác' => 'Karaoke chưa chính xác',
+            'Lỗi khác' => 'Lỗi khác',
+        ], function($value) { // if the filter is active
+            $this->crud->addClause('where', 'report_option', $value);
+        });
         $this->crud->addColumn([
             'name' => 'id',
             'label' => 'ID',
@@ -195,7 +212,7 @@ class ReportMusicController extends CrudController
 
 
         $contentReport = unserialize($item->report_text);
-        if($item->report_text) {
+        if($item->report_text_new) {
             $contentReport[]['support'] = [
                 'time' => time(),
                 'user_id' => Auth::user()->id,
