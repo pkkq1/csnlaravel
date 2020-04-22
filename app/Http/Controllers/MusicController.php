@@ -430,11 +430,13 @@ class MusicController extends Controller
         if($catUrl == CAT_VIDEO_URL) {
             // video (sub category videoclip)
             $type = 'video';
-            $playlistMusic = $hot_video_rows[$category->cat_level];
+            $playlistMusic = $hot_video_rows[$category->cat_level] ?? [];
         }else{
             // music (category music level 0)
-            $playlistMusic = $hot_music_rows[$category->cat_id];
+            $playlistMusic = $hot_music_rows[$category->cat_id] ?? [];
         }
+        if(!$playlistMusic)
+            return view('errors.text_error')->with('message', 'Hiện tại bảng xếp hạng tháng này chưa đầy đủ');
         $offsetPlaylist = intval($request->playlist ?? 1);
         $maxNumPlaylist = count($playlistMusic);
         if($offsetPlaylist > $maxNumPlaylist) {
@@ -458,6 +460,7 @@ class MusicController extends Controller
             }
             $playlistMusic[$offsetPlaylist - 1] = $music->toArray();
         }
+
         // +1 view
         if(Helpers::sessionCountTimesMusic($music->music_id)){
             if($catUrl == CAT_VIDEO) {
