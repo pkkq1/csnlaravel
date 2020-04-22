@@ -8,7 +8,7 @@ foreach ($musics['data'] as $item) {
             <video:thumbnail_loc>' . $item['music_cover'][0] . '</video:thumbnail_loc>
             <video:title><![CDATA[' . htmlspecialchars_decode($item['music_title'][0], ENT_QUOTES) . ' - ' . htmlspecialchars_decode($item['music_artist'][0], ENT_QUOTES) . ']]></video:title>
         </video:video>
-        <lastmod>' . date("Y-m-d\Th:i:s+00:00") . '</lastmod>
+        <lastmod>' . date("Y-m-d\Th:i:s+00:00", $item['music_last_update_time'][0]) . '</lastmod>
     </url>';
 }
 echo '</urlset>';
