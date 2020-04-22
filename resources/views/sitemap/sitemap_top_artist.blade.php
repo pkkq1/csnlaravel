@@ -6,7 +6,7 @@ foreach ($top_artist_rows as $item) {
             <loc>' . env('APP_URL') . '/sitemap' . str_replace('.html', '.xml', $item['artist_url']) . '</loc>
             <changefreq>always</changefreq>
             <priority>0.9</priority>
-            <lastmod>' . date("Y-m-d\Th:i:s+00:00") . '</lastmod>
+            <lastmod>' . date("Y-m-d\TH:i:s+00:00") . '</lastmod>
         </url>';
 }
 echo '</urlset>';

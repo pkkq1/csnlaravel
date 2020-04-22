@@ -38,6 +38,7 @@ class Sitemap extends Controller
         $this->coverRepository = $coverRepository;
         $this->artistRepository = $artistRepository;
         $this->Solr = $Solr;
+        date_default_timezone_set('UTC');
     }
     public function categoryList(Request $request)
     {

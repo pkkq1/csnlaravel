@@ -7,7 +7,7 @@ for ($i = 1; $i <= $pageTotal; $i++) {
             <loc>' . env('APP_URL'). '/sitemap/full_2020_p' . $i . '.xml</loc>
             <changefreq>always</changefreq>
             <priority>0.9</priority>
-            <lastmod>' . date("Y-m-d\Th:i:s+00:00") . '</lastmod>
+            <lastmod>' . date("Y-m-d\TH:i:s+00:00") . '</lastmod>
         </url>';
 }
 echo '</urlset>';
