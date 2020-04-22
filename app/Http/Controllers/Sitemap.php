@@ -144,6 +144,23 @@ class Sitemap extends Controller
             'musics' => $music_new_uploads
         ])->header('Content-Type', 'text/xml');
     }
+    public function full_music_year(Request $request, $year = 2020) {
+        $timeSolr = strtotime($year.'-01');
+        $searchSolarium['music_id'] = '['.ID_OLD_MUSIC.' TO *] AND music_time :['.$timeSolr.' TO *]';
+        $MusicPage = $this->Solr->search($searchSolarium, 1, 1000, array('score' => 'desc', 'music_downloads_today' => 'desc', 'music_downloads_this_week' => 'desc', 'music_downloads' => 'desc'));
+        return response()->view('sitemap.sitemap_full_music_year', [
+            'music_page' => $MusicPage
+        ])->header('Content-Type', 'text/xml');
+    }
+    public function page_music_year(Request $request, $page = 1, $year = 2020) {
+        $timeSolr = strtotime($year.'-01');
+        $searchSolarium['music_id'] = '['.ID_OLD_MUSIC.' TO *] AND music_time :['.$timeSolr.' TO *]';
+        $MusicPage = $this->Solr->search($searchSolarium, $page, 1000, array('score' => 'desc', 'music_downloads_today' => 'desc', 'music_downloads_this_week' => 'desc', 'music_downloads' => 'desc'));
+        return response()->view('sitemap.sitemap_category_solr_music', [
+            'musics' => $MusicPage
+        ])->header('Content-Type', 'text/xml');
+
+    }
     public function artistListMusic(Request $request, $artistUrl) {
         $id = last(explode('-', $artistUrl));
         $urlArtist = substr(str_replace($id, '', $artistUrl), 0, -1);

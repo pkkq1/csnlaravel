@@ -6,7 +6,8 @@ foreach ($videos['data'] as $item) {
         <loc>' . $item['video_link'][0] . '</loc>
         <video:video>
             <video:thumbnail_loc>' . $item['video_cover'][0] . '</video:thumbnail_loc>
-            <video:title><![CDATA[' . $item['video_title'][0] . ' - ' . $item['video_artist'][0] . ']]></video:title>
+            <video:title><![CDATA[' . htmlspecialchars_decode($item['video_title'][0], ENT_QUOTES) . ' - ' . htmlspecialchars_decode($item['video_artist'][0], ENT_QUOTES) . ']]></video:title>
+            <lastmod>' . date("Y-m-d\Th:i:s+00:00") . '</lastmod>
         </video:video>
     </url>';
 }

@@ -28,7 +28,8 @@ Route::get('/sync/cover_hot', 'Sync\AlbumController@albumHot');
 Route::get('/sitemap.xml', 'Sitemap@index');
 Route::get('/sitemap_category.xml', 'Sitemap@categoryList');
 Route::get('/sitemap_artist.xml', 'Sitemap@topArtist');
-Route::get('/sitemap_music.xml', 'Sitemap@newMusic');
+//Route::get('/sitemap_music.xml', 'Sitemap@newMusic');
+Route::get('/sitemap_full_2020.xml', 'Sitemap@full_music_year');
 Route::get('/sitemap_video.xml', 'Sitemap@newVideo');
 
 // site map category and bxh
@@ -48,6 +49,9 @@ Route::prefix('sitemap')->group(function () {
 
     // arrtist
     Route::get('ca-si/{artistUrl}.xml', ['as' => 'category.get2', 'uses' => 'Sitemap@artistListMusic']);
+
+    // music page
+    Route::get('full_2020_p{page}.xml', ['as' => 'category.get2', 'uses' => 'Sitemap@page_music_year']);
 
 });
 

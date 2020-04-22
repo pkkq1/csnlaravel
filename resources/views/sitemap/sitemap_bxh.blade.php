@@ -13,8 +13,9 @@ foreach ($hot_music_rows as $itemMusic) {
 		<loc>' .$item['music_url'] . '</loc>
 		<video:video>
 			<video:thumbnail_loc>' . $item['cover_html'] . '</video:thumbnail_loc>
-			<video:title><![CDATA[' . $item['music_title'] . ' - ' . $item['music_artist'] . ']]></video:title>
-			<video:description><![CDATA[' . $item['music_shortlyric'] . ']]></video:description>
+			<video:title><![CDATA[' . htmlspecialchars_decode($item['music_title'], ENT_QUOTES) . ' - ' . htmlspecialchars_decode($item['music_artist'], ENT_QUOTES) . ']]></video:title>
+			<video:description><![CDATA[' . htmlspecialchars_decode($item['music_shortlyric'], ENT_QUOTES) . ']]></video:description>
+            <lastmod>' . date("Y-m-d\Th:i:s+00:00") . '</lastmod>
 		</video:video>
 	</url>';
     }
@@ -25,8 +26,9 @@ foreach ($hot_video_rows as $itemVideo) {
 		<loc>' .$item['music_url'] . '</loc>
 		<video:video>
 			<video:thumbnail_loc>' . $item['cover_html'] . '</video:thumbnail_loc>
-			<video:title><![CDATA[' . $item['music_title'] . ' - ' . $item['music_artist'] . ']]></video:title>
-			<video:description><![CDATA[' . $item['music_shortlyric'] . ']]></video:description>
+			<video:title><![CDATA[' . htmlspecialchars_decode($item['music_title'], ENT_QUOTES) . ' - ' . htmlspecialchars_decode($item['music_artist'], ENT_QUOTES) . ']]></video:title>
+			<video:description><![CDATA[' . htmlspecialchars_decode($item['music_shortlyric'], ENT_QUOTES) . ']]></video:description>
+			<lastmod>' . date("Y-m-d\Th:i:s+00:00") . '</lastmod>
 		</video:video>
 	</url>';
     }
