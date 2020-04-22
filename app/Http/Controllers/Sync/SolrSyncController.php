@@ -171,6 +171,7 @@ class SolrSyncController extends Controller
                     'music_downloads_max_week' => $item->music_downloads_max_week,
                     'music_search_result' => $item->music_search_result,
                     'music_time' => $item->music_time,
+                    'music_last_update_time' => $item->music_last_update_time,
                     'solr_updated_time' => time(),
                 ];
                 $datas[] = $data;
@@ -379,6 +380,7 @@ class SolrSyncController extends Controller
                         'video_downloads_max_week' => $item->music_downloads_max_week,
                         'video_search_result' => $item->music_search_result,
                         'video_time' => $item->music_time,
+                        'video_last_update_time' => $item->music_last_update_time,
                         'solr_updated_time' => time(),
                     ];
                     $datas[] = $data;
