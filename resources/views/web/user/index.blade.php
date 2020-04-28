@@ -41,10 +41,12 @@ $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
                         <li class="artist"><a class="artist" onclick="userTab('artist', '/user/artist_favourite')" href="#artist"><span><i class="material-icons" style="font-size: 11px;">favorite_border</i> Ca Sĩ</span></a></li>
                         @if($mySelf || (Auth::check() && Auth::user()->hasPermission('duyet_sua_nhac')))
                         <li class="tu-nhac"><a class="tu-nhac" href="#uploaded" onclick="musicUserTab('musicUploaded')" ><span>Tủ nhạc</span></a></li>
+                        <li class="report"><a class="report" href="#report" onclick="userTab('report', '/user/report_tab')" ><span>Phản Hồi</span></a></li>
                         @endif
                         @if($mySelf && Auth::check() && Auth::user()->hasPermission('duyet_sua_nhac'))
                             <li class="duyet-nhac"><a class="duyet-nhac" href="#duyet-nhac" onclick="musicUserTab('music_approval')" ><span>Duyệt Nhạc</span></a></li>
                         @endif
+
                     </ul>
                 </nav>
                 <div class="content-wrap tab-content-category">
@@ -113,6 +115,7 @@ $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
                     <section id="video"></section>
                     <section id="artist"></section>
                     <section id="uploaded"></section>
+                    <section id="report"></section>
                     <section id="duyet-nhac"></section>
                 </div>
             </div>
@@ -153,6 +156,7 @@ $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
     })();
     var firstUploaded = true;
     var firstApproval = true;
+    var firstReport = true;
     function musicUserTab(tab) {
         let urlCurrent = window.location.origin + window.location.pathname;
         if(tab == 'music_approval') {
@@ -239,6 +243,24 @@ $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
                         e.preventDefault();
                         userTab(tab, $(this).attr('href'), true);
                     });
+                    if(tab == 'report') {
+                        $('.reply_report').on('click', function () {
+                            var reply = $('.post_comment_reply_' + $(this).data('report-id'));
+                            if (!reply.hasClass('reply_show')) {
+                                $('.post_comment_reply').removeClass('reply_show');
+                                reply.addClass('reply_show');
+                                $(this).html('Ẩn (' + $(this).data('report-count') + ')');
+                            } else {
+                                reply.removeClass('reply_show');
+                                $(this).html('Hiển Thị (' + $(this).data('report-count') + ')');
+                            }
+                            reply.find('textarea').trigger('focus');
+                        });
+                        $('.box_form_report').submit(false);
+                        $('.list_comment .pagination li a').on('click', function (e) {
+                            e.preventDefault();
+                        });
+                    }
                 }
             });
         }
@@ -325,6 +347,41 @@ $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
             }
         }, 1000);
     }
-
+    function postReport(formId) {
+        var textArea = $('.form-report-' + formId);
+        if(!textArea.find('textarea').val()) {
+            alertModal('Chưa nhập nội dung báo lỗi.');
+            return false;
+        }
+        $.ajax({
+            url: window.location.origin + "/user/reply_report_content/post",
+            type: "POST",
+            dataType: "html",
+            data: {
+                'content': textArea.find('textarea').val(),
+                'reply_type': textArea.find('textarea').data('report-type'),
+                'report_id': textArea.find('textarea').data('report-id')
+            },
+            beforeSend: function () {
+                textArea.find('textarea').val('');
+                if(loaded) return false;
+                loaded = true;
+            },
+            statusCode: {
+                401: function(){
+                    window.location.replace('/login');
+                    return false;
+                }
+            },
+            success: function(response) {
+                $('.comment-reply-' + formId).append(response);
+                let numberReport = parseInt($('#report-' + formId).find('.reply_report').data('report-count')) + 1;
+                $('#report-' + formId).find('.reply_report').data('report-count', numberReport);
+                $('#report-' + formId).find('.reply_report').html('Ẩn (' + numberReport + ')');
+                $('.box_form_comment').submit(false);
+            }
+        });
+        return false;
+    }
 </script>
 @endsection

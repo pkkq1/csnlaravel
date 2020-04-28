@@ -22,6 +22,10 @@ use App\Repositories\ArtistFavourite\ArtistFavouriteRepository;
 use App\Repositories\MusicFavourite\MusicFavouriteRepository;
 use App\Repositories\VideoFavourite\VideoFavouriteRepository;
 use App\Repositories\Cover\CoverEloquentRepository;
+use App\Repositories\ReportMusic\ReportMusicRepository;
+use App\Repositories\ReportComment\ReportCommentRepository;
+use Illuminate\Pagination\LengthAwarePaginator;
+use DB;
 
 class UserMusicController extends Controller
 {
@@ -39,10 +43,12 @@ class UserMusicController extends Controller
     protected $musicFavouriteRepository;
     protected $videoFavouriteRepository;
     protected $coverRepository;
+    protected $reportMusicRepository;
+    protected $reportCommentRepository;
 
     public function __construct(UserEloquentRepository $userRepository, PlaylistEloquentRepository $playlistRepository, MusicEloquentRepository $musicRepository,
                                 UploadEloquentRepository $uploadRepository, AlbumEloquentRepository $albumRepository, ArtistFavouriteRepository $artistFavouriteRepository, MusicFavouriteRepository $musicFavouriteRepository,
-                                VideoFavouriteRepository $videoFavouriteRepository, CoverEloquentRepository $coverRepository)
+                                VideoFavouriteRepository $videoFavouriteRepository, CoverEloquentRepository $coverRepository, ReportMusicRepository $reportMusicRepository, ReportCommentRepository $reportCommentRepository)
     {
         $this->userRepository = $userRepository;
         $this->playlistRepository = $playlistRepository;
@@ -53,6 +59,8 @@ class UserMusicController extends Controller
         $this->musicFavouriteRepository = $musicFavouriteRepository;
         $this->videoFavouriteRepository = $videoFavouriteRepository;
         $this->coverRepository = $coverRepository;
+        $this->reportMusicRepository = $reportMusicRepository;
+        $this->reportCommentRepository = $reportCommentRepository;
     }
 
     /**
@@ -154,5 +162,44 @@ class UserMusicController extends Controller
         $musicFavourite = $this->musicFavouriteRepository->getModel()::where('user_id', $user_id)->with('music')->orderBy('id', 'desc')->paginate(LIMIT_PAGE_MUSIC_FAVOURITE);
         return view('user.music_favourite', compact('musicFavourite', 'user_id'));
     }
-
+    public function reportUser(Request $request) {
+        $user_id = Auth::user()->user_id;
+        $page = $request->get('page', 1);
+        $paginate = LIMIT_PAGE_MUSIC_FAVOURITE;
+        $reportMusic = $this->reportMusicRepository->getModel()::where('by_user_id', $user_id)->select(DB::raw('id, 0 as comment_id, 0 as comment_type, report_option, music_id, report_text, music_name, 0 as comment_text, username, created_at, updated_at, status, notifi_read,\'music\' as report_type'));
+        $reportComment = $this->reportCommentRepository->getModel()::where('by_user_id', $user_id)->select(DB::raw('id, comment_id, comment_type, report_option, music_id, report_text, music_name, comment_text, username, created_at, updated_at, status, notifi_read,\'comment\' as report_type'));
+        $reportData = $reportMusic->union($reportComment)->orderBy('updated_at', 'desc')->get();
+        $slice = array_slice($reportData->toArray(), $paginate * ($page - 1), $paginate);
+        $result = new LengthAwarePaginator($slice, count($reportData), $paginate, null, ['path' => '/user/report_tab']);
+        return view('user.report_user.index', compact('result'));
+    }
+    public function reportReply(Request $request) {
+        $user_id = Auth::user()->user_id;
+        $content = $request->input('content');
+        $reply_type = $request->input('reply_type');
+        $report_id= $request->input('report_id');
+        if($reply_type == 'music') {
+            $reportData = $this->reportMusicRepository;
+        }else {
+            $reportData = $this->reportCommentRepository;
+        }
+        $reportData = $reportData->getModel()::where([['by_user_id', $user_id], ['id', $report_id]])->first();
+        if($reportData->status == 2) {
+            abort(403, 'Lỗi báo cáo này đã đóng');
+        }
+        if(!$reportData){
+            abort(403, 'Lỗi không tìm thấy báo cáo');
+        }
+        $contentReport = unserialize($reportData->report_text);
+        $newContent = [
+            'time' => time(),
+            'user_id' => Auth::user()->id,
+            'content' => $content,
+        ];
+        $contentReport[time()]['user'] = $newContent;
+        $reportData->report_text = serialize($contentReport);
+        $reportData->status = 0;
+        $reportData->save();
+        return view('user.report_user.report_children', compact('newContent'));
+    }
 }

@@ -275,12 +275,18 @@ Route::group(['middlewareGroups' => ['web']], function () {
         Route::post('artist_favourite', ['as' => 'user.uploaded', 'uses' => 'User\UserMusicController@artistFavourite']);
         Route::post('video_favourite', ['as' => 'user.uploaded', 'uses' => 'User\UserMusicController@videoFavourite']);
         Route::post('music_favourite', ['as' => 'user.uploaded', 'uses' => 'User\UserMusicController@musicFavourite']);
+        Route::post('report_tab', ['as' => 'user.report', 'uses' => 'User\UserMusicController@reportUser']);
+        Route::post('reply_report_content/post', ['as' => 'user.report', 'uses' => 'User\UserMusicController@reportReply']);
         Route::post('qr_code', ['as' => 'user.qr_code', 'uses' => 'User\UserController@qrCode']);
     });
     Route::prefix('chu-de/')->group(function () {
         Route::get('{url}.html', ['as' => 'catalog.index', 'uses' => 'CatalogController@playlistPublisher']);
         Route::get('{url}', ['as' => 'catalog.index', 'uses' => 'CatalogController@playlistPublisher']);
     });
+
+    Route::get('report_tab', ['as' => 'cataâlog.music', 'uses' => 'User\UserMusicController@reportUser']);
+
+
     ///// catalog
     Route::get('bai-hat-moi', ['as' => 'catalog.music', 'uses' => 'CatalogController@musicNews']);
     Route::get('video-moi', ['as' => 'catalog.video', 'uses' => 'CatalogController@videoNews']);

@@ -36,19 +36,24 @@ class ReportController extends Controller
             $exits = $this->reportCommentRepository->getModel()::where([['comment_id', $request->id], ['by_user_id', Auth::user()->id]])->first();
             if(!$exits) {
                 $Agent = new Agent();
+                $reportText = [];
+                if($request->report_text) {
+                    $reportText = [
+                        time() => [
+                            'user' => ['time' => time(),
+                                'user_id' => Auth::user()->id,
+                                'content' => $request->report_text,
+                            ]
+                        ]
+                    ];
+                }
                 $this->reportCommentRepository->getModel()::create([
                     'comment_id' => $request->id,
                     'comment_type' => $request->type,
                     'music_name' => $request->music_name,
                     'report_option' => $request->report_option,
                     'music_id' => $request->music_id,
-                    'report_text' => serialize([[
-                        'user' => [
-                            'time' => time(),
-                            'user_id' => Auth::user()->id,
-                            'content' => $request->report_text,
-                        ],
-                    ]]),
+                    'report_text' => serialize($reportText),
                     'comment_text' => $request->comment_text,
                     'by_user_id' => Auth::user()->id,
                     'username' => Auth::user()->name,
@@ -70,17 +75,22 @@ class ReportController extends Controller
             $exits = $this->reportMusicRepository->getModel()::where([['music_id', $request->id], ['by_user_id', Auth::user()->id]])->first();
             if(!$exits) {
                 $Agent = new Agent();
+                $reportText = [];
+                if($request->report_text) {
+                    $reportText = [
+                        time() => [
+                            'user' => ['time' => time(),
+                                'user_id' => Auth::user()->id,
+                                'content' => $request->report_text,
+                            ]
+                        ]
+                    ];
+                }
                 $this->reportMusicRepository->getModel()::create([
                     'music_id' => $request->music_id,
                     'music_name' => $request->music_name,
                     'report_option' => $request->report_option,
-                    'report_text' => serialize([[
-                        'user' => [
-                            'time' => time(),
-                            'user_id' => Auth::user()->id,
-                            'content' => $request->report_text,
-                        ],
-                    ]]),
+                    'report_text' => serialize($reportText),
                     'by_user_id' => Auth::user()->id,
                     'username' => Auth::user()->name,
                     'ip' => Helpers::getIp(),

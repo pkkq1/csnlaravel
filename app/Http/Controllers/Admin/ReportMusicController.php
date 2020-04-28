@@ -211,7 +211,7 @@ class ReportMusicController extends CrudController
 
 
         $contentReport = unserialize($item->report_text);
-        if($item->report_text_new) {
+        if($request->report_text_new) {
             $contentReport[]['support'] = [
                 'time' => time(),
                 'user_id' => Auth::user()->id,

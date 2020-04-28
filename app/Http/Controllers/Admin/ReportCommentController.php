@@ -212,7 +212,7 @@ class ReportCommentController extends CrudController
             $request->except('save_action', '_token', '_method', 'current_tab', 'http_referrer', 'id', 'link_file_jw', 'url_music', 'report_option', 'report_text'));
 
 
-        if($item->report_text_new) {
+        if($request->report_text_new) {
             $contentReport = unserialize($item->report_text);
             $contentReport[]['support'] = [
                 'time' => time(),

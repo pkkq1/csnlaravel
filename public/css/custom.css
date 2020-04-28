@@ -1651,3 +1651,30 @@ footer .align-items-end {
     position: absolute;
 
 }
+#report .list_comment .media-text {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    padding: 0px;
+}
+#report .list_comment .seek-jw{
+    margin-top: 0;
+    margin-bottom: 1rem;
+    padding: 0px;
+}
+#report .list_comment a{
+    text-decoration: none;
+    cursor: auto;
+}
+#report .list_comment p{
+    font-weight: 300;
+}
+#report .reply_comment{
+    opacity: 1;
+    margin-top: -10px;
+}
+.reply_report {
+    cursor: pointer;
+}
+#report .post_comment_reply {
+    overflow: auto;
+}

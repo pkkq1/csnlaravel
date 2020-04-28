@@ -1,86 +1,79 @@
 <?php
 use App\Library\Helpers;
-$permisDelete = Auth::check() && backpack_user()->can('comment_(can_block)');
+$reportData = $result->toArray()['data'];
+$pagingHtml = $result->links();
+$user = Auth::user();
+$Itemreply = '';
+$avatarUser = Helpers::pathAvatar($user->user_avatar, $user->id);
+use App\Models\ReportCommentModel;
+use App\Models\ReportMusicModel;
 ?>
+
+
 <?php echo ($pagingHtml ? '<ul class="list-unstyled ul_comments">' : '') ?>
     <?php
-    array_map(function ($item) use ($commentReply, $permisDelete) {
+    array_map(function ($item) use ($avatarUser, $Itemreply, $user) {
+    $reportText = unserialize($item['report_text']);
+    $reportTypeId = $item['report_type'].'-'.$item['id'];
+    if($item['notifi_read'] == 1) {
+        if($item['report_type'] == 'music') {
+            ReportCommentModel::where('id', $item['id'])->update(['notifi_read' => 0]);
+        }else{
+            ReportCommentModel::where('id', $item['id'])->update(['notifi_read' => 0]);
+        }
+    }
     ?>
-        <li class="media" id="comment-{{$item['comment_id']}}" style="width: 100%">
-            <a href="/user/{{$item['user']['id']}}" title="{{$item['user']['name']}}"><img class="mr-3" src="<?php echo Helpers::pathAvatar($item['user']['user_avatar'], $item['user']['id']) ?>" alt="{{$item['user']['name']}}"></a>
+        <li class="media" id="report-<?php echo $reportTypeId ?>" style="width: 100%; padding: 10px 5px 5px 10px;border-bottom: 1px solid #a1a1a1; <?php echo $item['notifi_read'] == 1 ? 'background: #5f5d5d24;' : '' ?>">
+            <a href="javascript:void(0)"><img class="mr-3" src="<?php echo $item['report_type'] == 'music' ? '/imgs/black-music-icon.jpg' : '/imgs/black-comment-icon.jpg' ?>" alt="test1234"></a>
             <div class="media-body">
                 <div class="body_commnet">
                     <div class="d-flex align-items-center justify-content-between">
-                        <h5 class="media-title mt-0 mb-1"><a href="/user/{{$item['user']['id']}}" title="{{$item['user']['name']}}">{{$item['user']['name']}}</a>
-                            @if($item['comment_jw_postion'])
-                            at <span class="seek-jw" data-postion="{{$item['comment_jw_postion']}}">{{ $item['comment_jw_postion'] >= 3600 ? gmdate("H:i:s", $item['comment_jw_postion']) : gmdate("i:s", $item['comment_jw_postion'])}}</span>
-                            @endif
+                        <h5 class="media-title mt-0 mb-1"><a href="javascript:void(0)">Bạn đã phản hồi <?php echo $item['report_type'] == 'music' ? 'nhạc' : 'bình luận' ?> "<?php echo $item['report_option'] ?>"</a>
+                            <i style="font-size: 12px"> <?php echo Helpers::timeElapsedString(strtotime($item['updated_at'])); ?></i>
                         </h5>
-                        <time class="comment_time"><?php echo Helpers::timeElapsedString($item['comment_time']); ?></time>
-                        @if($permisDelete)
-                            <div class="dropdown">
-                                <a class="comment_delete" href="javascript:void(0)" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">...</a>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item deleteComment" href="javascript:void(0)" onclick="deleteComment('comment', {{$item['comment_id']}}, 'delete')">Xóa</a>
-                                    <a class="dropdown-item actionComment" href="javascript:void(0)" onclick="actionComment('comment', {{$item['comment_id']}}, '{{$item['comment_delete'] ? 'restore' : 'hidden'}}')">{{$item['comment_delete'] ? 'Phục hồi' : 'Ẩn'}}</a>
-                                </div>
-                            </div>
-                        @else
-                        <a class="comment_report" href="javascript:void(0)" onclick="reportComment('comment', {{$item['comment_id']}})">...</a>
-                        @endif
                     </div>
-                    <p class="media-text"><?php echo $item['comment_delete'] ? '<i>Bình luận này đã bị ẩn.</i>' : $item['comment_text']?></p>
-                    <div {{$item['comment_delete'] ? 'hidden' : ''}} class="reply_comment" data-comment_id="{{$item['comment_id']}}">Trả lời</div>
+                    <div class="reply_report" data-report-count="<?php echo count($reportText) ?>" data-report-id="<?php echo $reportTypeId ?>">Hiển Thị (<?php echo count($reportText) ?>)</div>
                 </div>
-                <div class="post_comment_reply post_comment_reply_{{$item['comment_id']}}">
-                    <form class="box_form_comment form-comment-{{$item['comment_id']}}">
+                <div class="post_comment_reply post_comment_reply_<?php echo $reportTypeId ?>">
+                    <br>
+                    <div class="comment-reply-<?php echo $reportTypeId ?>">
+                        <?php
+                        foreach ($reportText as $Itemreply) {
+                        $key = key($Itemreply);
+                        if($key == 'user') {
+                            $name = $user->name;
+                        }else{
+                            $name = 'Hỗ trợ ' . $Itemreply[$key]['name'];
+                        }
+                        ?>
+                        <div class="media" id="comment-316">
+                            <a href="javascript:void(0)"><img class="mr-3" src="<?php echo $key == 'user' ? $avatarUser : '/imgs/avatar_admin.jpg'  ?>" alt="test1234"></a>
+                            <div class="media-body">
+                                <div class="d-flex align-items-center justify-content-between body_commnet_replay">
+                                    <h5 class="media-title mt-0 mb-1"><a href="javascript:void(0)" title="<?php echo $name; ?>"><?php echo $name; ?></a></h5>
+                                    <time class="comment_time"><?php echo Helpers::timeElapsedString($Itemreply[$key]['time']); ?></time>
+                                </div>
+                                <p class="media-text"><?php echo $Itemreply[$key]['content'] ? $Itemreply[$key]['content'] : '<i>empty</i>'; ?></p>
+                            </div>
+                        </div>
+                        <?php
+                        }
+                        ?>
+                    </div>
+                    @if($item['status'] != 2)
+                    <form class="box_form_report form-report-<?php echo $reportTypeId ?>">
                         <div class="form-group emoji-picker-container">
-                            <textarea class="form-control comment" name="comment" rows="3" placeholder="Trả lời bình luận của bạn tại đây." data-emojiable="true"></textarea>
-                            <input type="hidden" class="reply_cmt_id" name="reply_cmt_id" value="{{$item['comment_id']}}">
-                            <button id="btn_cloud_up" class="btn btn-outline-success my-2 my-sm-0 waves-effect waves-light"  onclick="postComment({{$item['comment_id']}})" style="float: left; margin-top: 5px!important; margin-bottom: 10px!important; min-width: 75px;">Trả Lời</button>
+                            <textarea data-report-type="<?php echo $item['report_type'] ?>" data-report-id="<?php echo $item['id'] ?>" class="form-control comment" name="comment" rows="3" placeholder="Trả lời báo lỗi của bạn tại đây." data-emojiable="true"></textarea>
+                            <button id="btn_cloud_up" class="btn btn-outline-success my-2 my-sm-0 waves-effect waves-light" onclick="postReport('<?php echo $reportTypeId ?>')" style="float: left; margin-top: 5px!important; margin-bottom: 10px!important; min-width: 75px;">Trả Lời</button>
                         </div>
                     </form>
+                    <br/>
+                    @endif
                 </div>
-                <div class="comment-reply-{{$item['comment_id']}}">
-                <?php
-                    if($commentReply) {
-                        foreach ($commentReply as $reply) {
-                            if($reply['comment_id'] == $item['comment_id']){
-                            ?>
-                            <div class="media" id="comment-{{$reply['comment_reply_id']}}">
-                                <a href="/user/{{$reply['user']['id']}}" title="{{$reply['user']['name']}}"><img class="mr-3" src="<?php echo Helpers::pathAvatar($reply['user']['user_avatar'], $reply['user']['id']) ?>" alt="{{$reply['user']['name']}}"></a>
-                                <div class="media-body">
-                                    <div class="d-flex align-items-center justify-content-between body_commnet_replay">
-                                        <h5 class="media-title mt-0 mb-1"><a href="/user/{{$reply['user']['id']}}" title="{{$reply['user']['name']}}">{{$reply['user']['name']}}</a>
-                                            @if($item['comment_jw_postion'])
-                                                at <span class="seek-jw" data-postion="{{$reply['comment_jw_postion']}}">{{ $reply['comment_jw_postion'] >= 3600 ? gmdate("H:i:s", $reply['comment_jw_postion']) : gmdate("i:s", $reply['comment_jw_postion'])}}</span>
-                                            @endif
-                                        </h5>
-                                        <time class="comment_time"><?php echo Helpers::timeElapsedString($reply['comment_time']); ?></time>
-                                        @if($permisDelete)
-                                            <div class="dropdown">
-                                                <a class="comment_delete" href="javascript:void(0)" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">...</a>
-                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                    <a class="dropdown-item deleteComment" href="javascript:void(0)" onclick="deleteComment('comment', {{$item['comment_id']}}, 'delete')">Xóa</a>
-                                                    <a class="dropdown-item actionComment" href="javascript:void(0)" onclick="actionComment('comment', {{$item['comment_id']}}, '{{$item['comment_delete'] ? 'restore' : 'hidden'}}')">{{$item['comment_delete'] ? 'Phục hồi' : 'Ẩn'}}</a>
-                                                </div>
-                                            </div>
-                                        @else
-                                        <a class="comment_report" href="javascript:void(0)" onclick="reportComment('comment-reply', {{$reply['comment_reply_id']}})">...</a>
-                                        @endif
-                                    </div>
-                                    <p class="media-text"><?php echo $reply['comment_delete'] ? '<i>Bình luận này đã bị ẩn.</i>' : $reply['comment_text']?></p>
-                                </div>
-                            </div>
-                            <?php
-                            }
-                        }
-                    }
-                ?></div>
             </div>
         </li>
     <?php
-    }, $comment['data']);
+    }, $reportData);
     ?>
 <?php echo $pagingHtml ? '</ul>' : '' ?>
 {{($pagingHtml ?? '')}}
