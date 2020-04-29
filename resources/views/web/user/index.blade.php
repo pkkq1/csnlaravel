@@ -166,7 +166,23 @@ $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
         }
         if(tab == 'musicUploaded' && firstUploaded) {
             firstUploaded = false;
-            musicUploaded('/user/music_uploaded', 'upload', 'all');
+            // musicUploaded('/user/music_uploaded', 'upload', 'all');
+            $.ajax({
+                url: '/user/open_tab_uploaded',
+                type: "POST",
+                dataType: "html",
+                data: {},
+                async: false,
+                beforeSend: function () {
+                    if(loaded) return false;
+                    loaded = true;
+                },
+                success: function(response) {
+                    $('#uploaded').html(response);
+                    loaded = false;
+                    musicUploaded('/user/music_uploaded', 'upload', 'fullcensor');
+                }
+            });
         }
         if(tab == 'music_approval' && firstApproval) {
             firstApproval = false;
@@ -382,6 +398,15 @@ $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
             }
         });
         return false;
+    }
+    function musicUpload2Tab(tab, page) {
+        $('#uploaded').find('.tab-current').removeClass('tab-current');
+        $('.' + tab).addClass('tab-current');
+        $('#uploaded').find('.content-current').removeClass('content-current');
+        $('#' + tab).addClass('content-current');
+        if($('#' + tab).html().length == 0) {
+            musicUploaded('/user/music_uploaded', 'upload', page);
+        }
     }
 </script>
 @endsection

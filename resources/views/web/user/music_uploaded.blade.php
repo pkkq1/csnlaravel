@@ -3,9 +3,9 @@
 ?>
 @if(isset($music['stage_uncensor']))
 <?php echo $stage == 'all' ? '<div class="stage_uncensor">' : '' ?>
-    <div class="box_header d-flex justify-content-between align-items-end">
-        <span class="title m-0">Chờ xử lý</span>
-    </div>
+    {{--<div class="box_header d-flex justify-content-between align-items-end">--}}
+        {{--<span class="title m-0">Chờ xử lý</span>--}}
+    {{--</div>--}}
     <?php $stageUncensor = $music['stage_uncensor']->toArray()['data']; ?>
     @if($stageUncensor)
     <div class="row row10px">
@@ -15,7 +15,7 @@
                 $perPage = $music['stage_uncensor']->toArray()['per_page'];
                 $curentPage = $music['stage_uncensor']->toArray()['current_page'];
                 array_map(function($i, $item) use($perPage, $curentPage) {
-                    if($i < 5) {
+                    if($i < LIMIT_PAGE_MUSIC_UPLOADED / 2) {
                         $url = '/dang-tai/'.($item['cat_id'] == CAT_VIDEO ? 'video' : 'nhac').'/'.$item['music_id'];
                         ?>
                         <li class="media align-items-stretch items-stretch-{{$item['music_id']}}">
@@ -54,7 +54,7 @@
             <ul class="list-unstyled list_music">
                 <?php
                 array_map(function($i, $item) use($perPage, $curentPage) {
-                    if($i >= 5) {
+                    if($i >= LIMIT_PAGE_MUSIC_UPLOADED / 2) {
                         $url = '/dang-tai/'.($item['cat_id'] == CAT_VIDEO ? 'video' : 'nhac').'/'.$item['music_id'];
                         ?>
                             <li class="media align-items-stretch items-stretch-{{$item['music_id']}}">
@@ -96,9 +96,9 @@
 @endif
 @if(isset($music['stage_fullcensor']))
 <?php echo $stage == 'all' ? '<div class="stage_fullcensor">' : '' ?>
-    <div class="box_header d-flex justify-content-between align-items-end">
-        <span class="title m-0">Đã duyệt</span>
-    </div>
+    {{--<div class="box_header d-flex justify-content-between align-items-end">--}}
+        {{--<span class="title m-0">Đã duyệt</span>--}}
+    {{--</div>--}}
     <?php $stageFullcensor = $music['stage_fullcensor']->toArray()['data']; ?>
     @if($stageFullcensor)
     <div class="row row10px">
@@ -108,7 +108,7 @@
                 $perPage = $music['stage_fullcensor']->toArray()['per_page'];
                 $curentPage = $music['stage_fullcensor']->toArray()['current_page'];
                 array_map(function($i, $item) use($perPage, $curentPage) {
-                if($i < 5) {
+                if($i < LIMIT_PAGE_MUSIC_UPLOADED / 2) {
                 $url = url()->current().'/redirect/'.$item['music_id'];
                 $urlEdit = '/dang-tai/'.($item['cat_id'] == CAT_VIDEO ? 'video' : 'nhac').'/'.$item['music_id'];
                 ?>
@@ -148,7 +148,7 @@
             <ul class="list-unstyled list_music">
                 <?php
                 array_map(function($i, $item) use($perPage, $curentPage) {
-                if($i >= 5) {
+                if($i >= LIMIT_PAGE_MUSIC_UPLOADED / 2) {
                 $url = url()->current().'/redirect/'.$item['music_id'];
                 $urlEdit = '/dang-tai/'.($item['cat_id'] == CAT_VIDEO ? 'video' : 'nhac').'/'.$item['music_id'];
                 ?>
@@ -191,9 +191,9 @@
 @endif
 @if(isset($music['stage_delete']))
     <?php echo $stage == 'all' ? '<div class="stage_delete">' : '' ?>
-    <div class="box_header d-flex justify-content-between align-items-end">
-        <span class="title m-0">Đã Xóa</span>
-    </div>
+    {{--<div class="box_header d-flex justify-content-between align-items-end">--}}
+        {{--<span class="title m-0">Đã Xóa</span>--}}
+    {{--</div>--}}
     <?php $stageDelete = $music['stage_delete']->toArray()['data']; ?>
     @if($stageDelete)
     <div class="row row10px">
@@ -203,7 +203,7 @@
                 $perPage = $music['stage_delete']->toArray()['per_page'];
                 $curentPage = $music['stage_delete']->toArray()['current_page'];
                 array_map(function($i, $item) use($perPage, $curentPage) {
-                if($i < 5) {
+                if($i < LIMIT_PAGE_MUSIC_UPLOADED / 2) {
                 $url = '/dang-tai/'.($item['cat_id'] == CAT_VIDEO ? 'video' : 'nhac').'/'.$item['music_id'];
                 ?>
                 <li class="media align-items-stretch items-stretch-{{$item['music_id']}}">
@@ -240,7 +240,7 @@
             <ul class="list-unstyled list_music">
                 <?php
                 array_map(function($i, $item) use($perPage, $curentPage) {
-                if($i >= 5) {
+                if($i >= LIMIT_PAGE_MUSIC_UPLOADED / 2) {
                 $url = '/dang-tai/'.($item['cat_id'] == CAT_VIDEO ? 'video' : 'nhac').'/'.$item['music_id'];
                 ?>
                 <li class="media align-items-stretch items-stretch-{{$item['music_id']}}">
@@ -280,9 +280,9 @@
 @endif
 @if(isset($music['album']))
 <?php echo $stage == 'all' ? '<div class="stage_album">' : '' ?>
-    <div class="box_header d-flex justify-content-between align-items-end">
-        <span class="title m-0">Album</span>
-    </div>
+    {{--<div class="box_header d-flex justify-content-between align-items-end">--}}
+        {{--<span class="title m-0">Album</span>--}}
+    {{--</div>--}}
     @if($music['album']->toArray()['data'])
     <div class="row row10px float-col-width">
         <?php
