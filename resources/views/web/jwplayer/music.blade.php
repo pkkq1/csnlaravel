@@ -2055,7 +2055,7 @@ if($musicSet['type_listen'] == 'playlist') {
                         $('#myConfirmModal').on('hidden.bs.modal', function () {
                             $('#myConfirmModal').find('.btn-edit').remove();
                         })
-                        $("#myConfirmModal .btn-lyric").one('click', function () {
+                        $("#myConfirmModal .btn-ok").one('click', function () {
                             $.ajax({
                                 url: window.location.origin + '/music/suggestion_lyric',
                                 type: "POST",
@@ -2135,7 +2135,7 @@ if($musicSet['type_listen'] == 'playlist') {
                     },
                     success: function(response) {
                         if(response.success) {
-                            $('#myConfirmModal').find('.btn-ok').html('Nhập nhạc').addClass('btn-lyric');
+                            $('#myConfirmModal').find('.btn-ok').html('Nhập nhạc');
                             var html_radio = '';
                             $.each(response.data, function (index, value) {
                                 html_radio = '<label for="merge_music_' + value.music_id + '"><input type="radio" id="merge_music_' + value.music_id + '" name="merge_music" value="' + value.music_id + '"> ' + value.music_title +' - ' + value.music_artist +'<a target="_blank" href="' + value.listen_url +'"> Xem trước</a></label>';
