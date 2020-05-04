@@ -71,6 +71,15 @@ class UserMusicController extends Controller
     public function openTabUploaded(Request $request) {
         return view('user.warehouse_music.index', compact('music', 'stage'));
     }
+    public function musicPlaylist (Request $request) {
+        $user = $this->userRepository->getUserById($request->user_id)->first();
+        if(!$user)
+            return view('errors.text_error')->with('message', 'Người dùng đang được cập nhật.');
+        $user = $this->userRepository->getUserById($request->user_id)->first();
+        $mySelf = (Auth::check() && Auth::user()->id == $user->user_id);
+        $playlist = $this->playlistRepository->getByUser($user->id);
+        return view('user.playlist', compact('playlist', 'mySelf', 'user'));
+    }
     public function musicUploaded(Request $request)
     {
         if(!Auth::check()) {

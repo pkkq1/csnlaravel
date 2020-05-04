@@ -272,6 +272,7 @@ Route::group(['middlewareGroups' => ['web']], function () {
         Route::get('music_uploaded/redirect/{music_id}', ['as' => 'user.redirect', 'uses' => 'User\UserMusicController@musicUploadedRedirect']);
         Route::post('{id}/music_recents', ['as' => 'user.uploaded', 'uses' => 'User\UserMusicController@musicRecent']);
         Route::post('music_uploaded', ['as' => 'user.uploaded', 'uses' => 'User\UserMusicController@musicUploaded']);
+        Route::post('music_playlist', ['as' => 'user.playlist', 'uses' => 'User\UserMusicController@musicPlaylist']);
         Route::post('artist_favourite', ['as' => 'user.uploaded', 'uses' => 'User\UserMusicController@artistFavourite']);
         Route::post('video_favourite', ['as' => 'user.uploaded', 'uses' => 'User\UserMusicController@videoFavourite']);
         Route::post('music_favourite', ['as' => 'user.uploaded', 'uses' => 'User\UserMusicController@musicFavourite']);

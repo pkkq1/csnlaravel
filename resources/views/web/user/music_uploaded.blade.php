@@ -91,6 +91,8 @@
         </div>
     </div>
     <center data-page="uncensor">{{$music['stage_uncensor']->links()}}</center>
+    @else
+        <div class="center-text-mes"><span>Chưa có bài hát nào chờ xử lý.</span></div>
     @endif
 <?php echo $stage == 'all' ? '</div>' : ''?>
 @endif
@@ -186,6 +188,8 @@
         </div>
     </div>
     <center data-page="fullcensor">{{$music['stage_fullcensor']->links()}}</center>
+    @else
+        <div class="center-text-mes"><span>Chưa có bài hát nào đã duyệt.</span></div>
     @endif
 <?php echo $stage == 'all' ? '</div>' : '' ?>
 @endif
@@ -275,6 +279,8 @@
         </div>
     </div>
     <center data-page="delete">{{$music['stage_delete']->links()}}</center>
+    @else
+        <div class="center-text-mes"><span>Chưa có bài hát nào đã xóa.</span></div>
     @endif
 <?php echo $stage == 'all' ? '</div>' : '' ?>
 @endif
@@ -307,6 +313,8 @@
         ?>
     </div>
     <center data-page="album">{{$music['album']->links()}}</center>
+    @else
+        <div class="center-text-mes"><span>Chưa có album nào xử lý.</span></div>
     @endif
 <?php echo $stage == 'all' ? '</div>' : '' ?>
 @endif

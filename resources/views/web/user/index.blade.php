@@ -4,6 +4,7 @@ use App\Library\Helpers;
 $titleMeta = $user->name . ' - '. Config::get('constants.app.title');
 $mySelf = (Auth::check() && Auth::user()->id == $user->id);
 $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
+$tabSelf = ($mySelf || (Auth::check() && Auth::user()->hasPermission('duyet_sua_nhac')));
 ?>
 @section('meta')
     <meta name="copyright" content="{{env('APP_URL')}}" />
@@ -35,12 +36,14 @@ $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
             <div class="tabs tabs-style-line tab-category">
                 <nav>
                     <ul>
-                        <li class="tab-current playlist"><a onclick="userTab('playlist', '/user/music_playlist')" href="#playlist"><span>Playlist</span></a></li>
+                        @if($tabSelf)
+                        <li class="tu-nhac"><a class="tu-nhac" href="#uploaded" onclick="musicUserTab('musicUploaded')" ><span>Tủ nhạc</span></a></li>
+                        @endif
+                        <li class="playlist"><a class="playlist" onclick="userTab('playlist', '/user/music_playlist')" href="#playlist"><span>Playlist</span></a></li>
                         <li class="music"><a class="music" onclick="userTab('music', '/user/music_favourite')" href="#music"><span><i class="material-icons" style="font-size: 11px;">favorite_border</i> Bài Hát</span></a></li>
                         <li class="video"><a class="video" onclick="userTab('video', '/user/video_favourite')" href="#video"><span><i class="material-icons" style="font-size: 11px;">favorite_border</i> Video</span></a></li>
                         <li class="artist"><a class="artist" onclick="userTab('artist', '/user/artist_favourite')" href="#artist"><span><i class="material-icons" style="font-size: 11px;">favorite_border</i> Ca Sĩ</span></a></li>
-                        @if($mySelf || (Auth::check() && Auth::user()->hasPermission('duyet_sua_nhac')))
-                        <li class="tu-nhac"><a class="tu-nhac" href="#uploaded" onclick="musicUserTab('musicUploaded')" ><span>Tủ nhạc</span></a></li>
+                        @if($tabSelf)
                         <li class="report"><a class="report" href="#report" onclick="userTab('report', '/user/report_tab')" ><span>Phản Hồi</span></a></li>
                         @endif
                         @if($mySelf && Auth::check() && Auth::user()->hasPermission('duyet_sua_nhac'))
@@ -50,71 +53,13 @@ $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
                     </ul>
                 </nav>
                 <div class="content-wrap tab-content-category">
-                    <section id="playlist" class="content-current">
-                        <div class="d-flex align-items-center justify-content-between" id="header_playlist">
-                            <span class="title"></span>
-                            @if($mySelf)
-                                <span>
-                                    <a class="btn btn-danger" href="/user/playlist/them" title="Tạo playlist"><i class="fa fa-pencil" aria-hidden="true"></i> Tạo playlist</a>
-                                    <a class="btn btn-secondary" href="/user/playlist/chinh-sua" title=""><i class="fa fa-pencil" aria-hidden="true"></i> Chỉnh sửa</a>
-                                    <a class="btn btn-secondary" onclick="pupop_qr_code()" href="javascript:void(0)" title=""><i class="fa fa-qrcode" aria-hidden="true"></i> QR code</a>
-                                </span>
-                            @endif
-                        </div>
-                        <div class="row row10px" id="playlist">
-                            @if(count($playlist))
-                                @foreach($playlist as $key2 => $item)
-                                    <?php
-                                        $url = Helpers::playlist_url($item->toArray());
-                                        $tagHref = $item->playlist_music_total > 0 ? '<a href="'.$url.'" title="'.$item->playlist_title.'">' : '<a href="javascript:void(0)" onclick="alertModal(\'Playlist vẫn chưa có bài hát nào.\');" title="'.$item->playlist_title.'">';
-                                    ?>
-                                    <div class="col">
-                                        <div class="card card1">
-                                            <div class="card-header" style="background-image: url({{$item->playlist_cover ? Helpers::file_path($item->playlist_id, env('DATA_URL').MUSIC_PLAYLIST_THUMB_200_PATH, true).$item->playlist_id . '.jpg' : env('IMG_DATA_URL').'imgs/avatar_default.png'}});">
-                                                <?php echo $tagHref ?><span class="icon-play"></span></a>
-                                            </div>
-                                            <div class="card-body">
-                                                <h3 class="card-title">
-                                                    <?php echo $tagHref ?>{{$item->playlist_title}}</a>
-                                                </h3>
-                                                @if($item->playlist_artist)
-                                                    <p class="card-text" style="padding: 0px;">
-                                                        <?php
-                                                            $artistPlaylist = unserialize($item->playlist_artist);
-                                                            if($artistPlaylist) {
-                                                                $artistNames = [];
-                                                                $artistIds = [];
-                                                                $i = 0;
-                                                                foreach($artistPlaylist as $key => $item) {
-                                                                    $artistNames[] = $item['name'];
-                                                                    $artistIds[] = $key;
-                                                                    if(++$i == 2)
-                                                                        break;
-                                                                }
-                                                                echo Helpers::rawHtmlArtists(implode(';', $artistIds), implode(';', $artistNames));
-                                                            }
-                                                        ?>
-                                                    </p>
-                                                @endif
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endforeach
-                            @else
-                                <div class="center-text-mes"><span>
-                                        @if($mySelf)
-                                            Bạn chưa có playlist nào, <a href="/user/playlist/them">click vào đây để tạo playlist</a>
-                                        @else
-                                            {{$user->name}} chưa tạo playlist nào.
-                                        @endif
-                                </span></div>
-                            @endif
-                        </div>
-                    </section>
+                    @if($tabSelf)
+                    <section id="uploaded"></section>
+                    @endif
+                    <section id="playlist"></section>
                     <section id="music"></section>
                     <section id="video"></section>
                     <section id="artist"></section>
-                    <section id="uploaded"></section>
                     <section id="report"></section>
                     <section id="duyet-nhac"></section>
                 </div>
@@ -205,10 +150,8 @@ $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
             beforeSend: function () {
                 if(loaded) return false;
                 loaded = true;
-                waitingDialog.show();
             },
             success: function(response) {
-                waitingDialog.hide();
                 if(page == 'upload') {
                     if(stage == 'all') {
                         uploaded.html(response);
@@ -250,10 +193,8 @@ $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
                 beforeSend: function () {
                     if(loaded) return false;
                     loaded = true;
-                    waitingDialog.show();
                 },
                 success: function(response) {
-                    waitingDialog.hide();
                     tabContent.html(response);
                     tabContent.find('.pagination li a').on('click', function (e) {
                         e.preventDefault();
@@ -316,15 +257,7 @@ $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
         });
         $('.wishlist-' + music_id).toggleClass('selector');
     }
-    <?php
-    if(isset($_GET['tab'])) {
-    ?>
-    $( document ).ready(function() {
-        $('.<?php echo $_GET['tab'] ?>').click();
-    });
-    <?php
-    }
-    ?>
+
     function pupop_qr_code() {
         $.ajax({
             url: '/user/qr_code',
@@ -408,5 +341,20 @@ $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
             musicUploaded('/user/music_uploaded', 'upload', page);
         }
     }
+    <?php
+    if(isset($_GET['tab'])) {
+    ?>
+    $( document ).ready(function() {
+        $('.<?php echo $_GET['tab'] ?>').click();
+    });
+    <?php
+    }else{
+    ?>
+    $( document ).ready(function() {
+        $('.tab-category').find('.tab-current a').click()
+    });
+    <?php
+    }
+    ?>
 </script>
 @endsection
