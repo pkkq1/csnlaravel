@@ -105,9 +105,13 @@ $tabSelf = ($mySelf || (Auth::check() && Auth::user()->hasPermission('duyet_sua_
     function musicUserTab(tab) {
         let urlCurrent = window.location.origin + window.location.pathname;
         if(tab == 'music_approval') {
-            history.pushState({urlPath: urlCurrent + '?tab=approval'},"", urlCurrent + '?tab=approval')
+            history.pushState({urlPath: urlCurrent + '?tab=approval'},"", urlCurrent + '?tab=approval');
+            // $('.tab-content-category').find('.content-current').removeClass('content-current');
+            // $('#approval').addClass('content-current');
         }else{
-            history.pushState({urlPath: urlCurrent + '?tab=tu-nhac'},"", urlCurrent + '?tab=tu-nhac')
+            history.pushState({urlPath: urlCurrent + '?tab=tu-nhac'},"", urlCurrent + '?tab=tu-nhac');
+            // $('.tab-content-category').find('.content-current').removeClass('content-current');
+            // $('#upload').addClass('content-current');
         }
         if(tab == 'musicUploaded' && firstUploaded) {
             firstUploaded = false;
@@ -167,24 +171,14 @@ $tabSelf = ($mySelf || (Auth::check() && Auth::user()->hasPermission('duyet_sua_
             },
             success: function(response) {
                 if(page == 'upload') {
-                    if(stage == 'all') {
-                        uploaded.html(response);
-                    }else{
-                        uploaded = $('.stage_' + stage);
-                        $('.stage_' + stage).html(response);
-                    }
-                    uploaded.find('.pagination li a').on('click', function (e) {
+                    $('.upload_content_stage_' + stage).html(response);
+                    $('.upload_content_stage_' + stage).find('.pagination li a').on('click', function (e) {
                         e.preventDefault();
                         musicUploaded($(this).attr('href'), 'upload', $(this).parents().parents().parents().data('page'));
                     });
                 }else {
-                    if(stage == 'all') {
-                        approval.html(response);
-                    }else{
-                        approval = $('.stage_' + stage);
-                        $('.stage_' + stage).html(response);
-                    }
-                    approval.find('.pagination li a').on('click', function (e) {
+                    $('.approval_content_stage_' + stage).html(response);
+                    $('.approval_content_stage_' + stage).find('.pagination li a').on('click', function (e) {
                         e.preventDefault();
                         musicUploaded($(this).attr('href'), 'approval', $(this).parents().parents().parents().data('page'));
                     });

@@ -7,8 +7,8 @@
     </ul>
 </nav>
 <div class="content-wrap-2 tab-content-category">
-    <section id="warehouse_stage_fullcensor" class="stage_fullcensor content-current"></section>
-    <section id="warehouse_stage_uncensor" class="stage_uncensor"></section>
-    <section id="warehouse_stage_delete" class="stage_delete"></section>
-    <section id="warehouse_stage_album" class="stage_album"></section>
+    <section id="warehouse_stage_fullcensor" class="upload_content_stage_fullcensor content-current"></section>
+    <section id="warehouse_stage_uncensor" class="upload_content_stage_uncensor"></section>
+    <section id="warehouse_stage_delete" class="upload_content_stage_delete"></section>
+    <section id="warehouse_stage_album" class="upload_content_stage_album"></section>
 </div>

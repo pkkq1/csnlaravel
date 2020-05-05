@@ -8,9 +8,9 @@
     </ul>
 </nav>
 <div class="content-wrap-2 tab-content-category">
-    <section id="approval_stage_fullcensor" class="stage_fullcensor content-current"></section>
-    <section id="approval_stage_uncensor" class="stage_uncensor"></section>
-    <section id="approval_stage_fullconvert" class="stage_fullconvert"></section>
-    <section id="approval_stage_delete" class="stage_delete"></section>
-    <section id="approval_stage_fullcensor_by" class="stage_fullcensor_by"></section>
+    <section id="approval_stage_fullcensor" class="approval_content_stage_fullcensor content-current"></section>
+    <section id="approval_stage_uncensor" class="approval_content_stage_uncensor"></section>
+    <section id="approval_stage_fullconvert" class="approval_content_stage_fullconvert"></section>
+    <section id="approval_stage_delete" class="approval_content_stage_delete"></section>
+    <section id="approval_stage_fullcensor_by" class="approval_content_stage_fullcensor_by"></section>
 </div>
