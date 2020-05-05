@@ -149,7 +149,7 @@ class Sitemap extends Controller
         $timeSolr = strtotime($year.'-01');
 //        $searchSolarium['music_id'] = '['.ID_OLD_MUSIC.' TO *] AND music_time :['.$timeSolr.' TO *]';
         $searchSolarium['music_id'] = '['.ID_OLD_MUSIC.' TO *]';
-        $MusicPage = $this->Solr->search($searchSolarium, 1, 1000, array('score' => 'desc', 'id' => 'asc'));
+        $MusicPage = array('row_total' => 1084000);//$this->Solr->search($searchSolarium, 1, 1000, array('score' => 'desc', 'id' => 'asc'));
         return response()->view('sitemap.sitemap_full_music_year', [
             'music_page' => $MusicPage
         ])->header('Content-Type', 'text/xml');
@@ -157,8 +157,9 @@ class Sitemap extends Controller
     public function page_music_year(Request $request, $page = 1, $year = 2020) {
 //        $timeSolr = strtotime($year.'-01');
 //        $searchSolarium['music_id'] = '['.ID_OLD_MUSIC.' TO *] AND music_time :['.$timeSolr.' TO *]';
-        $searchSolarium['music_id'] = '['.ID_OLD_MUSIC.' TO *]';
-        $MusicPage = $this->Solr->search($searchSolarium, $page, 1000, array('score' => 'desc', 'id' => 'asc'));
+        //$searchSolarium['music_id'] = '['.ID_OLD_MUSIC.' TO *]';
+        $searchSolarium['music_id'] = '['. ((ID_OLD_MUSIC + ($page-1)*1000) + 1) .' TO '. (ID_OLD_MUSIC + $page*1000) .']';
+        $MusicPage = $this->Solr->search($searchSolarium);//, $page, 1000, array('score' => 'desc', 'id' => 'asc'));
         return response()->view('sitemap.sitemap_category_solr_music', [
             'musics' => $MusicPage
         ])->header('Content-Type', 'text/xml');
