@@ -157,7 +157,8 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
     public function musicNewsSolr($fillOrder, $typeOrder, $perPage)
     {
         $searchSolarium['id'] = 'music_*';
-        $result = $this->Solr->search($searchSolarium, $_GET['page'] ?? 1, $perPage, array('score' => 'desc', $fillOrder => $typeOrder));
+        $result = $this->Solr->search($searchSolarium, $_GET['page'] ?? 1, $perPage, array($fillOrder => $typeOrder));
+        //$result = $this->Solr->search($searchSolarium, $_GET['page'] ?? 1, $perPage, array('score' => 'desc', $fillOrder => $typeOrder));
         return $result;
     }
     public function incrementCol($id, $field)
@@ -198,7 +199,8 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
         }
         if($catLevel != 0)
             $searchSolarium['music_cat_level'] = $catLevel;
-        $result = $this->Solr->search($searchSolarium, $_GET['page'] ?? 1, $perPage, array('score' => 'desc', $fillOrder => $typeOrder));
+        $result = $this->Solr->search($searchSolarium, $_GET['page'] ?? 1, $perPage, array($fillOrder => $typeOrder));
+        //$result = $this->Solr->search($searchSolarium, $_GET['page'] ?? 1, $perPage, array('score' => 'desc', $fillOrder => $typeOrder));
         return $result;
     }
     public function suggestion($music, $type = 'music') {
@@ -300,10 +302,12 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
             $searchSolarium['music_artist'] = '('.implode(' OR ', $artistNameRel).')';
             $searchSolariumVideo['video_artist'] = $searchSolarium['music_artist'];
         }
-        $MusicSameArtist= $this->Solr->search($searchSolarium, 1, 5, array('score' => 'desc', 'music_downloads_today' => 'desc', 'music_downloads_this_week' => 'desc', 'music_downloads' => 'desc'));
+        $MusicSameArtist= $this->Solr->search($searchSolarium, 1, 5, array('music_downloads_today' => 'desc', 'music_downloads_this_week' => 'desc', 'music_downloads' => 'desc'));
+        //$MusicSameArtist= $this->Solr->search($searchSolarium, 1, 5, array('score' => 'desc', 'music_downloads_today' => 'desc', 'music_downloads_this_week' => 'desc', 'music_downloads' => 'desc'));
         $MusicSameArtist = $MusicSameArtist['data'];
         $searchSolariumVideo['-id'] = 'video_'.$music->music_id. ' AND video_id :['.ID_OLD_MUSIC.' TO *]';
-        $VideoSameArtist= $this->Solr->search($searchSolariumVideo, 1, 5, array('score' => 'desc', 'video_downloads_today' => 'desc', 'video_downloads_this_week' => 'desc', 'video_downloads' => 'desc'));
+        $VideoSameArtist= $this->Solr->search($searchSolariumVideo, 1, 5, array('video_downloads_today' => 'desc', 'video_downloads_this_week' => 'desc', 'video_downloads' => 'desc'));
+        //$VideoSameArtist= $this->Solr->search($searchSolariumVideo, 1, 5, array('score' => 'desc', 'video_downloads_today' => 'desc', 'video_downloads_this_week' => 'desc', 'video_downloads' => 'desc'));
         $VideoSameArtist = $VideoSameArtist['data'];
 //        // video cùng ca sĩ
 //        $VideoSameArtist = \App\Models\VideoSuggestModel::where(function($q) use ($artistIds) {
@@ -368,10 +372,12 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
         }
 //        $searchSolarium['-music_cover_id'] = 0;
         $searchSolarium['cat_id'] = $music->cat_id;
-        $titleDup= $this->Solr->search($searchSolarium, 1, 2, array('score' => 'desc', $type.'_bitrate' => 'desc', $type.'_downloads_today' => 'desc', $type.'_downloads_this_week' => 'desc', $type.'_downloads' => 'desc'));
+        $titleDup= $this->Solr->search($searchSolarium, 1, 2, array($type.'_bitrate' => 'desc', $type.'_downloads_today' => 'desc', $type.'_downloads_this_week' => 'desc', $type.'_downloads' => 'desc'));
+        //$titleDup= $this->Solr->search($searchSolarium, 1, 2, array('score' => 'desc', $type.'_bitrate' => 'desc', $type.'_downloads_today' => 'desc', $type.'_downloads_this_week' => 'desc', $type.'_downloads' => 'desc'));
         if($music->music_composer && !$titleDup['data']) {
             unset($searchSolarium[$type.'_composer']);
-            $titleDup = $this->Solr->search($searchSolarium, 1, 2, array('score' => 'desc', $type.'_bitrate' => 'desc', $type.'_downloads_today' => 'desc', $type.'_downloads_this_week' => 'desc', $type.'_downloads' => 'desc'));
+            $titleDup = $this->Solr->search($searchSolarium, 1, 2, array($type.'_bitrate' => 'desc', $type.'_downloads_today' => 'desc', $type.'_downloads_this_week' => 'desc', $type.'_downloads' => 'desc'));
+            //$titleDup = $this->Solr->search($searchSolarium, 1, 2, array('score' => 'desc', $type.'_bitrate' => 'desc', $type.'_downloads_today' => 'desc', $type.'_downloads_this_week' => 'desc', $type.'_downloads' => 'desc'));
         }
         $titleDup = $titleDup['data'];
 
