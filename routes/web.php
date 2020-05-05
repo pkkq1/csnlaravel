@@ -278,6 +278,7 @@ Route::group(['middlewareGroups' => ['web']], function () {
         Route::post('music_favourite', ['as' => 'user.uploaded', 'uses' => 'User\UserMusicController@musicFavourite']);
         Route::post('report_tab', ['as' => 'user.report', 'uses' => 'User\UserMusicController@reportUser']);
         Route::post('open_tab_uploaded', ['as' => 'user.open_tab_uploaded', 'uses' => 'User\UserMusicController@openTabUploaded']);
+        Route::post('open_tab_approval', ['as' => 'user.open_tab_approval', 'uses' => 'User\UserMusicController@openTabApproval']);
         Route::post('reply_report_content/post', ['as' => 'user.report', 'uses' => 'User\UserMusicController@reportReply']);
         Route::post('qr_code', ['as' => 'user.qr_code', 'uses' => 'User\UserController@qrCode']);
     });

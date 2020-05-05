@@ -15,76 +15,35 @@
                 $perPage = $music['stage_uncensor']->toArray()['per_page'];
                 $curentPage = $music['stage_uncensor']->toArray()['current_page'];
                 array_map(function($i, $item) use($perPage, $curentPage) {
-                    if($i < LIMIT_PAGE_MUSIC_UPLOADED / 2) {
-                        $url = '/dang-tai/'.($item['cat_id'] == CAT_VIDEO ? 'video' : 'nhac').'/'.$item['music_id'];
-                        ?>
-                        <li class="media align-items-stretch items-stretch-{{$item['music_id']}}">
-                            <div class="media_tmp align-self-center d-flex align-items-center mr-3 pl-3">
-                                <span class="counter">{{sprintf("%02d", (($curentPage - 1) * $perPage) + ++$i)}}</span>
+                    $url = '/dang-tai/'.($item['cat_id'] == CAT_VIDEO ? 'video' : 'nhac').'/'.$item['music_id'];
+                    ?>
+                    <li class="media align-items-stretch items-stretch-{{$item['music_id']}}">
+                        <div class="media_tmp align-self-center d-flex align-items-center mr-3 pl-3">
+                            <span class="counter">{{sprintf("%02d", (($curentPage - 1) * $perPage) + ++$i)}}</span>
+                        </div>
+                        <div class="media-left align-items-stretch mr-2">
+                            <a href="{{$url}}" title="{{$item['music_title']}}">
+                                <img src="{{($item['cat_id'] == CAT_VIDEO ? Helpers::thumbnail_url($item) : Helpers::coverThumb(Helpers::cover_url($item['cover_id'])))}}" class="{{($item['cat_id'] == CAT_VIDEO ? 'video_thumbnail' : 'nhac_thumbnail')}}" alt="{{$item['music_title']}}">
+                                <i class="material-icons">play_circle_outline</i>
+                            </a>
+                        </div>
+                        <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
+                            <div>
+                                <h5 class="media-title mt-0 mb-0 title_home_tablet"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
+                                <div class="author title_home_tablet"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></div>
                             </div>
-                            <div class="media-left align-items-stretch mr-2">
-                                <a href="{{$url}}" title="{{$item['music_title']}}">
-                                    <img src="{{($item['cat_id'] == CAT_VIDEO ? Helpers::thumbnail_url($item) : Helpers::coverThumb(Helpers::cover_url($item['cover_id'])))}}" class="{{($item['cat_id'] == CAT_VIDEO ? 'video_thumbnail' : 'nhac_thumbnail')}}" alt="{{$item['music_title']}}">
-                                    <i class="material-icons">play_circle_outline</i>
-                                </a>
-                            </div>
-                            <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
-                                <div>
-                                    <h5 class="media-title mt-0 mb-0 title_home_tablet"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
-                                    <div class="author title_home_tablet"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></div>
-                                </div>
-                                @if($item['cat_id'] != CAT_VIDEO)
-                                    <small class="type_music"><?php echo Helpers::bitrate2str($item['music_bitrate']); ?></small>
-                                @endif
-                            </div>
-                            <div class="media-right align-self-center">
-                                <small class="time_stt"><?php echo Helpers::timeElapsedString($item['music_last_update_time']); ?></small>
-                                <ul class="list-inline" style="margin-right:0px">
-                                    <li class="list-inline-item"><a href="{{$url}}" target="_blank" title="chỉnh sửa {{$item['music_title']}}">Chỉnh Sửa</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <?php
-                    }
-                }, array_keys($stageUncensor), $stageUncensor);
-                ?>
-            </ul>
-        </div>
-        <div class="col">
-            <ul class="list-unstyled list_music">
-                <?php
-                array_map(function($i, $item) use($perPage, $curentPage) {
-                    if($i >= LIMIT_PAGE_MUSIC_UPLOADED / 2) {
-                        $url = '/dang-tai/'.($item['cat_id'] == CAT_VIDEO ? 'video' : 'nhac').'/'.$item['music_id'];
-                        ?>
-                            <li class="media align-items-stretch items-stretch-{{$item['music_id']}}">
-                                <div class="media_tmp align-self-center d-flex align-items-center mr-3 pl-3">
-                                    <span class="counter">{{sprintf("%02d", (($curentPage - 1) * $perPage) + ++$i)}}</span>
-                                </div>
-                                <div class="media-left align-items-stretch mr-2">
-                                    <a href="{{$url}}" title="{{$item['music_title']}}">
-                                        <img src="{{($item['cat_id'] == CAT_VIDEO ? Helpers::thumbnail_url($item) : Helpers::coverThumb(Helpers::cover_url($item['cover_id'])))}}" class="{{($item['cat_id'] == CAT_VIDEO ? 'video_thumbnail' : 'nhac_thumbnail')}}" alt="{{$item['music_title']}}">
-                                        <i class="material-icons">play_circle_outline</i>
-                                    </a>
-                                </div>
-                                <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
-                                    <div>
-                                        <h5 class="media-title mt-0 mb-0 title_home_tablet"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
-                                        <div class="author title_home_tablet"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></div>
-                                    </div>
-                                    @if($item['cat_id'] != CAT_VIDEO)
-                                        <small class="type_music"><?php echo Helpers::bitrate2str($item['music_bitrate']); ?></small>
-                                    @endif
-                                </div>
-                                <div class="media-right align-self-center">
-                                    <small class="time_stt"><?php echo Helpers::timeElapsedString($item['music_last_update_time']); ?></small>
-                                    <ul class="list-inline" style="margin-right:0px">
-                                        <li class="list-inline-item"><a href="{{$url}}" target="_blank" title="chỉnh sửa {{$item['music_title']}}">Chỉnh Sửa</a></li>
-                                    </ul>
-                                </div>
-                            </li>
-                        <?php
-                    }
+                            @if($item['cat_id'] != CAT_VIDEO)
+                                <small class="type_music"><?php echo Helpers::bitrate2str($item['music_bitrate']); ?></small>
+                            @endif
+                        </div>
+                        <div class="media-right align-self-center">
+                            <small class="time_stt"><?php echo Helpers::timeElapsedString($item['music_last_update_time']); ?></small>
+                            <ul class="list-inline" style="margin-right:0px">
+                                <li class="list-inline-item"><a href="{{$url}}" target="_blank" title="Đã tạo: {{date('m/d/Y', $item['music_time'])}}">Chỉnh Sửa</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <?php
                 }, array_keys($stageUncensor), $stageUncensor);
                 ?>
             </ul>
@@ -110,7 +69,6 @@
                 $perPage = $music['stage_fullcensor']->toArray()['per_page'];
                 $curentPage = $music['stage_fullcensor']->toArray()['current_page'];
                 array_map(function($i, $item) use($perPage, $curentPage) {
-                if($i < LIMIT_PAGE_MUSIC_UPLOADED / 2) {
                 $url = url()->current().'/redirect/'.$item['music_id'];
                 $urlEdit = '/dang-tai/'.($item['cat_id'] == CAT_VIDEO ? 'video' : 'nhac').'/'.$item['music_id'];
                 ?>
@@ -129,59 +87,16 @@
                             <h5 class="media-title mt-0 mb-0 title_home_tablet"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
                             <div class="author title_home_tablet"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></div>
                         </div>
-                        @if($item['cat_id'] != CAT_VIDEO)
-                            <small class="type_music"><?php echo Helpers::bitrate2str($item['music_bitrate']); ?></small>
-                        @endif
+                        <small class="type_music"><?php echo $item['music_bitrate'] ? Helpers::bitrate2str($item['music_bitrate']) : ''; ?></small>
                     </div>
                     <div class="media-right align-self-center">
                         <small class="time_stt"><?php echo Helpers::timeElapsedString($item['music_last_update_time']); ?></small>
                         <ul class="list-inline" style="margin-right:0px">
-                            <li class="list-inline-item"><a href="{{$urlEdit}}" target="_blank">Chỉnh Sửa</a></li>
+                            <li class="list-inline-item"><a href="{{$urlEdit}}" target="_blank" title="Đã tạo: {{date('m/d/Y', $item['music_time'])}}">Chỉnh Sửa</a></li>
                         </ul>
                     </div>
                 </li>
                 <?php
-                }
-                }, array_keys($stageFullcensor), $stageFullcensor);
-                ?>
-            </ul>
-        </div>
-        <div class="col">
-            <ul class="list-unstyled list_music">
-                <?php
-                array_map(function($i, $item) use($perPage, $curentPage) {
-                if($i >= LIMIT_PAGE_MUSIC_UPLOADED / 2) {
-                $url = url()->current().'/redirect/'.$item['music_id'];
-                $urlEdit = '/dang-tai/'.($item['cat_id'] == CAT_VIDEO ? 'video' : 'nhac').'/'.$item['music_id'];
-                ?>
-                <li class="media align-items-stretch items-stretch-{{$item['music_id']}}">
-                    <div class="media_tmp align-self-center d-flex align-items-center mr-3 pl-3">
-                        <span class="counter">{{sprintf("%02d", (($curentPage - 1) * $perPage) + ++$i)}}</span>
-                    </div>
-                    <div class="media-left align-items-stretch mr-2">
-                        <a href="{{$url}}" target="_blank" title="{{$item['music_title']}}">
-                            <img src="{{($item['cat_id'] == CAT_VIDEO ? Helpers::thumbnail_url($item) : Helpers::coverThumb(Helpers::cover_url($item['cover_id'])))}}" class="{{($item['cat_id'] == CAT_VIDEO ? 'video_thumbnail' : 'nhac_thumbnail')}}" alt="{{$item['music_title']}}">
-                            <i class="material-icons">play_circle_outline</i>
-                        </a>
-                    </div>
-                    <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
-                        <div>
-                            <h5 class="media-title mt-0 mb-0 title_home_tablet"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
-                            <div class="author title_home_tablet"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></div>
-                        </div>
-                        @if($item['cat_id'] != CAT_VIDEO)
-                            <small class="type_music"><?php echo Helpers::bitrate2str($item['music_bitrate']); ?></small>
-                        @endif
-                    </div>
-                    <div class="media-right align-self-center">
-                        <small class="time_stt"><?php echo Helpers::timeElapsedString($item['music_last_update_time']); ?></small>
-                        <ul class="list-inline" style="margin-right:0px">
-                            <li class="list-inline-item"><a href="{{$urlEdit}}" target="_blank">Chỉnh Sửa</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <?php
-                }
                 }, array_keys($stageFullcensor), $stageFullcensor);
                 ?>
             </ul>
@@ -207,7 +122,6 @@
                 $perPage = $music['stage_delete']->toArray()['per_page'];
                 $curentPage = $music['stage_delete']->toArray()['current_page'];
                 array_map(function($i, $item) use($perPage, $curentPage) {
-                if($i < LIMIT_PAGE_MUSIC_UPLOADED / 2) {
                 $url = '/dang-tai/'.($item['cat_id'] == CAT_VIDEO ? 'video' : 'nhac').'/'.$item['music_id'];
                 ?>
                 <li class="media align-items-stretch items-stretch-{{$item['music_id']}}">
@@ -230,49 +144,11 @@
                     <div class="media-right align-self-center">
                         <small class="time_stt"><?php echo Helpers::timeElapsedString($item['music_last_update_time']); ?></small>
                         <ul class="list-inline" style="margin-right:0px">
-                            <li class="list-inline-item"><a href="{{$url}}" target="_blank">Chỉnh Sửa</a></li>
+                            <li class="list-inline-item"><a href="{{$url}}" target="_blank" title="Đã tạo: {{date('m/d/Y', $item['music_time'])}}">Chỉnh Sửa</a></li>
                         </ul>
                     </div>
                 </li>
                 <?php
-                }
-                }, array_keys($stageDelete), $stageDelete);
-                ?>
-            </ul>
-        </div>
-        <div class="col">
-            <ul class="list-unstyled list_music">
-                <?php
-                array_map(function($i, $item) use($perPage, $curentPage) {
-                if($i >= LIMIT_PAGE_MUSIC_UPLOADED / 2) {
-                $url = '/dang-tai/'.($item['cat_id'] == CAT_VIDEO ? 'video' : 'nhac').'/'.$item['music_id'];
-                ?>
-                <li class="media align-items-stretch items-stretch-{{$item['music_id']}}">
-                    <div class="media_tmp align-self-center d-flex align-items-center mr-3 pl-3">
-                        <span class="counter">{{sprintf("%02d", (($curentPage - 1) * $perPage) + ++$i)}}</span>
-                    </div>
-                    <div class="media-left align-items-stretch mr-2">
-                        <a href="{{$url}}" title="{{$item['music_title']}}">
-                            <img src="{{($item['cat_id'] == CAT_VIDEO ? Helpers::thumbnail_url($item) : Helpers::coverThumb(Helpers::cover_url($item['cover_id'])))}}" class="{{($item['cat_id'] == CAT_VIDEO ? 'video_thumbnail' : 'nhac_thumbnail')}}" alt="{{$item['music_title']}}">
-                            <i class="material-icons">play_circle_outline</i>
-                        </a>
-                    </div>
-                    <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
-                        <div>
-                            <h5 class="media-title mt-0 mb-0 title_home_tablet"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
-                            <div class="author title_home_tablet"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></div>
-                        </div>
-                        <small class="type_music upload_delete_note">{{$item['music_note']}}</small>
-                    </div>
-                    <div class="media-right align-self-center">
-                        <small class="time_stt"><?php echo Helpers::timeElapsedString($item['music_last_update_time']); ?></small>
-                        <ul class="list-inline" style="margin-right:0px">
-                            <li class="list-inline-item"><a href="{{$url}}" target="_blank">Chỉnh Sửa</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <?php
-                }
                 }, array_keys($stageDelete), $stageDelete);
                 ?>
             </ul>
@@ -298,7 +174,7 @@
         <div class="col">
             <div class="card card1">
                 <div class="card-header" style="background-image: url({{Helpers::coverThumb(Helpers::cover_url($item['cover_id']), MUSIC_COVER_THUMB_200_PATH)}});">
-                    <a class="btn-album-remove btn btn-danger" href="{{'/dang-tai/album/'.$item['cover_id']}}" title="Chỉnh sửa {{$item['music_album']}}" >Chỉnh sửa</a>
+                    <a class="btn-album-remove btn btn-danger" href="{{'/dang-tai/album/'.$item['cover_id']}}" title="Đã tạo: {{date('m/d/Y', $item['music_time'])}}" >Chỉnh sửa</a>
                     <a href="{{$url}}" title="{{$item['music_album']}}">
                         <span class="icon-play"></span>
                     </a>

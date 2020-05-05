@@ -47,7 +47,7 @@ $tabSelf = ($mySelf || (Auth::check() && Auth::user()->hasPermission('duyet_sua_
                         <li class="report"><a class="report" href="#report" onclick="userTab('report', '/user/report_tab')" ><span>Phản Hồi</span></a></li>
                         @endif
                         @if($mySelf && Auth::check() && Auth::user()->hasPermission('duyet_sua_nhac'))
-                            <li class="duyet-nhac"><a class="duyet-nhac" href="#duyet-nhac" onclick="musicUserTab('music_approval')" ><span>Duyệt Nhạc</span></a></li>
+                            <li class="approval"><a class="approval" href="#approval" onclick="musicUserTab('music_approval')" ><span>Duyệt Nhạc</span></a></li>
                         @endif
 
                     </ul>
@@ -61,7 +61,7 @@ $tabSelf = ($mySelf || (Auth::check() && Auth::user()->hasPermission('duyet_sua_
                     <section id="video"></section>
                     <section id="artist"></section>
                     <section id="report"></section>
-                    <section id="duyet-nhac"></section>
+                    <section id="approval"></section>
                 </div>
             </div>
         </div>
@@ -105,13 +105,12 @@ $tabSelf = ($mySelf || (Auth::check() && Auth::user()->hasPermission('duyet_sua_
     function musicUserTab(tab) {
         let urlCurrent = window.location.origin + window.location.pathname;
         if(tab == 'music_approval') {
-            history.pushState({urlPath: urlCurrent + '?tab=duyet-nhac'},"", urlCurrent + '?tab=duyet-nhac')
+            history.pushState({urlPath: urlCurrent + '?tab=approval'},"", urlCurrent + '?tab=approval')
         }else{
             history.pushState({urlPath: urlCurrent + '?tab=tu-nhac'},"", urlCurrent + '?tab=tu-nhac')
         }
         if(tab == 'musicUploaded' && firstUploaded) {
             firstUploaded = false;
-            // musicUploaded('/user/music_uploaded', 'upload', 'all');
             $.ajax({
                 url: '/user/open_tab_uploaded',
                 type: "POST",
@@ -131,12 +130,27 @@ $tabSelf = ($mySelf || (Auth::check() && Auth::user()->hasPermission('duyet_sua_
         }
         if(tab == 'music_approval' && firstApproval) {
             firstApproval = false;
-            musicUploaded('/user/music_uploaded', 'approval', 'all');
+            $.ajax({
+                url: '/user/open_tab_approval',
+                type: "POST",
+                dataType: "html",
+                data: {},
+                async: false,
+                beforeSend: function () {
+                    if(loaded) return false;
+                    loaded = true;
+                },
+                success: function(response) {
+                    $('#approval').html(response);
+                    loaded = false;
+                    musicUploaded('/user/music_uploaded', 'approval', 'fullcensor');
+                }
+            });
         }
     }
     function musicUploaded(url, page, stage) {
         var uploaded = $('#uploaded');
-        var approval = $('#duyet-nhac');
+        var approval = $('#approval');
         $.ajax({
             url: url,
             type: "POST",
@@ -332,13 +346,22 @@ $tabSelf = ($mySelf || (Auth::check() && Auth::user()->hasPermission('duyet_sua_
         });
         return false;
     }
-    function musicUpload2Tab(tab, page) {
+    function musicUploadTab(tab, page) {
         $('#uploaded').find('.tab-current').removeClass('tab-current');
         $('.' + tab).addClass('tab-current');
         $('#uploaded').find('.content-current').removeClass('content-current');
         $('#' + tab).addClass('content-current');
         if($('#' + tab).html().length == 0) {
             musicUploaded('/user/music_uploaded', 'upload', page);
+        }
+    }
+    function musicApprovalTab(tab, page) {
+        $('#approval').find('.tab-current').removeClass('tab-current');
+        $('.' + tab).addClass('tab-current');
+        $('#approval').find('.content-current').removeClass('content-current');
+        $('#' + tab).addClass('content-current');
+        if($('#' + tab).html().length == 0) {
+            musicUploaded('/user/music_uploaded', 'approval', page);
         }
     }
     <?php
