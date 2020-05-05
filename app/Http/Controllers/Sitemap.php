@@ -163,7 +163,6 @@ class Sitemap extends Controller
         return response()->view('sitemap.sitemap_category_solr_music', [
             'musics' => $MusicPage
         ])->header('Content-Type', 'text/xml');
-
     }
     public function artistListMusic(Request $request, $artistUrl) {
         $id = last(explode('-', $artistUrl));
