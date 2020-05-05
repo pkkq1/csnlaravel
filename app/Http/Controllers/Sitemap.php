@@ -158,7 +158,7 @@ class Sitemap extends Controller
 //        $timeSolr = strtotime($year.'-01');
 //        $searchSolarium['music_id'] = '['.ID_OLD_MUSIC.' TO *] AND music_time :['.$timeSolr.' TO *]';
         //$searchSolarium['music_id'] = '['.ID_OLD_MUSIC.' TO *]';
-        $searchSolarium['music_id'] = '['. ((ID_OLD_MUSIC + ($page-1)*1000) + 1) .' TO '. (ID_OLD_MUSIC + $page*1000) .']';
+        $searchSolarium['music_id'] = '['. (ID_OLD_MUSIC + (($page-1)*1000) + 1) .' TO '. (ID_OLD_MUSIC + ($page*1000)) .']';
         $MusicPage = $this->Solr->search($searchSolarium);//, $page, 1000, array('score' => 'desc', 'id' => 'asc'));
         return response()->view('sitemap.sitemap_category_solr_music', [
             'musics' => $MusicPage
