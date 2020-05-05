@@ -153,8 +153,6 @@ $tabSelf = ($mySelf || (Auth::check() && Auth::user()->hasPermission('duyet_sua_
         }
     }
     function musicUploaded(url, page, stage) {
-        var uploaded = $('#uploaded');
-        var approval = $('#approval');
         $.ajax({
             url: url,
             type: "POST",
@@ -168,6 +166,9 @@ $tabSelf = ($mySelf || (Auth::check() && Auth::user()->hasPermission('duyet_sua_
             beforeSend: function () {
                 if(loaded) return false;
                 loaded = true;
+                // if(page == 'approval') {
+                //     waitingDialog.show();
+                // }
             },
             success: function(response) {
                 if(page == 'upload') {
@@ -177,6 +178,7 @@ $tabSelf = ($mySelf || (Auth::check() && Auth::user()->hasPermission('duyet_sua_
                         musicUploaded($(this).attr('href'), 'upload', $(this).parents().parents().parents().data('page'));
                     });
                 }else {
+                    // waitingDialog.hide();
                     $('.approval_content_stage_' + stage).html(response);
                     $('.approval_content_stage_' + stage).find('.pagination li a').on('click', function (e) {
                         e.preventDefault();
