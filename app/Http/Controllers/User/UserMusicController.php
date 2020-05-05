@@ -96,49 +96,58 @@ class UserMusicController extends Controller
         if(Auth::user()->id != $id && !Auth::user()->hasPermission('duyet_sua_nhac')) {
             return 'Lỗi User';
         }
+        $titleMes = '';
         if($request->page_tab == 'upload') {
             $stage = $request->input('stage');
 
             if($stage == 'all' || $stage == 'uncensor') {
                 // chờ xử lý
                 $stageData['music'] = $this->uploadRepository->musicByUser($id, [UPLOAD_STAGE_UNCENSOR], 'music_last_update_time', 'desc', LIMIT_PAGE_MUSIC_UPLOADED);
+                $titleMes = 'chờ xử lý';
             }
             if($stage == 'all' || $stage == 'fullcensor') {
                 // đã duyệt
                 $stageData['music'] = $this->uploadRepository->musicByUser($id, [UPLOAD_STAGE_FULLCENSOR, UPLOAD_STAGE_FULLCONVERT], 'music_last_update_time', 'desc', LIMIT_PAGE_MUSIC_UPLOADED);
+                $titleMes = 'đã duyệt';
             }
             if($stage == 'all' || $stage == 'delete') {
                 // đã xóa
                 $stageData['music'] = $this->uploadRepository->musicByUser($id, [UPLOAD_STAGE_DELETED], 'music_last_update_time', 'desc', LIMIT_PAGE_MUSIC_UPLOADED);
+                $titleMes = 'đã xóa';
             }
             if($stage == 'all' || $stage == 'album') {
                 // album
                 $stageData['album'] = $this->coverRepository->findCoverByUser($id, 'cover_id', 'desc', LIMIT_PAGE_MUSIC_UPLOADED);
             }
-            return view('user.music_upload_approval', compact('stageData', 'stage'));
+            return view('user.music_upload_approval', compact('stageData', 'stage', 'titleMes'));
         }elseif($request->page_tab == 'approval'){
             $stage = $request->input('stage');
             if($stage == 'all' || $stage == 'fullconvert') {
                 // chờ duyệt
                 $stageData['music'] = $this->uploadRepository->musicByStage([UPLOAD_STAGE_FULLCONVERT], 'music_last_update_time', 'desc', LIMIT_PAGE_MUSIC_APPROVAL);
+                $titleMes = 'chờ duyệt';
             }
             if($stage == 'all' || $stage == 'uncensor') {
                 // chờ xử lý
                 $stageData['music'] = $this->uploadRepository->musicByStage([UPLOAD_STAGE_UNCENSOR], 'music_last_update_time', 'desc', LIMIT_PAGE_MUSIC_APPROVAL);
+                $titleMes = 'chờ xử lý';
             }
             if($stage == 'all' || $stage == 'fullcensor') {
                 // đã duyệt
                 $stageData['music'] = $this->uploadRepository->musicByStage([UPLOAD_STAGE_FULLCENSOR], 'music_last_update_time', 'desc', LIMIT_PAGE_MUSIC_APPROVAL);
+                $titleMes = 'đã duyệt';
             }
             if($stage == 'all' || $stage == 'fullcensor_by') {
                 // đã duyệt theo user lần cuối cùng
                 $stageData['music'] = $this->uploadRepository->musicByStage([UPLOAD_STAGE_FULLCENSOR], 'music_last_update_time', 'desc', LIMIT_PAGE_MUSIC_APPROVAL, Auth::user()->id);
+                $titleMes = 'đã duyệt theo user';
             }
             if($stage == 'all' || $stage == 'delete') {
                 // đã xóa
                 $stageData['music'] = $this->uploadRepository->musicByStage([UPLOAD_STAGE_DELETED], 'music_last_update_time', 'desc', LIMIT_PAGE_MUSIC_APPROVAL);
+                $titleMes = 'đã xóa';
             }
-            return view('user.music_upload_approval', compact('stageData', 'stage'));
+            return view('user.music_upload_approval', compact('stageData', 'stage', 'titleMes'));
         }
     }
     public function musicUploadedRedirect(Request $request, $music_id) {

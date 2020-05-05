@@ -3,7 +3,7 @@
 ?>
 @if(isset($stageData['music']))
     <?php $dataArr = $stageData['music']->toArray()['data']; ?>
-    @if($stageData)
+    @if($dataArr)
     <div class="row row10px">
         <div class="col">
             <ul class="list-unstyled list_music">
@@ -47,11 +47,11 @@
     </div>
     <center data-page="{{$stage}}">{{$stageData['music']->links()}}</center>
     @else
-        <div class="center-text-mes"><span>Chưa có bài hát nào chờ xử lý.</span></div>
+        <div class="center-text-mes"><span>Chưa có bài hát nào {{$titleMes}}.</span></div>
     @endif
 @endif
 @if(isset($stageData['album']))
-    <?php $dataArr = $stageData['music']->toArray()['album']; ?>
+    <?php $dataArr = $stageData['album']->toArray()['data']; ?>
     @if($dataArr)
     <div class="row row10px float-col-width">
         <?php
@@ -77,6 +77,6 @@
     </div>
     <center data-page="{{$stage}}">{{$stageData['album']->links()}}</center>
     @else
-        <div class="center-text-mes"><span>Chưa có album nào xử lý.</span></div>
+        <div class="center-text-mes"><span>Chưa có album nào.</span></div>
     @endif
 @endif
