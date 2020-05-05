@@ -493,13 +493,16 @@ $.TokenList = function (input, url_or_data, settings) {
         if(item) {
             var this_token = settings.tokenFormatter(item);
         }
-        this_token = $(this_token)
-          .addClass(settings.classes.token)
-          .insertBefore(input_token);
-        // thêm ca sĩ mới id -1
-
-        if(item.id == -1)
-            this_token.addclass(settings.classes.tokenNone);
+        if(item.id == -1) {
+            this_token = $(this_token)
+                .addClass(settings.classes.token)
+                .addClass(settings.classes.tokenNone)
+                .insertBefore(input_token);
+        }else{
+            this_token = $(this_token)
+                .addClass(settings.classes.token)
+                .insertBefore(input_token);
+        }
 
         // The 'delete token' button
         $("<span>" + settings.deleteText + "</span>")
