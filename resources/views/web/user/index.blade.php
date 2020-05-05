@@ -147,7 +147,7 @@ $tabSelf = ($mySelf || (Auth::check() && Auth::user()->hasPermission('duyet_sua_
                 success: function(response) {
                     $('#approval').html(response);
                     loaded = false;
-                    musicUploaded('/user/music_uploaded', 'approval', 'fullcensor');
+                    musicUploaded('/user/music_uploaded', 'approval', 'fullconvert');
                 }
             });
         }
