@@ -164,13 +164,12 @@ $tabSelf = ($mySelf || (Auth::check() && Auth::user()->hasPermission('duyet_sua_
             },
             async: false,
             beforeSend: function () {
+                waitingDialog.show();
                 if(loaded) return false;
                 loaded = true;
-                // if(page == 'approval') {
-                //     waitingDialog.show();
-                // }
             },
             success: function(response) {
+                waitingDialog.hide();
                 if(page == 'upload') {
                     $('.upload_content_stage_' + stage).html(response);
                     $('.upload_content_stage_' + stage).find('.pagination li a').on('click', function (e) {
@@ -178,7 +177,6 @@ $tabSelf = ($mySelf || (Auth::check() && Auth::user()->hasPermission('duyet_sua_
                         musicUploaded($(this).attr('href'), 'upload', $(this).parents().parents().parents().data('page'));
                     });
                 }else {
-                    // waitingDialog.hide();
                     $('.approval_content_stage_' + stage).html(response);
                     $('.approval_content_stage_' + stage).find('.pagination li a').on('click', function (e) {
                         e.preventDefault();

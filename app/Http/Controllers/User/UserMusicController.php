@@ -102,17 +102,17 @@ class UserMusicController extends Controller
 
             if($stage == 'all' || $stage == 'uncensor') {
                 // chờ xử lý
-                $stageData['music'] = $this->uploadRepository->musicByUser($id, [UPLOAD_STAGE_UNCENSOR], 'music_last_update_time', 'desc', LIMIT_PAGE_MUSIC_UPLOADED);
+                $stageData['stage_uncensor'] = $this->uploadRepository->musicByUser($id, [UPLOAD_STAGE_UNCENSOR], 'music_last_update_time', 'desc', LIMIT_PAGE_MUSIC_UPLOADED);
                 $titleMes = 'chờ xử lý';
             }
             if($stage == 'all' || $stage == 'fullcensor') {
                 // đã duyệt
-                $stageData['music'] = $this->uploadRepository->musicByUser($id, [UPLOAD_STAGE_FULLCENSOR, UPLOAD_STAGE_FULLCONVERT], 'music_last_update_time', 'desc', LIMIT_PAGE_MUSIC_UPLOADED);
+                $stageData['stage_fullcensor'] = $this->uploadRepository->musicByUser($id, [UPLOAD_STAGE_FULLCENSOR, UPLOAD_STAGE_FULLCONVERT], 'music_last_update_time', 'desc', LIMIT_PAGE_MUSIC_UPLOADED);
                 $titleMes = 'đã duyệt';
             }
             if($stage == 'all' || $stage == 'delete') {
                 // đã xóa
-                $stageData['music'] = $this->uploadRepository->musicByUser($id, [UPLOAD_STAGE_DELETED], 'music_last_update_time', 'desc', LIMIT_PAGE_MUSIC_UPLOADED);
+                $stageData['stage_delete'] = $this->uploadRepository->musicByUser($id, [UPLOAD_STAGE_DELETED], 'music_last_update_time', 'desc', LIMIT_PAGE_MUSIC_UPLOADED);
                 $titleMes = 'đã xóa';
             }
             if($stage == 'all' || $stage == 'album') {
@@ -124,27 +124,27 @@ class UserMusicController extends Controller
             $stage = $request->input('stage');
             if($stage == 'all' || $stage == 'fullconvert') {
                 // chờ duyệt
-                $stageData['music'] = $this->uploadRepository->musicByStage([UPLOAD_STAGE_FULLCONVERT], 'music_last_update_time', 'desc', LIMIT_PAGE_MUSIC_APPROVAL);
+                $stageData['stage_fullconvert'] = $this->uploadRepository->musicByStage([UPLOAD_STAGE_FULLCONVERT], 'music_last_update_time', 'desc', LIMIT_PAGE_MUSIC_APPROVAL);
                 $titleMes = 'chờ duyệt';
             }
             if($stage == 'all' || $stage == 'uncensor') {
                 // chờ xử lý
-                $stageData['music'] = $this->uploadRepository->musicByStage([UPLOAD_STAGE_UNCENSOR], 'music_last_update_time', 'desc', LIMIT_PAGE_MUSIC_APPROVAL);
+                $stageData['stage_uncensor'] = $this->uploadRepository->musicByStage([UPLOAD_STAGE_UNCENSOR], 'music_last_update_time', 'desc', LIMIT_PAGE_MUSIC_APPROVAL);
                 $titleMes = 'chờ xử lý';
             }
             if($stage == 'all' || $stage == 'fullcensor') {
                 // đã duyệt
-                $stageData['music'] = $this->uploadRepository->musicByStage([UPLOAD_STAGE_FULLCENSOR], 'music_last_update_time', 'desc', LIMIT_PAGE_MUSIC_APPROVAL);
+                $stageData['stage_fullcensor'] = $this->uploadRepository->musicByStage([UPLOAD_STAGE_FULLCENSOR], 'music_last_update_time', 'desc', LIMIT_PAGE_MUSIC_APPROVAL);
                 $titleMes = 'đã duyệt';
             }
             if($stage == 'all' || $stage == 'fullcensor_by') {
                 // đã duyệt theo user lần cuối cùng
-                $stageData['music'] = $this->uploadRepository->musicByStage([UPLOAD_STAGE_FULLCENSOR], 'music_last_update_time', 'desc', LIMIT_PAGE_MUSIC_APPROVAL, Auth::user()->id);
+                $stageData['stage_fullcensor_by'] = $this->uploadRepository->musicByStage([UPLOAD_STAGE_FULLCENSOR], 'music_last_update_time', 'desc', LIMIT_PAGE_MUSIC_APPROVAL, Auth::user()->id);
                 $titleMes = 'đã duyệt theo user';
             }
             if($stage == 'all' || $stage == 'delete') {
                 // đã xóa
-                $stageData['music'] = $this->uploadRepository->musicByStage([UPLOAD_STAGE_DELETED], 'music_last_update_time', 'desc', LIMIT_PAGE_MUSIC_APPROVAL);
+                $stageData['delete'] = $this->uploadRepository->musicByStage([UPLOAD_STAGE_DELETED], 'music_last_update_time', 'desc', LIMIT_PAGE_MUSIC_APPROVAL);
                 $titleMes = 'đã xóa';
             }
             return view('user.music_upload_approval', compact('stageData', 'stage', 'titleMes'));

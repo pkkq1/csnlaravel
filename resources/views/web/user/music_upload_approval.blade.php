@@ -1,15 +1,15 @@
 <?php
     use App\Library\Helpers;
 ?>
-@if(isset($stageData['music']))
-    <?php $dataArr = $stageData['music']->toArray()['data']; ?>
+@if(key($stageData) != 'album')
+    <?php $dataArr = $stageData[key($stageData)]->toArray()['data']; ?>
     @if($dataArr)
     <div class="row row10px">
         <div class="col">
             <ul class="list-unstyled list_music">
                 <?php
-                $perPage = $stageData['music']->toArray()['per_page'];
-                $curentPage = $stageData['music']->toArray()['current_page'];
+                $perPage =$stageData[key($stageData)]->toArray()['per_page'];
+                $curentPage = $stageData[key($stageData)]->toArray()['current_page'];
                 array_map(function($i, $item) use($perPage, $curentPage) {
                     $url = '/dang-tai/'.($item['cat_id'] == CAT_VIDEO ? 'video' : 'nhac').'/'.$item['music_id'];
                     ?>
@@ -45,7 +45,7 @@
             </ul>
         </div>
     </div>
-    <center data-page="{{$stage}}">{{$stageData['music']->links()}}</center>
+    <center data-page="{{$stage}}">{{$stageData[key($stageData)]->links()}}</center>
     @else
         <div class="center-text-mes"><span>Chưa có bài hát nào {{$titleMes}}.</span></div>
     @endif
@@ -61,7 +61,7 @@
         <div class="col">
             <div class="card card1">
                 <div class="card-header" style="background-image: url({{Helpers::coverThumb(Helpers::cover_url($item['cover_id']), MUSIC_COVER_THUMB_200_PATH)}});">
-                    <a class="btn-album-remove btn btn-danger" href="{{'/dang-tai/album/'.$item['cover_id']}}" title="Đã tạo: {{date('m/d/Y', $item['music_time'])}}" >Chỉnh sửa</a>
+                    <a class="btn-album-remove btn btn-danger" href="{{'/dang-tai/album/'.$item['cover_id']}}" title="Chỉnh sửa" >Chỉnh sửa</a>
                     <a href="{{$url}}" title="{{$item['music_album']}}">
                         <span class="icon-play"></span>
                     </a>
