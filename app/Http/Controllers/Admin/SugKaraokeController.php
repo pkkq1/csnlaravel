@@ -196,6 +196,7 @@ class SugKaraokeController extends CrudController
             $music->save();
         }
         $sugKara->status = 1;
+        $sugKara->approval_by = Auth::user()->id;
         $sugKara->save();
         \Alert::success('Cập nhật karaoke mới thành công.')->flash();
         return \Redirect::to($this->crud->route);

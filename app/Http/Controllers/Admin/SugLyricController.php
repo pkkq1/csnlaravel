@@ -99,7 +99,7 @@ class SugLyricController extends CrudController
                     if($entry->status == 0) {
                         return '<span class="label label-warning">Chưa xem</span>';
                     }else{
-                        return '<span class="label label-default">Đã xác nhậnz</span>';
+                        return '<span class="label label-default">Đã xác nhận</span>';
                     }
                 },
             ]
@@ -178,6 +178,7 @@ class SugLyricController extends CrudController
         $upload->music_last_update_by =  Auth::user()->id;
         $upload->save();
         $sugLyric->status = 1;
+        $sugLyric->approval_by = Auth::user()->id;
         $sugLyric->save();
         \Alert::success('Cập nhật lyric mới thành công.')->flash();
         return \Redirect::to($this->crud->route);
