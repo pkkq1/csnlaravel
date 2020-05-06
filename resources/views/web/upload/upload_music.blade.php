@@ -803,6 +803,7 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
         ?>
         document.getElementById('cat_id').value = 1;
         cat_level_reload(1);
+        document.getElementById('cat_level').value = <?php echo old('cat_level') ?? $music->cat_level ?? 1 ?>;
         <?php
         }else{
         ?>
