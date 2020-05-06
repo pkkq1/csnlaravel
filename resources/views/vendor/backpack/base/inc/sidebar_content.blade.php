@@ -6,8 +6,8 @@ use App\Models\ReportMusicModel;
 use App\Models\ReportCommentModel;
 
 $notif['artist_upload'] = ArtistUploadModel::count();
-$notif['lyric_sug'] = LyricSuggestionModel::count();
-$notif['kara_sug'] = KaraokeSuggestionModel::count();
+$notif['lyric_sug'] = LyricSuggestionModel::where('status', 0)->count();
+$notif['kara_sug'] = KaraokeSuggestionModel::where('status', 0)->count();
 $notif['report_music'] = ReportMusicModel::where('status', 0)->count();
 $notif['report_cmt'] = ReportCommentModel::where('status', 0)->count();
 $htmlNotif['artist_upload'] = $notif['artist_upload'] > 0 ? '<span class="label pull-right bg-red _3-99 _3-98 red-important">'.($notif['artist_upload'] > 9 ? '9+' : $notif['artist_upload']).'</span>' : '';
