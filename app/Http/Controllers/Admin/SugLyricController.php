@@ -20,6 +20,7 @@ use App\Solr\Solarium;
 use App\Http\Controllers\Sync\SolrSyncController;
 use App\Models\LyricSuggestionModel;
 use App\Models\MusicModel;
+use App\Models\UploadModel;
 
 class SugLyricController extends CrudController
 {
@@ -54,7 +55,16 @@ class SugLyricController extends CrudController
         $this->crud->setRoute(config('backpack.base.route_prefix').'/lyric');
         $this->crud->orderBy('id', 'asc');
         $this->crud->denyAccess(['create']);
-
+        $this->crud->addFilter([ // dropdown filter
+            'name' => 'status',
+            'type' => 'dropdown',
+            'label'=> 'Tình trạng'
+        ], [
+            0 => 'Chưa xem',
+            1 => 'Đã xác nhận',
+        ], function($value) { // if the filter is active
+            $this->crud->addClause('where', 'status', $value);
+        });
         $this->crud->setColumns([
             [
                 'name'  => 'music_id',
@@ -82,9 +92,17 @@ class SugLyricController extends CrudController
                 'model' => "App\User",
             ],
             [
-                'name'  => 'music_lyric',
-                'label' => 'lyric',
-            ],
+                'name'  => 'status',
+                'label' => 'Tình Trạng',
+                'type' => 'closure',
+                'function' => function($entry) {
+                    if($entry->status == 0) {
+                        return '<span class="label label-warning">Chưa xem</span>';
+                    }else{
+                        return '<span class="label label-default">Đã xác nhậnz</span>';
+                    }
+                },
+            ]
         ]);
 
 
@@ -153,12 +171,15 @@ class SugLyricController extends CrudController
             \Alert::error('Lỗi, gợi ý không tồn tại')->flash();
             return redirect()->back();
         }
-        $music = MusicModel::find($request->music_id);
-        $music->music_lyric = $request->music_lyric;
-        $music->music_last_update_time = time();
-        $music->save();
-        $sugLyric->delete();
-        \Alert::success('Chỉnh sửa lyric mới thành công.')->flash();
+        $upload = UploadModel::find($request->music_id);
+        $upload->music_updated = 0;
+        $upload->music_lyric = $request->music_lyric;
+        $upload->music_last_update_time = time();
+        $upload->music_last_update_by =  Auth::user()->id;
+        $upload->save();
+        $sugLyric->status = 1;
+        $sugLyric->save();
+        \Alert::success('Cập nhật lyric mới thành công.')->flash();
         return \Redirect::to($this->crud->route);
     }
 }

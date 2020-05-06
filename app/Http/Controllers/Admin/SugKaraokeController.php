@@ -54,7 +54,16 @@ class SugKaraokeController extends CrudController
         $this->crud->setRoute(config('backpack.base.route_prefix').'/karaoke');
         $this->crud->orderBy('id', 'asc');
         $this->crud->denyAccess(['create']);
-
+        $this->crud->addFilter([ // dropdown filter
+            'name' => 'status',
+            'type' => 'dropdown',
+            'label'=> 'Tình trạng'
+        ], [
+            0 => 'Chưa xem',
+            1 => 'Đã xác nhận',
+        ], function($value) { // if the filter is active
+            $this->crud->addClause('where', 'status', $value);
+        });
 //        $this->crud->setEntityNameStrings('menu item', 'menu items');
 
 
@@ -85,9 +94,17 @@ class SugKaraokeController extends CrudController
                 'model' => "App\User",
             ],
             [
-                'name'  => 'music_lyric_karaoke',
-                'label' => 'karaoke',
-            ],
+                'name'  => 'status',
+                'label' => 'Tình Trạng',
+                'type' => 'closure',
+                'function' => function($entry) {
+                    if($entry->status == 0) {
+                        return '<span class="label label-warning">Chưa xem</span>';
+                    }else{
+                        return '<span class="label label-default">Đã xác nhậnz</span>';
+                    }
+                },
+            ]
         ]);
 
 
@@ -152,8 +169,8 @@ class SugKaraokeController extends CrudController
         return parent::updateCrud($request);
     }
     public function approvalKaraoke(StoreRequest $request, $id) {
-        $sugLyric = KaraokeSuggestionModel::find($id);
-        if(!$sugLyric) {
+        $sugKara = KaraokeSuggestionModel::find($id);
+        if(!$sugKara) {
             \Alert::error('Lỗi, gợi ý không tồn tại')->flash();
             return redirect()->back();
         }
@@ -166,20 +183,21 @@ class SugKaraokeController extends CrudController
                 'music_downloads_this_week' => $music->music_downloads_this_week,
                 'music_time' => time(),
                 'music_update_time' => time(),
-                'user_id' => $sugLyric->user_id,
+                'user_id' => $sugKara->user_id,
                 'music_length' => $music->music_length,
                 'music_lyric_karaoke' => $request->music_lyric_karaoke,
             ]);
         }else{
             $music->musicKara->music_lyric_karaoke = $request->music_lyric_karaoke;
-            $music->musicKara->user_id = $sugLyric->user_id;
+            $music->musicKara->user_id = $sugKara->user_id;
             $music->musicKara->music_update_time = time();
             $music->musicKara->save();
             $music->music_last_update_time = time();
             $music->save();
         }
-        $sugLyric->delete();
-        \Alert::success('Chỉnh sửa karaoke mới thành công.')->flash();
+        $sugKara->status = 1;
+        $sugKara->save();
+        \Alert::success('Cập nhật karaoke mới thành công.')->flash();
         return \Redirect::to($this->crud->route);
     }
 }
