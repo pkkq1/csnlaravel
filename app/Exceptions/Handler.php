@@ -73,18 +73,19 @@ class Handler extends ExceptionHandler
             $view = 'mobile.';
         }
         if(method_exists($exception, 'getStatusCode')) {
-            if($exception->getStatusCode() == 422) {
+            $errStatusNum = $exception->getStatusCode();
+            if(in_array($errStatusNum, [422])) {
                 // Validation
                 return parent::render($request, $exception);
-            }elseif($exception->getStatusCode() == 403 || $exception->getStatusCode() == 400){
+            }elseif(in_array($errStatusNum, [403, 400, 405])){
                 if($request->ajax()) {
                     if($request->format() == 'html') {
                         return response()->make($exception->getMessage(), 403);
                     }
                     Helpers::ajaxResult(false, $exception->getMessage(), null);
                 }
-                return response()->view($view.'errors.403', ['message'=> $exception->getMessage()], 403);
-            }elseif ($exception->getStatusCode() == 404) {
+                return response()->view($view.'errors.'.$errStatusNum, ['message'=> $exception->getMessage()], $errStatusNum);
+            }elseif (in_array($errStatusNum, [404])) {
                 if($request->format() == 'html')
                     return redirect()->guest('/');
                 Helpers::ajaxResult(false, 'Truy cập trang web không tồn tại.', null);
