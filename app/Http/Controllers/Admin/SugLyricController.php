@@ -141,10 +141,8 @@ class SugLyricController extends CrudController
             'options' => [0 => 'Chưa xem', 1 => 'Chưa phù hợp'],
             'allows_null' => false,
             'default' => 0,
-            'wrapperAttributes' => [
-                'class' => 'form-group col-md-4',
-            ],
         ]);
+
     }
 
     public function edit($id, $template = false)
