@@ -53,6 +53,7 @@ class SugLyricController extends CrudController
         $this->crud->setModel("App\Models\LyricSuggestionModel");
         $this->crud->setEntityNameStrings('Lyric', 'Lyric');
         $this->crud->setRoute(config('backpack.base.route_prefix').'/lyric');
+        $this->crud->orderBy('status', 'asc');
         $this->crud->orderBy('id', 'asc');
         $this->crud->denyAccess(['create']);
         $this->crud->addFilter([ // dropdown filter
@@ -61,7 +62,8 @@ class SugLyricController extends CrudController
             'label'=> 'Tình trạng'
         ], [
             0 => 'Chưa xem',
-            1 => 'Đã xác nhận',
+            1 => 'Chưa phù hợp',
+            2 => 'Đã xác nhận',
         ], function($value) { // if the filter is active
             $this->crud->addClause('where', 'status', $value);
         });
@@ -98,6 +100,8 @@ class SugLyricController extends CrudController
                 'function' => function($entry) {
                     if($entry->status == 0) {
                         return '<span class="label label-warning">Chưa xem</span>';
+                    }elseif($entry->status == 1) {
+                        return '<span class="label label-default">Chưa phù hợp</span>';
                     }else{
                         return '<span class="label label-default">Đã xác nhận</span>';
                     }
@@ -129,6 +133,17 @@ class SugLyricController extends CrudController
         $this->crud->addField([
             'name'  => 'user_id',
             'type'  => 'hidden',
+        ]);
+        $this->crud->addField([
+            'label' => 'Tình trạng',
+            'type' => 'select_from_array',
+            'name' => 'status',
+            'options' => [0 => 'Chưa xem', 1 => 'Chưa phù hợp'],
+            'allows_null' => false,
+            'default' => 0,
+            'wrapperAttributes' => [
+                'class' => 'form-group col-md-4',
+            ],
         ]);
     }
 
@@ -177,7 +192,7 @@ class SugLyricController extends CrudController
         $upload->music_last_update_time = time();
         $upload->music_last_update_by =  Auth::user()->id;
         $upload->save();
-        $sugLyric->status = 1;
+        $sugLyric->status = 2;
         $sugLyric->approval_by = Auth::user()->id;
         $sugLyric->save();
         \Alert::success('Cập nhật lyric mới thành công.')->flash();
