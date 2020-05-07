@@ -242,20 +242,22 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
 
         $select = ['music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'music_listen', 'music_bitrate', 'music_filename', 'music_width', 'music_height', 'music_length']; //, 'music_shortlyric'
         $artistIds = explode(';', $music->music_artist_id);
-        $artistName = explode(';', htmlspecialchars($music->music_artist, ENT_QUOTES));
+        $artistName = explode(';', htmlspecialchars_decode($music->music_artist, ENT_QUOTES));
         $artistNameRel = [];
         if($artistIds) {
             foreach ($artistIds as $key => $item) {
                 if($item == -1) {
                     unset($artistIds[$key]);
-                    $artistNameRel[] = Helpers::strReplaceSolr($artistName[$key]);
+                    $artistCharSet =htmlspecialchars($artistName[$key], ENT_QUOTES);
+                    if( trim(Helpers::strReplaceSolr($artistCharSet)))
+                        $artistNameRel[] = $artistCharSet;
                 }
             }
         }else{
-            $artistNameRel = Helpers::strReplaceSolr($artistName);
+            $artistCharSet = htmlspecialchars($artistName, ENT_QUOTES);
+            if(trim(Helpers::strReplaceSolr($artistCharSet)))
+                $artistNameRel = $artistCharSet;
         }
-
-
 
         // nhạc cùng ca sĩ
 //        $MusicSameArtistEloquent = \App\Models\MusicSuggestModel::where(function($q) use ($artistIds) {
