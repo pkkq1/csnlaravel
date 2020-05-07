@@ -57,7 +57,10 @@ class ArtistController extends Controller
         if(strpos($artistUrl, '~') !== false) {
             // old URL artist
             $artistId = last(explode('~', $artistUrl));
-            $artistIdNew = Helpers::encodeID(str_replace(KEY_ID_ARTIST_ENCODE_URL, '', base64_decode($artistId)), 'ca-si');
+            $artistId_key = str_replace(KEY_ID_ARTIST_ENCODE_URL, '', base64_decode($artistId));
+            if(!is_numeric($artistId_key))
+                return view('errors.404');
+            $artistIdNew = Helpers::encodeID($artistId_key, 'ca-si');
             $urlRed = str_replace('~' . $artistId, '', $artistUrl);
             return redirect(str_replace($artistUrl, strtolower($urlRed).'-'.$artistIdNew, url()->current()));
         }
