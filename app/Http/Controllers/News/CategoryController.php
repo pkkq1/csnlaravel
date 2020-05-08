@@ -29,7 +29,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('news.category.index');
+        return redirect(url()->current() . '.html');
+//        return view('news.category.index');
     }
     public function categorySao_viet(Request $request) {
         return $this->category($request, 2);
