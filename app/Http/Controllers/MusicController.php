@@ -162,6 +162,18 @@ class MusicController extends Controller
             $music = $this->musicRepository->findOnlyMusicId($arrUrl['id']);
         }
         if(!$music) {
+            // redirect ca-si // category
+            if(!isset($arrUrl['id']) || $arrUrl['id'] == 0) {
+                $artistUrl = str_replace(['~', '-'], ' ', last(explode('/', $musicUrl)));
+                $artistData =  $this->artistRepository->getModel()::where('artist_nickname', $artistUrl)->first();
+                if($artistData) {
+                    $urlRed = Helpers::artistUrl($artistData->artist_id, $artistData->artist_nickname);
+                    return redirect($urlRed);
+                }else{
+                    $cat_url = str_replace(['~'], '-', last(explode('/', $musicUrl)));
+                    return redirect('/mp3/' . $cat_url . '.html');
+                }
+            }
             return $this->musicRepository->checkDeleteMusic($arrUrl['id']);
         }
         $urlOriginal = Helpers::listen_url($music->toArray());
