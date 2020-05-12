@@ -45,7 +45,6 @@ class LoginController extends Controller
     }
     protected function attemptLogin(Request $request)
     {
-
         $credentials = $request->only('email', 'password');
         if(!filter_var($request->get($this->username()), FILTER_VALIDATE_EMAIL)) {
             $credentials = [
@@ -87,8 +86,11 @@ class LoginController extends Controller
         $request->session()->regenerate();
 
         $this->clearLoginAttempts($request);
-
-        return response()->json(['success' => true], 200);
+        if($request->ajax()) {
+            return response()->json(['success' => true], 200);
+        }else{
+            return redirect('/');
+        }
     }
     protected function validateLogin(Request $request)
     {
