@@ -52,6 +52,7 @@ class SugKaraokeController extends CrudController
         $this->crud->setModel("App\Models\KaraokeSuggestionModel");
         $this->crud->setEntityNameStrings('Karaoke', 'Karaoke');
         $this->crud->setRoute(config('backpack.base.route_prefix').'/karaoke');
+        $this->crud->orderBy('status', 'asc');
         $this->crud->orderBy('id', 'asc');
         $this->crud->denyAccess(['create']);
         $this->crud->addFilter([ // dropdown filter
