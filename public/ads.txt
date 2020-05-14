@@ -251,3 +251,5 @@ pubmatic.com, 158154, RESELLER, 5d62403b186f2ace
 google.com, pub-7002491002409919, DIRECT, f08c47fec0942fa0
 #ambient 13/4/2020
 pubmatic.com,159249,RESELLER,5d62403b186f2ace
+#ambient 14/5/2020
+indexexchange.com, 191970, RESELLER
