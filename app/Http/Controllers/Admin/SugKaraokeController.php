@@ -63,6 +63,7 @@ class SugKaraokeController extends CrudController
             0 => 'Chưa xem',
             1 => 'Chưa phù hợp',
             2 => 'Đã xác nhận',
+            3 => 'Bài hát bị xóa',
         ], function($value) { // if the filter is active
             $this->crud->addClause('where', 'status', $value);
         });
@@ -104,8 +105,10 @@ class SugKaraokeController extends CrudController
                         return '<span class="label label-warning">Chưa xem</span>';
                     }elseif($entry->status == 1) {
                         return '<span class="label label-default">Chưa phù hợp</span>';
-                    }else{
+                    }elseif($entry->status == 2){
                         return '<span class="label label-default">Đã xác nhận</span>';
+                    }elseif($entry->status == 3){
+                        return '<span class="label label-default">Bài hát bị xóa</span>';
                     }
                 },
             ]
@@ -163,6 +166,8 @@ class SugKaraokeController extends CrudController
         $music = MusicModel::find($this->data['fields']['music_id']['value']);
         if(!$music) {
             \Alert::error('Lỗi, bài hát đã bị xóa')->flash();
+            $sugKara = KaraokeSuggestionModel::find($id);
+            $sugKara->status = 3;
             return redirect()->back();
         }
         $this->data['music'] = $music;
