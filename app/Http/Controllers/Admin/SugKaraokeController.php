@@ -168,6 +168,7 @@ class SugKaraokeController extends CrudController
             \Alert::error('Lỗi, bài hát đã bị xóa')->flash();
             $sugKara = KaraokeSuggestionModel::find($id);
             $sugKara->status = 3;
+            $sugKara->save();
             return redirect()->back();
         }
         $this->data['music'] = $music;

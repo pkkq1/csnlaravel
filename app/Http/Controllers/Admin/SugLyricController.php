@@ -166,6 +166,7 @@ class SugLyricController extends CrudController
             \Alert::error('Lỗi, bài hát đã bị xóa')->flash();
             $sugLyric = LyricSuggestionModel::find($id);
             $sugLyric->status = 4;
+            $sugLyric->save();
             return redirect()->back();
         }
         $this->data['music'] = $music;
