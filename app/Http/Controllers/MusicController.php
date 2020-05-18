@@ -170,8 +170,8 @@ class MusicController extends Controller
                     $urlRed = Helpers::artistUrl($artistData->artist_id, $artistData->artist_nickname);
                     return redirect($urlRed);
                 }else{
-                    $cat_url = str_replace(['~'], '-', last(explode('/', $musicUrl)));
-                    return redirect('/mp3/' . $cat_url . '.html');
+//                    $cat_url = str_replace(['~'], '-', last(explode('/', $musicUrl)));
+                    return redirect('/');
                 }
             }
             return $this->musicRepository->checkDeleteMusic($arrUrl['id']);
