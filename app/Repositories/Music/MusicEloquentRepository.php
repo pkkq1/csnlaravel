@@ -248,14 +248,14 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
             foreach ($artistIds as $key => $item) {
                 if($item == -1) {
                     unset($artistIds[$key]);
-                    $artistCharSet =htmlspecialchars($artistName[$key], ENT_QUOTES);
-                    if( trim(Helpers::strReplaceSolr($artistCharSet)))
+                    $artistCharSet = trim(htmlspecialchars(Helpers::strReplaceSolr(Helpers::khongdau($artistName[$key], ' ')), ENT_QUOTES));
+                    if($artistCharSet)
                         $artistNameRel[] = $artistCharSet;
                 }
             }
         }else{
-            $artistCharSet = htmlspecialchars($artistName, ENT_QUOTES);
-            if(trim(Helpers::strReplaceSolr($artistCharSet)))
+            $artistCharSet = trim(htmlspecialchars(Helpers::strReplaceSolr(Helpers::khongdau($artistName, ' ')), ENT_QUOTES));
+            if($artistCharSet)
                 $artistNameRel = $artistCharSet;
         }
 
@@ -299,8 +299,8 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
             $searchSolariumVideo['video_artist_id'] = $searchSolarium['music_artist_id'];
         }
         if($artistNameRel) {
-            $searchSolarium['music_artist'] = '('.implode(' OR ', $artistNameRel).')';
-            $searchSolariumVideo['video_artist'] = $searchSolarium['music_artist'];
+            $searchSolarium['music_artist_charset'] = '('.implode(' OR ', $artistNameRel).')';
+            $searchSolariumVideo['video_artist_charset'] = $searchSolarium['music_artist_charset'];
         }
         $MusicSameArtist= $this->Solr->search($searchSolarium, 1, 5, array('score' => 'desc', 'music_downloads_today' => 'desc', 'music_downloads_this_week' => 'desc', 'music_downloads' => 'desc'));
         $MusicSameArtist = $MusicSameArtist['data'];
