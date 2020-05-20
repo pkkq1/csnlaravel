@@ -1,6 +1,6 @@
 <?php
 use App\Library\Helpers;
-echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
+echo '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
 foreach ($arrDefCat as $item) {
     echo '<url>
             <loc>' . env('APP_URL'). '/sitemap' . $item . '.xml</loc>
@@ -19,4 +19,4 @@ foreach ($cat_id2info as $item) {
             </url>';
     }
 }
-echo '</urlset>';
+echo '</sitemapindex>';
