@@ -60,15 +60,155 @@ if($memberVip == null)
                 <li class="nav-item"><a href="/" class="nav-link dropdown-toggle"><img src="/images/ic_menu_home.png" alt="playlist" class="icon"> Trang chủ</a></li>
                 <li class="nav-item"><a href="/nhac-hot.html?type=music" class="nav-link dropdown-toggle"><img src="/images/ic_menu_bxh.png" alt="playlist" class="icon"> Bảng Xếp Hạng Bài Hát</a></li>
                 <li class="nav-item"><a href="/nhac-hot.html?type=video" class="nav-link dropdown-toggle"><img src="/images/ic_menu_bxh.png" alt="playlist" class="icon"> Bảng Xếp Hạng Video</a></li>
-                <li class="nav-item"><a href="/hd/video.html" class="nav-link dropdown-toggle"><img src="/images/ic_menu_video_active.png" alt="playlist" class="icon"> Video Clip</a></li>
-                <li class="nav-item"><a href="/mp3/vietnam.html" class="nav-link dropdown-toggle"><img src="/images/ic_menu_music_active.png" alt="playlist" class="icon"> Việt Nam</a></li>
-                <li class="nav-item"><a href="/mp3/us-uk.html" class="nav-link dropdown-toggle"><img src="/images/ic_menu_music_active.png" alt="playlist" class="icon"> US-UK</a></li>
-                <li class="nav-item"><a href="/mp3/korea.html" class="nav-link dropdown-toggle"><img src="/images/ic_menu_music_active.png" alt="playlist" class="icon"> K-Pop</a></li>
-                <li class="nav-item"><a href="/mp3/japan.html" class="nav-link dropdown-toggle"><img src="/images/ic_menu_music_active.png" alt="playlist" class="icon"> J-Pop</a></li>
-                <li class="nav-item"><a href="/mp3/chinese.html" class="nav-link dropdown-toggle"><img src="/images/ic_menu_music_active.png" alt="playlist" class="icon"> C-Pop</a></li>
-                <li class="nav-item"><a href="/mp3/france.html" class="nav-link dropdown-toggle"><img src="/images/ic_menu_music_active.png" alt="playlist" class="icon"> F-Pop</a></li>
-                <li class="nav-item"><a href="/mp3/other.html" class="nav-link dropdown-toggle"><img src="/images/ic_menu_music_active.png" alt="playlist" class="icon"> Nước khác</a></li>
-                <li class="nav-item"><a href="/mp3/beat-playback.html" class="nav-link dropdown-toggle"><img src="/images/ic_menu_other.png" alt="playlist" class="icon"> Playback</a></li>
+                <li class="nav-item"></li>
+                <li class="nav-item">
+                    <div class="navbar-collapse navbar-offcanvas-collapse">
+                        <ul id="main-mobile-menu" class="nav navbar-nav">
+                            <li id="menu-item-2490" class="has-submenu active menu-item-2490">
+                                <a href="/hd/video.html" class="nav-link dropdown-toggle"><img src="/images/ic_menu_video_active.png" alt="playlist" class="icon"> Video Clip</a>
+                                <span class="icon-toggle"><i class="fa fa-plus"></i></span>
+                                <ul class="sub-menu">
+                                    <li><a href="/hd/video/v-video.html" title="Video Việt Nam">Video Việt Nam</a></li>
+                                    <li><a href="/hd/video/us-video.html" title="Video US-UK">Video US-UK</a></li>
+                                    <li><a href="/hd/video/c-video.html" title="Video Hoa">Video Hoa</a></li>
+                                    <li><a href="/hd/video/k-video.html" title="Video Hàn">Video Hàn</a></li>
+                                    <li><a href="/hd/video/l-video.html" title="Video Live">Video Live</a></li>
+                                    <li><a href="/hd/video/h-video.html" title="Video Hài">Video Hài</a></li>
+                                    <li><a href="/hd/video/j-video.html" title="Video Nhật">Video Nhật</a></li>
+                                    <li><a href="/hd/video/f-video.html" title="Video Pháp">Video Pháp</a></li>
+                                    <li><a href="/hd/video/o-video.html" title="Video Nước Khác">Video Nước Khác</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="navbar-collapse navbar-offcanvas-collapse">
+                        <ul id="main-mobile-menu" class="nav navbar-nav">
+                            <li id="menu-item-2490" class="has-submenu active menu-item-2490">
+                                <a href="/mp3/vietnam.html" class="nav-link dropdown-toggle"><img src="/images/ic_menu_music_active.png" alt="playlist" class="icon"> Việt Nam</a>
+                                <span class="icon-toggle"><i class="fa fa-plus"></i></span>
+                                <ul class="sub-menu">
+                                    <li><a href="/mp3/vietnam/v-pop.html" title="Nhạc Pop, Rock">Nhạc Pop, Rock</a></li>
+                                    <li><a href="/mp3/vietnam/v-rap-hiphop.html" title="Nhạc Rap, Hiphop">Nhạc Rap, Hiphop</a></li>
+                                    <li><a href="/mp3/vietnam/v-dance-remix.html" title="Nhạc Dance, Remix">Nhạc Dance, Remix</a></li>
+                                    <li><a href="/mp3/vietnam/v-truyen-thong.html" title="Nhạc truyền thống">Nhạc Truyền Thống</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="navbar-collapse navbar-offcanvas-collapse">
+                        <ul id="main-mobile-menu" class="nav navbar-nav">
+                            <li id="menu-item-2490" class="has-submenu active menu-item-2490">
+                                <a href="/mp3/us-uk.html" class="nav-link dropdown-toggle"><img src="/images/ic_menu_music_active.png" alt="playlist" class="icon"> US-UK</a>
+                                <span class="icon-toggle"><i class="fa fa-plus"></i></span>
+                                <ul class="sub-menu">
+                                    <li><a href="/mp3/us-uk/us-pop.html" title="Nhạc Pop, Rock">Nhạc Pop, Rock</a></li>
+                                    <li><a href="/mp3/us-uk/us-rap-hiphop.html" title="Nhạc Rap, Hiphop">Nhạc Rap, Hiphop</a></li>
+                                    <li><a href="/mp3/us-uk/us-dance-remix.html" title="Nhạc Dance, Remix">Nhạc Dance, Remix</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="navbar-collapse navbar-offcanvas-collapse">
+                        <ul id="main-mobile-menu" class="nav navbar-nav">
+                            <li id="menu-item-2490" class="has-submenu active menu-item-2490">
+                                <a href="/mp3/chinese.html" class="nav-link dropdown-toggle"><img src="/images/ic_menu_music_active.png" alt="playlist" class="icon"> Nhạc Hoa</a>
+                                <span class="icon-toggle"><i class="fa fa-plus"></i></span>
+                                <ul class="sub-menu">
+                                    <li><a href="/mp3/chinese/c-pop.html" title="Nhạc Pop, Rock">Nhạc Pop, Rock</a></li>
+                                    <li><a href="/mp3/chinese/c-rap-hiphop.html" title="Nhạc Rap, Hiphop">Nhạc Rap, Hiphop</a></li>
+                                    <li><a href="/mp3/chinese/c-dance-remix.html" title="Nhạc Dance, Remix">Nhạc Dance, Remix</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="navbar-collapse navbar-offcanvas-collapse">
+                        <ul id="main-mobile-menu" class="nav navbar-nav">
+                            <li id="menu-item-2490" class="has-submenu active menu-item-2490">
+                                <a href="/mp3/korea.html" class="nav-link dropdown-toggle"><img src="/images/ic_menu_music_active.png" alt="playlist" class="icon"> Nhạc Hàn</a>
+                                <span class="icon-toggle"><i class="fa fa-plus"></i></span>
+                                <ul class="sub-menu">
+                                    <li><a href="/mp3/korea/k-pop.html" title="Nhạc Pop, Rock">Nhạc Pop, Rock</a></li>
+                                    <li><a href="/mp3/korea/k-rap-hiphop.html" title="Nhạc Rap, Hiphop">Nhạc Rap, Hiphop</a></li>
+                                    <li><a href="/mp3/korea/k-dance-remix.html" title="Nhạc Dance, Remix">Nhạc Dance, Remix</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="navbar-collapse navbar-offcanvas-collapse">
+                        <ul id="main-mobile-menu" class="nav navbar-nav">
+                            <li id="menu-item-2490" class="has-submenu active menu-item-2490">
+                                <a href="/mp3/japan.html" class="nav-link dropdown-toggle"><img src="/images/ic_menu_music_active.png" alt="playlist" class="icon"> Nhạc Nhật</a>
+                                <span class="icon-toggle"><i class="fa fa-plus"></i></span>
+                                <ul class="sub-menu">
+                                    <li><a href="/mp3/japan/j-pop.html" title="Nhạc Pop, Rock">Nhạc Pop, Rock</a></li>
+                                    <li><a href="/mp3/japan/j-rap-hiphop.html" title="Nhạc Rap, Hiphop">Nhạc Rap, Hiphop</a></li>
+                                    <li><a href="/mp3/japan/j-dance-remix.html" title="Nhạc Dance, Remix">Nhạc Dance, Remix</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="navbar-collapse navbar-offcanvas-collapse">
+                        <ul id="main-mobile-menu" class="nav navbar-nav">
+                            <li id="menu-item-2490" class="has-submenu active menu-item-2490">
+                                <a href="/mp3/france.html" class="nav-link dropdown-toggle"><img src="/images/ic_menu_music_active.png" alt="playlist" class="icon"> Nhạc Pháp</a>
+                                <span class="icon-toggle"><i class="fa fa-plus"></i></span>
+                                <ul class="sub-menu">
+                                    <li><a href="/mp3/france/f-pop.html" title="Nhạc Pop, Rock">Nhạc Pop, Rock</a></li>
+                                    <li><a href="/mp3/france/f-rap-hiphop.html" title="Nhạc Rap, Hiphop">Nhạc Rap, Hiphop</a></li>
+                                    <li><a href="/mp3/france/f-dance-remix.html" title="Nhạc Dance, Remix">Nhạc Dance, Remix</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="navbar-collapse navbar-offcanvas-collapse">
+                        <ul id="main-mobile-menu" class="nav navbar-nav">
+                            <li id="menu-item-2490" class="has-submenu active menu-item-2490">
+                                <a href="/mp3/other.html" class="nav-link dropdown-toggle"><img src="/images/ic_menu_music_active.png" alt="playlist" class="icon"> Nước khác</a>
+                                <span class="icon-toggle"><i class="fa fa-plus"></i></span>
+                                <ul class="sub-menu">
+                                    <li><a href="/mp3/other/o-pop.html" title="Nhạc Pop, Rock">Nhạc Pop, Rock</a></li>
+                                    <li><a href="/mp3/other/o-rap-hiphop.html" title="Nhạc Rap, Hiphop">Nhạc Rap, Hiphop</a></li>
+                                    <li><a href="/mp3/other/o-dance-remix.html" title="Nhạc Dance, Remix">Nhạc Dance, Remix</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+
+                    <div class="navbar-collapse navbar-offcanvas-collapse">
+                        <ul id="main-mobile-menu" class="nav navbar-nav">
+                            <li id="menu-item-2490" class="has-submenu active menu-item-2490">
+                                <a href="/mp3/beat-playback.html" class="nav-link dropdown-toggle"><img src="/images/ic_menu_other.png" alt="playlist" class="icon"> Playback</a>
+                                <span class="icon-toggle"><i class="fa fa-plus"></i></span>
+                                <ul class="sub-menu">
+                                    <li><a href="/mp3/beat-playback/v-instrumental.html" title="Playback Việt Nam">Playback Việt Nam</a></li>
+                                    <li><a href="/mp3/beat-playback/us-instrumental.html" title="Playback US-UK">Playback US-UK</a></li>
+                                    <li><a href="/mp3/beat-playback/c-instrumental.html" title="Playback Hoa">Playback Hoa</a></li>
+                                    <li><a href="/mp3/beat-playback/k-instrumental.html" title="Playback Hàn">Playback Hàn</a></li>
+                                    <li><a href="/mp3/beat-playback/j-instrumental.html" title="Playback Nhật">Playback Nhật</a></li>
+                                    <li><a href="/mp3/beat-playback/f-instrumental.html" title="Playback Pháp">Playback Pháp</a></li>
+                                    <li><a href="/mp3/beat-playback/o-instrumental.html" title="Playback Nước Khác">Playback Nước Khác</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                </li>
             </ul>
         </div>
     </div>

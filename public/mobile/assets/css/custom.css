@@ -558,3 +558,106 @@ a.disabled {
 footer {
     text-align: center;
 }
+
+
+.navbar-offcanvas .navbar-nav {
+    width: 100%;
+    float: none;
+}
+.navbar-nav {
+    margin: 6.5px -15px;
+}
+.nav {
+    margin-bottom: 0;
+    padding-left: 0;
+    list-style: none;
+}
+.nav:before, .nav:after {
+    content: " ";
+    display: table;
+}
+.navbar-offcanvas .navbar-nav>li {
+    display: block;
+    float: none;
+    position: relative;
+}
+.nav>li {
+    position: relative;
+    display: block;
+}
+.navbar-offcanvas .navbar-nav>li>a {
+    background: 0 0!important;
+    font-weight: 700;
+}
+.navbar-nav>li>a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    line-height: 24px;
+}
+.nav>li>a {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    color: rgba(255, 255, 255, .8);
+    font-size: 1rem;
+}
+.sub-menu>li>a {
+    color: rgba(255, 255, 255, .8);
+    font-size: 1rem;
+}
+.navbar-nav>li>.icon-toggle {
+    position: absolute;
+    top: 15px;
+    right: 0;
+    z-index: 9;
+    cursor: pointer;
+    color: #ffffff;
+    padding: 0 15px;
+    font-size: 16px;
+}
+.has-submenu>.sub-menu {
+    padding-left: 20px;
+    list-style: none;
+    display: none;
+}
+#main-mobile-menu .has-submenu>.sub-menu li {
+    line-height: 35px;
+    position: relative;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

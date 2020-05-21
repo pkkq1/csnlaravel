@@ -204,3 +204,13 @@ var waitingDialog = waitingDialog || (function ($) {
     };
 
 })(jQuery);
+
+$("#main-mobile-menu .icon-toggle").on('click', function () {
+    $(this).parent().find('> .sub-menu').slideToggle();
+    if ($(this).find('i').hasClass('fa-plus')) {
+        $(this).find('i').removeClass('fa-plus').addClass('fa-minus');
+    } else {
+        $(this).find('i').removeClass('fa-minus').addClass('fa-plus');
+    }
+    return false;
+});
