@@ -67,13 +67,14 @@ class MusicController extends Controller
     protected $musicDeletedRepository;
     protected $uploadRepository;
     protected $userRepository;
+    protected $categoryRepository;
 
     public function __construct(MusicEloquentRepository $musicRepository, PlaylistEloquentRepository $playlistRepository, MusicListenEloquentRepository $musicListenRepository,
                                 CategoryEloquentRepository $categoryListenRepository, CoverEloquentRepository $coverRepository, VideoEloquentRepository $videoRepository, ArtistRepository $artistRepository,
                                 MusicFavouriteRepository $musicFavouriteRepository, VideoFavouriteRepository $videoFavouriteRepository, MusicDownloadEloquentRepository $musicDownloadRepository, KaraokeEloquentRepository $karaokeRepository,
                                 VideoListenEloquentRepository $videoListenRepository, VideoDownloadEloquentRepository $videoDownloadRepository, PlaylistPublisherEloquentRepository $playlistPublisherRepository, SearchResultEloquentRepository $searchResultRepository,
                                 KaraokeSuggestionEloquentRepository $karaokeSuggestionRepository, LyricSuggestionEloquentRepository $lyricSuggestionRepository, MusicSearchResultEloquentRepository $musicSearchResultRepository, MusicDeletedEloquentRepository $musicDeletedRepository,
-                                UploadEloquentRepository $uploadRepository, UserEloquentRepository $userRepository)
+                                UploadEloquentRepository $uploadRepository, UserEloquentRepository $userRepository, CategoryEloquentRepository $categoryRepository)
     {
         $this->musicRepository = $musicRepository;
         $this->videoRepository = $videoRepository;
@@ -96,6 +97,7 @@ class MusicController extends Controller
         $this->musicDeletedRepository = $musicDeletedRepository;
         $this->uploadRepository = $uploadRepository;
         $this->userRepository = $userRepository;
+        $this->categoryRepository = $categoryRepository;
     }
 
     /**
@@ -164,14 +166,19 @@ class MusicController extends Controller
         if(!$music) {
             // redirect ca-si // category
             if(!isset($arrUrl['id']) || $arrUrl['id'] == 0) {
-                $artistUrl = str_replace(['~', '-'], ' ', last(explode('/', $musicUrl)));
+                $artistUrl = trim(str_replace(['~', '-'], ' ', last(explode('/', $musicUrl))));
                 $artistData =  $this->artistRepository->getModel()::where('artist_nickname', $artistUrl)->first();
                 if($artistData) {
                     $urlRed = Helpers::artistUrl($artistData->artist_id, $artistData->artist_nickname);
+                    dd($urlRed);
                     return redirect($urlRed);
                 }else{
-//                    $cat_url = str_replace(['~'], '-', last(explode('/', $musicUrl)));
-                    return redirect('/');
+                    $cat_url = trim(str_replace(['~'], '-', last(explode('/', $musicUrl))));
+                    $catData =  $this->categoryRepository->getModel()::where('cat_url', $cat_url)->first();
+                    if($catData) {
+                        return redirect('/mp3/'.$cat_url.'.html');
+                    }
+                    return view('errors.404_timeout_10s');
                 }
             }
             return $this->musicRepository->checkDeleteMusic($arrUrl['id']);
