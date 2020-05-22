@@ -170,7 +170,6 @@ class MusicController extends Controller
                 $artistData =  $this->artistRepository->getModel()::where('artist_nickname', $artistUrl)->first();
                 if($artistData) {
                     $urlRed = Helpers::artistUrl($artistData->artist_id, $artistData->artist_nickname);
-                    dd($urlRed);
                     return redirect($urlRed);
                 }else{
                     $cat_url = trim(str_replace(['~'], '-', last(explode('/', $musicUrl))));
