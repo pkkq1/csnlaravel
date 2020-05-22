@@ -74,12 +74,15 @@ class UploadEloquentRepository extends EloquentRepository implements UploadRepos
             ->paginate($page);
         return $result;
     }
-    public function musicByStage($stageArr, $fillOrder, $typeOrder, $page, $user = null, $timeLimit = SHORT_TIME_7_DAY)
+    public function musicByStage($where = [], $stageArr, $fillOrder, $typeOrder, $page, $user = null, $timeLimit = SHORT_TIME_7_DAY)
     {
         $result = $this->_model::select('music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title', 'music_artist', 'music_artist_id', 'music_album_id', 'music_bitrate', 'music_filename', 'music_updated', 'music_last_update_time', 'music_note', 'music_time')
             ->where('music_time', '>=', time() - $timeLimit);
         if($user) {
             $result = $result->where('music_last_update_by', $user);
+        }
+        if($where) {
+            $result = $result->where($where);
         }
         if(count($stageArr) > 1) {
             $result = $result->whereIn('music_state', $stageArr);
@@ -96,23 +99,6 @@ class UploadEloquentRepository extends EloquentRepository implements UploadRepos
 //            }
 //            self::musicByStage($stageArr, $fillOrder, $typeOrder, $page, $user, $timeLimit);
 //        }
-        return $result;
-    }
-    public function videoByStage($stageArr, $fillOrder, $typeOrder, $page, $user = null, $timeLimit = SHORT_TIME_7_DAY)
-    {
-        $result = $this->_model::select('music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title', 'music_artist', 'music_artist_id', 'music_album_id', 'music_bitrate', 'music_filename', 'music_updated', 'music_last_update_time', 'music_note', 'music_time')
-            ->where('music_time', '>=', time() - $timeLimit);
-        if($user) {
-            $result = $result->where('music_last_update_by', $user);
-        }
-        if(count($stageArr) > 1) {
-            $result = $result->whereIn('music_state', $stageArr);
-        }else{
-            $result = $result->where('music_state', $stageArr[0]);
-        }
-        $result = $result->where('cat_id', CAT_VIDEO);
-        $result = $result->orderBy($fillOrder, $typeOrder)
-            ->paginate($page);
         return $result;
     }
 }
