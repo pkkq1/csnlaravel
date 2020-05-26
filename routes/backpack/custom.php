@@ -65,6 +65,9 @@ Route::group([
     CRUD::resource('report_music', 'ReportMusicController');
     CRUD::resource('report_comment', 'ReportCommentController');
 
+    Route::get('report_music/ban_user/{user_id}', 'ReportMusicController@bannedUserMusic');
+    Route::get('report_comment/ban_user/{user_id}', 'ReportCommentController@bannedUserComment');
+
 });
 Route::get('admin/article_tag/search_tag', 'Backpack\NewsCRUD\app\Http\Controllers\Admin\ArticleCrudController@searchTags');
 Route::group([

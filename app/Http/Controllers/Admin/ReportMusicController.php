@@ -14,7 +14,8 @@ use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Http\Requests\CrudRequest as StoreRequest;
 use Backpack\CRUD\app\Http\Requests\CrudRequest as UpdateRequest;
 use Illuminate\Support\Facades\Auth;
-
+use App\Models\PermissionUserModel;
+use DB;
 
 class ReportMusicController extends CrudController
 {
@@ -188,6 +189,10 @@ class ReportMusicController extends CrudController
             'name'  => 'ip',
             'type' => 'hidden',
         ]);
+        $this->crud->addField([
+            'name'  => 'by_user_id',
+            'type' => 'hidden',
+        ]);
         $this->crud->setEditView('vendor.backpack.report.edit_report_music');
     }
 
@@ -233,5 +238,17 @@ class ReportMusicController extends CrudController
         $this->setSaveAction();
 
         return $this->performSaveAction($item->getKey());
+    }
+    public function bannedUserMusic(UpdateRequest $request, $user_id) {
+        $this->crud->hasAccessOrFail('update');
+        $this->crud->setOperation('update');
+
+        DB::table('csn_permission_user')->insert([
+            'user_id' => $user_id,
+            'permission_id' => 104,
+        ]);
+
+        \Alert::success('Chặn báo cáo thành công.')->flash();
+        return \Redirect::to($this->crud->route);
     }
 }

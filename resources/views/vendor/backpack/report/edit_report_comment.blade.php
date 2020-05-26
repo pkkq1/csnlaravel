@@ -66,6 +66,10 @@
                             <span style="color: red;">{{$fields['report_option']['value']}}</span>
                         </div>
                         <div class="form-group col-xs-12">
+                            <label>ID user gửi: </label>
+                            <span style="color: red;">{{$fields['by_user_id']['value']}}</span>
+                        </div>
+                        <div class="form-group col-xs-12">
                             <label>Giao diện sử dụng: </label>
                             <span>{{$fields['mod']['value']}}</span>
                         </div>
@@ -116,7 +120,28 @@
 
                     <div class="box-footer">
 
-                        @include('crud::inc.form_save_buttons')
+                        <div class="btn-group">
+                            <button type="submit" class="btn btn-success">
+                                <span class="fa fa-save" role="presentation" aria-hidden="true"></span> &nbsp;
+                                <span data-value="{{ $saveAction['active']['value'] }}">{{ $saveAction['active']['label'] }}</span>
+                            </button>
+
+                            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aira-expanded="false">
+                                <span class="caret"></span>
+                                <span class="sr-only">&#x25BC;</span>
+                            </button>
+
+                            <ul class="dropdown-menu">
+                                @foreach( $saveAction['options'] as $value => $label)
+                                    <li><a href="javascript:void(0);" data-value="{{ $value }}">{{ $label }}</a></li>
+                                @endforeach
+                            </ul>
+
+                        </div>
+
+                        <a href="{{ $crud->hasAccess('list') ? url($crud->route) : url()->previous() }}" class="btn btn-default"><span class="fa fa-ban"></span> &nbsp;{{ trans('backpack::crud.cancel') }}</a>
+
+                        <a style="float: right" href="{{ $crud->hasAccess('list') ? url($crud->route).'/ban_user/'.$fields['by_user_id']['value'] : url()->previous() }}" class="btn btn-warning suggest_artist"><span class="fa fa-ban"></span> &nbsp;Chặn user báo cáo</a>
 
                     </div><!-- /.box-footer-->
                 </div><!-- /.box -->
