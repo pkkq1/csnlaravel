@@ -74,6 +74,14 @@ class CommentController extends Controller
         $pagingHtml = '';
         $result = array();
         if($request->input('reply_cmt_id')) {
+            $exitCmt = $this->commentReplayRepository->getModel()::where('user_id', Auth::user()->id)->orderBy('comment_id', 'desc')->first();
+            // 5 MIN TO NEW THE COMMENT
+            if(time() < ($exitCmt->comment_time + (60 * 5))) {
+                abort(403, 'Bạn vui lòng chậm lại');
+            }
+            if(time() < ($exitCmt->comment_time + (60 * 5))) {
+                abort(403, 'Bạn vui lòng chậm lại');
+            }
             // add comment children
             $result = $this->commentReplayRepository->create([
                 'music_id' => $request->input('music_id'),
@@ -89,6 +97,11 @@ class CommentController extends Controller
             $reply['user'] = Auth::user()->toArray();
             return view('comment.comment_children', compact('reply'));
         } else {
+            $exitCmt = $this->commentRepository->getModel()::where('user_id', Auth::user()->id)->orderBy('comment_id', 'desc')->first();
+            // 5 MIN TO NEW THE COMMENT
+            if(time() < ($exitCmt->comment_time + (60 * 5))) {
+                abort(403, 'Bạn vui lòng chậm lại');
+            }
             // add comment parent
             $result = $this->commentRepository->create([
                 'music_id' => $request->input('music_id'),
