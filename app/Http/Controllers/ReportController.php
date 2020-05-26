@@ -42,7 +42,7 @@ class ReportController extends Controller
         if($request->id && $request->music_id && $request->type && $request->comment_text && $request->report_option && $request->music_name && $request->url_music) {
             $countStatus = $this->reportCommentRepository->getModel()::where('by_user_id', Auth::user()->id)->where('status', 0)->count();
             if($countStatus > MAX_SEND_REPORT) {
-                Helpers::ajaxResult(false, 'Lỗi, bạn đã gửi báo cao quá nhiều lần', null);
+                Helpers::ajaxResult(false, 'Lỗi, Các báo cáo trước của bạn đang được xử lý', null);
             }
             $exits = $this->reportCommentRepository->getModel()::where([['comment_id', $request->id], ['by_user_id', Auth::user()->id]])->first();
             if(!$exits) {
@@ -91,7 +91,7 @@ class ReportController extends Controller
         if($request->music_id && $request->report_option && $request->music_name && $request->url_music) {
             $countStatus = $this->reportMusicRepository->getModel()::where('by_user_id', Auth::user()->id)->where('status', 0)->count();
             if($countStatus > MAX_SEND_REPORT) {
-                Helpers::ajaxResult(false, 'Lỗi, bạn đã gửi báo cao quá nhiều lần', null);
+                Helpers::ajaxResult(false, 'Lỗi, Các báo cáo trước của bạn đang được xử lý', null);
             }
             $exits = $this->reportMusicRepository->getModel()::where([['music_id', $request->id], ['by_user_id', Auth::user()->id]])->first();
             if(!$exits) {
