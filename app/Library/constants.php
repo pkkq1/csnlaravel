@@ -60,6 +60,7 @@ define('LIMIT_MUSIC_PAGE_CATEGORY', 20);
 define('CURRENT_YEAR', 2020);
 define('CURRENT_MONTH', 4);
 define('MAX_LOSTLESS', 1000);
+define('MAX_SEND_REPORT', 5);
 
 // MUSIC ID ENCRIPT
 define('MAX_ID_CONST', 71902891);
