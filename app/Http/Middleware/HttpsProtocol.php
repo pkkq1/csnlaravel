@@ -16,9 +16,9 @@ class HttpsProtocol {
 //        if(strpos($request->url(), '_download') !== false) {
 //            return redirect()->route('home');
 //        }
-        if(in_array($request->ip(), Config::get('checkip.deny'))){
-            abort(403, 'Lỗi truy cập không cho phép');
-        }
+//        if(in_array($request->ip(), Config::get('checkip.deny'))){
+//            abort(403, 'Lỗi truy cập không cho phép');
+//        }
         if ($request->ip() == '210.245.121.234' || $request->ip() == '14.161.21.142') {
             \Debugbar::enable();
         }

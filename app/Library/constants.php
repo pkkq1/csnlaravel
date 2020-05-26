@@ -183,6 +183,7 @@ define('STATUS_DRAF', 'DRAF');
 define('PAGE_CATEGORY', 5);
 define('LIMIT_ADD_PLAYLIST', 100);
 define('SHORT_TIME_30_DAY', 2592000); // - 30 ngày
-define('SHORT_TIME_7_DAY', 604976); // - 7 ngày
-define('SHORT_TIME_3_DAY', 259214); // - 3 ngày
+define('SHORT_TIME_7_DAY', 604800); // - 7 ngày
+define('SHORT_TIME_3_DAY', 259200); // - 3 ngày
+define('SHORT_TIME_1_DAY', 86400); // - 1 ngày
 define('LIMIT_SHOW_MUSICS_PLAYLIST', 100);

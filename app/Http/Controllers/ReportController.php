@@ -35,6 +35,10 @@ class ReportController extends Controller
         if(backpack_user()->can('banned_user_report_comment')){
             abort(403, 'Lỗi truy cập, tài khoản bạn bị khóa chức năng báo cáo bình luận.');
         }
+        if(time() < (Auth::user()->user_regdate + SHORT_TIME_1_DAY)) {
+            abort(403, 'Tài khoản bạn cần hoạt động ít nhất 1 ngày');
+        }
+
         if($request->id && $request->music_id && $request->type && $request->comment_text && $request->report_option && $request->music_name && $request->url_music) {
             $countStatus = $this->reportCommentRepository->getModel()::where('by_user_id', Auth::user()->id)->where('status', 0)->count();
             if($countStatus > MAX_SEND_REPORT) {
@@ -80,6 +84,9 @@ class ReportController extends Controller
     {
         if(backpack_user()->can('banned_user_report_music')){
             abort(403, 'Lỗi truy cập, tài khoản bạn bị khóa chức năng báo cáo nhạc.');
+        }
+        if(time() < (Auth::user()->user_regdate + SHORT_TIME_1_DAY)) {
+            abort(403, 'Tài khoản bạn cần hoạt động ít nhất 1 ngày');
         }
         if($request->music_id && $request->report_option && $request->music_name && $request->url_music) {
             $countStatus = $this->reportMusicRepository->getModel()::where('by_user_id', Auth::user()->id)->where('status', 0)->count();
