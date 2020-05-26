@@ -65,6 +65,9 @@ class CommentController extends Controller
         if(backpack_user()->can('banned_user_comment')){
             abort(403, 'Lỗi truy cập, tài khoản bạn bị khóa chức năng đăng bình luận.');
         }
+        if(time() < (Auth::user()->user_regdate + SHORT_TIME_1_DAY)) {
+            abort(403, 'Tài khoản bạn cần hoạt động ít nhất 1 ngày');
+        }
         $request->input('comment_page');
         $pageComment = '';
         $commentReply = array();
