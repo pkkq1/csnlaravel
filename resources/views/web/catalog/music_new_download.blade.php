@@ -65,8 +65,12 @@ $titleMeta = $title.' - '. Config::get('constants.app.title');
                 new CBPFWTabs( el );
             });
         })();
-        $('.<?php echo $tab ?>').parent().click();
-        $('.<?php echo $tab ?>').click();
+        $( document ).ready(function() {
+            reloadFloat = true;
+            $('.<?php echo $tab ?>').parent().click();
+            $('.<?php echo $tab ?>').click();
+        });
+
         $('.tab-content-category').find('.pagination li a').on('click', function (e) {
             e.preventDefault();
             categoryTab($(this).attr('href'), '{{$tab}}', true);
@@ -76,15 +80,14 @@ $titleMeta = $title.' - '. Config::get('constants.app.title');
         function categoryTab(url, tab, floatTab = false, pushHistory = true) {
             if(reloadFloat) {
                 reloadFloat = false;
-                var page = parseFloat(window.location.search.substr(window.location.search.indexOf("&page=") + 6));
-                page = isNaN(page) ? 1 : page;
-                url = url + '?page=' + page;
-                console.log(url);
+                // var page = parseFloat(window.location.search.substr(window.location.search.indexOf("&page=") + 6));
+                // page = isNaN(page) ? 1 : page;
+                // url = url + '?page=' + page;
             }else{
                 if(!urlFloat) {
                     var page = parseFloat(url.substr(url.indexOf("?page=") + 6));
-                    page = isNaN(page) ? 1 : page;
-                    window.history.pushState({}, '', window.location.origin + window.location.pathname + '?page=' + page);
+                    page = isNaN(page) ? '' : '?page=' + page;
+                    window.history.pushState({}, '', window.location.origin + '/' +tab + '.html' + page);
                 }
             }
             if(urlFloat) {
