@@ -160,6 +160,18 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
         $result = $this->Solr->search($searchSolarium, $_GET['page'] ?? 1, $perPage, array('score' => 'desc', $fillOrder => $typeOrder));
         return $result;
     }
+    public function musicJoinComment($fillOrder, $typeOrder, $page)
+    {
+        $result = $this
+            ->_model
+            ->join('csn_comment', 'csn_comment.music_id', '=', 'csn_music.music_id')
+            ->join('csn_users', 'csn_users.user_id', '=', 'csn_comment.user_id')
+            ->select('csn_music.music_id', 'csn_music.cat_id', 'csn_music.cat_level', 'csn_music.cover_id', 'csn_music.music_title_url', 'csn_music.music_title', 'csn_music.music_artist', 'csn_music.music_artist_id', 'csn_music.music_album_id', 'csn_music.music_listen', 'csn_music.music_bitrate', 'csn_music.music_filename', 'csn_music.music_length', 'csn_comment.*', 'csn_users.name', 'csn_users.user_avatar')
+            ->where('csn_comment.comment_delete', 0)
+            ->orderBy($fillOrder, $typeOrder)
+            ->paginate($page);
+        return $result;
+    }
     public function incrementCol($id, $field)
     {
         $result = $this

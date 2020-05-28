@@ -49,9 +49,35 @@ class CatalogController extends Controller
     }
     public function musicNews(Request $request) {
         $music = $this->musicRepository->musicNewsSolr('music_id', 'desc', LIMIT_MUSIC_PAGE_CATEGORY);
-        $htmlMusic = view('category_solr.music_item', compact('music'));;
-        return view('catalog.music_news', compact('htmlMusic'));
+        $pageUrl = 'bai-hat-moi';
+        $tab = 'bai-hat-moi';
+        if(isset($request->ajaxPage)) {
+            return view('category_solr.music_item', compact('music', 'pageUrl'));
+        }
+        $htmlMusic = view('category_solr.music_item', compact('music', 'pageUrl'));
+        return view('catalog.music_new_download', compact('htmlMusic', 'tab'));
 
+    }
+    public function musicNewDownload(Request $request) {
+        $music = $this->musicRepository->musicNewsSolr('music_download_time', 'desc', LIMIT_MUSIC_PAGE_CATEGORY);
+        $pageUrl = 'vua-download';
+        $tab = 'vua-download';
+        if(isset($request->ajaxPage)) {
+            return view('category_solr.music_item', compact('music', 'pageUrl'));
+        }
+        $htmlMusic = view('category_solr.music_item', compact('music', 'pageUrl'));
+        return view('catalog.music_new_download', compact('htmlMusic', 'tab'));
+
+    }
+    public function musicNewComment(Request $request) {
+        $music = $this->musicRepository->musicJoinComment('.csn_comment.comment_id', 'desc',LIMIT_MUSIC_PAGE_CATEGORY );
+        $pageUrl = 'binh-luan-moi';
+        $tab = 'binh-luan-moi';
+        if(isset($request->ajaxPage)) {
+            return view('category.music_join_comment_item', compact('music', 'pageUrl'));
+        }
+        $htmlMusic = view('category.music_join_comment_item', compact('music', 'pageUrl'));
+        return view('catalog.music_new_download', compact('htmlMusic', 'tab'));
     }
     public function videoNews(Request $request) {
         $video = $this->videoRepository->videoNewsSolr('video_id', 'desc', LIMIT_MUSIC_PAGE_CATEGORY);

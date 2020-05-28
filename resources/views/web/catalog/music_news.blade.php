@@ -37,6 +37,19 @@ $titleMeta = $title.' - '. Config::get('constants.app.title');
                         </div>
                     </div>
                     <div class="content-wrap tab-content-category">
+                        <nav>
+                            <ul>
+                                <li><a onclick="categoryTab('/tab_category', 'album-moi')" class="album-moi" href="#album-moi"><span>ALbum mới</span></a></li>
+                                <li><a onclick="categoryTab('/tab_category', 'bai-hat-moi')" class="bai-hat-moi" href="#bai-hat-moi"><span>Bài Hát mới</span></a></li>
+                                <li><a onclick="categoryTab('/tab_category', 'vua-download')" class="vua-download" href="#vua-download"><span>Vừa download</span></a></li>
+                            </ul>
+                        </nav>
+                        <div class="content-wrap tab-content-category">
+                            <section id="album-{{CURRENT_YEAR}}" class="content-current"><?php echo $firstTab ?></section>
+                            <section id="album-moi"></section>
+                            <section id="bai-hat-moi"></section>
+                            <section id="vua-download"></section>
+                        </div>
                         <section id="music_news" class="content-current">
                             <?php echo $htmlMusic; ?>
                         </section>

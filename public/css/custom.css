@@ -1678,3 +1678,33 @@ footer .align-items-end {
 #report .post_comment_reply {
     overflow: auto;
 }
+.list_comment_music {
+    display: flex;
+    -ms-flex-align: start;
+    align-items: flex-start;
+}
+.list_comment_music img{
+    width: 40px;
+    height: 40px;
+    -o-object-fit: cover;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.list_comment_music .media-body {
+    font-family: 'SFProDisplay-Regular';
+    font-size: 14px;
+    color: #141414;
+    letter-spacing: -0.22px;
+    line-height: 20px;
+}
+.list_comment_music .media-text {
+    max-width: 412px;
+    color: #9B9B9B;
+    font-size: 14px;
+    color: #9B9B9B;
+    letter-spacing: -0.22px;
+    line-height: 20px;
+    font-family: 'SFProDisplay-Regular';
+    padding: 0px;
+    padding-right: 20px;
+}

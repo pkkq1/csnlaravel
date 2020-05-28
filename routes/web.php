@@ -295,6 +295,11 @@ Route::group(['middlewareGroups' => ['web']], function () {
     Route::get('video-moi', ['as' => 'catalog.video', 'uses' => 'CatalogController@videoNews']);
     Route::get('album-moi', ['as' => 'catalog.album', 'uses' => 'CatalogController@albumNews']);
     Route::get('bai-hat-moi.html', ['as' => 'catalog.music', 'uses' => 'CatalogController@musicNews']);
+    Route::post('bai-hat-moi', ['as' => 'catalog.music', 'uses' => 'CatalogController@musicNews']);
+    Route::get('vua-download.html', ['as' => 'catalog.music', 'uses' => 'CatalogController@musicNewDownload']);
+    Route::post('vua-download', ['as' => 'catalog.music', 'uses' => 'CatalogController@musicNewDownload']);
+    Route::get('binh-luan-moi.html', ['as' => 'catalog.music', 'uses' => 'CatalogController@musicNewComment']);
+    Route::post('binh-luan-moi', ['as' => 'catalog.music', 'uses' => 'CatalogController@musicNewComment']);
     Route::get('video-moi.html', ['as' => 'catalog.video', 'uses' => 'CatalogController@videoNews']);
     Route::get('album-moi.html', ['as' => 'catalog.album', 'uses' => 'CatalogController@albumNews']);
 

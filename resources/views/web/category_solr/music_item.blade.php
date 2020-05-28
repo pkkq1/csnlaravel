@@ -36,5 +36,7 @@ use App\Library\Helpers;
     }, array_keys($music['data']), $music['data']);
     ?>
 </ul>
-<center><?php Helpers::pagingCustom($music['page'], $music['rows'], $music['row_total'] ?? 0, '<a href="/tab_category?page=%d">%d</a>') ?></center>
+<center>
+    <?php Helpers::pagingCustom($music['page'], $music['rows'], $music['row_total'] ?? 0, '<a href="/'.($pageUrl ?? 'tab_category').'?page=%d">%d</a>') ?>
+</center>
 @endif

@@ -147,7 +147,7 @@ $catalog = config('constants.catalog');
                     <div class="col">
                         <div class="box_header d-flex justify-content-between align-items-end">
                             <a class="view_all" href="/bai-hat-moi.html"><h2 class="title m-0">Bài hát mới chia sẻ</h2></a>
-                            <a class="link_more" href="/bai-hat-moi.html" title="Bài hát mới nhất 2018">Xem tất cả</a>
+                            <a class="link_more" href="/bai-hat-moi.html" title="Bài hát mới nhất 2020">Xem tất cả</a>
                         </div>
                         <ul class="list-unstyled list_music">
                             <?php
@@ -188,8 +188,8 @@ $catalog = config('constants.catalog');
                     </div>
                     <div class="col">
                         <div class="box_header d-flex justify-content-between align-items-end">
-                            <a class="view_all" href="/mp3/vietnam.html?tab=vua-download"> <h2 class="title m-0">Download mới nhất</h2></a>
-                            <a class="link_more" href="/mp3/vietnam.html?tab=vua-download" title="Xem tất cả download">Xem tất cả</a>
+                            <a class="view_all" href="/vua-download.html"> <h2 class="title m-0">Download mới nhất</h2></a>
+                            <a class="link_more" href="/vua-download.html" title="Xem tất cả download">Xem tất cả</a>
                         </div>
                         <ul class="list-unstyled list_music">
                             <?php
