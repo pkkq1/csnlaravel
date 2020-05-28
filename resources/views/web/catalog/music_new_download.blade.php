@@ -40,7 +40,7 @@ $titleMeta = $title.' - '. Config::get('constants.app.title');
                             <ul>
                                 <li ><a onclick="categoryTab('/bai-hat-moi', 'bai-hat-moi')" class="bai-hat-moi" href="#bai-hat-moi"><span>Bài hát mới</span></a></li>
                                 <li ><a onclick="categoryTab('/vua-download', 'vua-download')" class="vua-download" href="#vua-download"><span>Vừa download</span></a></li>
-                                <li><a onclick="categoryTab('/tab_category', 'binh-luan-moi')" class="binh-luan-moi" href="#binh-luan-moi"><span>Bình luận mới</span></a></li>
+                                <li><a onclick="categoryTab('/binh-luan-moi', 'binh-luan-moi')" class="binh-luan-moi" href="#binh-luan-moi"><span>Bình luận mới</span></a></li>
                             </ul>
                         </nav>
                         <div class="content-wrap tab-content-category">
@@ -76,9 +76,10 @@ $titleMeta = $title.' - '. Config::get('constants.app.title');
         function categoryTab(url, tab, floatTab = false, pushHistory = true) {
             if(reloadFloat) {
                 reloadFloat = false;
-                // var page = parseFloat(window.location.search.substr(window.location.search.indexOf("&page=") + 6));
-                // page = isNaN(page) ? 1 : page;
-                // url = url + '?page=' + page;
+                var page = parseFloat(window.location.search.substr(window.location.search.indexOf("&page=") + 6));
+                page = isNaN(page) ? 1 : page;
+                url = url + '?page=' + page;
+                console.log(url);
             }else{
                 if(!urlFloat) {
                     var page = parseFloat(url.substr(url.indexOf("?page=") + 6));
