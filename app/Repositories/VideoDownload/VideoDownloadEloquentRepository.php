@@ -9,7 +9,7 @@ class VideoDownloadEloquentRepository extends EloquentRepository implements Vide
      * get model
      * @return string
      */
-    protected $_selectVideo = ['csn_video.music_downloads_today', 'csn_video.music_id', 'csn_video.music_title_url', 'csn_video.music_title', 'csn_video.music_artist', 'csn_video.music_artist_id', 'csn_video.cat_id', 'csn_video.cat_level', 'csn_video.cat_sublevel', 'csn_video.cat_custom', 'csn_video.cover_id', 'csn_video.music_download_time', 'csn_video.music_last_update_time', 'csn_video.music_title_url', 'csn_video.music_deleted',
+    protected $_selectVideo = ['csn_video.music_downloads_today', 'csn_video.music_id', 'csn_video.music_title_url', 'csn_video.music_title', 'csn_video.music_artist', 'csn_video.music_artist_id', 'csn_video.cat_id', 'csn_video.cat_level', 'csn_video.cat_sublevel', 'csn_video.cover_id', 'csn_video.music_download_time', 'csn_video.music_last_update_time', 'csn_video.music_title_url', 'csn_video.music_deleted',
         'csn_video.music_title_search', 'csn_video.music_artist_search', 'csn_video.music_album_search', 'csn_video.music_composer', 'csn_video.music_album', 'csn_video.music_listen', 'csn_video.music_track_id', 'csn_video.music_track_id', 'csn_video.music_filename', 'csn_video.music_bitrate', 'csn_video.music_shortlyric', 'csn_video.music_last_update_time', 'csn_video.music_length', 'csn_video.music_width', 'csn_video.music_height', 'music_downloads_this_week'];
 
     public function getModel()
