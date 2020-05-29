@@ -90,7 +90,7 @@ class CatalogController extends Controller
         return view('catalog.cover_news', compact('htmlCover'));
     }
     public function copyright(Request $request) {
-        $upload = $this->uploadExpRepository->getModel()::select('music_id', 'music_title', 'music_artist', 'cat_id', 'cat_level', 'cat_sublevel', 'cat_custom', 'cover_id', 'music_composer', 'music_album', 'music_track_id', 'music_track_id', 'music_filename', 'music_bitrate', 'date_expirted');
+        $upload = $this->uploadExpRepository->getModel()::select('music_id', 'music_title', 'music_artist', 'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_composer', 'music_album', 'music_track_id', 'music_track_id', 'music_filename', 'music_bitrate', 'date_expirted');
         if($request->load_ajax) {
             if($request->search) {
                 $q = strtolower($request->search);

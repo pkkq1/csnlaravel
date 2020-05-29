@@ -171,10 +171,6 @@ class UploadController extends CrudController
             'name'  => 'cat_sublevel',
             'type'  => 'hidden',
         ]);
-        $this->crud->addField([
-            'name'  => 'cat_custom',
-            'type'  => 'hidden',
-        ]);
         $this->crud->enableAjaxTable();
         $this->crud->setEditView('crud::edit_upload');
     }
@@ -214,7 +210,6 @@ class UploadController extends CrudController
                 'cat_id' => $request->cat_id ?? '',
                 'cat_level' => $request->cat_level ?? '',
                 'cat_sublevel' => $request->cat_sublevel ?? '',
-                'cat_custom' => $request->cat_custom ?? '',
                 'music_last_update_time' => time()
             ]);
             \Alert::success(trans('backpack::crud.update_success'))->flash();

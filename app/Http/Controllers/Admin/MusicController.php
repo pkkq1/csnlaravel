@@ -169,10 +169,6 @@ class MusicController extends CrudController
             'name'  => 'cat_sublevel',
             'type'  => 'hidden',
         ]);
-        $this->crud->addField([
-            'name'  => 'cat_custom',
-            'type'  => 'hidden',
-        ]);
     }
 
     public function store(StoreRequest $request)
@@ -227,7 +223,6 @@ class MusicController extends CrudController
                 'cat_id' => $request->cat_id ?? '',
                 'cat_level' => $request->cat_level ?? '',
                 'cat_sublevel' => $request->cat_sublevel ?? '',
-                'cat_custom' => $request->cat_custom ?? '',
                 'music_last_update_time' => time()
             ]);
             \Alert::success(trans('backpack::crud.update_success'))->flash();
