@@ -94,6 +94,7 @@ global $allpage_banner;
     <script>
         var csrfToken = "{{csrf_token()}}";
         var loaded = false;
+        var back_url = '';
         var timeOutLoading = 0;
         $.ajaxSetup({
             headers: {

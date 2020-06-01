@@ -440,13 +440,18 @@
                     });
                 },
                 success: function(response) {
-                    <?php
+                    if(back_url) {
+                        window.location = back_url;
+                    }else{
+                        <?php
                         if(($_GET['back_url'] ?? '') != '') {
                             echo "window.location = '".($_GET['back_url'] ?? '')."';";
                         }else{
                             echo 'location.reload();';
                         }
-                    ?>
+                        ?>
+                    }
+
                 }
             });
         }
@@ -600,7 +605,14 @@
         <?php
         if(!Auth::check()) {
         ?>
+        back_url = url;
         switchAuth('myModal_login');
+        $('#modal-login').on('hidden.bs.modal', function () {
+            back_url = '';
+        })
+        $('#modal-register').on('hidden.bs.modal', function () {
+            back_url = '';
+        })
         return false;
         <?php
             }
