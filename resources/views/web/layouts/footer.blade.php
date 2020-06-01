@@ -606,13 +606,13 @@
         if(!Auth::check()) {
         ?>
         back_url = url;
+        $('#myModal_login').on('hidden.bs.modal', function () {
+            back_url = '';
+        })
+        $('#myModal_register').on('hidden.bs.modal', function () {
+            back_url = '';
+        })
         switchAuth('myModal_login');
-        $('#modal-login').on('hidden.bs.modal', function () {
-            back_url = '';
-        })
-        $('#modal-register').on('hidden.bs.modal', function () {
-            back_url = '';
-        })
         return false;
         <?php
             }
