@@ -545,15 +545,15 @@ if($musicSet['type_listen'] == 'playlist') {
 
             <div class="col-md-3">
                 <div id="right1_banner" style=" max-width: 100%;">
-                    @if ($music->cat_id == 6)
-                        <a href="https://www.facebook.com/groups/csn.kpop.fan/" target="_blank"><img src="{{env('IMG_DATA_URL')}}images/banner/kpop-fbgroup-300x170.jpg" width="300" height="170"></a>
-                    @else
+                    {{--@if ($music->cat_id == 6)--}}
+                        {{--<a href="https://www.facebook.com/groups/csn.kpop.fan/" target="_blank"><img src="{{env('IMG_DATA_URL')}}images/banner/kpop-fbgroup-300x170.jpg" width="300" height="170"></a>--}}
+                    {{--@else--}}
                         @if(!$memberVip)
 {{--                            @if(View::exists('cache.code_ads.pc_right_player'))--}}
                                 @include('cache.code_ads.pc_right_player')
                             {{--@endif--}}
                         @endif
-                    @endif
+                    {{--@endif--}}
                 </div>
 
                 <br>
