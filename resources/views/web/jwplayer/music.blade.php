@@ -1336,7 +1336,21 @@ if($musicSet['type_listen'] == 'playlist') {
                         } else {
                             reply.removeClass('reply_show');
                         }
-                        reply.find('textarea').trigger('focus');
+                        <?php
+                        if(!Auth::check()) {
+                            ?>
+                            reply.find('textarea').on("focus","textarea", function(){
+                                switchAuth('myModal_login');
+                            });
+                            <?php
+                        }else{
+                            ?>
+                            reply.find('textarea').trigger('focus');
+                            <?php
+                        }
+
+                        ?>
+
                     });
                     $('.pagination li a').on('click', function (e) {
                         e.preventDefault();
@@ -1992,6 +2006,12 @@ if($musicSet['type_listen'] == 'playlist') {
         }
 
         <?php
+        }else{
+            ?>
+            $('.box_form_comment, .list_comment').on("focus","textarea", function(){
+                switchAuth('myModal_login');
+            });
+            <?php
         }
         ?>
         /////////////////////////////
