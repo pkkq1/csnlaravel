@@ -28,8 +28,7 @@ class MusicDownloadController extends Controller
     public function syncMusicDownload() {
         $cache = $this->musicRepository->getQueryPublished()
             ->where('cover_id', '>', 0)
-            ->select('music_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_download_time', 'music_last_update_time', 'music_title_url',
-                'music_title_search', 'music_artist_search', 'music_album_search', 'music_composer', 'music_album', 'music_listen', 'music_track_id', 'music_track_id', 'music_filename', 'music_bitrate', 'music_shortlyric', 'music_last_update_time', 'music_time')
+            ->select('music_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_download_time', 'music_last_update_time', 'music_title_url', 'music_artist_search', 'music_album_search', 'music_composer', 'music_album', 'music_listen', 'music_track_id', 'music_track_id', 'music_filename', 'music_bitrate', 'music_shortlyric', 'music_last_update_time', 'music_time')
             ->orderBy('music_download_time', 'desc')
             ->limit(20)->get();
         $download_rows = $cache->toArray();
