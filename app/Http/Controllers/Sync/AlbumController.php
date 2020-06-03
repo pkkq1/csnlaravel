@@ -89,7 +89,7 @@ class AlbumController extends Controller
             ];
         }
         $music_new_uploads_tmp = $this->musicRepository->getQueryPublished()->select('music_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_download_time', 'music_last_update_time', 'music_title_url',
-             'music_artist_search', 'music_album_search', 'music_composer', 'music_album', 'music_listen', 'music_track_id', 'music_track_id', 'music_filename', 'music_bitrate', 'music_shortlyric', 'music_last_update_time', 'music_time')
+              'music_composer', 'music_album', 'music_listen', 'music_track_id', 'music_track_id', 'music_filename', 'music_bitrate', 'music_shortlyric', 'music_last_update_time', 'music_time')
 //            ->groupBy('music_artist_id')
             ->orderBy('music_year', 'desc')
             ->orderBy('music_id', 'desc')
@@ -113,7 +113,7 @@ class AlbumController extends Controller
         }
         $video_new_uploads = $this->videoRepository->getModel()::orderBy('music_last_update_time', 'desc')
             ->select('music_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_download_time', 'music_last_update_time', 'music_title_url',
-                'music_artist_search', 'music_album_search', 'music_composer', 'music_album', 'music_listen', 'music_track_id', 'music_track_id', 'music_filename', 'music_bitrate', 'music_shortlyric', 'music_last_update_time', 'music_length', 'music_time', 'music_width', 'music_height')
+                'music_composer', 'music_album', 'music_listen', 'music_track_id', 'music_track_id', 'music_filename', 'music_bitrate', 'music_shortlyric', 'music_last_update_time', 'music_length', 'music_time', 'music_width', 'music_height')
             ->limit(50)->get()->toArray();
         foreach ($video_new_uploads as $key => $item) {
             $video_new_uploads[$key]['cover_html'] = Helpers::thumbnail_url($item);

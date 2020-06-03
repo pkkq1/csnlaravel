@@ -284,7 +284,7 @@ class SolrSyncController extends Controller
         $searchVideo = [];
         if ($id) {
             if ($id < 1387001 or $id > 1419000) {
-                $searchVideo = VideoModel::select('music_id', 'music_artist_search', 'music_composer', 'music_album_search', 'music_title', 'music_artist', 'music_downloads_this_week', 'music_search_result',
+                $searchVideo = VideoModel::select('music_id', 'music_composer', 'music_title', 'music_artist', 'music_downloads_this_week', 'music_search_result',
                     'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_title_url', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_width', 'music_height', 'music_last_update_time', 'music_length', 'music_time', 'music_download_time')
                     ->where('cat_id', '=', CAT_VIDEO)
                     ->where('music_deleted', '<', 1)
@@ -299,14 +299,14 @@ class SolrSyncController extends Controller
                 $searchVideo[] = $videoItem;
             }
         } elseif ($time) {
-            $searchVideo = VideoModel::select('music_id', 'music_artist_search', 'music_composer', 'music_album_search', 'music_title', 'music_artist', 'music_downloads_this_week', 'music_search_result',
+            $searchVideo = VideoModel::select('music_id', 'music_composer', 'music_title', 'music_artist', 'music_downloads_this_week', 'music_search_result',
                 'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_title_url', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_width', 'music_height', 'music_last_update_time', 'music_length', 'music_time', 'music_download_time')
                 ->where([['cat_id', '=', CAT_VIDEO], ['music_deleted', '<', 1], ['music_id', '<', 1387001], [$field, '>', $time]])
                 ->orwhere([['cat_id', '=', CAT_VIDEO], ['music_deleted', '<', 1], ['music_id', '>', 1419000], [$field, '>', $time]])
                 ->orderBy('music_id', 'asc')
                 ->get();
         } elseif ( $limit > 0 ) {
-            $searchVideo = VideoModel::select('music_id', 'music_artist_search', 'music_composer', 'music_album_search', 'music_title', 'music_artist', 'music_downloads_this_week', 'music_search_result',
+            $searchVideo = VideoModel::select('music_id', 'music_composer', 'music_title', 'music_artist', 'music_downloads_this_week', 'music_search_result',
                 'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_title_url', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_width', 'music_height', 'music_last_update_time', 'music_length', 'music_time', 'music_download_time')
                 ->where([['cat_id', '=', CAT_VIDEO], ['music_deleted', '<', 1], ['music_id', '<', 1387001]])
                 ->orwhere([['cat_id', '=', CAT_VIDEO], ['music_deleted', '<', 1], ['music_id', '>', 1419000]])
@@ -315,7 +315,7 @@ class SolrSyncController extends Controller
                 ->orderBy('music_id', 'asc')
                 ->get();
         } else {
-            $searchVideo = VideoModel::select('music_id', 'music_artist_search', 'music_composer', 'music_album_search', 'music_title', 'music_artist', 'music_downloads_this_week', 'music_search_result',
+            $searchVideo = VideoModel::select('music_id', 'music_composer', 'music_title', 'music_artist', 'music_downloads_this_week', 'music_search_result',
                 'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_title_url', 'music_artist_id', 'music_album', 'music_listen', 'music_downloads', 'music_filename', 'music_bitrate', 'music_downloads_today', 'music_downloads_max_week', 'music_width', 'music_height', 'music_last_update_time', 'music_length', 'music_time', 'music_download_time')
                 ->where([['cat_id', '=', CAT_VIDEO], ['music_deleted', '<', 1], ['music_id', '>', intval($_GET['v_start'])], ['music_id', '<', 1387001]])
                 ->orwhere([['cat_id', '=', CAT_VIDEO], ['music_deleted', '<', 1], ['music_id', '>', intval($_GET['v_start'])], ['music_id', '>', 1419000]])
