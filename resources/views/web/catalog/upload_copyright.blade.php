@@ -97,7 +97,7 @@ $titleMeta = 'Danh sách nhạc bị cấm upload';
                 beforeSend: function () {
                     if(loaded) return false;
                     loaded = true;
-                    $('html,body').animate({ scrollTop: 0 }, 400);
+                    // $('html,body').animate({ scrollTop: 0 }, 400);
                 },
                 success: function(response) {
                     $('.tab_music_blocked').html(response);
