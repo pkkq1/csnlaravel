@@ -242,13 +242,13 @@
                 </div>
                 <div class="modal-body">
                     <div class="panel-body">
-                        <form class="col-md-12" id="form-login" action="#">
+                        <form class="col-md-12" id="form-login" action="javascript:authLogin();">
                             <div class="col-md-6 col-md-offset-2" style="display: table;float: left;">
                                 <div class="input-field">
                                     <input type="text" class="email" name="email" placeholder="Tên đăng nhập hoặc email" />
                                     <input type="password" class="password" name="password" placeholder="Mật khẩu" name="password"/>
                                     <div class="login_action">
-                                        <input type="checkbox" checked id="remember" name="remember" {{ old('remember') ? 'checked' : '' }}>
+                                        <input type="checkbox" checked id="remember" name="remember" onkeydown="if (event.keyCode == 13) return authLogin();" {{ old('remember') ? 'checked' : '' }}>
                                         <label style="cursor: pointer; display: inline;" for="remember"> Nhớ mật khẩu</label>
                                         <a href="javascript:void(0)" onclick="switchAuth('myModal_forgot')"  style=" margin-left: 15px; float:right; color: #888;">Quên mật khẩu?</a>
                                         <button onclick="authLogin()" class="btn btn-outline-success my-2 my-sm-0 waves-effect waves-light" type="submit">Đăng nhập</button>
@@ -291,7 +291,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="panel-body">
-                        <form class="col-md-12" action="#">
+                        <form class="col-md-12" action="javascript:authRegister();">
                             <div class="col-md-6 col-md-offset-2" style="display: table;float: left;">
                                 <div class="input-field">
                                     <input class="username" name="username" type="text" placeholder="Tên đăng nhập" />
@@ -345,7 +345,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="panel-body">
-                        <form class="col-md-12" action="#">
+                        <form class="col-md-12" action="javascript:authForgot();">
                             <div class="col-md-6 col-md-offset-2" style="display: table;float: left;">
                                 <div class="input-field">
                                     <input type="email" name="email" class="email" placeholder="Địa chỉ email" required="email" />
