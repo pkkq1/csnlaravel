@@ -367,7 +367,8 @@ if ($caption == 'Video Clip') {
             if(!urlFloat) {
                 var page = parseFloat(url.substr(url.indexOf("?page=") + 6));
                 page = isNaN(page) ? 1 : page;
-                window.history.pushState({}, '', window.location.pathname + '?tab=' + tab + (page != 1 ? '&page=' + page : ''));
+                let urlUp = window.location.pathname + '?tab=' + tab + (page != 1 ? '&page=' + page : '');
+                window.history.pushState({}, '', urlUp);
             }
         }
         if(urlFloat) {
@@ -375,6 +376,7 @@ if ($caption == 'Video Clip') {
             url = urlFloat;
             urlFloat = '';
         }
+
         if(($('#'+tab).html()).length == 0 || floatTab) {
             $.ajax({
                 url: window.location.origin + url,
@@ -399,6 +401,10 @@ if ($caption == 'Video Clip') {
                     });
                 }
             });
+        }else{
+            var numberPage = $('#' + tab + ' .pagination .active a').html();
+            let urlUp = window.location.pathname + '?tab=' + tab + (numberPage != 1 ? '&page=' + numberPage : '');
+            window.history.pushState({}, '', urlUp);
         }
     }
     <?php

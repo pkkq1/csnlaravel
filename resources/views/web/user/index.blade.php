@@ -29,349 +29,427 @@ $tabSelf = ($mySelf || (Auth::check() && Auth::user()->hasPermission('duyet_sua_
     <link rel="stylesheet" type="text/css" href="{{URL::to('/')}}/css/croppie.css">
 @endsection
 @section('content')
-@include('web.user.box_profile', ['user' => $user, 'mySelf' => $mySelf, 'float_edit' => true])
-<div class="container">
-    <div class="row row_wrapper">
-        <div class="col-md-9">
-            <div class="tabs tabs-style-line tab-category">
-                <nav>
-                    <ul>
-                        @if($tabSelf)
-                        <li class="tu-nhac"><a class="tu-nhac" href="#uploaded" onclick="musicUserTab('musicUploaded')" ><span>Tủ nhạc</span></a></li>
-                        @endif
-                        <li class="playlist"><a class="playlist" onclick="userTab('playlist', '/user/music_playlist')" href="#playlist"><span>Playlist</span></a></li>
-                        <li class="music"><a class="music" onclick="userTab('music', '/user/music_favourite')" href="#music"><span><i class="material-icons" style="font-size: 11px;">favorite_border</i> Bài Hát</span></a></li>
-                        <li class="video"><a class="video" onclick="userTab('video', '/user/video_favourite')" href="#video"><span><i class="material-icons" style="font-size: 11px;">favorite_border</i> Video</span></a></li>
-                        <li class="artist"><a class="artist" onclick="userTab('artist', '/user/artist_favourite')" href="#artist"><span><i class="material-icons" style="font-size: 11px;">favorite_border</i> Ca Sĩ</span></a></li>
-                        @if($tabSelf)
-                        <li class="report"><a class="report" href="#report" onclick="userTab('report', '/user/report_tab')" ><span>Phản Hồi</span></a></li>
-                        @endif
-                        @if($mySelf && Auth::check() && Auth::user()->hasPermission('duyet_sua_nhac'))
-                            <li class="approval"><a class="approval" href="#approval" onclick="musicUserTab('music_approval')" ><span>Duyệt Nhạc</span></a></li>
-                        @endif
+    @include('web.user.box_profile', ['user' => $user, 'mySelf' => $mySelf, 'float_edit' => true])
+    <div class="container">
+        <div class="row row_wrapper">
+            <div class="col-md-9">
+                <div class="tabs tabs-style-line tab-category">
+                    <nav>
+                        <ul>
+                            @if($tabSelf)
+                                <li class="tu-nhac"><a class="tu-nhac" href="#uploaded" onclick="musicUserTab('musicUploaded')" ><span>Tủ nhạc</span></a></li>
+                            @endif
+                            <li class="playlist"><a class="playlist" onclick="userTab('playlist', '/user/music_playlist')" href="#playlist"><span>Playlist</span></a></li>
+                            <li class="music"><a class="music" onclick="userTab('music', '/user/music_favourite')" href="#music"><span><i class="material-icons" style="font-size: 11px;">favorite_border</i> Bài Hát</span></a></li>
+                            <li class="video"><a class="video" onclick="userTab('video', '/user/video_favourite')" href="#video"><span><i class="material-icons" style="font-size: 11px;">favorite_border</i> Video</span></a></li>
+                            <li class="artist"><a class="artist" onclick="userTab('artist', '/user/artist_favourite')" href="#artist"><span><i class="material-icons" style="font-size: 11px;">favorite_border</i> Ca Sĩ</span></a></li>
+                            @if($tabSelf)
+                                <li class="report"><a class="report" href="#report" onclick="userTab('report', '/user/report_tab')" ><span>Phản Hồi</span></a></li>
+                            @endif
+                            @if($mySelf && Auth::check() && Auth::user()->hasPermission('duyet_sua_nhac'))
+                                <li class="duyet-nhac"><a class="duyet-nhac" href="#approval" onclick="musicUserTab('music_approval')" ><span>Duyệt Nhạc</span></a></li>
+                            @endif
 
-                    </ul>
-                </nav>
-                <div class="content-wrap tab-content-category">
-                    @if($tabSelf)
-                    <section id="uploaded"></section>
-                    @endif
-                    <section id="playlist"></section>
-                    <section id="music"></section>
-                    <section id="video"></section>
-                    <section id="artist"></section>
-                    <section id="report"></section>
-                    <section id="approval"></section>
+                        </ul>
+                    </nav>
+                    <div class="content-wrap tab-content-category">
+                        @if($tabSelf)
+                            <section id="uploaded"></section>
+                        @endif
+                        <section id="playlist"></section>
+                        <section id="music"></section>
+                        <section id="video"></section>
+                        <section id="artist"></section>
+                        <section id="report"></section>
+                        <section id="approval"></section>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-3">
-            @include('web.layouts.right_banner')
+            <div class="col-md-3">
+                @include('web.layouts.right_banner')
+            </div>
         </div>
     </div>
-</div>
 @endsection
 @section('contentJS')
-<script src="/js/cbpFWTabs.js"></script>
-<!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
-    <div class="modal-dialog modal-sm">
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-body">
-                <p>Some text in the modal.</p>
+    <script src="/js/cbpFWTabs.js"></script>
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-sm">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-body">
+                    <p>Some text in the modal.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="close" data-dismiss="modal">×</button>
-            </div>
-        </div>
 
+        </div>
     </div>
-</div>
-<style>
-    .pagination {
-        margin: 0px;
-    }
-</style>
-<script>
-    (function() {
-        [].slice.call( document.querySelectorAll( '.tabs' ) ).forEach( function( el ) {
-            new CBPFWTabs( el );
-        });
-    })();
-    var firstUploaded = true;
-    var firstApproval = true;
-    var firstReport = true;
-    function musicUserTab(tab) {
-        let urlCurrent = window.location.origin + window.location.pathname;
-        if(tab == 'music_approval') {
-            history.pushState({urlPath: urlCurrent + '?tab=approval'},"", urlCurrent + '?tab=approval');
-            // $('.tab-content-category').find('.content-current').removeClass('content-current');
-            // $('#approval').addClass('content-current');
-        }else{
-            history.pushState({urlPath: urlCurrent + '?tab=tu-nhac'},"", urlCurrent + '?tab=tu-nhac');
-            // $('.tab-content-category').find('.content-current').removeClass('content-current');
-            // $('#upload').addClass('content-current');
+    <style>
+        .pagination {
+            margin: 0px;
         }
-        if(tab == 'musicUploaded' && firstUploaded) {
-            firstUploaded = false;
-            $.ajax({
-                url: '/user/open_tab_uploaded',
-                type: "POST",
-                dataType: "html",
-                data: {},
-                async: false,
-                beforeSend: function () {
-                    if(loaded) return false;
-                    loaded = true;
-                },
-                success: function(response) {
-                    $('#uploaded').html(response);
-                    loaded = false;
-                    musicUploaded('/user/music_uploaded', 'upload', 'fullcensor');
-                }
+    </style>
+    <script>
+        (function() {
+            [].slice.call( document.querySelectorAll( '.tabs' ) ).forEach( function( el ) {
+                new CBPFWTabs( el );
             });
-        }
-        if(tab == 'music_approval' && firstApproval) {
-            firstApproval = false;
-            $.ajax({
-                url: '/user/open_tab_approval',
-                type: "POST",
-                dataType: "html",
-                data: {},
-                async: false,
-                beforeSend: function () {
-                    if(loaded) return false;
-                    loaded = true;
-                },
-                success: function(response) {
-                    $('#approval').html(response);
-                    loaded = false;
-                    musicUploaded('/user/music_uploaded', 'approval', 'fullconvert');
-                }
-            });
-        }
-    }
-    function musicUploaded(url, page, stage) {
-        $.ajax({
-            url: url,
-            type: "POST",
-            dataType: "html",
-            data: {
-                'page_tab' : page,
-                'stage' : stage,
-                'user_id' : '<?php echo $user->id ?>'
-            },
-            async: false,
-            beforeSend: function () {
-                waitingDialog.show();
-                if(loaded) return false;
-                loaded = true;
-            },
-            success: function(response) {
-                waitingDialog.hide();
-                if(page == 'upload') {
-                    $('.upload_content_stage_' + stage).html(response);
-                    $('.upload_content_stage_' + stage).find('.pagination li a').on('click', function (e) {
-                        e.preventDefault();
-                        musicUploaded($(this).attr('href'), 'upload', $(this).parents().parents().parents().data('page'));
+        })();
+        var firstUploaded = true;
+        var firstApproval = true;
+        var firstReport = true;
+        var lastSubTabUpload = '';
+        var lastSubTabApproval = '';
+        <?php
+        $sub_tab = (isset($_GET['tab'], $_GET['sub_tab']) && $_GET['tab'] == 'tu-nhac') ? $_GET['sub_tab'] : 'da-duyet';
+        $sub_tab2 = (isset($_GET['tab'], $_GET['sub_tab']) && $_GET['tab'] == 'duyet-nhac') ? $_GET['sub_tab'] : 'cho-duyet';
+        ?>
+        function musicUserTab(tab) {
+            // let urlCurrent = window.location.origin + window.location.pathname;
+            // let pageUrl = '';
+            // if(page > 1) {
+            //     pageUrl = '&page=' + page;
+            // }
+            // history.pushState({urlPath: urlCurrent + '?tab=' + stage + pageUrl},"", urlCurrent + '?tab=' + stage + pageUrl);
+            if(firstUploaded) {
+
+            }
+            if(tab == 'musicUploaded') {
+                if(firstUploaded) {
+                    firstUploaded = false;
+                    $.ajax({
+                        url: '/user/open_tab_uploaded',
+                        type: "POST",
+                        dataType: "html",
+                        data: {},
+                        async: false,
+                        beforeSend: function () {
+                            if(loaded) return false;
+                            loaded = true;
+                        },
+                        success: function(response) {
+                            $('#uploaded').html(response);
+                            loaded = false;
+                            $( document ).ready(function() {
+                                let key = $('#uploaded').find('.<?php echo $sub_tab ?>').data('key');
+                                let page = 1;
+                                if(location.search.indexOf("tab=tu-nhac") > 0) {
+                                    page = findGetParameter('page', 1);
+                                }
+                                lastSubTabUpload = '<?php echo $sub_tab ?>';
+                                $('#uploaded li.<?php echo $sub_tab ?>').addClass('tab-current');
+                                $('#uploaded .upload_content_stage_'+key).addClass('content-current');
+                                musicUploaded('/user/music_uploaded' + (page == 1 ? '' : '?page=' + page), 'upload', key, '<?php echo $sub_tab ?>');
+                            });
+                        }
                     });
-                }else {
-                    $('.approval_content_stage_' + stage).html(response);
-                    $('.approval_content_stage_' + stage).find('.pagination li a').on('click', function (e) {
-                        e.preventDefault();
-                        musicUploaded($(this).attr('href'), 'approval', $(this).parents().parents().parents().data('page'));
-                    });
+                }else{
+                    let urlCurrent = window.location.origin + window.location.pathname;
+                    var page = $('#uploaded .content-current .pagination .active .page-link').html();
+                    let pageUrl = (page == 1 ? '' : '&page=' + page);
+                    let urlUpdate = urlCurrent + '?tab=tu-nhac&sub_tab=' + lastSubTabUpload + pageUrl;
+                    history.pushState({urlPath: urlUpdate}, "", urlUpdate);
                 }
             }
-        });
-    }
-    function userTab(tab, url, float = false) {
-        let urlCurrent = window.location.origin + window.location.pathname;
-        history.pushState({urlPath: urlCurrent + '?tab=' + tab},"", urlCurrent + '?tab=' + tab)
-        var tabContent = $('#' + tab);
-        if(tabContent.html().length == 0 || float) {
+            if(tab == 'music_approval') {
+                if(firstApproval) {
+                    firstApproval = false;
+                    $.ajax({
+                        url: '/user/open_tab_approval',
+                        type: "POST",
+                        dataType: "html",
+                        data: {},
+                        async: false,
+                        beforeSend: function () {
+                            if(loaded) return false;
+                            loaded = true;
+                        },
+                        success: function(response) {
+                            $('#approval').html(response);
+                            loaded = false;
+                            $( document ).ready(function() {
+                                let key = $('#approval').find('.<?php echo $sub_tab2 ?>').data('key');
+                                let page = 1;
+                                if(location.search.indexOf("tab=duyet-nhac") > 0) {
+                                    page = findGetParameter('page', 1);
+                                }
+                                lastSubTabApproval = '<?php echo $sub_tab2 ?>';
+                                $('#approval li.<?php echo $sub_tab2 ?>').addClass('tab-current');
+                                $('#approval .approval_content_stage_'+key).addClass('content-current');
+                                musicUploaded('/user/music_uploaded' + (page == 1 ? '' : '?page=' + page), 'approval', $('#approval').find('.<?php echo $sub_tab2 ?>').data('key'), '<?php echo $sub_tab2 ?>');
+                            });
+                        }
+                    });
+                }else{
+                    let urlCurrent = window.location.origin + window.location.pathname;
+                    var page = $('#approval .content-current .pagination .active .page-link').html();
+                    let pageUrl = (page == 1 ? '' : '&page=' + page);
+                    let urlUpdate = urlCurrent + '?tab=duyet-nhac&sub_tab=' + lastSubTabUpload + pageUrl;
+                    history.pushState({urlPath: urlUpdate}, "", urlUpdate);
+                }
+            }
+        }
+        function musicUploaded(url, page, stage, subTab) {
+            let pageUrl = '';
+            let urlCurrent = window.location.origin + window.location.pathname;
+            let tab = (page == 'upload' ? 'tu-nhac' : 'duyet-nhac');
+            if(url.indexOf("page=") > 0) {
+                pageUrl = '&page=' + url.substr(url.indexOf("page=") + 5)
+            }
+            let urlUpdate = urlCurrent + '?tab=' + tab + '&sub_tab=' + subTab + pageUrl;
+            history.pushState({urlPath: urlUpdate}, "", urlUpdate);
             $.ajax({
                 url: url,
                 type: "POST",
                 dataType: "html",
                 data: {
-                    'user_id': '<?php echo $user->user_id ?>'
+                    'page_tab' : page,
+                    'stage' : stage,
+                    'user_id' : '<?php echo $user->id ?>'
+                },
+                async: false,
+                beforeSend: function () {
+                    waitingDialog.show();
+                    if(loaded) return false;
+                    loaded = true;
+                },
+                success: function(response) {
+                    waitingDialog.hide();
+                    if(page == 'upload') {
+                        $('.upload_content_stage_' + stage).html(response);
+                        $('.upload_content_stage_' + stage).find('.pagination li a').on('click', function (e) {
+                            e.preventDefault();
+                            musicUploaded($(this).attr('href'), 'upload', $(this).parents().parents().parents().data('page'), subTab);
+                        });
+                    }else {
+                        $('.approval_content_stage_' + stage).html(response);
+                        $('.approval_content_stage_' + stage).find('.pagination li a').on('click', function (e) {
+                            e.preventDefault();
+                            musicUploaded($(this).attr('href'), 'approval', $(this).parents().parents().parents().data('page'), subTab);
+                        });
+                    }
+                }
+            });
+        }
+        function userTab(tab, url, float = false) {
+            let urlCurrent = window.location.origin + window.location.pathname;
+            history.pushState({urlPath: urlCurrent + '?tab=' + tab},"", urlCurrent + '?tab=' + tab);
+            var tabContent = $('#' + tab);
+            if(tabContent.html().length == 0 || float) {
+                $.ajax({
+                    url: url,
+                    type: "POST",
+                    dataType: "html",
+                    data: {
+                        'user_id': '<?php echo $user->user_id ?>'
+                    },
+                    beforeSend: function () {
+                        if(loaded) return false;
+                        loaded = true;
+                    },
+                    success: function(response) {
+                        tabContent.html(response);
+                        tabContent.find('.pagination li a').on('click', function (e) {
+                            e.preventDefault();
+                            userTab(tab, $(this).attr('href'), true);
+                        });
+                        if(tab == 'report') {
+                            $('.reply_report').on('click', function () {
+                                var reply = $('.post_comment_reply_' + $(this).data('report-id'));
+                                if (!reply.hasClass('reply_show')) {
+                                    $('.post_comment_reply').removeClass('reply_show');
+                                    reply.addClass('reply_show');
+                                    $(this).html('Ẩn (' + $(this).data('report-count') + ')');
+                                } else {
+                                    reply.removeClass('reply_show');
+                                    $(this).html('Hiển Thị (' + $(this).data('report-count') + ')');
+                                }
+                                reply.find('textarea').trigger('focus');
+                            });
+                            $('.box_form_report').submit(false);
+                            $('.list_comment .pagination li a').on('click', function (e) {
+                                e.preventDefault();
+                            });
+                        }
+                    }
+                });
+            }
+
+        }
+        function favourite(title, type, music_id) {
+            <?php
+            if(!Auth::check()) {
+            ?>
+            switchAuth('myModal_login');
+            return false;
+                <?php
+                }
+                ?>
+            let falgFav = $('.wishlist-' + music_id).hasClass('selector');
+            $.ajax({
+                url: type == 'artist' ? '/ca-si/favorite' : '/music/favourite',
+                type: "POST",
+                dataType: "json",
+                data: {
+                    'type': falgFav,
+                    'type_of': type,
+                    'name': title,
+                    'music_id' : music_id,
+                    'artist_id' : music_id,
                 },
                 beforeSend: function () {
                     if(loaded) return false;
                     loaded = true;
                 },
                 success: function(response) {
-                    tabContent.html(response);
-                    tabContent.find('.pagination li a').on('click', function (e) {
-                        e.preventDefault();
-                        userTab(tab, $(this).attr('href'), true);
-                    });
-                    if(tab == 'report') {
-                        $('.reply_report').on('click', function () {
-                            var reply = $('.post_comment_reply_' + $(this).data('report-id'));
-                            if (!reply.hasClass('reply_show')) {
-                                $('.post_comment_reply').removeClass('reply_show');
-                                reply.addClass('reply_show');
-                                $(this).html('Ẩn (' + $(this).data('report-count') + ')');
-                            } else {
-                                reply.removeClass('reply_show');
-                                $(this).html('Hiển Thị (' + $(this).data('report-count') + ')');
-                            }
-                            reply.find('textarea').trigger('focus');
-                        });
-                        $('.box_form_report').submit(false);
-                        $('.list_comment .pagination li a').on('click', function (e) {
-                            e.preventDefault();
-                        });
+                    if(response.success) {
+                    }else {
+                        alertModal(data.message);
                     }
                 }
             });
+            $('.wishlist-' + music_id).toggleClass('selector');
         }
 
-    }
-    function favourite(title, type, music_id) {
-        <?php
-        if(!Auth::check()) {
-        ?>
-        switchAuth('myModal_login');
-        return false;
-        <?php
-        }
-        ?>
-        let falgFav = $('.wishlist-' + music_id).hasClass('selector');
-        $.ajax({
-            url: type == 'artist' ? '/ca-si/favorite' : '/music/favourite',
-            type: "POST",
-            dataType: "json",
-            data: {
-                'type': falgFav,
-                'type_of': type,
-                'name': title,
-                'music_id' : music_id,
-                'artist_id' : music_id,
-            },
-            beforeSend: function () {
-                if(loaded) return false;
-                loaded = true;
-            },
-            success: function(response) {
-                if(response.success) {
-                }else {
-                    alertModal(data.message);
+        function pupop_qr_code() {
+            $.ajax({
+                url: '/user/qr_code',
+                type: "POST",
+                dataType: "html",
+                data: {
+                },
+                beforeSend: function () {
+                    if(loaded) return false;
+                    loaded = true;
+                },
+                success: function(response) {
+                    confirmModal(response + '<p>Thời gian tồn tại Qr code: <span id="time">05:00</span></p>', 'QR Code đăng nhập', 'modal-sm');
+                    $('.btn-ok').addClass('hidden');
+                    $('.close_confirm').html('Đóng');
+                    var fiveMinutes = 60 * 5,
+                        display = document.querySelector('#time');
+                    startTimer(fiveMinutes, display);
                 }
+            });
+        }
+        function startTimer(duration, display) {
+            var timer = duration, minutes, seconds;
+            setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    timer = duration;
+                    $('.close_confirm').click()
+                }
+            }, 1000);
+        }
+        function postReport(formId) {
+            var textArea = $('.form-report-' + formId);
+            if(!textArea.find('textarea').val()) {
+                alertModal('Chưa nhập nội dung báo lỗi.');
+                return false;
             }
-        });
-        $('.wishlist-' + music_id).toggleClass('selector');
-    }
-
-    function pupop_qr_code() {
-        $.ajax({
-            url: '/user/qr_code',
-            type: "POST",
-            dataType: "html",
-            data: {
-            },
-            beforeSend: function () {
-                if(loaded) return false;
-                loaded = true;
-            },
-            success: function(response) {
-                confirmModal(response + '<p>Thời gian tồn tại Qr code: <span id="time">05:00</span></p>', 'QR Code đăng nhập', 'modal-sm');
-                $('.btn-ok').addClass('hidden');
-                $('.close_confirm').html('Đóng');
-                var fiveMinutes = 60 * 5,
-                    display = document.querySelector('#time');
-                startTimer(fiveMinutes, display);
-            }
-        });
-    }
-    function startTimer(duration, display) {
-        var timer = duration, minutes, seconds;
-        setInterval(function () {
-            minutes = parseInt(timer / 60, 10);
-            seconds = parseInt(timer % 60, 10);
-
-            minutes = minutes < 10 ? "0" + minutes : minutes;
-            seconds = seconds < 10 ? "0" + seconds : seconds;
-
-            display.textContent = minutes + ":" + seconds;
-
-            if (--timer < 0) {
-                timer = duration;
-                $('.close_confirm').click()
-            }
-        }, 1000);
-    }
-    function postReport(formId) {
-        var textArea = $('.form-report-' + formId);
-        if(!textArea.find('textarea').val()) {
-            alertModal('Chưa nhập nội dung báo lỗi.');
+            $.ajax({
+                url: window.location.origin + "/user/reply_report_content/post",
+                type: "POST",
+                dataType: "html",
+                data: {
+                    'content': textArea.find('textarea').val(),
+                    'reply_type': textArea.find('textarea').data('report-type'),
+                    'report_id': textArea.find('textarea').data('report-id')
+                },
+                beforeSend: function () {
+                    textArea.find('textarea').val('');
+                    if(loaded) return false;
+                    loaded = true;
+                },
+                statusCode: {
+                    401: function(){
+                        window.location.replace('/login');
+                        return false;
+                    }
+                },
+                success: function(response) {
+                    $('.comment-reply-' + formId).append(response);
+                    let numberReport = parseInt($('#report-' + formId).find('.reply_report').data('report-count')) + 1;
+                    $('#report-' + formId).find('.reply_report').data('report-count', numberReport);
+                    $('#report-' + formId).find('.reply_report').html('Ẩn (' + numberReport + ')');
+                    $('.box_form_comment').submit(false);
+                }
+            });
             return false;
         }
-        $.ajax({
-            url: window.location.origin + "/user/reply_report_content/post",
-            type: "POST",
-            dataType: "html",
-            data: {
-                'content': textArea.find('textarea').val(),
-                'reply_type': textArea.find('textarea').data('report-type'),
-                'report_id': textArea.find('textarea').data('report-id')
-            },
-            beforeSend: function () {
-                textArea.find('textarea').val('');
-                if(loaded) return false;
-                loaded = true;
-            },
-            statusCode: {
-                401: function(){
-                    window.location.replace('/login');
-                    return false;
+        function musicUploadTab(tab, page, subTab) {
+            $('#uploaded').find('.tab-current').removeClass('tab-current');
+            $('.' + tab).addClass('tab-current');
+            $('#uploaded').find('.content-current').removeClass('content-current');
+            $('#' + tab).addClass('content-current');
+            lastSubTabUpload = subTab;
+            var numberPage = $('#' + tab + ' .pagination .active .page-link').html();
+            if($('#' + tab).html().length == 0) {
+                musicUploaded('/user/music_uploaded', 'upload', page, subTab);
+            }else{
+                let pageUrl = '';
+                let urlCurrent = window.location.origin + window.location.pathname;
+                let tab = 'upload';
+                if (typeof numberPage !== "undefined") {
+                    pageUrl = '&page=' + numberPage;
                 }
-            },
-            success: function(response) {
-                $('.comment-reply-' + formId).append(response);
-                let numberReport = parseInt($('#report-' + formId).find('.reply_report').data('report-count')) + 1;
-                $('#report-' + formId).find('.reply_report').data('report-count', numberReport);
-                $('#report-' + formId).find('.reply_report').html('Ẩn (' + numberReport + ')');
-                $('.box_form_comment').submit(false);
+                let urlUpdate = urlCurrent + '?tab=tu-nhac&sub_tab=' + subTab + pageUrl;
+                history.pushState({urlPath: urlUpdate}, "", urlUpdate);
             }
-        });
-        return false;
-    }
-    function musicUploadTab(tab, page) {
-        $('#uploaded').find('.tab-current').removeClass('tab-current');
-        $('.' + tab).addClass('tab-current');
-        $('#uploaded').find('.content-current').removeClass('content-current');
-        $('#' + tab).addClass('content-current');
-        if($('#' + tab).html().length == 0) {
-            musicUploaded('/user/music_uploaded', 'upload', page);
         }
-    }
-    function musicApprovalTab(tab, page) {
-        $('#approval').find('.tab-current').removeClass('tab-current');
-        $('.' + tab).addClass('tab-current');
-        $('#approval').find('.content-current').removeClass('content-current');
-        $('#' + tab).addClass('content-current');
-        if($('#' + tab).html().length == 0) {
-            musicUploaded('/user/music_uploaded', 'approval', page);
+        function musicApprovalTab(tab, page, subTab) {
+            $('#approval').find('.tab-current').removeClass('tab-current');
+            $('.' + tab).addClass('tab-current');
+            $('#approval').find('.content-current').removeClass('content-current');
+            $('#' + tab).addClass('content-current');
+            lastSubTabApproval = subTab;
+            var numberPage = $('#' + tab + ' .pagination .active .page-link').html();
+            if($('#' + tab).html().length == 0) {
+                musicUploaded('/user/music_uploaded', 'approval', page, subTab);
+            }else{
+                let pageUrl = '';
+                let urlCurrent = window.location.origin + window.location.pathname;
+                let tab = 'upload';
+                if (typeof numberPage !== "undefined") {
+                    pageUrl = '&page=' + numberPage;
+                }
+                let urlUpdate = urlCurrent + '?tab=duyet-nhac&sub_tab=' + subTab + pageUrl;
+                history.pushState({urlPath: urlUpdate}, "", urlUpdate);
+            }
         }
-    }
-    <?php
-    if(isset($_GET['tab'])) {
-    ?>
-    $( document ).ready(function() {
-        $('.<?php echo $_GET['tab'] ?>').click();
-    });
-    <?php
-    }else{
-    ?>
-    $( document ).ready(function() {
+        $( document ).ready(function() {
+        <?php
+        if(isset($_GET['tab'])) {
+        ?>
+            let issetClassProfile = false;
+            $(".tab-category li").each(function() {
+                if($(this).hasClass('<?php echo $_GET['tab'] ?>'))
+                    issetClassProfile = true;
+            });
+            if(issetClassProfile) {
+                $('.<?php echo $_GET['tab'] ?>').click();
+            }else{
+                $('.tab-category').find('.tab-current a').click()
+            }
+        <?php
+        }else{
+        ?>
         $('.tab-category').find('.tab-current a').click()
-    });
-    <?php
-    }
-    ?>
-</script>
+        <?php
+        }
+        ?>
+        });
+    </script>
 @endsection
