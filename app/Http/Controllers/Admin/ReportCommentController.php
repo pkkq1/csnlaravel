@@ -15,13 +15,18 @@ use Backpack\CRUD\app\Http\Requests\CrudRequest as StoreRequest;
 use Backpack\CRUD\app\Http\Requests\CrudRequest as UpdateRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Models\PermissionUserModel;
+use App\Repositories\Notification\NotificationEloquentRepository;
 use DB;
 
 
 class ReportCommentController extends CrudController
 {
-    public function __construct()
+    protected $NotificationRepository;
+
+    public function __construct(NotificationEloquentRepository $NotificationRepository)
     {
+        $this->NotificationRepository = $NotificationRepository;
+
         $this->middleware(function ($request, $next)
         {
             $this->crud->denyAccess(['create']);
@@ -231,6 +236,9 @@ class ReportCommentController extends CrudController
         if(($request->status_old != $item->status) & ($item->notifi_read == 0)) {
             $item->notifi_read = 1;
             $item->save();
+            if(ENABLE_NOTIFICATION == 1) {
+                $this->NotificationRepository->pushNotif($item->by_user_id, $item->id, 'comment', 'Báo cáo bình luận của bạn đã phản hồi');
+            }
         }
         $this->data['entry'] = $this->crud->entry = $item;
         // show a success message

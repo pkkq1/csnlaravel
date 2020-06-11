@@ -57,6 +57,11 @@ $titleMeta = $title.' - '. Config::get('constants.app.title');
             musicPage($(this).attr('href'));
         });
         function musicPage(url) {
+            var page = parseFloat(url.substr(url.indexOf("?page=") + 6));
+            page = isNaN(page) ? 1 : page;
+            let pageurl = page == 1 ? '' : '?page=' + page;
+            let urlUp = window.location.pathname + pageurl;
+            window.history.pushState({}, '', urlUp);
             $.ajax({
                 url: window.location.origin + url,
                 type: "POST",

@@ -21,6 +21,12 @@
                 </form>
                 <ul class="list-inline m-0">
                     @if(Auth::check())
+                        <?php
+                            $notify = Auth::user()->notifyCount();
+                        ?>
+                        @if($notify > 0)
+                            <li class="list-inline-item"><i class="fa fa-bell" aria-hidden="true"></i></li>
+                        @endif
                         <li class="list-inline-item wapper-name"><a href="{{env('APP_URL')}}/user/{{Auth::user()->id}}" title="{{Auth::user()->name}}">{{Auth::user()->name}}</a></li>
                         <li class="list-inline-item">/</li>
                         <li class="list-inline-item"><a href="{{env('APP_URL')}}/logout" title="Đăng ký">Thoát</a></li>

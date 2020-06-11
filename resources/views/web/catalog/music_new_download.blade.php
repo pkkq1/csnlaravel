@@ -80,14 +80,15 @@ $titleMeta = $title.' - '. Config::get('constants.app.title');
         function categoryTab(url, tab, floatTab = false, pushHistory = true) {
             if(reloadFloat) {
                 reloadFloat = false;
-                // var page = parseFloat(window.location.search.substr(window.location.search.indexOf("&page=") + 6));
-                // page = isNaN(page) ? 1 : page;
-                // url = url + '?page=' + page;
+                var page = parseFloat(window.location.search.substr(window.location.search.indexOf("&page=") + 6));
+                page = isNaN(page) ? 1 : page;
+                url = url + '?page=' + page;
             }else{
                 if(!urlFloat) {
                     var page = parseFloat(url.substr(url.indexOf("?page=") + 6));
-                    page = isNaN(page) ? '' : '?page=' + page;
-                    window.history.pushState({}, '', window.location.origin + '/' +tab + '.html' + page);
+                    page = isNaN(page) ? 1 : page;
+                    let urlUp = window.location.pathname + '?tab=' + tab + (page != 1 ? '&page=' + page : '');
+                    window.history.pushState({}, '', urlUp);
                 }
             }
             if(urlFloat) {
@@ -117,8 +118,25 @@ $titleMeta = $title.' - '. Config::get('constants.app.title');
                         });
                     }
                 });
+            }else{
+                var numberPage = $('#' + tab + ' .pagination .active a').html();
+                if(typeof numberPage == "undefined")
+                    numberPage = $('#' + tab + ' .pagination .active span').html();
+                let urlUp = window.location.pathname + '?tab=' + tab + (numberPage != 1 ? '&page=' + numberPage : '');
+                window.history.pushState({}, '', urlUp);
             }
         }
+        <?php
+        if(isset($_GET['tab'])) {
+        ?>
+        $( document ).ready(function() {
+            reloadFloat = true;
+            $('.<?php echo $_GET['tab'] ?>').parent().click();
+            $('.<?php echo $_GET['tab'] ?>').click();
+        });
+        <?php
+        }
+        ?>
     </script>
 @endsection
 

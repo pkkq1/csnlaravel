@@ -68,7 +68,29 @@ $avtArtist = $artist->artist_avatar ? Helpers::file_path($artist->artist_id, PUB
             e.preventDefault();
             artistTab(($(this).attr('href')), 'music', true);
         });
+        var urlFloat = '';
+        var reloadFloat = false;
         function artistTab(url, tab, floatTab = false) {
+            if(reloadFloat) {
+                reloadFloat = false;
+                var page = parseFloat(window.location.search.substr(window.location.search.indexOf("&page=") + 6));
+                page = isNaN(page) ? 1 : page;
+                url = url + '?page=' + page;
+                console.log(url);
+            }else{
+                if(!urlFloat) {
+                    var page = parseFloat(url.substr(url.indexOf("?page=") + 6));
+                    page = isNaN(page) ? 1 : page;
+                    let urlUp = window.location.pathname + '?tab=' + tab + (page != 1 ? '&page=' + page : '');
+                    window.history.pushState({}, '', urlUp);
+                }
+            }
+            if(urlFloat) {
+                floatTab = true;
+                url = urlFloat;
+                urlFloat = '';
+            }
+
             if(($('#'+tab).html()).length == 0 || floatTab) {
                 $.ajax({
                     url: window.location.origin + url,
@@ -93,6 +115,10 @@ $avtArtist = $artist->artist_avatar ? Helpers::file_path($artist->artist_id, PUB
                         });
                     }
                 });
+            }else{
+                var numberPage = $('#' + tab + ' .pagination .active a').html();
+                let urlUp = window.location.pathname + '?tab=' + tab + (numberPage != 1 ? '&page=' + numberPage : '');
+                window.history.pushState({}, '', urlUp);
             }
         }
         $('.toggle_wishlist').click(function(e) {
@@ -142,6 +168,8 @@ $avtArtist = $artist->artist_avatar ? Helpers::file_path($artist->artist_id, PUB
         if(isset($_GET['tab'])) {
         ?>
         $( document ).ready(function() {
+            reloadFloat = true;
+            $('.<?php echo $_GET['tab'] ?>').parent().click();
             $('.<?php echo $_GET['tab'] ?>').click();
         });
         <?php

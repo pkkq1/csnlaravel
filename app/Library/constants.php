@@ -188,3 +188,4 @@ define('SHORT_TIME_7_DAY', 604800); // - 7 ngày
 define('SHORT_TIME_3_DAY', 259200); // - 3 ngày
 define('SHORT_TIME_1_DAY', 86400); // - 1 ngày
 define('LIMIT_SHOW_MUSICS_PLAYLIST', 100);
+define('ENABLE_NOTIFICATION', 1); // 1 to Enable, 2 to Disable

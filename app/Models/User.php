@@ -75,4 +75,8 @@ class User extends Authenticatable
     public function level() {
         return $this->belongsTo('App\Models\UserLevelModel', 'id', 'user_id')->first();
     }
+    public function notifyCount()
+    {
+        return $this->belongsTo('App\Models\NotificationModel', 'id', 'user_id')->where('read', 0)->count();
+    }
 }

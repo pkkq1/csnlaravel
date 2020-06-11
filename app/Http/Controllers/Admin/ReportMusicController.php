@@ -15,12 +15,17 @@ use Backpack\CRUD\app\Http\Requests\CrudRequest as StoreRequest;
 use Backpack\CRUD\app\Http\Requests\CrudRequest as UpdateRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Models\PermissionUserModel;
+use App\Repositories\Notification\NotificationEloquentRepository;
 use DB;
 
 class ReportMusicController extends CrudController
 {
-    public function __construct()
+    protected $NotificationRepository;
+
+    public function __construct(NotificationEloquentRepository $NotificationRepository)
     {
+        $this->NotificationRepository = $NotificationRepository;
+
         $this->middleware(function ($request, $next)
         {
             $this->crud->denyAccess(['create']);
@@ -214,7 +219,6 @@ class ReportMusicController extends CrudController
         $item = $this->crud->update($request->get($this->crud->model->getKeyName()),
             $request->except('save_action', '_token', '_method', 'current_tab', 'http_referrer', 'id', 'link_file_jw', 'url_music', 'report_option', 'report_text'));
 
-
         $contentReport = unserialize($item->report_text);
         if($request->report_text_new) {
             $contentReport[]['support'] = [
@@ -229,6 +233,9 @@ class ReportMusicController extends CrudController
         if(($request->status_old != $item->status) & ($item->notifi_read == 0)) {
             $item->notifi_read = 1;
             $item->save();
+            if(ENABLE_NOTIFICATION == 1) {
+                $this->NotificationRepository->pushNotif($item->by_user_id, $item->id, 'music', 'Báo cáo Nhạc của bạn đã phản hồi');
+            }
         }
         $this->data['entry'] = $this->crud->entry = $item;
         // show a success message
