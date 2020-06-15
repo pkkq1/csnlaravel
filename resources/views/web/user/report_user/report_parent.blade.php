@@ -16,15 +16,8 @@ use App\Models\ReportMusicModel;
         array_map(function ($item) use ($avatarUser, $Itemreply, $user) {
         $reportText = unserialize($item['report_text']);
         $reportTypeId = $item['report_type'].'-'.$item['id'];
-        if($item['notifi_read'] == 1) {
-            if($item['report_type'] == 'music') {
-                ReportCommentModel::where('id', $item['id'])->update(['notifi_read' => 0]);
-            }else{
-                ReportCommentModel::where('id', $item['id'])->update(['notifi_read' => 0]);
-            }
-        }
         ?>
-            <li class="media" id="report-<?php echo $reportTypeId ?>" style="width: 100%; padding: 10px 5px 5px 10px;border-bottom: 1px solid #a1a1a1; <?php echo $item['notifi_read'] == 1 ? 'background: #5f5d5d24;' : '' ?>">
+            <li class="media" data-status="<?php echo $item['notifi_read'] ?>" id="report-<?php echo $reportTypeId ?>" style="width: 100%; padding: 10px 5px 5px 10px;border-bottom: 1px solid #a1a1a1; <?php echo $item['notifi_read'] == 1 ? 'background: #5f5d5d24;' : '' ?>">
                 <a href="javascript:void(0)"><img class="mr-3" src="<?php echo $item['report_type'] == 'music' ? '/imgs/black-music-icon.jpg' : '/imgs/black-comment-icon.jpg' ?>" alt="test1234"></a>
                 <div class="media-body">
                     <div class="body_commnet">
@@ -33,7 +26,7 @@ use App\Models\ReportMusicModel;
                                 <i style="font-size: 12px"> <?php echo Helpers::timeElapsedString(strtotime($item['updated_at'])); ?></i>
                             </h5>
                         </div>
-                        <div class="reply_report" data-report-count="<?php echo count($reportText) ?>" data-report-id="<?php echo $reportTypeId ?>">Hiển Thị (<?php echo count($reportText) ?>)</div>
+                        <div class="reply_report" data-report-count="<?php echo count($reportText) ?>" onclick="showReport(<?php echo $item['id'] ?>, '<?php echo $item['report_type'] ?>')" data-report-id="<?php echo $reportTypeId ?>">Hiển Thị (<?php echo count($reportText) ?>)</div>
                     </div>
                     <div class="post_comment_reply post_comment_reply_<?php echo $reportTypeId ?>">
                         <br>
@@ -69,6 +62,8 @@ use App\Models\ReportMusicModel;
                             </div>
                         </form>
                         <br/>
+                        @else
+                            <i>Đã Đóng</i>
                         @endif
                     </div>
                 </div>

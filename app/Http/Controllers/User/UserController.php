@@ -21,6 +21,11 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use App\Repositories\ArtistFavourite\ArtistFavouriteRepository;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
+use App\Repositories\ReportComment\ReportCommentRepository;
+use App\Repositories\ReportMusic\ReportMusicRepository;
+use App\Repositories\Notification\NotificationEloquentRepository;
+use Illuminate\Pagination\LengthAwarePaginator;
+use DB;
 
 class UserController extends Controller
 {
@@ -33,12 +38,19 @@ class UserController extends Controller
     protected $playlistRepository;
     protected $artistFavouriteRepository;
     protected $qrCodeTokenRepository;
+    protected $reportCommentRepository;
+    protected $reportMusicRepository;
+    protected $notifyRepository;
 
-    public function __construct(UserEloquentRepository $userRepository, PlaylistEloquentRepository $playlistRepository, ArtistFavouriteRepository $artistFavouriteRepository, QrCodeTokenRepository $qrCodeTokenRepository)
+    public function __construct(UserEloquentRepository $userRepository, PlaylistEloquentRepository $playlistRepository, ArtistFavouriteRepository $artistFavouriteRepository, QrCodeTokenRepository $qrCodeTokenRepository, ReportCommentRepository $reportCommentRepository, ReportMusicRepository $reportMusicRepository,
+                                NotificationEloquentRepository $notifyRepository)
     {
         $this->userRepository = $userRepository;
         $this->playlistRepository = $playlistRepository;
         $this->qrCodeTokenRepository = $qrCodeTokenRepository;
+        $this->reportCommentRepository = $reportCommentRepository;
+        $this->reportMusicRepository = $reportMusicRepository;
+        $this->notifyRepository = $notifyRepository;
     }
 
     /**
@@ -145,6 +157,33 @@ class UserController extends Controller
             $result = $this->qrCodeTokenRepository->createQrCode(session()->getId(), Auth::user()->id);
             echo QrCode::size(250)->generate($result->token);
         }
+    }
+    public function reportUser(Request $request) {
+        $user_id = Auth::user()->user_id;
+        $page = $request->get('page', 1);
+        $paginate = LIMIT_PAGE_MUSIC_FAVOURITE;
+        $reportMusic = $this->reportMusicRepository->getModel()::where('by_user_id', $user_id)->select(DB::raw('id, 0 as comment_id, 0 as comment_type, report_option, music_id, report_text, music_name, 0 as comment_text, username, created_at, updated_at, status, notifi_read,\'music\' as report_type'));
+        $reportComment = $this->reportCommentRepository->getModel()::where('by_user_id', $user_id)->select(DB::raw('id, comment_id, comment_type, report_option, music_id, report_text, music_name, comment_text, username, created_at, updated_at, status, notifi_read,\'comment\' as report_type'));
+        $reportData = $reportMusic->union($reportComment)->orderBy('updated_at', 'desc')->get();
+        $slice = array_slice($reportData->toArray(), $paginate * ($page - 1), $paginate);
+        $result = new LengthAwarePaginator($slice, count($reportData), $paginate, null, ['path' => '/user/report_tab']);
+        return view('user.report_user.index', compact('result'));
+    }
+    function clickShowUserReport(Request $request) {
+        $idReport = $request->id;
+        $type = $request->type;
+        if($type == 'music') {
+            $data = $this->reportMusicRepository->getModel()::where([['id', $idReport], ['by_user_id', Auth::user()->id]])->first();
+        }else{
+            $data = $this->reportCommentRepository->getModel()::where([['id', $idReport], ['by_user_id', Auth::user()->id]])->first();
+        }
+        $data->notifi_read = 0;
+        $data->save();
+    }
+    public function showNotify(Request $request) {
+        $this->notifyRepository->getModel()::where('user_id', Auth::user()->id)->update([
+            'read' => 1
+        ]);
     }
 
 }

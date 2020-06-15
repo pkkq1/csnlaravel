@@ -1,3 +1,6 @@
+<?php
+use App\Library\Helpers;
+?>
 <header id="header" class="">
     <div class="top">
         <div class="container" style="position: relative;">
@@ -17,7 +20,29 @@
                             @include('cache.top_search')
                         </div>
                     </div>
-                    <a class="list-inline-item" style="position: relative; float:left; margin-left: 25px; margin-right: -49px;"><i onclick="showHistoryMusic()" class="material-icons history-music" style="position: inherit;top: 5px; cursor: pointer;">history</i></a>
+                    <div class="box-history-music">
+                        <a class="list-inline-item" style="position: relative; float:left; margin-left: 25px; margin-right: -49px;"><i onclick="showHistoryMusic()" class="material-icons history-music" style="position: inherit;top: 5px; cursor: pointer;">history</i></a>
+                        <div class="box_history_music box_show_add_playlist card" style="display: none" id="answer-history-music">
+                            <div class="card-body d-flex flex-column">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <i class="material-icons">close</i>
+                                </button>
+                                <h5 class="card-title title_history_music">Bài hát vừa nghe</h5>
+                                <div class="box_show_playlist_popup box_show_history_music mb-2" style="height: 230px;">
+                                    <div class="list-group">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    @if(Auth::check())
+                        <?php
+                        $notify = Auth::user()->notifyCount();
+                        ?>
+                        @if($notify > 0)
+                        @endif
+                    @endif
                 </form>
                 <ul class="list-inline m-0">
                     @if(Auth::check())
@@ -25,7 +50,37 @@
                             $notify = Auth::user()->notifyCount();
                         ?>
                         @if($notify > 0)
-                            <li class="list-inline-item"><i class="fa fa-bell" aria-hidden="true"></i></li>
+
+                        <div class="box-notify-music" onclick="showNotify()">
+                            <a href="javascript:void(0)" style="float: left">
+                                <i class="fa fa-bell-o" style="font-size: 20px; float: left; color: white"></i>
+                            </a>
+                            <span class="badge badge-danger number-dropdown">{{$notify}}</span>
+                            <ul class="dropdown-menu-left pull-right box_notify" style="display: none">
+                                <li role="presentation">
+                                    <label class="dropdown-menu-header-csn">Thông báo</label>
+                                </li>
+                                <div class="scroll_notify">
+                                    <ul class="timeline timeline-icons timeline-sm">
+                                        <?php
+                                        $notifyData = Auth::user()->notifyList();
+                                        ?>
+                                        @foreach($notifyData as $item)
+                                            <a href="/user/{{Auth::user()->id}}?tab=report">
+                                                <li>
+                                                    <p>{{$item->text}}<span class="timeline-icon"><i class="fa fa-flag" style="color:red"></i></span><span class="timeline-date"><?php echo Helpers::timeElapsedString(strtotime($item->created_at)); ?></span></p>
+                                                </li>
+                                            </a>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            </ul>
+                            <script>
+                                $("#dropdownNotify").on("click change", function (e) {
+                                    // document.getElementById("dropdown-notify-content").style.left = '-280px';
+                                });
+                            </script>
+                        </div>
                         @endif
                         <li class="list-inline-item wapper-name"><a href="{{env('APP_URL')}}/user/{{Auth::user()->id}}" title="{{Auth::user()->name}}">{{Auth::user()->name}}</a></li>
                         <li class="list-inline-item">/</li>
@@ -36,18 +91,6 @@
                         <li class="list-inline-item"><a href="javascript:void(0)" onclick="switchAuth('myModal_register')" title="Đăng ký">Đăng ký</a></li>
                     @endif
                 </ul>
-            </div>
-            <div class="box_history_music box_show_add_playlist card" style="display: none" id="answer-12878316">
-                <div class="card-body d-flex flex-column">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <i class="material-icons">close</i>
-                    </button>
-                    <h5 class="card-title title_history_music">Bài hát vừa nghe</h5>
-                    <div class="box_show_playlist_popup box_show_history_music mb-2" style="height: 230px;">
-                        <div class="list-group">
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

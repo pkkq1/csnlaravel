@@ -79,4 +79,8 @@ class User extends Authenticatable
     {
         return $this->belongsTo('App\Models\NotificationModel', 'id', 'user_id')->where('read', 0)->count();
     }
+    public function notifyList()
+    {
+        return $this->belongsTo('App\Models\NotificationModel', 'id', 'user_id')->where('read', 0)->orderBy('id', 'desc')->limit(20)->get();
+    }
 }

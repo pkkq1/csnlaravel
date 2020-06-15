@@ -192,17 +192,6 @@ class UserMusicController extends Controller
         $musicFavourite = $this->musicFavouriteRepository->getModel()::where('user_id', $user_id)->with('music')->orderBy('id', 'desc')->paginate(LIMIT_PAGE_MUSIC_FAVOURITE);
         return view('user.music_favourite', compact('musicFavourite', 'user_id'));
     }
-    public function reportUser(Request $request) {
-        $user_id = Auth::user()->user_id;
-        $page = $request->get('page', 1);
-        $paginate = LIMIT_PAGE_MUSIC_FAVOURITE;
-        $reportMusic = $this->reportMusicRepository->getModel()::where('by_user_id', $user_id)->select(DB::raw('id, 0 as comment_id, 0 as comment_type, report_option, music_id, report_text, music_name, 0 as comment_text, username, created_at, updated_at, status, notifi_read,\'music\' as report_type'));
-        $reportComment = $this->reportCommentRepository->getModel()::where('by_user_id', $user_id)->select(DB::raw('id, comment_id, comment_type, report_option, music_id, report_text, music_name, comment_text, username, created_at, updated_at, status, notifi_read,\'comment\' as report_type'));
-        $reportData = $reportMusic->union($reportComment)->orderBy('updated_at', 'desc')->get();
-        $slice = array_slice($reportData->toArray(), $paginate * ($page - 1), $paginate);
-        $result = new LengthAwarePaginator($slice, count($reportData), $paginate, null, ['path' => '/user/report_tab']);
-        return view('user.report_user.index', compact('result'));
-    }
     public function reportReply(Request $request) {
         $user_id = Auth::user()->user_id;
         $content = $request->input('content');

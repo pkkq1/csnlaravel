@@ -42,7 +42,7 @@ global $allpage_banner;
     <script type="text/javascript" src="{{URL::to('/')}}/assets/jQuery-File-Upload-9.21.0/js/vendor/jquery.ui.widget.js"></script>
     <script type="text/javascript" src="{{URL::to('/')}}/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
     {{--<script type="text/javascript" src="/node_modules/popper.js/dist/umd/popper.js"></script>--}}
-    <script type="text/javascript" src="{{URL::to('/')}}/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    {{--<script type="text/javascript" src="{{URL::to('/')}}/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>--}}
     <script type="text/javascript" src="{{URL::to('/')}}/node_modules/owl.carousel/dist/owl.carousel.min.js"></script>
     {{--<script type="text/javascript" src="/node_modules/slick-carousel/slick/slick.js"></script>--}}
     {{--<script type="text/javascript" src="/node_modules/swiper/dist/js/swiper.min.js"></script>--}}

@@ -597,8 +597,33 @@
             }
         }
     }
+    function showNotify() {
+        $('.box_notify').css('display', 'inherit');
+        $('body').append('<div id="boxOutPlaylist" style="display: block; z-index: 99999;" role="dialog" class="modal"> </div>');
+        window.onclick = function(event) {
+            if(event.target == document.getElementById('boxOutPlaylist')) {
+                $('.box_notify').css('display', 'none');
+                $('#boxOutPlaylist').remove();
+            }
+        };
+        $('.box-notify-music .badge-danger').remove()
+        $.ajax({
+            url: window.location.origin + "/user/show_notify",
+            type: "POST",
+            dataType: "json",
+            data: {},
+            beforeSend: function () {
+                if(loaded) return false;
+                loaded = true;
+            },
+            success: function(data) {
+
+            }
+        });
+    }
     $('.box_history_music').find('.close').on('click', function () {
         $('.box_history_music').css('display', 'none');
+        $('.box_notify').css('display', 'none');
         $('#boxOutPlaylist').remove();
     })
     function redirectUpload(url) {

@@ -533,7 +533,7 @@ if($musicSet['type_listen'] == 'playlist') {
                         <button onclick="postComment(0)"  class="btn my-2 my-sm-0 waves-effect waves-light btn-upload btn_cloud_up" style="float: right; min-width: 75px;">Đăng Bình Luận</button>
                     </div>
                 </form>
-                <div class="list_comment">
+                <div class="list_comment" id="list_comment_body">
                     <div class="list_header d-flex align-items-center music_comment">
                         <i class="material-icons">chat_bubble</i> <span>{{number_format($music->music_comment)}}</span> &nbsp;comment
                     </div>

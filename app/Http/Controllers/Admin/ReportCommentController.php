@@ -54,6 +54,7 @@ class ReportCommentController extends CrudController
         $this->crud->setModel("App\Models\ReportCommentModel");
         $this->crud->setEntityNameStrings('Báo lỗi bình luận', 'Báo lỗi bình luận');
         $this->crud->setRoute(config('backpack.base.route_prefix').'/report_comment');
+        $this->crud->orderBy('status', 'asc');
         $this->crud->orderBy('id', 'desc');
 //        $this->crud->setEntityNameStrings('menu item', 'menu items');
         $this->crud->addFilter([ // dropdown filter
@@ -237,7 +238,7 @@ class ReportCommentController extends CrudController
             $item->notifi_read = 1;
             $item->save();
             if(ENABLE_NOTIFICATION == 1) {
-                $this->NotificationRepository->pushNotif($item->by_user_id, $item->id, 'comment', 'Báo cáo bình luận của bạn đã phản hồi');
+                $this->NotificationRepository->pushNotif($item->by_user_id, $item->id, 'report_comment', 'Báo cáo bình luận của bạn đã phản hồi');
             }
         }
         $this->data['entry'] = $this->crud->entry = $item;

@@ -53,6 +53,7 @@ class ReportMusicController extends CrudController
         $this->crud->setModel("App\Models\ReportMusicModel");
         $this->crud->setEntityNameStrings('Báo lỗi nhạc', 'Báo lỗi nhạc');
         $this->crud->setRoute(config('backpack.base.route_prefix').'/report_music');
+        $this->crud->orderBy('status', 'asc');
         $this->crud->orderBy('id', 'desc');
 //        $this->crud->setEntityNameStrings('menu item', 'menu items');
         $this->crud->addFilter([ // dropdown filter
@@ -234,7 +235,7 @@ class ReportMusicController extends CrudController
             $item->notifi_read = 1;
             $item->save();
             if(ENABLE_NOTIFICATION == 1) {
-                $this->NotificationRepository->pushNotif($item->by_user_id, $item->id, 'music', 'Báo cáo Nhạc của bạn đã phản hồi');
+                $this->NotificationRepository->pushNotif($item->by_user_id, $item->id, 'report_music', 'Báo cáo Nhạc của bạn đã phản hồi');
             }
         }
         $this->data['entry'] = $this->crud->entry = $item;

@@ -128,4 +128,5 @@ class ReportController extends Controller
         Helpers::ajaxResult(false, 'Lỗi không thể gửi báo cáo!', null);
     }
 
+
 }
