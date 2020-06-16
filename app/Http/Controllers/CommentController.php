@@ -127,7 +127,7 @@ class CommentController extends Controller
     function getAjaxCommentByMusicId(Request $request){
         if($request->input('music_id')) {
             if($request->input('focus_comment')) {
-                $comment = $this->commentRepository->getModel()::selectRaw('*, IF(comment_id = '.$request->input('focus_comment').', 99999999999999, comment_time) as comment_order')->where('music_id', $request->input('music_id'))->orderBy('comment_order', 'desc')->with('user')->paginate(LIMIT_COMMENT);
+                $comment = $this->commentRepository->findByMusicIdUpIdComment($request->input('music_id'), $request->input('focus_comment'), 'comment_time', 'desc', LIMIT_COMMENT);
             }else{
                 $comment = $this->commentRepository->findByMusicId($request->input('music_id'), 'comment_time', 'desc', LIMIT_COMMENT);
             }

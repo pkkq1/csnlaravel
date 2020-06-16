@@ -56,6 +56,11 @@ class CommentEloquentRepository extends EloquentRepository implements CommentRep
         $result = $this->_model::where('music_id', $musicId)->orderBy($fillOrder, $typeOrder)->with('user')->paginate($page);
         return $result;
     }
+    public function findByMusicIdUpIdComment($musicId, $commentId, $fillOrder, $typeOrder, $page)
+    {
+        $result = $this->_model::selectRaw('*, IF(comment_id = '.$commentId.', 2, 1) as comment_order')->where('music_id', $musicId)->orderBy('comment_order', 'desc')->orderBy($fillOrder, $typeOrder)->with('user')->paginate($page);
+        return $result;
+    }
 
 }
 
