@@ -185,5 +185,10 @@ class UserController extends Controller
             'read' => 1
         ]);
     }
+    public function notifyUser(Request $request) {
+        $user_id = Auth::user()->user_id;
+        $result = $this->notifyRepository->getModel()::where('user_id', $user_id)->orderBy('id', 'desc')->paginate(LIMIT_PAGE_NOTIFY);
+        return view('user.notification.index', compact('result'));
+    }
 
 }

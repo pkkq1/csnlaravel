@@ -50,7 +50,6 @@ use App\Library\Helpers;
                             $notify = Auth::user()->notifyCount();
                         ?>
                         @if($notify > 0)
-
                         <div class="box-notify-music" onclick="showNotify()">
                             <a href="javascript:void(0)" style="float: left">
                                 <i class="fa fa-bell-o" style="font-size: 20px; float: left; color: white"></i>
@@ -66,9 +65,14 @@ use App\Library\Helpers;
                                         $notifyData = Auth::user()->notifyList();
                                         ?>
                                         @foreach($notifyData as $item)
+                                            <?php
+                                            $fa_font = 'fa-flag';
+                                            if($item->type == 'reply_comment'|| $item->type == 'reply_comment')
+                                                $fa_font = 'fa-comment';
+                                            ?>
                                             <a href="{{$item->link_url}}">
                                                 <li>
-                                                    <p>{{$item->text}}<span class="timeline-icon"><i class="fa fa-flag" style="color:red"></i></span><span class="timeline-date"><?php echo Helpers::timeElapsedString(strtotime($item->created_at)); ?></span></p>
+                                                    <p>{{$item->text}}<span class="timeline-icon"><i class="fa {{$fa_font}}" style="color:red"></i></span><span class="timeline-date"><?php echo Helpers::timeElapsedString(strtotime($item->created_at)); ?></span></p>
                                                 </li>
                                             </a>
                                         @endforeach
@@ -80,6 +84,12 @@ use App\Library\Helpers;
                                     // document.getElementById("dropdown-notify-content").style.left = '-280px';
                                 });
                             </script>
+                        </div>
+                        @else
+                        <div class="box-notify-music">
+                            <a href="/user/{{Auth::user()->id}}?tab=notify" style="float: left; margin-right: 5px;">
+                                <i class="fa fa-bell-o" style="font-size: 20px; float: left; color: white"></i>
+                            </a>
                         </div>
                         @endif
                         <li class="list-inline-item wapper-name"><a href="{{env('APP_URL')}}/user/{{Auth::user()->id}}" title="{{Auth::user()->name}}">{{Auth::user()->name}}</a></li>

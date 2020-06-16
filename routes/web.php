@@ -277,6 +277,7 @@ Route::group(['middlewareGroups' => ['web']], function () {
         Route::post('video_favourite', ['as' => 'user.uploaded', 'uses' => 'User\UserMusicController@videoFavourite']);
         Route::post('music_favourite', ['as' => 'user.uploaded', 'uses' => 'User\UserMusicController@musicFavourite']);
         Route::post('report_tab', ['as' => 'user.report', 'uses' => 'User\UserController@reportUser']);
+        Route::post('notify_tab', ['as' => 'user.report', 'uses' => 'User\UserController@notifyUser']);
         Route::post('show_report', ['as' => 'report.show_report', 'uses' => 'User\UserController@clickShowUserReport']);
         Route::post('open_tab_uploaded', ['as' => 'user.open_tab_uploaded', 'uses' => 'User\UserMusicController@openTabUploaded']);
         Route::post('open_tab_approval', ['as' => 'user.open_tab_approval', 'uses' => 'User\UserMusicController@openTabApproval']);

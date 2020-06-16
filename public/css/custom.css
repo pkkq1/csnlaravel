@@ -1996,3 +1996,9 @@ a.dropdown-menu-header {
     color: #0767ce!important;
     font-weight: 700;
 }
+#report li:hover {
+  background: #5f5d5d24;
+}
+#notify li:hover {
+    background: #5f5d5d24;
+}

@@ -45,6 +45,7 @@ $tabSelf = ($mySelf || (Auth::check() && Auth::user()->hasPermission('duyet_sua_
                             <li class="artist"><a class="artist" onclick="userTab('artist', '/user/artist_favourite')" href="#artist"><span><i class="material-icons" style="font-size: 11px;">favorite_border</i> Ca Sĩ</span></a></li>
                             @if($tabSelf)
                                 <li class="report"><a class="report" href="#report" onclick="userTab('report', '/user/report_tab')" ><span>Phản Hồi</span></a></li>
+                                <li class="notify"><a class="notify" href="#notify" onclick="userTab('notify', '/user/notify_tab')" ><span>Thông Báo</span></a></li>
                             @endif
                             @if($mySelf && Auth::check() && Auth::user()->hasPermission('duyet_sua_nhac'))
                                 <li class="duyet-nhac"><a class="duyet-nhac" href="#approval" onclick="musicUserTab('music_approval')" ><span>Duyệt Nhạc</span></a></li>
@@ -60,7 +61,10 @@ $tabSelf = ($mySelf || (Auth::check() && Auth::user()->hasPermission('duyet_sua_
                         <section id="music"></section>
                         <section id="video"></section>
                         <section id="artist"></section>
-                        <section id="report"></section>
+                        @if($tabSelf)
+                            <section id="report"></section>
+                            <section id="notify"></section>
+                        @endif
                         <section id="approval"></section>
                     </div>
                 </div>
