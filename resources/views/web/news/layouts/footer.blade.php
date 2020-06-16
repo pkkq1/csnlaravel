@@ -122,7 +122,6 @@
     // Set active state on menu element
     var current_url = "{{ str_replace('.html', '', url()->current()) }}";
     var full_url = current_url;
-    console.log(current_url);
     var $navLinks = $("ul.u-flex--wrap li a");
     // First look for an exact match including the search string
     var $curentPageLink = $navLinks.filter(

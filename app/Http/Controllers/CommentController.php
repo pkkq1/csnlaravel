@@ -17,6 +17,7 @@ use App\Repositories\CommentReply\CommentReplyEloquentRepository;
 use App\Repositories\Music\MusicEloquentRepository;
 use App\Repositories\Video\VideoEloquentRepository;
 use App\Repositories\User\UserEloquentRepository;
+use App\Repositories\Notification\NotificationEloquentRepository;
 
 class CommentController extends Controller
 {
@@ -30,16 +31,17 @@ class CommentController extends Controller
     protected $musicRepository;
     protected $videoRepository;
     protected $userRepository;
-
+    protected $notifyRepository;
 
     public function __construct(CommentEloquentRepository $commentRepository, CommentReplyEloquentRepository $commentReplayRepository, MusicEloquentRepository $musicRepository, VideoEloquentRepository $videoRepository,
-                                UserEloquentRepository $userRepository)
+                                UserEloquentRepository $userRepository, NotificationEloquentRepository $notifyRepository)
     {
         $this->commentRepository = $commentRepository;
         $this->commentReplayRepository = $commentReplayRepository;
         $this->musicRepository = $musicRepository;
         $this->videoRepository = $videoRepository;
         $this->userRepository = $userRepository;
+        $this->notifyRepository = $notifyRepository;
     }
 
     /**
@@ -76,12 +78,9 @@ class CommentController extends Controller
         if($request->input('reply_cmt_id')) {
             $exitCmt = $this->commentReplayRepository->getModel()::where('user_id', Auth::user()->id)->orderBy('comment_id', 'desc')->first();
             // 5 MIN TO NEW THE COMMENT
-            if(time() < ($exitCmt->comment_time + (60 * 5))) {
-                abort(403, 'Bạn vui lòng chậm lại');
-            }
-            if(time() < ($exitCmt->comment_time + (60 * 5))) {
-                abort(403, 'Bạn vui lòng chậm lại');
-            }
+//            if(time() < ($exitCmt->comment_time + (60 * 5))) {
+//                abort(403, 'Bạn vui lòng chậm lại');
+//            }
             // add comment children
             $result = $this->commentReplayRepository->create([
                 'music_id' => $request->input('music_id'),
@@ -95,13 +94,15 @@ class CommentController extends Controller
             $this->musicRepository->incrementCol($request->input('music_id'), 'music_comment');
             $reply = $result->toArray();
             $reply['user'] = Auth::user()->toArray();
+            if(Auth::user()->id != $request->input('user_comment_id'))
+                $this->notifyRepository->pushNotif($request->input('user_comment_id'), $request->input('reply_cmt_id'), 'reply_comment', 'Bình luận của bạn vừa có bài trả lời.', $request->input('link_music_url') . '#comment-'.$request->input('reply_cmt_id'), $request->input('music_id'));
             return view('comment.comment_children', compact('reply'));
         } else {
             $exitCmt = $this->commentRepository->getModel()::where('user_id', Auth::user()->id)->orderBy('comment_id', 'desc')->first();
             // 5 MIN TO NEW THE COMMENT
-            if(time() < ($exitCmt->comment_time + (60 * 5))) {
-                abort(403, 'Bạn vui lòng chậm lại');
-            }
+//            if(time() < ($exitCmt->comment_time + (60 * 5))) {
+//                abort(403, 'Bạn vui lòng chậm lại');
+//            }
             // add comment parent
             $result = $this->commentRepository->create([
                 'music_id' => $request->input('music_id'),
@@ -117,13 +118,19 @@ class CommentController extends Controller
             $result = $result->toArray();
             $result['user'] = Auth::user()->toArray();
             $comment['data'][] = $result;
+            if(Auth::user()->id != $request->input('user_music_id'))
+                $this->notifyRepository->pushNotif($request->input('user_music_id'), $request->input('reply_cmt_id'), 'new_comment', ($request->input('type_jw') == 'music' ? 'Bài hát' : 'Video'). ' bạn upload vừa có bình luận mới.', $request->input('link_music_url') . '#comment-'.$result['comment_id'], $request->input('music_id'));
             return view('comment.comment', compact('comment', 'commentReply', 'pagingHtml'));
         }
 
     }
     function getAjaxCommentByMusicId(Request $request){
         if($request->input('music_id')) {
-            $comment = $this->commentRepository->findByMusicId($request->input('music_id'), 'comment_time', 'desc', LIMIT_COMMENT);
+            if($request->input('focus_comment')) {
+                $comment = $this->commentRepository->getModel()::selectRaw('*, IF(comment_id = '.$request->input('focus_comment').', 99999999999999, comment_time) as comment_order')->where('music_id', $request->input('music_id'))->orderBy('comment_order', 'desc')->with('user')->paginate(LIMIT_COMMENT);
+            }else{
+                $comment = $this->commentRepository->findByMusicId($request->input('music_id'), 'comment_time', 'desc', LIMIT_COMMENT);
+            }
             $pagingHtml = $comment->links();
             $comment = $comment->toArray();
             $arrId = array();

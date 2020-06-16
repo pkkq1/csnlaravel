@@ -200,7 +200,6 @@ if ($titleBxh == 'Bảng xếp hạng hot trong ngày') {
         var urlCat = '';
         $(this).find('.nav_bxh').on('click', function () {
             urlCat = $($(this).attr('href')).data('cat_url');
-            console.log(urlCat);
             $(this).parent().parent().find('.view_all').attr('href', '<?php echo $urlBxh ?>/' + urlCat + '.html');
         })
     });

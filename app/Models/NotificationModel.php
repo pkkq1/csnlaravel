@@ -17,7 +17,7 @@ class NotificationModel extends Model
     protected $primaryKey = 'id';
     protected $fillable =
         [
-            'user_id' ,'text', 'type', 'read', 'notification_id'
+            'user_id' ,'text', 'type', 'read', 'notification_id', 'music_id', 'link_url'
         ];
 
 }

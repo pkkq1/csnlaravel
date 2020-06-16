@@ -537,9 +537,7 @@ if($musicSet['type_listen'] == 'playlist') {
                     <div class="list_header d-flex align-items-center music_comment">
                         <i class="material-icons">chat_bubble</i> <span>{{number_format($music->music_comment)}}</span> &nbsp;comment
                     </div>
-                    <div class="list_body">
-
-                    </div>
+                    <div class="list_body"></div>
                 </div>
             </div>
 
@@ -674,6 +672,7 @@ if($musicSet['type_listen'] == 'playlist') {
         var artists = "<?php echo $music->music_artist  ?>";
         var artistIds = '<?php echo $music->music_artist_id  ?>';
         var musicAddId = '';
+        var focusComment = '';
         //////////////////////////
         ////JW Player//////////
         ////////////////////////
@@ -849,7 +848,6 @@ if($musicSet['type_listen'] == 'playlist') {
             }, false)
         }, false);
         var error_count = 0;
-        console.log(jwplayer().getCurrentQuality());
         player.on('error', function(message) {
             let sourceList = player.getPlaylist()[0]['sources'];
             let offsetPlay = jwplayer().getCurrentQuality();
@@ -1252,7 +1250,7 @@ if($musicSet['type_listen'] == 'playlist') {
         var loadComment = true;
         var pageComment = true;
         $('.box_form_comment').submit(false);
-        function postComment(formId) {
+        function postComment(formId, userIdComment = '') {
             var textArea = $('.form-comment-' + formId).find('textarea');
             <?php
                 if(!Auth::check()) {
@@ -1272,6 +1270,10 @@ if($musicSet['type_listen'] == 'playlist') {
                 dataType: "html",
                 data: {'comment': $('.form-comment-' + formId).find('textarea').val(),
                     'music_id' : musicId,
+                    'link_music_url' : window.location.pathname,
+                    'user_comment_id' : userIdComment,
+                    'type_jw' : '<?php echo $musicSet['type_jw'] ?>',
+                    'user_music_id' : <?php echo $music->music_user_id ?>,
                     'comment_jw_postion' : jwplayer().getPosition(),
                     'reply_cmt_id': $('.form-comment-' + formId).find('.reply_cmt_id').val()},
                 beforeSend: function () {
@@ -1319,7 +1321,7 @@ if($musicSet['type_listen'] == 'playlist') {
                 url: url,
                 type: "GET",
                 dataType: "html",
-                data: {'music_id': musicId},
+                data: {'music_id': musicId, 'focus_comment': (focusComment ? focusComment.substr(9) : '')},
                 beforeSend: function () {
                     if(loaded) return false;
                     loaded = true;
@@ -1358,6 +1360,11 @@ if($musicSet['type_listen'] == 'playlist') {
                         pageComment = $(this).html();
                     });
                     clickCommentSeek();
+                    if (focusComment) {
+                        var vtop = document.getElementById(focusComment.substr(1)).offsetTop;
+                        $('html').animate({scrollTop: vtop + 100}, 'slow');
+                        focusComment = '';
+                    }
                 }
             });
         }
@@ -1373,9 +1380,11 @@ if($musicSet['type_listen'] == 'playlist') {
             var st = $(this).scrollTop();
             if(loadComment) {
                 if (st > $('#post_comment').offset().top - 600){
-                    loadPageComment(window.location.origin + '/binh-luan/get_ajax?page=<?php echo $_GET['comment_page'] ?? 1 ?>');
-                    pageComment = <?php echo $_GET['comment_page'] ?? 1 ?>;
-                    loadComment = false;
+                    if($('.list_comment .list_body').html() == '') {
+                        loadPageComment(window.location.origin + '/binh-luan/get_ajax?page=<?php echo $_GET['comment_page'] ?? 1 ?>');
+                        pageComment = <?php echo $_GET['comment_page'] ?? 1 ?>;
+                        loadComment = false;
+                    }
                 }
             }
         });
@@ -1667,10 +1676,10 @@ if($musicSet['type_listen'] == 'playlist') {
                         success: function(response) {
                             if(response.success) {
                                 if(response.message == 'delete') {
-                                    $('#comment-' + id).first().remove();
+                                    $('.' + typeCmt + '-' + id).first().remove();
                                 }else{
-                                    $('#comment-' + id).find('.media-text').first().html(response.data.comment_text);
-                                    $('#comment-' + id).find('.actionComment').first().html(response.data.delete);
+                                    $('.' + typeCmt + '-' + id).find('.media-text').first().html(response.data.comment_text);
+                                    $('.' + typeCmt + '-' + id).find('.actionComment').first().html(response.data.delete);
                                 }
                             }else {
                                 alertModal(response.message);
@@ -1937,7 +1946,6 @@ if($musicSet['type_listen'] == 'playlist') {
                     var searchInput = $("#modal_kara");
                     var contentTimeJwPos = "\n[" + timeJwPos + "]";
                     if(document.karaform.modal_kara.value.trim() == '') { contentTimeJwPos = "[" + timeJwPos + "]"}
-                    console.log(contentTimeJwPos);
                     document.karaform.modal_kara.value += contentTimeJwPos;
                     searchInput.putCursorAtEnd()
                         .on("focus", function() {
@@ -2243,6 +2251,13 @@ if($musicSet['type_listen'] == 'playlist') {
                         }
                     }
                 });
+            }
+        });
+        $(document).ready(function() {
+            let hasLoadComment = window.location.href.indexOf("#");
+            if (hasLoadComment > -1) {
+                focusComment = window.location.href.substr(hasLoadComment);
+                loadPageComment(window.location.origin + '/binh-luan/get_ajax?page=1');
             }
         });
     </script>

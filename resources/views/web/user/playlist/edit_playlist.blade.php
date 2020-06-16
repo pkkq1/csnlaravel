@@ -93,7 +93,6 @@ use App\Library\Helpers;
                             },
                             success: function(data) {
                                 if(data.status) {
-                                    console.log(ids);
                                     ids.forEach(function(val) {
                                         $('#playlist_' + val).remove();
                                     });

@@ -588,7 +588,6 @@ $catalog = config('constants.catalog');
                 },
                 success: function(data) {
                     if(data.success) {
-                        console.log(data.data);
                         $('.playlist-csn .list-unstyled').prepend(stringItemPlaylist(data.data.playlist_title, data.data.playlist_music_total, data.data.playlist_id, false, data.data.playlist_time));
                         $('.box_show_playlist_popup .list-group').prepend(stringItemBoxPlaylist(data.data.playlist_title, data.data.playlist_music_total, data.data.playlist_id, false, data.data.playlist_time));
                         titlePlaylist.val("");

@@ -76,7 +76,6 @@ $avtArtist = $artist->artist_avatar ? Helpers::file_path($artist->artist_id, PUB
                 var page = parseFloat(window.location.search.substr(window.location.search.indexOf("&page=") + 6));
                 page = isNaN(page) ? 1 : page;
                 url = url + '?page=' + page;
-                console.log(url);
             }else{
                 if(!urlFloat) {
                     var page = parseFloat(url.substr(url.indexOf("?page=") + 6));

@@ -606,7 +606,8 @@
                 $('#boxOutPlaylist').remove();
             }
         };
-        $('.box-notify-music .badge-danger').remove()
+        $('.box-notify-music .badge-danger').html('&nbsp;&nbsp;');
+        $('.box-notify-music .badge-danger').removeClass('badge-danger')
         $.ajax({
             url: window.location.origin + "/user/show_notify",
             type: "POST",

@@ -41,14 +41,16 @@ class NotificationEloquentRepository extends EloquentRepository implements Notif
 
         return $result;
     }
-    public function pushNotif($user_id, $notif_id, $type, $text = '')
+    public function pushNotif($user_id, $notif_id, $type, $text = '', $linkUrl ,$musicId = '')
     {
         $result = $this->create([
             'user_id' => $user_id,
             'notification_id' => $notif_id,
             'text' => $text,
             'type' =>$type,
-            'read' => 0
+            'read' => 0,
+            'music_id' => $musicId,
+            'link_url' => $linkUrl,
         ]);
         return $result;
     }

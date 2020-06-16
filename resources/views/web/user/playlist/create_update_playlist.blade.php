@@ -121,7 +121,6 @@ $titleMeta = $playlistUser ? 'Cập nhật playlist - ' . $playlistUser->playlis
                                                     var sortable = Sortable.create(el,{
                                                         filter: '.js-remove',
                                                         onFilter: function (evt) {
-                                                            console.log(evt.item);
                                                             $('.playlist_remove_music').val($('.playlist_remove_music').val() + ',' + evt.item.id)
                                                             $('.playlist_remove_artist').val($('.playlist_remove_artist').val() + ',' + $(evt.item).attr('artist'))
                                                             $('.playlist_remove_artist_id').val($('.playlist_remove_artist_id').val() + ',' + $(evt.item).attr('artist_id'))
@@ -130,7 +129,6 @@ $titleMeta = $playlistUser ? 'Cập nhật playlist - ' . $playlistUser->playlis
                                                         onEnd: function (evt) {
                                                             let sortIds = '';
                                                             $('.list-group-item').each(function(index, val) {
-                                                                console.log($(val).data('id'));
                                                                 sortIds = sortIds + ',' + $(val).attr('id');
                                                             })
                                                             $('.playlist_order_music').val(sortIds);

@@ -85,14 +85,12 @@ $titleMeta = 'Cập nhật album - ' . Config::get('constants.app.title');
                                                 var sortable = Sortable.create(el,{
                                                     filter: '.js-remove',
                                                     onFilter: function (evt) {
-                                                        console.log(evt.item);
                                                         $('.album_delete_music').val($('.album_delete_music').val() + ',' + evt.item.id)
                                                         evt.item.parentNode.removeChild(evt.item);
                                                     },
                                                     onEnd: function (evt) {
                                                         let sortIds = '';
                                                         $('.dz-processing').each(function(index, val) {
-                                                            console.log($(val).data('id'));
                                                             sortIds = sortIds + ',' + $(val).attr('id');
                                                         })
                                                         $('.track_order_music').val(sortIds);

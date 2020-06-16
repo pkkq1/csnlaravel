@@ -66,7 +66,7 @@ use App\Library\Helpers;
                                         $notifyData = Auth::user()->notifyList();
                                         ?>
                                         @foreach($notifyData as $item)
-                                            <a href="/user/{{Auth::user()->id}}?tab=report">
+                                            <a href="{{$item->link_url}}">
                                                 <li>
                                                     <p>{{$item->text}}<span class="timeline-icon"><i class="fa fa-flag" style="color:red"></i></span><span class="timeline-date"><?php echo Helpers::timeElapsedString(strtotime($item->created_at)); ?></span></p>
                                                 </li>

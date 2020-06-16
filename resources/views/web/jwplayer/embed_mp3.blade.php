@@ -94,7 +94,6 @@ $file_url = Helpers::file_url($music);
     var userStatus = 1;
     jwplayer().onBeforePlay(function() {
         //logPlayAudioFlag = true;
-        //console.log('set flag again|'+logPlayAudioFlag);
     });
     jwplayer().onQualityLevels(function(event){
         var bitrateIndex = event.currentQuality;
@@ -118,7 +117,6 @@ $file_url = Helpers::file_url($music);
         updateQuality(event);
     });
     jwplayer().onQualityChange(function(event){
-        console.log('onQualityChange',event.currentQuality);
         var setQuality = false;
         var currEQIndex = jwplayer().getCurrentQuality();
         var currQL = jwplayer().getQualityLevels();
@@ -136,7 +134,6 @@ $file_url = Helpers::file_url($music);
                     }
                 }
             }
-            //console.log('set pr:',defaultProfile);
             if(defaultProfile!='' && setQuality==false){
                 for(var i=0; i<currQL.length;i++){
                     if(currQL[i].label==defaultProfile && currEQIndex!=i){
