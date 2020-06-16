@@ -119,7 +119,7 @@ class CommentController extends Controller
             $result['user'] = Auth::user()->toArray();
             $comment['data'][] = $result;
             if(Auth::user()->id != $request->input('user_music_id'))
-                $this->notifyRepository->pushNotif($request->input('user_music_id'), $request->input('reply_cmt_id'), 'new_comment', ($request->input('type_jw') == 'music' ? 'Bài hát' : 'Video'). ' bạn upload vừa có bình luận mới.', $request->input('link_music_url') . '#comment-'.$result['comment_id'], $request->input('music_id'));
+                $this->notifyRepository->pushNotif($request->input('user_music_id'), $result['comment_id'], 'new_comment', ($request->input('type_jw') == 'music' ? 'Bài hát' : 'Video'). ' bạn upload vừa có bình luận mới.', $request->input('link_music_url') . '#comment-'.$result['comment_id'], $request->input('music_id'));
             return view('comment.comment', compact('comment', 'commentReply', 'pagingHtml'));
         }
 
