@@ -35,6 +35,8 @@ use App\Repositories\Karaoke\KaraokeEloquentRepository;
 use App\Repositories\MusicDeleted\MusicDeletedEloquentRepository;
 use App\Repositories\LyricSuggestion\LyricSuggestionEloquentRepository;
 use App\Repositories\MusicSearchResult\MusicSearchResultEloquentRepository;
+use App\Repositories\Comment\CommentEloquentRepository;
+use App\Repositories\CommentReply\CommentReplyEloquentRepository;
 use Session;
 use Response;
 use DB;
@@ -68,13 +70,15 @@ class MusicController extends Controller
     protected $uploadRepository;
     protected $userRepository;
     protected $categoryRepository;
+    protected $commentRepository;
+    protected $commentReplyRepository;
 
     public function __construct(MusicEloquentRepository $musicRepository, PlaylistEloquentRepository $playlistRepository, MusicListenEloquentRepository $musicListenRepository,
                                 CategoryEloquentRepository $categoryListenRepository, CoverEloquentRepository $coverRepository, VideoEloquentRepository $videoRepository, ArtistRepository $artistRepository,
                                 MusicFavouriteRepository $musicFavouriteRepository, VideoFavouriteRepository $videoFavouriteRepository, MusicDownloadEloquentRepository $musicDownloadRepository, KaraokeEloquentRepository $karaokeRepository,
                                 VideoListenEloquentRepository $videoListenRepository, VideoDownloadEloquentRepository $videoDownloadRepository, PlaylistPublisherEloquentRepository $playlistPublisherRepository, SearchResultEloquentRepository $searchResultRepository,
                                 KaraokeSuggestionEloquentRepository $karaokeSuggestionRepository, LyricSuggestionEloquentRepository $lyricSuggestionRepository, MusicSearchResultEloquentRepository $musicSearchResultRepository, MusicDeletedEloquentRepository $musicDeletedRepository,
-                                UploadEloquentRepository $uploadRepository, UserEloquentRepository $userRepository, CategoryEloquentRepository $categoryRepository)
+                                UploadEloquentRepository $uploadRepository, UserEloquentRepository $userRepository, CategoryEloquentRepository $categoryRepository, CommentEloquentRepository $commentRepository, CommentReplyEloquentRepository $commentReplyRepository)
     {
         $this->musicRepository = $musicRepository;
         $this->videoRepository = $videoRepository;
@@ -98,6 +102,8 @@ class MusicController extends Controller
         $this->uploadRepository = $uploadRepository;
         $this->userRepository = $userRepository;
         $this->categoryRepository = $categoryRepository;
+        $this->commentRepository = $commentRepository;
+        $this->commentReplyRepository = $commentReplyRepository;
     }
 
     /**
@@ -230,7 +236,9 @@ class MusicController extends Controller
         global $titleDup;
         global $video;
         include(app_path() . '/../resources/views/cache/suggestion/'.ceil($music->music_id / 1000).'/'.$music->music_id.'.blade.php');
-        return view('jwplayer.music', compact('music', 'musicSet', 'musicFavourite', 'MusicSameArtist', 'VideoSameArtist', 'titleDup', 'video'));
+        if($music->music_new_id > 0)
+            $musicNew = $this->musicDeletedRepository->getModel()::where('music_id', $music->music_new_id)->first();
+        return view('jwplayer.music', compact('music', 'musicNew', 'musicSet', 'musicFavourite', 'MusicSameArtist', 'VideoSameArtist', 'titleDup', 'video'));
     }
     public function oldUrlPlayList(Request $request, $musicUrl) {
         $albumUrlEx = explode('~', $musicUrl);
@@ -411,7 +419,9 @@ class MusicController extends Controller
         global $titleDup;
         global $video;
         include(app_path() . '/../resources/views/cache/suggestion/'.ceil($music->music_id / 1000).'/'.$music->music_id.'.blade.php');
-        return view('jwplayer.music', compact('music', 'musicSet', 'musicFavourite', 'MusicSameArtist', 'VideoSameArtist', 'titleDup', 'video'));
+        if($music->music_new_id > 0)
+            $musicNew = $this->musicDeletedRepository->getModel()::where('music_id', $music->music_new_id)->first();
+        return view('jwplayer.music', compact('music', 'musicNew', 'musicSet', 'musicFavourite', 'MusicSameArtist', 'VideoSameArtist', 'titleDup', 'video'));
     }
     public function listenBxhNow(Request $request, $catUrl, $catLevel = '') {
         return $this->listenBxhMusic($request, str_replace('.html', '', $catUrl), 'now', $catLevel);
@@ -509,7 +519,9 @@ class MusicController extends Controller
         global $titleDup;
         global $video;
         include(app_path() . '/../resources/views/cache/suggestion/'.ceil($music->music_id / 1000).'/'.$music->music_id.'.blade.php');
-        return view('jwplayer.music', compact('music', 'musicSet', 'musicFavourite', 'MusicSameArtist', 'VideoSameArtist', 'titleDup', 'video'));
+        if($music->music_new_id > 0)
+            $musicNew = $this->musicDeletedRepository->getModel()::where('music_id', $music->music_new_id)->first();
+        return view('jwplayer.music', compact('music', 'musicNew', 'musicSet', 'musicFavourite', 'MusicSameArtist', 'VideoSameArtist', 'titleDup', 'video'));
     }
     public function embed(Request $request, $cat, $sub, $musicUrl) {
         try {
@@ -739,39 +751,110 @@ class MusicController extends Controller
     }
     public function mergeMusic(Request $request) {
         if(Auth::check() && backpack_user()->can('duyet_sua_nhac')){
-            $music = $this->musicRepository->findOnlyMusicId($request->id);
-            if(!$music)
+            $music = $this->musicRepository->getModel()::where('music_id', $request->id)->first();
+            if(!$music && $music->cat_id == CATEGORY_ID_VIDEO)
                 Helpers::ajaxResult(false, 'Nhạc không tồn tại.', null);
 //            , ['music_deleted', '<=', 0]
-            $musicSame = $this->musicRepository->getModel()::select('music_id', 'music_title_url', 'cat_id', 'cat_level', 'cover_id', 'music_title', 'music_artist', 'music_listen', 'music_downloads')->where([['music_title', $music->music_title], ['music_artist', $music->music_artist], ['music_id', '!=', $music->music_id], ['music_deleted', '<=', 0]])->get()->toArray();
+            $musicSame = $this->musicRepository->getModel()::where([['cat_id', '!=', CATEGORY_ID_VIDEO], ['music_title', $music->music_title], ['music_artist', $music->music_artist], ['music_id', '!=', $music->music_id], ['music_deleted', '<=', 0]])->orderby('music_id', 'asc')->get();
             if(!$musicSame)
                 Helpers::ajaxResult(false, 'Không có nhạc để nhập.', null);
 
-            foreach ($musicSame as &$item) {
-                $item['listen_url'] = Helpers::listen_url($item);
+            $data = [];
+            foreach ($musicSame as $item) {
+                $qualityMax = Helpers::file_url($item);
+                $coverTitle = '';
+                if($item->cover_id > 0) {
+                    $coverTitle = $this->coverRepository->getModel()::where('cover_id', $item->cover_id)->pluck('music_album');
+                    if($coverTitle)
+                        $coverTitle = $coverTitle[0];
+                }
+                $data[] = [
+                    'music_id' => $item['music_id'],
+                    'cover_title' => $coverTitle,
+                    'listen_url' => Helpers::listen_url($item),
+                    'id_de' => Helpers::encodeID($item->music_id),
+                    'music_username' => $item->music_username,
+                    'music_title_url' => $item->music_title_url,
+                    'music_title' => $item->music_title,
+                    'music_artist' => $item->music_artist,
+                    'music_listen' => number_format($item->music_listen),
+                    'music_downloads' => number_format($item->music_downloads),
+                    'max_quality_label' => end($qualityMax)['label'],
+                ];
             }
-            Helpers::ajaxResult(true, '', $musicSame);
+            Helpers::ajaxResult(true, '', $data);
+        }
+    }
+    public function findIdMusicMerge(Request $request) {
+        if(Auth::check() && backpack_user()->can('duyet_sua_nhac')){
+            $id = Helpers::decodeID($request->id);
+            if(!$id)
+                Helpers::ajaxResult(false, 'Nhạc không tồn tại.', null);
+            $item = $this->musicRepository->getModel()::where([['cat_id', '!=', CATEGORY_ID_VIDEO], ['music_id', $id], ['music_deleted', '<=', 0]])->first();
+
+            $qualityMax = Helpers::file_url($item);
+            $coverTitle = '';
+            if($item->cover_id > 0) {
+                $coverTitle = $this->coverRepository->getModel()::where('cover_id', $item->cover_id)->pluck('music_album');
+                if($coverTitle)
+                    $coverTitle = $coverTitle[0];
+            }
+            $data = [
+                'music_id' => $item['music_id'],
+                'cover_title' => $coverTitle,
+                'listen_url' => Helpers::listen_url($item),
+                'id_de' => Helpers::encodeID($item->music_id),
+                'music_username' => $item->music_username,
+                'music_title_url' => $item->music_title_url,
+                'music_title' => $item->music_title,
+                'music_artist' => $item->music_artist,
+                'music_listen' => number_format($item->music_listen),
+                'music_downloads' => number_format($item->music_downloads),
+                'max_quality_label' => end($qualityMax)['label'],
+            ];
+            Helpers::ajaxResult(true, 'Nhập bài hát thành công', $data);
         }
     }
     public function approveMusic(Request $request) {
         if(Auth::check() && backpack_user()->can('duyet_sua_nhac')){
             $idMusic = $request->id;
             $idMerge = $request->id_merge;
+            if(!$idMusic || !$idMerge || ($idMusic == $idMerge)) {
+                Helpers::ajaxResult(false, 'Lỗi ngoài hệ thống nhập', null);
+            }
             $music = $this->musicRepository->getModel()::where([['music_id', $idMusic], ['music_deleted', '<=', 0]])->first();
             $musicListen = $this->musicListenRepository->getModel()::where('music_id', $idMusic)->first();
             $musicDownload = $this->musicDownloadRepository->getModel()::where('music_id', $idMusic)->first();
+            $musicQualityMax = $music->music_bitrate;
             $merge = $this->musicRepository->getModel()::where([['music_id', $idMerge], ['music_deleted', '<=', 0]])->first();
             $mergeListen = $this->musicListenRepository->getModel()::where('music_id', $idMusic)->first();
             $mergeDownload = $this->musicDownloadRepository->getModel()::where('music_id', $idMusic)->first();
+            $mergeQualityMax = $merge->music_bitrate;
+
+//            dd($idMusic, $idMerge, $musicQualityMax, $mergeQualityMax);
             $url = '';
             if($idMusic > $idMerge) {
                 //  Trường hợp ID1 > ID2
+                // add listen & downlaod
                 $merge->music_listen = $merge->music_listen + $music->music_listen;
                 $merge->music_downloads = $merge->music_downloads + $music->music_downloads;
                 $mergeListen->music_listen = $mergeListen->music_listen + $musicListen->music_listen;
                 $mergeListen->music_listen_today = $mergeListen->music_listen_today + $musicListen->music_listen_today;
                 $mergeListen->music_downloads = $mergeListen->music_downloads + $mergeDownload->music_downloads;
                 $mergeListen->music_downloads_today = $mergeListen->music_downloads_today + $mergeDownload->music_downloads_today;
+                // add comment & search * comment
+                $merge->music_search_result = $merge->music_search_result + $music->music_search_result;
+                $merge->music_favourite = $merge->music_favourite + $music->music_favourite;
+                $merge->music_comment = $merge->music_comment + $music->music_comment;
+                $this->musicFavouriteRepository->getModel()::where('music_id', $music->music_id)->update(['music_id' => $merge->music_id]);
+                $this->commentRepository->getModel()::where('music_id', $music->music_id)->update(['music_id' => $merge->music_id]);
+                $this->commentReplyRepository->getModel()::where('music_id', $music->music_id)->update(['music_id' => $merge->music_id]);
+
+
+                // check quality
+                if($mergeQualityMax < $musicQualityMax) {
+                    $merge->music_new_id = $music->music_id;
+                }
                 $merge->save();
                 $music->music_deleted = $merge->music_id;
                 $this->musicDeletedRepository->getModel()::create($music->toArray());
@@ -779,19 +862,30 @@ class MusicController extends Controller
                 $url = Helpers::listen_url($merge->toArray());
             }else{
                 //  Trường hợp ID1 < ID2
+                // add listen & downlaod
                 $music->music_listen = $music->music_listen + $merge->music_listen;
                 $music->music_downloads = $music->music_downloads + $merge->music_downloads;
                 $musicListen->music_listen = $musicListen->music_listen + $mergeListen->music_listen;
                 $musicListen->music_listen_today = $musicListen->music_listen_today + $mergeListen->music_listen_today;
                 $musicDownload->music_downloads = $mergeDownload->music_downloads + $mergeListen->music_downloads;
                 $musicDownload->music_downloads_today = $mergeDownload->music_downloads_today + $mergeListen->music_downloads_today;
-                $music->save();
+                // add comment & search * comment
+                $music->music_search_result = $music->music_search_result + $merge->music_search_result;
+                $music->music_favourite = $music->music_favourite + $merge->music_favourite;
+                $music->music_comment = $music->music_comment + $merge->music_comment;
+                $this->musicFavouriteRepository->getModel()::where('music_id', $merge->music_id)->update(['music_id' => $music->music_id]);
+                $this->commentRepository->getModel()::where('music_id', $merge->music_id)->update(['music_id' => $music->music_id]);
+                $this->commentReplyRepository->getModel()::where('music_id', $merge->music_id)->update(['music_id' => $music->music_id]);
+
+                // check quality
+                if($musicQualityMax < $mergeQualityMax) {
+                    $music->music_new_id = $merge->music_id;
+                }
                 $merge->music_deleted = $music->music_id;
+                $music->save();
                 $this->musicDeletedRepository->getModel()::create($merge->toArray());
                 $merge->delete();
                 $url = Helpers::listen_url($music->toArray());
-
-
             }
             Helpers::ajaxResult(true, 'Nhập bài hát thành công', ['url' => $url]);
         }

@@ -348,6 +348,7 @@ Route::group(['middlewareGroups' => ['web']], function () {
                 Route::get('suggestion_karaoke', ['as' => 'music.get_karaoke', 'uses' => 'MusicController@suggestionKaraoke']);
                 Route::post('suggestion_karaoke', ['as' => 'music.sugg_karaoke', 'uses' => 'MusicController@suggestionKaraoke']);
                 Route::post('merge', ['as' => 'music.merge', 'uses' => 'MusicController@mergeMusic']);
+                Route::post('find_id_merge', ['as' => 'music.find_id_merge', 'uses' => 'MusicController@findIdMusicMerge']);
                 Route::post('approve_merge', ['as' => 'music.approve_merge', 'uses' => 'MusicController@approveMusic']);
             });
         });

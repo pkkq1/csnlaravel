@@ -1540,6 +1540,9 @@ a.disabled {
 .merge_content_music {
     text-align: left;
 }
+.merge_content_music label {
+    display: block!important;
+}
 .jw-settings-item-active {
     background-image: linear-gradient(-243deg, #FB6B60 0%, #FF2E55 100%);
 }

@@ -43,13 +43,17 @@ $music->music_artist = str_replace('  ', ' ', str_replace('  ', ' ', $music->mus
 
 $partListenFullUrl = Helpers::listen_url($music, '');
 $titleMeta = $music->music_title . ' - '. str_replace(';', ',', $music->music_artist);
-$file_url = Helpers::file_url($music);
+if($music->music_new_id > 0 && isset($musicNew) && $musicNew) {
+    $file_url = Helpers::file_url($musicNew);
+}else{
+    $file_url = Helpers::file_url($music);
+}
 $lyric_array = Helpers::lyric_to_web($music->music_lyric);
 $artistHtml = Helpers::rawHtmlArtists($music->music_artist_id, $music->music_artist);
 preg_match('/href=["\']?([^"\'>]+)["\']?/', $artistHtml, $matchArtist);
 $sug = [];
 $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3);
-$thumnailMusic =$musicSet['type_jw'] != 'video' ?  Helpers::cover_url($music->cover_id, $music->music_artist_id, 'orginal') : Helpers::thumbnail_url($music->toArray(), 'preview');
+$thumnailMusic = $musicSet['type_jw'] != 'video' ?  Helpers::cover_url($music->cover_id, $music->music_artist_id, 'orginal') : Helpers::thumbnail_url($music->toArray(), 'preview');
 $thumnailMeta = '';
 $music_lyric_karaoke = '';
 $titleExMeta = $music->music_title.' - '.$music->music_artist;
@@ -2076,7 +2080,7 @@ if($musicSet['type_listen'] == 'playlist') {
                         <?php
                         if(Auth::check() && backpack_user()->can('duyet_sua_nhac')) {
                         ?>
-                        $('#myConfirmModal').find('.modal-footer').prepend('<button class="btn btn-edit">Sửa Lyric</button>');
+                        $('#myConfirmModal').find('.modal-footer').prepend('<button class="btn btn-edit btn-info">Sửa Lyric</button>');
                         <?php
                         }
                         ?>
@@ -2148,6 +2152,40 @@ if($musicSet['type_listen'] == 'playlist') {
         <?php
         if(Auth::check() && backpack_user()->can('duyet_sua_nhac')) {
             ?>
+            var listMerge = [];
+            function findMergeCustomID() {
+                if(!$('.input_merge_id_custom').val()) {
+                    alertModal('Vui lòng điền ID bài hát cẩn tìm.');
+                    return false;
+                }
+                $.ajax({
+                    url: window.location.origin + '/music/find_id_merge',
+                    type: "POST",
+                    dataType: "json",
+                    data: {
+                        'id': $('.input_merge_id_custom').val(),
+                    },
+                    beforeSend: function () {
+                        $('.input_merge_id_custom').val('');
+                        if (loaded) return false;
+                        loaded = true;
+                    },
+                    success: function (response) {
+                        if(response.success) {
+                            if (listMerge.indexOf(response.data.music_id) >= 0) {
+                                alertModal('ID Bài hát "' + response.data.music_title + '" đã tồn tại ở trên.');
+                                return false;
+                            }
+                            listMerge.push(response.data.music_id);
+                            var value = response.data;
+                            var html_radio = '<label title="Album: '+value.cover_title+'"><input type="radio" name="merge_music" value="' + value.music_id + '">&nbsp;<a target="_blank" href="' + value.listen_url +'">' + value.music_title + '</a> - ' + value.music_artist + ' (' + value.id_de +'; '+ value.music_username +'; '+ value.max_quality_label +'; <i class="material-icons" style=" font-size: 12px; ">headset</i> '+ value.music_listen +'; <i class="material-icons" style=" font-size: 12px; ">cloud_download</i> '+ value.music_downloads +')</label>';
+                            $('.merge_content_music').append(html_radio);
+                        }else{
+                            alertModal(response.message);
+                        }
+                    }
+                });
+            }
             function mergeMusic() {
                 $.ajax({
                     url: window.location.origin + '/music/merge',
@@ -2165,10 +2203,13 @@ if($musicSet['type_listen'] == 'playlist') {
                         if(response.success) {
                             $('#myConfirmModal').find('.btn-ok').html('Nhập nhạc');
                             var html_radio = '';
+                            listMerge = [<?php echo $music->music_id ?>];
                             $.each(response.data, function (index, value) {
-                                html_radio = '<label for="merge_music_' + value.music_id + '"><input type="radio" id="merge_music_' + value.music_id + '" name="merge_music" value="' + value.music_id + '"> ' + value.music_title +' - ' + value.music_artist +'<a target="_blank" href="' + value.listen_url +'"> Xem trước</a></label>';
+                                listMerge.push(value.music_id);
+                                html_radio += '<label title="Album: '+value.cover_title+'"><input type="radio" name="merge_music" value="' + value.music_id + '">&nbsp;<a target="_blank" href="' + value.listen_url +'">' + value.music_title + '</a> - ' + value.music_artist + ' (' + value.id_de +'; '+ value.music_username +'; '+ value.max_quality_label +'; <i class="material-icons" style=" font-size: 12px; ">headset</i> '+ value.music_listen +'; <i class="material-icons" style=" font-size: 12px; ">cloud_download</i> '+ value.music_downloads +')</label>';
                             });
-                            $('.modal_content_csn').html('<div class="merge_content_music">' + html_radio + '</div>');
+                            var html_custom = '<input type="text" class="form-control col-3 input_merge_id_custom" value="" placeholder="ts3wrcsrq9av4a" style="float: left;"><button type="button" class="btn btn-default" onclick="findMergeCustomID()" style="float: left; margin-left:5px">Tìm ID URL bài hát cần nhập</button>';
+                            $('.modal_content_csn').html('<div class="merge_content_music">' + html_radio + '</div>' + html_custom);
                             $("#myConfirmModal .btn-ok").click(function () {
                                 let val_radio_merge = $("input[name='merge_music']:checked").val();
                                 if(val_radio_merge) {
@@ -2186,13 +2227,15 @@ if($musicSet['type_listen'] == 'playlist') {
                                         },
                                         success: function(response) {
                                             if(response.success) {
-                                                alert('Nhập nhạc thành công, tự động chuyển hướng bài hát vừa nhập vào.')
+                                                alert('Nhập nhạc thành công, tự động chuyển hướng bài hát vừa nhập vào.');
                                                 window.location.href = response.data.url;
                                             }else {
-                                                $('.modal_content_csn').html(response.message);
+                                                alertModal(response.message);
                                             }
                                         }
                                     });
+                                }else{
+                                    alertModal('Vui lòng chọn nhạc cần nhập.');
                                 }
                             });
                         }else {
