@@ -39,8 +39,7 @@ class Solarium
             $query->setQuery(substr($temp, 0, strlen($temp) - 3));
             $query->createFilterQuery('*,score');
             $rows = $perPage;
-
-            $query->setStart(($page == 1 ? 0 : $page - 1) * $rows)->setRows($rows); // perpage, rows
+            $query->setStart(abs($page == 1 ? 0 : $page - 1) * $rows)->setRows($rows); // perpage, rows
             if($sort) {
                 foreach ($sort as $key => $val) {
                     $query->addSort($key, $val);
