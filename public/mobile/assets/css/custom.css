@@ -624,7 +624,9 @@ footer {
     line-height: 35px;
     position: relative;
 }
-
+.block_detail_chude .text-white {
+    line-height: 66px;
+}
 
 
 
