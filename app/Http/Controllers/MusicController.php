@@ -755,7 +755,10 @@ class MusicController extends Controller
             if(!$music && $music->cat_id == CATEGORY_ID_VIDEO)
                 Helpers::ajaxResult(false, 'Nhạc không tồn tại.', null);
 //            , ['music_deleted', '<=', 0]
-            $musicSame = $this->musicRepository->getModel()::where([['cat_id', '!=', CATEGORY_ID_VIDEO], ['music_title', $music->music_title], ['music_artist', $music->music_artist], ['music_id', '!=', $music->music_id], ['music_deleted', '<=', 0]])->orderby('music_id', 'asc')->get();
+            $musicSame = $this->musicRepository->getModel()::where(function($q) use ($music) {
+                    $q->whereRaw('LOWER(`music_title`) like ?', [trim(strtolower($music->music_title))])
+                        ->WhereRaw('LOWER(`music_artist`) like ?', [trim(strtolower($music->music_artist))]);
+                })->where([['cat_id', '!=', CATEGORY_ID_VIDEO], ['music_id', '!=', $music->music_id], ['music_deleted', '<=', 0]])->orderby('music_id', 'asc')->limit(10)->get();
             if(!$musicSame)
                 Helpers::ajaxResult(false, 'Không có nhạc để nhập.', null);
 

@@ -674,6 +674,7 @@ if($musicSet['type_listen'] == 'playlist') {
     <script>
         var musicId = '<?php echo $music->music_id ?>';
         var artists = "<?php echo $music->music_artist  ?>";
+        var musicTitle = "<?php echo $music->music_title  ?>";
         var artistIds = '<?php echo $music->music_artist_id  ?>';
         var musicAddId = '';
         var focusComment = '';
@@ -2178,7 +2179,7 @@ if($musicSet['type_listen'] == 'playlist') {
                             }
                             listMerge.push(response.data.music_id);
                             var value = response.data;
-                            var html_radio = '<label title="Album: '+value.cover_title+'"><input type="radio" name="merge_music" value="' + value.music_id + '">&nbsp;<a target="_blank" href="' + value.listen_url +'">' + value.music_title + '</a> - ' + value.music_artist + ' (' + value.id_de +'; '+ value.music_username +'; '+ value.max_quality_label +'; <i class="material-icons" style=" font-size: 12px; ">headset</i> '+ value.music_listen +'; <i class="material-icons" style=" font-size: 12px; ">cloud_download</i> '+ value.music_downloads +')</label>';
+                            var html_radio = '<label title="Album: '+value.cover_title+'"><input type="radio" name="merge_music" value="' + value.music_id + '">&nbsp;<a target="_blank" href="' + value.listen_url +'">' + searchHighlight(musicTitle, value.music_title) + '</a> - ' + searchHighlight(artists, value.music_artist) + ' (' + value.id_de +'; '+ value.music_username +'; '+ value.max_quality_label +'; <i class="material-icons" style=" font-size: 12px; ">headset</i> '+ value.music_listen +'; <i class="material-icons" style=" font-size: 12px; ">cloud_download</i> '+ value.music_downloads +')</label>';
                             $('.merge_content_music').append(html_radio);
                         }else{
                             alertModal(response.message);
@@ -2206,7 +2207,7 @@ if($musicSet['type_listen'] == 'playlist') {
                             listMerge = [<?php echo $music->music_id ?>];
                             $.each(response.data, function (index, value) {
                                 listMerge.push(value.music_id);
-                                html_radio += '<label title="Album: '+value.cover_title+'"><input type="radio" name="merge_music" value="' + value.music_id + '">&nbsp;<a target="_blank" href="' + value.listen_url +'">' + value.music_title + '</a> - ' + value.music_artist + ' (' + value.id_de +'; '+ value.music_username +'; '+ value.max_quality_label +'; <i class="material-icons" style=" font-size: 12px; ">headset</i> '+ value.music_listen +'; <i class="material-icons" style=" font-size: 12px; ">cloud_download</i> '+ value.music_downloads +')</label>';
+                                html_radio += '<label title="Album: '+value.cover_title+'"><input type="radio" name="merge_music" value="' + value.music_id + '">&nbsp;<a target="_blank" href="' + value.listen_url +'">' + searchHighlight(musicTitle, value.music_title) + '</a> - ' + searchHighlight(artists, value.music_artist) + ' (' + value.id_de +'; '+ value.music_username +'; '+ value.max_quality_label +'; <i class="material-icons" style=" font-size: 12px; ">headset</i> '+ value.music_listen +'; <i class="material-icons" style=" font-size: 12px; ">cloud_download</i> '+ value.music_downloads +')</label>';
                             });
                             var html_custom = '<input type="text" class="form-control col-3 input_merge_id_custom" value="" placeholder="ts3wrcsrq9av4a" style="float: left;"><button type="button" class="btn btn-default" onclick="findMergeCustomID()" style="float: left; margin-left:5px">Tìm ID URL bài hát cần nhập</button>';
                             $('.modal_content_csn').html('<div class="merge_content_music">' + html_radio + '</div>' + html_custom);
