@@ -92,7 +92,9 @@ use App\Library\Helpers;
                             </a>
                         </div>
                         @endif
-                        <li class="list-inline-item wapper-name"><a href="{{env('APP_URL')}}/user/{{Auth::user()->id}}" title="{{Auth::user()->name}}">{{Auth::user()->name}}</a></li>
+                        <li class="list-inline-item"><a href="{{env('APP_URL')}}/user/{{Auth::user()->id}}" title="{{Auth::user()->name}}">
+                                <span class="wapper-name">{{Auth::user()->name}}</span></a>
+                        </li>
                         <li class="list-inline-item">/</li>
                         <li class="list-inline-item"><a href="{{env('APP_URL')}}/logout" title="Đăng ký">Thoát</a></li>
                     @else

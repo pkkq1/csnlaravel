@@ -63,11 +63,11 @@ isset($float_edit) ? $float_edit = $float_edit : $float_edit = false;
                                 <div class="form-row input_change_pass" style="display: none">
                                     <div class="form-group col-md-6">
                                         <label for="name">Mật khẩu cũ</label>
-                                        <input type="password" autocomplete="off" class="form-control" id="current_password" name="current_password" placeholder="" value="">
+                                        <input type="password" autocomplete="new-password" class="form-control" id="current_password" name="current_password" placeholder="" value="">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="name">Mật khẩu mới</label>
-                                        <input type="password" autocomplete="off" class="form-control" id="password" name="password" placeholder="" value="">
+                                        <input type="password" autocomplete="new-password" class="form-control" id="password" name="password" placeholder="" value="">
                                     </div>
                                 </div>
                             @endif
@@ -215,6 +215,10 @@ isset($float_edit) ? $float_edit = $float_edit : $float_edit = false;
                 }
                 if(($('.profile_submit1').find('#name').val()).length < 4) {
                     addErrorInput($('#name'), 'Tên không được để trống và lớn hơn 4 ký tự');
+                    return false;
+                }
+                if(($('.profile_submit1').find('#name').val()).length >30) {
+                    addErrorInput($('#name'), 'Tên không được quá dài 30 ký tự');
                     return false;
                 }
                 if(($('.profile_submit1').find('#user_identity_card').val()).length != 9 && ($('.profile_submit1').find('#user_identity_card').val()).length != 0) {
