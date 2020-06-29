@@ -42,8 +42,8 @@ class NotifyController extends Controller
             return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Không tìm thấy upload music'], 400);
         }
         $url = Helpers::listen_url($musicUpload);
-        $this->notifyRepository->pushNotif($request->user_id, $musicUpload->music_id, 'upload_success', ($musicUpload->cat_id == CAT_VIDEO ? 'Video' : 'Bài hát').' mới bạn được phê duyệt', $url,  $musicUpload->music_id);
-        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => [], 'error' => []], 200);
+        $result = $this->notifyRepository->pushNotif($request->user_id, $musicUpload->music_id, 'upload_success', ($musicUpload->cat_id == CAT_VIDEO ? 'Video' : 'Bài hát').' mới bạn được phê duyệt', $url,  $musicUpload->music_id);
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['success_notify' => ($result ? 'Thành Công' : 'Trùng thông báo')], 'error' => []], 200);
     }
 
 }
