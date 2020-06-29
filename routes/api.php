@@ -102,6 +102,11 @@ Route::prefix('user')->group(function () {
     Route::post('qr_code/login/{token}', ['as' => 'api.user.qr_code.login', 'uses' => 'UserController@qrCodeLogin']);
 });
 
+// notify
+Route::prefix('notify')->group(function () {
+    Route::post('upload_status', ['as' => 'api.user.tab', 'uses' => 'NotifyController@uploadStatusNotify']);
+});
+
 Route::get('code_ads/{key}', ['as' => 'code.ads.index', 'uses' => 'CodeAdsController@index']);
 
 //Payment & Level

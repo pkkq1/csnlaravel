@@ -67,8 +67,11 @@ use App\Library\Helpers;
                                         @foreach($notifyData as $item)
                                             <?php
                                             $fa_font = 'fa-flag';
-                                            if($item->type == 'reply_comment'|| $item->type == 'reply_comment')
+                                            if($item->type == 'reply_comment' || $item->type == 'reply_comment'){
                                                 $fa_font = 'fa-comment';
+                                            }elseif($item->type == 'upload_success'){
+                                                $fa_font = 'fa-check';
+                                            }
                                             ?>
                                             <a href="{{$item->link_url}}">
                                                 <li>
