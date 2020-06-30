@@ -10,11 +10,15 @@ array_map(function ($item) {
 ?>
 <li class="media" data-status="<?php echo $item['read'] ?>" id="notify-<?php echo $item['id'] ?>" style="width: 100%; padding: 10px 5px 5px 10px;border-bottom: 1px solid #a1a1a1; <?php echo $item['read'] == 0 ? 'background: #5f5d5d24;' : '' ?>">
     <a href="{{$item['link_url']}}">
-    @if($item['type'] == 'new_comment' || $item['type'] == 'reply_comment')
-        <i class="fa fa-comment" style="color: red; font-size: 32px; margin-right: 10px;"></i>
-    @else
-            <i class="fa fa-comment" style="color: red; font-size: 32px; margin-right: 10px;"></i>
-    @endif
+    <?php
+    $fa_font = 'fa-flag';
+    if($item['type'] == 'reply_comment' || $item['type'] == 'reply_comment'){
+        $fa_font = 'fa-comment';
+    }elseif($item['type'] == 'upload_success'){
+        $fa_font = 'fa-check';
+    }
+    ?>
+        <i class="fa {{$fa_font}}" style="color: red; font-size: 32px; margin-right: 10px;"></i>
     </a>
     <div class="media-body">
         <div class="body_commnet">
