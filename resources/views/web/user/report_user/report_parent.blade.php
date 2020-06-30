@@ -80,4 +80,4 @@ use App\Models\ReportMusicModel;
         }
     ?>
 <?php echo $pagingHtml ? '</ul>' : '' ?>
-{{($pagingHtml ?? '')}}
+<center>{{($pagingHtml ?? '')}}</center>

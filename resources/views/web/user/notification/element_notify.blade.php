@@ -8,8 +8,8 @@ $pagingHtml = $result->links();
 if($Data) {
 array_map(function ($item) {
 ?>
+<a href="{{$item['link_url']}}" style="text-decoration: none">
 <li class="media" data-status="<?php echo $item['read'] ?>" id="notify-<?php echo $item['id'] ?>" style="width: 100%; padding: 10px 5px 5px 10px;border-bottom: 1px solid #a1a1a1; <?php echo $item['read'] == 0 ? 'background: #5f5d5d24;' : '' ?>">
-    <a href="{{$item['link_url']}}">
     <?php
     $fa_font = 'fa-flag';
     if($item['type'] == 'reply_comment' || $item['type'] == 'reply_comment'){
@@ -19,17 +19,17 @@ array_map(function ($item) {
     }
     ?>
         <i class="fa {{$fa_font}}" style="color: red; font-size: 32px; margin-right: 10px;"></i>
-    </a>
     <div class="media-body">
         <div class="body_commnet">
             <div class="d-flex align-items-center justify-content-between">
-                <h5 class="media-title mt-0 mb-1"><a href="{{$item['link_url']}}"><?php echo $item['text'] ?></a>
+                <h5 class="media-title mt-0 mb-1"><?php echo $item['text'] ?>
                 </h5>
             </div>
             <i style="font-size: 12px"> <?php echo Helpers::timeElapsedString(strtotime($item['created_at'])); ?></i>
         </div>
     </div>
 </li>
+</a>
 <?php
 }, $Data);
 }else{
@@ -41,5 +41,6 @@ array_map(function ($item) {
 <?php
 }
 ?>
+
 <?php echo $pagingHtml ? '</ul>' : '' ?>
-{{($pagingHtml ?? '')}}
+<center>{{($pagingHtml ?? '')}}</center>

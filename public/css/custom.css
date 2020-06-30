@@ -2028,3 +2028,6 @@ a.dropdown-menu-header {
         display: none;
     }
 }
+#notify .list_body .list-unstyled .media .media-body .media-title {
+    color: #141414!important;
+}
