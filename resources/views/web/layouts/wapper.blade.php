@@ -12,7 +12,7 @@ use App\Library\Helpers;
                     <figcaption class="d-none">explanatory caption</figcaption>
                 </figure>
                 <form action="<?php echo env('SEARCH_TEMPLATE_URL'); ?>/tim-kiem">
-                    <a href="http://old.chiasenhac.vn/" target="_blank"><img src="{{env('IMG_DATA_URL')}}imgs/csn_bancu.png" alt="Logo Chiasenhac old" style="float: left; margin-right: 10px;"></a>
+                    <a class="old_redirect_web" href="http://old.chiasenhac.vn/" target="_blank"><img src="{{env('IMG_DATA_URL')}}imgs/csn_bancu.png" alt="Logo Chiasenhac old" style="float: left; margin-right: 10px;"></a>
                     <div class="form-group m-0" style="float:left">
                         <i class="material-icons">search</i>
                         <input type="search" name="q" class="form-control" value="{{$_GET['q'] ?? ''}}" autocomplete="on" class="biginput" id="search_autocomplete" placeholder="nhập bài hát, video, tên nghệ sỹ bạn cần tìm">
@@ -54,7 +54,7 @@ use App\Library\Helpers;
                             <a href="javascript:void(0)" style="float: left">
                                 <i class="fa fa-bell-o" style="font-size: 20px; float: left; color: white"></i>
                             </a>
-                            <span class="badge badge-danger number-dropdown">{{$notify}}</span>
+                            <span class="badge badge-danger number-dropdown">{{($notify > 10 ? '9+' : $notify)}}</span>
                             <ul class="dropdown-menu-left pull-right box_notify" style="display: none">
                                 <li role="presentation">
                                     <label class="dropdown-menu-header-csn">Thông báo</label>

@@ -2005,3 +2005,26 @@ a.dropdown-menu-header {
 #notify li:hover {
     background: #5f5d5d24;
 }
+@media (max-width: 1080px) {
+    #header #search_autocomplete {
+        min-width: 400px;
+    }
+}
+@media (max-width: 900px) {
+    #header #search_autocomplete {
+        min-width: 300px;
+    }
+}
+@media (max-width: 800px) {
+    #header #search_autocomplete {
+        min-width: 200px;
+    }
+}
+@media (max-width: 700px) {
+    #header #search_autocomplete {
+        min-width: 100px;
+    }
+    .old_redirect_web {
+        display: none;
+    }
+}
