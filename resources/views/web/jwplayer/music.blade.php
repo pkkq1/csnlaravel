@@ -45,8 +45,10 @@ $partListenFullUrl = Helpers::listen_url($music, '');
 $titleMeta = $music->music_title . ' - '. str_replace(';', ',', $music->music_artist);
 if($music->music_new_id > 0 && isset($musicNew) && $musicNew) {
     $file_url = Helpers::file_url($musicNew);
+    $imgQuality = Helpers::getImgQuality($musicNew->music_id);
 }else{
     $file_url = Helpers::file_url($music);
+    $imgQuality = Helpers::getImgQuality($music->music_id);
 }
 $lyric_array = Helpers::lyric_to_web($music->music_lyric);
 $artistHtml = Helpers::rawHtmlArtists($music->music_artist_id, $music->music_artist);
@@ -318,7 +320,7 @@ if($musicSet['type_listen'] == 'playlist') {
                                         <div class="card flex-column-reverse">
                                             <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                                                 <div class="card-body p-0">
-                                                    <img class="card-img-top" src="{{Helpers::getImgQuality($music->music_id)}}" alt="">
+                                                    <img class="card-img-top" src="{{$imgQuality}}" alt="">
                                                 </div>
                                             </div>
                                             <div class="card-header border-0" id="headingOne">

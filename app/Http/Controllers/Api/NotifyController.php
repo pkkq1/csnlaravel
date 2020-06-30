@@ -36,13 +36,23 @@ class NotifyController extends Controller
             return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'vui lòng nhập id upload'], 400);
         if(!$request->user_id)
             return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'vui lòng nhập id user upload'], 400);
+        if(!$request->status)
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'vui lòng nhập status upload'], 400);
 
         $musicUpload = $this->uploadRepository->getModel()::where([['music_id', $request->music_id], ['music_user_id', $request->user_id]])->first();
         if(!$musicUpload) {
             return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Không tìm thấy upload music'], 400);
         }
         $url = Helpers::listen_url($musicUpload);
-        $result = $this->notifyRepository->pushNotif($request->user_id, $musicUpload->music_id, 'upload_success', ($musicUpload->cat_id == CAT_VIDEO ? 'Video' : 'Bài hát').' mới bạn được phê duyệt', $url,  $musicUpload->music_id);
+        $mesage = '';
+        if($request->status == UPLOAD_STAGE_FULLCENSOR) {
+            $mesage = ' mới bạn được phê duyệt.';
+        }elseif($request->status == UPLOAD_STAGE_DELETED) {
+            $mesage = ' mới bạn đã bị xóa.';
+        }else{
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Không tìm thấy trạng thái thông báo'], 400);
+        }
+        $result = $this->notifyRepository->pushNotif($request->user_id, $musicUpload->music_id, 'upload_success', ($musicUpload->cat_id == CAT_VIDEO ? 'Video' : 'Bài hát') . $mesage, $url,  $musicUpload->music_id);
         return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['success_notify' => ($result ? 'Thành Công' : 'Trùng thông báo')], 'error' => []], 200);
     }
 
