@@ -114,6 +114,7 @@ if($musicSet['type_listen'] == 'playlist') {
                     <div id="csnplayer" class="<?php echo $musicSet['type_jw'] == 'video' ? 'csn_video' : 'csn_music' ?>" style="position:relative; z-index: 99999; width:100%;"> </div>
                     <div id="hidden_lyrics" class="hidden">
                         <div id="lyrics" class="rabbit-lyrics">
+                            <p>
                             @if($musicSet['type_jw'] != 'video')
                             <?php
                                 $music_lyric_karaoke = $music->musicKara;
@@ -121,6 +122,7 @@ if($musicSet['type_listen'] == 'playlist') {
                                 echo $music_lyric_karaoke;
                             ?>
                             @endif
+                            </p>
                         </div>
                     </div>
                     <div class="music_recommendation" style="border-bottom: 1px solid rgba(0,0,0,.125);">
@@ -271,9 +273,11 @@ if($musicSet['type_listen'] == 'playlist') {
                                             
                                         <article>
                                             <div id="fulllyric">
-                                                @if(isset($lyric_array['lyric']))
-                                                    <?php echo $lyric_array['lyric'] ?>
-                                                @endif
+                                                <p>
+                                                    @if(isset($lyric_array['lyric']))
+                                                        <?php echo $lyric_array['lyric'] ?>
+                                                    @endif
+                                                </p>
                                             </div>
                                             <div id="morelyric" style="cursor:pointer" onclick="show_fulllyric();" align="right"></div>
                                         </article>
