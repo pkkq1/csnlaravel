@@ -1141,7 +1141,7 @@ class Helpers
 //        }
 //
 //        dd($lyrics);
-        return $lyrics;
+        return htmlspecialchars_decode($lyrics, ENT_QUOTES);
     }
 
     public static function lyric_to_web($lyric)
