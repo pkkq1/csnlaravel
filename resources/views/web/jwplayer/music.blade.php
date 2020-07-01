@@ -271,11 +271,9 @@ if($musicSet['type_listen'] == 'playlist') {
                                             
                                         <article>
                                             <div id="fulllyric">
-                                                <p>
-                                                    @if(isset($lyric_array['lyric']))
-                                                        <?php echo htmlspecialchars_decode($lyric_array['lyric'], ENT_QUOTES) ?>
-                                                    @endif
-                                                </p>
+                                                @if(isset($lyric_array['lyric']))
+                                                    <?php echo $lyric_array['lyric'] ?>
+                                                @endif
                                             </div>
                                             <div id="morelyric" style="cursor:pointer" onclick="show_fulllyric();" align="right"></div>
                                         </article>
