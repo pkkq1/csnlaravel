@@ -45,11 +45,12 @@ class NotifyController extends Controller
         }
         $url = Helpers::listen_url($musicUpload);
         $mesage = '';
-        if($request->status == UPLOAD_STAGE_FULLCENSOR) {
+        if ($request->status == UPLOAD_STAGE_FULLCENSOR) {
             $mesage = ' mới bạn được phê duyệt.';
-        }elseif($request->status == UPLOAD_STAGE_DELETED) {
+        } elseif ($request->status == UPLOAD_STAGE_DELETED) {
             $mesage = ' mới bạn đã bị xóa.';
-        }else{
+            $url = '/dang-tai/nhac/' . $musicUpload->music_id;
+        } else {
             return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Không tìm thấy trạng thái thông báo'], 400);
         }
         $result = $this->notifyRepository->pushNotif($request->user_id, $musicUpload->music_id, 'upload_success', ($musicUpload->cat_id == CAT_VIDEO ? 'Video' : 'Bài hát') . $mesage, $url,  $musicUpload->music_id);
