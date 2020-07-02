@@ -865,7 +865,7 @@ class UploadController extends Controller
         $result['music_title'] = htmlspecialchars_decode($result['music_title'], ENT_QUOTES);
         $result['music_lyric'] = htmlspecialchars_decode($result['music_lyric'], ENT_QUOTES);
         $result['music_composer'] = htmlspecialchars_decode($result['music_composer'], ENT_QUOTES);
-        Helpers::ajaxResult(true, '', $result->toArray());
+        Helpers::ajaxResult(true, '', $result);
     }
 
 
