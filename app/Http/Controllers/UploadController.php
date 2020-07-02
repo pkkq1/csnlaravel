@@ -522,6 +522,8 @@ class UploadController extends Controller
             $result->music_last_update_time = time();
             $result->music_last_update_by = $user->id;
             $result->music_updated = 0;
+            if($result->cat_id != CAT_VIDEO)
+                $result->music_metadata = 0;
             if($request->music_track_id)
                 $result->music_track_id = $request->music_track_id;
             if($per_Xet_Duyet_Chat_luong && $request->input('music_bitrate_fixed') && $result->music_bitrate_fixed != $request->input('music_bitrate_fixed')) {
