@@ -860,6 +860,12 @@ class UploadController extends Controller
         }
         if(!$result)
             Helpers::ajaxResult(false, 'Không tìm thấy nội dung', null);
+
+        $result = $result->toArray();
+        $result['music_title'] = htmlspecialchars_decode($result['music_title'], ENT_QUOTES);
+        $result['music_album'] = htmlspecialchars_decode($result['music_album'], ENT_QUOTES);
+        $result['music_lyric'] = htmlspecialchars_decode($result['music_lyric'], ENT_QUOTES);
+        $result['music_composer'] = htmlspecialchars_decode($result['music_composer'], ENT_QUOTES);
         Helpers::ajaxResult(true, '', $result->toArray());
     }
 
