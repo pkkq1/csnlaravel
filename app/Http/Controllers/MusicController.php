@@ -888,7 +888,7 @@ class MusicController extends Controller
         $merge->save();
         $music->music_deleted = $merge->music_id;
         $this->musicDeletedRepository->getModel()::create($music->toArray());
-        $this->uploadRepository->getModel()->where('music_id', $music->music_id)->update(['music_state', UPLOAD_STAGE_DELETED]);
+        $this->uploadRepository->getModel()::where('music_id', $music->music_id)->update(['music_state', UPLOAD_STAGE_DELETED]);
         $music->delete();
         return Helpers::listen_url($merge->toArray());
     }
@@ -915,7 +915,7 @@ class MusicController extends Controller
         $merge->music_deleted = $music->music_id;
         $music->save();
         $this->musicDeletedRepository->getModel()::create($merge->toArray());
-        $this->uploadRepository->getModel()->where('music_id', $merge->music_id)->update(['music_state', UPLOAD_STAGE_DELETED]);
+        $this->uploadRepository->getModel()::where('music_id', $merge->music_id)->update(['music_state', UPLOAD_STAGE_DELETED]);
         $merge->delete();
         return Helpers::listen_url($music->toArray());
     }
