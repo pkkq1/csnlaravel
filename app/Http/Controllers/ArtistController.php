@@ -74,7 +74,7 @@ class ArtistController extends Controller
         if(url()->current() != ENV('LISTEN_URL').substr($urlOriginal, 1)) {
             return redirect(ENV('LISTEN_URL').substr($urlOriginal, 1));
         }
-        $music = $this->Solr->search(['music_artist_id' => $artist->artist_id], 1, LIMIT_MUSIC_PAGE_ARTIST, ['_version_' => 'desc']);
+        $music = $this->Solr->search(['music_artist_id' => $artist->artist_id], ($request->page ?? 1), LIMIT_MUSIC_PAGE_ARTIST, ['_version_' => 'desc']);
         $musicHtml =  view('artist.music_item', compact('music'));
         $artistFavourite = false;
         if(Auth::check())

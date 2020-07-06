@@ -838,62 +838,86 @@ class MusicController extends Controller
             $url = '';
             if($idMusic > $idMerge) {
                 //  Trường hợp ID1 > ID2
-                // add listen & downlaod
-                $merge->music_listen = $merge->music_listen + $music->music_listen;
-                $merge->music_downloads = $merge->music_downloads + $music->music_downloads;
-                $mergeListen->music_listen = $mergeListen->music_listen + $musicListen->music_listen;
-                $mergeListen->music_listen_today = $mergeListen->music_listen_today + $musicListen->music_listen_today;
-                $mergeListen->music_downloads = $mergeListen->music_downloads + $mergeDownload->music_downloads;
-                $mergeListen->music_downloads_today = $mergeListen->music_downloads_today + $mergeDownload->music_downloads_today;
-                // add comment & search * comment
-                $merge->music_search_result = $merge->music_search_result + $music->music_search_result;
-                $merge->music_favourite = $merge->music_favourite + $music->music_favourite;
-                $merge->music_comment = $merge->music_comment + $music->music_comment;
-                $this->musicFavouriteRepository->getModel()::where('music_id', $music->music_id)->update(['music_id' => $merge->music_id]);
-                $this->commentRepository->getModel()::where('music_id', $music->music_id)->update(['music_id' => $merge->music_id]);
-                $this->commentReplyRepository->getModel()::where('music_id', $music->music_id)->update(['music_id' => $merge->music_id]);
-
-
-                // check quality
-                if($mergeQualityMax < $musicQualityMax) {
-                    $merge->music_new_id = $music->music_id;
+                if($idMerge > ID_OLD_MUSIC || ($idMerge < ID_OLD_MUSIC && $idMusic < ID_OLD_MUSIC)) {
+                    // tất cả ở trên ID_OLD_MUSIC hoặc cùng ở dưới ID_OLD_MUSIC
+                    $url = $this->save_to_idMergeMusic($music, $musicListen, $musicDownload, $musicQualityMax, $merge, $mergeListen, $mergeDownload, $mergeQualityMax);
+                }elseif($idMerge < ID_OLD_MUSIC && $idMusic > ID_OLD_MUSIC){
+                    // ở giữa ID_OLD_MUSIC, nhạc nhập dưới ID_OLD_MUSIC, nhạc bị nhập ở trên
+                    $url = $this->save_to_idMusic($music, $musicListen, $musicDownload, $musicQualityMax, $merge, $mergeListen, $mergeDownload, $mergeQualityMax);
+                }else {
+                    Helpers::ajaxResult(false, 'Lỗi ngoài hệ thống nhập', null);
                 }
-                $merge->save();
-                $music->music_deleted = $merge->music_id;
-                $this->musicDeletedRepository->getModel()::create($music->toArray());
-                $music->delete();
-                $url = Helpers::listen_url($merge->toArray());
             }else{
                 //  Trường hợp ID1 < ID2
-                // add listen & downlaod
-                $music->music_listen = $music->music_listen + $merge->music_listen;
-                $music->music_downloads = $music->music_downloads + $merge->music_downloads;
-                $musicListen->music_listen = $musicListen->music_listen + $mergeListen->music_listen;
-                $musicListen->music_listen_today = $musicListen->music_listen_today + $mergeListen->music_listen_today;
-                $musicDownload->music_downloads = $mergeDownload->music_downloads + $mergeListen->music_downloads;
-                $musicDownload->music_downloads_today = $mergeDownload->music_downloads_today + $mergeListen->music_downloads_today;
-                // add comment & search * comment
-                $music->music_search_result = $music->music_search_result + $merge->music_search_result;
-                $music->music_favourite = $music->music_favourite + $merge->music_favourite;
-                $music->music_comment = $music->music_comment + $merge->music_comment;
-                $this->musicFavouriteRepository->getModel()::where('music_id', $merge->music_id)->update(['music_id' => $music->music_id]);
-                $this->commentRepository->getModel()::where('music_id', $merge->music_id)->update(['music_id' => $music->music_id]);
-                $this->commentReplyRepository->getModel()::where('music_id', $merge->music_id)->update(['music_id' => $music->music_id]);
-
-                // check quality
-                if($musicQualityMax < $mergeQualityMax) {
-                    $music->music_new_id = $merge->music_id;
+                // $idMerge > $idMusic
+                if($idMusic > ID_OLD_MUSIC || ($idMusic < ID_OLD_MUSIC && $idMerge < ID_OLD_MUSIC)) {
+                    // tất cả ở trên ID_OLD_MUSIC hoặc cùng ở dưới ID_OLD_MUSIC
+                    $url = $this->save_to_idMusic($music, $musicListen, $musicDownload, $musicQualityMax, $merge, $mergeListen, $mergeDownload, $mergeQualityMax);
+                }elseif($idMusic < ID_OLD_MUSIC && $idMerge > ID_OLD_MUSIC){
+                    // ở giữa ID_OLD_MUSIC, nhạc nhập dưới ID_OLD_MUSIC, nhạc bị nhập ở trên
+                    $url = $this->save_to_idMergeMusic($music, $musicListen, $musicDownload, $musicQualityMax, $merge, $mergeListen, $mergeDownload, $mergeQualityMax);
+                }else{
+                    Helpers::ajaxResult(false, 'Lỗi ngoài hệ thống nhập', null);
                 }
-                $merge->music_deleted = $music->music_id;
-                $music->save();
-                $this->musicDeletedRepository->getModel()::create($merge->toArray());
-                $merge->delete();
-                $url = Helpers::listen_url($music->toArray());
             }
             Helpers::ajaxResult(true, 'Nhập bài hát thành công', ['url' => $url]);
         }
-        Helpers::ajaxResult(false, 'Lỗi ngoài hệ thống nhập', null);
+        Helpers::ajaxResult(false, 'Lỗi', null);
     }
+    public function save_to_idMergeMusic($music, $musicListen, $musicDownload, $musicQualityMax, $merge, $mergeListen, $mergeDownload, $mergeQualityMax) {
+        // add listen & downlaod
+        $merge->music_listen = $merge->music_listen + $music->music_listen;
+        $merge->music_downloads = $merge->music_downloads + $music->music_downloads;
+        $mergeListen->music_listen = $mergeListen->music_listen + $musicListen->music_listen;
+        $mergeListen->music_listen_today = $mergeListen->music_listen_today + $musicListen->music_listen_today;
+        $mergeListen->music_downloads = $mergeListen->music_downloads + $mergeDownload->music_downloads;
+        $mergeListen->music_downloads_today = $mergeListen->music_downloads_today + $mergeDownload->music_downloads_today;
+        // add comment & search * comment
+        $merge->music_search_result = $merge->music_search_result + $music->music_search_result;
+        $merge->music_favourite = $merge->music_favourite + $music->music_favourite;
+        $merge->music_comment = $merge->music_comment + $music->music_comment;
+        $this->musicFavouriteRepository->getModel()::where('music_id', $music->music_id)->update(['music_id' => $merge->music_id]);
+        $this->commentRepository->getModel()::where('music_id', $music->music_id)->update(['music_id' => $merge->music_id]);
+        $this->commentReplyRepository->getModel()::where('music_id', $music->music_id)->update(['music_id' => $merge->music_id]);
+
+
+        // check quality
+        if($mergeQualityMax < $musicQualityMax) {
+            $merge->music_new_id = $music->music_id;
+        }
+        $merge->save();
+        $music->music_deleted = $merge->music_id;
+        $this->musicDeletedRepository->getModel()::create($music->toArray());
+        $music->delete();
+        return Helpers::listen_url($merge->toArray());
+    }
+    public function save_to_idMusic($music, $musicListen, $musicDownload, $musicQualityMax, $merge, $mergeListen, $mergeDownload, $mergeQualityMax) {
+        // add listen & downlaod
+        $music->music_listen = $music->music_listen + $merge->music_listen;
+        $music->music_downloads = $music->music_downloads + $merge->music_downloads;
+        $musicListen->music_listen = $musicListen->music_listen + $mergeListen->music_listen;
+        $musicListen->music_listen_today = $musicListen->music_listen_today + $mergeListen->music_listen_today;
+        $musicDownload->music_downloads = $mergeDownload->music_downloads + $mergeListen->music_downloads;
+        $musicDownload->music_downloads_today = $mergeDownload->music_downloads_today + $mergeListen->music_downloads_today;
+        // add comment & search * comment
+        $music->music_search_result = $music->music_search_result + $merge->music_search_result;
+        $music->music_favourite = $music->music_favourite + $merge->music_favourite;
+        $music->music_comment = $music->music_comment + $merge->music_comment;
+        $this->musicFavouriteRepository->getModel()::where('music_id', $merge->music_id)->update(['music_id' => $music->music_id]);
+        $this->commentRepository->getModel()::where('music_id', $merge->music_id)->update(['music_id' => $music->music_id]);
+        $this->commentReplyRepository->getModel()::where('music_id', $merge->music_id)->update(['music_id' => $music->music_id]);
+
+        // check quality
+        if($musicQualityMax < $mergeQualityMax) {
+            $music->music_new_id = $merge->music_id;
+        }
+        $merge->music_deleted = $music->music_id;
+        $music->save();
+        $this->musicDeletedRepository->getModel()::create($merge->toArray());
+        $merge->delete();
+        return Helpers::listen_url($music->toArray());
+    }
+
     public function checkMusicBitrate(Request $request) {
         if($request->music_id) {
             $upload = $this->uploadRepository->findOnlyPublished($request->music_id);

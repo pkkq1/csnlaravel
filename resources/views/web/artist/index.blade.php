@@ -35,7 +35,7 @@ $avtArtist = $artist->artist_avatar ? Helpers::file_path($artist->artist_id, PUB
                 <div class="tabs tabs-style-line tab-category">
                     <nav>
                         <ul>
-                            <li class="bai-hat tab-current"><a class="bai-hat" onclick="artistTab('/tab_artist', 'music')" href="#music"><span>Bài Hát</span></a></li>
+                            <li class="music tab-current"><a class="music" onclick="artistTab('/tab_artist', 'music')" href="#music"><span>Bài Hát</span></a></li>
                             <li class="video"><a class="video" onclick="artistTab('/tab_artist', 'video')" href="#video"><span>Video</span></a></li>
                             <li class="album"><a class="album" onclick="artistTab('/tab_artist', 'album')" href="#album"><span>Album</span></a></li>
                             <li class="playlist"><a class="playlist" onclick="artistTab('/tab_artist', 'playlist')" href="#playlist"><span>Playlist</span></a></li>
@@ -174,5 +174,9 @@ $avtArtist = $artist->artist_avatar ? Helpers::file_path($artist->artist_id, PUB
         <?php
         }
         ?>
+        if(!$('.tab-content-category').find('section').first().html()) {
+            $('.tab-category').find('li:nth-child(2)').click();
+            $('.tab-category').find('li:nth-child(2)').find('a').click();
+        }
     </script>
 @endsection
