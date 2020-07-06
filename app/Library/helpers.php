@@ -1314,8 +1314,9 @@ class Helpers
     }
     public static function checkExitsExcepArtist($artist, $arrExep)
     {
+        $arrExep = array_map('strtolower', $arrExep);
         foreach (explode(';', $artist) as $item) {
-            if(in_array($item, $arrExep))
+            if(in_array(strtolower($item), $arrExep))
                 return true;
         }
         return false;
