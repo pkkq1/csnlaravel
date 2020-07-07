@@ -392,6 +392,7 @@ class UploadController extends Controller
         $user = Auth::user();
         $per_Xet_Duyet = $user->hasPermission('duyet_sua_nhac');
         $per_Xet_Duyet_Chat_luong = $user->hasPermission('duyet_sua_chat_luong_nhac');
+        $per_xoa_nhac = $user->hasPermission('xoa_nhac');
         if($request->input('action_upload') == 'edit') {
             $userId = Auth::user()->id;
             $arrStage = [UPLOAD_STAGE_DELETED, UPLOAD_STAGE_UNCENSOR, UPLOAD_STAGE_FULLCONVERT];
@@ -466,7 +467,7 @@ class UploadController extends Controller
                 if($newAlbum)
                     $newAlbum->save();
             }
-            if(($per_Xet_Duyet && $oldStage != $request->input('music_state')) || $isDelete) {
+            if(($per_Xet_Duyet && $per_xoa_nhac && $oldStage != $request->input('music_state')) || $isDelete) {
                 // cập nhật tình trạng sẽ xóa
                 if(((in_array($request->input('music_state'), [UPLOAD_STAGE_DELETED, UPLOAD_STAGE_UNCENSOR])) && !in_array($oldStage, [UPLOAD_STAGE_DELETED, UPLOAD_STAGE_UNCENSOR])) || $isDelete) { //check old stage to before update stage field
                     // xóa nhạc, video

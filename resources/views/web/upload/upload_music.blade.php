@@ -5,6 +5,7 @@ use App\Library\Helpers;
 $mess = $typeUpload == 'music' ? 'bài hát' : 'video';
 $titleMeta = (isset($music) ? 'Chỉnh sửa '.$music->music_title : 'Cập nhật '.$mess.' mới').' - ' . Config::get('constants.app.title');
 $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
+$per_xoa_nhac =  Auth::user()->hasPermission('xoa_nhac');
 ?>
 @section('contentCSS')
     <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/dropzone.css">
@@ -317,7 +318,9 @@ $perMission_Duyet_Sua_Nhac =  Auth::user()->hasPermission('duyet_sua_nhac');
                                                     <option value="{{UPLOAD_STAGE_UNCENSOR}}">Chưa duyệt</option>
                                                     <option value="{{UPLOAD_STAGE_FULLCONVERT}}">Đã xử lý</option>
                                                     <option value="{{UPLOAD_STAGE_FULLCENSOR}}">Đã duyệt</option>
+                                                    @if($per_xoa_nhac)
                                                     <option value="{{UPLOAD_STAGE_DELETED}}">Đã xóa</option>
+                                                    @endif
                                                 </select>
                                             </div>
                                             <script>
