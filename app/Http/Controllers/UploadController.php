@@ -510,7 +510,7 @@ class UploadController extends Controller
                         $oldAlbum->save();
                     }
                 }
-                $this->actionLogRepository->addAction('delete_music', 'Xóa nhạc ở upload');
+                $this->actionLogRepository->addAction('delete_music', 'Xóa nhạc ở upload', $result->music_id);
             }
             if($oldAlbum && $oldAlbum->album_music_total == 0)
                 $Solr->deleteCustom('cover_' . $oldAlbum->cover_id);

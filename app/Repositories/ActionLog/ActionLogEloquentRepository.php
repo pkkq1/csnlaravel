@@ -40,14 +40,14 @@ class ActionLogEloquentRepository extends EloquentRepository implements ActionLo
 
         return $result;
     }
-    public function addAction($name, $text, $music_id = '') {
+    public function addAction($name, $text, $music_id = null) {
         $result = $this
             ->_model
             ->create([
                 'name' => $name,
                 'text' => $text,
+                'music_id' => $music_id,
                 'user_id' => (Auth::check() ? Auth::user()->id : ''),
-                'music_id' => $music_id
             ]);
         return $result;
     }
