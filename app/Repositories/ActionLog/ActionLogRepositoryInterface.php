@@ -1,5 +1,5 @@
 <?php
-namespace App\Repositories\Category;
+namespace App\Repositories\ActionLog;
 
 interface ActionLogRepositoryInterface
 {
