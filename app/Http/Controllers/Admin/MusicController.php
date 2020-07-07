@@ -34,8 +34,9 @@ class MusicController extends CrudController
                 $this->crud->denyAccess(['list']);
             }
             if(!backpack_user()->can('xoa_nhac')) {
-                $this->crud->denyAccess(['delete']);
+                // tắt chức năng này
             }
+            $this->crud->denyAccess(['delete']);
             return $next($request);
         });
         parent::__construct();

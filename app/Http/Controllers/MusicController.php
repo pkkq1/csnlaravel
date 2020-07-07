@@ -37,6 +37,7 @@ use App\Repositories\LyricSuggestion\LyricSuggestionEloquentRepository;
 use App\Repositories\MusicSearchResult\MusicSearchResultEloquentRepository;
 use App\Repositories\Comment\CommentEloquentRepository;
 use App\Repositories\CommentReply\CommentReplyEloquentRepository;
+use App\Repositories\ActionLog\ActionLogEloquentRepository;
 use Session;
 use Response;
 use DB;
@@ -72,13 +73,14 @@ class MusicController extends Controller
     protected $categoryRepository;
     protected $commentRepository;
     protected $commentReplyRepository;
+    protected $actionLogRepository;
 
     public function __construct(MusicEloquentRepository $musicRepository, PlaylistEloquentRepository $playlistRepository, MusicListenEloquentRepository $musicListenRepository,
                                 CategoryEloquentRepository $categoryListenRepository, CoverEloquentRepository $coverRepository, VideoEloquentRepository $videoRepository, ArtistRepository $artistRepository,
                                 MusicFavouriteRepository $musicFavouriteRepository, VideoFavouriteRepository $videoFavouriteRepository, MusicDownloadEloquentRepository $musicDownloadRepository, KaraokeEloquentRepository $karaokeRepository,
                                 VideoListenEloquentRepository $videoListenRepository, VideoDownloadEloquentRepository $videoDownloadRepository, PlaylistPublisherEloquentRepository $playlistPublisherRepository, SearchResultEloquentRepository $searchResultRepository,
                                 KaraokeSuggestionEloquentRepository $karaokeSuggestionRepository, LyricSuggestionEloquentRepository $lyricSuggestionRepository, MusicSearchResultEloquentRepository $musicSearchResultRepository, MusicDeletedEloquentRepository $musicDeletedRepository,
-                                UploadEloquentRepository $uploadRepository, UserEloquentRepository $userRepository, CategoryEloquentRepository $categoryRepository, CommentEloquentRepository $commentRepository, CommentReplyEloquentRepository $commentReplyRepository)
+                                UploadEloquentRepository $uploadRepository, UserEloquentRepository $userRepository, CategoryEloquentRepository $categoryRepository, CommentEloquentRepository $commentRepository, CommentReplyEloquentRepository $commentReplyRepository, ActionLogEloquentRepository $actionLogRepository)
     {
         $this->musicRepository = $musicRepository;
         $this->videoRepository = $videoRepository;
@@ -104,6 +106,7 @@ class MusicController extends Controller
         $this->categoryRepository = $categoryRepository;
         $this->commentRepository = $commentRepository;
         $this->commentReplyRepository = $commentReplyRepository;
+        $this->actionLogRepository = $actionLogRepository;
     }
 
     /**
@@ -888,7 +891,8 @@ class MusicController extends Controller
         $merge->save();
         $music->music_deleted = $merge->music_id;
         $this->musicDeletedRepository->getModel()::create($music->toArray());
-        $this->uploadRepository->getModel()::where('music_id', $music->music_id)->update(['music_state' => UPLOAD_STAGE_DELETED]);
+        $this->uploadRepository->getModel()::where('music_id', $music->music_id)->update(['music_state' => UPLOAD_STAGE_DELETED, 'music_note' => 'Nhập nhạc']);
+        $this->actionLogRepository->addAction('merge_music', 'Nhập nhạc từ '.$music->music_id. ' vào ' . $merge->music_id);
         $music->delete();
         return Helpers::listen_url($merge->toArray());
     }
@@ -915,7 +919,8 @@ class MusicController extends Controller
         $merge->music_deleted = $music->music_id;
         $music->save();
         $this->musicDeletedRepository->getModel()::create($merge->toArray());
-        $this->uploadRepository->getModel()::where('music_id', $merge->music_id)->update(['music_state' => UPLOAD_STAGE_DELETED]);
+        $this->uploadRepository->getModel()::where('music_id', $merge->music_id)->update(['music_state' => UPLOAD_STAGE_DELETED, 'music_note' => 'Nhập nhạc']);
+        $this->actionLogRepository->addAction('merge_music', 'Nhập nhạc từ '.$merge->music_id. ' vào ' . $music->music_id);
         $merge->delete();
         return Helpers::listen_url($music->toArray());
     }

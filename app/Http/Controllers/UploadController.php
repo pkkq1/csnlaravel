@@ -25,6 +25,7 @@ use App\Repositories\DeleteMusic\DeleteMusicEloquentRepository;
 use App\Repositories\DeleteVideo\DeleteVideoEloquentRepository;
 use App\Repositories\ArtistException\ArtistExceptionRepository;
 use App\Repositories\User\UserEloquentRepository;
+use App\Repositories\ActionLog\ActionLogEloquentRepository;
 use App\Solr\Solarium;
 use Illuminate\Support\Str;
 use App\Http\Controllers\Sync\SolrSyncController;
@@ -50,12 +51,13 @@ class UploadController extends Controller
     protected $userExpRepository;
     protected $playlistMusicRepository;
     protected $musicFavouriteRepository;
+    protected $actionLogRepository;
     protected $Solr;
 
     public function __construct(ArtistUploadEloquentRepository $artistUploadRepository, MusicEloquentRepository $musicRepository, ArtistRepository $artistRepository,
                                 UploadEloquentRepository $uploadRepository, AlbumEloquentRepository $albumRepository, VideoEloquentRepository $videoRepository, CoverEloquentRepository $coverRepository, Solarium $Solr,
                                 DeleteVideoEloquentRepository $deleteVideoRepository, DeleteMusicEloquentRepository $deleteMusicRepository, ArtistExceptionRepository $artistExpRepository, UploadExceptionEloquentRepository $uploadExRepository,
-                                UserEloquentRepository $userExpRepository, PlaylistMusicEloquentRepository $playlistMusicRepository, MusicFavouriteRepository $musicFavouriteRepository) {
+                                UserEloquentRepository $userExpRepository, PlaylistMusicEloquentRepository $playlistMusicRepository, MusicFavouriteRepository $musicFavouriteRepository, ActionLogEloquentRepository $actionLogRepository) {
         $this->artistUploadRepository = $artistUploadRepository;
         $this->musicRepository = $musicRepository;
         $this->videoRepository = $videoRepository;
@@ -70,6 +72,7 @@ class UploadController extends Controller
         $this->userExpRepository = $userExpRepository;
         $this->playlistMusicRepository = $playlistMusicRepository;
         $this->musicFavouriteRepository = $musicFavouriteRepository;
+        $this->actionLogRepository = $actionLogRepository;
         $this->Solr = $Solr;
         $this->middleware(function ($request, $next)
         {
@@ -507,6 +510,7 @@ class UploadController extends Controller
                         $oldAlbum->save();
                     }
                 }
+                $this->actionLogRepository->addAction('delete_music', 'Xóa nhạc ở upload');
             }
             if($oldAlbum && $oldAlbum->album_music_total == 0)
                 $Solr->deleteCustom('cover_' . $oldAlbum->cover_id);
