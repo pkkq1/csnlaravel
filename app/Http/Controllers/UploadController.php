@@ -467,6 +467,9 @@ class UploadController extends Controller
                 if($newAlbum)
                     $newAlbum->save();
             }
+            if($isDelete && !$per_xoa_nhac) {
+                return view('errors.text_error')->with('message', 'Bạn không có quyền xóa nhạc này');
+            }
             if(($per_Xet_Duyet && $per_xoa_nhac && $oldStage != $request->input('music_state')) || $isDelete) {
                 // cập nhật tình trạng sẽ xóa
                 if(((in_array($request->input('music_state'), [UPLOAD_STAGE_DELETED, UPLOAD_STAGE_UNCENSOR])) && !in_array($oldStage, [UPLOAD_STAGE_DELETED, UPLOAD_STAGE_UNCENSOR])) || $isDelete) { //check old stage to before update stage field
