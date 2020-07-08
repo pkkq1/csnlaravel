@@ -896,7 +896,7 @@ class MusicController extends Controller
         $music->music_deleted = $merge->music_id;
         $this->musicDeletedRepository->getModel()::create($music->toArray());
         $this->uploadRepository->getModel()::where('music_id', $music->music_id)->update(['music_state' => UPLOAD_STAGE_DELETED, 'music_note' => 'Nhập nhạc']);
-        $this->actionLogRepository->addAction('merge_music', 'Nhập nhạc từ '.$music->music_id. ' vào ' . $merge->music_id);
+        $this->actionLogRepository->addAction('merge_music', 'Nhập nhạc từ '.$music->music_id. ' vào ' . $merge->music_id, $music->music_id);
         $urlRedirect = Helpers::listen_url($merge->toArray());
         $this->notifyRepository->pushNotif($music->music_user_id, $music->music_id, 'merge_music', 'Bài hát bạn bị trùng được sát nhập vào', $urlRedirect, $merge->music_id);
         $music->delete();
@@ -926,7 +926,7 @@ class MusicController extends Controller
         $music->save();
         $this->musicDeletedRepository->getModel()::create($merge->toArray());
         $this->uploadRepository->getModel()::where('music_id', $merge->music_id)->update(['music_state' => UPLOAD_STAGE_DELETED, 'music_note' => 'Nhập nhạc']);
-        $this->actionLogRepository->addAction('merge_music', 'Nhập nhạc từ '.$merge->music_id. ' vào ' . $music->music_id);
+        $this->actionLogRepository->addAction('merge_music', 'Nhập nhạc từ '.$merge->music_id. ' vào ' . $music->music_id, $merge->music_id);
         $urlRedirect = Helpers::listen_url($music->toArray());
         $this->notifyRepository->pushNotif($merge->music_user_id, $merge->music_id, 'merge_music', 'Bài hát bạn bị trùng được sát nhập vào', $urlRedirect, $music->music_id);
         $merge->delete();
