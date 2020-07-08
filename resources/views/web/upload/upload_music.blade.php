@@ -318,9 +318,20 @@ $per_xoa_nhac =  Auth::user()->hasPermission('xoa_nhac');
                                                     <option value="{{UPLOAD_STAGE_UNCENSOR}}">Chưa duyệt</option>
                                                     <option value="{{UPLOAD_STAGE_FULLCONVERT}}">Đã xử lý</option>
                                                     <option value="{{UPLOAD_STAGE_FULLCENSOR}}">Đã duyệt</option>
-                                                    @if($per_xoa_nhac)
                                                     <option value="{{UPLOAD_STAGE_DELETED}}">Đã xóa</option>
-                                                    @endif
+                                                </select>
+                                            </div>
+                                            <script>
+                                                document.getElementById('music_state').value = <?php echo old('music_state') ?? $music->music_state ?? 0 ?>;
+                                            </script>
+                                        @elseif(isset($music) && ($music->music_user_id == Auth::user()->user_id) && ($music->music_state != UPLOAD_STAGE_FULLCENSOR))
+                                            <div class="form-group col-4{{ $errors->has('music_state') ? ' has-error' : '' }}">
+                                                <label for="cat_id">Tình trạng xét duyệt</label>
+                                                <select class="form-control" name="music_state" id="music_state">
+                                                    <option disabled value="{{UPLOAD_STAGE_UNCENSOR}}">Chưa duyệt</option>
+                                                    <option disabled value="{{UPLOAD_STAGE_FULLCONVERT}}">Đã xử lý</option>
+                                                    <option disabled value="{{UPLOAD_STAGE_FULLCENSOR}}">Đã duyệt</option>
+                                                    <option disabled value="{{UPLOAD_STAGE_DELETED}}">Đã xóa</option>
                                                 </select>
                                             </div>
                                             <script>
@@ -349,6 +360,8 @@ $per_xoa_nhac =  Auth::user()->hasPermission('xoa_nhac');
                                             <button type="submit" id="btn-upload" class="btn btn-danger btn-upload">{{isset($music) ? 'Cập nhật' : 'Tải lên'}}</button>
                                             @if(isset($music) && $music->music_state != UPLOAD_STAGE_DELETED && $per_xoa_nhac)
                                                 <button type="submit" class="btn btn-danger btn-upload btn-delete-music">Xóa nhạc</button>
+                                            @elseif(isset($music) && ($music->music_user_id == Auth::user()->user_id) && ($music->music_state != UPLOAD_STAGE_FULLCENSOR) && ($music->music_state != UPLOAD_STAGE_DELETED))
+                                                <button type="submit" class="btn btn-danger btn-upload btn-delete-music" style="border-color: #3c3c3c!important; background-image: linear-gradient(-243deg, #565656 0%, #484848 100%)!important;">Xóa nhạc</button>
                                             @endif
                                             @if($uploadExp === null && $perMission_Duyet_Sua_Nhac)
                                                 <button class="btn btn-danger btn-upload btn-block-music">Chặn nhạc</button>

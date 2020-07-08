@@ -38,6 +38,7 @@ use App\Repositories\MusicSearchResult\MusicSearchResultEloquentRepository;
 use App\Repositories\Comment\CommentEloquentRepository;
 use App\Repositories\CommentReply\CommentReplyEloquentRepository;
 use App\Repositories\ActionLog\ActionLogEloquentRepository;
+use App\Repositories\Notification\NotificationEloquentRepository;
 use Session;
 use Response;
 use DB;
@@ -74,13 +75,15 @@ class MusicController extends Controller
     protected $commentRepository;
     protected $commentReplyRepository;
     protected $actionLogRepository;
+    protected $notifyRepository;
 
     public function __construct(MusicEloquentRepository $musicRepository, PlaylistEloquentRepository $playlistRepository, MusicListenEloquentRepository $musicListenRepository,
                                 CategoryEloquentRepository $categoryListenRepository, CoverEloquentRepository $coverRepository, VideoEloquentRepository $videoRepository, ArtistRepository $artistRepository,
                                 MusicFavouriteRepository $musicFavouriteRepository, VideoFavouriteRepository $videoFavouriteRepository, MusicDownloadEloquentRepository $musicDownloadRepository, KaraokeEloquentRepository $karaokeRepository,
                                 VideoListenEloquentRepository $videoListenRepository, VideoDownloadEloquentRepository $videoDownloadRepository, PlaylistPublisherEloquentRepository $playlistPublisherRepository, SearchResultEloquentRepository $searchResultRepository,
                                 KaraokeSuggestionEloquentRepository $karaokeSuggestionRepository, LyricSuggestionEloquentRepository $lyricSuggestionRepository, MusicSearchResultEloquentRepository $musicSearchResultRepository, MusicDeletedEloquentRepository $musicDeletedRepository,
-                                UploadEloquentRepository $uploadRepository, UserEloquentRepository $userRepository, CategoryEloquentRepository $categoryRepository, CommentEloquentRepository $commentRepository, CommentReplyEloquentRepository $commentReplyRepository, ActionLogEloquentRepository $actionLogRepository)
+                                UploadEloquentRepository $uploadRepository, UserEloquentRepository $userRepository, CategoryEloquentRepository $categoryRepository, CommentEloquentRepository $commentRepository, CommentReplyEloquentRepository $commentReplyRepository,
+                                ActionLogEloquentRepository $actionLogRepository, NotificationEloquentRepository $notifyRepository)
     {
         $this->musicRepository = $musicRepository;
         $this->videoRepository = $videoRepository;
@@ -107,6 +110,7 @@ class MusicController extends Controller
         $this->commentRepository = $commentRepository;
         $this->commentReplyRepository = $commentReplyRepository;
         $this->actionLogRepository = $actionLogRepository;
+        $this->notifyRepository = $notifyRepository;
     }
 
     /**
@@ -893,8 +897,10 @@ class MusicController extends Controller
         $this->musicDeletedRepository->getModel()::create($music->toArray());
         $this->uploadRepository->getModel()::where('music_id', $music->music_id)->update(['music_state' => UPLOAD_STAGE_DELETED, 'music_note' => 'Nhập nhạc']);
         $this->actionLogRepository->addAction('merge_music', 'Nhập nhạc từ '.$music->music_id. ' vào ' . $merge->music_id);
+        $urlRedirect = Helpers::listen_url($merge->toArray());
+        $this->notifyRepository->pushNotif($music->music_user_id, $music->music_id, 'merge_music', 'Bài hát bạn bị trùng được sát nhập vào', $urlRedirect, $merge->music_id);
         $music->delete();
-        return Helpers::listen_url($merge->toArray());
+        return $urlRedirect;
     }
     public function save_to_idMusic($music, $musicListen, $musicDownload, $musicQualityMax, $merge, $mergeListen, $mergeDownload, $mergeQualityMax) {
         // add listen & downlaod
@@ -921,8 +927,10 @@ class MusicController extends Controller
         $this->musicDeletedRepository->getModel()::create($merge->toArray());
         $this->uploadRepository->getModel()::where('music_id', $merge->music_id)->update(['music_state' => UPLOAD_STAGE_DELETED, 'music_note' => 'Nhập nhạc']);
         $this->actionLogRepository->addAction('merge_music', 'Nhập nhạc từ '.$merge->music_id. ' vào ' . $music->music_id);
+        $urlRedirect = Helpers::listen_url($music->toArray());
+        $this->notifyRepository->pushNotif($merge->music_user_id, $merge->music_id, 'merge_music', 'Bài hát bạn bị trùng được sát nhập vào', $urlRedirect, $music->music_id);
         $merge->delete();
-        return Helpers::listen_url($music->toArray());
+        return $urlRedirect;
     }
 
     public function checkMusicBitrate(Request $request) {
