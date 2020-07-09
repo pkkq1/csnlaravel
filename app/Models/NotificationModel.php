@@ -19,5 +19,8 @@ class NotificationModel extends Model
         [
             'user_id' ,'text', 'type', 'read', 'notification_id', 'music_id', 'link_url'
         ];
-
+    public function user()
+    {
+        return $this->belongsTo('App\Models\UserModel', 'user_id')->select('id', 'name', 'user_avatar', 'username');
+    }
 }

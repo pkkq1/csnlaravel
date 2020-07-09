@@ -30,7 +30,7 @@ use App\Library\Helpers;
                                 <input type="hidden" class="reply_cmt_id" name="reply_cmt_id" value="{{$item['comment_id']}}">
                             </div>
                             <div class="form-group text-left m-0">
-                                <button type="submit" onclick="postComment({{$item['comment_id']}})" class="btn btn-secondary btn-gradien btn-radius send-comment"><span>Gửi</span></button>
+                                <button type="submit" onclick="postComment({{$item['comment_id']}}, {{$item['user_id']}})" class="btn btn-secondary btn-gradien btn-radius send-comment"><span>Gửi</span></button>
                             </div>
                         </form>
                     </div>

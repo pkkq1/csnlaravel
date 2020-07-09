@@ -64,6 +64,8 @@ Route::group([
     CRUD::resource('history_level', 'UserLeverController');
     CRUD::resource('report_music', 'ReportMusicController');
     CRUD::resource('report_comment', 'ReportCommentController');
+    CRUD::resource('action_log', 'ActionLogController');
+    CRUD::resource('notify_log', 'NotifyLogController');
 
     Route::get('report_music/ban_user/{user_id}', 'ReportMusicController@bannedUserMusic');
     Route::get('report_comment/ban_user/{user_id}', 'ReportCommentController@bannedUserComment');

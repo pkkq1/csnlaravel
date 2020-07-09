@@ -1060,7 +1060,7 @@ $memberVip = Helpers::checkMemberVip();
         var pageComment = true;
         $('.box_form_comment').submit(false);
 
-        function postComment(formId) {
+        function postComment(formId, userIdComment = '') {
             var textArea = $('.form-comment-' + formId).find('textarea');
             <?php
                 if(!Auth::check()) {
@@ -1079,6 +1079,10 @@ $memberVip = Helpers::checkMemberVip();
                 type: "POST",
                 dataType: "html",
                 data: {
+                    'link_music_url' : window.location.pathname,
+                    'user_comment_id' : userIdComment,
+                    'type_jw' : '<?php echo $musicSet['type_jw'] ?>',
+                    'user_music_id' : <?php echo $music->music_user_id ?>,
                     'comment': $('.form-comment-' + formId).find('textarea').val(),
                     'music_id': musicId,
                     'comment_jw_postion': jwplayer().getPosition(),

@@ -29,7 +29,7 @@ class ReportUserRegisterController extends CrudController
     {
         $this->middleware(function ($request, $next)
         {
-            if(!backpack_user()->can('report_user_register_(list)')) {
+            if(!backpack_user()->can('log_(list)')) {
                 $this->crud->denyAccess(['list']);
             }
             return $next($request);
@@ -37,22 +37,6 @@ class ReportUserRegisterController extends CrudController
 
         parent::__construct();
 
-    }
-
-    public function index()
-    {
-        $this->crud->hasAccessOrFail('list');
-        $this->crud->setOperation('list');
-
-        $this->data['crud'] = $this->crud;
-        $this->data['title'] = $this->crud->getTitle() ?? mb_ucfirst($this->crud->entity_name_plural);
-        $chart = UserModel::select(DB::raw('DATE_FORMAT(FROM_UNIXTIME(user_regdate), \'%Y-%m-%d\') as date'),
-            DB::raw("count(*) as views, IF(user_identity != '', 'google', IF(user_fb_identity != '', 'facebook', 'csn')) as type"))
-            ->where('user_regdate', '>=', strtotime(date('Y-m-d', strtotime(TIME_60DAY_AGO)). ' 00:00'))
-            ->groupBy('date', 'type')
-            ->get()->toArray();
-        $this->data['chart'] = $chart;
-        return view('vendor.backpack.report.list_user_register', $this->data);
     }
 
     public function setup()
