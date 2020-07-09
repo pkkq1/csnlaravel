@@ -104,6 +104,11 @@ class ActionLogController extends CrudController
             'label' => 'Nội dung Log',
         ]);
         $this->crud->addField([
+            'name' => 'permission_current',
+            'type' => 'textarea',
+            'label' => 'Quyền sử dụng trong thời điểm',
+        ]);
+        $this->crud->addField([
             'name' => 'user_id',
             'type' => 'text',
         ]);
