@@ -29,7 +29,7 @@ class ReportUserRegisterController extends CrudController
     {
         $this->middleware(function ($request, $next)
         {
-            if(!backpack_user()->can('log_(list)')) {
+            if(!backpack_user()->can('report_user_login_(list)')) {
                 $this->crud->denyAccess(['list']);
             }
             return $next($request);

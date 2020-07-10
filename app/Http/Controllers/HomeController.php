@@ -31,15 +31,6 @@ class HomeController extends Controller
         return view('page.policy');
     }
     public function convert_id_music(Request $request) {
-        $code = $request->code ?? '';
-        $result = '';
-        if($code) {
-            if(is_numeric($code)){
-                $result = Helpers::encodeID($code);
-            }else{
-                $result = Helpers::decodeID($code);
-            }
-        }
-        return view('conver_id_music', compact('result', 'code'));
+
     }
 }

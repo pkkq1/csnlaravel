@@ -66,6 +66,8 @@ Route::group([
     CRUD::resource('report_comment', 'ReportCommentController');
     CRUD::resource('action_log', 'ActionLogController');
     CRUD::resource('notify_log', 'NotifyLogController');
+    Route::put('convert_music_id', 'ConvertToolMusicIController@index');
+    CRUD::resource('convert_music_id', 'ConvertToolMusicIController');
 
     Route::get('report_music/ban_user/{user_id}', 'ReportMusicController@bannedUserMusic');
     Route::get('report_comment/ban_user/{user_id}', 'ReportCommentController@bannedUserComment');

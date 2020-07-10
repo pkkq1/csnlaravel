@@ -177,6 +177,7 @@ $htmlNotif['report_cmt'] = $notif['report_cmt'] > 0 ? '<span class="label pull-r
     <ul class="treeview-menu">
         <li><a href="{{ backpack_url('elfinder') }}"><i class="fa fa-files-o"></i> <span>File manager</span></a></li>
         <li><a href="{{ backpack_url('backup') }}"><i class="fa fa-hdd-o"></i> <span>Backups</span></a></li>
+        <li><a href="{{ backpack_url('convert_music_id') }}"><i class="fa fa-files-o"></i> <span>Convert Music ID</span></a></li>
         <li><a href="{{ backpack_url('notify_log') }}"><i class="fa fa-terminal"></i> <span>Logs Notify</span></a></li>
         <li><a href="{{ backpack_url('action_log') }}"><i class="fa fa-terminal"></i> <span>Logs Action</span></a></li>
         <li><a href="{{ backpack_url('log') }}"><i class="fa fa-terminal"></i> <span>Logs PHP</span></a></li>

@@ -22,7 +22,6 @@ Route::get('/sync/solr_video_delete', 'Sync\SolrSyncController@syncDeleteVideo')
 
 Route::get('/sync/demo', 'Sync\MusicController@demo');
 Route::get('/convert_music_id', 'HomeController@convert_id_music');
-Route::post('/convert_music_id', 'HomeController@convert_id_music');
 Route::get('/sync/cover_hot', 'Sync\AlbumController@albumHot');
 
 

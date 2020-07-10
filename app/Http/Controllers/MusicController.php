@@ -39,6 +39,8 @@ use App\Repositories\Comment\CommentEloquentRepository;
 use App\Repositories\CommentReply\CommentReplyEloquentRepository;
 use App\Repositories\ActionLog\ActionLogEloquentRepository;
 use App\Repositories\Notification\NotificationEloquentRepository;
+use App\Http\Controllers\Sync\SolrSyncController;
+use App\Solr\Solarium;
 use Session;
 use Response;
 use DB;
@@ -76,6 +78,7 @@ class MusicController extends Controller
     protected $commentReplyRepository;
     protected $actionLogRepository;
     protected $notifyRepository;
+    protected $Solr;
 
     public function __construct(MusicEloquentRepository $musicRepository, PlaylistEloquentRepository $playlistRepository, MusicListenEloquentRepository $musicListenRepository,
                                 CategoryEloquentRepository $categoryListenRepository, CoverEloquentRepository $coverRepository, VideoEloquentRepository $videoRepository, ArtistRepository $artistRepository,
@@ -83,7 +86,7 @@ class MusicController extends Controller
                                 VideoListenEloquentRepository $videoListenRepository, VideoDownloadEloquentRepository $videoDownloadRepository, PlaylistPublisherEloquentRepository $playlistPublisherRepository, SearchResultEloquentRepository $searchResultRepository,
                                 KaraokeSuggestionEloquentRepository $karaokeSuggestionRepository, LyricSuggestionEloquentRepository $lyricSuggestionRepository, MusicSearchResultEloquentRepository $musicSearchResultRepository, MusicDeletedEloquentRepository $musicDeletedRepository,
                                 UploadEloquentRepository $uploadRepository, UserEloquentRepository $userRepository, CategoryEloquentRepository $categoryRepository, CommentEloquentRepository $commentRepository, CommentReplyEloquentRepository $commentReplyRepository,
-                                ActionLogEloquentRepository $actionLogRepository, NotificationEloquentRepository $notifyRepository)
+                                ActionLogEloquentRepository $actionLogRepository, NotificationEloquentRepository $notifyRepository, Solarium $Solr)
     {
         $this->musicRepository = $musicRepository;
         $this->videoRepository = $videoRepository;
@@ -111,6 +114,7 @@ class MusicController extends Controller
         $this->commentReplyRepository = $commentReplyRepository;
         $this->actionLogRepository = $actionLogRepository;
         $this->notifyRepository = $notifyRepository;
+        $this->Solr = $Solr;
     }
 
     /**
@@ -303,6 +307,12 @@ class MusicController extends Controller
             $typeListen = 'album';
             if($album->music) {
                 $playlistMusic = $album->music->toArray();
+            }
+            if(!$playlistMusic && $album->album_music_total > 0) {
+                $album->album_music_total = 0;
+                $album->save();
+                $Solr = new SolrSyncController($this->Solr);
+                $Solr->deleteCustom('cover_' . $album->cover_id);
             }
         }elseif($arrUrl['type'] == 'playlist'){
             $playlist = $this->playlistRepository->getMusicByPlaylistId($arrUrl['id']);
@@ -899,6 +909,7 @@ class MusicController extends Controller
         $this->actionLogRepository->addAction('merge_music', 'Nhập nhạc từ '.$music->music_id. ' vào ' . $merge->music_id, $music->music_id);
         $urlRedirect = Helpers::listen_url($merge->toArray());
         $this->notifyRepository->pushNotif($music->music_user_id, $music->music_id, 'merge_music', 'Bài hát bạn bị trùng được sát nhập vào', $urlRedirect, $merge->music_id);
+        $this->checkAlbumSyncSolr($music->cover_id);
         $music->delete();
         return $urlRedirect;
     }
@@ -929,10 +940,24 @@ class MusicController extends Controller
         $this->actionLogRepository->addAction('merge_music', 'Nhập nhạc từ '.$merge->music_id. ' vào ' . $music->music_id, $merge->music_id);
         $urlRedirect = Helpers::listen_url($music->toArray());
         $this->notifyRepository->pushNotif($merge->music_user_id, $merge->music_id, 'merge_music', 'Bài hát bạn bị trùng được sát nhập vào', $urlRedirect, $music->music_id);
+        $this->checkAlbumSyncSolr($merge->cover_id);
         $merge->delete();
         return $urlRedirect;
     }
-
+    public function checkAlbumSyncSolr($cover_id) {
+        if($cover_id > 0) {
+            $oldAlbum = $this->coverRepository->findCover($cover_id);
+            if($oldAlbum && $oldAlbum->album_music_total > 0) {
+                $oldAlbum->album_music_total = $oldAlbum->album_music_total - 1;
+                $oldAlbum->album_last_updated = time();
+                $oldAlbum->save();
+                if($oldAlbum->album_music_total == 0) {
+                    $Solr = new SolrSyncController($this->Solr);
+                    $Solr->deleteCustom('cover_' . $oldAlbum->cover_id);
+                }
+            }
+        }
+    }
     public function checkMusicBitrate(Request $request) {
         if($request->music_id) {
             $upload = $this->uploadRepository->findOnlyPublished($request->music_id);

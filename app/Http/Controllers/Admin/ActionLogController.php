@@ -25,7 +25,7 @@ class ActionLogController extends CrudController
 
         $this->middleware(function ($request, $next)
         {
-            if(!backpack_user()->can('log_(list)')) {
+            if(!backpack_user()->can('advanced_(list)')) {
                 $this->crud->denyAccess(['list']);
             }
 //            $this->crud->denyAccess(['update']);
