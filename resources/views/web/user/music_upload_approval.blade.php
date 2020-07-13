@@ -10,15 +10,16 @@
                 <?php
                 $perPage =$stageData[key($stageData)]->toArray()['per_page'];
                 $curentPage = $stageData[key($stageData)]->toArray()['current_page'];
-                array_map(function($i, $item) use($perPage, $curentPage) {
+                array_map(function($i, $item) use($perPage, $curentPage, $stage) {
                     $url = '/dang-tai/'.($item['cat_id'] == CAT_VIDEO ? 'video' : 'nhac').'/'.$item['music_id'];
+                    $url_listen = ($stage == 'fullcensor' ? Helpers::listen_url($item) : $url);
                     ?>
                     <li class="media align-items-stretch items-stretch-{{$item['music_id']}}">
                         <div class="media_tmp align-self-center d-flex align-items-center mr-3 pl-3">
                             <span class="counter">{{sprintf("%02d", (($curentPage - 1) * $perPage) + ++$i)}}</span>
                         </div>
                         <div class="media-left align-items-stretch mr-2">
-                            <a href="{{$url}}" title="{{$item['music_title']}}">
+                            <a href="{{$url_listen}}" title="{{$item['music_title']}}">
                                 <img src="{{($item['cat_id'] == CAT_VIDEO ? Helpers::thumbnail_url($item) : Helpers::coverThumb(Helpers::cover_url($item['cover_id'])))}}" class="{{($item['cat_id'] == CAT_VIDEO ? 'video_thumbnail' : 'nhac_thumbnail')}}" alt="{{$item['music_title']}}">
                                 <i class="material-icons">play_circle_outline</i>
                             </a>
