@@ -43,7 +43,7 @@ $tabSelf = ($mySelf || (Auth::check() && Auth::user()->hasPermission('duyet_sua_
                             <li class="music"><a class="music" onclick="userTab('music', '/user/music_favourite')" href="#music"><span><i class="material-icons" style="font-size: 11px;">favorite_border</i> Bài Hát</span></a></li>
                             <li class="video"><a class="video" onclick="userTab('video', '/user/video_favourite')" href="#video"><span><i class="material-icons" style="font-size: 11px;">favorite_border</i> Video</span></a></li>
                             <li class="artist"><a class="artist" onclick="userTab('artist', '/user/artist_favourite')" href="#artist"><span><i class="material-icons" style="font-size: 11px;">favorite_border</i> Ca Sĩ</span></a></li>
-                            @if($tabSelf)
+                            @if($mySelf)
                                 <li class="report"><a class="report" href="#report" onclick="userTab('report', '/user/report_tab')" ><span>Phản Hồi</span></a></li>
                                 <li class="notify"><a class="notify" href="#notify" onclick="userTab('notify', '/user/notify_tab')" ><span>Thông Báo</span></a></li>
                             @endif
