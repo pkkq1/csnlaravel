@@ -19,7 +19,7 @@
                             <span class="counter">{{sprintf("%02d", (($curentPage - 1) * $perPage) + ++$i)}}</span>
                         </div>
                         <div class="media-left align-items-stretch mr-2">
-                            <a href="{{$url_listen}}" title="{{$item['music_title']}}">
+                            <a href="{{$url_listen}}" target="_blank" title="{{$item['music_title']}}">
                                 <img src="{{($item['cat_id'] == CAT_VIDEO ? Helpers::thumbnail_url($item) : Helpers::coverThumb(Helpers::cover_url($item['cover_id'])))}}" class="{{($item['cat_id'] == CAT_VIDEO ? 'video_thumbnail' : 'nhac_thumbnail')}}" alt="{{$item['music_title']}}">
                                 <i class="material-icons">play_circle_outline</i>
                             </a>
