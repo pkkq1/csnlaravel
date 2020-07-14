@@ -41,7 +41,7 @@ class ActionLogEloquentRepository extends EloquentRepository implements ActionLo
 
         return $result;
     }
-    public function addAction($name, $text, $music_id = null) {
+    public function addAction($name, $text, $music_id = null, $more = '') {
         $Agent = new Agent();
         $result = $this
             ->_model
@@ -52,6 +52,7 @@ class ActionLogEloquentRepository extends EloquentRepository implements ActionLo
                 'mod' => $Agent->isMobile() ? 'mobile' : 'web',
                 'user_id' => (Auth::check() ? Auth::user()->id : ''),
                 'permission_current' => implode(', ', backpack_user()->getAllPermissions()->pluck('name')->toArray()),
+                'more' => $more,
             ]);
         return $result;
     }

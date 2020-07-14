@@ -79,6 +79,18 @@ class ActionLogController extends CrudController
             'label' => 'Ngày tạo',
         ]);
         $this->crud->addColumn([
+            'name' => 'created_at',
+            'label' => 'Ngày tạo',
+            'type' => 'closure',
+            'function' => function($entry) {
+                if($entry->music_id) {
+                    return '<a href="/dang-tai/nhac/'.$entry->music_id.'" target="_blank">'.substr($entry->created_at, 0 , 16).'</a>';
+                }else{
+                    return substr($entry->created_at, 0 , 16);
+                }
+            },
+        ]);
+        $this->crud->addColumn([
             'name' => 'text',
             'label' => 'Nội dung bình luận',
         ]);
@@ -107,6 +119,11 @@ class ActionLogController extends CrudController
             'name' => 'permission_current',
             'type' => 'textarea',
             'label' => 'Quyền sử dụng trong thời điểm',
+        ]);
+        $this->crud->addField([
+            'name' => 'more',
+            'type' => 'textarea',
+            'label' => 'Thông tin thêm',
         ]);
         $this->crud->addField([
             'name' => 'user_id',

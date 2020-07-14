@@ -318,7 +318,7 @@ $per_xoa_nhac =  Auth::user()->hasPermission('xoa_nhac');
                                                     <option value="{{UPLOAD_STAGE_UNCENSOR}}">Chưa duyệt</option>
                                                     <option value="{{UPLOAD_STAGE_FULLCONVERT}}">Đã xử lý</option>
                                                     <option value="{{UPLOAD_STAGE_FULLCENSOR}}">Đã duyệt</option>
-                                                    <option value="{{UPLOAD_STAGE_DELETED}}">Đã xóa</option>
+                                                    <option {{$per_xoa_nhac ? '' : 'disabled'}} value="{{UPLOAD_STAGE_DELETED}}">Đã xóa</option>
                                                 </select>
                                             </div>
                                             <script>

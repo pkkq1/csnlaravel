@@ -63,7 +63,7 @@ class UploadEloquentRepository extends EloquentRepository implements UploadRepos
     }
     public function musicByUser($userId, $stageArr, $fillOrder, $typeOrder, $page)
     {
-        $result = $this->_model::select('music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title', 'music_artist', 'music_artist_id', 'music_album_id', 'music_bitrate', 'music_filename', 'music_updated', 'music_last_update_time', 'music_note', 'music_time')
+        $result = $this->_model::select('music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title', 'music_artist', 'music_artist_id', 'music_album_id', 'music_bitrate', 'music_filename', 'music_updated', 'music_last_update_time', 'music_note', 'music_time', 'music_username')
             ->where('music_user_id', $userId);
         if(count($stageArr) == 1) {
             $result = $result->where('music_state', $stageArr[0]);
@@ -92,7 +92,7 @@ class UploadEloquentRepository extends EloquentRepository implements UploadRepos
     }
     public function musicByStage($where = [], $stageArr, $fillOrder, $typeOrder, $page, $user = null, $timeLimit = SHORT_TIME_7_DAY)
     {
-        $result = $this->_model::select('music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title', 'music_artist', 'music_artist_id', 'music_album_id', 'music_bitrate', 'music_filename', 'music_updated', 'music_last_update_time', 'music_note', 'music_time');
+        $result = $this->_model::select('music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title', 'music_artist', 'music_artist_id', 'music_album_id', 'music_bitrate', 'music_filename', 'music_updated', 'music_last_update_time', 'music_note', 'music_time', 'music_username');
 //            ->where('music_time', '>=', time() - $timeLimit);
         if($user) {
             $result = $result->where('music_last_update_by', $user);

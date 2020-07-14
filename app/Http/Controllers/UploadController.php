@@ -408,18 +408,19 @@ class UploadController extends Controller
                 return view('errors.404');
             // kiểm tra và update stage music
             $oldStage = $result->music_state;
-            $isStateDelete = ($oldStage != $request->input('music_state') && $request->input('music_state') == UPLOAD_STAGE_DELETED);
+            $newStage = $request->input('music_state');
+            $isStateDelete = ($oldStage != $newStage && $newStage == UPLOAD_STAGE_DELETED);
             $isDelete = $request->delete_music;
             $oldCoverId = $result->cover_id;
             $oldAlbum = $oldCoverId ? $this->coverRepository->findCover($oldCoverId) : [];
             $newAlbum = [];
             if($per_Xet_Duyet) {
-                if(isset($request->music_state) && ($request->music_state != $result->music_state)) {
+                if(isset($request->music_state) && ($request->music_state != $result->music_state) && $newStage) {
                     if(!in_array($result->music_state, $arrStage))
                         return view('errors.text_error')->with('message', 'Bài hát đang được xử lý, bạn vui lòng quay lại sau');
                     if(!in_array($request->music_state, $arrStage))
                         return view('errors.text_error')->with('message', 'Trạng thái gửi lên không hợp lệ');
-                    $result->music_state = $request->input('music_state');
+                    $result->music_state = $newStage;
                 }
             }
             // update album
@@ -475,9 +476,9 @@ class UploadController extends Controller
             if(($isDelete || $isStateDelete) && !$per_xoa_nhac && !$is_delete_owner_pending) {
                 return view('errors.text_error')->with('message', 'Bạn không có quyền xóa nhạc này');
             }
-            if(($per_Xet_Duyet && $per_xoa_nhac && $oldStage != $request->input('music_state')) || ($per_Xet_Duyet && $per_xoa_nhac && $isDelete) || ($is_delete_owner_pending && ($oldStage != $request->input('music_state'))) || ($is_delete_owner_pending  && $isDelete)) {
+            if($newStage && (($per_Xet_Duyet && $per_xoa_nhac && $oldStage != $newStage) || ($per_Xet_Duyet && $per_xoa_nhac && $isDelete) || ($is_delete_owner_pending && ($oldStage != $newStage)) || ($is_delete_owner_pending  && $isDelete))) {
                 // cập nhật tình trạng sẽ xóa
-                if(((in_array($request->input('music_state'), [UPLOAD_STAGE_DELETED, UPLOAD_STAGE_UNCENSOR])) && !in_array($oldStage, [UPLOAD_STAGE_DELETED, UPLOAD_STAGE_UNCENSOR])) || $isDelete) { //check old stage to before update stage field
+                if(((in_array($newStage, [UPLOAD_STAGE_DELETED, UPLOAD_STAGE_UNCENSOR])) && !in_array($oldStage, [UPLOAD_STAGE_DELETED, UPLOAD_STAGE_UNCENSOR])) || $isDelete) { //check old stage to before update stage field
                     // xóa nhạc, video
                     $result->music_state = UPLOAD_STAGE_DELETED;
                     if($result->cat_id == CAT_VIDEO) {
@@ -498,7 +499,7 @@ class UploadController extends Controller
                         $oldAlbum->album_last_updated = time();
                         $oldAlbum->save();
                     }
-                    $this->actionLogRepository->addAction('delete_music', 'Xóa nhạc ở upload', $result->music_id);
+                    $this->actionLogRepository->addAction('delete_music', 'Xóa nhạc ở upload', $result->music_id, 'isdelete: '. $isDelete .', music_state_input '. $newStage);
                     $mess = 'Bạn đã xóa nhạc và ';
                     //Artisan::call('album');
                 }else{

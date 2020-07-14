@@ -97,7 +97,8 @@ class UserMusicController extends Controller
             return 'Lỗi User';
         }
         $titleMes = '';
-        if($request->page_tab == 'upload') {
+        $page_tab = $request->page_tab;
+        if($page_tab == 'upload') {
             $stage = $request->input('stage');
 
             if($stage == 'all' || $stage == 'uncensor') {
@@ -119,8 +120,8 @@ class UserMusicController extends Controller
                 // album
                 $stageData['album'] = $this->coverRepository->findCoverByUser($id, 'cover_id', 'desc', LIMIT_PAGE_MUSIC_UPLOADED);
             }
-            return view('user.music_upload_approval', compact('stageData', 'stage', 'titleMes'));
-        }elseif($request->page_tab == 'approval'){
+            return view('user.music_upload_approval', compact('stageData', 'stage', 'titleMes', 'page_tab'));
+        }elseif($page_tab == 'approval'){
             $stage = $request->input('stage');
             if($stage == 'all' || $stage == 'fullconvert') {
                 // chờ duyệt
@@ -152,7 +153,7 @@ class UserMusicController extends Controller
                 $stageData['delete'] = $this->uploadRepository->musicByStage([['music_id', '>', 1000000]], [UPLOAD_STAGE_DELETED], 'music_last_update_time', 'desc', LIMIT_PAGE_MUSIC_APPROVAL);
                 $titleMes = 'đã xóa';
             }
-            return view('user.music_upload_approval', compact('stageData', 'stage', 'titleMes'));
+            return view('user.music_upload_approval', compact('stageData', 'stage', 'titleMes', 'page_tab'));
         }
     }
     public function musicUploadedRedirect(Request $request, $music_id) {

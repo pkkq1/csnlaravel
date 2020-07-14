@@ -10,7 +10,7 @@
                 <?php
                 $perPage =$stageData[key($stageData)]->toArray()['per_page'];
                 $curentPage = $stageData[key($stageData)]->toArray()['current_page'];
-                array_map(function($i, $item) use($perPage, $curentPage, $stage) {
+                array_map(function($i, $item) use($perPage, $curentPage, $stage, $page_tab) {
                     $url = '/dang-tai/'.($item['cat_id'] == CAT_VIDEO ? 'video' : 'nhac').'/'.$item['music_id'];
                     $url_listen = ($stage == 'fullcensor' ? Helpers::listen_url($item) : $url);
                     ?>
@@ -33,11 +33,19 @@
                                 <small class="type_music"><?php echo Helpers::bitrate2str($item['music_bitrate']); ?></small>
                             @endif
                         </div>
-                        <div class="media-right align-self-center">
+                        @if($stage == 'delete')
+                        <div title="{{$item['music_note']}}" class="media-right align-self-center" style="text-align: right; white-space: nowrap; max-width: 300px; overflow: hidden; text-overflow: ellipsis;">
+                           {{$item['music_note']}}
+                        </div>
+                        @endif
+                        <div class="media-right align-self-center" style="width: 100px;text-align: right;">
                             <small class="time_stt"><?php echo Helpers::timeElapsedString($item['music_last_update_time']); ?></small>
                             <ul class="list-inline" style="margin-right:0px">
                                 <li class="list-inline-item"><a href="{{$url}}" target="_blank" title="Đã tạo: {{date('m/d/Y', $item['music_time'])}}">Chỉnh Sửa</a></li>
                             </ul>
+                            @if($page_tab == 'approval')
+                            <small style="display: block;">{{$item['music_username']}}</small>
+                            @endif
                         </div>
                     </li>
                     <?php
