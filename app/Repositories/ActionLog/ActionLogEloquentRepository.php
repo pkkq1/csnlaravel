@@ -3,6 +3,7 @@ namespace App\Repositories\ActionLog;
 
 use App\Repositories\EloquentRepository;
 use Illuminate\Support\Facades\Auth;
+use App\Library\Helpers;
 use Jenssegers\Agent\Agent;
 use DB;
 class ActionLogEloquentRepository extends EloquentRepository implements ActionLogRepositoryInterface
@@ -53,6 +54,7 @@ class ActionLogEloquentRepository extends EloquentRepository implements ActionLo
                 'user_id' => (Auth::check() ? Auth::user()->id : ''),
                 'permission_current' => implode(', ', backpack_user()->getAllPermissions()->pluck('name')->toArray()),
                 'more' => $more,
+                'ip' =>  Helpers::getIp(),
             ]);
         return $result;
     }

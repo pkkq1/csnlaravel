@@ -8,6 +8,7 @@ use App\Repositories\Cover\CoverEloquentRepository;
 use App\Repositories\Music\MusicEloquentRepository;
 use App\Repositories\Video\VideoEloquentRepository;
 use App\Repositories\Artist\ArtistRepository;
+use App\Repositories\ArtistException\ArtistExceptionRepository;
 
 class TopArtist extends Command
 {
@@ -34,13 +35,15 @@ class TopArtist extends Command
     protected $coverRepository;
     protected $videoRepository;
     protected $artistRepository;
+    protected $artistExpRepository;
 
-    public function __construct(MusicEloquentRepository $musicRepository, CoverEloquentRepository $coverRepository, VideoEloquentRepository $videoRepository, ArtistRepository $artistRepository)
+    public function __construct(MusicEloquentRepository $musicRepository, CoverEloquentRepository $coverRepository, VideoEloquentRepository $videoRepository, ArtistRepository $artistRepository, ArtistExceptionRepository $artistExpRepository)
     {
         $this->musicRepository = $musicRepository;
         $this->coverRepository = $coverRepository;
         $this->videoRepository = $videoRepository;
         $this->artistRepository = $artistRepository;
+        $this->artistExpRepository = $artistExpRepository;
         parent::__construct();
     }
 
@@ -51,7 +54,7 @@ class TopArtist extends Command
      */
     public function handle()
     {
-        $albumCat = new ArtistController($this->musicRepository, $this->coverRepository, $this->videoRepository, $this->artistRepository);
+        $albumCat = new ArtistController($this->musicRepository, $this->coverRepository, $this->videoRepository, $this->artistRepository, $this->artistExpRepository);
         $albumCat->topArtist();
     }
 }

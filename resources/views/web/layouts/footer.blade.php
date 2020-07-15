@@ -768,7 +768,7 @@
                         <div class="csn-link-special">•</div>
                     </li>
                     <li>
-                        <div>Góp ý</div>
+                        <a href="javascript:void(0);" onclick="openContact();" style="color: #a9a9a9;" title="Góp ý">Góp ý</a>
                     </li>
                     <li>
                         <div class="csn-link-special">•</div>
@@ -802,6 +802,39 @@
             '</div>');
         $("#myModal .modal-dialog").removeClass('modal-sm');
         $("#myModal").modal();
+    }
+    function openContact() {
+        $('#myConfirmModal .contact_email').val('');
+        $('#myConfirmModal .contact_text').val('');
+        confirmModal('<input style="width: 100%;margin-bottom: 10px" type="email" class="contact_email" placeholder="Email liên hệ"><textarea style="width: 100%" class="contact_text" rows="6" placeholder="Nội dung góp ý"></textarea>', 'Gửi góp ý về Chia Sẻ Nhạc', '', 'Gửi');
+        $("#myConfirmModal .btn-ok").on('click', function () {
+            if($('#myConfirmModal .contact_email').val().length < 5 || $('#myConfirmModal .contact_text').val().length < 5){
+                alertModal('Vui lòng Nhập nội dung trên 5 ký tự');
+                return false;
+            }
+            $.ajax({
+                url: window.location.origin + '/report/send_contact',
+                type: "POST",
+                dataType: "json",
+                data: {
+                    'email': $('#myConfirmModal .contact_email').val(),
+                    'text': $('#myConfirmModal .contact_text').val(),
+                },
+                beforeSend: function () {
+                    if(loaded) return false;
+                    loaded = true;
+                },
+                success: function(response) {
+                    if(response.success) {
+                        $('.modal').find('.close_confirm').click();
+
+                    }else{
+
+                    }
+                    alertModal(response.message);
+                }
+            });
+        })
     }
 </script>
 

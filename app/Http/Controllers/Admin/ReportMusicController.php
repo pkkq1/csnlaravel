@@ -114,7 +114,7 @@ class ReportMusicController extends CrudController
 //            },
 //        ]);
         $this->crud->addColumn([
-            'name' => 'updated_at',
+            'name' => 'created_at',
             'label' => 'Cập nhật',
             'type' => 'date',
             'format' => 'd/m/Y H:i',

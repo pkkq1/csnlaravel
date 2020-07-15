@@ -7,6 +7,7 @@ use App\Library\Helpers;
 use Illuminate\Support\Facades\Auth;
 use App\Repositories\ReportComment\ReportCommentRepository;
 use App\Repositories\ReportMusic\ReportMusicRepository;
+use App\Repositories\Contact\ContactEloquentRepository;
 use Jenssegers\Agent\Agent;
 
 class ReportController extends Controller
@@ -18,11 +19,13 @@ class ReportController extends Controller
      */
     protected $reportCommentRepository;
     protected $reportMusicRepository;
+    protected $contactRepository;
 
-    public function __construct(ReportCommentRepository $reportCommentRepository, ReportMusicRepository $reportMusicRepository)
+    public function __construct(ReportCommentRepository $reportCommentRepository, ReportMusicRepository $reportMusicRepository, ContactEloquentRepository $contactRepository)
     {
         $this->reportCommentRepository = $reportCommentRepository;
         $this->reportMusicRepository = $reportMusicRepository;
+        $this->contactRepository = $contactRepository;
     }
 
     /**
@@ -127,6 +130,23 @@ class ReportController extends Controller
         }
         Helpers::ajaxResult(false, 'Lỗi không thể gửi báo cáo!', null);
     }
-
+    public function sendContact(Request $request) {
+        if(strlen($request->email) < 5 || strlen($request->text) < 5 || strlen($request->text) > 5000) {
+            Helpers::ajaxResult(false, 'Vui lòng nhập nội dung đầy đủ', null);
+        }
+        $Agent = new Agent();
+        $ip = Helpers::getIp();
+        $checkExit = $this->contactRepository->getModel()::where('ip', $ip)->orderBy('id', 'desc')->first();
+        if($checkExit && (time() < strtotime($checkExit->created_at) + (60 * 5))){
+            Helpers::ajaxResult(false, 'Góp ý bạn đang xử lý, vui lòng thao tác chậm lại', null);
+        }
+        $this->contactRepository->getModel()::create([
+            'email' => $request->email,
+            'text' => $request->text,
+            'ip' => $ip,
+            'mod' => $Agent->isMobile() ? 'mobile' : 'web'
+        ]);
+        Helpers::ajaxResult(true, 'Cảm ơn bạn đã góp ý kiến, chúng tôi sẽ trả lời sớm nhất.', null);
+    }
 
 }

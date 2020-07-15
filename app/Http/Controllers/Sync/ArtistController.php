@@ -14,6 +14,7 @@ use App\Repositories\Cover\CoverEloquentRepository;
 use App\Repositories\Music\MusicEloquentRepository;
 use App\Repositories\Video\VideoEloquentRepository;
 use App\Repositories\Artist\ArtistRepository;
+use App\Repositories\ArtistException\ArtistExceptionRepository;
 use DB;
 
 class ArtistController extends Controller
@@ -22,15 +23,22 @@ class ArtistController extends Controller
     protected $coverRepository;
     protected $videoRepository;
     protected $artistRepository;
+    protected $artistExpRepository;
 
-    public function __construct(MusicEloquentRepository $musicRepository, CoverEloquentRepository $coverRepository, VideoEloquentRepository $videoRepository, ArtistRepository $artistRepository) {
+    public function __construct(MusicEloquentRepository $musicRepository, CoverEloquentRepository $coverRepository, VideoEloquentRepository $videoRepository, ArtistRepository $artistRepository, ArtistExceptionRepository $artistExpRepository) {
         $this->musicRepository = $musicRepository;
         $this->coverRepository = $coverRepository;
         $this->videoRepository = $videoRepository;
         $this->artistRepository = $artistRepository;
+        $this->artistExpRepository = $artistExpRepository;
     }
     public function topArtist() {
         $musics = $this->musicRepository->getQueryPublished()->where('music_downloads_this_week', '>', 5)->select('music_artist_id', 'music_downloads_this_week')->orderBy('music_downloads_this_week', 'desc')->get();
+        $artistExp = $this->artistExpRepository->getArrNames();
+//        $func = function($value) {
+//            return Helpers::khongdau($value);
+//        };
+        $arrExep =  array_map('strtolower', $artistExp);
         $top_artist_rows = [];
         foreach($musics as $item) {
             $music_artist_id = explode(';', $item->music_artist_id);
@@ -50,18 +58,20 @@ class ArtistController extends Controller
         $result = [];
         foreach ($top_artist_rows as $key => $item) {
             $artist = $this->artistRepository->getModel()::find($item['id']);
-            $avatar = $artist->artist_avatar ? Helpers::file_path($artist->artist_id, AVATAR_ARTIST_CROP_PATH, true).$artist->artist_avatar : 'imgs/no_cover.jpg';
-            if($artist) {
-                $result[] = [
-                    'music_artist_points' => $item['music_downloads_this_week'],
-                    'music_artist' => $artist->artist_nickname,
-                    'artist_face_id' => $item['id'],
-                    'artist_avatar' => $avatar,
-                    'artist_avatar_thumb' => str_replace('artist_avatar', 'artist_avatar_thumb', $avatar),
-                    'artist_cover' => $artist->artist_cover ? Helpers::file_path($artist->artist_id, COVER_ARTIST_CROP_PATH, true).$artist->artist_cover : 'imgs/no_cover_artist.jpg',
-                    'artist_url' => Helpers::artistUrl($item['id'], $artist->artist_nickname),
-                    'music_total' => $item['music_total']
-                ];
+            if(!Helpers::checkExitsExcepArtist($artist->artist_nickname, $artistExp)) {
+                $avatar = $artist->artist_avatar ? Helpers::file_path($artist->artist_id, AVATAR_ARTIST_CROP_PATH, true).$artist->artist_avatar : 'imgs/no_cover.jpg';
+                if($artist) {
+                    $result[] = [
+                        'music_artist_points' => $item['music_downloads_this_week'],
+                        'music_artist' => $artist->artist_nickname,
+                        'artist_face_id' => $item['id'],
+                        'artist_avatar' => $avatar,
+                        'artist_avatar_thumb' => str_replace('artist_avatar', 'artist_avatar_thumb', $avatar),
+                        'artist_cover' => $artist->artist_cover ? Helpers::file_path($artist->artist_id, COVER_ARTIST_CROP_PATH, true).$artist->artist_cover : 'imgs/no_cover_artist.jpg',
+                        'artist_url' => Helpers::artistUrl($item['id'], $artist->artist_nickname),
+                        'music_total' => $item['music_total']
+                    ];
+                }
             }
             if($key == 20)
                 break;

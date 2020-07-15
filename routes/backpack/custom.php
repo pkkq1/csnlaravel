@@ -64,6 +64,7 @@ Route::group([
     CRUD::resource('history_level', 'UserLeverController');
     CRUD::resource('report_music', 'ReportMusicController');
     CRUD::resource('report_comment', 'ReportCommentController');
+    CRUD::resource('report_contact', 'ReportContactController');
     CRUD::resource('action_log', 'ActionLogController');
     CRUD::resource('notify_log', 'NotifyLogController');
     Route::put('convert_music_id', 'ConvertToolMusicIController@index');
