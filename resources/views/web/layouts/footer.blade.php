@@ -990,6 +990,6 @@
             });
         }
     </script>
-    @endif
+@endif
 
-    </section>
+</section>
