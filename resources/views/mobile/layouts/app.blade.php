@@ -4,7 +4,6 @@
 <body>
 <!--  Yo verify campaign 16/8/2019 -->
 <script type="text/javascript" async defer src="//ss.yomedia.vn/js/1/230/ads.js"></script>
-<script src="https://sak.userreport.com/blueseed/launcher.js" async id="userreport-launcher-script"></script>
 
 @yield('content')
 @include('mobile.layouts.footer')
