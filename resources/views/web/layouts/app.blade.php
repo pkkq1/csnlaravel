@@ -15,6 +15,7 @@ if($memberVip == null)
 <body>
 <!--  Yo verify campaign 16/8/2019 -->
 <script type="text/javascript" async defer src="//ss.yomedia.vn/js/1/230/ads.js"></script>
+<script src="https://sak.userreport.com/blueseed/launcher.js" async id="userreport-launcher-script"></script>
 
 {{--@if( isset($allpage_banner) && $allpage_banner == true )
     <a target="_blank"
