@@ -14,6 +14,9 @@ isset($float_edit) ? $float_edit = $float_edit : $float_edit = false;
                 <h4 class="media-title user_name">{{$user->name}}</h4>
                 <ul class="list-inline">
                     <li class="list-inline-item"><b>{{number_format($user->user_music)}}</b> <small> upload</small></li>
+                    @if(Auth::check() && Auth::user()->hasPermission('user_(update)'))
+                    <li class="list-inline-item"><a href="/admin/user/{{$user->id}}/edit">Cấp Quyền User</a></li>
+                    @endif
                 </ul>
                 @if(Auth::user() && $float_edit == true)
                     @if(Auth::user()->id == $user->id)
