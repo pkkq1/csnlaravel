@@ -119,6 +119,19 @@ if($memberVip == null)
             }
             ?>
         @endif
+
+        <?php
+        $cookie_name = "csn_popup_pc";
+        $session_ads_popup = isset($_COOKIE[$cookie_name]) ? intval(unserialize(stripslashes($_COOKIE[$cookie_name]))) : 0;
+        ?>
+        @if ( $session_ads_popup < 1 )
+            <?php
+            @setcookie($cookie_name, serialize($session_ads_popup + 1), time() + 10, '/', '.chiasenhac.vn', 1);
+            ?>
+            @include('cache.code_ads.pc_popup');
+            {{--include(__DIR__.'../../../resources/views/cache/code_ads/mobile_popup.blade.php');--}}
+        @endif
+
     @endif
 @endif
 
