@@ -150,6 +150,25 @@ class MusicController extends Controller
         }
         return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['music' => Helpers::convertArrHtmlCharsDecode($music->toArray()), 'playlist' => Helpers::convertArrHtmlCharsDecode($playlistMusic), 'musicFavourite' => $musicFavourite ? true : false], 'error' => []], 200);
     }
+    public function newLinkListenSingleMusic(Request $request, $artist = '', $urlMusic = '') {
+        $id = last(explode('-', $urlMusic));
+        $urlMusicTitle = str_replace('-' . $id, '', $urlMusic);
+        if($urlMusic == '') {
+            $arrArtist = explode('-', $artist);
+            if(count($arrArtist) == 1) {
+                // không có casi và tenbaihat
+                $musicUrl = '~' . $artist;
+            }else{
+                // 1 trong 2 là casi và tenbaihat
+                $id = last($arrArtist);
+                $urlMusicTitle = str_replace('-' . $id, '', $artist);
+                $musicUrl = $urlMusicTitle . '~' . $id;
+            }
+        }else{
+            $musicUrl = $artist . '~' .$urlMusicTitle . '~' . $id;
+        }
+        return $this->listenSingleMusic($request, '', '', $musicUrl);
+    }
     public function listenSingleMusic(Request $request, $cat, $sub, $musicUrl) {
         try {
             $arrUrl = Helpers::splitMusicUrl($musicUrl);
