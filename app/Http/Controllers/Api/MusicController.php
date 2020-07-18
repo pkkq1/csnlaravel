@@ -160,6 +160,17 @@ class MusicController extends Controller
         }
         return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['music' => Helpers::convertArrHtmlCharsDecode($music->toArray()), 'playlist' => Helpers::convertArrHtmlCharsDecode($playlistMusic), 'musicFavourite' => $musicFavourite ? true : false], 'error' => []], 200);
     }
+    public function newListenSingleMusic(Request $request, $cat, $sub, $id, $artist = '', $urlMusic = '') {
+        if($urlMusic == '') {
+//            $id = last($url = explode('-', $artist));
+//            $urlMusicTitle = str_replace('-' . $id, '', $artist);
+//            $urlMusic = $urlMusicTitle . '~' . $id;
+            $urlMusic = $artist . '~' . $id;
+        }else{
+            $urlMusic = $urlMusic . '~' . $artist . '~' . $id;
+        }
+        return $this->listenSingleMusic($request, $cat, $sub, $urlMusic);
+    }
     public function newLinkListenSingleMusic(Request $request, $artist = '', $urlMusic = '') {
         $id = last(explode('-', $urlMusic));
         $urlMusicTitle = str_replace('-' . $id, '', $urlMusic);
