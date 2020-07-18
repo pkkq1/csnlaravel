@@ -37,8 +37,8 @@ Route::post('mp3/{cat}/{sub}/{musicUrl}', ['as' => 'music.listen', 'uses' => 'Mu
 Route::post('mp3/{artist}/{urlMusic}.html', ['as' => 'music.listen', 'uses' => 'MusicController@newLinkListenSingleMusic']);
 Route::post('mp3/{artist}/{urlMusic}', ['as' => 'music.listen', 'uses' => 'MusicController@newLinkListenSingleMusic']);
 
-Route::get('mp3/{urlMusic}.html', ['as' => 'music.listen', 'uses' => 'MusicController@newLinkListenSingleMusic']);
-Route::get('mp3/{urlMusic}', ['as' => 'music.listen', 'uses' => 'MusicController@newLinkListenSingleMusic']);
+Route::post('mp3/{urlMusic}.html', ['as' => 'music.listen', 'uses' => 'MusicController@newLinkListenSingleMusic']);
+Route::post('mp3/{urlMusic}', ['as' => 'music.listen', 'uses' => 'MusicController@newLinkListenSingleMusic']);
 
 
 // artist
