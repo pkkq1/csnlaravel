@@ -80,10 +80,20 @@ class MusicController extends Controller
         $this->sessionRepository = $sessionRepository;
         $this->Solr = $Solr;
     }
-
+    public function urlAlbum(Request $request, $musicUrl) {
+        if(strpos($musicUrl, '~') !== false) {
+            // old URL playlist
+            $arrUrl = Helpers::splitPlaylistUrl($musicUrl);
+            return $this->getAlbumInfo($request, $arrUrl);
+        }else {
+            $id = last(explode('-', $musicUrl));
+            $urlAlbum = str_replace($id, '', $musicUrl);
+            $arrUrl = Helpers::splitPlaylistUrl(substr($urlAlbum, 0, -1) . '~' . $id);
+            return $this->getAlbumInfo($request, $arrUrl);
+        }
+    }
     public function getAlbumInfo(Request $request, $musicUrl) {
-        $arrUrl = Helpers::splitPlaylistUrl($musicUrl);
-        $album = $this->coverRepository->getCoverMusicById($arrUrl['id']);
+        $album = $this->coverRepository->getCoverMusicById($musicUrl['id']);
 
         if(!$album)
             return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'không tìm thấy album'], 400);
