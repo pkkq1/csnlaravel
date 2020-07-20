@@ -110,7 +110,6 @@ class AlbumController extends Controller
                 $music_new_uploads[$total]['music_bitrate_html'] = Helpers::bitrate2str($item['music_bitrate']);
                 $music_new_uploads[$total]['music_artist_html'] = Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']);
             }
-            dd($music_new_uploads);
         }
         $video_new_uploads = $this->videoRepository->getModel()::orderBy('music_last_update_time', 'desc')
             ->select('music_id', 'music_title_url', 'music_title', 'music_artist', 'music_artist_id', 'cat_id', 'cat_level', 'cat_sublevel', 'cover_id', 'music_download_time', 'music_last_update_time', 'music_title_url',
