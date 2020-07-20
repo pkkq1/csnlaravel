@@ -61,6 +61,7 @@ class CatalogController extends Controller
     }
     public function musicNews(Request $request) {
         $music = $this->musicRepository->musicNewsSolr('music_id', 'desc', LIMIT_MUSIC_PAGE_CATEGORY);
+        dd(1);
         Helpers::convertArrSolr($music);
         return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['music' => $music], 'error' => []], 200);
     }
