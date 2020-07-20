@@ -40,7 +40,6 @@ class HomeController extends Controller
             $item = Helpers::convertArrHtmlCharsDecode($item);
             $item['cover_html'] = $item['cover_prv_html'];
         }
-        dd(1);
         return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => [
             'album_hot_home' => $album_hot_download,
             'album_new_home' => Helpers::getRandLimitArr($album_new, LIMIT_HOME_MUSIC_NEW),
