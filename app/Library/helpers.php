@@ -295,7 +295,7 @@ class Helpers
         global $cat_id2info;
         include_once(__DIR__.'/../../resources/views/cache/def_main_cat.blade.php');
         if(isset($cat_id2info[$music_info['cat_id']][$music_info['cat_level']])) {
-            if ( ENV('APP_ENV') == 'beta' ) {
+            if ( ENV('APP_ENV') == 'beta đóng' ) { /// đóng lại khi sử dụng nhiều domain
                 $seo_domain = '';
                 switch ($music_info['cat_id']) {
                     case 1:
@@ -329,7 +329,6 @@ class Helpers
                         $seo_domain = '';
                 }
                 $url = ($music_info['cat_id'] == CAT_VIDEO) ? VIEW_VIDEO_URL . '/' : VIEW_MUSIC_URL . '/';
-//                return $url . self::music_url($music_info) . HTMLEX;
                 return ($seo_domain ? ENV('LISTEN_URL') : '') . $url . self::music_url($music_info) . HTMLEX;
 //                return $seo_domain . self::category_url($cat_id2info[$music_info['cat_id']][$music_info['cat_level']]) . self::music_url($music_info);
             }

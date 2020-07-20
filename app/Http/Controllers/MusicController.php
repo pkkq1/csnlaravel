@@ -199,8 +199,8 @@ class MusicController extends Controller
             }
             return $this->musicRepository->checkDeleteMusic($arrUrl['id']);
         }
-        $urlOriginal = Helpers::listen_url($music->toArray());
-        if(url()->current() != $urlOriginal) {
+        $urlOriginal = Helpers::listen_url($music->toArray(), false);
+        if(request()->path() != $urlOriginal) {
             return redirect($urlOriginal);
         }
 //        if(!(isset($arrUrl['url'][0]) && isset($arrUrl['url'][1])) || ($music->music_title_url && ($arrUrl['url'][0] . ($arrUrl['url'][1] ? '~' .$arrUrl['url'][1] : '')) != $music->music_title_url)) {
