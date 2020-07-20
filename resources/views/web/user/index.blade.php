@@ -37,15 +37,16 @@ $tabSelf = ($mySelf || (Auth::check() && Auth::user()->hasPermission('duyet_sua_
                     <nav>
                         <ul>
                             @if($tabSelf)
-                                <li class="tu-nhac"><a class="tu-nhac" href="#uploaded" onclick="musicUserTab('musicUploaded')" ><span>Tủ nhạc</span></a></li>
+                                <li class="tu-nhac"><a class="tu-nhac" href="#uploaded" onclick="musicUserTab('musicUploaded')" ><span><i class="fa fa-stack-overflow" style="font-size: 11px; margin-right: 3px"></i>Tủ nhạc</span></a></li>
                             @endif
-                            <li class="playlist"><a class="playlist" onclick="userTab('playlist', '/user/music_playlist')" href="#playlist"><span>Playlist</span></a></li>
-                            <li class="music"><a class="music" onclick="userTab('music', '/user/music_favourite')" href="#music"><span><i class="material-icons" style="font-size: 11px;">favorite_border</i> Bài Hát</span></a></li>
-                            <li class="video"><a class="video" onclick="userTab('video', '/user/video_favourite')" href="#video"><span><i class="material-icons" style="font-size: 11px;">favorite_border</i> Video</span></a></li>
-                            <li class="artist"><a class="artist" onclick="userTab('artist', '/user/artist_favourite')" href="#artist"><span><i class="material-icons" style="font-size: 11px;">favorite_border</i> Ca Sĩ</span></a></li>
+                            <li class="playlist"><a class="playlist" onclick="userTab('playlist', '/user/music_playlist')" href="#playlist"><span><i class="fa fa-list" style="font-size: 11px; margin-right: 3px"></i>Playlist</span></a></li>
+                            <li class="music"><a class="music" onclick="userTab('music', '/user/music_favourite')" href="#music"><span><i class="material-icons" style="font-size: 11px; margin-right: 3px">favorite_border</i> Bài Hát</span></a></li>
+                            <li class="video"><a class="video" onclick="userTab('video', '/user/video_favourite')" href="#video"><span><i class="material-icons" style="font-size: 11px; margin-right: 3px">favorite_border</i> Video</span></a></li>
+                            <li class="artist"><a class="artist" onclick="userTab('artist', '/user/artist_favourite')" href="#artist"><span><i class="material-icons" style="font-size: 11px; margin-right: 3px">favorite_border</i> Ca Sĩ</span></a></li>
                             @if($mySelf)
-                                <li class="report"><a class="report" href="#report" onclick="userTab('report', '/user/report_tab')" ><span>Phản Hồi</span></a></li>
-                                <li class="notify"><a class="notify" href="#notify" onclick="userTab('notify', '/user/notify_tab')" ><span>Thông Báo</span></a></li>
+                                <li class="report"><a class="report" href="#report" onclick="userTab('report', '/user/report_tab')" ><span><i class="fa fa-flag" style="font-size: 11px; margin-right: 3px"></i> Báo Cáo</span></a></li>
+                                <li class="inbox"><a class="inbox" href="#inbox" onclick="userTab('report', '/user/inbox_tab')" ><span><i class="fa fa-commenting-o" style="font-size: 14px; margin-right: 3px"></i> Liên Hệ</span></a></li>
+                                <li class="notify"><a class="notify" href="#notify" onclick="userTab('notify', '/user/notify_tab')" ><span><i class="fa fa-bell-o" style="font-size: 11px; margin-right: 3px"></i>Thông Báo</span></a></li>
                             @endif
                             @if($mySelf && Auth::check() && Auth::user()->hasPermission('duyet_sua_nhac'))
                                 <li class="duyet-nhac"><a class="duyet-nhac" href="#approval" onclick="musicUserTab('music_approval')" ><span>Duyệt Nhạc</span></a></li>
