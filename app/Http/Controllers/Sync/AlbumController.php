@@ -106,7 +106,7 @@ class AlbumController extends Controller
                 $music_new_uploads[$total]['cover_html'] = $cover_url;
                 $music_new_uploads[$total]['cover_thumb_200_html'] = Helpers::coverThumb($cover_url, MUSIC_COVER_THUMB_200_PATH);
                 $music_new_uploads[$total]['cover_thumb_html'] = Helpers::coverThumb($cover_url, MUSIC_COVER_THUMB_PATH);
-                $music_new_uploads[$total]['music_url'] = Helpers::listen_url($item, false);
+                $music_new_uploads[$total]['music_url'] = '/'.Helpers::listen_url($item, false);
                 $music_new_uploads[$total]['music_bitrate_html'] = Helpers::bitrate2str($item['music_bitrate']);
                 $music_new_uploads[$total]['music_artist_html'] = Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']);
             }
