@@ -45,7 +45,7 @@ $tabSelf = ($mySelf || (Auth::check() && Auth::user()->hasPermission('duyet_sua_
                             <li class="artist"><a class="artist" onclick="userTab('artist', '/user/artist_favourite')" href="#artist"><span><i class="material-icons" style="font-size: 11px; margin-right: 3px">favorite_border</i> Ca Sĩ</span></a></li>
                             @if($mySelf)
                                 <li class="report"><a class="report" href="#report" onclick="userTab('report', '/user/report_tab')" ><span><i class="fa fa-flag" style="font-size: 11px; margin-right: 3px"></i> Báo Cáo</span></a></li>
-                                <li class="inbox"><a class="inbox" href="#inbox" onclick="userTab('report', '/user/inbox_tab')" ><span><i class="fa fa-commenting-o" style="font-size: 14px; margin-right: 3px"></i> Liên Hệ</span></a></li>
+                                <li class="inbox_csn"><a class="inbox_csn" href="#inbox_csn" onclick="userTab('inbox_csn', '/user/inbox_tab')" ><span><i class="fa fa-commenting-o" style="font-size: 14px; margin-right: 3px"></i> Liên Hệ</span></a></li>
                                 <li class="notify"><a class="notify" href="#notify" onclick="userTab('notify', '/user/notify_tab')" ><span><i class="fa fa-bell-o" style="font-size: 11px; margin-right: 3px"></i>Thông Báo</span></a></li>
                             @endif
                             @if($mySelf && Auth::check() && Auth::user()->hasPermission('duyet_sua_nhac'))
@@ -65,6 +65,7 @@ $tabSelf = ($mySelf || (Auth::check() && Auth::user()->hasPermission('duyet_sua_
                         @if($tabSelf)
                             <section id="report"></section>
                             <section id="notify"></section>
+                            <section id="inbox_csn"></section>
                         @endif
                         <section id="approval"></section>
                     </div>
