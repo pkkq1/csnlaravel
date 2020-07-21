@@ -415,10 +415,10 @@ class UploadController extends Controller
             $oldAlbum = $oldCoverId ? $this->coverRepository->findCover($oldCoverId) : [];
             $newAlbum = [];
             if($per_Xet_Duyet) {
-                if(isset($request->music_state) && ($request->music_state != $result->music_state) && $newStage) {
+                if(isset($newStage) && ($newStage != $result->music_state)) {
                     if(!in_array($result->music_state, $arrStage))
                         return view('errors.text_error')->with('message', 'Bài hát đang được xử lý, bạn vui lòng quay lại sau');
-                    if(!in_array($request->music_state, $arrStage))
+                    if(!in_array($newStage, $arrStage))
                         return view('errors.text_error')->with('message', 'Trạng thái gửi lên không hợp lệ');
                     $result->music_state = $newStage;
                 }
@@ -476,9 +476,9 @@ class UploadController extends Controller
             if(($isDelete || $isStateDelete) && !$per_xoa_nhac && !$is_delete_owner_pending) {
                 return view('errors.text_error')->with('message', 'Bạn không có quyền xóa nhạc này');
             }
-            if($newStage && (($per_Xet_Duyet && $per_xoa_nhac && $oldStage != $newStage) || ($per_Xet_Duyet && $per_xoa_nhac && $isDelete) || ($is_delete_owner_pending && ($oldStage != $newStage)) || ($is_delete_owner_pending  && $isDelete))) {
+            if((isset($newStage) && $per_Xet_Duyet && $per_xoa_nhac && $oldStage != $newStage) || ($per_Xet_Duyet && $per_xoa_nhac && $isDelete) || (isset($newStage) && $is_delete_owner_pending && ($oldStage != $newStage)) || ($is_delete_owner_pending  && $isDelete)) {
                 // cập nhật tình trạng sẽ xóa
-                if(((in_array($newStage, [UPLOAD_STAGE_DELETED, UPLOAD_STAGE_UNCENSOR])) && !in_array($oldStage, [UPLOAD_STAGE_DELETED, UPLOAD_STAGE_UNCENSOR])) || $isDelete) { //check old stage to before update stage field
+                if(((isset($newStage) && in_array($newStage, [UPLOAD_STAGE_DELETED, UPLOAD_STAGE_UNCENSOR])) && !in_array($oldStage, [UPLOAD_STAGE_DELETED, UPLOAD_STAGE_UNCENSOR])) || $isDelete) { //check old stage to before update stage field
                     // xóa nhạc, video
                     $result->music_state = UPLOAD_STAGE_DELETED;
                     if($result->cat_id == CAT_VIDEO) {
