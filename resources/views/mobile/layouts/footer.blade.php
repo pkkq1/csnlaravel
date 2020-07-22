@@ -459,7 +459,7 @@ if($memberVip == null)
 
 @if(!$memberVip)
     <?php
-    $cookie_name = "csn_popup_beta2";
+    $cookie_name = "csn_popup";
     $session_ads_popup = isset($_COOKIE[$cookie_name]) ? intval(unserialize(stripslashes($_COOKIE[$cookie_name]))) : 0;
     ?>
     @if ( $session_ads_popup < 1 )
@@ -470,14 +470,23 @@ if($memberVip == null)
         {{--include(__DIR__.'../../../resources/views/cache/code_ads/mobile_popup.blade.php');--}}
     @endif
 
-    @hasSection('in_player')
-        {{--@if(View::exists('cache.code_ads.mobie_spin_player'))--}}
-        @include('cache.code_ads.mobie_spin_player')
-        {{--@endif--}}
-    @else
-        {{--@if(View::exists('cache.code_ads.mobie_spin_home'))--}}
-        @include('cache.code_ads.mobie_spin_home')
-        {{--@endif--}}
+    <?php
+    $cookie_name = "csn_spin";
+    $session_ads_spin = isset($_COOKIE[$cookie_name]) ? intval(unserialize(stripslashes($_COOKIE[$cookie_name]))) : 0;
+    ?>
+    @if ( $session_ads_spin < 1 )
+        <?php
+        @setcookie($cookie_name, serialize($session_ads_spin + 1), time() + 10, '/', '.chiasenhac.vn', 1);
+        ?>
+        @hasSection('in_player')
+            {{--@if(View::exists('cache.code_ads.mobie_spin_player'))--}}
+            @include('cache.code_ads.mobie_spin_player')
+            {{--@endif--}}
+        @else
+            {{--@if(View::exists('cache.code_ads.mobie_spin_home'))--}}
+            @include('cache.code_ads.mobie_spin_home')
+            {{--@endif--}}
+        @endif
     @endif
 
 @endif
