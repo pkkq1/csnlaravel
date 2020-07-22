@@ -116,8 +116,8 @@
                     },
                     success: function(response) {
                         $('.show-info-level').remove();
-                        $("select[name='voucher_id']").after('<div class="show-info-voucher"><label style="color:red">' + ((response.data.level_enable_row) ? 'Tặng sử dụng gói: ' + response.data.level_enable_row.level_name + ' ' + response.data.level_enable_row.level_time_expried + '<br/>Có hạn mức tới: ' + response.data.level_enable_row.d_level_time_expried + '<br/>' : '') +
-                            'Cen tặng: ' + response.data.value_cen +
+                        $("select[name='voucher_id']").after('<div class="show-info-voucher"><label style="color:red">' + ((response.data.level_enable_row) ? 'Tên gói sử dụng: ' + response.data.level_enable_row.level_name + ' ' + response.data.level_enable_row.level_time_expried + '<br/>Có hạn mức tới: ' + response.data.level_enable_row.level_time_expried + '<br/>' : '') +
+                            'Cen tặng: ' + response.data.gift_value_cen +
                             '</label></div>');
                     }
                 });
