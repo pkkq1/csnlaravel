@@ -81,6 +81,7 @@ global $allpage_banner;
         <img src="https://sb.scorecardresearch.com/p?c1=2&c2=20761753&cv=2.0&cj=1" />
     </noscript>
     <!-- End comScore Tag -->
+    <script src="https://sak.userreport.com/blueseed/launcher.js" async id="userreport-launcher-script"></script>
 
     {{--<script type="text/javascript" src="/js/jquery.autocomplete.min.js"></script>--}}
     {{--<script type="text/javascript" src="/assets/emoji-picker-master/lib/js/emoji-picker.js"></script>--}}
