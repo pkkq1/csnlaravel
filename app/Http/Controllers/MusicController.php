@@ -811,7 +811,9 @@ class MusicController extends Controller
             if(!$id)
                 Helpers::ajaxResult(false, 'Nhạc không tồn tại.', null);
             $item = $this->musicRepository->getModel()::where([['cat_id', '!=', CATEGORY_ID_VIDEO], ['music_id', $id], ['music_deleted', '<=', 0]])->first();
-
+            if(!$item) {
+                Helpers::ajaxResult(false, 'Nhạc không còn tồn tại.', null);
+            }
             $qualityMax = Helpers::file_url($item);
             $coverTitle = '';
             if($item->cover_id > 0) {
