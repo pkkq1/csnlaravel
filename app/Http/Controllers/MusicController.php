@@ -845,10 +845,14 @@ class MusicController extends Controller
                 Helpers::ajaxResult(false, 'Lỗi ngoài hệ thống nhập', null);
             }
             $music = $this->musicRepository->getModel()::where([['music_id', $idMusic], ['music_deleted', '<=', 0]])->first();
+            $merge = $this->musicRepository->getModel()::where([['music_id', $idMerge], ['music_deleted', '<=', 0]])->first();
+            if(!$music || !$merge) {
+                Helpers::ajaxResult(false, 'Lỗi tìm bài hát thất bại', null);
+            }
             $musicListen = $this->musicListenRepository->getModel()::where('music_id', $idMusic)->first();
             $musicDownload = $this->musicDownloadRepository->getModel()::where('music_id', $idMusic)->first();
             $musicQualityMax = $music->music_bitrate;
-            $merge = $this->musicRepository->getModel()::where([['music_id', $idMerge], ['music_deleted', '<=', 0]])->first();
+
             $mergeListen = $this->musicListenRepository->getModel()::where('music_id', $idMusic)->first();
             $mergeDownload = $this->musicDownloadRepository->getModel()::where('music_id', $idMusic)->first();
             $mergeQualityMax = $merge->music_bitrate;
