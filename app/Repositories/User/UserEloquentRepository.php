@@ -34,6 +34,10 @@ class UserEloquentRepository extends EloquentRepository implements UserRepositor
         $result = $this->_model::where([['id', $id]]);
         return $result;
     }
+    public function getUserByUserName($userName) {
+        $result = $this->_model::where([['username', $userName]]);
+        return $result;
+    }
     public function incrementCol($id, $field)
     {
         $result = $this

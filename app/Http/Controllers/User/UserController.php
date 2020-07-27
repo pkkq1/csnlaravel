@@ -63,7 +63,11 @@ class UserController extends Controller
      */
     public function index(Request $request, $id)
     {
-        $user = $this->userRepository->getUserById($id)->first();
+        if(is_numeric($id)) {
+            $user = $this->userRepository->getUserById($id)->first();
+        }else{
+            $user = $this->userRepository->getUserByUserName($id)->first();
+        }
         if(!$user)
             return view('errors.text_error')->with('message', 'Người dùng đang được cập nhật.');
         $playlist = $this->playlistRepository->getByUser($user->id);
