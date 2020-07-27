@@ -910,7 +910,10 @@ class MusicController extends Controller
         $urlRedirect = Helpers::listen_url($merge->toArray());
         $this->notifyRepository->pushNotif($music->music_user_id, $music->music_id, 'merge_music', 'Bài hát bạn bị trùng được sát nhập vào', $urlRedirect, $merge->music_id);
         $this->checkAlbumSyncSolr($music->cover_id);
-        $music->delete();
+        try {
+            $music->delete();
+        }
+        catch (exception $e) { }
         return $urlRedirect;
     }
     public function save_to_idMusic($music, $musicListen, $musicDownload, $musicQualityMax, $merge, $mergeListen, $mergeDownload, $mergeQualityMax) {
@@ -941,7 +944,10 @@ class MusicController extends Controller
         $urlRedirect = Helpers::listen_url($music->toArray());
         $this->notifyRepository->pushNotif($merge->music_user_id, $merge->music_id, 'merge_music', 'Bài hát bạn bị trùng được sát nhập vào', $urlRedirect, $music->music_id);
         $this->checkAlbumSyncSolr($merge->cover_id);
-        $merge->delete();
+        try {
+            $merge->delete();
+        }
+        catch (exception $e) { }
         return $urlRedirect;
     }
     public function checkAlbumSyncSolr($cover_id) {
