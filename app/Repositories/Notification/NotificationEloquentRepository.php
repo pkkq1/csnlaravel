@@ -41,9 +41,9 @@ class NotificationEloquentRepository extends EloquentRepository implements Notif
 
         return $result;
     }
-    public function pushNotif($user_id, $notify_id, $type, $text = '', $linkUrl, $musicId = '')
+    public function pushNotif($user_id, $notify_id, $type, $text = '', $linkUrl, $musicId = null)
     {
-        $notifyExits = $this->getModel()::where([['user_id', $user_id], ['notification_id', $notify_id], ['link_url', $linkUrl]])->orderBy('id', 'desc')->first();
+        $notifyExits = $this->getModel()::where([['user_id', $user_id], ['link_url', $linkUrl], ['read', 0]])->orderBy('id', 'desc')->first();
         if($notifyExits) {
             if(strtotime($notifyExits->created_at) >= strtotime(TIME_NEW_DUPLICATE_NOTIFY)) {
                 return false;

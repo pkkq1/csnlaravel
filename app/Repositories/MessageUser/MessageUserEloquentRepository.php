@@ -42,7 +42,7 @@ class MessageUserEloquentRepository extends EloquentRepository implements Messag
 
         return $result;
     }
-    public function addMsg($txt, $user_by_id = null, $username = null, $admin_reply_id = null, $admin_username= null) {
+    public function addMsg($txt, $user_by_id = null, $username = null, $admin_reply_id = null, $admin_username= null, $status = 0) {
         $result = $this
             ->_model
             ->create([
@@ -52,7 +52,7 @@ class MessageUserEloquentRepository extends EloquentRepository implements Messag
                 'username' => $username,
                 'admin_username' => $admin_username,
 //                'read' => 0,
-//                'status' => 0,
+                'status' => $status,
             ]);
         return $result;
     }

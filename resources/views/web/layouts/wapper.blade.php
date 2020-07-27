@@ -69,6 +69,8 @@ use App\Library\Helpers;
                                             $fa_font = 'fa-flag';
                                             if($item->type == 'reply_comment' || $item->type == 'reply_comment'){
                                                 $fa_font = 'fa-comment';
+                                            }elseif($item['type'] == 'message'){
+                                                $fa_font = 'fa-comments-o';
                                             }elseif($item->type == 'upload_success'){
                                                 $fa_font = 'fa-check';
                                             }

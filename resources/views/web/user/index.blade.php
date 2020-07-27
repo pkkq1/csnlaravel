@@ -447,7 +447,7 @@ $tabSelf = ($mySelf || (Auth::check() && Auth::user()->hasPermission('duyet_sua_
             }
         }
         function SendMsgCsn() {
-            confirmModal('<textarea style="width: 100%" class="msg_text" rows="6" placeholder="Nội dung nhắn tin"></textarea>', 'Nhắn tin trực tiếp tới hỗ trợ', '', 'Gửi');
+            confirmModal('<textarea style="width: 100%" class="msg_text" rows="6" placeholder="Nội dung nhắn tin"></textarea>', 'Gửi tin mới tới hỗ trợ CSN', '', 'Gửi');
             $("#myConfirmModal .btn-ok").on('click', function () {
                 if($('#myConfirmModal .msg_text').val().length < 5){
                     alertModal('Vui lòng Nhập nội dung trên 5 ký tự');

@@ -28,7 +28,8 @@ border-bottom: 1px solid #a1a1a1;
 <?php
 }, array_reverse($Data));
 ?>
-<a class="btn btn-secondary-gray"  href="javascript:void(0);" onclick="SendMsgCsn();" style="color: black;">Gửi Tin</a>
+<br/>
+<a class="btn btn-secondary-gray"  href="javascript:void(0);" onclick="SendMsgCsn();" style="color: black;">Gửi Tin Mới</a>
 <?php
 }else{
 ?>
