@@ -45,7 +45,7 @@ $tabSelf = ($mySelf || (Auth::check() && Auth::user()->hasPermission('duyet_sua_
                             <li class="artist"><a class="artist" onclick="userTab('artist', '/user/artist_favourite')" href="#artist"><span><i class="material-icons" style="font-size: 11px; margin-right: 3px">favorite_border</i> Ca Sĩ</span></a></li>
                             @if($mySelf)
                                 <li class="report"><a class="report" href="#report" onclick="userTab('report', '/user/report_tab')" ><span><i class="fa fa-flag" style="font-size: 11px; margin-right: 3px"></i> Báo Cáo</span></a></li>
-                                <li class="inbox_csn"><a class="inbox_csn" href="#inbox_csn" onclick="userTab('inbox_csn', '/user/inbox_tab')" ><span><i class="fa fa-commenting-o" style="font-size: 14px; margin-right: 3px"></i> Liên Hệ</span></a></li>
+                                <li class="message_csn"><a class="message_csn" href="#message_csn" onclick="userTab('message_csn', '/user/message_csn')" ><span><i class="fa fa-commenting-o" style="font-size: 14px; margin-right: 3px"></i> Liên Hệ</span></a></li>
                                 <li class="notify"><a class="notify" href="#notify" onclick="userTab('notify', '/user/notify_tab')" ><span><i class="fa fa-bell-o" style="font-size: 11px; margin-right: 3px"></i>Thông Báo</span></a></li>
                             @endif
                             @if($mySelf && Auth::check() && Auth::user()->hasPermission('duyet_sua_nhac'))
@@ -64,8 +64,8 @@ $tabSelf = ($mySelf || (Auth::check() && Auth::user()->hasPermission('duyet_sua_
                         <section id="artist"></section>
                         @if($tabSelf)
                             <section id="report"></section>
+                            <section id="message_csn"></section>
                             <section id="notify"></section>
-                            <section id="inbox_csn"></section>
                         @endif
                         <section id="approval"></section>
                     </div>
@@ -242,8 +242,13 @@ $tabSelf = ($mySelf || (Auth::check() && Auth::user()->hasPermission('duyet_sua_
             });
         }
         function userTab(tab, url, float = false) {
+            let pageUrl = '';
             let urlCurrent = window.location.origin + window.location.pathname;
-            history.pushState({urlPath: urlCurrent + '?tab=' + tab},"", urlCurrent + '?tab=' + tab);
+            if(url.indexOf("page=") > 0) {
+                pageUrl = '&page=' + url.substr(url.indexOf("page=") + 5)
+            }
+            let urlUpdate =  urlCurrent + '?tab=' + tab + pageUrl;
+            history.pushState({urlUpdate},"", urlUpdate);
             var tabContent = $('#' + tab);
             if(tabContent.html().length == 0 || float) {
                 $.ajax({
@@ -283,6 +288,12 @@ $tabSelf = ($mySelf || (Auth::check() && Auth::user()->hasPermission('duyet_sua_
                         }
                     }
                 });
+            }else{
+                var numberPage = tabContent.find('.active .page-link').html();
+                if (numberPage > 1) {
+                    let urlUpdate =  urlCurrent + '?tab=' + tab + '&page=' + numberPage;
+                    history.pushState({urlUpdate},"", urlUpdate);
+                }
             }
 
         }
@@ -434,6 +445,37 @@ $tabSelf = ($mySelf || (Auth::check() && Auth::user()->hasPermission('duyet_sua_
                 let urlUpdate = urlCurrent + '?tab=duyet-nhac&sub_tab=' + subTab + pageUrl;
                 history.pushState({urlPath: urlUpdate}, "", urlUpdate);
             }
+        }
+        function SendMsgCsn() {
+            confirmModal('<textarea style="width: 100%" class="msg_text" rows="6" placeholder="Nội dung nhắn tin"></textarea>', 'Nhắn tin trực tiếp tới hỗ trợ', '', 'Gửi');
+            $("#myConfirmModal .btn-ok").on('click', function () {
+                if($('#myConfirmModal .msg_text').val().length < 5){
+                    alertModal('Vui lòng Nhập nội dung trên 5 ký tự');
+                    return false;
+                }
+                $.ajax({
+                    url: window.location.origin + '/user/send_message',
+                    type: "POST",
+                    dataType: "json",
+                    data: {
+                        'text': $('#myConfirmModal .msg_text').val(),
+                    },
+                    beforeSend: function () {
+                        if(loaded) return false;
+                        loaded = true;
+                    },
+                    success: function(response) {
+                        if(response.success) {
+                            loaded = false;
+                            userTab('message_csn', '/user/message_csn', true);
+                            $('.modal').find('.close_confirm').click();
+                        }else{
+
+                        }
+                        alertModal(response.message);
+                    }
+                });
+            })
         }
         $( document ).ready(function() {
         <?php

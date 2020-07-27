@@ -21,7 +21,7 @@ use App\Repositories\User\UserEloquentRepository;
 use App\Models\UserLogModel;
 use DB;
 
-class ConvertToolMusicIController extends CrudController
+class ConvertToolMusicIDController extends CrudController
 {
 
     public function __construct()

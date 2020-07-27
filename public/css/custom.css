@@ -2005,6 +2005,9 @@ a.dropdown-menu-header {
 #notify li:hover {
     background: #5f5d5d24;
 }
+#message_csn li:hover {
+    background: #5f5d5d24;
+}
 @media (max-width: 1080px) {
     #header #search_autocomplete {
         min-width: 400px;
