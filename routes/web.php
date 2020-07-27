@@ -288,6 +288,9 @@ Route::group(['middlewareGroups' => ['web']], function () {
         Route::post('reply_report_content/post', ['as' => 'user.report', 'uses' => 'User\UserMusicController@reportReply']);
         Route::post('qr_code', ['as' => 'user.qr_code', 'uses' => 'User\UserController@qrCode']);
         Route::post('show_notify', ['as' => 'user.show_notify', 'uses' => 'User\UserController@showNotify']);
+        Route::post('message_csn', ['as' => 'user.message_csn', 'uses' => 'User\UserController@showMessageCsn']);
+
+        Route::post('send_message', ['as' => 'user.show_notify', 'uses' => 'User\UserController@sendMsg']);
     });
     Route::prefix('chu-de/')->group(function () {
         Route::get('{url}.html', ['as' => 'catalog.index', 'uses' => 'CatalogController@playlistPublisher']);

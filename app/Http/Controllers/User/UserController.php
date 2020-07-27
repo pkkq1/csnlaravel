@@ -25,6 +25,7 @@ use App\Repositories\ReportComment\ReportCommentRepository;
 use App\Repositories\ReportMusic\ReportMusicRepository;
 use App\Repositories\Notification\NotificationEloquentRepository;
 use Illuminate\Pagination\LengthAwarePaginator;
+use App\Repositories\MessageUser\MessageUserEloquentRepository;
 use DB;
 
 class UserController extends Controller
@@ -41,9 +42,10 @@ class UserController extends Controller
     protected $reportCommentRepository;
     protected $reportMusicRepository;
     protected $notifyRepository;
+    protected $userMessageRepository;
 
     public function __construct(UserEloquentRepository $userRepository, PlaylistEloquentRepository $playlistRepository, ArtistFavouriteRepository $artistFavouriteRepository, QrCodeTokenRepository $qrCodeTokenRepository, ReportCommentRepository $reportCommentRepository, ReportMusicRepository $reportMusicRepository,
-                                NotificationEloquentRepository $notifyRepository)
+                                NotificationEloquentRepository $notifyRepository, MessageUserEloquentRepository $userMessageRepository)
     {
         $this->userRepository = $userRepository;
         $this->playlistRepository = $playlistRepository;
@@ -51,6 +53,7 @@ class UserController extends Controller
         $this->reportCommentRepository = $reportCommentRepository;
         $this->reportMusicRepository = $reportMusicRepository;
         $this->notifyRepository = $notifyRepository;
+        $this->userMessageRepository = $userMessageRepository;
     }
 
     /**
@@ -190,5 +193,26 @@ class UserController extends Controller
         $result = $this->notifyRepository->getModel()::where('user_id', $user_id)->orderBy('id', 'desc')->paginate(LIMIT_PAGE_NOTIFY);
         return view('user.notification.index', compact('result'));
     }
+    public function showMessageCsn(Request $request) {
+        $user_id = Auth::user()->user_id;
+        $result = $this->userMessageRepository->getModel()::where('user_by_id', $user_id)->orderBy('id', 'desc')->paginate(LIMIT_PAGE_USER_MSG);
+        return view('user.message_csn.index', compact('result'));
+    }
+    public function sendMsg(Request $request) {
+        if(backpack_user()->can('banned_user_message')){
+            Helpers::ajaxResult(false, 'Lỗi truy cập, tài khoản bạn bị khóa chức năng nhắn tin', null);
+        }
+        if(!$request->text) {
+            Helpers::ajaxResult(false, 'Không tìm thấy nội dung', null);
+        }
+        if(strlen($request->text) < 5 || strlen($request->text) > 3000) {
+            Helpers::ajaxResult(false, 'Nội chỉ chấp nhận từ 5 đến 3000 từ', null);
+        }
+        $this->userMessageRepository->getModel()::where('user_by_id', Auth::user()->id)->orderby('id', 'desc')->first()->update(['status' => 1]);
+        $result = $this->userMessageRepository->addMsg($request->text, Auth::user()->id, Auth::user()->user_name);
+        if($result)
+            Helpers::ajaxResult(true, 'Gửi tin nhắn thành công', null);
+        Helpers::ajaxResult(false, 'Lỗi ngoài hệ thống', null);
 
+    }
 }
