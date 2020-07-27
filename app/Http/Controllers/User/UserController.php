@@ -212,7 +212,9 @@ class UserController extends Controller
         if(strlen($request->text) < 5 || strlen($request->text) > 3000) {
             Helpers::ajaxResult(false, 'Nội chỉ chấp nhận từ 5 đến 3000 từ', null);
         }
-        $this->userMessageRepository->getModel()::where('user_by_id', Auth::user()->id)->orderby('id', 'desc')->first()->update(['status' => 3]); // 0 chưa xem, 1 đã trả lời, 3 ẩn tn cũ đi
+        $oldMsg = $this->userMessageRepository->getModel()::where('user_by_id', Auth::user()->id)->orderby('id', 'desc')->first();
+        if($oldMsg)
+            $oldMsg->update(['status' => 3]); // 0 chưa xem, 1 đã trả lời, 3 ẩn tn cũ đi
         $result = $this->userMessageRepository->addMsg($request->text, Auth::user()->id, Auth::user()->user_name);
         if($result)
             Helpers::ajaxResult(true, 'Gửi tin nhắn thành công', null);
