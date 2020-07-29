@@ -151,18 +151,18 @@ class PaymentLogController extends CrudController
             'entity' => 'voucher',
             'attribute' => 'voucher_name',
         ]);
-        $this->crud->addColumn([
-            'name' => 'pay_cen_value',
-            'label' => 'Cen trả',
-            'type' => 'closure',
-            'function' => function($entry) {
-                if($entry->cen_promotion > 0) {
-                    return number_format($entry->cen_value) . ' - KM: '. number_format($entry->cen_promotion);
-                }else{
-                    return number_format($entry->cen_value);
-                }
-            },
-        ]);
+//        $this->crud->addColumn([
+//            'name' => 'pay_cen_value',
+//            'label' => 'Cen trả',
+//            'type' => 'closure',
+//            'function' => function($entry) {
+//                if($entry->cen_promotion > 0) {
+//                    return number_format($entry->cen_value) . ' - KM: '. number_format($entry->cen_promotion);
+//                }else{
+//                    return number_format($entry->cen_value);
+//                }
+//            },
+//        ]);
         $this->crud->addColumn([
             'name' => 'pay_money_value',
             'label' => 'Tiền VNĐ',

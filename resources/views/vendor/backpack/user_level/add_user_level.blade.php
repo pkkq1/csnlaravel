@@ -43,6 +43,10 @@
                         @else
                             @include('crud::form_content', [ 'fields' => $crud->getFields('create'), 'action' => 'create' ])
                         @endif
+                        <div class="form-group col-xs-12">
+                            <label>Ghi chú</label>
+                            <textarea name="note" class="form-control"></textarea>
+                        </div>
                     </div><!-- /.box-body -->
                     <div class="box-footer">
 

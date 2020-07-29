@@ -395,6 +395,9 @@ Route::group(['middlewareGroups' => ['web']], function () {
         Route::delete('roles/{id}',['as'=>'roles.destroy','uses'=>'RoleController@destroy']);
 
 
+        Route::get('chia-se-nhac-vip.html', ['as' => 'vip.home', 'uses' => 'RegisterVIPController@index']);
+        Route::get('chia-se-nhac-vip', ['as' => 'vip.home', 'uses' => 'RegisterVIPController@index']);
+
     });
     //// payment
     Route::group([

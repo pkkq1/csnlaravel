@@ -22,7 +22,7 @@ use App\Library\Helpers;
 use App\Models\UserLevelModel;
 use DB;
 
-class UserLeverController extends CrudController
+class UserLevelController extends CrudController
 {
     public function __construct()
     {
@@ -246,7 +246,7 @@ class UserLeverController extends CrudController
             'request_from' => 'ADMIN',
             'cen_promotion' => 0,
             'cen_current_user' => $user->user_money,
-            'note' => 'Admin cung cấp',
+            'note' => $request->note,
         ];
         $level = [];
         if($request->level_id) {
@@ -296,7 +296,7 @@ class UserLeverController extends CrudController
                     'user_id' => $request->user_id,
                     'level_id' => $level->level_id,
                     'level_expried' => strtotime($level->level_time_expried),
-                    'level_note' => 'Admin cung cấp',
+                    'note' => $request->note,
                     'level_status' => 1,
                 ]);
             }
