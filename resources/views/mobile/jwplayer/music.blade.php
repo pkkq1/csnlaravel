@@ -644,8 +644,8 @@ $memberVip = Helpers::checkMemberVip();
                 }
             }
         });
-        jwplayer('csnplayerads').play(true);
-        jwplayer('csnplayer').play(true);
+        // jwplayer('csnplayerads').play(true);
+        // jwplayer('csnplayer').play(true);
         // jwplayer().play(true);
 
         var video_preroll_played = false;
@@ -659,14 +659,14 @@ $memberVip = Helpers::checkMemberVip();
                 }
             }, false)
         }, false);
-        jwplayer().on('Ready', function() {
-            jwplayer().play();
-        });
-        $(document).ready(function() {
-            $("#csnplayer").bind("click", function() {
-                jwplayer().play();
-            });
-        });
+        // jwplayer().on('Ready', function() {
+        //     jwplayer().play();
+        // });
+        // $(document).ready(function() {
+        //     $("#csnplayer").bind("click", function() {
+        //         jwplayer().play();
+        //     });
+        // });
         var error_count = 0;
         player.on('error', function(message) {
             let sourceList = player.getPlaylist()[0]['sources'];
