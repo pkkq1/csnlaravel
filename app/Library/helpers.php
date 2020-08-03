@@ -1006,7 +1006,9 @@ class Helpers
             $url = 'https://data19.chiasenhac.com/';
         else if ($music_id <= 2089000)
             $url = 'https://data20.chiasenhac.com/';
-        else if ($music_id <= 2104000)
+        else if ($music_id <= 2099000)
+            $url = 'https://data3.chiasenhac.com/';
+        else if ($music_id <= 2119000)
             $url = 'https://data25.chiasenhac.com/';
         else
             $url = 'https://data.chiasenhac.com/';
@@ -1300,7 +1302,7 @@ class Helpers
         return (strpos($userAvatar, 'http') !== false) ? $userAvatar : $domain.Helpers::file_path($userId, PUBLIC_AVATAR_PATH, true) . $userAvatar . '?time='.time();
     }
     public static function getImgQuality($musicId) {
-        return 'https://data5.chiasenhac.com/data/spectrum'.Helpers::file_path($musicId, '/', true).$musicId.'.jpg';
+        return 'https://data50.chiasenhac.com/data/spectrum'.Helpers::file_path($musicId, '/', true).$musicId.'.jpg';
 //        return 'http://data5.chiasenhac.com/data/spectrum'.Helpers::file_path($musicId, '/', true).$musicId.'.jpg';
     }
     public static function strReplaceSolr($str, $keyRelease = false) {
