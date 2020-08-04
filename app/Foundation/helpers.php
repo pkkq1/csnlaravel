@@ -18,6 +18,7 @@ function view($view = null, $data = [], $mergeData = [])
     if (func_num_args() === 0) {
         return $factory;
     }
+    global $userVip;
     $Agent = new Agent();
     if(isset($_SERVER['REQUEST_URI']) && strpos($_SERVER['REQUEST_URI'], '/admin') === false) {
         if ($Agent->isMobile()) {

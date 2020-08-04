@@ -1350,13 +1350,12 @@ class Helpers
         return $data;
     }
     public static function checkMemberVip() {
-//        if(Auth::check()) {
-//            $level = Auth::user()->level();
-//            if($level && $level->level_expried >= time() && $level->level_status == 1) {
-//                return true;
-//            }
-//            return false;
-//        }
+        if(Auth::check()) {
+            if(Auth::user()->vip_level > 0 && Auth::user()->vip_time_exprited >= time()) {
+                return true;
+            }
+            return false;
+        }
         return false;
     }
     public static function news_image($image, $size = null) {

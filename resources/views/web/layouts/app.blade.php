@@ -2,13 +2,12 @@
 use App\Library\Helpers;
 global $allpage_banner;
 global $sb_banner;
-global $memberVip;
 
 $allpage_banner = false; //( rand(1,100) > 50 ) ? true : false;
 $sb_banner = false;
-if($memberVip == null)
-    $memberVip = Helpers::checkMemberVip();
+$memberVip = Helpers::checkMemberVip();
 ?>
+
 <!DOCTYPE html>
 <html>
 @include('web.layouts.header')
