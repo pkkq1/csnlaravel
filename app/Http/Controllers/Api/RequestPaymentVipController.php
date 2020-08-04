@@ -43,6 +43,7 @@ class RequestPaymentVipController extends Controller
     {
         $this->requestApiVip->getModel()::create([
            'title' => $request->title,
+           'name' => $request->name,
            'code' => $request->code,
            'phone' => $request->phone,
            'note' => $request->note,
