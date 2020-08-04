@@ -60,7 +60,7 @@ class VoucherController extends CrudController
         ]);
         $this->crud->addColumn([
             'name' => 'voucher_pay_cen',
-            'label' => 'Giá trị voucher',
+            'label' => 'Giá trị voucher (cen)',
             'type' => 'number',
         ]);
         $this->crud->addColumn([
@@ -103,7 +103,7 @@ class VoucherController extends CrudController
         ]);
         $this->crud->addField([
             'name'  => 'value_cen',
-            'label' => 'giá trị voucher',
+            'label' => 'giá trị voucher (cen)',
             'type' => 'number',
             'max' => 99999,
             'min' => 0,
@@ -117,7 +117,7 @@ class VoucherController extends CrudController
 //            'attribute' => 'level_name', // foreign key attribute that is shown to user
 //        ]);
         $this->crud->addField([
-            'label' => 'Áp dụng gói',
+            'label' => 'Áp dụng gói Level',
             'type' => 'select_from_array',
             'name' => 'level_id',
             'options' => \App\Models\LevelModel::where('level_status', 1)->pluck('level_name', 'level_id')->toArray(),

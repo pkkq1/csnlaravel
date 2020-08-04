@@ -87,7 +87,10 @@ class PaymentLogController extends CrudController
         $this->crud->addColumn([
             'name' => 'user_id',
             'label' => 'User ID',
-
+        ]);
+        $this->crud->addColumn([
+            'name' => 'user_by_id',
+            'label' => 'ID người tạo',
         ]);
         $this->crud->addColumn([
             'name' => 'created_at',
@@ -95,14 +98,14 @@ class PaymentLogController extends CrudController
             'type' => 'date',
             'format' => 'd/m/Y H:i',
         ]);
-        $this->crud->addColumn([
-            'name'  => 'user_id2',
-            'label' => 'Tên người tạo',
-            'type' => 'closure',
-            'function' => function($entry) {
-                return '<a href="/user/'.$entry->user_id.'" target="_blank">'.$entry->user->name.'</a>';
-            },
-        ]);
+//        $this->crud->addColumn([
+//            'name'  => 'user_id2',
+//            'label' => 'Tên người tạo',
+//            'type' => 'closure',
+//            'function' => function($entry) {
+//                return '<a href="/user/'.$entry->user_id.'" target="_blank">'.$entry->user->name.'</a>';
+//            },
+//        ]);
 //        $this->crud->addColumn([
 //            'label' => 'Người tạo',
 //            'type' => 'select',
@@ -112,18 +115,22 @@ class PaymentLogController extends CrudController
 //        ]);
 
         $this->crud->addColumn([
-            'label' => 'Gói đang sử dụng',
+            'label' => 'Gói cấp độ',
             'type' => 'select',
             'name' => 'level_id',
             'entity' => 'level',
             'attribute' => 'level_name',
         ]);
         $this->crud->addColumn([
-            'label' => 'Hạn mức',
+            'label' => 'Voucher',
             'type' => 'select',
-            'name' => 'level_id_2',
-            'entity' => 'level',
-            'attribute' => 'level_time_expried',
+            'name' => 'voucher_id',
+            'entity' => 'voucher',
+            'attribute' => 'voucher_name',
+        ]);
+        $this->crud->addColumn([
+            'label' => 'Hạn mức',
+            'name' => 'time_add_expired',
         ]);
         $this->crud->addColumn([
             'label' => 'Yêu cầu từ',
@@ -144,13 +151,7 @@ class PaymentLogController extends CrudController
                 }
             },
         ]);
-        $this->crud->addColumn([
-            'label' => 'Voucher',
-            'type' => 'select',
-            'name' => 'level_id_2',
-            'entity' => 'voucher',
-            'attribute' => 'voucher_name',
-        ]);
+
 //        $this->crud->addColumn([
 //            'name' => 'pay_cen_value',
 //            'label' => 'Cen trả',
@@ -168,10 +169,10 @@ class PaymentLogController extends CrudController
             'label' => 'Tiền VNĐ',
             'type' => 'closure',
             'function' => function($entry) {
-                if($entry->money_promotion > 0) {
-                    return number_format($entry->money_value) . ' - KM: '. number_format($entry->money_promotion);
+                if($entry->level_money_promo_status == 1) {
+                    return 'KM: ' . number_format($entry->pay_money_value);
                 }else{
-                    return number_format($entry->money_value);
+                    return number_format($entry->pay_money_value);
                 }
             },
         ]);

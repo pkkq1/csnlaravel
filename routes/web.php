@@ -397,6 +397,7 @@ Route::group(['middlewareGroups' => ['web']], function () {
 
         Route::get('chia-se-nhac-vip.html', ['as' => 'vip.home', 'uses' => 'RegisterVIPController@index']);
         Route::get('chia-se-nhac-vip', ['as' => 'vip.home', 'uses' => 'RegisterVIPController@index']);
+        Route::post('chia-se-nhac-vip', ['as' => 'vip.request_rg', 'uses' => 'RegisterVIPController@sendReportRegVip']);
 
     });
     //// payment

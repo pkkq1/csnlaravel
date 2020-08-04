@@ -192,6 +192,9 @@
 
                         <div class="hidden ">
                             <input type="hidden" name="id" value="{{$fields['id']['value']}}" class="form-control">
+                            <input type="hidden" name="user_id" value="{{$fields['user_id']['value']}}" class="form-control">
+                            <input type="hidden" name="level_id" value="{{$fields['level_id']['value']}}" class="form-control">
+                            <input type="hidden" name="old_status" value="{{$fields['level_status']['value']}}" class="form-control">
                         </div>
                         <div class="form-group col-xs-12">
                             <div class="checkbox">

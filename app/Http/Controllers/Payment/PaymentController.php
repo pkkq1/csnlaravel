@@ -79,7 +79,7 @@ class PaymentController extends Controller
             'status' => 'SUCCESS',
             'level_cen' => $level->level_cen,
             'level_money' => $level->level_money,
-            'time_add_expired' => $level->level_time_expried,
+            'time_add_expired' => $level->level_time_expired,
             'pay_cen_value' => $level->level_cen,
         ];
         $result = $this->userLevelRepository->upgradeUserLevel($user->user_id, $level);
@@ -114,7 +114,7 @@ class PaymentController extends Controller
         if(isset($voucher->levelEnableRow)) {
             $level = $voucher->levelEnableRow;
             $payment['level_id'] = $voucher->levelEnableRow->level_id;
-            $payment['time_add_expired'] = $voucher->levelEnableRow->level_time_expried;
+            $payment['time_add_expired'] = $voucher->levelEnableRow->level_time_expired;
             $payment['level_cen'] = $voucher->levelEnableRow->level_cen;
             $payment['level_money'] = $voucher->levelEnableRow->level_money;
             $result = $this->userLevelRepository->upgradeUserLevel($user->user_id, $level);
@@ -157,7 +157,7 @@ class PaymentController extends Controller
             'status' => 'PROCESS',
             'level_cen' => $level->level_cen,
             'level_money' => $level->level_money,
-            'time_add_expired' => $level->level_time_expried,
+            'time_add_expired' => $level->level_time_expired,
             'pay_cen_value' => $level->level_cen,
         ];
         $payResult = $this->paymentRepository->getModel()::create($payment);

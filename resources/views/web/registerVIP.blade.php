@@ -33,7 +33,7 @@ $titleMeta = 'Đăng ký VIP Chia Sẻ Nhạc';
 
                     </p>
                     <div style="font-family: 'SFProDisplay-Regular'; color: #333; font-size: 16px; width: 65%;display: inline-block; float: left; padding-top: 20px;">
-                        <span style="font-size: 18px;">- Nội Dung: <span style="font-weight: 700; color: red">CSN {{Auth::user()->username}}</span></span><br>
+                        <span style="font-size: 18px;">- Nội Dung: <span style="font-weight: 700; color: red">CSN {{Auth::user()->user_id}}</span></span><br>
                         <span style="font-size: 18px;">- Số Momo: 0982179082 - tên: LE TUAN TRINH</span><br>
                         *Vui lòng vui lòng không gọi qua số điện thoại này, CSN sẽ hỗ trợ thắc mắc trong <a target="_blank" href="/user/{{Auth::user()->id}}?tab=message_csn">liên hệ</a>.<br>
                         Sau khi chuyển thành công, tài khoản của bạn cần chờ từ 1 đến 2 giờ trong thời gian làm việc sẽ được nâng cấp VIP. Nếu quá hạn thời gian mà tài khoản của bạn vẫn chưa lên VIP, vui lòng liên hệ qua thông tin bảng bên dưới để BQT kiểm tra và xử lý.
@@ -41,8 +41,18 @@ $titleMeta = 'Đăng ký VIP Chia Sẻ Nhạc';
                     <img style="width: 30%; float: left;display: inline-block;" src="/imgs/qr-code-vip-csn.jpg"><br>
                 </div>
                 <div class="col-lg-7 upload-content" style="margin-left: auto; margin-right: auto; display: table;">
-                    <form action="/chia-se-nhac-vip">
-                        <label style="font-size: 16px" for="cat_id">Tài khoản bạn nạp: {{Auth::user()->username}}</label><br>
+                    @if ($message = Session::get('success'))
+                        <div class="alert alert-success">
+                            <strong>Thành công!</strong> <?php echo $message ?>
+                        </div>
+                    @endif
+                    @if ($message = Session::get('error'))
+                        <div class="alert alert-danger">
+                            <strong>Lỗi!</strong> <?php echo $message ?>
+                        </div>
+                    @endif
+                    <form action="/chia-se-nhac-vip" method="post">
+                        <label style="font-size: 16px" for="cat_id">Số ID bạn cần nạp: {{Auth::user()->user_id}}</label><br>
                         <label for="id_momo_request">Số Momo</label>
                         <input required style="width: 100%; margin-bottom: 5px;" class="form-control" type="text" id="id_momo_request" name="id_momo_request" placeholder="Nhập số Momo">
                         <label for="content_request">Nội dung đã nạp</label>
@@ -52,6 +62,7 @@ $titleMeta = 'Đăng ký VIP Chia Sẻ Nhạc';
                         <div class="text-center col-12">
                             <button type="submit" id="btn-upload" class="btn btn-danger btn-upload">Gửi lên</button>
                         </div>
+                        <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
                     </form>
                 </div>
             </div>

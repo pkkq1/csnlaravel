@@ -63,13 +63,28 @@ class LevelController extends CrudController
             'label' => 'Tên gói',
         ]);
         $this->crud->addColumn([
-            'name' => 'level_time_expried',
+            'name' => 'level_time_expired',
             'label' => 'Thời hạn',
         ]);
         $this->crud->addColumn([
             'name' => 'level_cen',
             'type' => 'number',
-            'label' => 'giá trị gói',
+            'label' => 'giá trị (cen)',
+        ]);
+        $this->crud->addColumn([
+            'name' => 'level_money',
+            'type' => 'number',
+            'label' => 'giá trị (vnd)',
+        ]);
+        $this->crud->addColumn([
+            'name' => 'level_money_promo',
+            'type' => 'number',
+            'label' => 'giá trị KM (vnd)',
+        ]);
+        $this->crud->addColumn([
+            'name' => 'level_money_promo_status',
+            'type' => 'check',
+            'label' => 'Sử dụng KM',
         ]);
         $this->crud->addColumn([
             'name'  => 'level_status',
@@ -86,24 +101,53 @@ class LevelController extends CrudController
             'label' => 'Tên gói',
         ]);
         $this->crud->addField([
-            'name'  => 'level_time_expried',
-            'label' => 'Hạn Mức (format short time)',
+            'label' => 'Hạn mức hết hạn',
+            'type' => 'select_from_array',
+            'name' => 'level_time_expired',
+            'options' => ['7 day' => '7 ngày', '30 day' => '30 ngày', '60 day' => '60 ngày', '90 day' => '90 ngày', '120 day' => '120 ngày', '180 day' => '180 ngày', '365 day' => '365 ngày (1 năm)'],
+            'allows_null' => false,
+            'default' => 1,
         ]);
-
 
         $this->crud->addField([
             'name'  => 'level_cen',
-            'label' => 'giá trị gói',
+            'label' => 'Giá trị (cen)',
             'type' => 'number',
             'max' => 99999999,
             'min' => 0,
             'default' => 0,
         ]);
         $this->crud->addField([
-            'name' => 'level_packge',
-            'label' => 'Cấp độ',
-            'max' => 99,
+            'name'  => 'level_money',
+            'label' => 'Giá trị (vnd)',
+            'type' => 'number',
+            'max' => 99999999,
             'min' => 0,
+            'default' => 0,
+        ]);
+        $this->crud->addField([
+            'name'  => 'level_money_promo',
+            'label' => 'Giá trị khuyến mãi (vnd)',
+            'type' => 'number',
+            'max' => 99999999,
+            'min' => 0,
+            'default' => 0,
+        ]);
+        $this->crud->addField([
+            'label' => 'Cấp độ',
+            'type' => 'select_from_array',
+            'name' => 'level_status',
+            'options' => [1 => 'Cấp độ 1', 2 => 'Cấp độ 2', 3 => 'Cấp độ 3'],
+            'allows_null' => false,
+            'default' => 1,
+        ]);
+        $this->crud->addField([
+            'label' => 'Tình trạng Khuyến Mãi',
+            'type' => 'select_from_array',
+            'name' => 'level_money_promo_status',
+            'options' => [0 => 'K.Sử dụng giá trị khuyến mãi', 1 => 'Sử dụng giá trị khuyến mãi'],
+            'allows_null' => false,
+            'default' => 0,
         ]);
         $this->crud->addField([
             'label' => 'Tình trạng',

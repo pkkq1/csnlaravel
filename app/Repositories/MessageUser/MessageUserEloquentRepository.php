@@ -42,7 +42,11 @@ class MessageUserEloquentRepository extends EloquentRepository implements Messag
 
         return $result;
     }
-    public function addMsg($txt, $user_by_id = null, $username = null, $admin_reply_id = null, $admin_username= null, $status = 0) {
+    public function addMsg($txt, $user_by_id = null, $username = null, $admin_reply_id = null, $admin_username= null, $status = 0, $type = 'msg') {
+
+        $oldMsg = $this->_model->where('user_by_id',$user_by_id)->orderby('id', 'desc')->first();
+        if($oldMsg)
+            $oldMsg->update(['status' => 3]); // 0 chưa xem, 1 đã trả lời, 3 ẩn tn cũ đi
         $result = $this
             ->_model
             ->create([
