@@ -20,12 +20,16 @@ use App\Models\VoucherModel;
 use App\Models\PaymentModel;
 use App\Library\Helpers;
 use App\Models\UserLevelModel;
+use App\Repositories\Notification\NotificationEloquentRepository;
 use DB;
 
 class UserLevelController extends CrudController
 {
-    public function __construct()
+    protected $NotificationRepository;
+
+    public function __construct(NotificationEloquentRepository $NotificationRepository)
     {
+        $this->NotificationRepository = $NotificationRepository;
         $this->middleware(function ($request, $next)
         {
             if(!backpack_user()->can('user_level_(list)')) {
@@ -317,7 +321,8 @@ class UserLevelController extends CrudController
                 $user->save();
             }
         }
-        PaymentModel::create($payment);
+        $payment = PaymentModel::create($payment);
+        $this->NotificationRepository->pushNotif($user->id, $payment->id, 'up_vip', 'Tài khoản bạn đã được nâng VIP 60 ngày', '/user/'.$request->user_by_id.'?tab=notify');
         if($payment['cen_add'] > 0) {
             $user->user_money = $user->user_money + $payment['cen_add'];
             $user->save();

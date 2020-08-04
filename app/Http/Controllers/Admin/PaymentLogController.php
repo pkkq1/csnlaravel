@@ -83,7 +83,10 @@ class PaymentLogController extends CrudController
         });
 
 
-
+        $this->crud->addColumn([
+            'name' => 'payment_id',
+            'label' => 'ID',
+        ]);
         $this->crud->addColumn([
             'name' => 'user_id',
             'label' => 'User ID',

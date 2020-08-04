@@ -116,6 +116,9 @@ Route::prefix('notify')->group(function () {
 
 Route::get('code_ads/{key}', ['as' => 'code.ads.index', 'uses' => 'CodeAdsController@index']);
 
+// api up level
+Route::post('chia-se-nhac-vip/up_vip_level_1_day_60', ['as' => 'vip.up', 'uses' => 'RequestPaymentVipController@saveUpRequest']);
+
 //Payment & Level
 
 

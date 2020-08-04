@@ -9,6 +9,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request as Request;
 use Illuminate\Support\Facades\Auth;
 use App\Repositories\Music\MusicEloquentRepository;
+use App\Repositories\LogPageVip\LogPageVipEloquentRepository;
 use App\Library\Helpers;
 use App\Solr\Solarium;
 use App\Repositories\Category\CategoryEloquentRepository;
@@ -19,12 +20,20 @@ use App\Repositories\MessageUser\MessageUserEloquentRepository;
 class RegisterVIPController extends Controller
 {
     protected $userMessageRepository;
+    protected $logPageVipRepository;
 
-    public function __construct(MessageUserEloquentRepository $userMessageRepository)
+    public function __construct(MessageUserEloquentRepository $userMessageRepository, LogPageVipEloquentRepository $logPageVipRepository)
     {
         $this->userMessageRepository = $userMessageRepository;
+        $this->logPageVipRepository = $logPageVipRepository;
     }
     public function index(Request $request) {
+        $this->logPageVipRepository->getModel()::where('user_id', Auth::user()->id)->delete();
+        $this->logPageVipRepository->getModel()::create([
+            'user_id' => Auth::user()->id,
+            'ip' => Helpers::getIp(),
+            'time_log' => time(),
+        ]);
         return view('registerVIP');
     }
     public function sendReportRegVip(Request $request) {
