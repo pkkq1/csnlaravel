@@ -1,4 +1,5 @@
 @section('hidden_wapper', true)
+@section('no_ads', true)
 <?php
 use App\Library\Helpers;
 $titleMeta = isset($artistExist) ? 'Cập nhật nghệ sĩ '.$artistExist->artist_nickname : 'Thêm nghệ sĩ mới';

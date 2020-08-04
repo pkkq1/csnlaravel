@@ -1,5 +1,5 @@
 @section('hidden_wapper', true)
-@section('in_edit', true)
+@section('no_ads', true)
 <?php
 use App\Library\Helpers;
 $mess = $typeUpload == 'music' ? 'bài hát' : 'video';

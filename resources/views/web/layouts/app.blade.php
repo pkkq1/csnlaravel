@@ -39,7 +39,7 @@ $memberVip = Helpers::checkMemberVip();
     @else
     @endif
 
-@hasSection('in_edit')
+@hasSection('no_ads')
 @else
         @if(!$memberVip)
             @hasSection('in_player')
@@ -91,7 +91,7 @@ $memberVip = Helpers::checkMemberVip();
 </section>
 @yield('contentJS')
 
-@hasSection('in_edit')
+@hasSection('no_ads')
 @else
     @if(!$memberVip)
         @hasSection('in_player')
