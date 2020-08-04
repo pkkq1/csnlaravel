@@ -26,21 +26,28 @@ $titleMeta = 'Đăng ký VIP Chia Sẻ Nhạc';
         <div class="row row_wrapper">
             <div class="col-md-9">
                 <div class="col-lg-12">
-                    <p style="font-family: 'SFProDisplay-Regular'; color: #333; font-size: 16px;">
-                        Quyền lợi của thành viên VIP<br>
-                        - Bị truy cập vào hệ thống ChiaSeNhac.vn mà không bị quảng cáo làm phiền
-                        Giá tài khoản VIP 6 tháng là 60.000đ (khuyến mãi còn 50% còn 30.000đ)<br>
-                        Bạn vui lòng nạn bằng ví Momo<br>
-
+                    <p style="font-family: 'SFProDisplay-Regular'; color: #333; font-size: 22px;">
+                        <b><u>HƯỚNG DẪN NÂNG CẤP THÀNH VIÊN VIP:</u></b>
                     </p>
-                    <div style="font-family: 'SFProDisplay-Regular'; color: #333; font-size: 16px; width: 65%;display: inline-block; float: left; padding-top: 20px;">
-                        <span style="font-size: 18px;">- Nội Dung: <span style="font-weight: 700; color: red">CSN {{Auth::user()->user_id}}</span></span><br>
-                        <span style="font-size: 18px;">- Số Momo: 0982179082 - tên: LE TUAN TRINH</span><br>
-                        *Vui lòng vui lòng không gọi qua số điện thoại này, CSN sẽ hỗ trợ thắc mắc trong <a target="_blank" href="/user/{{Auth::user()->id}}?tab=message_csn">liên hệ</a>.<br>
-                        Sau khi chuyển thành công, tài khoản của bạn cần chờ từ 1 đến 2 giờ trong thời gian làm việc sẽ được nâng cấp VIP. Nếu quá hạn thời gian mà tài khoản của bạn vẫn chưa lên VIP, vui lòng liên hệ qua thông tin bảng bên dưới để BQT kiểm tra và xử lý.
+
+                    <p style="font-family: 'SFProDisplay-Regular'; color: #333; font-size: 16px;">
+                        Để không bị các quảng cáo làm phiền khi bạn truy cập vào hệ thống website và app Chia Sẻ Nhạc, bạn cần nâng cấp tài khoản mình lên tài khoản VIP.
+                        Hiện tại, mua tài khoản VIP 6 tháng trên hệ thống Chia Sẻ Nhạc đang được khuyến mãi 50%, giá gốc là 60.000đ, giảm còn 30.000đ.
+                        <br>
+                    </p>
+                    <img style="width: 38%; float: right; display: inline-block;" src="/imgs/qr-code-vip-csn.jpg">
+                    <div style="font-family: 'SFProDisplay-Regular'; color: #333; font-size: 16px; width: 60%;display: inline-block; float: left; padding-top: 20px;">
+                        <span style="font-size: 18px;">Bạn vui lòng chuyển tiền vào số Momo: <b>0982179082</b></span><br>
+                        <span style="font-size: 18px;">- Tên chủ tài khoản: LÊ TUẤN TRÌNH</span><br>
+                        <span style="font-size: 18px;">- Lời chúc: <span style="font-weight: 700; color: red">CSN &nbsp; {{Auth::user()->user_id}}</span></span><br>
+                        <span style="font-size: 18px;">- Số tiền: 30.000 VNĐ</span><br>
+                        * Vui lòng vui lòng không gọi qua số điện thoại này, CSN sẽ chỉ hỗ trợ thắc mắc trong khung <a target="_blank" href="/user/{{Auth::user()->id}}?tab=message_csn">liên hệ</a> bên dưới.<br>
+                        <br />
+                        Sau khi chuyển thành công, tài khoản của bạn cần chờ từ 3 phút đến 1 tiếng để được nâng cấp VIP. Nếu quá hạn thời gian mà tài khoản của bạn vẫn chưa lên VIP, vui lòng liên hệ qua thông tin bảng bên dưới để BQT kiểm tra và xử lý.
+                        <br />&nbsp;
                     </div>
-                    <img style="width: 30%; float: left;display: inline-block;" src="/imgs/qr-code-vip-csn.jpg"><br>
                 </div>
+
                 <div class="col-lg-7 upload-content" style="margin-left: auto; margin-right: auto; display: table;">
                     @if ($message = Session::get('success'))
                         <div class="alert alert-success">
@@ -53,15 +60,20 @@ $titleMeta = 'Đăng ký VIP Chia Sẻ Nhạc';
                         </div>
                     @endif
                     <form action="/chia-se-nhac-vip" method="post">
-                        <label style="font-size: 16px" for="cat_id">Số ID bạn cần nạp: {{Auth::user()->user_id}}</label><br>
-                        <label for="id_momo_request">Số Momo</label>
-                        <input required style="width: 100%; margin-bottom: 5px;" class="form-control" type="text" id="id_momo_request" name="id_momo_request" placeholder="Nhập số Momo">
-                        <label for="content_request">Nội dung đã nạp</label>
-                        <input required style="width: 100%; margin-bottom: 5px;" class="form-control" type="text" id="content_request" name="content_request" placeholder="Nhập nội dung đã nạp">
+                        <b><u>LIÊN HỆ HỖ TRỢ:</u></b><br /><br />
+                        <label style="font-size: 16px" for="cat_id">Mã thành viên của bạn: {{Auth::user()->user_id}}</label><br>
+                        <label for="id_phone_request">Số điện thoại bạn nạp tiền</label>
+                        <input required style="width: 100%; margin-bottom: 5px;" class="form-control" type="text" id="id_phone_request" name="id_phone_request" placeholder="Nhập số điện thoại">
+                        <label for="amount_request">Số tiền đã gửi</label>
+                        <input required style="width: 100%; margin-bottom: 5px;" class="form-control" type="text" id="amount_request" name="amount_request" placeholder="Nhập số tiền đã gửi">
+                        <label for="note_request">Nội dung lời chúc đã gửi</label>
+                        <input required style="width: 100%; margin-bottom: 5px;" class="form-control" type="text" id="note_request" name="note_request" placeholder="Nhập lời chúc đã gửi">
                         <label for="time_request">Khoản thời gian đã nạp</label>
                         <input required style="width: 100%;margin-bottom: 10px;" class="form-control" type="datetime-local" id="time_request" name="time_request">
+                        <label for="message_request">Nội dung cần hỗ trợ</label>
+                        <input required style="width: 100%; margin-bottom: 5px;" class="form-control" type="text" id="message_request" name="message_request" placeholder="Nhập nội dung mà bạn thắc mắc">
                         <div class="text-center col-12">
-                            <button type="submit" id="btn-upload" class="btn btn-danger btn-upload">Gửi lên</button>
+                            <button type="submit" id="btn-upload" class="btn btn-danger btn-upload">Gửi yêu cầu</button>
                         </div>
                         <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
                     </form>
