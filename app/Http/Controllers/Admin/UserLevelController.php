@@ -21,15 +21,19 @@ use App\Models\PaymentModel;
 use App\Library\Helpers;
 use App\Models\UserLevelModel;
 use App\Repositories\Notification\NotificationEloquentRepository;
+use App\Repositories\UserLevel\UserLevelEloquentRepository;
 use DB;
 
 class UserLevelController extends CrudController
 {
     protected $NotificationRepository;
+    protected $userLevelRepository;
 
-    public function __construct(NotificationEloquentRepository $NotificationRepository)
+    public function __construct(NotificationEloquentRepository $NotificationRepository, UserLevelEloquentRepository $userLevelRepository)
     {
         $this->NotificationRepository = $NotificationRepository;
+        $this->userLevelRepository = $userLevelRepository;
+
         $this->middleware(function ($request, $next)
         {
             if(!backpack_user()->can('user_level_(list)')) {
@@ -228,109 +232,16 @@ class UserLevelController extends CrudController
         if (is_null($request)) {
             $request = \Request::instance();
         }
-        $user = UserModel::find($request->user_id);
-        if(!$user) {
-            \Alert::error('User không tồn tại')->flash();
+        $result = $this->userLevelRepository->upgradeUserLevel_v2($request->user_id, $request->level_id, $request->voucher_id, $request->note,  Auth::user()->user_id);
+        if(!$result['success']) {
+            \Alert::error($result['msg'])->flash();
             return redirect()->back();
         }
-        $userLevel = UserLevelModel::where('user_id', $request->user_id)->with('level')->first();
-        $payment = [
-            'user_id' => $user->user_id,
-            'user_by_id' => Auth::user()->user_id,
-            'level_id' => null,
-            'voucher_id' => null,
-            'cen_add' => 0,
-            'level_cen' => 0,
-            'level_money' => 0,
-            'level_money_promo' => 0,
-            'status' => 'SUCCESS',
-            'request_from' => 'ADMIN',
-            'cen_current_user' => $user->user_money,
-            'note' => $request->note,
-        ];
-        $level = [];
-        if($request->level_id) {
-            $level = LevelModel::where('level_id', $request->level_id)->where('level_status', 1)->first();
-            $payment['level_id'] = $level->level_id;
-            $payment['level_cen'] = $level->level_cen;
-            $payment['level_money'] = $level->level_money;
-            $payment['level_money_promo'] = $level->level_money_promo;
-            $payment['level_money_promo_status'] = $level->level_money_promo_status;
 
-            $payment['pay_money_value'] = $level->level_money;
-            if($level->level_money_promo_status) {
-                $payment['pay_money_value'] = $level->level_money_promo;
-            }
-
-            $payment['time_add_expired'] = $level->level_time_expired;
-        }else{
-            $voucher = VoucherModel::where('voucher_id', $request->voucher_id)->where('voucher_status', 1)->with('levelEnableRow')->first();
-            $payment['voucher_id'] = $voucher->voucher_id;
-            $payment['cen_add'] = $voucher->gift_value_cen;
-            if(isset($voucher->levelEnableRow)) {
-                $level = $voucher->levelEnableRow;
-                $payment['level_id'] = $voucher->levelEnableRow->level_id;
-                $payment['time_add_expired'] = $voucher->levelEnableRow->level_time_expired;
-                $payment['level_cen'] = $voucher->levelEnableRow->level_cen;
-                $payment['level_money'] = $voucher->levelEnableRow->level_money;
-                $payment['level_money_promo'] = $voucher->levelEnableRow->level_money_promo;
-
-                $payment['pay_money_value'] = $voucher->voucher_pay_cen;
-
-                $payment['level_money_promo_status'] = $voucher->levelEnableRow->level_money_promo_status;
-            }
-
-        }
-        if($level) {
-            if($userLevel) {
-                if($userLevel->level->level_packge != $level->level_packge) {
-                    if($userLevel->level->level_packge > $level->level_packge) {
-                        \Alert::error('Gói hiện tại của bạn cao hơn gói vừa chọn')->flash();
-                        return redirect()->back();
-                    }
-                    // khác cấp (tự động reset hạn mức mới)
-                    $userLevel->level_expried = strtotime($level->level_time_expired);
-//                    $user->vip_time_exprited = strtotime($level->level_time_expired);
-                }else{
-                    // cùng cấp
-                    if($userLevel->level_expried > time()) {
-                        // thêm gia hạn đã có (thêm hạn mức với hạn mức cũ)
-                        $userLevel->level_expried = strtotime($level->level_time_expired, $userLevel->level_expried);
-//                        $user->vip_time_exprited = strtotime($level->level_time_expired, $userLevel->level_expried);
-                    }else{
-                        // bắt đầu gia hạn mới (hiện tại + hạn mức cấp cho)
-                        $userLevel->level_expried = strtotime($level->level_time_expired);
-//                        $user->vip_time_exprited = strtotime($level->level_time_expired);
-                    }
-                }
-                $userLevel->level_id = $level->level_id;
-                $user->vip_level = $level->level_packge;
-                $user->vip_time_exprited = $userLevel->level_expried;
-                $userLevel->save();
-                $user->save();
-            }else{
-                $userLevel = UserLevelModel::create([
-                    'user_id' => $request->user_id,
-                    'level_id' => $level->level_id,
-                    'level_expried' => strtotime($level->level_time_expired),
-                    'note' => $request->note,
-                    'level_status' => 1,
-                ]);
-                $user->vip_level = $level->level_packge;
-                $user->vip_time_exprited = strtotime($level->level_time_expired);
-                $user->save();
-            }
-        }
-        $payment = PaymentModel::create($payment);
-        $this->NotificationRepository->pushNotif($user->id, $payment->id, 'up_vip', 'Tài khoản bạn đã được nâng VIP 60 ngày', '/user/'.$request->user_by_id.'?tab=notify');
-        if($payment['cen_add'] > 0) {
-            $user->user_money = $user->user_money + $payment['cen_add'];
-            $user->save();
-        }
         // show a success message
         \Alert::success(trans('backpack::crud.insert_success'))->flash();
 
-        return $this->performSaveAction($userLevel->id);
+        return $this->performSaveAction();
     }
 
     public function update(UpdateRequest $request)
@@ -364,4 +275,5 @@ class UserLevelController extends CrudController
 
         return $this->performSaveAction($item->getKey());
     }
+
 }

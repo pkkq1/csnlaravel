@@ -96,6 +96,10 @@ class PaymentLogController extends CrudController
             'label' => 'ID người tạo',
         ]);
         $this->crud->addColumn([
+            'name' => 'request_api_id',
+            'label' => 'Api ID',
+        ]);
+        $this->crud->addColumn([
             'name' => 'created_at',
             'label' => 'Ngày tạo',
             'type' => 'date',
