@@ -83,7 +83,7 @@ class UserLevelEloquentRepository extends EloquentRepository implements UserLeve
         }
         return ['success' => true, 'msg' => 'thành công'];
     }
-    public function upgradeUserLevel_v2($user_id, $level_id, $voucher_id, $note, $user_by_id = 0, $request_api_id = '') {
+    public function upgradeUserLevel_v2($user_id, $level_id, $voucher_id, $note, $user_by_id = 0, $request_api_id = null) {
         $user = UserModel::find($user_id);
         if(!$user) {
             return [
