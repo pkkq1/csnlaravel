@@ -54,6 +54,7 @@ Route::group([
 
     CRUD::resource('level', 'LevelController');
     CRUD::resource('payment_log', 'PaymentLogController');
+    CRUD::resource('request_api_vip_log', 'RequestApiVipLogController');
     CRUD::resource('voucher', 'VoucherController');
 
     Route::get('/history_level/search_user', 'UserLevelController@searchUser');

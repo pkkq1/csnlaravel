@@ -168,6 +168,7 @@ $htmlNotif['contact'] = $notif['contact'] > 0 ? '<span class="label pull-right b
                 <li><a href="{{ backpack_url('voucher') }}"><i class="fa fa-gift"></i> <span>Các gói Voucher</span></a></li>
                 <li><a href="{{ backpack_url('history_level') }}"><i class="fa fa-user"></i> <span>Cập nhật cấp độ user</span></a></li>
                 <li><a href="{{ backpack_url('payment_log') }}"><i class="fa fa-usd"></i> <span>Lịch sử giao dịch</span></a></li>
+                <li><a href="{{ backpack_url('request_api_vip_log') }}"><i class="fa fa-location-arrow"></i> <span>Lịch sử gọi api</span></a></li>
             @endif
         </ul>
     </li>
