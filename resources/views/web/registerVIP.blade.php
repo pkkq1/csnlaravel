@@ -39,7 +39,7 @@ $titleMeta = 'Đăng ký VIP Chia Sẻ Nhạc';
                     <div style="font-family: 'SFProDisplay-Regular'; color: #333; font-size: 16px; width: 60%;display: inline-block; float: left; padding-top: 20px;">
                         <span style="font-size: 18px;">Bạn vui lòng chuyển tiền vào số Momo: <b>038.952.4211</b></span><br>
                         <span style="font-size: 18px;">- Tên chủ tài khoản: TON NU THI THUAN</span><br>
-                        <span style="font-size: 18px;">- Lời chúc: <span style="font-weight: 700; color: red">CSN &nbsp; {{Auth::user()->user_id}}</span></span><br>
+                        <span style="font-size: 18px;">- Lời chúc (Tin nhắn): <span style="font-weight: 700; color: red">CSN &nbsp; {{Auth::user()->user_id}}</span></span><br>
                         <span style="font-size: 18px;">- Số tiền: 30.000 VNĐ</span><br>
                         * Vui lòng vui lòng không gọi qua số điện thoại này, CSN sẽ chỉ hỗ trợ thắc mắc trong khung <a target="_blank" href="/user/{{Auth::user()->id}}?tab=message_csn">liên hệ</a> bên dưới.<br>
                         <br />
@@ -47,8 +47,9 @@ $titleMeta = 'Đăng ký VIP Chia Sẻ Nhạc';
                         <br />&nbsp;
                     </div>
                 </div>
+                <img style="width: 20%; float: left; display: inline-block;" src="/imgs/send-30k-to-momo.jpg">
 
-                <div class="col-lg-7 upload-content" style="margin-left: auto; margin-right: auto; display: table;">
+                <div class="upload-content" style="width: 60%; float: right; margin-left: auto; margin-right: auto; display: table;">
                     @if ($message = Session::get('success'))
                         <div class="alert alert-success">
                             <strong>Thành công!</strong> <?php echo $message ?>
