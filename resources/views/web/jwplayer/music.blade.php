@@ -67,11 +67,11 @@ if($musicSet['type_listen'] == 'playlist') {
 }
 
 //Sorry, this content is not available in your country
-$auth_listen = true;
-if(env('APP_ENV') != 'local' && self::isVNIP(self::getIp()) && Auth::check())
-{
-
-}
+//$auth_listen = true;
+//if(env('APP_ENV') != 'local' && self::isVNIP(self::getIp()) && Auth::check())
+//{
+//
+//}
 
 ?>
 @section('meta')
