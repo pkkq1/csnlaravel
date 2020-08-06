@@ -125,12 +125,12 @@ class UserMusicController extends Controller
             $stage = $request->input('stage');
             if($stage == 'all' || $stage == 'fullconvert') {
                 // chờ duyệt
-                $stageData['stage_fullconvert'] = $this->uploadRepository->musicByStage([['cat_id', '!=', CAT_VIDEO], ['music_id', '>', 1000000]], [UPLOAD_STAGE_FULLCONVERT], 'music_last_update_time', 'asc', LIMIT_PAGE_MUSIC_APPROVAL);
+                $stageData['stage_fullconvert'] = $this->uploadRepository->musicByStage([['cat_id', '!=', CAT_VIDEO], ['music_id', '>', 1000000]], [UPLOAD_STAGE_FULLCONVERT], 'music_last_update_time', 'desc', LIMIT_PAGE_MUSIC_APPROVAL);
                 $titleMes = 'chờ duyệt';
             }
             if($stage == 'all' || $stage == 'fullconvert_video') {
                 // chờ duyệt video
-                $stageData['stage_fullconvert'] = $this->uploadRepository->musicByStage([['cat_id', CAT_VIDEO], ['music_id', '>', 1000000]], [UPLOAD_STAGE_FULLCONVERT], 'music_last_update_time', 'asc', LIMIT_PAGE_MUSIC_APPROVAL);
+                $stageData['stage_fullconvert'] = $this->uploadRepository->musicByStage([['cat_id', CAT_VIDEO], ['music_id', '>', 1000000]], [UPLOAD_STAGE_FULLCONVERT], 'music_last_update_time', 'desc', LIMIT_PAGE_MUSIC_APPROVAL);
                 $titleMes = 'chờ duyệt';
             }
             if($stage == 'all' || $stage == 'uncensor') {
