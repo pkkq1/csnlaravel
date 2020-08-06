@@ -55,20 +55,30 @@ class RequestApiVipLogController extends CrudController
                 $this->crud->addClause('where', 'time_create', '>=', strtotime($dates->from . ' 00:00'));
                 $this->crud->addClause('where', 'time_create', '<=', strtotime($dates->to . ' 23:59'));
             });
-        $this->crud->addFilter([ // dropdown filter
+        $this->crud->addFilter([ // select2_multiple filter
             'name' => 'status',
-            'type' => 'dropdown',
-            'label'=> 'Tình trạng'
-        ], [
-            'SUCCESS' => 'Thành Công',
-            'WRONG_NOTE' => 'Sai Mã Gửi',
-            'NOT_FOUND_USER_ID' => 'UserID Không Tìm Thấy',
-            'NOT_MATCH_PAGE_LOG' => 'Không Tìm Thấy Truy Cập Page',
-            'ERROR' => 'Lỗi',
-            'RECEIVED' => 'Nhận API',
-        ], function($value) { // if the filter is active
-            $this->crud->addClause('where', 'status', $value);
+            'type' => 'select2_multiple',
+            'label'=> 'Tìm theo gói',
+            'placeholder' => 'Tình trạng'
+        ], function () {
+            return [
+                'SUCCESS' => 'Thành Công',
+                'WRONG_NOTE' => 'Sai Cú Pháp',
+                'NOT_FOUND_USER_ID' => 'UserID Không Tìm Thấy',
+                'NOT_MATCH_PAGE_LOG' => 'Không Tìm Thấy Truy Cập Page',
+                'ERROR' => 'Lỗi',
+                'RECEIVED' => 'Nhận API',
+            ];
+        }, function ($values) {
+            $values = json_decode(htmlspecialchars_decode($values, ENT_QUOTES));
+            if (!empty($values)) {
+                $this->crud->addClause('whereIn', 'status', $values);
+            }
         });
+//        $this->crud->addClause('where', 'status', '!=', 'SUCCESS');
+
+
+
         $this->crud->addColumn([
             'name' => 'id',
             'label' => 'ID',
@@ -97,10 +107,6 @@ class RequestApiVipLogController extends CrudController
             },
         ]);
         $this->crud->addColumn([
-            'name' => 'note',
-            'label' => 'Note',
-        ]);
-        $this->crud->addColumn([
             'name' => 'amount',
             'type' => 'number',
             'label' => 'Amount',
@@ -116,6 +122,10 @@ class RequestApiVipLogController extends CrudController
         $this->crud->addColumn([
             'name' => 'phone',
             'label' => 'Phone',
+        ]);
+        $this->crud->addColumn([
+            'name' => 'note',
+            'label' => 'Ghi chú',
         ]);
     }
 

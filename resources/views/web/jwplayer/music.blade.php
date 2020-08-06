@@ -25,7 +25,6 @@ global $cat_id2info;
 global $cat_url2info;
 global $memberVip;
 global $album_new;
-global $memberVip;
 global $typeDup;
 //global $MusicSameArtist;
 //global $VideoSameArtist;

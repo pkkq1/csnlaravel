@@ -1,6 +1,8 @@
 <?php
 use App\Library\Helpers;
+global $memberVip;
 $titleMeta = 'Đăng ký VIP Chia Sẻ Nhạc';
+$memberVip = Helpers::checkMemberVip();
 ?>
 @section('meta')
     <meta name="copyright" content="{{env('APP_URL')}}" />
@@ -35,6 +37,8 @@ $titleMeta = 'Đăng ký VIP Chia Sẻ Nhạc';
                         Hiện tại, mua tài khoản VIP 6 tháng trên hệ thống Chia Sẻ Nhạc đang được khuyến mãi 50%, giá gốc là 60.000đ, giảm còn 30.000đ.
                         <br>
                     </p>
+                    @if(!$memberVip)
+
                     <img style="width: 38%; float: right; display: inline-block;" src="/imgs/qr-code-vip-csn.jpg">
                     <div style="font-family: 'SFProDisplay-Regular'; color: #333; font-size: 16px; width: 60%;display: inline-block; float: left; padding-top: 20px;">
                         <span style="font-size: 18px;">Bạn vui lòng chuyển tiền vào số Momo: <b>038.952.4211</b></span><br>
@@ -46,39 +50,55 @@ $titleMeta = 'Đăng ký VIP Chia Sẻ Nhạc';
                         Sau khi chuyển thành công, tài khoản của bạn cần chờ từ 5 phút đến 1 tiếng để được nâng cấp VIP. Nếu quá hạn thời gian mà tài khoản của bạn vẫn chưa lên VIP, vui lòng gửi thông tin liên hệ qua bảng bên dưới để BQT kiểm tra và xử lý.
                         <br />&nbsp;
                     </div>
-                </div>
-                <img style="width: 20%; float: left; display: inline-block;" src="/imgs/send-30k-to-momo.jpg">
+                    @else
+                        <?php
+                          $vipInfo = Auth::user()->levelInfo()->first();
+                        ?>
+                        <span style="font-weight: 700; color: red; font-size: 20px;">Hiện tại bạn đang là Vip: {{$vipInfo->level_name}}, Ngày hết hạn là: {{date('d/m/Y', Auth::user()->vip_time_exprited)}}</span>
 
-                <div class="upload-content" style="width: 60%; float: right; margin-left: auto; margin-right: auto; display: table;">
-                    @if ($message = Session::get('success'))
-                        <div class="alert alert-success">
-                            <strong>Thành công!</strong> <?php echo $message ?>
-                        </div>
                     @endif
-                    @if ($message = Session::get('error'))
-                        <div class="alert alert-danger">
-                            <strong>Lỗi!</strong> <?php echo $message ?>
-                        </div>
-                    @endif
-                    <form action="/chia-se-nhac-vip" method="post">
-                        <b><u>LIÊN HỆ HỖ TRỢ:</u></b><br /><br />
-                        <label style="font-size: 16px" for="cat_id">Mã thành viên của bạn: {{Auth::user()->user_id}}</label><br>
-                        <label for="id_phone_request">Số điện thoại bạn nạp tiền</label>
-                        <input required style="width: 100%; margin-bottom: 5px;" class="form-control" type="text" id="id_phone_request" name="id_phone_request" placeholder="Nhập số điện thoại">
-                        <label for="amount_request">Số tiền đã gửi</label>
-                        <input required style="width: 100%; margin-bottom: 5px;" class="form-control" type="text" id="amount_request" name="amount_request" placeholder="Nhập số tiền đã gửi">
-                        <label for="note_request">Nội dung lời chúc đã gửi</label>
-                        <input required style="width: 100%; margin-bottom: 5px;" class="form-control" type="text" id="note_request" name="note_request" placeholder="Nhập lời chúc đã gửi">
-                        <label for="time_request">Khoản thời gian đã nạp</label>
-                        <input required style="width: 100%;margin-bottom: 10px;" class="form-control" type="datetime-local" id="time_request" name="time_request">
-                        <label for="message_request">Nội dung cần hỗ trợ</label>
-                        <input required style="width: 100%; margin-bottom: 5px;" class="form-control" type="text" id="message_request" name="message_request" placeholder="Nhập nội dung mà bạn thắc mắc">
-                        <div class="text-center col-12">
-                            <button type="submit" id="btn-upload" class="btn btn-danger btn-upload">Gửi yêu cầu</button>
-                        </div>
-                        <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
-                    </form>
+
+                    <div style="clear: both"></div>
                 </div>
+                <div class="col-lg-12" style="margin-top: 20px; padding-left: 0px">
+                    <div class="col-md-5" style="float: left;">
+                        <img style="width: 104.5%;" src="/imgs/send-30k-to-momo.jpg">
+                    </div>
+                    <div class="col-md-7" style="float: left;">
+                        <div class="upload-content" style="width: 100%; float: right;">
+                            @if ($message = Session::get('success'))
+                                <div class="alert alert-success">
+                                    <strong>Thành công!</strong> <?php echo $message ?>
+                                </div>
+                            @endif
+                            @if ($message = Session::get('error'))
+                                <div class="alert alert-danger">
+                                    <strong>Lỗi!</strong> <?php echo $message ?>
+                                </div>
+                            @endif
+                            <form action="/chia-se-nhac-vip" method="post">
+                                <b><u>LIÊN HỆ HỖ TRỢ:</u></b><br /><br />
+                                <label style="font-size: 16px" for="cat_id">Mã thành viên của bạn: {{Auth::user()->user_id}}</label><br>
+                                <label for="id_phone_request">Số điện thoại bạn nạp tiền:</label>
+                                <input required style="width: 100%; margin-bottom: 10px;" class="form-control" type="text" id="id_phone_request" name="id_phone_request" placeholder="Nhập số điện thoại">
+                                <label for="amount_request">Số tiền đã gửi:</label>
+                                <input required style="width: 100%; margin-bottom: 10px;" class="form-control" type="text" id="amount_request" name="amount_request" placeholder="Nhập số tiền đã gửi">
+                                <label for="note_request">Nội dung lời chúc đã gửi:</label>
+                                <input required style="width: 100%; margin-bottom: 10px;" class="form-control" type="text" id="note_request" name="note_request" placeholder="Nhập lời chúc đã gửi">
+                                <label for="time_request">Khoản thời gian đã nạp:</label>
+                                <input required style="width: 100%;margin-bottom: 10px;" class="form-control" type="datetime-local" id="time_request" name="time_request">
+                                <label for="message_request">Nội dung cần hỗ trợ:</label>
+                                <textarea  style="width: 100%; margin-bottom: 5px;" class="form-control" name="message_request" rows="3" ></textarea>
+                                <div class="text-center col-12">
+                                    <button type="submit" id="btn-upload" class="btn btn-danger btn-upload">Gửi yêu cầu</button>
+                                </div>
+                                <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
             <div class="col-md-3">
                 @include('web.layouts.right_banner')

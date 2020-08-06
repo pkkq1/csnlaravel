@@ -80,6 +80,7 @@ class RequestPaymentVipController extends Controller
             $result = $this->userLevelRepository->upgradeUserLevel_v2($user->id, LEVEL_ID_DEFAULT_VIP_1_60DAY, '', '',  0, $resultRequest->id);
             if(!$result['success']) {
                 $resultRequest->status = 'ERROR';
+                $resultRequest->note = $result['msg'];
                 $resultRequest->save();
                 return new JsonResponse(['message' => $result['msg'], 'code' => 400, 'data' => [], 'error' => []]);
             }
