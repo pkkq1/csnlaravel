@@ -64,6 +64,7 @@ class RequestApiVipLogController extends CrudController
             return [
                 'SUCCESS' => 'Thành Công',
                 'WRONG_NOTE' => 'Sai Cú Pháp',
+                'WRONG_MONEY' => 'Tiền Nạp Không Đúng',
                 'NOT_FOUND_USER_ID' => 'UserID Không Tìm Thấy',
                 'NOT_MATCH_PAGE_LOG' => 'Không Tìm Thấy Truy Cập Page',
                 'ERROR' => 'Lỗi',
@@ -97,6 +98,8 @@ class RequestApiVipLogController extends CrudController
                     return '<span class="label label-success">Thành Công</span>';
                 }elseif ($entry->status == 'WRONG_NOTE') {
                     return '<span class="label label-warning">Sai cú pháp</span>';
+                }elseif ($entry->status == 'WRONG_MONEY') {
+                    return '<span class="label label-warning">Tiền nạp k.đúng</span>';
                 }elseif ($entry->status == 'NOT_FOUND_USER_ID') {
                     return '<span class="label label-warning">K.tìm thấy userID</span>';
                 }elseif ($entry->status == 'NOT_MATCH_PAGE_LOG') {

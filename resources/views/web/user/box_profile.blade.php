@@ -2,7 +2,8 @@
 use App\Library\Helpers;
 global $memberVip;
 isset($float_edit) ? $float_edit = $float_edit : $float_edit = false;
-$vipInfo = Auth::user()->levelInfo()->first();
+if($memberVip)
+    $vipInfo = Auth::user()->levelInfo()->first();
 ?>
 <div class="box_profile">
     <div class="container">
@@ -14,13 +15,13 @@ $vipInfo = Auth::user()->levelInfo()->first();
             </div>
             <div class="media-body align-self-center">
                 <h4 class="media-title user_name">{{$user->name}}@if($memberVip)<img style="width: 25px; margin-left: 5px" src="/imgs/vip_label.png" >@endif</h4>
+                @if($memberVip)
+                    <span style="color: red; font-weight: 400; margin-bottom: 8px" title="Ngày hết hạn là: {{date('d/m/Y', Auth::user()->vip_time_exprited)}}">Bạn đang là Vip: {{$vipInfo->level_name}}</span>
+                @endif
                 <ul class="list-inline">
                     <li class="list-inline-item"><b>{{number_format($user->user_music)}}</b> <small> upload</small></li>
                     @if(Auth::check() && Auth::user()->hasPermission('user_(update)'))
                     <li class="list-inline-item"><a target="_blank" href="/admin/user/{{$user->id}}/edit">Cấp Quyền User</a></li>
-                    @endif
-                    @if($memberVip)
-                        <span style="color: red; font-weight: 400" title="Ngày hết hạn là: {{date('d/m/Y', Auth::user()->vip_time_exprited)}}">Bạn đang là Vip: {{$vipInfo->level_name}}</span>
                     @endif
                 </ul>
                 @if(Auth::user() && $float_edit == true)

@@ -37,10 +37,22 @@ class RegisterVIPController extends Controller
         return view('registerVIP');
     }
     public function sendReportRegVip(Request $request) {
+        dd(strlen($request->id_phone_request));
+        if(strlen($request->id_phone_request) < 5 || strlen($request->id_phone_request) > 14) {
+            return redirect()->route('vip.home', [])->with(['error' => 'Lỗi số điện thoại không đúng']);
+        }
+        if(strlen($request->amount_request) < 5 || strlen($request->amount_request) > 14) {
+            return redirect()->route('vip.home', [])->with(['error' => 'Lỗi tiền nạp không đúng']);
+        }
+        if(strlen($request->message_request) > 1000) {
+            return redirect()->route('vip.home', [])->with(['error' => 'Lỗi mã ghi chú quá dài']);
+        }
         $text = 'Báo cáo đăng ký nạp VIP
-<br/>id_momo: '. $request->id_momo_request . '
-<br/>Nội dung đã nạp: '.$request->content_request. '
-<br/>Khoản thời gian đã nạp: '.$request->time_request;
+<br/>Số điện thoại: '. $request->id_phone_request . '
+<br/>Đã nạp: '. number_format($request->amount_request). ' (vnđ)
+<br/>Lời chúc: '.$request->note_request. '
+<br/>Khoản thời gian đã nạp: '.  date('d/m/Y H:i', strtotime($request->time_request)) . '
+<br/>Ghi chú thêm: '.$request->message_request;
         $result = $this->userMessageRepository->addMsg($text, Auth::user()->id, Auth::user()->user_name);
         return redirect()->route('vip.home', [])->with(['success' => 'Đã gửi báo cáo đăng ký VIP']);
     }

@@ -69,11 +69,11 @@
                                 ?>
                                 @if(!$item['admin_reply_id'])
                                     <div class="alert alert-primary" role="alert">
-                                        <a href="/user/{{$item['user_by_id']}}" class="alert-link">{{$user->name}}</a>: {{$item['text']}} <i style="font-size: 11px;">({{$item['created_at']}})</i>
+                                        <a href="/user/{{$item['user_by_id']}}" class="alert-link">{{$user->name}}</a>: <?php echo $item['text'] ?> <br><i style="font-size: 11px;">({{$item['created_at']}})</i>
                                     </div>
                                 @else
                                     <div class="alert alert-info" role="alert">
-                                        <a href="/user/{{$item['admin_reply_id']}}" class="alert-link">Hỗ trợ {{$item['admin_username']}}</a>: {{$item['text']}} <i style="font-size: 11px;">({{$item['created_at']}})</i>
+                                        <a href="/user/{{$item['admin_reply_id']}}" class="alert-link">Hỗ trợ {{$item['admin_username']}}</a>: <?php echo $item['text'] ?> <br><i style="font-size: 11px;">({{$item['created_at']}})</i>
                                     </div>
                                 @endif
                                 <?php

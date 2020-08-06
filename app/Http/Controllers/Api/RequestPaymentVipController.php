@@ -21,6 +21,7 @@ use \Illuminate\Http\JsonResponse;
 use App\Repositories\RequestApiVip\RequestApiVipEloquentRepository;
 use App\Repositories\LogPageVip\LogPageVipEloquentRepository;
 use App\Repositories\UserLevel\UserLevelEloquentRepository;
+use App\Repositories\Level\LevelEloquentRepository;
 
 class RequestPaymentVipController extends Controller
 {
@@ -33,13 +34,16 @@ class RequestPaymentVipController extends Controller
     protected $userRepository;
     protected $logPageVipRepository;
     protected $userLevelRepository;
+    protected $levelRepository;
 
-    public function __construct(RequestApiVipEloquentRepository $reqApiVip, UserEloquentRepository $userRepository, LogPageVipEloquentRepository $logPageVipRepository, UserLevelEloquentRepository $userLevelRepository)
+    public function __construct(RequestApiVipEloquentRepository $reqApiVip, UserEloquentRepository $userRepository, LogPageVipEloquentRepository $logPageVipRepository, UserLevelEloquentRepository $userLevelRepository,
+                                LevelEloquentRepository $levelRepository)
     {
         $this->requestApiVip = $reqApiVip;
         $this->userRepository = $userRepository;
         $this->logPageVipRepository = $logPageVipRepository;
         $this->userLevelRepository = $userLevelRepository;
+        $this->levelRepository = $levelRepository;
     }
 
     /**
@@ -49,6 +53,15 @@ class RequestPaymentVipController extends Controller
      */
     public function saveUpRequest(Request $request)
     {
+        if(!$request->code) {
+            if($this->requestApiVip->getModel()::where('code', $request->code)->first()) {
+                return new JsonResponse(['message' => 'Trùng mã code', 'code' => 400, 'data' => [], 'error' => []]);
+            }
+        }
+        $level = $this->levelRepository->getModel()::where('level_id', LEVEL_ID_DEFAULT_VIP_1_60DAY)->first();
+        if(!$level) {
+            return new JsonResponse(['message' => 'Lỗi không tìm thấy gói nâng cấp', 'code' => 400, 'data' => [], 'error' => []]);
+        }
         $resultRequest = $this->requestApiVip->getModel()::create([
            'title' => $request->title,
            'name' => $request->name,
@@ -59,6 +72,15 @@ class RequestPaymentVipController extends Controller
            'time' => $request->time,
            'time_create' => time(),
         ]);
+        $pay_value = $level->level_money;
+        if($level->level_money_promo_status) {
+            $pay_value->level_money_promo;
+        }
+        if($pay_value != $request->code) {
+            $resultRequest->status = 'WRONG_MONEY';
+            $resultRequest->save();
+            return new JsonResponse(['message' => 'WRONG_MONEY', 'code' => 400, 'data' => [], 'error' => []]);
+        }
         $userID = trim(str_replace('csn', '', strtolower($request->note)));
         if(!is_numeric($userID)){
             $resultRequest->status = 'WRONG_NOTE';

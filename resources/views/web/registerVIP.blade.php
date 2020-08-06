@@ -61,10 +61,12 @@ $memberVip = Helpers::checkMemberVip();
                     <div style="clear: both"></div>
                 </div>
                 <div class="col-lg-12" style="margin-top: 20px; padding-left: 0px">
+                    @if(!$memberVip)
                     <div class="col-md-5" style="float: left;">
                         <img style="width: 104.5%;" src="/imgs/send-30k-to-momo.jpg">
                     </div>
-                    <div class="col-md-7" style="float: left;">
+                    @endif
+                    <div class="col-md-7" style="@if($memberVip) margin-left: auto; margin-right: auto; @else float: left; @endif">
                         <div class="upload-content" style="width: 100%; float: right;">
                             @if ($message = Session::get('success'))
                                 <div class="alert alert-success">
@@ -80,15 +82,15 @@ $memberVip = Helpers::checkMemberVip();
                                 <b><u>LIÊN HỆ HỖ TRỢ:</u></b><br /><br />
                                 <label style="font-size: 16px" for="cat_id">Mã thành viên của bạn: {{Auth::user()->user_id}}</label><br>
                                 <label for="id_phone_request">Số điện thoại bạn nạp tiền:</label>
-                                <input required style="width: 100%; margin-bottom: 10px;" class="form-control" type="text" id="id_phone_request" name="id_phone_request" placeholder="Nhập số điện thoại">
+                                <input required style="width: 100%; margin-bottom: 10px;" class="form-control" type="number" id="id_phone_request" name="id_phone_request" min="6" maxlength="11" value="{{old('id_phone_request')}}" placeholder="Nhập số điện thoại">
                                 <label for="amount_request">Số tiền đã gửi:</label>
-                                <input required style="width: 100%; margin-bottom: 10px;" class="form-control" type="text" id="amount_request" name="amount_request" placeholder="Nhập số tiền đã gửi">
+                                <input required style="width: 100%; margin-bottom: 10px;" class="form-control" type="number" min="6" maxlength="10" id="amount_request" name="amount_request" value="{{old('amount_request')}}" placeholder="Nhập số tiền đã gửi (vnđ)">
                                 <label for="note_request">Nội dung lời chúc đã gửi:</label>
-                                <input required style="width: 100%; margin-bottom: 10px;" class="form-control" type="text" id="note_request" name="note_request" placeholder="Nhập lời chúc đã gửi">
+                                <input required style="width: 100%; margin-bottom: 10px;" class="form-control" type="text" id="note_request" maxlength="255" name="note_request" value="{{old('note_request')}}" placeholder="Nhập lời chúc đã gửi">
                                 <label for="time_request">Khoản thời gian đã nạp:</label>
-                                <input required style="width: 100%;margin-bottom: 10px;" class="form-control" type="datetime-local" id="time_request" name="time_request">
+                                <input required style="width: 100%;margin-bottom: 10px;" class="form-control" type="datetime-local" id="time_request" value="{{old('time_request')}}" name="time_request">
                                 <label for="message_request">Nội dung cần hỗ trợ:</label>
-                                <textarea  style="width: 100%; margin-bottom: 5px;" class="form-control" name="message_request" rows="3" ></textarea>
+                                <textarea  style="width: 100%; margin-bottom: 5px;" class="form-control" name="message_request" maxlength="1000" value="{{old('message_request')}}" rows="3" placeholder="Nhập nội dung ghi chú quá trình nạp vip của bạn" ></textarea>
                                 <div class="text-center col-12">
                                     <button type="submit" id="btn-upload" class="btn btn-danger btn-upload">Gửi yêu cầu</button>
                                 </div>
