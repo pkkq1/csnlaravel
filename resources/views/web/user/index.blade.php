@@ -6,7 +6,8 @@ $titleMeta = $user->name . ' - '. Config::get('constants.app.title');
 $mySelf = (Auth::check() && Auth::user()->id == $user->id);
 $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
 $tabSelf = ($mySelf || (Auth::check() && Auth::user()->hasPermission('duyet_sua_nhac')));
-$memberVip = Helpers::checkMemberVip();
+if($mySelf)
+    $memberVip = Helpers::checkMemberVip();
 ?>
 @section('meta')
     <meta name="copyright" content="{{env('APP_URL')}}" />
