@@ -1402,6 +1402,13 @@ class Helpers
     }
     public static function isVNIP($client_ip = '')
     {
+        if ( !$client_ip )
+        {
+            $client_ip = self::getIp();
+        }
+
+        if ( $client_ip == '127.0.0.1' ) return true; // localhost
+
         global $vn_long_ip_range;
         include_once('DataIpVn.php');
         $visitorIP = self::Dot2LongIP($client_ip);

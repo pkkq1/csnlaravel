@@ -19,6 +19,8 @@ global $typeDup;
 global $mobile_preroll;
 global $mobile_preroll_2;
 global $mobile_preroll_3;
+global $memberVip;
+//$memberVip = Helpers::checkMemberVip();
 
 $titleMeta = $music->music_title . ' - '. str_replace(';', ', ', $music->music_artist);
 $file_url = Helpers::file_url($music);
@@ -36,8 +38,13 @@ if($musicSet['type_listen'] == 'playlist') {
 } else {
     $thumnailMeta = $thumnailMusic;
 }
-global $memberVip;
-$memberVip = Helpers::checkMemberVip();
+
+//Sorry, this content is not available in your country
+$auth_listen = true;
+if(env('APP_ENV') != 'local' && !(Helpers::isVNIP()) )
+{
+    $auth_listen = true;//false;
+}
 ?>
 @section('meta')
     <meta name="author" content="{{$music->music_username}}">

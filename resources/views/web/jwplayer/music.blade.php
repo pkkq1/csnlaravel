@@ -23,9 +23,7 @@
 use App\Library\Helpers;
 global $cat_id2info;
 global $cat_url2info;
-global $memberVip;
 global $album_new;
-global $memberVip;
 global $typeDup;
 //global $MusicSameArtist;
 //global $VideoSameArtist;
@@ -36,7 +34,8 @@ global $pc_preroll_2;
 global $pc_preroll_3;
 global $pc_midroll;
 global $pc_midroll_2;
-$memberVip = Helpers::checkMemberVip();
+global $memberVip;
+//$memberVip = Helpers::checkMemberVip();
 
 $music->music_artist = str_replace(';', '; ', $music->music_artist);
 $music->music_artist = str_replace('  ', ' ', str_replace('  ', ' ', $music->music_artist));
@@ -67,11 +66,11 @@ if($musicSet['type_listen'] == 'playlist') {
 }
 
 //Sorry, this content is not available in your country
-//$auth_listen = true;
-//if(env('APP_ENV') != 'local' && self::isVNIP(self::getIp()) && Auth::check())
-//{
-//
-//}
+$auth_listen = true;
+if(env('APP_ENV') != 'local' && !(Helpers::isVNIP()) )
+{
+    $auth_listen = true;//false;
+}
 
 ?>
 @section('meta')
@@ -119,7 +118,9 @@ if($musicSet['type_listen'] == 'playlist') {
                 </div>
                 <div class="card mb-4 detail_lyric_1">
                     <div id="csnplayerads" style="position:relative; z-index: 99999; width:100%;"> </div>
-                    <div id="csnplayer" class="<?php echo $musicSet['type_jw'] == 'video' ? 'csn_video' : 'csn_music' ?>" style="position:relative; z-index: 99999; width:100%;"> </div>
+                    @if ($auth_listen)
+                        <div id="csnplayer" class="<?php echo $musicSet['type_jw'] == 'video' ? 'csn_video' : 'csn_music' ?>" style="position:relative; z-index: 99999; width:100%;"> </div>
+                    @endif
                     <div id="hidden_lyrics" class="hidden">
                         <div id="lyrics" class="rabbit-lyrics">
                             @if($musicSet['type_jw'] != 'video')
@@ -197,7 +198,7 @@ if($musicSet['type_listen'] == 'playlist') {
                                     <?php echo $music->music_composer ? '<li><span>Sáng tác: </span><a href="/tim-kiem?q='.$music->music_composer.'&filter=sang-tac" style=" color: #212552; ">'.$music->music_composer.'</a></li>' : '' ?>
                                     <?php echo $music->music_album ? '<li><span>Album: </span><a href="'.Helpers::album_url(['music_album' => $music->music_album, 'cover_id' => $music->cover_id ]).'">'.$music->music_album.'</a></li>' : '' ?>
                                     <?php echo $music->music_year ? '<li><span>Năm phát hành: </span>'.$music->music_year.'</li>' : '' ?>
-                                    @if($memberVip && $musicSet['type_jw'] == 'music' && ($musicSet['type_listen'] == 'playlist' || $musicSet['type_listen'] == 'album'))
+                                    @if(0 && $memberVip && $musicSet['type_jw'] == 'music' && ($musicSet['type_listen'] == 'playlist' || $musicSet['type_listen'] == 'album'))
                                     <li><a class="link_more download_album" href="javascript:void(0)" onclick="downloadAlbum('{{$_SERVER['REQUEST_URI']}}')" title="Download tât cả bài hát trong album {{$music->music_album}}">Download {{$musicSet['type_listen'] == 'playlist' ? 'Playlist' : 'Album'}}</a></li>
                                     @endif
                                 </ul>
@@ -297,6 +298,7 @@ if($musicSet['type_listen'] == 'playlist') {
                                         <div class="row">
                                             <div class="col-12 tab_download_music">
                                                 <ul class="list-unstyled download_status">
+                                                    @if ($auth_listen)
                                                     <?php
                                                     if ( isset($file_url[1]['url']) ){
                                                         echo '<li><a class="download_item" href="'. $file_url[1]['url'] .'" title="Click vào đây để tải bài hát '. $music->music_title .'"><i class="material-icons">file_download</i> Link tải nhạc <span class="c1">'. strtoupper($file_url[1]['type']) .' '. $file_url[1]['label'] .'</span> '. $file_url[1]['size'] .'</a></li>' . "\n";
@@ -315,6 +317,7 @@ if($musicSet['type_listen'] == 'playlist') {
                                                         echo '<li><a class="download_item" href="'. $file_url[0]['url'] .'" title="Click vào đây để tải bài hát '. $music->music_title .'"><i class="material-icons">file_download</i> Link tải nhạc chất lượng thấp: '. strtoupper($file_url[0]['type']) .' '. $file_url[0]['label'] .' '. $file_url[0]['size'] .'</a></li>' . "\n";
                                                     }
                                                     ?>
+                                                    @endif
                                                 </ul>
 
                                             </div>
