@@ -92,6 +92,12 @@ class UserLevelEloquentRepository extends EloquentRepository implements UserLeve
             ];
         }
         $userLevel = UserLevelModel::where('user_id', $user_id)->with('level')->first();
+        if($userLevel->level_expried > time()) {
+            return [
+                'msg' => 'Hiện tại bạn vẫn còn thời hạn VIP',
+                'success' => false
+            ];
+        }
         $payment = [
             'user_id' => $user->user_id,
             'user_by_id' => $user_by_id,
@@ -195,7 +201,7 @@ class UserLevelEloquentRepository extends EloquentRepository implements UserLeve
             }
         }
         $payment = PaymentModel::create($payment);
-        $this->NotificationRepository->pushNotif($user->id, $payment->id, 'up_vip', 'Tài khoản bạn đã được nâng VIP 60 ngày', '/user/'.$user_id.'?tab=notify');
+        $this->NotificationRepository->pushNotif($user->id, $payment->id, 'up_vip', 'Tài khoản bạn đã được nâng VIP ' . $level->level_name, '/user/'.$user_id.'?tab=notify');
         if($payment['cen_add'] > 0) {
             $user->user_money = $user->user_money + $payment['cen_add'];
             $user->save();

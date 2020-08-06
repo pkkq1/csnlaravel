@@ -76,6 +76,9 @@ class User extends Authenticatable
     public function level() {
         return $this->belongsTo('App\Models\UserLevelModel', 'id', 'user_id')->first();
     }
+    public function levelInfo() {
+        return $this->belongsToMany('App\Models\LevelModel', 'csn_users_level', 'user_id', 'level_id');
+    }
     public function notifyCount()
     {
         return $this->belongsTo('App\Models\NotificationModel', 'id', 'user_id')->where('read', 0)->count();
