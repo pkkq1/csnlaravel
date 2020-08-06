@@ -37,7 +37,6 @@ class RegisterVIPController extends Controller
         return view('registerVIP');
     }
     public function sendReportRegVip(Request $request) {
-        dd(strlen($request->id_phone_request));
         if(strlen($request->id_phone_request) < 5 || strlen($request->id_phone_request) > 14) {
             return redirect()->route('vip.home', [])->with(['error' => 'Lỗi số điện thoại không đúng']);
         }
