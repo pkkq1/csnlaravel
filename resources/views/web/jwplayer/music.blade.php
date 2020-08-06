@@ -65,6 +65,14 @@ if($musicSet['type_listen'] == 'playlist') {
 } else {
     $thumnailMeta = $thumnailMusic;
 }
+
+//Sorry, this content is not available in your country
+$auth_listen = true;
+if(env('APP_ENV') != 'local' && self::isVNIP(self::getIp()) && Auth::check())
+{
+
+}
+
 ?>
 @section('meta')
     <meta name="author" content="{{$music->music_username}}">
@@ -445,20 +453,26 @@ if($musicSet['type_listen'] == 'playlist') {
                 </div>
 
                 <div class="row row10px">
-                    @if( 0 )
-                    <div data-bs-native="728x90"></div>
-                    <script type="text/javascript" src="https://cdn.innity.net/admanager.js"></script>
-                    <!-- Zone Tag : Chiasenhac Rectangle Mobile-->
-                    <script type="text/javascript">
-                        new innity_adZone("79c662560b0a5f1ae00b623ad8c775e3", "86427", {"origin": "VN","width": "300", "height": "250"});
-                    </script>
-                    @endif
+                    @if(!$memberVip)
+                        @if( 0 )
+                            <div data-bs-native="728x90"></div>
+                            <script type="text/javascript" src="https://cdn.innity.net/admanager.js"></script>
+                            <!-- Zone Tag : Chiasenhac Rectangle Mobile-->
+                            <script type="text/javascript">
+                                new innity_adZone("79c662560b0a5f1ae00b623ad8c775e3", "86427", {
+                                    "origin": "VN",
+                                    "width": "300",
+                                    "height": "250"
+                                });
+                            </script>
+                        @endif
 
-                    <!-- Composite Start -->
-                    <div id="M531587ScriptRootC823022">
-                    </div>
-                    <script src="https://jsc.mgid.com/n/e/netlink.chiasenhac.vn.823022.js" async></script>
-                    <!-- Composite End -->
+                        <!-- Composite Start -->
+                        <div id="M531587ScriptRootC823022">
+                        </div>
+                        <script src="https://jsc.mgid.com/n/e/netlink.chiasenhac.vn.823022.js" async></script>
+                        <!-- Composite End -->
+                    @endif
                 </div>
 
                 @if($MusicSameArtist)
