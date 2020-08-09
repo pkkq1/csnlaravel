@@ -55,4 +55,11 @@ class RegisterVIPController extends Controller
         $result = $this->userMessageRepository->addMsg($text, Auth::user()->id, Auth::user()->user_name);
         return redirect()->route('vip.home', [])->with(['success' => 'Đã gửi báo cáo đăng ký VIP']);
     }
+    public function refreshRegVip(Request $request) {
+        dd(Auth::user()->vip_level);
+        if(Auth::user()->vip_level > 0) {
+            Helpers::ajaxResult(true, '', null);
+        }
+        Helpers::ajaxResult(false, '', null);
+    }
 }

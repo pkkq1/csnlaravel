@@ -107,5 +107,27 @@ $memberVip = Helpers::checkMemberVip();
             </div>
         </div>
     </div>
+    <script>
+        @if(!$memberVip)
+        setTimeout(function(){
+            $.ajax({
+                url: '/user/refresh_register_vip',
+                type: "POST",
+                dataType: "json",
+                data: {},
+                async: false,
+                beforeSend: function () {
+                    if(loaded) return false;
+                    loaded = true;
+                },
+                success: function(response) {
+                    if(response) {
+                        location.reload();
+                    }
+                }
+            });
+        }, 60000);
+        @endif
+    </script>
 @endsection
 
