@@ -74,9 +74,9 @@ class RequestPaymentVipController extends Controller
         ]);
         $pay_value = $level->level_money;
         if($level->level_money_promo_status) {
-            $pay_value->level_money_promo;
+            $pay_value = $level->level_money_promo;
         }
-        if($pay_value != $request->code) {
+        if($pay_value != (int)$request->amount) {
             $resultRequest->status = 'WRONG_MONEY';
             $resultRequest->save();
             return new JsonResponse(['message' => 'WRONG_MONEY', 'code' => 400, 'data' => [], 'error' => []]);
