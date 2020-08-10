@@ -18,7 +18,6 @@ $memberVip = Helpers::checkMemberVip();
     <meta property="og:type" content="website" />
     <meta property="og:updated_time" content="{{time()}}" />
 @endsection
-@section('no_ads', true)
 @extends('mobile.layouts.app')
 @section('content')
     <div class="header">
