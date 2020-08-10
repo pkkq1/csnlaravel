@@ -61,11 +61,11 @@ $titleMeta = 'Đăng ký VIP Chia Sẻ Nhạc';
                     <div style="clear: both"></div>
                 </div>
                 <div class="col-lg-12" style="margin-top: 20px; padding-left: 0px">
-                    @if(!$memberVip)
-                        <div class="col-md-5" style="float: left;">
-                            <img style="width: 104.5%;" src="/imgs/send-30k-to-momo.jpg">
-                        </div>
-                    @endif
+                    {{--@if(!$memberVip)--}}
+                        {{--<div class="col-md-5" style="float: left;">--}}
+                            {{--<img style="width: 104.5%;" src="/imgs/send-30k-to-momo.jpg">--}}
+                        {{--</div>--}}
+                    {{--@endif--}}
                     <div class="col-md-7" style="@if($memberVip) margin-left: auto; margin-right: auto; @else float: left; @endif">
                         <div class="upload-content" style="width: 100%; float: right;">
                             @if ($message = Session::get('success'))
