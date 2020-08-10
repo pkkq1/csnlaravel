@@ -456,37 +456,39 @@ if($memberVip == null)
     //     document.getElementById("search_autocomplete").trigger('focus');
     // })
 </script>
-
-@if(!$memberVip)
-    <?php
-    $cookie_name = "csn_popup";
-    $session_ads_popup = isset($_COOKIE[$cookie_name]) ? intval(unserialize(stripslashes($_COOKIE[$cookie_name]))) : 0;
-    ?>
-    @if ( $session_ads_popup < 1 )
+@hasSection('no_ads')
+@else
+    @if(!$memberVip)
         <?php
-            @setcookie($cookie_name, serialize($session_ads_popup + 1), time() + 10, '/', '.chiasenhac.vn', 1);
+        $cookie_name = "csn_popup";
+        $session_ads_popup = isset($_COOKIE[$cookie_name]) ? intval(unserialize(stripslashes($_COOKIE[$cookie_name]))) : 0;
         ?>
-        @include('cache.code_ads.mobile_popup');
-        {{--include(__DIR__.'../../../resources/views/cache/code_ads/mobile_popup.blade.php');--}}
-    @endif
-
-    <?php
-    $cookie_name = "csn_spin";
-    $session_ads_spin = isset($_COOKIE[$cookie_name]) ? intval(unserialize(stripslashes($_COOKIE[$cookie_name]))) : 0;
-    ?>
-    @if ( $session_ads_spin < 1 )
-        <?php
-        @setcookie($cookie_name, serialize($session_ads_spin + 1), time() + 10, '/', '.chiasenhac.vn', 1);
-        ?>
-        @hasSection('in_player')
-            {{--@if(View::exists('cache.code_ads.mobie_spin_player'))--}}
-            @include('cache.code_ads.mobie_spin_player')
-            {{--@endif--}}
-        @else
-            {{--@if(View::exists('cache.code_ads.mobie_spin_home'))--}}
-            @include('cache.code_ads.mobie_spin_home')
-            {{--@endif--}}
+        @if ( $session_ads_popup < 1 )
+            <?php
+                @setcookie($cookie_name, serialize($session_ads_popup + 1), time() + 10, '/', '.chiasenhac.vn', 1);
+            ?>
+            @include('cache.code_ads.mobile_popup');
+            {{--include(__DIR__.'../../../resources/views/cache/code_ads/mobile_popup.blade.php');--}}
         @endif
-    @endif
 
+        <?php
+        $cookie_name = "csn_spin";
+        $session_ads_spin = isset($_COOKIE[$cookie_name]) ? intval(unserialize(stripslashes($_COOKIE[$cookie_name]))) : 0;
+        ?>
+        @if ( $session_ads_spin < 1 )
+            <?php
+            @setcookie($cookie_name, serialize($session_ads_spin + 1), time() + 10, '/', '.chiasenhac.vn', 1);
+            ?>
+            @hasSection('in_player')
+                {{--@if(View::exists('cache.code_ads.mobie_spin_player'))--}}
+                @include('cache.code_ads.mobie_spin_player')
+                {{--@endif--}}
+            @else
+                {{--@if(View::exists('cache.code_ads.mobie_spin_home'))--}}
+                @include('cache.code_ads.mobie_spin_home')
+                {{--@endif--}}
+            @endif
+        @endif
+
+    @endif
 @endif

@@ -272,12 +272,15 @@ if(env('APP_ENV') != 'local' && !(Helpers::isVNIP()) )
                                 <div class="tab-content tab-lyric" id="myTabContent">
                                     <div class="tab-pane fade show active" id="home" role="tabpanel"
                                          aria-labelledby="home-tab">
-                                        @if(!$memberVip)
-{{--                                            @if(View::exists('cache.code_ads.pc_inread_player'))--}}
-                                                @include('cache.code_ads.pc_inread_player')
-                                            {{--@endif--}}
+                                        @hasSection('no_ads')
+                                        @else
+                                            @if(!$memberVip)
+    {{--                                            @if(View::exists('cache.code_ads.pc_inread_player'))--}}
+                                                    @include('cache.code_ads.pc_inread_player')
+                                                {{--@endif--}}
+                                            @endif
                                         @endif
-                                            
+
                                         <article>
                                             <div id="fulllyric">
                                                 @if(isset($lyric_array['lyric']))
@@ -569,11 +572,14 @@ if(env('APP_ENV') != 'local' && !(Helpers::isVNIP()) )
                     {{--@if ($music->cat_id == 6)--}}
                         {{--<a href="https://www.facebook.com/groups/csn.kpop.fan/" target="_blank"><img src="{{env('IMG_DATA_URL')}}images/banner/kpop-fbgroup-300x170.jpg" width="300" height="170"></a>--}}
                     {{--@else--}}
+                    @hasSection('no_ads')
+                    @else
                         @if(!$memberVip)
 {{--                            @if(View::exists('cache.code_ads.pc_right_player'))--}}
                                 @include('cache.code_ads.pc_right_player')
                             {{--@endif--}}
                         @endif
+                    @endif
                     {{--@endif--}}
                 </div>
 
