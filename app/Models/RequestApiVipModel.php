@@ -12,7 +12,7 @@ class RequestApiVipModel extends Model
     public $timestamps = false;
     protected $table = 'csn_log_request_api_vip';
     protected $primaryKey = 'id';
-    protected $fillable = ['title', 'name', 'code', 'phone', 'note', 'amount', 'time', 'time_create', 'status'];
+    protected $fillable = ['title', 'name', 'code', 'phone', 'note', 'amount', 'time', 'time_create', 'status', 'note_admin'];
     public function user()
     {
         return $this->belongsTo('App\Models\UserModel', 'user_id')->select('id', 'name', 'user_avatar', 'username');

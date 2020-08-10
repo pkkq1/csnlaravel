@@ -1,6 +1,5 @@
 <?php
 use App\Library\Helpers;
-global $memberVip;
 $titleMeta = 'Đăng ký VIP Chia Sẻ Nhạc';
 $memberVip = Helpers::checkMemberVip();
 ?>
@@ -10,23 +9,25 @@ $memberVip = Helpers::checkMemberVip();
     <meta name="keywords" content="bang xep hang, music, mp3, m4a, flac, lossless, video, mv, hd, mp4, csn, nghe nhạc, tải nhạc, lời bài hát, lyrics">
     <meta name="description" content="Nghe nhạc online chất lượng cao kèm lyrics, chia sẻ và tải nhạc dạng mp3, mp4, m4a, lossless.">
     <link rel="canonical" href="{{url()->current()}}" />
-    <link rel="image_src" href="{{env('IMG_DATA_URL')}}imgs/cover_bxh.png" />
-    <meta name="title" content="Chính sách Chia Sẻ Nhạc" />
-    <meta property="og:image" content="{{env('IMG_DATA_URL')}}imgs/cover_bxh.png" />
+    <link rel="image_src" href="{{env('APP_URL')}}/imgs/cover_bxh.png" />
+    <meta name="title" content="{{$titleMeta}}" />
+    <meta property="og:image" content="{{env('APP_URL')}}/imgs/cover_bxh.png" />
     <meta property="og:url" content="{{url()->current()}}" />
     <meta property="og:title" content="{{$titleMeta}}" />
     <meta property="og:description" content="Nghe nhạc online chất lượng cao kèm lyrics, chia sẻ và tải nhạc dạng mp3, mp4, m4a, lossless." />
     <meta property="og:type" content="website" />
     <meta property="og:updated_time" content="{{time()}}" />
 @endsection
-@section('no_ads', true)
-@extends('web.layouts.app')
-@section('contentCSS')
-@endsection
+@extends('mobile.layouts.app')
 @section('content')
-    <div class="container">
-        <div class="row row_wrapper">
-            <div class="col-md-9">
+    <div class="header">
+    @include('mobile.layouts.header_top')
+    <!-- swiper1-->
+    </div>
+    <main class="main">
+        <div class="sidebar_top">
+            <!-- swiper2-->
+            <div class="swiper-container swiper2">
                 <div class="col-lg-12">
                     <p style="font-family: 'SFProDisplay-Regular'; color: #333; font-size: 22px;">
                         <b><u>HƯỚNG DẪN NÂNG CẤP THÀNH VIÊN VIP:</u></b>
@@ -38,21 +39,20 @@ $memberVip = Helpers::checkMemberVip();
                         <br>
                     </p>
                     @if(!$memberVip)
-
-                    <img style="width: 38%; float: right; display: inline-block;" src="/imgs/qr-code-vip-csn.jpg">
-                    <div style="font-family: 'SFProDisplay-Regular'; color: #333; font-size: 16px; width: 60%;display: inline-block; float: left; padding-top: 20px;">
-                        <span style="font-size: 18px;">Bạn vui lòng chuyển tiền vào số Momo: <b>038.952.4211</b></span><br>
-                        <span style="font-size: 18px;">- Tên chủ tài khoản: TON NU THI THUAN</span><br>
-                        <span style="font-size: 18px;">- Lời chúc (Tin nhắn): <span style="font-weight: 700; color: red">CSN &nbsp; {{Auth::user()->user_id}}</span></span><br>
-                        <span style="font-size: 18px;">- Số tiền: 30.000 VNĐ</span><br>
-                        * Vui lòng vui lòng không gọi qua số điện thoại này, CSN sẽ chỉ hỗ trợ thắc mắc trong khung <a target="_blank" href="/user/{{Auth::user()->id}}?tab=message_csn">liên hệ</a> bên dưới.<br>
-                        <br />
-                        Sau khi chuyển thành công, tài khoản của bạn cần chờ từ 5 phút đến 1 tiếng để được nâng cấp VIP. Nếu quá hạn thời gian mà tài khoản của bạn vẫn chưa lên VIP, vui lòng gửi thông tin liên hệ qua bảng bên dưới để BQT kiểm tra và xử lý.
-                        <br />&nbsp;
-                    </div>
+                        <div style="font-family: 'SFProDisplay-Regular'; color: #333; font-size: 16px; width: 100%;display: inline-block; padding-top: 20px;">
+                            <span style="font-size: 18px;">Bạn vui lòng chuyển tiền vào số Momo: <b>038.952.4211</b></span><br>
+                            <span style="font-size: 18px;">- Tên chủ tài khoản: TON NU THI THUAN</span><br>
+                            <span style="font-size: 18px;">- Lời chúc (Tin nhắn): <span style="font-weight: 700; color: red">CSN &nbsp; {{Auth::user()->user_id}}</span></span><br>
+                            <span style="font-size: 18px;">- Số tiền: 30.000 VNĐ</span><br>
+                            * Vui lòng vui lòng không gọi qua số điện thoại này, CSN sẽ chỉ hỗ trợ thắc mắc trong khung <a target="_blank" href="/user/{{Auth::user()->id}}?tab=message_csn">liên hệ</a> bên dưới.<br>
+                            <br />
+                            Sau khi chuyển thành công, tài khoản của bạn cần chờ từ 5 phút đến 1 tiếng để được nâng cấp VIP. Nếu quá hạn thời gian mà tài khoản của bạn vẫn chưa lên VIP, vui lòng gửi thông tin liên hệ qua bảng bên dưới để BQT kiểm tra và xử lý.
+                            <br />&nbsp;
+                        </div>
+                        <img style="width: 100%; display: inline-block;" src="/imgs/qr-code-vip-csn.jpg">
                     @else
                         <?php
-                          $vipInfo = Auth::user()->levelInfo()->first();
+                        $vipInfo = Auth::user()->levelInfo()->first();
                         ?>
                         <span style="font-weight: 700; color: red; font-size: 20px;">Hiện tại bạn đang thành viên là VIP: {{$vipInfo->level_name}}, ngày hết hạn là: {{date('d/m/Y', Auth::user()->vip_time_exprited)}}</span>
 
@@ -62,9 +62,9 @@ $memberVip = Helpers::checkMemberVip();
                 </div>
                 <div class="col-lg-12" style="margin-top: 20px; padding-left: 0px">
                     @if(!$memberVip)
-                    <div class="col-md-5" style="float: left;">
-                        <img style="width: 104.5%;" src="/imgs/send-30k-to-momo.jpg">
-                    </div>
+                        <div class="col-md-5" style="float: left;">
+                            <img style="width: 104.5%;" src="/imgs/send-30k-to-momo.jpg">
+                        </div>
                     @endif
                     <div class="col-md-7" style="@if($memberVip) margin-left: auto; margin-right: auto; @else float: left; @endif">
                         <div class="upload-content" style="width: 100%; float: right;">
@@ -101,32 +101,11 @@ $memberVip = Helpers::checkMemberVip();
 
                 </div>
             </div>
-            <div class="col-md-3">
-                @include('web.layouts.right_banner')
-            </div>
         </div>
-    </div>
-    <script>
-        @if(!$memberVip)
-        setTimeout(function(){
-            $.ajax({
-                url: '/user/refresh_register_vip',
-                type: "POST",
-                dataType: "json",
-                data: {},
-                async: false,
-                beforeSend: function () {
-                    if(loaded) return false;
-                    loaded = true;
-                },
-                success: function(response) {
-                    if(response) {
-                        location.reload();
-                    }
-                }
-            });
-        }, 60000);
-        @endif
-    </script>
+    </main>
+    <style>
+        .main {
+            margin-top: 60px;
+        }
+    </style>
 @endsection
-

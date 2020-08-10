@@ -29,7 +29,7 @@ class RequestApiVipLogController extends CrudController
             }
             $this->crud->denyAccess(['delete']);
             $this->crud->denyAccess(['create']);
-            $this->crud->denyAccess(['update']);
+//            $this->crud->denyAccess(['update']);
             return $next($request);
         });
 
@@ -42,7 +42,7 @@ class RequestApiVipLogController extends CrudController
         $this->crud->setRoute(config('backpack.base.route_prefix').'/request_api_vip_log');
 //        $this->crud->setEntityNameStrings('menu item', 'menu items');
         $this->crud->orderBy('id', 'desc');
-        $this->crud->removeAllButtons();
+//        $this->crud->removeAllButtons();
 
         $this->crud->addFilter([ // daterange filter
             'type' => 'date_range',
@@ -63,6 +63,7 @@ class RequestApiVipLogController extends CrudController
         ], function () {
             return [
                 'SUCCESS' => 'Thành Công',
+                'EDIT_SUCCESS' => 'Chỉnh Sửa Thành Công',
                 'WRONG_NOTE' => 'Sai Cú Pháp',
                 'WRONG_MONEY' => 'Tiền Nạp Không Đúng',
                 'NOT_FOUND_USER_ID' => 'UserID Không Tìm Thấy',
@@ -96,6 +97,8 @@ class RequestApiVipLogController extends CrudController
             'function' => function($entry) {
                 if($entry->status == 'SUCCESS') {
                     return '<span class="label label-success">Thành Công</span>';
+                }elseif ($entry->status == 'EDIT_SUCCESS') {
+                    return '<span class="label label-success">C.sửa thành công</span>';
                 }elseif ($entry->status == 'WRONG_NOTE') {
                     return '<span class="label label-warning">Sai cú pháp</span>';
                 }elseif ($entry->status == 'WRONG_MONEY') {
@@ -129,6 +132,37 @@ class RequestApiVipLogController extends CrudController
         $this->crud->addColumn([
             'name' => 'note',
             'label' => 'Ghi chú',
+        ]);
+        $this->crud->addColumn([
+            'name' => 'note_admin',
+            'label' => 'Ghi chú admin',
+        ]);
+
+        $this->crud->addField([
+            'name' => 'note_admin',
+            'label' => 'Ghi chú admin',
+            'type' => 'textarea',
+        ]);
+
+        $this->crud->addField([
+            'label' => 'Tình trạng',
+            'type' => 'select_from_array',
+            'name' => 'status',
+            'options' => [
+                'SUCCESS' => 'Thành Công',
+                'EDIT_SUCCESS' => 'Chỉnh Sửa Thành Công',
+                'WRONG_NOTE' => 'Sai Cú Pháp',
+                'WRONG_MONEY' => 'Tiền Nạp Không Đúng',
+                'NOT_FOUND_USER_ID' => 'UserID Không Tìm Thấy',
+                'NOT_MATCH_PAGE_LOG' => 'Không Tìm Thấy Truy Cập Page',
+                'ERROR' => 'Lỗi',
+                'RECEIVED' => 'Nhận API',
+            ],
+            'allows_null' => false,
+            'default' => 0,
+            'wrapperAttributes' => [
+                'class' => 'form-group col-md-4',
+            ],
         ]);
     }
 

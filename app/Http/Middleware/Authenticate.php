@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Session;
 use \Illuminate\Http\JsonResponse;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Contracts\Auth\Factory as Auth;
@@ -45,6 +46,7 @@ class Authenticate
             if ($request->ajax()) {
                 return new JsonResponse('Vui lòng đăng nhập.', 405);
             } else {
+                Session::flash('back_url', $request->path());
                 return redirect()->guest('?rq=login&back_url=/'.$request->path());
             }
         }

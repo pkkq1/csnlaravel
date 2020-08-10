@@ -38,7 +38,7 @@ if($memberVip == null)
                     if(isset($_GET['rq'])) {
                     ?>
                     <script>
-                        window.location.replace('/<?php echo $_GET['rq'] ?>?back_url=' + window.location.pathname);
+                        window.location.replace('/<?php echo $_GET['rq'] ?>?back_url=' + '<?php echo $_GET['back_url'] ?>');
                     </script>
                     <?php
                     }
