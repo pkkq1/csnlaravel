@@ -1,11 +1,15 @@
 <?php
 use App\Library\Helpers;
+use App\Models\UserModel;
 global $memberVip;
 $memberVip = Helpers::checkMemberVip();
 isset($float_edit) ? $float_edit = $float_edit : $float_edit = false;
 $vipInfo = null;
-if($mySelf)
+if($mySelf) {
     $vipInfo = Auth::user()->levelInfo()->first();
+}else{
+    $vipInfo = $user->levelInfo()->first();
+}
 ?>
 <div class="box_profile">
     <div class="container">
@@ -16,9 +20,13 @@ if($mySelf)
                 </a>
             </div>
             <div class="media-body align-self-center">
-                <h4 class="media-title user_name">{{$user->name}}@if($vipInfo)<img style="width: 25px; margin-left: 5px" src="/imgs/vip_label.png" >@endif</h4>
-                @if($vipInfo)
-                    <span style="color: red; font-weight: 400; margin-bottom: 8px" title="Ngày hết hạn là: {{date('d/m/Y', Auth::user()->vip_time_exprited)}}">Bạn đang là Vip: {{$vipInfo->level_name}}</span>
+                <h4 class="media-title user_name">{{$user->name}}@if($vipInfo && $user->vip_time_exprited > time())<img alt="Tài Khoản VIP" title="Tài Khoản VIP" style="width: 25px; margin-left: 5px" src="/imgs/vip_label.png" >@endif</h4>
+                @if($vipInfo && $mySelf)
+                    @if(Auth::user()->vip_time_exprited > time())
+                        <span style="color: red; font-weight: 400; margin-bottom: 8px" title="Ngày hết hạn là: {{date('d/m/Y', Auth::user()->vip_time_exprited)}}">Bạn đang là Vip: {{$vipInfo->level_name}}</span>
+                    @else
+                        <a href="/chia-se-nhac-vip.html"><span style="font-weight: 400; margin-bottom: 8px" title="Đã hết hạn vào: {{date('d/m/Y', Auth::user()->vip_time_exprited)}}">Bạn đã hết VIP click vào đây để gia hạn.</span></a>
+                    @endif
                 @endif
                 <ul class="list-inline">
                     <li class="list-inline-item"><b>{{number_format($user->user_music)}}</b> <small> upload</small></li>
