@@ -90,7 +90,7 @@ $memberVip = Helpers::checkMemberVip();
                                 <label for="time_request">Khoản thời gian đã nạp:</label>
                                 <input required style="width: 100%;margin-bottom: 10px;" class="form-control" type="datetime-local" id="time_request" value="{{old('time_request')}}" name="time_request">
                                 <label for="message_request">Nội dung cần hỗ trợ:</label>
-                                <textarea  style="width: 100%; margin-bottom: 5px;" class="form-control" name="message_request" maxlength="1000" value="{{old('message_request')}}" rows="3" placeholder="Nhập nội dung ghi chú quá trình nạp vip của bạn" ></textarea>
+                                <textarea required style="width: 100%; margin-bottom: 5px;" class="form-control" name="message_request" maxlength="1000" value="{{old('message_request')}}" rows="3" placeholder="Nhập nội dung ghi chú quá trình nạp vip của bạn" ></textarea>
                                 <div class="text-center col-12">
                                     <button type="submit" id="btn-upload" class="btn btn-danger btn-upload">Gửi yêu cầu</button>
                                 </div>

@@ -78,19 +78,20 @@ $memberVip = Helpers::checkMemberVip();
                                     <strong>Lỗi!</strong> <?php echo $message ?>
                                 </div>
                             @endif
+                                <br/>
                             <form action="/chia-se-nhac-vip" method="post">
                                 <b><u>LIÊN HỆ HỖ TRỢ:</u></b><br /><br />
                                 <label style="font-size: 16px" for="cat_id">Mã thành viên của bạn: {{Auth::user()->user_id}}</label><br>
-                                <label for="id_phone_request">Số điện thoại bạn nạp tiền:</label>
+                                <label style="font-weight: 700;" for="id_phone_request">Số điện thoại bạn nạp tiền:</label>
                                 <input required style="width: 100%; margin-bottom: 10px;" class="form-control" type="number" id="id_phone_request" name="id_phone_request" min="6" maxlength="11" value="{{old('id_phone_request')}}" placeholder="Nhập số điện thoại">
-                                <label for="amount_request">Số tiền đã gửi:</label>
+                                <label style="font-weight: 700;"  for="amount_request">Số tiền đã gửi:</label>
                                 <input required style="width: 100%; margin-bottom: 10px;" class="form-control" type="number" min="6" maxlength="10" id="amount_request" name="amount_request" value="{{old('amount_request')}}" placeholder="Nhập số tiền đã gửi (vnđ)">
-                                <label for="note_request">Nội dung lời chúc đã gửi:</label>
+                                <label style="font-weight: 700;"  for="note_request">Nội dung lời chúc đã gửi:</label>
                                 <input required style="width: 100%; margin-bottom: 10px;" class="form-control" type="text" id="note_request" maxlength="255" name="note_request" value="{{old('note_request')}}" placeholder="Nhập lời chúc đã gửi">
-                                <label for="time_request">Khoản thời gian đã nạp:</label>
+                                <label style="font-weight: 700;"  for="time_request">Khoản thời gian đã nạp:</label>
                                 <input required style="width: 100%;margin-bottom: 10px;" class="form-control" type="datetime-local" id="time_request" value="{{old('time_request')}}" name="time_request">
-                                <label for="message_request">Nội dung cần hỗ trợ:</label>
-                                <textarea  style="width: 100%; margin-bottom: 5px;" class="form-control" name="message_request" maxlength="1000" value="{{old('message_request')}}" rows="3" placeholder="Nhập nội dung ghi chú quá trình nạp vip của bạn" ></textarea>
+                                <label style="font-weight: 700;"  for="message_request">Nội dung cần hỗ trợ:</label>
+                                <textarea required  style="width: 100%; margin-bottom: 5px;" class="form-control" name="message_request" maxlength="1000" value="{{old('message_request')}}" rows="3" placeholder="Nhập nội dung ghi chú quá trình nạp vip của bạn" ></textarea>
                                 <div class="text-center col-12">
                                     <button type="submit" id="btn-upload" class="btn btn-danger btn-upload">Gửi yêu cầu</button>
                                 </div>
@@ -108,4 +109,26 @@ $memberVip = Helpers::checkMemberVip();
             margin-top: 60px;
         }
     </style>
+    <script>
+        @if(!$memberVip)
+        setTimeout(function(){
+            $.ajax({
+                url: '/user/refresh_register_vip',
+                type: "POST",
+                dataType: "json",
+                data: {},
+                async: false,
+                beforeSend: function () {
+                    if(loaded) return false;
+                    loaded = true;
+                },
+                success: function(response) {
+                    if(response) {
+                        location.reload();
+                    }
+                }
+            });
+        }, 60000);
+        @endif
+    </script>
 @endsection
