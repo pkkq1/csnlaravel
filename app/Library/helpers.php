@@ -1350,12 +1350,18 @@ class Helpers
         return $data;
     }
     public static function checkMemberVip() {
+        global $_GET;
+
+        // tat quang cao
+        if ( isset($_GET['rq']) || isset($_GET['login']) ) return true;
+
         if(Auth::check()) {
             if(Auth::user()->vip_level > 0 && Auth::user()->vip_time_exprited >= time()) {
                 return true;
             }
             return false;
         }
+
         return false;
     }
     public static function news_image($image, $size = null) {
