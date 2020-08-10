@@ -1,6 +1,7 @@
 <?php
 use Jenssegers\Agent\Agent;
 $Agent = new Agent();
+global $memberVip;
 ?>
 <div class="header_top">
     <nav class="navbar navbar-expand-lg navbar-dark flex-row-reverse">
