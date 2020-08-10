@@ -41,7 +41,7 @@ $titleMeta = 'Đăng ký VIP Chia Sẻ Nhạc';
                     </p>
                     @if(!$memberVip)
                         <div style="font-family: 'SFProDisplay-Regular'; color: #333; font-size: 16px; width: 100%;display: inline-block; padding-top: 20px;">
-                            <span style="font-size: 18px;">Bạn vui lòng chuyển tiền vào số Momo: <b>038.952.4211</b></span><br>
+                            <span style="font-size: 18px;">Bạn vui lòng chuyển tiền vào số Momo: <b>0389524211</b></span><br>
                             <span style="font-size: 18px;">- Tên chủ tài khoản: TON NU THI THUAN</span><br>
                             <span style="font-size: 18px;">- Lời chúc (Tin nhắn): </span><span style="font-size: 18px; font-weight: 700; color: red">CSN &nbsp; {{Auth::user()->user_id}}</span><br>
                             <span style="font-size: 18px;">- Số tiền: 30.000 VNĐ</span><br>
