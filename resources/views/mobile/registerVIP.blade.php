@@ -35,14 +35,14 @@ $memberVip = Helpers::checkMemberVip();
 
                     <p style="font-family: 'SFProDisplay-Regular'; color: #333; font-size: 16px;">
                         Để không bị các quảng cáo làm phiền khi bạn truy cập vào hệ thống website và app Chia Sẻ Nhạc, bạn cần nâng cấp tài khoản mình lên tài khoản VIP.
-                        Hiện tại, mua tài khoản VIP 6 tháng trên hệ thống Chia Sẻ Nhạc đang được khuyến mãi 50%, giá gốc là 60.000đ, giảm còn 30.000đ.
+                        Hiện tại, mua tài khoản VIP 6 tháng trên hệ thống Chia Sẻ Nhạc đang được khuyến mãi 50%, giá gốc là <strike>60.000đ</strike>, giảm còn 30.000đ.
                         <br>
                     </p>
                     @if(!$memberVip)
                         <div style="font-family: 'SFProDisplay-Regular'; color: #333; font-size: 16px; width: 100%;display: inline-block; padding-top: 20px;">
                             <span style="font-size: 18px;">Bạn vui lòng chuyển tiền vào số Momo: <b>038.952.4211</b></span><br>
                             <span style="font-size: 18px;">- Tên chủ tài khoản: TON NU THI THUAN</span><br>
-                            <span style="font-size: 18px;">- Lời chúc (Tin nhắn): <span style="font-weight: 700; color: red">CSN &nbsp; {{Auth::user()->user_id}}</span></span><br>
+                            <span style="font-size: 18px;">- Lời chúc (Tin nhắn): </span><span style="font-size: 18px; font-weight: 700; color: red">CSN &nbsp; {{Auth::user()->user_id}}</span><br>
                             <span style="font-size: 18px;">- Số tiền: 30.000 VNĐ</span><br>
                             * Vui lòng vui lòng không gọi qua số điện thoại này, CSN sẽ chỉ hỗ trợ thắc mắc trong khung <a target="_blank" href="/user/{{Auth::user()->id}}?tab=message_csn">liên hệ</a> bên dưới.<br>
                             <br />
