@@ -93,7 +93,7 @@ $memberVip = Helpers::checkMemberVip();
 
 @hasSection('no_ads')
 @else
-    @if(!$memberVip && $_GET[['rq'] == 'login')
+    @if(!$memberVip && !isset($_GET['rq']))
         @hasSection('in_player')
 {{--            @if(View::exists('cache.code_ads.pc_ballon_player'))--}}
                 @include('cache.code_ads.pc_ballon_player')
