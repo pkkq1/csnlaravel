@@ -92,7 +92,7 @@ class UserLevelEloquentRepository extends EloquentRepository implements UserLeve
             ];
         }
         $userLevel = UserLevelModel::where('user_id', $user_id)->with('level')->first();
-        if($userLevel->level_expried > time()) {
+        if($userLevel && $userLevel->level_expried > time()) {
             return [
                 'msg' => 'Hiện tại bạn vẫn còn thời hạn VIP',
                 'success' => false
