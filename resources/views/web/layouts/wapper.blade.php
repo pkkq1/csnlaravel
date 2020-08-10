@@ -13,6 +13,9 @@ use App\Library\Helpers;
                 </figure>
                 <form action="<?php echo env('SEARCH_TEMPLATE_URL'); ?>/tim-kiem">
                     <!-- a class="old_redirect_web" href="http://old.chiasenhac.vn/" target="_blank"><img src="{{env('IMG_DATA_URL')}}imgs/csn_bancu.png" alt="Logo Chiasenhac old" style="float: left; margin-right: 10px;"></a -->
+                        @if(!$memberVip)
+                            <a href="/chia-se-nhac-vip.html"><img src="/imgs/csn_muavip.png" style="float: left; margin-right: 10px;" height="32px"></a>
+                        @endif
                     <div class="form-group m-0" style="float:left">
                         <i class="material-icons">search</i>
                         <input type="search" name="q" class="form-control" value="{{$_GET['q'] ?? ''}}" autocomplete="on" class="biginput" id="search_autocomplete" placeholder="nhập bài hát, video, tên nghệ sỹ bạn cần tìm">

@@ -1,5 +1,6 @@
 <?php
 use App\Library\Helpers;
+global $memberVip;
 $titleMeta = 'Đăng ký VIP Chia Sẻ Nhạc';
 ?>
 @section('meta')
