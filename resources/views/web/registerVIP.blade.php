@@ -92,7 +92,7 @@ $titleMeta = 'Đăng ký VIP Chia Sẻ Nhạc';
                                 <label for="message_request">Nội dung cần hỗ trợ:</label>
                                 <textarea required style="width: 100%; margin-bottom: 5px;" class="form-control" name="message_request" maxlength="1000" value="{{old('message_request')}}" rows="3" placeholder="Nhập nội dung ghi chú quá trình nạp vip của bạn" ></textarea>
                                 <div class="text-center col-12">
-                                    <button type="submit" id="btn-upload" class="btn btn-danger btn-upload">Gửi yêu cầu</button>
+                                    <button type="submit" id="btn-upload" class="btn btn-danger btn-upload">Gửi Hỗ Trợ</button>
                                 </div>
                                 <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
                             </form>
