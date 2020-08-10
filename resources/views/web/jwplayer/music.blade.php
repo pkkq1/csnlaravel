@@ -719,7 +719,7 @@ if(env('APP_ENV') != 'local' && !(Helpers::isVNIP()) )
         var player = jwplayer('csnplayer');
         var firstPlayer = true;
         <?php
-        if($musicSet['type_jw'] != 'video' && !$memberVip) {
+        if($musicSet['type_jw'] != 'video' || !$memberVip) {
             ?>
         jwplayer("csnplayerads").setup({
             advertising: {
