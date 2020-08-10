@@ -34,7 +34,7 @@ $memberVip = Helpers::checkMemberVip();
 
                     <p style="font-family: 'SFProDisplay-Regular'; color: #333; font-size: 16px;">
                         Để không bị các quảng cáo làm phiền khi bạn truy cập vào hệ thống website và app Chia Sẻ Nhạc, bạn cần nâng cấp tài khoản mình lên tài khoản VIP.
-                        Hiện tại, mua tài khoản VIP 6 tháng trên hệ thống Chia Sẻ Nhạc đang được khuyến mãi 50%, giá gốc là 60.000đ, giảm còn 30.000đ.
+                        Hiện tại, mua tài khoản VIP 6 tháng trên hệ thống Chia Sẻ Nhạc đang được khuyến mãi 50%, giá gốc là <strike>60.000đ</strike>, giảm còn 30.000đ.
                         <br>
                     </p>
                     @if(!$memberVip)

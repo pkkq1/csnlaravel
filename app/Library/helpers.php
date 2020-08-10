@@ -1353,7 +1353,7 @@ class Helpers
         global $_GET;
 
         // tat quang cao
-        if ( isset($_GET['rq']) ) return true;
+        if ( isset($_GET['rq']) || isset($_GET['login']) ) return true;
 
         if(Auth::check()) {
             if(Auth::user()->vip_level > 0 && Auth::user()->vip_time_exprited >= time()) {
