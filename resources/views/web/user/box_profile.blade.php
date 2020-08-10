@@ -1,8 +1,10 @@
 <?php
 use App\Library\Helpers;
 global $memberVip;
+$memberVip = Helpers::checkMemberVip();
 isset($float_edit) ? $float_edit = $float_edit : $float_edit = false;
-if($memberVip)
+$vipInfo = null;
+if($mySelf)
     $vipInfo = Auth::user()->levelInfo()->first();
 ?>
 <div class="box_profile">
@@ -14,8 +16,8 @@ if($memberVip)
                 </a>
             </div>
             <div class="media-body align-self-center">
-                <h4 class="media-title user_name">{{$user->name}}@if($memberVip)<img style="width: 25px; margin-left: 5px" src="/imgs/vip_label.png" >@endif</h4>
-                @if($memberVip)
+                <h4 class="media-title user_name">{{$user->name}}@if($vipInfo)<img style="width: 25px; margin-left: 5px" src="/imgs/vip_label.png" >@endif</h4>
+                @if($vipInfo)
                     <span style="color: red; font-weight: 400; margin-bottom: 8px" title="Ngày hết hạn là: {{date('d/m/Y', Auth::user()->vip_time_exprited)}}">Bạn đang là Vip: {{$vipInfo->level_name}}</span>
                 @endif
                 <ul class="list-inline">

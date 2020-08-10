@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html>
+<?php
+use App\Library\Helpers;
+global $memberVip;
+$memberVip = Helpers::checkMemberVip();
+?>
 @include('mobile.layouts.header')
 <body>
 <!--  Yo verify campaign 16/8/2019 -->

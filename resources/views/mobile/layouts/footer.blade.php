@@ -1,8 +1,7 @@
 <?php
 use App\Library\Helpers;
 global $memberVip;
-if($memberVip == null)
-    $memberVip = Helpers::checkMemberVip();
+$memberVip = Helpers::checkMemberVip();
 ?>
 <sectiton class="block_popup">
     @yield('popupMusic')

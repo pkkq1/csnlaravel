@@ -2,9 +2,8 @@
     $catalog = config('constants.catalog');
     use App\Library\Helpers;
     global $memberVip;
+    $memberVip = Helpers::checkMemberVip();
     global $allpage_banner;
-    if($memberVip == null)
-        $memberVip = Helpers::checkMemberVip();
 ?>
 
     <div id="right1_banner">

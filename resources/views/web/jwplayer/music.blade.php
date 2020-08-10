@@ -35,7 +35,7 @@ global $pc_preroll_3;
 global $pc_midroll;
 global $pc_midroll_2;
 global $memberVip;
-//$memberVip = Helpers::checkMemberVip();
+$memberVip = Helpers::checkMemberVip();
 
 $music->music_artist = str_replace(';', '; ', $music->music_artist);
 $music->music_artist = str_replace('  ', ' ', str_replace('  ', ' ', $music->music_artist));
@@ -719,7 +719,7 @@ if(env('APP_ENV') != 'local' && !(Helpers::isVNIP()) )
         var player = jwplayer('csnplayer');
         var firstPlayer = true;
         <?php
-        if($musicSet['type_jw'] != 'video' || !$memberVip) {
+        if($musicSet['type_jw'] != 'video' && !$memberVip) {
             ?>
         jwplayer("csnplayerads").setup({
             advertising: {

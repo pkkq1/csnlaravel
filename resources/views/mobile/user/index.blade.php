@@ -3,6 +3,9 @@ use App\Library\Helpers;
 $titleMeta = $user->name . ' - '. Config::get('constants.app.title');
 $mySelf = (Auth::check() && Auth::user()->id == $user->id);
 $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
+$vipInfo = null;
+if($mySelf)
+    $vipInfo = Auth::user()->levelInfo()->first();
 ?>
 @section('meta')
     <meta name="copyright" content="{{env('APP_URL')}}" />
@@ -34,7 +37,10 @@ $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
                 <div class="box_profile py-3">
                     <div class="box_profile__header"><a href="{{'/user/'.$user->id}}"><img id="view_user_avatar_2" src="<?php echo $avatar ?>?time={{time()}}" alt="{{$user->name}}"></a></div>
                     <div class="box_profile__body">
-                        <h4 class="media-title user_name">{{$user->name}}</h4>
+                        <h4 class="media-title user_name">{{$user->name}}@if($vipInfo)<img style="width: 20px; margin-left: 5px; margin-top: -5px" src="/imgs/vip_label.png" >@endif</h4>
+                        @if($vipInfo)
+                            <span style="color: red; font-weight: 400; margin-bottom: 8px" title="Ngày hết hạn là: {{date('d/m/Y', Auth::user()->vip_time_exprited)}}">Vip: {{$vipInfo->level_name}}</span>
+                        @endif
                         <ul class="list-inline">
                             <li class="list-inline-item"><strong>{{number_format($user->user_music)}}</strong><small> upload</small></li>
                         </ul>

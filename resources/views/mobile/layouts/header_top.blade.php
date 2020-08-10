@@ -1,7 +1,9 @@
 <?php
 use Jenssegers\Agent\Agent;
+use App\Library\Helpers;
 $Agent = new Agent();
 global $memberVip;
+$memberVip = Helpers::checkMemberVip();
 ?>
 <div class="header_top">
     <nav class="navbar navbar-expand-lg navbar-dark flex-row-reverse">

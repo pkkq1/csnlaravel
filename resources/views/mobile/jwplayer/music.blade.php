@@ -20,8 +20,7 @@ global $mobile_preroll;
 global $mobile_preroll_2;
 global $mobile_preroll_3;
 global $memberVip;
-//$memberVip = Helpers::checkMemberVip();
-
+$memberVip = Helpers::checkMemberVip();
 $titleMeta = $music->music_title . ' - '. str_replace(';', ', ', $music->music_artist);
 $file_url = Helpers::file_url($music);
 $lyric_array = Helpers::lyric_to_web($music->music_lyric);
@@ -531,7 +530,7 @@ if(env('APP_ENV') != 'local' && !(Helpers::isVNIP()) )
         var player = jwplayer('csnplayer');
         var firstPlayer = true;
         <?php
-        if($musicSet['type_jw'] != 'video' || !$memberVip) {
+        if($musicSet['type_jw'] != 'video' && !$memberVip) {
         ?>
         // ads
         jwplayer("csnplayerads").setup({

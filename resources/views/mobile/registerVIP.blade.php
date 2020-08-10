@@ -1,7 +1,6 @@
 <?php
 use App\Library\Helpers;
 $titleMeta = 'Đăng ký VIP Chia Sẻ Nhạc';
-$memberVip = Helpers::checkMemberVip();
 ?>
 @section('meta')
     <meta name="copyright" content="{{env('APP_URL')}}" />
