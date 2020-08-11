@@ -707,7 +707,7 @@ if(env('APP_ENV') != 'local' && !(Helpers::isVNIP()) )
         ////JW Player//////////
         ////////////////////////
         //Check adblock
-        @if(isset($file_url[3]['url']) || isset($file_url[4]['url']))
+        @if(!$memberVip && (isset($file_url[3]['url']) || isset($file_url[4]['url'])))
             var iframe = document.createElement("iframe");
             iframe.height = "1px";
             iframe.width = "1px";
@@ -2338,7 +2338,7 @@ if(env('APP_ENV') != 'local' && !(Helpers::isVNIP()) )
                 focusComment = window.location.href.substr(hasLoadComment);
                 loadPageComment(window.location.origin + '/binh-luan/get_ajax?page=1');
             }
-            @if(isset($file_url[3]['url']) || isset($file_url[4]['url']))
+            @if(!$memberVip && isset($file_url[3]['url']) || isset($file_url[4]['url']))
             setTimeout(function()
             {
                 var iframe = document.getElementById("ads-text-iframe");
