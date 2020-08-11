@@ -2344,16 +2344,17 @@ if(env('APP_ENV') != 'local' && !(Helpers::isVNIP()) )
                 var iframe = document.getElementById("ads-text-iframe");
                 if(iframe.style.display == "none" || iframe.style.display == "hidden" || iframe.style.visibility == "hidden" || iframe.offsetHeight == 0)
                 {
-                    console.log(11111111111111);
-                    console.log($('.music_downloaded'));
-                    $('.tab_download_music ul').append("<li><i><a target='_blank' style='font-family: \"SFProDisplay-Regular\";' href='/chia-se-nhac-vip.html'>Vui lòng gỡ adblock hoặc mua VIP để tải chất lượng cao</a></i></li>")
+                    let msg_adb = 'Vui lòng gỡ adblock hoặc mua VIP để tải chất lượng cao';
+                    $('.tab_download_music ul').append("<li><i><a target='_blank' style='font-family: \"SFProDisplay-Regular\";' href='/chia-se-nhac-vip.html'>" + msg_adb + "</a></i></li>")
                     document.getElementById("download_500").removeAttribute("href");
+                    document.getElementById("download_500").style.cursor = "no-drop";
+                    $("#download_500").attr("title", msg_adb);
                     @if(isset($file_url[4]['url']))
-                    document.getElementById("download_lossless").removeAttribute("href");
+                        document.getElementById("download_lossless").removeAttribute("href");
+                        document.getElementById("download_lossless").style.cursor = "no-drop";
+                        $("#download_lossless").attr("title", msg_adb);
                     @endif
                     iframe.remove();
-                }else{
-                    console.log(3333333333333333);
                 }
             }, 1000);
             @endif
