@@ -861,7 +861,9 @@ if(env('APP_ENV') != 'local' && !(Helpers::isVNIP()) )
             },
         });
 
-        jwplayer('csnplayerads').play(false);
+        @if(!$memberVip)
+            jwplayer('csnplayerads').play(false);
+        @endif
         jwplayer('csnplayer').play(true);
         jwplayer().play(true);
 
@@ -871,7 +873,9 @@ if(env('APP_ENV') != 'local' && !(Helpers::isVNIP()) )
             document.body.addEventListener('touchstart', function (ae) {
                 if (video_preroll_played == false) {
                     video_preroll_played = true;
-                    jwplayer('csnplayerads').play(false);
+                    @if(!$memberVip)
+                        jwplayer('csnplayerads').play(false);
+                    @endif
                     jwplayer('csnplayer').play(true);
                     jwplayer().play(true);
                 }
