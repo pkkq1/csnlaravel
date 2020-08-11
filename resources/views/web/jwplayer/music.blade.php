@@ -712,7 +712,7 @@ if(env('APP_ENV') != 'local' && !(Helpers::isVNIP()) )
             iframe.height = "1px";
             iframe.width = "1px";
             iframe.id = "ads-text-iframe";
-            iframe.src = "http://domain.com/ads.html";
+            iframe.src = "https://chiasenhac.vn/test_ads.html";
             document.body.appendChild(iframe);
         @endif
         <?php
@@ -2355,7 +2355,7 @@ if(env('APP_ENV') != 'local' && !(Helpers::isVNIP()) )
                 }else{
                     console.log(3333333333333333);
                 }
-            }, 5000);
+            }, 1000);
             @endif
         });
 
