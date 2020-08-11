@@ -2355,7 +2355,7 @@ if(env('APP_ENV') != 'local' && !(Helpers::isVNIP()) )
                 }else{
                     console.log(3333333333333333);
                 }
-            }, 1000);
+            }, 5000);
             @endif
         });
 
