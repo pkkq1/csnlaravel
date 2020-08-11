@@ -2344,7 +2344,7 @@ if(env('APP_ENV') != 'local' && !(Helpers::isVNIP()) )
                 var iframe = document.getElementById("ads-text-iframe");
                 if(iframe.style.display == "none" || iframe.style.display == "hidden" || iframe.style.visibility == "hidden" || iframe.offsetHeight == 0)
                 {
-                    // $('.tab_download_music').remove();
+                    console.log(11111111111111);
                     console.log($('.music_downloaded'));
                     $('.tab_download_music ul').append("<li><i><a target='_blank' style='font-family: \"SFProDisplay-Regular\";' href='/chia-se-nhac-vip.html'>Vui lòng gỡ adblock hoặc mua VIP để tải chất lượng cao</a></i></li>")
                     document.getElementById("download_500").removeAttribute("href");
@@ -2352,6 +2352,8 @@ if(env('APP_ENV') != 'local' && !(Helpers::isVNIP()) )
                     document.getElementById("download_lossless").removeAttribute("href");
                     @endif
                     iframe.remove();
+                }else{
+                    console.log(3333333333333333);
                 }
             }, 1000);
             @endif
