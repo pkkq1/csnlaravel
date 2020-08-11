@@ -310,11 +310,11 @@ if(env('APP_ENV') != 'local' && !(Helpers::isVNIP()) )
                                                         echo '<li><a class="download_item" href="'. $file_url[2]['url'] .'" title="Click vào đây để tải bài hát '. $music->music_title .'"><i class="material-icons">file_download</i> Link tải nhạc <span class="c2">'. strtoupper($file_url[2]['type']) .' '. $file_url[2]['label'] .'</span> '. $file_url[2]['size'] .'</a></li>' . "\n";
                                                     }
                                                     if ( isset($file_url[3]['url']) ){
-                                                        echo '<li><a class="download_item" href="'. $file_url[3]['url'] .'" title="Click vào đây để tải bài hát '. $music->music_title .'"><i class="material-icons">file_download</i> Link tải nhạc <span class="c3">'. strtoupper($file_url[3]['type']) .' '. $file_url[3]['label'] .'</span> '. $file_url[3]['size'] .'</a></li>' . "\n";
+                                                        echo '<li><a id="download_500" class="download_item" href="'. $file_url[3]['url'] .'" title="Click vào đây để tải bài hát '. $music->music_title .'"><i class="material-icons">file_download</i> Link tải nhạc <span class="c3">'. strtoupper($file_url[3]['type']) .' '. $file_url[3]['label'] .'</span> '. $file_url[3]['size'] .'</a></li>' . "\n";
                                                     }
                                                     if ( isset($file_url[4]['url']) ){
 //                                                        echo '<li><a class="download_item" href="javascript:downLossLessMusic();" title="Click vào đây để tải bài hát '. $music->music_title .'"><i class="material-icons">file_download</i> Link tải nhạc <span class="c4">'. strtoupper($file_url[4]['type']) .' '. $file_url[4]['label'] .'</span> '. $file_url[4]['size'] .'</a></li>' . "\n";
-                                                        echo '<li><a class="download_item" href="'. $file_url[4]['url'] .'" title="Click vào đây để tải bài hát '. $music->music_title .'"><i class="material-icons">file_download</i> Link tải nhạc <span class="c4">'. strtoupper($file_url[4]['type']) .' '. $file_url[4]['label'] .'</span> '. $file_url[4]['size'] .'</a></li>' . "\n";
+                                                        echo '<li><a id="download_lossless" class="download_item" href="'. $file_url[4]['url'] .'" title="Click vào đây để tải bài hát '. $music->music_title .'"><i class="material-icons">file_download</i> Link tải nhạc <span class="c4">'. strtoupper($file_url[4]['type']) .' '. $file_url[4]['label'] .'</span> '. $file_url[4]['size'] .'</a></li>' . "\n";
                                                     }
                                                     if ( isset($file_url[0]['url']) ){
                                                         echo '<li><a class="download_item" href="'. $file_url[0]['url'] .'" title="Click vào đây để tải bài hát '. $music->music_title .'"><i class="material-icons">file_download</i> Link tải nhạc chất lượng thấp: '. strtoupper($file_url[0]['type']) .' '. $file_url[0]['label'] .' '. $file_url[0]['size'] .'</a></li>' . "\n";
@@ -706,7 +706,15 @@ if(env('APP_ENV') != 'local' && !(Helpers::isVNIP()) )
         //////////////////////////
         ////JW Player//////////
         ////////////////////////
-
+        //Check adblock
+        @if(isset($file_url[3]['url']) || isset($file_url[4]['url']))
+            var iframe = document.createElement("iframe");
+            iframe.height = "1px";
+            iframe.width = "1px";
+            iframe.id = "ads-text-iframe";
+            iframe.src = "http://domain.com/ads.html";
+            document.body.appendChild(iframe);
+        @endif
         <?php
         if(count($musicSet['playlist_music']) > 5){
             ?>
@@ -912,8 +920,6 @@ if(env('APP_ENV') != 'local' && !(Helpers::isVNIP()) )
             }
             error_count++;
         });
-
-
 
         var device_type = 'desktop';
         var listPlayed =Array();
@@ -2328,7 +2334,25 @@ if(env('APP_ENV') != 'local' && !(Helpers::isVNIP()) )
                 focusComment = window.location.href.substr(hasLoadComment);
                 loadPageComment(window.location.origin + '/binh-luan/get_ajax?page=1');
             }
+            @if(isset($file_url[3]['url']) || isset($file_url[4]['url']))
+            setTimeout(function()
+            {
+                var iframe = document.getElementById("ads-text-iframe");
+                if(iframe.style.display == "none" || iframe.style.display == "hidden" || iframe.style.visibility == "hidden" || iframe.offsetHeight == 0)
+                {
+                    // $('.tab_download_music').remove();
+                    console.log($('.music_downloaded'));
+                    $('.tab_download_music ul').append("<li><i><a target='_blank' style='font-family: \"SFProDisplay-Regular\";' href='/chia-se-nhac-vip.html'>Vui lòng gỡ adblock hoặc mua VIP để tải chất lượng cao</a></i></li>")
+                    document.getElementById("download_500").removeAttribute("href");
+                    @if(isset($file_url[4]['url']))
+                    document.getElementById("download_lossless").removeAttribute("href");
+                    @endif
+                    iframe.remove();
+                }
+            }, 1000);
+            @endif
         });
+
     </script>
     @if($musicSet['type_jw'] != 'video')
         <style>
