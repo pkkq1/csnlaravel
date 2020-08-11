@@ -55,7 +55,7 @@ $titleMeta = 'Đăng ký VIP Chia Sẻ Nhạc';
                         <?php
                         $vipInfo = Auth::user()->levelInfo()->first();
                         ?>
-                        <span style="font-weight: 700; color: red; font-size: 20px;">Hiện tại bạn đang thành viên là VIP: {{$vipInfo->level_name}}, ngày hết hạn là: {{date('d/m/Y', Auth::user()->vip_time_exprited)}}</span>
+                        <span style="font-weight: 700; color: red; font-size: 20px;">Hiện tại bạn đang là thành viên VIP: {{$vipInfo->level_name}}, ngày hết hạn là: {{date('d/m/Y', Auth::user()->vip_time_exprited)}}</span>
 
                     @endif
 
