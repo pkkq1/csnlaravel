@@ -21,6 +21,7 @@ if($mySelf) {
             </div>
             <div class="media-body align-self-center">
                 <h4 class="media-title user_name">{{$user->name}}@if($vipInfo && $user->vip_time_exprited > time())<img alt="Tài Khoản VIP" title="Tài Khoản VIP" style="width: 25px; margin-left: 5px" src="/imgs/vip_label.png" >@endif</h4>
+                <span>{{$user->username}}</span><br/>
                 @if($vipInfo && $mySelf)
                     @if(Auth::user()->vip_time_exprited > time())
                         <span style="color: red; font-weight: 400; margin-bottom: 8px" title="Ngày hết hạn là: {{date('d/m/Y', Auth::user()->vip_time_exprited)}}">Bạn đang là Vip: {{$vipInfo->level_name}}</span>
