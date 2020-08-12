@@ -69,7 +69,8 @@ class UserMusicController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function openTabUploaded(Request $request) {
-        return view('user.uploaded_music.index', compact('music', 'stage'));
+        $user_name = $request->user_name;
+        return view('user.uploaded_music.index', compact('music', 'stage', 'user_name'));
     }
     public function openTabApproval(Request $request) {
         return view('user.approval_music.index', compact('music', 'stage'));
@@ -122,12 +123,12 @@ class UserMusicController extends Controller
             }
             if($stage == 'all' || $stage == 'fullcensor_by') {
                 // đã duyệt theo user lần cuối cùng
-                $stageData['stage_fullcensor_by'] = $this->uploadRepository->musicByStage([['music_id', '>', 1000000]], [UPLOAD_STAGE_FULLCENSOR], 'music_last_update_time', 'desc', LIMIT_PAGE_MUSIC_APPROVAL, Auth::user()->id);
+                $stageData['stage_fullcensor_by'] = $this->uploadRepository->musicByStage([['music_id', '>', 1000000]], [UPLOAD_STAGE_FULLCENSOR], 'music_last_update_time', 'desc', LIMIT_PAGE_MUSIC_APPROVAL, $request->user_id);
                 $titleMes = 'đã duyệt theo user';
             }
             if($stage == 'all' || $stage == 'delete_by') {
                 // đã duyệt theo user lần cuối cùng
-                $stageData['stage_delete_by'] = $this->uploadRepository->musicByStage([['music_id', '>', 1000000]], [UPLOAD_STAGE_DELETED], 'music_last_update_time', 'desc', LIMIT_PAGE_MUSIC_APPROVAL, Auth::user()->id);
+                $stageData['stage_delete_by'] = $this->uploadRepository->musicByStage([['music_id', '>', 1000000]], [UPLOAD_STAGE_DELETED], 'music_last_update_time', 'desc', LIMIT_PAGE_MUSIC_APPROVAL, $request->user_id);
                 $titleMes = 'đã xóa theo user';
             }
             return view('user.music_upload_approval', compact('stageData', 'stage', 'titleMes', 'page_tab'));

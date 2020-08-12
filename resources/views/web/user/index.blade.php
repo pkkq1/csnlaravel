@@ -133,7 +133,9 @@ $tabSelf = ($mySelf || (Auth::check() && Auth::user()->hasPermission('duyet_sua_
                         url: '/user/open_tab_uploaded',
                         type: "POST",
                         dataType: "html",
-                        data: {},
+                        data: {
+                            'user_name' : '<?php echo $user->name ?>'
+                        },
                         async: false,
                         beforeSend: function () {
                             if(loaded) return false;
