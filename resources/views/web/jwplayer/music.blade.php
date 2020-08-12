@@ -772,21 +772,7 @@ if(env('APP_ENV') != 'local' && !(Helpers::isVNIP()) )
 
 
         player.setup({
-            <?php if ( $music->music_id == 299247 ) {
-                echo '
-                advertising: {
-                    client: "vast",
-                    skipoffset: 5,
-                    "adschedule": {
-                        "myPreroll": {
-                            "offset": "pre",
-                            "tag": ["https://bid.g.doubleclick.net/xbbe/bid/xpub?deal_id=7928304_695456&max_duration=15&ord=[timestamp]&dc_sdk_apis=[APIFRAMEWORKS]&dc_omid_p=[OMIDPARTNER]&dc_rdid="]
-                        }
-                    }
-                },
-                ';
-            }
-            else if ($musicSet['type_jw'] == 'video') {
+            <?php if ($musicSet['type_jw'] == 'video' && !$memberVip) {
                 echo '
                 advertising: {
                     client: "vast",
@@ -802,25 +788,6 @@ if(env('APP_ENV') != 'local' && !(Helpers::isVNIP()) )
                 },
                 ';
             }
-            else if ( $music->music_id == 234567 ) {
-                echo '
-                    advertising: {
-                        client: "vast",
-                        skipoffset: 5,
-                        "companiondiv": {
-                                "id": "right1_banner",
-                                "width": 300,
-                                "height": 250
-                        },
-                        "adschedule": {
-                            "myPreroll": {
-                                "offset": "pre",
-                                "tag": ["https://delivery.lavanetwork.net/www/delivery/fc.php?script=bannerTypeHtml:vastInlineBannerTypeHtml:vastInlineHtmlExtend&format=vast&nz=1&zones=pre-roll%3D3193&version=2"]
-                        }
-                    }
-                },
-                ';
-                    }
             ?>
             width: '100%',
             height: '88',
@@ -832,6 +799,7 @@ if(env('APP_ENV') != 'local' && !(Helpers::isVNIP()) )
                     $typeJwSource = $musicSet['type_jw'] == 'video' ? 'mp4' : 'mp3';
                     for ($i=0; $i<sizeof($file_url); $i++){
                         echo '{"file": "'. $file_url[$i]['url'] .'", "label": "'. $file_url[$i]['label'] .'", "type": "'.$typeJwSource.'", "default": '. (($i==1) ? 'true' : 'false') .'},';
+                        if ($i > 2 && $musicSet['type_jw'] != 'video') break;
                     }
                     ?>
             ],
