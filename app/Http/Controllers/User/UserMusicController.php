@@ -120,6 +120,16 @@ class UserMusicController extends Controller
                 // album
                 $stageData['album'] = $this->coverRepository->findCoverByUser($id, 'cover_id', 'desc', LIMIT_PAGE_MUSIC_UPLOADED);
             }
+            if($stage == 'all' || $stage == 'fullcensor_by') {
+                // đã duyệt theo user lần cuối cùng
+                $stageData['stage_fullcensor_by'] = $this->uploadRepository->musicByStage([['music_id', '>', 1000000]], [UPLOAD_STAGE_FULLCENSOR], 'music_last_update_time', 'desc', LIMIT_PAGE_MUSIC_APPROVAL, Auth::user()->id);
+                $titleMes = 'đã duyệt theo user';
+            }
+            if($stage == 'all' || $stage == 'delete_by') {
+                // đã duyệt theo user lần cuối cùng
+                $stageData['stage_delete_by'] = $this->uploadRepository->musicByStage([['music_id', '>', 1000000]], [UPLOAD_STAGE_DELETED], 'music_last_update_time', 'desc', LIMIT_PAGE_MUSIC_APPROVAL, Auth::user()->id);
+                $titleMes = 'đã xóa theo user';
+            }
             return view('user.music_upload_approval', compact('stageData', 'stage', 'titleMes', 'page_tab'));
         }elseif($page_tab == 'approval'){
             $stage = $request->input('stage');
