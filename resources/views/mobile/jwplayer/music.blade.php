@@ -415,7 +415,7 @@ if(env('APP_ENV') != 'local' && !(Helpers::isVNIP()) )
         <h4>{{$music->music_title}}</h4>
         <form action="#">
             <div class="container">
-                <div class="form-group download_status">
+                <div class="form-group download_status popup_download">
                     <?php
                     if ( isset($file_url[1]['url']) ){
                         echo '<label class="relative">
@@ -428,7 +428,7 @@ if(env('APP_ENV') != 'local' && !(Helpers::isVNIP()) )
                             </label>';
                     }
                     if ( isset($file_url[3]['url']) ){
-                        echo '<label class="relative">
+                        echo '<label class="relative download_500">
                                 <input id="exampleInputEmail1" value="'. $file_url[3]['url'] .'" type="radio" name="quality" '.(isset($file_url[4]['url']) ? 'checked=""' : '').' class="form-control d-none"><strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 3 </span><span class="cl-orange">'. strtoupper($file_url[3]['type']) .' '. $file_url[3]['label'] .'</span><span> '. $file_url[3]['size'] .'</span></strong>
                             </label>';
                     }
@@ -436,7 +436,7 @@ if(env('APP_ENV') != 'local' && !(Helpers::isVNIP()) )
 //                        echo '<label class="relative">
 //                                <input id="exampleInputEmail1" value="'. $file_url[4]['url'] .'" type="radio" name="quality" checked="" class="form-control d-none"><strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 4 </span><span class="cl-pink">'. strtoupper($file_url[4]['type']) .' '. $file_url[4]['label'] .'</span><span> '. $file_url[4]['size'] .'</span></strong>
 //                            </label>';
-                        echo '<label class="relative">
+                        echo '<label class="relative download_lossless">
                                 <input id="exampleInputEmail1" value="'. $file_url[4]['url'] .'" type="radio" name="quality" class="form-control d-none"><strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 4 </span><span class="cl-pink">'. strtoupper($file_url[4]['type']) .' '. $file_url[4]['label'] .'</span><span> '. $file_url[4]['size'] .'</span></strong>
                             </label>';
                     }
@@ -524,7 +524,15 @@ if(env('APP_ENV') != 'local' && !(Helpers::isVNIP()) )
         //////////////////////////
         ////JW Player//////////
         ////////////////////////
-
+        //Check adblock
+        @if(!$memberVip && (isset($file_url[3]['url']) || isset($file_url[4]['url'])))
+            var iframe = document.createElement("iframe");
+            iframe.height = "1px";
+            iframe.width = "1px";
+            iframe.id = "ads-text-iframe";
+            iframe.src = "https://chiasenhac.vn/test_ads.html";
+            document.body.appendChild(iframe);
+        @endif
 
         jwplayer.key = "W7zSm81+mmIsg7F+fyHRKhF3ggLkTqtGMhvI92kbqf/ysE99";
         var player = jwplayer('csnplayer');
@@ -1389,6 +1397,24 @@ if(env('APP_ENV') != 'local' && !(Helpers::isVNIP()) )
                     }
                 }
             });
+        });
+        $(document).ready(function() {
+            @if(!$memberVip && isset($file_url[3]['url']) || isset($file_url[4]['url']))
+            setTimeout(function()
+            {
+                var iframe = document.getElementById("ads-text-iframe");
+                if(iframe.style.display == "none" || iframe.style.display == "hidden" || iframe.style.visibility == "hidden" || iframe.offsetHeight == 0)
+                {
+                    let msg_adb = 'Vui lòng gỡ adblock hoặc mua VIP để tải chất lượng cao';
+                    $('.popup_download').append("<label>" + msg_adb + "</label>")
+                    $('.download_500').find('input').remove();
+                    @if(isset($file_url[4]['url']))
+                    $('.download_lossless').find('input').remove();
+                    @endif
+                    iframe.remove();
+                }
+            }, 1000);
+            @endif
         });
     </script>
     @if($musicSet['type_jw'] != 'video')
