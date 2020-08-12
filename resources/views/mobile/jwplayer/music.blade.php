@@ -582,41 +582,6 @@ if(env('APP_ENV') != 'local' && !(Helpers::isVNIP()) )
         ?>
 
         player.setup({
-                <?php if ( $music->music_id == 234567 ) {
-                    echo '
-                        advertising: {
-                        client: "vast",
-                    skipoffset: 5,
-                        "companiondiv": {
-                                "id": "companion_cover",
-                                "width": 300,
-                                "height": 250
-                        },
-                    "adschedule": {
-                            "myPreroll": {
-                                "offset": "post",
-                                "tag": ["https://delivery.lavanetwork.net/www/delivery/fc.php?script=bannerTypeHtml:vastInlineBannerTypeHtml:vastInlineHtmlExtend&format=vast&nz=1&zones=pre-roll%3D3193&version=2"]
-                        }
-                    }
-                },
-                ';
-                } else if ( $music->music_id == 299247 ) {
-                        echo '
-                        advertising: {
-                        client: "vast",
-                    skipoffset: 5,
-                    "adschedule": {
-                            "myPreroll": {
-                                "offset": "post",
-                                "tag": ["https://tag.gammaplatform.com/adx/request/?wid=1508317956&zid=1508321486&content_page_url=__page-url__&cb=__random-number__&player_width=__player-width__&player_height=__player-height__&device_id=__device-id__"]
-                        }
-                    }
-                },
-                ';
-                }
-            ?>
-
-
             width: '100%',
             height: '88',
             repeat: false,
@@ -627,6 +592,7 @@ if(env('APP_ENV') != 'local' && !(Helpers::isVNIP()) )
                 $typeJwSource = $musicSet['type_jw'] == 'video' ? 'mp4' : 'mp3';
                 for ($i = 0; $i < sizeof($file_url); $i++) {
                     echo '{"file": "' . $file_url[$i]['url'] . '", "label": "' . $file_url[$i]['label'] . '", "type": "' . $typeJwSource . '", "default": ' . (($i == 1) ? 'true' : 'false') . '},';
+                    if ($i > 2 && $musicSet['type_jw'] != 'video') break;
                 }
                 ?>
             ],
