@@ -617,9 +617,10 @@ $auth_listen = true;
             sources: [
                 <?php
                 $typeJwSource = $musicSet['type_jw'] == 'video' ? 'mp4' : 'mp3';
+                $max_i = ($memberVip) ? 3 : ((Auth::check()) ? 1 : 0);
                 for ($i = 0; $i < sizeof($file_url); $i++) {
                     echo '{"file": "' . $file_url[$i]['url'] . '", "label": "' . $file_url[$i]['label'] . '", "type": "' . $typeJwSource . '", "default": ' . (($i == 1) ? 'true' : 'false') . '},';
-                    if ($i > 2 && $musicSet['type_jw'] != 'video') break;
+                    if ($i > $max_i && $musicSet['type_jw'] != 'video') break;
                 }
                 ?>
             ],
