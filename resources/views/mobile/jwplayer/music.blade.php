@@ -40,10 +40,10 @@ if($musicSet['type_listen'] == 'playlist') {
 
 //Sorry, this content is not available in your country
 $auth_listen = true;
-if(env('APP_ENV') != 'local' && !(Helpers::isVNIP()) )
-{
-    $auth_listen = true;//false;
-}
+//if(env('APP_ENV') != 'local' && !(Helpers::isVNIP()) )
+//{
+//    $auth_listen = false;
+//}
 ?>
 @section('meta')
     <meta name="author" content="{{$music->music_username}}">
@@ -422,33 +422,60 @@ if(env('APP_ENV') != 'local' && !(Helpers::isVNIP()) )
                                 <input id="exampleInputEmail1" value="'. $file_url[1]['url'] .'" type="radio" name="quality" class="form-control d-none"><strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 1 </span><span class="cl-green">'. strtoupper($file_url[1]['type']) .' '. $file_url[1]['label'] .'</span><span> '. $file_url[1]['size'] .'</span></strong>
                             </label>';
                     }
-                    if ( isset($file_url[2]['url']) ){
-                        echo '<label class="relative">
-                                <input id="exampleInputEmail1" value="'. $file_url[2]['url'] .'" type="radio" name="quality" class="form-control d-none"><strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 2 </span><span class="cl-blue">'. strtoupper($file_url[2]['type']) .' '. $file_url[2]['label'] .'</span><span> '. $file_url[2]['size'] .'</span></strong>
+                    if (Auth::check()) {
+                        if (isset($file_url[2]['url'])) {
+                            echo '<label class="relative">
+                                <input id="exampleInputEmail1" value="' . $file_url[2]['url'] . '" type="radio" name="quality" class="form-control d-none"><strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 2 </span><span class="cl-blue">' . strtoupper($file_url[2]['type']) . ' ' . $file_url[2]['label'] . '</span><span> ' . $file_url[2]['size'] . '</span></strong>
                             </label>';
-                    }
-                    if ( isset($file_url[3]['url']) ){
-                        echo '<label class="relative download_500">
-                                <input id="exampleInputEmail1" value="'. $file_url[3]['url'] .'" type="radio" name="quality" '.(isset($file_url[4]['url']) ? 'checked=""' : '').' class="form-control d-none"><strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 3 </span><span class="cl-orange">'. strtoupper($file_url[3]['type']) .' '. $file_url[3]['label'] .'</span><span> '. $file_url[3]['size'] .'</span></strong>
+                        }
+                        if (isset($file_url[3]['url'])) {
+                            echo '<label class="relative download_500">
+                                <input id="exampleInputEmail1" value="' . $file_url[3]['url'] . '" type="radio" name="quality" ' . (isset($file_url[4]['url']) ? 'checked=""' : '') . ' class="form-control d-none"><strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 3 </span><span class="cl-orange">' . strtoupper($file_url[3]['type']) . ' ' . $file_url[3]['label'] . '</span><span> ' . $file_url[3]['size'] . '</span></strong>
                             </label>';
-                    }
-                    if ( isset($file_url[4]['url']) ){
+                        }
+                        if (isset($file_url[4]['url'])) {
 //                        echo '<label class="relative">
 //                                <input id="exampleInputEmail1" value="'. $file_url[4]['url'] .'" type="radio" name="quality" checked="" class="form-control d-none"><strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 4 </span><span class="cl-pink">'. strtoupper($file_url[4]['type']) .' '. $file_url[4]['label'] .'</span><span> '. $file_url[4]['size'] .'</span></strong>
 //                            </label>';
-                        echo '<label class="relative download_lossless">
-                                <input id="exampleInputEmail1" value="'. $file_url[4]['url'] .'" type="radio" name="quality" class="form-control d-none"><strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 4 </span><span class="cl-pink">'. strtoupper($file_url[4]['type']) .' '. $file_url[4]['label'] .'</span><span> '. $file_url[4]['size'] .'</span></strong>
+                            echo '<label class="relative download_lossless">
+                                <input id="exampleInputEmail1" value="' . $file_url[4]['url'] . '" type="radio" name="quality" class="form-control d-none"><strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 4 </span><span class="cl-pink">' . strtoupper($file_url[4]['type']) . ' ' . $file_url[4]['label'] . '</span><span> ' . $file_url[4]['size'] . '</span></strong>
                             </label>';
-                    }
-                    if ( isset($file_url[0]['url']) ){
-                        echo '<label class="relative">
+                        }
+                        if ( isset($file_url[0]['url']) ){
+                            echo '<label class="relative">
                                 <input id="exampleInputEmail1" value="'. $file_url[0]['url'] .'" type="radio" name="quality" class="form-control d-none"><strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 5 </span><span class="">'. strtoupper($file_url[0]['type']) .' '. $file_url[0]['label'] .'</span><span> '. $file_url[0]['size'] .'</span></strong>
                             </label>';
+                        }
+                    } else {
+                        if ( isset($file_url[0]['url']) ){
+                            echo '<label class="relative">
+                                <input id="exampleInputEmail1" value="'. $file_url[0]['url'] .'" type="radio" name="quality" class="form-control d-none"><strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 5 </span><span class="">'. strtoupper($file_url[0]['type']) .' '. $file_url[0]['label'] .'</span><span> '. $file_url[0]['size'] .'</span></strong>
+                            </label>';
+                        }
+                        echo "<label>Vui lòng đăng nhập để tải nhạc chất lượng cao</label>";
+                        if ( isset($file_url[2]['url']) ){
+                            echo '<label class="relative">
+                                <strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 2 </span><span class="cl-blue">'. strtoupper($file_url[2]['type']) .' '. $file_url[2]['label'] .'</span><span> '. $file_url[2]['size'] .'</span></strong>
+                            </label>';
+                        }
+                        if ( isset($file_url[3]['url']) ){
+                            echo '<label class="relative download_500">
+                                <strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 3 </span><span class="cl-orange">'. strtoupper($file_url[3]['type']) .' '. $file_url[3]['label'] .'</span><span> '. $file_url[3]['size'] .'</span></strong>
+                            </label>';
+                        }
+                        if ( isset($file_url[4]['url']) ){
+//                        echo '<label class="relative">
+//                                <input id="exampleInputEmail1" value="'. $file_url[4]['url'] .'" type="radio" name="quality" checked="" class="form-control d-none"><strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 4 </span><span class="cl-pink">'. strtoupper($file_url[4]['type']) .' '. $file_url[4]['label'] .'</span><span> '. $file_url[4]['size'] .'</span></strong>
+//                            </label>';
+                            echo '<label class="relative download_lossless">
+                                <strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 4 </span><span class="cl-pink">'. strtoupper($file_url[4]['type']) .' '. $file_url[4]['label'] .'</span><span> '. $file_url[4]['size'] .'</span></strong>
+                            </label>';
+                        }
                     }
                     ?>
                 </div>
             </div>
-            <div class="group-btn"><a href="#" class="c-btn c-btn-default cancel-download">Hủy</a><a href="javascript:void(0)" onclick="downloadMusic()" class="c-btn c-btn-default c-btn-red">Tải về</a></div>
+            <div class="group-btn"><a href="javascript:void(0)" class="c-btn c-btn-default cancel-download">Hủy</a><a href="javascript:void(0)" onclick="downloadMusic()" class="c-btn c-btn-default c-btn-red">Tải về</a></div>
         </form>
     </div>
     <div class="bottom-sheet text-center popup-playlist">
