@@ -9,7 +9,7 @@ use App\Library\Helpers;
 
 @endsection
 @section('content')
-    @include('web.user.box_profile', ['user' => Auth::user(), 'float_edit' => false])
+    @include('web.user.box_profile', ['user' => Auth::user(), 'float_edit' => false, 'mySelf' => true])
     <div class="container">
         <div class="row row_wrapper">
             <div class="col-md-9">

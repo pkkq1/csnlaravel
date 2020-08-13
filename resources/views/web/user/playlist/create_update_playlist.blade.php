@@ -9,7 +9,7 @@ $titleMeta = $playlistUser ? 'Cập nhật playlist - ' . $playlistUser->playlis
     <script type="text/javascript" src="{{URL::to('/')}}/node_modules/sortablejs/Sortable.min.js"></script>
 @endsection
 @section('content')
-    @include('web.user.box_profile', ['user' => Auth::user(), 'float_edit' => false])
+    @include('web.user.box_profile', ['user' => Auth::user(), 'float_edit' => false, 'mySelf' => true])
     <div class="container">
         <div class="row row_wrapper">
             <div class="col-md-9">
