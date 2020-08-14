@@ -118,7 +118,7 @@ $auth_listen = true;
                     <span title="Đăng tải: {{date('d/m/Y h:i', $music->music_time)}}" class="d-flex listen"><i class="material-icons" style="padding-top: 3px;">headset</i> {{number_format($music->music_listen)}}&nbsp;&nbsp;<i class="material-icons" style="font-size: 28px;">cloud_download</i> {{number_format($music->music_downloads)}}</span>
                 </div>
                 <div class="card mb-4 detail_lyric_1">
-                    @if ($memberVip)
+                    @if (!$memberVip)
                         <div style="text-align: right;"><a href="/chia-se-nhac-vip.html">[x Tắt quảng cáo]</a></div>
                     @endif
                     <div id="csnplayerads" style="position:relative; z-index: 99999; width:100%;"> </div>
