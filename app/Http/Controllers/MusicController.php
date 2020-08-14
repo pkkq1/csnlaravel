@@ -889,12 +889,14 @@ class MusicController extends Controller
     }
     public function save_to_idMergeMusic($music, $musicListen, $musicDownload, $musicQualityMax, $merge, $mergeListen, $mergeDownload, $mergeQualityMax) {
         // add listen & downlaod
-        $merge->music_listen = $merge->music_listen + $music->music_listen;
-        $merge->music_downloads = $merge->music_downloads + $music->music_downloads;
-        $mergeListen->music_listen = $mergeListen->music_listen + $musicListen->music_listen;
-        $mergeListen->music_listen_today = $mergeListen->music_listen_today + $musicListen->music_listen_today;
-        $mergeListen->music_downloads = $mergeListen->music_downloads + $mergeDownload->music_downloads;
-        $mergeListen->music_downloads_today = $mergeListen->music_downloads_today + $mergeDownload->music_downloads_today;
+        $merge->music_listen = (int)$merge->music_listen + (int)$music->music_listen;
+        $merge->music_downloads = (int)$merge->music_downloads + (int)$music->music_downloads;
+        $mergeListen->music_listen = (int)$mergeListen->music_listen + (int)$musicListen->music_listen;
+        $mergeListen->music_listen_today = (int)$mergeListen->music_listen_today + (int)$musicListen->music_listen_today;
+        $mergeDownload->music_downloads = (int)$mergeDownload->music_downloads + (int)$musicDownload->music_downloads;
+        $mergeDownload->music_downloads_today = (int)$mergeDownload->music_downloads_today + (int)$musicDownload->music_downloads_today;
+        $mergeListen->save();
+        $mergeDownload->save();
         // add comment & search * comment
         $merge->music_search_result = $merge->music_search_result + $music->music_search_result;
         $merge->music_favourite = $merge->music_favourite + $music->music_favourite;
@@ -910,6 +912,7 @@ class MusicController extends Controller
         }
         $merge->save();
         $music->music_deleted = $merge->music_id;
+        $music->music_delete_time = time();
         $this->musicDeletedRepository->getModel()::create($music->toArray());
         $this->uploadRepository->getModel()::where('music_id', $music->music_id)->update(['music_state' => UPLOAD_STAGE_DELETED, 'music_note' => 'Nhập nhạc']);
         $this->actionLogRepository->addAction('merge_music', 'Nhập nhạc từ '.$music->music_id. ' vào ' . $merge->music_id, $music->music_id);
@@ -924,12 +927,14 @@ class MusicController extends Controller
     }
     public function save_to_idMusic($music, $musicListen, $musicDownload, $musicQualityMax, $merge, $mergeListen, $mergeDownload, $mergeQualityMax) {
         // add listen & downlaod
-        $music->music_listen = $music->music_listen + $merge->music_listen;
-        $music->music_downloads = $music->music_downloads + $merge->music_downloads;
-        $musicListen->music_listen = $musicListen->music_listen + $mergeListen->music_listen;
-        $musicListen->music_listen_today = $musicListen->music_listen_today + $mergeListen->music_listen_today;
-        $musicDownload->music_downloads = $mergeDownload->music_downloads + $mergeListen->music_downloads;
-        $musicDownload->music_downloads_today = $mergeDownload->music_downloads_today + $mergeListen->music_downloads_today;
+        $music->music_listen = (int)$music->music_listen + (int)$merge->music_listen;
+        $music->music_downloads = (int)$music->music_downloads + (int)$merge->music_downloads;
+        $musicListen->music_listen = (int)$musicListen->music_listen + (int)$mergeListen->music_listen;
+        $musicListen->music_listen_today = (int)$musicListen->music_listen_today + (int)$mergeListen->music_listen_today;
+        $musicDownload->music_downloads = (int)$musicDownload->music_downloads + (int)$mergeListen->music_downloads;
+        $musicDownload->music_downloads_today = (int)$musicDownload->music_downloads_today + (int)$mergeListen->music_downloads_today;
+        $musicListen->save();
+        $musicDownload->save();
         // add comment & search * comment
         $music->music_search_result = $music->music_search_result + $merge->music_search_result;
         $music->music_favourite = $music->music_favourite + $merge->music_favourite;
@@ -942,8 +947,9 @@ class MusicController extends Controller
         if($musicQualityMax < $mergeQualityMax) {
             $music->music_new_id = $merge->music_id;
         }
-        $merge->music_deleted = $music->music_id;
         $music->save();
+        $merge->music_deleted = $music->music_id;
+        $merge->music_delete_time = time();
         $this->musicDeletedRepository->getModel()::create($merge->toArray());
         $this->uploadRepository->getModel()::where('music_id', $merge->music_id)->update(['music_state' => UPLOAD_STAGE_DELETED, 'music_note' => 'Nhập nhạc']);
         $this->actionLogRepository->addAction('merge_music', 'Nhập nhạc từ '.$merge->music_id. ' vào ' . $music->music_id, $merge->music_id);

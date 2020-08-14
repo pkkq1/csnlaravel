@@ -99,6 +99,7 @@ $htmlNotif['contact'] = $notif['contact'] > 0 ? '<span class="label pull-right b
         <li><a href="{{backpack_url('video')}}"><i class="fa fa-video-camera"></i> <span>Video</span></a></li>
         <li><a href="{{backpack_url('upload')}}"><i class="fa fa-upload"></i> <span>Upload</span></a></li>
         <li><a href="{{backpack_url('blocked_music')}}"><i class="fa fa-ban"></i> <span>Upload Blocked</span></a></li>
+        <li><a href="{{backpack_url('music_merge_deleted')}}"><i class="fa fa-ban"></i> <span>Nhạc Bị Nhập</span></a></li>
     </ul>
 </li>
 @endif

@@ -22,8 +22,11 @@ class CheckIfAdmin
      */
     private function checkIfUserIsAdmin($user)
     {
+        if($user->can('admin_view')) {
+            return true;
+        }
         // return ($user->is_admin == 1);
-        return true;
+        return false;
     }
 
     /**
