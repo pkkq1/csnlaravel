@@ -45,9 +45,10 @@ $titleMeta = 'Đăng ký VIP Chia Sẻ Nhạc';
                         <span style="font-size: 18px;">- Tên chủ tài khoản: TON NU THI THUAN</span><br>
                         <span style="font-size: 18px;">- Lời chúc (Tin nhắn): <span style="font-weight: 700; color: red">CSN &nbsp; {{Auth::user()->user_id}}</span></span><br>
                         <span style="font-size: 18px;">- Số tiền: 30.000 VNĐ</span><br>
+                        * Nếu bạn không sử dụng app Momo, bạn có thể nhờ bất kỳ người nào có sử dụng app Momo để chuyển tiền mua VIP giúp bạn, chỉ cần chuyển tiền theo đúng số tài khoản và nội dung lời chúc như trên.<br><br>
                         * Vui lòng vui lòng không gọi qua số điện thoại này, CSN sẽ chỉ hỗ trợ thắc mắc trong khung <a target="_blank" href="/user/{{Auth::user()->id}}?tab=message_csn">liên hệ</a> bên dưới.<br>
                         <br />
-                        Sau khi chuyển thành công, tài khoản của bạn cần chờ từ 5 phút đến 1 tiếng để được nâng cấp VIP. Nếu quá hạn thời gian mà tài khoản của bạn vẫn chưa lên VIP, vui lòng gửi thông tin liên hệ qua bảng bên dưới để BQT kiểm tra và xử lý.
+                        Sau khi chuyển thành công, tài khoản của bạn cần chờ từ 5 phút đến 1 tiếng để được hệ thống tự động nâng cấp VIP. Nếu quá hạn thời gian mà tài khoản của bạn vẫn chưa lên VIP, vui lòng gửi thông tin liên hệ qua bảng bên dưới để BQT kiểm tra và xử lý.
                         <br />&nbsp;
                     </div>
                     @else
