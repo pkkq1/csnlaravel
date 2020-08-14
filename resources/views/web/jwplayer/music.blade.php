@@ -34,8 +34,9 @@ global $pc_preroll_2;
 global $pc_preroll_3;
 global $pc_midroll;
 global $pc_midroll_2;
-global $memberVip;
+global $memberVip, $isVNIP;
 $memberVip = Helpers::checkMemberVip();
+$isVNIP = Helpers::isVNIP();
 
 $music->music_artist = str_replace(';', '; ', $music->music_artist);
 $music->music_artist = str_replace('  ', ' ', str_replace('  ', ' ', $music->music_artist));
@@ -117,6 +118,9 @@ $auth_listen = true;
                     <span title="Đăng tải: {{date('d/m/Y h:i', $music->music_time)}}" class="d-flex listen"><i class="material-icons" style="padding-top: 3px;">headset</i> {{number_format($music->music_listen)}}&nbsp;&nbsp;<i class="material-icons" style="font-size: 28px;">cloud_download</i> {{number_format($music->music_downloads)}}</span>
                 </div>
                 <div class="card mb-4 detail_lyric_1">
+                    @if (!$memberVip)
+                        <div style="text-align: right;"><a href="/chia-se-nhac-vip.html">[x Tắt quảng cáo]</a></div>
+                    @endif
                     <div id="csnplayerads" style="position:relative; z-index: 99999; width:100%;"> </div>
                     @if ($auth_listen)
                         <div id="csnplayer" class="<?php echo $musicSet['type_jw'] == 'video' ? 'csn_video' : 'csn_music' ?>" style="position:relative; z-index: 99999; width:100%;"> </div>
@@ -303,36 +307,95 @@ $auth_listen = true;
                                                 <ul class="list-unstyled download_status">
                                                     @if ($auth_listen)
                                                         <?php
-                                                        if (isset($file_url[1]['url'])) {
-                                                            echo '<li><a class="download_item" href="' . $file_url[1]['url'] . '" title="Click vào đây để tải bài hát ' . $music->music_title . '"><i class="material-icons">file_download</i> Link tải nhạc <span class="c1">' . strtoupper($file_url[1]['type']) . ' ' . $file_url[1]['label'] . '</span> ' . $file_url[1]['size'] . '</a></li>' . "\n";
-                                                        }
-                                                        if (Auth::check()) {
-                                                            if (isset($file_url[2]['url'])) {
-                                                                echo '<li><a class="download_item" href="' . $file_url[2]['url'] . '" title="Click vào đây để tải bài hát ' . $music->music_title . '"><i class="material-icons">file_download</i> Link tải nhạc <span class="c2">' . strtoupper($file_url[2]['type']) . ' ' . $file_url[2]['label'] . '</span> ' . $file_url[2]['size'] . '</a></li>' . "\n";
-                                                            }
-                                                            if (isset($file_url[3]['url'])) {
-                                                                echo '<li><a id="download_500" class="download_item" href="' . $file_url[3]['url'] . '" title="Click vào đây để tải bài hát ' . $music->music_title . '"><i class="material-icons">file_download</i> Link tải nhạc <span class="c3">' . strtoupper($file_url[3]['type']) . ' ' . $file_url[3]['label'] . '</span> ' . $file_url[3]['size'] . '</a></li>' . "\n";
-                                                            }
-                                                            if (isset($file_url[4]['url'])) {
+                                                        if ($isVNIP) {
+                                                            if (Auth::check()) {
+                                                                if (isset($file_url[1]['url'])) {
+                                                                    echo '<li><a class="download_item" href="' . $file_url[1]['url'] . '" title="Click vào đây để tải bài hát ' . $music->music_title . '"><i class="material-icons">file_download</i> Link tải nhạc <span class="c1">' . strtoupper($file_url[1]['type']) . ' ' . $file_url[1]['label'] . '</span> ' . $file_url[1]['size'] . '</a></li>' . "\n";
+                                                                }
+                                                                if (isset($file_url[2]['url'])) {
+                                                                    echo '<li><a class="download_item" href="' . $file_url[2]['url'] . '" title="Click vào đây để tải bài hát ' . $music->music_title . '"><i class="material-icons">file_download</i> Link tải nhạc <span class="c2">' . strtoupper($file_url[2]['type']) . ' ' . $file_url[2]['label'] . '</span> ' . $file_url[2]['size'] . '</a></li>' . "\n";
+                                                                }
+                                                                if (isset($file_url[3]['url'])) {
+                                                                    echo '<li><a id="download_500" class="download_item" href="' . $file_url[3]['url'] . '" title="Click vào đây để tải bài hát ' . $music->music_title . '"><i class="material-icons">file_download</i> Link tải nhạc <span class="c3">' . strtoupper($file_url[3]['type']) . ' ' . $file_url[3]['label'] . '</span> ' . $file_url[3]['size'] . '</a></li>' . "\n";
+                                                                }
+                                                                if (isset($file_url[4]['url'])) {
 //                                                              echo '<li><a class="download_item" href="javascript:downLossLessMusic();" title="Click vào đây để tải bài hát '. $music->music_title .'"><i class="material-icons">file_download</i> Link tải nhạc <span class="c4">'. strtoupper($file_url[4]['type']) .' '. $file_url[4]['label'] .'</span> '. $file_url[4]['size'] .'</a></li>' . "\n";
-                                                                echo '<li><a id="download_lossless" class="download_item" href="' . $file_url[4]['url'] . '" title="Click vào đây để tải bài hát ' . $music->music_title . '"><i class="material-icons">file_download</i> Link tải nhạc <span class="c4">' . strtoupper($file_url[4]['type']) . ' ' . $file_url[4]['label'] . '</span> ' . $file_url[4]['size'] . '</a></li>' . "\n";
-                                                            }
-                                                            if (isset($file_url[0]['url'])) {
-                                                                echo '<li><a class="download_item" href="' . $file_url[0]['url'] . '" title="Click vào đây để tải bài hát ' . $music->music_title . '"><i class="material-icons">file_download</i> Link tải nhạc chất lượng thấp: ' . strtoupper($file_url[0]['type']) . ' ' . $file_url[0]['label'] . ' ' . $file_url[0]['size'] . '</a></li>' . "\n";
+                                                                    echo '<li><a id="download_lossless" class="download_item" href="' . $file_url[4]['url'] . '" title="Click vào đây để tải bài hát ' . $music->music_title . '"><i class="material-icons">file_download</i> Link tải nhạc <span class="c4">' . strtoupper($file_url[4]['type']) . ' ' . $file_url[4]['label'] . '</span> ' . $file_url[4]['size'] . '</a></li>' . "\n";
+                                                                }
+                                                                if (isset($file_url[0]['url'])) {
+                                                                    echo '<li><a class="download_item" href="' . $file_url[0]['url'] . '" title="Click vào đây để tải bài hát ' . $music->music_title . '"><i class="material-icons">file_download</i> Link tải nhạc chất lượng thấp: ' . strtoupper($file_url[0]['type']) . ' ' . $file_url[0]['label'] . ' ' . $file_url[0]['size'] . '</a></li>' . "\n";
+                                                                }
+                                                            } else {
+                                                                if (isset($file_url[0]['url'])) {
+                                                                    echo '<li><a class="download_item" href="' . $file_url[0]['url'] . '" title="Click vào đây để tải bài hát ' . $music->music_title . '"><i class="material-icons">file_download</i> Link tải nhạc chất lượng thấp: ' . strtoupper($file_url[0]['type']) . ' ' . $file_url[0]['label'] . ' ' . $file_url[0]['size'] . '</a></li>' . "\n";
+                                                                }
+                                                                if (isset($file_url[1]['url'])) {
+                                                                    echo '<li><a class="download_item" href="' . $file_url[1]['url'] . '" title="Click vào đây để tải bài hát ' . $music->music_title . '"><i class="material-icons">file_download</i> Link tải nhạc <span class="c1">' . strtoupper($file_url[1]['type']) . ' ' . $file_url[1]['label'] . '</span> ' . $file_url[1]['size'] . '</a></li>' . "\n";
+                                                                }
+                                                                echo '<li>Vui lòng đăng nhập để tải nhạc chất lượng cao</li>' . "\n";
+                                                                if (isset($file_url[2]['url'])) {
+                                                                    echo '<li><a class="download_item" style="cursor:no-drop" title="Vui lòng đăng nhập để tải bài hát ' . $music->music_title . '"><i class="material-icons">file_download</i> Link tải nhạc <span class="c2">' . strtoupper($file_url[2]['type']) . ' ' . $file_url[2]['label'] . '</span> ' . $file_url[2]['size'] . '</a></li>' . "\n";
+                                                                }
+                                                                if (isset($file_url[3]['url'])) {
+                                                                    echo '<li style="cursor:no-drop"><a id="download_500" class="download_item" style="cursor:no-drop" title="Vui lòng đăng nhập để tải bài hát ' . $music->music_title . '"><i class="material-icons">file_download</i> Link tải nhạc <span class="c3">' . strtoupper($file_url[3]['type']) . ' ' . $file_url[3]['label'] . '</span> ' . $file_url[3]['size'] . '</a></li>' . "\n";
+                                                                }
+                                                                if (isset($file_url[4]['url'])) {
+                                                                    echo '<li><a id="download_lossless" class="download_item" style="cursor:no-drop" title="Vui lòng đăng nhập để tải bài hát ' . $music->music_title . '"><i class="material-icons">file_download</i> Link tải nhạc <span class="c4">' . strtoupper($file_url[4]['type']) . ' ' . $file_url[4]['label'] . '</span> ' . $file_url[4]['size'] . '</a></li>' . "\n";
+                                                                }
                                                             }
                                                         } else {
-                                                            if (isset($file_url[0]['url'])) {
-                                                                echo '<li><a class="download_item" href="' . $file_url[0]['url'] . '" title="Click vào đây để tải bài hát ' . $music->music_title . '"><i class="material-icons">file_download</i> Link tải nhạc chất lượng thấp: ' . strtoupper($file_url[0]['type']) . ' ' . $file_url[0]['label'] . ' ' . $file_url[0]['size'] . '</a></li>' . "\n";
-                                                            }
-                                                            echo '<li>Vui lòng đăng nhập để tải nhạc chất lượng cao</li>' . "\n";
-                                                            if (isset($file_url[2]['url'])) {
-                                                                echo '<li><a class="download_item" style="cursor:no-drop" title="Vui lòng đăng nhập để tải bài hát ' . $music->music_title . '"><i class="material-icons">file_download</i> Link tải nhạc <span class="c2">' . strtoupper($file_url[2]['type']) . ' ' . $file_url[2]['label'] . '</span> ' . $file_url[2]['size'] . '</a></li>' . "\n";
-                                                            }
-                                                            if (isset($file_url[3]['url'])) {
-                                                                echo '<li style="cursor:no-drop"><a id="download_500" class="download_item" style="cursor:no-drop" title="Vui lòng đăng nhập để tải bài hát ' . $music->music_title . '"><i class="material-icons">file_download</i> Link tải nhạc <span class="c3">' . strtoupper($file_url[3]['type']) . ' ' . $file_url[3]['label'] . '</span> ' . $file_url[3]['size'] . '</a></li>' . "\n";
-                                                            }
-                                                            if (isset($file_url[4]['url'])) {
-                                                                echo '<li><a id="download_lossless" class="download_item" style="cursor:no-drop" title="Vui lòng đăng nhập để tải bài hát ' . $music->music_title . '"><i class="material-icons">file_download</i> Link tải nhạc <span class="c4">' . strtoupper($file_url[4]['type']) . ' ' . $file_url[4]['label'] . '</span> ' . $file_url[4]['size'] . '</a></li>' . "\n";
+                                                            if (Auth::check()) {
+                                                                if ($memberVip) {
+                                                                    if (isset($file_url[1]['url'])) {
+                                                                        echo '<li><a class="download_item" href="' . $file_url[1]['url'] . '" title="Click vào đây để tải bài hát ' . $music->music_title . '"><i class="material-icons">file_download</i> Link tải nhạc <span class="c1">' . strtoupper($file_url[1]['type']) . ' ' . $file_url[1]['label'] . '</span> ' . $file_url[1]['size'] . '</a></li>' . "\n";
+                                                                    }
+                                                                    if (isset($file_url[2]['url'])) {
+                                                                        echo '<li><a class="download_item" href="' . $file_url[2]['url'] . '" title="Click vào đây để tải bài hát ' . $music->music_title . '"><i class="material-icons">file_download</i> Link tải nhạc <span class="c2">' . strtoupper($file_url[2]['type']) . ' ' . $file_url[2]['label'] . '</span> ' . $file_url[2]['size'] . '</a></li>' . "\n";
+                                                                    }
+                                                                    if (isset($file_url[3]['url'])) {
+                                                                        echo '<li><a id="download_500" class="download_item" href="' . $file_url[3]['url'] . '" title="Click vào đây để tải bài hát ' . $music->music_title . '"><i class="material-icons">file_download</i> Link tải nhạc <span class="c3">' . strtoupper($file_url[3]['type']) . ' ' . $file_url[3]['label'] . '</span> ' . $file_url[3]['size'] . '</a></li>' . "\n";
+                                                                    }
+                                                                    if (isset($file_url[4]['url'])) {
+                                                                        echo '<li><a id="download_lossless" class="download_item" href="' . $file_url[4]['url'] . '" title="Click vào đây để tải bài hát ' . $music->music_title . '"><i class="material-icons">file_download</i> Link tải nhạc <span class="c4">' . strtoupper($file_url[4]['type']) . ' ' . $file_url[4]['label'] . '</span> ' . $file_url[4]['size'] . '</a></li>' . "\n";
+                                                                    }
+                                                                    if (isset($file_url[0]['url'])) {
+                                                                        echo '<li><a class="download_item" href="' . $file_url[0]['url'] . '" title="Click vào đây để tải bài hát ' . $music->music_title . '"><i class="material-icons">file_download</i> Link tải nhạc chất lượng thấp: ' . strtoupper($file_url[0]['type']) . ' ' . $file_url[0]['label'] . ' ' . $file_url[0]['size'] . '</a></li>' . "\n";
+                                                                    }
+                                                                } else {
+                                                                    if (isset($file_url[0]['url'])) {
+                                                                        echo '<li><a class="download_item" href="' . $file_url[0]['url'] . '" title="Click vào đây để tải bài hát ' . $music->music_title . '"><i class="material-icons">file_download</i> Link tải nhạc chất lượng thấp: ' . strtoupper($file_url[0]['type']) . ' ' . $file_url[0]['label'] . ' ' . $file_url[0]['size'] . '</a></li>' . "\n";
+                                                                    }
+                                                                    if (isset($file_url[1]['url'])) {
+                                                                        echo '<li><a class="download_item" href="' . $file_url[1]['url'] . '" title="Click vào đây để tải bài hát ' . $music->music_title . '"><i class="material-icons">file_download</i> Link tải nhạc <span class="c1">' . strtoupper($file_url[1]['type']) . ' ' . $file_url[1]['label'] . '</span> ' . $file_url[1]['size'] . '</a></li>' . "\n";
+                                                                    }
+                                                                    echo '<li>Vui lòng mua VIP để tải nhạc chất lượng cao</li>' . "\n";
+                                                                    if (isset($file_url[2]['url'])) {
+                                                                        echo '<li><a class="download_item" style="cursor:no-drop" title="Vui lòng mua VIP để tải bài hát ' . $music->music_title . '"><i class="material-icons">file_download</i> Link tải nhạc <span class="c2">' . strtoupper($file_url[2]['type']) . ' ' . $file_url[2]['label'] . '</span> ' . $file_url[2]['size'] . '</a></li>' . "\n";
+                                                                    }
+                                                                    if (isset($file_url[3]['url'])) {
+                                                                        echo '<li style="cursor:no-drop"><a id="download_500" class="download_item" style="cursor:no-drop" title="Vui lòng mua VIP để tải bài hát ' . $music->music_title . '"><i class="material-icons">file_download</i> Link tải nhạc <span class="c3">' . strtoupper($file_url[3]['type']) . ' ' . $file_url[3]['label'] . '</span> ' . $file_url[3]['size'] . '</a></li>' . "\n";
+                                                                    }
+                                                                    if (isset($file_url[4]['url'])) {
+                                                                        echo '<li><a id="download_lossless" class="download_item" style="cursor:no-drop" title="Vui lòng mua VIP để tải bài hát ' . $music->music_title . '"><i class="material-icons">file_download</i> Link tải nhạc <span class="c4">' . strtoupper($file_url[4]['type']) . ' ' . $file_url[4]['label'] . '</span> ' . $file_url[4]['size'] . '</a></li>' . "\n";
+                                                                    }
+                                                                }
+                                                            } else {
+                                                                echo '<li>Vui lòng đăng nhập để tải nhạc</li>' . "\n";
+                                                                if (isset($file_url[0]['url'])) {
+                                                                    echo '<li><a class="download_item" style="cursor:no-drop" title="Vui lòng đăng nhập để tải bài hát ' . $music->music_title . '"><i class="material-icons">file_download</i> Link tải nhạc chất lượng thấp: ' . strtoupper($file_url[0]['type']) . ' ' . $file_url[0]['label'] . ' ' . $file_url[0]['size'] . '</a></li>' . "\n";
+                                                                }
+                                                                if (isset($file_url[1]['url'])) {
+                                                                    echo '<li><a class="download_item" style="cursor:no-drop" title="Vui lòng đăng nhập để tải bài hát ' . $music->music_title . '"><i class="material-icons">file_download</i> Link tải nhạc <span class="c1">' . strtoupper($file_url[1]['type']) . ' ' . $file_url[1]['label'] . '</span> ' . $file_url[1]['size'] . '</a></li>' . "\n";
+                                                                }
+                                                                if (isset($file_url[2]['url'])) {
+                                                                    echo '<li><a class="download_item" style="cursor:no-drop" title="Vui lòng đăng nhập để tải bài hát ' . $music->music_title . '"><i class="material-icons">file_download</i> Link tải nhạc <span class="c2">' . strtoupper($file_url[2]['type']) . ' ' . $file_url[2]['label'] . '</span> ' . $file_url[2]['size'] . '</a></li>' . "\n";
+                                                                }
+                                                                if (isset($file_url[3]['url'])) {
+                                                                    echo '<li><a id="download_500" class="download_item" style="cursor:no-drop" title="Vui lòng đăng nhập để tải bài hát ' . $music->music_title . '"><i class="material-icons">file_download</i> Link tải nhạc <span class="c3">' . strtoupper($file_url[3]['type']) . ' ' . $file_url[3]['label'] . '</span> ' . $file_url[3]['size'] . '</a></li>' . "\n";
+                                                                }
+                                                                if (isset($file_url[4]['url'])) {
+                                                                    echo '<li><a id="download_lossless" class="download_item" style="cursor:no-drop" title="Vui lòng đăng nhập để tải bài hát ' . $music->music_title . '"><i class="material-icons">file_download</i> Link tải nhạc <span class="c4">' . strtoupper($file_url[4]['type']) . ' ' . $file_url[4]['label'] . '</span> ' . $file_url[4]['size'] . '</a></li>' . "\n";
+                                                                }
                                                             }
                                                         }
                                                         ?>
@@ -813,9 +876,10 @@ $auth_listen = true;
             sources: [
                     <?php
                     $typeJwSource = $musicSet['type_jw'] == 'video' ? 'mp4' : 'mp3';
+                    $max_i = ($memberVip) ? ($isVNIP ? 3 : 2) : ((Auth::check() && $isVNIP) ? 1 : 0);
                     for ($i=0; $i<sizeof($file_url); $i++){
                         echo '{"file": "'. $file_url[$i]['url'] .'", "label": "'. $file_url[$i]['label'] .'", "type": "'.$typeJwSource.'", "default": '. (($i==1) ? 'true' : 'false') .'},';
-                        if ($i > 2 && $musicSet['type_jw'] != 'video') break;
+                        if ($i > $max_i && $musicSet['type_jw'] != 'video') break;
                     }
                     ?>
             ],

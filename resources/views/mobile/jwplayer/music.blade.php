@@ -19,8 +19,10 @@ global $typeDup;
 global $mobile_preroll;
 global $mobile_preroll_2;
 global $mobile_preroll_3;
-global $memberVip;
+global $memberVip, $isVNIP;
 $memberVip = Helpers::checkMemberVip();
+$isVNIP = Helpers::isVNIP();
+
 $titleMeta = $music->music_title . ' - '. str_replace(';', ', ', $music->music_artist);
 $file_url = Helpers::file_url($music);
 $lyric_array = Helpers::lyric_to_web($music->music_lyric);
@@ -90,6 +92,9 @@ $auth_listen = true;
                     <div class="block_thongtin">
                         <div align="center"><h1 class="name_song mb-2">{{$music->music_title}} - {{$music->music_artist}}</h1></div>
                         <div class="infor_main" style="min-height: 400px;">
+                            @if (!$memberVip)
+                                <div style="text-align: right;"><a href="/chia-se-nhac-vip.html">[x Tắt quảng cáo]</a></div>
+                            @endif
                             @if($musicSet['type_jw'] != 'video')
                                 <div id="companion_cover">
                                     <div id="bg_blue" style="display: none; background: url('{{$thumnailMusic}}') no-repeat center;background-size: cover;padding-bottom: 70%;"
@@ -417,59 +422,147 @@ $auth_listen = true;
             <div class="container">
                 <div class="form-group download_status popup_download">
                     <?php
-                    if ( isset($file_url[1]['url']) ){
-                        echo '<label class="relative">
-                                <input id="exampleInputEmail1" value="'. $file_url[1]['url'] .'" type="radio" name="quality" class="form-control d-none"><strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 1 </span><span class="cl-green">'. strtoupper($file_url[1]['type']) .' '. $file_url[1]['label'] .'</span><span> '. $file_url[1]['size'] .'</span></strong>
+                    if ($isVNIP) {
+                        if (Auth::check()) {
+                            if (isset($file_url[1]['url'])) {
+                                echo '<label class="relative">
+                                <input id="exampleInputEmail1" value="' . $file_url[1]['url'] . '" type="radio" name="quality" class="form-control d-none"><strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 1 </span><span class="cl-green">' . strtoupper($file_url[1]['type']) . ' ' . $file_url[1]['label'] . '</span><span> ' . $file_url[1]['size'] . '</span></strong>
                             </label>';
-                    }
-                    if (Auth::check()) {
-                        if (isset($file_url[2]['url'])) {
-                            echo '<label class="relative">
+                            }
+                            if (isset($file_url[2]['url'])) {
+                                echo '<label class="relative">
                                 <input id="exampleInputEmail1" value="' . $file_url[2]['url'] . '" type="radio" name="quality" class="form-control d-none"><strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 2 </span><span class="cl-blue">' . strtoupper($file_url[2]['type']) . ' ' . $file_url[2]['label'] . '</span><span> ' . $file_url[2]['size'] . '</span></strong>
                             </label>';
-                        }
-                        if (isset($file_url[3]['url'])) {
-                            echo '<label class="relative download_500">
+                            }
+                            if (isset($file_url[3]['url'])) {
+                                echo '<label class="relative download_500">
                                 <input id="exampleInputEmail1" value="' . $file_url[3]['url'] . '" type="radio" name="quality" ' . (isset($file_url[4]['url']) ? 'checked=""' : '') . ' class="form-control d-none"><strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 3 </span><span class="cl-orange">' . strtoupper($file_url[3]['type']) . ' ' . $file_url[3]['label'] . '</span><span> ' . $file_url[3]['size'] . '</span></strong>
                             </label>';
-                        }
-                        if (isset($file_url[4]['url'])) {
+                            }
+                            if (isset($file_url[4]['url'])) {
 //                        echo '<label class="relative">
 //                                <input id="exampleInputEmail1" value="'. $file_url[4]['url'] .'" type="radio" name="quality" checked="" class="form-control d-none"><strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 4 </span><span class="cl-pink">'. strtoupper($file_url[4]['type']) .' '. $file_url[4]['label'] .'</span><span> '. $file_url[4]['size'] .'</span></strong>
 //                            </label>';
-                            echo '<label class="relative download_lossless">
+                                echo '<label class="relative download_lossless">
                                 <input id="exampleInputEmail1" value="' . $file_url[4]['url'] . '" type="radio" name="quality" class="form-control d-none"><strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 4 </span><span class="cl-pink">' . strtoupper($file_url[4]['type']) . ' ' . $file_url[4]['label'] . '</span><span> ' . $file_url[4]['size'] . '</span></strong>
                             </label>';
-                        }
-                        if ( isset($file_url[0]['url']) ){
-                            echo '<label class="relative">
-                                <input id="exampleInputEmail1" value="'. $file_url[0]['url'] .'" type="radio" name="quality" class="form-control d-none"><strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 5 </span><span class="">'. strtoupper($file_url[0]['type']) .' '. $file_url[0]['label'] .'</span><span> '. $file_url[0]['size'] .'</span></strong>
+                            }
+                            if (isset($file_url[0]['url'])) {
+                                echo '<label class="relative">
+                                <input id="exampleInputEmail1" value="' . $file_url[0]['url'] . '" type="radio" name="quality" class="form-control d-none"><strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 5 </span><span class="">' . strtoupper($file_url[0]['type']) . ' ' . $file_url[0]['label'] . '</span><span> ' . $file_url[0]['size'] . '</span></strong>
                             </label>';
+                            }
+                        } else {
+                            if (isset($file_url[0]['url'])) {
+                                echo '<label class="relative">
+                                <input id="exampleInputEmail1" value="' . $file_url[0]['url'] . '" type="radio" name="quality" class="form-control d-none"><strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 5 </span><span class="">' . strtoupper($file_url[0]['type']) . ' ' . $file_url[0]['label'] . '</span><span> ' . $file_url[0]['size'] . '</span></strong>
+                            </label>';
+                            }
+                            if (isset($file_url[1]['url'])) {
+                                echo '<label class="relative">
+                                <input id="exampleInputEmail1" value="' . $file_url[1]['url'] . '" type="radio" name="quality" class="form-control d-none"><strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 1 </span><span class="cl-green">' . strtoupper($file_url[1]['type']) . ' ' . $file_url[1]['label'] . '</span><span> ' . $file_url[1]['size'] . '</span></strong>
+                            </label>';
+                            }
+                            echo "<label>Vui lòng đăng nhập để tải nhạc chất lượng cao</label>";
+                            if (isset($file_url[2]['url'])) {
+                                echo '<label class="relative">
+                                <strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 2 </span><span class="cl-blue">' . strtoupper($file_url[2]['type']) . ' ' . $file_url[2]['label'] . '</span><span> ' . $file_url[2]['size'] . '</span></strong>
+                            </label>';
+                            }
+                            if (isset($file_url[3]['url'])) {
+                                echo '<label class="relative download_500">
+                                <strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 3 </span><span class="cl-orange">' . strtoupper($file_url[3]['type']) . ' ' . $file_url[3]['label'] . '</span><span> ' . $file_url[3]['size'] . '</span></strong>
+                            </label>';
+                            }
+                            if (isset($file_url[4]['url'])) {
+                                echo '<label class="relative download_lossless">
+                                <strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 4 </span><span class="cl-pink">' . strtoupper($file_url[4]['type']) . ' ' . $file_url[4]['label'] . '</span><span> ' . $file_url[4]['size'] . '</span></strong>
+                            </label>';
+                            }
                         }
                     } else {
-                        if ( isset($file_url[0]['url']) ){
-                            echo '<label class="relative">
-                                <input id="exampleInputEmail1" value="'. $file_url[0]['url'] .'" type="radio" name="quality" class="form-control d-none"><strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 5 </span><span class="">'. strtoupper($file_url[0]['type']) .' '. $file_url[0]['label'] .'</span><span> '. $file_url[0]['size'] .'</span></strong>
+                        if (Auth::check()) {
+                            if ($memberVip) {
+                                if (isset($file_url[1]['url'])) {
+                                    echo '<label class="relative">
+                                <input id="exampleInputEmail1" value="' . $file_url[1]['url'] . '" type="radio" name="quality" class="form-control d-none"><strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 1 </span><span class="cl-green">' . strtoupper($file_url[1]['type']) . ' ' . $file_url[1]['label'] . '</span><span> ' . $file_url[1]['size'] . '</span></strong>
                             </label>';
-                        }
-                        echo "<label>Vui lòng đăng nhập để tải nhạc chất lượng cao</label>";
-                        if ( isset($file_url[2]['url']) ){
-                            echo '<label class="relative">
-                                <strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 2 </span><span class="cl-blue">'. strtoupper($file_url[2]['type']) .' '. $file_url[2]['label'] .'</span><span> '. $file_url[2]['size'] .'</span></strong>
+                                }
+                                if (isset($file_url[2]['url'])) {
+                                    echo '<label class="relative">
+                                <input id="exampleInputEmail1" value="' . $file_url[2]['url'] . '" type="radio" name="quality" class="form-control d-none"><strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 2 </span><span class="cl-blue">' . strtoupper($file_url[2]['type']) . ' ' . $file_url[2]['label'] . '</span><span> ' . $file_url[2]['size'] . '</span></strong>
                             </label>';
-                        }
-                        if ( isset($file_url[3]['url']) ){
-                            echo '<label class="relative download_500">
-                                <strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 3 </span><span class="cl-orange">'. strtoupper($file_url[3]['type']) .' '. $file_url[3]['label'] .'</span><span> '. $file_url[3]['size'] .'</span></strong>
+                                }
+                                if (isset($file_url[3]['url'])) {
+                                    echo '<label class="relative download_500">
+                                <input id="exampleInputEmail1" value="' . $file_url[3]['url'] . '" type="radio" name="quality" ' . (isset($file_url[4]['url']) ? 'checked=""' : '') . ' class="form-control d-none"><strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 3 </span><span class="cl-orange">' . strtoupper($file_url[3]['type']) . ' ' . $file_url[3]['label'] . '</span><span> ' . $file_url[3]['size'] . '</span></strong>
                             </label>';
-                        }
-                        if ( isset($file_url[4]['url']) ){
-//                        echo '<label class="relative">
-//                                <input id="exampleInputEmail1" value="'. $file_url[4]['url'] .'" type="radio" name="quality" checked="" class="form-control d-none"><strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 4 </span><span class="cl-pink">'. strtoupper($file_url[4]['type']) .' '. $file_url[4]['label'] .'</span><span> '. $file_url[4]['size'] .'</span></strong>
-//                            </label>';
-                            echo '<label class="relative download_lossless">
-                                <strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 4 </span><span class="cl-pink">'. strtoupper($file_url[4]['type']) .' '. $file_url[4]['label'] .'</span><span> '. $file_url[4]['size'] .'</span></strong>
+                                }
+                                if (isset($file_url[4]['url'])) {
+                                    echo '<label class="relative download_lossless">
+                                <input id="exampleInputEmail1" value="' . $file_url[4]['url'] . '" type="radio" name="quality" class="form-control d-none"><strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 4 </span><span class="cl-pink">' . strtoupper($file_url[4]['type']) . ' ' . $file_url[4]['label'] . '</span><span> ' . $file_url[4]['size'] . '</span></strong>
                             </label>';
+                                }
+                                if (isset($file_url[0]['url'])) {
+                                    echo '<label class="relative">
+                                <input id="exampleInputEmail1" value="' . $file_url[0]['url'] . '" type="radio" name="quality" class="form-control d-none"><strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 5 </span><span class="">' . strtoupper($file_url[0]['type']) . ' ' . $file_url[0]['label'] . '</span><span> ' . $file_url[0]['size'] . '</span></strong>
+                            </label>';
+                                }
+                            } else {
+                                if (isset($file_url[0]['url'])) {
+                                    echo '<label class="relative">
+                                <input id="exampleInputEmail1" value="' . $file_url[0]['url'] . '" type="radio" name="quality" class="form-control d-none"><strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 5 </span><span class="">' . strtoupper($file_url[0]['type']) . ' ' . $file_url[0]['label'] . '</span><span> ' . $file_url[0]['size'] . '</span></strong>
+                            </label>';
+                                }
+                                if (isset($file_url[1]['url'])) {
+                                    echo '<label class="relative">
+                                <input id="exampleInputEmail1" value="' . $file_url[1]['url'] . '" type="radio" name="quality" class="form-control d-none"><strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 1 </span><span class="cl-green">' . strtoupper($file_url[1]['type']) . ' ' . $file_url[1]['label'] . '</span><span> ' . $file_url[1]['size'] . '</span></strong>
+                            </label>';
+                                }
+                                echo '<label>Vui lòng mua VIP để tải nhạc chất lượng cao</label>' . "\n";
+                                if (isset($file_url[2]['url'])) {
+                                    echo '<label class="relative">
+                                <strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 2 </span><span class="cl-blue">' . strtoupper($file_url[2]['type']) . ' ' . $file_url[2]['label'] . '</span><span> ' . $file_url[2]['size'] . '</span></strong>
+                            </label>';
+                                }
+                                if (isset($file_url[3]['url'])) {
+                                    echo '<label class="relative download_500">
+                                <strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 3 </span><span class="cl-orange">' . strtoupper($file_url[3]['type']) . ' ' . $file_url[3]['label'] . '</span><span> ' . $file_url[3]['size'] . '</span></strong>
+                            </label>';
+                                }
+                                if (isset($file_url[4]['url'])) {
+                                    echo '<label class="relative download_lossless">
+                                <strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 4 </span><span class="cl-pink">' . strtoupper($file_url[4]['type']) . ' ' . $file_url[4]['label'] . '</span><span> ' . $file_url[4]['size'] . '</span></strong>
+                            </label>';
+                                }
+                            }
+                        } else {
+                                echo '<label>Vui lòng đăng nhập để tải nhạc</label>' . "\n";
+                                if (isset($file_url[0]['url'])) {
+                                echo '<label class="relative">
+                                <strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 5 </span><span class="">' . strtoupper($file_url[0]['type']) . ' ' . $file_url[0]['label'] . '</span><span> ' . $file_url[0]['size'] . '</span></strong>
+                            </label>';
+                            }
+                            if (isset($file_url[1]['url'])) {
+                                echo '<label class="relative">
+                                <strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 1 </span><span class="cl-green">' . strtoupper($file_url[1]['type']) . ' ' . $file_url[1]['label'] . '</span><span> ' . $file_url[1]['size'] . '</span></strong>
+                            </label>';
+                            }
+                            if (isset($file_url[2]['url'])) {
+                                echo '<label class="relative">
+                                <strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 2 </span><span class="cl-blue">' . strtoupper($file_url[2]['type']) . ' ' . $file_url[2]['label'] . '</span><span> ' . $file_url[2]['size'] . '</span></strong>
+                            </label>';
+                            }
+                            if (isset($file_url[3]['url'])) {
+                                echo '<label class="relative download_500">
+                                <strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 3 </span><span class="cl-orange">' . strtoupper($file_url[3]['type']) . ' ' . $file_url[3]['label'] . '</span><span> ' . $file_url[3]['size'] . '</span></strong>
+                            </label>';
+                            }
+                            if (isset($file_url[4]['url'])) {
+                                echo '<label class="relative download_lossless">
+                                <strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 4 </span><span class="cl-pink">' . strtoupper($file_url[4]['type']) . ' ' . $file_url[4]['label'] . '</span><span> ' . $file_url[4]['size'] . '</span></strong>
+                            </label>';
+                            }
                         }
                     }
                     ?>
@@ -617,9 +710,10 @@ $auth_listen = true;
             sources: [
                 <?php
                 $typeJwSource = $musicSet['type_jw'] == 'video' ? 'mp4' : 'mp3';
+                $max_i = ($memberVip) ? ($isVNIP ? 3 : 2) : ((Auth::check() && $isVNIP) ? 1 : 0);
                 for ($i = 0; $i < sizeof($file_url); $i++) {
                     echo '{"file": "' . $file_url[$i]['url'] . '", "label": "' . $file_url[$i]['label'] . '", "type": "' . $typeJwSource . '", "default": ' . (($i == 1) ? 'true' : 'false') . '},';
-                    if ($i > 2 && $musicSet['type_jw'] != 'video') break;
+                    if ($i > $max_i && $musicSet['type_jw'] != 'video') break;
                 }
                 ?>
             ],

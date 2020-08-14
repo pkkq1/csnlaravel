@@ -1062,32 +1062,29 @@ class Helpers
                     'type' => 'mp4'
                 );
             }
-
-            if( $memberVip || self::isVNIP() ) {
-                if ($music_info['music_320_filesize'] > 0) {
-                    $file_url[] = array(
-                        'url' => $url . 'downloads/' . ceil($music_id / 1000) . '/' . date('w') . '/' . rawurlencode($music_info['music_filename_noext']) . "/320/" . rawurlencode($music_info['music_file_cache']) . "." . $music_info['music_extension'],
-                        'label' => '480p',
-                        'size' => self::filesize2str($music_info['music_320_filesize']),
-                        'type' => 'mp4'
-                    );
-                }
-                if ($music_info['music_m4a_filesize'] > 0) {
-                    $file_url[] = array(
-                        'url' => $url . 'downloads/' . ceil($music_id / 1000) . '/' . date('w') . '/' . rawurlencode($music_info['music_filename_noext']) . "/m4a/" . rawurlencode($music_info['music_file_cache']) . "." . $music_info['music_extension'],
-                        'label' => '720p',
-                        'size' => self::filesize2str($music_info['music_m4a_filesize']),
-                        'type' => 'mp4'
-                    );
-                }
-                if ($music_info['music_lossless_filesize'] > 0) {
-                    $file_url[] = array(
-                        'url' => $url . 'downloads/' . ceil($music_id / 1000) . '/' . date('w') . '/' . rawurlencode($music_info['music_filename_noext']) . "/flac/" . rawurlencode($music_info['music_file_cache']) . "." . $music_info['music_extension'],
-                        'label' => '1080p',
-                        'size' => self::filesize2str($music_info['music_lossless_filesize']),
-                        'type' => 'mp4'
-                    );
-                }
+            if ($music_info['music_320_filesize'] > 0) {
+                $file_url[] = array(
+                    'url' => $url . 'downloads/' . ceil($music_id / 1000) . '/' . date('w') . '/' . rawurlencode($music_info['music_filename_noext']) . "/320/" . rawurlencode($music_info['music_file_cache']) . "." . $music_info['music_extension'],
+                    'label' => '480p',
+                    'size' => self::filesize2str($music_info['music_320_filesize']),
+                    'type' => 'mp4'
+                );
+            }
+            if ($music_info['music_m4a_filesize'] > 0) {
+                $file_url[] = array(
+                    'url' => $url . 'downloads/' . ceil($music_id / 1000) . '/' . date('w') . '/' . rawurlencode($music_info['music_filename_noext']) . "/m4a/" . rawurlencode($music_info['music_file_cache']) . "." . $music_info['music_extension'],
+                    'label' => '720p',
+                    'size' => self::filesize2str($music_info['music_m4a_filesize']),
+                    'type' => 'mp4'
+                );
+            }
+            if ($music_info['music_lossless_filesize'] > 0) {
+                $file_url[] = array(
+                    'url' => $url . 'downloads/' . ceil($music_id / 1000) . '/' . date('w') . '/' . rawurlencode($music_info['music_filename_noext']) . "/flac/" . rawurlencode($music_info['music_file_cache']) . "." . $music_info['music_extension'],
+                    'label' => '1080p',
+                    'size' => self::filesize2str($music_info['music_lossless_filesize']),
+                    'type' => 'mp4'
+                );
             }
         } else {
             $file_url = array();
@@ -1107,34 +1104,31 @@ class Helpers
                     'type' => 'mp3'
                 );
             }
-
-            if( $memberVip || self::isVNIP() ) {
-                if ($music_info['music_320_filesize'] > 0) {
-                    $file_url[] = array(
-                        'url' => $url . 'downloads/' . ceil($music_id / 1000) . '/' . date('w') . '/' . rawurlencode($music_info['music_filename_noext']) . "/320/" . rawurlencode($music_info['music_file_cache']) . "." . $music_info['music_extension'],
-                        'label' => '320kbps',
-                        'size' => self::filesize2str($music_info['music_320_filesize']),
-                        'type' => 'mp3'
-                    );
-                }
-                if ($music_info['music_m4a_filesize'] > 0) {
-                    $file_url[] = array(
-                        'url' => $url . 'downloads/' . ceil($music_id / 1000) . '/' . date('w') . '/' . rawurlencode($music_info['music_filename_noext']) . "/m4a/" . rawurlencode($music_info['music_file_cache']) . ".m4a",
-                        'label' => '500kbps',
-                        'size' => self::filesize2str($music_info['music_m4a_filesize']),
-                        'type' => 'm4a'
-                    );
-                }
-                if ($music_info['music_lossless_filesize'] > 0) {
-                    //if (env('APP_ENV') != 'local' && Auth::check()) {
-                        $file_url[] = array(
-                            'url' => $url . 'downloads/' . ceil($music_id / 1000) . '/' . date('w') . '/' . rawurlencode($music_info['music_filename_noext']) . "/flac/" . rawurlencode($music_info['music_file_cache']) . ".flac",
-                            'label' => 'Lossless',
-                            'size' => self::filesize2str($music_info['music_lossless_filesize']),
-                            'type' => 'flac'
-                        );
-                    //}
-                }
+            if ($music_info['music_320_filesize'] > 0) {
+                $file_url[] = array(
+                    'url' => $url . 'downloads/' . ceil($music_id / 1000) . '/' . date('w') . '/' . rawurlencode($music_info['music_filename_noext']) . "/320/" . rawurlencode($music_info['music_file_cache']) . "." . $music_info['music_extension'],
+                    'label' => '320kbps',
+                    'size' => self::filesize2str($music_info['music_320_filesize']),
+                    'type' => 'mp3'
+                );
+            }
+            if ($music_info['music_m4a_filesize'] > 0) {
+                $file_url[] = array(
+                    'url' => $url . 'downloads/' . ceil($music_id / 1000) . '/' . date('w') . '/' . rawurlencode($music_info['music_filename_noext']) . "/m4a/" . rawurlencode($music_info['music_file_cache']) . ".m4a",
+                    'label' => '500kbps',
+                    'size' => self::filesize2str($music_info['music_m4a_filesize']),
+                    'type' => 'm4a'
+                );
+            }
+            if ($music_info['music_lossless_filesize'] > 0) {
+                //if (env('APP_ENV') != 'local' && Auth::check()) {
+                $file_url[] = array(
+                    'url' => $url . 'downloads/' . ceil($music_id / 1000) . '/' . date('w') . '/' . rawurlencode($music_info['music_filename_noext']) . "/flac/" . rawurlencode($music_info['music_file_cache']) . ".flac",
+                    'label' => 'Lossless',
+                    'size' => self::filesize2str($music_info['music_lossless_filesize']),
+                    'type' => 'flac'
+                );
+                //}
             }
         }
 

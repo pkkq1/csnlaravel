@@ -33,7 +33,10 @@ $titleMeta = 'Đăng ký VIP Chia Sẻ Nhạc';
                     </p>
 
                     <p style="font-family: 'SFProDisplay-Regular'; color: #333; font-size: 16px;">
-                        Để không bị các quảng cáo làm phiền khi bạn truy cập vào hệ thống website và app Chia Sẻ Nhạc, bạn cần nâng cấp tài khoản mình lên tài khoản VIP.
+                        Quyền lợi của thành viên VIP:<br>
+                        - Không bị các quảng cáo làm phiền khi bạn truy cập vào hệ thống website và app Chia Sẻ Nhạc.<br>
+                        - Được nghe thoải mái các bài hát trên hệ thống với chất lượng cao.<br>
+                        - Được tải thoải mái các bài hát trên hệ thống với chất lượng cao nhất.<br>
                         Hiện tại, mua tài khoản VIP 6 tháng trên hệ thống Chia Sẻ Nhạc đang được khuyến mãi 50%, giá gốc là <strike>60.000đ</strike>, giảm còn 30.000đ.
                         <br>
                     </p>
@@ -41,13 +44,15 @@ $titleMeta = 'Đăng ký VIP Chia Sẻ Nhạc';
 
                     <img style="width: 38%; float: right; display: inline-block;" src="/imgs/qr-code-vip-csn.jpg">
                     <div style="font-family: 'SFProDisplay-Regular'; color: #333; font-size: 16px; width: 60%;display: inline-block; float: left; padding-top: 20px;">
-                        <span style="font-size: 18px;">Bạn vui lòng chuyển tiền vào số Momo: <b>0389524211</b></span><br>
+                        <span style="font-size: 18px;">Hiện tại, chúng tôi chỉ hỗ trợ duy nhất 1 hình thức thanh toán bằng cách dùng app MOMO chuyển tiền.</span><br>
+                        <span style="font-size: 18px;">Bạn vui lòng dùng app Momo chuyển tới số: <b>0389524211</b></span><br>
                         <span style="font-size: 18px;">- Tên chủ tài khoản: TON NU THI THUAN</span><br>
                         <span style="font-size: 18px;">- Lời chúc (Tin nhắn): <span style="font-weight: 700; color: red">CSN &nbsp; {{Auth::user()->user_id}}</span></span><br>
                         <span style="font-size: 18px;">- Số tiền: 30.000 VNĐ</span><br>
+                        * Nếu bạn không sử dụng app Momo, bạn có thể nhờ bất kỳ người nào có sử dụng app Momo để chuyển tiền mua VIP giúp bạn, chỉ cần chuyển tiền theo đúng số tài khoản và nội dung lời chúc như trên.<br><br>
                         * Vui lòng vui lòng không gọi qua số điện thoại này, CSN sẽ chỉ hỗ trợ thắc mắc trong khung <a target="_blank" href="/user/{{Auth::user()->id}}?tab=message_csn">liên hệ</a> bên dưới.<br>
                         <br />
-                        Sau khi chuyển thành công, tài khoản của bạn cần chờ từ 5 phút đến 1 tiếng để được nâng cấp VIP. Nếu quá hạn thời gian mà tài khoản của bạn vẫn chưa lên VIP, vui lòng gửi thông tin liên hệ qua bảng bên dưới để BQT kiểm tra và xử lý.
+                        Sau khi chuyển thành công, tài khoản của bạn cần chờ từ 5 phút đến 1 tiếng để được hệ thống tự động nâng cấp VIP. Nếu quá hạn thời gian mà tài khoản của bạn vẫn chưa lên VIP, vui lòng gửi thông tin liên hệ qua bảng bên dưới để BQT kiểm tra và xử lý.
                         <br />&nbsp;
                     </div>
                     @else
@@ -90,7 +95,7 @@ $titleMeta = 'Đăng ký VIP Chia Sẻ Nhạc';
                                 <label for="time_request">Khoản thời gian đã nạp:</label>
                                 <input required style="width: 100%;margin-bottom: 10px;" class="form-control" type="datetime-local" id="time_request" value="{{old('time_request')}}" name="time_request">
                                 <label for="message_request">Nội dung cần hỗ trợ:</label>
-                                <textarea required style="width: 100%; margin-bottom: 5px;" class="form-control" name="message_request" maxlength="1000" value="{{old('message_request')}}" rows="3" placeholder="Nhập nội dung ghi chú quá trình nạp vip của bạn" ></textarea>
+                                <textarea required style="width: 100%; margin-bottom: 5px;" class="form-control" name="message_request" maxlength="1000" value="{{old('message_request')}}" rows="3" placeholder="Nhập ý kiến thắc mắc của bạn" ></textarea>
                                 <div class="text-center col-12">
                                     <button type="submit" id="btn-upload" class="btn btn-danger btn-upload">Gửi Hỗ Trợ</button>
                                 </div>
