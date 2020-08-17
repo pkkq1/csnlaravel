@@ -63,7 +63,6 @@ class RequestPaymentVipController extends Controller
         if(!$level) {
             return new JsonResponse(['message' => 'Lỗi không tìm thấy gói nâng cấp', 'code' => 400, 'data' => [], 'error' => []]);
         }
-        dd(1);
         $resultRequest = $this->requestApiVip->getModel()::create([
            'title' => $request->title,
            'name' => $request->name,
