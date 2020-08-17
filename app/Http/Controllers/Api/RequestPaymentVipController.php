@@ -53,15 +53,17 @@ class RequestPaymentVipController extends Controller
      */
     public function saveUpRequest(Request $request)
     {
-        if(!$request->code) {
-            if($this->requestApiVip->getModel()::where('code', $request->code)->first()) {
-                return new JsonResponse(['message' => 'Trùng mã code', 'code' => 400, 'data' => [], 'error' => []]);
-            }
+        if(!$request->title || !$request->name || !$request->code || !$request->phone || !$request->amount) {
+            return new JsonResponse(['message' => 'Lỗi thiếu dữ liệu truyền vào', 'code' => 400, 'data' => [], 'error' => []]);
+        }
+        if($this->requestApiVip->getModel()::where('code', $request->code)->first()) {
+            return new JsonResponse(['message' => 'Trùng mã code', 'code' => 400, 'data' => [], 'error' => []]);
         }
         $level = $this->levelRepository->getModel()::where('level_id', LEVEL_ID_DEFAULT_VIP_1_60DAY)->first();
         if(!$level) {
             return new JsonResponse(['message' => 'Lỗi không tìm thấy gói nâng cấp', 'code' => 400, 'data' => [], 'error' => []]);
         }
+        dd(1);
         $resultRequest = $this->requestApiVip->getModel()::create([
            'title' => $request->title,
            'name' => $request->name,
