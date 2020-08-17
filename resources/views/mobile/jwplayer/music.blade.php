@@ -93,7 +93,7 @@ $auth_listen = true;
                         <div align="center"><h1 class="name_song mb-2">{{$music->music_title}} - {{$music->music_artist}}</h1></div>
                         <div class="infor_main" style="min-height: 400px;">
                             @if (!$memberVip)
-                                <div style="text-align: right;"><a href="/chia-se-nhac-vip.html">[x Tắt quảng cáo]</a></div>
+                                <!-- div style="text-align: right;"><a href="/chia-se-nhac-vip.html">[x Tắt quảng cáo]</a></div -->
                             @endif
                             @if($musicSet['type_jw'] != 'video')
                                 <div id="companion_cover">
