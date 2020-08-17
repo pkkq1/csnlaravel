@@ -464,7 +464,7 @@ $auth_listen = true;
                                 <input id="exampleInputEmail1" value="' . $file_url[1]['url'] . '" type="radio" name="quality" class="form-control d-none"><strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 1 </span><span class="cl-green">' . strtoupper($file_url[1]['type']) . ' ' . $file_url[1]['label'] . '</span><span> ' . $file_url[1]['size'] . '</span></strong>
                             </label>';
                             }
-                            echo '<label>Vui lòng đăng nhập hoặc <a href="https://chiasenhac.vn/app/csn.html">sử dụng app CSN</a> để tải nhạc chất lượng cao</label>';
+                            //echo '<label>Vui lòng đăng nhập hoặc <a href="https://chiasenhac.vn/app/csn.html">sử dụng app CSN</a> để tải nhạc chất lượng cao</label>';
                             if (isset($file_url[2]['url'])) {
                                 echo '<label class="relative">
                                 <strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 2 </span><span class="cl-blue">' . strtoupper($file_url[2]['type']) . ' ' . $file_url[2]['label'] . '</span><span> ' . $file_url[2]['size'] . '</span></strong>
