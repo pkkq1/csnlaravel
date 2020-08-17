@@ -5,10 +5,9 @@ use App\Library\Helpers;
     <span class="title"></span>
     @if($mySelf)
         <span>
-                                    <a class="btn btn-danger" href="/user/playlist/them" title="Tạo playlist"><i class="fa fa-pencil" aria-hidden="true"></i> Tạo playlist</a>
-                                    <a class="btn btn-secondary" href="/user/playlist/chinh-sua" title=""><i class="fa fa-pencil" aria-hidden="true"></i> Chỉnh sửa</a>
-                                    <a class="btn btn-secondary" onclick="pupop_qr_code()" href="javascript:void(0)" title=""><i class="fa fa-qrcode" aria-hidden="true"></i> QR code</a>
-                                </span>
+            <a class="btn btn-danger" href="/user/playlist/them" title="Tạo playlist"><i class="fa fa-pencil" aria-hidden="true"></i> Tạo playlist</a>
+            <a class="btn btn-secondary" href="/user/playlist/chinh-sua" title=""><i class="fa fa-pencil" aria-hidden="true"></i> Chỉnh sửa</a>
+        </span>
     @endif
 </div>
 <div class="row row10px" id="playlist">

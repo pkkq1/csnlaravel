@@ -38,6 +38,7 @@ if($mySelf) {
                 @if(Auth::user() && $float_edit == true)
                     @if(Auth::user()->id == $user->id)
                         <button type="button" class="btn btn-secondary btn-secondary-gray click_modal_profile" data-toggle="modal" data-target=".edit_profile">Chỉnh sửa <i class="material-icons">mode_edit</i></button>
+                        <a class="btn btn-secondary" onclick="pupop_qr_code()" href="javascript:void(0)" title=""><i class="fa fa-qrcode" aria-hidden="true"></i> QR code</a>
                     @endif
                 @endif
             </div>
