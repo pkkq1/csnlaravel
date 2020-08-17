@@ -68,6 +68,7 @@ class RequestApiVipLogController extends CrudController
                 'WRONG_MONEY' => 'Tiền Nạp Không Đúng',
                 'NOT_FOUND_USER_ID' => 'UserID Không Tìm Thấy',
                 'NOT_MATCH_PAGE_LOG' => 'Không Tìm Thấy Truy Cập Page',
+                'REFUNDED' => 'Đã Hoàn Tiền',
                 'ERROR' => 'Lỗi',
                 'RECEIVED' => 'Nhận API',
             ];
@@ -107,6 +108,8 @@ class RequestApiVipLogController extends CrudController
                     return '<span class="label label-warning">K.tìm thấy userID</span>';
                 }elseif ($entry->status == 'NOT_MATCH_PAGE_LOG') {
                     return '<span class="label label-warning">K.tìm thấy log page</span>';
+                }elseif ($entry->status == 'REFUNDED') {
+                    return '<span class="label label-warning">Đã hoàn tiền</span>';
                 }else{
                     return '<span class="label label-danger">'.$entry->status.'</span>';
                 }
@@ -155,11 +158,11 @@ class RequestApiVipLogController extends CrudController
                 'WRONG_MONEY' => 'Tiền Nạp Không Đúng',
                 'NOT_FOUND_USER_ID' => 'UserID Không Tìm Thấy',
                 'NOT_MATCH_PAGE_LOG' => 'Không Tìm Thấy Truy Cập Page',
+                'REFUNDED' => 'Đã Hoàn Tiền',
                 'ERROR' => 'Lỗi',
                 'RECEIVED' => 'Nhận API',
             ],
             'allows_null' => false,
-            'default' => 0,
             'wrapperAttributes' => [
                 'class' => 'form-group col-md-4',
             ],
