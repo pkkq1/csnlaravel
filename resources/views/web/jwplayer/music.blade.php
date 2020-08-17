@@ -325,6 +325,7 @@ $auth_listen = true;
                                                                 if (isset($file_url[0]['url'])) {
                                                                     echo '<li><a class="download_item" href="' . $file_url[0]['url'] . '" title="Click vào đây để tải bài hát ' . $music->music_title . '"><i class="material-icons">file_download</i> Link tải nhạc chất lượng thấp: ' . strtoupper($file_url[0]['type']) . ' ' . $file_url[0]['label'] . ' ' . $file_url[0]['size'] . '</a></li>' . "\n";
                                                                 }
+                                                                echo '<li>Vui lòng <a href="https://chiasenhac.vn/app/csn.html">sử dụng app CSN</a> để không bị quảng cáo</li>' . "\n";
                                                             } else {
                                                                 if (isset($file_url[0]['url'])) {
                                                                     echo '<li><a class="download_item" href="' . $file_url[0]['url'] . '" title="Click vào đây để tải bài hát ' . $music->music_title . '"><i class="material-icons">file_download</i> Link tải nhạc chất lượng thấp: ' . strtoupper($file_url[0]['type']) . ' ' . $file_url[0]['label'] . ' ' . $file_url[0]['size'] . '</a></li>' . "\n";
