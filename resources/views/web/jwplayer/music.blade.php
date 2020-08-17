@@ -332,7 +332,7 @@ $auth_listen = true;
                                                                 if (isset($file_url[1]['url'])) {
                                                                     echo '<li><a class="download_item" href="' . $file_url[1]['url'] . '" title="Click vào đây để tải bài hát ' . $music->music_title . '"><i class="material-icons">file_download</i> Link tải nhạc <span class="c1">' . strtoupper($file_url[1]['type']) . ' ' . $file_url[1]['label'] . '</span> ' . $file_url[1]['size'] . '</a></li>' . "\n";
                                                                 }
-                                                                echo '<li>Vui lòng đăng nhập để tải nhạc chất lượng cao</li>' . "\n";
+                                                                echo '<li>Vui lòng đăng nhập hoặc <a href="https://chiasenhac.vn/app/csn.html">sử dụng app CSN</a> để tải nhạc chất lượng cao</li>' . "\n";
                                                                 if (isset($file_url[2]['url'])) {
                                                                     echo '<li><a class="download_item" style="cursor:no-drop" title="Vui lòng đăng nhập để tải bài hát ' . $music->music_title . '"><i class="material-icons">file_download</i> Link tải nhạc <span class="c2">' . strtoupper($file_url[2]['type']) . ' ' . $file_url[2]['label'] . '</span> ' . $file_url[2]['size'] . '</a></li>' . "\n";
                                                                 }
@@ -368,7 +368,7 @@ $auth_listen = true;
                                                                     if (isset($file_url[1]['url'])) {
                                                                         echo '<li><a class="download_item" href="' . $file_url[1]['url'] . '" title="Click vào đây để tải bài hát ' . $music->music_title . '"><i class="material-icons">file_download</i> Link tải nhạc <span class="c1">' . strtoupper($file_url[1]['type']) . ' ' . $file_url[1]['label'] . '</span> ' . $file_url[1]['size'] . '</a></li>' . "\n";
                                                                     }
-                                                                    echo '<li>Vui lòng mua VIP để tải nhạc chất lượng cao</li>' . "\n";
+                                                                    echo '<li>Vui lòng mua VIP hoặc <a href="https://chiasenhac.vn/app/csn.html">sử dụng app CSN</a> để tải nhạc chất lượng cao</li>' . "\n";
                                                                     if (isset($file_url[2]['url'])) {
                                                                         echo '<li><a class="download_item" style="cursor:no-drop" title="Vui lòng mua VIP để tải bài hát ' . $music->music_title . '"><i class="material-icons">file_download</i> Link tải nhạc <span class="c2">' . strtoupper($file_url[2]['type']) . ' ' . $file_url[2]['label'] . '</span> ' . $file_url[2]['size'] . '</a></li>' . "\n";
                                                                     }
