@@ -452,7 +452,7 @@ $auth_listen = true;
                                 <input id="exampleInputEmail1" value="' . $file_url[0]['url'] . '" type="radio" name="quality" class="form-control d-none"><strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 5 </span><span class="">' . strtoupper($file_url[0]['type']) . ' ' . $file_url[0]['label'] . '</span><span> ' . $file_url[0]['size'] . '</span></strong>
                             </label>';
                             }
-                            echo '<label>Vui lòng <a href="https://chiasenhac.vn/app/csn.html">sử dụng app CSN</a> để không bị quảng cáo</label>' . "\n";
+                            //echo '<label>Vui lòng <a href="https://chiasenhac.vn/app/csn.html">sử dụng app CSN</a> để không bị quảng cáo</label>' . "\n";
                         } else {
                             if (isset($file_url[0]['url'])) {
                                 echo '<label class="relative">
@@ -520,7 +520,7 @@ $auth_listen = true;
                                 <input id="exampleInputEmail1" value="' . $file_url[1]['url'] . '" type="radio" name="quality" class="form-control d-none"><strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 1 </span><span class="cl-green">' . strtoupper($file_url[1]['type']) . ' ' . $file_url[1]['label'] . '</span><span> ' . $file_url[1]['size'] . '</span></strong>
                             </label>';
                                 }
-                                echo '<label>Vui lòng mua VIP để tải nhạc chất lượng cao</label>' . "\n";
+                                //echo '<label>Vui lòng mua VIP để tải nhạc chất lượng cao</label>' . "\n";
                                 if (isset($file_url[2]['url'])) {
                                     echo '<label class="relative">
                                 <strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 2 </span><span class="cl-blue">' . strtoupper($file_url[2]['type']) . ' ' . $file_url[2]['label'] . '</span><span> ' . $file_url[2]['size'] . '</span></strong>
@@ -538,7 +538,7 @@ $auth_listen = true;
                                 }
                             }
                         } else {
-                                echo '<label>Vui lòng đăng nhập để tải nhạc</label>' . "\n";
+                                //echo '<label>Vui lòng đăng nhập để tải nhạc</label>' . "\n";
                                 if (isset($file_url[0]['url'])) {
                                 echo '<label class="relative">
                                 <strong><i class="fa fa-download mr-1 align-middle"></i><span>Download 5 </span><span class="">' . strtoupper($file_url[0]['type']) . ' ' . $file_url[0]['label'] . '</span><span> ' . $file_url[0]['size'] . '</span></strong>
