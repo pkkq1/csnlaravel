@@ -119,7 +119,7 @@ if ($caption == 'Video Clip') {
         @hasSection('no_ads')
         @else
             @if(!$memberVip)
-            <div style="position: relative; text-align: center;">
+                <div style="width: 100%; overflow: hidden; position: relative; text-align: center;">
     {{--            @if(View::exists('cache.code_ads.mobile_masthead'))--}}
                     @include('cache.code_ads.mobile_masthead')
                 {{--@endif--}}
