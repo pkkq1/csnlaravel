@@ -239,7 +239,7 @@ if($mySelf) {
                             height:200
                         },
                         size: {
-                            width: 1170,
+                            width: 1140,
                             height: 300
                         },
                         // showZoomer: false,
@@ -280,7 +280,7 @@ if($mySelf) {
                         $image_crop.croppie('result', {
                             type: 'canvas',
                             size: {
-                                width: 1170,
+                                width: 1140,
                                 height: 300
                             }
                         }).then(function (response) {
