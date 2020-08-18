@@ -129,6 +129,10 @@ class ActionLogController extends CrudController
             'name' => 'user_id',
             'type' => 'text',
         ]);
+        $this->crud->addField([
+            'name' => 'ip',
+            'type' => 'text',
+        ]);
     }
 
     public function store(StoreRequest $request)

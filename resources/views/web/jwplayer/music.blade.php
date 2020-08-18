@@ -68,10 +68,16 @@ if($musicSet['type_listen'] == 'playlist') {
 
 //Sorry, this content is not available in your country
 $auth_listen = true;
-//if(env('APP_ENV') != 'local' && !(Helpers::isVNIP()) )
-//{
-//    $auth_listen = false;
-//}
+if( !$memberVip && !$isVNIP )
+{
+    if ( $music->cat_id > 3 ) {
+        $auth_listen = false;
+    } else if ($music->cat_id < 3) {
+        if ($music->cat_level != 1) {
+            $auth_listen = false;
+        }
+    }
+}
 
 ?>
 @section('meta')
@@ -115,15 +121,19 @@ $auth_listen = true;
                 </nav>
                 <div class="d-flex justify-content-between mb-3 box1 music-listen-title" style="line-height: 33px;">
                     <h1 class="title">{{$music->music_title}} - {{$music->music_artist}}</h1>
-                    <span title="Đăng tải: {{date('d/m/Y h:i', $music->music_time)}}" class="d-flex listen"><i class="material-icons" style="padding-top: 3px;">headset</i> {{number_format($music->music_listen)}}&nbsp;&nbsp;<i class="material-icons" style="font-size: 28px;">cloud_download</i> {{number_format($music->music_downloads)}}</span>
+                    @if ($auth_listen)
+                        <span title="Đăng tải: {{date('d/m/Y h:i', $music->music_time)}}" class="d-flex listen"><i class="material-icons" style="padding-top: 3px;">headset</i> {{number_format($music->music_listen)}}&nbsp;&nbsp;<i class="material-icons" style="font-size: 28px;">cloud_download</i> {{number_format($music->music_downloads)}}</span>
+                    @endif
                 </div>
                 <div class="card mb-4 detail_lyric_1">
-                    @if (!$memberVip)
-                        <div style="text-align: right;"><a href="/chia-se-nhac-vip.html">[x Tắt quảng cáo]</a></div>
-                    @endif
-                    <div id="csnplayerads" style="position:relative; z-index: 99999; width:100%;"> </div>
                     @if ($auth_listen)
+                        @if (!$memberVip)
+                            <div style="text-align: right;"><a href="/chia-se-nhac-vip.html">[x Tắt quảng cáo]</a></div>
+                        @endif
+                        <div id="csnplayerads" style="position:relative; z-index: 99999; width:100%;"> </div>
                         <div id="csnplayer" class="<?php echo $musicSet['type_jw'] == 'video' ? 'csn_video' : 'csn_music' ?>" style="position:relative; z-index: 99999; width:100%;"> </div>
+                    @else
+                            <img src="/imgs/restrict_content.jpg" width="100%" alt="Restrict Content" class="card-img-top">
                     @endif
                     <div id="hidden_lyrics" class="hidden">
                         <div id="lyrics" class="rabbit-lyrics">
@@ -222,9 +232,11 @@ $auth_listen = true;
                             <li class="nav-item">
                                 <a class="nav-link active" id="pills-liric-tab" data-toggle="pill" href="#pills-liric" role="tab" aria-controls="pills-liric" aria-selected="true"><i class="material-icons">queue_music</i> Lyric</a>
                             </li>
+                            @if ($auth_listen)
                             <li class="nav-item">
                                 <a class="nav-link" id="pills-download-tab" data-toggle="pill" href="#pills-download" role="tab" aria-controls="pills-download" aria-selected="false"><i class="material-icons">file_download</i> Download</a>
                             </li>
+                            @endif
                             <li class="nav-item">
                                 <a class="nav-link" id="pills-share-tab" data-toggle="pill" href="#pills-share" role="tab" aria-controls="pills-share" aria-selected="false"><i class="material-icons">share</i> Chia sẻ</a>
                             </li>
@@ -254,7 +266,8 @@ $auth_listen = true;
                                                         </span>
                                                     </label>
                                                 @endif
-                                                @if(Auth::check())
+
+                                                @if(Auth::check() && $auth_listen)
                                                     @if(backpack_user()->can('duyet_sua_nhac'))
                                                         <a href="/dang-tai/{{$musicSet['type_jw'] !== 'video' ? 'nhac' : 'video'}}/{{$music->music_id}}">Sửa nhạc</a>
                                                         <a href="javascript:sugLyric();" style="margin-left: 10px;">Gợi ý/c.sửa lyric</a>
@@ -325,6 +338,7 @@ $auth_listen = true;
                                                                 if (isset($file_url[0]['url'])) {
                                                                     echo '<li><a class="download_item" href="' . $file_url[0]['url'] . '" title="Click vào đây để tải bài hát ' . $music->music_title . '"><i class="material-icons">file_download</i> Link tải nhạc chất lượng thấp: ' . strtoupper($file_url[0]['type']) . ' ' . $file_url[0]['label'] . ' ' . $file_url[0]['size'] . '</a></li>' . "\n";
                                                                 }
+                                                                echo '<li>Vui lòng <a href="https://chiasenhac.vn/app/csn.html">sử dụng app CSN</a> để không bị quảng cáo</li>' . "\n";
                                                             } else {
                                                                 if (isset($file_url[0]['url'])) {
                                                                     echo '<li><a class="download_item" href="' . $file_url[0]['url'] . '" title="Click vào đây để tải bài hát ' . $music->music_title . '"><i class="material-icons">file_download</i> Link tải nhạc chất lượng thấp: ' . strtoupper($file_url[0]['type']) . ' ' . $file_url[0]['label'] . ' ' . $file_url[0]['size'] . '</a></li>' . "\n";
@@ -332,7 +346,7 @@ $auth_listen = true;
                                                                 if (isset($file_url[1]['url'])) {
                                                                     echo '<li><a class="download_item" href="' . $file_url[1]['url'] . '" title="Click vào đây để tải bài hát ' . $music->music_title . '"><i class="material-icons">file_download</i> Link tải nhạc <span class="c1">' . strtoupper($file_url[1]['type']) . ' ' . $file_url[1]['label'] . '</span> ' . $file_url[1]['size'] . '</a></li>' . "\n";
                                                                 }
-                                                                echo '<li>Vui lòng đăng nhập để tải nhạc chất lượng cao</li>' . "\n";
+                                                                echo '<li>Vui lòng đăng nhập hoặc <a href="https://chiasenhac.vn/app/csn.html">sử dụng app CSN</a> để tải nhạc chất lượng cao</li>' . "\n";
                                                                 if (isset($file_url[2]['url'])) {
                                                                     echo '<li><a class="download_item" style="cursor:no-drop" title="Vui lòng đăng nhập để tải bài hát ' . $music->music_title . '"><i class="material-icons">file_download</i> Link tải nhạc <span class="c2">' . strtoupper($file_url[2]['type']) . ' ' . $file_url[2]['label'] . '</span> ' . $file_url[2]['size'] . '</a></li>' . "\n";
                                                                 }
@@ -368,7 +382,7 @@ $auth_listen = true;
                                                                     if (isset($file_url[1]['url'])) {
                                                                         echo '<li><a class="download_item" href="' . $file_url[1]['url'] . '" title="Click vào đây để tải bài hát ' . $music->music_title . '"><i class="material-icons">file_download</i> Link tải nhạc <span class="c1">' . strtoupper($file_url[1]['type']) . ' ' . $file_url[1]['label'] . '</span> ' . $file_url[1]['size'] . '</a></li>' . "\n";
                                                                     }
-                                                                    echo '<li>Vui lòng mua VIP để tải nhạc chất lượng cao</li>' . "\n";
+                                                                    echo '<li>Vui lòng mua VIP hoặc <a href="https://chiasenhac.vn/app/csn.html">sử dụng app CSN</a> để tải nhạc chất lượng cao</li>' . "\n";
                                                                     if (isset($file_url[2]['url'])) {
                                                                         echo '<li><a class="download_item" style="cursor:no-drop" title="Vui lòng mua VIP để tải bài hát ' . $music->music_title . '"><i class="material-icons">file_download</i> Link tải nhạc <span class="c2">' . strtoupper($file_url[2]['type']) . ' ' . $file_url[2]['label'] . '</span> ' . $file_url[2]['size'] . '</a></li>' . "\n";
                                                                     }
@@ -497,7 +511,7 @@ $auth_listen = true;
                                             <div class="form-check m-0 ml-3">
                                                 <input class="form-check-input" type="checkbox" value="1" id="auto_play" checked>
                                                 <label class="form-check-label" for="auto_play">
-                                                    Tự động play
+                                                    Autoplay
                                                 </label>
                                             </div>
                                         </div>
@@ -618,6 +632,8 @@ $auth_listen = true;
                     ?>
                 </div>
                 @endif
+
+                @if ($auth_listen)
                 <div class="box_header d-flex justify-content-between align-items-end" id="post_comment">
                     <h5 class="title m-0">Bình luận bài hát {{$music->music_title}}</h5>
                 </div>
@@ -644,6 +660,7 @@ $auth_listen = true;
                     </div>
                     <div class="list_body"></div>
                 </div>
+                @endif
             </div>
 
             <div class="col-md-3">
@@ -692,7 +709,7 @@ $auth_listen = true;
                         <div class="form-group form-check mb-0 autoplay">
                             <input type="checkbox" class="form-check-input check_auto_play" id="exampleCheck1" checked>
                             <label class="form-check-label d-flex align-items-center" for="exampleCheck1">
-                                <span class="txt">Tự động chuyển tiếp</span>
+                                <span class="txt">AUTOPLAY</span>
                                 <span class="switch">
 							<span class="switch-inner"></span>
 						</span>
@@ -771,6 +788,8 @@ $auth_listen = true;
 
 
 @endsection
+
+@if ($auth_listen)
 @section('contentJS')
     <script src="https://ssl.p.jwpcdn.com/player/v/8.1.3/jwplayer.js"></script>
     {{--<script src="{{URL::to('/')}}/assets/jwplayer-7.12.0/jwplayer.js"></script>--}}
@@ -2442,4 +2461,4 @@ $auth_listen = true;
 
     <iframe frameborder="0" allowtransparency="true" height="0" width="0" marginheight="0" marginwidth="0" vspace="0" hspace="0" src="https://hb.gammaplatform.com/adx/usersync"></iframe>
 @endsection
-
+@endif

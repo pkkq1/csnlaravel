@@ -51,8 +51,8 @@ class ActionLogEloquentRepository extends EloquentRepository implements ActionLo
                 'text' => $text,
                 'music_id' => $music_id,
                 'mod' => $Agent->isMobile() ? 'mobile' : 'web',
-                'user_id' => (Auth::check() ? Auth::user()->id : ''),
-                'permission_current' => implode(', ', backpack_user()->getAllPermissions()->pluck('name')->toArray()),
+                'user_id' => (Auth::check() ? Auth::user()->id : null),
+                'permission_current' => (Auth::check() ? implode(', ', backpack_user()->getAllPermissions()->pluck('name')->toArray()) : null),
                 'more' => $more,
                 'ip' =>  Helpers::getIp(),
             ]);
