@@ -70,7 +70,7 @@ if($musicSet['type_listen'] == 'playlist') {
 $auth_listen = true;
 if( !$memberVip && !$isVNIP )
 {
-    $auth_listen = false;
+    //$auth_listen = false;
 }
 
 ?>
