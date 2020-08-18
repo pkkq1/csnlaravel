@@ -18,7 +18,7 @@ $mySelf = (Auth::check() && Auth::user()->id == $user_id);
             <ul class="list-unstyled list_music">
                 <?php
                 array_map(function($i, $item_f) use($perPage, $curentPage, $idAuth) {
-                if($i < 5) {
+                if($i < 10) {
                 $userFav = $item_f['user_id'];
                 $item = $item_f['music'];
                 $url = Helpers::listen_url($item);
@@ -58,7 +58,7 @@ $mySelf = (Auth::check() && Auth::user()->id == $user_id);
             <ul class="list-unstyled list_music">
                 <?php
                 array_map(function($i, $item_f) use($perPage, $curentPage, $idAuth) {
-                if($i >= 5) {
+                if($i >= 10) {
                 $userFav = $item_f['user_id'];
                 $item = $item_f['music'];
                 $url = Helpers::listen_url($item);

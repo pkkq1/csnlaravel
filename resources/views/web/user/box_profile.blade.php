@@ -11,37 +11,51 @@ if($mySelf) {
     $vipInfo = $user->levelInfo()->first();
 }
 ?>
+<style>
+
+    .box_banner_profile {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        background-image: url("<?php echo Helpers::pathUserCover($user->user_cover, $user->id) ?>");
+    }
+</style>
 <div class="box_profile">
     <div class="container">
-        <div class="media user11">
+        <div class="media user11 box_banner_profile">
+            <button type="button" class="btn btn-secondary btn-secondary-gray edit_banner_photo">Chỉnh sửa ảnh bìa <i style="font-size: 14px" class="material-icons">mode_edit</i></button>
+            <input type="file" class="file_edit_banner_photo" hidden />
+            <input type="text" hidden name="user_cover_value" value="" alt="" class="form-control-file user_cover_value">
+        </div>
+        <div class="box_avatar_profile">
             <div class="media-left mr-4 align-self-center">
                 <a href="{{'/user/'.$user->id}}" >
                     <img id="view_user_avatar_2" src="<?php echo Helpers::pathAvatar($user->user_avatar, $user->id) ?>" alt="{{$user->name}}" alt="{{$user->name}}">
                 </a>
             </div>
-            <div class="media-body align-self-center">
-                <h4 class="media-title user_name">{{$user->name}}@if($vipInfo && $user->vip_time_exprited > time())<img alt="Tài Khoản VIP" title="Tài Khoản VIP" style="width: 25px; margin-left: 5px" src="/imgs/vip_label.png" >@endif</h4>
-                <span>{{$user->username}}</span><br/>
-                @if($vipInfo && $mySelf)
-                    @if(Auth::user()->vip_time_exprited > time())
-                        <span style="color: red; font-weight: 400; margin-bottom: 8px" title="Ngày hết hạn là: {{date('d/m/Y', Auth::user()->vip_time_exprited)}}">Bạn đang là Vip: {{$vipInfo->level_name}}</span>
-                    @else
-                        <a href="/chia-se-nhac-vip.html"><span style="font-weight: 400; margin-bottom: 8px" title="Đã hết hạn vào: {{date('d/m/Y', Auth::user()->vip_time_exprited)}}">Bạn đã hết VIP click vào đây để gia hạn.</span></a>
-                    @endif
+        </div>
+        <div class="box_detail_profile media-body align-self-center">
+            <h4 class="media-title user_name">{{$user->name}} <span style="font-weight: 400;">{{((!$user->username || is_numeric($user->username)) ? '' : '('.$user->username.')')}}</span>@if($vipInfo && $user->vip_time_exprited > time())<img alt="Tài Khoản VIP" title="Tài Khoản VIP" style="width: 30px; margin-left: 5px; margin-top: -5px;" src="/imgs/vip_label.png" >@endif</h4>
+            @if($vipInfo && $mySelf)
+                @if(Auth::user()->vip_time_exprited > time())
+                    <span style="color: red; font-weight: 400; margin-bottom: 8px" title="Ngày hết hạn là: {{date('d/m/Y', Auth::user()->vip_time_exprited)}}">Bạn đang là Vip: {{$vipInfo->level_name}}</span>
+                @else
+                    <a href="/chia-se-nhac-vip.html"><span style="font-weight: 400; margin-bottom: 8px" title="Đã hết hạn vào: {{date('d/m/Y', Auth::user()->vip_time_exprited)}}">Bạn đã hết VIP click vào đây để gia hạn.</span></a>
                 @endif
-                <ul class="list-inline">
-                    <li class="list-inline-item"><b>{{number_format($user->user_music)}}</b> <small> upload</small></li>
-                    @if(Auth::check() && Auth::user()->hasPermission('user_(update)'))
+            @endif
+            <ul class="list-inline" style="margin-bottom: 5px;">
+                <li class="list-inline-item"><b>{{number_format($user->user_music)}}</b> <small> upload</small></li>
+                @if(Auth::check() && Auth::user()->hasPermission('user_(update)'))
                     <li class="list-inline-item"><a target="_blank" href="/admin/user/{{$user->id}}/edit">Cấp Quyền User</a></li>
-                    @endif
-                </ul>
-                @if(Auth::user() && $float_edit == true)
-                    @if(Auth::user()->id == $user->id)
-                        <button type="button" class="btn btn-secondary btn-secondary-gray click_modal_profile" data-toggle="modal" data-target=".edit_profile">Chỉnh sửa <i class="material-icons">mode_edit</i></button>
-                        <a class="btn btn-secondary" onclick="pupop_qr_code()" href="javascript:void(0)" title=""><i class="fa fa-qrcode" aria-hidden="true"></i> QR code</a>
-                    @endif
                 @endif
-            </div>
+            </ul>
+            @if(Auth::user() && $float_edit == true)
+                @if(Auth::user()->id == $user->id)
+                    <a class="click_modal_profile" style="font-size: 14px;" href="javascript:void(0)" data-toggle="modal" data-target=".edit_profile">Chỉnh sửa <i style="font-size: 12px" class="material-icons">mode_edit</i></a>
+                    <a onclick="pupop_qr_code()" href="javascript:void(0)" title="">QR code <i class="fa fa-qrcode" aria-hidden="true"></i></a>
+                @endif
+            @endif
         </div>
     </div>
 </div>
@@ -165,8 +179,10 @@ if($mySelf) {
     <?php
         if($mySelf){
             ?>
+            var selectImage = 'avatar';
             $(document).ready(function(){
                 $('#choose_user_avatar').on('change', function(){
+                    selectImage = 'cover';
                     $('#image_demo').html('');
                     $('.update_avatar').css("max-width", "535px")
                     $image_crop = $('#image_demo').croppie({
@@ -195,21 +211,77 @@ if($mySelf) {
                     reader.readAsDataURL(this.files[0]);
                     $('#uploadimageModal').modal('show');
                 });
+                $('.edit_banner_photo').click(function() {
+                    $('.file_edit_banner_photo').trigger('click');
+                });
+                $('.file_edit_banner_photo').on('change', function(){
+                    selectImage = 'cover';
+                    $('#image_demo').html('');
+                    $('.modal-dialog').css("max-width", "815px")
+                    $('#image_demo').html('');
+                    $image_crop = $('#image_demo').croppie({
+                        enableExif: true,
+                        viewport: {
+                            width:780,
+                            height:200,
+                            type:'square' //circle
+                        },
+                        boundary:{
+                            width:780,
+                            height:200
+                        },
+                        size: {
+                            width: 1170,
+                            height: 300
+                        },
+                        // showZoomer: false,
+                        enableOrientation: true,
+                        mouseWheelZoom: '',
+                    });
+                    var reader = new FileReader();
+                    reader.onload = function (event) {
+                        $image_crop.croppie('bind', {
+                            url: event.target.result
+                        }).then(function(){
+                            console.log('jQuery bind complete');
+                        });
+                    }
+                    reader.readAsDataURL(this.files[0]);
+                    $('#uploadimageModal').modal('show');
+                });
+
                 $('.crop_image').click(function(event){
                     $image_crop.croppie('result', {
                         type: 'canvas',
-                        size: {
-                            width: 500,
-                            height: 500
-                        }
+                        size: 'size'
                     }).then(function (response) {
                         const info = $image_crop.croppie('get');
                         $('#uploadimageModal').modal('hide');
-                        $('#user_avatar').val(response);
-                        $('#view_user_avatar').attr("src", response);
+                        if(selectImage == 'avatar'){
+                            $('#user_avatar').val(response);
+                            $('#view_user_avatar').attr("src", response);
+                        }else{
+                            getAjaxCover(response);
+                        }
+
                         // $('#view_user_avatar_2').attr("src", response);
                     })
                 });
+                function getAjaxCover(dataImage) {
+                    $.ajax({
+                        type:'POST',
+                        url: '/user/upload_image_banner',
+                        data: {cover_img : dataImage},
+                        dataType: 'json',
+                        success:function(data){
+                            if(data.success) {
+                                location.reload();
+                            }else{
+                                alertModal(data.message);
+                            }
+                        },
+                    });
+                }
             });
             $('.cancel_model_profile').on('click', function () {
                 $('#user_avatar').val('');
@@ -303,6 +375,7 @@ if($mySelf) {
                 });
                 return false;
             }
+
             function resetInputLogin() {
                 $('.profile_submit1').find('.input-help-block').remove();
                 $('.profile_submit1').find('.alert').remove();

@@ -218,4 +218,15 @@ class UserController extends Controller
         Helpers::ajaxResult(false, 'Lỗi ngoài hệ thống', null);
 
     }
+    public function uploadImageBanner(Request $request) {
+        if ($request->cover_img) {
+            $path = Helpers::file_path(Auth::user()->id, USER_COVER_PATH, true);
+            $fileNameAvatar = Helpers::saveBase64ImageJpg($request->cover_img, $path, Auth::user()->id);
+            $user = Auth::user();
+            $user->user_cover = $fileNameAvatar;
+            $user->save();
+            Helpers::ajaxResult(true, 'Đăng tải ảnh thành công');
+        }
+        Helpers::ajaxResult(false, 'Lỗi đăng tải ảnh bìa');
+    }
 }

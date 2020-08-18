@@ -34,10 +34,10 @@ define('DEFAULT_STORAGE_CACHE_MUSIC_PATH', '/data/cache_upload/');
 define('LYRIC_DETAIL_NEW_MUSIC', 5);
 define('LYRIC_DETAIL_NEW_ALBUM', 5);
 define('LIMIT_COMMENT', 10);
-define('LIMIT_PAGE_MUSIC_UPLOADED', 10);
-define('LIMIT_PAGE_MUSIC_APPROVAL', 10);
-define('LIMIT_PAGE_ARTIST_FAVOURITE', 10);
-define('LIMIT_PAGE_MUSIC_FAVOURITE', 10);
+define('LIMIT_PAGE_MUSIC_UPLOADED', 20);
+define('LIMIT_PAGE_MUSIC_APPROVAL', 20);
+define('LIMIT_PAGE_ARTIST_FAVOURITE', 20);
+define('LIMIT_PAGE_MUSIC_FAVOURITE', 20);
 define('LIMIT_PAGE_NOTIFY', 10);
 define('LIMIT_PAGE_USER_MSG', 10);
 define('LIMIT_LISTEN_MUSIC_FAVOURITE', 100);
@@ -132,7 +132,9 @@ define('MUSIC_PLAYLIST_PUBLISHER_PATH', 'data/playlist_publisher/');
 define('PUBLIC_MUSIC_PLAYLIST_PUBLISHER_PATH', '/storage/data/playlist_publisher/');
 // User
 define('AVATAR_PATH', 'data/user_avatar/');
+define('USER_COVER_PATH', 'data/user_cover/');
 define('PUBLIC_AVATAR_PATH', '/storage/data/user_avatar/');
+define('PUBLIC_USER_COVER_PATH', '/storage/data/user_cover/');
 define('HTMLEX', '.html');
 define('DEACTIVE_USER', 0); //  not verify
 define('ACTIVE_USER', 1); // verified

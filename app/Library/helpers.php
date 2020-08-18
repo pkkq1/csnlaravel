@@ -1303,6 +1303,11 @@ class Helpers
             return $domain.'/imgs/no_avatar.png';
         return (strpos($userAvatar, 'http') !== false) ? $userAvatar : $domain.Helpers::file_path($userId, PUBLIC_AVATAR_PATH, true) . $userAvatar . '?time='.time();
     }
+    public static function pathUserCover($userCover, $userId, $domain = '') {
+        if(!$userCover)
+            return $domain.'/images/banner-default.png';
+        return (strpos($userCover, 'http') !== false) ? $userCover : $domain.Helpers::file_path($userId, PUBLIC_USER_COVER_PATH, true) . $userCover . '?time='.time();
+    }
     public static function getImgQuality($musicId) {
         return 'https://data50.chiasenhac.com/data/spectrum'.Helpers::file_path($musicId, '/', true).$musicId.'.jpg';
 //        return 'http://data5.chiasenhac.com/data/spectrum'.Helpers::file_path($musicId, '/', true).$musicId.'.jpg';
