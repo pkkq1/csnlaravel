@@ -18,7 +18,7 @@ if($mySelf) {
         background-repeat: no-repeat;
         background-size: cover;
         position: relative;
-        background-image: url("<?php echo Helpers::pathUserCover($user->user_cover, $user->id) ?>");
+        background-image: url("<?php echo ($vipInfo) ? Helpers::pathUserCover($user->user_cover, $user->id) : '/images/banner-default.png' ?>");
     }
 </style>
 <div class="box_profile">
@@ -213,9 +213,15 @@ if($mySelf) {
                     reader.readAsDataURL(this.files[0]);
                     $('#uploadimageModal').modal('show');
                 });
+
                 $('.edit_banner_photo').click(function() {
+                    @if($memberVip)
                     $('.file_edit_banner_photo').trigger('click');
+                    @else
+                    alertModal('Thành viên vip có thể chỉnh sửa ảnh bìa');
+                    @endif
                 });
+
                 $('.file_edit_banner_photo').on('change', function(){
                     selectImage = 'cover';
                     $('#image_demo').html('');
@@ -253,21 +259,42 @@ if($mySelf) {
                 });
 
                 $('.crop_image').click(function(event){
-                    $image_crop.croppie('result', {
-                        type: 'canvas',
-                        size: 'size'
-                    }).then(function (response) {
-                        const info = $image_crop.croppie('get');
-                        $('#uploadimageModal').modal('hide');
-                        if(selectImage == 'avatar'){
-                            $('#user_avatar').val(response);
-                            $('#view_user_avatar').attr("src", response);
-                        }else{
-                            getAjaxCover(response);
-                        }
+                    if(selectImage == 'avatar'){
+                        $image_crop.croppie('result', {
+                            type: 'canvas',
+                            size: {
+                                width: 500,
+                                height: 500
+                            }
+                        }).then(function (response) {
+                            const info = $image_crop.croppie('get');
+                            $('#uploadimageModal').modal('hide');
+                            if(selectImage == 'avatar'){
+                                $('#user_avatar').val(response);
+                                $('#view_user_avatar').attr("src", response);
+                            }else{
+                                getAjaxCover(response);
+                            }
+                        })
+                    }else{
+                        $image_crop.croppie('result', {
+                            type: 'canvas',
+                            size: {
+                                width: 1170,
+                                height: 300
+                            }
+                        }).then(function (response) {
+                            const info = $image_crop.croppie('get');
+                            $('#uploadimageModal').modal('hide');
+                            if(selectImage == 'avatar'){
+                                $('#user_avatar').val(response);
+                                $('#view_user_avatar').attr("src", response);
+                            }else{
+                                getAjaxCover(response);
+                            }
+                        })
+                    }
 
-                        // $('#view_user_avatar_2').attr("src", response);
-                    })
                 });
                 function getAjaxCover(dataImage) {
                     $.ajax({
