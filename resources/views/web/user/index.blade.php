@@ -345,7 +345,7 @@ $tabSelf = ($mySelf || (Auth::check() && Auth::user()->hasPermission('duyet_sua_
                     loaded = true;
                 },
                 success: function(response) {
-                    confirmModal(response + '<p>Thời gian tồn tại Qr code: <span id="time">05:00</span></p>', 'QR Code đăng nhập', 'modal-sm');
+                    confirmModal(response + '<p>QR Code sẽ thay đổi sau: <span id="time">05:00</span></p><p>Chức năng này chỉ dành riêng cho việc đăng nhập bằng <a href="https://chiasenhac.vn/app/csn.html">App CSN</a></p>', 'Mã đăng nhập qua <a href="https://chiasenhac.vn/app/csn.html">app CSN</a>', 'modal-sm');
                     $('.btn-ok').addClass('hidden');
                     $('.close_confirm').html('Đóng');
                     var fiveMinutes = 60 * 5,
