@@ -42,10 +42,17 @@ if($musicSet['type_listen'] == 'playlist') {
 
 //Sorry, this content is not available in your country
 $auth_listen = true;
-//if(env('APP_ENV') != 'local' && !(Helpers::isVNIP()) )
-//{
-//    $auth_listen = false;
-//}
+if( !$memberVip && !$isVNIP )
+{
+    if ( $music->cat_id > 3 ) {
+        $auth_listen = false;
+    } else if ($music->cat_id < 3) {
+        if ($music->cat_level != 1) {
+            $auth_listen = false;
+        }
+    }
+}
+
 ?>
 @section('meta')
     <meta name="author" content="{{$music->music_username}}">
@@ -91,51 +98,50 @@ $auth_listen = true;
                 <div id="pills-thongtin" role="tabpanel" aria-labelledby="pills-thongtin-tab" class="tab-pane fade active show">
                     <div class="block_thongtin">
                         <div align="center"><h1 class="name_song mb-2">{{$music->music_title}} - {{$music->music_artist}}</h1></div>
-                        <div class="infor_main" style="min-height: 400px;">
-                            @if (!$memberVip)
-                                <div style="text-align: right;"><a href="/chia-se-nhac-vip.html">[x Tắt quảng cáo]</a></div>
-                            @endif
-                            @if($musicSet['type_jw'] != 'video')
-                                <div id="companion_cover">
-                                    <div id="bg_blue" style="display: none; background: url('{{$thumnailMusic}}') no-repeat center;background-size: cover;padding-bottom: 70%;"
-                                     class="image bg-blur"></div>
-                                    <div style="background: url('{{Helpers::cover_url($music['cover_id'])}}') no-repeat center;background-size: cover;padding: 20%;"
-                                     class="image-main"></div>
-                                </div>
-
-                                <div id="csnplayerads" style="position:relative; z-index: 99999; width:100%;"> </div>
-
-                                <?php $month_day = intval(date('ndH')); ?>
-                                @if($month_day < 0)
-                                    <div class="image-main" style="top: 1px">
-                                        <script type="text/javascript">
-                                            /* load placement: chiasenhac_3d-box, for account: chiasenhac, site: chiasenhac.vn, size: 300x250 - mobile */
-                                            var _avlVar = _avlVar || [];
-                                            _avlVar.push(["52a932db595742ef97a993108efe6d2c", "[content_page_url]", "[width]", "[height]"]);
-                                        </script>
-                                        <script type="text/javascript" src="//ss.yomedia.vn/js/yomedia-sdk.js?v=3" id="s-52a932db595742ef97a993108efe6d2c"></script>
-                                    </div>
+                        @if ($auth_listen)
+                            <div class="infor_main" style="min-height: 400px;">
+                                @if (!$memberVip)
+                                    <div style="text-align: right;"><a href="/chia-se-nhac-vip.html">[x Tắt quảng cáo]</a></div>
                                 @endif
-                            @endif
-                            <div id="csnplayer" class="player_media <?php echo $musicSet['type_jw'] == 'video' ? 'csn_video' : 'csn_music' ?>" style="position:relative; z-index: 99999; width:100%;"> </div>
-                            <div id="hidden_lyrics" class="hidden">
-                                <div id="lyrics" class="rabbit-lyrics">
+                                @if($musicSet['type_jw'] != 'video')
+                                    <div id="companion_cover">
+                                        <div id="bg_blue"
+                                             style="display: none; background: url('{{$thumnailMusic}}') no-repeat center;background-size: cover;padding-bottom: 70%;"
+                                             class="image bg-blur"></div>
+                                        <div style="background: url('{{Helpers::cover_url($music['cover_id'])}}') no-repeat center;background-size: cover;padding: 20%;"
+                                             class="image-main"></div>
+                                    </div>
+                                    <div id="csnplayerads" style="position:relative; z-index: 99999; width:100%;"></div>
+                                @endif
+                                <div id="csnplayer"
+                                     class="player_media <?php echo $musicSet['type_jw'] == 'video' ? 'csn_video' : 'csn_music' ?>"
+                                     style="position:relative; z-index: 99999; width:100%;"></div>
+                                <div id="hidden_lyrics" class="hidden">
+                                    <div id="lyrics" class="rabbit-lyrics">
 
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        @else
+                            <img src="/imgs/restrict_content.jpg" width="100%" alt="Restrict Content" class="card-img-top">
+                        @endif
+
                         <div class="title p-3 relative">
                             <div>
                                 <h2 class="name_song mb-2">{{$music->music_title}}</h2>
                                 <p class="text-pink mb-2"><?php echo $artistHtml ?></p>
-                                <p class="text-gray m-0"><i class="fa fa-headphones"></i> {{number_format($music->music_listen)}}&nbsp;&nbsp;<i class="fa fa-download"></i> {{number_format($music->music_downloads)}}</p>
+                                @if ($auth_listen)
+                                    <p class="text-gray m-0"><i class="fa fa-headphones"></i> {{number_format($music->music_listen)}}&nbsp;&nbsp;<i class="fa fa-download"></i> {{number_format($music->music_downloads)}}</p>
+                                @endif
                             </div>
                             <div class="block_button d-flex justify-content-between">
                                 <div class="element ele-playlist">
                                     <span class="wishlist toggle_wishlist {{$musicFavourite ? 'selector' : ''}}"><i aria-hidden="true" style="font-size: 22px" class="fa fa-heart-o"></i></span>
                                 </div>
                                 <div class="element ele-playlist"><img src="/images/img_share_mp3.png" alt="chia se" class="icon"></div>
-                                <div class="element ele-download"><img src="/images/img_download.png" alt="tai ve" class="icon"></div>
+                                @if ($auth_listen)
+                                    <div class="element ele-download"><img src="/images/img_download.png" alt="tai ve" class="icon"></div>
+                                @endif
                             </div>
                         </div>
                         <!-- swiper1-->
@@ -382,6 +388,7 @@ $auth_listen = true;
                                 @endif
                             @endif
 
+                            @if ($auth_listen)
                             <div class="p-3">
                                 <div class="block block_comment">
                                     <div class="block_header d-flex flex-row justify-content-between mb-2 music_comment">
@@ -406,6 +413,7 @@ $auth_listen = true;
                                     </div>
                                 </div>
                             </div>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -635,6 +643,7 @@ $auth_listen = true;
 </section>
 @endsection
 
+@if ($auth_listen)
 @section('contentJS')
     <script src="https://ssl.p.jwpcdn.com/player/v/8.1.3/jwplayer.js"></script>
     <script>
@@ -1543,3 +1552,4 @@ $auth_listen = true;
 
     <iframe frameborder="0" allowtransparency="true" height="0" width="0" marginheight="0" marginwidth="0" vspace="0" hspace="0" src="https://hb.gammaplatform.com/adx/usersync"></iframe>
 @endsection
+@endif

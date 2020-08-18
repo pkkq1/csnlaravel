@@ -632,6 +632,8 @@ if( !$memberVip && !$isVNIP )
                     ?>
                 </div>
                 @endif
+
+                @if ($auth_listen)
                 <div class="box_header d-flex justify-content-between align-items-end" id="post_comment">
                     <h5 class="title m-0">Bình luận bài hát {{$music->music_title}}</h5>
                 </div>
@@ -658,6 +660,7 @@ if( !$memberVip && !$isVNIP )
                     </div>
                     <div class="list_body"></div>
                 </div>
+                @endif
             </div>
 
             <div class="col-md-3">
