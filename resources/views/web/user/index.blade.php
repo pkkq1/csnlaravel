@@ -34,7 +34,7 @@ $tabSelf = ($mySelf || (Auth::check() && Auth::user()->hasPermission('duyet_sua_
     @include('web.user.box_profile', ['user' => $user, 'mySelf' => $mySelf, 'float_edit' => true])
     <div class="container">
         <div class="row row_wrapper">
-            <div class="col-md-9">
+            <div class="col-md-12">
                 <div class="tabs tabs-style-line tab-category">
                     <nav>
                         <ul>
@@ -72,9 +72,6 @@ $tabSelf = ($mySelf || (Auth::check() && Auth::user()->hasPermission('duyet_sua_
                         <section id="approval"></section>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-3">
-                @include('web.layouts.right_banner')
             </div>
         </div>
     </div>

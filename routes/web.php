@@ -291,6 +291,7 @@ Route::group(['middlewareGroups' => ['web']], function () {
         Route::post('message_csn', ['as' => 'user.message_csn', 'uses' => 'User\UserController@showMessageCsn']);
 
         Route::post('send_message', ['as' => 'user.show_notify', 'uses' => 'User\UserController@sendMsg']);
+        Route::post('upload_image_banner', ['as' => 'user.show_notify', 'uses' => 'User\UserController@uploadImageBanner']);
     });
     Route::prefix('chu-de/')->group(function () {
         Route::get('{url}.html', ['as' => 'catalog.index', 'uses' => 'CatalogController@playlistPublisher']);
