@@ -221,7 +221,7 @@ class UserController extends Controller
     public function uploadImageBanner(Request $request) {
         if ($request->cover_img) {
             $path = Helpers::file_path(Auth::user()->id, USER_COVER_PATH, true);
-            $fileNameAvatar = Helpers::saveBase64ImageJpg($request->cover_img, $path, Auth::user()->id);
+            $fileName = $fileNameAvatar = Helpers::saveBase64ImageJpg($request->cover_img, $path, Auth::user()->id);
             $user = Auth::user();
             $user->user_cover = $fileNameAvatar;
             $user->save();
