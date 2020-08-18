@@ -511,7 +511,7 @@ if( !$memberVip && !$isVNIP )
                                             <div class="form-check m-0 ml-3">
                                                 <input class="form-check-input" type="checkbox" value="1" id="auto_play" checked>
                                                 <label class="form-check-label" for="auto_play">
-                                                    Tự động play
+                                                    Autoplay
                                                 </label>
                                             </div>
                                         </div>
@@ -709,7 +709,7 @@ if( !$memberVip && !$isVNIP )
                         <div class="form-group form-check mb-0 autoplay">
                             <input type="checkbox" class="form-check-input check_auto_play" id="exampleCheck1" checked>
                             <label class="form-check-label d-flex align-items-center" for="exampleCheck1">
-                                <span class="txt">Tự động chuyển tiếp</span>
+                                <span class="txt">AUTOPLAY</span>
                                 <span class="switch">
 							<span class="switch-inner"></span>
 						</span>
