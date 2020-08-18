@@ -70,7 +70,13 @@ if($musicSet['type_listen'] == 'playlist') {
 $auth_listen = true;
 if( !$memberVip && !$isVNIP )
 {
-    //$auth_listen = false;
+    if ( $music->cat_id > 3 ) {
+        $auth_listen = false;
+    } else if ($music->cat_id < 3) {
+        if ($music->cat_level != 1) {
+            $auth_listen = false;
+        }
+    }
 }
 
 ?>
