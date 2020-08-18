@@ -23,11 +23,13 @@ if($mySelf) {
 </style>
 <div class="box_profile">
     <div class="container">
+        @if($mySelf)
         <div class="media user11 box_banner_profile">
             <button type="button" class="btn btn-secondary btn-secondary-gray edit_banner_photo">Chỉnh sửa ảnh bìa <i style="font-size: 14px" class="material-icons">mode_edit</i></button>
             <input type="file" class="file_edit_banner_photo" hidden />
             <input type="text" hidden name="user_cover_value" value="" alt="" class="form-control-file user_cover_value">
         </div>
+        @endif
         <div class="box_avatar_profile">
             <div class="media-left mr-4 align-self-center">
                 <a href="{{'/user/'.$user->id}}" >
