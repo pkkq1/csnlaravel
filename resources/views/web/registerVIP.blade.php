@@ -38,7 +38,7 @@ $titleMeta = 'Đăng ký VIP Chia Sẻ Nhạc';
                         - Được nghe thoải mái các bài hát trên hệ thống với chất lượng cao.<br>
                         - Được tải thoải mái các bài hát trên hệ thống với chất lượng cao nhất.<br>
                         - Được tải ảnh cover lên để trang trí trang cá nhân nổi bật hơn các thành viên khác.<br>
-                        Hiện tại, mua tài khoản VIP 6 tháng trên hệ thống Chia Sẻ Nhạc đang được khuyến mãi 50%, giá gốc là <strike>120.000đ</strike>, giảm còn 60.000đ.
+                        Hiện tại, CSN chỉ cung cấp 1 gói VIP duy nhất giá 60.000đ, hạn sử dụng trong 180 ngày (tương đương 6 tháng).
                         <!-- Hiện tại, CSN cung cấp cho bạn sự lựa chọn các gói VIP với thời hạn như sau:<br>
                         - Gói tuần (7 ngày): 5.000vnđ<br>
                         - Gói tháng (30 ngày): 15.000vnđ<br>
