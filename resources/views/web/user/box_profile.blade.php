@@ -18,7 +18,7 @@ if($mySelf) {
         background-repeat: no-repeat;
         background-size: cover;
         position: relative;
-        background-image: url("<?php echo ($vipInfo) ? Helpers::pathUserCover($user->user_cover, $user->id) : '/images/banner-default.png' ?>");
+        background-image: url("<?php echo ($vipInfo && $user->vip_time_exprited > time()) ? Helpers::pathUserCover($user->user_cover, $user->id) : '/images/banner-default.png' ?>");
     }
 </style>
 <div class="box_profile">

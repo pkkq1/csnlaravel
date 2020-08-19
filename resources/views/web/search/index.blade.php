@@ -28,11 +28,11 @@ $filter = $_GET['filter'] ?? '';
             <nav class="nav_kq_search d-flex align-items-center justify-content-between">
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
                     <a class="nav-item nav-link {{(isset($_GET['page_music']) || isset($_GET['page_album']) || isset($_GET['page_video']) || isset($_GET['page_playback']) || isset($_GET['page_artist']) ) ? '' : 'active'}}" id="nav-all-tab" data-toggle="tab" href="#nav-all" role="tab" aria-controls="nav-all" aria-selected="true">tất cả</a>
-                    <a class="nav-item nav-link {{isset($_GET['page_music']) ? 'active' : ''}}" id="nav-music-tab" data-toggle="tab" href="#nav-music" role="tab" aria-controls="nav-music" aria-selected="false">bài hát ({{number_format($result['music']['row_total'] ?? 0)}})</a>
-                    <a class="nav-item nav-link {{isset($_GET['page_album']) ? 'active' : ''}}" id="nav-album-tab" data-toggle="tab" href="#nav-album" role="tab" aria-controls="nav-album" aria-selected="false">album ({{number_format($result['album']['row_total'] ?? 0)}})</a>
-                    <a class="nav-item nav-link {{isset($_GET['page_video']) ? 'active' : ''}}" id="nav-video-tab" data-toggle="tab" href="#nav-video" role="tab" aria-controls="nav-video" aria-selected="false">video ({{number_format($result['video']['row_total'] ?? 0)}})</a>
-                    <a class="nav-item nav-link {{isset($_GET['page_playback']) ? 'active' : ''}}" id="nav-playback-tab" data-toggle="tab" href="#nav-playback" role="tab" aria-controls="nav-playback" aria-selected="false">Playback ({{number_format($result['music_playback']['row_total'] ?? 0)}})</a>
-                    <a class="nav-item nav-link {{isset($_GET['page_artist']) ? 'active' : ''}}" id="nav-artist-tab" data-toggle="tab" href="#nav-artist" role="tab" aria-controls="nav-artist" aria-selected="false">ca sĩ ({{number_format($result['artist']['row_total'] ?? 0)}})</a>
+                    <a class="nav-item nav-link {{isset($_GET['page_music']) ? 'active' : ''}}" id="nav-music-tab" data-page="page_music" data-toggle="tab" href="#nav-music" role="tab" aria-controls="nav-music" aria-selected="false">bài hát ({{number_format($result['music']['row_total'] ?? 0)}})</a>
+                    <a class="nav-item nav-link {{isset($_GET['page_album']) ? 'active' : ''}}" id="nav-album-tab" data-page="page_album" data-toggle="tab" href="#nav-album" role="tab" aria-controls="nav-album" aria-selected="false">album ({{number_format($result['album']['row_total'] ?? 0)}})</a>
+                    <a class="nav-item nav-link {{isset($_GET['page_video']) ? 'active' : ''}}" id="nav-video-tab" data-page="page_video" data-toggle="tab" href="#nav-video" role="tab" aria-controls="nav-video" aria-selected="false">video ({{number_format($result['video']['row_total'] ?? 0)}})</a>
+                    <a class="nav-item nav-link {{isset($_GET['page_playback']) ? 'active' : ''}}" id="nav-playback-tab" data-page="page_playlist" data-toggle="tab" href="#nav-playback" role="tab" aria-controls="nav-playback" aria-selected="false">Playback ({{number_format($result['music_playback']['row_total'] ?? 0)}})</a>
+                    <a class="nav-item nav-link {{isset($_GET['page_artist']) ? 'active' : ''}}" id="nav-artist-tab" data-page="page_artist" data-toggle="tab" href="#nav-artist" role="tab" aria-controls="nav-artist" aria-selected="false">ca sĩ ({{number_format($result['artist']['row_total'] ?? 0)}})</a>
                 </div>
                 <div class="dropdown">
                     <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -43,7 +43,7 @@ $filter = $_GET['filter'] ?? '';
                             <div class="col-md-4">
                                 <h3 class="title">Tìm theo</h3>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="filter_search" value="" {{$filter == '' ? 'checked' : ''}} id="music_name_artist">
+                                    <input class="form-check-input" type="radio" name="filter_search" value="" {{(!isset($_GET['filter']) || $_GET['filter'] == '' || $_GET['filter'] == 'all') ? 'checked' : ''}} id="music_name_artist">
                                     <label class="form-check-label" for="music_name_artist">
                                         Tên b.hát & ca sĩ
                                     </label>
@@ -402,22 +402,49 @@ $filter = $_GET['filter'] ?? '';
     })
     $( document ).ready(function() {
         <?php
-        $filter = $_GET['filter'] ?? '';
-        if($filter == 'ca-si') {
-            ?>
-            $('#nav-artist-tab').click();
-            <?php
-        }elseif ($filter == 'ten-bai-hat') {
+        if(isset($_GET['page_music'])) {
             ?>
             $('#nav-music-tab').click();
             <?php
-        }elseif ($filter == 'ten-album') {
+        }elseif(isset($_GET['page_album'])) {
+            ?>
+            $('#nav-album-tab').click();
+        <?php
+        }elseif(isset($_GET['page_video'])) {
+            ?>
+            $('#nav-video-tab').click();
+            <?php
+        }elseif(isset($_GET['page_playback'])) {
+            ?>
+            $('#nav-playback-tab').click();
+            <?php
+        }elseif(isset($_GET['page_artist'])) {
+            ?>
+            $('#nav-artist-tab').click();
+            <?php
+        }
+        $filter = $_GET['filter'] ?? '';
+        if ($filter == 'ten-album') {
             ?>
             $('#nav-album-tab').click();
             <?php
         }
         ?>
     });
+    $('.nav-item').click(function () {
+        let tab_page = $(this).data('page');
+        setTimeout(function(){
+            let number_page = $('#nav-tabContent').find('.show').find('.pagination').find('.active a').html();
+            if (typeof number_page == 'undefined')
+                number_page = 1;
+            let q = findGetParameter('q');
+            let url = window.location.origin + '/tim-kiem?q=' + q + '&' + tab_page + '=' + (number_page);
+            if(url.indexOf("&filter=") != -1)
+                url = url.substr(0, url.indexOf("&filter="))
+            url = url + '&filter=' + $('input[type=radio][name=filter_search]:checked').val();
+            window.history.pushState({}, '', url);
+        }, 300);
+    })
 
 </script>
 @endsection
