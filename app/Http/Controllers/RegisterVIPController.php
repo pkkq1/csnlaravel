@@ -24,8 +24,7 @@ class RegisterVIPController extends Controller
 
     public function __construct(MessageUserEloquentRepository $userMessageRepository, LogPageVipEloquentRepository $logPageVipRepository)
     {
-        abort(403, 'Xin lỗi bạn, chức năng này đang tạm đóng trong 60 phút để nâng cấp.');
-
+        //abort(403, 'Xin lỗi bạn, chức năng này đang tạm đóng trong 60 phút để nâng cấp.');
         $this->userMessageRepository = $userMessageRepository;
         $this->logPageVipRepository = $logPageVipRepository;
     }

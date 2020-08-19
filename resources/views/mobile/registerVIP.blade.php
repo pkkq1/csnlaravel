@@ -39,7 +39,7 @@ $titleMeta = 'Đăng ký VIP Chia Sẻ Nhạc';
                         - Không bị các quảng cáo làm phiền khi bạn truy cập vào hệ thống website và app Chia Sẻ Nhạc.<br>
                         - Được nghe thoải mái các bài hát trên hệ thống với chất lượng cao.<br>
                         - Được tải thoải mái các bài hát trên hệ thống với chất lượng cao nhất.<br>
-                        Hiện tại, mua tài khoản VIP 6 tháng trên hệ thống Chia Sẻ Nhạc đang được khuyến mãi 50%, giá gốc là <strike>60.000đ</strike>, giảm còn 30.000đ.
+                        Hiện tại, mua tài khoản VIP 6 tháng trên hệ thống Chia Sẻ Nhạc đang được khuyến mãi 50%, giá gốc là <strike>120.000đ</strike>, giảm còn 60.000đ.
                         <br>
                     </p>
                     @if(!$memberVip)
@@ -48,8 +48,8 @@ $titleMeta = 'Đăng ký VIP Chia Sẻ Nhạc';
                             <span style="font-size: 18px;">Bạn vui lòng dùng app Momo chuyển tới số: <b>0389524211</b></span><br>
                             <span style="font-size: 18px;">- Tên chủ tài khoản: TON NU THI THUAN</span><br>
                             <span style="font-size: 18px;">- Lời chúc (Tin nhắn): </span><span style="font-size: 18px; font-weight: 700; color: red">CSN &nbsp; {{Auth::user()->user_id}}</span><br>
-                            <span style="font-size: 18px;">- Số tiền: 30.000 VNĐ</span><br>
-                            <img style="width: 100%; display: inline-block;" src="/imgs/qr-code-vip-csn.jpg">
+                            <span style="font-size: 18px;">- Số tiền: 60.000 VNĐ</span><br>
+                            <img style="width: 100%; display: inline-block;" src="/imgs/qr-code-vip-csn-60k.jpg">
                             * Nếu bạn không sử dụng app Momo, bạn có thể nhờ bất kỳ người nào có sử dụng app Momo để chuyển tiền mua VIP giúp bạn, chỉ cần chuyển tiền theo đúng số tài khoản và nội dung lời chúc như trên.<br><br>
                             * Vui lòng vui lòng không gọi qua số điện thoại này, CSN sẽ chỉ hỗ trợ thắc mắc trong khung <a target="_blank" href="/user/{{Auth::user()->id}}?tab=message_csn">liên hệ</a> bên dưới.<br>
                             <br />
@@ -61,7 +61,6 @@ $titleMeta = 'Đăng ký VIP Chia Sẻ Nhạc';
                         $vipInfo = Auth::user()->levelInfo()->first();
                         ?>
                         <span style="font-weight: 700; color: red; font-size: 20px;">Hiện tại bạn đang là thành viên VIP: {{$vipInfo->level_name}}, ngày hết hạn là: {{date('d/m/Y', Auth::user()->vip_time_exprited)}}</span>
-
                     @endif
 
                     <div style="clear: both"></div>
