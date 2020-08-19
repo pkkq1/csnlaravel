@@ -218,7 +218,7 @@ if($mySelf) {
                     @if($memberVip)
                     $('.file_edit_banner_photo').trigger('click');
                     @else
-                    alertModal('Thành viên vip có thể chỉnh sửa ảnh bìa');
+                    alertModal('Chỉ có thành viên VIP mới có quyền chỉnh sửa ảnh bìa');
                     @endif
                 });
 
