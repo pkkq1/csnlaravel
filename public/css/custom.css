@@ -2049,8 +2049,8 @@ a.dropdown-menu-header {
     position: relative;
 }
 .box_avatar_profile img {
-    width: 170px;
-    height: 170px;
+    width: 200px;
+    height: 200px;
     -o-object-fit: cover;
     object-fit: cover;
     border-radius: 50%;

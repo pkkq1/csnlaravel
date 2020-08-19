@@ -31,11 +31,26 @@ if($mySelf)
     <div class="header">
         @include('mobile.layouts.header_top')
     </div>
+    <style>
+
+        .box_banner_profile {
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            background-image: url("<?php echo ($vipInfo) ? Helpers::pathUserCover($user->user_cover, $user->id) : '/images/banner-default.png' ?>");
+        }
+    </style>
     <main class="main main_profile">
         <section class="block_box_profile">
+            <div class="box_banner_profile"></div>
+        </section>
+        <div class="box_avatar_profile">
             <div class="container">
                 <div class="box_profile py-3">
-                    <div class="box_profile__header"><a href="{{'/user/'.$user->id}}"><img id="view_user_avatar_2" src="<?php echo $avatar ?>?time={{time()}}" alt="{{$user->name}}"></a></div>
+                    <div class="box_profile__header"><a href="{{'/user/'.$user->id}}"><img id="view_user_avatar_2" class="view_user_avatar" src="<?php echo $avatar ?>?time={{time()}}" alt="{{$user->name}}"></a></div>
+                </div>
+                <div>
                     <div class="box_profile__body">
                         <h4 class="media-title user_name">{{$user->name}}@if($vipInfo)<img style="width: 20px; margin-left: 5px; margin-top: -5px" src="/imgs/vip_label.png" >@endif</h4>
                         @if($vipInfo)
@@ -45,12 +60,12 @@ if($mySelf)
                             <li class="list-inline-item"><strong>{{number_format($user->user_music)}}</strong><small> upload</small></li>
                         </ul>
                         @if($mySelf)
-                        <button type="button" data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-secondary btn-gradien btn-radius modal-edit-profile"><span>Chỉnh sửa </span><i aria-hidden="true" class="fa fa-pencil"></i></button>
+                            <button type="button" data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-secondary btn-gradien btn-radius modal-edit-profile"><span>Chỉnh sửa </span><i aria-hidden="true" class="fa fa-pencil"></i></button>
                         @endif
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
         <!-- swiper1-->
         <div data-itemmenu="4" class="swiper-container swiper1 swiper_wauto">
             <div class="swiper-wrapper">
