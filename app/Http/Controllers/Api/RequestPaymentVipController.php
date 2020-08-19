@@ -59,25 +59,33 @@ class RequestPaymentVipController extends Controller
         if($this->requestApiVip->getModel()::where('code', $request->code)->first()) {
             return new JsonResponse(['message' => 'Trùng mã code', 'code' => 400, 'data' => [], 'error' => []]);
         }
-        $level = $this->levelRepository->getModel()::where('level_id', LEVEL_ID_DEFAULT_VIP_1_60DAY)->first();
-        if(!$level) {
-            return new JsonResponse(['message' => 'Lỗi không tìm thấy gói nâng cấp', 'code' => 400, 'data' => [], 'error' => []]);
-        }
         $resultRequest = $this->requestApiVip->getModel()::create([
-           'title' => $request->title,
-           'name' => $request->name,
-           'code' => $request->code,
-           'phone' => $request->phone,
-           'note' => $request->note,
-           'amount' => $request->amount,
-           'time' => $request->time,
-           'time_create' => time(),
+            'title' => $request->title,
+            'name' => $request->name,
+            'code' => $request->code,
+            'phone' => $request->phone,
+            'note' => $request->note,
+            'amount' => $request->amount,
+            'time' => $request->time,
+            'time_create' => time(),
         ]);
-        $pay_value = $level->level_money;
-        if($level->level_money_promo_status) {
-            $pay_value = $level->level_money_promo;
+        $moneySend = (int)$request->amount;
+        $levels = $this->levelRepository->getModel()::where('level_status', 1)->get();
+        $level = null;
+        $pay_value = 0;
+        foreach ($levels as $item) {
+            if($item->level_money_promo_status && $item->level_money_promo == $moneySend) {
+                $level = $item;
+                $pay_value = $level->level_money_promo;
+                break;
+            }
+            if(!$item->level_money_promo_status && $item->level_money == $moneySend) {
+                $level = $item;
+                $pay_value = $level->level_money;
+                break;
+            }
         }
-        if($pay_value != (int)$request->amount) {
+        if(!$level) {
             $resultRequest->status = 'WRONG_MONEY';
             $resultRequest->save();
             return new JsonResponse(['message' => 'WRONG_MONEY', 'code' => 400, 'data' => [], 'error' => []]);
