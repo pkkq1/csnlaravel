@@ -24,6 +24,8 @@ class RegisterVIPController extends Controller
 
     public function __construct(MessageUserEloquentRepository $userMessageRepository, LogPageVipEloquentRepository $logPageVipRepository)
     {
+        abort(403, 'Xin lỗi bạn, chức năng này đang tạm đóng trong 60 phút để nâng cấp.');
+
         $this->userMessageRepository = $userMessageRepository;
         $this->logPageVipRepository = $logPageVipRepository;
     }
@@ -43,15 +45,14 @@ class RegisterVIPController extends Controller
         if(strlen($request->amount_request) < 5 || strlen($request->amount_request) > 14) {
             return redirect()->route('vip.home', [])->with(['error' => 'Lỗi tiền nạp không đúng']);
         }
-        if(strlen($request->message_request) > 1000) {
+        if(strlen($request->message_request) > 2000) {
             return redirect()->route('vip.home', [])->with(['error' => 'Lỗi mã ghi chú quá dài']);
         }
-        $text = 'Báo cáo đăng ký nạp VIP
-<br/>Số điện thoại: '. $request->id_phone_request . '
+        $text = 'Báo cáo nạp VIP: '.$request->message_request .'
+<br/>Số ĐT: '. $request->id_phone_request . '
 <br/>Đã nạp: '. number_format($request->amount_request). ' (vnđ)
 <br/>Lời chúc: '.$request->note_request. '
-<br/>Khoản thời gian đã nạp: '.  date('d/m/Y H:i', strtotime($request->time_request)) . '
-<br/>Ghi chú thêm: '.$request->message_request;
+<br/>Khoảng thời gian đã nạp: '.  date('d/m/Y H:i', strtotime($request->time_request));
         $result = $this->userMessageRepository->addMsg($text, Auth::user()->id, Auth::user()->user_name);
         return redirect()->route('vip.home', [])->with(['success' => 'Đã gửi báo cáo đăng ký VIP']);
     }
