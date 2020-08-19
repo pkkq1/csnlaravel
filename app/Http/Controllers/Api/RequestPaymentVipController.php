@@ -115,7 +115,7 @@ class RequestPaymentVipController extends Controller
             // success
             $resultRequest->status = 'SUCCESS';
             $resultRequest->save();
-            return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['user_id' => $user->user_id, 'username' => $user->username], 'error' => []]);
+            return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['user_id' => $user->user_id, 'username' => $user->username, 'level_id' => $level->id, 'level_name' => $level->level_name], 'error' => []]);
 
         }
     }
