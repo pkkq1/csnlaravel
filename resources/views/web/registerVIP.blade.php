@@ -37,13 +37,13 @@ $titleMeta = 'Đăng ký VIP Chia Sẻ Nhạc';
                         - Không bị các quảng cáo làm phiền khi bạn truy cập vào hệ thống website và app Chia Sẻ Nhạc.<br>
                         - Được nghe thoải mái các bài hát trên hệ thống với chất lượng cao.<br>
                         - Được tải thoải mái các bài hát trên hệ thống với chất lượng cao nhất.<br>
-                        - Được tải ảnh cover lên để trang trí trang cá nhân nổi bật hơn các thành viên khác.<br>
-                        Hiện tại, CSN chỉ cung cấp 1 gói VIP duy nhất giá 60.000đ, hạn sử dụng trong 180 ngày (tương đương 6 tháng).
-                        <!-- Hiện tại, CSN cung cấp cho bạn sự lựa chọn các gói VIP với thời hạn như sau:<br>
-                        - Gói tuần (7 ngày): 5.000vnđ<br>
-                        - Gói tháng (30 ngày): 15.000vnđ<br>
-                        - Gói 3 tháng (90 ngày): 35.000vnđ<br>
-                        - Gói 6 tháng (180 ngày): 60.000vnđ<br> -->
+                        - Được tải ảnh cover lên để trang trí trang cá nhân nổi bật hơn các thành viên khác.<br><br>
+                        <!-- Hiện tại, CSN chỉ cung cấp 1 gói VIP duy nhất giá 60.000đ, hạn sử dụng trong 180 ngày (tương đương 6 tháng). -->
+                        Hiện tại, CSN cung cấp cho bạn sự lựa chọn các gói VIP với thời hạn như sau:<br>
+                        - Gói tuần (7 ngày): 5.000 đồng<br>
+                        - Gói tháng (30 ngày): 15.000 đồng<br>
+                        - Gói 3 tháng (90 ngày): 35.000 đồng<br>
+                        - Gói 6 tháng (180 ngày): 60.000 đồng<br>
                     </p>
                     @if(!$memberVip)
 
@@ -53,7 +53,7 @@ $titleMeta = 'Đăng ký VIP Chia Sẻ Nhạc';
                         <span style="font-size: 18px;">Bạn vui lòng dùng app Momo chuyển tới số: <b>0389524211</b></span><br>
                         <span style="font-size: 18px;">- Tên chủ tài khoản: TON NU THI THUAN</span><br>
                         <span style="font-size: 18px;">- Lời chúc (Tin nhắn): <span style="font-weight: 700; color: red">CSN &nbsp; {{Auth::user()->user_id}}</span></span><br>
-                        <span style="font-size: 18px;">- Số tiền: 60.000 VNĐ<!-- (thay đổi tùy theo gói bạn muốn mua) --></span><br>
+                        <span style="font-size: 18px;">- Số tiền: 60.000 VNĐ (tùy ý theo gói bạn muốn mua)</span><br>
                         * Nếu bạn không sử dụng app Momo, bạn có thể nhờ bất kỳ người nào có sử dụng app Momo để chuyển tiền mua VIP giúp bạn, chỉ cần chuyển tiền theo đúng số tài khoản và nội dung lời chúc như trên.<br><br>
                         * Vui lòng vui lòng không gọi qua số điện thoại này, CSN sẽ chỉ hỗ trợ thắc mắc trong khung <a target="_blank" href="/user/{{Auth::user()->id}}?tab=message_csn">liên hệ</a> bên dưới.<br>
                         <br />
