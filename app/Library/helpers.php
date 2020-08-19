@@ -1023,8 +1023,6 @@ class Helpers
 
     public static function file_url(&$music_info)
     {
-        global $memberVip;
-
         if (!isset($music_info['music_id'])) {
             return '';
         }

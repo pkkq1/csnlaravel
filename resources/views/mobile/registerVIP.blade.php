@@ -39,6 +39,7 @@ $titleMeta = 'Đăng ký VIP Chia Sẻ Nhạc';
                         - Không bị các quảng cáo làm phiền khi bạn truy cập vào hệ thống website và app Chia Sẻ Nhạc.<br>
                         - Được nghe thoải mái các bài hát trên hệ thống với chất lượng cao.<br>
                         - Được tải thoải mái các bài hát trên hệ thống với chất lượng cao nhất.<br>
+                        - Được tải ảnh cover lên để trang trí trang cá nhân nổi bật hơn các thành viên khác.<br>
                         Hiện tại, mua tài khoản VIP 6 tháng trên hệ thống Chia Sẻ Nhạc đang được khuyến mãi 50%, giá gốc là <strike>120.000đ</strike>, giảm còn 60.000đ.
                         <br>
                     </p>
