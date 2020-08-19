@@ -72,16 +72,13 @@ class RequestPaymentVipController extends Controller
         $moneySend = (int)$request->amount;
         $levels = $this->levelRepository->getModel()::where('level_status', 1)->get();
         $level = null;
-        $pay_value = 0;
         foreach ($levels as $item) {
             if($item->level_money_promo_status && $item->level_money_promo == $moneySend) {
                 $level = $item;
-                $pay_value = $level->level_money_promo;
                 break;
             }
             if(!$item->level_money_promo_status && $item->level_money == $moneySend) {
                 $level = $item;
-                $pay_value = $level->level_money;
                 break;
             }
         }
