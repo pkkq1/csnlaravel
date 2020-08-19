@@ -38,14 +38,15 @@ $titleMeta = 'Đăng ký VIP Chia Sẻ Nhạc';
                         - Được nghe thoải mái các bài hát trên hệ thống với chất lượng cao.<br>
                         - Được tải thoải mái các bài hát trên hệ thống với chất lượng cao nhất.<br>
                         - Được tải ảnh cover lên để trang trí trang cá nhân nổi bật hơn các thành viên khác.<br>
-                        Hiện tại, mua tài khoản VIP 6 tháng trên hệ thống Chia Sẻ Nhạc đang được khuyến mãi 50%, giá gốc là <strike>120.000đ</strike>, giảm còn 60.000đ.
+                        <!-- Hiện tại, mua tài khoản VIP 6 tháng trên hệ thống Chia Sẻ Nhạc đang được khuyến mãi 50%, giá gốc là <strike>120.000đ</strike>, giảm còn 60.000đ. -->
+                        Hiện tại, CSN chỉ cung cấp 1 gói VIP duy nhất giá 60.000đ, hạn sử dụng trong 180 ngày (tương đương 6 tháng).
                         <br>
                     </p>
                     @if(!$memberVip)
 
                     <img style="width: 38%; float: right; display: inline-block;" src="/imgs/qr-code-vip-csn-60k.jpg">
                     <div style="font-family: 'SFProDisplay-Regular'; color: #333; font-size: 16px; width: 60%;display: inline-block; float: left; padding-top: 20px;">
-                        <span style="font-size: 18px;">Hiện tại, chúng tôi chỉ hỗ trợ duy nhất 1 hình thức thanh toán bằng cách dùng app MOMO chuyển tiền.</span><br>
+                        <span style="font-size: 18px;">Chúng tôi chỉ hỗ trợ duy nhất 1 hình thức thanh toán bằng cách dùng app MOMO chuyển tiền.</span><br>
                         <span style="font-size: 18px;">Bạn vui lòng dùng app Momo chuyển tới số: <b>0389524211</b></span><br>
                         <span style="font-size: 18px;">- Tên chủ tài khoản: TON NU THI THUAN</span><br>
                         <span style="font-size: 18px;">- Lời chúc (Tin nhắn): <span style="font-weight: 700; color: red">CSN &nbsp; {{Auth::user()->user_id}}</span></span><br>
