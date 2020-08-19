@@ -105,7 +105,7 @@ class RequestPaymentVipController extends Controller
                 $resultRequest->save();
                 return new JsonResponse(['message' => 'NOT_MATCH_PAGE_LOG', 'code' => 400, 'data' => [], 'error' => []]);
             }
-            $result = $this->userLevelRepository->upgradeUserLevel_v2($user->id, $level->id, '', '',  0, $resultRequest->id);
+            $result = $this->userLevelRepository->upgradeUserLevel_v2($user->id, $level->level_id, '', '',  0, $resultRequest->id);
             if(!$result['success']) {
                 $resultRequest->status = 'ERROR';
                 $resultRequest->note = $result['msg'];
