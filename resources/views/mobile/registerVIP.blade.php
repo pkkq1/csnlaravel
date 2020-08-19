@@ -40,8 +40,11 @@ $titleMeta = 'Đăng ký VIP Chia Sẻ Nhạc';
                         - Được nghe thoải mái các bài hát trên hệ thống với chất lượng cao.<br>
                         - Được tải thoải mái các bài hát trên hệ thống với chất lượng cao nhất.<br>
                         - Được tải ảnh cover lên để trang trí trang cá nhân nổi bật hơn các thành viên khác.<br>
-                        Hiện tại, CSN chỉ cung cấp 1 gói VIP duy nhất giá 60.000đ, hạn sử dụng trong 180 ngày (tương đương 6 tháng).
-                        <br>
+                        Hiện tại, CSN cung cấp cho bạn sự lựa chọn các gói VIP với thời hạn như sau:<br>
+                        - Gói tuần (7 ngày): 5.000vnđ<br>
+                        - Gói tháng (30 ngày): 15.000vnđ<br>
+                        - Gói 3 tháng (90 ngày): 35.000vnđ<br>
+                        - Gói 6 tháng (180 ngày): 60.000vnđ (thay đổi tùy theo gói bạn muốn mua)<br>
                     </p>
                     @if(!$memberVip)
                         <div style="font-family: 'SFProDisplay-Regular'; color: #333; font-size: 16px; width: 100%;display: inline-block; padding-top: 20px;">
