@@ -857,11 +857,21 @@ class MusicController extends Controller
             }
             $musicListen = $this->musicListenRepository->getModel()::where('music_id', $idMusic)->first();
             $musicDownload = $this->musicDownloadRepository->getModel()::where('music_id', $idMusic)->first();
-            $musicQualityMax = $music->music_bitrate;
+            if($music->music_new_id > 0) {
+                $musicNew = $this->musicDeletedRepository->getModel()::where('music_id', $music->music_new_id)->first();
+                $musicQualityMax = $musicNew->music_bitrate;
+            }else{
+                $musicQualityMax = $music->music_bitrate;
+            }
 
             $mergeListen = $this->musicListenRepository->getModel()::where('music_id', $idMusic)->first();
             $mergeDownload = $this->musicDownloadRepository->getModel()::where('music_id', $idMusic)->first();
-            $mergeQualityMax = $merge->music_bitrate;
+            if($merge->music_new_id > 0) {
+                $musicNew = $this->musicDeletedRepository->getModel()::where('music_id', $merge->music_new_id)->first();
+                $mergeQualityMax = $musicNew->music_bitrate;
+            }else{
+                $mergeQualityMax = $merge->music_bitrate;
+            }
 
 //            dd($idMusic, $idMerge, $musicQualityMax, $mergeQualityMax);
             $url = '';
@@ -937,8 +947,8 @@ class MusicController extends Controller
         $music->music_downloads = (int)$music->music_downloads + (int)$merge->music_downloads;
         $musicListen->music_listen = (int)$musicListen->music_listen + (int)$mergeListen->music_listen;
         $musicListen->music_listen_today = (int)$musicListen->music_listen_today + (int)$mergeListen->music_listen_today;
-        $musicDownload->music_downloads = (int)$musicDownload->music_downloads + (int)$mergeListen->music_downloads;
-        $musicDownload->music_downloads_today = (int)$musicDownload->music_downloads_today + (int)$mergeListen->music_downloads_today;
+        $musicDownload->music_downloads = (int)$musicDownload->music_downloads + (int)$mergeDownload->music_downloads;
+        $musicDownload->music_downloads_today = (int)$musicDownload->music_downloads_today + (int)$mergeDownload->music_downloads_today;
         $musicListen->save();
         $musicDownload->save();
         // add comment & search * comment
