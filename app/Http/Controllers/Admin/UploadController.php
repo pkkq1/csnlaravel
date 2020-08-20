@@ -288,8 +288,7 @@ class UploadController extends CrudController
             \Alert::error('Lỗi bạn không có quyền này')->flash();
             return redirect()->back();
         }
-        $musics = $this->musicRepository->getModel()::where('music_user_id', $id)->orderby('music_id', 'desc')->limit(1)->get();
-        dd();
+        $musics = $this->musicRepository->getModel()::where('music_user_id', $id)->orderby('music_id', 'desc')->limit(300)->get();
         if($musics) {
             foreach ($musics as $item) {
                 $this->uploadRepository->getModel()::where('music_id', $item->music_id)->update(['music_state' => UPLOAD_STAGE_DELETED, 'music_note' => 'Xóa tổng thể', 'music_last_update_by' => Auth::user()->id]);
