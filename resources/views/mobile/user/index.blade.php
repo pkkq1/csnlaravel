@@ -4,8 +4,11 @@ $titleMeta = $user->name . ' - '. Config::get('constants.app.title');
 $mySelf = (Auth::check() && Auth::user()->id == $user->id);
 $avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
 $vipInfo = null;
-if($mySelf)
+if($mySelf) {
     $vipInfo = Auth::user()->levelInfo()->first();
+}else{
+    $vipInfo = $user->levelInfo()->first();
+}
 ?>
 @section('meta')
     <meta name="copyright" content="{{env('APP_URL')}}" />
@@ -38,7 +41,7 @@ if($mySelf)
             background-repeat: no-repeat;
             background-size: cover;
             position: relative;
-            background-image: url("<?php echo ($vipInfo) ? Helpers::pathUserCover($user->user_cover, $user->id) : '/images/banner-default.png' ?>");
+            background-image: url("<?php echo ($vipInfo && $user->vip_time_exprited > time()) ? Helpers::pathUserCover($user->user_cover, $user->id) : '/images/banner-default.png' ?>");
         }
     </style>
     <main class="main main_profile">
@@ -53,7 +56,7 @@ if($mySelf)
                 <div>
                     <div class="box_profile__body">
                         <h4 class="media-title user_name">{{$user->name}}@if($vipInfo)<img style="width: 20px; margin-left: 5px; margin-top: -5px" src="/imgs/vip_label.png" >@endif</h4>
-                        @if($vipInfo)
+                        @if($vipInfo && $mySelf)
                             <span style="color: red; font-weight: 400; margin-bottom: 8px" title="Ngày hết hạn là: {{date('d/m/Y', Auth::user()->vip_time_exprited)}}">Vip: {{$vipInfo->level_name}}</span>
                         @endif
                         <ul class="list-inline">
