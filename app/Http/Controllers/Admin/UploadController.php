@@ -18,6 +18,8 @@ use Backpack\CRUD\app\Http\Requests\CrudRequest as UpdateRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Repositories\DeleteMusic\DeleteMusicEloquentRepository;
 use App\Repositories\Music\MusicEloquentRepository;
+use App\Repositories\Upload\UploadEloquentRepository;
+use App\Repositories\MusicDeleted\MusicDeletedEloquentRepository;
 use App\Models\MusicModel;
 use App\Models\UploadModel;
 use App\Models\UploadExceptionModel;
@@ -26,10 +28,16 @@ class UploadController extends CrudController
 {
     protected $deleteMusicRepository;
     protected $musicRepository;
-    public function __construct(DeleteMusicEloquentRepository $deleteMusicRepository, MusicEloquentRepository $musicRepository)
+    protected $uploadRepository;
+    protected $musicDeletedRepository;
+
+    public function __construct(DeleteMusicEloquentRepository $deleteMusicRepository, MusicEloquentRepository $musicRepository, UploadEloquentRepository $uploadRepository, MusicDeletedEloquentRepository $musicDeletedRepository)
     {
         $this->deleteMusicRepository = $deleteMusicRepository;
         $this->musicRepository = $musicRepository;
+        $this->uploadRepository = $uploadRepository;
+        $this->musicDeletedRepository = $musicDeletedRepository;
+
         $this->middleware(function ($request, $next)
         {
             if(!backpack_user()->can('duyet_sua_nhac') && !backpack_user()->can('duyet_sua_karaoke')) {
@@ -274,5 +282,23 @@ class UploadController extends CrudController
         $music = $this->musicRepository->getModel()::where('music_id', $id)->first();
         $this->deleteMusicRepository->create($music->toArray());
         return $this->crud->delete($id);
+    }
+    public function deleteMusicUpload(Request $req, $id) {
+        if(!backpack_user()->can('xoa_nhac') || !backpack_user()->can('user_(delete)')) {
+            \Alert::error('Lỗi bạn không có quyền này')->flash();
+            return redirect()->back();
+        }
+        $musics = $this->musicRepository->getModel()::where('music_user_id', $id)->orderby('music_id', 'desc')->limit(1)->get();
+        dd();
+        if($musics) {
+            foreach ($musics as $item) {
+                $this->uploadRepository->getModel()::where('music_id', $item->music_id)->update(['music_state' => UPLOAD_STAGE_DELETED, 'music_note' => 'Xóa tổng thể', 'music_last_update_by' => Auth::user()->id]);
+                $item->music_delete_time = time();
+                $this->musicDeletedRepository->getModel()::create($item->toArray());
+                $item->delete();
+            }
+        }
+        \Alert::success('Đã xóa 300 bài upload của user thành công.')->flash();
+        return redirect()->back();
     }
 }

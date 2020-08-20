@@ -73,6 +73,8 @@ Route::group([
     CRUD::resource('convert_music_id', 'ConvertToolMusicIDController');
     CRUD::resource('user_message', 'MessageUserController');
 
+    Route::get('/user/{id}/delete_upload_music', 'UploadController@deleteMusicUpload');
+
     Route::get('report_music/ban_user/{user_id}', 'ReportMusicController@bannedUserMusic');
     Route::get('report_comment/ban_user/{user_id}', 'ReportCommentController@bannedUserComment');
 

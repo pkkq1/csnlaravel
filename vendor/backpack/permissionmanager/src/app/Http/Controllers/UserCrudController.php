@@ -277,7 +277,7 @@ class UserCrudController extends CrudController
                 ],
             ],
         ]);
-
+        $this->crud->setEditView('vendor.backpack.user.edit');
     }
 
     /**
