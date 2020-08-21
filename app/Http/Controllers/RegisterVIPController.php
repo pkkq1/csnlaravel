@@ -56,8 +56,7 @@ class RegisterVIPController extends Controller
         return redirect()->route('vip.home', [])->with(['success' => 'Đã gửi báo cáo đăng ký VIP']);
     }
     public function refreshRegVip(Request $request) {
-        dd(Auth::user()->vip_level);
-        if(Auth::user()->vip_level > 0) {
+        if(Auth::user()->vip_level > 0 && Auth::user()->vip_time_exprited > time()) {
             Helpers::ajaxResult(true, '', null);
         }
         Helpers::ajaxResult(false, '', null);
