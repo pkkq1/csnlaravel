@@ -847,6 +847,7 @@ class MusicController extends Controller
         if(Auth::check() && backpack_user()->can('duyet_sua_nhac')){
             $idMusic = $request->id;
             $idMerge = $request->id_merge;
+            $music_new_id = null;
             if(!$idMusic || !$idMerge || ($idMusic == $idMerge)) {
                 Helpers::ajaxResult(false, 'Lỗi ngoài hệ thống nhập', null);
             }
@@ -860,6 +861,7 @@ class MusicController extends Controller
             if($music->music_new_id > 0) {
                 $musicNew = $this->musicDeletedRepository->getModel()::where('music_id', $music->music_new_id)->first();
                 $musicQualityMax = $musicNew->music_bitrate;
+                $music_new_id = $merge->music_new_id;
             }else{
                 $musicQualityMax = $music->music_bitrate;
             }
@@ -869,6 +871,7 @@ class MusicController extends Controller
             if($merge->music_new_id > 0) {
                 $musicNew = $this->musicDeletedRepository->getModel()::where('music_id', $merge->music_new_id)->first();
                 $mergeQualityMax = $musicNew->music_bitrate;
+                $music_new_id = $merge->music_new_id;
             }else{
                 $mergeQualityMax = $merge->music_bitrate;
             }
@@ -879,10 +882,10 @@ class MusicController extends Controller
                 //  Trường hợp ID1 > ID2
                 if($idMerge > ID_OLD_MUSIC || ($idMerge < ID_OLD_MUSIC && $idMusic < ID_OLD_MUSIC)) {
                     // tất cả ở trên ID_OLD_MUSIC hoặc cùng ở dưới ID_OLD_MUSIC
-                    $url = $this->save_to_idMergeMusic($music, $musicListen, $musicDownload, $musicQualityMax, $merge, $mergeListen, $mergeDownload, $mergeQualityMax);
+                    $url = $this->save_to_idMergeMusic($music, $musicListen, $musicDownload, $musicQualityMax, $merge, $mergeListen, $mergeDownload, $mergeQualityMax, $music_new_id);
                 }elseif($idMerge < ID_OLD_MUSIC && $idMusic > ID_OLD_MUSIC){
                     // ở giữa ID_OLD_MUSIC, nhạc nhập dưới ID_OLD_MUSIC, nhạc bị nhập ở trên
-                    $url = $this->save_to_idMusic($music, $musicListen, $musicDownload, $musicQualityMax, $merge, $mergeListen, $mergeDownload, $mergeQualityMax);
+                    $url = $this->save_to_idMusic($music, $musicListen, $musicDownload, $musicQualityMax, $merge, $mergeListen, $mergeDownload, $mergeQualityMax, $music_new_id);
                 }else {
                     Helpers::ajaxResult(false, 'Lỗi ngoài hệ thống nhập', null);
                 }
@@ -903,7 +906,7 @@ class MusicController extends Controller
         }
         Helpers::ajaxResult(false, 'Lỗi', null);
     }
-    public function save_to_idMergeMusic($music, $musicListen, $musicDownload, $musicQualityMax, $merge, $mergeListen, $mergeDownload, $mergeQualityMax) {
+    public function save_to_idMergeMusic($music, $musicListen, $musicDownload, $musicQualityMax, $merge, $mergeListen, $mergeDownload, $mergeQualityMax, $music_new_id = null) {
         // add listen & downlaod
         $merge->music_listen = (int)$merge->music_listen + (int)$music->music_listen;
         $merge->music_downloads = (int)$merge->music_downloads + (int)$music->music_downloads;
@@ -924,7 +927,11 @@ class MusicController extends Controller
 
         // check quality
         if($mergeQualityMax < $musicQualityMax) {
-            $merge->music_new_id = $music->music_id;
+            if($music_new_id) {
+                $music->music_new_id = $music_new_id;
+            }else{
+                $merge->music_new_id = $music->music_id;
+            }
         }
         $merge->save();
         $music->music_deleted = $merge->music_id;
@@ -941,7 +948,7 @@ class MusicController extends Controller
         catch (exception $e) { }
         return $urlRedirect;
     }
-    public function save_to_idMusic($music, $musicListen, $musicDownload, $musicQualityMax, $merge, $mergeListen, $mergeDownload, $mergeQualityMax) {
+    public function save_to_idMusic($music, $musicListen, $musicDownload, $musicQualityMax, $merge, $mergeListen, $mergeDownload, $mergeQualityMax, $music_new_id = null) {
         // add listen & downlaod
         $music->music_listen = (int)$music->music_listen + (int)$merge->music_listen;
         $music->music_downloads = (int)$music->music_downloads + (int)$merge->music_downloads;
@@ -961,7 +968,11 @@ class MusicController extends Controller
 
         // check quality
         if($musicQualityMax < $mergeQualityMax) {
-            $music->music_new_id = $merge->music_id;
+            if($music_new_id) {
+                $music->music_new_id = $music_new_id;
+            }else{
+                $music->music_new_id = $merge->music_id;
+            }
         }
         $music->save();
         $merge->music_deleted = $music->music_id;
