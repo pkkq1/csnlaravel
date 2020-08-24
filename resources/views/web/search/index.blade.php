@@ -423,7 +423,6 @@ $filter = $_GET['filter'] ?? '';
             $('#nav-artist-tab').click();
             <?php
         }
-        $filter = $_GET['filter'] ?? '';
         if ($filter == 'ten-album') {
             ?>
             $('#nav-album-tab').click();

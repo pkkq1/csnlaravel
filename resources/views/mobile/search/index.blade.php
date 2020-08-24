@@ -300,6 +300,11 @@ $filterPage= (isset($_GET['filter']) && $_GET['filter']) ? '&filter='.$_GET['fil
             $('.search-artist').click();
             <?php
             }
+            if ($filter == 'ten-album') {
+            ?>
+            $('.search-album').click();
+            <?php
+            }
             ?>
         });
         $('.swiper-slide').click(function () {
