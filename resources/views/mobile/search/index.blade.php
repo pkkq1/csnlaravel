@@ -299,10 +299,6 @@ $filterPage= (isset($_GET['filter']) && $_GET['filter']) ? '&filter='.$_GET['fil
             ?>
             $('.search-artist').click();
             <?php
-            }elseif(isset($_GET['page_search'])) {
-            ?>
-            $('.search-search').click();
-            <?php
             }
             ?>
         });
