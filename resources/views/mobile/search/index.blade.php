@@ -4,6 +4,8 @@ use App\Library\Helpers;
 $titleMeta = $titleSearch . ' '. Config::get('constants.app.title');
 global $memberVip;
 $memberVip = Helpers::checkMemberVip();
+$filter = $_GET['filter'] ?? '';
+$filterPage= (isset($_GET['filter']) && $_GET['filter']) ? '&filter='.$_GET['filter'] : '';
 ?>
 @section('meta')
     <meta name="copyright" content="{{env('APP_URL')}}" />
@@ -28,11 +30,12 @@ $memberVip = Helpers::checkMemberVip();
         <div class="header_sub_menu">
             <div data-itemmenu="4" class="swiper-container swiper1">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide selected search-music">Bài Hát ({{number_format($result['music']['row_total'] ?? 0)}})</div>
-                    <div class="swiper-slide search-album" >Album ({{number_format($result['album']['row_total'] ?? 0)}})</div>
-                    <div class="swiper-slide search-video">Video ({{number_format($result['video']['row_total'] ?? 0)}})</div>
-                    <div class="swiper-slide search-playback">Playback ({{number_format($result['music_playback']['row_total'] ?? 0)}})</div>
-                    <div class="swiper-slide search-artist">Ca sĩ ({{number_format($result['artist']['row_total'] ?? 0)}})</div>
+                    <div class="swiper-slide selected search-music" data-page="page_music">Bài Hát ({{number_format($result['music']['row_total'] ?? 0)}})</div>
+                    <div class="swiper-slide search-album" data-page="page_album">Album ({{number_format($result['album']['row_total'] ?? 0)}})</div>
+                    <div class="swiper-slide search-video" data-page="page_video">Video ({{number_format($result['video']['row_total'] ?? 0)}})</div>
+                    <div class="swiper-slide search-playback" data-page="page_playlist">Playback ({{number_format($result['music_playback']['row_total'] ?? 0)}})</div>
+                    <div class="swiper-slide search-artist" data-page="page_artist">Ca sĩ ({{number_format($result['artist']['row_total'] ?? 0)}})</div>
+                    <div class="swiper-slide search-search" data-page="page_search">Lọc kết quả</div>
                 </div>
             </div>
         </div>
@@ -70,7 +73,7 @@ $memberVip = Helpers::checkMemberVip();
                                     <?php
                                     }, $result['music']['data'])
                                     ?>
-                                    <center><?php Helpers::pagingCustom($result['music']['page'] ?? 1, $result['music']['rows'] ?? 0, $result['music']['row_total'] ?? 0, '<a href="/tim-kiem?q=&page_music=%d&tab=music">%d</a>', $search) ?></center>
+                                    <center><?php Helpers::pagingCustom($result['music']['page'] ?? 1, $result['music']['rows'] ?? 0, $result['music']['row_total'] ?? 0, '<a href="/tim-kiem?q=&page_music=%d&tab=music'.$filterPage.'">%d</a>', $search) ?></center>
                                 </div>
                             </div>
                         </div>
@@ -95,7 +98,7 @@ $memberVip = Helpers::checkMemberVip();
                                     <?php
                                     }, $result['album']['data'])
                                     ?>
-                                    <center><?php Helpers::pagingCustom($result['album']['page'] ?? 1, $result['album']['rows'] ?? 0, $result['album']['row_total'] ?? 0,  '<a href="/tim-kiem?q=&page_music=%d&tab=album">%d</a>', $search) ?></center>
+                                    <center><?php Helpers::pagingCustom($result['album']['page'] ?? 1, $result['album']['rows'] ?? 0, $result['album']['row_total'] ?? 0,  '<a href="/tim-kiem?q=&page_music=%d&tab=album'.$filterPage.'">%d</a>', $search) ?></center>
                                 </div>
                             </div>
                         </div>
@@ -122,7 +125,7 @@ $memberVip = Helpers::checkMemberVip();
                                     <?php
                                     }, $result['video']['data'])
                                     ?>
-                                    <center><?php Helpers::pagingCustom($result['video']['page'] ?? 1, $result['video']['rows'] ?? 0, $result['video']['row_total'] ?? 0,  '<a href="/tim-kiem?q=&page_music=%d&tab=video">%d</a>', $search) ?></center>
+                                    <center><?php Helpers::pagingCustom($result['video']['page'] ?? 1, $result['video']['rows'] ?? 0, $result['video']['row_total'] ?? 0,  '<a href="/tim-kiem?q=&page_music=%d&tab=video'.$filterPage.'">%d</a>', $search) ?></center>
                                 </div>
                             </div>
                         </div>
@@ -145,7 +148,7 @@ $memberVip = Helpers::checkMemberVip();
                                     <?php
                                     }, $result['music_playback']['data'])
                                     ?>
-                                    <center><?php Helpers::pagingCustom($result['music_playback']['page'] ?? 1, $result['music_playback']['rows'] ?? 0, $result['music_playback']['row_total'] ?? 0, '<a href="/tim-kiem?q=&page_playback=%d&tab=playback">%d</a>', $search) ?></center>
+                                    <center><?php Helpers::pagingCustom($result['music_playback']['page'] ?? 1, $result['music_playback']['rows'] ?? 0, $result['music_playback']['row_total'] ?? 0, '<a href="/tim-kiem?q=&page_playback=%d&tab=playback'.$filterPage.'">%d</a>', $search) ?></center>
                                 </div>
                             </div>
                         </div>
@@ -166,8 +169,62 @@ $memberVip = Helpers::checkMemberVip();
                                     <?php
                                     }, $result['artist']['data'])
                                     ?>
-                                    <center><?php Helpers::pagingCustom($result['artist']['page'] ?? 1, $result['artist']['rows'] ?? 0, $result['artist']['row_total'] ?? 0,  '<a href="/tim-kiem?q=&page_music=%d&tab=ca-si">%d</a>', $search) ?></center>
+                                    <center><?php Helpers::pagingCustom($result['artist']['page'] ?? 1, $result['artist']['rows'] ?? 0, $result['artist']['row_total'] ?? 0,  '<a href="/tim-kiem?q=&page_music=%d&tab=ca-si'.$filterPage.'">%d</a>', $search) ?></center>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="container">
+                            <div class="block block_baihat">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <h3 class="title">Tìm theo</h3>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="filter_search" value="" {{(!isset($_GET['filter']) || $_GET['filter'] == '' || $_GET['filter'] == 'all') ? 'checked' : ''}} id="music_name_artist">
+                                            <label class="form-check-label" for="music_name_artist">
+                                                Tên b.hát & ca sĩ
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="filter_search" {{$filter == 'ten-album' ? 'checked' : ''}} value="ten-album" id="music_album">
+                                            <label class="form-check-label" for="music_album">
+                                                Tên Album
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <br/>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="filter_search" value="ten-bai-hat" {{$filter == 'ten-bai-hat' ? 'checked' : ''}} id="music_name">
+                                            <label class="form-check-label" for="music_name">
+                                                Tên bài hát
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="filter_search" {{$filter == 'ca-si' ? 'checked' : ''}} value="ca-si" id="music_artist">
+                                            <label class="form-check-label" for="music_artist">
+                                                Ca sĩ
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <br />
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="filter_search" value="sang-tac" {{$filter == 'sang-tac' ? 'checked' : ''}} id="music_composer">
+                                            <label class="form-check-label" for="music_composer">
+                                                Sáng tác
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="filter_search" value="loi-bai-hat" {{$filter == 'loi-bai-hat' ? 'checked' : ''}} id="music_lyric">
+                                            <label class="form-check-label" for="music_lyric">
+                                                Lời bài hát
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br/>
                             </div>
                         </div>
                     </div>
@@ -204,32 +261,6 @@ $memberVip = Helpers::checkMemberVip();
                 });
             }
         }
-        $( document ).ready(function() {
-            setTimeout(function(){
-                <?php
-                    if(isset($_GET['page_album'])) {
-                        ?>
-                        $('.search-album').click();
-                        <?php
-                    }
-                    if(isset($_GET['page_video'])) {
-                        ?>
-                        $('.search-video').click();
-                        <?php
-                    }
-                        if(isset($_GET['page_playback'])) {
-                        ?>
-                        $('.search-playback').click();
-                <?php
-                }
-                    if(isset($_GET['page_artist'])) {
-                        ?>
-                        $('.search-artist').click();
-                     <?php
-                    }
-                ?>
-            }, 200);
-        });
         <?php
         if(isset($_GET['tab'])) {
         ?>
@@ -239,5 +270,56 @@ $memberVip = Helpers::checkMemberVip();
         <?php
         }
         ?>
+        $('.form-check-input').change(function() {
+            let url = window.location.href;
+            if(url.indexOf("&filter=") != -1)
+                url = url.substr(0, url.indexOf("&filter="))
+            url = url + '&filter=' + $('input[type=radio][name=filter_search]:checked').val();
+            window.location.href = url;
+        })
+        $( document ).ready(function() {
+            <?php
+            if(isset($_GET['page_music'])) {
+            ?>
+            $('.search-music').click();
+            <?php
+            }elseif(isset($_GET['page_album'])) {
+            ?>
+            $('.search-album').click();
+            <?php
+            }elseif(isset($_GET['page_video'])) {
+            ?>
+            $('.search-video').click();
+            <?php
+            }elseif(isset($_GET['page_playback'])) {
+            ?>
+            $('.search-playback').click();
+            <?php
+            }elseif(isset($_GET['page_artist'])) {
+            ?>
+            $('.search-artist').click();
+            <?php
+            }elseif(isset($_GET['page_search'])) {
+            ?>
+            $('.search-search').click();
+            <?php
+            }
+            ?>
+        });
+        $('.swiper-slide').click(function () {
+            let tab_page = $(this).data('page');
+            setTimeout(function(){
+                let number_page = $('.swiper-wrapper').find('.swiper-slide-active').find('.pagination').find('.active a').html();
+                if (typeof number_page == 'undefined')
+                    number_page = 1;
+                let q = findGetParameter('q');
+                let url = window.location.origin + '/tim-kiem?q=' + q + '&' + tab_page + '=' + (number_page);
+                if(url.indexOf("&filter=") != -1)
+                    url = url.substr(0, url.indexOf("&filter="))
+                url = url + '&filter=' + $('input[type=radio][name=filter_search]:checked').val();
+                window.history.pushState({}, '', url);
+            }, 300);
+        })
+
     </script>
 @endsection
