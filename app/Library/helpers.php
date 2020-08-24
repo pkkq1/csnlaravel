@@ -1033,7 +1033,7 @@ class Helpers
         }
         $url = self::domain_hosted($music_info);
         if ($url == 'https://data25.chiasenhac.com/') {
-            $folder1 = 'downloads/';
+            $folder1 = 'download2/';
             $folder2 = 'stream2/';
         }
         else if ($url == 'https://data2.chiasenhac.com/') {
