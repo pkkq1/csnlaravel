@@ -2045,6 +2045,8 @@ a.dropdown-menu-header {
 }
 .box_avatar_profile {
     margin-top: -140px;
+    po
+    z-index: 9999;
 }
 .box_avatar_profile img{
     z-index: 10;
@@ -2063,6 +2065,8 @@ a.dropdown-menu-header {
 }
 .box_detail_profile {
     text-align: center;
+    z-index: 99;
+    position: relative;
 }
 .edit_banner_photo {
     color: black;
