@@ -286,12 +286,6 @@ if($mySelf) {
                         }).then(function (response) {
                             const info = $image_crop.croppie('get');
                             $('#uploadimageModal').modal('hide');
-                            if(selectImage == 'avatar'){
-                                $('#user_avatar').val(response);
-                                $('#view_user_avatar').attr("src", response);
-                            }else{
-                                getAjaxCover(response);
-                            }
                         })
                     }
 
