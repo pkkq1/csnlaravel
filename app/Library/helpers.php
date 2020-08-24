@@ -1040,6 +1040,10 @@ class Helpers
             $folder1 = 'stream2/';
             $folder2 = 'stream2/';
         }
+        else if ($url == 'https://data.chiasenhac.com/') {
+            $folder1 = 'down2/';
+            $folder2 = 'down2/';
+        }
         else {
             $folder1 = 'downloads/';
             $folder2 = 'downloads/';
