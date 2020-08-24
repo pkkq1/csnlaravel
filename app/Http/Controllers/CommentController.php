@@ -137,7 +137,7 @@ class CommentController extends Controller
             foreach($comment['data'] as $item) {
                 $arrId[] = $item['comment_id'];
             }
-            $commentReply = $this->commentReplayRepository->getCommentByCommentId($arrId, 'comment_time', 'desc')->toArray();
+            $commentReply = $this->commentReplayRepository->getCommentByCommentId($arrId, 'comment_time', 'asc')->toArray();
             return view('comment.comment', compact('comment', 'commentReply', 'pagingHtml'));
         }
     }

@@ -6,7 +6,7 @@ $permisDelete = Auth::check() && backpack_user()->can('comment_(can_block)');
     <?php
     array_map(function ($item) use ($commentReply, $permisDelete) {
     ?>
-        <li id="comment-{{$item['comment_id']}}" class="media comment-{{$item['comment_id']}}" style="width: 100%">
+        <li id="comment-{{$item['comment_id']}}" class="media comment-{{$item['comment_id']}} li-body-comment" style="width: 100%">
             <a href="/user/{{$item['user']['id']}}" title="{{$item['user']['name']}}"><img class="mr-3" src="<?php echo Helpers::pathAvatar($item['user']['user_avatar'], $item['user']['id']) ?>" alt="{{$item['user']['name']}}"></a>
             <div class="media-body">
                 <div class="body_commnet">
@@ -30,16 +30,7 @@ $permisDelete = Auth::check() && backpack_user()->can('comment_(can_block)');
                         @endif
                     </div>
                     <p class="media-text"><?php echo $item['comment_delete'] ? '<i>Bình luận này đã bị ẩn.</i>' : $item['comment_text']?></p>
-                    <div {{$item['comment_delete'] ? 'hidden' : ''}} class="reply_comment" data-comment_id="{{$item['comment_id']}}">Trả lời</div>
-                </div>
-                <div class="post_comment_reply post_comment_reply_{{$item['comment_id']}}">
-                    <form class="box_form_comment form-comment-{{$item['comment_id']}}">
-                        <div class="form-group emoji-picker-container">
-                            <textarea class="form-control comment" name="comment" rows="3" placeholder="Trả lời bình luận của bạn tại đây." data-emojiable="true"></textarea>
-                            <input type="hidden" class="reply_cmt_id" name="reply_cmt_id" value="{{$item['comment_id']}}">
-                            <button id="btn_cloud_up" class="btn btn-outline-success my-2 my-sm-0 waves-effect waves-light"  onclick="postComment({{$item['comment_id']}}, {{$item['user_id']}})" style="float: left; margin-top: 5px!important; margin-bottom: 10px!important; min-width: 75px;">Trả Lời</button>
-                        </div>
-                    </form>
+
                 </div>
                 <div class="comment-reply-{{$item['comment_id']}}">
                 <?php
@@ -77,6 +68,16 @@ $permisDelete = Auth::check() && backpack_user()->can('comment_(can_block)');
                         }
                     }
                 ?></div>
+                <div {{$item['comment_delete'] ? 'hidden' : ''}} class="reply_comment" data-comment_id="{{$item['comment_id']}}">Trả lời</div>
+                <div class="post_comment_reply post_comment_reply_{{$item['comment_id']}}">
+                    <form class="box_form_comment form-comment-{{$item['comment_id']}}">
+                        <div class="form-group emoji-picker-container">
+                            <textarea class="form-control comment" name="comment" rows="3" placeholder="Trả lời bình luận của bạn tại đây." data-emojiable="true"></textarea>
+                            <input type="hidden" class="reply_cmt_id" name="reply_cmt_id" value="{{$item['comment_id']}}">
+                            <button id="btn_cloud_up" class="btn btn-outline-success my-2 my-sm-0 waves-effect waves-light"  onclick="postComment({{$item['comment_id']}}, {{$item['user_id']}})" style="float: left; margin-top: 5px!important; margin-bottom: 10px!important; min-width: 75px;">Trả Lời</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </li>
     <?php
