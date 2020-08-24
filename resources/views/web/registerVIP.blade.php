@@ -129,7 +129,7 @@ $titleMeta = 'Đăng ký VIP Chia Sẻ Nhạc';
                     loaded = true;
                 },
                 success: function(response) {
-                    if(response) {
+                    if(response.success) {
                         location.reload();
                     }
                 }
