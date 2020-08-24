@@ -51,7 +51,7 @@ class MessageUserEloquentRepository extends EloquentRepository implements Messag
             ->_model
             ->create([
                 'text' => $txt,
-                'user_by_id' => $user_by_id,
+                'user_id' => $user_by_id,
                 'admin_reply_id' => $admin_reply_id,
                 'username' => $username,
                 'admin_username' => $admin_username,
