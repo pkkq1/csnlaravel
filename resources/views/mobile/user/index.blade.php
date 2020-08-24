@@ -2,7 +2,7 @@
 use App\Library\Helpers;
 $titleMeta = $user->name . ' - '. Config::get('constants.app.title');
 $mySelf = (Auth::check() && Auth::user()->id == $user->id);
-$avatar = Helpers::pathAvatar($user->user_avatar, $user->id);
+$avatar = Helpers::pathAvatar($user->user_avatar, $user->id, env('DATA_URL'));
 $vipInfo = null;
 if($mySelf) {
     $vipInfo = Auth::user()->levelInfo()->first();
@@ -41,7 +41,7 @@ if($mySelf) {
             background-repeat: no-repeat;
             background-size: cover;
             position: relative;
-            background-image: url("<?php echo ($vipInfo && $user->vip_time_exprited > time()) ? Helpers::pathUserCover($user->user_cover, $user->id) : '/images/banner-default.png' ?>");
+            background-image: url("<?php echo ($vipInfo && $user->vip_time_exprited > time()) ? Helpers::pathUserCover($user->user_cover, $user->id, env('DATA_URL')) : '/images/banner-default.png' ?>");
         }
     </style>
     <main class="main main_profile">
