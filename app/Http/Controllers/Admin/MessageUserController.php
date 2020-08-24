@@ -68,7 +68,7 @@ class MessageUserController extends CrudController
         $this->crud->addColumn([
             'label' => 'Tin nhắn User',
             'type' => 'select',
-            'name' => 'user_id',
+            'name' => 'user_by_id',
             'entity' => 'user',
             'attribute' => 'name',
             'model' => "App\User",

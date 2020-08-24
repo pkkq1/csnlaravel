@@ -18,8 +18,8 @@
     <?php
     use App\Models\MessageUserModel;
     use App\Models\UserModel;
-    $listMesssage = MessageUserModel::where('user_id', $fields['user_id']['value'])->orderBy('id', 'desc')->paginate(LIMIT_PAGE_USER_MSG);
-    $user = UserModel::where('id',$fields['user_id']['value'])->first();
+    $listMesssage = MessageUserModel::where('user_by_id', $fields['user_by_id']['value'])->orderBy('id', 'desc')->paginate(LIMIT_PAGE_USER_MSG);
+    $user = UserModel::where('id',$fields['user_by_id']['value'])->first();
     ?>
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -52,9 +52,9 @@
                                     @endforeach
                                 </ul>
                             </div>
-                            <h3 class="box-title" style="line-height: 30px;">Xem Nhắn Tin User: <a href="/user/{{$fields['user_id']['value']}}" target="_blank">{{$user->name}}</a></h3>
+                            <h3 class="box-title" style="line-height: 30px;">Xem Nhắn Tin User: <a href="/user/{{$fields['user_by_id']['value']}}" target="_blank">{{$user->name}}</a></h3>
                         @else
-                            <h3 class="box-title">Xem Nhắn Tin User: <a href="/user/{{$fields['user_id']['value']}}" target="_blank">{{$user->name}}</a></h3>
+                            <h3 class="box-title">Xem Nhắn Tin User: <a href="/user/{{$fields['user_by_id']['value']}}" target="_blank">{{$user->name}}</a></h3>
                         @endif
                     </div>
                     <div class="box-body row display-flex-wrap" style="display: flex;flex-wrap: wrap;">
@@ -69,7 +69,7 @@
                                 ?>
                                 @if(!$item['admin_reply_id'])
                                     <div class="alert alert-primary" role="alert">
-                                        <a href="/user/{{$item['user_id']}}" class="alert-link">{{$user->name}}</a>: <?php echo $item['text'] ?> <br><i style="font-size: 11px;">({{$item['created_at']}})</i>
+                                        <a href="/user/{{$item['user_by_id']}}" class="alert-link">{{$user->name}}</a>: <?php echo $item['text'] ?> <br><i style="font-size: 11px;">({{$item['created_at']}})</i>
                                     </div>
                                 @else
                                     <div class="alert alert-info" role="alert">
