@@ -79,6 +79,9 @@ if( !$memberVip && !$isVNIP )
     }
 }
 
+if ($music->music_id == 1597896) {
+    $auth_listen = false;
+}
 ?>
 @section('meta')
     <meta name="author" content="{{$music->music_username}}">
