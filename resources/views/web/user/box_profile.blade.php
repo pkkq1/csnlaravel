@@ -184,7 +184,7 @@ if($mySelf) {
             var selectImage = 'avatar';
             $(document).ready(function(){
                 $('#choose_user_avatar').on('change', function(){
-                    selectImage = 'cover';
+                    selectImage = 'avatar';
                     $('#image_demo').html('');
                     $('.update_avatar').css("max-width", "535px")
                     $image_crop = $('#image_demo').croppie({
