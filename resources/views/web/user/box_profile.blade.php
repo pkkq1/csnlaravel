@@ -259,6 +259,7 @@ if($mySelf) {
                 });
 
                 $('.crop_image').click(function(event){
+                    console.log(selectImage);
                     if(selectImage == 'avatar'){
                         $image_crop.croppie('result', {
                             type: 'canvas',
@@ -269,12 +270,8 @@ if($mySelf) {
                         }).then(function (response) {
                             const info = $image_crop.croppie('get');
                             $('#uploadimageModal').modal('hide');
-                            if(selectImage == 'avatar'){
-                                $('#user_avatar').val(response);
-                                $('#view_user_avatar').attr("src", response);
-                            }else{
-                                getAjaxCover(response);
-                            }
+                            $('#user_avatar').val(response);
+                            $('#view_user_avatar').attr("src", response);
                         })
                     }else{
                         $image_crop.croppie('result', {
@@ -286,6 +283,7 @@ if($mySelf) {
                         }).then(function (response) {
                             const info = $image_crop.croppie('get');
                             $('#uploadimageModal').modal('hide');
+                            getAjaxCover(response);
                         })
                     }
 
