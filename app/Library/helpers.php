@@ -1032,7 +1032,19 @@ class Helpers
             $music_info['music_file_cache'] = self::music_filename($music_info);
         }
         $url = self::domain_hosted($music_info);
-        $folder = ( $url == 'https://data25.chiasenhac.com/' ) ? 'stream2/' : 'downloads/';
+        if ($url == 'https://data25.chiasenhac.com/') {
+            $folder1 = 'downloads/';
+            $folder2 = 'stream2/';
+        }
+        else if ($url == 'https://data2.chiasenhac.com/') {
+            $folder1 = 'stream2/';
+            $folder2 = 'stream2/';
+        }
+        else {
+            $folder1 = 'downloads/';
+            $folder2 = 'downloads/';
+        }
+        //$folder = ( $url == 'https://data25.chiasenhac.com/' ) ? 'stream2/' : 'downloads/';
 
         $pathinfo = pathinfo($music_info['music_filename']);
         $music_info['music_extension'] = $pathinfo['extension'];
@@ -1047,7 +1059,7 @@ class Helpers
 
             if ($music_info['music_32_filesize'] > 0) {
                 $file_url[] = array(
-                    'url' => $url . 'downloads/' . ceil($music_id / 1000) . '/' . date('w') . '/' . rawurlencode($music_info['music_filename_noext']) . "/32/" . rawurlencode($music_info['music_file_cache']) . "." . $music_info['music_extension'],
+                    'url' => $url . $folder1 . ceil($music_id / 1000) . '/' . date('w') . '/' . rawurlencode($music_info['music_filename_noext']) . "/32/" . rawurlencode($music_info['music_file_cache']) . "." . $music_info['music_extension'],
                     'label' => '180p',
                     'size' => self::filesize2str($music_info['music_32_filesize']),
                     'type' => 'mp4'
@@ -1055,7 +1067,7 @@ class Helpers
             }
             if ($music_info['music_filesize'] > 0) {
                 $file_url[] = array(
-                    'url' => $url . 'downloads/' . ceil($music_id / 1000) . '/' . date('w') . '/' . rawurlencode($music_info['music_filename_noext']) . "/128/" . rawurlencode($music_info['music_file_cache']) . "." . $music_info['music_extension'],
+                    'url' => $url . $folder1 . ceil($music_id / 1000) . '/' . date('w') . '/' . rawurlencode($music_info['music_filename_noext']) . "/128/" . rawurlencode($music_info['music_file_cache']) . "." . $music_info['music_extension'],
                     'label' => '360p',
                     'size' => self::filesize2str($music_info['music_filesize']),
                     'type' => 'mp4'
@@ -1063,7 +1075,7 @@ class Helpers
             }
             if ($music_info['music_320_filesize'] > 0) {
                 $file_url[] = array(
-                    'url' => $url . $folder . ceil($music_id / 1000) . '/' . date('w') . '/' . rawurlencode($music_info['music_filename_noext']) . "/320/" . rawurlencode($music_info['music_file_cache']) . "." . $music_info['music_extension'],
+                    'url' => $url . $folder2 . ceil($music_id / 1000) . '/' . date('w') . '/' . rawurlencode($music_info['music_filename_noext']) . "/320/" . rawurlencode($music_info['music_file_cache']) . "." . $music_info['music_extension'],
                     'label' => '480p',
                     'size' => self::filesize2str($music_info['music_320_filesize']),
                     'type' => 'mp4'
@@ -1071,7 +1083,7 @@ class Helpers
             }
             if ($music_info['music_m4a_filesize'] > 0) {
                 $file_url[] = array(
-                    'url' => $url . $folder . ceil($music_id / 1000) . '/' . date('w') . '/' . rawurlencode($music_info['music_filename_noext']) . "/m4a/" . rawurlencode($music_info['music_file_cache']) . "." . $music_info['music_extension'],
+                    'url' => $url . $folder2 . ceil($music_id / 1000) . '/' . date('w') . '/' . rawurlencode($music_info['music_filename_noext']) . "/m4a/" . rawurlencode($music_info['music_file_cache']) . "." . $music_info['music_extension'],
                     'label' => '720p',
                     'size' => self::filesize2str($music_info['music_m4a_filesize']),
                     'type' => 'mp4'
@@ -1079,7 +1091,7 @@ class Helpers
             }
             if ($music_info['music_lossless_filesize'] > 0) {
                 $file_url[] = array(
-                    'url' => $url . $folder . ceil($music_id / 1000) . '/' . date('w') . '/' . rawurlencode($music_info['music_filename_noext']) . "/flac/" . rawurlencode($music_info['music_file_cache']) . "." . $music_info['music_extension'],
+                    'url' => $url . $folder2 . ceil($music_id / 1000) . '/' . date('w') . '/' . rawurlencode($music_info['music_filename_noext']) . "/flac/" . rawurlencode($music_info['music_file_cache']) . "." . $music_info['music_extension'],
                     'label' => '1080p',
                     'size' => self::filesize2str($music_info['music_lossless_filesize']),
                     'type' => 'mp4'
@@ -1089,7 +1101,7 @@ class Helpers
             $file_url = array();
             if ($music_info['music_32_filesize'] > 0) {
                 $file_url[] = array(
-                    'url' => $url . 'downloads/' . ceil($music_id / 1000) . '/' . date('w') . '/' . rawurlencode($music_info['music_filename_noext']) . "/32/" . rawurlencode($music_info['music_file_cache']) . ".m4a",
+                    'url' => $url . $folder1 . ceil($music_id / 1000) . '/' . date('w') . '/' . rawurlencode($music_info['music_filename_noext']) . "/32/" . rawurlencode($music_info['music_file_cache']) . ".m4a",
                     'label' => '32kbps',
                     'size' => self::filesize2str($music_info['music_32_filesize']),
                     'type' => 'm4a'
@@ -1097,7 +1109,7 @@ class Helpers
             }
             if ($music_info['music_filesize'] > 0) {
                 $file_url[] = array(
-                    'url' => $url . 'downloads/' . ceil($music_id / 1000) . '/' . date('w') . '/' . rawurlencode($music_info['music_filename_noext']) . "/128/" . rawurlencode($music_info['music_file_cache']) . "." . $music_info['music_extension'],
+                    'url' => $url . $folder1 . ceil($music_id / 1000) . '/' . date('w') . '/' . rawurlencode($music_info['music_filename_noext']) . "/128/" . rawurlencode($music_info['music_file_cache']) . "." . $music_info['music_extension'],
                     'label' => '128kbps',
                     'size' => self::filesize2str($music_info['music_filesize']),
                     'type' => 'mp3'
@@ -1105,7 +1117,7 @@ class Helpers
             }
             if ($music_info['music_320_filesize'] > 0) {
                 $file_url[] = array(
-                    'url' => $url . $folder . ceil($music_id / 1000) . '/' . date('w') . '/' . rawurlencode($music_info['music_filename_noext']) . "/320/" . rawurlencode($music_info['music_file_cache']) . "." . $music_info['music_extension'],
+                    'url' => $url . $folder2 . ceil($music_id / 1000) . '/' . date('w') . '/' . rawurlencode($music_info['music_filename_noext']) . "/320/" . rawurlencode($music_info['music_file_cache']) . "." . $music_info['music_extension'],
                     'label' => '320kbps',
                     'size' => self::filesize2str($music_info['music_320_filesize']),
                     'type' => 'mp3'
@@ -1113,7 +1125,7 @@ class Helpers
             }
             if ($music_info['music_m4a_filesize'] > 0) {
                 $file_url[] = array(
-                    'url' => $url . $folder . ceil($music_id / 1000) . '/' . date('w') . '/' . rawurlencode($music_info['music_filename_noext']) . "/m4a/" . rawurlencode($music_info['music_file_cache']) . ".m4a",
+                    'url' => $url . $folder2 . ceil($music_id / 1000) . '/' . date('w') . '/' . rawurlencode($music_info['music_filename_noext']) . "/m4a/" . rawurlencode($music_info['music_file_cache']) . ".m4a",
                     'label' => '500kbps',
                     'size' => self::filesize2str($music_info['music_m4a_filesize']),
                     'type' => 'm4a'
@@ -1122,7 +1134,7 @@ class Helpers
             if ($music_info['music_lossless_filesize'] > 0) {
                 //if (env('APP_ENV') != 'local' && Auth::check()) {
                 $file_url[] = array(
-                    'url' => $url . $folder . ceil($music_id / 1000) . '/' . date('w') . '/' . rawurlencode($music_info['music_filename_noext']) . "/flac/" . rawurlencode($music_info['music_file_cache']) . ".flac",
+                    'url' => $url . $folder2 . ceil($music_id / 1000) . '/' . date('w') . '/' . rawurlencode($music_info['music_filename_noext']) . "/flac/" . rawurlencode($music_info['music_file_cache']) . ".flac",
                     'label' => 'Lossless',
                     'size' => self::filesize2str($music_info['music_lossless_filesize']),
                     'type' => 'flac'
