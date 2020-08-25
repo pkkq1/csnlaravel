@@ -100,7 +100,7 @@ class RequestPaymentVipController extends Controller
                 return new JsonResponse(['message' => 'NOT_FOUND_USER_ID', 'code' => 400, 'data' => [], 'error' => []]);
             }
             $logPage = $this->logPageVipRepository->getModel()::where('user_id', $user->id)->first();
-            if(!$logPage || ((time() - $logPage->time_log) > 86400)) { //trong 24h qua
+            if(!$logPage || ((time() - $logPage->time_log) > 259200)) { //trong 74h qua
                 $resultRequest->status = 'NOT_MATCH_PAGE_LOG';
                 $resultRequest->save();
                 return new JsonResponse(['message' => 'NOT_MATCH_PAGE_LOG', 'code' => 400, 'data' => [], 'error' => []]);
