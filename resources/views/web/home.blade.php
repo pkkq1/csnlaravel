@@ -479,11 +479,11 @@ $catalog = config('constants.catalog');
                     array_map(function ($i, $item) {
                     ++$i;
                     ?>
-                    <li class="media {{($i == 1 ? 'first stand' : ($i == 2 ? 'now up' : ($i == 3 ? 'now down' : 'now')))}} align-items-stretch">
+                    <li class="media now align-items-stretch">
                         <div class="media-left mr-3">
                             <span></span>
                             <a href="/user/{{$item['music_user_id']}}">
-                                <img src="<?php echo $item['user_avatar_thumb'] ?>" alt="Muốn Nói Với Em">
+                                <img src="<?php echo $item['user_avatar_thumb'] ?>" style="border-radius: 50%;">
                             </a>
                         </div>
                         <div class="media-body d-flex flex-column">
