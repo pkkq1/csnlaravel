@@ -18,7 +18,7 @@ if($mySelf) {
         background-repeat: no-repeat;
         background-size: cover;
         position: relative;
-        background-image: url("<?php echo ($vipInfo && $user->vip_time_exprited > time()) ? Helpers::pathUserCover($user->user_cover, $user->id, env('DATA_URL')) : '/images/banner-default.png' ?>");
+        background-image: url("<?php echo ($vipInfo && $user->vip_time_exprited > time()) ? Helpers::pathUserCover($user->user_cover, $user->id, env('DATA_URL')) : '/images/banner-default.png' . '?time='.time() ?>");
     }
 </style>
 <div class="box_profile">
@@ -33,7 +33,7 @@ if($mySelf) {
         <div class="box_avatar_profile">
             <div class="media-left mr-4 align-self-center">
                 <a href="{{'/user/'.$user->id}}" >
-                    <img id="view_user_avatar_2" src="<?php echo Helpers::pathAvatar($user->user_avatar, $user->id, env('DATA_URL')) ?>" alt="{{$user->name}}" alt="{{$user->name}}">
+                    <img id="view_user_avatar_2" src="<?php echo Helpers::pathAvatar($user->user_avatar, $user->id, env('DATA_URL')) . '?time='.time() ?>" alt="{{$user->name}}" alt="{{$user->name}}">
                 </a>
             </div>
         </div>

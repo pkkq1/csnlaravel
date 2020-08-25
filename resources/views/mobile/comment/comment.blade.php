@@ -22,19 +22,6 @@ use App\Library\Helpers;
                     </div>
                     <div class="data_time text-gray text-right"><span><?php echo Helpers::timeElapsedString($item['comment_time']); ?></span></div>
                 </div>
-                <div class="block_form_comment"><a href="" class="reply_comment" data-comment_id="{{$item['comment_id']}}" >Trả lời</a>
-                    <div class="post_comment_reply post_comment_reply_{{$item['comment_id']}}">
-                        <form class="box_form_comment form_reply_comment form-comment-{{$item['comment_id']}}">
-                            <div class="form-group mb-2">
-                                <textarea rows="1" placeholder="Viết bình luận tại đây..." class="form-control p-2"></textarea>
-                                <input type="hidden" class="reply_cmt_id" name="reply_cmt_id" value="{{$item['comment_id']}}">
-                            </div>
-                            <div class="form-group text-left m-0">
-                                <button type="submit" onclick="postComment({{$item['comment_id']}}, {{$item['user_id']}})" class="btn btn-secondary btn-gradien btn-radius send-comment"><span>Gửi</span></button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
                 <div class="post_comment_reply comment-reply-{{$item['comment_id']}}">
                     <?php
                     if($commentReply) {
@@ -67,6 +54,20 @@ use App\Library\Helpers;
                         }
                     }
                     ?>
+                </div>
+                <div class="block_form_comment">
+                    <a href="" class="reply_comment" data-comment_id="{{$item['comment_id']}}" >Trả lời</a>
+                    <div class="post_comment_reply post_comment_reply_{{$item['comment_id']}}">
+                        <form class="box_form_comment form_reply_comment form-comment-{{$item['comment_id']}}">
+                            <div class="form-group mb-2">
+                                <textarea rows="1" placeholder="Viết bình luận tại đây..." class="form-control p-2"></textarea>
+                                <input type="hidden" class="reply_cmt_id" name="reply_cmt_id" value="{{$item['comment_id']}}">
+                            </div>
+                            <div class="form-group text-left m-0">
+                                <button type="submit" onclick="postComment({{$item['comment_id']}}, {{$item['user_id']}})" class="btn btn-secondary btn-gradien btn-radius send-comment"><span>Gửi</span></button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

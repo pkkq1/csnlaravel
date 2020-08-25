@@ -1232,6 +1232,11 @@ if( !$memberVip && !$isVNIP )
                                 } else {
                                     reply.removeClass('reply_show');
                                 }
+                                if($(this).html() == 'Trả lời') {
+                                    $(this).html('Ẩn');
+                                }else{
+                                    $(this).html('Trả lời');
+                                }
                                 reply.find('textarea').trigger('focus');
                             });
                             $('.box_form_comment').submit(false);
@@ -1239,7 +1244,7 @@ if( !$memberVip && !$isVNIP )
                             loadPageComment(window.location.origin + '/binh-luan/get_ajax?page=1');
                         }
                     } else {
-                        $('.comment-reply-' + formId).prepend(response);
+                        $('.comment-reply-' + formId).append(response);
                     }
                     $('.music_comment .number_comment').html(parseInt($('.music_comment .number_comment').html()) + 1);
                     $('.box_form_comment').submit(false);
@@ -1270,6 +1275,11 @@ if( !$memberVip && !$isVNIP )
                             reply.addClass('reply_show');
                         } else {
                             reply.removeClass('reply_show');
+                        }
+                        if($(this).html() == 'Trả lời') {
+                            $(this).html('Ẩn');
+                        }else{
+                            $(this).html('Trả lời');
                         }
                         reply.find('textarea').trigger('focus');
                     });

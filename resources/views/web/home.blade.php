@@ -367,7 +367,7 @@ $catalog = config('constants.catalog');
                                     </a>
                                 </div>
                                 <div class="media-body d-flex flex-column {{$i == 1 ? '' : 'justify-content-between'}}">
-                                    <h2 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
+                                    <h2 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h2>
                                     <div class="{{$i == 1 ? '' : 'd-flex'}} align-items-center justify-content-between">
                                         <div class="author"><?php echo $item['music_artist_html'] ?></div>
                                         <small class="counter_view">{{number_format($item['music_listen'])}}</small>
@@ -427,7 +427,7 @@ $catalog = config('constants.catalog');
                                     </a>
                                 </div>
                                 <div class="media-body d-flex flex-column {{$i == 1 ? '' : 'justify-content-between'}}">
-                                    <h2 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
+                                    <h2 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h2>
                                     <div class="{{$i == 1 ? '' : 'd-flex'}} align-items-center justify-content-between">
                                         <div class="author"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></div>
                                         <small class="counter_view">{{number_format($item['music_listen'])}}</small>
@@ -457,7 +457,7 @@ $catalog = config('constants.catalog');
                                     </a>
                                 </div>
                                 <div class="media-body d-flex flex-column {{$i == 1 ? '' : 'justify-content-between'}}">
-                                    <h2 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
+                                    <h2 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h2>
                                     <div class="{{$i == 1 ? '' : 'd-flex'}} align-items-center justify-content-between">
                                         <div class="author"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></div>
                                         <small class="counter_view">{{number_format($item['music_listen'])}}</small>
@@ -474,17 +474,23 @@ $catalog = config('constants.catalog');
                 <div class="box_header d-flex justify-content-between align-items-end" style="margin-top: 15px;">
                     <a class="view_all" href="/bang-xep-hang/tuan.html"><h2 class="title m-0">BXH upload trong tuần</h5></a>
                 </div>
-                <ul class="list-unstyled bxh_week mb-0">
+                <ul class="list-unstyled bxh_week bxh mb-0">
                     <?php
                     array_map(function ($i, $item) {
+                    ++$i;
                     ?>
-                    <li class="media {{($i == 0 ? 'stand' : ($i == 1 ? 'up' : ($i == 2 ? 'down' : '')))}}">
-                        <div class="media-left align-self-center"><span></span></div>
-                        <div class="media-body">
+                    <li class="media {{($i == 1 ? 'first stand' : ($i == 2 ? 'now up' : ($i == 3 ? 'now down' : 'now')))}} align-items-stretch">
+                        <div class="media-left mr-3">
+                            <span></span>
+                            <a href="/">
+                                <img src="<?php echo $item['user_avatar_thumb'] ?>" alt="Muốn Nói Với Em">
+                            </a>
+                        </div>
+                        <div class="media-body d-flex flex-column">
                             <h2 class="mt-0 mb-0 d-flex align-items-center justify-content-between">
                                 <a href="/user/{{$item['music_user_id']}}" title="{{$item['music_username']}}">{{$item['music_username']}}</a>
                                 <div class="counter_download">{{number_format($item['download_total'])}}</div>
-                            </h5>
+                            </h2>
                             <div class="d-flex align-items-center justify-content-between">
                                 <small class="counter_file">{{number_format($item['music_total'])}} upload (<?php echo Helpers::convertToReadableSize($item['size_total']); ?>)</small>
                                 <small class="text">download</small>
