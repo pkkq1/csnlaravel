@@ -132,7 +132,7 @@ define('MUSIC_PLAYLIST_PUBLISHER_PATH', 'data/playlist_publisher/');
 define('PUBLIC_MUSIC_PLAYLIST_PUBLISHER_PATH', '/storage/data/playlist_publisher/');
 // User
 define('AVATAR_PATH', 'data/user_avatar/');
-define('AVATAR_THUMB_PATH', 'data/user_thumb_avatar/');
+define('AVATAR_THUMB_PATH', 'data/user_avatar_thumb/');
 define('USER_COVER_PATH', 'data/user_cover/');
 define('PUBLIC_AVATAR_PATH', '/storage/data/user_avatar/');
 define('PUBLIC_USER_COVER_PATH', '/storage/data/user_cover/');
