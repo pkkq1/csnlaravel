@@ -132,7 +132,10 @@ class UserController extends Controller
         }
         if($request->input('user_avatar')){
             $path = Helpers::file_path(Auth::user()->id, AVATAR_PATH, true);
-            $fileNameAvatar = Helpers::saveBase64ImageJpg($request->input('user_avatar'), $path, Auth::user()->id);
+            $fileNameAvatar = Helpers::saveBase64ImageJpg($request->input('user_avatar'), $path, Auth::user()->id,
+                [
+                    ['dest' => Helpers::file_path(Auth::user()->id, AVATAR_THUMB_PATH, true), 'width' => 100, 'height' => null]
+                ]);
             $update['user_avatar'] = $fileNameAvatar;
         }
         $user = UserModel::where('id', Auth::user()->id)->update($update);
