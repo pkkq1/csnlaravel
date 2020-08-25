@@ -482,7 +482,7 @@ $catalog = config('constants.catalog');
                     <li class="media {{($i == 1 ? 'first stand' : ($i == 2 ? 'now up' : ($i == 3 ? 'now down' : 'now')))}} align-items-stretch">
                         <div class="media-left mr-3">
                             <span></span>
-                            <a href="/">
+                            <a href="/user/{{$item['music_user_id']}}">
                                 <img src="<?php echo $item['user_avatar_thumb'] ?>" alt="Muốn Nói Với Em">
                             </a>
                         </div>

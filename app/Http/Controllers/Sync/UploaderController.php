@@ -54,7 +54,7 @@ class UploaderController extends Controller
         foreach($top_uploader_weeks as &$item) {
             $music = $this->musicRepository->getModel()::select(DB::raw('SUM(music_downloads_this_week + music_downloads_today_0) as download_total'))->where('music_user_id', $item['music_user_id'])->first();
             $video = $this->videoRepository->getModel()::select(DB::raw('SUM(music_downloads_this_week + music_downloads_today_0) as download_total'))->where('music_user_id', $item['music_user_id'])->first();
-            $user = $this->userRepository->getModel()::select('user_avatar', 'vip_time_exprited', 'vip_level')->where('user_id', $item['music_user_id'])->first();
+            $user = $this->userRepository->getModel()::select('user_avatar', 'vip_time_exprited', 'vip_level', 'user_id')->where('user_id', $item['music_user_id'])->first();
             $item['download_total'] = $music->download_total + $video->download_total;
             $item['user_avatar'] = Helpers::pathAvatar($user->user_avatar, $user->user_id);
             $item['user_avatar_thumb'] = Helpers::pathThumbAvatar($user->user_avatar, $user->user_id);
