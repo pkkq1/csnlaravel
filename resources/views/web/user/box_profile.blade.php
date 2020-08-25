@@ -283,6 +283,7 @@ if($mySelf) {
                         }).then(function (response) {
                             const info = $image_crop.croppie('get');
                             $('#uploadimageModal').modal('hide');
+                            $('.box_banner_profile').css('background-image', 'url(' + response + ')');
                             getAjaxCover(response);
                         })
                     }
@@ -296,7 +297,7 @@ if($mySelf) {
                         dataType: 'json',
                         success:function(data){
                             if(data.success) {
-                                location.reload();
+
                             }else{
                                 alertModal(data.message);
                             }
