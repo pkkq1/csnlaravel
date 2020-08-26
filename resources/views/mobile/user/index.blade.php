@@ -51,7 +51,7 @@ if($mySelf) {
         <div class="box_avatar_profile">
             <div class="container">
                 <div class="box_profile py-3">
-                    <div class="box_profile__header"><a href="{{'/user/'.$user->id}}"><img id="view_user_avatar_2" class="view_user_avatar" src="<?php echo $avatar ?>?time={{time()}}" alt="{{$user->name}}"></a></div>
+                    <div class="box_profile__header"><a href="{{'/user/'.$user->id}}"><img id="view_user_avatar_2" class="view_user_avatar" src="<?php echo $avatar ?>" alt="{{$user->name}}"></a></div>
                 </div>
                 <div>
                     <div class="box_profile__body">
@@ -176,7 +176,7 @@ if($mySelf) {
                 </div>
                 <div class="box_profile pb-3">
                     <div class="box_profile__header"><a href="#" id="upload-avatar-crop">
-                            <img id="view_user_avatar" src="<?php echo Helpers::pathAvatar($user->user_avatar, $user->id) ?>?time={{time()}}" alt="{{$user->name}}">
+                            <img id="view_user_avatar" src="<?php echo $avatar ?>" alt="{{$user->name}}">
                         </a></div>
                     <div class="box_profile__body text-center">
                         <h4 class="media-title user_name">{{$user->name}}</h4>
