@@ -70,7 +70,7 @@ if($mySelf) {
                 <div class="row">
                     <div class="col-md-3">
                         <div class="change_avatar">
-                            <img class="mr-3" id="view_user_avatar" src="<?php echo Helpers::pathAvatar($user->user_avatar, $user->id) ?>?time={{time()}}" alt="{{Auth::user()->name}}">
+                            <img class="mr-3" id="view_user_avatar" src="<?php echo Helpers::pathAvatar($user->user_avatar, $user->id, env('DATA_URL')) ?>?time={{time()}}" alt="{{Auth::user()->name}}">
                             <div class="form-group">
                                 <label for="choose_user_avatar"><i class="material-icons">photo_camera</i> Thay đổi ảnh đại diện</label>
                                 <input type="file" class="form-control-file" name="choose_user_avatar" id="choose_user_avatar">

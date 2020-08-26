@@ -1316,7 +1316,8 @@ class Helpers
     public static function pathAvatar($userAvatar, $userId, $domain = '') {
         if(!$userAvatar)
             return $domain.'/imgs/no_avatar.png';
-        return (strpos($userAvatar, 'http') !== false) ? $userAvatar : $domain.Helpers::file_path($userId, ($domain ? AVATAR_PATH : PUBLIC_AVATAR_PATH), true) . $userAvatar;
+//        return (strpos($userAvatar, 'http') !== false) ? $userAvatar : $domain.Helpers::file_path($userId, ($domain ? AVATAR_PATH : PUBLIC_AVATAR_PATH), true) . $userAvatar;
+        return $domain.Helpers::file_path($userId, ($domain ? AVATAR_PATH : PUBLIC_AVATAR_PATH), true) . ((strpos($userAvatar, 'http') !== false) ? $userId.'.jpg' : $userAvatar);
     }
     public static function pathThumbAvatar($userAvatar, $userId, $domain = '') {
     if(!$userAvatar)
