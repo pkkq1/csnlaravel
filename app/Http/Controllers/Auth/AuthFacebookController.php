@@ -64,6 +64,8 @@ class AuthFacebookController extends Controller
                 }
                 Helpers::createThumbnail($url, $dir_original . $fileName, 500, 500);
                 Helpers::createThumbnail($url, $dir_Thumb . $fileName, 100, 100);
+                $existUser = $fileName;
+                $existUser->save();
             }
         }else{
             if(!$existUser->user_fb_identity) {
