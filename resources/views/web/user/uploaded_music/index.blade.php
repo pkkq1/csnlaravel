@@ -6,7 +6,7 @@
         <li class="warehouse_stage_album album" data-key="album"><a class="album" onclick="musicUploadTab( 'warehouse_stage_album', 'album', 'album')" href="javascript:void(0)"><span>Album</span></a></li>
         @if((Auth::check() && Auth::user()->hasPermission('duyet_sua_nhac')))
         <li class="approval_stage_fullcensor_by da-duyet-boi" data-key="fullcensor_by"><a class="da-duyet-boi" onclick="musicUploadTab( 'approval_stage_fullcensor_by', 'fullcensor_by', 'da-duyet-boi')" href="javascript:void(0)"><span><div style=" white-space: nowrap; width: 150px; overflow: hidden; text-overflow: ellipsis; line-height: 18px; ">Duyệt Bởi {{$user_name}}</div></span></a></li>
-        <li class="approval_stage_delete_by da-xoa-boi" data-key="delete_by"><a class="da-xoa-boi" onclick="musicUploadTab( 'approval_stage_delete_by', 'delete_by', 'da-xoa-boi')" href="javascript:void(0)"><span><div style=" white-space: nowrap; width: 150px; overflow: hidden; text-overflow: ellipsis; line-height: 18px; ">Duyệt Bởi {{$user_name}}</div></span></a></li>
+        <li class="approval_stage_delete_by da-xoa-boi" data-key="delete_by"><a class="da-xoa-boi" onclick="musicUploadTab( 'approval_stage_delete_by', 'delete_by', 'da-xoa-boi')" href="javascript:void(0)"><span><div style=" white-space: nowrap; width: 150px; overflow: hidden; text-overflow: ellipsis; line-height: 18px; ">Xóa Bởi {{$user_name}}</div></span></a></li>
         @endif
     </ul>
 </nav>
