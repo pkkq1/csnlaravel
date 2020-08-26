@@ -2,7 +2,7 @@
 use App\Library\Helpers;
 ?>
 <div class="media comment-reply-{{$reply['comment_reply_id']}}" id="comment-{{$reply['comment_reply_id']}}">
-    <a href="/user/{{$reply['user']['id']}}" title="{{$reply['user']['name']}}"><img class="mr-3" src="<?php echo Helpers::pathAvatar($reply['user']['user_avatar'], $reply['user']['id']) ?>" alt="{{$reply['user']['user_avatar']}}"></a>
+    <a href="/user/{{$reply['user']['id']}}" title="{{$reply['user']['name']}}"><img class="mr-3" src="<?php echo Helpers::pathThumbAvatar($reply['user']['user_avatar'], $reply['user']['id'], env('DATA_URL')) ?>" alt="{{$reply['user']['user_avatar']}}"></a>
     <div class="media-body">
         <div class="d-flex align-items-center justify-content-between body_commnet_replay">
             <h5 class="media-title mt-0 mb-1"><a href="/user/{{$reply['user']['id']}}" title="{{$reply['user']['name']}}">{{$reply['user']['name']}}</a>

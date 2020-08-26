@@ -7,7 +7,7 @@ $permisDelete = Auth::check() && backpack_user()->can('comment_(can_block)');
     array_map(function ($item) use ($commentReply, $permisDelete) {
     ?>
         <li id="comment-{{$item['comment_id']}}" class="media comment-{{$item['comment_id']}} li-body-comment" style="width: 100%">
-            <a href="/user/{{$item['user']['id']}}" title="{{$item['user']['name']}}"><img class="mr-3" src="<?php echo Helpers::pathAvatar($item['user']['user_avatar'], $item['user']['id']) ?>" alt="{{$item['user']['name']}}"></a>
+            <a href="/user/{{$item['user']['id']}}" title="{{$item['user']['name']}}"><img class="mr-3" src="<?php echo Helpers::pathThumbAvatar($item['user']['user_avatar'], $item['user']['id'], env('DATA_URL')) ?>" alt="{{$item['user']['name']}}"></a>
             <div class="media-body">
                 <div class="body_commnet">
                     <div class="d-flex align-items-center justify-content-between">
@@ -39,7 +39,7 @@ $permisDelete = Auth::check() && backpack_user()->can('comment_(can_block)');
                             if($reply['comment_id'] == $item['comment_id']){
                             ?>
                             <div class="media comment-reply-{{$reply['comment_reply_id']}}" id="comment-{{$reply['comment_reply_id']}}">
-                                <a href="/user/{{$reply['user']['id']}}" title="{{$reply['user']['name']}}"><img class="mr-3" src="<?php echo Helpers::pathAvatar($reply['user']['user_avatar'], $reply['user']['id']) ?>" alt="{{$reply['user']['name']}}"></a>
+                                <a href="/user/{{$reply['user']['id']}}" title="{{$reply['user']['name']}}"><img class="mr-3" src="<?php echo Helpers::pathThumbAvatar($reply['user']['user_avatar'], $reply['user']['id'], env('DATA_URL')) ?>" alt="{{$reply['user']['name']}}"></a>
                                 <div class="media-body">
                                     <div class="d-flex align-items-center justify-content-between body_commnet_replay">
                                         <h5 class="media-title mt-0 mb-1"><a href="/user/{{$reply['user']['id']}}" title="{{$reply['user']['name']}}">{{$reply['user']['name']}}</a>

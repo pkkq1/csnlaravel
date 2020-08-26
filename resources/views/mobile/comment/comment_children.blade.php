@@ -3,7 +3,7 @@ use App\Library\Helpers;
 ?>
 <div class="area_comment_reply d-flex">
     <div align="top" class="avatar user_comment py-2">
-        <a href="/user/{{$reply['user']['id']}}"><img src="<?php echo Helpers::pathAvatar($reply['user']['user_avatar'], $reply['user']['id']) ?>" alt=""></a>
+        <a href="/user/{{$reply['user']['id']}}"><img src="<?php echo Helpers::pathThumbAvatar($reply['user']['user_avatar'], $reply['user']['id'], env('DATA_URL')) ?>" alt=""></a>
     </div>
     <div class="content_comment text-left pl-2 py-2">
         <div class="item position_relative">
