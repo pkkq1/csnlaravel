@@ -13,6 +13,8 @@ use App\Models\UserSocialModel;
 use Illuminate\Support\Facades\Auth;
 use Socialite;
 use Session;
+use App\Library\Helpers;
+use Storage;
 
 class AuthFacebookController extends Controller
 {
@@ -52,6 +54,17 @@ class AuthFacebookController extends Controller
             ]);
             $existUser->user_id = $existUser->id;
             $existUser->save();
+            if($existUser->user_avatar) {
+                $url = $existUser->user_avatar;
+                $fileName = $existUser->id.'.jpg';
+                $dir_original = Storage::disk('public')->getAdapter()->getPathPrefix().Helpers::file_path($existUser->id, AVATAR_PATH, true);
+                $dir_Thumb = Storage::disk('public')->getAdapter()->getPathPrefix().Helpers::file_path($existUser->id, AVATAR_THUMB_PATH, true);
+                if (!file_exists($dir_Thumb)) {
+                    mkdir($dir_Thumb, 0777, true);
+                }
+                Helpers::createThumbnail($url, $dir_original . $fileName, 500, 500);
+                Helpers::createThumbnail($url, $dir_Thumb . $fileName, 100, 100);
+            }
         }else{
             if(!$existUser->user_fb_identity) {
                 $existUser->user_fb_identity = $user->getId();
