@@ -41,7 +41,7 @@ if($mySelf) {
             background-repeat: no-repeat;
             background-size: cover;
             position: relative;
-            background-image: url("<?php echo ($vipInfo && $user->vip_time_exprited > time()) ? Helpers::pathUserCover($user->user_cover, $user->id, env('DATA_URL')) : '/images/banner-default.png' . '?time='.time() ?>");
+            background-image: url("<?php echo ($vipInfo && $user->vip_time_exprited > time()) ? Helpers::pathUserCover($user->user_cover, $user->id, env('DATA_URL')) : env('DATA_URL').'images/banner-default.png' . '?time='.time() ?>");
         }
     </style>
     <main class="main main_profile">

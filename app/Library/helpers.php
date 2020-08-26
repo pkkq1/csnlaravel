@@ -1327,7 +1327,7 @@ class Helpers
     }
     public static function pathUserCover($userCover, $userId, $domain = '') {
         if(!$userCover)
-            return $domain.'/images/banner-default.png';
+            return $domain.'images/banner-default.png';
         return (strpos($userCover, 'http') !== false) ? $userCover : $domain.Helpers::file_path($userId, ($domain ? USER_COVER_PATH : PUBLIC_USER_COVER_PATH), true) . $userCover;
     }
     public static function getImgQuality($musicId) {
