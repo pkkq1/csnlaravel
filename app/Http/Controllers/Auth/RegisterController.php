@@ -80,6 +80,7 @@ class RegisterController extends Controller
             'username' => $data['username'],
             'name' => $data['name'],
             'email' => $data['email'],
+            'user_avatar' => '',
             'user_lastvisit' => time(),
             'user_regdate' => time(),
             'user_active' => DEACTIVE_USER,
