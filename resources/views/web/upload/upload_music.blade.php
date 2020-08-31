@@ -940,7 +940,7 @@ $per_xoa_nhac =  Auth::user()->hasPermission('xoa_nhac');
                             q: request.term,
                             type: 'json',
                             rows: 10,
-                            <?php echo (!$perMission_Duyet_Sua_Nhac ? 'only_user: true,' : '') ?>
+                            <?php echo (!$perMission_Duyet_Sua_Nhac ? 'only_user: true,' : Auth::user()->id) ?>
                             view_album: true
                         },
                         success: function( data ) {
