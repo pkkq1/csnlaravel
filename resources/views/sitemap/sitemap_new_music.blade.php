@@ -3,7 +3,7 @@ use App\Library\Helpers;
 echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">';
 foreach ($musics as $item) {
     echo '<url>
-		<loc>' . env('LISTEN_URL') . $item['music_url'] . '</loc>
+		<loc>' . $item['music_url'] . '</loc>
 		<video:video>
 			<video:thumbnail_loc>' . $item['cover_html'] . '</video:thumbnail_loc>
 			<video:title><![CDATA[' . htmlspecialchars_decode($item['music_title'], ENT_QUOTES) . ' - ' . htmlspecialchars_decode($item['music_artist'], ENT_QUOTES) . ']]></video:title>
