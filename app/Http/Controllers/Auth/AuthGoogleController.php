@@ -59,6 +59,9 @@ class AuthGoogleController extends Controller
                 $fileName = $existUser->id.'.jpg';
                 $dir_original = Storage::disk('public')->getAdapter()->getPathPrefix().Helpers::file_path($existUser->id, AVATAR_PATH, true);
                 $dir_Thumb = Storage::disk('public')->getAdapter()->getPathPrefix().Helpers::file_path($existUser->id, AVATAR_THUMB_PATH, true);
+                if (!file_exists($dir_original)) {
+                    mkdir($dir_original, 0777, true);
+                }
                 if (!file_exists($dir_Thumb)) {
                     mkdir($dir_Thumb, 0777, true);
                 }
