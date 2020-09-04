@@ -936,6 +936,10 @@ class MusicController extends Controller
         $merge->save();
         $music->music_deleted = $merge->music_id;
         $music->music_delete_time = time();
+        $exitsMusicDeleted = $this->musicDeletedRepository->getModel()::where('music_id', $music->music_id)->first();
+        if($exitsMusicDeleted) {
+            $exitsMusicDeleted->delete();
+        }
         $this->musicDeletedRepository->getModel()::create($music->toArray());
         $this->uploadRepository->getModel()::where('music_id', $music->music_id)->update(['music_state' => UPLOAD_STAGE_DELETED, 'music_note' => 'Nhập nhạc', 'music_note' => 'Nhập nhạc', 'music_last_update_by' => Auth::user()->id]);
         $this->actionLogRepository->addAction('merge_music', 'Nhập nhạc từ '.$music->music_id. ' vào ' . $merge->music_id, $music->music_id);
@@ -977,6 +981,10 @@ class MusicController extends Controller
         $music->save();
         $merge->music_deleted = $music->music_id;
         $merge->music_delete_time = time();
+        $exitsMusicDeleted = $this->musicDeletedRepository->getModel()::where('music_id', $merge->music_id)->first();
+        if($exitsMusicDeleted) {
+            $exitsMusicDeleted->delete();
+        }
         $this->musicDeletedRepository->getModel()::create($merge->toArray());
         $this->uploadRepository->getModel()::where('music_id', $merge->music_id)->update(['music_state' => UPLOAD_STAGE_DELETED, 'music_note' => 'Nhập nhạc', 'music_last_update_by' => Auth::user()->id]);
         $this->actionLogRepository->addAction('merge_music', 'Nhập nhạc từ '.$merge->music_id. ' vào ' . $music->music_id, $merge->music_id);
