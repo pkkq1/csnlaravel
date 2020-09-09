@@ -654,6 +654,7 @@ class UploadController extends Controller
 //                'music_album_id' => 'required',
                 'music_year' => 'required|max:5',
                 'music_album_id' => 'max:15',
+                'music_source_url' => 'max:255',
             ]);
             $userId = $user->id;
             $Solr = new SolrSyncController($this->Solr);

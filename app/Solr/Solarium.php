@@ -26,6 +26,7 @@ class Solarium
     }
     public function search($search = array(), $page = 1, $perPage = 10, $sort = array(), $select = array())
     {
+        $page = is_numeric($page) ? $page : 1;
         $query = $this->client->createSelect();
         try{
             $temp = '';
