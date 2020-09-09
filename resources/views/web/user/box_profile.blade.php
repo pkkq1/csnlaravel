@@ -134,7 +134,7 @@ if($mySelf) {
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="user_birthday">Chứng Minh Nhân Dân</label>
-                                    <input type="text" class="form-control"  name="user_identity_card" id="user_identity_card" placeholder="" value="{{Auth::user()->user_identity_card}}">
+                                    <input type="number" class="form-control"  name="user_identity_card" id="user_identity_card" placeholder="" value="{{Auth::user()->user_identity_card}}">
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label for="user_interests">Thông tin</label>

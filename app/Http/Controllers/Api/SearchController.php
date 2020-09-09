@@ -36,6 +36,20 @@ class SearchController extends Controller
         $request->view_album = true;
         $request->view_video = true;
         $request->view_artist= true;
+        $setAttr = [
+            'q' => 'required|min:1|max:500',
+            'rows' => 'numeric',
+            'page_music' => 'numeric',
+            'page_artist' => 'numeric',
+            'page_album' => 'numeric',
+            'page_video' => 'numeric',
+
+        ];
+        $validator = Validator::make($request->all(), $setAttr);
+        $validator->setAttributeNames($setAttr);
+        if($validator->fails()) {
+            return new JsonResponse(['message' => $validator->errors()->toArray(), 'code' => 400, 'data' => [], 'error' => []], 400);
+        }
         $search = new SearchSolr($this->Solr);
         $result = $search->ajaxSearch($request, $request->quick_search ?? false);
         $result = $result[0];

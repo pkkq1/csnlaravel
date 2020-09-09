@@ -78,7 +78,7 @@ class UserController extends Controller
         $reqValid = [
             'name' => 'required|max:255|min:4',
             'user_birthday' => 'max:10',
-            'user_identity_card' => 'max:9',
+            'user_identity_card' => 'numeric|max:9',
             'user_interests' => 'max:255',
         ];
         $setAttr = [
@@ -88,7 +88,7 @@ class UserController extends Controller
             'password' => 'Mật khẩu',
             'user_interests' => 'Thông tin',
             'repassword' => 'Nhập lại mật khẩu',
-            'current_password' => 'Mật khẩu cũ'
+            'current_password' => 'Mật khẩu cũ',
         ];
         if(!Auth::user()->username) {
             $reqValid['password'] = 'required|max:255|min:6';
