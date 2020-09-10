@@ -96,6 +96,7 @@ class UserController extends Controller
             $reqValid['repassword'] = 'required|max:255|min:6|same:password';
             $reqRefresh = true;
         }else{
+            $request->username = strtolower($request->username);
             if($request->input('current_password')) {
                 $reqValid['current_password'] = 'required|max:255|min:6';
                 $reqValid['password'] = 'required|max:255|min:6';
