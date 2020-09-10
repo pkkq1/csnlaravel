@@ -78,7 +78,7 @@ class UserController extends Controller
         $reqValid = [
             'name' => 'required|max:255|min:4',
             'user_birthday' => 'max:10',
-            'user_identity_card' => 'numeric|max:9',
+            'user_identity_card' => 'numeric|max:999999999',
             'user_interests' => 'max:255',
         ];
         $setAttr = [

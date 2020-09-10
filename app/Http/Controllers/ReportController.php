@@ -134,6 +134,9 @@ class ReportController extends Controller
         if(strlen($request->email) < 5 || strlen($request->text) < 5 || strlen($request->text) > 5000) {
             Helpers::ajaxResult(false, 'Vui lòng nhập nội dung đầy đủ', null);
         }
+        if(strlen($request->text) > 5000 || strlen($request->email) > 200) {
+            Helpers::ajaxResult(false, 'Email không quá 200 ký tự, Nội dung không quá 5000 ký tự', null);
+        }
         $Agent = new Agent();
         $ip = Helpers::getIp();
         $checkExit = $this->contactRepository->getModel()::where('ip', $ip)->orderBy('id', 'desc')->first();

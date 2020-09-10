@@ -31,6 +31,8 @@ class CategoryController extends Controller
     public function index1(Request $request) {
         $sub = str_replace('.html', '', (explode('/', url()->current()))[4]) ?? 'vietnam';
         $category = $this->categoryRepository->getCategoryParentByUrl($sub);
+        if(!$category)
+            return redirect()->route('home');
         $_GET['page'] = 1;
         if(isset($request->tab) && ($request->tab == 'album-'.CURRENT_YEAR || $request->tab == 'video-'.CURRENT_YEAR)) {
             $_GET['page'] = $request->page;
@@ -50,6 +52,8 @@ class CategoryController extends Controller
     public function index2(Request $request, $sub) {
         $cat = (explode('/', url()->current()))[4] ?? 'vietnam';
         $category = $this->categoryRepository->getCategoryParentByUrl($cat);
+        if(!$category)
+            return redirect()->route('home');
         $title = $category->cat_title;
         $category = $this->categoryRepository->getCategorySub($category->cat_id, $sub);
         if(!$category)

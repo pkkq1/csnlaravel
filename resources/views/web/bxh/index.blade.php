@@ -49,7 +49,11 @@ if ($titleBxh == 'Bảng xếp hạng hot trong ngày') {
 @section('contentCSS')
 @endsection
 @section('content')
-@include('cache.bxh.'.$cacheBxh)
+<?php
+if (file_exists('cache.bxh.' . $cacheBxh)) {
+?> @include('cache.bxh.'.$cacheBxh); <?php
+}
+?>
 <div class="container">
     <div class="row row_wrapper">
         <div class="col-md-9">
@@ -97,40 +101,46 @@ if ($titleBxh == 'Bảng xếp hạng hot trong ngày') {
                         <div class="tab-pane fade show active tab_bxh tab_music_bxh" data-cat_url="{{$itemCategory['cat_url']}}" id="cat-{{$itemCategory['cat_id']}}-music" role="tabpanel" aria-labelledby="nav-home-tab">
                             <ul class="list-unstyled list_music bxh1">
                                 <?php
-                                array_map(function ($i, $item) use($itemCategory, $urlBxh) {
-                                $i = ++$i;
-                                $musicId = Helpers::music_id($item);
-                                $url = $urlBxh.'/'.$itemCategory['cat_url'].'.html?playlist='.$i;
-                                ?>
-                                <li class="media align-items-stretch {{$i == 1 ? 'up' : ($i == 2 ? 'down' : 'not')}}">
-                                    <div class="media_tmp align-self-center d-flex align-items-center mr-3 pl-3" style="width: 50px">
-                                        <span class="counter">{{sprintf("%02d", $i)}}</span>
-                                        {{--<i class="material-icons">{{$i == 1 ? 'keyboard_arrow_up' : ($i == 2 ? 'keyboard_arrow_down' : 'remove')}}</i>--}}
-                                        {{--<span class="rate">+1</span>--}}
-                                    </div>
-                                    <div class="media-left align-items-stretch mr-2">
-                                        <a href="{{$url}}" title="{{$item['music_title']}}">
-                                            <img src="{{$item['cover_thumb_html']}}" alt="{{$item['music_title']}}">
-                                            <i class="material-icons">play_circle_outline</i>
-                                        </a>
-                                    </div>
-                                    <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
-                                        <div>
-                                            <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_title']}}">{{$item['music_title']}}</a></h5>
-                                            <div class="author"><?php echo $item['music_artist_html'] ?></div>
-                                        </div>
-                                        <small class="type_music c1"><?php echo $item['music_bitrate_html']; ?></small>
-                                    </div>
-                                    <div class="media-right align-self-center">
-                                        <small class="time_stt"><i class="material-icons listen-material-icons"> play_arrow </i>{{number_format($item['music_listen'])}}</small>
-                                        <ul class="list-inline">
-                                            <li class="list-inline-item"><a href="{{Helpers::listen_url($item)}}" title="nghe riêng nhạc {{$item['music_title']}}"><i class="material-icons">headset</i></a></li>
-                                            <li class="list-inline-item"><a href="{{Helpers::fbShareLink($url, true)}}" class="fb-share-link" target="_blank" title="chia sẻ {{$item['music_title']}}"><i class="material-icons">share</i></a></li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <?php
-                                }, array_keys($musicList), $musicList);
+                                    if($musicList) {
+                                        array_map(function ($i, $item) use($itemCategory, $urlBxh) {
+                                        $i = ++$i;
+                                        $musicId = Helpers::music_id($item);
+                                        $url = $urlBxh.'/'.$itemCategory['cat_url'].'.html?playlist='.$i;
+                                        ?>
+                                        <li class="media align-items-stretch {{$i == 1 ? 'up' : ($i == 2 ? 'down' : 'not')}}">
+                                            <div class="media_tmp align-self-center d-flex align-items-center mr-3 pl-3" style="width: 50px">
+                                                <span class="counter">{{sprintf("%02d", $i)}}</span>
+                                                {{--<i class="material-icons">{{$i == 1 ? 'keyboard_arrow_up' : ($i == 2 ? 'keyboard_arrow_down' : 'remove')}}</i>--}}
+                                                {{--<span class="rate">+1</span>--}}
+                                            </div>
+                                            <div class="media-left align-items-stretch mr-2">
+                                                <a href="{{$url}}" title="{{$item['music_title']}}">
+                                                    <img src="{{$item['cover_thumb_html']}}" alt="{{$item['music_title']}}">
+                                                    <i class="material-icons">play_circle_outline</i>
+                                                </a>
+                                            </div>
+                                            <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
+                                                <div>
+                                                    <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_title']}}">{{$item['music_title']}}</a></h5>
+                                                    <div class="author"><?php echo $item['music_artist_html'] ?></div>
+                                                </div>
+                                                <small class="type_music c1"><?php echo $item['music_bitrate_html']; ?></small>
+                                            </div>
+                                            <div class="media-right align-self-center">
+                                                <small class="time_stt"><i class="material-icons listen-material-icons"> play_arrow </i>{{number_format($item['music_listen'])}}</small>
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item"><a href="{{Helpers::listen_url($item)}}" title="nghe riêng nhạc {{$item['music_title']}}"><i class="material-icons">headset</i></a></li>
+                                                    <li class="list-inline-item"><a href="{{Helpers::fbShareLink($url, true)}}" class="fb-share-link" target="_blank" title="chia sẻ {{$item['music_title']}}"><i class="material-icons">share</i></a></li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <?php
+                                        }, array_keys($musicList), $musicList);
+                                    }else{
+                                        ?>
+                                            Không tìm thấy bài hát
+                                        <?php
+                                    }
                                 ?>
                             </ul>
                         </div>

@@ -470,9 +470,15 @@ class MusicController extends Controller
         }elseif($typeBxh == 'week') {
             include(app_path() . '/../resources/views/cache/bxh/bxh_week.blade.php');
         }elseif($typeBxh == 'month') {
+            if(!file_exists(app_path() . '/../resources/views/cache/bxh/bxh_'.$month.'_'.$year.'.blade.php')) {
+                abort(403, 'Không tìm thấy bài hát');
+            }
             include(app_path() . '/../resources/views/cache/bxh/bxh_'.$month.'_'.$year.'.blade.php');
         }elseif($typeBxh == 'year') {
             $month = 'all';
+            if(!file_exists(app_path() . '/../resources/views/cache/bxh/bxh_'.$month.'_'.$year.'.blade.php')) {
+                abort(403, 'Không tìm thấy bài hát');
+            }
             include(app_path() . '/../resources/views/cache/bxh/bxh_'.$month.'_'.$year.'.blade.php');
         }
         $category = $this->categoryListenRepository->getCategoryUrl($catUrl == CAT_VIDEO_URL ? $catLevel : $catUrl);
