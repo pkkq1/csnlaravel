@@ -50,7 +50,7 @@ if ($titleBxh == 'Bảng xếp hạng hot trong ngày') {
 @endsection
 @section('content')
 <?php
-if (file_exists('cache.bxh.' . $cacheBxh)) {
+if (file_exists(app_path() . '/../resources/views/cache/bxh/'.$cacheBxh.'.blade.php')) {
 ?> @include('cache.bxh.'.$cacheBxh); <?php
 }
 ?>
