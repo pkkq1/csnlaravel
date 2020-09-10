@@ -75,8 +75,8 @@ class SearchController extends Controller
             ],
         ];
         if($search) {
+            $search = trim(str_replace('  ', ' ', str_replace('  ', ' ', str_replace("\n", ' ', $search))));
             $rawTiengViet = htmlspecialchars(Helpers::khongdau($search, ' '), ENT_QUOTES);
-            $rawTiengViet = trim(str_replace("\n", '', $rawTiengViet));
             $charsetNoSpace = str_replace(' ', '', $rawTiengViet);
             $titleCharset = str_replace(' ', '+', $rawTiengViet);
             $titleSearch = str_replace(' ', '+', htmlspecialchars($search, ENT_QUOTES));//Helpers::replaceKeySearch($searchNotUtf8);
