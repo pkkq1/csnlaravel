@@ -91,7 +91,9 @@ class UserController extends Controller
             'current_password' => 'Mật khẩu cũ',
         ];
         if(!Auth::user()->username) {
-            $request->username = strtolower($request->username);
+            $request->merge([
+                'username' => strtolower($request->username),
+            ]);
             $reqValid['password'] = 'required|max:255|min:6';
             $reqValid['username'] = 'required|max:255|min:4|max:30|alpha_dash|unique:csn_users';
             $reqValid['repassword'] = 'required|max:255|min:6|same:password';
