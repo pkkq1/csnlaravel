@@ -204,10 +204,10 @@ class MusicController extends Controller
             return redirect($urlOriginal);
         }
 
-        if ( $music->music_id == 337169 ) // may gio may phut
-        {
-            $this->actionLogRepository->addAction('app_log', 'csn us', $music->music_id);
-        }
+//        if ( $music->music_id == 337169 ) // may gio may phut  //  block app csn.us
+//        {
+//            $this->actionLogRepository->addAction('app_log', 'csn us', $music->music_id);
+//        }
 
 //        if(!(isset($arrUrl['url'][0]) && isset($arrUrl['url'][1])) || ($music->music_title_url && ($arrUrl['url'][0] . ($arrUrl['url'][1] ? '~' .$arrUrl['url'][1] : '')) != $music->music_title_url)) {
 //            return redirect(Helpers::listen_url($music->toArray()));
