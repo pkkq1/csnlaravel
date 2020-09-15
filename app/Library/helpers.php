@@ -335,7 +335,7 @@ class Helpers
             }
             $seo_domain = '';
 
-            if (ENV('APP_ENV') == 'beta') { $seo_domain = 'https://vi.chiasenhac.vn/'; }
+            if (ENV('APP_ENV') == 'beta') { $seo_domain = env('REDIRECT_LISTEN_URL'); }
             $url = ($music_info['cat_id'] == CAT_VIDEO) ? VIEW_VIDEO_URL . '/' : VIEW_MUSIC_URL . '/';
             return ($domain ? ($seo_domain ? $seo_domain : ENV('LISTEN_URL')) : '') . $url . self::music_url($music_info) . HTMLEX;
 //            return ($domain ? ENV('LISTEN_URL') : '') . self::category_url($cat_id2info[$music_info['cat_id']][$music_info['cat_level']]) . self::music_url($music_info);
@@ -836,12 +836,13 @@ class Helpers
         return self::strReplaceSolr(preg_replace(['/y/', '/ý/', '/ỳ/', '/ỷ/', '/ỵ/', '/ỹ/', '/s/'], ['i', 'í', 'ì', 'ỉ', 'ị', 'ĩ', 'x'], mb_strtolower($str, 'UTF-8')));
     }
 
-    public static function album_url($album_info, $id = 0)
+    public static function album_url($album_info, $id = 0, $domain = '')
     {
         $album_title_url = self::rawTiengVietUrl(htmlspecialchars_decode($album_info['music_album'], ENT_QUOTES));
         $album_url = strtolower($album_title_url) . '-' . self::encodeID($album_info['cover_id'], 'album');
-
-        return (($id == 0) ? SUB_ALLBUM . $album_url : SUB_ALLBUM . $album_url . '?id='. $id) . HTMLEX;
+        $seo_domain = '';
+        if (ENV('APP_ENV') == 'beta') { $seo_domain = env('REDIRECT_LISTEN_URL'); }
+        return ($domain ? ($seo_domain ? $seo_domain : ENV('LISTEN_URL')) : '/') . (($id == 0) ? SUB_ALLBUM . $album_url : SUB_ALLBUM . $album_url . '?id='. $id) . HTMLEX;
     }
     public static function playlist_url($playlist_info, $id = 0)
     {

@@ -306,9 +306,10 @@ class MusicController extends Controller
             $album = $this->coverRepository->getCoverMusicById($arrUrl['id']);
             if(!$album)
                 return view('errors.text_error')->with('message', 'Album không tìm thấy.');
-            $urlOriginal = Helpers::album_url($album->toArray());
-            if(url()->current() != ENV('LISTEN_URL').substr($urlOriginal, 1)) {
-                return redirect(ENV('LISTEN_URL').substr($urlOriginal, 1));
+            $urlOriginal = Helpers::album_url($album->toArray(),0 , env('REDIRECT_LISTEN_URL'));
+//            dd($urlOriginal, url()->current());
+            if(url()->full() != $urlOriginal) {
+                return redirect($urlOriginal);
             }
             $typeListen = 'album';
             if($album->music) {
