@@ -335,7 +335,7 @@ class Helpers
             }
             $seo_domain = '';
 
-            $seo_domain = 'https://vi.chiasenhac.vn/';
+            if ($music_info['cat_id'] == 3) { $seo_domain = 'https://vi.chiasenhac.vn/'; }
             $url = ($music_info['cat_id'] == CAT_VIDEO) ? VIEW_VIDEO_URL . '/' : VIEW_MUSIC_URL . '/';
             return ($domain ? ($seo_domain ? $seo_domain : ENV('LISTEN_URL')) : '') . $url . self::music_url($music_info) . HTMLEX;
 //            return ($domain ? ENV('LISTEN_URL') : '') . self::category_url($cat_id2info[$music_info['cat_id']][$music_info['cat_level']]) . self::music_url($music_info);
