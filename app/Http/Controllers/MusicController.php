@@ -307,7 +307,6 @@ class MusicController extends Controller
             if(!$album)
                 return view('errors.text_error')->with('message', 'Album không tìm thấy.');
             $urlOriginal = Helpers::album_url($album->toArray(),0 , env('REDIRECT_LISTEN_URL'));
-//            dd($urlOriginal, url()->current());
             if(url()->full() != $urlOriginal) {
                 return redirect($urlOriginal);
             }
