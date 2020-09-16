@@ -88,6 +88,7 @@ class RequestPaymentVipController extends Controller
             return new JsonResponse(['message' => 'WRONG_MONEY', 'code' => 400, 'data' => [], 'error' => []]);
         }
         $userID = trim(str_replace('csn', '', strtolower($request->note)));
+        $userID = trim(str_replace('cns', '', $userID));
         if(!is_numeric($userID)){
             $resultRequest->status = 'WRONG_NOTE';
             $resultRequest->save();
