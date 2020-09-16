@@ -200,7 +200,7 @@ class MusicController extends Controller
             return $this->musicRepository->checkDeleteMusic($arrUrl['id']);
         }
         $urlOriginal = Helpers::listen_url($music->toArray());
-        if(url()->full() != $urlOriginal) {
+        if(url()->current() != $urlOriginal) {
             return redirect($urlOriginal);
         }
 
@@ -307,7 +307,7 @@ class MusicController extends Controller
             if(!$album)
                 return view('errors.text_error')->with('message', 'Album không tìm thấy.');
             $urlOriginal = Helpers::album_url($album->toArray(),0 , env('REDIRECT_LISTEN_URL'));
-            if(url()->full() != $urlOriginal) {
+            if(url()->current() != $urlOriginal) {
                 return redirect($urlOriginal);
             }
             $typeListen = 'album';
