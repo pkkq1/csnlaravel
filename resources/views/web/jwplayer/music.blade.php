@@ -813,6 +813,8 @@ if( !$memberVip && !$isVNIP )
             iframe.height = "1px";
             iframe.width = "1px";
             iframe.id = "ads-text-iframe";
+            iframe.style.display == "block";
+            iframe.style.visibility == "visible";
             iframe.src = "https://chiasenhac.vn/test_ads.html";
             document.body.appendChild(iframe);
         @endif
@@ -2412,7 +2414,33 @@ if( !$memberVip && !$isVNIP )
                 });
             }
         });
-        
+        @if (Auth::check())
+            $(document).ready(function () {
+                let hasLoadComment = window.location.href.indexOf("#");
+                if (hasLoadComment > -1) {
+                    focusComment = window.location.href.substr(hasLoadComment);
+                    loadPageComment(window.location.origin + '/binh-luan/get_ajax?page=1');
+                }
+                @if(!$memberVip && isset($file_url[3]['url']) || isset($file_url[4]['url']))
+                setTimeout(function () {
+                    var iframe = document.getElementById("ads-text-iframe");
+                    if (iframe.style.display == "none" || iframe.style.display == "hidden" || iframe.style.visibility == "hidden" || iframe.offsetHeight == 0) {
+                        let msg_adb = 'Vui lòng gỡ adblock hoặc mua VIP để tải chất lượng cao';
+                        $('.tab_download_music ul').append("<li><i><a target='_blank' style='font-family: \"SFProDisplay-Regular\";' href='/chia-se-nhac-vip.html'>" + msg_adb + "</a></i></li>")
+                        document.getElementById("download_500").removeAttribute("href");
+                        document.getElementById("download_500").style.cursor = "no-drop";
+                        $("#download_500").attr("title", msg_adb);
+                        @if(isset($file_url[4]['url']))
+                        document.getElementById("download_lossless").removeAttribute("href");
+                        document.getElementById("download_lossless").style.cursor = "no-drop";
+                        $("#download_lossless").attr("title", msg_adb);
+                        @endif
+                        iframe.remove();
+                    }
+                }, 1000);
+                @endif
+            });
+        @endif
 
     </script>
     @if($musicSet['type_jw'] != 'video')
