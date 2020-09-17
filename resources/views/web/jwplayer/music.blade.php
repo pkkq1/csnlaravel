@@ -813,8 +813,6 @@ if( !$memberVip && !$isVNIP )
             iframe.height = "1px";
             iframe.width = "1px";
             iframe.id = "ads-text-iframe";
-            iframe.style.display = "block";
-            iframe.style.visibility = "visible";
             iframe.src = "https://chiasenhac.vn/test_ads.html";
             document.body.appendChild(iframe);
         @endif
@@ -2414,6 +2412,7 @@ if( !$memberVip && !$isVNIP )
                 });
             }
         });
+        @if(!$memberVip && (isset($file_url[3]['url']) || isset($file_url[4]['url'])))
         @if (Auth::check())
             $(document).ready(function () {
                 let hasLoadComment = window.location.href.indexOf("#");
@@ -2440,6 +2439,7 @@ if( !$memberVip && !$isVNIP )
                 }, 1000);
                 @endif
             });
+        @endif
         @endif
 
     </script>
