@@ -1164,7 +1164,7 @@ if( !$memberVip && !$isVNIP )
                                 return false;
                         }
                     }
-                    window.location.href = window.location.pathname + '?playlist=' + nextListen;
+                    window.location.href = window.location.origin + '?playlist=' + nextListen;
                     <?php
                 }
             ?>

@@ -201,6 +201,8 @@ class MusicController extends Controller
         }
         $urlOriginal = Helpers::listen_url($music->toArray());
         if(url()->current() != $urlOriginal) {
+            if(strpos(url()->full() !== false))
+                return redirect($urlOriginal . substr(url()->full(), strpos(url()->full(), '?')));
             return redirect($urlOriginal);
         }
 
