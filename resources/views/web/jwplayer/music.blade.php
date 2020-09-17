@@ -813,8 +813,8 @@ if( !$memberVip && !$isVNIP )
             iframe.height = "1px";
             iframe.width = "1px";
             iframe.id = "ads-text-iframe";
-            iframe.style.display == "block";
-            iframe.style.visibility == "visible";
+            iframe.style.display = "block";
+            iframe.style.visibility = "visible";
             iframe.src = "https://chiasenhac.vn/test_ads.html";
             document.body.appendChild(iframe);
         @endif
