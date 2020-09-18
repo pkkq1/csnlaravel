@@ -1344,7 +1344,7 @@ if( !$memberVip && !$isVNIP )
                 appId            : '<?php echo env('FACEBOOK_APP_ID') ?>',
                 autoLogAppEvents : true,
                 xfbml            : true,
-                version          : 'v3.1'
+                version          : 'v8.0'
             });
         };
         (function(d, s, id){
