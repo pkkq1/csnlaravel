@@ -48,7 +48,11 @@ if ($titleBxh == 'Bảng xếp hạng hot trong ngày') {
 @endsection
 @extends('mobile.layouts.app')
 @section('content')
-@include('cache.bxh.'.$cacheBxh)
+<?php
+if (file_exists(app_path() . '/../resources/views/cache/bxh/'.$cacheBxh.'.blade.php')) {
+?> @include('cache.bxh.'.$cacheBxh); <?php
+}
+?>
 <div class="header">
     @include('mobile.layouts.header_top')
     <!-- swiper1-->

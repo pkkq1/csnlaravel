@@ -261,6 +261,9 @@ class MusicController extends Controller
     }
     public function oldUrlPlayList(Request $request, $musicUrl) {
         $albumUrlEx = explode('~', $musicUrl);
+        if(count($albumUrlEx) != 2) {
+            abort(403, 'Không tìm thấy playlist');
+        }
         $redReplace = $albumUrlEx[1] . '/' . $albumUrlEx[0];
         $redUrl = str_replace($musicUrl, $redReplace, url()->current());
         return redirect(str_replace('.html', '', $redUrl));

@@ -40,7 +40,7 @@ class CatalogController extends Controller
     }
     public function playlistPublisher(Request $request, $url) {
         $catalog = config('constants.catalog');
-        $result = $catalog[$url];
+        $result = $catalog[$url] ?? [];
         if(!$result)
             return redirect()->guest('/');
         $caption = $result['caption'];
