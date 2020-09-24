@@ -196,3 +196,5 @@ define('LIMIT_SHOW_MUSICS_PLAYLIST', 100);
 define('ENABLE_NOTIFICATION', 1); // 1 to Enable, 2 to Disable
 define('TIME_NEW_DUPLICATE_NOTIFY', '-30 minutes'); // minute
 define('LEVEL_ID_DEFAULT_VIP_1_60DAY', 14);
+define('TIME_API_LAST_LOGIN', 300); // 5 min last login
+define('COUNT_API_TRY_LOGIN', 5); // 5 min last login

@@ -19,9 +19,10 @@ use Illuminate\Http\Request;
 // Api
 
 Route::prefix('auth')->group(function () {
-    Route::get('login', 'AuthController@login');
+    Route::post('login', 'AuthController@loginManual');
     Route::get('login/facebook', 'AuthController@loginFacebook');
     Route::get('login/google', 'AuthController@loginGoogle');
+    Route::post('logout', 'AuthController@logOut');
 });
 Route::get('search', 'SearchController@index');
 Route::get('home', 'HomeController@index');

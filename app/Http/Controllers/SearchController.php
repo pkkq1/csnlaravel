@@ -19,7 +19,6 @@ class SearchController extends Controller
         $this->Solr = $Solr;
     }
     public function index(Request $request) {
-        $request->q = mb_substr($request->q,0,50, "utf-8");
         if(!$request->q)
             return redirect()->route('home');
         $search = mb_strtolower($request->q, 'UTF-8');
@@ -75,7 +74,7 @@ class SearchController extends Controller
             ],
         ];
         if($search) {
-            $search = trim(str_replace('  ', ' ', str_replace('  ', ' ', str_replace("\n", ' ', $search))));
+            $search = preg_replace('!\s+!', ' ', $search);;
             $rawTiengViet = htmlspecialchars(Helpers::khongdau($search, ' '), ENT_QUOTES);
             $charsetNoSpace = str_replace(' ', '', $rawTiengViet);
             $titleCharset = str_replace(' ', '+', $rawTiengViet);
