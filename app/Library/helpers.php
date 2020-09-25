@@ -1349,7 +1349,7 @@ class Helpers
         // fix: xoa dau cong phia truoc và sau tu khoa VA thay the vi tri nhieu dau + thanh 1 dau +
         $str = str_replace('+', ' ', $str);
         $str = preg_replace('/\s+/', ' ', trim($str));
-        $str = str_replace(' ', '+', $str);
+        //$str = str_replace(' ', '+', $str);
 
         if(!$keyRelease)
             return $str;
