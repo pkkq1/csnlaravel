@@ -1343,6 +1343,7 @@ class Helpers
 //        $firstPart = preg_replace(array('/[^a-zA-Z0-9]/'), array(''), substr($str, 0, 1));
 //        $str = $firstPart . substr($str, 1);
 //        $str = str_replace('\\', '', $str);
+        $str = preg_replace('/\s+/', ' ', trim($str));
         $str = str_replace(array('\\', '+', '-', '~', '!', '%', '/', ';', '?', '#', '`', '@', '$', '&', '_', '=', '{', '}', ',', '<', '>', '"', '[', ']', '|', '*', '^', ':', '(', ')', '%81', '%7F', '%C5%8D', '%8D', '%8F', '%C2%90', '%C2', '%90', '%9D', '%C2%A0', '%A0', '%C2%AD', '%AD', '%08', '%09', '%0A', '%0D'), ' ', $str);
         $str = str_replace(array('%81', '%7F', '%C5%8D', '%8D', '%8F', '%C2%90', '%C2', '%90', '%9D', '%C2%A0', '%A0', '%C2%AD', '%AD', '%08', '%09', '%0A', '%0D'), '', urlencode($str));
         if(!$keyRelease)
