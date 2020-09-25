@@ -162,6 +162,7 @@ class SearchController extends Controller
                     $keyResult = 'music';
                     $resultMusic = $this->Solr->search($searchSolarium, ($request->page_music ?? 1), $request->rows ?? ROWS_MUSIC_SEARCH_PAGING, array('score' => 'desc', 'music_downloads' => 'desc', 'music_listen' => 'desc'));
                 }
+                //dd($searchSolarium);
                 if($resultMusic['data']) {
                     foreach ($resultMusic['data'] as $item) {
                         $result[0][$keyResult]['data'][] = [
