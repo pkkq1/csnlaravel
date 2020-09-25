@@ -74,8 +74,8 @@ class SearchController extends Controller
             ],
         ];
         if($search) {
-            $search = preg_replace('!\s+!', ' ', $search);;
-            $rawTiengViet = htmlspecialchars(Helpers::khongdau($search, ' '), ENT_QUOTES);
+            $search = trim(preg_replace('!\s+!', ' ', $search));
+            $rawTiengViet = trim(htmlspecialchars(Helpers::khongdau($search, ' '), ENT_QUOTES));
             $charsetNoSpace = str_replace(' ', '', $rawTiengViet);
             $titleCharset = str_replace(' ', '+', $rawTiengViet);
             $titleSearch = str_replace(' ', '+', htmlspecialchars($search, ENT_QUOTES));//Helpers::replaceKeySearch($searchNotUtf8);
@@ -162,7 +162,6 @@ class SearchController extends Controller
                     $keyResult = 'music';
                     $resultMusic = $this->Solr->search($searchSolarium, ($request->page_music ?? 1), $request->rows ?? ROWS_MUSIC_SEARCH_PAGING, array('score' => 'desc', 'music_downloads' => 'desc', 'music_listen' => 'desc'));
                 }
-                //dd($searchSolarium);
                 if($resultMusic['data']) {
                     foreach ($resultMusic['data'] as $item) {
                         $result[0][$keyResult]['data'][] = [
