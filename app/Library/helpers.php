@@ -213,6 +213,22 @@ class Helpers
         }
         return '';
     }
+    public static function rawArrayArtists($artistId, $artistNickName) {
+        $artistId = explode(';', htmlspecialchars_decode($artistId, ENT_QUOTES));
+        $artistNickName = explode(';', htmlspecialchars_decode($artistNickName, ENT_QUOTES));
+        if($artistNickName && $artistId) {
+            $html = [];
+            foreach ($artistNickName as $key => $val) {
+                $val = htmlspecialchars(trim($val), ENT_QUOTES);
+                $html[] = [
+                  'name' => $val,
+                  'url' => self::artistUrl(isset($artistId[$key]) ? $artistId[$key] : -1, $val),
+                ];
+            }
+            return $html;
+        }
+        return '';
+    }
     public static function category_url($c_info = array(), $c_id = 0, $c_level = 0)
     {
         global $cat_id2info;

@@ -29,8 +29,8 @@ Route::get('home', 'HomeController@index');
 Route::post('nghe-album/{musicUrl}.html', ['as' => 'api.music.listen', 'uses' => 'MusicController@urlAlbum']);
 Route::post('nghe-album/{musicUrl}', ['as' => 'api.music.listen', 'uses' => 'MusicController@urlAlbum']);
 
-Route::post('playlist/{musicUrl}.html', ['as' => 'api.music.listen', 'uses' => 'MusicController@getPlaylistInfo']);
-Route::post('playlist/{musicUrl}', ['as' => 'api.music.listen', 'uses' => 'MusicController@getPlaylistInfo']);
+Route::post('playlist/{musicUrl}/{name_playlist}.html', ['as' => 'api.music.listen', 'uses' => 'MusicController@getPlaylistInfo']);
+Route::post('playlist/{musicUrl}/{name_playlist}', ['as' => 'api.music.listen', 'uses' => 'MusicController@getPlaylistInfo']);
 
 Route::post('mp3/{cat}/{sub}/{musicUrl}.html', ['as' => 'music.listen', 'uses' => 'MusicController@newListenSingleMusic']);
 Route::post('mp3/{cat}/{sub}/{musicUrl}', ['as' => 'music.listen', 'uses' => 'MusicController@newListenSingleMusic']);
@@ -82,6 +82,8 @@ Route::post('tab_category', ['as' => 'category.get_tab', 'uses' => 'CategoryCont
 Route::post('music/favourite', ['as' => 'bxh.month', 'uses' => 'MusicController@musicFavourite']);
 // User
 Route::prefix('user/')->group(function () {
+    Route::get('playlist/{id}', ['as' => 'api.user.playlist', 'uses' => 'UserController@playlist']);
+    Route::post('qr_code/login/{token}', ['as' => 'api.user.qr_code.login', 'uses' => 'UserController@qrCodeLogin']);
     Route::post('{id}/music_recents', ['as' => 'user.music_recents', 'uses' => 'UserMusicController@musicRecent']);
     Route::post('artist_favourite', ['as' => 'user.artist_favourite', 'uses' => 'UserMusicController@artistFavourite']);
     Route::post('video_favourite', ['as' => 'user.video_favourite', 'uses' => 'UserMusicController@videoFavourite']);
@@ -104,11 +106,6 @@ Route::prefix('chu-de/')->group(function () {
     Route::get('{url}', ['as' => 'catalog.index', 'uses' => 'CatalogController@playlistPublisher']);
 });
 
-// user
-Route::prefix('user')->group(function () {
-    Route::get('profile', ['as' => 'api.user.tab', 'uses' => 'ArtistController@getTabArtist']);
-    Route::post('qr_code/login/{token}', ['as' => 'api.user.qr_code.login', 'uses' => 'UserController@qrCodeLogin']);
-});
 
 // notify
 Route::prefix('notify')->group(function () {

@@ -162,4 +162,36 @@ class UserController extends Controller
         }
         return new JsonResponse(['message' => 'Đăng nhập thất bại', 'code' => 400, 'data' => [], 'error' => []], 400);
     }
+    public function playlist(Request $request, $id) {
+        if(!$id)
+            return new JsonResponse(['message' => 'vui lòng nhập user_id', 'code' => 400, 'data' => [], 'error' => []], 400);
+        $playlist = $this->playlistRepository->getByUser($id);
+        $result = [];
+        if($playlist) {
+            foreach ($playlist as $item) {
+                $artists = [];
+                $artistPlaylist = unserialize($item->playlist_artist);
+                if($artistPlaylist) {
+                    $artistNames = [];
+                    $artistIds = [];
+                    $i = 0;
+                    foreach($artistPlaylist as $key => $item2) {
+                        $artistNames[] = $item2['name'];
+                        $artistIds[] = $key;
+                        if(++$i == 2)
+                            break;
+                    }
+                    $artists = Helpers::rawArrayArtists(implode(';', $artistIds), implode(';', $artistNames));
+                }
+                $result[] = [
+                    'title' => $item->playlist_title,
+                    'url' => Helpers::playlist_url($item->toArray()),
+                    'playlist_music_total' => $item->playlist_music_total,
+                    'playlist_cover' => $item->playlist_cover ? Helpers::file_path($item->playlist_id, env('DATA_URL').MUSIC_PLAYLIST_THUMB_200_PATH, true).$item->playlist_id . '.jpg' : env('IMG_DATA_URL').'imgs/avatar_default.png',
+                    'artists' => $artists,
+                ];
+            }
+        }
+        Helpers::ajaxResult(true, 'Success', $result);
+    }
 }

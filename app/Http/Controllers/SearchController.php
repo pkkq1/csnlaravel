@@ -190,9 +190,9 @@ class SearchController extends Controller
                         }
                     }
                 }
-                $result[0][$keyResult]['rows'] = $resultMusic['rows'];
-                $result[0][$keyResult]['page'] = $resultMusic['page'];
-                $result[0][$keyResult]['row_total'] = $resultMusic['row_total'];
+                $result[0][$keyResult]['rows'] = (int)$resultMusic['rows'];
+                $result[0][$keyResult]['page'] = (int)$resultMusic['page'];
+                $result[0][$keyResult]['row_total'] = (int)$resultMusic['row_total'];
                 if(isset($request->playback) && $search_level_playback == 1) {
                     $search_level_playback = 2;
                     foreach ($searchSolarium as $key => $item) {
@@ -232,9 +232,9 @@ class SearchController extends Controller
                         ];
                     }
                 }
-                $result[0]['artist']['rows'] = $resultArtist['rows'];
-                $result[0]['artist']['page'] = $resultArtist['page'];
-                $result[0]['artist']['row_total'] = $resultArtist['row_total'];
+                $result[0]['artist']['rows'] = (int)$resultArtist['rows'];
+                $result[0]['artist']['page'] = (int)$resultArtist['page'];
+                $result[0]['artist']['row_total'] = (int)$resultArtist['row_total'];
             }
             if(isset($request->view_all) || isset($request->view_album)) {
                 $searchSolarium = [];
@@ -267,9 +267,9 @@ class SearchController extends Controller
                         ];
                     }
                 }
-                $result[0]['album']['rows'] = $resultAlbum['rows'];
-                $result[0]['album']['page'] = $resultAlbum['page'];
-                $result[0]['album']['row_total'] = $resultAlbum['row_total'];
+                $result[0]['album']['rows'] = (int)$resultAlbum['rows'];
+                $result[0]['album']['page'] = (int)$resultAlbum['page'];
+                $result[0]['album']['row_total'] = (int)$resultAlbum['row_total'];
             }
             if(isset($request->view_all) || isset($request->view_video)) {
                 $searchSolarium = [];
@@ -354,9 +354,9 @@ class SearchController extends Controller
                         }
                     }
                 }
-                $result[0]['video']['rows'] = $resultVideo['rows'];
-                $result[0]['video']['page'] = $resultVideo['page'];
-                $result[0]['video']['row_total'] = $resultVideo['row_total'];
+                $result[0]['video']['rows'] = (int)$resultVideo['rows'];
+                $result[0]['video']['page'] = (int)$resultVideo['page'];
+                $result[0]['video']['row_total'] = (int)$resultVideo['row_total'];
             }
         }
         return ($request->type == 'json' ? response((array)$result) : $result);
