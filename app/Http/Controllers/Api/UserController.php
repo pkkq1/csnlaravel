@@ -192,6 +192,6 @@ class UserController extends Controller
                 ];
             }
         }
-        Helpers::ajaxResult(true, 'Success', $result);
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => $result, 'error' => ''], 400);
     }
 }
