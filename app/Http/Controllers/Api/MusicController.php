@@ -126,7 +126,7 @@ class MusicController extends Controller
         }
         return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['music' => Helpers::convertArrHtmlCharsDecode($music->toArray()), 'playlist' => Helpers::convertArrHtmlCharsDecode($playlistMusic), 'musicFavourite' => $musicFavourite ? true : false], 'error' => []], 200);
     }
-    public function getPlaylistInfo(Request $request, $musicUrl) {
+    public function getPlaylistInfo(Request $request, $musicUrl, $name) {
         $arrUrl = Helpers::splitPlaylistUrl($musicUrl, 'playlist');
         $playlist = $this->playlistRepository->getMusicByPlaylistId($arrUrl['id']);
         if(!$playlist)
