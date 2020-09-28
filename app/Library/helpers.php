@@ -1344,7 +1344,13 @@ class Helpers
 //        $str = $firstPart . substr($str, 1);
 //        $str = str_replace('\\', '', $str);
         $str = str_replace(array('\\', '+', '-', '~', '!', '%', '/', ';', '?', '#', '`', '@', '$', '&', '_', '=', '{', '}', ',', '<', '>', '"', '[', ']', '|', '*', '^', ':', '(', ')', '%81', '%7F', '%C5%8D', '%8D', '%8F', '%C2%90', '%C2', '%90', '%9D', '%C2%A0', '%A0', '%C2%AD', '%AD', '%08', '%09', '%0A', '%0D'), ' ', $str);
-        $str = str_replace(array('%81', '%7F', '%C5%8D', '%8D', '%8F', '%C2%90', '%C2', '%90', '%9D', '%C2%A0', '%A0', '%C2%AD', '%AD', '%08', '%09', '%0A', '%0D'), '', urlencode($str));
+        //$str = str_replace(array('%81', '%7F', '%C5%8D', '%8D', '%8F', '%C2%90', '%C2', '%90', '%9D', '%C2%A0', '%A0', '%C2%AD', '%AD', '%08', '%09', '%0A', '%0D'), '', urlencode($str));
+
+        // fix: xoa dau cong phia truoc và sau tu khoa VA thay the vi tri nhieu dau + thanh 1 dau +
+        //$str = str_replace('+', ' ', $str);
+        $str = preg_replace('/\s+/', ' ', trim($str));
+        //$str = str_replace(' ', '+', $str);
+
         if(!$keyRelease)
             return $str;
         return trim(preg_replace(['/y/', '/ý/', '/ỳ/', '/ỷ/', '/ỵ/', '/ỹ/', '/s/'], ['i', 'í', 'ì', 'ỉ', 'ị', 'ĩ', 'x'], mb_strtolower($str, 'UTF-8')));

@@ -260,16 +260,17 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
             foreach ($artistIds as $key => $item) {
                 if($item == -1) {
                     unset($artistIds[$key]);
-                    $artistCharSet = trim(htmlspecialchars(Helpers::strReplaceSolr(Helpers::khongdau($artistName[$key], ' ')), ENT_QUOTES));
+                    $artistCharSet = htmlspecialchars(Helpers::strReplaceSolr(Helpers::khongdau($artistName[$key])), ENT_QUOTES);
                     if($artistCharSet)
                         $artistNameRel[] = $artistCharSet;
                 }
             }
         }else{
-            $artistCharSet = trim(htmlspecialchars(Helpers::strReplaceSolr(Helpers::khongdau($artistName, ' ')), ENT_QUOTES));
+            $artistCharSet = htmlspecialchars(Helpers::strReplaceSolr(Helpers::khongdau($artistName)), ENT_QUOTES);
             if($artistCharSet)
                 $artistNameRel = $artistCharSet;
         }
+        //dd(Helpers::strReplaceSolr(Helpers::khongdau($artistName[$key])), ENT_QUOTES);
 
         // nhạc cùng ca sĩ
 //        $MusicSameArtistEloquent = \App\Models\MusicSuggestModel::where(function($q) use ($artistIds) {

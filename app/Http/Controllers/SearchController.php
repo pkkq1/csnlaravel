@@ -74,8 +74,8 @@ class SearchController extends Controller
             ],
         ];
         if($search) {
-            $search = preg_replace('!\s+!', ' ', $search);;
-            $rawTiengViet = htmlspecialchars(Helpers::khongdau($search, ' '), ENT_QUOTES);
+            $search = trim(preg_replace('!\s+!', ' ', $search));
+            $rawTiengViet = trim(htmlspecialchars(Helpers::khongdau($search, ' '), ENT_QUOTES));
             $charsetNoSpace = str_replace(' ', '', $rawTiengViet);
             $titleCharset = str_replace(' ', '+', $rawTiengViet);
             $titleSearch = str_replace(' ', '+', htmlspecialchars($search, ENT_QUOTES));//Helpers::replaceKeySearch($searchNotUtf8);
@@ -243,7 +243,7 @@ class SearchController extends Controller
                 $searchSolarium['music_album_charset'] = $titleCharset;
                 if($titleSearch !== $titleCharset)
                     $searchSolarium['music_album_search'] = $titleSearch;
-;                if(isset($request->only_user) && is_numeric($request->only_user)){
+                if(isset($request->only_user) && is_numeric($request->only_user)){
                     $searchSolarium['music_album_charset'] = $searchSolarium['music_album_charset'] .' AND album_user_id: ' . $request->only_user;
                 }
                 // click từ đường dẫn ca sĩ
