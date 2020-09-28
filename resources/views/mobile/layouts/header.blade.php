@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="{{URL::to('/')}}/mobile/assets/css/custom.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="{{URL::to('/')}}/js/cookie.min.js"></script>
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     @yield('contentCSS')
 
     <!-- Global site tag (gtag.js) - Google Analytics -->

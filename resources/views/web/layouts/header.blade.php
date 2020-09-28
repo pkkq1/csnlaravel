@@ -28,7 +28,7 @@ global $allpage_banner;
     <link rel="stylesheet" href="{{URL::to('/')}}/css/lobibox.min.css"/>
     <link rel="stylesheet" type="text/css" href="{{URL::to('/')}}/css/style.css">
     <link rel="stylesheet" type="text/css" href="{{URL::to('/')}}/css/jquery-ui.css">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     {{--@if( isset($allpage_banner) && $allpage_banner == true )--}}
     {{--<style>--}}
         {{--.container{max-width:1000px!important;width:100%}--}}

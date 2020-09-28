@@ -220,6 +220,9 @@ if ($caption == 'Video Clip') {
                         'cat_level' : <?php echo $category->cat_level; ?>,
                         'tab': tab ? tab : 'album_<?php echo CURRENT_YEAR ?>'
                     },
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
                     beforeSend: function () {
                         if(loaded) return false;
                         loaded = true;
