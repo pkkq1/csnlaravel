@@ -329,7 +329,7 @@ class PlaylistController extends Controller
             'playlist_status' => SET_ACTIVE,
             'playlist_title' => $request->input('playlist_title')
         ]);
-        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => [], 'error' => 'Đã tạo playlist.'], 200);
+        return new JsonResponse(['message' => 'Đã tạo playlist.', 'code' => 200, 'data' => [], 'error' => ''], 200);
     }
     public function deletePlaylist(Request $request) {
         if (!$request->sid || !$request->playlist_id) {
@@ -352,6 +352,6 @@ class PlaylistController extends Controller
             return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Không tìm thấy playlist'], 400);
         }
         $playlist->delete();
-        return new JsonResponse(['message' => 'Fail', 'code' => 200, 'data' => [], 'error' => 'Đã xóa playlist thành công'], 200);
+        return new JsonResponse(['message' => 'Đã xóa playlist thành công', 'code' => 200, 'data' => [], 'error' => ''], 200);
     }
 }
