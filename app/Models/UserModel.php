@@ -49,6 +49,10 @@ class UserModel extends Authenticatable
     {
         return $this->belongsTo('App\Models\RoleUserModel', 'user_id');
     }
+    public function hasPermissionsExtra($per)
+    {
+        return $this->belongsToMany('App\Models\Permission', 'csn_permission_user', 'user_id', 'permission_id')->where('csn_permissions.name', $per)->first();
+    }
     public function rolesCSNRoleName()
     {
         $relationship = $this->belongsToMany(Config::get('entrust.role'), Config::get('entrust.role_user_table'), Config::get('entrust.user_foreign_key'), Config::get('entrust.role_foreign_key'))->first();

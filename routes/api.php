@@ -82,13 +82,21 @@ Route::post('tab_category', ['as' => 'category.get_tab', 'uses' => 'CategoryCont
 Route::post('music/favourite', ['as' => 'bxh.month', 'uses' => 'MusicController@musicFavourite']);
 // User
 Route::prefix('user/')->group(function () {
-    Route::get('playlist/{id}', ['as' => 'api.user.playlist', 'uses' => 'UserController@playlist']);
     Route::post('qr_code/login/{token}', ['as' => 'api.user.qr_code.login', 'uses' => 'UserController@qrCodeLogin']);
     Route::post('{id}/music_recents', ['as' => 'user.music_recents', 'uses' => 'UserMusicController@musicRecent']);
     Route::post('artist_favourite', ['as' => 'user.artist_favourite', 'uses' => 'UserMusicController@artistFavourite']);
     Route::post('video_favourite', ['as' => 'user.video_favourite', 'uses' => 'UserMusicController@videoFavourite']);
     Route::post('music_favourite', ['as' => 'user.music_favourite', 'uses' => 'UserMusicController@musicFavourite']);
     Route::get('profile/{id}', ['as' => 'user.profile', 'uses' => 'UserController@index']);
+    Route::get('playlist/{id}', ['as' => 'api.user.playlist', 'uses' => 'UserController@playlist']);
+    Route::prefix('playlist/')->group(function () {
+        Route::post('danh-sach-playlist', ['as' => 'api.user.playlist_music', 'uses' => 'PlaylistController@getPlayList']);
+        Route::post('add-music-playlist', ['as' => 'api.playlist.add_play_list', 'uses' => 'PlaylistController@addMusicPlayList']);
+        Route::get('cap-nhat/{id}', ['as' => 'api.playlist.update_playlist', 'uses' => 'PlaylistController@editPlaylist']);
+        Route::post('them', ['as' => 'api.playlist.store_playlist', 'uses' => 'PlaylistController@storePlaylist']);
+        Route::post('create-playlist', ['as' => 'api.playlist.play_list', 'uses' => 'PlaylistController@createPlayList']);
+        Route::post('delete', ['as' => 'api.playlist.delete_playlist', 'uses' => 'PlaylistController@deletePlaylist']);
+    });
 });
 
 // Catalog

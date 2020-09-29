@@ -26,13 +26,15 @@ class PlaylistController extends Controller
      *
      * @return void
      */
+    protected $musicRepository;
     protected $playlistRepository;
     protected $playlistCategoryRepository;
     protected $playlistMusicRepository;
 
-    public function __construct(PlaylistEloquentRepository $playlistRepository, PlaylistCategoryEloquentRepository $playlistCategoryRepository,
+    public function __construct(MusicEloquentRepository $musicRepository, PlaylistEloquentRepository $playlistRepository, PlaylistCategoryEloquentRepository $playlistCategoryRepository,
                                 PlaylistMusicEloquentRepository $playlistMusicRepository)
     {
+        $this->musicRepository = $musicRepository;
         $this->playlistRepository = $playlistRepository;
         $this->playlistCategoryRepository = $playlistCategoryRepository;
         $this->playlistMusicRepository = $playlistMusicRepository;
@@ -54,9 +56,21 @@ class PlaylistController extends Controller
         if(!Auth::check()){
             Helpers::ajaxResult(false, 'Bạn chưa đang nhập.', null);
         }
-        $result = $this->playlistRepository->getByUser(Auth::user()->id);
+        $playlist = $this->playlistRepository->getByUser(Auth::user()->id);
+        $result = [];
         foreach ($result as &$item) {
             $item->music_exists = $item->findExistsMusic($request->music_id);
+        }
+        $result = [];
+        foreach ($playlist as $item) {
+            $result[] = [
+                'playlist_id' => $item->playlist_id,
+                'playlist_title' => $item->playlist_title,
+                'playlist_music_total' => $item->playlist_music_total,
+                'playlist_type' => $item->playlist_type,
+                'playlist_time' => $item->playlist_time,
+                'music_exists' => $item->findExistsMusic($request->music_id),
+            ];
         }
         return Helpers::ajaxResult(true, '', $result);
     }
@@ -73,6 +87,9 @@ class PlaylistController extends Controller
         }
         if(strlen($request->input('playlist_title')) <= 1 || strlen($request->input('playlist_title')) > 100){
             Helpers::ajaxResult(false, 'Tên playlist mới ít nhất 2 và nhỏ hơn 100 ký tư.', null);
+        }
+        if($this->playlistRepository->getModel()::where([['user_id', Auth::user()->id], ['playlist_title', $request->input('playlist_title')]])->first()){
+            Helpers::ajaxResult(false, 'Tên playlist bị trùng', null);
         }
         $result = $this->playlistRepository->create([
             'user_id' => Auth::user()->id,
@@ -95,6 +112,10 @@ class PlaylistController extends Controller
         $playlistUser = $this->playlistRepository->getByUser(Auth::user()->id, $request->input('playlist_id'))->first();
         if(!$playlistUser) {
             Helpers::ajaxResult(false, 'Không tìm thấy playlist của bạn', null);
+        }
+        $music = $this->musicRepository->getModel()::where('music_id', $request->input('music_id'))->first();
+        if(!$music) {
+            Helpers::ajaxResult(false, 'Không tìm thấy nhạc của bạn', null);
         }
         $countUpdate = 1;
         $dataResult = null;
@@ -159,7 +180,7 @@ class PlaylistController extends Controller
     }
     public function editPlaylist(Request $request, $id) {
 //        $playlistUser = $this->playlistRepository->getByUser(Auth::user()->id, $id)->with('playlist_arr_ids')->first();
-        $playlistUser = $this->playlistRepository->getByUser(Auth::user()->id, $id)->with('music')->first();
+        $playlistUser = $this->playlistRepository->getByUser(Auth::user()->id, $id)->first();
         if(!$playlistUser) {
             return view('errors.404');
         }

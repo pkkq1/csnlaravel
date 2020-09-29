@@ -189,6 +189,7 @@ class UserController extends Controller
                     'playlist_music_total' => $item->playlist_music_total,
                     'playlist_cover' => $item->playlist_cover ? Helpers::file_path($item->playlist_id, env('DATA_URL').MUSIC_PLAYLIST_THUMB_200_PATH, true).$item->playlist_id . '.jpg' : env('IMG_DATA_URL').'imgs/avatar_default.png',
                     'artists' => $artists,
+                    'playlist_id' => $item->playlist_id,
                 ];
             }
         }
