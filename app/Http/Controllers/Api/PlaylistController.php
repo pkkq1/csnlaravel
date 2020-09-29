@@ -184,12 +184,12 @@ class PlaylistController extends Controller
         $playlistLevel = $this->playlistCategoryRepository->getList();
         $playlistCategory = $this->playlistCategoryRepository->getCategory();
         $result = [
-            'playlist_user' => $playlistUser,
-            'list_music_video' => $listMusicVideo,
-            'playlist_category' => $playlistCategory,
-            'playlist_level' => $playlistLevel,
+            'playlist_user' => Helpers::convertArrHtmlCharsDecode($playlistUser->toArray()),
+            'list_music_video' => Helpers::convertArrHtmlCharsDecode($listMusicVideo->toArray()),
+            'playlist_category' => Helpers::convertArrHtmlCharsDecode($playlistCategory->toArray()),
+            'playlist_level' => Helpers::convertArrHtmlCharsDecode($playlistLevel->toArray()),
         ];
-        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => Helpers::convertArrHtmlCharsDecode($result), 'error' => ''], 200);
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => $result, 'error' => ''], 200);
     }
     public function storePlaylist(Request $request) {
         if (!$request->sid || !$request->playlist_title || !$request->sumbit_action || !$request->playlist_id) {
@@ -210,11 +210,9 @@ class PlaylistController extends Controller
 
         $id = $request->input('playlist_id');
         $action = $request->input('sumbit_action');
-        $playlistData = [];
         if($action == 'edit') {
             $playlist = PlaylistModel::where([['playlist_id', $id], ['user_id', $user->id]])->first();
-            $playlistData = $playlist->first();
-            if(!$playlist->exists()) {
+            if(!$playlist) {
                 return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Không tìm thấy playlist'], 400);
             }
             if($playlist->playlist_title != $request->input('playlist_title')) {
@@ -236,13 +234,14 @@ class PlaylistController extends Controller
         // remove music, update count
         if($request->input('remove_music')) {
             $arrMusic = array_filter(explode(',', $request->input('remove_music')));
-            $countRemove = PlaylistMusicModel::where('playlist_id', $id)->whereIn('music_id', $arrMusic)->delete();
-            $update['playlist_music_total'] = $playlist->playlist_music_total - $countRemove;
+            $countRemove = PlaylistMusicModel::where('playlist_id', $id)->whereIn('music_id', $arrMusic);
+            $update['playlist_music_total'] = $playlist->playlist_music_total - $countRemove->count();
+            $countRemove->delete();
             $removeArtist = str_replace(';', ',', substr($request->input('remove_artist'), 1));
             $removeArtistId = str_replace(';', ',', substr($request->input('remove_artist_id'), 1));
             $artistRemove = explode(',', $removeArtist);
             $artistIdRemove = explode(',', $removeArtistId);
-            $artistOld = unserialize($playlistData->playlist_artist);
+            $artistOld = unserialize($playlist->playlist_artist);
             foreach ($artistIdRemove as $key => $val) {
                 $keyExits = $val == -1 ? urlencode($artistRemove[$key]): $val;
                 if(isset($artistOld[$keyExits])) {
