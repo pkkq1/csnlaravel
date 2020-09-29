@@ -212,14 +212,20 @@ class PlaylistController extends Controller
         $action = $request->input('sumbit_action');
         $playlistData = [];
         if($action == 'edit') {
-            $playlist = PlaylistModel::where([['playlist_id', $id], ['user_id', $user->id]]);
+            $playlist = PlaylistModel::where([['playlist_id', $id], ['user_id', $user->id]])->first();
             $playlistData = $playlist->first();
             if(!$playlist->exists()) {
                 return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Không tìm thấy playlist'], 400);
             }
+            if($playlist->playlist_title != $request->input('playlist_title')) {
+                if(PlaylistModel::where([['playlist_title', $request->input('playlist_title')], ['user_id', $user->id], ['playlist_id', '!=', $playlist->playlist_id]])->first()) {
+                    return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Tên playlist đã bị trùng danh sách bạn'], 400);
+                }
+            }
         }else{
             $playlist = new PlaylistModel();
         }
+        $existName =
         $update = [
             'playlist_title' => $request->input('playlist_title'),
             'playlist_cat_id' => $request->input('playlist_cat_id') ?? 0,
@@ -231,7 +237,7 @@ class PlaylistController extends Controller
         if($request->input('remove_music')) {
             $arrMusic = array_filter(explode(',', $request->input('remove_music')));
             $countRemove = PlaylistMusicModel::where('playlist_id', $id)->whereIn('music_id', $arrMusic)->delete();
-            $update['playlist_music_total'] = $playlist->first()->playlist_music_total - $countRemove;
+            $update['playlist_music_total'] = $playlist->playlist_music_total - $countRemove;
             $removeArtist = str_replace(';', ',', substr($request->input('remove_artist'), 1));
             $removeArtistId = str_replace(';', ',', substr($request->input('remove_artist_id'), 1));
             $artistRemove = explode(',', $removeArtist);

@@ -207,7 +207,7 @@ class PlaylistController extends Controller
         $action = $request->input('sumbit_action');
         $playlistData = [];
         if($action == 'edit') {
-            $playlist = PlaylistModel::where([['playlist_id', $id], ['user_id', Auth::user()->id]]);
+            $playlist = PlaylistModel::where([['playlist_id', $id], ['user_id', Auth::user()->id]])->first();
             $playlistData = $playlist->first();
             if(!$playlist->exists()) {
                 return view('errors.404');
@@ -226,7 +226,7 @@ class PlaylistController extends Controller
         if($request->input('remove_music')) {
             $arrMusic = explode(',', substr($request->input('remove_music'), 1));
             $countRemove = PlaylistMusicModel::where('playlist_id', $id)->whereIn('music_id', $arrMusic)->delete();
-            $update['playlist_music_total'] = $playlist->first()->playlist_music_total - $countRemove;
+            $update['playlist_music_total'] = $playlist->playlist_music_total - $countRemove;
             $removeArtist = str_replace(';', ',', substr($request->input('remove_artist'), 1));
             $removeArtistId = str_replace(';', ',', substr($request->input('remove_artist_id'), 1));
             $artistRemove = explode(',', $removeArtist);
