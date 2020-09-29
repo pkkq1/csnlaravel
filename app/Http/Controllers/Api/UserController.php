@@ -193,6 +193,6 @@ class UserController extends Controller
                 ];
             }
         }
-        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => $result, 'error' => ''], 200);
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => Helpers::convertArrHtmlCharsDecode($result), 'error' => ''], 200);
     }
 }

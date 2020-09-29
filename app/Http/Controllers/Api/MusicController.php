@@ -113,7 +113,7 @@ class MusicController extends Controller
         }
         if(!$music)
             return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Bài hát không tìm thấy'], 400);
-        $music['file_url'] = Helpers::file_url($music);
+        $music['file_urls'] = Helpers::file_url($music);
         $musicFavourite = false;
         if($request->sid) {
             $userSess = $this->sessionRepository->getSessionById($request->sid);
@@ -147,7 +147,7 @@ class MusicController extends Controller
         }
         if(!$music)
             return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Bài hát không tìm thấy'], 400);
-        $music['file_url'] = Helpers::file_url($music);
+        $music['file_urls'] = Helpers::file_url($music);
         $musicFavourite = false;
         if($request->sid) {
             $userSess = $this->sessionRepository->getSessionById($request->sid);
@@ -217,22 +217,8 @@ class MusicController extends Controller
             }
         }
         $type = 'music';
-        if($music->cat_id == CAT_VIDEO)
-            $type = 'video';
-        // update cookie music history
-        $cookie = Helpers::MusicCookie($request, $music);
         //update cache file suggestion
         $this->musicRepository->suggestion($music, $type);
-        $musicSet = [
-            'type_listen' => 'single', // single | playlist | album
-            'type_jw' =>  $type,  // music | video
-            'playlist_music' => [],
-            'music_history' => $cookie
-        ];
-//        // update search analytics
-//        if(isset($request->ref) && isset($request->key_search)&& isset($request->type_search) && $request->ref == 'search') {
-//            $this->searchResultRepository->createAnalytics($request->ref, $request->key_search, $music->music_id, $request->type_search);
-//        }
         $musicFavourite = false;
         if($request->sid) {
             $userSess = $this->sessionRepository->getSessionById($request->sid);
@@ -244,7 +230,8 @@ class MusicController extends Controller
             }
 
         }
-        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['music' => Helpers::convertArrHtmlCharsDecode($music->toArray()), 'musicSet' => $musicSet, 'musicFavourite' => $musicFavourite ? true : false], 'error' => []], 200);
+        $music['file_urls'] = Helpers::file_url($music);
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['music' => Helpers::convertArrHtmlCharsDecode($music), 'musicFavourite' => $musicFavourite ? true : false], 'error' => []], 200);
     }
     public function listenBxhNow(Request $request, $catUrl, $catLevel = '') {
         return $this->listenBxhMusic($request, str_replace('.html', '', $catUrl), 'now', $catLevel);

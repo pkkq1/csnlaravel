@@ -76,7 +76,7 @@ class PlaylistController extends Controller
               'music_exists' => $item->findExistsMusic($request->music_id),
             ];
         }
-        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => $result, 'error' => ''], 200);
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => Helpers::convertArrHtmlCharsDecode($result), 'error' => ''], 200);
     }
     public function addMusicPlayList(Request $request)
     {
@@ -162,7 +162,7 @@ class PlaylistController extends Controller
             $playlistUser->playlist_artist = serialize($artistOld);
         }
         $playlistUser->save();
-        return new JsonResponse(['message' => $mess, 'code' => 200, 'data' => $dataResult, 'error' => ''], 200);
+        return new JsonResponse(['message' => $mess, 'code' => 200, 'data' => Helpers::convertArrHtmlCharsDecode($dataResult), 'error' => ''], 200);
     }
     public function editPlaylist(Request $request, $id) {
         if (!$request->sid) {
@@ -189,7 +189,7 @@ class PlaylistController extends Controller
             'playlist_category' => $playlistCategory,
             'playlist_level' => $playlistLevel,
         ];
-        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => $result, 'error' => ''], 200);
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => Helpers::convertArrHtmlCharsDecode($result), 'error' => ''], 200);
     }
     public function storePlaylist(Request $request) {
         if (!$request->sid || !$request->playlist_title || !$request->sumbit_action || !$request->playlist_id) {
