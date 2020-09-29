@@ -192,6 +192,6 @@ class UserController extends Controller
                 ];
             }
         }
-        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => $result, 'error' => ''], 400);
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => $result, 'error' => ''], 200);
     }
 }
