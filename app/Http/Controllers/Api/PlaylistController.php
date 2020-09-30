@@ -104,7 +104,7 @@ class PlaylistController extends Controller
             return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Không tìm thấy nhạc của bạn'], 400);
         }
         $countUpdate = 1;
-        $dataResult = null;
+        $dataResult = ['remove' => false];
         $mess = 'Đã thêm vào playlist.';
         $exist = PlaylistMusicModel::where([['playlist_id', $request->input('playlist_id')], ['music_id', $request->input('music_id')]]);
         if ($exist->exists()) {
@@ -162,7 +162,7 @@ class PlaylistController extends Controller
             $playlistUser->playlist_artist = serialize($artistOld);
         }
         $playlistUser->save();
-        return new JsonResponse(['message' => $mess, 'code' => 200, 'data' => Helpers::convertArrHtmlCharsDecode($dataResult), 'error' => ''], 200);
+        return new JsonResponse(['message' => $mess, 'code' => 200, 'data' => $dataResult, 'error' => ''], 200);
     }
     public function editPlaylist(Request $request, $id) {
         if (!$request->sid) {
