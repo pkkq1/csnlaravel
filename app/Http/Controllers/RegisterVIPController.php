@@ -29,12 +29,14 @@ class RegisterVIPController extends Controller
         $this->logPageVipRepository = $logPageVipRepository;
     }
     public function index(Request $request) {
-        $this->logPageVipRepository->getModel()::where('user_id', Auth::user()->id)->delete();
-        $this->logPageVipRepository->getModel()::create([
-            'user_id' => Auth::user()->id,
-            'ip' => Helpers::getIp(),
-            'time_log' => time(),
-        ]);
+        $logExist = $this->logPageVipRepository->getModel()::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->first();
+        if(time() - $logExist->time_log > 60) {
+            $this->logPageVipRepository->getModel()::create([
+                'user_id' => Auth::user()->id,
+                'ip' => Helpers::getIp(),
+                'time_log' => time(),
+            ]);
+        }
         return view('registerVIP');
     }
     public function sendReportRegVip(Request $request) {
