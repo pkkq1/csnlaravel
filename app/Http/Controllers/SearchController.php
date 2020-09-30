@@ -168,7 +168,7 @@ class SearchController extends Controller
                             'music_id' => $item['music_id'][0],
                             'music_title' => htmlspecialchars_decode($item['music_title'][0], ENT_QUOTES),// . ' | ' . $titleCharset . $item['score'] . ' { ' . $item['music_downloads_this_week'][0] . ' }' . $search_level,
                             'music_artist' => htmlspecialchars_decode($item['music_artist'][0], ENT_QUOTES),
-                            'music_artist_id' => implode(',', $item['music_artist_id']),
+                            'music_artist_id' => implode(';', $item['music_artist_id']),
                             'music_bitrate' => $item['music_bitrate'][0],
                             'music_bitrate_html' => $item['music_bitrate_html'][0],
                             'music_link' => $item['music_link'][0],
