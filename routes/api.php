@@ -42,6 +42,16 @@ Route::post('mp3/{urlMusic}.html', ['as' => 'music.listen', 'uses' => 'MusicCont
 Route::post('mp3/{urlMusic}', ['as' => 'music.listen', 'uses' => 'MusicController@newLinkListenSingleMusic']);
 
 
+Route::post('hd/{cat}/{sub}/{musicUrl}.html', ['as' => 'music.listen', 'uses' => 'MusicController@newListenSingleMusic']);
+Route::post('hd/{cat}/{sub}/{musicUrl}', ['as' => 'music.listen', 'uses' => 'MusicController@newListenSingleMusic']);
+
+Route::post('hd/{artist}/{urlMusic}.html', ['as' => 'music.listen', 'uses' => 'MusicController@newLinkListenSingleMusic']);
+Route::post('hd/{artist}/{urlMusic}', ['as' => 'music.listen', 'uses' => 'MusicController@newLinkListenSingleMusic']);
+
+Route::post('hd/{urlMusic}.html', ['as' => 'music.listen', 'uses' => 'MusicController@newLinkListenSingleMusic']);
+Route::post('hd/{urlMusic}', ['as' => 'music.listen', 'uses' => 'MusicController@newLinkListenSingleMusic']);
+
+
 // artist
 Route::prefix('artist')->group(function () {
     Route::post('profile', ['as' => 'api.artist.profile', 'uses' => 'ArtistController@getProfile']);

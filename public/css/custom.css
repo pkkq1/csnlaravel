@@ -2088,3 +2088,6 @@ a.dropdown-menu-header {
 .box_banner_profile:hover .edit_banner_photo {
     opacity: 1;
 }
+.media-body_commnet_replay .media-text {
+    color: #000000!important;
+}

@@ -472,7 +472,7 @@ $catalog = config('constants.catalog');
                 </div>
                 <div class="box_space"></div>
                 <div class="box_header d-flex justify-content-between align-items-end" style="margin-top: 15px;">
-                    <a class="view_all" href="/bang-xep-hang/tuan.html"><h2 class="title m-0">BXH upload trong tuần</h5></a>
+                    <a class="view_all" href="/bang-xep-hang/tuan.html"><h2 class="title m-0">BXH upload trong tuần</h2></a>
                 </div>
                 <ul class="list-unstyled bxh_week bxh mb-0">
                     <?php

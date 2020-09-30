@@ -15,7 +15,7 @@ use App\Library\Helpers;
                 <span class="counter">{{(($curentPage - 1) * $perPage) + ++$i}}</span>
             </div>
             <div class="col-lg-5 list_comment_music">
-                <a href="/user/{{$item['user_id']}}" title="{{$item['name']}}"><img class="mr-3" src="<?php echo Helpers::pathAvatar($item['user_avatar'], $item['user_id']) ?>" alt="{{$item['name']}}"></a>
+                <a href="/user/{{$item['user_id']}}" title="{{$item['name']}}"><img class="mr-3" src="<?php echo  Helpers::pathThumbAvatar($item['user_avatar'], $item['user_id'], env('DATA_URL')) ?>" alt="{{$item['name']}}"></a>
                 <div class="media-body">
                     <div class="body_commnet">
                         <div class="d-flex align-items-center justify-content-between">
