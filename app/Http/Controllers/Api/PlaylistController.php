@@ -192,7 +192,7 @@ class PlaylistController extends Controller
         return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => $result, 'error' => ''], 200);
     }
     public function storePlaylist(Request $request) {
-        if (!$request->sid || !$request->playlist_title || !$request->sumbit_action || !$request->playlist_id) {
+        if (!$request->sid || !$request->playlist_title || !$request->submit_action || !$request->playlist_id) {
             return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Vui lòng nhập đầy đủ thông tin.'], 400);
         }
         $userSess = $this->sessionRepository->getSessionById($request->sid);
@@ -209,7 +209,7 @@ class PlaylistController extends Controller
         }
 
         $id = $request->input('playlist_id');
-        $action = $request->input('sumbit_action');
+        $action = $request->input('submit_action');
         if($action == 'edit') {
             $playlist = PlaylistModel::where([['playlist_id', $id], ['user_id', $user->id]])->first();
             if(!$playlist) {
