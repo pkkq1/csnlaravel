@@ -116,6 +116,14 @@ class MusicController extends Controller
         $type = 'music';
         if($music->cat_id == CAT_VIDEO)
             $type = 'video';
+        // +1 view
+        if(Helpers::sessionCountTimesMusic($music->music_id)){
+            if($type == 'video') {
+                $this->videoListenRepository->incrementListen($music->music_id);
+            }else{
+                $this->musicListenRepository->incrementListen($music->music_id);
+            }
+        }
         //update cache file suggestion
         $this->musicRepository->suggestion($music, $type);
 
@@ -200,6 +208,21 @@ class MusicController extends Controller
         $type = 'music';
         if($music->cat_id == CAT_VIDEO)
             $type = 'video';
+        // +1 view
+        if(Helpers::sessionCountTimesMusic($arrUrl['id'])){
+            if($type == 'video') {
+                $this->videoListenRepository->incrementListen($music->music_id);
+            }else{
+                $this->musicListenRepository->incrementListen($music->music_id);
+            }
+        }
+        $type = 'music';
+        if($music->cat_id == CAT_VIDEO)
+            $type = 'video';
+        //update cache file suggestion
+        $this->musicRepository->suggestion($music, $type);
+
+
         //update cache file suggestion
         $this->musicRepository->suggestion($music, $type);
 
@@ -303,15 +326,11 @@ class MusicController extends Controller
             $music = $this->musicRepository->checkDeleteMusic($arrUrl['id'], false);
         }
         // +1 view
-        if(Helpers::sessionCountTimesMusic($arrUrl['id'])){
+        if(Helpers::sessionCountTimesMusic($music->music_id)){
             if($cat == CAT_VIDEO_URL) {
-                $this->videoListenRepository->incrementListen($arrUrl['id']);
+                $this->videoListenRepository->incrementListen($music->music_id);
             }else{
-                $this->musicListenRepository->incrementListen($arrUrl['id']);
-            }
-            if($_COOKIE['search_search'] ?? '') {
-                unset($_COOKIE['search_search']);
-                $this->musicSearchResultRepository->createSearch($music);
+                $this->musicListenRepository->incrementListen($music->music_id);
             }
         }
         $type = 'music';
