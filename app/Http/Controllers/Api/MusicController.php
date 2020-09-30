@@ -113,18 +113,67 @@ class MusicController extends Controller
         }
         if(!$music)
             return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Bài hát không tìm thấy'], 400);
-        $music['file_urls'] = Helpers::file_url($music);
-        $musicFavourite = false;
+        $type = 'music';
+        if($music->cat_id == CAT_VIDEO)
+            $type = 'video';
+        //update cache file suggestion
+        $this->musicRepository->suggestion($music, $type);
+
+        $music['cover_image'] = Helpers::cover_url($music->cover_id, $music->music_artist_id, 'orginal');
+        $music['cover_thumb_image'] = Helpers::coverThumb($music['cover_image'], MUSIC_COVER_THUMB_200_PATH);
+
+
+        //Check favourite | Sorry, this content is not available in your country
+        $music['auth_listen'] = true;
+        $music['music_favourite'] = false;
         if($request->sid) {
             $userSess = $this->sessionRepository->getSessionById($request->sid);
             if($userSess) {
+                // favourite music
                 $getModelFavourite = $this->musicFavouriteRepository;
-                if($music->cat_id == CAT_VIDEO)
+                if($type == 'video')
                     $getModelFavourite = $this->videoFavouriteRepository;
-                $musicFavourite = $getModelFavourite->getModel()::where([['user_id', $userSess->user_id ?? null], ['music_id', $music->music_id]])->first();
+                $music['music_favourite'] = $getModelFavourite->getModel()::where([['user_id', $userSess->user_id], ['music_id', $music->music_id]])->exists();
+                // check country can listen
+                $memberVip = Helpers::checkMemberVip();
+                $isVNIP = Helpers::isVNIP();
+                if( !$memberVip && !$isVNIP )
+                {
+                    if ( $music->cat_id > 3 ) {
+                        $music['auth_listen'] = false;
+                    } else if ($music->cat_id < 3) {
+                        if ($music->cat_level != 1) {
+                            $music['auth_listen'] = false;
+                        }
+                    }
+                }
             }
         }
-        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['music' => Helpers::convertArrHtmlCharsDecode($music->toArray()), 'playlist' => Helpers::convertArrHtmlCharsDecode($playlistMusic), 'musicFavourite' => $musicFavourite ? true : false], 'error' => []], 200);
+
+        //check quality music deleted
+        if($music->music_new_id > 0)
+            $musicNew = $this->musicDeletedRepository->getModel()::where('music_id', $music->music_new_id)->first();
+        if($music->music_new_id > 0 && isset($musicNew) && $musicNew) {
+            $file_url = Helpers::file_url($musicNew);
+        }else{
+            $file_url = Helpers::file_url($music);
+        }
+        $music['file_urls'] = $file_url;
+        /// suggestion music
+        ///
+        global $titleDup;
+        global $typeDup;
+        $sug = [];
+
+        include(app_path() . '/../resources/views/cache/suggestion/'.ceil($music->music_id / 1000).'/'.$music->music_id.'.blade.php');
+        $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3);
+        include(app_path() . '/../resources/views/cache/suggestion_cat/'.$music->cat_id.'_'.$music->cat_level.'.blade.php');
+        $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3);
+        foreach ($sug as $item) {
+            $sug['cover_image'] = $item['cat_id'] != CAT_VIDEO ?  Helpers::cover_url($item['cover_id'], $item['music_artist_id'], 'orginal') : Helpers::thumbnail_url($item, 'preview');
+        }
+
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['music' => Helpers::convertArrHtmlCharsDecode($music->toArray()), 'playlist' => Helpers::convertArrHtmlCharsDecode($playlistMusic), 'sug' => Helpers::convertArrHtmlCharsDecode($sug)], 'error' => []], 200);
     }
     public function getPlaylistInfo(Request $request, $musicUrl, $name) {
         $arrUrl = Helpers::splitPlaylistUrl($musicUrl, 'playlist');
@@ -147,18 +196,67 @@ class MusicController extends Controller
         }
         if(!$music)
             return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Bài hát không tìm thấy'], 400);
-        $music['file_urls'] = Helpers::file_url($music);
-        $musicFavourite = false;
+
+        $type = 'music';
+        if($music->cat_id == CAT_VIDEO)
+            $type = 'video';
+        //update cache file suggestion
+        $this->musicRepository->suggestion($music, $type);
+
+        $music['cover_image'] = Helpers::cover_url($music->cover_id, $music->music_artist_id, 'orginal');
+        $music['cover_thumb_image'] = Helpers::coverThumb($music['cover_image'], MUSIC_COVER_THUMB_200_PATH);
+
+
+        //Check favourite | Sorry, this content is not available in your country
+        $music['auth_listen'] = true;
+        $music['music_favourite'] = false;
         if($request->sid) {
             $userSess = $this->sessionRepository->getSessionById($request->sid);
             if($userSess) {
+                // favourite music
                 $getModelFavourite = $this->musicFavouriteRepository;
-                if($music->cat_id == CAT_VIDEO)
+                if($type == 'video')
                     $getModelFavourite = $this->videoFavouriteRepository;
-                $musicFavourite = $getModelFavourite->getModel()::where([['user_id', $userSess->user_id], ['music_id', $music->music_id]])->first();
+                $music['music_favourite'] = $getModelFavourite->getModel()::where([['user_id', $userSess->user_id], ['music_id', $music->music_id]])->exists();
+                // check country can listen
+                $memberVip = Helpers::checkMemberVip();
+                $isVNIP = Helpers::isVNIP();
+                if( !$memberVip && !$isVNIP )
+                {
+                    if ( $music->cat_id > 3 ) {
+                        $music['auth_listen'] = false;
+                    } else if ($music->cat_id < 3) {
+                        if ($music->cat_level != 1) {
+                            $music['auth_listen'] = false;
+                        }
+                    }
+                }
             }
         }
-        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['music' => Helpers::convertArrHtmlCharsDecode($music->toArray()), 'playlist' => Helpers::convertArrHtmlCharsDecode($playlistMusic), 'musicFavourite' => $musicFavourite ? true : false], 'error' => []], 200);
+
+        //check quality music deleted
+        if($music->music_new_id > 0)
+            $musicNew = $this->musicDeletedRepository->getModel()::where('music_id', $music->music_new_id)->first();
+        if($music->music_new_id > 0 && isset($musicNew) && $musicNew) {
+            $file_url = Helpers::file_url($musicNew);
+        }else{
+            $file_url = Helpers::file_url($music);
+        }
+        $music['file_urls'] = $file_url;
+        /// suggestion music
+        ///
+        global $titleDup;
+        global $typeDup;
+        $sug = [];
+
+        include(app_path() . '/../resources/views/cache/suggestion/'.ceil($music->music_id / 1000).'/'.$music->music_id.'.blade.php');
+        $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3);
+        include(app_path() . '/../resources/views/cache/suggestion_cat/'.$music->cat_id.'_'.$music->cat_level.'.blade.php');
+        $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3);
+        foreach ($sug as $item) {
+            $sug['cover_image'] = $item['cat_id'] != CAT_VIDEO ?  Helpers::cover_url($item['cover_id'], $item['music_artist_id'], 'orginal') : Helpers::thumbnail_url($item, 'preview');
+        }
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['music' => Helpers::convertArrHtmlCharsDecode($music->toArray()), 'playlist' => Helpers::convertArrHtmlCharsDecode($playlistMusic), 'sug' => Helpers::convertArrHtmlCharsDecode($sug)], 'error' => []], 200);
     }
     public function newListenSingleMusic(Request $request, $cat, $sub, $id, $artist = '', $urlMusic = '') {
         if($urlMusic == '') {
@@ -217,21 +315,66 @@ class MusicController extends Controller
             }
         }
         $type = 'music';
+        if($music->cat_id == CAT_VIDEO)
+            $type = 'video';
         //update cache file suggestion
         $this->musicRepository->suggestion($music, $type);
-        $musicFavourite = false;
+
+        // cover image music/video
+
+        $music['cover_image'] = $music->cat_id != CAT_VIDEO ?  Helpers::cover_url($music->cover_id, $music->music_artist_id, 'orginal') : Helpers::thumbnail_url($music->toArray(), 'preview');
+        $music['cover_thumb_image'] = Helpers::coverThumb($music['cover_image'], MUSIC_COVER_THUMB_200_PATH);
+        $music['auth_listen'] = true;
+
+        //Check favourite | Sorry, this content is not available in your country
+        $music['auth_listen'] = true;
+        $music['music_favourite'] = false;
         if($request->sid) {
             $userSess = $this->sessionRepository->getSessionById($request->sid);
             if($userSess) {
+                // favourite music
                 $getModelFavourite = $this->musicFavouriteRepository;
                 if($type == 'video')
                     $getModelFavourite = $this->videoFavouriteRepository;
-                $musicFavourite = $getModelFavourite->getModel()::where([['user_id', $userSess->user_id], ['music_id', $music->music_id]])->first();
+                $music['music_favourite'] = $getModelFavourite->getModel()::where([['user_id', $userSess->user_id], ['music_id', $music->music_id]])->exists();
+                // check country can listen
+                $memberVip = Helpers::checkMemberVip();
+                $isVNIP = Helpers::isVNIP();
+                if( !$memberVip && !$isVNIP )
+                {
+                    if ( $music->cat_id > 3 ) {
+                        $music['auth_listen'] = false;
+                    } else if ($music->cat_id < 3) {
+                        if ($music->cat_level != 1) {
+                            $music['auth_listen'] = false;
+                        }
+                    }
+                }
             }
-
         }
-        $music['file_urls'] = Helpers::file_url($music);
-        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['music' => Helpers::convertArrHtmlCharsDecode($music), 'musicFavourite' => $musicFavourite ? true : false], 'error' => []], 200);
+        //check quality music deleted
+        if($music->music_new_id > 0)
+            $musicNew = $this->musicDeletedRepository->getModel()::where('music_id', $music->music_new_id)->first();
+        if($music->music_new_id > 0 && isset($musicNew) && $musicNew) {
+            $file_url = Helpers::file_url($musicNew);
+        }else{
+            $file_url = Helpers::file_url($music);
+        }
+        $music['file_urls'] = $file_url;
+        /// suggestion music
+        ///
+        global $titleDup;
+        global $typeDup;
+        $sug = [];
+
+        include(app_path() . '/../resources/views/cache/suggestion/'.ceil($music->music_id / 1000).'/'.$music->music_id.'.blade.php');
+        $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3);
+        include(app_path() . '/../resources/views/cache/suggestion_cat/'.$music->cat_id.'_'.$music->cat_level.'.blade.php');
+        $sug = Helpers::getRandLimitArr($typeDup, LIMIT_SUG_MUSIC - count($titleDup) + 3);
+        foreach ($sug as $item) {
+            $sug['cover_image'] = $item['cat_id'] != CAT_VIDEO ?  Helpers::cover_url($item['cover_id'], $item['music_artist_id'], 'orginal') : Helpers::thumbnail_url($item, 'preview');
+        }
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['music' => Helpers::convertArrHtmlCharsDecode($music->toArray()), 'sug' => Helpers::convertArrHtmlCharsDecode($sug)], 'error' => []], 200);
     }
     public function listenBxhNow(Request $request, $catUrl, $catLevel = '') {
         return $this->listenBxhMusic($request, str_replace('.html', '', $catUrl), 'now', $catLevel);
