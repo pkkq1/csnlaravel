@@ -61,8 +61,15 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request, $id)
+    public function index(Request $request, $id = null)
     {
+        if(!$id) {
+            if(Auth::check()    ) {
+                return redirect('/user/' . Auth::user()->user_id);
+            }else{
+                return redirect('/?rq=login&back_url=/user');
+            }
+        }
         if(is_numeric($id)) {
             $user = $this->userRepository->getUserById($id)->first();
         }else{
