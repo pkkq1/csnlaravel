@@ -23,6 +23,7 @@ Route::prefix('auth')->group(function () {
     Route::get('login/facebook', 'AuthController@loginFacebook');
     Route::get('login/google', 'AuthController@loginGoogle');
     Route::get('logout', 'AuthController@logOut');
+    Route::post('register', 'AuthController@register');
 });
 Route::get('search', 'SearchController@index');
 Route::get('home', 'HomeController@index');

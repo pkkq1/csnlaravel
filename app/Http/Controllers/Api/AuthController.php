@@ -11,13 +11,16 @@ use Illuminate\Http\Request as Request;
 use App\Http\Controllers\Controller;
 use App\Models\UserModel as User;
 use App\Models\UserSocialModel;
+use App\Models\MailTokenModel;
 use Illuminate\Support\Facades\Auth;
 use App\Library\Helpers;
 use Socialite;
 use Session;
+use Illuminate\Support\Str;
 use \Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Session as SessionModel;
+use Mail;
 
 class AuthController extends Controller
 {
@@ -165,5 +168,53 @@ class AuthController extends Controller
         Auth::logout();
         $sessionData->delete();
         return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => [], 'error' => 'Đăng Xuất Thành Công'], 200);
+    }
+    public function register(Request $request) {
+        $validator = [
+            'username' => 'required|string|max:25|unique:csn_users|min:4',
+            'email' => 'required|string|email|max:255|unique:csn_users',
+            'name' => 'required|string|min:2|max:50',
+            'password' => 'required|string|min:6|max:30',
+        ];
+        $setAttr = [
+            'username' => 'Tên Tài Khoản',
+            'email' => 'Email',
+            'password' => 'Mật khẩu',
+            'captcha' => 'Mã bảo vệ'
+        ];
+        $validator = Validator::make($request->all(), $validator);
+        $validator->setAttributeNames($setAttr);
+        if($validator->fails()) {
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => $validator->errors()->toArray(), 'error' => ''], 400);
+        }
+        $user = User::create([
+            'username' => $request->username,
+            'name' => $request->name,
+            'email' => $request->email,
+            'user_avatar' => '',
+            'user_lastvisit' => time(),
+            'user_regdate' => time(),
+            'user_active' => DEACTIVE_USER,
+            'password' => bcrypt($request->password),
+        ]);
+        $user->user_id = $user->id;
+        $user->save();
+        $token = MailTokenModel::create([
+            'email' => $request->email,
+            'token' => Str::random(60),
+            'created_at' => date('Y-m-d H:m', time())
+        ]);
+        $data = [
+            'user' => $user,
+            'token' => $token,
+        ];
+        Mail::send('emails.register', $data, function($message) use ($user)
+        {
+            $message->from(env('MAIL_USERNAME'), env('APP_NAME'));
+            $message->to($user->email, $user->name)->subject('Xác nhận thông tin đăng ký tài khoản Chia Sẻ Nhạc');
+        });
+        session()->save();
+        $user->sid = session()->getId();
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => Helpers::convertArrHtmlCharsDecode($user), 'error' => []], 200);
     }
 }
