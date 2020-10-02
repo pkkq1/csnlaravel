@@ -73,7 +73,7 @@ class UserController extends Controller
             return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Không Tìm Thấy User'], 400);
         }
         $reqValid = [
-            'name' => 'max:255|min:4',
+            'name' => 'required|max:255|min:4',
             'user_birthday' => 'max:10',
             'user_identity_card' => 'min:8|max:20',
             'user_interests' => 'max:250',
