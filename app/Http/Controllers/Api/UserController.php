@@ -122,7 +122,7 @@ class UserController extends Controller
                 }
                 else
                 {
-                    return new JsonResponse(['message' => 'Lỗi thông tin nhập', 'code' => 400, 'data' => ['current_password' => ['Xác nhận mật khẩu cũ không chính xác']], 'error' => []], 400);
+                    return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['current_password' => ['Xác nhận mật khẩu cũ không chính xác']], 'error' => []], 200);
                 }
             }
         }
