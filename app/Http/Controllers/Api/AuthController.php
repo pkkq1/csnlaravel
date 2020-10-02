@@ -66,6 +66,7 @@ class AuthController extends Controller
 //        ]);
         $existUser->sid = session()->getId();
         $existUser->user_avatar_url = Helpers::pathAvatar($existUser->user_avatar, $existUser->id, env('DATA_URL'));
+        $existUser->user_cover_url = Helpers::pathUserCover($existUser->user_cover, $existUser->id, env('DATA_URL'));
         // null
         return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => Helpers::convertArrHtmlCharsDecode($existUser), 'error' => []], 200);
     }
@@ -110,6 +111,7 @@ class AuthController extends Controller
 //            'user_agent' => $req->driver,
 //        ]);
         $existUser->user_avatar_url = Helpers::pathAvatar($existUser->user_avatar, $existUser->id, env('DATA_URL'));
+        $existUser->user_cover_url = Helpers::pathUserCover($existUser->user_cover, $existUser->id, env('DATA_URL'));
         $existUser->sid = session()->getId();
         // null
         return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => Helpers::convertArrHtmlCharsDecode($existUser), 'error' => []], 200);
@@ -144,6 +146,8 @@ class AuthController extends Controller
             session()->save();
             $user->sid = session()->getId();
             $user->remember_token_login = Auth::user()->remember_token;
+            $user->user_avatar_url = Helpers::pathAvatar($user->user_avatar, $user->id, env('DATA_URL'));
+            $user->user_cover_url = Helpers::pathUserCover($user->user_cover, $user->id, env('DATA_URL'));
             return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => Helpers::convertArrHtmlCharsDecode($user), 'error' => []], 200);
         }else{
             if((time() - $userCheck->user_last_login_try > TIME_API_LAST_LOGIN)) {
