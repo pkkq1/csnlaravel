@@ -85,7 +85,7 @@ class UserController extends Controller
         $reqValid = [
             'name' => 'required|max:255|min:4',
             'user_birthday' => 'max:10',
-            'user_identity_card' => 'numeric|max:999999999',
+            'user_identity_card' => 'min:8|max:20',
             'user_interests' => 'max:255',
         ];
         $setAttr = [
@@ -127,7 +127,7 @@ class UserController extends Controller
         ];
         if(!Auth::user()->username) {
             $update['username'] = trim(strtolower($request->input('username')));
-            $update['password'] = Hash::make($request->input('password'));
+            $update['password'] = bcrypt($request->input('password'));
         }else{
             if($request->input('password') && $request->input('current_password')) {
                 if(bcrypt($request->input('current_password')) == Auth::User()->password)

@@ -134,7 +134,7 @@ if($mySelf) {
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="user_birthday">Chứng Minh Nhân Dân</label>
-                                    <input type="number" class="form-control"  name="user_identity_card" id="user_identity_card" placeholder="" value="{{Auth::user()->user_identity_card}}">
+                                    <input type="text" class="form-control"  name="user_identity_card" id="user_identity_card" placeholder="" value="{{Auth::user()->user_identity_card}}">
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label for="user_interests">Thông tin</label>
@@ -336,8 +336,8 @@ if($mySelf) {
                     addErrorInput($('#name'), 'Tên không được quá dài 30 ký tự');
                     return false;
                 }
-                if(($('.profile_submit1').find('#user_identity_card').val()).length != 9 && ($('.profile_submit1').find('#user_identity_card').val()).length != 0) {
-                    addErrorInput($('#user_identity_card'), 'Chứng minh nhân dân phải đủ 9 ký tự');
+                if(($('.profile_submit1').find('#user_identity_card').val()).length < 8 && ($('.profile_submit1').find('#user_identity_card').val()).length > 20) {
+                    addErrorInput($('#user_identity_card'), 'Chứng minh nhân dân phải từ 8 đến 20 ký tự');
                     return false;
                 }
                 $.ajax({

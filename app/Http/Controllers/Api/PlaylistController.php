@@ -344,7 +344,7 @@ class PlaylistController extends Controller
         }
         // check banned user
         if ($user->hasPermissionsExtra('banned_user_playlist')) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Lỗi truy cập, tài khoản bạn bị khóa chức năng thêm nhạc vào playlist.'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Lỗi truy cập, tài khoản bạn bị khóa chức năng chỉnh sửa playlist.'], 400);
         }
         $playlist = PlaylistModel::where('playlist_id', $request->playlist_id)->where('user_id', $user->id)->first();
         if(!$playlist) {

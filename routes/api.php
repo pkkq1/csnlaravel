@@ -99,6 +99,7 @@ Route::prefix('user/')->group(function () {
     Route::post('video_favourite', ['as' => 'user.video_favourite', 'uses' => 'UserMusicController@videoFavourite']);
     Route::post('music_favourite', ['as' => 'user.music_favourite', 'uses' => 'UserMusicController@musicFavourite']);
     Route::get('profile/{id}', ['as' => 'user.profile', 'uses' => 'UserController@index']);
+    Route::post('update/{id}', ['as' => 'user.update', 'uses' => 'UserController@store']);
     Route::get('playlist/{id}', ['as' => 'api.user.playlist', 'uses' => 'UserController@playlist']);
     Route::prefix('playlist/')->group(function () {
         Route::post('danh-sach-playlist', ['as' => 'api.user.playlist_music', 'uses' => 'PlaylistController@getPlayList']);

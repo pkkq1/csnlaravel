@@ -37,13 +37,15 @@ class UserController extends Controller
     protected $artistFavouriteRepository;
     protected $qrCodeTokenRepository;
     protected $sessionEloquentRepository;
+    protected $sessionRepository;
 
-    public function __construct(UserEloquentRepository $userRepository, PlaylistEloquentRepository $playlistRepository, ArtistFavouriteRepository $artistFavouriteRepository, SessionEloquentRepository $sessionEloquentRepository, QrCodeTokenRepository $qrCodeTokenRepository)
+    public function __construct(UserEloquentRepository $userRepository, PlaylistEloquentRepository $playlistRepository, ArtistFavouriteRepository $artistFavouriteRepository, SessionEloquentRepository $sessionEloquentRepository, QrCodeTokenRepository $qrCodeTokenRepository, SessionEloquentRepository $sessionRepository)
     {
         $this->userRepository = $userRepository;
         $this->playlistRepository = $playlistRepository;
         $this->sessionEloquentRepository = $sessionEloquentRepository;
         $this->qrCodeTokenRepository = $qrCodeTokenRepository;
+        $this->sessionRepository = $sessionRepository;
     }
 
     /**
@@ -58,11 +60,22 @@ class UserController extends Controller
             return new JsonResponse(['message' => 'Người dùng đang được cập nhật.', 'code' => 400, 'data' => [], 'error' => []], 400);
         return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['user' => Helpers::convertArrHtmlCharsDecode($user)], 'error' => []], 200);
     }
-    public function store(Request $request) {
-        $reqRefresh = false;
+    public function store(Request $request, $id) {
+        if (!$request->sid) {
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Vui lòng nhập đầy đủ thông tin.'], 400);
+        }
+        $userSess = $this->sessionRepository->getSessionById($request->sid);
+        if (!$userSess || ($userSess->user_id != $id)) {
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Bạn chưa đang nhập.'], 400);
+        }
+        $user = $this->userRepository->getModel()::where('id', $userSess->user_id)->first();
+        if (!$user) {
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Không Tìm Thấy User'], 400);
+        }
         $reqValid = [
             'name' => 'required|max:255|min:4',
             'user_birthday' => 'max:10',
+            'user_identity_card' => 'min:8|max:20',
             'user_interests' => 'max:250',
         ];
         $setAttr = [
@@ -74,11 +87,10 @@ class UserController extends Controller
             'repassword' => 'Nhập lại mật khẩu',
             'current_password' => 'Mật khẩu cũ'
         ];
-        if(!Auth::user()->username) {
+        if(!$user->username) {
             $reqValid['password'] = 'required|max:255|min:6';
             $reqValid['username'] = 'required|max:255|min:4|max:30|alpha_dash|unique:csn_users';
             $reqValid['repassword'] = 'required|max:255|min:6|same:password';
-            $reqRefresh = true;
         }else{
             if($request->input('current_password')) {
                 $reqValid['current_password'] = 'required|max:255|min:6';
@@ -89,38 +101,33 @@ class UserController extends Controller
         $validator = Validator::make($request->all(), $reqValid);
         $validator->setAttributeNames($setAttr);
         if($validator->fails()) {
-            Helpers::ajaxResult(false, 'Lỗi', $validator->errors()->toArray());
+            return new JsonResponse(['message' => 'Lỗi thông tin nhập', 'code' => 400, 'data' => $validator->errors()->toArray(), 'error' => []], 400);
         }
         $update = [
             'name' => $request->input('name'),
-            'user_gender' => $request->input('user_gender'),
+            'user_gender' => $request->input('user_gender') ?? 0,
             'user_birthday' => $request->input('user_birthday'),
             'user_phone_number' => $request->input('user_phone_number'),
-            'user_interests' => $request->input('user_interests')
+            'user_interests' => $request->input('user_interests'),
+            'user_identity_card' => $request->input('user_identity_card')
         ];
-        if(!Auth::user()->username) {
+        if(!$user->username) {
             $update['username'] = trim(strtolower($request->input('username')));
-            $update['password'] = Hash::make($request->input('password'));
+            $update['password'] = bcrypt($request->input('password'));
         }else{
             if($request->input('password') && $request->input('current_password')) {
-                if(Hash::check($request->input('current_password'), Auth::User()->password))
+                if(bcrypt($request->input('current_password')) == $user->password)
                 {
-                    $update['password'] = Hash::make($request->input('password'));
+                    $update['password'] = bcrypt($request->input('password'));
                 }
                 else
                 {
-                    Helpers::ajaxResult(false, 'Lỗi', ['current_password' => ['Xác nhận mật khẩu cũ không chính xác']]);
+                    return new JsonResponse(['message' => 'Lỗi thông tin nhập', 'code' => 400, 'data' => ['current_password' => ['Xác nhận mật khẩu cũ không chính xác']], 'error' => []], 400);
                 }
             }
         }
-        if($request->input('user_avatar')){
-            $path = Helpers::file_path(Auth::user()->id, AVATAR_PATH, true);
-            $fileNameAvatar = Helpers::saveBase64ImageJpg($request->input('user_avatar'), $path, Auth::user()->id);
-            $update['user_avatar'] = $fileNameAvatar;
-        }
-        $user = UserModel::where('id', Auth::user()->id)->update($update);
-        $update['refresh'] = $reqRefresh;
-        Helpers::ajaxResult(true, 'Cập nhật tài khoản thành công', $update);
+        $user = UserModel::where('id', $user->id)->update($update);
+        return new JsonResponse(['message' => 'Lỗi thông tin nhập', 'code' => 200, 'data' =>  Helpers::convertArrHtmlCharsDecode($update), 'error' => []], 200);
     }
     public function logout()
     {
