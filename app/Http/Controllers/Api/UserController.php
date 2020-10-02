@@ -122,12 +122,12 @@ class UserController extends Controller
                 }
                 else
                 {
-                    return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['current_password' => ['Xác nhận mật khẩu cũ không chính xác']], 'error' => []], 200);
+                    return new JsonResponse(['message' => 'Lỗi thông tin nhập', 'code' => 400, 'data' => ['current_password' => ['Xác nhận mật khẩu cũ không chính xác']], 'error' => []], 400);
                 }
             }
         }
         $user = UserModel::where('id', $user->id)->update($update);
-        return new JsonResponse(['message' => 'Lỗi thông tin nhập', 'code' => 200, 'data' =>  Helpers::convertArrHtmlCharsDecode($update), 'error' => []], 200);
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' =>  Helpers::convertArrHtmlCharsDecode($update), 'error' => []], 200);
     }
     public function logout()
     {
