@@ -130,9 +130,9 @@ class UserController extends Controller
             $update['password'] = Hash::make($request->input('password'));
         }else{
             if($request->input('password') && $request->input('current_password')) {
-                if(Hash::check($request->input('current_password'), Auth::User()->password))
+                if(bcrypt($request->input('current_password')) == Auth::User()->password)
                 {
-                    $update['password'] = Hash::make($request->input('password'));
+                    $update['password'] = bcrypt($request->input('password'));
                 }
                 else
                 {
