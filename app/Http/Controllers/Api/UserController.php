@@ -73,7 +73,7 @@ class UserController extends Controller
             return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Không Tìm Thấy User'], 400);
         }
         $reqValid = [
-            'name' => 'required|max:255|min:4',
+            'name' => 'max:255|min:4',
             'user_birthday' => 'max:10',
             'user_identity_card' => 'min:8|max:20',
             'user_interests' => 'max:250',
@@ -104,12 +104,12 @@ class UserController extends Controller
             return new JsonResponse(['message' => 'Lỗi thông tin nhập', 'code' => 400, 'data' => $validator->errors()->toArray(), 'error' => []], 400);
         }
         $update = [
-            'name' => $request->input('name'),
-            'user_gender' => $request->input('user_gender') ?? 0,
-            'user_birthday' => $request->input('user_birthday'),
-            'user_phone_number' => $request->input('user_phone_number'),
-            'user_interests' => $request->input('user_interests'),
-            'user_identity_card' => $request->input('user_identity_card')
+            'name' => $request->input('name') ?? $user->name,
+            'user_gender' => $request->input('user_gender') ?? $user->user_gender,
+            'user_birthday' => $request->input('user_birthday')?? $user->user_birthday,
+            'user_phone_number' => $request->input('user_phone_number')?? $user->user_phone_number,
+            'user_interests' => $request->input('user_interests') ?? $user->user_interests,
+            'user_identity_card' => $request->input('user_identity_card') ?? $user->user_identity_card
         ];
         if(!$user->username) {
             $update['username'] = trim(strtolower($request->input('username')));
