@@ -30,7 +30,7 @@ class RegisterVIPController extends Controller
     }
     public function index(Request $request) {
         $logExist = $this->logPageVipRepository->getModel()::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->first();
-        if(time() - $logExist->time_log > 60) {
+        if(!$logExist || (time() - $logExist->time_log > 60)) {
             $this->logPageVipRepository->getModel()::create([
                 'user_id' => Auth::user()->id,
                 'ip' => Helpers::getIp(),
