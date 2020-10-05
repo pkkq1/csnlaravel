@@ -534,6 +534,6 @@ class MusicController extends Controller
         return new JsonResponse(['message' => $msg, 'code' => 200, 'data' => [], 'error' => []], 200);
     }
     public function infoMusicId(Request $request) {
-        return $this->listenSingleMusic($request, $request->type, '', $request->music_id);
+        return $this->listenSingleMusic($request, $request->type ?? 'music', '', $request->music_id);
     }
 }
