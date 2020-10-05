@@ -180,7 +180,8 @@ class MusicController extends Controller
         foreach ($sug as $item) {
             $sug['cover_image'] = $item['cat_id'] != CAT_VIDEO ?  Helpers::cover_url($item['cover_id'], $item['music_artist_id'], 'orginal') : Helpers::thumbnail_url($item, 'preview');
         }
-
+        // karaoke
+        $music->musicKara;
         return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['music' => Helpers::convertArrHtmlCharsDecode($music->toArray()), 'playlist' => Helpers::convertArrHtmlCharsDecode($playlistMusic), 'sug' => Helpers::convertArrHtmlCharsDecode($sug)], 'error' => []], 200);
     }
     public function getPlaylistInfo(Request $request, $musicUrl, $name) {
@@ -279,6 +280,10 @@ class MusicController extends Controller
         foreach ($sug as $item) {
             $sug['cover_image'] = $item['cat_id'] != CAT_VIDEO ?  Helpers::cover_url($item['cover_id'], $item['music_artist_id'], 'orginal') : Helpers::thumbnail_url($item, 'preview');
         }
+        // karaoke
+        $music_lyric_karaoke = $music->musicKara;
+        $music_lyric_karaoke = $music_lyric_karaoke ? Helpers::rawLyrics($music->musicKara->music_lyric_karaoke) : '';
+        $music['music_kara'] = $music_lyric_karaoke;
         return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['music' => Helpers::convertArrHtmlCharsDecode($music->toArray()), 'playlist' => Helpers::convertArrHtmlCharsDecode($playlistMusic), 'sug' => Helpers::convertArrHtmlCharsDecode($sug)], 'error' => []], 200);
     }
     public function newListenSingleMusic(Request $request, $cat, $sub, $id, $artist = '', $urlMusic = '') {
@@ -393,6 +398,10 @@ class MusicController extends Controller
         foreach ($sug as $item) {
             $sug['cover_image'] = $item['cat_id'] != CAT_VIDEO ?  Helpers::cover_url($item['cover_id'], $item['music_artist_id'], 'orginal') : Helpers::thumbnail_url($item, 'preview');
         }
+        // karaoke
+        $music_lyric_karaoke = $music->musicKara;
+        $music_lyric_karaoke = $music_lyric_karaoke ? Helpers::rawLyrics($music->musicKara->music_lyric_karaoke) : '';
+        $music['music_kara'] = $music_lyric_karaoke;
         return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['music' => Helpers::convertArrHtmlCharsDecode($music->toArray()), 'sug' => Helpers::convertArrHtmlCharsDecode($sug)], 'error' => []], 200);
     }
     public function listenBxhNow(Request $request, $catUrl, $catLevel = '') {
@@ -460,12 +469,7 @@ class MusicController extends Controller
         $cookie = Helpers::MusicCookie($request, $music);
         //update cache file suggestion
         $this->musicRepository->suggestion($music, $type);
-        $musicSet = [
-            'type_listen' => 'album', // single | playlist | album
-            'type_jw' =>  $type,  // music | video
-            'playlist_music' => $playlistMusic,
-            'music_history' => $cookie
-        ];
+
         $musicFavourite = false;
         if($request->sid) {
             $userSess = $this->sessionRepository->getSessionById($request->sid);
@@ -477,7 +481,34 @@ class MusicController extends Controller
             }
 
         }
-        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['musicFavourite' => $musicFavourite ? true : false, 'music' => Helpers::convertArrHtmlCharsDecode($music->toArray()), 'musicSet' => $musicSet], 'error' => []], 200);
+        //check quality music deleted
+        if($music->music_new_id > 0)
+            $musicNew = $this->musicDeletedRepository->getModel()::where('music_id', $music->music_new_id)->first();
+        if($music->music_new_id > 0 && isset($musicNew) && $musicNew) {
+            $file_url = Helpers::file_url($musicNew);
+        }else{
+            $file_url = Helpers::file_url($music);
+        }
+        $music['file_urls'] = $file_url;
+
+        /// suggestion music
+        ///
+        global $titleDup;
+        global $typeDup;
+        $sug = [];
+
+        include(app_path() . '/../resources/views/cache/suggestion/'.ceil($music->music_id / 1000).'/'.$music->music_id.'.blade.php');
+        $sug = Helpers::getRandLimitArr($typeDup ?? [], LIMIT_SUG_MUSIC - count($titleDup) + 3);
+        include(app_path() . '/../resources/views/cache/suggestion_cat/'.$music->cat_id.'_'.$music->cat_level.'.blade.php');
+        $sug = Helpers::getRandLimitArr($typeDup ?? [], LIMIT_SUG_MUSIC - count($titleDup) + 3);
+        foreach ($sug as $item) {
+            $sug['cover_image'] = $item['cat_id'] != CAT_VIDEO ?  Helpers::cover_url($item['cover_id'], $item['music_artist_id'], 'orginal') : Helpers::thumbnail_url($item, 'preview');
+        }
+
+        $music_lyric_karaoke = $music->musicKara;
+        $music_lyric_karaoke = $music_lyric_karaoke ? Helpers::rawLyrics($music->musicKara->music_lyric_karaoke) : '';
+        $music['music_kara'] = $music_lyric_karaoke;
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['musicFavourite' => $musicFavourite ? true : false, 'music' => Helpers::convertArrHtmlCharsDecode($music->toArray()), 'playlist' => Helpers::convertArrHtmlCharsDecode($playlistMusic), 'sug' => Helpers::convertArrHtmlCharsDecode($sug)], 'error' => []], 200);
     }
     function musicFavourite (Request $request) {
         if($request->sid) {
