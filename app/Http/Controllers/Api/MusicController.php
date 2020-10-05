@@ -316,11 +316,17 @@ class MusicController extends Controller
         }
         return $this->listenSingleMusic($request, '', '', $musicUrl);
     }
-    public function listenSingleMusic(Request $request, $cat, $sub, $musicUrl) {
-        try {
-            $arrUrl = Helpers::splitMusicUrl($musicUrl);
-        } catch (Exception $e) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'url sai cú pháp'], 400);
+    public function listenSingleMusic(Request $request, $cat, $sub, $musicUrl, $musicId = null) {
+        if(!$musicId) {
+            $arrUrl['id'] = $request->music_id;
+            $arrUrl['type'] = 'music';
+            $cat = 'music';
+        }else{
+            try {
+                $arrUrl = Helpers::splitMusicUrl($musicUrl);
+            } catch (Exception $e) {
+                return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'url sai cú pháp'], 400);
+            }
         }
         if($cat == CAT_VIDEO_URL) {
             $music = $this->videoRepository->findOnlyMusicId($arrUrl['id']);
@@ -532,5 +538,8 @@ class MusicController extends Controller
             $getModelFavourite->create(['user_id' => $userSess->user_id, 'music_id' => $request->music_id]);
         }
         return new JsonResponse(['message' => $msg, 'code' => 200, 'data' => [], 'error' => []], 200);
+    }
+    public function infoMusicId(Request $request) {
+        return $this->listenSingleMusic($request, '', '', $request->music_id);
     }
 }
