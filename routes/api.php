@@ -122,8 +122,9 @@ Route::prefix('catalog/')->group(function () {
 });
 // Chu de
 Route::prefix('chu-de/')->group(function () {
-    Route::get('{url}.html', ['as' => 'catalog.index', 'uses' => 'CatalogController@playlistPublisher']);
-    Route::get('{url}', ['as' => 'catalog.index', 'uses' => 'CatalogController@playlistPublisher']);
+    Route::get('danh-sach-chu-de', ['as' => 'api.catalog.list', 'uses' => 'CatalogController@list']);
+    Route::get('{url}.html', ['as' => 'api.catalog.index', 'uses' => 'CatalogController@playlistPublisher']);
+    Route::get('{url}', ['as' => 'api.catalog.index', 'uses' => 'CatalogController@playlistPublisher']);
 });
 
 

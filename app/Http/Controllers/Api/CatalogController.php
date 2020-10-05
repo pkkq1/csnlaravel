@@ -79,4 +79,17 @@ class CatalogController extends Controller
         Helpers::convertArrSolr($cover);
         return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['cover' => $cover], 'error' => []], 200);
     }
+    public function list(Request $request) {
+        $catalog = config('constants.catalog');
+        $result = [];
+        foreach ($catalog as $key => $item) {
+            $result[] = [
+                'key_url' => $key,
+                'caption' => $item['caption'],
+                'label' => $item['label'],
+                'image_url' => env('IMG_DATA_URL').'imgs/chude/'.$item['img_web'],
+            ];
+        }
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => Helpers::convertArrHtmlCharsDecode($result), 'error' => []], 200);
+    }
 }
