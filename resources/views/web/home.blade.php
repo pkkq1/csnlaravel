@@ -313,6 +313,8 @@ $catalog = config('constants.catalog');
                                     <span class="icon-play"></span>
                                 </a>
                             </div>
+                            <p class="time"><img src="/mobile/assets/images/icon/ic_menu_clock.png" width="14">{{$item['music_length'] >= 3600 ? gmdate("H:i:s", $item['music_length']) : gmdate("i:s", $item['music_length'])}}</p>
+                            <p class="card-text bitrate_video"><?php echo $item['music_bitrate_html'] ?></p>
                             <div class="card-body">
                                 <h3 class="card-title"><a href="{{$url}}" title="{{$item['music_title']}}">{{$item['music_title']}}</a></h3>
                                 <p class="card-text"><?php echo $item['music_artist_html'] ?></p>

@@ -13,6 +13,8 @@ use App\Library\Helpers;
                     <span class="icon-play"></span>
                 </a>
             </div>
+            <span class="time"><img src="/mobile/assets/images/icon/ic_menu_clock.png" width="14"><?php echo $item['video_length_html'][0] ?></span>
+            <span class="card-text bitrate_video"><?php echo $item['video_bitrate_html'][0] ?></span>
             <div class="card-body">
                 <h3 class="card-title"><a href="{{$item['video_link'][0]}}" title="{{$item['video_title'][0]}}">{{$item['video_title'][0]}}</a></h3>
                 <p class="card-text"><?php echo $item['video_artist_html'][0] ?></p>

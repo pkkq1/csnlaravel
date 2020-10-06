@@ -759,6 +759,9 @@ if( !$memberVip && !$isVNIP )
                                     <span class="cover"></span>
                                 </a>
                             </div>
+                            @if($typeJw == 'video')
+                                <p class="time_sug"><img src="/mobile/assets/images/icon/ic_menu_clock.png" width="14">{{$item['music_length'] >= 3600 ? gmdate("H:i:s", $item['music_length']) : gmdate("i:s", $item['music_length'])}}</p>
+                            @endif
                             <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
                                 <div>
                                     <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
