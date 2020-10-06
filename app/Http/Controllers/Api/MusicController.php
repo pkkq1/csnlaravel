@@ -177,8 +177,8 @@ class MusicController extends Controller
         $sug = Helpers::getRandLimitArr($typeDup ?? [], LIMIT_SUG_MUSIC - count($titleDup) + 3);
         include(app_path() . '/../resources/views/cache/suggestion_cat/'.$music->cat_id.'_'.$music->cat_level.'.blade.php');
         $sug = Helpers::getRandLimitArr($typeDup ?? [], LIMIT_SUG_MUSIC - count($titleDup) + 3);
-        foreach ($sug as $item) {
-            $sug['cover_image'] = $item['cat_id'] != CAT_VIDEO ?  Helpers::cover_url($item['cover_id'], $item['music_artist_id'], 'orginal') : Helpers::thumbnail_url($item, 'preview');
+        foreach ($sug as &$item) {
+            $item['cover_image'] = $item['cat_id'] != CAT_VIDEO ?  Helpers::cover_url($item['cover_id'], $item['music_artist_id'], 'orginal') : Helpers::thumbnail_url($item, 'preview');
         }
         // karaoke
         $music->musicKara;
@@ -277,8 +277,8 @@ class MusicController extends Controller
         $sug = Helpers::getRandLimitArr($typeDup ?? [], LIMIT_SUG_MUSIC - count($titleDup) + 3);
         include(app_path() . '/../resources/views/cache/suggestion_cat/'.$music->cat_id.'_'.$music->cat_level.'.blade.php');
         $sug = Helpers::getRandLimitArr($typeDup ?? [], LIMIT_SUG_MUSIC - count($titleDup) + 3);
-        foreach ($sug as $item) {
-            $sug['cover_image'] = $item['cat_id'] != CAT_VIDEO ?  Helpers::cover_url($item['cover_id'], $item['music_artist_id'], 'orginal') : Helpers::thumbnail_url($item, 'preview');
+        foreach ($sug as &$item) {
+            $item['cover_image'] = $item['cat_id'] != CAT_VIDEO ?  Helpers::cover_url($item['cover_id'], $item['music_artist_id'], 'orginal') : Helpers::thumbnail_url($item, 'preview');
         }
         // karaoke
         $music_lyric_karaoke = $music->musicKara;
@@ -395,9 +395,10 @@ class MusicController extends Controller
         $sug = Helpers::getRandLimitArr($typeDup ?? [], LIMIT_SUG_MUSIC - count($titleDup) + 3);
         include(app_path() . '/../resources/views/cache/suggestion_cat/'.$music->cat_id.'_'.$music->cat_level.'.blade.php');
         $sug = Helpers::getRandLimitArr($typeDup ?? [], LIMIT_SUG_MUSIC - count($titleDup) + 3);
-        foreach ($sug as $item) {
-            $sug['cover_image'] = $item['cat_id'] != CAT_VIDEO ?  Helpers::cover_url($item['cover_id'], $item['music_artist_id'], 'orginal') : Helpers::thumbnail_url($item, 'preview');
+        foreach ($sug as &$item) {
+            $item['cover_image'] = $item['cat_id'] != CAT_VIDEO ?  Helpers::cover_url($item['cover_id'], $item['music_artist_id'], 'orginal') : Helpers::thumbnail_url($item, 'preview');
         }
+
         // karaoke
         $music_lyric_karaoke = $music->musicKara;
         $music_lyric_karaoke = $music_lyric_karaoke ? Helpers::rawLyrics($music->musicKara->music_lyric_karaoke) : '';
@@ -501,8 +502,8 @@ class MusicController extends Controller
         $sug = Helpers::getRandLimitArr($typeDup ?? [], LIMIT_SUG_MUSIC - count($titleDup) + 3);
         include(app_path() . '/../resources/views/cache/suggestion_cat/'.$music->cat_id.'_'.$music->cat_level.'.blade.php');
         $sug = Helpers::getRandLimitArr($typeDup ?? [], LIMIT_SUG_MUSIC - count($titleDup) + 3);
-        foreach ($sug as $item) {
-            $sug['cover_image'] = $item['cat_id'] != CAT_VIDEO ?  Helpers::cover_url($item['cover_id'], $item['music_artist_id'], 'orginal') : Helpers::thumbnail_url($item, 'preview');
+        foreach ($sug as &$item) {
+            $item['cover_image'] = $item['cat_id'] != CAT_VIDEO ?  Helpers::cover_url($item['cover_id'], $item['music_artist_id'], 'orginal') : Helpers::thumbnail_url($item, 'preview');
         }
 
         $music_lyric_karaoke = $music->musicKara;
