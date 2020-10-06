@@ -1061,13 +1061,17 @@ if( !$memberVip && !$isVNIP )
             if(firstLoadUpdateQuality) {
                 firstLoadUpdateQuality = false;
                 var cookie_quality = Cookies.get("current_quality");
-                var current_quality = jwplayer('csnplayer').getCurrentQuality();
-                if(cookie_quality != current_quality) {
-                    if(cookie_quality > (jwplayer().getQualityLevels().length - 1)) {
-                        canChangeQualityCookie = false;
-                        jwplayer().setCurrentQuality(callback.levels.length - 1);
-                    }else{
-                        jwplayer().setCurrentQuality(cookie_quality);
+                if(!cookie_quality) {
+                    jwplayer().setCurrentQuality(1);
+                }else{
+                    var current_quality = jwplayer('csnplayer').getCurrentQuality();
+                    if(cookie_quality != current_quality) {
+                        if(cookie_quality > (jwplayer().getQualityLevels().length - 1)) {
+                            canChangeQualityCookie = false;
+                            jwplayer().setCurrentQuality(callback.levels.length - 1);
+                        }else{
+                            jwplayer().setCurrentQuality(cookie_quality);
+                        }
                     }
                 }
             }else{
