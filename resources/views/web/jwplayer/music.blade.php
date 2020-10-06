@@ -1049,6 +1049,7 @@ if( !$memberVip && !$isVNIP )
         ?>
 
         var setQualityCookie = true;
+        var canChangeQualityCookie = true;
         jwplayer().on('levels',function(callback){
             $('.jw-settings-submenu-button').find('svg').remove();
             $('.jw-settings-submenu-button').find('lable').remove();
@@ -1057,11 +1058,26 @@ if( !$memberVip && !$isVNIP )
                 setQualityCookie = false;
                 jwplayer().setCurrentQuality(callback.levels.length - 1);
             }
-            updateQuality(callback);
+            if(firstLoadUpdateQuality) {
+                firstLoadUpdateQuality = false;
+                var cookie_quality = Cookies.get("current_quality");
+                var current_quality = jwplayer('csnplayer').getCurrentQuality();
+                if(cookie_quality != current_quality) {
+                    if(cookie_quality > (jwplayer().getQualityLevels().length - 1)) {
+                        canChangeQualityCookie = false;
+                        jwplayer().setCurrentQuality(callback.levels.length - 1);
+                    }else{
+                        jwplayer().setCurrentQuality(cookie_quality);
+                    }
+                }
+            }else{
+                updateQuality(callback);
+            }
             if(Cookies.get('auto_next') == 'true') {
                 $('.check_auto_play').prop('checked', false).change();
             }
             // jwplayer().setCurrentQuality(callback.levels.length - 1);
+            var curQual = jwplayer('csnplayer').getCurrentQuality();
         });
         // jwplayer().onQualityChange(function(callback){
         //     if(setQualityCookie)
@@ -1207,6 +1223,10 @@ if( !$memberVip && !$isVNIP )
             }
             ?>
             var curQual = jwplayer('csnplayer').getCurrentQuality();
+            if(canChangeQualityCookie){
+                Cookies.set('current_quality', curQual);
+            }
+            canChangeQualityCookie = true;
             if(callback['levels'].length == 2) {
                 if(!$('.jw-icon-hd').hasClass('stringQ')) {
                     $('.jw-icon-hd').html(callback['levels'][curQual]['label']);
