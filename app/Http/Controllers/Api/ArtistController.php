@@ -54,7 +54,8 @@ class ArtistController extends Controller
         $artist = $this->artistRepository->find($request->artist_id);
         if(!$artist)
             return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'không tìm thấy ca sĩ'], 400);
-        $artist->artist_cover = env('APP_URL').($artist->artist_cover ? Helpers::file_path($artist->artist_id, PUBLIC_COVER_ARTIST_PATH, true).$artist->artist_cover : '/imgs/no_cover_artist.jpg');
+        $artist->artist_avatar_thumb = env('DATA_URL').$artist->artist_avatar ? Helpers::file_path($artist->artist_id, AVATAR_ARTIST_THUMB_200_CROP_PATH) . $artist->artist_avatar : '/imgs/avatar_default.png';
+        $artist->artist_cover = env('DATA_URL').$artist->artist_cover ? Helpers::file_path($artist->artist_id, COVER_ARTIST_CROP_PATH) . $artist->artist_cover : '/imgs/avatar_default.png';
         $music = $this->Solr->search(['music_artist_id' => $artist->artist_id], 1, LIMIT_MUSIC_PAGE_ARTIST, ['_version_' => 'desc']);
         Helpers::convertArrSolr($music);
         unset($music['status']);
