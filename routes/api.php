@@ -141,6 +141,10 @@ Route::get('code_ads/{key}', ['as' => 'code.ads.index', 'uses' => 'CodeAdsContro
 // api up level
 Route::post('csn-vip/up_vip_level', ['as' => 'vip.up', 'uses' => 'RequestPaymentVipController@saveUpRequest']);
 
-//Payment & Level
-
+//report
+Route::prefix('report/')->group(function () {
+    Route::post('contact', ['as' => 'vip.up', 'uses' => 'ReportController@sendContact']);
+    Route::post('comment', ['as' => 'report.comment', 'uses' => 'ReportController@reportComment']);
+    Route::post('music', ['as' => 'report.music', 'uses' => 'ReportController@reportMusic']);
+});
 

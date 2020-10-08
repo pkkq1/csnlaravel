@@ -152,9 +152,11 @@ class UserController extends Controller
         $update['refresh'] = $reqRefresh;
         Helpers::ajaxResult(true, 'Cập nhật tài khoản thành công', $update);
     }
-    public function logout()
+    public function logout(Request $request)
     {
         Auth::logout();
+        if(isset($request->back))
+            return redirect($request->back);
         return redirect(url()->previous());
     }
     public function verifyEmail(Request $request, $token)

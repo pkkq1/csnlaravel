@@ -104,7 +104,7 @@ use App\Library\Helpers;
                                 <span class="wapper-name">{{Auth::user()->name}}</span></a>
                         </li>
                         <li class="list-inline-item">/</li>
-                        <li class="list-inline-item"><a href="{{env('APP_URL')}}/logout" title="Đăng ký">Thoát</a></li>
+                        <li class="list-inline-item"><a href="{{env('APP_URL')}}/logout?back={{url()->current()}}" title="Đăng ký">Thoát</a></li>
                     @else
                         <li class="list-inline-item"><a href="javascript:void(0)" onclick="switchAuth('myModal_login')" title="Đăng nhập">Đăng nhập</a></li>
                         <li class="list-inline-item">/</li>
