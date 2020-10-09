@@ -83,6 +83,9 @@
                             <i class="material-icons">play_circle_outline</i>
                         </a>
                     </div>
+                    @if($item['cat_id'] != CAT_VIDEO)
+                        <small class="type_music"><?php echo Helpers::bitrate2str($item['music_bitrate']); ?></small>
+                    @endif
                     <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
                         <div>
                             <h5 class="media-title mt-0 mb-0 title_home_tablet"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
@@ -134,6 +137,9 @@
                             <i class="material-icons">play_circle_outline</i>
                         </a>
                     </div>
+                    @if($item['cat_id'] != CAT_VIDEO)
+                        <small class="type_music"><?php echo Helpers::bitrate2str($item['music_bitrate']); ?></small>
+                    @endif
                     <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
                         <div>
                             <h5 class="media-title mt-0 mb-0 title_home_tablet"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>

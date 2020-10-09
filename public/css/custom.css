@@ -2112,3 +2112,16 @@ a.dropdown-menu-header {
     padding: 2px 5px;
     font-size: 10px;
 }
+.time_sug_small {
+    position: absolute;
+    z-index: 99;
+    margin-left: 15px;
+    left: 41px;
+    background-color: #000000a1;
+    display: inline-block;
+    margin-bottom: 0;
+    color: #fff;
+    padding: 3px;
+    font-size: 9px;
+    line-height: 0.2em;
+}
