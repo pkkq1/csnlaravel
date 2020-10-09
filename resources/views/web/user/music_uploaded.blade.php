@@ -31,6 +31,7 @@
                             <div>
                                 <h5 class="media-title mt-0 mb-0 title_home_tablet"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
                                 <div class="author title_home_tablet"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></div>
+                                <?php echo $item['cat_id'] == CAT_VIDEO ? Helpers::size2str($item['music_width'], $item['music_height']) : '' ?>
                             </div>
                             @if($item['cat_id'] != CAT_VIDEO)
                                 <small class="type_music"><?php echo Helpers::bitrate2str($item['music_bitrate']); ?></small>
@@ -87,7 +88,6 @@
                             <h5 class="media-title mt-0 mb-0 title_home_tablet"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
                             <div class="author title_home_tablet"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></div>
                         </div>
-                        <small class="type_music"><?php echo $item['music_bitrate'] ? Helpers::bitrate2str($item['music_bitrate']) : ''; ?></small>
                     </div>
                     <div class="media-right align-self-center">
                         <small class="time_stt"><?php echo Helpers::timeElapsedString($item['music_last_update_time']); ?></small>

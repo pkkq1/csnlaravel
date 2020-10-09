@@ -63,7 +63,7 @@ class UploadEloquentRepository extends EloquentRepository implements UploadRepos
     }
     public function musicByUser($userId, $stageArr, $fillOrder, $typeOrder, $page)
     {
-        $result = $this->_model::select('music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title', 'music_artist', 'music_artist_id', 'music_album_id', 'music_bitrate', 'music_filename', 'music_updated', 'music_last_update_time', 'music_note', 'music_time', 'music_username')
+        $result = $this->_model::select('music_id', 'cat_id', 'cat_level', 'cover_id', 'music_title', 'music_artist', 'music_artist_id', 'music_album_id', 'music_bitrate', 'music_filename', 'music_updated', 'music_last_update_time', 'music_note', 'music_time', 'music_username', 'music_width', 'music_height', 'music_length')
             ->where('music_user_id', $userId);
         if(count($stageArr) == 1) {
             $result = $result->where('music_state', $stageArr[0]);
@@ -92,7 +92,7 @@ class UploadEloquentRepository extends EloquentRepository implements UploadRepos
     }
     public function musicByStage($where = [], $stageArr, $fillOrder, $typeOrder, $page, $user = null, $timeLimit = SHORT_TIME_7_DAY, $relationshipMusic = false)
     {
-        $result = $this->_model::select('csn_upload.music_id', 'csn_upload.cat_id', 'csn_upload.cat_level', 'csn_upload.cover_id', 'csn_upload.music_title', 'csn_upload.music_artist', 'csn_upload.music_artist_id', 'csn_upload.music_album_id', 'csn_upload.music_bitrate', 'csn_upload.music_filename', 'csn_upload.music_updated', 'csn_upload.music_last_update_time', 'csn_upload.music_note', 'csn_upload.music_time', 'csn_upload.music_username');
+        $result = $this->_model::select('csn_upload.music_id', 'csn_upload.cat_id', 'csn_upload.cat_level', 'csn_upload.cover_id', 'csn_upload.music_title', 'csn_upload.music_artist', 'csn_upload.music_artist_id', 'csn_upload.music_album_id', 'csn_upload.music_bitrate', 'csn_upload.music_filename', 'csn_upload.music_updated', 'csn_upload.music_last_update_time', 'csn_upload.music_note', 'csn_upload.music_time', 'csn_upload.music_username', 'csn_upload.music_width', 'csn_upload.music_height', 'csn_upload.music_length');
 //            ->where('music_time', '>=', time() - $timeLimit);
         if($user) {
             $result = $result->where('csn_upload.music_last_update_by', $user);

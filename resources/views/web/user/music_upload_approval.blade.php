@@ -25,10 +25,14 @@
                                     <i class="material-icons">play_circle_outline</i>
                                 </a>
                             </div>
+                            @if($item['cat_id'] == CAT_VIDEO)
+                            <p class="time_sug"><img src="/mobile/assets/images/icon/ic_menu_clock.png" width="14"> {{$item['music_length'] >= 3600 ? gmdate("H:i:s", $item['music_length']) : gmdate("i:s", $item['music_length'])}}</p>
+                            @endif
                             <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
                                 <div>
                                     <h5 class="media-title mt-0 mb-0 title_home_tablet"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
                                     <div class="author title_home_tablet"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></div>
+                                    <?php echo $item['cat_id'] == CAT_VIDEO ? Helpers::size2str($item['music_width'], $item['music_height']) : '' ?>
                                 </div>
                                 @if($item['cat_id'] != CAT_VIDEO)
                                     <small class="type_music"><?php echo Helpers::bitrate2str($item['music_bitrate']); ?></small>
@@ -69,6 +73,9 @@
                             <div class="media_tmp align-self-center d-flex align-items-center mr-3 pl-3">
                                 <span class="counter">{{sprintf("%02d", (($curentPage - 1) * $perPage) + ++$i)}}</span>
                             </div>
+                            @if($item['cat_id'] == CAT_VIDEO)
+                                <p class="time_sug"><img src="/mobile/assets/images/icon/ic_menu_clock.png" width="14"> {{$item['music_length'] >= 3600 ? gmdate("H:i:s", $item['music_length']) : gmdate("i:s", $item['music_length'])}}</p>
+                            @endif
                             <div class="media-left align-items-stretch mr-2">
                                 <a href="{{$url_listen}}" target="_blank" title="{{$item['music_title']}}">
                                     <img src="{{($item['cat_id'] == CAT_VIDEO ? Helpers::thumbnail_url($item) : Helpers::coverThumb(Helpers::cover_url($item['cover_id'])))}}" class="{{($item['cat_id'] == CAT_VIDEO ? 'video_thumbnail' : 'nhac_thumbnail')}}" alt="{{$item['music_title']}}">
@@ -79,6 +86,7 @@
                                 <div>
                                     <h5 class="media-title mt-0 mb-0 title_home_tablet"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
                                     <div class="author title_home_tablet"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></div>
+                                    <?php echo $item['cat_id'] == CAT_VIDEO ? Helpers::size2str($item['music_width'], $item['music_height']) : '' ?>
                                 </div>
                                 @if($item['cat_id'] != CAT_VIDEO)
                                     <small class="type_music"><?php echo Helpers::bitrate2str($item['music_bitrate']); ?></small>

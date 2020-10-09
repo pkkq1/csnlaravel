@@ -179,6 +179,8 @@ $filter = $_GET['filter'] ?? '';
                                         <span class="icon-play"></span>
                                     </a>
                                 </div>
+                                <p class="time"><img src="/mobile/assets/images/icon/ic_menu_clock.png" width="14"><?php echo $item['video_length_html'] ?></p>
+                                <p class="card-text bitrate_video"><?php echo $item['video_bitrate_html'] ?></p>
                                 <div class="card-body">
                                     <h3 class="card-title"><a href="{{$item['video_link']}}" title="{{$item['video_title']}}" class="search_title search-line-music" >{{$item['video_title']}}</a></h3>
                                     <p class="card-text"><?php echo $item['video_artist'] ?></p>
@@ -287,6 +289,8 @@ $filter = $_GET['filter'] ?? '';
                                             <span class="icon-play"></span>
                                         </a>
                                     </div>
+                                    <p class="time"><img src="/mobile/assets/images/icon/ic_menu_clock.png" width="14"><?php echo $item['video_length_html'] ?></p>
+                                    <p class="card-text bitrate_video"><?php echo $item['video_bitrate_html'] ?></p>
                                     <div class="card-body">
                                         <h3 class="card-title"><a href="{{$item['video_link']}}" title="{{$item['video_title']}}" class="search_title search-line-music" >{{$item['video_title']}}</a></h3>
                                         <p class="card-text"><?php echo $item['video_artist'] ?></p>

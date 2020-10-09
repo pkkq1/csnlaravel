@@ -27,6 +27,8 @@
                     <span class="icon-play"></span>
                 </a>
             </div>
+            <span class="time"><img src="/mobile/assets/images/icon/ic_menu_clock.png" width="14">{{$item['music_length'] >= 3600 ? gmdate("H:i:s", $item['music_length']) : gmdate("i:s", $item['music_length'])}}</span>
+            <span style="top: 143px;" class="carb-text bitrate_video"><?php echo Helpers::size2str($item['music_width'], $item['music_height']) ?></span>
             <div class="card-body">
                 <h3 class="card-title"><a href="{{$url}}" title="{{$item['music_title']}}">{{$item['music_title']}}</a></h3>
                 <p class="card-text" style="padding: 0px;"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></p>

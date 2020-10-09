@@ -169,12 +169,14 @@ if (file_exists(app_path() . '/../resources/views/cache/bxh/'.$cacheBxh.'.blade.
                                                     <span class="icon-play"></span>
                                                 </a>
                                             </div>
+                                            <span class="time"><img src="/mobile/assets/images/icon/ic_menu_clock.png" width="14">{{$item['music_length'] >= 3600 ? gmdate("H:i:s", $item['music_length']) : gmdate("i:s", $item['music_length'])}}</span>
                                         </div>
                                     </div>
                                     <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
                                         <div>
                                             <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_title']}}">{{$item['music_title']}}</a></h5>
                                             <div class="author"><?php echo $item['music_artist_html'] ?? '' ?></div>
+                                            <?php echo Helpers::size2str($item['music_width'], $item['music_height']) ?>
                                         </div>
                                     </div>
                                     <div class="media-right align-self-center">
