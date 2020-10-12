@@ -208,6 +208,7 @@ $memberVip = Helpers::checkMemberVip();
                                             <div class="content mt-3">
                                                 <a href="{{$url}}"><h6 class="name_song mb-1 card-title">{{$item['music_title']}}</h6></a>
                                                 <p class="name_singer text-gray mb-1 author"><?php echo $item['music_artist_html'] ?></p>
+                                                <p class="card-text bitrate_video"><?php echo $item['music_bitrate_html'] ?></p>
                                             </div>
                                         </div>
                                         <?php
@@ -446,6 +447,7 @@ $memberVip = Helpers::checkMemberVip();
                                         <div class="content d-inline-block align-middle">
                                             <a href="{{$url}}"><h6 class="name_song text-black mb-1 card-title">{{$item['music_title']}}</h6></a>
                                             <p class="name_singer text-gray mb-1 author"><?php echo $item['music_artist_html']; ?></p>
+                                            <p class="card-text bitrate_video"><?php echo Helpers::size2str($item['music_width'], $item['music_height']) ?></p>
                                         </div>
                                     </div>
                                     <?php
