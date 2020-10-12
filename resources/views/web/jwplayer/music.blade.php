@@ -568,12 +568,6 @@ if( !$memberVip && !$isVNIP )
                                 });
                             </script>
                         @endif
-
-                        <!-- Composite Start -->
-                        <div id="M531587ScriptRootC823022">
-                        </div>
-                        <script src="https://jsc.mgid.com/n/e/netlink.chiasenhac.vn.823022.js" async></script>
-                        <!-- Composite End -->
                     @endif
                 </div>
 
