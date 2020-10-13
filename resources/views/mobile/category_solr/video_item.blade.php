@@ -12,6 +12,7 @@ array_map(function($item) {
     </a>
     <div class="content d-inline-block align-middle">
         <a href="{{$item['video_link'][0]}}"><h6 class="name_song text-black mb-1 card-title">{{$item['video_title'][0]}}</h6></a>
+        <p class="name_singer text-gray mb-1 author"><?php echo $item['video_artist_html'][0]; ?></p>
         <p class="name_singer text-gray mb-1 author"><?php echo $item['video_bitrate_html'][0]; ?></p>
     </div>
 </div>
