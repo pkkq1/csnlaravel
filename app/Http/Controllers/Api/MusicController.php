@@ -180,6 +180,8 @@ class MusicController extends Controller
         foreach ($sug as &$item) {
             $item['cover_image'] = $item['cat_id'] != CAT_VIDEO ?  Helpers::cover_url($item['cover_id'], $item['music_artist_id'], 'orginal') : Helpers::thumbnail_url($item, 'preview');
         }
+        //lyric
+        $music->music_lyric = Helpers::lyric_to_app($music);
         // karaoke
         $music->musicKara;
         return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['music' => Helpers::convertArrHtmlCharsDecode($music->toArray()), 'playlist' => Helpers::convertArrHtmlCharsDecode($playlistMusic), 'sug' => Helpers::convertArrHtmlCharsDecode($sug)], 'error' => []], 200);
@@ -280,6 +282,8 @@ class MusicController extends Controller
         foreach ($sug as &$item) {
             $item['cover_image'] = $item['cat_id'] != CAT_VIDEO ?  Helpers::cover_url($item['cover_id'], $item['music_artist_id'], 'orginal') : Helpers::thumbnail_url($item, 'preview');
         }
+        //lyric
+        $music->music_lyric = Helpers::lyric_to_app($music);
         // karaoke
         $music_lyric_karaoke = $music->musicKara;
         $music_lyric_karaoke = $music_lyric_karaoke ? Helpers::rawLyrics($music->musicKara->music_lyric_karaoke) : '';
@@ -398,7 +402,8 @@ class MusicController extends Controller
         foreach ($sug as &$item) {
             $item['cover_image'] = $item['cat_id'] != CAT_VIDEO ?  Helpers::cover_url($item['cover_id'], $item['music_artist_id'], 'orginal') : Helpers::thumbnail_url($item, 'preview');
         }
-
+        //lyric
+        $music->music_lyric = Helpers::lyric_to_app($music);
         // karaoke
         $music_lyric_karaoke = $music->musicKara;
         $music_lyric_karaoke = $music_lyric_karaoke ? Helpers::rawLyrics($music->musicKara->music_lyric_karaoke) : '';
@@ -505,7 +510,9 @@ class MusicController extends Controller
         foreach ($sug as &$item) {
             $item['cover_image'] = $item['cat_id'] != CAT_VIDEO ?  Helpers::cover_url($item['cover_id'], $item['music_artist_id'], 'orginal') : Helpers::thumbnail_url($item, 'preview');
         }
-
+        //lyric
+        $music->music_lyric = Helpers::lyric_to_app($music);
+        //kara
         $music_lyric_karaoke = $music->musicKara;
         $music_lyric_karaoke = $music_lyric_karaoke ? Helpers::rawLyrics($music->musicKara->music_lyric_karaoke) : '';
         $music['music_kara'] = $music_lyric_karaoke;
