@@ -32,6 +32,7 @@ Route::post('nghe-album/{musicUrl}', ['as' => 'api.music.listen', 'uses' => 'Mus
 
 Route::post('listen_info_music', ['as' => 'api.music.listen', 'uses' => 'MusicController@infoMusicId']);
 
+Route::get('list_category/{id?}', ['as' => 'category.cat', 'uses' => 'CategoryController@listCategory']);
 
 Route::post('playlist/{musicUrl}/{name_playlist}.html', ['as' => 'api.music.listen', 'uses' => 'MusicController@getPlaylistInfo']);
 Route::post('playlist/{musicUrl}/{name_playlist}', ['as' => 'api.music.listen', 'uses' => 'MusicController@getPlaylistInfo']);

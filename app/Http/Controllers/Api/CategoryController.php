@@ -98,5 +98,14 @@ class CategoryController extends Controller
                 break;
         }
     }
+    public function listCategory(Request $request, $id = null) {
+        if($id) {
+            $cats = $this->categoryRepository->getModel()::select('cat_id', 'cat_level', 'cat_title', 'cat_order')->where('cat_level', $id)->orderby('cat_order', 'asc')->get();
+        }else{
+            $cats = $this->categoryRepository->getModel()::select('cat_id', 'cat_level', 'cat_title', 'cat_order')->where('cat_level', 0)->orderby('cat_order', 'asc')->get();
+            return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['music' => Helpers::convertArrHtmlCharsDecode($cats->toArray())], 'error' => []], 200);
+        }
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['music' => Helpers::convertArrHtmlCharsDecode($cats->toArray())], 'error' => []], 200);
+    }
 
 }
