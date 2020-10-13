@@ -1491,5 +1491,60 @@ class Helpers
     {
         return str_replace(MUSIC_COVER_PATH, $size, $cover_url);
     }
+    public static function lyric_to_app(&$music_info)
+    {
+        if (strlen($music_info['music_lyric']) < 100)
+        {
+            return '[NOSUB]' . $music_info['music_lyric'] . '[/NOSUB]';
+        }
+
+        $lyric_nosub = $lyric_sub = array();
+        $lyric_line = explode("\n", $music_info['music_lyric']);
+        $nosub = true;
+
+        foreach($lyric_line as $line) {
+            $preline = substr($line, 0, 4);
+            if ($preline == '[t1]')
+            {
+                // SUB
+                $line .= '[/t1]';
+                $nosub = false;
+            }
+            else if ($preline == '[t2]')
+            {
+                // SUB
+                $line .= '[/t2]';
+                $nosub = false;
+            }
+            else
+            {
+                // NOSUB
+                $line = '[t0]'. $line .'[/t0]';
+                $lyric_nosub[] = $line;
+            }
+            $lyric_sub[] = $line;
+        }
+
+        $app_lyric_sub = implode("\n", $lyric_sub);
+
+        if ( !$nosub )
+        {
+            $app_lyric_nosub	= implode("\n", $lyric_nosub);
+            $app_lyric			= '[SUB]' . $app_lyric_sub . '[/SUB]' . "\n" . '[NOSUB]' . $app_lyric_nosub . '[/NOSUB]';
+
+            $app_lyric = ($music_info['cat_id'] == CAT_VIDEO) ? str_replace("[t0]", '<span style="color:#000000">', $app_lyric) : str_replace("[t0]", '<span style="color:#ffffff">', $app_lyric);
+            $app_lyric = str_replace("[t1]", '<span style="color:#65abbc">', $app_lyric);
+            $app_lyric = str_replace("[t2]", '<span style="color:#c0a478">', $app_lyric);
+            $app_lyric = str_replace(array("[/t0]", "[/t1]", "[/t2]"), '</span>', $app_lyric);
+
+        }
+        else
+        {
+            $app_lyric = ($music_info['cat_id'] == CAT_VIDEO) ? str_replace("[t0]", '<span style="color:#000000">', $app_lyric_sub) : str_replace("[t0]", '<span style="color:#ffffff">', $app_lyric_sub);
+            $app_lyric = '[NOSUB]' . str_replace("[/t0]", '</span>', $app_lyric) . '[/NOSUB]';
+        }
+
+        return htmlspecialchars(nl2br($app_lyric));
+    }
 
 }
