@@ -184,8 +184,9 @@ class MusicController extends Controller
         $music->music_lyric = Helpers::lyric_to_app($music);
         // karaoke
         $music_lyric_karaoke = $music->musicKara;
-        $music_lyric_karaoke = $music_lyric_karaoke ? str_replace(['[t1]', '[t2]', '[t3]', "\n"], '<br/>', $music->musicKara->music_lyric_karaoke) : '';
-        $music['music_kara'] = $music_lyric_karaoke;
+        if($music_lyric_karaoke) {
+            $music->musicKara->music_lyric_karaoke = str_replace(['[t1]', '[t2]', '[t3]', "\n"], '<br/>', $music->musicKara->music_lyric_karaoke);
+        }
         return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['music' => Helpers::convertArrHtmlCharsDecode($music->toArray()), 'playlist' => Helpers::convertArrHtmlCharsDecode($playlistMusic), 'sug' => Helpers::convertArrHtmlCharsDecode($sug)], 'error' => []], 200);
     }
     public function getPlaylistInfo(Request $request, $musicUrl, $name) {
@@ -288,8 +289,9 @@ class MusicController extends Controller
         $music->music_lyric = Helpers::lyric_to_app($music);
         // karaoke
         $music_lyric_karaoke = $music->musicKara;
-        $music_lyric_karaoke = $music_lyric_karaoke ? str_replace(['[t1]', '[t2]', '[t3]', "\n"], '<br/>', $music->musicKara->music_lyric_karaoke) : '';
-        $music['music_kara'] = $music_lyric_karaoke;
+        if($music_lyric_karaoke) {
+            $music->musicKara->music_lyric_karaoke = str_replace(['[t1]', '[t2]', '[t3]', "\n"], '<br/>', $music->musicKara->music_lyric_karaoke);
+        }
         return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['music' => Helpers::convertArrHtmlCharsDecode($music->toArray()), 'playlist' => Helpers::convertArrHtmlCharsDecode($playlistMusic), 'sug' => Helpers::convertArrHtmlCharsDecode($sug)], 'error' => []], 200);
     }
     public function newListenSingleMusic(Request $request, $cat, $sub, $id, $artist = '', $urlMusic = '') {
@@ -408,8 +410,9 @@ class MusicController extends Controller
         $music->music_lyric = Helpers::lyric_to_app($music);
         // karaoke
         $music_lyric_karaoke = $music->musicKara;
-        $music_lyric_karaoke = $music_lyric_karaoke ? str_replace(['[t1]', '[t2]', '[t3]', "\n"], '<br/>', $music->musicKara->music_lyric_karaoke) : '';
-        $music['music_kara'] = $music_lyric_karaoke;
+        if($music_lyric_karaoke) {
+            $music->musicKara->music_lyric_karaoke = str_replace(['[t1]', '[t2]', '[t3]', "\n"], '<br/>', $music->musicKara->music_lyric_karaoke);
+        }
         return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['music' => Helpers::convertArrHtmlCharsDecode($music->toArray()), 'sug' => Helpers::convertArrHtmlCharsDecode($sug)], 'error' => []], 200);
     }
     public function listenBxhNow(Request $request, $catUrl, $catLevel = '') {
@@ -516,8 +519,9 @@ class MusicController extends Controller
         $music->music_lyric = Helpers::lyric_to_app($music);
         // karaoke
         $music_lyric_karaoke = $music->musicKara;
-        $music_lyric_karaoke = $music_lyric_karaoke ? str_replace(['[t1]', '[t2]', '[t3]', "\n"], '<br/>', $music->musicKara->music_lyric_karaoke) : '';
-        $music['music_kara'] = $music_lyric_karaoke;
+        if($music_lyric_karaoke) {
+            $music->musicKara->music_lyric_karaoke = str_replace(['[t1]', '[t2]', '[t3]', "\n"], '<br/>', $music->musicKara->music_lyric_karaoke);
+        }
         return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['musicFavourite' => $musicFavourite ? true : false, 'music' => Helpers::convertArrHtmlCharsDecode($music->toArray()), 'playlist' => Helpers::convertArrHtmlCharsDecode($playlistMusic), 'sug' => Helpers::convertArrHtmlCharsDecode($sug)], 'error' => []], 200);
     }
     function musicFavourite (Request $request) {
