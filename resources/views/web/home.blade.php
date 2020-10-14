@@ -70,7 +70,7 @@ $catalog = config('constants.catalog');
                     autoplay: true,
                     autoplayTimeout: 7000,
                     autoplayHoverPause: true,
-                    slideBy: 4,
+                    slideBy: 5,
                     nav: true,
                     navText: ['<img src="{{env('IMG_DATA_URL')}}imgs/top-left.png" alt="">', '<img src="{{env('IMG_DATA_URL')}}imgs/top-right.png" alt="">'],
                     responsive: {
