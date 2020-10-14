@@ -411,7 +411,7 @@ class MusicController extends Controller
         // karaoke
         $music_lyric_karaoke = $music->musicKara;
         if($music_lyric_karaoke) {
-            $music->musicKara->music_lyric_karaoke = str_replace(['[t1]', '[t2]', '[t3]', "\n"], '<br/>', $music->musicKara->music_lyric_karaoke);
+            $music->musicKara->music_lyric_karaoke = str_replace(["\n[t1]", "\n[t2]", "\n[t3]"], '<br/>', $music->musicKara->music_lyric_karaoke);
         }
         return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['music' => Helpers::convertArrHtmlCharsDecode($music->toArray()), 'sug' => Helpers::convertArrHtmlCharsDecode($sug)], 'error' => []], 200);
     }
