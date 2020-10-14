@@ -68,7 +68,7 @@ class CategoryController extends Controller
                 return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['video' => $video], 'error' => []], 200);
                 break;
             case "video-vua-download":
-                $video = $this->videoRepository->getCategoryVideoSolr($request->cat_id, $request->cat_level, null,'video_id', 'desc', LIMIT_PAGE_CATEGORY);
+                $video = $this->videoRepository->getCategoryVideoSolr($request->cat_id, $request->cat_level, null,'video_download_time', 'desc', LIMIT_PAGE_CATEGORY);
                 Helpers::convertArrSolr($video);
                 return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['video' => $video], 'error' => []], 200);
                 break;
