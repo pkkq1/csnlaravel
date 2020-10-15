@@ -94,7 +94,10 @@ Route::post('bang-xep-hang/nam-{year}/{catUrl}/{catLevel?}.html', ['as' => 'bxh.
 Route::post('bang-xep-hang/nam-{year}/{catUrl}/{catLevel?}', ['as' => 'bxh.month', 'uses' => 'MusicController@listenBxhYear']);
 Route::post('tab_category', ['as' => 'category.get_tab', 'uses' => 'CategoryController@getTabCategory']);
 
-Route::post('music/favourite', ['as' => 'bxh.month', 'uses' => 'MusicController@musicFavourite']);
+Route::post('music/favourite', ['as' => 'music.favourite', 'uses' => 'MusicController@musicFavourite']);
+Route::post('nghe-bat-hat-yeu-thich/{playlistUrl}', ['as' => 'music_listen.favourite', 'uses' => 'MusicController@listenFavourite']);
+Route::post('nghe-bat-hat-ca-si/{playlistUrl}', ['as' => 'music_listen.caSiPlaylist', 'uses' => 'MusicController@caSiPlaylist']);
+
 // User
 Route::prefix('user/')->group(function () {
     Route::post('qr_code/login/{token}', ['as' => 'api.user.qr_code.login', 'uses' => 'UserController@qrCodeLogin']);
