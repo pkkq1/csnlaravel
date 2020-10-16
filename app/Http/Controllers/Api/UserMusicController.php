@@ -76,17 +76,30 @@ class UserMusicController extends Controller
     }
     public function artistFavourite(Request $request) {
         $user_id = $request->user_id;
-        $artistFavourite = $this->artistFavouriteRepository->getModel()::where('user_id', $user_id)->with('artist')->orderBy('id', 'desc')->paginate(LIMIT_PAGE_ARTIST_FAVOURITE);
+        $artistFavourite = $this->artistFavouriteRepository->getModel()::where('user_id', $user_id)->with('artist')->orderBy('id', 'desc')->paginate(LIMIT_PAGE_ARTIST_FAVOURITE)->toArray();
+        foreach ($artistFavourite['data'] as &$item) {
+            $item['artist']['artist_image'] = $item['artist']['artist_avatar'] ? Helpers::file_path($item['artist']['artist_id'], AVATAR_ARTIST_CROP_PATH) . $item['artist']['artist_avatar'] : '/imgs/avatar_default.png';
+            $item['artist']['artist_thumb_image'] = str_replace('artist_avatar', 'artist_avatar_thumb', $item['artist']['artist_image']);
+        }
         return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['artistFavourite' => Helpers::convertArrHtmlCharsDecode($artistFavourite)], 'error' => []], 200);
     }
     public function videoFavourite(Request $request) {
         $user_id = $request->user_id;
-        $videoFavourite = $this->videoFavouriteRepository->getModel()::where('user_id', $user_id)->with('video')->orderBy('id', 'desc')->paginate(LIMIT_PAGE_MUSIC_FAVOURITE);
+        $videoFavourite = $this->videoFavouriteRepository->getModel()::where('user_id', $user_id)->with('video')->orderBy('id', 'desc')->paginate(LIMIT_PAGE_MUSIC_FAVOURITE)->toArray();
+        foreach ($videoFavourite['data'] as &$item) {
+            $item['video']['video_image'] = Helpers::thumbnail_url($item['video'], 'preview');
+            $item['video']['bitrate_video'] = Helpers::size2str($item['video']['music_width'], $item['video']['music_height']);
+        }
         return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['videoFavourite' => Helpers::convertArrHtmlCharsDecode($videoFavourite)], 'error' => []], 200);
     }
     public function musicFavourite(Request $request) {
         $user_id = $request->user_id;
-        $musicFavourite = $this->musicFavouriteRepository->getModel()::where('user_id', $user_id)->with('music')->orderBy('id', 'desc')->paginate(LIMIT_PAGE_MUSIC_FAVOURITE);
+        $musicFavourite = $this->musicFavouriteRepository->getModel()::where('user_id', $user_id)->with('music')->orderBy('id', 'desc')->paginate(LIMIT_PAGE_MUSIC_FAVOURITE)->toArray();
+        foreach ($musicFavourite['data'] as &$item) {
+            $item['music']['cover_image'] = Helpers::cover_url($item['music']['cover_id'], 0, 'orginal');
+            $item['music']['cover_thumb_image'] = Helpers::coverThumb($item['music']['cover_image'], MUSIC_COVER_THUMB_200_PATH);
+            $item['music']['bitrate_music'] = Helpers::bitrate2str($item['music']['music_bitrate']);
+        }
         return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['musicFavourite' => Helpers::convertArrHtmlCharsDecode($musicFavourite)], 'error' => []], 200);
     }
 
