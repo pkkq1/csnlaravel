@@ -8,18 +8,9 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request as Request;
-use Illuminate\Support\Facades\Auth;
-use App\Repositories\Music\MusicEloquentRepository;
+use Illuminate\Http\Request;
 use App\Library\Helpers;
-use App\Solr\Solarium;
-use Socialite;
-use Session;
-use App\Repositories\Category\CategoryEloquentRepository;
-use \Illuminate\Http\JsonResponse;
-use Illuminate\Support\Facades\Validator;
-use App\Models\Session as SessionModel;
-use App\Http\Controllers\SearchController as SearchSolr;
+use App\Repositories\Music\MusicEloquentRepository;
 use App\Repositories\Playlist\PlaylistEloquentRepository;
 use App\Repositories\PlaylistPublisher\PlaylistPublisherEloquentRepository;
 use App\Repositories\MusicListen\MusicListenEloquentRepository;
@@ -27,14 +18,34 @@ use App\Repositories\VideoListen\VideoListenEloquentRepository;
 use App\Repositories\MusicDownload\MusicDownloadEloquentRepository;
 use App\Repositories\VideoDownload\VideoDownloadEloquentRepository;
 use App\Repositories\Video\VideoEloquentRepository;
+use App\Repositories\Category\CategoryEloquentRepository;
 use App\Repositories\Cover\CoverEloquentRepository;
 use App\Repositories\Artist\ArtistRepository;
 use App\Repositories\SearchResult\SearchResultEloquentRepository;
 use App\Repositories\MusicFavourite\MusicFavouriteRepository;
 use App\Repositories\VideoFavourite\VideoFavouriteRepository;
+use App\Repositories\KaraokeSuggestion\KaraokeSuggestionEloquentRepository;
+use App\Repositories\Upload\UploadEloquentRepository;
+use App\Repositories\User\UserEloquentRepository;
+use Illuminate\Support\Facades\Auth;
+use App\Models\PlaylistMusicModel;
+use Jenssegers\Agent\Agent;
+use App\Models\ErrorLogModel;
 use App\Repositories\Karaoke\KaraokeEloquentRepository;
-use App\Repositories\Session\SessionEloquentRepository;
+use App\Repositories\MusicDeleted\MusicDeletedEloquentRepository;
+use App\Repositories\LyricSuggestion\LyricSuggestionEloquentRepository;
+use App\Repositories\MusicSearchResult\MusicSearchResultEloquentRepository;
+use App\Repositories\Comment\CommentEloquentRepository;
+use App\Repositories\CommentReply\CommentReplyEloquentRepository;
+use App\Repositories\ActionLog\ActionLogEloquentRepository;
+use App\Repositories\Notification\NotificationEloquentRepository;
 use App\Http\Controllers\Sync\SolrSyncController;
+use App\Repositories\Session\SessionEloquentRepository;
+use \Illuminate\Http\JsonResponse;
+use App\Solr\Solarium;
+use Session;
+use Response;
+use DB;
 
 class MusicController extends Controller
 {
@@ -53,14 +64,27 @@ class MusicController extends Controller
     protected $videoFavouriteRepository;
     protected $karaokeRepository;
     protected $searchResultRepository;
-    protected $sessionRepository;
+    protected $karaokeSuggestionRepository;
+    protected $lyricSuggestionRepository;
+    protected $musicSearchResultRepository;
+    protected $musicDeletedRepository;
+    protected $uploadRepository;
+    protected $userRepository;
+    protected $categoryRepository;
+    protected $commentRepository;
+    protected $commentReplyRepository;
+    protected $actionLogRepository;
+    protected $notifyRepository;
     protected $Solr;
+    protected $sessionRepository;
 
     public function __construct(MusicEloquentRepository $musicRepository, PlaylistEloquentRepository $playlistRepository, MusicListenEloquentRepository $musicListenRepository,
                                 CategoryEloquentRepository $categoryListenRepository, CoverEloquentRepository $coverRepository, VideoEloquentRepository $videoRepository, ArtistRepository $artistRepository,
                                 MusicFavouriteRepository $musicFavouriteRepository, VideoFavouriteRepository $videoFavouriteRepository, MusicDownloadEloquentRepository $musicDownloadRepository, KaraokeEloquentRepository $karaokeRepository,
                                 VideoListenEloquentRepository $videoListenRepository, VideoDownloadEloquentRepository $videoDownloadRepository, PlaylistPublisherEloquentRepository $playlistPublisherRepository, SearchResultEloquentRepository $searchResultRepository,
-                                Solarium $Solr, SessionEloquentRepository $sessionRepository)
+                                KaraokeSuggestionEloquentRepository $karaokeSuggestionRepository, LyricSuggestionEloquentRepository $lyricSuggestionRepository, MusicSearchResultEloquentRepository $musicSearchResultRepository, MusicDeletedEloquentRepository $musicDeletedRepository,
+                                UploadEloquentRepository $uploadRepository, UserEloquentRepository $userRepository, CategoryEloquentRepository $categoryRepository, CommentEloquentRepository $commentRepository, CommentReplyEloquentRepository $commentReplyRepository,
+                                ActionLogEloquentRepository $actionLogRepository, NotificationEloquentRepository $notifyRepository, Solarium $Solr,  SessionEloquentRepository $sessionRepository)
     {
         $this->musicRepository = $musicRepository;
         $this->videoRepository = $videoRepository;
@@ -75,10 +99,21 @@ class MusicController extends Controller
         $this->artistRepository = $artistRepository;
         $this->musicFavouriteRepository = $musicFavouriteRepository;
         $this->videoFavouriteRepository = $videoFavouriteRepository;
+        $this->karaokeSuggestionRepository = $karaokeSuggestionRepository;
+        $this->lyricSuggestionRepository = $lyricSuggestionRepository;
         $this->karaokeRepository = $karaokeRepository;
         $this->searchResultRepository = $searchResultRepository;
-        $this->sessionRepository = $sessionRepository;
+        $this->musicSearchResultRepository = $musicSearchResultRepository;
+        $this->musicDeletedRepository = $musicDeletedRepository;
+        $this->uploadRepository = $uploadRepository;
+        $this->userRepository = $userRepository;
+        $this->categoryRepository = $categoryRepository;
+        $this->commentRepository = $commentRepository;
+        $this->commentReplyRepository = $commentReplyRepository;
+        $this->actionLogRepository = $actionLogRepository;
+        $this->notifyRepository = $notifyRepository;
         $this->Solr = $Solr;
+        $this->sessionRepository = $sessionRepository;
     }
     public function urlAlbum(Request $request, $musicUrl) {
         if(strpos($musicUrl, '~') !== false) {
