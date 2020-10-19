@@ -13,6 +13,7 @@ use Jenssegers\Agent\Agent;
 use App\Repositories\ReportComment\ReportCommentRepository;
 use App\Repositories\ReportMusic\ReportMusicRepository;
 use App\Repositories\Contact\ContactEloquentRepository;
+use App\Repositories\ContactUser\ContactUserEloquentRepository;
 use App\Http\Controllers\Controller;
 use \Illuminate\Http\JsonResponse;
 use App\Repositories\User\UserEloquentRepository;
@@ -26,12 +27,13 @@ class ReportController extends Controller
     protected $sessionRepository;
     protected $userRepository;
 
-    public function __construct(ReportCommentRepository $reportCommentRepository, ReportMusicRepository $reportMusicRepository, ContactEloquentRepository $contactRepository, SessionEloquentRepository $sessionRepository, UserEloquentRepository $userRepository) {
+    public function __construct(ReportCommentRepository $reportCommentRepository, ReportMusicRepository $reportMusicRepository, ContactEloquentRepository $contactRepository, SessionEloquentRepository $sessionRepository, UserEloquentRepository $userRepository, ContactUserEloquentRepository $contactUserRepository) {
         $this->reportCommentRepository = $reportCommentRepository;
         $this->reportMusicRepository = $reportMusicRepository;
         $this->contactRepository = $contactRepository;
         $this->sessionRepository = $sessionRepository;
         $this->userRepository = $userRepository;
+        $this->contactUserRepository = $contactUserRepository;
     }
     public function reportComment(Request $request)
     {
@@ -149,24 +151,61 @@ class ReportController extends Controller
         }
     }
     public function sendContact(Request $request) {
-        if(strlen($request->email) < 5 || strlen($request->text) < 5 || strlen($request->text) > 5000) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Vui lòng nhập nội dung đầy đủ'], 400);
-        }
-        if(strlen($request->text) > 5000 || strlen($request->email) > 200) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Email không quá 200 ký tự, Nội dung không quá 5000 ký tự'], 400);
+        if(strlen($request->text) > 5000 || strlen($request->text) < 5) {
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Nội dung gửi báo cáo từ 5 đến 5000 ký tự'], 400);
         }
         $Agent = new Agent();
         $ip = Helpers::getIp();
-        $checkExit = $this->contactRepository->getModel()::where('ip', $ip)->orderBy('id', 'desc')->first();
-        if($checkExit && (time() < strtotime($checkExit->created_at) + (60 * 5))){
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Góp ý bạn đang xử lý, vui lòng thao tác chậm lại'], 400);
+        if($request->sid) {
+            $userSess = $this->sessionRepository->getSessionById($request->sid);
+            if (!$userSess) {
+                return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Bạn chưa đang nhập.'], 400);
+            }
+            $user = $this->userRepository->getModel()::where('id', $userSess->user_id)->first();
+            if (!$user) {
+                return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Không Tìm Thấy User'], 400);
+            }
+            $checkExit = $this->contactUserRepository->getModel()::where('by_user_id', $user->id)->orderBy('id', 'desc')->first();
+            if($checkExit && (time() < strtotime($checkExit->created_at) + (60 * 5))){
+                return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Góp ý bạn đang xử lý, vui lòng thao tác chậm lại'], 400);
+            }
+            $reportText = [];
+            if($request->text) {
+                $reportText = [
+                    time() => [
+                        'user' => ['time' => time(),
+                            'user_id' =>$user->id,
+                            'content' => $request->text,
+                        ]
+                    ]
+                ];
+            }
+            $this->contactUserRepository->getModel()::create([
+                'by_user_id' => $user->id,
+                'username' => $user->name,
+                'report_text' => serialize($reportText),
+                'ip' => $ip,
+                'mod' => $Agent->isMobile() ? 'mobile' : 'web'
+            ]);
+        }else{
+            if(strlen($request->email) < 5 || strlen($request->email) > 200 || filter_var($request->email, FILTER_VALIDATE_EMAIL) == false) {
+                return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Vui lòng nhập email chính xác, từ 5 đến 200 ký tự'], 400);
+            }
+            if($request->phone && (strlen($request->phone) < 5 || strlen($request->phone) > 15)) {
+                return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Số điện thoại nhập từ 5 đến 15 số'], 400);
+            }
+            $checkExit = $this->contactRepository->getModel()::where('ip', $ip)->orderBy('id', 'desc')->first();
+            if($checkExit && (time() < strtotime($checkExit->created_at) + (60 * 5))){
+                return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Góp ý bạn đang xử lý, vui lòng thao tác chậm lại'], 400);
+            }
+            $this->contactRepository->getModel()::create([
+                'email' => $request->email,
+                'text' => $request->text,
+                'phone' => $request->phone,
+                'ip' => $ip,
+                'mod' => $Agent->isMobile() ? 'mobile' : 'web'
+            ]);
         }
-        $this->contactRepository->getModel()::create([
-            'email' => $request->email,
-            'text' => $request->text,
-            'ip' => $ip,
-            'mod' => $Agent->isMobile() ? 'mobile' : 'web'
-        ]);
         return new JsonResponse(['message' => 'Cảm ơn bạn đã góp ý kiến, chúng tôi sẽ trả lời sớm nhất.', 'code' => 200, 'data' => [], 'error' => ''], 200);
     }
 }

@@ -110,6 +110,11 @@ class ReportContactController extends CrudController
             'type' => 'hidden',
         ]);
         $this->crud->addField([
+            'name'  => 'phone',
+            'label' => 'Số Điện Thoại',
+            'type' => 'hidden',
+        ]);
+        $this->crud->addField([
             'name'  => 'text',
             'label' => 'Nội Dung',
             'type' => 'hidden',

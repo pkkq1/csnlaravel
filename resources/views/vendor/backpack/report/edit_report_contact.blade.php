@@ -58,10 +58,14 @@
 					<label>Email: </label>
 					<p>{{$fields['email']['value']}}</p>
 				</div>
-					<div class="form-group col-xs-12">
-						<label>Nội Dung</label>
-						<p style="white-space: pre-line">{{$fields['text']['value']}}</p>
-					</div>
+				<div class="form-group col-xs-12">
+					<label>Phone: </label>
+					<p>{{$fields['phone']['value']}}</p>
+				</div>
+				<div class="form-group col-xs-12">
+					<label>Nội Dung</label>
+					<p style="white-space: pre-line">{{$fields['text']['value']}}</p>
+				</div>
 		      	@include('vendor.backpack.crud.form_content', ['fields' => $fields, 'action' => 'edit'])
 		      @else
 		      	@include('crud::form_content', ['fields' => $fields, 'action' => 'edit'])
