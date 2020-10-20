@@ -90,8 +90,6 @@ class UserMusicController extends Controller
             if($item['video']) {
                 $item['video']['video_image'] = Helpers::thumbnail_url($item['video'], 'preview');
                 $item['video']['bitrate_video'] = Helpers::size2str($item['video']['music_width'], $item['video']['music_height']);
-            }else{
-                unset($videoFavourite['data'][$key]);
             }
         }
         return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['videoFavourite' => Helpers::convertArrHtmlCharsDecode($videoFavourite)], 'error' => []], 200);
@@ -104,8 +102,6 @@ class UserMusicController extends Controller
                 $item['music']['cover_image'] = Helpers::cover_url($item['music']['cover_id'], 0, 'orginal');
                 $item['music']['cover_thumb_image'] = Helpers::coverThumb($item['music']['cover_image'], MUSIC_COVER_THUMB_200_PATH);
                 $item['music']['bitrate_music'] = Helpers::bitrate2str($item['music']['music_bitrate']);
-            }else{
-                unset($musicFavourite['data'][$key]);
             }
         }
         return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['musicFavourite' => Helpers::convertArrHtmlCharsDecode($musicFavourite)], 'error' => []], 200);
