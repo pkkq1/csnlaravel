@@ -806,10 +806,16 @@
     function openContact() {
         $('#myConfirmModal .contact_email').val('');
         $('#myConfirmModal .contact_text').val('');
-        confirmModal('<input style="width: 100%;margin-bottom: 10px" type="email" class="contact_email" placeholder="Email liên hệ"><textarea style="width: 100%" class="contact_text" rows="6" placeholder="Nội dung góp ý"></textarea>', 'Gửi góp ý về Chia Sẻ Nhạc', '', 'Gửi');
+        confirmModal('@if(!Auth::user())<input style="width: 100%;margin-bottom: 10px" type="email" class="contact_email" placeholder="Email liên hệ"><input style="width: 100%;margin-bottom: 10px" type="text" class="contact_phone" placeholder="Số Điện Thoại liên hệ (không bắt buộc)">@endif<textarea style="width: 100%" class="contact_text" rows="6" placeholder="Nội dung góp ý"></textarea>', 'Gửi góp ý về Chia Sẻ Nhạc', '', 'Gửi');
         $("#myConfirmModal .btn-ok").on('click', function () {
-            if($('#myConfirmModal .contact_email').val().length < 5 || $('#myConfirmModal .contact_text').val().length < 5){
-                alertModal('Vui lòng Nhập nội dung trên 5 ký tự');
+            @if(!Auth::user())
+            if($('#myConfirmModal .contact_email').val().length < 5){
+                alertModal('Vui lòng nhập email trên 5 ký tự');
+                return false;
+            }
+            @endif
+            if($('#myConfirmModal .contact_text').val().length < 5){
+                alertModal('Vui lòng nhập nội dung trên 5 ký tự');
                 return false;
             }
             $.ajax({
@@ -818,6 +824,7 @@
                 dataType: "json",
                 data: {
                     'email': $('#myConfirmModal .contact_email').val(),
+                    'phone': $('#myConfirmModal .contact_phone').val(),
                     'text': $('#myConfirmModal .contact_text').val(),
                 },
                 beforeSend: function () {

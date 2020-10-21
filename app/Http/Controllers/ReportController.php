@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Repositories\ReportComment\ReportCommentRepository;
 use App\Repositories\ReportMusic\ReportMusicRepository;
 use App\Repositories\Contact\ContactEloquentRepository;
+use App\Repositories\ContactUser\ContactUserEloquentRepository;
 use Jenssegers\Agent\Agent;
 
 class ReportController extends Controller
@@ -20,12 +21,14 @@ class ReportController extends Controller
     protected $reportCommentRepository;
     protected $reportMusicRepository;
     protected $contactRepository;
+    protected $contactUserRepository;
 
-    public function __construct(ReportCommentRepository $reportCommentRepository, ReportMusicRepository $reportMusicRepository, ContactEloquentRepository $contactRepository)
+    public function __construct(ReportCommentRepository $reportCommentRepository, ReportMusicRepository $reportMusicRepository, ContactEloquentRepository $contactRepository, ContactUserEloquentRepository $contactUserRepository)
     {
         $this->reportCommentRepository = $reportCommentRepository;
         $this->reportMusicRepository = $reportMusicRepository;
         $this->contactRepository = $contactRepository;
+        $this->contactUserRepository = $contactUserRepository;
     }
 
     /**
@@ -131,24 +134,53 @@ class ReportController extends Controller
         Helpers::ajaxResult(false, 'Lỗi không thể gửi báo cáo!', null);
     }
     public function sendContact(Request $request) {
-        if(strlen($request->email) < 5 || strlen($request->text) < 5 || strlen($request->text) > 5000) {
-            Helpers::ajaxResult(false, 'Vui lòng nhập nội dung đầy đủ', null);
-        }
-        if(strlen($request->text) > 5000 || strlen($request->email) > 200) {
-            Helpers::ajaxResult(false, 'Email không quá 200 ký tự, Nội dung không quá 5000 ký tự', null);
+        if(strlen($request->text) > 5000 || strlen($request->text) < 5) {
+            Helpers::ajaxResult(false, 'Nội dung gửi báo cáo từ 5 đến 5000 ký tự', null);
         }
         $Agent = new Agent();
         $ip = Helpers::getIp();
-        $checkExit = $this->contactRepository->getModel()::where('ip', $ip)->orderBy('id', 'desc')->first();
-        if($checkExit && (time() < strtotime($checkExit->created_at) + (60 * 5))){
-            Helpers::ajaxResult(false, 'Góp ý bạn đang xử lý, vui lòng thao tác chậm lại', null);
+        if(Auth::check()) {
+            $checkExit = $this->contactUserRepository->getModel()::where('by_user_id', Auth::user()->id)->orderBy('id', 'desc')->first();
+            if($checkExit && (time() < strtotime($checkExit->created_at) + (60 * 5))){
+                Helpers::ajaxResult(false, 'Góp ý bạn đang xử lý, vui lòng thao tác chậm lại', null);
+            }
+            $reportText = [];
+            if($request->text) {
+                $reportText = [
+                    time() => [
+                        'user' => ['time' => time(),
+                            'user_id' => Auth::user()->id,
+                            'content' => $request->text,
+                        ]
+                    ]
+                ];
+            }
+            $this->contactUserRepository->getModel()::create([
+                'by_user_id' => Auth::user()->id,
+                'username' => Auth::user()->name,
+                'report_text' => serialize($reportText),
+                'ip' => $ip,
+                'mod' => $Agent->isMobile() ? 'mobile' : 'web'
+            ]);
+        }else{
+            if(strlen($request->email) < 5 || strlen($request->email) > 200 || filter_var($request->email, FILTER_VALIDATE_EMAIL) == false) {
+                Helpers::ajaxResult(false, 'Vui lòng nhập email chính xác, từ 5 đến 200 ký tự', null);
+            }
+            if($request->phone && (strlen($request->phone) < 5 || strlen($request->phone) > 15)) {
+                Helpers::ajaxResult(false, 'Số điện thoại nhập từ 5 đến 15 số', null);
+            }
+            $checkExit = $this->contactRepository->getModel()::where('ip', $ip)->orderBy('id', 'desc')->first();
+            if($checkExit && (time() < strtotime($checkExit->created_at) + (60 * 5))){
+                Helpers::ajaxResult(false, 'Góp ý bạn đang xử lý, vui lòng thao tác chậm lại', null);
+            }
+            $this->contactRepository->getModel()::create([
+                'email' => $request->email,
+                'text' => $request->text,
+                'phone' => $request->phone,
+                'ip' => $ip,
+                'mod' => $Agent->isMobile() ? 'mobile' : 'web'
+            ]);
         }
-        $this->contactRepository->getModel()::create([
-            'email' => $request->email,
-            'text' => $request->text,
-            'ip' => $ip,
-            'mod' => $Agent->isMobile() ? 'mobile' : 'web'
-        ]);
         Helpers::ajaxResult(true, 'Cảm ơn bạn đã góp ý kiến, chúng tôi sẽ trả lời sớm nhất.', null);
     }
 

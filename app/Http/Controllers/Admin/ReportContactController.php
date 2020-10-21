@@ -107,11 +107,17 @@ class ReportContactController extends CrudController
         $this->crud->addField([
             'name'  => 'email',
             'label' => 'Email',
+            'type' => 'hidden',
+        ]);
+        $this->crud->addField([
+            'name'  => 'phone',
+            'label' => 'Số Điện Thoại',
+            'type' => 'hidden',
         ]);
         $this->crud->addField([
             'name'  => 'text',
             'label' => 'Nội Dung',
-            'type' => 'textarea',
+            'type' => 'hidden',
         ]);
         $this->crud->addField([
             'label' => 'Tình trạng',
@@ -124,7 +130,7 @@ class ReportContactController extends CrudController
                 'class' => 'form-group col-md-4',
             ],
         ]);
-
+        $this->crud->setEditView('vendor.backpack.report.edit_report_contact');
     }
 
     public function store(StoreRequest $request)

@@ -86,19 +86,23 @@ class UserMusicController extends Controller
     public function videoFavourite(Request $request) {
         $user_id = $request->user_id;
         $videoFavourite = $this->videoFavouriteRepository->getModel()::where('user_id', $user_id)->with('video')->orderBy('id', 'desc')->paginate(LIMIT_PAGE_MUSIC_FAVOURITE)->toArray();
-        foreach ($videoFavourite['data'] as &$item) {
-            $item['video']['video_image'] = Helpers::thumbnail_url($item['video'], 'preview');
-            $item['video']['bitrate_video'] = Helpers::size2str($item['video']['music_width'], $item['video']['music_height']);
+        foreach ($videoFavourite['data'] as $key => &$item) {
+            if($item['video']) {
+                $item['video']['video_image'] = Helpers::thumbnail_url($item['video'], 'preview');
+                $item['video']['bitrate_video'] = Helpers::size2str($item['video']['music_width'], $item['video']['music_height']);
+            }
         }
         return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['videoFavourite' => Helpers::convertArrHtmlCharsDecode($videoFavourite)], 'error' => []], 200);
     }
     public function musicFavourite(Request $request) {
         $user_id = $request->user_id;
         $musicFavourite = $this->musicFavouriteRepository->getModel()::where('user_id', $user_id)->with('music')->orderBy('id', 'desc')->paginate(LIMIT_PAGE_MUSIC_FAVOURITE)->toArray();
-        foreach ($musicFavourite['data'] as &$item) {
-            $item['music']['cover_image'] = Helpers::cover_url($item['music']['cover_id'], 0, 'orginal');
-            $item['music']['cover_thumb_image'] = Helpers::coverThumb($item['music']['cover_image'], MUSIC_COVER_THUMB_200_PATH);
-            $item['music']['bitrate_music'] = Helpers::bitrate2str($item['music']['music_bitrate']);
+        foreach ($musicFavourite['data'] as $key => &$item) {
+            if($item['music']) {
+                $item['music']['cover_image'] = Helpers::cover_url($item['music']['cover_id'], 0, 'orginal');
+                $item['music']['cover_thumb_image'] = Helpers::coverThumb($item['music']['cover_image'], MUSIC_COVER_THUMB_200_PATH);
+                $item['music']['bitrate_music'] = Helpers::bitrate2str($item['music']['music_bitrate']);
+            }
         }
         return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['musicFavourite' => Helpers::convertArrHtmlCharsDecode($musicFavourite)], 'error' => []], 200);
     }

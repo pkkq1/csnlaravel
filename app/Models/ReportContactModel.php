@@ -11,5 +11,5 @@ class ReportContactModel extends Model
     use CrudTrait;
     protected $table = 'csn_report_contact';
     protected $primaryKey = 'id';
-    protected $fillable = ['email', 'text', 'ip', 'mod', 'status'];
+    protected $fillable = ['email', 'text', 'ip', 'phone', 'mod', 'status'];
 }
