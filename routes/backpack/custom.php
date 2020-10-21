@@ -66,6 +66,7 @@ Route::group([
     CRUD::resource('history_level', 'UserLevelController');
     CRUD::resource('report_music', 'ReportMusicController');
     CRUD::resource('report_comment', 'ReportCommentController');
+    CRUD::resource('report_user_contact', 'ReportContactUserController');
     CRUD::resource('report_contact', 'ReportContactController');
     CRUD::resource('action_log', 'ActionLogController');
     CRUD::resource('notify_log', 'NotifyLogController');

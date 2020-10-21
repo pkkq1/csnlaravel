@@ -123,7 +123,8 @@ $htmlNotif['contact'] = $notif['contact'] > 0 ? '<span class="label pull-right b
         <ul class="treeview-menu">
             <li><a href="{{ backpack_url('report_music') }}"><i class="fa fa-music"></i><span>Nhạc</span><span class="pull-right-container"><?php echo $htmlNotif['report_music'] ?></span></a></li>
             <li><a href="{{ backpack_url('report_comment') }}"><i class="fa fa-comment"></i><span class="pull-right-container"></span><span>Bình luận</span><?php echo $htmlNotif['report_cmt'] ?></a></li>
-            <li><a href="{{ backpack_url('report_contact') }}"><i class="fa fa-comment"></i><span class="pull-right-container"></span><span>Góp ý</span><?php echo $htmlNotif['contact'] ?></a></li>
+            <li><a href="{{ backpack_url('report_user_contact') }}"><i class="fa fa-comment"></i><span class="pull-right-container"></span><span>User Góp ý</span><?php echo $htmlNotif['contact'] ?></a></li>
+            <li><a href="{{ backpack_url('report_contact') }}"><i class="fa fa-comment"></i><span class="pull-right-container"></span><span>Báo Cáo</span><?php echo $htmlNotif['contact'] ?></a></li>
         </ul>
     </li>
 @endif
