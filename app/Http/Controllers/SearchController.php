@@ -342,6 +342,8 @@ class SearchController extends Controller
                             'video_length_html' => $item['video_length_html'][0],
                             'video_downloads' => $item['video_downloads'][0],
                             'video_title_url' => $item['video_title_url'][0],
+                            'music_width' => $item['video_width'][0],
+                            'music_height' => $item['video_height'][0],
                         ];
 
                         if ($search_level == 1)
