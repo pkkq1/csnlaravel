@@ -23,6 +23,7 @@ use App\Repositories\ArtistFavourite\ArtistFavouriteRepository;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use App\Repositories\ReportComment\ReportCommentRepository;
 use App\Repositories\ReportMusic\ReportMusicRepository;
+use App\Repositories\ContactUser\ContactUserEloquentRepository;
 use App\Repositories\Notification\NotificationEloquentRepository;
 use Illuminate\Pagination\LengthAwarePaginator;
 use App\Repositories\MessageUser\MessageUserEloquentRepository;
@@ -43,9 +44,10 @@ class UserController extends Controller
     protected $reportMusicRepository;
     protected $notifyRepository;
     protected $userMessageRepository;
+    protected $contactUserRepository;
 
     public function __construct(UserEloquentRepository $userRepository, PlaylistEloquentRepository $playlistRepository, ArtistFavouriteRepository $artistFavouriteRepository, QrCodeTokenRepository $qrCodeTokenRepository, ReportCommentRepository $reportCommentRepository, ReportMusicRepository $reportMusicRepository,
-                                NotificationEloquentRepository $notifyRepository, MessageUserEloquentRepository $userMessageRepository)
+                                NotificationEloquentRepository $notifyRepository, MessageUserEloquentRepository $userMessageRepository, ContactUserEloquentRepository $contactUserRepository)
     {
         $this->userRepository = $userRepository;
         $this->playlistRepository = $playlistRepository;
@@ -54,6 +56,7 @@ class UserController extends Controller
         $this->reportMusicRepository = $reportMusicRepository;
         $this->notifyRepository = $notifyRepository;
         $this->userMessageRepository = $userMessageRepository;
+        $this->contactUserRepository = $contactUserRepository;
     }
 
     /**
@@ -186,7 +189,8 @@ class UserController extends Controller
         $paginate = LIMIT_PAGE_MUSIC_FAVOURITE;
         $reportMusic = $this->reportMusicRepository->getModel()::where('by_user_id', $user_id)->select(DB::raw('id, 0 as comment_id, 0 as comment_type, report_option, music_id, report_text, music_name, 0 as comment_text, username, created_at, updated_at, status, notifi_read,\'music\' as report_type'));
         $reportComment = $this->reportCommentRepository->getModel()::where('by_user_id', $user_id)->select(DB::raw('id, comment_id, comment_type, report_option, music_id, report_text, music_name, comment_text, username, created_at, updated_at, status, notifi_read,\'comment\' as report_type'));
-        $reportData = $reportMusic->union($reportComment)->orderBy('updated_at', 'desc')->get();
+        $reportContact = $this->contactUserRepository->getModel()::where('by_user_id', $user_id)->select(DB::raw('id, 0 as comment_id, 0 as comment_type, 0 as report_option, 0 as music_id, report_text, 0 as music_name, 0 as comment_text, username, created_at, updated_at, status, notifi_read,\'contact\' as report_type'));
+        $reportData = $reportMusic->union($reportComment)->union($reportContact)->orderBy('updated_at', 'desc')->get();
         $slice = array_slice($reportData->toArray(), $paginate * ($page - 1), $paginate);
         $result = new LengthAwarePaginator($slice, count($reportData), $paginate, null, ['path' => '/user/report_tab']);
         return view('user.report_user.index', compact('result'));
@@ -217,6 +221,11 @@ class UserController extends Controller
         $result = $this->userMessageRepository->getModel()::where('user_by_id', $user_id)->orderBy('id', 'desc')->paginate(LIMIT_PAGE_USER_MSG);
         return view('user.message_csn.index', compact('result'));
     }
+    public function showContactUserCsn(Request $request) {
+        $user_id = Auth::user()->user_id;
+        $result = $this->contactUserRepository->getModel()::where('user_by_id', $user_id)->orderBy('id', 'desc')->paginate(LIMIT_PAGE_USER_MSG);
+        return view('user.message_csn.index', compact('result'));
+    }
     public function sendMsg(Request $request) {
         if(backpack_user()->can('banned_user_message')){
             Helpers::ajaxResult(false, 'Lỗi truy cập, tài khoản bạn bị khóa chức năng nhắn tin', null);
@@ -243,5 +252,38 @@ class UserController extends Controller
             Helpers::ajaxResult(true, 'Đăng tải ảnh thành công');
         }
         Helpers::ajaxResult(false, 'Lỗi đăng tải ảnh bìa');
+    }
+    public function reportReply(Request $request) {
+        $user_id = Auth::user()->user_id;
+        $content = $request->input('content');
+        $reply_type = $request->input('reply_type');
+        $report_id= $request->input('report_id');
+        if($reply_type == 'music') {
+            $reportData = $this->reportMusicRepository;
+        }elseif($reply_type == 'comment') {
+            $reportData = $this->reportCommentRepository;
+        }elseif($reply_type == 'contact') {
+            $reportData = $this->contactUserRepository;
+        }else{
+            abort(403, 'Lỗi không tìm thấy danh mục phản hồi');
+        }
+        $reportData = $reportData->getModel()::where([['by_user_id', $user_id], ['id', $report_id]])->first();
+        if($reportData->status == 2) {
+            abort(403, 'Lỗi báo cáo này đã đóng');
+        }
+        if(!$reportData){
+            abort(403, 'Lỗi không tìm thấy báo cáo');
+        }
+        $contentReport = unserialize($reportData->report_text);
+        $newContent = [
+            'time' => time(),
+            'user_id' => Auth::user()->id,
+            'content' => $content,
+        ];
+        $contentReport[time()]['user'] = $newContent;
+        $reportData->report_text = serialize($contentReport);
+        $reportData->status = 0;
+        $reportData->save();
+        return view('user.report_user.report_children', compact('newContent'));
     }
 }

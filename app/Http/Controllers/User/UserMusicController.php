@@ -204,33 +204,4 @@ class UserMusicController extends Controller
         $musicFavourite = $this->musicFavouriteRepository->getModel()::where('user_id', $user_id)->with('music')->orderBy('id', 'desc')->paginate(LIMIT_PAGE_MUSIC_FAVOURITE);
         return view('user.music_favourite', compact('musicFavourite', 'user_id'));
     }
-    public function reportReply(Request $request) {
-        $user_id = Auth::user()->user_id;
-        $content = $request->input('content');
-        $reply_type = $request->input('reply_type');
-        $report_id= $request->input('report_id');
-        if($reply_type == 'music') {
-            $reportData = $this->reportMusicRepository;
-        }else {
-            $reportData = $this->reportCommentRepository;
-        }
-        $reportData = $reportData->getModel()::where([['by_user_id', $user_id], ['id', $report_id]])->first();
-        if($reportData->status == 2) {
-            abort(403, 'Lỗi báo cáo này đã đóng');
-        }
-        if(!$reportData){
-            abort(403, 'Lỗi không tìm thấy báo cáo');
-        }
-        $contentReport = unserialize($reportData->report_text);
-        $newContent = [
-            'time' => time(),
-            'user_id' => Auth::user()->id,
-            'content' => $content,
-        ];
-        $contentReport[time()]['user'] = $newContent;
-        $reportData->report_text = serialize($contentReport);
-        $reportData->status = 0;
-        $reportData->save();
-        return view('user.report_user.report_children', compact('newContent'));
-    }
 }

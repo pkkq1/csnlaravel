@@ -285,10 +285,11 @@ Route::group(['middlewareGroups' => ['web']], function () {
         Route::post('show_report', ['as' => 'report.show_report', 'uses' => 'User\UserController@clickShowUserReport']);
         Route::post('open_tab_uploaded', ['as' => 'user.open_tab_uploaded', 'uses' => 'User\UserMusicController@openTabUploaded']);
         Route::post('open_tab_approval', ['as' => 'user.open_tab_approval', 'uses' => 'User\UserMusicController@openTabApproval']);
-        Route::post('reply_report_content/post', ['as' => 'user.report', 'uses' => 'User\UserMusicController@reportReply']);
+        Route::post('reply_report_content/post', ['as' => 'user.report', 'uses' => 'User\UserController@reportReply']);
         Route::post('qr_code', ['as' => 'user.qr_code', 'uses' => 'User\UserController@qrCode']);
         Route::post('show_notify', ['as' => 'user.show_notify', 'uses' => 'User\UserController@showNotify']);
         Route::post('message_csn', ['as' => 'user.message_csn', 'uses' => 'User\UserController@showMessageCsn']);
+        Route::post('contact_user', ['as' => 'user.message_csn', 'uses' => 'User\UserController@showContactUserCsn']);
 
         Route::post('send_message', ['as' => 'user.show_notify', 'uses' => 'User\UserController@sendMsg']);
         Route::post('upload_image_banner', ['as' => 'user.show_notify', 'uses' => 'User\UserController@uploadImageBanner']);

@@ -11,5 +11,5 @@ class ReportContactUserModel extends Model
     use CrudTrait;
     protected $table = 'csn_report_contact_user';
     protected $primaryKey = 'id';
-    protected $fillable = ['report_text', 'by_user_id', 'username', 'ip', 'phone', 'mod', 'status'];
+    protected $fillable = ['report_text', 'by_user_id', 'username', 'ip', 'phone', 'mod', 'status', 'notifi_read'];
 }
