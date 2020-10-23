@@ -1,7 +1,7 @@
 <?php
 use App\Library\Helpers;
 $user = Auth::user();
-$avatarUser = Helpers::pathAvatar($user->user_avatar, $user->id);
+$avatarUser = Helpers::pathThumbAvatar($user->user_avatar, $user->user_id, env('DATA_URL'));
 ?>
 <div class="media">
     <a href="javascript:void(0)"><img class="mr-3" src="<?php echo $avatarUser ?>"></a>

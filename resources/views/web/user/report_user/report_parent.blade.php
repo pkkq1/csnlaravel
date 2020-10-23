@@ -4,7 +4,7 @@ $reportData = $result->toArray()['data'];
 $pagingHtml = $result->links();
 $user = Auth::user();
 $Itemreply = '';
-$avatarUser = Helpers::pathAvatar($user->user_avatar, $user->id);
+$avatarUser = Helpers::pathThumbAvatar($user->user_avatar, $user->user_id, env('DATA_URL'));
 use App\Models\ReportCommentModel;
 use App\Models\ReportMusicModel;
 ?>
