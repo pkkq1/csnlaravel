@@ -23,6 +23,10 @@ use Illuminate\Support\Facades\Hash;
 use \Illuminate\Http\JsonResponse;
 use App\Repositories\ArtistFavourite\ArtistFavouriteRepository;
 use App\Repositories\Session\SessionEloquentRepository;
+use App\Repositories\ContactUser\ContactUserEloquentRepository;
+use App\Repositories\Notification\NotificationEloquentRepository;
+use Illuminate\Pagination\LengthAwarePaginator;
+use App\Repositories\MessageUser\MessageUserEloquentRepository;
 use Session;
 
 class UserController extends Controller
@@ -38,14 +42,22 @@ class UserController extends Controller
     protected $qrCodeTokenRepository;
     protected $sessionEloquentRepository;
     protected $sessionRepository;
+    protected $notifyRepository;
+    protected $userMessageRepository;
+    protected $contactUserRepository;
 
-    public function __construct(UserEloquentRepository $userRepository, PlaylistEloquentRepository $playlistRepository, ArtistFavouriteRepository $artistFavouriteRepository, SessionEloquentRepository $sessionEloquentRepository, QrCodeTokenRepository $qrCodeTokenRepository, SessionEloquentRepository $sessionRepository)
+    public function __construct(UserEloquentRepository $userRepository, PlaylistEloquentRepository $playlistRepository, ArtistFavouriteRepository $artistFavouriteRepository, SessionEloquentRepository $sessionEloquentRepository, QrCodeTokenRepository $qrCodeTokenRepository, SessionEloquentRepository $sessionRepository,
+                                NotificationEloquentRepository $notifyRepository, MessageUserEloquentRepository $userMessageRepository, ContactUserEloquentRepository $contactUserRepository)
     {
         $this->userRepository = $userRepository;
         $this->playlistRepository = $playlistRepository;
         $this->sessionEloquentRepository = $sessionEloquentRepository;
         $this->qrCodeTokenRepository = $qrCodeTokenRepository;
         $this->sessionRepository = $sessionRepository;
+        $this->notifyRepository = $notifyRepository;
+        $this->userMessageRepository = $userMessageRepository;
+        $this->contactUserRepository = $contactUserRepository;
+
     }
 
     /**
@@ -202,6 +214,22 @@ class UserController extends Controller
                 ];
             }
         }
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => Helpers::convertArrHtmlCharsDecode($result), 'error' => ''], 200);
+    }
+    public function notifyUser(Request $request) {
+        if (!$request->sid) {
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Vui lòng nhập đầy đủ thông tin.'], 400);
+        }
+        $userSess = $this->sessionRepository->getSessionById($request->sid);
+        if (!$userSess) {
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Bạn chưa đang nhập.'], 400);
+        }
+        $user = $this->userRepository->getModel()::where('id', $userSess->user_id)->first();
+        if (!$user) {
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Không Tìm Thấy User'], 400);
+        }
+        $user_id = $user->user_id;
+        $result = $this->notifyRepository->getModel()::where('user_id', $user_id)->orderBy('id', 'desc')->paginate(LIMIT_PAGE_NOTIFY)->toArray();
         return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => Helpers::convertArrHtmlCharsDecode($result), 'error' => ''], 200);
     }
 }
