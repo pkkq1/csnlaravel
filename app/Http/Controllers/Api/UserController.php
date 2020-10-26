@@ -232,4 +232,22 @@ class UserController extends Controller
         $result = $this->notifyRepository->getModel()::where('user_id', $user_id)->orderBy('id', 'desc')->paginate(LIMIT_PAGE_NOTIFY)->toArray();
         return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => Helpers::convertArrHtmlCharsDecode($result), 'error' => ''], 200);
     }
+    public function notifyRealAll(Request $request) {
+        if (!$request->sid) {
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Vui lòng nhập đầy đủ thông tin.'], 400);
+        }
+        $userSess = $this->sessionRepository->getSessionById($request->sid);
+        if (!$userSess) {
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Bạn chưa đang nhập.'], 400);
+        }
+        $user = $this->userRepository->getModel()::where('id', $userSess->user_id)->first();
+        if (!$user) {
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Không Tìm Thấy User'], 400);
+        }
+        $user_id = $user->user_id;
+        $this->notifyRepository->getModel()::where('user_id', $user_id)->update([
+            'read' => 1
+        ]);
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => [], 'error' => ''], 200);
+    }
 }

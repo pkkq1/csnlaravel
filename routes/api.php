@@ -117,6 +117,8 @@ Route::prefix('user/')->group(function () {
         Route::post('delete', ['as' => 'api.playlist.delete_playlist', 'uses' => 'PlaylistController@deletePlaylist']);
     });
     Route::post('notify_tab', ['as' => 'api.user.notify_tab', 'uses' => 'UserController@notifyUser']);
+    Route::post('notify_all_read', ['as' => 'api.user.notify_tab', 'uses' => 'UserController@notifyRealAll']);
+    Route::post('info_notify', ['as' => 'api.user.notify_tab', 'uses' => 'UserController@notifyUser']);
 });
 
 // Catalog
