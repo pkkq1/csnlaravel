@@ -106,7 +106,7 @@ class Handler extends ExceptionHandler
         if ($exception->getMessage() == "Unauthorized access - you do not have the necessary permissions to see this page.") {
             return response()->view($view.'errors.403', ['message'=> 'Bạn không có quyền truy cập, thoát ra ngay :(('], 403);
         }
-        if(env('APP_DEBUG') && env('APP_ENV') != 'local' && (!Auth::user() || Auth::user()->id != 997917 && Auth::user()->id != 3)) {
+        if(env('APP_DEBUG') && env('APP_ENV') != 'local' && (!Auth::user() || Auth::user()->id != 997917 && Auth::user()->id != 3 && Auth::user()->id != 1267965)) {
             $error = ErrorLogModel::where('type', 'exception')->where('url', $_SERVER['REQUEST_URI'])->where('message', $exception->getMessage())->first();
             if(!$error) {
                 $error = ErrorLogModel::create([
