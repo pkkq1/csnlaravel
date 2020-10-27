@@ -288,7 +288,7 @@ class UserController extends Controller
             $result = $this->userMessageRepository->getModel()::where('user_by_id', $user->user_id)->orderBy('id', 'desc')->limit(10)->get();
             return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => Helpers::convertArrHtmlCharsDecode($result->toArray()), 'error' => ''], 200);
         }elseif($request->type == 'report_comment') {
-            $result = $this->reportCommentRepository->getModel()::where('by_user_id', $user->user_id)->orderBy('id', 'desc')->first();
+            $result = $this->reportCommentRepository->getModel()::where('id', $request->notification_id)->where('by_user_id', $user->user_id)->first();
             $report_text = unserialize($result->report_text);
             $report_text_arr = [];
             foreach ($report_text as $item){
@@ -297,7 +297,7 @@ class UserController extends Controller
             $result->report_text = $report_text_arr;
             return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => Helpers::convertArrHtmlCharsDecode($result->toArray()), 'error' => ''], 200);
         }elseif($request->type == 'report_music') {
-            $result = $this->reportMusicRepository->getModel()::where('by_user_id', $user->user_id)->orderBy('id', 'desc')->first();
+            $result = $this->reportMusicRepository->getModel()::where('id', $request->notification_id)->where('by_user_id', $user->user_id)->first();
             $report_text = unserialize($result->report_text);
             $report_text_arr = [];
             foreach ($report_text as $item){
