@@ -27,6 +27,8 @@ use App\Repositories\ContactUser\ContactUserEloquentRepository;
 use App\Repositories\Notification\NotificationEloquentRepository;
 use Illuminate\Pagination\LengthAwarePaginator;
 use App\Repositories\MessageUser\MessageUserEloquentRepository;
+use App\Repositories\ReportComment\ReportCommentRepository;
+use App\Repositories\ReportMusic\ReportMusicRepository;
 use Session;
 
 class UserController extends Controller
@@ -45,9 +47,11 @@ class UserController extends Controller
     protected $notifyRepository;
     protected $userMessageRepository;
     protected $contactUserRepository;
+    protected $reportCommentRepository;
+    protected $reportMusicRepository;
 
     public function __construct(UserEloquentRepository $userRepository, PlaylistEloquentRepository $playlistRepository, ArtistFavouriteRepository $artistFavouriteRepository, SessionEloquentRepository $sessionEloquentRepository, QrCodeTokenRepository $qrCodeTokenRepository, SessionEloquentRepository $sessionRepository,
-                                NotificationEloquentRepository $notifyRepository, MessageUserEloquentRepository $userMessageRepository, ContactUserEloquentRepository $contactUserRepository)
+                                NotificationEloquentRepository $notifyRepository, MessageUserEloquentRepository $userMessageRepository, ContactUserEloquentRepository $contactUserRepository, ReportCommentRepository $reportCommentRepository, ReportMusicRepository $reportMusicRepository)
     {
         $this->userRepository = $userRepository;
         $this->playlistRepository = $playlistRepository;
@@ -57,6 +61,8 @@ class UserController extends Controller
         $this->notifyRepository = $notifyRepository;
         $this->userMessageRepository = $userMessageRepository;
         $this->contactUserRepository = $contactUserRepository;
+        $this->reportCommentRepository = $reportCommentRepository;
+        $this->reportMusicRepository = $reportMusicRepository;
 
     }
 
@@ -271,16 +277,36 @@ class UserController extends Controller
         }
         if($request->type == 'contact') {
             $result = $this->contactUserRepository->getModel()::where('id', $request->notification_id)->where('by_user_id', $user->user_id)->first();
-            $result->report_text = unserialize($result->report_text);
+            $report_text = unserialize($result->report_text);
+            $report_text_arr = [];
+            foreach ($report_text as $item){
+                $report_text_arr[] = $item;
+            }
+            $result->report_text = $report_text_arr;
             return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => Helpers::convertArrHtmlCharsDecode($result->toArray()), 'error' => ''], 200);
         }elseif($request->type == 'message') {
             $result = $this->userMessageRepository->getModel()::where('user_by_id', $user->user_id)->orderBy('id', 'desc')->limit(10)->get();
             return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => Helpers::convertArrHtmlCharsDecode($result->toArray()), 'error' => ''], 200);
+        }elseif($request->type == 'report_comment') {
+            $result = $this->reportCommentRepository->getModel()::where('by_user_id', $user->user_id)->orderBy('id', 'desc')->first();
+            $report_text = unserialize($result->report_text);
+            $report_text_arr = [];
+            foreach ($report_text as $item){
+                $report_text_arr[] = $item;
+            }
+            $result->report_text = $report_text_arr;
+            return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => Helpers::convertArrHtmlCharsDecode($result->toArray()), 'error' => ''], 200);
+        }elseif($request->type == 'report_music') {
+            $result = $this->reportMusicRepository->getModel()::where('by_user_id', $user->user_id)->orderBy('id', 'desc')->first();
+            $report_text = unserialize($result->report_text);
+            $report_text_arr = [];
+            foreach ($report_text as $item){
+                $report_text_arr[] = $item;
+            }
+            $result->report_text = $report_text_arr;
+            return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => Helpers::convertArrHtmlCharsDecode($result->toArray()), 'error' => ''], 200);
         }
         return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Không Tìm Thấy Thể Loại Thông Báo'], 400);
-
-    }
-    public function showInfoReportCSN(Request $request) {
 
     }
 }
