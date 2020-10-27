@@ -198,7 +198,7 @@ class ReportContactUserController extends CrudController
             $item->notifi_read = 1;
             $item->save();
             if(ENABLE_NOTIFICATION == 1) {
-                $this->NotificationRepository->pushNotif($item->by_user_id, $item->id, 'report_comment', 'Báo cáo bình luận của bạn đã phản hồi', '/user/'.$item->by_user_id . '?tab=report#report-comment-' . $item->id, $item->music_id);
+                $this->NotificationRepository->pushNotif($item->by_user_id, $item->id, 'contact', 'Báo cáo góp  của bạn đã phản hồi', '/user/'.$item->by_user_id . '?tab=report#report-contact-' . $item->id, $item->music_id);
             }
         }
         $this->data['entry'] = $this->crud->entry = $item;

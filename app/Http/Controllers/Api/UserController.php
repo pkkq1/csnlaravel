@@ -232,7 +232,8 @@ class UserController extends Controller
         $result = $this->notifyRepository->getModel()::where('user_id', $user_id)->orderBy('id', 'desc')->paginate(LIMIT_PAGE_NOTIFY)->toArray();
         return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => Helpers::convertArrHtmlCharsDecode($result), 'error' => ''], 200);
     }
-    public function notifyRealAll(Request $request) {
+
+    public function notifyRead(Request $request) {
         if (!$request->sid) {
             return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Vui lòng nhập đầy đủ thông tin.'], 400);
         }
@@ -245,9 +246,41 @@ class UserController extends Controller
             return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Không Tìm Thấy User'], 400);
         }
         $user_id = $user->user_id;
-        $this->notifyRepository->getModel()::where('user_id', $user_id)->update([
-            'read' => 1
-        ]);
+        if($request->id) {
+            $this->notifyRepository->getModel()::where('user_id', $user_id)->where('id', $request->id)->update([
+                'read' => 1
+            ]);
+        }else{
+            $this->notifyRepository->getModel()::where('user_id', $user_id)->update([
+                'read' => 1
+            ]);
+        }
         return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => [], 'error' => ''], 200);
+    }
+    public function showInfoContact(Request $request) {
+        if (!$request->sid || !$request->type || !$request->notification_id) {
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Vui lòng nhập đầy đủ thông tin.'], 400);
+        }
+        $userSess = $this->sessionRepository->getSessionById($request->sid);
+        if (!$userSess) {
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Bạn chưa đang nhập.'], 400);
+        }
+        $user = $this->userRepository->getModel()::where('id', $userSess->user_id)->first();
+        if (!$user) {
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Không Tìm Thấy User'], 400);
+        }
+        if($request->type == 'contact') {
+            $result = $this->contactUserRepository->getModel()::where('id', $request->notification_id)->where('by_user_id', $user->user_id)->first();
+            $result->report_text = unserialize($result->report_text);
+            return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => Helpers::convertArrHtmlCharsDecode($result->toArray()), 'error' => ''], 200);
+        }elseif($request->type == 'message') {
+            $result = $this->userMessageRepository->getModel()::where('user_by_id', $user->user_id)->orderBy('id', 'desc')->limit(10)->get();
+            return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => Helpers::convertArrHtmlCharsDecode($result->toArray()), 'error' => ''], 200);
+        }
+        return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Không Tìm Thấy Thể Loại Thông Báo'], 400);
+
+    }
+    public function showInfoReportCSN(Request $request) {
+
     }
 }
