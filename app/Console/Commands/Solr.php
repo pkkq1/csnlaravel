@@ -80,7 +80,7 @@ class Solr extends Command
                 $limit = 50000;
                 $offset = ($minute_now - 36) * $limit;
                 $Solr->syncCover(null, null, null, '', $offset, $limit);
-            } elseif ($minute_now == 40) {
+            } elseif ($minute_now == 45) {
                 $this->Solr->solrDeleteByQuery('(id:cover_*)AND(solr_updated_time:[0 TO ' . (time() - 5000) . '])');
             }
         }
