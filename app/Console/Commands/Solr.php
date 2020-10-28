@@ -65,7 +65,7 @@ class Solr extends Command
             // Video
             elseif ($minute_now < 45) {
                 $limit = 50000;
-                $offset = ($minute_now - 31) * $limit;
+                $offset = ($minute_now - 36) * $limit;
                 $Solr->syncVideo(null, null, null, '', $offset, $limit);
             } elseif ($minute_now == 45) {
                 $this->Solr->solrDeleteByQuery('(id:video_*)AND(solr_updated_time:[0 TO '. (time() - 5000) .'])');
@@ -73,7 +73,7 @@ class Solr extends Command
             // Cover
             elseif ($minute_now < 50) {
                 $limit = 50000;
-                $offset = ($minute_now - 36) * $limit;
+                $offset = ($minute_now - 46) * $limit;
                 $Solr->syncCover(null, null, null, '', $offset, $limit);
             } elseif ($minute_now == 54) {
                 $this->Solr->solrDeleteByQuery('(id:cover_*)AND(solr_updated_time:[0 TO ' . (time() - 5000) . '])');
