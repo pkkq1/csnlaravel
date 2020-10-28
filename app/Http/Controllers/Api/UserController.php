@@ -275,6 +275,9 @@ class UserController extends Controller
         if (!$user) {
             return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Không Tìm Thấy User'], 400);
         }
+        $this->notifyRepository->getModel()::where('user_id', $user->user_id)->where('id', $request->id)->update([
+            'read' => 1
+        ]);
         if($request->type == 'contact') {
             $result = $this->contactUserRepository->getModel()::where('id', $request->notification_id)->where('by_user_id', $user->user_id)->first();
             $report_text = unserialize($result->report_text);
