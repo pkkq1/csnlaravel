@@ -200,8 +200,10 @@ class UserController extends Controller
         $type = $request->type;
         if($type == 'music') {
             $data = $this->reportMusicRepository->getModel()::where([['id', $idReport], ['by_user_id', Auth::user()->id]])->first();
-        }else{
+        }elseif($type == 'comment'){
             $data = $this->reportCommentRepository->getModel()::where([['id', $idReport], ['by_user_id', Auth::user()->id]])->first();
+        }elseif($type == 'contact'){
+            $data = $this->contactUserRepository->getModel()::where([['id', $idReport], ['by_user_id', Auth::user()->id]])->first();
         }
         $data->notifi_read = 0;
         $data->save();
