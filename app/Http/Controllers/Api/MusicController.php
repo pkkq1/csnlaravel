@@ -862,4 +862,37 @@ class MusicController extends Controller
         }
         return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['music' => Helpers::convertArrHtmlCharsDecode($music->toArray()), 'playlist' => Helpers::convertArrHtmlCharsDecode($playlistMusic), 'sug' => Helpers::convertArrHtmlCharsDecode($sug)], 'error' => []], 200);
     }
+    public function historyListen(Request $request) {
+        if (!Auth::check()) {
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Bạn chưa đang nhập.'], 400);
+        }
+        $result = [];
+        $musics = [];
+        $musicRecent = $_COOKIE['music_history'] ?? '';
+        if(Auth::check()) {
+            $musicRecent = Auth::user()->user_music_recent;
+        }
+        if($musicRecent) {
+            $musicHistory = unserialize($musicRecent);
+            $tempStr = implode(',', $musicHistory);
+            $musics = $this->musicRepository->getHistoryRecents($tempStr);
+            if($request->isMethod('post')) {
+                foreach ($musics as $key => $item) {
+                    $result[] = [
+                        'title' => ++$key . '. ' . $item->music_title . ' - '. str_replace(';', ', ', $item->music_artist),
+                        'link' => Helpers::listen_url([
+                            'music_id'=> $item->music_id,
+                            'cat_id' => $item->cat_id,
+                            'cat_level' => $item->cat_level,
+                            'music_title_url' => $item->music_title_url,
+                        ])
+                    ];
+                }
+            }else {
+
+            }
+
+        }
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => Helpers::convertArrHtmlCharsDecode($result), 'error' => []], 200);
+    }
 }

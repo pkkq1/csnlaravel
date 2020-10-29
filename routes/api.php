@@ -137,6 +137,7 @@ Route::prefix('chu-de/')->group(function () {
     Route::get('{url}', ['as' => 'api.catalog.index', 'uses' => 'CatalogController@playlistPublisher']);
 });
 
+Route::post('music/history_listen', ['as' => 'api.music.history_listen', 'uses' => 'MusicController@historyListen']);
 
 // notify
 Route::prefix('notify')->group(function () {
