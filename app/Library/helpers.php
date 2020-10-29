@@ -1288,7 +1288,7 @@ class Helpers
 
         return $size2str;
     }
-    public static function MusicCookie($request, $music) {
+    public static function MusicCookie($request, $music, $cookieSet = true) {
         $musicRecent = $_COOKIE['music_history'] ?? '';
         if(Auth::check()) {
             $musicRecent = Auth::user()->user_music_recent;
@@ -1302,7 +1302,8 @@ class Helpers
             $musicHistory[] = $music->music_id;
         }
         $musicHistorySer = serialize($musicHistory);
-        setcookie('music_history', $musicHistorySer, time() + 31536000,'/');
+        if($cookieSet)
+            setcookie('music_history', $musicHistorySer, time() + 31536000,'/');
         if(Auth::check()) {
             $user = Auth::user();
             $user->user_music_recent = $musicHistorySer;

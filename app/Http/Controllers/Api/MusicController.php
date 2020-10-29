@@ -84,7 +84,7 @@ class MusicController extends Controller
                                 VideoListenEloquentRepository $videoListenRepository, VideoDownloadEloquentRepository $videoDownloadRepository, PlaylistPublisherEloquentRepository $playlistPublisherRepository, SearchResultEloquentRepository $searchResultRepository,
                                 KaraokeSuggestionEloquentRepository $karaokeSuggestionRepository, LyricSuggestionEloquentRepository $lyricSuggestionRepository, MusicSearchResultEloquentRepository $musicSearchResultRepository, MusicDeletedEloquentRepository $musicDeletedRepository,
                                 UploadEloquentRepository $uploadRepository, UserEloquentRepository $userRepository, CategoryEloquentRepository $categoryRepository, CommentEloquentRepository $commentRepository, CommentReplyEloquentRepository $commentReplyRepository,
-                                ActionLogEloquentRepository $actionLogRepository, NotificationEloquentRepository $notifyRepository, Solarium $Solr,  SessionEloquentRepository $sessionRepository)
+                                ActionLogEloquentRepository $actionLogRepository, NotificationEloquentRepository $notifyRepository, Solarium $Solr,  SessionEloquentRepository $sessionRepository, Request $request)
     {
         $this->musicRepository = $musicRepository;
         $this->videoRepository = $videoRepository;
@@ -114,6 +114,13 @@ class MusicController extends Controller
         $this->notifyRepository = $notifyRepository;
         $this->Solr = $Solr;
         $this->sessionRepository = $sessionRepository;
+        if($request->sid) {
+            $userSess = $this->sessionRepository->getSessionById($request->sid);
+            if ($userSess) {
+                $user = $this->userRepository->getModel()::where('id', $userSess->user_id)->first();
+                Auth::setUser($user);
+            }
+        }
     }
     public function urlAlbum(Request $request, $musicUrl) {
         if(strpos($musicUrl, '~') !== false) {
@@ -159,6 +166,8 @@ class MusicController extends Controller
                 $this->musicListenRepository->incrementListen($music->music_id);
             }
         }
+        // update cookie music history
+        $cookie = Helpers::MusicCookie($request, $music);
         //update cache file suggestion
         $this->musicRepository->suggestion($music, $type);
 
@@ -411,6 +420,8 @@ class MusicController extends Controller
                 $this->musicListenRepository->incrementListen($music->music_id);
             }
         }
+        // update cookie music history
+        $cookie = Helpers::MusicCookie($request, $music);
         $type = 'music';
         if($music->cat_id == CAT_VIDEO)
             $type = 'video';
@@ -768,6 +779,8 @@ class MusicController extends Controller
                 $this->musicListenRepository->incrementListen($music->music_id);
             }
         }
+        // update cookie music history
+        $cookie = Helpers::MusicCookie($request, $music);
         $type = 'music';
         if($music->cat_id == CAT_VIDEO)
             $type = 'video';
