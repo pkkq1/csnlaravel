@@ -60,7 +60,7 @@ class Solr extends Command
                 $offset = $minute_now * $limit;
                 $Solr->syncMusic(null, null, null, '', $offset, $limit);
             } elseif ($minute_now == 35) {
-                $this->Solr->solrDeleteByQuery('(id:music_*)AND(solr_updated_time:[0 TO '. (time() - 5000) .'])');
+                //$this->Solr->solrDeleteByQuery('(id:music_*)AND(solr_updated_time:[0 TO '. (time() - 5000) .'])');
             }
             // Video
             elseif ($minute_now < 45) {
@@ -68,7 +68,7 @@ class Solr extends Command
                 $offset = ($minute_now - 36) * $limit;
                 $Solr->syncVideo(null, null, null, '', $offset, $limit);
             } elseif ($minute_now == 45) {
-                $this->Solr->solrDeleteByQuery('(id:video_*)AND(solr_updated_time:[0 TO '. (time() - 5000) .'])');
+                //$this->Solr->solrDeleteByQuery('(id:video_*)AND(solr_updated_time:[0 TO '. (time() - 5000) .'])');
             }
             // Cover
             elseif ($minute_now < 50) {
@@ -76,12 +76,12 @@ class Solr extends Command
                 $offset = ($minute_now - 46) * $limit;
                 $Solr->syncCover(null, null, null, '', $offset, $limit);
             } elseif ($minute_now == 54) {
-                $this->Solr->solrDeleteByQuery('(id:cover_*)AND(solr_updated_time:[0 TO ' . (time() - 5000) . '])');
+                //$this->Solr->solrDeleteByQuery('(id:cover_*)AND(solr_updated_time:[0 TO ' . (time() - 5000) . '])');
             }
             // Artist
             elseif ($minute_now == 55) {
                 $Solr->syncArtist();
-                $this->Solr->solrDeleteByQuery('(id:artist_*)AND(solr_updated_time:[0 TO '. (time() - 2*86400) .'])');
+                //$this->Solr->solrDeleteByQuery('(id:artist_*)AND(solr_updated_time:[0 TO '. (time() - 2*86400) .'])');
             }
         }
     }
