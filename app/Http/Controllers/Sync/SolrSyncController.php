@@ -530,7 +530,7 @@ class SolrSyncController extends Controller
     }
 
     public
-    function syncCover($id = null, $coverItem = null, $time = null)
+    function syncCover($id = null, $coverItem = null, $time = null, $field = 'album_last_updated', $offset = 0, $limit = 0)
     {
         if ($id) {
             $cover = CoverModel::where('cover_id', $id)->orderBy('cover_id', 'asc')->get();
@@ -542,11 +542,22 @@ class SolrSyncController extends Controller
             }
         } elseif ($time) {
             $cover = CoverModel::where('album_music_total', '>', 0)
-                ->where('album_last_updated', '>', $time)->orderBy('cover_id', 'asc')->get();
+                ->where('album_last_updated', '>', $time)
+                ->orderBy('cover_id', 'asc')
+                ->get();
+        } elseif ( $limit > 0 ) {
+            $cover = CoverModel::where('album_music_total', '>', 0)
+                ->orderBy('cover_id', 'asc')
+                ->offset($offset)
+                ->limit($limit)
+                ->get();
         } else {
             $cover = CoverModel::where('album_music_total', '>', 0)
                 ->where('cover_id', '>', intval($_GET['c_start']))
-                ->orderBy('cover_id', 'asc')->offset(0)->limit(5000)->get();
+                ->orderBy('cover_id', 'asc')
+                ->offset(0)
+                ->limit(5000)
+                ->get();
         }
         DB::disconnect('mysql');
         $datas = [];
