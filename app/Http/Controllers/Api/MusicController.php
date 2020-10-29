@@ -879,13 +879,13 @@ class MusicController extends Controller
             if($request->isMethod('post')) {
                 foreach ($musics as $key => $item) {
                     $result[] = [
-                        'title' => ++$key . '. ' . $item->music_title . ' - '. str_replace(';', ', ', $item->music_artist),
-                        'link' => Helpers::listen_url([
-                            'music_id'=> $item->music_id,
-                            'cat_id' => $item->cat_id,
-                            'cat_level' => $item->cat_level,
-                            'music_title_url' => $item->music_title_url,
-                        ])
+                        'number' => ++$key,
+                        'music_title' => $item->music_title,
+                        'music_artist' => str_replace(';', ', ', $item->music_artist),
+                        'music_id' => $item->music_id,
+                        'cat_id' => $item->cat_id,
+                        'type' => $item->cat_id == CAT_VIDEO ? 'video' : 'music',
+                        'cover_image' => $item->cat_id != CAT_VIDEO ?  Helpers::cover_url($item->cover_id, $item->music_artist_id, 'orginal') : Helpers::thumbnail_url(['music_id' => $item->music_id, 'cat_id' => $item->cat_id], 'preview')
                     ];
                 }
             }else {
