@@ -122,6 +122,9 @@ class MusicController extends Controller
             }
         }
     }
+    public function infoAlbumId(Request $request) {
+        return $this->urlAlbum($request, $request->cover_id);
+    }
     public function urlAlbum(Request $request, $musicUrl) {
         if(strpos($musicUrl, '~') !== false) {
             // old URL playlist

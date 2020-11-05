@@ -29,6 +29,7 @@ Route::get('search', 'SearchController@index');
 Route::get('home', 'HomeController@index');
 Route::post('nghe-album/{musicUrl}.html', ['as' => 'api.music.listen', 'uses' => 'MusicController@urlAlbum']);
 Route::post('nghe-album/{musicUrl}', ['as' => 'api.music.listen', 'uses' => 'MusicController@urlAlbum']);
+Route::post('nghe-album_info_id', ['as' => 'api.id_album', 'uses' => 'MusicController@infoAlbumId']);
 
 Route::post('listen_info_music', ['as' => 'api.music.listen', 'uses' => 'MusicController@infoMusicId']);
 
