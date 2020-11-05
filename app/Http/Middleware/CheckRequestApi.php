@@ -10,7 +10,7 @@ class CheckRequestApi {
 
     public function handle($request, Closure $next)
     {
-//        return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Hiện tại các api đang bảo trì'], 400);
+        return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Hiện tại các api đang bảo trì'], 400);
         return $next($request);
     }
 }
