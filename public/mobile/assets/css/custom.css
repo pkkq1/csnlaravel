@@ -653,8 +653,22 @@ footer {
 .box_profile__header img {
     height: auto;!important;
 }
-
-
+.csn-title-favourite {
+    display: none;
+    color: white;
+    background: rgba(49, 46, 46, 0.8)!important;
+    top: -22px;
+    margin-left: -10px;
+    font-size: 14px;
+    width: 152px;
+    position: absolute;
+    height: 26px;
+    line-height: 3px;
+    padding: 11px;
+    text-align: center;
+    border-radius: 6px;
+    font-family: SFProDisplay-Regular;
+}
 
 
 

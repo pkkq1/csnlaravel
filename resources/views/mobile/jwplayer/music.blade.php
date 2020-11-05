@@ -102,7 +102,7 @@ if( !$memberVip && !$isVNIP )
                     <div class="block_thongtin">
                         <div align="center"><h1 class="name_song mb-2">{{$music->music_title}} - {{$music->music_artist}}</h1></div>
                         @if ($auth_listen)
-                            <div class="infor_main" style="min-height: 400px;">
+                            <div class="infor_main" style="min-height: 200px;">
                                 @if (!$memberVip)
                                     <div style="text-align: right;"><a href="/chia-se-nhac-vip.html">[x Tắt quảng cáo]</a></div>
                                 @endif
@@ -338,7 +338,7 @@ if( !$memberVip && !$isVNIP )
                                                 <div class="element mb-2">
                                                     <a href="{{$url}}"><div style="background : url(<?php echo Helpers::coverThumb(Helpers::cover_url($item['cover_id'])) ?>) no-repeat center;background-size: cover;" class="image image100px mr-2 d-inline-block align-middle"></div></a>
                                                     <div class="content d-inline-block align-middle">
-                                                        <h6 class="name_song text-black mb-1 card-title">{{$item['music_title']}}</h6>
+                                                        <a href="{{$url}}" class="media-left"><h6 class="name_song text-black mb-1 card-title">{{$item['music_title']}}</h6></a>
                                                         <p class="name_singer text-gray mb-1 author"><?php echo $item['music_artist_html']; ?></p>
                                                         <p class="loss text-pink mb-0"><?php echo $item['music_bitrate_html']; ?></p>
                                                     </div>
