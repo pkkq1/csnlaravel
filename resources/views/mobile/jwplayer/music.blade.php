@@ -774,7 +774,7 @@ if( !$memberVip && !$isVNIP )
             document.body.addEventListener('touchstart', function (ae) {
                 if (video_preroll_played == false) {
                     video_preroll_played = true;
-                    jwplayer('csnplayerads').play(true);
+                    // jwplayer('csnplayerads').play(true);
                     jwplayer('csnplayer').play(true);
                     // jwplayer().play(true);
                 }
@@ -855,6 +855,7 @@ if( !$memberVip && !$isVNIP )
                 firstLoadBeforePlay = false;
                 // jw-icon-playback
                 setTimeout(function () {
+                    $('.jw-favourite').remove();
                     $('.stringQ').on('touchstart', function () {
                         if ($('.stringQ').hasClass('jw-open')) {
                             $('.stringQ').removeClass('jw-open');
