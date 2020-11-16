@@ -53,7 +53,7 @@ class Solr extends Command
         }elseif($this->argument('type') == 'cover') {
             $Solr->syncCover(null, null, strtotime(TIME_SOLR_TO_ADD_ITEM));
         }elseif($this->argument('type') == 'all') {
-            $minute_now = 53;//intval(date('i'));
+            $minute_now = 49;//intval(date('i'));
             // Music
             if ($minute_now < 35) {
                 $limit = 50000;
