@@ -898,4 +898,31 @@ class MusicController extends Controller
         }
         return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => Helpers::convertArrHtmlCharsDecode($result), 'error' => []], 200);
     }
+    public function syncNewMusicVideo(Request $request) {
+        if(!$request->music_id || !$request->cat_id) {
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Điền đầy đủ thông tin'], 400);
+        }
+        $Solr = new SolrSyncController($this->Solr);
+        $arrCover = [];
+        if($request->cat_id == 1) {
+            $video = $this->videoRepository->getQueryPublished()->where('music_time',  $request->music_id)->first();
+            $Solr->syncVideo(null, $video);
+            if($video->cover_id > 0) {
+                $cntCover = $this->videoRepository->getQueryPublished()->where('cover_id', $video->cover_id)->count();
+                $cover = $this->coverRepository->getModel()::where('cover_id', $video->cover_id)->first();
+                $cover->update(['album_music_total' => $cntCover]);
+                $Solr->syncCover(null, $cover);
+            }
+        }else{
+            $music = $this->musicRepository->getQueryPublished()->where('music_id',  $request->music_id)->first();
+            $Solr->syncMusic(null, $music);
+            if($music->cover_id > 0) {
+                $cntCover = $this->musicRepository->getQueryPublished()->where('cover_id', $music->cover_id)->count();
+                $cover = $this->coverRepository->getModel()::where('cover_id', $music->cover_id)->first();
+                $cover->update(['album_music_total' => $cntCover]);
+                $Solr->syncCover(null, $cover);
+            }
+        }
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => [], 'error' => ''], 200);
+    }
 }

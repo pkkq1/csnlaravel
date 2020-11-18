@@ -20,7 +20,9 @@ Route::get('/sync/solr_cover', 'Sync\SolrSyncController@syncCover');
 Route::get('/sync/solr_music_delete', 'Sync\SolrSyncController@syncDeleteMusic');
 Route::get('/sync/solr_video_delete', 'Sync\SolrSyncController@syncDeleteVideo');
 
+Route::get('/sync/cover_category', 'Sync\SyncTableController@syncArtistCategoryCover');
 Route::get('/sync/demo', 'Sync\MusicController@demo');
+Route::get('/sync/demo_sync_cover', 'Sync\MusicController@demoSyncCoverTotalMusic');
 Route::get('/convert_music_id', 'HomeController@convert_id_music');
 Route::get('/sync/cover_hot', 'Sync\AlbumController@albumHot');
 

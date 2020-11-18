@@ -156,4 +156,5 @@ Route::prefix('report/')->group(function () {
     Route::post('comment', ['as' => 'report.comment', 'uses' => 'ReportController@reportComment']);
     Route::post('music', ['as' => 'report.music', 'uses' => 'ReportController@reportMusic']);
 });
+Route::post('update_solr_music', ['as' => 'api.user.tab', 'uses' => 'MusicController@syncNewMusicVideo']);
 

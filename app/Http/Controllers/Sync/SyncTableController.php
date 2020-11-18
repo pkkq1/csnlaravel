@@ -38,14 +38,16 @@ class SyncTableController extends Controller
         $this->Solr = $Solr;
     }
     public function syncArtistCategoryCover() {
-        $cover = CoverModel::with('music')->offset(100000)->limit(10000)->get();
+        $cover = CoverModel::with('music')->where('album_music_total', '>', 0)
+            ->orderBy('cover_id', 'desc')->offset(120000)->limit(10000)->get();
         foreach ($cover as $item) {
-            if($item->music) {
+            $musics = $item->music;
+            if($musics->count() > 0) {
                 $artists = [];
                 $artist_ids = [];
                 $bitrates = [];
                 $cat = [];
-                foreach ($item->music as $music) {
+                foreach ($musics as $music) {
                     $artists = array_merge($artists, explode(';', htmlspecialchars_decode(trim($music->music_artist), ENT_QUOTES)));
                     $artist_ids = array_merge($artist_ids, explode(';', htmlspecialchars_decode(trim($music->music_artist_id), ENT_QUOTES)));
                     $bitrates[] = $music->music_bitrate;
@@ -71,6 +73,9 @@ class SyncTableController extends Controller
                 $item->album_cat_level_1 = isset($cat[0]) ? explode('_', $cat[0])[1] : null;
                 $item->album_cat_id_2 = isset($cat[1]) ? explode('_', $cat[1])[0] : null;
                 $item->album_cat_level_2 = isset($cat[1]) ? explode('_', $cat[1])[1] : null;
+                $item->save();
+            }else{
+                $item->album_music_total = 0;
                 $item->save();
             }
         }
