@@ -1,7 +1,6 @@
 <?php
 use App\Library\Helpers;
 global $memberVip;
-$avatar = Helpers::pathAvatar($user->user_avatar, $user->id, env('DATA_URL')) . '?time='.time();
 $memberVip = Helpers::checkMemberVip();
 ?>
 <sectiton class="block_popup">
@@ -22,7 +21,7 @@ $memberVip = Helpers::checkMemberVip();
         <div id="navbar_main_header_top">
             @if(Auth::check())
                 <div class="profile">
-                    <a href="{{env('APP_URL')}}/user/{{Auth::user()->id}}"><div style="background: url(<?php echo $avatar ?>) no-repeat center;background-size: cover;" id="nav-avatar" class="image mr-3 d-inline-block align-middle rounded-circle"></div>
+                    <a href="{{env('APP_URL')}}/user/{{Auth::user()->id}}"><div style="background: url(<?php echo Helpers::pathAvatar(Auth::user()->user_avatar, Auth::user()->id) ?>?time={{time()}}) no-repeat center;background-size: cover;" id="nav-avatar" class="image mr-3 d-inline-block align-middle rounded-circle"></div>
                         <div class="content d-inline-block align-middle">
                             <h5 class="text-white wapper-name">{{Auth::user()->name}}</h5>
                             <p class="text-gray m-0 wapper-name">{{Auth::user()->email}}</p>
