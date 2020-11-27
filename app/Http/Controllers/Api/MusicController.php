@@ -415,6 +415,9 @@ class MusicController extends Controller
         if(!$music) {
             $music = $this->musicRepository->checkDeleteMusic($arrUrl['id'], false);
         }
+        if(!$music) {
+            return new JsonResponse(['message' => 'Nhạc không tồn tại', 'code' => 400, 'data' => [], 'error' => []], 200);
+        }
         // +1 view
         if(Helpers::sessionCountTimesMusic($music->music_id)){
             if($cat == CAT_VIDEO_URL) {
