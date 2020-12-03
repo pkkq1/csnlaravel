@@ -230,8 +230,9 @@ abstract class AbstractProvider implements ProviderContract
      */
     public function userFromToken($token)
     {
-        $user = $this->mapUserToObject($this->getUserByToken($token));
-
+        $tokenUser = $this->getUserByToken($token);
+        $tokenUser['id'] = $tokenUser['sub'];
+        $user = $this->mapUserToObject($tokenUser);
         return $user->setToken($token);
     }
 
