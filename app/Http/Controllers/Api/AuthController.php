@@ -72,16 +72,15 @@ class AuthController extends Controller
     }
     public function loginGoogle(Request $req) {
 
-//        $validator = Validator::make($req->all(), [
-//            'token' => 'required',
-//            'driver' => 'required',
-//        ]);
-//        if ($validator->fails()) {
-//            $messages = $validator->messages();
-//            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => $messages->all()], 400);
-//        }
-        $user = Socialite::driver('google')->userFromTokenv2($req->token);
-//        $user = Socialite::driver('google')->userFromToken($req->token);
+        $validator = Validator::make($req->all(), [
+            'token' => 'required',
+            'driver' => 'required',
+        ]);
+        if ($validator->fails()) {
+            $messages = $validator->messages();
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => $messages->all()], 400);
+        }
+        $user = Socialite::driver('google')->userFromToken($req->token);
         // Create user
         $email = ($user->getEmail() ? $user->getEmail() : $user->getId() . '@chiasenhac.com');
         $existUser = User::where('user_fb_identity', '=', $user->getId())->orWhere('email', '=', $email)->first();
