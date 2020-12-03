@@ -212,7 +212,6 @@ abstract class AbstractProvider implements ProviderContract
         }
 
         $response = $this->getAccessTokenResponse($this->getCode());
-
         $user = $this->mapUserToObject($this->getUserByToken(
             $token = Arr::get($response, 'access_token')
         ));
@@ -228,6 +227,17 @@ abstract class AbstractProvider implements ProviderContract
      * @param  string  $token
      * @return \Laravel\Socialite\Two\User
      */
+    public function userFromTokenv2($token)
+    {
+        $response = $this->getAccessTokenResponse($token);
+        $user = $this->mapUserToObject($this->getUserByToken(
+            $token = Arr::get($response, 'access_token')
+        ));
+
+        return $user->setToken($token)
+            ->setRefreshToken(Arr::get($response, 'refresh_token'))
+            ->setExpiresIn(Arr::get($response, 'expires_in'));
+    }
     public function userFromToken($token)
     {
         $user = $this->mapUserToObject($this->getUserByToken($token));
@@ -260,7 +270,6 @@ abstract class AbstractProvider implements ProviderContract
     public function getAccessTokenResponse($code)
     {
         $postKey = (version_compare(ClientInterface::VERSION, '6') === 1) ? 'form_params' : 'body';
-
         $response = $this->getHttpClient()->post($this->getTokenUrl(), [
             'headers' => ['Accept' => 'application/json'],
             $postKey => $this->getTokenFields($code),
