@@ -44,6 +44,65 @@
             return true;
         };
     });
+    var enableHasKeyMove = false;
+    var divSeachDisplay = $('.search_layout_top');
+    function search_keyDown(event) {
+        if(event.keyCode == 38 || event.keyCode == 40) {
+            enableHasKeyMove = true;
+            var hasKeyMove = false;
+            var posKeyMove = -1;
+            var lenghItem = divSeachDisplay.find('.li_item_result').length - 1;
+            divSeachDisplay.find('.li_item_result').each(function( i, index ) {
+               if($( this ).hasClass('select_key_move')) {
+                    if((i == lenghItem && event.keyCode == 40) || (i == 0 && event.keyCode == 38)) {
+                        hasKeyMove= false;
+                    }else{
+                        if(event.keyCode == 40) {
+                            posKeyMove = ++i;
+                        }else{
+                            posKeyMove = --i;
+                        }
+                        hasKeyMove= true;
+                    }
+                   return false;
+               }
+            });
+            $('.select_key_move').removeClass('select_key_move');
+            if(!hasKeyMove) {
+                if(event.keyCode == 38) {
+                    posKeyMove = lenghItem;
+                    divSeachDisplay.find('.li_item_result').last().addClass('select_key_move');
+                }else{
+                    posKeyMove = 0;
+                    divSeachDisplay.find('.li_item_result').first().addClass('select_key_move');
+                }
+            }else{
+                divSeachDisplay.find('.li_item_result').each(function( i, index ) {
+                    if(i == posKeyMove) {
+                        $(this).addClass('select_key_move');
+                    }
+                });
+            }
+        }else{
+            if(event.keyCode != 13) {
+                enableHasKeyMove = false;
+            }
+        }
+        if(event.keyCode == 13 && enableHasKeyMove) {
+            event.preventDefault();
+            document.location.href = $('.select_key_move').find('a').first().attr('href');
+            return false;
+        }
+    }
+    function search_keyUp() {
+        if($('#search_autocomplete').val()) {
+            $('.search_layout').css('display', 'block');
+            divSeachDisplay = $('.search_layout');
+        }else {
+            $('.search_layout').css('display', 'none');
+            divSeachDisplay = $('.search_layout_top');
+        }
+    }
     function rawBodySearch(artist, music, album, video, top_music) {
         return '<div class="card-body">' +
             top_music +
@@ -58,8 +117,8 @@
         if(musics.length > 0) {
             $.each( musics, function( key, value ) {
                 song = song +
+                    '  <li class="media align-items-stretch li_item_result">' +
                     '  <a class="search-line search-line-music" href="' + value.music_link + '" title="' + value.music_title + ' - ' + value.music_artist + '">' +
-                    '  <li class="media align-items-stretch">' +
                     // '      <div class="media-left align-items-stretch mr-2">' +
                     // '              <img src="' + value.music_cover + '" alt="' + value.music_title + '">' +
                     // '           <i class="material-icons">play_circle_outline</i>' +
@@ -69,8 +128,8 @@
                     '          <div class="author">' + value.music_artist + '</div>' +
                     '          <small class="type_music c1">' + value.music_bitrate_html + '</small>' +
                     '      </div>' +
-                    '  </li>' +
-                    '  </a>';
+                    '  </a>'+
+                    '  </li>';
             });
             if(song.trim()) {
                 return '<h4 class="card-title">Top Kết Quả</h4>' +
@@ -86,18 +145,19 @@
             var artist = '';
             $.each( artists, function( key, value ) {
                 artist = artist +
-                    ' <a class="search-line" href="' + value.artist_link + '" title="' + value.artist_nickname + '">' +
-                    '  <li class="media align-items-stretch">' +
-                    '      <div class="media-left align-items-stretch mr-2">' +
-                    '         <img src="' + value.artist_avatar + '" alt="' + value.artist_nickname + '">' +
-                    '      </div>' +
-                    '      <div class="media-body align-self-center d-flex flex-column justify-content-between p-0">' +
-                    '          <div>' +
-                    '              <h5 class="media-title mt-0 mb-0 span_h5">' + searchHighlight(q, value.artist_nickname) + '</h5>' +
-                    '          </div>' +
-                    '      </div>' +
-                    '  </li>' +
-                    ' </a>';
+                        '  <li class="media align-items-stretch li_item_result">' +
+                        ' <a class="search-line" href="' + value.artist_link + '" title="' + value.artist_nickname + '">' +
+                        '      <div class="media-left align-items-stretch mr-2" style="display: inline-block; margin-right: 3px!important;">' +
+                        '         <img src="' + value.artist_avatar + '" alt="' + value.artist_nickname + '">' +
+                        '      </div>' +
+                        '      <div class="media-body align-self-center flex-column justify-content-between p-0"  style="display: inline-block;">' +
+                        '          <div>' +
+                        '              <h5 class="media-title mt-0 mb-0 span_h5">' + searchHighlight(q, value.artist_nickname) + '</h5>' +
+                        '          </div>' +
+                        '      </div>' +
+                        ' </a>'+
+                        '  </li>';
+
             });
             return '<h4 class="card-title">Nghệ sĩ</h4>' +
                 '<ul class="list-unstyled list_music">' +
@@ -111,17 +171,17 @@
             var song = '';
             $.each( musics, function( key, value ) {
                 song = song +
-                    '<a class="search-line parent-line search-line-music" href="' + value.music_link + '">' +
-                    '  <li class="media align-items-stretch">' +
-                    '      <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">' +
-                    '          <div>' +
-                    '              <h5 class="media-title mt-0 mb-0 span_h5" title="' + value.music_title + ' - ' + value.music_artist + '">' + searchHighlight(q, value.music_title) + '</h5>' +
-                    '              <div class="author">' + (value.music_artist).replace(/;/g, '; ') + '</div>' +
-                    '          </div>' +
-                    '          <small class="type_music c1">' + value.music_bitrate_html + '</small>' +
-                    '      </div>' +
-                    '  </li>' +
-                    '</a>';
+                    '  <li class="media align-items-stretch li_item_result">' +
+                        '<a class="search-line parent-line search-line-music" href="' + value.music_link + '">' +
+                        '      <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">' +
+                        '          <div>' +
+                        '              <h5 class="media-title mt-0 mb-0 span_h5" title="' + value.music_title + ' - ' + value.music_artist + '">' + searchHighlight(q, value.music_title) + '</h5>' +
+                        '              <div class="author">' + (value.music_artist).replace(/;/g, '; ') + '</div>' +
+                        '          </div>' +
+                        '          <small class="type_music c1">' + value.music_bitrate_html + '</small>' +
+                        '      </div>' +
+                        '</a>'
+                    '  </li>';
             });
             return '<h4 class="card-title">Bài hát</h4>' +
                 '<ul class="list-unstyled list_music">' +
@@ -135,7 +195,7 @@
             var album = '';
             $.each(albums, function( key, value ) {
                 album = album +
-                    '  <li class="media align-items-stretch">' +
+                    '  <li class="media align-items-stretch li_item_result">' +
                     '      <div class="media-left align-items-stretch mr-2">' +
                     '          <a class="search-line" href="' + value.album_link + '">' +
                     '              <img src="' + value.album_cover + '" alt="' + value.music_album + '">' +
@@ -165,7 +225,7 @@
             var video = '';
             $.each( videos, function( key, value ) {
                 video = video +
-                    '  <li class="media align-items-stretch parent-line">' +
+                    '  <li class="media align-items-stretch parent-line li_item_result">' +
                     '      <div class="media-left align-items-stretch mr-2">' +
                     '          <a class="search-line search-line-music" href="' + value.video_link + '">' +
                     '              <img src="' + value.video_cover + '" alt="' + value.video_title + '">' +
@@ -996,6 +1056,7 @@
                 }
             });
         }
+
     </script>
 @endif
 

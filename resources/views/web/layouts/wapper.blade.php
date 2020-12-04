@@ -18,9 +18,11 @@ use App\Library\Helpers;
                         @endif
                     <div class="form-group m-0" style="float:left">
                         <i class="material-icons">search</i>
-                        <input type="search" name="q" class="form-control" value="{{$_GET['q'] ?? ''}}" autocomplete="on" class="biginput" id="search_autocomplete" placeholder="nhập bài hát, video, tên nghệ sỹ bạn cần tìm">
-                        <div class="search_layout card suggest">
+                        <input type="search" name="q" class="form-control" value="{{$_GET['q'] ?? ''}}" autocomplete="on" class="biginput" id="search_autocomplete" onkeydown="search_keyDown(event)" onkeyup="search_keyUp()" placeholder="nhập bài hát, video, tên nghệ sỹ bạn cần tìm">
+                        <div class="search_layout_top search_event card suggest">
                             @include('cache.top_search')
+                        </div>
+                        <div class="search_layout search_event card suggest">
                         </div>
                     </div>
                     <div class="box-history-music">
