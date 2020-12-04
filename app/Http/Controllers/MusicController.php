@@ -223,22 +223,24 @@ class MusicController extends Controller
             }
             if($_COOKIE['search_search'] ?? '') {
                 unset($_COOKIE['search_search']);
-                $this->musicSearchResultRepository->createSearch($music);
-                if(Auth::check()) {
-                    $search = $music->music_title;
-                    $searchRecent = Auth::user()->user_music_search_recent;
-                    $searchRecent = unserialize($searchRecent);
-                    if (($key = array_search($search, $searchRecent)) !== false) {
-                        unset($searchRecent[$key]);
-                    }
-                    $searchRecent[] = $search;
-                    if(count($searchRecent) > 5) {
-                        array_shift($searchRecent);
-                    }
-                    $user = Auth::user();
-                    $user->user_music_search_recent = serialize($searchRecent);
-                    $user->save();
+            }
+        }
+        if($_COOKIE['search_search'] ?? '') {
+            unset($_COOKIE['search_search']);
+            if(Auth::check()) {
+                $search = $music->music_title;
+                $searchRecent = Auth::user()->user_music_search_recent;
+                $searchRecent = unserialize($searchRecent);
+                if (($key = array_search($search, $searchRecent)) !== false) {
+                    unset($searchRecent[$key]);
                 }
+                $searchRecent[] = $search;
+                if(count($searchRecent) > 5) {
+                    array_shift($searchRecent);
+                }
+                $user = Auth::user();
+                $user->user_music_search_recent = serialize($searchRecent);
+                $user->save();
             }
         }
         $type = 'music';
@@ -429,25 +431,29 @@ class MusicController extends Controller
                 $this->musicListenRepository->incrementListen($music->music_id);
             }
             if($_COOKIE['search_search'] ?? '') {
-                unset($_COOKIE['search_search']);
                 $this->musicSearchResultRepository->createSearch($music);
-                if(Auth::check()) {
-                    $search = $music->music_title;
-                    $searchRecent = Auth::user()->user_music_search_recent;
-                    $searchRecent = unserialize($searchRecent);
-                    if (($key = array_search($search, $searchRecent)) !== false) {
-                        unset($searchRecent[$key]);
-                    }
-                    $searchRecent[] = $search;
-                    if(count($searchRecent) > 5) {
-                        array_shift($searchRecent);
-                    }
-                    $user = Auth::user();
-                    $user->user_music_search_recent = serialize($searchRecent);
-                    $user->save();
-                }
             }
         }
+        if($_COOKIE['search_search'] ?? '') {
+            unset($_COOKIE['search_search']);
+            if(Auth::check()) {
+                $search = $music->music_title;
+                $searchRecent = Auth::user()->user_music_search_recent;
+                $searchRecent = unserialize($searchRecent);
+                if (($key = array_search($search, $searchRecent)) !== false) {
+                    unset($searchRecent[$key]);
+                }
+                $searchRecent[] = $search;
+                if(count($searchRecent) > 5) {
+                    array_shift($searchRecent);
+                }
+                $user = Auth::user();
+                $user->user_music_search_recent = serialize($searchRecent);
+                $user->save();
+            }
+        }
+
+
         $type = 'music';
         if($music->cat_id == CAT_VIDEO)
             $type = 'video';
