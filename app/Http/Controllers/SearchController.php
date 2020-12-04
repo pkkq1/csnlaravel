@@ -40,7 +40,7 @@ class SearchController extends Controller
                 unset($searchRecent[$key]);
             }
             $searchRecent[] = $search;
-            if(count($searchRecent) > 5) {
+            if(count($searchRecent) > 10) {
                 array_shift($searchRecent);
             }
             $user = Auth::user();
