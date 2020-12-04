@@ -231,7 +231,8 @@ class MusicController extends Controller
                 $search = $music->music_title;
                 $searchRecent = Auth::user()->user_music_search_recent;
                 $searchRecent = unserialize($searchRecent);
-                if (($key = array_search($search, $searchRecent)) !== false) {
+                if($searchRecent)
+                if ($searchRecent && ($key = array_search($search, $searchRecent)) !== false) {
                     unset($searchRecent[$key]);
                 }
                 $searchRecent[] = $search;
@@ -440,7 +441,7 @@ class MusicController extends Controller
                 $search = $music->music_title;
                 $searchRecent = Auth::user()->user_music_search_recent;
                 $searchRecent = unserialize($searchRecent);
-                if (($key = array_search($search, $searchRecent)) !== false) {
+                if ($searchRecent && ($key = array_search($search, $searchRecent)) !== false) {
                     unset($searchRecent[$key]);
                 }
                 $searchRecent[] = $search;

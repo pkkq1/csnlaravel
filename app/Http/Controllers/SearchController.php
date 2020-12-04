@@ -36,7 +36,7 @@ class SearchController extends Controller
         if(Auth::check()) {
             $searchRecent = Auth::user()->user_music_search_recent;
             $searchRecent = unserialize($searchRecent);
-            if (($key = array_search($search, $searchRecent)) !== false) {
+            if ($searchRecent && ($key = array_search($search, $searchRecent)) !== false) {
                 unset($searchRecent[$key]);
             }
             $searchRecent[] = $search;
