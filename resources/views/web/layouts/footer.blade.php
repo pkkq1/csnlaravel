@@ -197,12 +197,12 @@
                 album = album +
                     '  <li class="media align-items-stretch li_item_result">' +
                     '      <div class="media-left align-items-stretch mr-2">' +
-                    '          <a class="search-line" href="' + value.album_link + '">' +
+                    '          <a class="search-line search-line-music" href="' + value.album_link + '">' +
                     '              <img src="' + value.album_cover + '" alt="' + value.music_album + '">' +
                     '              <i class="material-icons">play_circle_outline</i>' +
                     '          </a>' +
                     '      </div>' +
-                    '      <a class="search-line" href="' + value.album_link + '" title="' + value.music_album + ' - ' + value.album_artist + '">' +
+                    '      <a class="search-line search-line-music" href="' + value.album_link + '" title="' + value.music_album + ' - ' + value.album_artist + '">' +
                     '      <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">' +
                     '          <div>' +
                     '              <h5 class="media-title mt-0 mb-0 span_h5">' + searchHighlight(q, value.music_album) + '</h5>' +

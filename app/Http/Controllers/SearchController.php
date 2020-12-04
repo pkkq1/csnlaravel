@@ -39,6 +39,7 @@ class SearchController extends Controller
             if (($key = array_search($search, $searchRecent)) !== false) {
                 unset($searchRecent[$key]);
             }
+            dd($searchRecent);
             $searchRecent[] = $search;
             if(count($searchRecent) > 5) {
                 array_shift($searchRecent);

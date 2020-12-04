@@ -222,7 +222,7 @@ class MusicController extends Controller
                 $this->musicListenRepository->incrementListen($arrUrl['id']);
             }
             if($_COOKIE['search_search'] ?? '') {
-                unset($_COOKIE['search_search']);
+                $this->musicSearchResultRepository->createSearch($music);
             }
         }
         if($_COOKIE['search_search'] ?? '') {
