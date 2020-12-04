@@ -33,6 +33,20 @@ class SearchController extends Controller
         if(!$search)
             return redirect('/');
         $search = htmlspecialchars($search, ENT_QUOTES);
+        if(Auth::check()) {
+            $searchRecent = Auth::user()->user_music_search_recent;
+            $searchRecent = unserialize($searchRecent);
+            if (($key = array_search($search, $searchRecent)) !== false) {
+                unset($searchRecent[$key]);
+            }
+            $searchRecent[] = $search;
+            if(count($searchRecent) > 5) {
+                array_shift($searchRecent);
+            }
+            $user = Auth::user();
+            $user->user_music_search_recent = serialize($searchRecent);
+            $user->save();
+        }
         return view('search.index', compact('result', 'titleSearch', 'search', 'result'));
     }
     public function ajaxSearch(Request $request, $quickSearch = true) {

@@ -37,7 +37,7 @@
             $(".suggest").fadeIn("fast");
             $('.search_layout').html(theHtml);
             $( "<li>" ).appendTo( ul );
-            $('.search_layout .search-line-music').click(function () {
+            $('.search_event .search-line-music').click(function () {
                 Cookies.set('search_search', $(this).attr('href'))
             });
             this.element.removeClass( "ui-autocomplete-loading" );
