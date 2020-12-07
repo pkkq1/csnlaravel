@@ -230,7 +230,7 @@ class MusicController extends Controller
 //            var_dump($_COOKIE['search_search'] ?? '');
 //        }
         if($_COOKIE['search_search'] ?? '') {
-            setcookie("search_search", "", time()-3600);
+            setcookie("search_search", "", time()-3600, env('APP_URL'));
             $search = htmlspecialchars_decode($music->music_title, ENT_QUOTES);
             if(Auth::check()) {
                 $searchRecent = Auth::user()->user_music_search_recent;
@@ -454,7 +454,7 @@ class MusicController extends Controller
             }
         }
         if($_COOKIE['search_search'] ?? '') {
-            setcookie("search_search", "", time()-3600);
+            setcookie("search_search", "", time()-3600, env('APP_URL'));
             $search = htmlspecialchars_decode($music->music_title, ENT_QUOTES);
             if(Auth::check()) {
                 $searchRecent = Auth::user()->user_music_search_recent;
