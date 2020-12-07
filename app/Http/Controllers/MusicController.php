@@ -259,7 +259,7 @@ class MusicController extends Controller
                 if(count($searchRecent) > 10) {
                     array_shift($searchRecent);
                 }
-                setcookie("remember_key_search", serialize($searchRecent));
+                setcookie("remember_key_search", serialize($searchRecent), time() + 31536000,'/');
             }
         }
         $type = 'music';
@@ -482,7 +482,7 @@ class MusicController extends Controller
                 if(count($searchRecent) > 10) {
                     array_shift($searchRecent);
                 }
-                setcookie("remember_key_search", serialize($searchRecent));
+                setcookie("remember_key_search", serialize($searchRecent), time() + 31536000,'/');
             }
         }
 

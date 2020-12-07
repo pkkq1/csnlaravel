@@ -401,7 +401,7 @@ $filter = $_GET['filter'] ?? '';
         var myDate = new Date();
         myDate.setMonth(myDate.getMonth() + 12);
         document.cookie = cookieName +"=" + cookieValue + ";expires=" + myDate
-            + ";domain=vi.chiasenhac.vn/;path=/";
+            + ";path=/";
     })
     $('.form-check-input').change(function() {
         let url = window.location.href;
