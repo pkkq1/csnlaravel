@@ -22,6 +22,33 @@ use App\Library\Helpers;
                         <div class="search_layout_top search_event card suggest">
                             <div class="card-body">
                                 @include('cache.top_search')
+                                <?php
+                                    $searchRecent = '';
+                                    if(Auth::check()) {
+                                        $searchRecent = Auth::user()->user_music_search_recent;
+                                    }else{
+                                        if($_COOKIE['remember_key_search'] ?? '') {
+                                            $searchRecent = $_COOKIE['remember_key_search'];
+                                        }
+                                    }
+                                    $searchRecent = unserialize($searchRecent);
+                                ?>
+                                @if($searchRecent)
+                                <hr>
+                                <h4 class="card-title">Lịch sử tìm kiếm của bạn</h4>
+                                <ul class="list-unstyled list_music">
+                                    @foreach($searchRecent as $item)
+                                    <li class="media align-items-stretch li_item_result">
+                                        <a class="search-line parent-line search-line-music" href="/tim-kiem?q={{urlencode ($item) }}">
+                                            <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
+                                                <div><h5 class="media-title mt-0 mb-0 span_h5" title="">{{$item}}</h5>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    @endforeach
+                                </ul>
+                                @endif
                             </div>
                         </div>
                         <div class="search_layout search_event card suggest">
