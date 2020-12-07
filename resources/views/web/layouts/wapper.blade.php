@@ -37,7 +37,7 @@ use App\Library\Helpers;
                                 <hr>
                                 <h4 class="card-title">Lịch sử tìm kiếm của bạn</h4>
                                 <ul class="list-unstyled list_music">
-                                    @foreach($searchRecent as $item)
+                                    @foreach(array_reverse($searchRecent) as $item)
                                     <li class="media align-items-stretch li_item_result">
                                         <a class="search-line parent-line" href="/tim-kiem?q={{urlencode ($item) }}">
                                             <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
