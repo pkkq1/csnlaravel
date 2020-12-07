@@ -225,10 +225,11 @@ class MusicController extends Controller
                 $this->musicSearchResultRepository->createSearch($music);
             }
         }
+        //set cookie key search
         if($_COOKIE['search_search'] ?? '') {
             unset($_COOKIE['search_search']);
+            $search = $music->music_title;
             if(Auth::check()) {
-                $search = $music->music_title;
                 $searchRecent = Auth::user()->user_music_search_recent;
                 $searchRecent = unserialize($searchRecent);
                 if($searchRecent)
@@ -242,6 +243,20 @@ class MusicController extends Controller
                 $user = Auth::user();
                 $user->user_music_search_recent = serialize($searchRecent);
                 $user->save();
+            }else{
+                $remKeySearch = '';
+                if($_COOKIE['remember_key_search'] ?? '') {
+                    $remKeySearch = $_COOKIE['remember_key_search'];
+                }
+                $searchRecent = unserialize($remKeySearch);
+                if ($searchRecent && ($key = array_search($search, $searchRecent)) !== false) {
+                    unset($searchRecent[$key]);
+                }
+                $searchRecent[] = $search;
+                if(count($searchRecent) > 10) {
+                    array_shift($searchRecent);
+                }
+                setcookie("remember_key_search", serialize($searchRecent));
             }
         }
         $type = 'music';
@@ -437,8 +452,8 @@ class MusicController extends Controller
         }
         if($_COOKIE['search_search'] ?? '') {
             unset($_COOKIE['search_search']);
+            $search = $music->music_title;
             if(Auth::check()) {
-                $search = $music->music_title;
                 $searchRecent = Auth::user()->user_music_search_recent;
                 $searchRecent = unserialize($searchRecent);
                 if ($searchRecent && ($key = array_search($search, $searchRecent)) !== false) {
@@ -451,9 +466,22 @@ class MusicController extends Controller
                 $user = Auth::user();
                 $user->user_music_search_recent = serialize($searchRecent);
                 $user->save();
+            }else{
+                $remKeySearch = '';
+                if($_COOKIE['remember_key_search'] ?? '') {
+                    $remKeySearch = $_COOKIE['remember_key_search'];
+                }
+                $searchRecent = unserialize($remKeySearch);
+                if ($searchRecent && ($key = array_search($search, $searchRecent)) !== false) {
+                    unset($searchRecent[$key]);
+                }
+                $searchRecent[] = $search;
+                if(count($searchRecent) > 10) {
+                    array_shift($searchRecent);
+                }
+                setcookie("remember_key_search", serialize($searchRecent));
             }
         }
-
 
         $type = 'music';
         if($music->cat_id == CAT_VIDEO)
