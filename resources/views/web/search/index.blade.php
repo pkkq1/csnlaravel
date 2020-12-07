@@ -402,7 +402,6 @@ $filter = $_GET['filter'] ?? '';
         myDate.setMonth(myDate.getMonth() + 12);
         document.cookie = cookieName +"=" + cookieValue + ";expires=" + myDate
             + ";domain=<?php echo env('APP_URL') ?>;path=/";
-        alert(1);
     })
     $('.form-check-input').change(function() {
         let url = window.location.href;
