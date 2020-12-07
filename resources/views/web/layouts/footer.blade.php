@@ -50,6 +50,15 @@
             return true;
         };
     });
+    $('.search-line-music').click(function () {
+        Cookies.set('search_search', $(this).attr('href'));
+        var cookieName = 'search_search';
+        var cookieValue = $(this).attr('href');
+        var myDate = new Date();
+        myDate.setMonth(myDate.getMonth() + 12);
+        document.cookie = cookieName +"=" + cookieValue + ";expires=" + myDate
+            + ";domain=<?php echo env('APP_URL') ?>;path=/";
+    })
     var enableHasKeyMove = false;
     var divSeachDisplay = $('.search_layout_top');
     function search_keyDown(event) {
