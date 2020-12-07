@@ -394,15 +394,6 @@ $filter = $_GET['filter'] ?? '';
         $('#' + tab).click();
         $('html,body').animate({ scrollTop: 0 }, 400);
     }
-    $('.search-line-music').click(function () {
-        Cookies.set('search_search', $(this).attr('href'));
-        var cookieName = 'search_search';
-        var cookieValue = $(this).attr('href');
-        var myDate = new Date();
-        myDate.setMonth(myDate.getMonth() + 12);
-        document.cookie = cookieName +"=" + cookieValue + ";expires=" + myDate
-            + ";domain=<?php echo env('APP_URL') ?>;path=/";
-    })
     $('.form-check-input').change(function() {
         let url = window.location.href;
         if(url.indexOf("&filter=") != -1)
