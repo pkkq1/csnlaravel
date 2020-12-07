@@ -226,10 +226,12 @@ class MusicController extends Controller
             }
         }
         //set cookie key search
-        if(Auth::check() && Auth::user()->id == 997917) {
-            var_dump($request->ip());
+        if($request->ip() == '14.161.21.142') {
             var_dump($_COOKIE['search_search'] ?? '');
         }
+//        if(Auth::check() && Auth::user()->id == 997917) {
+//            var_dump($_COOKIE['search_search'] ?? '');
+//        }
         if($_COOKIE['search_search'] ?? '') {
             setcookie("search_search", "", time()-3600);
             $search = htmlspecialchars_decode($music->music_title, ENT_QUOTES);
