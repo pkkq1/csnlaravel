@@ -19,7 +19,7 @@ use App\Library\Helpers;
                     <div class="form-group m-0" style="float:left">
                         <i class="material-icons">search</i>
                         <input type="search" name="q" class="form-control" value="{{$_GET['q'] ?? ''}}" autocomplete="on" class="biginput" id="search_autocomplete" onkeydown="search_keyDown(event)" onkeyup="search_keyUp()" placeholder="nhập bài hát, video, tên nghệ sỹ bạn cần tìm">
-                        <div class="search_layout_top search_event card suggest">
+                        <div class="search_layout_top card suggest">
                             <div class="card-body">
                                 @include('cache.top_search')
                                 <?php
@@ -51,7 +51,7 @@ use App\Library\Helpers;
                                 @endif
                             </div>
                         </div>
-                        <div class="search_layout search_event card suggest">
+                        <div class="search_layout card suggest">
                         </div>
                     </div>
                     <div class="box-history-music">

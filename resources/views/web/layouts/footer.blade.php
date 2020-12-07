@@ -37,7 +37,7 @@
             $(".suggest").fadeIn("fast");
             $('.search_layout').html(theHtml);
             $( "<li>" ).appendTo( ul );
-            $('.search_event .search-line-music').click(function () {
+            $('.search_layout .search-line-music').click(function () {
                 Cookies.set('search_search', $(this).attr('href'));
                 var cookieName = 'search_search';
                 var cookieValue = $(this).attr('href');
@@ -50,7 +50,7 @@
             return true;
         };
     });
-    $('.search-line-music').click(function () {
+    $('.search_layout_top .search-line-music').click(function () {
         Cookies.set('search_search', $(this).attr('href'));
         var cookieName = 'search_search';
         var cookieValue = $(this).attr('href');
