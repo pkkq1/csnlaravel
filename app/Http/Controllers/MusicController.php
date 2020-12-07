@@ -228,8 +228,6 @@ class MusicController extends Controller
         //set cookie key search
         if(Auth::check() && Auth::user()->id == 997917) {
             var_dump($_COOKIE['search_search'] ?? '');
-            unset($_COOKIE['search_search']);
-            var_dump($_COOKIE['search_search'] ?? '');
         }
         if($_COOKIE['search_search'] ?? '') {
             unset($_COOKIE['search_search']);
@@ -261,7 +259,7 @@ class MusicController extends Controller
                 if(count($searchRecent) > 10) {
                     array_shift($searchRecent);
                 }
-                setcookie("remember_key_search", serialize($searchRecent), time() + 31536000,'/');
+                setcookie("remember_key_search", serialize($searchRecent), time() + 31536000, env('APP_URL'));
             }
         }
         $type = 'music';
@@ -484,7 +482,7 @@ class MusicController extends Controller
                 if(count($searchRecent) > 10) {
                     array_shift($searchRecent);
                 }
-                setcookie("remember_key_search", serialize($searchRecent), time() + 31536000,'/');
+                setcookie("remember_key_search", serialize($searchRecent), time() + 31536000,env('APP_URL'));
             }
         }
 
