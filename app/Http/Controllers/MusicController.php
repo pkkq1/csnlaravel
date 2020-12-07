@@ -226,6 +226,7 @@ class MusicController extends Controller
             }
         }
         //set cookie key search
+        var_dump($_COOKIE['search_search'] ?? '');
         if(Auth::check() && Auth::user()->id == 997917) {
             var_dump($_COOKIE['search_search'] ?? '');
         }
