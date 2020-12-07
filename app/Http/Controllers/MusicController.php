@@ -226,13 +226,12 @@ class MusicController extends Controller
             }
         }
         //set cookie key search
-        if(Auth::check() && Auth::user()->id == 997917) {
+//        if(Auth::check() && Auth::user()->id == 997917) {
 //            unset($_COOKIE['search_search']);
-            setcookie('search_search', null, -1, env('APP_URL'));
-            var_dump($_COOKIE['search_search'] ?? '');
-        }
+//            var_dump($_COOKIE['search_search'] ?? '');
+//        }
         if($_COOKIE['search_search'] ?? '') {
-            setcookie("search_search", "", time()-3600, env('APP_URL'));
+            unset($_COOKIE['search_search']);
             $search = htmlspecialchars_decode($music->music_title, ENT_QUOTES);
             if(Auth::check()) {
                 $searchRecent = Auth::user()->user_music_search_recent;
@@ -456,7 +455,7 @@ class MusicController extends Controller
             }
         }
         if($_COOKIE['search_search'] ?? '') {
-            setcookie("search_search", "", time()-3600, env('APP_URL'));
+            unset($_COOKIE['search_search']);
             $search = htmlspecialchars_decode($music->music_title, ENT_QUOTES);
             if(Auth::check()) {
                 $searchRecent = Auth::user()->user_music_search_recent;
