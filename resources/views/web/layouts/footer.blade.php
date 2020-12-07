@@ -44,7 +44,7 @@
                 var myDate = new Date();
                 myDate.setMonth(myDate.getMonth() + 12);
                 document.cookie = cookieName +"=" + cookieValue + ";expires=" + myDate
-                    + ";path=/";
+                    + ";domain=<?php echo env('APP_URL') ?>;path=/";
             });
             this.element.removeClass( "ui-autocomplete-loading" );
             return true;
