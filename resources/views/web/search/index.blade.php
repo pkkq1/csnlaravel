@@ -395,7 +395,13 @@ $filter = $_GET['filter'] ?? '';
         $('html,body').animate({ scrollTop: 0 }, 400);
     }
     $('.search-line-music').click(function () {
-        Cookies.set('search_search', $(this).attr('href'))
+        Cookies.set('search_search', $(this).attr('href'));
+        var cookieName = 'search_search';
+        var cookieValue = $(this).attr('href');
+        var myDate = new Date();
+        myDate.setMonth(myDate.getMonth() + 12);
+        document.cookie = cookieName +"=" + cookieValue + ";expires=" + myDate
+            + ";domain=.chiasenhac.vn;path=/";
     })
     $('.form-check-input').change(function() {
         let url = window.location.href;

@@ -38,7 +38,13 @@
             $('.search_layout').html(theHtml);
             $( "<li>" ).appendTo( ul );
             $('.search_event .search-line-music').click(function () {
-                Cookies.set('search_search', $(this).attr('href'))
+                Cookies.set('search_search', $(this).attr('href'));
+                var cookieName = 'search_search';
+                var cookieValue = $(this).attr('href');
+                var myDate = new Date();
+                myDate.setMonth(myDate.getMonth() + 12);
+                document.cookie = cookieName +"=" + cookieValue + ";expires=" + myDate
+                    + ";domain=.chiasenhac.vn;path=/";
             });
             this.element.removeClass( "ui-autocomplete-loading" );
             return true;
