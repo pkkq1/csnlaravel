@@ -44,7 +44,7 @@
                 var myDate = new Date();
                 myDate.setMonth(myDate.getMonth() + 12);
                 document.cookie = cookieName +"=" + cookieValue + ";expires=" + myDate
-                    + ";domain=.chiasenhac.vn;path=/";
+                    + ";domain=vi.chiasenhac.vn;path=/";
             });
             this.element.removeClass( "ui-autocomplete-loading" );
             return true;
