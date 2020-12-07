@@ -38,6 +38,7 @@
             $('.search_layout').html(theHtml);
             $( "<li>" ).appendTo( ul );
             $('.search_event .search-line-music').click(function () {
+                alert(1);
                 Cookies.set('search_search', $(this).attr('href'));
                 var cookieName = 'search_search';
                 var cookieValue = $(this).attr('href');
