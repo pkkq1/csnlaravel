@@ -39,7 +39,7 @@ use App\Library\Helpers;
                                 <ul class="list-unstyled list_music">
                                     @foreach(array_reverse($searchRecent) as $item)
                                     <li class="media align-items-stretch li_item_result">
-                                        <a class="search-line parent-line search-line-music" href="/tim-kiem?q={{urlencode ($item) }}">
+                                        <a class="search-line parent-line" href="/tim-kiem?q={{urlencode ($item) }}">
                                             <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
                                                 <div><h5 class="media-title mt-0 mb-0 span_h5" title="">{{$item}}</h5>
                                                 </div>
