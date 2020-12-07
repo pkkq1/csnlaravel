@@ -109,14 +109,14 @@ $filter = $_GET['filter'] ?? '';
                             ?>
                             <li class="media align-items-stretch">
                                 <div class="media-left align-items-stretch mr-2">
-                                    <a class="search-line-music" href="{{$item['music_link']}}" title="{{$item['music_title']}}">
+                                    <a href="{{$item['music_link']}}" title="{{$item['music_title']}}">
                                         <img src="{{$item['music_cover']}}" alt="{{$item['music_title']}}">
                                         <i class="material-icons">play_circle_outline</i>
                                     </a>
                                 </div>
                                 <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
                                     <div>
-                                        <h5 class="media-title mt-0 mb-0"><a href="{{$item['music_link']}}" title="{{$item['music_title']}}" class="search_title search-line-music">{{$item['music_title']}}</a></h5>
+                                        <h5 class="media-title mt-0 mb-0"><a href="{{$item['music_link']}}" title="{{$item['music_title']}}" class="search_title">{{$item['music_title']}}</a></h5>
                                         <div class="author"><?php echo $item['music_artist'] ?></div>
                                     </div>
                                     <small class="type_music c1"><?php echo $item['music_bitrate_html'] ?></small>
@@ -175,14 +175,14 @@ $filter = $_GET['filter'] ?? '';
                         <div class="col col col-md-3">
                             <div class="card card1 video">
                                 <div class="card-header" style="background-image: url({{$item['video_cover']}});">
-                                    <a class="search-line-music" href="{{$item['video_link']}}" title="{{$item['video_title']}}">
+                                    <a href="{{$item['video_link']}}" title="{{$item['video_title']}}">
                                         <span class="icon-play"></span>
                                     </a>
                                 </div>
                                 <p class="time"><img src="/mobile/assets/images/icon/ic_menu_clock.png" width="14"><?php echo $item['video_length_html'] ?></p>
                                 <p class="card-text bitrate_video"><?php echo $item['video_bitrate_html'] ?></p>
                                 <div class="card-body">
-                                    <h3 class="card-title"><a href="{{$item['video_link']}}" title="{{$item['video_title']}}" class="search_title search-line-music" >{{$item['video_title']}}</a></h3>
+                                    <h3 class="card-title"><a href="{{$item['video_link']}}" title="{{$item['video_title']}}" class="search_title" >{{$item['video_title']}}</a></h3>
                                     <p class="card-text"><?php echo $item['video_artist'] ?></p>
                                 </div>
                             </div>
@@ -209,14 +209,14 @@ $filter = $_GET['filter'] ?? '';
                             ?>
                             <li class="media align-items-stretch">
                                 <div class="media-left align-items-stretch mr-2">
-                                    <a href="{{$item['music_link']}}" class="search-line-music" title="{{$item['music_title']}}">
+                                    <a href="{{$item['music_link']}}" title="{{$item['music_title']}}">
                                         <img src="{{$item['music_cover']}}" alt="{{$item['music_title']}}">
                                         <i class="material-icons">play_circle_outline</i>
                                     </a>
                                 </div>
                                 <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
                                     <div>
-                                        <h5 class="media-title mt-0 mb-0"><a href="{{$item['music_link']}}" title="{{$item['music_title']}}" class="search_title search-line-music">{{$item['music_title']}}</a></h5>
+                                        <h5 class="media-title mt-0 mb-0"><a href="{{$item['music_link']}}" title="{{$item['music_title']}}" class="search_title">{{$item['music_title']}}</a></h5>
                                         <div class="author"><?php echo $item['music_artist'] ?></div>
                                     </div>
                                     <small class="type_music c1"><?php echo $item['music_bitrate_html'] ?></small>
@@ -285,14 +285,14 @@ $filter = $_GET['filter'] ?? '';
                             <div class="col col col-md-3">
                                 <div class="card card1 video">
                                     <div class="card-header" style="background-image: url({{$item['video_cover']}});">
-                                        <a href="{{$item['video_link']}}" class="search-line-music" title="{{$item['video_title']}}">
+                                        <a href="{{$item['video_link']}}" title="{{$item['video_title']}}">
                                             <span class="icon-play"></span>
                                         </a>
                                     </div>
                                     <p class="time"><img src="/mobile/assets/images/icon/ic_menu_clock.png" width="14"><?php echo $item['video_length_html'] ?></p>
                                     <p class="card-text bitrate_video"><?php echo $item['video_bitrate_html'] ?></p>
                                     <div class="card-body">
-                                        <h3 class="card-title"><a href="{{$item['video_link']}}" title="{{$item['video_title']}}" class="search_title search-line-music" >{{$item['video_title']}}</a></h3>
+                                        <h3 class="card-title"><a href="{{$item['video_link']}}" title="{{$item['video_title']}}" class="search_title" >{{$item['video_title']}}</a></h3>
                                         <p class="card-text"><?php echo $item['video_artist'] ?></p>
                                     </div>
                                 </div>
@@ -319,14 +319,14 @@ $filter = $_GET['filter'] ?? '';
                             ?>
                             <li class="media align-items-stretch">
                                 <div class="media-left align-items-stretch mr-2">
-                                    <a href="{{$item['music_link']}}" class="search-line-music" title="{{$item['music_title']}}">
+                                    <a href="{{$item['music_link']}}" title="{{$item['music_title']}}">
                                         <img src="{{$item['music_cover']}}" alt="{{$item['music_title']}}">
                                         <i class="material-icons">play_circle_outline</i>
                                     </a>
                                 </div>
                                 <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
                                     <div>
-                                        <h5 class="media-title mt-0 mb-0"><a href="{{$item['music_link']}}" title="{{$item['music_title']}}" class="search-line-music search_title">{{$item['music_title']}}</a></h5>
+                                        <h5 class="media-title mt-0 mb-0"><a href="{{$item['music_link']}}" title="{{$item['music_title']}}" class="search_title">{{$item['music_title']}}</a></h5>
                                         <div class="author"><?php echo $item['music_artist'] ?></div>
                                     </div>
                                     <small class="type_music c1"><?php echo $item['music_bitrate_html'] ?></small>
