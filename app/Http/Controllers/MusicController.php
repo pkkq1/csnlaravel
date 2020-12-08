@@ -225,6 +225,10 @@ class MusicController extends Controller
                 $this->musicSearchResultRepository->createSearch($music);
             }
         }
+
+        setcookie("test_csn_1", 'hau', time() + 31536000, '/', 'https://chiasenhac.vn');
+
+
         //set cookie key search
 //        if(Auth::check() && Auth::user()->id == 997917) {
 //            var_dump($_COOKIE['search_search'] ?? '');
