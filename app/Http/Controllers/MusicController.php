@@ -226,7 +226,7 @@ class MusicController extends Controller
             }
         }
 
-        setcookie("test_csn_1", 'hau', time() + 31536000, '/', 'https://chiasenhac.vn');
+        setcookie("test_csn_1", 'hau', time() + 31536000, '/', '.chiasenhac.vn');
 
 
         //set cookie key search
