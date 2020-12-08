@@ -226,9 +226,6 @@ class MusicController extends Controller
             }
         }
 
-        setcookie("test_csn_2", 'hau', time() + 31536000, '/', env('SESSION_DOMAIN'));
-
-
         //set cookie key search
 //        if(Auth::check() && Auth::user()->id == 997917) {
 //            var_dump($_COOKIE['search_search'] ?? '');
@@ -263,6 +260,8 @@ class MusicController extends Controller
                 if(count($searchRecent) > 10) {
                     array_shift($searchRecent);
                 }
+                setcookie("test_csn_3", 'hau', time() + 31536000, '/', env('SESSION_DOMAIN'));
+
                 setcookie("remember_key_search", serialize($searchRecent), time() + 31536000, '/', env('APP_URL'));
             }
         }
