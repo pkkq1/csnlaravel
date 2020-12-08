@@ -1303,7 +1303,7 @@ class Helpers
         }
         $musicHistorySer = serialize($musicHistory);
         if($cookieSet)
-            setcookie('music_history', $musicHistorySer, time() + 31536000,'/');
+            setcookie('music_history_list', $musicHistorySer, time() + 31536000,'/', env('SESSION_DOMAIN'));
         if(Auth::check()) {
             $user = Auth::user();
             $user->user_music_recent = $musicHistorySer;
