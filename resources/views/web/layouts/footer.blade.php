@@ -38,26 +38,24 @@
             $('.search_layout').html(theHtml);
             $( "<li>" ).appendTo( ul );
             $('.search_layout .search-line-music').click(function () {
-                Cookies.set('search_search', $(this).attr('href'));
                 var cookieName = 'search_search';
                 var cookieValue = $(this).attr('href');
                 var myDate = new Date();
                 myDate.setMonth(myDate.getMonth() + 12);
                 document.cookie = cookieName +"=" + cookieValue + ";expires=" + myDate
-                    + ";domain=<?php echo env('APP_URL') ?>;path=/";
+                    + ";domain=<?php echo env('SESSION_DOMAIN') ?>;path=/";
             });
             this.element.removeClass( "ui-autocomplete-loading" );
             return true;
         };
     });
     $('.search_layout_top .search-line-music').click(function () {
-        Cookies.set('search_search', $(this).attr('href'));
         var cookieName = 'search_search';
         var cookieValue = $(this).attr('href');
         var myDate = new Date();
         myDate.setMonth(myDate.getMonth() + 12);
         document.cookie = cookieName +"=" + cookieValue + ";expires=" + myDate
-            + ";domain=<?php echo env('APP_URL') ?>;path=/";
+            + ";domain=<?php echo env('SESSION_DOMAIN') ?>;path=/";
     })
     var enableHasKeyMove = false;
     var divSeachDisplay = $('.search_layout_top');
