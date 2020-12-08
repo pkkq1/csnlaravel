@@ -60,7 +60,7 @@ class SearchController extends Controller
             if(count($searchRecent) > 10) {
                 array_shift($searchRecent);
             }
-            setcookie("remember_key_search", serialize($searchRecent), time() + 31536000, env('APP_URL'));
+            setcookie("remember_key_search", serialize($searchRecent), time() + 31536000, '/', env('APP_URL'));
         }
         return view('search.index', compact('result', 'titleSearch', 'search', 'result'));
     }
