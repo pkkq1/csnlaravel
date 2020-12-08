@@ -27,8 +27,8 @@ use App\Library\Helpers;
                                     if(Auth::check()) {
                                         $searchRecent = Auth::user()->user_music_search_recent;
                                     }else{
-                                        if($_COOKIE['remember_key_search'] ?? '') {
-                                            $searchRecent = $_COOKIE['remember_key_search'];
+                                        if($_COOKIE['remember_search'] ?? '') {
+                                            $searchRecent = $_COOKIE['remember_search'];
                                         }
                                     }
                                     $searchRecent = unserialize($searchRecent);

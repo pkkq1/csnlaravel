@@ -249,8 +249,8 @@ class MusicController extends Controller
                 $user->save();
             }else{
                 $remKeySearch = '';
-                if($_COOKIE['remember_key_search'] ?? '') {
-                    $remKeySearch = $_COOKIE['remember_key_search'];
+                if($_COOKIE['remember_search'] ?? '') {
+                    $remKeySearch = $_COOKIE['remember_search'];
                 }
                 $searchRecent = unserialize($remKeySearch);
                 if ($searchRecent && ($key = array_search($search, $searchRecent)) !== false) {
@@ -260,7 +260,7 @@ class MusicController extends Controller
                 if(count($searchRecent) > 10) {
                     array_shift($searchRecent);
                 }
-                setcookie("remember_key_search", serialize($searchRecent), time() + 31536000, '/', env('SESSION_DOMAIN'));
+                setcookie("remember_search", serialize($searchRecent), time() + 31536000, '/', env('SESSION_DOMAIN'));
             }
         }
         $type = 'music';
@@ -472,8 +472,8 @@ class MusicController extends Controller
                 $user->save();
             }else{
                 $remKeySearch = '';
-                if($_COOKIE['remember_key_search'] ?? '') {
-                    $remKeySearch = $_COOKIE['remember_key_search'];
+                if($_COOKIE['remember_search'] ?? '') {
+                    $remKeySearch = $_COOKIE['remember_search'];
                 }
                 $searchRecent = unserialize($remKeySearch);
                 if ($searchRecent && ($key = array_search($search, $searchRecent)) !== false) {
@@ -483,7 +483,7 @@ class MusicController extends Controller
                 if(count($searchRecent) > 10) {
                     array_shift($searchRecent);
                 }
-                setcookie("remember_key_search", serialize($searchRecent), time() + 31536000, '/', env('APP_URL'));
+                setcookie("remember_search", serialize($searchRecent), time() + 31536000, '/', env('APP_URL'));
             }
         }
 
