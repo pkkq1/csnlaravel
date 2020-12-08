@@ -186,25 +186,27 @@ class AuthController extends Controller
             'password' => 'Mật khẩu',
             'captcha' => 'Mã bảo vệ'
         ];
+        $requestData = $request->all();
+        $requestData['username'] = strtolower($requestData['username']);
         $validator = Validator::make($request->all(), $validator);
         $validator->setAttributeNames($setAttr);
         if($validator->fails()) {
             return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => $validator->errors()->toArray(), 'error' => ''], 400);
         }
         $user = User::create([
-            'username' => $request->username,
-            'name' => $request->name,
-            'email' => $request->email,
+            'username' => $requestData['username'],
+            'name' => $requestData['name'],
+            'email' => $requestData['email'],
             'user_avatar' => '',
             'user_lastvisit' => time(),
             'user_regdate' => time(),
             'user_active' => DEACTIVE_USER,
-            'password' => bcrypt($request->password),
+            'password' => bcrypt($requestData['password']),
         ]);
         $user->user_id = $user->id;
         $user->save();
         $token = MailTokenModel::create([
-            'email' => $request->email,
+            'email' => $requestData['email'],
             'token' => Str::random(60),
             'created_at' => date('Y-m-d H:m', time())
         ]);

@@ -52,6 +52,7 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        $data['username'] = strtolower($data['username']);
         $validator = Validator::make($data, [
             'username' => 'required|string|max:25|unique:csn_users|min:4',
             'email' => 'required|string|email|max:255|unique:csn_users',
