@@ -260,9 +260,7 @@ class MusicController extends Controller
                 if(count($searchRecent) > 10) {
                     array_shift($searchRecent);
                 }
-                setcookie("test_csn_4", 'hau', time() + 31536000, '/', env('SESSION_DOMAIN'));
-
-                setcookie("remember_key_search", serialize($searchRecent), time() + 31536000, '/', env('APP_URL'));
+                setcookie("remember_key_search", serialize($searchRecent), time() + 31536000, '/', env('SESSION_DOMAIN'));
             }
         }
         $type = 'music';
