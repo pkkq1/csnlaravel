@@ -292,22 +292,27 @@ class UserController extends Controller
             return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => Helpers::convertArrHtmlCharsDecode($result->toArray()), 'error' => ''], 200);
         }elseif($request->type == 'report_comment') {
             $result = $this->reportCommentRepository->getModel()::where('id', $request->notification_id)->where('by_user_id', $user->user_id)->first();
-            $report_text = unserialize($result->report_text);
-            $report_text_arr = [];
-            foreach ($report_text as $item){
-                $report_text_arr[] = $item;
+            if($result) {
+                $report_text = unserialize($result->report_text);
+                $report_text_arr = [];
+                foreach ($report_text as $item){
+                    $report_text_arr[] = $item;
+                }
+                $result->report_text = $report_text_arr;
+                return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => Helpers::convertArrHtmlCharsDecode($result->toArray()), 'error' => ''], 200);
+
             }
-            $result->report_text = $report_text_arr;
-            return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => Helpers::convertArrHtmlCharsDecode($result->toArray()), 'error' => ''], 200);
         }elseif($request->type == 'report_music') {
             $result = $this->reportMusicRepository->getModel()::where('id', $request->notification_id)->where('by_user_id', $user->user_id)->first();
-            $report_text = unserialize($result->report_text);
-            $report_text_arr = [];
-            foreach ($report_text as $item){
-                $report_text_arr[] = $item;
+            if($result) {
+                $report_text = unserialize($result->report_text);
+                $report_text_arr = [];
+                foreach ($report_text as $item){
+                    $report_text_arr[] = $item;
+                }
+                $result->report_text = $report_text_arr;
+                return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => Helpers::convertArrHtmlCharsDecode($result->toArray()), 'error' => ''], 200);
             }
-            $result->report_text = $report_text_arr;
-            return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => Helpers::convertArrHtmlCharsDecode($result->toArray()), 'error' => ''], 200);
         }
         return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Không Tìm Thấy Thể Loại Thông Báo'], 400);
 
