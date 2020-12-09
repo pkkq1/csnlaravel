@@ -154,10 +154,10 @@ class MusicController extends Controller
                 $music = $this->musicRepository->findOnlyMusicId($offsetPl['music_id']);
             }
         }else{
-            return new JsonResponse(['message' => 'Fail', 'code' => 200, 'data' => [], 'error' => 'Nội dung playlist không có'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 200, 'data' => null, 'error' => 'Nội dung playlist không có'], 400);
         }
         if(!$music)
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Bài hát không tìm thấy'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Bài hát không tìm thấy'], 400);
         $type = 'music';
         if($music->cat_id == CAT_VIDEO)
             $type = 'video';
@@ -268,7 +268,7 @@ class MusicController extends Controller
                 $music = $this->musicRepository->findOnlyMusicId($offsetPl['music_id']);
             }
         }else{
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Nội dung playlist không có'], 200);
+            return new JsonResponse(['message' => 'Fail', 'code' => 200, 'data' => null, 'error' => 'Nội dung playlist không có'], 200);
         }
         if(!$music)
             return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Bài hát không tìm thấy'], 400);
@@ -774,7 +774,7 @@ class MusicController extends Controller
 //                $playlistMusic[$offsetPlaylist - 1] = $music->toArray();
             }
         }else{
-            return new JsonResponse(['message' => 'Nội dung playlist không có', 'code' => 200, 'data' => [], 'error' => []], 400);
+            return new JsonResponse(['message' => 'Nội dung playlist không có', 'code' => 200, 'data' => null, 'error' => []], 400);
         }
 
         // +1 view
