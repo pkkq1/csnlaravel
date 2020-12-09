@@ -58,7 +58,7 @@ class PlaylistController extends Controller
         }
         $userSess = $this->sessionRepository->getSessionById($request->sid);
         if (!$userSess) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Bạn chưa đang nhập.'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 401, 'data' => [], 'error' => 'Bạn chưa đang nhập.'], 400);
         }
         $user = $this->userRepository->getModel()::where('id', $userSess->user_id)->first();
         if (!$user) {
@@ -85,7 +85,7 @@ class PlaylistController extends Controller
         }
         $userSess = $this->sessionRepository->getSessionById($request->sid);
         if (!$userSess) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Bạn chưa đang nhập.'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 401, 'data' => [], 'error' => 'Bạn chưa đang nhập.'], 400);
         }
         $user = $this->userRepository->getModel()::where('id', $userSess->user_id)->first();
         if (!$user) {
@@ -170,7 +170,7 @@ class PlaylistController extends Controller
         }
         $userSess = $this->sessionRepository->getSessionById($request->sid);
         if (!$userSess) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Bạn chưa đang nhập.'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 401, 'data' => [], 'error' => 'Bạn chưa đang nhập.'], 400);
         }
         $user = $this->userRepository->getModel()::where('id', $userSess->user_id)->first();
         if (!$user) {
@@ -197,7 +197,7 @@ class PlaylistController extends Controller
         }
         $userSess = $this->sessionRepository->getSessionById($request->sid);
         if (!$userSess) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Bạn chưa đang nhập.'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 401, 'data' => [], 'error' => 'Bạn chưa đang nhập.'], 400);
         }
         $user = $this->userRepository->getModel()::where('id', $userSess->user_id)->first();
         if (!$user) {
@@ -305,7 +305,7 @@ class PlaylistController extends Controller
         }
         $userSess = $this->sessionRepository->getSessionById($request->sid);
         if (!$userSess) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Bạn chưa đang nhập.'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 401, 'data' => [], 'error' => 'Bạn chưa đang nhập.'], 400);
         }
         $user = $this->userRepository->getModel()::where('id', $userSess->user_id)->first();
         if (!$user) {
@@ -336,7 +336,7 @@ class PlaylistController extends Controller
         }
         $userSess = $this->sessionRepository->getSessionById($request->sid);
         if (!$userSess) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Bạn chưa đang nhập.'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 401, 'data' => [], 'error' => 'Bạn chưa đang nhập.'], 400);
         }
         $user = $this->userRepository->getModel()::where('id', $userSess->user_id)->first();
         if (!$user) {
