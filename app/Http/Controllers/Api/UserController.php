@@ -96,6 +96,7 @@ class UserController extends Controller
             $result['user_birthday'] = $user->user_birthday;
             $result['user_gender'] = $user->user_gender;
             $result['user_identity_card'] = $user->user_identity_card;
+            $result['user_interests'] = $user->user_interests;
         }
        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['user' => Helpers::convertArrHtmlCharsDecode($result)], 'error' => null], 200);
     }
