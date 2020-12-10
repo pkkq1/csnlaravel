@@ -83,7 +83,7 @@ class UserController extends Controller
           'user_avatar' => $user->user_avatar,
           'user_cover' => $user->user_cover,
           'vip_level' => $user->vip_level,
-          'vip_time_exprited' => $user->vip_time_exprited,
+          'vip_time_expired' => $user->vip_time_exprited,
         ];
         if($request->sid) {
             $userSess = $this->sessionRepository->getSessionById($request->sid);
