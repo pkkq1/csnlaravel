@@ -76,7 +76,28 @@ class UserController extends Controller
         $user = $this->userRepository->getUserById($id)->first();
         if(!$user)
             return new JsonResponse(['message' => 'Người dùng đang được cập nhật.', 'code' => 400, 'data' => null, 'error' => null], 400);
-        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['user' => Helpers::convertArrHtmlCharsDecode($user)], 'error' => null], 200);
+        $result = [
+          'user_id' => $user->user_id,
+          'username' => $user->username,
+          'name' => $user->name,
+          'user_avatar' => $user->user_avatar,
+          'user_cover' => $user->user_cover,
+          'vip_level' => $user->vip_level,
+          'vip_time_exprited' => $user->vip_time_exprited,
+        ];
+        if($request->sid) {
+            $userSess = $this->sessionRepository->getSessionById($request->sid);
+            if (!$userSess || ($userSess->user_id != $id)) {
+                return new JsonResponse(['message' => 'Fail', 'code' => 401, 'data' => null, 'error' => 'Bạn chưa đang nhập.'], 400);
+            }
+            $result['user_active'] = $user->user_active;
+            $result['email'] = $user->email;
+            $result['user_phone_number'] = $user->user_phone_number;
+            $result['user_birthday'] = $user->user_birthday;
+            $result['user_gender'] = $user->user_gender;
+            $result['user_identity_card'] = $user->user_identity_card;
+        }
+       return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['user' => Helpers::convertArrHtmlCharsDecode($result)], 'error' => null], 200);
     }
     public function store(Request $request, $id) {
         if (!$request->sid) {
