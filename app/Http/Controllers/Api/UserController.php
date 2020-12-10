@@ -75,20 +75,20 @@ class UserController extends Controller
     {
         $user = $this->userRepository->getUserById($id)->first();
         if(!$user)
-            return new JsonResponse(['message' => 'Người dùng đang được cập nhật.', 'code' => 400, 'data' => [], 'error' => []], 400);
-        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['user' => Helpers::convertArrHtmlCharsDecode($user)], 'error' => []], 200);
+            return new JsonResponse(['message' => 'Người dùng đang được cập nhật.', 'code' => 400, 'data' => null, 'error' => null], 400);
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['user' => Helpers::convertArrHtmlCharsDecode($user)], 'error' => null], 200);
     }
     public function store(Request $request, $id) {
         if (!$request->sid) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Vui lòng nhập đầy đủ thông tin.'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Vui lòng nhập đầy đủ thông tin.'], 400);
         }
         $userSess = $this->sessionRepository->getSessionById($request->sid);
         if (!$userSess || ($userSess->user_id != $id)) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 401, 'data' => [], 'error' => 'Bạn chưa đang nhập.'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 401, 'data' => null, 'error' => 'Bạn chưa đang nhập.'], 400);
         }
         $user = $this->userRepository->getModel()::where('id', $userSess->user_id)->first();
         if (!$user) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Không Tìm Thấy User'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Không Tìm Thấy User'], 400);
         }
         $reqValid = [
             'user_birthday' => 'max:10',
@@ -121,7 +121,7 @@ class UserController extends Controller
         $validator = Validator::make($request->all(), $reqValid);
         $validator->setAttributeNames($setAttr);
         if($validator->fails()) {
-            return new JsonResponse(['message' => 'Lỗi thông tin nhập', 'code' => 400, 'data' => $validator->errors()->toArray(), 'error' => []], 400);
+            return new JsonResponse(['message' => 'Lỗi thông tin nhập', 'code' => 400, 'data' => $validator->errors()->toArray(), 'error' => null], 400);
         }
         $update = [
             'name' => $request->input('name') ?? $user->name,
@@ -142,12 +142,12 @@ class UserController extends Controller
                 }
                 else
                 {
-                    return new JsonResponse(['message' => 'Lỗi thông tin nhập', 'code' => 400, 'data' => ['current_password' => ['Xác nhận mật khẩu cũ không chính xác']], 'error' => []], 400);
+                    return new JsonResponse(['message' => 'Lỗi thông tin nhập', 'code' => 400, 'data' => ['current_password' => ['Xác nhận mật khẩu cũ không chính xác']], 'error' => null], 400);
                 }
             }
         }
         $user = UserModel::where('id', $user->id)->update($update);
-        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' =>  Helpers::convertArrHtmlCharsDecode($update), 'error' => []], 200);
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' =>  Helpers::convertArrHtmlCharsDecode($update), 'error' => null], 200);
     }
     public function logout()
     {
@@ -174,7 +174,7 @@ class UserController extends Controller
             $qrToken = $this->qrCodeTokenRepository->getModel()::where('token', $token)->first();
             if($qrToken) {
                 if($qrToken->time_expired < time()) {
-                    return new JsonResponse(['message' => 'Đăng nhập thất bại, Qr code đã hết hạn', 'code' => 400, 'data' => [], 'error' => []], 400);
+                    return new JsonResponse(['message' => 'Đăng nhập thất bại, Qr code đã hết hạn', 'code' => 400, 'data' => null, 'error' => null], 400);
                 }
                 $sess = $this->sessionEloquentRepository->getModel()::where('id', $qrToken->session_id)->first();
                 if($sess && $sess->user_id) {
@@ -182,16 +182,16 @@ class UserController extends Controller
                     $existUser->sid = session()->getId();
                     $qrToken->status = 'close';
                     $qrToken->save();
-                    return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => Helpers::convertArrHtmlCharsDecode($existUser), 'error' => []], 200);
+                    return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => Helpers::convertArrHtmlCharsDecode($existUser), 'error' => null], 200);
                 }
             }
 
         }
-        return new JsonResponse(['message' => 'Đăng nhập thất bại', 'code' => 400, 'data' => [], 'error' => []], 400);
+        return new JsonResponse(['message' => 'Đăng nhập thất bại', 'code' => 400, 'data' => null, 'error' => null], 400);
     }
     public function playlist(Request $request, $id) {
         if(!$id)
-            return new JsonResponse(['message' => 'vui lòng nhập user_id', 'code' => 400, 'data' => [], 'error' => []], 400);
+            return new JsonResponse(['message' => 'vui lòng nhập user_id', 'code' => 400, 'data' => null, 'error' => null], 400);
         $playlist = $this->playlistRepository->getByUser($id);
         $result = [];
         if($playlist) {
@@ -224,15 +224,15 @@ class UserController extends Controller
     }
     public function notifyUser(Request $request) {
         if (!$request->sid) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Vui lòng nhập đầy đủ thông tin.'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Vui lòng nhập đầy đủ thông tin.'], 400);
         }
         $userSess = $this->sessionRepository->getSessionById($request->sid);
         if (!$userSess) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 401, 'data' => [], 'error' => 'Bạn chưa đang nhập.'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 401, 'data' => null, 'error' => 'Bạn chưa đang nhập.'], 400);
         }
         $user = $this->userRepository->getModel()::where('id', $userSess->user_id)->first();
         if (!$user) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Không Tìm Thấy User'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Không Tìm Thấy User'], 400);
         }
         $user_id = $user->user_id;
         $result = $this->notifyRepository->getModel()::where('user_id', $user_id)->orderBy('id', 'desc')->paginate(LIMIT_PAGE_NOTIFY)->toArray();
@@ -241,15 +241,15 @@ class UserController extends Controller
 
     public function notifyRead(Request $request) {
         if (!$request->sid) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Vui lòng nhập đầy đủ thông tin.'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Vui lòng nhập đầy đủ thông tin.'], 400);
         }
         $userSess = $this->sessionRepository->getSessionById($request->sid);
         if (!$userSess) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 401, 'data' => [], 'error' => 'Bạn chưa đang nhập.'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 401, 'data' => null, 'error' => 'Bạn chưa đang nhập.'], 400);
         }
         $user = $this->userRepository->getModel()::where('id', $userSess->user_id)->first();
         if (!$user) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Không Tìm Thấy User'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Không Tìm Thấy User'], 400);
         }
         $user_id = $user->user_id;
         if($request->id) {
@@ -261,19 +261,19 @@ class UserController extends Controller
                 'read' => 1
             ]);
         }
-        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => [], 'error' => ''], 200);
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => null, 'error' => ''], 200);
     }
     public function showInfoContact(Request $request) {
         if (!$request->sid || !$request->type || !$request->notification_id) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Vui lòng nhập đầy đủ thông tin.'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Vui lòng nhập đầy đủ thông tin.'], 400);
         }
         $userSess = $this->sessionRepository->getSessionById($request->sid);
         if (!$userSess) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 401, 'data' => [], 'error' => 'Bạn chưa đang nhập.'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 401, 'data' => null, 'error' => 'Bạn chưa đang nhập.'], 400);
         }
         $user = $this->userRepository->getModel()::where('id', $userSess->user_id)->first();
         if (!$user) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Không Tìm Thấy User'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Không Tìm Thấy User'], 400);
         }
         $this->notifyRepository->getModel()::where('user_id', $user->user_id)->where('id', $request->id)->update([
             'read' => 1
@@ -314,7 +314,7 @@ class UserController extends Controller
                 return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => Helpers::convertArrHtmlCharsDecode($result->toArray()), 'error' => ''], 200);
             }
         }
-        return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Không Tìm Thấy Thể Loại Thông Báo'], 400);
+        return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Không Tìm Thấy Thể Loại Thông Báo'], 400);
 
     }
 }

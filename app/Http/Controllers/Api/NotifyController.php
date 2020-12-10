@@ -33,15 +33,15 @@ class NotifyController extends Controller
     }
     public function uploadStatusNotify(Request $request) {
         if(!$request->music_id)
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'vui lòng nhập id upload'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'vui lòng nhập id upload'], 400);
         if(!$request->user_id)
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'vui lòng nhập id user upload'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'vui lòng nhập id user upload'], 400);
         if(!$request->status)
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'vui lòng nhập status upload'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'vui lòng nhập status upload'], 400);
 
         $musicUpload = $this->uploadRepository->getModel()::where([['music_id', $request->music_id], ['music_user_id', $request->user_id]])->first();
         if(!$musicUpload) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Không tìm thấy upload music'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Không tìm thấy upload music'], 400);
         }
         $url = Helpers::listen_url($musicUpload);
         $mesage = '';
@@ -54,10 +54,10 @@ class NotifyController extends Controller
             $type = 'upload_false';
             $url = '/dang-tai/nhac/' . $musicUpload->music_id;
         } else {
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Không tìm thấy trạng thái thông báo'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Không tìm thấy trạng thái thông báo'], 400);
         }
         $result = $this->notifyRepository->pushNotif($request->user_id, $musicUpload->music_id, $type, ($musicUpload->cat_id == CAT_VIDEO ? 'Video' : 'Bài hát') . $mesage, $url,  $musicUpload->music_id);
-        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['success_notify' => ($result ? 'Thành Công' : 'Trùng thông báo')], 'error' => []], 200);
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['success_notify' => ($result ? 'Thành Công' : 'Trùng thông báo')], 'error' => null], 200);
     }
 
 }

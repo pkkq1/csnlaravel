@@ -35,66 +35,66 @@ class CategoryController extends Controller
             case "album-" . CURRENT_YEAR:
                 $cover = $this->coverRepository->getCategoryCoverSolr($request->cat_id, $request->cat_level, ['csn_cover.music_year', CURRENT_YEAR], MAX_LOSTLESS, 'cover_id', 'desc', LIMIT_PAGE_CATEGORY);
                 Helpers::convertArrSolr($cover);
-                return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['cover' => $cover], 'error' => []], 200);
+                return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['cover' => $cover], 'error' => null], 200);
                 break;
             case "album-2018":
                 $cover = $this->coverRepository->getCategoryCoverSolr($request->cat_id, $request->cat_level, ['csn_cover.music_year', 2018], MAX_LOSTLESS, 'cover_id', 'desc', LIMIT_PAGE_CATEGORY);
                 Helpers::convertArrSolr($cover);
-                return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['cover' => $cover], 'error' => []], 200);
+                return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['cover' => $cover], 'error' => null], 200);
                 break;
             case "album-moi":
                 $cover = $this->coverRepository->getCategoryCoverSolr($request->cat_id, $request->cat_level, null, null, 'cover_id', 'desc', LIMIT_PAGE_CATEGORY);
                 Helpers::convertArrSolr($cover);
-                return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['cover' => $cover], 'error' => []], 200);
+                return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['cover' => $cover], 'error' => null], 200);
                 break;
             case "bai-hat-moi":
                 $music = $this->musicRepository->getCategoryMusicSolr($request->cat_id, $request->cat_level, 'music_id', 'desc', LIMIT_MUSIC_PAGE_CATEGORY);
                 Helpers::convertArrSolr($music);
-                return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['music' => $music], 'error' => []], 200);
+                return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['music' => $music], 'error' => null], 200);
                 break;
             case "video-".CURRENT_YEAR:
                 $video = $this->videoRepository->getCategoryVideoSolr($request->cat_id, $request->cat_level, ['csn_video.music_year', CURRENT_YEAR], 'video_id', 'desc', LIMIT_PAGE_CATEGORY);
                 Helpers::convertArrSolr($video);
-                return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['video' => $video], 'error' => []], 200);
+                return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['video' => $video], 'error' => null], 200);
                 break;
             case "video-2018":
                 $video = $this->videoRepository->getCategoryVideoSolr($request->cat_id, $request->cat_level, ['csn_video.music_year', 2018], 'video_id', 'desc', LIMIT_PAGE_CATEGORY);
                 Helpers::convertArrSolr($video);
-                return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['video' => $video], 'error' => []], 200);
+                return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['video' => $video], 'error' => null], 200);
                 break;
             case "video-moi":
                 $video = $this->videoRepository->getCategoryVideoSolr($request->cat_id, $request->cat_level, null, 'video_id', 'desc', LIMIT_PAGE_CATEGORY);
                 Helpers::convertArrSolr($video);
-                return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['video' => $video], 'error' => []], 200);
+                return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['video' => $video], 'error' => null], 200);
                 break;
             case "video-vua-download":
                 $video = $this->videoRepository->getCategoryVideoSolr($request->cat_id, $request->cat_level, null,'video_download_time', 'desc', LIMIT_PAGE_CATEGORY);
                 Helpers::convertArrSolr($video);
-                return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['video' => $video], 'error' => []], 200);
+                return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['video' => $video], 'error' => null], 200);
                 break;
             case "vua-download":
                 $music = $this->musicRepository->getCategoryMusicSolr($request->cat_id, $request->cat_level, 'music_download_time', 'desc', LIMIT_MUSIC_PAGE_CATEGORY);
-                return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['music' => $music], 'error' => []], 200);
+                return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['music' => $music], 'error' => null], 200);
                 break;
             case "music":
                 $music = $this->musicRepository->musicNewsSolr('music_id', 'desc', LIMIT_MUSIC_PAGE_CATEGORY);
                 Helpers::convertArrSolr($music);
-                return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['music' => $music], 'error' => []], 200);
+                return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['music' => $music], 'error' => null], 200);
                 break;
             case "video":
                 $video = $this->videoRepository->videoNewsSolr('video_id', 'desc', LIMIT_MUSIC_PAGE_CATEGORY);
                 Helpers::convertArrSolr($video);
-                return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['video' => $video], 'error' => []], 200);
+                return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['video' => $video], 'error' => null], 200);
                 break;
             case "cover":
                 $cover = $this->coverRepository->coverNewSolr('cover_id', 'desc', LIMIT_MUSIC_PAGE_CATEGORY);
                 Helpers::convertArrSolr($cover);
-                return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['cover' => $cover], 'error' => []], 200);
+                return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['cover' => $cover], 'error' => null], 200);
                 break;
             default:
                 $cover = $this->coverRepository->getCategoryCoverSolr($request->cat_id, $request->cat_level, ['csn_cover.music_year', CURRENT_YEAR], MAX_LOSTLESS, 'cover_id', 'desc', LIMIT_PAGE_CATEGORY);
                 Helpers::convertArrSolr($cover);
-                return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['cover' => $cover], 'error' => []], 200);
+                return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['cover' => $cover], 'error' => null], 200);
                 break;
         }
     }
@@ -106,9 +106,9 @@ class CategoryController extends Controller
             foreach ($cats as &$item) {
                 $item->children = $this->categoryRepository->getModel()::select('cat_id', 'cat_level', 'cat_title', 'cat_order')->where('cat_id', $item->cat_id)->where('cat_level', '!=', 0)->orderby('cat_level', 'asc')->get()->toArray();
             }
-            return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['music' => Helpers::convertArrHtmlCharsDecode($cats->toArray())], 'error' => []], 200);
+            return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['music' => Helpers::convertArrHtmlCharsDecode($cats->toArray())], 'error' => null], 200);
         }
-        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['music' => Helpers::convertArrHtmlCharsDecode($cats->toArray())], 'error' => []], 200);
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['music' => Helpers::convertArrHtmlCharsDecode($cats->toArray())], 'error' => null], 200);
     }
 
 }

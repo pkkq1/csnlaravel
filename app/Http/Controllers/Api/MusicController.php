@@ -141,7 +141,7 @@ class MusicController extends Controller
         $album = $this->coverRepository->getCoverMusicById($musicUrl['id']);
 
         if(!$album)
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'không tìm thấy album'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'không tìm thấy album'], 400);
         $playlistMusic = [];
         if(($album->music)) {
             $playlistMusic = $album->music->toArray();
@@ -249,13 +249,13 @@ class MusicController extends Controller
         if($music_lyric_karaoke) {
             $music->musicKara->music_lyric_karaoke = str_replace(["\n[t1]", "\n[t2]", "\n[t3]"], '<br/>', $music->musicKara->music_lyric_karaoke);
         }
-        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['music' => Helpers::convertArrHtmlCharsDecode($music->toArray()), 'playlist' => Helpers::convertArrHtmlCharsDecode($playlistMusic), 'sug' => Helpers::convertArrHtmlCharsDecode($sug)], 'error' => []], 200);
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['music' => Helpers::convertArrHtmlCharsDecode($music->toArray()), 'playlist' => Helpers::convertArrHtmlCharsDecode($playlistMusic), 'sug' => Helpers::convertArrHtmlCharsDecode($sug)], 'error' => null], 200);
     }
     public function getPlaylistInfo(Request $request, $musicUrl, $name) {
         $arrUrl = Helpers::splitPlaylistUrl($musicUrl, 'playlist');
         $playlist = $this->playlistRepository->getMusicByPlaylistId($arrUrl['id']);
         if(!$playlist)
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'không tìm thấy playlist'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'không tìm thấy playlist'], 400);
         $playlistMusic = [];
         if(($playlist->music)) {
             $playlistMusic = $playlist->music->toArray();
@@ -271,7 +271,7 @@ class MusicController extends Controller
             return new JsonResponse(['message' => 'Fail', 'code' => 200, 'data' => null, 'error' => 'Nội dung playlist không có'], 200);
         }
         if(!$music)
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Bài hát không tìm thấy'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Bài hát không tìm thấy'], 400);
 
         $type = 'music';
         if($music->cat_id == CAT_VIDEO)
@@ -369,7 +369,7 @@ class MusicController extends Controller
         if($music_lyric_karaoke) {
             $music->musicKara->music_lyric_karaoke = str_replace(["\n[t1]", "\n[t2]", "\n[t3]"], '<br/>', $music->musicKara->music_lyric_karaoke);
         }
-        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['music' => Helpers::convertArrHtmlCharsDecode($music->toArray()), 'playlist' => Helpers::convertArrHtmlCharsDecode($playlistMusic), 'sug' => Helpers::convertArrHtmlCharsDecode($sug)], 'error' => []], 200);
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['music' => Helpers::convertArrHtmlCharsDecode($music->toArray()), 'playlist' => Helpers::convertArrHtmlCharsDecode($playlistMusic), 'sug' => Helpers::convertArrHtmlCharsDecode($sug)], 'error' => null], 200);
     }
     public function newListenSingleMusic(Request $request, $cat, $sub, $id, $artist = '', $urlMusic = '') {
         if($urlMusic == '') {
@@ -405,7 +405,7 @@ class MusicController extends Controller
         try {
             $arrUrl = Helpers::splitMusicUrl($musicUrl);
         } catch (Exception $e) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'url sai cú pháp'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'url sai cú pháp'], 400);
         }
         if($cat == CAT_VIDEO_URL) {
             $music = $this->videoRepository->findOnlyMusicId($arrUrl['id']);
@@ -416,7 +416,7 @@ class MusicController extends Controller
             $music = $this->musicRepository->checkDeleteMusic($arrUrl['id'], false);
         }
         if(!$music) {
-            return new JsonResponse(['message' => 'Nhạc không tồn tại', 'code' => 400, 'data' => [], 'error' => []], 200);
+            return new JsonResponse(['message' => 'Nhạc không tồn tại', 'code' => 400, 'data' => null, 'error' => null], 200);
         }
         // +1 view
         if(Helpers::sessionCountTimesMusic($music->music_id)){
@@ -508,7 +508,7 @@ class MusicController extends Controller
         if($music_lyric_karaoke) {
             $music->musicKara->music_lyric_karaoke = str_replace(["\n[t1]", "\n[t2]", "\n[t3]"], '<br/>', $music->musicKara->music_lyric_karaoke);
         }
-        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['music' => Helpers::convertArrHtmlCharsDecode($music->toArray()), 'sug' => Helpers::convertArrHtmlCharsDecode($sug)], 'error' => []], 200);
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['music' => Helpers::convertArrHtmlCharsDecode($music->toArray()), 'sug' => Helpers::convertArrHtmlCharsDecode($sug)], 'error' => null], 200);
 
     }
     public function listenBxhNow(Request $request, $catUrl, $catLevel = '') {
@@ -543,7 +543,7 @@ class MusicController extends Controller
         }
         $category = $this->categoryListenRepository->getCategoryUrl($catUrl == CAT_VIDEO_URL ? $catLevel : $catUrl);
         if(!$category)
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Danh mục không tìm thấy'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Danh mục không tìm thấy'], 400);
         if($catUrl == CAT_VIDEO_URL) {
             // video (sub category videoclip)
             $type = 'video';
@@ -633,15 +633,15 @@ class MusicController extends Controller
         if($music_lyric_karaoke) {
             $music->musicKara->music_lyric_karaoke = str_replace(["\n[t1]", "\n[t2]", "\n[t3]"], '<br/>', $music->musicKara->music_lyric_karaoke);
         }
-        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['musicFavourite' => $musicFavourite ? true : false, 'music' => Helpers::convertArrHtmlCharsDecode($music->toArray()), 'playlist' => Helpers::convertArrHtmlCharsDecode($playlistMusic), 'sug' => Helpers::convertArrHtmlCharsDecode($sug)], 'error' => []], 200);
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['musicFavourite' => $musicFavourite ? true : false, 'music' => Helpers::convertArrHtmlCharsDecode($music->toArray()), 'playlist' => Helpers::convertArrHtmlCharsDecode($playlistMusic), 'sug' => Helpers::convertArrHtmlCharsDecode($sug)], 'error' => null], 200);
     }
     function musicFavourite (Request $request) {
         if($request->sid) {
             $userSess = $this->sessionRepository->getSessionById($request->sid);
             if(!$userSess)
-                return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Lỗi User'], 400);
+                return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Lỗi User'], 400);
         }else {
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Lỗi User'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Lỗi User'], 400);
         }
         $typeMes = 'bài hát';
         $getModelFavourite = $this->musicFavouriteRepository;
@@ -656,7 +656,7 @@ class MusicController extends Controller
             $msg = 'Đã thêm '.$typeMes.' '.$request->name.' vào danh sách yêu thích.';
             $getModelFavourite->create(['user_id' => $userSess->user_id, 'music_id' => $request->music_id]);
         }
-        return new JsonResponse(['message' => $msg, 'code' => 200, 'data' => [], 'error' => []], 200);
+        return new JsonResponse(['message' => $msg, 'code' => 200, 'data' => null, 'error' => null], 200);
     }
     public function infoMusicId(Request $request) {
         return $this->listenSingleMusic($request, $request->type ?? 'music', '', $request->music_id);
@@ -687,7 +687,7 @@ class MusicController extends Controller
         if($arrUrl['type'] == 'nghe-album') {
             $album = $this->coverRepository->getCoverMusicById($arrUrl['id']);
             if(!$album)
-                return new JsonResponse(['message' => 'Album không tìm thấy', 'code' => 400, 'data' => [], 'error' => []], 400);
+                return new JsonResponse(['message' => 'Album không tìm thấy', 'code' => 400, 'data' => null, 'error' => null], 400);
             $typeListen = 'album';
             if($album->music) {
                 $playlistMusic = $album->music->toArray();
@@ -701,7 +701,7 @@ class MusicController extends Controller
         }elseif($arrUrl['type'] == 'playlist'){
             $playlist = $this->playlistRepository->getMusicByPlaylistId($arrUrl['id']);
             if(!$playlist)
-                return new JsonResponse(['message' => 'Playlist không tìm thấy', 'code' => 400, 'data' => [], 'error' => []], 400);
+                return new JsonResponse(['message' => 'Playlist không tìm thấy', 'code' => 400, 'data' => null, 'error' => null], 400);
             $typeListen = 'playlist';
             if($playlist->music) {
                 $playlistMusic = $playlist->music->toArray();
@@ -710,7 +710,7 @@ class MusicController extends Controller
         }elseif($arrUrl['type'] == 'playlist_publisher'){
             $playlist = $this->playlistPublisherRepository->getMusicByPlaylistId($arrUrl['id']);
             if(!$playlist)
-                return new JsonResponse(['message' => 'Playlist không tìm thấy', 'code' => 400, 'data' => [], 'error' => []], 400);
+                return new JsonResponse(['message' => 'Playlist không tìm thấy', 'code' => 400, 'data' => null, 'error' => null], 400);
             $typeListen = 'playlist';
             if(($playlist->music)) {
                 $playlistMusic = $playlist->music->toArray();
@@ -719,11 +719,11 @@ class MusicController extends Controller
         }elseif($arrUrl['type'] == 'nghe-bat-hat-ca-si'){
             $artist = $this->artistRepository->find($arrUrl['id']);
             if(!$artist)
-                return new JsonResponse(['message' => 'Ca sĩ chưa được phát hành.', 'code' => 400, 'data' => [], 'error' => []], 400);
+                return new JsonResponse(['message' => 'Ca sĩ chưa được phát hành.', 'code' => 400, 'data' => null, 'error' => null], 400);
             $musicSet['page'] = $request->trang ?? 1;
             $playlistMusic = $this->musicRepository->findMusicByArtist($artist->artist_id, $musicSet['page'],'music_last_update_time', 'desc', LIMIT_LISTEN_MUSIC_ARTIST_MOBILE);
             if(!$playlistMusic)
-                return new JsonResponse(['message' => 'Ca sĩ chưa có bài hát nào phát hành.', 'code' => 400, 'data' => [], 'error' => []], 400);
+                return new JsonResponse(['message' => 'Ca sĩ chưa có bài hát nào phát hành.', 'code' => 400, 'data' => null, 'error' => null], 400);
             $typeListen = 'playlist';
             $playlist = new \stdClass();
             $playlist->playlist_cover = $artist->artist_avatar ? env('APP_URL').Helpers::file_path($artist->artist_id, PUBLIC_COVER_ARTIST_PATH, true).$artist->artist_avatar : env('APP_URL').'/imgs/no_cover_artist2.jpg';
@@ -734,7 +734,7 @@ class MusicController extends Controller
             if($request->sid) {
                 $userSess = $this->sessionRepository->getSessionById($request->sid);
                 if (!$userSess) {
-                    return new JsonResponse(['message' => 'Bạn cần phải đăng nhập để hiển thị bài hát.', 'code' => 400, 'data' => [], 'error' => []], 400);
+                    return new JsonResponse(['message' => 'Bạn cần phải đăng nhập để hiển thị bài hát.', 'code' => 400, 'data' => null, 'error' => null], 400);
                 }
             }
             if($type == 'music') {
@@ -743,7 +743,7 @@ class MusicController extends Controller
                 $musicFavourite = $this->videoFavouriteRepository->getModel()::where('user_id', $userSess->user_id)->with('video')->orderBy('id', 'desc')->limit(LIMIT_LISTEN_MUSIC_FAVOURITE)->get();
             }
             if(!count($musicFavourite))
-                return new JsonResponse(['message' => 'Bạn chưa có bài hát nào yêu thích', 'code' => 400, 'data' => [], 'error' => []], 400);
+                return new JsonResponse(['message' => 'Bạn chưa có bài hát nào yêu thích', 'code' => 400, 'data' => null, 'error' => null], 400);
             foreach ($musicFavourite->toArray() as $item) {
                 $playlistMusic[] = $item[$type];
             }
@@ -774,7 +774,7 @@ class MusicController extends Controller
 //                $playlistMusic[$offsetPlaylist - 1] = $music->toArray();
             }
         }else{
-            return new JsonResponse(['message' => 'Nội dung playlist không có', 'code' => 200, 'data' => null, 'error' => []], 400);
+            return new JsonResponse(['message' => 'Nội dung playlist không có', 'code' => 200, 'data' => null, 'error' => null], 400);
         }
 
         // +1 view
@@ -866,11 +866,11 @@ class MusicController extends Controller
         if($music_lyric_karaoke) {
             $music->musicKara->music_lyric_karaoke = str_replace(["\n[t1]", "\n[t2]", "\n[t3]"], '<br/>', $music->musicKara->music_lyric_karaoke);
         }
-        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['music' => Helpers::convertArrHtmlCharsDecode($music->toArray()), 'playlist' => Helpers::convertArrHtmlCharsDecode($playlistMusic), 'sug' => Helpers::convertArrHtmlCharsDecode($sug)], 'error' => []], 200);
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['music' => Helpers::convertArrHtmlCharsDecode($music->toArray()), 'playlist' => Helpers::convertArrHtmlCharsDecode($playlistMusic), 'sug' => Helpers::convertArrHtmlCharsDecode($sug)], 'error' => null], 200);
     }
     public function historyListen(Request $request) {
         if (!Auth::check()) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 401, 'data' => [], 'error' => 'Bạn chưa đang nhập.'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 401, 'data' => null, 'error' => 'Bạn chưa đang nhập.'], 400);
         }
         $result = [];
         $musics = [];
@@ -899,11 +899,11 @@ class MusicController extends Controller
             }
 
         }
-        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => Helpers::convertArrHtmlCharsDecode($result), 'error' => []], 200);
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => Helpers::convertArrHtmlCharsDecode($result), 'error' => null], 200);
     }
     public function syncNewMusicVideo(Request $request) {
         if(!$request->music_id || !$request->cat_id) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Điền đầy đủ thông tin'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Điền đầy đủ thông tin'], 400);
         }
         $Solr = new SolrSyncController($this->Solr);
         $arrCover = [];
@@ -926,6 +926,6 @@ class MusicController extends Controller
                 $Solr->syncCover(null, $cover);
             }
         }
-        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => [], 'error' => ''], 200);
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => null, 'error' => ''], 200);
     }
 }

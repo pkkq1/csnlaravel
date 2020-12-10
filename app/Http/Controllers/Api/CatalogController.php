@@ -58,12 +58,12 @@ class CatalogController extends Controller
             $playlist[$key]['playlist_listen_url'] = Helpers::playlist_url($item);
             $playlist[$key]['playlist_cover_url'] = $item['playlist_cover'] ? Helpers::file_path($item['playlist_id'], env('DATA_URL').MUSIC_PLAYLIST_PATH, true).$item['playlist_id'] . '.jpg' : '/imgs/avatar_default.png';
         }
-        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['caption' => $result['caption'], 'playlist' => Helpers::convertArrHtmlCharsDecode($playlist)], 'error' => []], 200);
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['caption' => $result['caption'], 'playlist' => Helpers::convertArrHtmlCharsDecode($playlist)], 'error' => null], 200);
     }
     public function musicNews(Request $request) {
         $music = $this->musicRepository->musicNewsSolr('music_id', 'desc', LIMIT_MUSIC_PAGE_CATEGORY);
         Helpers::convertArrSolr($music);
-        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['music' => $music], 'error' => []], 200);
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['music' => $music], 'error' => null], 200);
     }
     public function videoNews(Request $request) {
         $video = $this->videoRepository->videoNewsSolr('video_id', 'desc', LIMIT_MUSIC_PAGE_CATEGORY);
@@ -72,12 +72,12 @@ class CatalogController extends Controller
             $item = Helpers::convertArrHtmlCharsDecode($item);
             $item['video_cover'] = Helpers::thumbnail_url(['music_id' => $item['video_id'], 'cat_id' => $item['video_cat_id']], 'preview');
         }
-        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['video' => $video], 'error' => []], 200);
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['video' => $video], 'error' => null], 200);
     }
     public function albumNews(Request $request) {
         $cover = $this->coverRepository->coverNewSolr('cover_id', 'desc', LIMIT_MUSIC_PAGE_CATEGORY);
         Helpers::convertArrSolr($cover);
-        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['cover' => $cover], 'error' => []], 200);
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['cover' => $cover], 'error' => null], 200);
     }
     public function list(Request $request) {
         $catalog = config('constants.catalog');
@@ -90,6 +90,6 @@ class CatalogController extends Controller
                 'image_url' => env('IMG_DATA_URL').'imgs/chude/'.$item['img_web'],
             ];
         }
-        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => Helpers::convertArrHtmlCharsDecode($result), 'error' => []], 200);
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => Helpers::convertArrHtmlCharsDecode($result), 'error' => null], 200);
     }
 }

@@ -54,10 +54,10 @@ class RequestPaymentVipController extends Controller
     public function saveUpRequest(Request $request)
     {
         if(!$request->title || !$request->name || !$request->code || !$request->phone || !$request->amount) {
-            return new JsonResponse(['message' => 'Lỗi thiếu dữ liệu truyền vào', 'code' => 400, 'data' => [], 'error' => []]);
+            return new JsonResponse(['message' => 'Lỗi thiếu dữ liệu truyền vào', 'code' => 400, 'data' => null, 'error' => null]);
         }
         if($this->requestApiVip->getModel()::where('code', $request->code)->first()) {
-            return new JsonResponse(['message' => 'Trùng mã code', 'code' => 400, 'data' => [], 'error' => []]);
+            return new JsonResponse(['message' => 'Trùng mã code', 'code' => 400, 'data' => null, 'error' => null]);
         }
         $resultRequest = $this->requestApiVip->getModel()::create([
             'title' => $request->title,
@@ -85,38 +85,38 @@ class RequestPaymentVipController extends Controller
         if(!$level) {
             $resultRequest->status = 'WRONG_MONEY';
             $resultRequest->save();
-            return new JsonResponse(['message' => 'WRONG_MONEY', 'code' => 400, 'data' => [], 'error' => []]);
+            return new JsonResponse(['message' => 'WRONG_MONEY', 'code' => 400, 'data' => null, 'error' => null]);
         }
         $userID = trim(str_replace('csn', '', strtolower($request->note)));
         $userID = str_replace('cns', '', $userID);
         if(!is_numeric($userID)){
             $resultRequest->status = 'WRONG_NOTE';
             $resultRequest->save();
-            return new JsonResponse(['message' => 'WRONG_NOTE', 'code' => 400, 'data' => [], 'error' => []]);
+            return new JsonResponse(['message' => 'WRONG_NOTE', 'code' => 400, 'data' => null, 'error' => null]);
         }else{
             $user = $this->userRepository->getModel()::where('id', $userID)->first();
             if(!$user) {
                 $resultRequest->status = 'NOT_FOUND_USER_ID';
                 $resultRequest->save();
-                return new JsonResponse(['message' => 'NOT_FOUND_USER_ID', 'code' => 400, 'data' => [], 'error' => []]);
+                return new JsonResponse(['message' => 'NOT_FOUND_USER_ID', 'code' => 400, 'data' => null, 'error' => null]);
             }
             $logPage = $this->logPageVipRepository->getModel()::where('user_id', $user->id)->orderBy('id', 'desc')->first();
             if(!$logPage || ((time() - $logPage->time_log) > 259200)) { //trong 74h qua
                 $resultRequest->status = 'NOT_MATCH_PAGE_LOG';
                 $resultRequest->save();
-                return new JsonResponse(['message' => 'NOT_MATCH_PAGE_LOG', 'code' => 400, 'data' => [], 'error' => []]);
+                return new JsonResponse(['message' => 'NOT_MATCH_PAGE_LOG', 'code' => 400, 'data' => null, 'error' => null]);
             }
             $result = $this->userLevelRepository->upgradeUserLevel_v2($user->id, $level->level_id, '', '',  0, $resultRequest->id);
             if(!$result['success']) {
                 $resultRequest->status = 'ERROR';
                 $resultRequest->note = $result['msg'];
                 $resultRequest->save();
-                return new JsonResponse(['message' => $result['msg'], 'code' => 400, 'data' => [], 'error' => []]);
+                return new JsonResponse(['message' => $result['msg'], 'code' => 400, 'data' => null, 'error' => null]);
             }
             // success
             $resultRequest->status = 'SUCCESS';
             $resultRequest->save();
-            return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['user_id' => $user->user_id, 'username' => $user->username, 'level_id' => $level->id, 'level_name' => $level->level_name], 'error' => []]);
+            return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['user_id' => $user->user_id, 'username' => $user->username, 'level_id' => $level->id, 'level_name' => $level->level_name], 'error' => null]);
 
         }
     }

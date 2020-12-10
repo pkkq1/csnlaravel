@@ -32,7 +32,7 @@ class AuthController extends Controller
         ]);
         if ($validator->fails()) {
             $messages = $validator->messages();
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => $messages->all()], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => $messages->all()], 400);
         }
         $user = Socialite::driver('facebook')->userFromToken($req->token);
         // Create user
@@ -68,7 +68,7 @@ class AuthController extends Controller
         $existUser->user_avatar_url = Helpers::pathAvatar($existUser->user_avatar, $existUser->id, env('DATA_URL'));
         $existUser->user_cover_url = Helpers::pathUserCover($existUser->user_cover, $existUser->id, env('DATA_URL'));
         // null
-        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => Helpers::convertArrHtmlCharsDecode($existUser), 'error' => []], 200);
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => Helpers::convertArrHtmlCharsDecode($existUser), 'error' => null], 200);
     }
     public function loginGoogle(Request $req) {
 
@@ -78,7 +78,7 @@ class AuthController extends Controller
         ]);
         if ($validator->fails()) {
             $messages = $validator->messages();
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => $messages->all()], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => $messages->all()], 400);
         }
         $user = Socialite::driver('google')->userFromToken($req->token);
         // Create user
@@ -114,7 +114,7 @@ class AuthController extends Controller
         $existUser->user_cover_url = Helpers::pathUserCover($existUser->user_cover, $existUser->id, env('DATA_URL'));
         $existUser->sid = session()->getId();
         // null
-        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => Helpers::convertArrHtmlCharsDecode($existUser), 'error' => []], 200);
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => Helpers::convertArrHtmlCharsDecode($existUser), 'error' => null], 200);
     }
     public function loginManual(Request $request) {
         $credentials = $request->only('email', 'password');
@@ -122,7 +122,7 @@ class AuthController extends Controller
         if(!filter_var($request->email, FILTER_VALIDATE_EMAIL)) {
             $userCheck = User::where('username', $request->email)->first();
             if(!$userCheck) {
-                return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Tài Khoản Không Tồn tại'], 400);
+                return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Tài Khoản Không Tồn tại'], 400);
             }
             $credentials = [
                 'username' => $request->email,
@@ -132,11 +132,11 @@ class AuthController extends Controller
         }else{
             $userCheck = User::where('email', $request->email)->first();
             if(!$userCheck) {
-                return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Tài Khoản Mật Khẩu Không Chính Xác'], 400);
+                return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Tài Khoản Mật Khẩu Không Chính Xác'], 400);
             }
         }
         if($userCheck->user_login_tries > COUNT_API_TRY_LOGIN && (time() - $userCheck->user_last_login_try < TIME_API_LAST_LOGIN)) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Bạn Nhập Sai Quá Nhiều Lần, Vui Lòng Đợi 5 Phút'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Bạn Nhập Sai Quá Nhiều Lần, Vui Lòng Đợi 5 Phút'], 400);
         }
         $credentials['password'] = bcrypt($request->password);
         $user = \App\Models\UserModel::where($credentials)->first();
@@ -148,7 +148,7 @@ class AuthController extends Controller
             $user->remember_token_login = Auth::user()->remember_token;
             $user->user_avatar_url = Helpers::pathAvatar($user->user_avatar, $user->id, env('DATA_URL'));
             $user->user_cover_url = Helpers::pathUserCover($user->user_cover, $user->id, env('DATA_URL'));
-            return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => Helpers::convertArrHtmlCharsDecode($user), 'error' => []], 200);
+            return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => Helpers::convertArrHtmlCharsDecode($user), 'error' => null], 200);
         }else{
             if((time() - $userCheck->user_last_login_try > TIME_API_LAST_LOGIN)) {
                 $userCheck->user_login_tries = 0;
@@ -156,22 +156,22 @@ class AuthController extends Controller
             $userCheck->user_login_tries = $userCheck->user_login_tries + 1;
             $userCheck->user_last_login_try = time();
             $userCheck->save();
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Tài Khoản Mật Khẩu Không Chính Xác'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Tài Khoản Mật Khẩu Không Chính Xác'], 400);
         }
     }
     public function logOut(Request $request) {
         if (!$request->sid) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Vui Lòng Nhập sid'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Vui Lòng Nhập sid'], 400);
         }
         $sessionData = SessionModel::where('id', $request->sid)->first();
         if(!$sessionData) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Không Tìm Thấy Session ID'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Không Tìm Thấy Session ID'], 400);
         }
         $user = User::where('id', $sessionData->user_id)->first();
         Auth::setUser($user);
         Auth::logout();
         $sessionData->delete();
-        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => [], 'error' => 'Đăng Xuất Thành Công'], 200);
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => null, 'error' => 'Đăng Xuất Thành Công'], 200);
     }
     public function register(Request $request) {
         $validator = [
@@ -221,6 +221,6 @@ class AuthController extends Controller
         });
         session()->save();
         $user->sid = session()->getId();
-        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => Helpers::convertArrHtmlCharsDecode($user), 'error' => []], 200);
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => Helpers::convertArrHtmlCharsDecode($user), 'error' => null], 200);
     }
 }

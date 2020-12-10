@@ -81,7 +81,7 @@ class UserMusicController extends Controller
             $item['artist']['artist_image'] = $item['artist']['artist_avatar'] ? Helpers::file_path($item['artist']['artist_id'], AVATAR_ARTIST_CROP_PATH) . $item['artist']['artist_avatar'] : '/imgs/avatar_default.png';
             $item['artist']['artist_thumb_image'] = str_replace('artist_avatar', 'artist_avatar_thumb', $item['artist']['artist_image']);
         }
-        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['artistFavourite' => Helpers::convertArrHtmlCharsDecode($artistFavourite)], 'error' => []], 200);
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['artistFavourite' => Helpers::convertArrHtmlCharsDecode($artistFavourite)], 'error' => null], 200);
     }
     public function videoFavourite(Request $request) {
         $user_id = $request->user_id;
@@ -92,7 +92,7 @@ class UserMusicController extends Controller
                 $item['video']['bitrate_video'] = Helpers::size2str($item['video']['music_width'], $item['video']['music_height']);
             }
         }
-        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['videoFavourite' => Helpers::convertArrHtmlCharsDecode($videoFavourite)], 'error' => []], 200);
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['videoFavourite' => Helpers::convertArrHtmlCharsDecode($videoFavourite)], 'error' => null], 200);
     }
     public function musicFavourite(Request $request) {
         $user_id = $request->user_id;
@@ -104,7 +104,7 @@ class UserMusicController extends Controller
                 $item['music']['bitrate_music'] = Helpers::bitrate2str($item['music']['music_bitrate']);
             }
         }
-        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['musicFavourite' => Helpers::convertArrHtmlCharsDecode($musicFavourite)], 'error' => []], 200);
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => ['musicFavourite' => Helpers::convertArrHtmlCharsDecode($musicFavourite)], 'error' => null], 200);
     }
 
 }

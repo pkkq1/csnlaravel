@@ -30,7 +30,7 @@ class SearchController extends Controller
     }
     public function index(Request $request) {
         if(!$request->q)
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'vui lòng nhập thông tin tìm kiếm'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'vui lòng nhập thông tin tìm kiếm'], 400);
         $search = mb_strtolower($request->q, 'UTF-8');
         $request->view_music = true;
         $request->view_album = true;
@@ -48,7 +48,7 @@ class SearchController extends Controller
         $validator = Validator::make($request->all(), $setAttr);
         $validator->setAttributeNames($setAttr);
         if($validator->fails()) {
-            return new JsonResponse(['message' => $validator->errors()->toArray(), 'code' => 400, 'data' => [], 'error' => []], 400);
+            return new JsonResponse(['message' => $validator->errors()->toArray(), 'code' => 400, 'data' => null, 'error' => null], 400);
         }
         $search = new SearchSolr($this->Solr);
         $result = $search->ajaxSearch($request, $request->quick_search ?? false);
@@ -59,7 +59,7 @@ class SearchController extends Controller
                 $result['album']['data'][$key]['album_url'] = Helpers::album_url(['music_album' => $item['music_album'], 'cover_id' => $item['cover_id']]);
             }
         }
-        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => $result, 'error' => []], 200);
+        return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => $result, 'error' => null], 200);
     }
 
 }

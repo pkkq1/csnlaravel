@@ -38,26 +38,26 @@ class ReportController extends Controller
     public function reportComment(Request $request)
     {
         if (!$request->sid || !$request->comment_id || !$request->music_id || !$request->type || !$request->comment_text || !$request->report_option || !$request->music_name || !$request->url_music) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Vui lòng nhập đầy đủ thông tin.'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Vui lòng nhập đầy đủ thông tin.'], 400);
         }
         $userSess = $this->sessionRepository->getSessionById($request->sid);
         if (!$userSess) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 401, 'data' => [], 'error' => 'Bạn chưa đang nhập.'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 401, 'data' => null, 'error' => 'Bạn chưa đang nhập.'], 400);
         }
         $user = $this->userRepository->getModel()::where('id', $userSess->user_id)->first();
         if (!$user) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Không Tìm Thấy User'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Không Tìm Thấy User'], 400);
         }
         // check banned user
         if ($user->hasPermissionsExtra('banned_user_report_comment')) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Lỗi truy cập, tài khoản bạn bị khóa chức năng thêm nhạc vào playlist.'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Lỗi truy cập, tài khoản bạn bị khóa chức năng thêm nhạc vào playlist.'], 400);
         }
         if(time() < ($user->user_regdate + SHORT_TIME_1_DAY)) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Tài khoản bạn cần hoạt động ít nhất 1 ngày'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Tài khoản bạn cần hoạt động ít nhất 1 ngày'], 400);
         }
         $countStatus = $this->reportCommentRepository->getModel()::where('by_user_id', $user->id)->where('status', 0)->count();
         if($countStatus > MAX_SEND_REPORT) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Lỗi, Các báo cáo trước của bạn đang được xử lý'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Lỗi, Các báo cáo trước của bạn đang được xử lý'], 400);
         }
         $exits = $this->reportCommentRepository->getModel()::where([['comment_id', $request->comment_id], ['by_user_id', $user->id]])->first();
         if(!$exits) {
@@ -88,35 +88,35 @@ class ReportController extends Controller
                 'url_music' => $request->url_music,
                 'link_file_jw' => $request->link_file_jw ?? '',
             ]);
-            return new JsonResponse(['message' => 'Báo cáo của bạn đã được gửi đến quản trị', 'code' => 200, 'data' => [], 'error' => ''], 200);
+            return new JsonResponse(['message' => 'Báo cáo của bạn đã được gửi đến quản trị', 'code' => 200, 'data' => null, 'error' => ''], 200);
         }else{
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Bạn đã báo cáo bình luận này rồi'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Bạn đã báo cáo bình luận này rồi'], 400);
         }
     }
     public function reportMusic(Request $request)
     {
 
         if (!$request->sid || !$request->music_id || !$request->report_option || !$request->music_name || !$request->url_music) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Vui lòng nhập đầy đủ thông tin.'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Vui lòng nhập đầy đủ thông tin.'], 400);
         }
         $userSess = $this->sessionRepository->getSessionById($request->sid);
         if (!$userSess) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 401, 'data' => [], 'error' => 'Bạn chưa đang nhập.'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 401, 'data' => null, 'error' => 'Bạn chưa đang nhập.'], 400);
         }
         $user = $this->userRepository->getModel()::where('id', $userSess->user_id)->first();
         if (!$user) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Không Tìm Thấy User'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Không Tìm Thấy User'], 400);
         }
         // check banned user
         if ($user->hasPermissionsExtra('banned_user_report_music')) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Lỗi truy cập, tài khoản bạn bị khóa chức năng thêm nhạc vào playlist.'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Lỗi truy cập, tài khoản bạn bị khóa chức năng thêm nhạc vào playlist.'], 400);
         }
         if(time() < ($user->user_regdate + SHORT_TIME_1_DAY)) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Tài khoản bạn cần hoạt động ít nhất 1 ngày'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Tài khoản bạn cần hoạt động ít nhất 1 ngày'], 400);
         }
         $countStatus = $this->reportMusicRepository->getModel()::where('by_user_id', $user->id)->where('status', 0)->count();
         if($countStatus > MAX_SEND_REPORT) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Lỗi, Các báo cáo trước của bạn đang được xử lý'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Lỗi, Các báo cáo trước của bạn đang được xử lý'], 400);
         }
         $exits = $this->reportMusicRepository->getModel()::where([['music_id', $request->id], ['by_user_id', $user->id]])->first();
         if(!$exits) {
@@ -145,29 +145,29 @@ class ReportController extends Controller
                 'link_file_jw' => $request->link_file_jw ?? '',
 
             ]);
-            return new JsonResponse(['message' => 'Báo cáo của bạn đã được gửi đến quản trị', 'code' => 200, 'data' => [], 'error' => ''], 200);
+            return new JsonResponse(['message' => 'Báo cáo của bạn đã được gửi đến quản trị', 'code' => 200, 'data' => null, 'error' => ''], 200);
         }else{
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Bạn đã báo cáo nhạc này rồi'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Bạn đã báo cáo nhạc này rồi'], 400);
         }
     }
     public function sendContact(Request $request) {
         if(strlen($request->text) > 5000 || strlen($request->text) < 5) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Nội dung gửi báo cáo từ 5 đến 5000 ký tự'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Nội dung gửi báo cáo từ 5 đến 5000 ký tự'], 400);
         }
         $Agent = new Agent();
         $ip = Helpers::getIp();
         if($request->sid) {
             $userSess = $this->sessionRepository->getSessionById($request->sid);
             if (!$userSess) {
-                return new JsonResponse(['message' => 'Fail', 'code' => 401, 'data' => [], 'error' => 'Bạn chưa đang nhập.'], 400);
+                return new JsonResponse(['message' => 'Fail', 'code' => 401, 'data' => null, 'error' => 'Bạn chưa đang nhập.'], 400);
             }
             $user = $this->userRepository->getModel()::where('id', $userSess->user_id)->first();
             if (!$user) {
-                return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Không Tìm Thấy User'], 400);
+                return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Không Tìm Thấy User'], 400);
             }
             $checkExit = $this->contactUserRepository->getModel()::where('by_user_id', $user->id)->orderBy('id', 'desc')->first();
             if($checkExit && (time() < strtotime($checkExit->created_at) + (60 * 5))){
-                return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Góp ý bạn đang xử lý, vui lòng thao tác chậm lại'], 400);
+                return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Góp ý bạn đang xử lý, vui lòng thao tác chậm lại'], 400);
             }
             $reportText = [];
             if($request->text) {
@@ -189,14 +189,14 @@ class ReportController extends Controller
             ]);
         }else{
             if(strlen($request->email) < 5 || strlen($request->email) > 200 || filter_var($request->email, FILTER_VALIDATE_EMAIL) == false) {
-                return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Vui lòng nhập email chính xác, từ 5 đến 200 ký tự'], 400);
+                return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Vui lòng nhập email chính xác, từ 5 đến 200 ký tự'], 400);
             }
             if($request->phone && (strlen($request->phone) < 5 || strlen($request->phone) > 15)) {
-                return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Số điện thoại nhập từ 5 đến 15 số'], 400);
+                return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Số điện thoại nhập từ 5 đến 15 số'], 400);
             }
             $checkExit = $this->contactRepository->getModel()::where('ip', $ip)->orderBy('id', 'desc')->first();
             if($checkExit && (time() < strtotime($checkExit->created_at) + (60 * 5))){
-                return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Góp ý bạn đang xử lý, vui lòng thao tác chậm lại'], 400);
+                return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Góp ý bạn đang xử lý, vui lòng thao tác chậm lại'], 400);
             }
             $this->contactRepository->getModel()::create([
                 'email' => $request->email,
@@ -206,6 +206,6 @@ class ReportController extends Controller
                 'mod' => $Agent->isMobile() ? 'mobile' : 'web'
             ]);
         }
-        return new JsonResponse(['message' => 'Cảm ơn bạn đã góp ý kiến, chúng tôi sẽ trả lời sớm nhất.', 'code' => 200, 'data' => [], 'error' => ''], 200);
+        return new JsonResponse(['message' => 'Cảm ơn bạn đã góp ý kiến, chúng tôi sẽ trả lời sớm nhất.', 'code' => 200, 'data' => null, 'error' => ''], 200);
     }
 }

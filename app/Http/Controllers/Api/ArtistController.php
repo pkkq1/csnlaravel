@@ -50,10 +50,10 @@ class ArtistController extends Controller
 
     public function getProfile(Request $request) {
         if(!$request->artist_id)
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'vui lòng nhập id của ca sĩ'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'vui lòng nhập id của ca sĩ'], 400);
         $artist = $this->artistRepository->find($request->artist_id);
         if(!$artist)
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'không tìm thấy ca sĩ'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'không tìm thấy ca sĩ'], 400);
         $artist->artist_avatar_thumb = env('DATA_URL').$artist->artist_avatar ? Helpers::file_path($artist->artist_id, AVATAR_ARTIST_THUMB_200_CROP_PATH) . $artist->artist_avatar : '/imgs/avatar_default.png';
         $artist->artist_cover = env('DATA_URL').$artist->artist_cover ? Helpers::file_path($artist->artist_id, COVER_ARTIST_CROP_PATH) . $artist->artist_cover : '/imgs/avatar_default.png';
         $music = $this->Solr->search(['music_artist_id' => $artist->artist_id], 1, LIMIT_MUSIC_PAGE_ARTIST, ['_version_' => 'desc']);
@@ -74,12 +74,12 @@ class ArtistController extends Controller
                 'is_favourite' => $artistFavourite ? true : false,
                 'list_music' => $music,
             ],
-            'error' => []
+            'error' => null
         ], 200);
     }
     public function getTabArtist(Request $request) {
         if(!$request->artist_id)
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'vui lòng nhập id của ca sĩ'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'vui lòng nhập id của ca sĩ'], 400);
         $data= [];
         switch ($request->tab) {
             case "music":
@@ -108,18 +108,18 @@ class ArtistController extends Controller
                 'data' => $data,
                 'tab' => $request->tab,
             ],
-            'error' => []
+            'error' => null
         ], 200);
     }
     public function favourite(Request $request) {
         if(!$request->artist_id || !$request->sid)
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'vui lòng nhập id của ca sĩ và sid'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'vui lòng nhập id của ca sĩ và sid'], 400);
         $userSess = $this->sessionRepository->getSessionById($request->sid);
         if(!$userSess)
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'chưa đăng nhập, sid không tồn tại'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'chưa đăng nhập, sid không tồn tại'], 400);
         $artist = $this->artistRepository->find($request->artist_id);
         if(!$artist)
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'không tìm thấy ca sĩ'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'không tìm thấy ca sĩ'], 400);
         if($request->is_favourite == 'true'){
             $msg = 'Đã thêm ca sĩ '.$artist->artist_nickname.' vào danh sách yêu thích.';
             $this->artistFavouriteRepository->getModel()::firstOrCreate(['user_id' => $userSess->user_id, 'artist_id' => $artist->artist_id]);
@@ -127,18 +127,18 @@ class ArtistController extends Controller
             $msg = 'Đã bỏ ca sĩ '.$artist->artist_nickname.' ra khỏi danh sách yêu thích.';
             $this->artistFavouriteRepository->getModel()::where([['user_id', $userSess->user_id], ['artist_id', $artist->artist_id]])->delete();
         }
-        return new JsonResponse(['message' => $msg, 'code' => 200, 'data' => [], 'error' => ''], 200);
+        return new JsonResponse(['message' => $msg, 'code' => 200, 'data' => null, 'error' => ''], 200);
     }
     public function listMusic(Request $request) {
         if(!$request->artist_id)
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'vui lòng nhập id của ca sĩ'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'vui lòng nhập id của ca sĩ'], 400);
 
         $artist = $this->artistRepository->find($request->artist_id);
         if(!$artist)
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'không tìm thấy ca sĩ'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'không tìm thấy ca sĩ'], 400);
         $playlistMusic = $this->musicRepository->findMusicByArtist($artist->artist_id, $request->trang ?? 1,'music_last_update_time', 'desc', LIMIT_LISTEN_MUSIC_ARTIST);
         if(!$playlistMusic)
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Ca sĩ chưa có bài hát nào phát hành.'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Ca sĩ chưa có bài hát nào phát hành.'], 400);
         return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => Helpers::convertArrHtmlCharsDecode($playlistMusic), 'error' => ''], 200);
     }
 

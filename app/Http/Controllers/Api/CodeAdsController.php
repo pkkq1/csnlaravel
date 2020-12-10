@@ -22,10 +22,10 @@ class CodeAdsController extends Controller
     }
     public function index(Request $request) {
         if(!$request->key)
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'không tìm thấy từ khóa'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'không tìm thấy từ khóa'], 400);
         $content = $this->codeAdsRepository->getModel()::where('key', $request->key)->first();
         if(!$content)
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'không tìm thấy Code quảng cáo'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'không tìm thấy Code quảng cáo'], 400);
         $code = '';
         $arrLink = [];
         if($content->type == 'ARRAY LINK') {

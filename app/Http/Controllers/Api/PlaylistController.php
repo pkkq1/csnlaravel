@@ -54,15 +54,15 @@ class PlaylistController extends Controller
      */
     public function getPlayList(Request $request) {
         if (!$request->sid || !$request->music_id) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Vui lòng nhập đầy đủ thông tin.'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Vui lòng nhập đầy đủ thông tin.'], 400);
         }
         $userSess = $this->sessionRepository->getSessionById($request->sid);
         if (!$userSess) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 401, 'data' => [], 'error' => 'Bạn chưa đang nhập.'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 401, 'data' => null, 'error' => 'Bạn chưa đang nhập.'], 400);
         }
         $user = $this->userRepository->getModel()::where('id', $userSess->user_id)->first();
         if (!$user) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Không Tìm Thấy User'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Không Tìm Thấy User'], 400);
         }
         $playlist = $this->playlistRepository->getByUser($user->id);
         $result = [];
@@ -81,27 +81,27 @@ class PlaylistController extends Controller
     public function addMusicPlayList(Request $request)
     {
         if (!$request->sid || !$request->music_id || !$request->playlist_id) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Vui lòng nhập đầy đủ thông tin.'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Vui lòng nhập đầy đủ thông tin.'], 400);
         }
         $userSess = $this->sessionRepository->getSessionById($request->sid);
         if (!$userSess) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 401, 'data' => [], 'error' => 'Bạn chưa đang nhập.'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 401, 'data' => null, 'error' => 'Bạn chưa đang nhập.'], 400);
         }
         $user = $this->userRepository->getModel()::where('id', $userSess->user_id)->first();
         if (!$user) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Không Tìm Thấy User'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Không Tìm Thấy User'], 400);
         }
         // check banned user
         if ($user->hasPermissionsExtra('banned_user_playlist')) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Lỗi truy cập, tài khoản bạn bị khóa chức năng thêm nhạc vào playlist.'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Lỗi truy cập, tài khoản bạn bị khóa chức năng thêm nhạc vào playlist.'], 400);
         }
         $playlistUser = $this->playlistRepository->getByUser($user->id, $request->playlist_id)->first();
         if (!$playlistUser) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Không tìm thấy playlist của bạn'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Không tìm thấy playlist của bạn'], 400);
         }
         $music = $this->musicRepository->getModel()::where('music_id', $request->input('music_id'))->first();
         if(!$music) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Không tìm thấy nhạc của bạn'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Không tìm thấy nhạc của bạn'], 400);
         }
         $countUpdate = 1;
         $dataResult = ['remove' => false];
@@ -115,7 +115,7 @@ class PlaylistController extends Controller
         } else {
             $countPlaylist = PlaylistMusicModel::where(['playlist_id' => $request->input('playlist_id')])->count();
             if ($countPlaylist > LIMIT_ADD_PLAYLIST) {
-                return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Playlist của bạn đã đạt quá 100 bài hát'], 400);
+                return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Playlist của bạn đã đạt quá 100 bài hát'], 400);
             }
             $result = PlaylistMusicModel::firstOrCreate([
                 'playlist_id' => $request->input('playlist_id'),
@@ -166,19 +166,19 @@ class PlaylistController extends Controller
     }
     public function editPlaylist(Request $request, $id) {
         if (!$request->sid) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Vui lòng nhập đầy đủ thông tin.'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Vui lòng nhập đầy đủ thông tin.'], 400);
         }
         $userSess = $this->sessionRepository->getSessionById($request->sid);
         if (!$userSess) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 401, 'data' => [], 'error' => 'Bạn chưa đang nhập.'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 401, 'data' => null, 'error' => 'Bạn chưa đang nhập.'], 400);
         }
         $user = $this->userRepository->getModel()::where('id', $userSess->user_id)->first();
         if (!$user) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Không Tìm Thấy User'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Không Tìm Thấy User'], 400);
         }
         $playlistUser = $this->playlistRepository->getByUser($user->id, $id)->with('music')->first();
         if(!$playlistUser) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Không tìm thấy playlist'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Không tìm thấy playlist'], 400);
         }
         $listMusicVideo = $playlistUser->music;
         $playlistLevel = $this->playlistCategoryRepository->getList();
@@ -193,19 +193,19 @@ class PlaylistController extends Controller
     }
     public function storePlaylist(Request $request) {
         if (!$request->sid || !$request->playlist_title || !$request->submit_action || !$request->playlist_id) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Vui lòng nhập đầy đủ thông tin.'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Vui lòng nhập đầy đủ thông tin.'], 400);
         }
         $userSess = $this->sessionRepository->getSessionById($request->sid);
         if (!$userSess) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 401, 'data' => [], 'error' => 'Bạn chưa đang nhập.'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 401, 'data' => null, 'error' => 'Bạn chưa đang nhập.'], 400);
         }
         $user = $this->userRepository->getModel()::where('id', $userSess->user_id)->first();
         if (!$user) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Không Tìm Thấy User'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Không Tìm Thấy User'], 400);
         }
         // check banned user
         if ($user->hasPermissionsExtra('banned_user_playlist')) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Lỗi truy cập, tài khoản bạn bị khóa chức năng thêm nhạc vào playlist.'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Lỗi truy cập, tài khoản bạn bị khóa chức năng thêm nhạc vào playlist.'], 400);
         }
 
         $id = $request->input('playlist_id');
@@ -213,11 +213,11 @@ class PlaylistController extends Controller
         if($action == 'edit') {
             $playlist = PlaylistModel::where([['playlist_id', $id], ['user_id', $user->id]])->first();
             if(!$playlist) {
-                return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Không tìm thấy playlist'], 400);
+                return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Không tìm thấy playlist'], 400);
             }
             if($playlist->playlist_title != $request->input('playlist_title')) {
                 if(PlaylistModel::where([['playlist_title', $request->input('playlist_title')], ['user_id', $user->id], ['playlist_id', '!=', $playlist->playlist_id]])->first()) {
-                    return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Tên playlist đã bị trùng danh sách bạn'], 400);
+                    return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Tên playlist đã bị trùng danh sách bạn'], 400);
                 }
             }
         }else{
@@ -280,7 +280,7 @@ class PlaylistController extends Controller
                 );
                 $imgPlaylist = Helpers::file_path($id, PUBLIC_MUSIC_PLAYLIST_PATH, true). $fileNameCover;
             }
-            return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => [], 'error' => ''], 200);
+            return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => null, 'error' => ''], 200);
         }else{
             $update['playlist_status'] = SET_ACTIVE;
 
@@ -296,30 +296,30 @@ class PlaylistController extends Controller
                     ]
                 );
             }
-            return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => [], 'error' => ''], 200);
+            return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => null, 'error' => ''], 200);
         }
     }
     public function createPlayList(Request $request) {
         if (!$request->sid || !$request->playlist_title) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Vui lòng nhập đầy đủ thông tin.'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Vui lòng nhập đầy đủ thông tin.'], 400);
         }
         $userSess = $this->sessionRepository->getSessionById($request->sid);
         if (!$userSess) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 401, 'data' => [], 'error' => 'Bạn chưa đang nhập.'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 401, 'data' => null, 'error' => 'Bạn chưa đang nhập.'], 400);
         }
         $user = $this->userRepository->getModel()::where('id', $userSess->user_id)->first();
         if (!$user) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Không Tìm Thấy User'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Không Tìm Thấy User'], 400);
         }
         // check banned user
         if ($user->hasPermissionsExtra('banned_user_playlist')) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Lỗi truy cập, tài khoản bạn bị khóa chức năng thêm nhạc vào playlist.'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Lỗi truy cập, tài khoản bạn bị khóa chức năng thêm nhạc vào playlist.'], 400);
         }
         if(strlen($request->input('playlist_title')) <= 1 || strlen($request->input('playlist_title')) > 100){
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Tên playlist mới ít nhất 2 và nhỏ hơn 100 ký tự.'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Tên playlist mới ít nhất 2 và nhỏ hơn 100 ký tự.'], 400);
         }
         if($this->playlistRepository->getModel()::where([['user_id', $user->id], ['playlist_title', $request->input('playlist_title')]])->first()){
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Tên playlist bị trùng'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Tên playlist bị trùng'], 400);
         }
         $result = $this->playlistRepository->create([
             'user_id' => $user->id,
@@ -328,29 +328,29 @@ class PlaylistController extends Controller
             'playlist_status' => SET_ACTIVE,
             'playlist_title' => $request->input('playlist_title')
         ]);
-        return new JsonResponse(['message' => 'Đã tạo playlist.', 'code' => 200, 'data' => [], 'error' => ''], 200);
+        return new JsonResponse(['message' => 'Đã tạo playlist.', 'code' => 200, 'data' => null, 'error' => ''], 200);
     }
     public function deletePlaylist(Request $request) {
         if (!$request->sid || !$request->playlist_id) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Vui lòng nhập đầy đủ thông tin.'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Vui lòng nhập đầy đủ thông tin.'], 400);
         }
         $userSess = $this->sessionRepository->getSessionById($request->sid);
         if (!$userSess) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 401, 'data' => [], 'error' => 'Bạn chưa đang nhập.'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 401, 'data' => null, 'error' => 'Bạn chưa đang nhập.'], 400);
         }
         $user = $this->userRepository->getModel()::where('id', $userSess->user_id)->first();
         if (!$user) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Không Tìm Thấy User'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Không Tìm Thấy User'], 400);
         }
         // check banned user
         if ($user->hasPermissionsExtra('banned_user_playlist')) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Lỗi truy cập, tài khoản bạn bị khóa chức năng chỉnh sửa playlist.'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Lỗi truy cập, tài khoản bạn bị khóa chức năng chỉnh sửa playlist.'], 400);
         }
         $playlist = PlaylistModel::where('playlist_id', $request->playlist_id)->where('user_id', $user->id)->first();
         if(!$playlist) {
-            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => [], 'error' => 'Không tìm thấy playlist'], 400);
+            return new JsonResponse(['message' => 'Fail', 'code' => 400, 'data' => null, 'error' => 'Không tìm thấy playlist'], 400);
         }
         $playlist->delete();
-        return new JsonResponse(['message' => 'Đã xóa playlist thành công', 'code' => 200, 'data' => [], 'error' => ''], 200);
+        return new JsonResponse(['message' => 'Đã xóa playlist thành công', 'code' => 200, 'data' => null, 'error' => ''], 200);
     }
 }

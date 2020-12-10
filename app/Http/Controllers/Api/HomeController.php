@@ -52,7 +52,7 @@ class HomeController extends Controller
             'album_cat_new_japan' => Helpers::getRandLimitArr($album_cat_new[7], LIMIT_HOME_CAT_MUSIC),
             'music_new_tab' => $music_new_uploads,
             'video_new_tab' => $video_new_uploads,
-        ], 'error' => []], 200);
+        ], 'error' => null], 200);
     }
 
 }
