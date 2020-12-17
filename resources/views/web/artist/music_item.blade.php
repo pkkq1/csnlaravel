@@ -17,8 +17,8 @@ use App\Library\Helpers;
             <a href="{{$url}}" title="{{$item['music_title'][0]}}">
                 <img src="{{$item['music_cover_thumb'][0]}}" alt="{{$item['music_title'][0]}}">
                 <i class="material-icons">play_circle_outline</i>
-                @if($item['cat_id'] == CAT_BEAT)
-                    <p class="time text-white mb-0 py-1">Beat</p>
+                @if($item['cat_id'][0] == CAT_BEAT)
+                    <span class="time text-white mb-0 py-1">Beat</span>
                 @endif
             </a>
         </div>
