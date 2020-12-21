@@ -125,7 +125,7 @@ if( !$memberVip && !$isVNIP )
                 <div class="d-flex justify-content-between mb-3 box1 music-listen-title" style="line-height: 33px;">
                     <h1 class="title">{{$music->music_title}} - {{$music->music_artist}}</h1>
                     @if ($auth_listen)
-                        <span title="Đăng tải: {{date('d/m/Y h:i', $music->music_time)}}" class="d-flex listen"><i class="material-icons" style="padding-top: 3px;">headset</i> {{number_format($music->music_listen)}}&nbsp;&nbsp;<i class="material-icons" style="font-size: 28px;">cloud_download</i> {{number_format($music->music_downloads)}}</span>
+                        <span title="Đăng tải: {{date('d/m/Y H:i', $music->music_time)}}" class="d-flex listen"><i class="material-icons" style="padding-top: 3px;">headset</i> {{number_format($music->music_listen)}}&nbsp;&nbsp;<i class="material-icons" style="font-size: 28px;">cloud_download</i> {{number_format($music->music_downloads)}}</span>
                     @endif
                 </div>
                 <div class="card mb-4 detail_lyric_1">
