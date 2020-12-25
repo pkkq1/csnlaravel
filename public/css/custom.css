@@ -2127,3 +2127,14 @@ a.dropdown-menu-header {
 .select_key_move {
     background: #d9d9d982;
 }
+.ic_delete_remember {
+    position: absolute;
+    right: 0;
+    margin-right: 15px;
+    display: none;
+    z-index: 9999;
+    margin-top: -3px;
+}
+.list_remember_search .li_item_result:hover .ic_delete_remember{
+    display: block;
+}

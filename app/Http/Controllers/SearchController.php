@@ -49,8 +49,8 @@ class SearchController extends Controller
             $user->save();
         }else{
             $remKeySearch = '';
-            if($_COOKIE['remember_key_search'] ?? '') {
-                $remKeySearch = $_COOKIE['remember_key_search'];
+            if($_COOKIE['remember_search'] ?? '') {
+                $remKeySearch = $_COOKIE['remember_search'];
             }
             $searchRecent = unserialize($remKeySearch);
             if ($searchRecent && ($key = array_search($search, $searchRecent)) !== false) {
@@ -60,7 +60,7 @@ class SearchController extends Controller
             if(count($searchRecent) > 10) {
                 array_shift($searchRecent);
             }
-            setcookie("remember_key_search", serialize($searchRecent), time() + 31536000, '/', env('SESSION_DOMAIN'));
+            setcookie("remember_search", serialize($searchRecent), time() + 31536000, '/', env('SESSION_DOMAIN'));
         }
         return view('search.index', compact('result', 'titleSearch', 'search', 'result'));
     }
@@ -392,6 +392,33 @@ class SearchController extends Controller
             }
         }
         return ($request->type == 'json' ? response((array)$result) : $result);
+    }
+    function deleteSearch(Request $request) {
+        if(!isset($request->search)){
+            Helpers::ajaxResult(false, 'Không tìm thứ tự xóa', null);
+        }
+        $search = htmlspecialchars_decode($request->search, ENT_QUOTES);
+        if(Auth::check()) {
+            $searchRecent = Auth::user()->user_music_search_recent;
+            $searchRecent = unserialize($searchRecent);
+            if ($searchRecent && ($key = array_search($search, $searchRecent)) !== false) {
+                unset($searchRecent[$key]);
+            }
+            $user = Auth::user();
+            $user->user_music_search_recent = serialize($searchRecent);
+            $user->save();
+        }else{
+            $remKeySearch = '';
+            if($_COOKIE['remember_search'] ?? '') {
+                $remKeySearch = $_COOKIE['remember_search'];
+            }
+            $searchRecent = unserialize($remKeySearch);
+            if ($searchRecent && ($key = array_search($search, $searchRecent)) !== false) {
+                unset($searchRecent[$key]);
+            }
+            setcookie("remember_search", serialize(array_reverse($searchRecent)), time() + 31536000, '/', env('SESSION_DOMAIN'));
+        }
+        Helpers::ajaxResult(true, 'Xóa thành công', []);
     }
 
 }

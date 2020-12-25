@@ -718,6 +718,28 @@
             ?>
             window.location.href = url;
     }
+    function delete_remember(key, search) {
+        event.preventDefault();
+        $('.li_item_result_'+key).fadeOut("fast");
+        $.ajax({
+            url: window.location.origin + '/search/delete_remember',
+            type: "POST",
+            dataType: "json",
+            data: {
+                'search': search,
+            },
+            beforeSend: function () {
+                if(loaded) return false;
+                loaded = true;
+            },
+            success: function(response) {
+                if(response.success) {
+                }else{
+                }
+            }
+        });
+
+    }
 </script>
 <footer id="footer">
     <div class="container">

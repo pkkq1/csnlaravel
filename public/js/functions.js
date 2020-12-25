@@ -48,7 +48,9 @@ $( document ).ready(function() {
         $(".suggest_search").fadeOut("fast")
         $(".search_layout_upload_album").fadeIn("fast")
     });
-    $('body').click(function(){
+    $('body').click(function(e){
+        if ($(e.target).is('.img_delete_remember'))
+            return false;
         $(".suggest").fadeOut("fast")
         $(".suggest_search").fadeOut("fast")
     });

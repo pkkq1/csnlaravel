@@ -264,6 +264,7 @@ Route::group(['middlewareGroups' => ['web']], function () {
     // Search
     Route::get('tim-kiem', ['as' => 'search.index', 'uses' => 'SearchController@index']);
     Route::get('/search/real', 'SearchController@ajaxSearch');
+    Route::post('/search/delete_remember', 'SearchController@deleteSearch');
     Route::get('/dang-tai/ca-si/tim-kiem', 'ArtistController@getTermArtist');
     // count download
     Route::post('/count/download', ['as' => 'music.count_download', 'uses' => 'MusicController@countDownload']);
