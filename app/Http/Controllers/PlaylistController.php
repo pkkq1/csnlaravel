@@ -166,7 +166,7 @@ class PlaylistController extends Controller
                 }
                 arsort($artistOld);
             }else {
-                if($artistIdNew) {
+                if($artistNew && $artistIdNew) {
                     foreach ($artistNew as $key => $val) {
                         $artistOld[$artistIdNew[$key] == -1 ? urlencode($val): $artistIdNew[$key]] = [
                             'order' => 0,
