@@ -166,11 +166,13 @@ class PlaylistController extends Controller
                 }
                 arsort($artistOld);
             }else {
-                foreach ($artistNew as $key => $val) {
-                    $artistOld[$artistIdNew[$key] == -1 ? urlencode($val): $artistIdNew[$key]] = [
-                        'order' => 0,
-                        'name' => $val
-                    ];
+                if($artistIdNew) {
+                    foreach ($artistNew as $key => $val) {
+                        $artistOld[$artistIdNew[$key] == -1 ? urlencode($val): $artistIdNew[$key]] = [
+                            'order' => 0,
+                            'name' => $val
+                        ];
+                    }
                 }
             }
             $playlistUser->playlist_artist = serialize($artistOld);
