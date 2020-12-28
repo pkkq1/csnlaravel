@@ -366,3 +366,5 @@ indexexchange.com, 191970, RESELLER
 emxdgt.com, 1567, RESELLER, 1e1d41537f7cad7f
 appnexus.com, 1356, RESELLER, f5ab79cb980f11d1
 smartyads.com, 879, RESELLER, fd2bde0ff2e62c5d
+#//innity 28/12/2020
+innity.com, 5040, DIRECT, 47ea16374dff1d69
