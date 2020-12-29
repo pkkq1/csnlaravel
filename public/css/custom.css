@@ -1431,7 +1431,7 @@ a.boxclose{
     -o-transition: opacity 0.3s ease-in-out;
     transition: opacity 0.3s ease-in-out;
 }
-.stage_album .card-header:hover .btn-album-remove{
+#warehouse_stage_album .card-header:hover .btn-album-remove{
     opacity: 1;
 }
 #header .top .form-group .form-control {
