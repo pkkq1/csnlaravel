@@ -368,3 +368,7 @@ appnexus.com, 1356, RESELLER, f5ab79cb980f11d1
 smartyads.com, 879, RESELLER, fd2bde0ff2e62c5d
 #//innity 28/12/2020
 innity.com, 5040, DIRECT, 47ea16374dff1d69
+spotxchange.com, 302016, RESELLER, 7842df1d2fe2db34
+spotx.tv, 302016, RESELLER, 7842df1d2fe2db34
+spotxchange.com, 305918, RESELLER, 7842df1d2fe2db34
+spotx.tv, 305918, RESELLER, 7842df1d2fe2db34
