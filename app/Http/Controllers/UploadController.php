@@ -92,8 +92,6 @@ class UploadController extends Controller
 //        abort(403, 'Đang bảo trì hệ thống đăng tải, vui lòng quay lại sau ít phút.');
     }
     public function index() {
-        abort(403, 'Chức năng tải nhạc đang tạm ngưng hoạt động để BQT CSN rà soát lại các bài hát cũ theo quy định của pháp luật.
-Mong các bạn thông cảm và quay lại sau.');
         return view('upload.index');
     }
     public function createArtist(Request $request) {
