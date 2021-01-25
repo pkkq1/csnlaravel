@@ -188,9 +188,6 @@ class AuthController extends Controller
         ];
         $requestData = $request->all();
         $requestData['username'] = strtolower($requestData['username']);
-        if(preg_match("/^[a-zA-Z0-9]+$/", $requestData['username']) == 1) {
-            // string only contain the a to z , A to Z, 0 to 9
-        }
         $validator = Validator::make($request->all(), $validator);
         $validator->setAttributeNames($setAttr);
         if($validator->fails()) {
