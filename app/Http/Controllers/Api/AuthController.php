@@ -175,7 +175,7 @@ class AuthController extends Controller
     }
     public function register(Request $request) {
         $validator = [
-            'username' => 'required|string|max:25|unique:csn_users|min:4',
+            'username' => 'required|string|max:25|unique:csn_users|min:4|regex:/^[a-z0-9]+$/u',
             'email' => 'required|string|email|max:255|unique:csn_users',
             'name' => 'required|string|min:2|max:50',
             'password' => 'required|string|min:6|max:30',
@@ -188,6 +188,9 @@ class AuthController extends Controller
         ];
         $requestData = $request->all();
         $requestData['username'] = strtolower($requestData['username']);
+        if(preg_match("/^[a-zA-Z0-9]+$/", $requestData['username']) == 1) {
+            // string only contain the a to z , A to Z, 0 to 9
+        }
         $validator = Validator::make($request->all(), $validator);
         $validator->setAttributeNames($setAttr);
         if($validator->fails()) {

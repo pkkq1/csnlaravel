@@ -541,6 +541,11 @@
             if(!username.val()) {
                 return addErrorInput(username, 'Tên đăng nhập không được để trống');
             }
+            var alphabetAndNumber = /^[a-z0-9]+$/;
+            if(!username.val().match(alphabetAndNumber))
+            {
+                return addErrorInput(username, 'Tên đăng nhập không được có ký tự đặt biệt');
+            }
             if(!name.val()) {
                 return addErrorInput(name, 'Tên hiển thị không được để trống');
             }
