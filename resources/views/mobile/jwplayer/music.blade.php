@@ -774,9 +774,9 @@ if( !$memberVip && !$isVNIP )
             document.body.addEventListener('touchstart', function (ae) {
                 if (video_preroll_played == false) {
                     video_preroll_played = true;
-                    // jwplayer('csnplayerads').play(true);
                     jwplayer('csnplayer').play(true);
-                    // jwplayer().play(true);
+                    jwplayer('csnplayerads').play(true);
+                    jwplayer().play(true);
                 }
             }, false)
         }, false);

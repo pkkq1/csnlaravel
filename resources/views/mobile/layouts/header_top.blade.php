@@ -9,8 +9,9 @@ $memberVip = Helpers::checkMemberVip();
     <nav class="navbar navbar-expand-lg navbar-dark flex-row-reverse">
         <a href="#" class="navbar-brand text-white button_search"><i aria-hidden="true" class="fa fa-search"></i></a>
         @if($Agent->isAndroidOS())
-            <a href="https://chiasenhac.vn/app/csn.html" target="_blank" style="margin-right: 0px;"><img src="/imgs/csn_app.png"></a>
         @endif
+            <a href="https://chiasenhac.vn/app/csn.html" target="_blank" style="margin-right: 0px;"><img src="/imgs/csn_app.png"></a>
+
         @if(!$memberVip)
             <a href="/chia-se-nhac-vip.html" style="margin-right: 0px;"><img src="/imgs/csn_muavip.png"></a>
         @endif
