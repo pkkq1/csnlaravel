@@ -7,7 +7,7 @@
                     void 0 != a && (D = document.createElement("div"), D.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-auto-next jw-icon-auto-next-on hidden",  a.parentNode.insertBefore(D, a))
                 }
                 var a = E.getElementsByClassName("jw-icon-playback")[0];
-                void 0 != a && (void 0 == P && (P = document.createElement("div"), P.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-backsong", P.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path class="zp-svg-fill" fill="#BEBEBE" fill-rule="nonzero" d="M2 2v12h1.98V2H2zm3.48 6L14 14V2L5.48 8z"></path></svg>', $(P).bind('touchstart', function(){
+                void 0 != a && (void 0 == P && (P = document.createElement("div"), P.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-backsong", P.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" class=\"jw-svg-icon jw-svg-icon-back\" viewBox="0 0 16 16"><path class="zp-svg-fill" fill="#BEBEBE" fill-rule="nonzero" d="M2 2v12h1.98V2H2zm3.48 6L14 14V2L5.48 8z"></path></svg>', $(P).bind('touchstart', function(){
                     "function" === typeof onPlayerAutoBack &&
                     onPlayerAutoBack()
                 }), a.parentNode.insertBefore(P, a)), void 0 == Q && (Q = document.createElement("div"), Q.className = "jw-icon jw-icon-inline jw-button-color jw-reset jw-icon-nextsong", Q.innerHTML = "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"jw-svg-icon jw-svg-icon-next\" viewBox=\"0 0 16 16\"><path class=\"zp-svg-fill\" fill=\"#BEBEBE\" fill-rule=\"nonzero\" d=\"M14 2v12h-1.98V2H14zm-3.48 6L2 14V2l8.52 6z\"></path></svg>", $(Q).bind('touchstart', function(){
