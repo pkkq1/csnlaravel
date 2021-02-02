@@ -58,6 +58,11 @@ global $allpage_banner;
     <link rel="stylesheet" type="text/css" href="{{URL::to('/')}}/css/custom.css">
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-27050676-1"></script>
+    <!-- DNS PREFETCH -->
+    <link rel="dns-prefetch" href="//www.google-analytics.com"/>
+    <link rel="dns-prefetch" href="https://vi.chiasenhac.vn"/>
+    <link rel="dns-prefetch" href="https://data.chiasenhac.com"/>
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}

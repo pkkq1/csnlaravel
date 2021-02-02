@@ -18,6 +18,11 @@
     <link rel="stylesheet" href="{{URL::to('/')}}/mobile/assets/css/custom.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="{{URL::to('/')}}/js/cookie.min.js"></script>
+    <!-- DNS PREFETCH -->
+    <link rel="dns-prefetch" href="//www.google-analytics.com"/>
+    <link rel="dns-prefetch" href="https://vi.chiasenhac.vn"/>
+    <link rel="dns-prefetch" href="https://data.chiasenhac.com"/>
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     @yield('contentCSS')
 
