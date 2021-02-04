@@ -498,6 +498,13 @@ $tabSelf = ($mySelf || (Auth::check() && Auth::user()->hasPermission('duyet_sua_
         $('.tab-category').find('.tab-current a').click()
         <?php
         }
+        if(isset($_GET['edit_profile'])) {
+            ?>
+            setTimeout(function(){
+                $('.edit_profile').modal('show');
+            }, 500);
+            <?php
+        }
         ?>
         });
     </script>
