@@ -12,9 +12,7 @@
                             <li><a href="{{URL::to('/')}}/tin-tuc.html" title="Trang chủ"><i class="c-icon--home"></i><span>Trang chủ</span></a></li>
                             <li><a href="{{URL::to('/')}}/tin-tuc/tin-noi-bat.html" title="Tin nổi bật"><span>Tin nổi bật</span></a></li>
                             <li><a href="{{URL::to('/')}}/tin-tuc/tin-moi-nhat.html" title="Tin mới nhất"><span>Tin mới nhất</span></a></li>
-                            <li><a href="{{URL::to('/')}}/tin-tuc/sao-viet.html" title="Sao Việt"><span>Sao Việt</span></a></li>
-                            <li><a href="{{URL::to('/')}}/tin-tuc/sao-han.html" title="Sao Âu Mỹ"><span>Sao Hàn</span></a></li>
-                            <li><a href="{{URL::to('/')}}/tin-tuc/sao-au-my.html" title="Sao Âu Mỹ"><span>Sao Âu Mỹ</span></a></li>
+                            @include('cache.news_category')
                         </ul>
                     </nav>
                 </div>
