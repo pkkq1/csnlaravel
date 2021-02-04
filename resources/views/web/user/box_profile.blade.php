@@ -80,6 +80,13 @@ if($mySelf) {
                     </div>
                     <div class="col-md-9">
                         <form action="" class="profile_submit1" method="get" autocomplete="off" accept-charset="utf-8">
+                            <?php
+                            if(!Auth::user()->username) {
+                            ?>
+                                <span style="color: red">Lần đăng nhập với tài khoản facebook hoặc google sẽ cập nhật thêm thông tin tên tài khoản và mật khẩu.</span>
+                            <?php
+                            }
+                            ?>
                             <div class="form-group">
                                 <label for="username">Tên Tài Khoản</label>
                                 <input type="text" {{Auth::user()->username ? 'disabled ' : ''}}class="form-control" id="username" aria-describedby="emailHelp" placeholder="bắt buộc nhập" value="{{Auth::user()->username}}">
@@ -310,15 +317,7 @@ if($mySelf) {
                 $('#view_user_avatar').attr("src", oldViewAvatar);
             })
             $('.profile_submit1').submit(false);
-            <?php
-            if(!Auth::user()->username) {
-            ?>
-            $('.click_modal_profile').click(function() {
-                alertModal('Lần đăng nhập với tài khoản facebook hoặc google sẽ cập nhật thêm thông tin tên tài khoản và mật khẩu.');
-            })
-            <?php
-            }
-            ?>
+
             function showChangePassWord() {
                 $('.input_change_pass').toggle('slow');
             }
