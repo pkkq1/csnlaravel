@@ -10,7 +10,7 @@
                     <nav>
                         <ul class="u-flex--wrap u-flex__x--end">
                             <li><a href="{{URL::to('/')}}/tin-tuc.html" title="Trang chủ"><i class="c-icon--home"></i><span>TRANG CHỦ</span></a></li>
-                            <li><a href="{{URL::to('/')}}/tin-tuc/tin-noi-bat.html" title="Tin nổi bật"><span>TIN NỖI BẬT</span></a></li>
+                            <li><a href="{{URL::to('/')}}/tin-tuc/tin-noi-bat.html" title="Tin nổi bật"><span>TIN NỔI BẬT</span></a></li>
                             <li><a href="{{URL::to('/')}}/tin-tuc/tin-moi-nhat.html" title="Tin mới nhất"><span>TIN MỚI NHẤT</span></a></li>
                             @include('cache.news_category')
                         </ul>
