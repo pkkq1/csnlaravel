@@ -49,6 +49,7 @@ class DetailController extends Controller
             $articleTags = $this->articleTagsRepository->getModel()::join("csn_articles","csn_articles.id","=","csn_article_tag.article_id")
                 ->select(DB::raw('DISTINCT csn_articles.id, csn_articles.category_id, csn_articles.title, csn_articles.slug, csn_articles.date_publish, csn_articles.short_content, csn_articles.image, csn_articles.article_by_user_name, csn_articles.article_by_user_id'))
                 ->where('csn_articles.status', 'PUBLISHED')
+                ->where('csn_articles.tags_id', '!=', '')
                 ->where('csn_article_tag.article_id', '!=', $article->id)
                 ->whereIn('csn_article_tag.tag_id', $tags)
                 ->whereDate('csn_articles.date_publish', '<=', date("Y-m-d h:i"))
