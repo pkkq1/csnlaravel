@@ -11,10 +11,22 @@ use App\Models\ArticleTagsModel;
 use Backpack\NewsCRUD\app\Models\Category;
 use Illuminate\Http\Request as Request;
 use Artisan;
+use App\Http\Controllers\Sync\ArticleCategoryController;
+use App\Repositories\Article\ArticleRepository;
+use App\Repositories\ArticleTags\ArticleTagsRepository;
+use App\Repositories\Tag\TagRepository;
+use App\Repositories\ArticleView\ArticleViewRepository;
+use App\Repositories\CategoryNews\CategoryNewsEloquentRepository;
 
 class ArticleCrudController extends CrudController
 {
-    public function __construct()
+    protected $articleRepository;
+    protected $articleViewRepository;
+    protected $categoryNewsRepository;
+    protected $tagArticleRepository;
+    protected $tagRepository;
+
+    public function __construct(ArticleRepository $articleRepository, ArticleViewRepository $articleViewRepository, CategoryNewsEloquentRepository $categoryNewsRepository, ArticleTagsRepository $tagArticleRepository, TagRepository $tagRepository)
     {
         $this->middleware(function ($request, $next)
         {
@@ -33,6 +45,8 @@ class ArticleCrudController extends CrudController
             return $next($request);
         });
         parent::__construct();
+
+        $this->News = new ArticleCategoryController($articleRepository, $articleViewRepository, $categoryNewsRepository, $tagArticleRepository, $tagRepository);
 
     }
     public function setup()
@@ -301,7 +315,7 @@ class ArticleCrudController extends CrudController
         // save the redirect choice for next time
         $this->setSaveAction();
         $result = $this->performSaveAction($item->getKey());
-//        Artisan::call('sync_news:type new_news');
+        $this->News->newPost();
         return $result;
     }
 
@@ -352,7 +366,8 @@ class ArticleCrudController extends CrudController
         $this->setSaveAction();
 
         $result = $this->performSaveAction($item->getKey());
-//        Artisan::call('sync_news:type new_news');
+
+        $this->News->newPost();
         return $result;
     }
     public function destroy($id)
@@ -360,7 +375,7 @@ class ArticleCrudController extends CrudController
         $this->crud->hasAccessOrFail('delete');
         // get entry ID from Request (makes sure its the last ID for nested resources)
         $id = $this->crud->getCurrentEntryId() ?? $id;
-        ArticleTagsModel::where('article_id', $id)->delete();
+        $this->News->newPost();
         $result = $this->crud->delete($id);
 //        Artisan::call('sync_news:type new_news');
         return $result;
