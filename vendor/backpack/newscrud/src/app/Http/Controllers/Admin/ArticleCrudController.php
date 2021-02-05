@@ -301,7 +301,7 @@ class ArticleCrudController extends CrudController
         // save the redirect choice for next time
         $this->setSaveAction();
         $result = $this->performSaveAction($item->getKey());
-        Artisan::call('sync_news:type new_news');
+//        Artisan::call('sync_news:type new_news');
         return $result;
     }
 
@@ -352,7 +352,7 @@ class ArticleCrudController extends CrudController
         $this->setSaveAction();
 
         $result = $this->performSaveAction($item->getKey());
-        Artisan::call('sync_news:type new_news');
+//        Artisan::call('sync_news:type new_news');
         return $result;
     }
     public function destroy($id)
@@ -362,7 +362,7 @@ class ArticleCrudController extends CrudController
         $id = $this->crud->getCurrentEntryId() ?? $id;
         ArticleTagsModel::where('article_id', $id)->delete();
         $result = $this->crud->delete($id);
-        Artisan::call('sync_news:type new_news');
+//        Artisan::call('sync_news:type new_news');
         return $result;
     }
 }
