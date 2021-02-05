@@ -227,26 +227,6 @@ class ArticleCrudController extends CrudController
         $this->crud->setEditView('vendor.backpack.article.edit');
         $this->crud->setCreateView('vendor.backpack.article.create');
     }
-    public function searchTags(Request $request)
-    {
-        $search_term = $request->input('term');
-        $results = [];
-        if ($search_term)
-        {
-            $result = Tag::select('name', 'id')
-                ->where(function($q) use ($search_term) {
-                    $q->where('name', 'LIKE', '%'.$search_term.'%')
-                        ->orWhere('slug', 'LIKE', '%'.$search_term.'%');
-                })
-                ->limit(10)->get()->toArray();
-        }
-        else
-        {
-            $result = Tag::select('name', 'id')
-                ->limit(10)->get()->toArray();
-        }
-        return response($result);
-    }
     public function edit($id, $template = false)
     {
         $this->crud->hasAccessOrFail('update');

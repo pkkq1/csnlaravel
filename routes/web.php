@@ -321,7 +321,7 @@ Route::group(['middlewareGroups' => ['web']], function () {
 
     Route::post('music/check_music_bitrate',['as'=>'music.check_music_bitrate','uses'=>'MusicController@checkMusicBitrate']);
 
-
+    Route::get('admin/article_tag/search_tag', 'News\DetailController@searchTags');
 
 
     Route::group(['middleware' => ['auth']], function() {

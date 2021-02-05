@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Repositories\Article\ArticleRepository;
 use App\Repositories\ArticleTags\ArticleTagsRepository;
 use App\Repositories\ArticleView\ArticleViewRepository;
+use Backpack\NewsCRUD\app\Models\Tag;
 use DB;
 
 class DetailController extends Controller
@@ -57,5 +58,25 @@ class DetailController extends Controller
                 ->get();
         }
         return view('news.detail.index', compact('article', 'articleTags'));
+    }
+    public function searchTags(Request $request)
+    {
+        $search_term = $request->input('term');
+        $results = [];
+        if ($search_term)
+        {
+            $result = Tag::select('name', 'id')
+                ->where(function($q) use ($search_term) {
+                    $q->where('name', 'LIKE', '%'.$search_term.'%')
+                        ->orWhere('slug', 'LIKE', '%'.$search_term.'%');
+                })
+                ->limit(10)->get()->toArray();
+        }
+        else
+        {
+            $result = Tag::select('name', 'id')
+                ->limit(10)->get()->toArray();
+        }
+        return response($result);
     }
 }
