@@ -9,9 +9,12 @@ use App\Library\Helpers;
 use Jenssegers\Agent\Agent;
 $listPopular_page = Helpers::getRandLimitArr($popular_category[$article->category_id], 4);
 $topMusic = array_slice($hot_music_rows[3], 0, 5);
-if($articleTags) {
+$flagArticle = 0;
+if(count($articleTags) > 0) {
+    $flagArticle = 1;
     $articleTags = Helpers::getRandLimitArr($articleTags->toArray(), 4);
 }else{
+    $flagArticle = 2;
     $articleTags = Helpers::getRandLimitArr($news_post, 4);
 }
 $Agent = new Agent();
@@ -113,10 +116,14 @@ $Agent = new Agent();
                             </div>
                         </div>
                     </div>
-                    @if($articleTags)
+                    @if($flagArticle > 0)
                     <div class="c-box c-box__siderbar c-box__siderbar--type03">
                         <div class="c-box__header">
-                            <h2>TIN LIÊN QUAN</h2>
+                            @if($flagArticle == 1)
+                                <h2>TIN LIÊN QUAN</h2>
+                            @else
+                                <h2>TIN MỚI NHẤT</h2>
+                            @endif
                         </div>
                         <div class="c-box__content">
                             <div class="c-list__container c-list__container--01 c-list__container--03">
@@ -140,9 +147,15 @@ $Agent = new Agent();
                     @endif
                 </div>
                 @else
+                    @if($flagArticle > 0)
                     <div class="c-box c-box__siderbar c-box__siderbar--type01" style="width: 100%;">
+
                         <div class="c-box__header u-background__gradien">
-                            <h2>TIN LIÊN QUAN</h2>
+                            @if($flagArticle == 1)
+                                <h2>TIN LIÊN QUAN</h2>
+                            @else
+                                <h2>TIN MỚI NHẤT</h2>
+                            @endif
                         </div>
                         <div class="c-box__content">
                             <div class="c-list__container c-list__container--01 c-list__container--03" style=" width: 100%; max-width: inherit; margin: 0; ">
@@ -167,6 +180,7 @@ $Agent = new Agent();
                             </div>
                         </div>
                     </div>
+                    @endif
                 @endif
             </div>
         </div>
