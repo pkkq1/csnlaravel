@@ -8,6 +8,7 @@
     RewriteCond %{HTTPS} !=on
     RewriteCond %{HTTP_HOST} !=chiasenhac.localhost
     RewriteCond %{HTTP_HOST} !=news.chiasenhac.localhost
+    RewriteCond %{HTTP_HOST} !=gocsaoviet.localhost
     RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
     # Handle Authorization Header

@@ -23,17 +23,9 @@ class HttpsProtocol {
             \Debugbar::enable();
         }
         $expUri = explode('/', $request->getRequestUri());
-        if(strpos($request->getHttpHost(), 'news') !== false) {
+        if(strpos($request->getHttpHost(), 'news') !== false || strpos($request->getHttpHost(), 'gocsaoviet') !== false) {
             if($request->getRequestUri() == '/') {
                 return redirect()->route('news.index.html');
-            }
-            if(isset($expUri[1]) && !($expUri[1] == 'tin-tuc' || $expUri[1] == 'tin-tuc.html')) {
-                return redirect(env('APP_URL').$request->getRequestUri());
-            }
-        }
-        if(isset($expUri[1]) && ($expUri[1] == 'tin-tuc' || $expUri[1] == 'tin-tuc.html')) {
-            if(strpos($request->getHttpHost(), 'news') === false) {
-                return redirect('//news.'.$request->getHttpHost().$request->getRequestUri());
             }
         }
 //        if(isset($expUri[1]) && strpos($expUri[1], 'tim-kiem?q=') !== false) {
