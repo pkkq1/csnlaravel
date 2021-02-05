@@ -316,6 +316,8 @@ class ArticleCrudController extends CrudController
         $this->setSaveAction();
         $result = $this->performSaveAction($item->getKey());
         $this->News->newPost();
+        $this->News->popularPost();
+        $this->News->popularNewsCategory();
         return $result;
     }
 
@@ -368,6 +370,8 @@ class ArticleCrudController extends CrudController
         $result = $this->performSaveAction($item->getKey());
 
         $this->News->newPost();
+        $this->News->popularPost();
+        $this->News->popularNewsCategory();
         return $result;
     }
     public function destroy($id)
@@ -376,6 +380,8 @@ class ArticleCrudController extends CrudController
         // get entry ID from Request (makes sure its the last ID for nested resources)
         $id = $this->crud->getCurrentEntryId() ?? $id;
         $this->News->newPost();
+        $this->News->popularPost();
+        $this->News->popularNewsCategory();
         $result = $this->crud->delete($id);
 //        Artisan::call('sync_news:type new_news');
         return $result;
