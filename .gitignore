@@ -1,5 +1,6 @@
 /resources/views/cache
 /public/storage
+/public/.htaccess
 /storage/app
 
 
