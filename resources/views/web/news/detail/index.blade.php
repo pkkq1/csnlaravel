@@ -6,6 +6,7 @@ global $popular_category;
 global $hot_music_rows;
 global $news_post;
 use App\Library\Helpers;
+use Jenssegers\Agent\Agent;
 $listPopular_page = Helpers::getRandLimitArr($popular_category[$article->category_id], 4);
 $topMusic = array_slice($hot_music_rows[3], 0, 5);
 if($articleTags) {
@@ -13,6 +14,7 @@ if($articleTags) {
 }else{
     $articleTags = Helpers::getRandLimitArr($news_post, 4);
 }
+$Agent = new Agent();
 ?>
 @section('meta')
 <meta name="title" content="{{$article->title}}" />
@@ -30,7 +32,7 @@ if($articleTags) {
     <section class="c-section">
         <div class="o-container">
             <div class="c-wraper">
-                <div class="c-main-content">
+                <div class="c-main-content" <?php echo $Agent->isMobile() == 'mobile' ? 'style="width: 100%"' : ''?>>
                     <div class="c-content__main">
                         <div class="c-post">
                             <div class="c-post__header">
@@ -60,6 +62,7 @@ if($articleTags) {
                         <div class="fb-comments" data-href="{{url()->current()}}" data-width="100%" data-numposts="10"></div>
                     </div>
                 </div>
+                @if($Agent->isMobile() != 'mobile')
                 <div class="c-siderbar">
                     <div class="c-box c-box__siderbar c-box__siderbar--type01">
                         <div class="c-box__header u-background__gradien">
@@ -113,7 +116,7 @@ if($articleTags) {
                     @if($articleTags)
                     <div class="c-box c-box__siderbar c-box__siderbar--type03">
                         <div class="c-box__header">
-                            <h2>ĐỌC TIẾP</h2>
+                            <h2>TIN LIÊN QUAN</h2>
                         </div>
                         <div class="c-box__content">
                             <div class="c-list__container c-list__container--01 c-list__container--03">
@@ -136,6 +139,35 @@ if($articleTags) {
                     </div>
                     @endif
                 </div>
+                @else
+                    <div class="c-box c-box__siderbar c-box__siderbar--type01" style="width: 100%;">
+                        <div class="c-box__header u-background__gradien">
+                            <h2>TIN LIÊN QUAN</h2>
+                        </div>
+                        <div class="c-box__content">
+                            <div class="c-list__container c-list__container--01 c-list__container--03" style=" width: 100%; max-width: inherit; margin: 0; ">
+                                @foreach($articleTags as $item)
+                                    <div class="c-list__item">
+                                        <div class="c-card c-card__02">
+                                            <div class="c-card__header">
+                                                <div class="c-thumbnail">
+                                                    <div class="c-thumbnail--ratio">
+                                                        <a href="/tin-tuc/{{$item['slug']}}-p-{{$item['id']}}.html" title="{{$item['title']}}">
+                                                            <img src="<?php echo Helpers::news_image($item['image']) ?>" alt="Card image cap">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="c-card__body">
+                                                <h4 class="c-card__title"><a style="font-size: 22px;line-height: 32px;" title="{{$item['title']}}" href="/tin-tuc/{{$item['slug']}}-p-{{$item['id']}}.html">{{$item['title']}}</a></h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                @endif
             </div>
         </div>
     </section>
