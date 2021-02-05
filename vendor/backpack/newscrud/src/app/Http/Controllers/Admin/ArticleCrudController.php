@@ -10,6 +10,7 @@ use Backpack\NewsCRUD\app\Models\Tag;
 use App\Models\ArticleTagsModel;
 use Backpack\NewsCRUD\app\Models\Category;
 use Illuminate\Http\Request as Request;
+use Artisan;
 
 class ArticleCrudController extends CrudController
 {
@@ -299,7 +300,9 @@ class ArticleCrudController extends CrudController
 
         // save the redirect choice for next time
         $this->setSaveAction();
-        return $this->performSaveAction($item->getKey());
+        $result = $this->performSaveAction($item->getKey());
+        Artisan::call('sync_news:type new_news');
+        return $result;
     }
 
     public function update(UpdateRequest $request)
@@ -348,7 +351,9 @@ class ArticleCrudController extends CrudController
         // save the redirect choice for next time
         $this->setSaveAction();
 
-        return $this->performSaveAction($item->getKey());
+        $result = $this->performSaveAction($item->getKey());
+        Artisan::call('sync_news:type new_news');
+        return $result;
     }
     public function destroy($id)
     {
@@ -356,6 +361,8 @@ class ArticleCrudController extends CrudController
         // get entry ID from Request (makes sure its the last ID for nested resources)
         $id = $this->crud->getCurrentEntryId() ?? $id;
         ArticleTagsModel::where('article_id', $id)->delete();
-        return $this->crud->delete($id);
+        $result = $this->crud->delete($id);
+        Artisan::call('sync_news:type new_news');
+        return $result;
     }
 }
