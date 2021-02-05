@@ -14,6 +14,16 @@ if($articleTags) {
     $articleTags = Helpers::getRandLimitArr($news_post, 4);
 }
 ?>
+@section('meta')
+<meta name="title" content="{{$article->title}}" />
+    <meta property="fb:app_id" content="419934814770318" />
+    <meta property="og:image" content="{{env('APP_URL') . '/' .$article->image}}" />
+    <meta property="og:url" content="{{url()->current()}}" />
+    <meta property="og:title" content="{{$article->title}}" />
+    <meta property="og:description" content="{{$article->short_content}}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:updated_time" content="{{time()}}" />
+@endsection
 @extends('web.news.layouts.app')
 
 @section('content')
