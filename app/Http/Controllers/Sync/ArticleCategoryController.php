@@ -38,7 +38,7 @@ class ArticleCategoryController extends Controller
 
         $categories = [2, 3, 4, 5];
         foreach ($categories as $item) {
-            $result[$item] = $this->articleViewRepository->getModel()::join("csn_articles","csn_articles.id","=","csn_article_view.article_id")
+            $result[$item] = $this->articleViewRepository->getModel()::leftJoin("csn_articles","csn_articles.id","=","csn_article_view.article_id")
                 ->select(DB::raw('csn_articles.id, csn_articles.category_id, csn_articles.title, csn_articles.slug, csn_articles.date_publish, csn_articles.short_content, csn_articles.image, csn_articles.article_by_user_name, csn_articles.article_by_user_id'))
                 ->where('csn_articles.status', 'PUBLISHED')
                 ->where('csn_articles.category_id', $item)
