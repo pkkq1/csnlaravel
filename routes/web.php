@@ -440,7 +440,7 @@ Route::group(['middlewareGroups' => ['web']], function () {
         Route::get('sao-viet.html', ['as' => 'news.category.index', 'uses' => 'CategoryController@categorySao_viet']);
         Route::get('sao-han.html', ['as' => 'news.category.index', 'uses' => 'CategoryController@categorySao_han']);
         Route::get('sao-au-my.html', ['as' => 'news.category.index', 'uses' => 'CategoryController@categorySao_au_my']);
-        Route::get('giai-tri.html', ['as' => 'news.category.index', 'uses' => 'CategoryController@categorySao_au_my']);
+        Route::get('giai-tri.html', ['as' => 'news.category.index', 'uses' => 'CategoryController@categoryGiai_tri']);
 
         Route::get('{slug}p-{id}.html', ['as' => 'news.detail.index', 'uses' => 'DetailController@index']);
         Route::get('{slug}p-{id}', ['as' => 'news.detail.index', 'uses' => 'DetailController@index']);

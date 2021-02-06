@@ -41,6 +41,9 @@ class CategoryController extends Controller
     public function categorySao_au_my(Request $request) {
         return $this->category($request, 4);
     }
+    public function categoryGiai_tri(Request $request) {
+        return $this->category($request, 5);
+    }
     public function category($request, $idCategory) {
         $list = $this->articleRepository->getCategory($idCategory)->paginate(PAGE_CATEGORY);
         if($request->tab == 'ajax_page')
