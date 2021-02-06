@@ -2,7 +2,7 @@
 <?php
 global $popular_category;
 use App\Library\Helpers;
-$nameCat = $idCategory == 2 ? 'Sao Việt' : ($idCategory == 3 ? 'Sao Hàn' : ($idCategory == 4 ? 'Sao Âu Mỹ' : 'Sao Việt'));
+$nameCat = $idCategory == 2 ? 'Sao Việt' : ($idCategory == 3 ? 'Sao Hàn' : ($idCategory == 4 ? 'Sao Âu Mỹ' : ($idCategory == 5 ? 'Giải Trí' : 'Sao Việt')));
 ?>
 @extends('web.news.layouts.app')
 
