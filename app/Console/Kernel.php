@@ -76,8 +76,8 @@ class Kernel extends ConsoleKernel
         // news
 //        $schedule->command('sync_news:type new')->everyFiveMinutes();
 //        $schedule->command('sync_news:type new_news')->hourlyAt(5);
-//        $schedule->command('sync_news:type popular_news')->hourlyAt(55);
-//        $schedule->command('sync_news:type cat_popular_new')->hourlyAt(55);
+        $schedule->command('sync_news:type popular_news')->hourlyAt(55);
+        $schedule->command('sync_news:type cat_popular_new')->hourlyAt(55);
     }
 
     /**
