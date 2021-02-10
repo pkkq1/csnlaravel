@@ -190,17 +190,17 @@ $Agent = new Agent();
             ?>
             <style>
                 .c-wraper .c-main-content .c-title-lg {
-                    font-size: 60px;
+                    font-size: 65px;
                     line-height: 70px;
                 }
                 .c-wraper .c-main-content p {
-                    font-size: 41px;
+                    font-size: 45px;
                     line-height: 80px;
                 }
-                .c-wraper .c-main-content p img {
-                    width: 100%!important;
-                    height: auto!important;
-                }
+                /*.c-wraper .c-main-content p img {*/
+                    /*width: 100%!important;*/
+                    /*height: auto!important;*/
+                /*}*/
                 .c-list__container--03 .c-list__item .c-card__header {
                     width: 30%;
                 }
