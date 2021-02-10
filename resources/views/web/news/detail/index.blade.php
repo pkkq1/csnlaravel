@@ -198,8 +198,8 @@ $Agent = new Agent();
                     line-height: 80px;
                 }
                 .c-wraper .c-main-content p img {
-                    width: 100%;
-                    height: auto;
+                    width: 100%!important;
+                    height: auto!important;
                 }
                 .c-list__container--03 .c-list__item .c-card__header {
                     width: 30%;
