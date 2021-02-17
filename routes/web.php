@@ -417,7 +417,6 @@ Route::group(['middlewareGroups' => ['web']], function () {
     });
 
     ///// Newstin-noi-bat
-    Route::get('tin-tuc.html', ['as' => 'news.index.html', 'uses' => 'News\HomeController@index']);
 
     Route::get('tin-tuc/demo1', ['as' => 'news.index', 'uses' => 'Sync\NewsCategoryController@popularNewsCategory']);
     Route::get('tin-tuc/demo2', ['as' => 'news.index', 'uses' => 'Sync\NewsCategoryController@popularNewsPost']);
