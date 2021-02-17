@@ -502,6 +502,7 @@ $tabSelf = ($mySelf || (Auth::check() && Auth::user()->hasPermission('duyet_sua_
             ?>
             setTimeout(function(){
                 $('.edit_profile').modal('show');
+                alertModal('Vui lòng cập nhật Tên Tài Khoản để được quyền truy cập upload nhạc');
             }, 500);
             <?php
         }

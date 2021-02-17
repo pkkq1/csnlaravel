@@ -503,7 +503,7 @@
     margin-bottom: 0px!important;
 }
 .modal {
-    z-index: 9999999;
+    z-index: 99999;
 }
 .box_show_playlist_popup {
     height: 180px;
