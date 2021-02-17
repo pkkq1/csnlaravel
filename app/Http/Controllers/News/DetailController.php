@@ -82,7 +82,7 @@ class DetailController extends Controller
     public function rss() {
         $blog = $this->articleRepository
             ->getModel()::select('id', 'slug', 'title', 'short_content', 'content', 'image', 'date_publish', 'created_at')->whereDate('date_publish', '<=', date("Y-m-d h:i"))
-            ->where('status', STATUS_PUBLISHED)->orderBy('date_publish', 'desc')->limit(300)->get();
+            ->where('status', STATUS_PUBLISHED)->orderBy('date_publish', 'desc')->limit(20)->get();
         return view('news.rss', [
             'blogs' => $blog,
             'title' => 'Góc Sao Việt',
