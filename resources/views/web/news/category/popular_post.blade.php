@@ -12,7 +12,7 @@ use App\Library\Helpers;
         <div class="o-container">
             <div class="c-breadcrumb">
                 <ul>
-                    <li><a href="/tin-tuc.html" title="Home"><span>Trang chủ</span></a></li>
+                    <li><a href="/" title="Home"><span>Trang chủ</span></a></li>
                     <li><span>Tin Nỗi Bật</span></li>
                 </ul>
             </div>

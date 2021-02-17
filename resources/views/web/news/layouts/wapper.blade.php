@@ -4,7 +4,7 @@
             <div class="u-flex--wrap u-flex__y--center u-flex__x--between">
                 <div class="c-btn__menu--mobile only-sp"><span></span></div>
                 <div class="c-logo">
-                    <h1> <a href="/tin-tuc.html"><img src="{{env('IMG_DATA_URL')}}images/logo-h.png" alt=""></a></h1>
+                    <h1> <a href="/"><img src="{{env('IMG_DATA_URL')}}images/logo-h.png" alt=""></a></h1>
                 </div>
                 <div rel="show--menu" class="c-list__menu--main">
                     <nav>
