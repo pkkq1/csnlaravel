@@ -23,8 +23,13 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        if(strpos($request->getHttpHost(), 'gocsaoviet') !== false ) {
+            if($request->getRequestUri() == '/') {
+                return view('news.home');
+            }
+        }
         return view('home');
     }
     public function policy() {

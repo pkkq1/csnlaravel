@@ -22,13 +22,13 @@ class HttpsProtocol {
         if ($request->ip() == '210.245.121.234' || $request->ip() == '14.161.21.142') {
             \Debugbar::enable();
         }
-        $expUri = explode('/', $request->getRequestUri());
-        if(strpos($request->getHttpHost(), 'gocsaoviet') !== false ) {
-            if($request->getRequestUri() == '/') {
-                return redirect()->route('news.index.html');
-            }
-        }
-
+//        $expUri = explode('/', $request->getRequestUri());
+//        if(strpos($request->getHttpHost(), 'gocsaoviet') !== false ) {
+//            if($request->getRequestUri() == '/') {
+//                return view('news.home');
+////                return redirect()->route('news.index.html');
+//            }
+//        }
 //        if(isset($expUri[1]) && strpos($expUri[1], 'tim-kiem?q=') !== false) {
 //            if(strpos($request->getHttpHost(), 's.') === false) {
 //                return redirect('//s.'.$request->getHttpHost().$request->getRequestUri());
