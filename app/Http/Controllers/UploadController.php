@@ -98,6 +98,9 @@ class UploadController extends Controller
         return view('upload.upload_artist');
     }
     public function createMusic(Request $request, $musicId = null) {
+        if(!Auth::user()->username) {
+            return redirect('/user/' . Auth::user()->id . '?edit_profile=true');
+        }
         $typeUpload = 'music';
         $uploadExp = '';
         if($musicId) {
@@ -134,6 +137,9 @@ class UploadController extends Controller
         return view('upload.upload_music', compact('typeUpload', 'music', 'album', 'userMusic', 'uploadExp'));
     }
     public function createVideo(Request $request, $musicId = null) {
+        if(!Auth::user()->username) {
+            return redirect('/user/' . Auth::user()->id . '?edit_profile=true');
+        }
         $typeUpload = 'video';
         $uploadExp = '';
         if($musicId) {
@@ -168,6 +174,9 @@ class UploadController extends Controller
         return view('upload.upload_music', compact('typeUpload', 'music', 'album', 'userMusic', 'uploadExp'));
     }
     public function createAlbum(Request $request, $coverId = null) {
+        if(!Auth::user()->username) {
+            return redirect('/user/' . Auth::user()->id . '?edit_profile=true');
+        }
         if($coverId) {
             if(Auth::user()->hasPermission('duyet_sua_nhac')) {
                 $album = $this->coverRepository->findCover($coverId);
