@@ -372,3 +372,8 @@ spotxchange.com, 302016, RESELLER, 7842df1d2fe2db34
 spotx.tv, 302016, RESELLER, 7842df1d2fe2db34
 spotxchange.com, 305918, RESELLER, 7842df1d2fe2db34
 spotx.tv, 305918, RESELLER, 7842df1d2fe2db34
+#//lava 22/2/2021
+spotxchange.com, 302016, RESELLER, 7842df1d2fe2db34
+spotx.tv, 302016, RESELLER, 7842df1d2fe2db34
+spotxchange.com, 308823, RESELLER, 7842df1d2fe2db34
+spotx.tv, 308823, RESELLER, 7842df1d2fe2db34
