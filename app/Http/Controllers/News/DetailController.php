@@ -88,6 +88,6 @@ class DetailController extends Controller
             'title' => 'Góc Sao Việt',
         ]);
         return response($content, 200)
-            ->header('Content-Type', 'text/xml');
+            ->header('Content-Type', 'application/rss+xml')->header('charset', 'utf-8');
     }
 }
