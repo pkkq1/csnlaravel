@@ -201,6 +201,10 @@ $Agent = new Agent();
                     width: 100%!important;
                     height: auto!important;
                 }
+                iframe {
+                    width: 100%;
+                    height: 521px;
+                }
                 .c-list__container--03 .c-list__item .c-card__header {
                     width: 30%;
                 }
