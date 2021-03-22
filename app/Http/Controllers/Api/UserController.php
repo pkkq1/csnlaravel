@@ -201,7 +201,7 @@ class UserController extends Controller
                 $sess = $this->sessionEloquentRepository->getModel()::where('id', $qrToken->session_id)->first();
                 if($sess && $sess->user_id) {
                     $existUser = User::where('user_id', '=', $sess->user_id)->first();
-                    $existUser->sid = $sess->id;//session()->getId();
+                    $existUser->sid = $qrToken->session_id;//session()->getId();
                     $qrToken->status = 'close';
                     $qrToken->save();
                     return new JsonResponse(['message' => 'Success', 'code' => 200, 'data' => Helpers::convertArrHtmlCharsDecode($existUser), 'error' => null], 200);
