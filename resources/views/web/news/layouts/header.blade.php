@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="{{URL::to('/')}}/tin_tuc/css/lib/slick.css">
     <link rel="stylesheet" href="{{URL::to('/')}}/tin_tuc/css/style.css">
     <link rel="stylesheet" href="{{URL::to('/')}}/tin_tuc/css/custom.css">
-    <meta property="fb:pages" content="166045770944" />
+    <meta property="fb:pages" content="393441264587573" />
     @yield('contentCSS')
     <script src="{{URL::to('/')}}/tin_tuc/js/jquery-3.2.1.min.js"></script>
 
