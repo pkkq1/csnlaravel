@@ -719,7 +719,7 @@ if( !$memberVip && !$isVNIP )
             height: '88',
             repeat: false,
             aspectratio: "<?php echo $musicSet['type_jw'] == 'video' ? '16:9' : 'false' ?>",
-            stretching: 'exactfit',
+            stretching: 'uniform',
             sources: [
                 <?php
                 $typeJwSource = $musicSet['type_jw'] == 'video' ? 'mp4' : 'mp3';
