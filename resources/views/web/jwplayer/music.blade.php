@@ -2468,7 +2468,7 @@ if( !$memberVip && !$isVNIP )
         @endif
 
 // preroll to balloon
-
+        @if(!$memberVip && $musicSet['type_jw'] != 'video')
         var pre_end = false;
         function preroll_end()
         {
@@ -2523,6 +2523,7 @@ if( !$memberVip && !$isVNIP )
                 $("#csnplayer").css({ position: 'fixed', top: '0px', right: '0px' });
             }
         });
+        @endif
 
         //-->
     </script>
