@@ -133,8 +133,12 @@ if( !$memberVip && !$isVNIP )
                         @if (!$memberVip)
                             <div style="text-align: right;"><a href="/chia-se-nhac-vip.html">[x Tắt quảng cáo]</a></div>
                         @endif
-                        <div id="csnplayerads" style="position:relative; z-index: 99999; width:100%;"> </div>
-                        <div id="csnplayer" class="<?php echo $musicSet['type_jw'] == 'video' ? 'csn_video' : 'csn_music' ?>" style="position:relative; z-index: 99999; width:100%;"> </div>
+                            <div id="fullplayerfix" align="center" style="position:relative; width: 100%; height: 400px;">
+                                <div id="fullplayer" align="center" style="position:relative; width: 100%; z-index: 1000000000000000;">
+                                    <div id="csnplayerads" style="position:relative; z-index: 99999; width:100%;"> </div>
+                                    <div id="csnplayer" class="<?php echo $musicSet['type_jw'] == 'video' ? 'csn_video' : 'csn_music' ?>" style="position:relative; z-index: 99999; width:100%;"> </div>
+                                </div>
+                            </div>
                     @else
                             <img src="/imgs/restrict_content.jpg" width="100%" alt="Restrict Content" class="card-img-top">
                     @endif
@@ -2463,7 +2467,66 @@ if( !$memberVip && !$isVNIP )
         @endif
         @endif
 
+// preroll to balloon
+
+        var pre_end = false;
+        function preroll_end()
+        {
+            document.getElementById('csnplayerads').remove();
+            $("#fullplayerfix").css({ height: '88px' });
+            $("#csnplayer").css({ top: '0px' });
+            pre_end = true;
+        }
+
+
+        var player_top = $('#fullplayer').position().top;
+        (function($){
+            $.fn.visible = function(partial){
+
+                var $t			= $(this),
+                    $w			= $(window),
+                    viewTop			= $w.scrollTop(),
+                    viewBottom		= viewTop + $w.height(),
+                    _top			= $t.offset().top,
+                    _bottom			= _top + $t.height(),
+                    compareTop		= partial === true ? _bottom : _top,
+                    compareBottom	= partial === true ? _top : _bottom;
+
+                return ((compareBottom <= viewBottom) && (compareTop >= viewTop));
+            };
+        })(jQuery);
+
+        var topads = -1;
+        $( window ).scroll(function() {
+            if ( pre_end || (topads > 0 && $(window).scrollTop() < topads) )
+            {
+                jwplayer("csnplayerads").resize('100%', 360);
+                $("#csnplayerads").css({ position: 'relative', top: '0px', right: '0px' });
+                $("#csnplayer").css({ position: 'relative', width: '100%', top: '0px', right: '0px' });
+            }
+            else if ( document.getElementById('csnplayerads') && $('#csnplayerads').visible() !== true )
+            {
+                if ( topads < 0 )
+                {
+                    topads = $('#csnplayerads').offset().top;
+                }
+                jwplayer("csnplayerads").resize(324, 182);
+                $("#csnplayerads").css({ position: 'fixed', top: '0px', right: '0px' });
+                $("#csnplayer").css({ position: 'fixed',  width: '324px', top: '182px', right: '0px' });
+            }
+            else if ( $('#csnplayer').visible() !== true )
+            {
+                if ( topads < 0 )
+                {
+                    topads = $('#csnplayer').offset().top;
+                }
+                $("#csnplayer").css({ position: 'fixed', top: '0px', right: '0px' });
+            }
+        });
+
+        //-->
     </script>
+
     @if($musicSet['type_jw'] != 'video')
         <style>
             .jw-icon-rewind{
