@@ -52,7 +52,7 @@ use App\Library\Helpers;
                                 @endif
                             </div>
                         </div>
-                        <div class="search_layout card suggest">
+                        <div class="search_layout card suggest" style="z-index: 990001;">
                         </div>
                     </div>
                     <div class="box-history-music">
