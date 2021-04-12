@@ -12,7 +12,7 @@ $memberVip = Helpers::checkMemberVip();
         @endif
             <a href="https://chiasenhac.vn/app/csn.html" target="_blank" style="margin-right: 0px;"><img src="/imgs/csn_app.png"></a>
 
-        @if(!$memberVip)
+        @if(0 && !$memberVip)
             <a href="/chia-se-nhac-vip.html" style="margin-right: 0px;"><img src="/imgs/csn_muavip.png"></a>
         @endif
         <a href="/" class="navbar-brand logo"><img src="/images/logo-header.png" alt="logo"></a>
