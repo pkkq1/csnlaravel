@@ -41,9 +41,9 @@ $titleMeta = 'Đăng ký VIP Chia Sẻ Nhạc';
                         - Được tải thoải mái các bài hát trên hệ thống với chất lượng cao nhất.<br>
                         - Được tải ảnh cover lên để trang trí trang cá nhân nổi bật hơn các thành viên khác.<br><br>
                         Hiện tại, CSN cung cấp cho bạn sự lựa chọn các gói VIP với thời hạn như sau:<br>
-                        - Gói tuần (7 ngày): 5.000 đồng<br>
+                        <!-- - Gói tuần (7 ngày): 5.000 đồng<br>
                         - Gói tháng (30 ngày): 15.000 đồng<br>
-                        - Gói 3 tháng (90 ngày): 35.000 đồng<br>
+                        - Gói 3 tháng (90 ngày): 35.000 đồng<br> -->
                         - Gói 6 tháng (180 ngày): 60.000 đồng<br>
                     </p>
                     @if(!$memberVip)
