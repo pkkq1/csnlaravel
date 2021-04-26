@@ -13,7 +13,7 @@ use App\Library\Helpers;
                 </figure>
                 <form action="<?php echo env('SEARCH_TEMPLATE_URL'); ?>/tim-kiem">
                     <!-- a class="old_redirect_web" href="http://old.chiasenhac.vn/" target="_blank"><img src="{{env('IMG_DATA_URL')}}imgs/csn_bancu.png" alt="Logo Chiasenhac old" style="float: left; margin-right: 10px;"></a -->
-                        @if(0 && Auth::check() && !$memberVip)
+                        @if(Auth::check() && !$memberVip)
                             <a href="/chia-se-nhac-vip.html"><img src="/imgs/csn_muavip.png" style="float: left; margin-right: 10px;" height="32px"></a>
                         @endif
                     <div class="form-group m-0" style="float:left">
