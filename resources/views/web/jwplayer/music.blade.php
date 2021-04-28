@@ -891,7 +891,21 @@ if( !$memberVip && !$isVNIP )
                 ';
             }
             ?>
-            width: '100%',
+
+                    @if(!$memberVip && $music->music_id == 1111000)
+            advertising: {
+                client: "vast",
+                skipoffset: 5,
+                "adschedule": {
+                    "myPreroll": {
+                        "offset": "post",
+                        "tag": "https://delivery.lavanetwork.net/www/delivery/fc.php?script=bannerTypeHtml:vastInlineBannerTypeHtml:vastInlineHtmlExtend&format=vast&nz=1&zones=pre-roll%3D3193&version=2"
+                    }
+                }
+            },
+                @endif
+
+                width: '100%',
             height: '88',
             repeat: false,
             aspectratio: "<?php echo $musicSet['type_jw'] == 'video' ? '16:9' : 'false' ?>",
