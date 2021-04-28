@@ -130,7 +130,7 @@ if( !$memberVip && !$isVNIP )
                 </div>
                 <div class="card mb-4 detail_lyric_1">
                     @if ($auth_listen)
-                        @if (!$memberVip)
+                        @if (0 && !$memberVip)
                             <div style="text-align: right;"><a href="/chia-se-nhac-vip.html">[x Tắt quảng cáo]</a></div>
                         @endif
                             <div id="fullplayerfix" align="center" style="position:relative; width: 100%; height: 400px;">
