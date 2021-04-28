@@ -133,7 +133,7 @@ if( !$memberVip && !$isVNIP )
                         @if (!$memberVip)
                             <div style="text-align: right;"><a href="/chia-se-nhac-vip.html">[x Tắt quảng cáo]</a></div>
                         @endif
-                            <div id="fullplayerfix" align="center" style="position:relative; width: 100%; height: 500px;">
+                            <div id="fullplayerfix" align="center" style="position:relative; width: 100%;">
                                 <div id="fullplayer" align="center" style="position:relative; width: 100%; z-index: 10000;">
                                     <div id="csnplayerads" style="position:relative; z-index: 99999; width:100%;"> </div>
                                     <div id="csnplayer" class="<?php echo $musicSet['type_jw'] == 'video' ? 'csn_video' : 'csn_music' ?>" style="position:relative; z-index: 99999; width:100%;"> </div>
