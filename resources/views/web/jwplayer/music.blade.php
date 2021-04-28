@@ -2481,63 +2481,6 @@ if( !$memberVip && !$isVNIP )
         @endif
         @endif
 
-// preroll to balloon
-        @if(!$memberVip && $musicSet['type_jw'] != 'video')
-        var pre_end = false;
-        function preroll_end()
-        {
-            document.getElementById('csnplayerads').remove();
-            $("#fullplayerfix").css({ height: '88px' });
-            $("#csnplayer").css({ top: '0px' });
-            pre_end = true;
-        }
-
-
-        var player_top = $('#fullplayer').position().top;
-        (function($){
-            $.fn.visible = function(partial){
-
-                var $t			= $(this),
-                    $w			= $(window),
-                    viewTop			= $w.scrollTop(),
-                    viewBottom		= viewTop + $w.height(),
-                    _top			= $t.offset().top,
-                    _bottom			= _top + $t.height(),
-                    compareTop		= partial === true ? _bottom : _top,
-                    compareBottom	= partial === true ? _top : _bottom;
-
-                return ((compareBottom <= viewBottom) && (compareTop >= viewTop));
-            };
-        })(jQuery);
-
-        var topads = -1;
-        $( window ).scroll(function() {
-            if ( pre_end || (topads > 0 && $(window).scrollTop() < topads) )
-            {
-                jwplayer("csnplayerads").resize('100%', 360);
-                $("#csnplayerads").css({ position: 'relative', top: '0px', right: '0px' });
-                $("#csnplayer").css({ position: 'relative', width: '100%', top: '0px', right: '0px' });
-            }
-            else if ( document.getElementById('csnplayerads') && $('#csnplayerads').visible() !== true )
-            {
-                if ( topads < 0 )
-                {
-                    topads = $('#csnplayerads').offset().top;
-                }
-                jwplayer("csnplayerads").resize(324, 182);
-                $("#csnplayerads").css({ position: 'fixed', top: '0px', right: '0px' });
-                $("#csnplayer").css({ position: 'fixed',  width: '324px', top: '182px', right: '0px' });
-            }
-            else if ( $('#csnplayer').visible() !== true )
-            {
-                if ( topads < 0 )
-                {
-                    topads = $('#csnplayer').offset().top;
-                }
-                $("#csnplayer").css({ position: 'fixed', top: '0px', right: '0px' });
-            }
-        });
-        @endif
 
         //-->
     </script>
