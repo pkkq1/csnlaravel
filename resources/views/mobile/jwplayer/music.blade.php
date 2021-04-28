@@ -716,7 +716,7 @@ if( !$memberVip && !$isVNIP )
 
         player.setup({
                 <?php
-                if (!$memberVip && $music->music_id == 1111000) { ?>
+                if (!$memberVip ) { ?>
                 advertising: {
                     client: "vast",
                     skipoffset: 5,
