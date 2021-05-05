@@ -34,7 +34,7 @@ $tabSelf = ($mySelf || (Auth::check() && Auth::user()->hasPermission('duyet_sua_
     @include('web.user.box_profile', ['user' => $user, 'mySelf' => $mySelf, 'float_edit' => true])
     <div class="container">
         <div class="row row_wrapper">
-            <div class="col-md-12">
+            <div class="col-md-12" style="background-color: white; padding-top: 10px">
                 <div class="tabs tabs-style-line tab-category">
                     <nav>
                         <ul>
