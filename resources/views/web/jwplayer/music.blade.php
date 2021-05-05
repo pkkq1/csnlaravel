@@ -894,7 +894,7 @@ if( !$memberVip && !$isVNIP )
             }
             ?>
 
-                <?php if(!$memberVip && $music->music_id == 1111000) {
+                <?php //if(!$memberVip && $music->music_id == 1111000) {
                         echo '
             advertising: {
                 client: "vast",
@@ -909,7 +909,7 @@ if( !$memberVip && !$isVNIP )
                 }
             },
             ';
-                    }
+                    //}
                     ?>
 
 
