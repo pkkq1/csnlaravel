@@ -18,6 +18,7 @@
 {{--@if(View::exists('cache.code_ads.pc_midroll_2'))--}}
     @include('cache.code_ads.pc_midroll_2')
 {{--@endif--}}
+    @include('cache.code_ads.pc_audio_vast')
 
 <?php
 use App\Library\Helpers;
