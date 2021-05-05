@@ -34,6 +34,7 @@ global $pc_preroll_2;
 global $pc_preroll_3;
 global $pc_midroll;
 global $pc_midroll_2;
+global $pc_audio_vast;
 global $memberVip, $isVNIP;
 $memberVip = Helpers::checkMemberVip();
 $isVNIP = Helpers::isVNIP();
@@ -892,18 +893,24 @@ if( !$memberVip && !$isVNIP )
             }
             ?>
 
-                    @if(!$memberVip && $music->music_id == 1111000)
+                <?php if(!$memberVip && $music->music_id == 1111000) {
+                        echo '
             advertising: {
                 client: "vast",
                 skipoffset: 5,
                 "adschedule": {
                     "myPreroll": {
                         "offset": "pre",
-                        "tag": "https://delivery.lavanetwork.net/www/delivery/fc.php?script=bannerTypeHtml:vastInlineBannerTypeHtml:vastInlineHtmlExtend&format=vast&nz=1&zones=pre-roll%3D3193&version=2"
+                        "tag": ';
+                    echo json_encode($pc_audio_vast);
+                    echo '
                     }
                 }
             },
-                @endif
+            ';
+                    }
+                    ?>
+
 
                 width: '100%',
             height: '88',
