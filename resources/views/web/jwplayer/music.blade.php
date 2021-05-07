@@ -894,7 +894,7 @@ if( !$memberVip && !$isVNIP )
             }
             ?>
 
-                <?php if($pc_audio_vast != '.') {
+                <?php if($pc_audio_vast != '["\."]') {
                         echo '
             advertising: {
                 client: "vast",
@@ -909,7 +909,7 @@ if( !$memberVip && !$isVNIP )
                 }
             },
             ';
-                    //}
+                    }
                     ?>
 
 
