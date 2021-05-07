@@ -894,7 +894,7 @@ if( !$memberVip && !$isVNIP )
             }
             ?>
 
-                <?php //if(!$memberVip && $music->music_id == 1111000) {
+                <?php if($pc_audio_vast != '["."]') {
                         echo '
             advertising: {
                 client: "vast",
