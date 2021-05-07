@@ -901,7 +901,7 @@ if( !$memberVip && !$isVNIP )
                 skipoffset: 5,
                 "adschedule": {
                     "myPreroll": {
-                        "offset": "pre", // '. $pc_audio_vast .'
+                        "offset": "pre",
                         "tag": ';
                     echo json_encode($pc_audio_vast);
                     echo '
