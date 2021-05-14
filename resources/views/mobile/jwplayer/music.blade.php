@@ -20,6 +20,7 @@ global $typeDup;
 global $mobile_preroll;
 global $mobile_preroll_2;
 global $mobile_preroll_3;
+global $pc_audio_vast;
 global $memberVip, $isVNIP;
 $memberVip = Helpers::checkMemberVip();
 $isVNIP = Helpers::isVNIP();
