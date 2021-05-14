@@ -715,18 +715,24 @@ if( !$memberVip && !$isVNIP )
         ?>
 
         player.setup({
-                @if(!$memberVip && $music->music_id == 1111000)
-                advertising: {
-                    client: "vast",
-                    skipoffset: 5,
-                    "adschedule": {
-                        "myPreroll": {
-                            "offset": "pre",
-                            "tag": "https://delivery.lavanetwork.net/www/delivery/fc.php?script=bannerTypeHtml:vastInlineBannerTypeHtml:vastInlineHtmlExtend&format=vast&nz=1&zones=pre-roll%3D3193&version=2"
-                        }
+
+                <?php if($pc_audio_vast[0] != '.' && $music->music_id == 1111000) {
+                    echo '
+            advertising: {
+                client: "vast",
+                skipoffset: 5,
+                "adschedule": {
+                    "myPreroll": {
+                        "offset": "pre",
+                        "tag": ';
+                    echo json_encode($pc_audio_vast);
+                    echo '
                     }
-                },
-                @endif
+                }
+            },
+            ';
+                }
+                    ?>
 
             width: '100%',
             height: '88',
