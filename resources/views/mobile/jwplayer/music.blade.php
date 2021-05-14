@@ -5,6 +5,7 @@
 @include('cache.code_ads.mobile_preroll')
 @include('cache.code_ads.mobile_preroll_2')
 @include('cache.code_ads.mobile_preroll_3')
+@include('cache.code_ads.pc_audio_vast')
 <?php
 use App\Library\Helpers;
 global $cat_id2info;
