@@ -908,8 +908,6 @@ if( !$memberVip && !$isVNIP )
                     }
                 }
             },
-            mute: true,
-
             ';
                     }
                 ?>
