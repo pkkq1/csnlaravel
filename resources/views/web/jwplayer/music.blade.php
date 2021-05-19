@@ -963,7 +963,7 @@ if( !$memberVip && !$isVNIP )
         });
 
         @if(!$memberVip)
-            jwplayer('csnplayerads').play(false);
+            //jwplayer('csnplayerads').play(false);
         @endif
         jwplayer('csnplayer').play(false);
         //jwplayer().play(true);
@@ -975,7 +975,7 @@ if( !$memberVip && !$isVNIP )
                 if (video_preroll_played == false) {
                     video_preroll_played = true;
                     @if(!$memberVip)
-                        jwplayer('csnplayerads').play(false);
+                        //jwplayer('csnplayerads').play(false);
                     @endif
                     jwplayer('csnplayer').play(false);
                     //jwplayer().play(true);
