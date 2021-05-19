@@ -968,6 +968,7 @@ if( !$memberVip && !$isVNIP )
             jwplayer('csnplayerads').play(true);
         @endif
         jwplayer('csnplayer').play(true);
+        jwplayer('csnplayer').mute(false);
         //jwplayer().play(true);
 
         var video_preroll_played = false;
