@@ -935,7 +935,7 @@ if( !$memberVip && !$isVNIP )
                 name: 'nhac'
             },
             timeSliderAbove: true,
-            autostart: true,
+            autostart: <?php echo $music->music_id == 1111000 ? 'false' : 'true' ?>,
             controlbar: "bottom",
             plugins: {
                 '<?php echo $musicSet['type_listen'] == 'single' ? '/js/nhac-csn.js' : '/js/nhac-playlist.js' ?>': {
@@ -968,7 +968,7 @@ if( !$memberVip && !$isVNIP )
             jwplayer('csnplayerads').play(true);
         @endif
         jwplayer('csnplayer').play(true);
-        jwplayer('csnplayer').mute(false);
+        //jwplayer('csnplayer').mute(false);
         //jwplayer().play(true);
 
         var video_preroll_played = false;
