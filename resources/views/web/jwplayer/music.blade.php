@@ -965,8 +965,8 @@ if( !$memberVip && !$isVNIP )
         @if(!$memberVip)
             //jwplayer('csnplayerads').play(false);
         @endif
-        jwplayer('csnplayer').play(false);
-        //jwplayer().play(true);
+        //jwplayer('csnplayer').play(false);
+        jwplayer().play(true);
 
         var video_preroll_played = false;
         window.addEventListener('load', function () {
@@ -977,8 +977,8 @@ if( !$memberVip && !$isVNIP )
                     @if(!$memberVip)
                         //jwplayer('csnplayerads').play(false);
                     @endif
-                    jwplayer('csnplayer').play(false);
-                    //jwplayer().play(true);
+                    //jwplayer('csnplayer').play(false);
+                    jwplayer().play(true);
                 }
             }, false)
         }, false);
