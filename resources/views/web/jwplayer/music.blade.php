@@ -908,9 +908,11 @@ if( !$memberVip && !$isVNIP )
                     }
                 }
             },
+            mute: true,
+
             ';
                     }
-                    ?>
+                ?>
 
 
                 width: '100%',
@@ -921,8 +923,6 @@ if( !$memberVip && !$isVNIP )
             sources: [
                     <?php
                     $typeJwSource = $musicSet['type_jw'] == 'video' ? 'mp4' : 'mp3';
-                    if($pc_audio_vast[0] != '.' && $music->music_id == 1111000) { $typeJwSource = 'mp4'; }
-
                     $max_i = ($memberVip) ? ($isVNIP ? 3 : 2) : ((Auth::check() && $isVNIP) ? 1 : 0);
                     for ($i=0; $i<sizeof($file_url); $i++){
                         echo '{"file": "'. $file_url[$i]['url'] .'", "label": "'. $file_url[$i]['label'] .'", "type": "'.$typeJwSource.'", "default": '. (($i==1) ? 'true' : 'false') .'},';
