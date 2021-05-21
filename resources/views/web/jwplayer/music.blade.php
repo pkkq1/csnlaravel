@@ -933,7 +933,7 @@ if( !$memberVip && !$isVNIP )
                 name: 'nhac'
             },
             timeSliderAbove: true,
-            autostart: <?php echo $music->music_id == 1111000 ? 'false' : 'true' ?>,
+            autostart: true,
             controlbar: "bottom",
             plugins: {
                 '<?php echo $musicSet['type_listen'] == 'single' ? '/js/nhac-csn.js' : '/js/nhac-playlist.js' ?>': {
