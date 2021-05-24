@@ -3,6 +3,9 @@ use App\Library\Helpers;
 $titleMeta = $user->name . ' - '. Config::get('constants.app.title');
 $mySelf = (Auth::check() && Auth::user()->id == $user->id);
 $avatar = Helpers::pathAvatar($user->user_avatar, $user->id, env('DATA_URL')) . '?time='.time();
+
+global $memberVip;
+$memberVip = Helpers::checkMemberVip();
 $vipInfo = null;
 if($mySelf) {
     $vipInfo = Auth::user()->levelInfo()->first();
@@ -55,7 +58,7 @@ if($mySelf) {
                 </div>
                 <div>
                     <div class="box_profile__body">
-                        <h4 class="media-title user_name">{{$user->name}}@if($vipInfo)<img style="width: 20px; margin-left: 5px; margin-top: -5px" src="/imgs/vip_label.png" >@endif</h4>
+                        <h4 class="media-title user_name">{{$user->name}}@if($vipInfo && Auth::user()->vip_time_exprited > time())<img style="width: 20px; margin-left: 5px; margin-top: -5px" src="/imgs/vip_label.png" >@endif</h4>
                         @if($vipInfo && $mySelf)
                             <span style="color: red; font-weight: 400; margin-bottom: 8px" title="Ngày hết hạn là: {{date('d/m/Y', Auth::user()->vip_time_exprited)}}">Vip: {{$vipInfo->level_name}}</span>
                         @endif
