@@ -23,6 +23,10 @@ global $mobile_preroll_3;
 global $pc_audio_vast;
 global $memberVip, $isVNIP;
 $memberVip = Helpers::checkMemberVip();
+if ($music->music_id == 1111000){
+    $memberVip = true;
+}
+
 $isVNIP = Helpers::isVNIP();
 
 $titleMeta = $music->music_title . ' - '. str_replace(';', ', ', $music->music_artist);
