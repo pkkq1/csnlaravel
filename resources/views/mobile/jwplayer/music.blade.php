@@ -23,11 +23,6 @@ global $mobile_preroll_3;
 global $pc_audio_vast;
 global $memberVip, $isVNIP;
 $memberVip = Helpers::checkMemberVip();
-if ($music->music_id == 1111000){
-    $memberVip = true;
-    //$music->music_title .= ' - ' . $music->music_id;
-}
-
 $isVNIP = Helpers::isVNIP();
 
 $titleMeta = $music->music_title . ' - '. str_replace(';', ', ', $music->music_artist);
@@ -63,6 +58,10 @@ if( !$memberVip && !$isVNIP )
 //if ($music->music_id == 1597896) {
 //    $auth_listen = false;
 //}
+if ($music->music_id == 1111000){
+    $memberVip = true;
+}
+
 ?>
 @section('meta')
     <meta name="author" content="{{$music->music_username}}">
