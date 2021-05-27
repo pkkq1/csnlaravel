@@ -107,8 +107,14 @@ if ($music->music_id == 1111000) {
                         <div align="center"><h1 class="name_song mb-2">{{$music->music_title}} - {{$music->music_artist}}</h1></div>
                         @if ($auth_listen)
                             <div class="infor_main" style="min-height: 200px;">
+                                <?php
+                                    //echo ($memberVip ? 't' : 'f');
+                                    if ($music->music_id == 1111000){
+                                        $memberVip = true;
+                                    }
+                                ?>
                                 @if (!$memberVip)
-                                    <div style="text-align: right;"><a href="/chia-se-nhac-vip.html">[x Tắt quảng cáo]<?php echo ($memberVip ? 't' : 'f'); ?></a></div>
+                                    <div style="text-align: right;"><a href="/chia-se-nhac-vip.html">[x Tắt quảng cáo]</a></div>
                                     @if($musicSet['type_jw'] != 'video')
                                         <div id="companion_cover">
                                             <div id="bg_blue"
