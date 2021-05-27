@@ -83,6 +83,11 @@ if ($music->music_id == 1111000) {
     <script src="{{env('APP_URL')}}/node_modules/rabbit-lyrics/dist/rabbit-lyrics.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/csn-jwplayer.css">
 @endsection
+<?php
+if ($music->music_id == 1111000){
+    $memberVip = true;
+}
+?>
 
 @extends('mobile.layouts.app')
 @section('content')
