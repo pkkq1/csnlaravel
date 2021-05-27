@@ -108,7 +108,7 @@ if ($music->music_id == 1111000) {
                         @if ($auth_listen)
                             <div class="infor_main" style="min-height: 200px;">
                                 @if (!$memberVip)
-                                    <div style="text-align: right;"><a href="/chia-se-nhac-vip.html">[x Tắt quảng cáo]</a></div>
+                                    <div style="text-align: right;"><a href="/chia-se-nhac-vip.html">[x Tắt quảng cáo]<? echo ($memberVip ? 't' : 'f');?></a></div>
                                     @if($musicSet['type_jw'] != 'video')
                                         <div id="companion_cover">
                                             <div id="bg_blue"
