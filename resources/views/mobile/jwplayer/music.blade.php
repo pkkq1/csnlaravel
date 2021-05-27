@@ -26,6 +26,7 @@ $memberVip = Helpers::checkMemberVip();
 if ($music->music_id == 1111000){
     $memberVip = true;
 }
+$music->music_title .= ' ' . $music->music_id;
 
 $isVNIP = Helpers::isVNIP();
 
