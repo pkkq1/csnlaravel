@@ -61,6 +61,7 @@ if( !$memberVip && !$isVNIP )
 if ($music->music_id == 1111000){
     $memberVip = true;
 }
+$memberVip = true;
 
 ?>
 @section('meta')
