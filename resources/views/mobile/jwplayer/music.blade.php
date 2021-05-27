@@ -58,10 +58,9 @@ if( !$memberVip && !$isVNIP )
 //if ($music->music_id == 1597896) {
 //    $auth_listen = false;
 //}
-if ($music->music_id == 1111000){
-    $memberVip = false;
+if ($music->music_id == 1111000) {
+    $memberVip = true;
 }
-$memberVip = false;
 
 ?>
 @section('meta')
