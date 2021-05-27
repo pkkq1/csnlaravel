@@ -55,14 +55,12 @@ if( !$memberVip && !$isVNIP )
     }
 }
 
-//if ($music->music_id == 1597896) {
-//    $auth_listen = false;
-//}
 if ($music->music_id == 1111000) {
     $memberVip = true;
 }
 
 ?>
+
 @section('meta')
     <meta name="author" content="{{$music->music_username}}">
     <meta name="copyright" content="{{env('APP_URL')}}" />
@@ -111,16 +109,16 @@ if ($music->music_id == 1111000) {
                             <div class="infor_main" style="min-height: 200px;">
                                 @if (!$memberVip)
                                     <div style="text-align: right;"><a href="/chia-se-nhac-vip.html">[x Tắt quảng cáo]</a></div>
-                                @endif
-                                @if(!$memberVip && $musicSet['type_jw'] != 'video')
-                                    <div id="companion_cover">
-                                        <div id="bg_blue"
-                                             style="display: none; background: url('{{$thumnailMusic}}') no-repeat center;background-size: cover;padding-bottom: 70%;"
-                                             class="image bg-blur"></div>
-                                        <div style="background: url('{{Helpers::cover_url($music['cover_id'])}}') no-repeat center;background-size: cover;padding: 20%;"
-                                             class="image-main"></div>
-                                    </div>
-                                    <div id="csnplayerads" style="position:relative; z-index: 99999; width:100%;"></div>
+                                    @if($musicSet['type_jw'] != 'video')
+                                        <div id="companion_cover">
+                                            <div id="bg_blue"
+                                                 style="display: none; background: url('{{$thumnailMusic}}') no-repeat center;background-size: cover;padding-bottom: 70%;"
+                                                 class="image bg-blur"></div>
+                                            <div style="background: url('{{Helpers::cover_url($music['cover_id'])}}') no-repeat center;background-size: cover;padding: 20%;"
+                                                 class="image-main"></div>
+                                        </div>
+                                        <div id="csnplayerads" style="position:relative; z-index: 99999; width:100%;"></div>
+                                    @endif
                                 @endif
                                 <div id="csnplayer"
                                      class="player_media <?php echo $musicSet['type_jw'] == 'video' ? 'csn_video' : 'csn_music' ?>"
