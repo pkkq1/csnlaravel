@@ -911,6 +911,7 @@ if( !$memberVip && !$isVNIP )
                     }
                 }
             },
+            mute: false,
             ';
                     }
                 ?>

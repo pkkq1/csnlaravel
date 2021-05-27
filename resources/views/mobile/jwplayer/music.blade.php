@@ -746,6 +746,7 @@ if ($music->music_id == 1111000){
                     }
                 }
             },
+            mute: false,
             ';
                 }
                     ?>
