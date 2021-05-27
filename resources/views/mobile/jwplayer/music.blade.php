@@ -86,9 +86,7 @@ $memberVip = true;
     <script src="{{env('APP_URL')}}/node_modules/rabbit-lyrics/dist/rabbit-lyrics.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/csn-jwplayer.css">
 @endsection
-<?php
-$memberVip = true;
-?>
+
 @extends('mobile.layouts.app')
 @section('content')
     <div class="header">
@@ -113,7 +111,7 @@ $memberVip = true;
                         @if ($auth_listen)
                             <div class="infor_main" style="min-height: 200px;">
                                 @if (!$memberVip)
-                                    <div style="text-align: right;"><a href="/chia-se-nhac-vip.html">[x Tắt quảng cáo]</a></div>
+                                    <div style="text-align: right;"><a href="/chia-se-nhac-vip.html">[x Tắt quảng c]</a></div>
                                 @endif
                                 @if($musicSet['type_jw'] != 'video')
                                     <div id="companion_cover">
