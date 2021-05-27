@@ -112,7 +112,7 @@ if ($music->music_id == 1111000) {
                                 @if (!$memberVip)
                                     <div style="text-align: right;"><a href="/chia-se-nhac-vip.html">[x Tắt quảng cáo]</a></div>
                                 @endif
-                                @if($musicSet['type_jw'] != 'video')
+                                @if(!$memberVip && $musicSet['type_jw'] != 'video')
                                     <div id="companion_cover">
                                         <div id="bg_blue"
                                              style="display: none; background: url('{{$thumnailMusic}}') no-repeat center;background-size: cover;padding-bottom: 70%;"
