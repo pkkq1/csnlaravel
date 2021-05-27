@@ -59,9 +59,8 @@ if( !$memberVip && !$isVNIP )
 //    $auth_listen = false;
 //}
 if ($music->music_id == 1111000){
-    $memberVip = true;
+    $memberVip = false;
 }
-$memberVip = true;
 
 ?>
 @section('meta')
@@ -111,7 +110,7 @@ $memberVip = true;
                         @if ($auth_listen)
                             <div class="infor_main" style="min-height: 200px;">
                                 @if (!$memberVip)
-                                    <div style="text-align: right;"><a href="/chia-se-nhac-vip.html">[x Tắt quảng c]</a></div>
+                                    <div style="text-align: right;"><a href="/chia-se-nhac-vip.html">[x Tắt quảng cáo]</a></div>
                                 @endif
                                 @if($musicSet['type_jw'] != 'video')
                                     <div id="companion_cover">
