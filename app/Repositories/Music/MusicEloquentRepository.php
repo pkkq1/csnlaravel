@@ -157,7 +157,8 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
     public function musicNewsSolr($fillOrder, $typeOrder, $perPage)
     {
         $searchSolarium['id'] = 'music_*';
-        $result = $this->Solr->search($searchSolarium, $_GET['page'] ?? 1, $perPage, array('score' => 'desc', $fillOrder => $typeOrder));
+        $onpage = (isset($_GET['page']) && $_GET['page'] > 0 && $_GET['page'] < 20) ? $_GET['page'] : 1;
+        $result = $this->Solr->search($searchSolarium, $onpage, $perPage, array('score' => 'desc', $fillOrder => $typeOrder));
         return $result;
     }
     public function musicJoinComment($fillOrder, $typeOrder, $page)
@@ -210,7 +211,9 @@ class MusicEloquentRepository extends EloquentRepository implements MusicReposit
         }
         if($catLevel != 0)
             $searchSolarium['music_cat_level'] = $catLevel;
-        $result = $this->Solr->search($searchSolarium, $_GET['page'] ?? 1, $perPage, array('score' => 'desc', $fillOrder => $typeOrder));
+
+        $onpage = (isset($_GET['page']) && $_GET['page'] > 0 && $_GET['page'] < 20) ? $_GET['page'] : 1;
+        $result = $this->Solr->search($searchSolarium, $onpage, $perPage, array('score' => 'desc', $fillOrder => $typeOrder));
         return $result;
     }
     public function suggestion($music, $type = 'music') {

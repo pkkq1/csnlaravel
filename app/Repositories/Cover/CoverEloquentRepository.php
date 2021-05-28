@@ -135,7 +135,8 @@ class CoverEloquentRepository extends EloquentRepository implements CoverReposit
         if($bitrate) {
             $searchSolarium['album_cat'] = $searchSolarium['album_cat'].' AND album_bitrate:'.$bitrate;
         }
-        return $this->Solr->search($searchSolarium, $_GET['page'] ?? 1, $perPage, array('score' => 'desc', $fillOrder => $typeOrder));
+        $onpage = (isset($_GET['page']) && $_GET['page'] > 0 && $_GET['page'] < 20) ? $_GET['page'] : 1;
+        return $this->Solr->search($searchSolarium, $onpage, $perPage, array('score' => 'desc', $fillOrder => $typeOrder));
     }
     public function findAlbumByArtist($artist, $fillOrder, $typeOrder, $page)
     {
@@ -165,7 +166,8 @@ class CoverEloquentRepository extends EloquentRepository implements CoverReposit
     }
     public function coverNewSolr($fillOrder, $typeOrder, $perPage) {
         $searchSolarium['id'] = 'cover_*';
-        return $this->Solr->search($searchSolarium, $_GET['page'] ?? 1, $perPage, array('score' => 'desc', $fillOrder => $typeOrder));
+        $onpage = (isset($_GET['page']) && $_GET['page'] > 0 && $_GET['page'] < 20) ? $_GET['page'] : 1;
+        return $this->Solr->search($searchSolarium, $onpage, $perPage, array('score' => 'desc', $fillOrder => $typeOrder));
     }
 }
 
