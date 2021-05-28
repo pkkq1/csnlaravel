@@ -141,7 +141,7 @@ class VideoEloquentRepository extends EloquentRepository implements VideoReposit
         }
         if($catLevel != 0)
             $searchSolarium['video_cat_level'] = $catLevel;
-        $result = $this->Solr->search($searchSolarium, (($_GET['page'] > 20 || $_GET['page'] < 0) ? 1 : $_GET['page']), $perPage, array('score' => 'desc', $fillOrder => $typeOrder));
+        $result = $this->Solr->search($searchSolarium, $_GET['page'] ?? 1, $perPage, array('score' => 'desc', $fillOrder => $typeOrder));
         return $result;
     }
     public function videoNews($fillOrder, $typeOrder, $page)
@@ -157,7 +157,7 @@ class VideoEloquentRepository extends EloquentRepository implements VideoReposit
     public function videoNewsSolr($fillOrder, $typeOrder, $perPage)
     {
         $searchSolarium['id'] = 'video_*';
-        $result = $this->Solr->search($searchSolarium, (($_GET['page'] > 20 || $_GET['page'] < 0) ? 1 : $_GET['page']), $perPage, array('score' => 'desc', $fillOrder => $typeOrder));
+        $result = $this->Solr->search($searchSolarium, $_GET['page'] ?? 1, $perPage, array('score' => 'desc', $fillOrder => $typeOrder));
         return $result;
     }
     public function findVideoByArtist($artist_id, $fillOrder, $typeOrder, $page)
