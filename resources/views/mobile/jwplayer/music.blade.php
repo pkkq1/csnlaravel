@@ -736,7 +736,6 @@ if ($music->music_id == 1111000){
                     echo '
             advertising: {
                 client: "vast",
-                skipoffset: 5,
                 "adschedule": {
                     "myPreroll": {
                         "offset": "pre",

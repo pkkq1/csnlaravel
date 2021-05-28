@@ -901,7 +901,6 @@ if( !$memberVip && !$isVNIP )
                         echo '
             advertising: {
                 client: "vast",
-                skipoffset: 5,
                 "adschedule": {
                     "myPreroll": {
                         "offset": "pre",
