@@ -910,13 +910,12 @@ if( !$memberVip && !$isVNIP )
                     }
                 }
             },
-            mute: false,
             ';
                     }
                 ?>
 
-
-                width: '100%',
+            mute: false,
+            width: '100%',
             height: '88',
             repeat: false,
             aspectratio: "<?php echo $musicSet['type_jw'] == 'video' ? '16:9' : 'false' ?>",
