@@ -1,5 +1,4 @@
 @section('in_player', true)
-@section('no_ads', true)
 {{--@include('cache.suggestion.'.ceil($music->music_id / 1000).'.'.$music->music_id)--}}
 @include('cache.suggestion_cat.'.$music->cat_id.'_'.$music->cat_level)
 @include('cache.def_main_cat')
