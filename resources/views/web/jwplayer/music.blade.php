@@ -895,9 +895,7 @@ if( !$memberVip && !$isVNIP )
                 },
                 ';
             }
-            ?>
-
-                <?php if(!$memberVip && $pc_audio_vast[0] != '.' && rand(1,2) == 1) {
+            else if(!$memberVip && $pc_audio_vast[0] != '.' && rand(1,2) == 1) {
                         echo '
             advertising: {
                 client: "vast",
