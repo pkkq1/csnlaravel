@@ -599,7 +599,7 @@ if( !$memberVip && !$isVNIP )
                                     </a>
                                 </div>
                                 <div class="card-body">
-                                    <h3 class="card-title"><a href="{{$url}}" title="{{$item['music_title']}}">{{$item['music_title']}}</a></h3>
+                                    <p class="card-title"><a href="{{$url}}" title="{{$item['music_title']}}">{{$item['music_title']}}</a></p>
                                     <p class="card-text"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></p>
                                 </div>
                             </div>
@@ -628,7 +628,7 @@ if( !$memberVip && !$isVNIP )
                                 </a>
                             </div>
                             <div class="card-body">
-                                <h3 class="card-title"><a href="{{$url}}" title="{{$item['music_title']}}">{{$item['music_title']}}</a></h3>
+                                <p class="card-title"><a href="{{$url}}" title="{{$item['music_title']}}">{{$item['music_title']}}</a></p>
                                 <p class="card-text"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'] ?? '', $item['music_artist'] ?? '') ?></p>
                             </div>
                         </div>
