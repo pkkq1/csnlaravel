@@ -145,7 +145,7 @@
                     '  </li>';
             });
             if(song.trim()) {
-                return '<h4 class="card-title">Top Kết Quả</h4>' +
+                return '<p class="card-title">Top Kết Quả</p>' +
                     '<ul class="list-unstyled list_music">' +
                     song +
                     '</ul><hr>';
@@ -172,7 +172,7 @@
                         '  </li>';
 
             });
-            return '<h4 class="card-title">Nghệ sĩ</h4>' +
+            return '<p class="card-title">Nghệ sĩ</p>' +
                 '<ul class="list-unstyled list_music">' +
                 artist +
                 '</ul><hr>';
@@ -196,7 +196,7 @@
                         '</a>'
                     '  </li>';
             });
-            return '<h4 class="card-title">Bài hát</h4>' +
+            return '<p class="card-title">Bài hát</p>' +
                 '<ul class="list-unstyled list_music">' +
                 song +
                 '</ul><hr>';
@@ -226,7 +226,7 @@
                     '       </a>' +
                     '  </li>';
             });
-            return '<h4 class="card-title">Album</h4>' +
+            return '<p class="card-title">Album</p>' +
                 '<ul class="list-unstyled list_music">' +
                 album +
                 '</ul><hr>';
@@ -257,7 +257,7 @@
                     '      </a>' +
                     '  </li>';
             });
-            return '<h4 class="card-title">Video</h4>' +
+            return '<p class="card-title">Video</p>' +
                 '<ul class="list-unstyled list_music suggest_video">' +
                 video +
                 '</ul>';
