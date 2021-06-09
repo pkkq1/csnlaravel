@@ -492,7 +492,7 @@ if( !$memberVip && !$isVNIP )
                                             <div class="card-header border-0" id="headingTwo">
                                                 <h5 class="mb-0">
                                                     <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                                        Hướng dẫn download nhạc:
+                                                        Hướng dẫn download {{$music->music_title}}:
                                                         <i class="material-icons">keyboard_arrow_down</i>
                                                     </button>
                                                 </h5>
@@ -582,7 +582,7 @@ if( !$memberVip && !$isVNIP )
 
                 @if($MusicSameArtist)
                     <div class="box_header d-flex justify-content-between align-items-end">
-                        <h5 class="title m-0">Bài hát cùng ca sĩ</h5>
+                        <h5 class="title m-0">Bài hát của {{$music->music_artist}}</h5>
                         <a class="link_more" href="{{$matchArtist[1]}}" title="Xem tất cả">Xem tất cả</a>
                     </div>
                     <div class="row row10px float-col-width">
@@ -611,7 +611,7 @@ if( !$memberVip && !$isVNIP )
                 @endif
                 @if($VideoSameArtist)
                 <div class="box_header d-flex justify-content-between align-items-end">
-                    <h5 class="title m-0">Video cùng ca sĩ</h5>
+                    <h5 class="title m-0">Video của {{$music->music_artist}}</h5>
                     <a class="link_more" href="{{$matchArtist[1]}}?tab=video" title="Xem tất cả">Xem tất cả</a>
                 </div>
                 <div class="row row10px float-col-width">
@@ -692,7 +692,7 @@ if( !$memberVip && !$isVNIP )
                         $urlVideo = Helpers::listen_url($video);
                     ?>
                     <div class="box_header d-flex justify-content-between align-items-end">
-                        <h5 class="title m-0">MV của bài hát</h5>
+                        <h5 class="title m-0">MV {{$music->music_title}}</h5>
                     </div>
                     <ul class="list-unstyled mv_sing">
                         <li class="media">
