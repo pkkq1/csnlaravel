@@ -100,7 +100,7 @@ $filter = $_GET['filter'] ?? '';
                     </div>
                     @if($result['music']['data'])
                         <div class="box_header d-flex justify-content-between align-items-end">
-                            <h5 class="title m-0">Bài hát</h5>
+                            <p class="title m-0">Bài hát</p>
                             {{--<a class="link_more" href="javascript:void(0)" onclick="return reDirectTab('nav-music-tab')" title="">Xem tất cả</a>--}}
                         </div>
                         <ul class="list-unstyled list_music music_kq">
@@ -116,7 +116,7 @@ $filter = $_GET['filter'] ?? '';
                                 </div>
                                 <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
                                     <div>
-                                        <h5 class="media-title mt-0 mb-0"><a href="{{$item['music_link']}}" title="{{$item['music_title']}}" class="search_title">{{$item['music_title']}}</a></h5>
+                                        <p class="media-title mt-0 mb-0"><a href="{{$item['music_link']}}" title="{{$item['music_title']}}" class="search_title">{{$item['music_title']}}</a></p>
                                         <div class="author"><?php echo $item['music_artist'] ?></div>
                                     </div>
                                     <small class="type_music c1"><?php echo $item['music_bitrate_html'] ?></small>
@@ -136,7 +136,7 @@ $filter = $_GET['filter'] ?? '';
                     @endif
                     @if($result['album']['data'])
                     <div class="box_header d-flex justify-content-between align-items-end">
-                        <h5 class="title m-0">Album</h5>
+                        <p class="title m-0">Album</p>
                         {{--<a class="link_more" href="javascript:void(0)" onclick="return reDirectTab('nav-album-tab')" title="">Xem tất cả</a>--}}
                     </div>
                     <div class="row row10px float-col-width">
@@ -165,7 +165,7 @@ $filter = $_GET['filter'] ?? '';
                     @endif
                     @if($result['video']['data'])
                     <div class="box_header d-flex justify-content-between align-items-end">
-                        <h5 class="title m-0">Video</h5>
+                        <p class="title m-0">Video</p>
                         {{--<a class="link_more" href="javascript:void(0)" onclick="return reDirectTab('nav-video-tab')" title="">Xem tất cả</a>--}}
                     </div>
                     <div class="row row10px float-col-width-video">
@@ -216,7 +216,7 @@ $filter = $_GET['filter'] ?? '';
                                 </div>
                                 <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
                                     <div>
-                                        <h5 class="media-title mt-0 mb-0"><a href="{{$item['music_link']}}" title="{{$item['music_title']}}" class="search_title">{{$item['music_title']}}</a></h5>
+                                        <p class="media-title mt-0 mb-0"><a href="{{$item['music_link']}}" title="{{$item['music_title']}}" class="search_title">{{$item['music_title']}}</a></p>
                                         <div class="author"><?php echo $item['music_artist'] ?></div>
                                     </div>
                                     <small class="type_music c1"><?php echo $item['music_bitrate_html'] ?></small>
@@ -326,7 +326,7 @@ $filter = $_GET['filter'] ?? '';
                                 </div>
                                 <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
                                     <div>
-                                        <h5 class="media-title mt-0 mb-0"><a href="{{$item['music_link']}}" title="{{$item['music_title']}}" class="search_title">{{$item['music_title']}}</a></h5>
+                                        <p class="media-title mt-0 mb-0"><a href="{{$item['music_link']}}" title="{{$item['music_title']}}" class="search_title">{{$item['music_title']}}</a></p>
                                         <div class="author"><?php echo $item['music_artist'] ?></div>
                                     </div>
                                     <small class="type_music c1"><?php echo $item['music_bitrate_html'] ?></small>
@@ -364,7 +364,7 @@ $filter = $_GET['filter'] ?? '';
                                         <img src="{{$item['artist_avatar']}}" alt="{{$item['artist_nickname']}}">
                                 </div>
                                 <div class="media-body align-self-center d-flex flex-column justify-content-between p-0">
-                                    <div><h5 class="media-title mt-0 mb-0 span_h5">{{$item['artist_nickname']}}</h5></div>
+                                    <div><p class="media-title mt-0 mb-0 span_h5">{{$item['artist_nickname']}}</p></div>
                                 </div>
                             </li></a>
                             <?php
