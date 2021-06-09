@@ -41,7 +41,7 @@ use App\Library\Helpers;
                                     <li class="media align-items-stretch li_item_result li_item_result_{{$key}}">
                                         <a class="search-line parent-line" href="/tim-kiem?q={{urlencode ($item) }}">
                                             <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
-                                                <div><h5 class="media-title mt-0 mb-0 span_h5" title="">{{$item}}</h5>
+                                                <div><p class="media-title mt-0 mb-0 span_h5" title="">{{$item}}</p>
                                                 </div>
                                                 <span onclick="delete_remember({{$key}}, '{{htmlspecialchars($item, ENT_QUOTES)}}')" class="ic_delete_remember"><img class="img_delete_remember" src="/images/ic_delete_remember_search.png"></span>
                                             </div>
