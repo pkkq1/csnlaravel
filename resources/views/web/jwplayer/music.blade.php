@@ -458,33 +458,33 @@ if( !$memberVip && !$isVNIP )
                                                     <div class="list-group">
                                                         <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
                                                             <div class="d-flex w-100 justify-content-between">
-                                                                <h5 class="mb-1">Đối với nhu cầu bình thường:</h5>
+                                                                <p class="mb-1"><u>Đối với nhu cầu bình thường:</u></p>
                                                             </div>
-                                                            <p class="mb-1">bạn nên chọn Link Download 1, là định dạng âm thanh MP3 với chất lượng 128kbps được nhiều thiết bị nghe nhạc hỗ trợ.</p>
+                                                            <p class="mb-1">Bạn nên chọn Link Download 1, là định dạng âm thanh MP3 với chất lượng 128kbps được nhiều thiết bị nghe nhạc hỗ trợ.</p>
                                                         </a>
                                                         <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
                                                             <div class="d-flex w-100 justify-content-between">
-                                                                <h5 class="mb-1">Đối với nhu cầu thưởng thức nhạc cao hơn:</h5>
+                                                                <p class="mb-1"><u>Đối với nhu cầu thưởng thức nhạc cao hơn:</u></p>
                                                             </div>
-                                                            <p class="mb-1">bạn nên chọn Link Download 2, là định dạng âm thanh MP3 với chất lượng 320kbps có dung lượng lớn hơn nhưng nghe hay và chi tiết hơn định dạng MP3 128kbps.</p>
+                                                            <p class="mb-1">Bạn nên chọn Link Download 2, là định dạng âm thanh MP3 với chất lượng 320kbps có dung lượng lớn hơn nhưng nghe hay và chi tiết hơn định dạng MP3 128kbps.</p>
                                                         </a>
                                                         <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
                                                             <div class="d-flex w-100 justify-content-between">
-                                                                <h5 class="mb-1">Đối với nhu cầu thưởng thức nhạc cao cấp:</h5>
+                                                                <p class="mb-1"><u>Đối với nhu cầu thưởng thức nhạc cao cấp:</u></p>
                                                             </div>
-                                                            <p class="mb-1">bạn nên chọn Link Download 3, là định dạng âm thanh M4A với chất lượng gần 500kbps có dung lượng lớn hơn nhưng nghe hay và chi tiết hơn định dạng MP3 320kbps.</p>
+                                                            <p class="mb-1">Bạn nên chọn Link Download 3, là định dạng âm thanh M4A với chất lượng gần 500kbps có dung lượng lớn hơn nhưng nghe hay và chi tiết hơn định dạng MP3 320kbps.</p>
                                                         </a>
                                                         <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
                                                             <div class="d-flex w-100 justify-content-between">
-                                                                <h5 class="mb-1">Đối với nhu cầu thưởng thức nhạc chuyên nghiệp:</h5>
+                                                                <p class="mb-1"><u>Đối với nhu cầu thưởng thức nhạc chuyên nghiệp:</u></p>
                                                             </div>
-                                                            <p class="mb-1">bạn nên chọn Link Download 4, là định dạng âm thanh Lossless với chất lượng gốc giống như chất lượng âm thanh bạn nghe từ đĩa CD. Tuy nhiên, để nghe được định dạng này có thể thiết bị nghe nhạc của bạn cần phải cài đặt thêm plugin/codec hỗ trợ decode tập tin âm thanh FLAC.</p>
+                                                            <p class="mb-1">Bạn nên chọn Link Download 4, là định dạng âm thanh Lossless với chất lượng gốc giống như chất lượng âm thanh bạn nghe từ đĩa CD. Tuy nhiên, để nghe được định dạng này có thể thiết bị nghe nhạc của bạn cần phải cài đặt thêm plugin/codec hỗ trợ decode tập tin âm thanh FLAC.</p>
                                                         </a>
                                                         <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
                                                             <div class="d-flex w-100 justify-content-between">
-                                                                <h5 class="mb-1">Đối với nhu cầu lưu trữ trên các thiết bị có dung lượng khiêm tốn:</h5>
+                                                                <p class="mb-1"><u>Đối với nhu cầu lưu trữ trên các thiết bị có dung lượng khiêm tốn:</u></p>
                                                             </div>
-                                                            <p class="mb-1">(ví dụ điện thoại di động...), bạn nên chọn Link Mobile Download, là định dạng âm thanh M4A với chất lượng 32kbps có dung lượng cực nhỏ nhưng vẫn nghe hay và rõ gần bằng MP3 128kbps.</p>
+                                                            <p class="mb-1">(ví dụ điện thoại di động...)<br>Bạn nên chọn Link Mobile Download, là định dạng âm thanh M4A với chất lượng 32kbps có dung lượng cực nhỏ nhưng vẫn nghe hay và rõ gần bằng MP3 128kbps.</p>
                                                         </a>
                                                     </div>
                                                 </div>
