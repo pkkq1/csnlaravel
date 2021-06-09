@@ -18,7 +18,7 @@ use App\Library\Helpers;
         </div>
         <div class="media-body align-items-stretch d-flex flex-column justify-content-between p-0">
             <div>
-                <h5 class="media-title mt-0 mb-0"><a href="{{$item['music_link'][0]}}" title="{{$item['music_title'][0]}}">{{$item['music_title'][0]}}</a></h5>
+                <p class="media-title mt-0 mb-0"><a href="{{$item['music_link'][0]}}" title="{{$item['music_title'][0]}}">{{$item['music_title'][0]}}</a></p>
                 <div class="author"><?php echo $item['music_artist_html'][0] ?></div>
             </div>
             <small class="type_music c1"><?php echo $item['music_bitrate_html'][0]; ?></small>

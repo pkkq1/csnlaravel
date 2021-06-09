@@ -76,7 +76,7 @@ if($category->cat_id == 3 || $category->cat_id == 4 || $category->cat_id == 6 ||
                 @include('web.layouts.right_banner', ['short' => true])
                 <div class="box_space"></div>
                 <div class="box_header d-flex justify-content-between align-items-end">
-                    <a class="view_all" href="/nhac-hot.html"><h5 class="title m-0">Bảng xếp hạng</h5></a>
+                    <a class="view_all" href="/nhac-hot.html"><p class="title m-0">Bảng xếp hạng</p></a>
                     <a class="link_more" href="/nhac-hot.html?tab={{$category->cat_url}}" title="">Nghe tất cả<span class="ion-android-arrow-dropright-circle"></span></a>
                 </div>
                 <ul class="nav nav-tabs" id="myTab_bxh" role="tablist">
@@ -119,7 +119,7 @@ if($category->cat_id == 3 || $category->cat_id == 4 || $category->cat_id == 6 ||
                                     <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{Helpers::cover_url($item['cover_id'])}}" alt="{{$item['music_title']}}"></a>
                                 </div>
                                 <div class="media-body d-flex flex-column {{$i == 1 ? '' : 'justify-content-between'}}">
-                                    <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
+                                    <p class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></p>
                                     <div class="{{$i == 1 ? '' : 'd-flex'}} align-items-center justify-content-between">
                                         <div class="author"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></div>
                                         <small class="counter_view">{{number_format($item['music_listen'])}}</small>
@@ -145,7 +145,7 @@ if($category->cat_id == 3 || $category->cat_id == 4 || $category->cat_id == 6 ||
                                     <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{Helpers::cover_url($item['cover_id'])}}" alt="{{$item['music_title']}}"></a>
                                 </div>
                                 <div class="media-body d-flex flex-column {{$i == 1 ? '' : 'justify-content-between'}}">
-                                    <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
+                                    <p class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></p>
                                     <div class="{{$i == 1 ? '' : 'd-flex'}} align-items-center justify-content-between">
                                         <div class="author"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></div>
                                         <small class="counter_view">{{number_format($item['music_listen'])}}</small>
@@ -171,7 +171,7 @@ if($category->cat_id == 3 || $category->cat_id == 4 || $category->cat_id == 6 ||
                                     <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{Helpers::cover_url($item['cover_id'])}}" alt="{{$item['music_title']}}"></a>
                                 </div>
                                 <div class="media-body d-flex flex-column {{$i == 1 ? '' : 'justify-content-between'}}">
-                                    <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
+                                    <p class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></p>
                                     <div class="{{$i == 1 ? '' : 'd-flex'}} align-items-center justify-content-between">
                                         <div class="author"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></div>
                                         <small class="counter_view">{{number_format($item['music_listen'])}}</small>
@@ -198,7 +198,7 @@ if($category->cat_id == 3 || $category->cat_id == 4 || $category->cat_id == 6 ||
                                         <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{Helpers::cover_url($item['cover_id'])}}" alt="{{$item['music_title']}}"></a>
                                     </div>
                                     <div class="media-body d-flex flex-column {{$i == 1 ? '' : 'justify-content-between'}}">
-                                        <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
+                                        <p class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></p>
                                         <div class="{{$i == 1 ? '' : 'd-flex'}} align-items-center justify-content-between">
                                             <div class="author"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></div>
                                             <small class="counter_view">{{number_format($item['music_listen'])}}</small>
@@ -232,7 +232,7 @@ if($category->cat_id == 3 || $category->cat_id == 4 || $category->cat_id == 6 ||
                                         <a href="{{$url}}" title="{{$item['music_title']}}"><img src="{{$category->cat_id == CAT_VIDEO ? Helpers::thumbnail_url($item) : Helpers::cover_url($item['cover_id'])}}" alt="{{$item['music_title']}}"></a>
                                     </div>
                                     <div class="media-body d-flex flex-column {{$i == 1 ? '' : 'justify-content-between'}}">
-                                        <h5 class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></h5>
+                                        <p class="media-title mt-0 mb-0"><a href="{{$url}}" title="{{$item['music_shortlyric'] ?? $item['music_title']}}">{{$item['music_title']}}</a></p>
                                         <div class="{{$i == 1 ? '' : 'd-flex'}} align-items-center justify-content-between">
                                             <div class="author"><?php echo Helpers::rawHtmlArtists($item['music_artist_id'], $item['music_artist']) ?></div>
                                             <small class="counter_view">{{number_format($item['music_listen'])}}</small>
