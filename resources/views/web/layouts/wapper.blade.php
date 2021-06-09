@@ -35,7 +35,7 @@ use App\Library\Helpers;
                                 ?>
                                 @if($searchRecent)
                                 <hr>
-                                <h4 class="card-title">Lịch sử tìm kiếm của bạn</h4>
+                                <p class="card-title">Lịch sử tìm kiếm của bạn</p>
                                 <ul class="list-unstyled list_music list_remember_search">
                                     @foreach(array_reverse($searchRecent) as $key => $item)
                                     <li class="media align-items-stretch li_item_result li_item_result_{{$key}}">
@@ -62,7 +62,7 @@ use App\Library\Helpers;
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <i class="material-icons">close</i>
                                 </button>
-                                <h5 class="card-title title_history_music">Bài hát vừa nghe</h5>
+                                <p class="card-title title_history_music">Bài hát vừa nghe</p>
                                 <div class="box_show_playlist_popup box_show_history_music mb-2" style="height: 230px;">
                                     <div class="list-group">
                                     </div>
