@@ -1021,8 +1021,8 @@ class Helpers
             $url = 'https://data31.chiasenhac.com/';
         else if ($music_id <= 1993000)
             $url = 'https://data33.chiasenhac.com/';
-        else if ($music_id <= 2019000)
-            $url = 'https://data18.chiasenhac.com/';
+        //else if ($music_id <= 2019000)
+        //    $url = 'https://data18.chiasenhac.com/'; // HDD ERROR DELETED
         else if ($music_id <= 2049000)
             $url = 'https://data19.chiasenhac.com/';
         else if ($music_id <= 2089000)
@@ -1031,7 +1031,7 @@ class Helpers
             $url = 'https://data3.chiasenhac.com/';
         else if ($music_id <= 2149000)
             $url = 'https://data16.chiasenhac.com/';
-        else if ($music_id <= 2159000)
+        else if ($music_id <= 2169000)
             $url = 'https://data.chiasenhac.com/';
         else if ($music_id <= 2179000)
             $url = 'https://data25.chiasenhac.com/';
