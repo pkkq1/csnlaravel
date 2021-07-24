@@ -297,7 +297,7 @@ if ($caption == 'Video Clip') {
                                     $bxhVideo = $hot_video_rows[$category->cat_level == 0 ? 1 : $category->cat_level] ?? $hot_video_rows[1];
                                     $catMusic = $hot_video_rows ? array_slice($bxhVideo, 0, LIMIT_HOME_CAT_MUSIC) : [];
                                 }else{
-                                    $catMusic = $hot_music_rows ? ($hot_music_rows[$category->cat_id]? array_slice($hot_music_rows[$category->cat_id], 0, LIMIT_HOME_CAT_MUSIC) : []): [];
+                                    $catMusic = $hot_music_rows ? ( isset($hot_music_rows[$category->cat_id]) ? array_slice($hot_music_rows[$category->cat_id], 0, LIMIT_HOME_CAT_MUSIC) : []): [];
                                 }
                                 array_map(function ($i, $item) use ($category, $preFixUrl) {
                                 $musicId = Helpers::music_id($item);
