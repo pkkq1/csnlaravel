@@ -410,3 +410,5 @@ google.com, pub-4502825127056075, DIRECT, f08c47fec0942fa0
 google.com, pub-3583558735912669, DIRECT, f08c47fec0942fa0
 themediagrid.com, 5IJLC8, RESELLER, 35d5010d7789b49d
 openx.com, 541201992, RESELLER, 6a698e2ec38604c6
+#//ambient 03-06-2022
+pubmatic.com,161363,RESELLER,5d62403b186f2ace
