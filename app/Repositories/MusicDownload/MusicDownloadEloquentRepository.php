@@ -88,7 +88,7 @@ class MusicDownloadEloquentRepository extends EloquentRepository implements Musi
             $result = $result->where('csn_music.music_year', $year);
         }else{
             // today
-            $result = $result->where('csn_music.music_time', '>', time() - DEFAULT_TIME_QUERY_BXH * 86400) // 90 ngày trở lên
+            $result = $result->where('csn_music.music_time', '>', time() - DEFAULT_TIME_QUERY_BXH * 86400 * 2) // 90*2 ngày trở lên
                                 ->where(function ($query) {
                                     $query->where('csn_music.music_year', '>', intval(date('Y')) - 2)
                                         ->orWhere('csn_music.music_year', 0);
