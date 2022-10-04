@@ -384,7 +384,7 @@ $catalog = config('constants.catalog');
                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                         <ul class="list-unstyled bxh mb-0">
                             <?php
-                            $catMusic = array_slice($hot_music_rows[4], 0, LIMIT_HOME_CAT_MUSIC);
+                            $catMusic = array();//array_slice($hot_music_rows[4], 0, LIMIT_HOME_CAT_MUSIC);
                             array_map(function ($i, $item) {
                             $musicId = Helpers::music_id($item);
                             $url = SUB_BXH_NOW_MUSIC.'us-uk.html?playlist='.++$i;
