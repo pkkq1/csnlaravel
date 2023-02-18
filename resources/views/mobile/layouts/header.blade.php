@@ -20,8 +20,8 @@
     <script src="{{URL::to('/')}}/js/cookie.min.js"></script>
     <!-- DNS PREFETCH -->
     <link rel="dns-prefetch" href="//www.google-analytics.com"/>
-    <link rel="dns-prefetch" href="https://vi.chiasenhac.vn"/>
-    <link rel="dns-prefetch" href="https://data.chiasenhac.com"/>
+    <link rel="dns-prefetch" href="http://vi.chiasenhac.vn"/>
+    <link rel="dns-prefetch" href="http://data.chiasenhac.com"/>
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     @yield('contentCSS')
