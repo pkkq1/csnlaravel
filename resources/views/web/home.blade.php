@@ -444,7 +444,7 @@ $catalog = config('constants.catalog');
                     <div class="tab-pane fade" id="jpop" role="tabpanel" aria-labelledby="jpop-tab">
                         <ul class="list-unstyled bxh mb-0">
                             <?php
-                            $catMusic = (sizeof($hot_music_rows[7]) > LIMIT_HOME_CAT_MUSIC) ? array_slice($hot_music_rows[7], 0, LIMIT_HOME_CAT_MUSIC) : $hot_music_rows[7];
+                            $catMusic = isset($hot_music_rows[7]) ? ((sizeof($hot_music_rows[7]) > LIMIT_HOME_CAT_MUSIC) ? array_slice($hot_music_rows[7], 0, LIMIT_HOME_CAT_MUSIC) : $hot_music_rows[7]) : array();
                             array_map(function ($i, $item) {
                             $musicId = Helpers::music_id($item);
                             $url = SUB_BXH_NOW_MUSIC.'japan.html?playlist='.++$i;
