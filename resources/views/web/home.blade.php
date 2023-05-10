@@ -38,7 +38,6 @@ $catalog = config('constants.catalog');
     @include('cache.bxh.bxh_today')
     @include('cache.uploader.uploader_week')
     @include('cache.top_artist')
-    $hot_music_rows[3] = array();
 
     <div class="slide_home"
          style="background: url('{{env('IMG_DATA_URL')}}imgs/Slice-1.jpg');">
@@ -357,7 +356,8 @@ $catalog = config('constants.catalog');
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                         <ul class="list-unstyled bxh mb-0">
                             <?php
-                            $catMusic = array_slice(array(), 0, LIMIT_HOME_CAT_MUSIC);
+                            $hot_music_rows[3] = array();
+                            $catMusic = array_slice($hot_music_rows[3], 0, LIMIT_HOME_CAT_MUSIC);
                             array_map(function ($i, $item) {
                             $musicId = Helpers::music_id($item);
                             $url = SUB_BXH_NOW_MUSIC.'vietnam.html?playlist='.++$i;
