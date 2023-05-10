@@ -359,7 +359,7 @@ $catalog = config('constants.catalog');
                                     if (!isset($hot_music_rows[$i]))
                                         $hot_music_rows[$i] = array();
                                 }
-                            
+
                             $catMusic = array_slice($hot_music_rows[3], 0, LIMIT_HOME_CAT_MUSIC);
                             array_map(function ($i, $item) {
                             $musicId = Helpers::music_id($item);
