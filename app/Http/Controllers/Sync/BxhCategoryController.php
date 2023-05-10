@@ -49,6 +49,8 @@ class BxhCategoryController extends Controller
     public function syncBxhCategory($today = true, $week = false) {
         $catregory =$this->categoryRepository->getCategoryParent();
         DB::disconnect('mysql');
+
+        $today = 0;
         if($today) {
         $ressultMusic = [];
         $ressultVideo = [];
