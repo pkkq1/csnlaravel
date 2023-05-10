@@ -11,7 +11,6 @@ global $download_rows;
 global $music_new_uploads;
 global $video_new_uploads;
 global $hot_music_rows;
-$hot_music_rows[3] = array();
 global $top_uploader_weeks;
 global $top_artist_rows;
 $catalog = config('constants.catalog');
@@ -356,7 +355,11 @@ $catalog = config('constants.catalog');
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                         <ul class="list-unstyled bxh mb-0">
                             <?php
-                            $hot_music_rows[3] = array();
+                                for ($i=0; $i<8; $i++){
+                                    if (!isset($hot_music_rows[$i]))
+                                        $hot_music_rows[$i] = array();
+                                }
+                            
                             $catMusic = array_slice($hot_music_rows[3], 0, LIMIT_HOME_CAT_MUSIC);
                             array_map(function ($i, $item) {
                             $musicId = Helpers::music_id($item);
