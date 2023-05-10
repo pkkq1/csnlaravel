@@ -38,6 +38,8 @@ $catalog = config('constants.catalog');
     @include('cache.bxh.bxh_today')
     @include('cache.uploader.uploader_week')
     @include('cache.top_artist')
+    $hot_music_rows[3] = array();
+
     <div class="slide_home"
          style="background: url('{{env('IMG_DATA_URL')}}imgs/Slice-1.jpg');">
         <div class="container">
