@@ -11,6 +11,7 @@ global $download_rows;
 global $music_new_uploads;
 global $video_new_uploads;
 global $hot_music_rows = array();
+$hot_music_rows[3] = array();
 global $top_uploader_weeks;
 global $top_artist_rows;
 $catalog = config('constants.catalog');
