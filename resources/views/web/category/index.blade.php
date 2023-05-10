@@ -4,7 +4,6 @@ $titleMeta = $caption . ' - '. Config::get('constants.app.title');
 global $hot_music_rows;
 if($category->cat_id == CAT_VIDEO)
     global $hot_video_rows;
-$hot_video_rows = array();
 $bxhCatExists = false;
 $parentTitle = str_replace('Nhạc ', '', explode(" >", $caption)[0]);
 if($category->cat_id == 3 || $category->cat_id == 4 || $category->cat_id == 6 || $category->cat_id == 7)
